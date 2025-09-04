@@ -9,6 +9,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using Antura.Discover;
 using UnityEditor.IMGUI.Controls;
+using Antura.Discover.Activities; // ActivitySettingsAbstract
 
 namespace Antura.Discover.EditorTools
 {
@@ -16,8 +17,7 @@ namespace Antura.Discover.EditorTools
     {
         private Vector2 _scroll;
         private string _search = string.Empty;
-        private List<QuestData> _quests = new List<QuestData>();
-        private int _selectedQuestIndex = 0; // 0 = All, otherwise index+1 in _quests
+        private List<QuestData> _quests = new List<QuestData>(); private int _selectedQuestIndex = 0; // 0 = All, otherwise index+1 in _quests
         private List<CardData> _allCards = new List<CardData>();
         private List<AssetData> _allAssets = new List<AssetData>();
         private SearchField _searchField;
@@ -152,133 +152,155 @@ namespace Antura.Discover.EditorTools
             using (new EditorGUILayout.VerticalScope("box"))
             {
                 EditorGUILayout.LabelField($"Quest: {q.Id ?? q.name}", EditorStyles.boldLabel);
+                var analysis = AnalyzeQuest(q);
                 using (new EditorGUILayout.HorizontalScope())
                 {
                     if (GUILayout.Button("Ping", GUILayout.Width(60)))
                     { EditorGUIUtility.PingObject(q); }
-                    if (GUILayout.Button("Open", GUILayout.Width(60)))
+                    if (GUILayout.Button("Open QuestData", GUILayout.Width(130)))
                     { Selection.activeObject = q; }
                     if (GUILayout.Button("Open Prefab", GUILayout.Width(110)))
                     { OpenQuestPrefab(q); }
+                    if (GUILayout.Button("Open Script", GUILayout.Width(110)))
+                    {
+                        var ta = q.YarnScript != null ? q.YarnScript : null;
+                        if (ta != null)
+                        { Selection.activeObject = ta; EditorGUIUtility.PingObject(ta); }
+                        else if (!string.IsNullOrEmpty(analysis.ScriptPath))
+                        { EditorUtility.RevealInFinder(analysis.ScriptPath); }
+                    }
                     if (GUILayout.Button("Analyze", GUILayout.Width(80)))
                     { AnalyzeQuest(q, force: true); }
                     GUILayout.FlexibleSpace();
                 }
 
-                var analysis = AnalyzeQuest(q);
-
-                // Mentions and missing in DB (display only missing to avoid confusion)
+                // Build collections
                 var cardMentions = analysis.CardsMentioned.OrderBy(s => s).ToList();
                 var invMentions = analysis.InventoryMentions.OrderBy(s => s).ToList();
                 var assetMentions = analysis.AssetMentions.OrderBy(s => s).ToList();
                 var allMentions = new HashSet<string>(cardMentions, StringComparer.OrdinalIgnoreCase);
                 foreach (var m in invMentions)
                     allMentions.Add(m);
+
                 var allCardIds = new HashSet<string>(_allCards.Select(c => c.Id ?? c.name), StringComparer.OrdinalIgnoreCase);
-                var missingInDb = allMentions.Where(m => !allCardIds.Contains(m)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Missing in CardData DB:", EditorStyles.miniBoldLabel);
-                if (missingInDb.Count > 0)
-                { DrawTagList(missingInDb); }
-                else
-                { EditorGUILayout.HelpBox("All mentioned cards exist in CardData DB.", MessageType.Info); }
-
-                // Assets existence check
                 var allAssetIds = new HashSet<string>(_allAssets.Select(a => a.Id ?? a.name), StringComparer.OrdinalIgnoreCase);
-                var missingAssets = assetMentions.Where(m => !allAssetIds.Contains(m)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Missing Assets in AssetData DB:", EditorStyles.miniBoldLabel);
-                if (missingAssets.Count > 0)
-                { DrawTagList(missingAssets); }
-                else
-                { EditorGUILayout.HelpBox("All <<asset ...>> references exist in AssetData DB.", MessageType.Info); }
 
-                // Tasks: gather from prefab -> QuestManager.QuestTasks[*].Code
+                // Script -> Unity mismatches (Left)
+                var missingInDb = allMentions.Where(m => !allCardIds.Contains(m)).OrderBy(s => s).ToList();
+                var missingAssets = assetMentions.Where(m => !allAssetIds.Contains(m)).OrderBy(s => s).ToList();
+
                 var prefabTaskCodes = GetQuestTaskCodes(q);
                 var tasksMentioned = new HashSet<string>(analysis.TaskStartMentions, StringComparer.OrdinalIgnoreCase);
                 foreach (var t in analysis.TaskEndMentions)
                     tasksMentioned.Add(t);
-
                 var missingTasks = tasksMentioned.Where(t => !prefabTaskCodes.Contains(t)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Missing Tasks in Quest Prefab (QuestManager.QuestTasks):", EditorStyles.miniBoldLabel);
-                if (missingTasks.Count > 0)
-                { DrawTagList(missingTasks); }
-                else
-                { EditorGUILayout.HelpBox("All <<task_* ...>> codes exist in QuestManager.QuestTasks.", MessageType.Info); }
 
-                var unusedTasks = prefabTaskCodes.Where(code => !tasksMentioned.Contains(code)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Tasks defined in Prefab but NOT used in script:", EditorStyles.miniBoldLabel);
-                if (unusedTasks.Count > 0)
-                { DrawTagList(unusedTasks); }
-                else
-                { EditorGUILayout.HelpBox("All QuestManager.QuestTasks are used in the script.", MessageType.Info); }
-
-                // Activities: compare mentions vs QuestManager.ActivityConfigs[*].Code
                 var prefabActivityCodes = GetQuestActivityCodes(q);
                 var missingActivities = analysis.ActivityMentions.Where(a => !prefabActivityCodes.Contains(a)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Missing Activities in Quest Prefab (ActivityConfigs):", EditorStyles.miniBoldLabel);
-                if (missingActivities.Count > 0)
-                { DrawTagList(missingActivities); }
-                else
-                { EditorGUILayout.HelpBox("All <<activity ...>> codes exist in ActivityConfigs.", MessageType.Info); }
 
-                var unusedActivities = prefabActivityCodes.Where(code => !analysis.ActivityMentions.Contains(code)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Activities configured in Prefab but NOT used in script:", EditorStyles.miniBoldLabel);
-                if (unusedActivities.Count > 0)
-                { DrawTagList(unusedActivities); }
-                else
-                { EditorGUILayout.HelpBox("All ActivityConfigs are used in the script.", MessageType.Info); }
-
-                // Actions: compare mentions vs ActionManager.QuestActions[*].ActionCode
                 var prefabActionCodes = GetQuestActionCodes(q);
+                // Ignore reserved action called by QuestManager
+                analysis.ActionMentions.RemoveWhere(s => string.Equals(s, "init", StringComparison.OrdinalIgnoreCase));
                 var missingActions = analysis.ActionMentions.Where(a => !prefabActionCodes.Contains(a)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Missing Actions in Quest Prefab (ActionManager.QuestActions):", EditorStyles.miniBoldLabel);
-                if (missingActions.Count > 0)
-                { DrawTagList(missingActions); }
-                else
-                { EditorGUILayout.HelpBox("All <<action ...>> codes exist in ActionManager.QuestActions.", MessageType.Info); }
 
-                var unusedActions = prefabActionCodes.Where(code => !analysis.ActionMentions.Contains(code)).OrderBy(s => s).ToList();
-                EditorGUILayout.LabelField("Actions configured in Prefab but NOT used in script:", EditorStyles.miniBoldLabel);
-                if (unusedActions.Count > 0)
-                { DrawTagList(unusedActions); }
-                else
-                { EditorGUILayout.HelpBox("All ActionManager.QuestActions are used in the script.", MessageType.Info); }
-
-                // 3) Check that mentioned IDs are present in QuestData.Cards
                 var questCardIds = new HashSet<string>((q.Cards ?? new List<CardData>()).Where(c => c != null).Select(c => c.Id ?? c.name), StringComparer.OrdinalIgnoreCase);
                 var missingInQuest = allMentions.Where(m => !questCardIds.Contains(m)).OrderBy(s => s).ToList();
-                if (missingInQuest.Count > 0)
-                {
-                    DrawCopyableList($"Mentioned in script but not in QuestData.Cards ({missingInQuest.Count})", missingInQuest);
-                }
-                else
-                {
-                    EditorGUILayout.HelpBox("All mentioned cards are present in QuestData.Cards.", MessageType.Info);
-                }
 
-                // 4) Check that all QuestData.Cards are used in the script
+                // Unity -> Script mismatches (Right)
+                var unusedTasks = prefabTaskCodes.Where(code => !tasksMentioned.Contains(code)).OrderBy(s => s).ToList();
+                var unusedActivities = prefabActivityCodes.Where(code => !analysis.ActivityMentions.Contains(code)).OrderBy(s => s).ToList();
+                var unusedActions = prefabActionCodes
+                    .Where(code => !string.Equals(code, "init", StringComparison.OrdinalIgnoreCase))
+                    .Where(code => !analysis.ActionMentions.Contains(code))
+                    .OrderBy(s => s)
+                    .ToList();
                 var unusedInScript = questCardIds.Where(id => !allMentions.Contains(id)).OrderBy(s => s).ToList();
-                if (unusedInScript.Count > 0)
-                {
-                    DrawCopyableList($"Cards in QuestData.Cards but NOT used in script ({unusedInScript.Count})", unusedInScript);
-                }
-                else
-                {
-                    EditorGUILayout.HelpBox("All QuestData.Cards are referenced in the script.", MessageType.Info);
-                }
 
-                // Script path info
-                if (!string.IsNullOrEmpty(analysis.ScriptPath))
+                // Two columns layout
+                using (new EditorGUILayout.HorizontalScope())
                 {
-                    using (new EditorGUILayout.HorizontalScope())
+                    // Left column: In Script but missing in Unity
+                    using (new EditorGUILayout.VerticalScope("box"))
                     {
-                        EditorGUILayout.LabelField($"Script: {analysis.ScriptPath}", EditorStyles.miniLabel);
-                        if (GUILayout.Button("Open Script", GUILayout.Width(100)))
+                        EditorGUILayout.LabelField("In Script → Missing in Unity", EditorStyles.boldLabel);
+                        // CARDS
+                        if (missingInDb.Count > 0 || missingInQuest.Count > 0)
                         {
-                            var ta = q.YarnScript != null ? q.YarnScript : null;
-                            if (ta != null)
-                            { Selection.activeObject = ta; EditorGUIUtility.PingObject(ta); }
-                            else
-                            { EditorUtility.RevealInFinder(analysis.ScriptPath); }
+                            GUILayout.Space(4);
+                            EditorGUILayout.LabelField("CARDS", EditorStyles.boldLabel);
+                            if (missingInDb.Count > 0)
+                            { EditorGUILayout.LabelField("Missing in CardData DB:", EditorStyles.miniBoldLabel); DrawTagList(missingInDb); }
+                            if (missingInQuest.Count > 0)
+                            { DrawCopyableList($"Mentioned but not in QuestData.Cards ({missingInQuest.Count})", missingInQuest); }
+                        }
+                        // ASSETS
+                        if (missingAssets.Count > 0)
+                        {
+                            GUILayout.Space(6);
+                            EditorGUILayout.LabelField("ASSETS", EditorStyles.boldLabel);
+                            EditorGUILayout.LabelField("Missing Assets in AssetData DB:", EditorStyles.miniBoldLabel);
+                            DrawTagList(missingAssets);
+                        }
+                        // TASKS
+                        if (missingTasks.Count > 0)
+                        {
+                            GUILayout.Space(6);
+                            EditorGUILayout.LabelField("TASKS", EditorStyles.boldLabel);
+                            EditorGUILayout.LabelField("Missing Tasks (QuestManager.QuestTasks):", EditorStyles.miniBoldLabel);
+                            DrawTagList(missingTasks);
+                        }
+                        // ACTIVITIES
+                        if (missingActivities.Count > 0)
+                        {
+                            GUILayout.Space(6);
+                            EditorGUILayout.LabelField("ACTIVITIES", EditorStyles.boldLabel);
+                            EditorGUILayout.LabelField("Missing Activities (ActivityConfigs by Settings.Id):", EditorStyles.miniBoldLabel);
+                            DrawActivityList(missingActivities);
+                        }
+                        // ACTIONS
+                        if (missingActions.Count > 0)
+                        {
+                            GUILayout.Space(6);
+                            EditorGUILayout.LabelField("ACTIONS", EditorStyles.boldLabel);
+                            EditorGUILayout.LabelField("Missing Actions (ActionManager.QuestActions):", EditorStyles.miniBoldLabel);
+                            DrawTagList(missingActions);
+                        }
+                    }
+
+                    // Right column: In Unity but not referenced in Script
+                    using (new EditorGUILayout.VerticalScope("box"))
+                    {
+                        EditorGUILayout.LabelField("In Unity → Not used in Script", EditorStyles.boldLabel);
+                        // TASKS
+                        if (unusedTasks.Count > 0)
+                        {
+                            GUILayout.Space(4);
+                            EditorGUILayout.LabelField("TASKS", EditorStyles.boldLabel);
+                            EditorGUILayout.LabelField("Tasks configured but NOT used:", EditorStyles.miniBoldLabel);
+                            DrawTagList(unusedTasks);
+                        }
+                        // ACTIVITIES
+                        if (unusedActivities.Count > 0)
+                        {
+                            GUILayout.Space(6);
+                            EditorGUILayout.LabelField("ACTIVITIES", EditorStyles.boldLabel);
+                            EditorGUILayout.LabelField("Activities configured but NOT used:", EditorStyles.miniBoldLabel);
+                            DrawActivityList(unusedActivities);
+                        }
+                        // ACTIONS
+                        if (unusedActions.Count > 0)
+                        {
+                            GUILayout.Space(6);
+                            EditorGUILayout.LabelField("ACTIONS", EditorStyles.boldLabel);
+                            EditorGUILayout.LabelField("Actions configured but NOT used:", EditorStyles.miniBoldLabel);
+                            DrawTagList(unusedActions);
+                        }
+                        // CARDS
+                        if (unusedInScript.Count > 0)
+                        {
+                            GUILayout.Space(6);
+                            EditorGUILayout.LabelField("CARDS", EditorStyles.boldLabel);
+                            DrawCopyableList($"Cards in QuestData.Cards but NOT used ({unusedInScript.Count})", unusedInScript);
                         }
                     }
                 }
@@ -376,6 +398,59 @@ namespace Antura.Discover.EditorTools
                     }
                 }
             }
+        }
+
+        // Render a clickable grid of activity settings IDs; clicking selects the ActivitySettings asset in the Project
+        private void DrawActivityList(List<string> items)
+        {
+            using (new EditorGUILayout.VerticalScope("box"))
+            {
+                int cols = 4;
+                int rows = Mathf.CeilToInt(items.Count / (float)cols);
+                int idx = 0;
+                for (int r = 0; r < rows; r++)
+                {
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        for (int c = 0; c < cols && idx < items.Count; c++)
+                        {
+                            var id = items[idx++];
+                            if (GUILayout.Button(id, GUILayout.MinWidth(120)))
+                            {
+                                var settings = FindActivitySettingsById(id);
+                                if (settings != null)
+                                {
+                                    Selection.activeObject = settings;
+                                    EditorGUIUtility.PingObject(settings);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private static ActivitySettingsAbstract FindActivitySettingsById(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return null;
+            try
+            {
+                var guids = AssetDatabase.FindAssets("t:" + nameof(ActivitySettingsAbstract));
+                foreach (var g in guids)
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(g);
+                    var obj = AssetDatabase.LoadAssetAtPath<ActivitySettingsAbstract>(path);
+                    if (obj != null)
+                    {
+                        var oid = obj.Id;
+                        if (!string.IsNullOrEmpty(oid) && string.Equals(oid, id, StringComparison.OrdinalIgnoreCase))
+                            return obj;
+                    }
+                }
+            }
+            catch { }
+            return null;
         }
 
         private void AnalyzeSelected()
@@ -612,12 +687,12 @@ namespace Antura.Discover.EditorTools
                         var elem = activityConfigs.GetArrayElementAtIndex(i);
                         if (elem == null)
                             continue;
-                        var codeProp = elem.FindPropertyRelative("Code");
-                        if (codeProp != null)
+                        var settingsProp = elem.FindPropertyRelative("ActivitySettings");
+                        if (settingsProp != null && settingsProp.objectReferenceValue != null)
                         {
-                            var code = codeProp.stringValue;
-                            if (!string.IsNullOrEmpty(code))
-                                result.Add(code);
+                            var settings = settingsProp.objectReferenceValue as ActivitySettingsAbstract;
+                            if (settings != null && !string.IsNullOrEmpty(settings.Id))
+                                result.Add(settings.Id);
                         }
                     }
 
