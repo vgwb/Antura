@@ -6,6 +6,10 @@ hide:
 # System edukacji (fr_02) - Script
 [Quest Index](./index.pl.md) - Language: [english](./fr_02-script.md) - [french](./fr_02-script.fr.md) - polish - [italian](./fr_02-script.it.md)
 
+!!! note "Educators & Designers: help improving this quest!"
+    **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_02%20Angers%20School/FR_02%20Angers%20School%20-%20Yarn%20Script.yarn)  
+    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+
 <div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// </span>
 </code></pre></div>
 
@@ -30,9 +34,20 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 10&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_backpack = false&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Welcome to FR-02: Angers! It's the first day of school! <span class="yarn-meta">#line:014887e </span></span>
+<span class="yarn-cmd">&lt;&lt;SetActive Collect_Backpack false&gt;&gt;</span>
+<span class="yarn-line">TUTOR: Welcome Angers! It's the first day of school! <span class="yarn-meta">#line:014887e </span></span>
 <span class="yarn-line">You are 10 years old and in the last year of elementary school. <span class="yarn-meta">#line:063e8e0 </span></span>
 <span class="yarn-line">Find your school and your classroom! <span class="yarn-meta">#line:0f65a1b </span></span>
+<span class="yarn-cmd">&lt;&lt;task_start TASK_SCHOOL task_school_done&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-task-school-desc"></a>
+## task_school_desc
+
+<div class="yarn-node" data-title="task_school_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Find your school!  <span class="yarn-meta">#line:0da284c </span></span>
 
 </code></pre></div>
 
@@ -106,7 +121,7 @@ hide:
 <span class="yarn-line">Hello! I found a backpack on my way here. <span class="yarn-meta">#line:0c3b4fe </span></span>
 <span class="yarn-line">These books are simpler than the ones my students use, <span class="yarn-meta">#line:0d3aba1 </span></span>
 <span class="yarn-line">so I don't think it belongs to them. <span class="yarn-meta">#line:09c5297 </span></span>
-<span class="yarn-cmd">&lt;&lt;action spawn_backpack&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetActive Collect_Backpack&gt;&gt;</span>
 <span class="yarn-line">Could it be yours? <span class="yarn-meta">#line:0f44535 </span></span>
 
 </code></pre></div>
@@ -127,10 +142,20 @@ hide:
 <a id="ys-node-task-find-classroom"></a>
 ## task_find_classroom
 
-<div class="yarn-node" data-title="task_find_classroom"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, task</span>
+<div class="yarn-node" data-title="task_find_classroom"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">tags: actor=TUTOR, task</span>
+<span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: TASK: Find your classroom. <span class="yarn-meta">#line:058ddbc </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_CLASSROOM task_class_done&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-task-classroom-desc"></a>
+## task_classroom_desc
+
+<div class="yarn-node" data-title="task_classroom_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Find your class so you can start the lesson.  <span class="yarn-meta">#line:00e71a9 </span></span>
 
 </code></pre></div>
 
@@ -198,7 +223,7 @@ hide:
 <span class="yarn-line">Let's get to work. <span class="yarn-meta">#line:0f90123 </span></span>
 <span class="yarn-line">Look, it's a writing lesson. <span class="yarn-meta">#line:0071a0d </span></span>
 <span class="yarn-line">In France, we learn to write in cursive. <span class="yarn-meta">#line:0f8995f </span></span>
-<span class="yarn-cmd">&lt;&lt;asset cursive_writing zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card concept_cursive_writing zoom&gt;&gt;</span>
 <span class="yarn-line">Now for geometry! <span class="yarn-meta">#line:0365921 </span></span>
 <span class="yarn-line">Match each tool to the shape it draws. <span class="yarn-meta">#line:052d22a </span></span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MATCH activity_match_done&gt;&gt;</span>
@@ -215,7 +240,16 @@ hide:
 <span class="yarn-line">Great job! <span class="yarn-meta">#line:0e3f1fa </span></span>
 <span class="yarn-line">Every morning and afternoon we have a break to play outside. <span class="yarn-meta">#line:037391b </span></span>
 <span class="yarn-line">You're all set. Welcome to the class! <span class="yarn-meta">#line:021df05 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-task-school-done"></a>
+## task_school_done
+
+<div class="yarn-node" data-title="task_school_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">TUTOR: TASK COMPLETED!  <span class="yarn-meta">#line:03ed76a </span></span>
 
 </code></pre></div>
 
@@ -241,10 +275,20 @@ hide:
 <a id="ys-node-task-backpack"></a>
 ## task_backpack
 
-<div class="yarn-node" data-title="task_backpack"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=GUIDE, task</span>
+<div class="yarn-node" data-title="task_backpack"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">tags: actor=GUIDE, task</span>
+<span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find your backpack and then come back. <span class="yarn-meta">#line:0e3ad75 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_BACKPACK task_backpack_done&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-task-backpack-desc"></a>
+## task_backpack_desc
+
+<div class="yarn-node" data-title="task_backpack_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Find your backpack so you can go to school.  <span class="yarn-meta">#line:00faf2f </span></span>
 
 </code></pre></div>
 

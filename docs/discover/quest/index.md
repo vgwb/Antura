@@ -24,16 +24,12 @@ Language: english - [french](./index.fr.md) - [polish](./index.pl.md) - [italian
 
 ## Poland
 
-- [Baltic Sea (pl_05)](./pl_05.md)
+- [A Voyage on the Odra River (pl_03)](./pl_03.md)
 - [Copernicus and the Solar System (pl_07)](./pl_07.md)
 - [Discover Warszawa (pl_01)](./pl_01.md)
 - [Gingerbread & food market (pl_06)](./pl_06.md)
-- [Odra River (pl_03)](./pl_03.md)
-- [Search of Dwarves (pl_02)](./pl_02.md)
+- [The Amber Necklace of Gdańsk (pl_05)](./pl_05.md)
+- [The great Wrocław dwarf rescue (pl_02)](./pl_02.md)
 - [The neighbors of Poland (pl_00)](./pl_00.md)
 - [The Zoo (pl_04)](./pl_04.md)
-
-## Italy
-
-- [Development (dev)](./dev.md)
 

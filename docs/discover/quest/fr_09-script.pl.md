@@ -6,6 +6,10 @@ hide:
 # Jedzenie i targ (fr_09) - Script
 [Quest Index](./index.pl.md) - Language: [english](./fr_09-script.md) - [french](./fr_09-script.fr.md) - polish - [italian](./fr_09-script.it.md)
 
+!!! note "Educators & Designers: help improving this quest!"
+    **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_09%20Food%20&%20Market/FR_09%20Food%20&%20Market%20-%20Yarn%20Script.yarn)  
+    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+
 <div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// </span>
 </code></pre></div>
 
@@ -34,7 +38,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 7&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $ingredients = 0&gt;&gt;</span>
-<span class="yarn-line">Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast. <span class="yarn-meta">#line:078e646 </span></span>
+<span class="yarn-line">Welcome to Côte d'Azur! It's a sunny day on the coast. <span class="yarn-meta">#line:078e646 </span></span>
 
 </code></pre></div>
 
@@ -59,13 +63,13 @@ hide:
 <span class="yarn-header-dim">tags: actor=BAKER</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bonjour! <span class="yarn-meta">#line:0cd2ee2 </span></span>
-<span class="yarn-line">-&gt; Bonjour!: <span class="yarn-meta">#line:09460ce </span></span>
+<span class="yarn-line">Testing start <span class="yarn-meta">#line:0215305 </span></span>
+<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:09460ce </span></span>
     <span class="yarn-cmd">&lt;&lt;jump baker_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Merci!: <span class="yarn-meta">#line:0bf3f32 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump baker_notunderstand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Banana!: <span class="yarn-meta">#line:0ebf8b2 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump baker_notunderstand&gt;&gt;</span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0bf3f32 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
+<span class="yarn-line">-&gt; Banana! <span class="yarn-meta">#line:0ebf8b2 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -76,14 +80,14 @@ hide:
 <span class="yarn-header-dim">tags: actor=BAKER, type=Choice</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:00279c8 </span></span>
-<span class="yarn-line">-&gt; "Bread": <span class="yarn-meta">#line:00eab87 </span></span>
+<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:00eab87 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump baker_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Fish and Crab": <span class="yarn-meta">#line:08177a5 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump baker_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Tomatoes, Oranges, and Lemons": <span class="yarn-meta">#line:0a8294a </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump baker_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Salt, Pepper, and Oil": <span class="yarn-meta">#line:0babba5 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump baker_dontsell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Fish and Crab <span class="yarn-meta">#line:08177a5 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0a8294a </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:0babba5 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -94,8 +98,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_BAKER baker_payment_done&gt;&gt;</span>
 <span class="yarn-line">MAN: Select enough money to pay. <span class="yarn-meta">#line:0bbf963 </span></span>
+<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_BAKER baker_payment_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -105,7 +109,7 @@ hide:
 <div class="yarn-node" data-title="baker_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
 <span class="yarn-header-dim">tags: actor=MAN, no_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
+<span class="yarn-line">Testing end <span class="yarn-meta">#line:0110b76 </span></span>
 <span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:00da30a </span></span>
 <span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:00cbd60 </span></span>
 <span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:00cd1cf </span></span>
@@ -129,9 +133,9 @@ hide:
 <div class="yarn-node" data-title="fisher_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
 <span class="yarn-header-dim">tags: actor=OLD_MAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:02e64ff </span></span>
-<span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:02c23e5 </span></span>
-<span class="yarn-line">-&gt; "Bonne journée!": <span class="yarn-meta">#line:080d945 </span></span>
+<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:02e64ff </span></span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:02c23e5 </span></span>
+<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:080d945 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Fisher&gt;&gt;</span>
 
 </code></pre></div>
@@ -153,14 +157,14 @@ hide:
 <span class="yarn-header-dim">tags: actor=OLD_MAN, type=Choice</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:04deddc </span></span>
-<span class="yarn-line">-&gt; "Fish &amp; Crab": <span class="yarn-meta">#line:0e562df </span></span>
+<span class="yarn-line">-&gt; Fish &amp; Crab <span class="yarn-meta">#line:0e562df </span></span>
     <span class="yarn-cmd">&lt;&lt;jump fisher_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Tomatoes, Oranges, and Lemons": <span class="yarn-meta">#line:085463e </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump fisher_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bread": <span class="yarn-meta">#line:0604902 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump fisher_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Milk": <span class="yarn-meta">#line:0c5f144 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump fisher_dontsell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:085463e </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:0604902 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0c5f144 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -171,12 +175,12 @@ hide:
 <span class="yarn-header-dim">group: fisher</span>
 <span class="yarn-header-dim">tags: actor=OLD_MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Lycée!": <span class="yarn-meta">#line:0d65316 </span></span>
+<span class="yarn-line">-&gt; Lycée! <span class="yarn-meta">#line:0d65316 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bonjour!": <span class="yarn-meta">#line:089f618 </span></span>
+<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:089f618 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump fisher_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:06b0535 </span></span>
-    <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
+<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:06b0535 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -201,12 +205,12 @@ hide:
 <span class="yarn-header-dim">group: cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0693ba6 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_notunderstand&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bonjour!": <span class="yarn-meta">#line:022bf02 </span></span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0693ba6 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
+<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:022bf02 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump cheesemonger_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Chat!": <span class="yarn-meta">#line:0b56a4d </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_notunderstand&gt;&gt;</span>
+<span class="yarn-line">-&gt; Chat! <span class="yarn-meta">#line:0b56a4d </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -218,14 +222,14 @@ hide:
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:03009de </span></span>
-<span class="yarn-line">-&gt; "Milk": <span class="yarn-meta">#line:0aa7def </span></span>
+<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0aa7def </span></span>
     <span class="yarn-cmd">&lt;&lt;jump cheesemonger_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Salt, Pepper, and Oil": <span class="yarn-meta">#line:057f694 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bread": <span class="yarn-meta">#line:087919f </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Tomatoes, Oranges, and Lemons": <span class="yarn-meta">#line:067bfab </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_dontsell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:057f694 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:087919f </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:067bfab </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -235,9 +239,9 @@ hide:
 <div class="yarn-node" data-title="cheesemonger_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group:cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Bonne journée!": <span class="yarn-meta">#line:0dd3ac3 </span></span>
-<span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:02a1238 </span></span>
-<span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0273de1 </span></span>
+<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:0dd3ac3 </span></span>
+<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:02a1238 </span></span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0273de1 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Cheesemonger&gt;&gt;</span>
 
 </code></pre></div>
@@ -281,9 +285,9 @@ hide:
 <div class="yarn-node" data-title="greengrocer_payment_activity"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Bonne journée!": <span class="yarn-meta">#line:0ff9361 </span></span>
-<span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0741be3 </span></span>
-<span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:023f352 </span></span>
+<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:0ff9361 </span></span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0741be3 </span></span>
+<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:023f352 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Greengrocer&gt;&gt;</span>
 
 </code></pre></div>
@@ -295,14 +299,14 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:042eb5a </span></span>
-<span class="yarn-line">-&gt; "Fish and crab": <span class="yarn-meta">#line:0fead1d </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump greengrocer_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bread": <span class="yarn-meta">#line:0879f58 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump greengrocer_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Tomatoes, Oranges, and Lemons": <span class="yarn-meta">#line:015a2b4 </span></span>
+<span class="yarn-line">-&gt; Fish and Crab <span class="yarn-meta">#line:0fead1d </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:0879f58 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:015a2b4 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump greengrocer_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Milk": <span class="yarn-meta">#line:0fd3f3a </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump greengrocer_dontsell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0fd3f3a </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -313,11 +317,11 @@ hide:
 <span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0a43c28 </span></span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0a43c28 </span></span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Train!": <span class="yarn-meta">#line:02af86a </span></span>
+<span class="yarn-line">-&gt; Train! <span class="yarn-meta">#line:02af86a </span></span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bonjour!": <span class="yarn-meta">#line:0039ce8 </span></span>
+<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:0039ce8 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump greengrocer_bonjour&gt;&gt;</span>
 
 </code></pre></div>
@@ -342,9 +346,9 @@ hide:
 <div class="yarn-node" data-title="grocer_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
 <span class="yarn-header-dim">tags: actor=OLD_WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:0ce6f8a </span></span>
-<span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0e8ec1b </span></span>
-<span class="yarn-line">-&gt; "Bonne journée!": <span class="yarn-meta">#line:062029a </span></span>
+<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:0ce6f8a </span></span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0e8ec1b </span></span>
+<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:062029a </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Grocer&gt;&gt;</span>
 
 </code></pre></div>
@@ -368,13 +372,13 @@ hide:
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:0c36100 </span></span>
-<span class="yarn-line">-&gt; "Tomatoes, Oranges, and Lemons": <span class="yarn-meta">#line:0d6dabd </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump grocer_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bread": <span class="yarn-meta">#line:03eeda4 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump grocer_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Milk": <span class="yarn-meta">#line:097fca2 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump grocer_dontsell&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Salt, Pepper, and Oil": <span class="yarn-meta">#line:0068f15 </span></span>
+<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0d6dabd </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:03eeda4 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:097fca2 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:0068f15 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump grocer_pay_activity&gt;&gt;</span>
 
 </code></pre></div>
@@ -386,12 +390,12 @@ hide:
 <span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0dd992c </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump grocer_notunderstand&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Bonjour!": <span class="yarn-meta">#line:0623f71 </span></span>
+<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0dd992c </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
+<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:0623f71 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump grocer_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; "Livre!": <span class="yarn-meta">#line:0b4db3b </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump grocer_notunderstand&gt;&gt;</span>
+<span class="yarn-line">-&gt; Livre! <span class="yarn-meta">#line:0b4db3b </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -419,6 +423,18 @@ hide:
 <span class="yarn-line">Ahoy! Welcome aboard. <span class="yarn-meta">#line:04ee922 </span></span>
 <span class="yarn-line">We come from Saint-Malo and sailed the seas to get here. <span class="yarn-meta">#line:056c70d </span></span>
 <span class="yarn-line">People call us pirates, but we were corsairs—privateers. <span class="yarn-meta">#line:0f764a6 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump pirate_activity&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-pirate-activity"></a>
+## pirate_activity
+
+<div class="yarn-node" data-title="pirate_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: pirates</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Complete the image. <span class="yarn-meta">#line:08396f2 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_JIGSAW activity_pirate_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -432,7 +448,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">We worked for the King of France. <span class="yarn-meta">#line:0af3bba </span></span>
 <span class="yarn-line">In the past, we took items from the king's enemies, but those days are gone. <span class="yarn-meta">#line:0b61715 </span></span>
-<span class="yarn-line">Please pay for what you need so the shops can stay open! <span class="yarn-meta">#line:02c49d0 </span></span>
+<span class="yarn-line">You should pay for what you need so the shops can stay open! <span class="yarn-meta">#line:02c49d0 </span></span>
 
 </code></pre></div>
 
@@ -445,6 +461,8 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $ingredients == 5&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump chef_ingredients_done&gt;&gt;</span>
+&lt;&lt;elseif GetCollectedItem("COLLECT_THE_INGREDIENTS") &gt; 0 &gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;jump chef_not_enough&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump chef_welcome&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -459,7 +477,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour! Welcome to Marseille, on the Mediterranean Sea! <span class="yarn-meta">#line:02548dd </span></span>
 <span class="yarn-line">I want to make a special dish for you, a bouillabaisse! <span class="yarn-meta">#line:0c65de3 </span></span>
-<span class="yarn-cmd">&lt;&lt;card food_bouillabaisse_fr zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card bouillabaisse zoom&gt;&gt;</span>
 <span class="yarn-line">But I need some ingredients. <span class="yarn-meta">#line:0623733 </span></span>
 <span class="yarn-cmd">&lt;&lt;jump task_ingredients&gt;&gt;</span>
 
@@ -473,10 +491,31 @@ hide:
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Please go to the market and buy them for me. <span class="yarn-meta">#line:06602c6 </span></span>
-<span class="yarn-cmd">&lt;&lt;task_start COLLECT_THE_INGREDIENTS&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start COLLECT_THE_INGREDIENTS task_ingredients_done&gt;&gt;</span>
 <span class="yarn-line">Remember your manners! <span class="yarn-meta">#line:02819db </span></span>
 <span class="yarn-line">Say "Bonjour" to greet someone, <span class="yarn-meta">#line:04c9d69 </span></span>
 <span class="yarn-line">and "Merci" to thank them. <span class="yarn-meta">#line:022fd8f </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-task-ingredients-desc"></a>
+## task_ingredients_desc
+
+<div class="yarn-node" data-title="task_ingredients_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Collect all the ingredients for the recipe. <span class="yarn-meta">#line:00849bb </span></span>
+<span class="yarn-line">They are: bread, fish, orange, lemon, tomato, milk, pepper and salt, oil. <span class="yarn-meta">#line:03fbee1 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-chef-not-enough"></a>
+## chef_not_enough
+
+<div class="yarn-node" data-title="chef_not_enough"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">tags: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">I need more ingredients! <span class="yarn-meta">#line:0c5c6ac </span></span>
+<span class="yarn-line">Make sure you talk to everyone in the market. <span class="yarn-meta">#line:0060c01 </span></span>
 
 </code></pre></div>
 
@@ -509,8 +548,8 @@ hide:
 <span class="yarn-header-dim">tags: activity</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_ORDER activity_match_done&gt;&gt;</span>
 <span class="yarn-line">Match each item to the right seller. <span class="yarn-meta">#line:0a6e106 </span></span>
+<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_ORDER activity_match_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -521,7 +560,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Well done! You matched all the items. <span class="yarn-meta">#line:01648b2 </span></span>
 <span class="yarn-line">Now, let's cook the bouillabaisse! <span class="yarn-meta">#line:0f0f617 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -532,8 +571,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=OLD_MAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_FISHER fisher_payment_done&gt;&gt;</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0995020 </span></span>
+<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_FISHER fisher_payment_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -544,8 +583,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_CHEESEMONGER cheesemonger_payment_activity&gt;&gt;</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0f44ea7 </span></span>
+<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_CHEESEMONGER cheesemonger_payment_activity&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -556,8 +595,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GROCER grocer_payment_done&gt;&gt;</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0c80f9e </span></span>
+<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GROCER grocer_payment_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -568,8 +607,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GREENGROCER greengrocer_payment_activity&gt;&gt;</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:08fc94e </span></span>
+<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GREENGROCER greengrocer_payment_activity&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -611,7 +650,17 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">=&gt; Sorry, I don't think I understand... <span class="yarn-meta">#line:0f9044b </span></span>
 <span class="yarn-line">=&gt; What?? <span class="yarn-meta">#line:09682b7 </span></span>
-<span class="yarn-line">=&gt; Jen ne comprends pas... <span class="yarn-meta">#line:0c1b3e0 </span></span>
+<span class="yarn-line">=&gt; Huh? <span class="yarn-meta">#line:0c1b3e0 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-talk-dont-sell"></a>
+## talk_dont_sell
+
+<div class="yarn-node" data-title="talk_dont_sell"><pre class="yarn-code" style="--node-color:orange"><code><span class="yarn-header-dim">tags: detour</span>
+<span class="yarn-header-dim">color: orange</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">=&gt; Sorry, I don't sell that. <span class="yarn-meta">#line:08700b0 </span></span>
 
 </code></pre></div>
 
@@ -621,7 +670,8 @@ hide:
 <div class="yarn-node" data-title="item_bread"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Bread <span class="yarn-meta">#line:08e101e </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_bread&gt;&gt;</span>
+<span class="yarn-line">Bread <span class="yarn-meta">#line:08e101e </span></span>
 
 </code></pre></div>
 
@@ -631,7 +681,19 @@ hide:
 <div class="yarn-node" data-title="item_fish"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Fish <span class="yarn-meta">#line:0feed79 </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_fish&gt;&gt;</span>
+<span class="yarn-line">Fish <span class="yarn-meta">#line:0feed79 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-crab"></a>
+## item_crab
+
+<div class="yarn-node" data-title="item_crab"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card food_crab&gt;&gt;</span>
+<span class="yarn-line">Crab   <span class="yarn-meta">#line:0c81979 </span></span>
 
 </code></pre></div>
 
@@ -641,7 +703,8 @@ hide:
 <div class="yarn-node" data-title="item_orange"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Orange <span class="yarn-meta">#line:0c0fa04 </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_orange&gt;&gt;</span>
+<span class="yarn-line">Orange <span class="yarn-meta">#line:0c0fa04 </span></span>
 
 </code></pre></div>
 
@@ -651,7 +714,8 @@ hide:
 <div class="yarn-node" data-title="item_lemon"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Lemon <span class="yarn-meta">#line:0c6b991 </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_lemon&gt;&gt;</span>
+<span class="yarn-line">Lemon <span class="yarn-meta">#line:0c6b991 </span></span>
 
 </code></pre></div>
 
@@ -661,37 +725,30 @@ hide:
 <div class="yarn-node" data-title="item_tomato"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Tomato <span class="yarn-meta">#line:0a6782d </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_tomato&gt;&gt;</span>
+<span class="yarn-line">Tomato <span class="yarn-meta">#line:0a6782d </span></span>
 
 </code></pre></div>
 
-<a id="ys-node-item-cheese"></a>
-## item_cheese
+<a id="ys-node-item-milk"></a>
+## item_milk
 
-<div class="yarn-node" data-title="item_cheese"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
+<div class="yarn-node" data-title="item_milk"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Cheese <span class="yarn-meta">#line:0acd781 </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_milk&gt;&gt;</span>
+<span class="yarn-line">Milk <span class="yarn-meta">#line:0acd781 </span></span>
 
 </code></pre></div>
 
-<a id="ys-node-item-salt"></a>
-## item_salt
+<a id="ys-node-item-pepper-salt"></a>
+## item_pepper_salt
 
-<div class="yarn-node" data-title="item_salt"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
+<div class="yarn-node" data-title="item_pepper_salt"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Salt <span class="yarn-meta">#line:07bbcb0 </span></span>
-
-</code></pre></div>
-
-<a id="ys-node-item-pepper"></a>
-## item_pepper
-
-<div class="yarn-node" data-title="item_pepper"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Pepper <span class="yarn-meta">#line:04d85d3 </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_pepper_salt&gt;&gt;</span>
+<span class="yarn-line">Salt and Pepper <span class="yarn-meta">#line:07bbcb0 </span></span>
 
 </code></pre></div>
 
@@ -701,7 +758,8 @@ hide:
 <div class="yarn-node" data-title="item_oil"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: Oil <span class="yarn-meta">#line:0156410 </span></span>
+<span class="yarn-cmd">&lt;&lt;card food_olive_oil&gt;&gt;</span>
+<span class="yarn-line">Olive oil <span class="yarn-meta">#line:0156410 </span></span>
 
 </code></pre></div>
 

@@ -6,17 +6,16 @@ hide:
 # Tutorial (tutorial)
 [Quest Index](./index.md) - Language: english - [french](./tutorial.fr.md) - [polish](./tutorial.pl.md) - [italian](./tutorial.it.md)
 
-Version: 1.00
-Status: NeedsReview
+Version: 1.00  
+Status: NeedsReview  
+Location: International
 
-## Informations
+Let's learn how to play Antura Discover!
 
-- Title: Tutorial
-- Description: 
-- Location: International - 
 ## Content
-- Category: Education
-- Knowledge points: 0
+Subjects: 
+
+
 ## Words
 ## Activities
 - (none)

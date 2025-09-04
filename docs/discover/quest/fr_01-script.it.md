@@ -6,18 +6,14 @@ hide:
 # Parigi! (fr_01) - Script
 [Quest Index](./index.it.md) - Language: [english](./fr_01-script.md) - [french](./fr_01-script.fr.md) - [polish](./fr_01-script.pl.md) - italian
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// </span>
-</code></pre></div>
+!!! note "Educators & Designers: help improving this quest!"
+    **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_01%20Paris/FR_01%20Paris%20-%20Yarn%20Script.yarn)  
+    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">// FR_01_PARIS - Discover Paris Landmarks</span>
-<span class="yarn-header-dim">// </span>
-</code></pre></div>
+<a id="ys-node-init"></a>
+## init
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">=  </span>
-<span class="yarn-header-dim">// Location: Paris, France - Eiffel Tower, Louvre, Notre-Dame, Bakery</span>
-<span class="yarn-header-dim">// Description: Paris tour through iconic landmarks. Learn about Eiffel Tower construction, explore Louvre artworks, visit Notre-Dame architecture, French baguette making with ingredient collection.</span>
-<span class="yarn-header-dim">//</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// FR_01 PARIS</span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - tour_eiffell (landmark education)</span>
 <span class="yarn-header-dim">// - mr_eiffel (historical figure)</span>
@@ -36,24 +32,15 @@ hide:
 <span class="yarn-header-dim">// - baguette_water (ingredient education)</span>
 <span class="yarn-header-dim">// - baguette_yeast (ingredient education)</span>
 <span class="yarn-header-dim">// - baguette_salt (ingredient education)</span>
-<span class="yarn-header-dim">//</span>
 <span class="yarn-header-dim">// Tasks:</span>
 <span class="yarn-header-dim">// - Collect 4 baguette ingredients from various locations</span>
 <span class="yarn-header-dim">// - Reach Monalisa</span>
-<span class="yarn-header-dim">//</span>
 <span class="yarn-header-dim">// Activities:</span>
 <span class="yarn-header-dim">// - puzzle - Eiffel Tower</span>
-<span class="yarn-header-dim">//</span>
 <span class="yarn-header-dim">// Words: </span>
 <span class="yarn-header-dim">// ticket, coin, baguette, flour, water, yeast, salt, map, elevator, iron, museum, cathedral, painting, sculpture,</span>
-<span class="yarn-header-dim">// </span>
-</code></pre></div>
-
-<a id="ys-node-init"></a>
-## init
-
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">tags: type=Start, panel</span>
+<span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
@@ -64,6 +51,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $MET_MONALISA = false&gt;&gt;</span>
 
 <span class="yarn-line">Welcome to Paris! <span class="yarn-meta">#line:fr01_start </span></span>
+<span class="yarn-line">Go and talk with the tutor! <span class="yarn-meta">#line:fr01_start_2</span></span>
 <span class="yarn-cmd">&lt;&lt;target tutor&gt;&gt;</span>
 
 </code></pre></div>
@@ -92,7 +80,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;asset louvre&gt;&gt;</span>
 <span class="yarn-line">This is the entrance to the Louvre, our national art museum. <span class="yarn-meta">#line:0cf1cc8 </span></span>
-<span class="yarn-line">Do you want to enter? <span class="yarn-meta">#line:0f74ff9 </span></span>
+<span class="yarn-line">Do you want to enter? <span class="yarn-meta">#line:0f74ff9</span></span>
 <span class="yarn-line">-&gt; Yes: <span class="yarn-meta">#line:090114f </span></span>
 <span class="yarn-line">    Enjoy your visit! <span class="yarn-meta">#line:056e051 </span></span>
     <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_ENTER &gt;&gt;</span>
@@ -311,11 +299,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset monalisa&gt;&gt;</span>
-<span class="yarn-line">This is the famous Mona Lisa. <span class="yarn-meta">#line:00187e9 </span></span>
+<span class="yarn-line">This is the famous Mona Lisa. <span class="yarn-meta">#line:louvre_monalisa_1</span></span>
 <span class="yarn-cmd">&lt;&lt;set $MET_MONALISA = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;asset leaonardodavinci&gt;&gt;</span>
-<span class="yarn-line">It was painted around 1500 by the artist and scientist Leonardo da Vinci. <span class="yarn-meta">#line:0a21eeb </span></span>
-
+<span class="yarn-line">It was painted around 1500 <span class="yarn-meta">#line:louvre_monalisa_2</span></span>
+<span class="yarn-line">by the artist and scientist Leonardo da Vinci. <span class="yarn-meta">#line:louvre_monalisa_3</span></span>
 
 </code></pre></div>
 
@@ -327,7 +315,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset liberty_leading&gt;&gt;</span>
-<span class="yarn-line">Liberty Leading the People by the French artist Eugène Delacroix represents freedom. <span class="yarn-meta">#line:0e05d56 </span></span>
+<span class="yarn-line">This painting represents freedom. <span class="yarn-meta">#line:louvre_liberty_1</span></span>
+<span class="yarn-line">It's called Liberty Leading the People <span class="yarn-meta">#line:louvre_liberty_2</span></span>
+<span class="yarn-line">by the French artist Eugène Delacroix <span class="yarn-meta">#line:louvre_liberty_3</span></span>
 
 </code></pre></div>
 

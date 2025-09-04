@@ -27,13 +27,9 @@ Language: [english](./index.md) - french - [polish](./index.pl.md) - [italian](.
 - [Copernic et le système solaire (pl_07)](./pl_07.fr.md)
 - [Découvrir Varsovie (pl_01)](./pl_01.fr.md)
 - [Fleuve Oder (pl_03)](./pl_03.fr.md)
+- [Le collier d'ambre de Gdańsk (pl_05)](./pl_05.fr.md)
+- [Le grand sauvetage des nains de Wrocław (pl_02)](./pl_02.fr.md)
 - [Le zoo (pl_04)](./pl_04.fr.md)
 - [Les voisins de la Pologne (pl_00)](./pl_00.fr.md)
-- [Mer Baltique (pl_05)](./pl_05.fr.md)
 - [Pain d'épices et marché alimentaire (pl_06)](./pl_06.fr.md)
-- [Recherche de nains (pl_02)](./pl_02.fr.md)
-
-## Italy
-
-- [Développement (dev)](./dev.fr.md)
 

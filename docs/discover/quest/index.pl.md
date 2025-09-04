@@ -24,16 +24,12 @@ Language: [english](./index.md) - [french](./index.fr.md) - polish - [italian](.
 
 ## Poland
 
+- [Gdański naszyjnik bursztynowy (pl_05)](./pl_05.pl.md)
 - [Kopernik i układ słoneczny (pl_07)](./pl_07.pl.md)
-- [Morze Bałtyckie (pl_05)](./pl_05.pl.md)
 - [Odkryj Warszawę (pl_01)](./pl_01.pl.md)
 - [Pierniki i targ spożywczy (pl_06)](./pl_06.pl.md)
-- [Poszukiwanie krasnoludków (pl_02)](./pl_02.pl.md)
 - [Rzeka Odra (pl_03)](./pl_03.pl.md)
 - [Sąsiedzi Polski (pl_00)](./pl_00.pl.md)
+- [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](./pl_02.pl.md)
 - [Zoo (pl_04)](./pl_04.pl.md)
-
-## Italy
-
-- [Rozwój (dev)](./dev.pl.md)
 
