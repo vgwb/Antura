@@ -9,6 +9,7 @@ namespace Antura.Discover
     public static class CreateFromSelection
     {
         private static readonly string[] ImageExtensions = { ".png", ".jpg", ".jpeg" };
+        private static readonly string[] AudioExtensions = { ".mp3", ".ogg" };
 
         // Create AssetData from selected image(s)
         [MenuItem("Assets/Antura/Create AssetData from Image", priority = 210)]
@@ -197,6 +198,108 @@ namespace Antura.Discover
             return false;
         }
 
+        // Create AssetData from selected audio file(s)
+        [MenuItem("Assets/Antura/Create AssetData from Audio", priority = 212)]
+        public static void CreateAssetDataFromAudio()
+        {
+            var objs = Selection.objects;
+            if (objs == null || objs.Length == 0)
+                return;
+
+            int created = 0, updated = 0, skipped = 0;
+            AssetDatabase.StartAssetEditing();
+            try
+            {
+                foreach (var obj in objs)
+                {
+                    if (obj == null)
+                    { skipped++; continue; }
+                    var assetPath = AssetDatabase.GetAssetPath(obj);
+                    if (string.IsNullOrEmpty(assetPath))
+                    { skipped++; continue; }
+
+                    var ext = Path.GetExtension(assetPath).ToLowerInvariant();
+                    if (!(Array.IndexOf(AudioExtensions, ext) >= 0 || obj is AudioClip))
+                    { skipped++; continue; }
+
+                    // Ensure we can load the AudioClip (force import if necessary)
+                    AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceSynchronousImport | ImportAssetOptions.ForceUpdate);
+                    var clip = LoadAudioClipAtPath(assetPath);
+                    if (clip == null)
+                    { skipped++; continue; }
+
+                    var dir = Path.GetDirectoryName(assetPath);
+                    var fileBase = Path.GetFileNameWithoutExtension(assetPath);
+                    var defaultPath = Path.Combine(dir ?? string.Empty, fileBase + ".asset").Replace("\\", "/");
+
+                    var code = InferCountryCodeFromPath(assetPath);
+                    var country = MapCountryCodeToEnum(code);
+                    var id = IdentifiedData.BuildSanitizedId(fileBase);
+
+                    var existing = AssetDatabase.LoadAssetAtPath<AssetData>(defaultPath);
+                    if (existing == null)
+                    {
+                        var createPath = AssetDatabase.GenerateUniqueAssetPath(defaultPath);
+                        var data = ScriptableObject.CreateInstance<AssetData>();
+                        data.Type = AssetType.Audio;
+                        data.Audio = clip;
+                        data.Country = country;
+                        data.Editor_SetId(id);
+                        AssetDatabase.CreateAsset(data, createPath);
+                        created++;
+                    }
+                    else
+                    {
+                        Undo.RecordObject(existing, "Update AssetData from Audio");
+                        existing.Type = AssetType.Audio;
+                        existing.Audio = clip;
+                        if (existing.Country == Countries.International && country != Countries.International)
+                            existing.Country = country;
+                        if (string.IsNullOrWhiteSpace(existing.Id))
+                            existing.Editor_SetId(id);
+                        EditorUtility.SetDirty(existing);
+                        updated++;
+                    }
+                }
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+
+            if (created + updated > 0)
+            {
+                Debug.Log($"[CreateFromSelection] AssetData (Audio) - Created: {created}, Updated: {updated}, Skipped: {skipped}");
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("Create AssetData (Audio)", "No valid audio selected (mp3/ogg).", "OK");
+            }
+        }
+
+        [MenuItem("Assets/Antura/Create AssetData from Audio", validate = true)]
+        private static bool ValidateCreateAssetDataFromAudio()
+        {
+            var objs = Selection.objects;
+            if (objs == null || objs.Length == 0)
+                return false;
+            foreach (var obj in objs)
+            {
+                if (obj is AudioClip)
+                    return true;
+                var path = AssetDatabase.GetAssetPath(obj);
+                if (!string.IsNullOrEmpty(path))
+                {
+                    var ext = Path.GetExtension(path).ToLowerInvariant();
+                    if (Array.IndexOf(AudioExtensions, ext) >= 0)
+                        return true;
+                }
+            }
+            return false;
+        }
+
         // Helpers (small, local copies for convenience)
         private static bool EnsureSpriteImporter(string assetPath)
         {
@@ -253,6 +356,26 @@ namespace Antura.Discover
                     var b = char.ToLowerInvariant(p[1]);
                     if (a >= 'a' && a <= 'z' && b >= 'a' && b <= 'z')
                         return new string(new[] { a, b });
+                }
+            }
+            return null;
+        }
+
+        private static AudioClip LoadAudioClipAtPath(string assetPath)
+        {
+            if (string.IsNullOrEmpty(assetPath))
+                return null;
+            var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(assetPath);
+            if (clip != null)
+                return clip;
+            // Try sub-assets just in case
+            var reps = AssetDatabase.LoadAllAssetRepresentationsAtPath(assetPath);
+            if (reps != null)
+            {
+                foreach (var r in reps)
+                {
+                    if (r is AudioClip c)
+                        return c;
                 }
             }
             return null;
