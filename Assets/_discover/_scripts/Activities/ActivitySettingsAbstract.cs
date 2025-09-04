@@ -20,9 +20,13 @@ namespace Antura.Discover.Activities
         [Header("Points")]
 
         [Tooltip("Points to add when the activity fails")]
+        [HideInInspector]
         public int PointsFail = -1;
+        [HideInInspector]
         public int PointsEasy = 1;
+        [HideInInspector]
         public int PointsNormal = 2;
+        [HideInInspector]
         public int PointsExpert = 3;
 
     }

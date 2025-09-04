@@ -25,27 +25,11 @@ namespace Antura.Discover.Activities
         [Header("Tutorial Ghosts")]
         public bool showGhostsInTutorial = true;
 
-        [Header("Sfx")]
-        public AudioSource audioSource;
-        public AudioClip dropSound;
-        public AudioClip successSound;
-        public AudioClip failSound;
-
         private int minItemsToValidate;
 
-        private Antura.Discover.CardData[] correctOrder;          // solution = original Items order
+        private CardData[] correctOrder;          // solution = original Items order
         private DraggableTile[] slots;        // current occupants (null if empty)
         private List<DropSlot> slotViews = new List<DropSlot>();
-
-        private void Awake()
-        {
-            if (Settings.ItemsData == null)
-                Settings.ItemsData = new List<Antura.Discover.CardData>();
-            if (Settings.ItemsData.Count < 2)
-                Debug.LogWarning("Puzzle needs at least 2 items.");
-            if (Settings.ItemsData.Count > 10)
-                Debug.LogWarning("Puzzle supports max 10 items.");
-        }
 
         public override void InitActivity()
         {
@@ -61,11 +45,16 @@ namespace Antura.Discover.Activities
             base.Update();
         }
 
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is OrderSettingsData csd)
+                Settings = csd;
+        }
         protected override ActivitySettingsAbstract GetSettings() => Settings;
 
         protected override void OnRoundAdvanced(bool lastRoundSuccess, int lastRoundPoints, float lastRoundSeconds, bool dueToTimeout)
         {
-            // Rebuild a fresh round (same dataset for now)
             BuildRound();
         }
 
@@ -78,7 +67,7 @@ namespace Antura.Discover.Activities
             SetValidateEnabled(false);
 
             // Spawn shuffled tiles into pool
-            var shuffled = new List<Antura.Discover.CardData>(dataItems);
+            var shuffled = new List<CardData>(dataItems);
             Shuffle(shuffled);
 
             foreach (var it in shuffled)
@@ -129,9 +118,9 @@ namespace Antura.Discover.Activities
             }
         }
 
-        private List<Antura.Discover.CardData> BuildItemsFromSettings()
+        private List<CardData> BuildItemsFromSettings()
         {
-            var result = new List<Antura.Discover.CardData>();
+            var result = new List<CardData>();
             if (Settings.ItemsData != null && Settings.ItemsData.Count > 0)
             {
                 foreach (var cd in Settings.ItemsData)
@@ -187,8 +176,8 @@ namespace Antura.Discover.Activities
             // Pulse feedback
             Pulse(tile.transform, 1.06f, 0.08f);
 
-            if (audioSource && dropSound)
-                audioSource.PlayOneShot(dropSound);
+            DiscoverAudioManager.I.Play(DiscoverSfx.ActivityDrop);
+
 
             UpdateValidateState();
             UpdateSlotHighlights();
@@ -267,7 +256,7 @@ namespace Antura.Discover.Activities
                     if (view == null)
                         continue;
 
-                    if (slots[i] != null && slots[i].ItemData != null && slots[i].ItemData.Id == correctOrder[i].Id)
+                    if (slots[i] != null && slots[i].CardData != null && slots[i].CardData.Id == correctOrder[i].Id)
                         view.SetHighlight(Color.green, 0.35f);
                     else
                         view.ClearHighlight();
@@ -298,24 +287,22 @@ namespace Antura.Discover.Activities
                 { wrongIndices.Add(i); continue; }
 
                 var expected = correctOrder[i].Id;
-                if (tile.ItemData == null || tile.ItemData.Id != expected)
+                if (tile.CardData == null || tile.CardData.Id != expected)
                     wrongIndices.Add(i);
             }
 
             if (wrongIndices.Count == 0)
             {
                 Debug.Log("✅ Correct order!");
-                // feedback
-                if (audioSource && successSound)
-                    audioSource.PlayOneShot(successSound);
+                DiscoverAudioManager.I.Play(DiscoverSfx.ActivitySuccess);
+
                 return true;
             }
             else
             {
                 StartCoroutine(ShakeWrongTiles(wrongIndices));
-                if (audioSource && failSound)
-                    audioSource.PlayOneShot(failSound);
-                Debug.Log($"❌ Wrong order in {wrongIndices.Count} slot(s).");
+                DiscoverAudioManager.I.Play(DiscoverSfx.ActivityFail);
+
                 return false;
             }
         }
@@ -341,7 +328,7 @@ namespace Antura.Discover.Activities
         }
 
         // ---- Tutorial hint ----
-        public void FlashCorrectSlot(Antura.Discover.CardData item, DraggableTile tile)
+        public void FlashCorrectSlot(CardData item, DraggableTile tile)
         {
             if (ActivityDifficulty != Difficulty.Tutorial)
                 return;
@@ -395,14 +382,10 @@ namespace Antura.Discover.Activities
 
         public void PlayItemSound(AudioClip clip)
         {
-            if (clip == null)
-                return;
-            if (audioSource != null)
-                audioSource.PlayOneShot(clip);
-            else
-                AudioSource.PlayClipAtPoint(clip, Camera.main ? Camera.main.transform.position : Vector3.zero);
+            DiscoverAudioManager.I.Play(clip);
         }
-        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+
+        private static Sprite ResolveSprite(CardData data)
         {
             if (data == null)
                 return null;

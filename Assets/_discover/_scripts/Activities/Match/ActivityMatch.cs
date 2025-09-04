@@ -470,9 +470,9 @@ namespace Antura.Discover.Activities
                 if (t == null)
                 { questionItems[i]?.SetHighlight(null); continue; }
                 var expected = questionItems[i] != null ? questionItems[i].ExpectedAnswerId : null;
-                if (!string.IsNullOrEmpty(expected) && t.ItemData != null)
+                if (!string.IsNullOrEmpty(expected) && t.CardData != null)
                 {
-                    bool isCorrect = t.ItemData.Id == expected;
+                    bool isCorrect = t.CardData.Id == expected;
                     questionItems[i]?.SetHighlight(isCorrect);
                 }
                 else
@@ -499,7 +499,7 @@ namespace Antura.Discover.Activities
                 if (t == null)
                     continue;
                 var expected = questionItems[i] != null ? questionItems[i].ExpectedAnswerId : null;
-                if (t.ItemData != null && !string.IsNullOrEmpty(expected) && t.ItemData.Id == expected)
+                if (t.CardData != null && !string.IsNullOrEmpty(expected) && t.CardData.Id == expected)
                     correct++;
             }
 

@@ -14,14 +14,11 @@ namespace Antura.Discover
         [SerializeField] private AudioSource sfxSource;
         [Range(0f, 1f)] public float sfxVolume = 1f;
 
-        [Header("Custom Source")]
-        [SerializeField] private AudioSource customSource;
-        [Range(0f, 1f)] public float customVolume = 1f;
-
-
+        [Header("Cards Source")]
+        [SerializeField] private AudioSource cardSource;
+        [Range(0f, 1f)] public float cardVolume = 1f;
 
         public DiscoverSfxData sfxListAsset;
-        public List<SfxEntryAsset> sfxMap = new List<SfxEntryAsset>();
         private struct SfxResolved { public AudioClip clip; public float vol; }
         private Dictionary<DiscoverSfx, SfxResolved> sfxLookup;
 
@@ -30,19 +27,18 @@ namespace Antura.Discover
             base.Awake();
             if (sfxSource == null)
             {
-                sfxSource = gameObject.GetComponent<AudioSource>();
                 if (sfxSource == null)
                     sfxSource = gameObject.AddComponent<AudioSource>();
                 sfxSource.playOnAwake = false;
                 sfxSource.loop = false;
                 sfxSource.spatialBlend = 0f; // 2D by default
             }
-            if (customSource == null)
+            if (cardSource == null)
             {
-                customSource = gameObject.AddComponent<AudioSource>();
-                customSource.playOnAwake = false;
-                customSource.loop = false;
-                customSource.spatialBlend = 0f; // 2D by default
+                cardSource = gameObject.AddComponent<AudioSource>();
+                cardSource.playOnAwake = false;
+                cardSource.loop = false;
+                cardSource.spatialBlend = 0f; // 2D by default
             }
             BuildLookup();
         }
@@ -54,10 +50,7 @@ namespace Antura.Discover
             else
                 sfxLookup.Clear();
 
-            var list = sfxListAsset != null ? sfxListAsset.entries : sfxMap;
-            if (list == null)
-                return;
-            foreach (var e in list)
+            foreach (var e in sfxListAsset.entries)
             {
                 if (e == null)
                     continue;
@@ -66,46 +59,27 @@ namespace Antura.Discover
                     clip = e.assetData.Audio;
                 if (clip != null)
                 {
-                    var vol = ResolveEntryVolume(e);
-                    sfxLookup[e.id] = new SfxResolved { clip = clip, vol = vol };
+                    sfxLookup[e.id] = new SfxResolved { clip = clip, vol = e.volume };
                 }
             }
         }
 
-        private static float ResolveEntryVolume(SfxEntryAsset entry)
-        {
-            if (entry == null)
-                return 1f;
-            // Prefer direct field when available
-            try
-            {
-                var f = typeof(SfxEntryAsset).GetField("volume");
-                if (f != null && f.FieldType == typeof(float))
-                {
-                    var val = (float)f.GetValue(entry);
-                    return Mathf.Clamp01(val);
-                }
-            }
-            catch { }
-            return 1f;
-        }
-
-        // --- Simple play methods ---
+        #region play
 
         public void Play(AudioClip clip, float volume = 1f)
         {
             if (clip == null)
                 return;
             EnsureCustomSource();
-            customSource.volume = Mathf.Clamp01(volume) * customVolume;
-            customSource.PlayOneShot(clip);
+            cardSource.volume = Mathf.Clamp01(volume) * cardVolume;
+            cardSource.PlayOneShot(clip);
         }
 
         public void Play(AudioClip clip, Action onComplete, float volume = 1f)
         {
             if (clip == null)
                 return;
-            StartCoroutine(PlayWithCallbackCO(clip, Mathf.Clamp01(volume) * customVolume, onComplete));
+            StartCoroutine(PlayWithCallbackCO(clip, Mathf.Clamp01(volume) * cardVolume, onComplete));
         }
 
         public void Play(AssetData asset, float volume = 1f)
@@ -121,15 +95,13 @@ namespace Antura.Discover
                 return;
             Play(asset.Audio, onComplete, volume);
         }
+        #endregion
 
-        // Enum-based convenience (optional mapping)
         public void Play(DiscoverSfx id, float volume = 1f)
         {
             if (id == DiscoverSfx.None)
                 return;
-            var count = (sfxListAsset != null ? (sfxListAsset.entries?.Count ?? 0) : (sfxMap?.Count ?? 0));
-            if (sfxLookup == null || sfxLookup.Count != count)
-                BuildLookup();
+
             if (sfxLookup != null && sfxLookup.TryGetValue(id, out var res) && res.clip != null)
             {
                 EnsureSfxSource();
@@ -141,16 +113,16 @@ namespace Antura.Discover
         public void Stop()
         {
 
-            if (customSource != null)
-                customSource.Stop();
+            if (cardSource != null)
+                cardSource.Stop();
         }
 
         public void StopAll()
         {
             if (sfxSource != null)
                 sfxSource.Stop();
-            if (customSource != null)
-                customSource.Stop();
+            if (cardSource != null)
+                cardSource.Stop();
         }
 
         private void EnsureSfxSource()
@@ -166,12 +138,12 @@ namespace Antura.Discover
 
         private void EnsureCustomSource()
         {
-            if (customSource == null)
+            if (cardSource == null)
             {
-                customSource = gameObject.AddComponent<AudioSource>();
-                customSource.playOnAwake = false;
-                customSource.loop = false;
-                customSource.spatialBlend = 0f;
+                cardSource = gameObject.AddComponent<AudioSource>();
+                cardSource.playOnAwake = false;
+                cardSource.loop = false;
+                cardSource.spatialBlend = 0f;
             }
         }
 

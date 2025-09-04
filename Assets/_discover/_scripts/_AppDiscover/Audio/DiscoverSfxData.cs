@@ -7,9 +7,12 @@ namespace Antura.Discover
     public enum DiscoverSfx
     {
         None = 0,
-        Click,
-        Success,
-        Fail
+        ActivityClick = 10,
+        ActivityDrop = 11,
+        ActivityHint = 12,
+
+        ActivitySuccess = 20,
+        ActivityFail = 21
     }
 
     [Serializable]

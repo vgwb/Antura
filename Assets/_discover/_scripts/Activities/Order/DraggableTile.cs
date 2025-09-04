@@ -9,7 +9,7 @@ namespace Antura.Discover.Activities
     {
         public Image TileImage;
         public TextMeshProUGUI Label;
-        public Antura.Discover.CardData ItemData { get; private set; }
+        public CardData CardData { get; private set; }
         public int OriginalParentSlotIndex { get; set; } = -1;
         public RectTransform Rect => rectTransform;
 
@@ -17,7 +17,7 @@ namespace Antura.Discover.Activities
         private System.Action<int> onLiftedFromSlot;
         private System.Action onReturnedToPool;
         private System.Action<AudioClip> onPlayItemSound;
-        private System.Action<Antura.Discover.CardData, DraggableTile> onFlashCorrectSlot;
+        private System.Action<CardData, DraggableTile> onFlashCorrectSlot;
         private System.Func<Transform> getPoolParent;
         private CanvasGroup canvasGroup;
         private RectTransform rectTransform;
@@ -31,10 +31,10 @@ namespace Antura.Discover.Activities
         public float soundCooldown = 0.5f;
         private float lastSoundTime = -999f;
 
-        public void Init(ActivityOrder mgr, Antura.Discover.CardData data, Transform activityRoot)
+        public void Init(ActivityOrder mgr, CardData data, Transform activityRoot)
         {
             manager = mgr;
-            ItemData = data;
+            CardData = data;
             if (Label != null)
                 Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
 
@@ -55,16 +55,16 @@ namespace Antura.Discover.Activities
         }
 
         // Generic initializer for other activities (e.g., match)
-        public void InitGeneric(Antura.Discover.CardData data, Transform activityRoot,
+        public void InitGeneric(CardData data, Transform activityRoot,
             System.Func<Transform> poolGetter,
             System.Action<int> onLift,
             System.Action onReturn,
             System.Action<AudioClip> onPlay,
-            System.Action<Antura.Discover.CardData, DraggableTile> onHint = null,
+            System.Action<CardData, DraggableTile> onHint = null,
             object owner = null)
         {
             manager = owner;
-            ItemData = data;
+            CardData = data;
             if (Label != null)
                 Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
             var sprite = ResolveSprite(data);
@@ -140,7 +140,7 @@ namespace Antura.Discover.Activities
             if (Time.unscaledTime - lastSoundTime < soundCooldown)
                 return;
 
-            var clip = ResolveAudio(ItemData);
+            var clip = ResolveAudio(CardData);
             if (clip != null)
             {
                 onPlayItemSound?.Invoke(clip);
@@ -148,7 +148,7 @@ namespace Antura.Discover.Activities
             }
 
             // Tutorial hint
-            onFlashCorrectSlot?.Invoke(ItemData, this);
+            onFlashCorrectSlot?.Invoke(CardData, this);
         }
 
         public void MoveToSlot(Transform slotParent, int slotIndex)
@@ -183,7 +183,7 @@ namespace Antura.Discover.Activities
             rectTransform.localScale = Vector3.one;
         }
 
-        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+        private static Sprite ResolveSprite(CardData data)
         {
             if (data == null)
                 return null;
@@ -192,7 +192,7 @@ namespace Antura.Discover.Activities
             return null;
         }
 
-        private static AudioClip ResolveAudio(Antura.Discover.CardData data)
+        private static AudioClip ResolveAudio(CardData data)
         {
             if (data == null)
                 return null;
