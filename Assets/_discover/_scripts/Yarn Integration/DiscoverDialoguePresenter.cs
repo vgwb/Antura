@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
 using Yarn.Unity;
+using System.Linq;
 
 namespace Antura.Discover
 {
@@ -176,18 +177,27 @@ namespace Antura.Discover
             //var image = line.Metadata[0];
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
 
+            // Parse node header tags first (eg: type=quiz) from Yarn header "tags"
+            var headerTags = GetHeaderTagsTokens(_currentNodeName);
+
+            // if we have a noRepeatLastLine tag, we don't repeat the last line
+            var repeatLastLineSeen = true;
+            if (headerTags != null && headerTags.Contains("noRepeatLastLine"))
+            {
+                Debug.Log("noRepeatLastLine TAG FOUND");
+                repeatLastLineSeen = false;
+            }
+
             var qn = new QuestNode
             {
                 Type = NodeType.CHOICE,
-                Content = lastSeenLine,
-                ContentNative = lastSeenLine,
+                Content = repeatLastLineSeen ? lastSeenLine : "",
+                ContentNative = repeatLastLineSeen ? lastSeenLine : "",
                 AudioId = null,
                 Image = "",
                 Choices = new List<NodeChoice>()
             };
 
-            // Parse node header tags first (eg: type=quiz) from Yarn header "tags"
-            var headerTags = GetHeaderTagsTokens(_currentNodeName);
             if (headerTags != null && headerTags.Length > 0)
             {
                 ApplyTagsToQuestNode(qn, headerTags);
