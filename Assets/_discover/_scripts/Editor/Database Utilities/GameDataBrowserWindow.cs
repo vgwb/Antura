@@ -49,7 +49,7 @@ namespace Antura.Discover
         private Status? _devStatusFilter = null; // null => All
         // Pagination
         private int _pageIndex = 0;
-        private const int PageSize = 100;
+        private const int PageSize = 50;
         // Duplicates view toggle
         private bool _duplicatesOnly = false;
 
@@ -479,6 +479,52 @@ namespace Antura.Discover
                     searchDrawn = true;
                 }
 
+                // For WorldPrefabData, show Kit selector first (compact), then the search box
+                if (SelectedType == typeof(WorldPrefabData))
+                {
+                    GUILayout.Space(6);
+                    var presentKitsEarly = _worldPrefabs
+                        .Where(e => !_wpCategoryFilter.HasValue || GetWorldPrefabCategory(e.Comp) == _wpCategoryFilter.Value)
+                        .Where(e => CountryMatches(e.Comp, _countryFilter))
+                        .Select(e => GetWorldPrefabKit(e.Comp))
+                        .Distinct()
+                        .OrderBy(k => (int)k)
+                        .ToList();
+                    if (presentKitsEarly.Count == 0)
+                    {
+                        using (new EditorGUI.DisabledScope(true))
+                        {
+                            EditorGUILayout.Popup(0, new[] { "Kit" }, EditorStyles.toolbarPopup, GUILayout.Width(110));
+                        }
+                        _wpKitFilter = null;
+                    }
+                    else
+                    {
+                        if (_wpKitFilter.HasValue && !presentKitsEarly.Contains(_wpKitFilter.Value))
+                            _wpKitFilter = null;
+                        var kitLabels = new List<string> { "Kit" };
+                        kitLabels.AddRange(presentKitsEarly.Select(v => v.ToString()));
+                        int curKit = _wpKitFilter.HasValue ? (presentKitsEarly.IndexOf(_wpKitFilter.Value) + 1) : 0;
+                        if (curKit < 0)
+                            curKit = 0;
+                        int pickKit = EditorGUILayout.Popup(curKit, kitLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(100));
+                        if (pickKit != curKit)
+                        {
+                            _wpKitFilter = pickKit <= 0 ? default(WorldPrefabKit?) : presentKitsEarly[pickKit - 1];
+                            _pageIndex = 0;
+                            Repaint();
+                        }
+                    }
+                    // Search input right after Kit
+                    GUILayout.Space(6);
+                    if (_searchField == null)
+                        _searchField = new SearchField();
+                    var newSearchEarly = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(160));
+                    if (!string.Equals(newSearchEarly, _search, StringComparison.Ordinal))
+                    { _search = newSearchEarly; _pageIndex = 0; Repaint(); }
+                    searchDrawn = true;
+                }
+
                 GUILayout.Space(6);
                 // Country selector (compact): first entry is the label => no filter (All)
                 var rawCOpts = GetCountryOptions();
@@ -517,28 +563,26 @@ namespace Antura.Discover
                     }
                 }
 
-                // WorldPrefabData Category + Tag + Kit filters
+                // WorldPrefabData filters: Category + Tag (Kit was already drawn first)
                 if (SelectedType == typeof(WorldPrefabData))
                 {
-                    GUILayout.Label("Category:", GUILayout.Width(60));
                     var values = (WorldPrefabCategory[])Enum.GetValues(typeof(WorldPrefabCategory));
-                    // Labels with All at the end
-                    var catLabels = new List<string>(values.Select(v => v.ToString()));
-                    catLabels.Add("All");
-                    int curCat = _wpCategoryFilter.HasValue ? Array.IndexOf(values, _wpCategoryFilter.Value) : values.Length;
+                    // Compact selector: title as first option
+                    var catLabels = new List<string> { "Category" };
+                    catLabels.AddRange(values.Select(v => v.ToString()));
+                    int curCat = _wpCategoryFilter.HasValue ? (Array.IndexOf(values, _wpCategoryFilter.Value) + 1) : 0;
                     if (curCat < 0)
                         curCat = 0;
-                    int pickCat = EditorGUILayout.Popup(curCat, catLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(80));
+                    int pickCat = EditorGUILayout.Popup(curCat, catLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(110));
                     if (pickCat != curCat && values.Length > 0)
                     {
-                        _wpCategoryFilter = (pickCat >= values.Length) ? default(WorldPrefabCategory?) : values[pickCat];
+                        _wpCategoryFilter = pickCat <= 0 ? default(WorldPrefabCategory?) : values[pickCat - 1];
                         _wpTagFilter = null; // reset tag when category changes
                         _wpKitFilter = null; // keep Kit independent but reset to be safe when scope changes
                         _pageIndex = 0;
                         Repaint();
                     }
 
-                    GUILayout.Label("Tag:", GUILayout.Width(30));
                     // Build tags actually present among prefabs in the selected category (or all when category is All)
                     var presentTags = _worldPrefabs
                         .Where(e => !_wpCategoryFilter.HasValue || GetWorldPrefabCategory(e.Comp) == _wpCategoryFilter.Value)
@@ -552,7 +596,7 @@ namespace Antura.Discover
                     {
                         using (new EditorGUI.DisabledScope(true))
                         {
-                            EditorGUILayout.Popup(0, new[] { "(None)" }, EditorStyles.toolbarPopup, GUILayout.Width(80));
+                            EditorGUILayout.Popup(0, new[] { "Tag" }, EditorStyles.toolbarPopup, GUILayout.Width(110));
                         }
                         _wpTagFilter = null;
                     }
@@ -560,12 +604,12 @@ namespace Antura.Discover
                     {
                         if (_wpTagFilter.HasValue && !presentTags.Contains(_wpTagFilter.Value))
                             _wpTagFilter = null;
-                        var tagLabels = new List<string> { "(Any)" };
+                        var tagLabels = new List<string> { "Tag" };
                         tagLabels.AddRange(presentTags.Select(v => v.ToString()));
                         int curTag = _wpTagFilter.HasValue ? (presentTags.IndexOf(_wpTagFilter.Value) + 1) : 0;
                         if (curTag < 0)
                             curTag = 0;
-                        int pickTag = EditorGUILayout.Popup(curTag, tagLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(80));
+                        int pickTag = EditorGUILayout.Popup(curTag, tagLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(110));
                         if (pickTag != curTag)
                         {
                             _wpTagFilter = pickTag <= 0 ? default(WorldPrefabTag?) : presentTags[pickTag - 1];
@@ -574,40 +618,7 @@ namespace Antura.Discover
                         }
                     }
 
-                    GUILayout.Label("Kit:", GUILayout.Width(24));
-                    // Build kits actually present in the current scope
-                    var presentKits = _worldPrefabs
-                        .Where(e => !_wpCategoryFilter.HasValue || GetWorldPrefabCategory(e.Comp) == _wpCategoryFilter.Value)
-                        .Where(e => CountryMatches(e.Comp, _countryFilter))
-                        .Select(e => GetWorldPrefabKit(e.Comp))
-                        .Distinct()
-                        .OrderBy(k => (int)k)
-                        .ToList();
-                    if (presentKits.Count == 0)
-                    {
-                        using (new EditorGUI.DisabledScope(true))
-                        {
-                            EditorGUILayout.Popup(0, new[] { "(None)" }, EditorStyles.toolbarPopup, GUILayout.Width(100));
-                        }
-                        _wpKitFilter = null;
-                    }
-                    else
-                    {
-                        if (_wpKitFilter.HasValue && !presentKits.Contains(_wpKitFilter.Value))
-                            _wpKitFilter = null;
-                        var kitLabels = new List<string> { "(Any)" };
-                        kitLabels.AddRange(presentKits.Select(v => v.ToString()));
-                        int curKit = _wpKitFilter.HasValue ? (presentKits.IndexOf(_wpKitFilter.Value) + 1) : 0;
-                        if (curKit < 0)
-                            curKit = 0;
-                        int pickKit = EditorGUILayout.Popup(curKit, kitLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(100));
-                        if (pickKit != curKit)
-                        {
-                            _wpKitFilter = pickKit <= 0 ? default(WorldPrefabKit?) : presentKits[pickKit - 1];
-                            _pageIndex = 0;
-                            Repaint();
-                        }
-                    }
+                    // Kit selector already drawn first; no duplicate here
                 }
 
                 // When browsing CardData, show compact filter popups with label as first option

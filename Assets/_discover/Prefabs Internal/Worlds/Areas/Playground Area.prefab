@@ -4440,7 +4440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7042686429415778104}
-  - component: {fileID: 1319505447478607664}
+  - component: {fileID: 3366570852730301987}
   m_Layer: 0
   m_Name: Playground Area
   m_TagString: Untagged
@@ -4468,7 +4468,7 @@ Transform:
   - {fileID: 3093171681956102818}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1319505447478607664
+--- !u!114 &3366570852730301987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4477,12 +4477,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6945215965495843337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 826e6502b32ee4fdd859412c098ce30b, type: 3}
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  WorldId: tutoral_addon
-  DefaultSetup: {fileID: 0}
-  AutoApplyOnAwake: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: area_playground
+  Kit: 2
+  Country: 0
+  Category: 200
+  Tags: 
 --- !u!1 &7268089557589076454
 GameObject:
   m_ObjectHideFlags: 0

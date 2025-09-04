@@ -53,12 +53,15 @@ namespace Antura.Discover
         Street = 60,   // roads, lamps, benches, street furniture
         Tool = 110,  // tools, weapons, instruments
         Vehicle = 70,   // cars, trains, boats, planes
+        World = 200,  // large world elements (mountains, islands)
         Other = 999   // fallback for uncategorized / misc
     }
 
     public enum WorldPrefabTag
     {
         None = 0,
+
+        WorldHeritage = 1000, // UNESCO World Heritage Site
 
         // Environment / setting (30)
         EnvCity = 70,
