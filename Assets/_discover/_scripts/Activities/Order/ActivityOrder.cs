@@ -31,6 +31,14 @@ namespace Antura.Discover.Activities
         private DraggableTile[] slots;        // current occupants (null if empty)
         private List<DropSlot> slotViews = new List<DropSlot>();
 
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is OrderSettingsData csd)
+                Settings = csd;
+        }
+        protected override ActivitySettingsAbstract GetSettings() => Settings;
+
         public override void InitActivity()
         {
             ActivityDifficulty = Settings.Difficulty;
@@ -45,13 +53,6 @@ namespace Antura.Discover.Activities
             base.Update();
         }
 
-        public override void ConfigureSettings(ActivitySettingsAbstract settings)
-        {
-            base.ConfigureSettings(settings);
-            if (settings is OrderSettingsData csd)
-                Settings = csd;
-        }
-        protected override ActivitySettingsAbstract GetSettings() => Settings;
 
         protected override void OnRoundAdvanced(bool lastRoundSuccess, int lastRoundPoints, float lastRoundSeconds, bool dueToTimeout)
         {

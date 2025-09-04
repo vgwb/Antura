@@ -8,6 +8,11 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "CanvasSettingsData", menuName = "Antura/Activity/Canvas Settings")]
     public class CanvasSettingsData : ActivitySettingsAbstract
     {
+        private void OnEnable()
+        {
+            ActivityCode = ActivityCode.CleanCanvas;
+        }
+
         [Header("--- Activity Canvas Settings")]
         [Tooltip("Background asset used as the canvas image")]
         public AssetData PuzzleImageAsset;

@@ -7,6 +7,11 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "JigsawSettings", menuName = "Antura/Activity/Jigsaw Settings")]
     public class JigsawPuzzleSettingsData : ActivitySettingsAbstract
     {
+        private void OnEnable()
+        {
+            ActivityCode = ActivityCode.JigsawPuzzle;
+        }
+
         [Header("--- Activity Jigsaw Settings")]
         [Tooltip("CardData providing the image for the puzzle")]
         public CardData PuzzleCard;

@@ -16,6 +16,11 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "PianoSettingsData", menuName = "Antura/Activity/Piano Settings")]
     public class PianoSettingsData : ActivitySettingsAbstract
     {
+        private void OnEnable()
+        {
+            ActivityCode = ActivityCode.Piano;
+        }
+
         [Header("--- Activity Piano Settings")]
 
         public int tempoBPM = 100;

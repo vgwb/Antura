@@ -18,9 +18,17 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "MatchSettingsData", menuName = "Antura/Activity/Match Settings")]
     public class MatchSettingsData : ActivitySettingsAbstract
     {
+        private void OnEnable()
+        {
+            ActivityCode = ActivityCode.Match;
+        }
+
         [Header("--- Activity Memory Settings")]
 
         [Tooltip("Define each question with >= 1 answers")]
         public List<MatchGroupData> GroupsData = new List<MatchGroupData>();
+
+
+
     }
 }

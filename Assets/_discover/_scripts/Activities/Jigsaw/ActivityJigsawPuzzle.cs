@@ -9,7 +9,7 @@ namespace Antura.Discover.Activities
     public class ActivityJigsawPuzzle : ActivityBase
     {
         [Header("Jigsaw Puzzle Settings")]
-        public JigsawPuzzleSettingsData settings;
+        public JigsawPuzzleSettingsData Settings;
 
         // OLD FIELDS (optional fallback / can remove later)
         private Texture2D PuzzleImage;
@@ -61,9 +61,17 @@ namespace Antura.Discover.Activities
             base.Update();
         }
 
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is JigsawPuzzleSettingsData csd)
+                Settings = csd;
+        }
+        protected override ActivitySettingsAbstract GetSettings() => Settings;
+
         private void ResolveDifficulty()
         {
-            settings.Resolve(out var img, out cols, out rows, out var difficulty, out var underlayAlpha);
+            Settings.Resolve(out var img, out cols, out rows, out var difficulty, out var underlayAlpha);
             PuzzleImage = img;
             Difficulty = difficulty;
             hintUnderlayAlpha = underlayAlpha;

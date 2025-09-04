@@ -32,7 +32,15 @@ namespace Antura.Discover.Activities
         private bool acceptingInput = false;
         private float beatSeconds => 60f / Mathf.Max(1, Settings != null ? Settings.tempoBPM : 100);
 
-        private void Start()
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is PianoSettingsData csd)
+                Settings = csd;
+        }
+        protected override ActivitySettingsAbstract GetSettings() => Settings;
+
+        public override void InitActivity()
         {
             if (keyboard)
                 keyboard.Build();

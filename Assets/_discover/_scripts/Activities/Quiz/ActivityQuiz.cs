@@ -36,6 +36,12 @@ namespace Antura.Discover.Activities
             base.Update();
         }
 
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is QuizSettingsData csd)
+                Settings = csd;
+        }
         protected override ActivitySettingsAbstract GetSettings() => Settings;
 
         private void WireUI()

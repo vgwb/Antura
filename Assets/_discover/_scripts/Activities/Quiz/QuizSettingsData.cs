@@ -15,6 +15,11 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "QuizSettingsData", menuName = "Antura/Activity/Quiz Settings")]
     public class QuizSettingsData : ActivitySettingsAbstract
     {
+        private void OnEnable()
+        {
+            ActivityCode = ActivityCode.Quiz;
+        }
+
         [Header("--- Activity Quiz Settings")]
 
         public string Question;

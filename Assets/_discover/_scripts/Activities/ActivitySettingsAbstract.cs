@@ -4,7 +4,7 @@ namespace Antura.Discover.Activities
 {
     public class ActivitySettingsAbstract : IdentifiedData
     {
-        [Header("Activity Type")]
+        [ReadOnly]
         public ActivityCode ActivityCode;
 
         [Header("Duration")]

@@ -49,13 +49,6 @@ namespace Antura.Discover.Activities
                 grid = gridParent.GetComponent<GridLayoutGroup>();
         }
 
-        public override void ConfigureSettings(ActivitySettingsAbstract settings)
-        {
-            base.ConfigureSettings(settings);
-            if (settings is MemorySettingData csd)
-                Settings = csd;
-        }
-
         public override void InitActivity()
         {
             BuildBoard();
@@ -69,6 +62,13 @@ namespace Antura.Discover.Activities
         protected override void Update()
         {
             base.Update();
+        }
+
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is MemorySettingData csd)
+                Settings = csd;
         }
 
         /// <summary>

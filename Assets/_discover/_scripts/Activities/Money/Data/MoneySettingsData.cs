@@ -19,6 +19,11 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "MoneySettingsData", menuName = "Antura/Activity/Money Settings")]
     public class MoneySettingsData : ActivitySettingsAbstract
     {
+        private void OnEnable()
+        {
+            ActivityCode = ActivityCode.MoneyCount;
+        }
+
         [Header("--- Activity Money Settings")]
         public MoneySet MoneySet;
 
