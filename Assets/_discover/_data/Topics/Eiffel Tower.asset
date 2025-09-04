@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeClusterSO
   Id: eiffel-tower
   Name: Eiffel Tower
-  Description: Everything related to the iconic Paris landmark
+  Description: What we need to know about the iconic Paris landmark
   Importance: 0
   NodeColor: {r: 0.8962264, g: 0.48616055, b: 0.48616055, a: 1}
+  Country: 0
   CoreCard: {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
   Connections:
   - ConnectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
@@ -40,7 +41,25 @@ MonoBehaviour:
     CompareKind: 0
     CulturalRole: 0
   - ConnectedCard: {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
-    ConnectionType: 3
+    ConnectionType: 5
+    ConnectionStrength: 0.802
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 568ac096b49624a5181e34e11c0d36e9, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.802
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: d29e395f094cb496093337f52ada822d, type: 2}
+    ConnectionType: 11
     ConnectionStrength: 0.802
     ConnectionReason: 
     LinkingKeywords: []
@@ -49,10 +68,13 @@ MonoBehaviour:
     CompareKind: 0
     CulturalRole: 0
   DiscoveryPath:
-  - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
   - {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
   - {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
+  - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
   - {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
+  - {fileID: 11400000, guid: 568ac096b49624a5181e34e11c0d36e9, type: 2}
+  - {fileID: 11400000, guid: d29e395f094cb496093337f52ada822d, type: 2}
   CohesionStrength: 0.813
   TargetAge: 1
   Subjects: 01000000
+  Credits: []

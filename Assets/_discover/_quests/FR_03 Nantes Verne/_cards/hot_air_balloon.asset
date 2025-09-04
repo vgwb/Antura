@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: literature_five_weeks_in_a_balloon
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
-  Id: literature_five_weeks_in_a_balloon
-  Status: 3
+  m_Name: hot_air_balloon
+  m_EditorClassIdentifier: 
+  Id: hot_air_balloon
+  Status: 1
   Type: 3
-  Subjects: 08000000
-  TitleEn: Five Weeks in a Balloon
-  DescriptionEn: A book by Jules Verne about flying across Africa in a hot air balloon.
-    It's full of adventure and discovery!
+  Subjects: 2c000000
+  TitleEn: Hot-Air Balloon
+  DescriptionEn: A balloon that flies using hot air. The first one flew in France.
   Title:
     m_TableReference:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: literature_five_weeks_in_a_balloon
+      m_Key: object_hot_air_balloon
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -33,18 +32,18 @@ MonoBehaviour:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: literature_five_weeks_in_a_balloon.desc
+      m_Key: object_hot_air_balloon.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Year: 1863
+  Year: 0
   Country: 2
   Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Five_Weeks_in_a_Balloon
+  WikipediaUrl: 
   Importance: 20
   targetAge: 2
   CoreOfTopic: {fileID: 0}
-  IsInTopics: 0
+  IsInTopics: 1
   MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
@@ -53,7 +52,8 @@ MonoBehaviour:
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: 083d2f342d02d4bb7ac50ea5f0a8b27f, type: 2}
+  ImageAsset: {fileID: 11400000, guid: c74a7939b137b4be594df4b9a63dd4ac, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -67,9 +67,9 @@ MonoBehaviour:
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
-  _lastTitleEn: Five Weeks in a Balloon
-  _lastDescriptionEn: A book by Jules Verne about flying across Africa in a hot air
-    balloon. It's full of adventure and discovery!
+  QuestOwner: 
+  _lastTitleEn: Hot-Air Balloon
+  _lastDescriptionEn: A balloon that flies using hot air. The first one flew in France.
   references:
     version: 2
     RefIds: []

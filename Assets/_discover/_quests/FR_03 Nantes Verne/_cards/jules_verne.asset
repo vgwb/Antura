@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: object_hot_air_balloon
+  m_Name: jules_verne
   m_EditorClassIdentifier: 
-  Id: object_hot_air_balloon
-  Status: 1
-  Type: 3
-  Subjects: 2c000000
-  TitleEn: Hot-Air Balloon
-  DescriptionEn: A balloon that flies using hot air. The first one flew in France.
+  Id: jules_verne
+  Status: 3
+  Type: 2
+  Subjects: 080000000400000001000000
+  TitleEn: Jules Verne
+  DescriptionEn: A French writer who imagined amazing adventures before they were
+    possible! He wrote about submarines, rockets, and traveling around the world.
   Title:
     m_TableReference:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: object_hot_air_balloon
+      m_Key: person_jules_verne
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -32,19 +33,19 @@ MonoBehaviour:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: object_hot_air_balloon.desc
+      m_Key: person_jules_verne.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Year: 0
+  Year: 1828
   Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: 
-  Importance: 20
+  Location: {fileID: 11400000, guid: 77a5e0eadd66648ae84bb6f49ebd268b, type: 2}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Jules_Verne
+  Importance: 0
   targetAge: 2
-  CoreOfTopic: {fileID: 0}
-  IsInTopics: 1
-  MasteryPointsToUnlock: 1
+  CoreOfTopic: {fileID: 11400000, guid: 2f46045755510453cbde01d70728b52b, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 10
   Quests:
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
@@ -52,7 +53,8 @@ MonoBehaviour:
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: c74a7939b137b4be594df4b9a63dd4ac, type: 2}
+  ImageAsset: {fileID: 11400000, guid: e145f6099a7f6474fb0dc841bcf73fb1, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -62,12 +64,14 @@ MonoBehaviour:
   ItemTag: 0
   CustomTag: 
   Credits: []
-  Rationale: 
+  Rationale: Jules Verne shows kids how imagination and science can work together
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
-  _lastTitleEn: Hot-Air Balloon
-  _lastDescriptionEn: A balloon that flies using hot air. The first one flew in France.
+  QuestOwner: 
+  _lastTitleEn: Jules Verne
+  _lastDescriptionEn: A French writer who imagined amazing adventures before they
+    were possible! He wrote about submarines, rockets, and traveling around the world.
   references:
     version: 2
     RefIds: []

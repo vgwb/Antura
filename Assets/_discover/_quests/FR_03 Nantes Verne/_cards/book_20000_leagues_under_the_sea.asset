@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: person_jean_michel_jarre
-  m_EditorClassIdentifier: 
-  Id: person_jean_michel_jarre
-  Status: 1
-  Type: 2
-  Subjects: 160000000300000027000000
-  TitleEn: Jean Michel Jarre
-  DescriptionEn: A French musician famous for electronic music
+  m_Name: book_20000_leagues_under_the_sea
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
+  Id: book_20000_leagues_under_the_sea
+  Status: 3
+  Type: 3
+  Subjects: 08000000
+  TitleEn: 20000 Leagues Under the Sea
+  DescriptionEn: A book by Jules Verne about underwater adventures in a submarine
+    called the Nautilus. You meet giant sea creatures!
   Title:
     m_TableReference:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: person_jean_michel_jarre
+      m_Key: literature_20000_leagues_under_the_sea
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -32,26 +33,27 @@ MonoBehaviour:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: person_jean_michel_jarre.desc
+      m_Key: literature_20000_leagues_under_the_sea.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Year: 2000
+  Year: 1871
   Country: 2
   Location: {fileID: 0}
-  WikipediaUrl: 
-  Importance: 20
+  WikipediaUrl: https://en.wikipedia.org/wiki/Twenty_Thousand_Leagues_Under_the_Sea
+  Importance: 10
   targetAge: 2
   CoreOfTopic: {fileID: 0}
-  IsInTopics: 0
+  IsInTopics: 1
   MasteryPointsToUnlock: 1
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: 7bc17994073309048aad8012e765f467, type: 2}
+  ImageAsset: {fileID: 11400000, guid: 4064b489555ab41789773e524979211b, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
@@ -64,11 +66,12 @@ MonoBehaviour:
   Credits: []
   Rationale: 
   Notes: 
-  LastReviewed: 2025-09-03
+  LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
   QuestOwner: 
-  _lastTitleEn: Jean Michel Jarre
-  _lastDescriptionEn: A French musician famous for electronic music
+  _lastTitleEn: 20000 Leagues Under the Sea
+  _lastDescriptionEn: A book by Jules Verne about underwater adventures in a submarine
+    called the Nautilus. You meet giant sea creatures!
   references:
     version: 2
     RefIds: []
