@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: marseillaise_music
   m_EditorClassIdentifier: 
   Id: marseillaise_music
-  Status: 1
+  Status: 3
   Type: 4
   Subjects: 1600000003000000
   TitleEn: La Marseillaise
@@ -50,24 +50,30 @@ MonoBehaviour:
   Words: []
   Cookies: 0
   Gems: 0
-  Points: 1
+  Points: 4
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: d83a9895d8d555d409eb9c75deb7497f, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
-  AudioAsset: {fileID: 0}
+  AudioAsset: {fileID: 11400000, guid: 16aec4f1cdee54c51bf8159da60c82a6, type: 2}
   IsCollectible: 0
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
-  Credits: []
+  Credits:
+  - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Research: 1
+    Content: 0
+    Design: 0
+    Development: 1
+    Validation: 0
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
-  QuestOwner: 
+  QuestOwner: FR_11
   _lastTitleEn: La Marseillaise
   _lastDescriptionEn: The French national song. People sing it at big events and
     sports games.
