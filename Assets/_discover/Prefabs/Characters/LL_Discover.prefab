@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 213366315215552654}
   - component: {fileID: 7290577221793618635}
   - component: {fileID: 7772995699213425515}
+  - component: {fileID: 7241647408442772765}
   m_Layer: 0
   m_Name: LL_Discover
   m_TagString: Untagged
@@ -325,7 +326,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4788061485843009964}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -397,6 +398,26 @@ MonoBehaviour:
   TurnSpeed: 180
   SmoothReturnOnDisable: 1
   ReturnSpeed: 180
+--- !u!114 &7241647408442772765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788061485843009964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f824a5b39c4be4081bb8691706ac3646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.PartyMember
+  id: 
+  MemberKind: 2
+  MaxSpeed: 4
+  Accel: 8
+  StopDistance: 0.25
+  RotationSpeed: 360
+  SlotIndex: -1
+  Leader: {fileID: 0}
 --- !u!1 &5092105606933901799
 GameObject:
   m_ObjectHideFlags: 0

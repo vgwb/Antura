@@ -504,6 +504,7 @@ namespace Antura.Discover
                     _hasJumped = true;
                     animationController.OnJumpStart();
                     AudioManager.I.PlaySound(Sfx.CatMeow);
+                    PartyManager.I.TriggerPartyJump(0.0f, 0.08f, includeLeader: false);
                 }
 
                 // Jump timeout

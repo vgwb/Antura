@@ -270,6 +270,58 @@ namespace Antura.Discover
         }
 
         // ------------------------------------------------------------
+        // PARTY
+        // ------------------------------------------------------------
+        //  <<party_join "LETTER_A_ID">>
+        //  <<party_release "LETTER_A_ID">> // if no id, remove all
+        //  <<party_formation "circle">>
+
+        private static PartyManager GetPartyManager()
+        {
+            return FindFirstObjectByType<PartyManager>();
+        }
+
+        [YarnCommand("party_join")]
+        public static void PartyJoinById(string id)
+        {
+            var pm = GetPartyManager();
+            if (pm == null || string.IsNullOrEmpty(id))
+                return;
+
+            // TODO improve
+            foreach (var m in FindObjectsByType<PartyMember>(FindObjectsSortMode.None))
+            {
+                if (m.GetComponent<Interactable>().Id == id)
+                {
+                    pm.AddMember(m);
+                    return;
+                }
+            }
+            Debug.LogWarning($"[PartyYarn] party_join: member with Id '{id}' not found in scene.");
+        }
+
+        [YarnCommand("party_release")]
+        public static void PartyReleaseById(string id = "")
+        {
+            var pm = GetPartyManager();
+            if (pm == null)
+                return;
+            if (string.IsNullOrEmpty(id))
+                pm.RemoveAllFollowers();
+            else
+                pm.RemoveMemberById(id);
+        }
+
+        [YarnCommand("party_formation")]
+        public static void PartySetFormation(string name)
+        {
+            var pm = GetPartyManager();
+            if (pm == null)
+                return;
+            pm.SetFormation(name);
+        }
+
+        // ------------------------------------------------------------
         // TARGET
         // ------------------------------------------------------------
 

@@ -282,6 +282,40 @@ A good chest! #line:dev_item_chest_1
 <<action open_chest>>
 ===
 
+title: npc_join_party
+---
+Do you want to join my party? #line:0b1f3e1 
+-> Yes #line:0d1f4e3 
+    <<party_join npc_party_1>>
+    Now i'm following you!
+-> No #line:0a8e1c3 
+    ok
+===
+
+title: npc_join_party2
+---
+Do you want to join my party? 
+-> Yes
+    <<party_join npc_party_2>>
+    Now i'm following you!
+-> No
+    ok
+===
+
+title: npc_leave_party
+---
+Want to change Party?
+-> Formation Circle
+    <<party_formation circle >>
+-> Formation Line
+    <<party_formation line >>
+-> Formation V
+    <<party_formation v >>
+-> Release Party
+    <<party_release>>
+===
+
+
 title: test_quiz
 position: 4,718
 group: quiz

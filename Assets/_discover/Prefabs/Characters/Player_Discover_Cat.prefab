@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 6937420662406837792}
   - component: {fileID: 4294298240500422975}
   - component: {fileID: 552005255099467279}
+  - component: {fileID: 1306753445747268114}
   m_Layer: 0
   m_Name: Player_Discover_Cat
   m_TagString: Player
@@ -425,6 +426,26 @@ MonoBehaviour:
   Country: 0
   Category: 50
   Tags: 
+--- !u!114 &1306753445747268114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502568018897201893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f824a5b39c4be4081bb8691706ac3646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.PartyMember
+  id: 
+  MemberKind: 0
+  MaxSpeed: 4
+  Accel: 8
+  StopDistance: 0.25
+  RotationSpeed: 360
+  SlotIndex: -1
+  Leader: {fileID: 0}
 --- !u!1001 &4616306120691456199
 PrefabInstance:
   m_ObjectHideFlags: 0

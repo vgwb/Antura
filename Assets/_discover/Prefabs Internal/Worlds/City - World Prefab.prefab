@@ -2486,6 +2486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7370482817960969945}
   - component: {fileID: 5731758973183965684}
+  - component: {fileID: 2171609812395849976}
   m_Layer: 0
   m_Name: City - World Prefab
   m_TagString: Untagged
@@ -2544,6 +2545,38 @@ MonoBehaviour:
   WorldId: city
   DefaultSetup: {fileID: 11400000, guid: 15021cfca1a2f4da78b1591e02eec1d5, type: 2}
   AutoApplyOnAwake: 1
+--- !u!114 &2171609812395849976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5069051516954444199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 4a90c07480749417aa884b9d451ec7d6, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &5517826418883314614
 GameObject:
   m_ObjectHideFlags: 0
