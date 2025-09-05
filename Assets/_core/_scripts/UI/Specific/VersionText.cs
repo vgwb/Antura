@@ -19,7 +19,7 @@ namespace Antura.UI
             }
             label += AppManager.I.AppEdition.GetAppVersionString();
             label += " - " + AppManager.I.ContentEdition.ContentID.ToString();
-            label += " (" + LanguageUtilities.GetISO3Code(AppManager.I.AppSettings.NativeLanguage) + ")";
+            label += " (" + LanguageUtilities.GetISO2Code(AppManager.I.AppSettings.NativeLanguage) + ")";
             gameObject.GetComponent<TextMeshProUGUI>().text = label;
         }
     }

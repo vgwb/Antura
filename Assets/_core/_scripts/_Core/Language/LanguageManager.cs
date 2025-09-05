@@ -74,26 +74,36 @@ namespace Antura.Language
         public IEnumerator ReloadNativeLanguage()
         {
             yield return LoadLanguage(LanguageUse.Native, AppManager.I.AppSettings.NativeLanguage);
-            // yield return SetLocalizationLanguage(loadedLanguageData[AppManager.I.AppSettings.NativeLanguage].config.Iso2);
+            var iso2 = LanguageUtilities.GetIso2Direct(AppManager.I.AppSettings.NativeLanguage);
+            yield return SetLocalizationLanguage(iso2);
         }
 
         private IEnumerator SetLocalizationLanguage(string iso2Code)
         {
-            // Wait for the localization system to initialize if needed
-            // TODO yield return LocalizationSettings.InitializationOperation;
+            // Ensure the Localization system is initialized
+            yield return LocalizationSettings.InitializationOperation;
 
             // Get all available locales
-            var locales = LocalizationSettings.AvailableLocales.Locales;
+            var locales = LocalizationSettings.AvailableLocales?.Locales;
+            if (locales == null || locales.Count == 0)
+                yield break;
 
-            // Find the locale matching the ISO2 code
-            var targetLocale = locales.FirstOrDefault(locale => locale.Identifier.Code.ToLower() == iso2Code.ToLower());
+            // Try exact code match (e.g., en, fr, it, pl, en-GB)
+            var targetLocale = locales.FirstOrDefault(locale =>
+                string.Equals(locale.Identifier.Code, iso2Code, System.StringComparison.OrdinalIgnoreCase));
 
-            if (targetLocale != null)
+            if (targetLocale == null)
             {
-                yield return LocalizationSettings.InitializationOperation;
-                LocalizationSettings.SelectedLocale = targetLocale;
-                Debug.Log($"Language switched to: {targetLocale.Identifier.Code}");
+                Debug.LogWarning($"[Language] No Unity Locale matches ISO2 '{iso2Code}'. Keeping current locale.");
+                yield break;
             }
+
+            if (LocalizationSettings.SelectedLocale != targetLocale)
+            {
+                LocalizationSettings.SelectedLocale = targetLocale;
+                Debug.Log($"[Language] Unity Localization switched to: {targetLocale.Identifier.Code}");
+            }
+            yield break;
         }
 
         private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)

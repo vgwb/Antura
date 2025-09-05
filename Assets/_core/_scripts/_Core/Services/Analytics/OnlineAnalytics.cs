@@ -70,7 +70,7 @@ namespace Antura.Core.Services.OnlineAnalytics
         {
             myEvent.Add("myPlayerUuid", AppManager.I.AppSettings.LastActivePlayerUUID.ToString());
             myEvent.Add("myEdition", AppManager.I.AppSettings.ContentID.ToString());
-            myEvent.Add("myNativeLang", LanguageUtilities.GetISO3Code(AppManager.I.AppSettings.NativeLanguage));
+            myEvent.Add("myNativeLang", LanguageUtilities.GetISO2Code(AppManager.I.AppSettings.NativeLanguage));
         }
 
         public void TestEvent()

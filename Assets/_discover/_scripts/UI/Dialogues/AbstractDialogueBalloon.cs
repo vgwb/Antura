@@ -93,6 +93,7 @@ namespace Antura.Discover
 
         public void DisplayText(bool UseLearningLanguage)
         {
+            // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
             LanguageCode spokenLang;
             if (UseLearningLanguage)
             {

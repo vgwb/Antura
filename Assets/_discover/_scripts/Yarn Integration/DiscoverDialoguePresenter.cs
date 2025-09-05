@@ -12,6 +12,7 @@ namespace Antura.Discover
         public YarnAnturaManager Manager { get; set; }
 
         private string lastSeenLine;
+        private string lastSeenLineNative;
         private bool _hasPendingOptions;
         public bool HasPendingOptions => _hasPendingOptions;
 
@@ -101,15 +102,17 @@ namespace Antura.Discover
             var lineId = line.TextID;
             var CharacterName = line.CharacterName;
             var RawText = line.RawText;
-            var TextWithoutCharacterName = line.TextWithoutCharacterName;
+            var TextNative = line.TextWithoutCharacterName;
+            var TextLearning = (line as LocalizedLineDiscover)?.TextLearning;
             var metadata = line.Metadata;
+
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
 
             var questNode = new QuestNode
             {
                 Type = type,
-                Content = TextWithoutCharacterName.Text,
-                ContentNative = TextWithoutCharacterName.Text, // TODO: provide native via localization
+                Content = TextLearning,
+                ContentNative = TextNative.Text,
                 AudioId = null,
                 Image = "",
                 Permalink = _currentNodeName
@@ -127,7 +130,8 @@ namespace Antura.Discover
 
             UIManager.I.dialogues.ShowDialogueLine(questNode);
             Manager?.EmitQuestNode(questNode);
-            lastSeenLine = TextWithoutCharacterName.Text;
+            lastSeenLine = TextLearning;
+            lastSeenLineNative = TextNative.Text;
             var continueButton = true;
             if (continueButton)
             {
@@ -218,11 +222,11 @@ namespace Antura.Discover
                     OnOptionSelected = _optionTCS,
                     completionToken = _optionCTS.Token,
                     Index = i,
-                    Content = option.Line.TextWithoutCharacterName.Text,
-                    ContentNative = option.Line.TextWithoutCharacterName.Text, // Assuming native text is the same for now
+                    Content = (option.Line as LocalizedLineDiscover)?.TextLearning,
+                    ContentNative = option.Line.TextWithoutCharacterName.Text,
                     AudioId = "",
                     Image = TryGetCardId(option.Line.Metadata) ?? string.Empty,
-                    Highlight = false // Set highlight based on your logic
+                    Highlight = false
                 };
                 qn.Choices.Add(newChoice);
             }
@@ -240,9 +244,8 @@ namespace Antura.Discover
                 return await DialogueRunner.NoOptionSelected;
             }
 
-            // finally we return the selected option
+            // return the selected option
             return completedTask;
-
         }
 
         /// <summary>
@@ -317,4 +320,3 @@ namespace Antura.Discover
         }
     }
 }
-

@@ -30,6 +30,9 @@ namespace Antura.Discover
 
     public class DiscoverAppManager : SingletonMonoBehaviour<DiscoverAppManager>
     {
+
+        public string LearningLanguageIso2 = "fr";
+
         [SerializeField]
         private EconomySettings economySettings;
 

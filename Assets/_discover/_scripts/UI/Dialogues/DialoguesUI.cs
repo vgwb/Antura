@@ -386,6 +386,7 @@ namespace Antura.Discover
 
         void OnBalloonClicked()
         {
+            // Debug.Log("OnBalloonClicked");
             UseLearningLanguage = !UseLearningLanguage;
             currBalloon.DisplayText(UseLearningLanguage);
         }

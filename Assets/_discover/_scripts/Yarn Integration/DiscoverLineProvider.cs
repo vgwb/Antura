@@ -14,6 +14,11 @@ using Yarn.Unity.UnityLocalization;
 
 namespace Antura.Discover
 {
+    public class LocalizedLineDiscover : LocalizedLine
+    {
+        public string TextLearning = "";
+    }
+
     public class DiscoverLineProvider : LineProviderBehaviour
     {
         [SerializeField]
@@ -65,9 +70,9 @@ namespace Antura.Discover
             }
 
             LocalizedDatabase<UnityEngine.Localization.Tables.StringTable, UnityEngine.Localization.Tables.StringTableEntry>.TableEntryResult tableEntryResult = await YarnTask.WaitForAsyncOperation(LocalizationSettings.StringDatabase.GetTableEntryAsync(stringsTable.TableReference, line.ID, null, FallbackBehavior.UseFallback), cancellationToken);
-            Yarn.Unity.UnityLocalization.LineMetadata metadata = tableEntryResult.Entry?.SharedEntry.Metadata.GetMetadata<Yarn.Unity.UnityLocalization.LineMetadata>();
+            Yarn.Unity.UnityLocalization.LineMetadata? metadata = tableEntryResult.Entry?.SharedEntry.Metadata.GetMetadata<Yarn.Unity.UnityLocalization.LineMetadata>();
             string text = tableEntryResult.Entry?.LocalizedValue ?? $"!! Error: Missing localisation for line {line.ID} in string table {tableEntryResult.Table.LocaleIdentifier}";
-            string shadowLineID = metadata?.ShadowLineSource;
+            string? shadowLineID = metadata?.ShadowLineSource;
             if (shadowLineID != null)
             {
                 LocalizedDatabase<UnityEngine.Localization.Tables.StringTable, UnityEngine.Localization.Tables.StringTableEntry>.TableEntryResult tableEntryResult2 = await YarnTask.WaitForAsyncOperation(LocalizationSettings.StringDatabase.GetTableEntryAsync(stringsTable.TableReference, shadowLineID, null, FallbackBehavior.UseFallback), cancellationToken);
@@ -82,15 +87,59 @@ namespace Antura.Discover
             }
 
             MarkupParseResult markup = lineParser.ParseString(LineParser.ExpandSubstitutions(text, line.Substitutions), LocaleCode);
-            UnityEngine.Object asset = null;
+            UnityEngine.Object? asset = null;
             if (assetTable != null && !assetTable.IsEmpty)
             {
                 asset = await YarnTask.WaitForAsyncOperation(LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<UnityEngine.Object>(assetTable.TableReference, shadowLineID ?? line.ID, null, FallbackBehavior.UseFallback), cancellationToken);
             }
+            // Fetch same entry in learning language (if present)
+            string TextInLearningLanguage = string.Empty;
+            try
+            {
+                var learningIso2 = DiscoverAppManager.I?.LearningLanguageIso2;
+                Locale? learningLocale = null;
+                if (!string.IsNullOrEmpty(learningIso2))
+                {
+                    // Try exact code first
+                    learningLocale = LocalizationSettings.AvailableLocales?.GetLocale(learningIso2);
+                    // Fallback: match starts-with (e.g., "en" -> "en-GB")
+                    if (learningLocale == null && LocalizationSettings.AvailableLocales != null)
+                    {
+                        foreach (var loc in LocalizationSettings.AvailableLocales.Locales)
+                        {
+                            if (loc != null)
+                            {
+                                var code = loc.Identifier.Code;
+                                if (!string.IsNullOrEmpty(code) && code.StartsWith(learningIso2, StringComparison.OrdinalIgnoreCase))
+                                { learningLocale = loc; break; }
+                            }
+                        }
+                    }
+                }
 
-            return new LocalizedLine
+                if (learningLocale != null)
+                {
+                    var learnEntry = await YarnTask.WaitForAsyncOperation(
+                        LocalizationSettings.StringDatabase.GetTableEntryAsync(
+                            stringsTable.TableReference,
+                            shadowLineID ?? line.ID,
+                            learningLocale,
+                            FallbackBehavior.UseFallback
+                        ), cancellationToken);
+
+                    if (learnEntry.Entry != null)
+                        TextInLearningLanguage = learnEntry.Entry.LocalizedValue ?? string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"[DiscoverLineProvider] Learning language fetch failed for line {line.ID}: {ex.Message}");
+            }
+
+            return new LocalizedLineDiscover
             {
                 Text = markup,
+                TextLearning = TextInLearningLanguage, // CUSTOM
                 TextID = line.ID,
                 Substitutions = line.Substitutions,
                 RawText = text,
