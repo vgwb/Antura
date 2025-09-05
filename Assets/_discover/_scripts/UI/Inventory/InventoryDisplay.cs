@@ -6,7 +6,7 @@ namespace Antura.Discover
 {
     public class InventoryDisplay : MonoBehaviour
     {
-
+        public QuestBookDisplay QuestBookDisplay;
         public GameObject ItemsContainer;
         public GameObject ItemPrefab;
         public int MaxItems = 5;
@@ -35,6 +35,11 @@ namespace Antura.Discover
                     HandleItemAdded(it);
                 HandleSelectionChanged(inv.CurrentItem);
             }
+        }
+
+        public void OnOpenBook()
+        {
+            QuestBookDisplay.OnOpenBook();
         }
 
         public void AddItem(InventoryItem itemData)
