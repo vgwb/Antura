@@ -8,7 +8,7 @@ hide:
 
 !!! note "Educators & Designers: help improving this quest!"
     **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/pl-00-the-neighbors-of-poland/31/1)  
-    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1929643794#gid=1929643794)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_00%20Geo%20Poland/PL_00%20Geo%20Poland%20-%20Yarn%20Script.yarn)  
 
 <div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// PL_00 GEOGRAPHY - Polish Geography Overview</span>
@@ -54,7 +54,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good job! You did it! <span class="yarn-meta">#line:0ba3c4c </span></span>
-<span class="yarn-line">You discovered a part of Central Euorpe!</span>
+<span class="yarn-line">You discovered a part of Central Euorpe! <span class="yarn-meta">#line:031f72c </span></span>
 <span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
@@ -70,8 +70,8 @@ hide:
 &lt;&lt;if $CURRENT_PROGRESS &gt;= $MAX_PROGRESS&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;jump win&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $poland_completed == true&gt;&gt;</span>
-<span class="yarn-line">    Thank you for helping me!</span>
-<span class="yarn-line">    Can you help my other friends?</span>
+<span class="yarn-line">    Thank you for helping me! <span class="yarn-meta">#line:0a4a56f </span></span>
+<span class="yarn-line">    Can you help my other friends? <span class="yarn-meta">#line:097eeb8 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_poland"&gt;&gt;</span>
 <span class="yarn-line">    Yes, that is my flag! Thank you! <span class="yarn-meta">#line:0c9fa89 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland remove&gt;&gt;</span>

@@ -8,7 +8,7 @@ hide:
 
 !!! note "Educators & Designers: help improving this quest!"
     **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/pl-01-discover-warszawa/32/1)  
-    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1983275331#gid=1983275331)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_01%20Warsaw/PL_01%20Warsaw%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-init"></a>
@@ -51,7 +51,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
-<span class="yarn-line">Welcome to Warsaw!</span>
+<span class="yarn-line">Welcome to Warsaw! <span class="yarn-meta">#line:07c7f43 </span></span>
 
 
 </code></pre></div>

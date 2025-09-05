@@ -10,18 +10,18 @@ type: panel
 <<set $MAX_PROGRESS = 4>>
 <<set $CURRENT_PROGRESS = 0>>
 <<set $TOTAL_COINS = 0>>
-Welcome to the music quest!
+Welcome to the music quest! #line:0e2f565 
 <<activity  order_marseillese_audio marseillese_played>>
 ===
 
 title: npc_robot
 ---
-now play Jigsaw
+now play Jigsaw #line:09d7993 
 <<activity jigsaw_marseillese marseillese_played>>
 ===
 title: npc_ll
 ---
-now play Order
+now play Order #line:00f2510 
 <<activity order_marseillese_audio marseillese_played>>
 ===
 

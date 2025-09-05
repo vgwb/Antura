@@ -8,7 +8,7 @@ hide:
 
 !!! note "Educators & Designers: help improving this quest!"
     **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-08-mont-blanc-mountains/27/1)  
-    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=736863861#gid=736863861)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_08%20Mont%20Blanc/FR_08%20Mont%20Blanc%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-init"></a>
@@ -40,7 +40,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_tutor"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR, asset=mont_blanc</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">You have to go up the Mont Blanc</span>
+<span class="yarn-line">You have to go up the Mont Blanc <span class="yarn-meta">#line:0f4644b </span></span>
 <span class="yarn-line">the highest mountain in Europe <span class="yarn-meta">#line:07d23cb </span></span>
 <span class="yarn-line">and put the 3 flags correctly <span class="yarn-meta">#line:07f2699 </span></span>
 

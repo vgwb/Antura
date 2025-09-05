@@ -8,7 +8,7 @@ hide:
 
 !!! note "Educators & Designers: help improving this quest!"
     **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-04-road-safety-les-mans/40/1)  
-    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1892167235#gid=1892167235)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_04%20Le%20Mans%20Streets/FR_04%20Le%20Mans%20Streets%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-init"></a>
@@ -51,9 +51,9 @@ hide:
 <span class="yarn-line">Wow, those race cars are fast! <span class="yarn-meta">#line:0e54cfc </span></span>
 <span class="yarn-line">But remember, the racetrack is the only place to go that fast. <span class="yarn-meta">#line:053328c </span></span>
 <span class="yarn-line">On city streets, safety is what's most important. <span class="yarn-meta">#line:0b70620 </span></span>
-<span class="yarn-line">It's time to go home!</span>
+<span class="yarn-line">It's time to go home! <span class="yarn-meta">#line:06e4b9d </span></span>
 <span class="yarn-line">Here, take my scooter to get to the train station. <span class="yarn-meta">#line:00f2f65 </span></span>
-<span class="yarn-line">I'll wait for you there.</span>
+<span class="yarn-line">I'll wait for you there. <span class="yarn-meta">#line:0425fb5 </span></span>
 <span class="yarn-line">Be very careful and pay attention to the signs! <span class="yarn-meta">#line:0b5ee19 </span></span>
 
 </code></pre></div>
@@ -64,7 +64,7 @@ hide:
 <div class="yarn-node" data-title="sign_stop"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is a STOP sign. <span class="yarn-meta">#line:09ac224 </span></span>
-<span class="yarn-line">It means you must always come to a complete stop</span>
+<span class="yarn-line">It means you must always come to a complete stop <span class="yarn-meta">#line:0fde84a </span></span>
 <span class="yarn-line">and look both ways before you can go. <span class="yarn-meta">#line:0758dbd </span></span>
 
 
@@ -85,7 +85,7 @@ hide:
 <div class="yarn-node" data-title="sign_danger"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is a DANGER sign! <span class="yarn-meta">#line:0a57038 </span></span>
-<span class="yarn-line">It warns you to be careful and slow down</span>
+<span class="yarn-line">It warns you to be careful and slow down <span class="yarn-meta">#line:02cfe75 </span></span>
 <span class="yarn-line">because there might be something unexpected on the road. <span class="yarn-meta">#line:07915e7 </span></span>
 
 </code></pre></div>
@@ -109,7 +109,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">These white stripes are a zebra crossing. <span class="yarn-meta">#line:02fbb57 </span></span>
 <span class="yarn-line">It gives pedestrians the right way. <span class="yarn-meta">#line:085d81b </span></span>
-<span class="yarn-line">So you must slow down when approaching it</span>
+<span class="yarn-line">So you must slow down when approaching it <span class="yarn-meta">#line:01cd74f </span></span>
 <span class="yarn-line">and stop if someone is trying to cross! <span class="yarn-meta">#line:04e20a8 </span></span>
 
 </code></pre></div>

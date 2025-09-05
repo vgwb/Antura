@@ -8,7 +8,7 @@ hide:
 
 !!! note "Educators & Designers: help improving this quest!"
     **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-11-la-marseillaise/30/1)  
-    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=849141304#gid=849141304)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_11%20Music%20Marseillese/FR_11%20Music%20Marseillese%20-%20Yarn%20Script.yarn)  
 
 <div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// FR_11 MUSIC - La Marseillaise</span>
@@ -26,7 +26,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
-<span class="yarn-line">Welcome to the music quest!</span>
+<span class="yarn-line">Welcome to the music quest! <span class="yarn-meta">#line:0e2f565 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity  order_marseillese_audio marseillese_played&gt;&gt;</span>
 
 </code></pre></div>
@@ -35,7 +35,7 @@ hide:
 ## npc_robot
 
 <div class="yarn-node" data-title="npc_robot"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
-<span class="yarn-line">now play Jigsaw</span>
+<span class="yarn-line">now play Jigsaw <span class="yarn-meta">#line:09d7993 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_marseillese marseillese_played&gt;&gt;</span>
 
 </code></pre></div>
@@ -44,7 +44,7 @@ hide:
 ## npc_ll
 
 <div class="yarn-node" data-title="npc_ll"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
-<span class="yarn-line">now play Order</span>
+<span class="yarn-line">now play Order <span class="yarn-meta">#line:00f2510 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity order_marseillese_audio marseillese_played&gt;&gt;</span>
 
 </code></pre></div>

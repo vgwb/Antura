@@ -405,7 +405,7 @@ namespace Antura.Discover.Editor
         {
             var scriptPath = q != null && q.YarnScript != null ? AssetDatabase.GetAssetPath(q.YarnScript) : "NO_SCRIPT_ATTACHED.yarn";
             var githublink = "https://github.com/vgwb/Antura/blob/main/" + PublishUtils.EncodeUriString(scriptPath);
-            var googlelink = "https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135";
+            var googlelink = q.GoogleSheetUrl;
             var editInfo = "!!! note \"Educators & Designers: help improving this quest!\"" + "\n";
             editInfo += $"    **Comments and feedback**: [discuss in the Forum]({q.ForumUrl})  " + "\n";
             editInfo += $"    **Improve translations**: [comment the Google Sheet]({googlelink})  " + "\n";

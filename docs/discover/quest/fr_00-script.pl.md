@@ -8,7 +8,7 @@ hide:
 
 !!! note "Educators & Designers: help improving this quest!"
     **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-00-the-neighbors-of-france/22)  
-    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_00%20Geo%20France/FR_00%20Geo%20France%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-init"></a>
@@ -37,7 +37,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $spain_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action area_small&gt;&gt;</span>
 
-<span class="yarn-line">Welcome to the Geography Quest!</span>
+<span class="yarn-line">Welcome to the Geography Quest! <span class="yarn-meta">#line:046db1f </span></span>
 
 
 </code></pre></div>
@@ -52,7 +52,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good job! You did it! <span class="yarn-meta">#line:0ba3c4c </span></span>
-<span class="yarn-line">You discovered a part of Western Euorpe!</span>
+<span class="yarn-line">You discovered a part of Western Euorpe! <span class="yarn-meta">#line:06e1dd4 </span></span>
 <span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
@@ -68,8 +68,8 @@ hide:
 &lt;&lt;if $CURRENT_PROGRESS &gt;= $MAX_PROGRESS&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;jump win&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $france_completed&gt;&gt;</span>
-<span class="yarn-line">    Thank you for helping me!</span>
-<span class="yarn-line">    Can you help my other friends?</span>
+<span class="yarn-line">    Thank you for helping me! <span class="yarn-meta">#line:04e2d8b </span></span>
+<span class="yarn-line">    Can you help my other friends? <span class="yarn-meta">#line:0e426ba </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_france"&gt;&gt;</span>
 <span class="yarn-line">    Yes, that is my flag! Merci! <span class="yarn-meta">#line:01e24a8 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_france remove&gt;&gt;</span>
@@ -294,7 +294,7 @@ hide:
 <span class="yarn-line">    Brussels is the capital of Belgium. <span class="yarn-meta">#line:06b3ceb </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_belgium"&gt;&gt;</span>
 <span class="yarn-line">        Thank you, my beautiful flag is back! <span class="yarn-meta">#line:079096a </span></span>
-<span class="yarn-line">        Can you help my Luxemourgian friend?</span>
+<span class="yarn-line">        Can you help my Luxemourgian friend? <span class="yarn-meta">#line:03a9b7d </span></span>
         <span class="yarn-cmd">&lt;&lt;inventory flag_belgium remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_BELGIUM_FLAG &gt;&gt;</span>
@@ -363,7 +363,7 @@ hide:
 
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_luxembourg"&gt;&gt;</span>
 <span class="yarn-line">        Thank you! That is my flag. <span class="yarn-meta">#line:05de5ab </span></span>
-<span class="yarn-line">        Can you help my swiss friend?</span>
+<span class="yarn-line">        Can you help my swiss friend? <span class="yarn-meta">#line:0090192 </span></span>
         <span class="yarn-cmd">&lt;&lt;inventory flag_luxembourg remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_LUX_FLAG&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
@@ -431,7 +431,7 @@ hide:
 <span class="yarn-line">    The capital of Switzerland is Bern! <span class="yarn-meta">#line:0d2e2d7 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_switzerland"&gt;&gt;</span>
 <span class="yarn-line">        Thank you for bringing my flag back! <span class="yarn-meta">#line:0ca99a0 </span></span>
-<span class="yarn-line">        Go back to the start and claim your victory!</span>
+<span class="yarn-line">        Go back to the start and claim your victory! <span class="yarn-meta">#line:0148420 </span></span>
         <span class="yarn-cmd">&lt;&lt;inventory flag_switzerland remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_SWISS_FLAG&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>

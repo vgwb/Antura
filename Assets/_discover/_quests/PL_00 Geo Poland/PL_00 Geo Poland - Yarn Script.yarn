@@ -37,7 +37,7 @@ tags: actor=KID_FEMALE
 color: purple
 ---
 Good job! You did it! #line:0ba3c4c 
-You discovered a part of Central Euorpe!
+You discovered a part of Central Euorpe! #line:031f72c 
 <<card concept_europe_map>>
     <<quest_end>>
 ===
@@ -51,8 +51,8 @@ tags: actor=KID_FEMALE
 <<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
     <<jump win>>
 <<elseif $poland_completed == true>>
-    Thank you for helping me!
-    Can you help my other friends?
+    Thank you for helping me! #line:0a4a56f 
+    Can you help my other friends? #line:097eeb8 
 <<elseif $CURRENT_ITEM == "flag_poland">>
     Yes, that is my flag! Thank you! #line:0c9fa89 
     <<inventory flag_poland remove>>

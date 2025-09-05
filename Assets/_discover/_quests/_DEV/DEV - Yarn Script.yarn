@@ -68,9 +68,9 @@ group: docs
 // to get the result of that activity
 // (0 = failed, >= 1 = completed)
 <<if GetActivityResult("id_activity_setting") > 0>>
-You played MEMORY activity well! #line:03121d7 
+You played the activity well!
 <<else>>
-Try again. #line:0d146ef 
+Try again.
 <<endif>>
 
 ===

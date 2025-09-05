@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
   m_Name: Countries in Europe
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.TopicData
-  Id: flags
-  Name: Flags France
+  Id: flags_euroe
+  Name: Flags of Europe
   Description: 
   Importance: 20
   NodeColor: {r: 1, g: 1, b: 1, a: 1}
+  Country: 0
   CoreCard: {fileID: 11400000, guid: e9fe808439167f045a7a38ac2a1de7ae, type: 2}
   Connections:
   - ConnectedCard: {fileID: 11400000, guid: 7b8e41f7613d8954bad6d61262a05cf6, type: 2}
@@ -122,3 +123,4 @@ MonoBehaviour:
   CohesionStrength: 0.8
   TargetAge: 2
   Subjects: 
+  Credits: []

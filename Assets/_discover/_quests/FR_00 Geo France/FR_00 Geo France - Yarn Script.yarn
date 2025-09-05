@@ -23,7 +23,7 @@ type: panel
 <<declare $spain_completed = false>>
 <<action area_small>>
 
-Welcome to the Geography Quest!
+Welcome to the Geography Quest! #line:046db1f 
 
 ===
 
@@ -37,7 +37,7 @@ tags: actor=KID_FEMALE
 color: purple
 ---
 Good job! You did it! #line:0ba3c4c 
-You discovered a part of Western Euorpe!
+You discovered a part of Western Euorpe! #line:06e1dd4 
 <<card concept_europe_map>>
 <<quest_end>>
 ===
@@ -51,8 +51,8 @@ tags: actor=KID_FEMALE
 <<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
     <<jump win>>
 <<elseif $france_completed>>
-    Thank you for helping me!
-    Can you help my other friends?
+    Thank you for helping me! #line:04e2d8b 
+    Can you help my other friends? #line:0e426ba 
 <<elseif $CURRENT_ITEM == "flag_france">>
     Yes, that is my flag! Merci! #line:01e24a8 
     <<inventory flag_france remove>>
@@ -263,7 +263,7 @@ color: blue
     Brussels is the capital of Belgium. #line:06b3ceb 
 <<elseif $CURRENT_ITEM == "flag_belgium">>
         Thank you, my beautiful flag is back! #line:079096a 
-        Can you help my Luxemourgian friend?
+        Can you help my Luxemourgian friend? #line:03a9b7d 
         <<inventory flag_belgium remove>>
         <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
         <<task_end FIND_BELGIUM_FLAG >>
@@ -327,7 +327,7 @@ tags: actor=OLD_MAN
 
 <<elseif $CURRENT_ITEM == "flag_luxembourg">>
         Thank you! That is my flag. #line:05de5ab 
-        Can you help my swiss friend?
+        Can you help my swiss friend? #line:0090192 
         <<inventory flag_luxembourg remove>>
         <<task_end FIND_LUX_FLAG>>
         <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
@@ -391,7 +391,7 @@ color: blue
     The capital of Switzerland is Bern! #line:0d2e2d7 
 <<elseif $CURRENT_ITEM == "flag_switzerland">>
         Thank you for bringing my flag back! #line:0ca99a0 
-        Go back to the start and claim your victory!
+        Go back to the start and claim your victory! #line:0148420 
         <<inventory flag_switzerland remove>>
         <<task_end FIND_SWISS_FLAG>>
         <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
