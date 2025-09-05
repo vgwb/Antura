@@ -160,7 +160,8 @@ namespace Antura.Discover
         /// </summary>
         public void RemoveAllFollowers()
         {
-            if (Members.Count <= 1) { BuildSlots(1); RefreshFollowerTargets(); RebuildSerializedIds(); return; }
+            if (Members.Count <= 1)
+            { BuildSlots(1); RefreshFollowerTargets(); RebuildSerializedIds(); return; }
 
             // Remove from the end to avoid shifting costs; skip index 0 (leader)
             for (int i = Members.Count - 1; i >= 1; i--)
