@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
-  m_Name: Marketers
+  m_Name: Seine
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.TopicData
-  Id: marketers
-  Name: Marketers
+  Id: seine_bridges
+  Name: Seine Bridges
   Description: 
   Importance: 20
   NodeColor: {r: 1, g: 1, b: 1, a: 1}
-  CoreCard: {fileID: 11400000, guid: 9c3a141c12db144f18bc9fa5868a2dcf, type: 2}
+  Country: 2
+  CoreCard: {fileID: 11400000, guid: e39ade6ed88c54f82b490bb23f5046cb, type: 2}
   Connections:
-  - ConnectedCard: {fileID: 11400000, guid: 361194b82e1db4477b6e49870dfe7715, type: 2}
+  - ConnectedCard: {fileID: 11400000, guid: 924ba342f3785407b85ae807a4a86d0f, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.7
     ConnectionReason: 
@@ -28,25 +29,16 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
-  - ConnectedCard: {fileID: 11400000, guid: 296c81d4f43a04bcd85a480a8c5a2f1c, type: 2}
+  - ConnectedCard: {fileID: 11400000, guid: e5e509d54e7d549b88c530743f86d6cb, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.7
-    ConnectionReason: 
+    ConnectionReason: Auto from quest fr_10
     LinkingKeywords: []
     LearningValue: 
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
-  - ConnectedCard: {fileID: 11400000, guid: 41c1ed2a0a208478c9140a81ec06b7dd, type: 2}
-    ConnectionType: 11
-    ConnectionStrength: 0.7
-    ConnectionReason: 
-    LinkingKeywords: []
-    LearningValue: 
-    TimeKind: 1
-    CompareKind: 0
-    CulturalRole: 0
-  - ConnectedCard: {fileID: 11400000, guid: 9d9a1f609ea194172bfb0b28b3d2e4ee, type: 2}
+  - ConnectedCard: {fileID: 11400000, guid: 000f778fc14ca49798f6fe1e2913ab6b, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.7
     ConnectionReason: 
