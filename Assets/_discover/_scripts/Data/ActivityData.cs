@@ -30,6 +30,7 @@ namespace Antura.Discover
         [Header("Identification")]
         public ActivityCode Code = ActivityCode.Unknown;
         public LocalizedString Name;
+        public LocalizedString Description;
 
         [Header("Media")]
         public Sprite Image;

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Quiz Activity
   m_EditorClassIdentifier: 
   Id: quiz_activity
+  Status: 0
+  Code: 3
   Name:
     m_TableReference:
       m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
@@ -22,14 +24,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Code: 3
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
+    m_TableEntryReference:
+      m_KeyId: 9150374320529412
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Image: {fileID: 0}
   Category: 0e00000008000000
   Skills: 1700000018000000220000000b000000
   ActivityPrefab: {fileID: 1349397861460383394, guid: a619977e71d954ef6bb43d2d417e09cd,
     type: 3}
+  AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Research: 0
     Content: 0
     Design: 1
     Development: 1

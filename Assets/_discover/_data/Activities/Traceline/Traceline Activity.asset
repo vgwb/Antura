@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Traceline Activity
   m_EditorClassIdentifier: 
   Id: traceline_activity
+  Status: 0
+  Code: 9
   Name:
     m_TableReference:
       m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
@@ -22,19 +24,30 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Code: 9
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
+    m_TableEntryReference:
+      m_KeyId: 9150374320529413
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Image: {fileID: 0}
   Category: 
   Skills: 
   ActivityPrefab: {fileID: 5766881619081821586, guid: 1e448ab5b322e4c30a0b708bb5b4b0bd,
     type: 3}
+  AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 50ea37ce6f4064ad7acca9463b92a65a, type: 2}
+    Research: 0
     Content: 0
     Design: 1
     Development: 0
     Validation: 0
   - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Research: 0
     Content: 0
     Design: 0
     Development: 1
