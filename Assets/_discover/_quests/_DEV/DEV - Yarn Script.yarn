@@ -1,16 +1,12 @@
-﻿//--------------------------------------------
-// DEV QUEST SCRIPT
-//--------------------------------------------
+﻿// DEV QUEST SCRIPT
 // Country: Italy - Firenze
 // Content: Living document for testing Yarn features
 // and documenting available commands
-//--------------------------------------------
 
 //--------------------------------------------
 // INIT
 // every quest starts with an INIT node
 // to inizialize existing variables and declare new ones
-//--------------------------------------------
 
 // title of a node must be unique to this quest
 // create a new node for anything that must be referenced multiple times
@@ -50,52 +46,81 @@ You can use this quest to test features and commands. #line:0196a6d
 ===
 
 //--------------------------------------------
-// COMMANDS
+// DOCS COMMANDS
 // these are the commands available in all  Scripts
 //--------------------------------------------
 
-title: docs_commands
-position: 240,1
+title: DOCS_ACTIONS
+position: 6,179
 group: docs
-color: red
 ---
-/////////////////////////////
-// ACTIONS
 // execute the configured action in the actionManager
 <<action action_id>>
+===
 
-/////////////////////////////
-// ACTIVITY
-// launches an activity
+title: DOCS_ACTIVITY
+position: 4,346
+group: docs
+---
+// launches an activity and set a node to jump after it
 <<activity id_activity_setting id_node_to_jump_after_activity>>
 
-/////////////////////////////
-// AREA
-// changes the area (walls), turnng off the previous one
-<<area full_area>>
-<<area off>>
+// to get the result of that activity
+// (0 = failed, >= 1 = completed)
+<<if GetActivityResult("id_activity_setting") > 0>>
+You played MEMORY activity well! #line:03121d7 
+<<else>>
+Try again. #line:0d146ef 
+<<endif>>
 
-/////////////////////////////
-// ASSETS
+===
+
+title: DOCS_AREA
+position: 11,552
+group: docs
+---
+// set the area (walls), turnng off the previous one
+<<area full_area>>
+// switch off the current area.
+<<area off>>
+===
+
+title: DOCS_ASSETS
+position: 8,722
+group: docs
+---
 // insted of a card, uses a direct Asset Id
 <<asset id_asset>> 
 // hides the current image
 <<asset_hide>>
+===
 
-/////////////////////////////
-// CAMERA
+title: DOCS_CAMERA
+position: 275,184
+group: docs
+---
+// focus the camera on a target (interactable, area, map point)
 <<camera_focus palace>>
+// back to player
 <<camera_reset>>
+===
 
-/////////////////////////////
-// CARDS
-// uses the card Id
-<<card food_baguette show>>
+title: DOCS_CARDS
+position: 552,173
+group: docs
+---
+// uses the card Id to show a card
+<<card food_baguette>>
+// if set set zoom as second paramenter, shows the card in zoom mode
+<<card food_baguette zoom>>
+// hides the current card
 <<card_hide>>
+===
 
-
-/////////////////////////////
-// INVENTORY
+title: DOCS_INVENTORY
+position: 560,348
+group: docs
+---
 // adds the item = card to the inventory (needs to be collectable!)
 <<inventory id_card add>>
 <<inventory id_card>> // same as add
@@ -119,17 +144,24 @@ color: red
     You can collect a Flag of France #line:03da430 
 <<endif>>
 
-/////////////////////////////
-// TASKS
+===
+
+title: DOCS_TASKS
+position: 280,553
+group: docs
+---
 // starts a task
 <<task_start id_task_configuration>>
 // end a task... if you say nothing, its a success
 <<task_end id_task_configuration>>
 <<task_end id_task_configuration fail>>
 <<task_end>> // or even without the id to end current task
+===
 
-/////////////////////////////
-// PARTY
+title: DOCS_PARTY
+position: 279,355
+group: docs
+---
 // makes a NPC join a party following the player
 <<party_join interactable_id>>
 // asks a NPC to leave the party
@@ -141,30 +173,42 @@ color: red
 <<party_formation "circle">>
 <<party_formation "V">>
 
-/////////////////////////////
-// QUEST END
+===
+
+title: DOCS_QUEST
+position: 278,717
+group: docs
+---
 // end current quest and calculate stars based on progress
 <<quest_end>>
 // end the current quest with n (0, 1,2,3) stars
 <<quest_end 3>>
 
-/////////////////////////////
-// TARGET
-// focu the camera on a target
+===
+
+title: DOCS_TARGET
+position: 567,718
+group: docs
+---
+// put a target element on a target
 <<target target_chest>>
 // removes any target
 <<target off>>
+===
 
+title: DOCS_YARN_BUILTIN
+position: 560,552
+group: docs
+---
 
 // --- Yarn built-in commands ---
 <<wait 3>> // waits for 3 seconds
 <<stop>> // stops the current dialogue>>
-
 ===
 
 
 title: test_inventory
-position: 6,244
+position: -58,1478
 group: inventory
 ---
 I am hungry. how about some food? #line:0bdf566 
@@ -183,7 +227,7 @@ I am hungry. how about some food? #line:0bdf566
 
 ===
 title: got_baguette
-position: 489,243
+position: 98,1674
 group: inventory
 ---
 You found a baguette! #line:dev_got_baguette 
@@ -191,7 +235,7 @@ You found a baguette! #line:dev_got_baguette
 
 ===
 title: got_fish
-position: 252,245
+position: -139,1676
 group: inventory
 ---
 An healthy fish! #line:dev_got_fish 
@@ -199,7 +243,7 @@ An healthy fish! #line:dev_got_fish
 
 ===
 title: area_change
-position: 8,482
+position: 755,1339
 group: area 
 ---
 Now i'll let you go around. #line:0aa3b5d 
@@ -207,7 +251,7 @@ Now i'll let you go around. #line:0aa3b5d
 
 ===
 title: test_cards
-position: 8,482
+position: 891,1161
 group: cards 
 ---
 Now i show you some cards #line:05edfca 
@@ -223,7 +267,7 @@ GO back to work now. #line:0970ed1
 
 ===
 title: test_camera
-position: 316,479
+position: 1153,571
 group: camera 
 ---
 Now i show you the map of the playgroud #line:0c58bd8 
@@ -237,7 +281,7 @@ Nice isnt' it? #line:04daace
 
 ===
 title: test_actions
-position: 271,1745
+position: 1499,1880
 tags: actor=KID_FEMALE
 group: actions
 ---
@@ -251,7 +295,7 @@ Do you want to open the Chest? #line:03cae39
 ===
 
 title: task_collect_apples
-position: 4,2000
+position: 1232,2135
 tags:
 group: tasks
 color: green
@@ -267,7 +311,7 @@ color: green
 ===
 
 title: task_collect_apples_done
-position: 4,2000
+position: 1232,2135
 tags:
 group: tasks
 color: green
@@ -277,7 +321,7 @@ Well done! Go back to the robot #line:dev_test_task_done_1
 
 
 title: task_open_chest
-position: 4,2000
+position: 1232,2135
 tags:
 group: tasks
 color: green
@@ -292,7 +336,7 @@ color: green
 <<endif>>
 ===
 title: task_open_chest_done
-position: 4,2000
+position: 1232,2135
 tags:
 group: tasks
 color: green
@@ -302,7 +346,7 @@ Well done! You opened the chest.  #line:04e697a
 ===
 
 title: item_chest
-position: -1,1741
+position: 1227,1876
 tags: actor=TUTOR
 group: actions
 color: yellow
@@ -312,6 +356,8 @@ A good chest! #line:dev_item_chest_1
 ===
 
 title: npc_join_party
+position: 500,2024
+group: party
 ---
 Do you want to join my party? #line:0b1f3e1 
 -> Yes #line:0d1f4e3 
@@ -321,17 +367,10 @@ Do you want to join my party? #line:0b1f3e1
     ok
 ===
 
-title: npc_join_party2
----
-Do you want to join my party? 
--> Yes
-    <<party_join npc_party_2>>
-    Now i'm following you!
--> No
-    ok
-===
 
 title: npc_leave_party
+position: 491,1837
+group: party
 ---
 Want to change Party?
 -> Formation Circle
@@ -346,7 +385,7 @@ Want to change Party?
 
 
 title: test_quiz
-position: 4,718
+position: 1198,872
 group: quiz
 tags: type=quiz
 ---
@@ -360,7 +399,7 @@ Calculate 3*2 #line:dev_test_quiz_1
 ===
 
 title: test_quiz_correct
-position: 316,696
+position: 1376,810
 group: quiz
 
 ---
@@ -368,7 +407,7 @@ YES! Correct. #line:0eb010e
 ===
 
 title: test_quiz_wrong
-position: 319,847
+position: 1379,961
 group: quiz
 
 ---
@@ -380,7 +419,7 @@ GUIDE: No. Do you want to try again? #line:0e2b8d7
 
 
 title: endgame
-position: -368,1
+position: 1072,-56
 group: endgame
 color: red
 ---
@@ -392,7 +431,7 @@ You can end this quest with... #line:027bdca
 ===
 
 title: close_game
-position: -368,200
+position: 1115,235
 group: endgame
 color: red
 type: panel_endgame
@@ -403,7 +442,7 @@ THis is the last message! goodybye
 ===
 
 title: NPCGIoconda
-position: 648,2702
+position: 1876,2837
 assetimage: antura_hero
 ---
 <<asset food_tomato>>
@@ -428,13 +467,13 @@ ora chiudo #line:0baeb5f
 
 ===
 title: activity_done
-position: 904,2704
+position: 2132,2839
 ---
 Activity finished. #line:0ce187d 
 ===
 
 title: test_setactive
-position: 732,2915
+position: 1960,3050
 
 ---
 Now i'll activate gameObject test_setactive #line:0ef2850 
@@ -445,7 +484,7 @@ Nice, isn't it? #line:06bd992
 ===
 
 title: NPCGreeting2
-position: 290,2707
+position: 1518,2842
 assetimage: pirates
 ---
 // <<activity activity_memory>>
@@ -460,8 +499,8 @@ Narrator: How are you? #line:00b7839
 Narrator: What do you want to do with  coins? #line:0bcd506 
 ===
 title: NPCGreeting3
-position: 17,2707
-tags: #camera2 background:conductor_cabin
+position: 1245,2842
+tags:
 ---
 
 <<declare $coins = 0>>
@@ -474,7 +513,7 @@ Narrator: What do you want to do with {$coins} coins?  #line:0a1994c
  <<set $coins = $coins + 10>>
 ===
 title: Chest_01
-position: 128,2919
+position: 1356,3054
 ---
 <<if $doorUnlocked>>
 Narrator: la porta è aperta #line:0e22a89 
@@ -486,7 +525,7 @@ Narrator: la porta è chiusa #line:05086bc
 
 title: note_for_the_editors
 style: note
-position: -109,-200
+position: -288,28
 ---
 Custom note #line:04d621e 
 this is useful to leave notes for the editors #line:0520fb4 
@@ -496,7 +535,7 @@ or things to fix #line:096379b
 ===
 
 title: EntroInCasa
-position: 411,2917
+position: 1639,3052
 ---
 entro in casa #line:0f92df5 
 
@@ -504,7 +543,7 @@ entro in casa #line:0f92df5
 
 
 title: coin_machine
-position: 15,2498
+position: 1243,2633
 tags:
 group: variables
 ---
@@ -514,7 +553,7 @@ I'll give you 100 coins. #line:06427f9
 ===
 
 title: test_mood
-position: 732,2915
+position: 1960,3050
 tags: actor=GUIDE, mood=HAPPY
 ---
 Happy Mood #line:0a6e648 
@@ -522,7 +561,7 @@ Happy Mood #line:0a6e648
 ===
 
 title: random_lines
-position: 18,2267
+position: 1246,2402
 tags: actor=OLD_WOMAN
 group: random
 ---
@@ -532,7 +571,7 @@ Smart random Line 3 #line:032e777
 ===
 
 title: multiple_lines
-position: 317,2275
+position: 1545,2410
 tags: actor=KID_FEMALE
 group: random
 ---
@@ -543,7 +582,7 @@ group: random
 ===
 
 title: activity_canvas
-position: 11,1139
+position: 1359,1253
 group: activities
 color: purple
 ---
@@ -552,7 +591,7 @@ Activity CANVAS!  #line:0532f99
 ===
 
 title: activity_canvas_result
-position: 10,1281
+position: 1358,1395
 group: activities
 color: purple
 ---
@@ -564,7 +603,7 @@ Try again. #line:0797e1e
 ===
 
 title: activity_jigsaw
-position: 271,1139
+position: 1619,1253
 group: activities
 color: purple
 ---
@@ -573,7 +612,7 @@ Activity JIGSAW PUZZLE!  #line:0d97ed9
 ===
 
 title: activity_jigsaw_result
-position: 270,1283
+position: 1618,1397
 group: activities
 color: purple
 ---
@@ -585,7 +624,7 @@ Try again. #line:0921ca5
 ===
 
 title: activity_memory
-position: 540,1140
+position: 1888,1254
 group: activities
 color: purple
 ---
@@ -594,7 +633,7 @@ Activity MEMORY!  #line:0727144
 ===
 
 title: activity_memory_result
-position: 537,1286
+position: 1885,1400
 group: activities
 color: purple
 ---
@@ -606,7 +645,7 @@ Try again. #line:0d146ef
 ===
 
 title: activity_match
-position: 769,1139
+position: 2117,1253
 group: activities
 color: purple
 ---
@@ -615,7 +654,7 @@ Activity MATCH!  #line:0949b00
 ===
 
 title: activity_match_result
-position: 765,1289
+position: 2113,1403
 group: activities
 color: purple
 ---
@@ -627,7 +666,7 @@ Try again. #line:07643ad
 ===
 
 title: activity_money
-position: 1005,1141
+position: 2353,1255
 group: activities
 color: purple
 ---
@@ -636,7 +675,7 @@ Activity MONEY!  #line:05b81d1
 ===
 
 title: activity_money_result
-position: 1011,1293
+position: 2359,1407
 group: activities
 color: purple
 ---
@@ -648,7 +687,7 @@ Try again. #line:02b103d
 ===
 
 title: activity_order
-position: 1253,1142
+position: 2601,1256
 group: activities
 color: purple
 ---
@@ -657,7 +696,7 @@ Activity ORDER!  #line:08e289f
 ===
 
 title: activity_order_result
-position: 1244,1284
+position: 2592,1398
 group: activities
 color: purple
 ---
@@ -671,7 +710,7 @@ Try again. #line:04681e2
 
 
 title: activity_piano
-position: 1486,1143
+position: 2834,1257
 tags: actor=KID_FEMALE
 group: activities
 color: purple
@@ -681,7 +720,7 @@ Play this PIANO Melody! #line:0e11b77
 ===
 
 title: activity_piano_result
-position: 1486,1285
+position: 2834,1399
 tags: actor=KID_FEMALE
 group: activities
 color: purple
