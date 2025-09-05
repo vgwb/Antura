@@ -7,8 +7,9 @@ hide:
 [Quest Index](./index.md) - Language: english - [french](./fr_09-script.fr.md) - [polish](./fr_09-script.pl.md) - [italian](./fr_09-script.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
+    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-09-the-colors-of-the-marseille-market/28/1)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_09%20Food%20&%20Market/FR_09%20Food%20&%20Market%20-%20Yarn%20Script.yarn)  
-    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
 
 <div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// </span>
 </code></pre></div>
@@ -60,10 +61,10 @@ hide:
 ## shop_baker
 
 <div class="yarn-node" data-title="shop_baker"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actor=BAKER</span>
+<span class="yarn-header-dim">tags: actor=BAKER, noRepeatLastLine</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Testing start <span class="yarn-meta">#line:0215305 </span></span>
+<span class="yarn-line">Testing start <span class="yarn-meta">#line:0215305</span></span>
 <span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:09460ce </span></span>
     <span class="yarn-cmd">&lt;&lt;jump baker_bonjour&gt;&gt;</span>
 <span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0bf3f32 </span></span>
@@ -99,7 +100,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">MAN: Select enough money to pay. <span class="yarn-meta">#line:0bbf963 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_BAKER baker_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_baker baker_payment_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -435,7 +436,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Complete the image. <span class="yarn-meta">#line:08396f2 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_JIGSAW activity_pirate_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity jigsaw_pirate activity_pirate_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -549,7 +550,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Match each item to the right seller. <span class="yarn-meta">#line:0a6e106 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_ORDER activity_match_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity match_ingredients activity_match_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -572,7 +573,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0995020 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_FISHER fisher_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_fishmonger fisher_payment_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -584,7 +585,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0f44ea7 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_CHEESEMONGER cheesemonger_payment_activity&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_cheesemonger cheesemonger_payment_activity&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -596,7 +597,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0c80f9e </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GROCER grocer_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_grocer grocer_payment_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -608,7 +609,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:08fc94e </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GREENGROCER greengrocer_payment_activity&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_greengrocer greengrocer_payment_activity&gt;&gt;</span>
 
 </code></pre></div>
 

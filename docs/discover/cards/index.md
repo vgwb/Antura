@@ -477,7 +477,7 @@ The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium 
 - Country: International
 - Quests: [The neighbors of France (fr_00)](../quest/fr_00.md)
 
-<a id="flag_czech"></a>
+<a id="flag_czech_republic"></a>
 ### Flag of Czech Republic
 The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
@@ -1307,7 +1307,7 @@ Polish money (złoty) shown as coins.
 
 ## France
 
-<a id="literature_20000_leagues_under_the_sea"></a>
+<a id="book_20000_leagues_under_the_sea"></a>
 ### 20000 Leagues Under the Sea
 A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
 
@@ -1349,7 +1349,7 @@ Protective metal clothing for a knight.
 - Subjects: History, Safety
 - Country: France
 
-<a id="literature_around_the_world_80_days"></a>
+<a id="book_around_the_world_80_days"></a>
 ### Around the World in Eighty Days
 An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
 
@@ -1617,7 +1617,7 @@ A fine hat with a feather for style.
 - Subjects: Culture, History
 - Country: France
 
-<a id="literature_five_weeks_in_a_balloon"></a>
+<a id="book_five_weeks_in_a_balloon"></a>
 ### Five Weeks in a Balloon
 A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
 
@@ -1704,7 +1704,7 @@ A time in the 1790s when France changed its government.
 - Subjects: History, Civics, Time, Culture
 - Country: France
 
-<a id="literature_from_earth_to_moon"></a>
+<a id="book_from_earth_to_moon"></a>
 ### From the Earth to the Moon
 A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
 
@@ -1757,7 +1757,7 @@ A hard hat to protect your head when riding.
 - Subjects: Safety, Health, Education
 - Country: France
 
-<a id="object_hot_air_balloon"></a>
+<a id="hot_air_balloon"></a>
 ### Hot-Air Balloon
 A balloon that flies using hot air. The first one flew in France.
 
@@ -1766,7 +1766,7 @@ A balloon that flies using hot air. The first one flew in France.
 - Country: France
 - Quests: [Jules Verne and transportation (fr_03)](../quest/fr_03.md)
 
-<a id="person_jean_michel_jarre"></a>
+<a id="jean_michel_jarre"></a>
 ### Jean Michel Jarre
 A French musician famous for electronic music. He makes big light shows.
 
@@ -1775,7 +1775,7 @@ A French musician famous for electronic music. He makes big light shows.
 - Year: 2000
 - Country: France
 
-<a id="person_jules_verne"></a>
+<a id="jules_verne"></a>
 ### Jules Verne
 A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
 

@@ -19,6 +19,7 @@ Language: [english](./index.md) - [french](./index.fr.md) - polish - [italian](.
 - [Opowieść o dwóch zamkach (fr_05)](./fr_05.pl.md)
 - [Paryż Sekwana (fr_10)](./fr_10.pl.md)
 - [Paryż! (fr_01)](./fr_01.pl.md)
+- [Poruszaj się bezpiecznie po mieście (fr_04)](./fr_04.pl.md)
 - [System edukacji (fr_02)](./fr_02.pl.md)
 - [Sąsiedzi Francji (fr_00)](./fr_00.pl.md)
 

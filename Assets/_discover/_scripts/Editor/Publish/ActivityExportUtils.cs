@@ -44,6 +44,13 @@ namespace Antura.Discover.Editor
                 sb.AppendLine($"<a id=\"{a.Code}\"></a>");
                 sb.AppendLine($"## {name}");
                 sb.AppendLine();
+
+                sb.AppendLine($"![preview](../../ assets/img/discover/activity_{a.Code}.jpg)");
+
+                string description = PublishUtils.SafeLocalized(a.Description, string.Empty);
+                if (!string.IsNullOrEmpty(description))
+                    sb.AppendLine(description + "\n");
+
                 if (a.Category != null && a.Category.Count > 0)
                 {
                     var cats = a.Category.Where(c => c != 0).ToArray();

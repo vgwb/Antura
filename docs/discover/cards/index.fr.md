@@ -410,7 +410,7 @@ Un drapeau à rayures blanches, bleues et rouges. Il représente la Russie.
 - Country: International
 - Quests: [Les voisins de la Pologne (pl_00)](../quest/pl_00.fr.md)
 
-<a id="flag_czech"></a>
+<a id="flag_czech_republic"></a>
 ### Drapeau de la République tchèque
 Le drapeau est composé de bandes blanches et rouges avec un triangle bleu. La République tchèque est célèbre pour son magnifique château de Prague et sa cristallerie.
 
@@ -1307,7 +1307,7 @@ Nourriture provenant de poulets utilisée pour la cuisson et la pâtisserie.
 
 ## France
 
-<a id="literature_20000_leagues_under_the_sea"></a>
+<a id="book_20000_leagues_under_the_sea"></a>
 ### 20 000 lieues sous les mers
 Un livre de Jules Verne relatant des aventures sous-marines à bord du sous-marin Nautilus. Vous y rencontrerez des créatures marines géantes !
 
@@ -1509,7 +1509,7 @@ Une solide forteresse en pierre utilisée pour la défense.
 - Subjects: History, Geography, Culture
 - Country: France
 
-<a id="literature_five_weeks_in_a_balloon"></a>
+<a id="book_five_weeks_in_a_balloon"></a>
 ### Cinq semaines en ballon
 Un livre de Jules Verne sur la traversée de l'Afrique en montgolfière. Plein d'aventures et de découvertes !
 
@@ -1564,7 +1564,7 @@ Paroles de la première ligne de l’hymne.
 - Subjects: Music, Education, Culture
 - Country: France
 
-<a id="literature_from_earth_to_moon"></a>
+<a id="book_from_earth_to_moon"></a>
 ### De la Terre à la Lune
 Un livre de Jules Verne sur la Lune dans un grand canon ! Il a été écrit avant l'existence des vraies fusées.
 
@@ -1723,7 +1723,7 @@ Jardins décoratifs pour promenades et fêtes.
 - Subjects: Culture, Environment
 - Country: France
 
-<a id="person_jean_michel_jarre"></a>
+<a id="jean_michel_jarre"></a>
 ### Jean Michel Jarre
 Musicien français célèbre pour sa musique électronique, il réalise de grands spectacles de lumière.
 
@@ -1732,7 +1732,7 @@ Musicien français célèbre pour sa musique électronique, il réalise de grand
 - Year: 2000
 - Country: France
 
-<a id="person_jules_verne"></a>
+<a id="jules_verne"></a>
 ### Jules Verne
 Un écrivain français qui a imaginé des aventures extraordinaires avant même qu'elles ne soient possibles ! Il a écrit sur les sous-marins, les fusées et les voyages autour du monde.
 
@@ -1795,7 +1795,7 @@ Une ancienne statue égyptienne d'une personne en train d'écrire.
 - Country: France
 - Quests: [Paris ! (fr_01)](../quest/fr_01.fr.md)
 
-<a id="literature_around_the_world_80_days"></a>
+<a id="book_around_the_world_80_days"></a>
 ### Le tour du monde en quatre-vingts jours
 Un livre passionnant de Jules Verne sur les voyages autour du monde très rapidement en utilisant des trains, des bateaux et des montgolfières !
 
@@ -1848,7 +1848,7 @@ Une note de musique.
 - Subjects: Music, Education
 - Country: France
 
-<a id="object_hot_air_balloon"></a>
+<a id="hot_air_balloon"></a>
 ### Montgolfière
 Un ballon volant à l'air chaud. Le premier a volé en France.
 

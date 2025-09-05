@@ -5,21 +5,9 @@ hide:
 
 # Topics
 
-## animals
-- Name: Zoo Animal  
-- Importance: Medium  
-- Subjects: Animal  
-- Target Age: Ages6to10
-- Core card: [animal_elephant](../cards/index.md#animal_elephant)
-- Connected cards:
-    - [animal_giraffe](../cards/index.md#animal_giraffe) (RelatedTo)
-    - [animal_lion](../cards/index.md#animal_lion) (RelatedTo)
-    - [animal_monkey](../cards/index.md#animal_monkey) (RelatedTo)
-    - [animal_penguin](../cards/index.md#animal_penguin) (RelatedTo)
-
-## baguette
-- Name: Baguette  
-- Description: Everything related to the iconic Paris landmark  
+<a id="baguette"></a>
+## Baguette
+- Description: the french bread famous all around the world!  
 - Importance: Medium  
 - Subjects: Food  
 - Target Age: Ages3to5
@@ -31,9 +19,10 @@ hide:
     - [food_yeast](../cards/index.md#food_yeast) (MadeOf)
     - [food_flour](../cards/index.md#food_flour) (MadeOf)
     - [food_water](../cards/index.md#food_water) (MadeOf)
+- Quests: [Development (dev)](../quest/dev.md), [Paris! (fr_01)](../quest/fr_01.md)
 
-## bouillabaisse
-- Name: Bouillabaisse  
+<a id="bouillabaisse"></a>
+## Bouillabaisse
 - Importance: Low  
 - Target Age: Ages6to10
 - Core card: [bouillabaisse](../cards/index.md#bouillabaisse)
@@ -47,13 +36,14 @@ hide:
     - [food_lemon](../cards/index.md#food_lemon) (MadeOf)
     - [food_olive_oil](../cards/index.md#food_olive_oil) (MadeOf)
     - [food_pepper_salt](../cards/index.md#food_pepper_salt) (MadeOf)
+- Quests: [The Colors of the Marseille Market (fr_09)](../quest/fr_09.md)
 
 Credits:
   - Valeria Passarella (Italy)
 
-## eiffel-tower
-- Name: Eiffel Tower  
-- Description: Everything related to the iconic Paris landmark  
+<a id="eiffel-tower"></a>
+## Eiffel Tower
+- Description: What we need to know about the iconic Paris landmark  
 - Importance: Critical  
 - Subjects: History  
 - Target Age: Ages3to5
@@ -61,10 +51,13 @@ Credits:
 - Connected cards:
     - [capital_paris](../cards/index.md#capital_paris) (LocatedIn)
     - [gustave_eiffel](../cards/index.md#gustave_eiffel) (CreatedBy)
-    - [iron_material](../cards/index.md#iron_material) (IsA)
+    - [iron_material](../cards/index.md#iron_material) (MadeOf)
+    - [eiffel_tower_map](../cards/index.md#eiffel_tower_map) (RelatedTo)
+    - [eiffel_tower_ticket](../cards/index.md#eiffel_tower_ticket) (RelatedTo)
+- Quests: [Paris! (fr_01)](../quest/fr_01.md)
 
-## fisherman
-- Name: Fisherman  
+<a id="fisherman"></a>
+## Fisherman
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [fisherman](../cards/index.md#fisherman)
@@ -75,8 +68,8 @@ Credits:
     - [fishing_net](../cards/index.md#fishing_net) (RelatedTo)
     - [ship](../cards/index.md#ship) (RelatedTo)
 
-## flags
-- Name: Flags France  
+<a id="flags"></a>
+## Flags France
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [concept_europe_map](../cards/index.md#concept_europe_map)
@@ -89,21 +82,23 @@ Credits:
     - [flag_spain](../cards/index.md#flag_spain) (RelatedTo)
     - [flag_switzerland](../cards/index.md#flag_switzerland) (RelatedTo)
     - [flag_france](../cards/index.md#flag_france) (RelatedTo)
-    - [flag_czech](../cards/index.md#flag_czech) (RelatedTo)
+    - [flag_czech_republic](../cards/index.md#flag_czech_republic) (RelatedTo)
     - [flag_slovakia](../cards/index.md#flag_slovakia) (RelatedTo)
     - [flag_ukraine](../cards/index.md#flag_ukraine) (RelatedTo)
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md), [The neighbors of Poland (pl_00)](../quest/pl_00.md)
 
-## france
-- Name: France country  
+<a id="france"></a>
+## France country
 - Importance: Critical  
 - Target Age: Ages6to10
 - Core card: [country_france](../cards/index.md#country_france)
 - Connected cards:
     - [flag_france](../cards/index.md#flag_france) (RelatedTo)
     - [capital_paris](../cards/index.md#capital_paris) (RelatedTo)
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md)
 
-## france_countries_around
-- Name: Countries around France  
+<a id="france_countries_around"></a>
+## Countries around France
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [country_france](../cards/index.md#country_france)
@@ -120,8 +115,8 @@ Credits:
     - [country_germany](../cards/index.md#country_germany) (RelatedTo)
     - [country_spain](../cards/index.md#country_spain) (RelatedTo)
 
-## frenchschool
-- Name: French School  
+<a id="frenchschool"></a>
+## French School
 - Importance: High  
 - Subjects: Education  
 - Target Age: Ages6to10
@@ -134,9 +129,10 @@ Credits:
     - [concept_cursive_writing](../cards/index.md#concept_cursive_writing) (Purpose)
     - [object_canteen_menu](../cards/index.md#object_canteen_menu) (Purpose)
     - [concept_charter_of_secularism](../cards/index.md#concept_charter_of_secularism) (CulturalContext)
+- Quests: [The School system (fr_02)](../quest/fr_02.md)
 
+<a id="gdansk"></a>
 ## gdansk
-- Name: gdansk  
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [gdansk](../cards/index.md#gdansk)
@@ -146,8 +142,8 @@ Credits:
     - [baltic_sea_coast](../cards/index.md#baltic_sea_coast) (RelatedTo)
     - [baltic_sea](../cards/index.md#baltic_sea) (RelatedTo)
 
-## gingerbread
-- Name: Gingerbread  
+<a id="gingerbread"></a>
+## Gingerbread
 - Importance: Medium  
 - Subjects: Food  
 - Target Age: Ages6to10
@@ -160,24 +156,25 @@ Credits:
     - [ginger](../cards/index.md#ginger) (RelatedTo)
     - [honey](../cards/index.md#honey) (RelatedTo)
 
-## jules_verne
-- Name: Jules Verne  
+<a id="jules_verne"></a>
+## Jules Verne
 - Importance: Medium  
 - Target Age: Ages6to10
-- Core card: [person_jules_verne](../cards/index.md#person_jules_verne)
+- Core card: [jules_verne](../cards/index.md#jules_verne)
 - Connected cards:
-    - [literature_around_the_world_80_days](../cards/index.md#literature_around_the_world_80_days) (RelatedTo)
-    - [literature_from_earth_to_moon](../cards/index.md#literature_from_earth_to_moon) (RelatedTo)
-    - [literature_20000_leagues_under_the_sea](../cards/index.md#literature_20000_leagues_under_the_sea) (RelatedTo)
-    - [object_hot_air_balloon](../cards/index.md#object_hot_air_balloon) (RelatedTo)
+    - [book_around_the_world_80_days](../cards/index.md#book_around_the_world_80_days) (RelatedTo)
+    - [book_from_earth_to_moon](../cards/index.md#book_from_earth_to_moon) (RelatedTo)
+    - [book_20000_leagues_under_the_sea](../cards/index.md#book_20000_leagues_under_the_sea) (RelatedTo)
+    - [hot_air_balloon](../cards/index.md#hot_air_balloon) (RelatedTo)
     - [space_rocket](../cards/index.md#space_rocket) (RelatedTo)
     - [submarine_nautilus](../cards/index.md#submarine_nautilus) (RelatedTo)
+- Quests: [Jules Verne and transportation (fr_03)](../quest/fr_03.md)
 
 Credits:
   - Lucie Paillat (France)
 
-## louvre
-- Name: Louvre  
+<a id="louvre"></a>
+## Louvre
 - Importance: Critical  
 - Subjects: Art  
 - Target Age: Ages6to10
@@ -188,9 +185,10 @@ Credits:
     - [person_leonardodavinci](../cards/index.md#person_leonardodavinci) (CreatedBy)
     - [art_liberty_leading_the_people](../cards/index.md#art_liberty_leading_the_people) (MadeOf)
     - [art_venus_milo](../cards/index.md#art_venus_milo) (MadeOf)
+- Quests: [Paris! (fr_01)](../quest/fr_01.md)
 
-## marketers
-- Name: Marketers  
+<a id="marketers"></a>
+## Marketers
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [person_fishmonger](../cards/index.md#person_fishmonger)
@@ -199,9 +197,10 @@ Credits:
     - [person_baker](../cards/index.md#person_baker) (RelatedTo)
     - [person_greengrocer](../cards/index.md#person_greengrocer) (RelatedTo)
     - [person_grocer](../cards/index.md#person_grocer) (RelatedTo)
+- Quests: [The Colors of the Marseille Market (fr_09)](../quest/fr_09.md)
 
-## marseillaise
-- Name: marseillaise_music  
+<a id="marseillaise_music"></a>
+## marseillaise music
 - Importance: High  
 - Target Age: Ages6to10
 - Core card: [marseillaise_music](../cards/index.md#marseillaise_music)
@@ -211,9 +210,10 @@ Credits:
     - [marseillaise_1](../cards/index.md#marseillaise_1) (RelatedTo)
     - [marseillaise_2](../cards/index.md#marseillaise_2) (RelatedTo)
     - [marseillaise_4](../cards/index.md#marseillaise_4) (RelatedTo)
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.md)
 
-## maths
-- Name: About Math  
+<a id="maths"></a>
+## About Math
 - Importance: Medium  
 - Subjects: Math  
 - Target Age: Ages6to10
@@ -224,13 +224,14 @@ Credits:
     - [math_compass](../cards/index.md#math_compass) (RelatedTo)
     - [math_ruler](../cards/index.md#math_ruler) (RelatedTo)
     - [math_setsquare](../cards/index.md#math_setsquare) (RelatedTo)
+- Quests: [The School system (fr_02)](../quest/fr_02.md)
 
 Credits:
   - Valeria Passarella (Italy)
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
-## mont_blanc
-- Name: place_mont_blanc  
+<a id="mont_blanc"></a>
+## mont blanc
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [place_mont_blanc](../cards/index.md#place_mont_blanc)
@@ -242,9 +243,10 @@ Credits:
     - [mountain](../cards/index.md#mountain) (RelatedTo)
     - [snow](../cards/index.md#snow) (RelatedTo)
     - [ice](../cards/index.md#ice) (RelatedTo)
+- Quests: [Mont Blanc & Mountains (fr_08)](../quest/fr_08.md)
 
-## mountain_activities
-- Name: mountain activities  
+<a id="mountain_activities"></a>
+## mountain activities
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [mountain](../cards/index.md#mountain)
@@ -253,9 +255,11 @@ Credits:
     - [hiking](../cards/index.md#hiking) (RelatedTo)
     - [climbing](../cards/index.md#climbing) (RelatedTo)
     - [skiing](../cards/index.md#skiing) (RelatedTo)
+- Quests: [Mont Blanc & Mountains (fr_08)](../quest/fr_08.md)
 
-## mountain_tools
-- Name: mountain  
+<a id="mountain_tools"></a>
+## mountain tools
+- Description: what we need to stay ssafe in the mountain  
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [mountain](../cards/index.md#mountain)
@@ -267,9 +271,10 @@ Credits:
     - [crampons](../cards/index.md#crampons) (RelatedTo)
     - [scarf](../cards/index.md#scarf) (RelatedTo)
     - [sunglasses](../cards/index.md#sunglasses) (RelatedTo)
+- Quests: [Mont Blanc & Mountains (fr_08)](../quest/fr_08.md)
 
-## musical_notes
-- Name: Musical Notes  
+<a id="musical_notes"></a>
+## Musical Notes
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [musical_score](../cards/index.md#musical_score)
@@ -282,9 +287,10 @@ Credits:
     - [note_do](../cards/index.md#note_do) (RelatedTo)
     - [note_mi](../cards/index.md#note_mi) (RelatedTo)
     - [note_re](../cards/index.md#note_re) (RelatedTo)
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.md)
 
-## neptune_fountain
-- Name: Neptune's fountain  
+<a id="neptune_fountain"></a>
+## Neptune's fountain
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [neptune_s_fountain](../cards/index.md#neptune_s_fountain)
@@ -295,8 +301,8 @@ Credits:
     - [necklace](../cards/index.md#necklace) (RelatedTo)
     - [gdansk](../cards/index.md#gdansk) (RelatedTo)
 
-## notredame
-- Name: Notre Dame  
+<a id="notredame"></a>
+## Notre Dame
 - Importance: High  
 - Subjects: Culture  
 - Target Age: Ages6to10
@@ -305,9 +311,10 @@ Credits:
     - [capital_paris](../cards/index.md#capital_paris) (LocatedIn)
     - [notre_dame_de_paris_fire](../cards/index.md#notre_dame_de_paris_fire) (TimeContext)
     - [ile_de_france](../cards/index.md#ile_de_france) (LocatedIn)
+- Quests: [Paris! (fr_01)](../quest/fr_01.md)
 
-## odra_river
-- Name: Odra river  
+<a id="odra_river"></a>
+## Odra river
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [place_odra_river](../cards/index.md#place_odra_river)
@@ -321,26 +328,28 @@ Credits:
     - [wroclaw_bridges](../cards/index.md#wroclaw_bridges) (RelatedTo)
     - [place_vistula_river](../cards/index.md#place_vistula_river) (RelatedTo)
 
-## pierogi
-- Name: Pierogi Recipe  
+<a id="pierogi"></a>
+## Pierogi Recipe
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [gingerbread](../cards/index.md#gingerbread)
 - Connected cards:
     - [pierogi](../cards/index.md#pierogi) (RelatedTo)
     - [currency_zloty](../cards/index.md#currency_zloty) (RelatedTo)
+- Quests: [Gingerbread & food market (pl_06)](../quest/pl_06.md)
 
-## poland
-- Name: Poland country  
+<a id="poland"></a>
+## Poland country
 - Importance: Critical  
 - Target Age: Ages6to10
 - Core card: [country_poland](../cards/index.md#country_poland)
 - Connected cards:
     - [flag_poland](../cards/index.md#flag_poland) (RelatedTo)
     - [capital_warsaw](../cards/index.md#capital_warsaw) (RelatedTo)
+- Quests: [The neighbors of Poland (pl_00)](../quest/pl_00.md)
 
-## poland_countries_around
-- Name: ukraine  
+<a id="poland_countries_around"></a>
+## Poland Countries
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [country_poland](../cards/index.md#country_poland)
@@ -352,15 +361,15 @@ Credits:
     - [flag_belarus](../cards/index.md#flag_belarus) (RelatedTo)
     - [flag_russia](../cards/index.md#flag_russia) (RelatedTo)
     - [flag_slovakia](../cards/index.md#flag_slovakia) (RelatedTo)
-    - [flag_czech](../cards/index.md#flag_czech) (RelatedTo)
+    - [flag_czech_republic](../cards/index.md#flag_czech_republic) (RelatedTo)
     - [flag_lithuania](../cards/index.md#flag_lithuania) (RelatedTo)
     - [flag_ukraine](../cards/index.md#flag_ukraine) (RelatedTo)
     - [flag_germany](../cards/index.md#flag_germany) (RelatedTo)
     - [country_germany](../cards/index.md#country_germany) (RelatedTo)
     - [country_russia](../cards/index.md#country_russia) (RelatedTo)
 
-## seine_bridges
-- Name: Seine Bridges  
+<a id="seine_bridges"></a>
+## Seine Bridges
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [place_bridge_cars](../cards/index.md#place_bridge_cars)
@@ -368,9 +377,10 @@ Credits:
     - [place_bridge_people](../cards/index.md#place_bridge_people) (RelatedTo)
     - [place_bridge_trains](../cards/index.md#place_bridge_trains) (RelatedTo)
     - [boat_river](../cards/index.md#boat_river) (RelatedTo)
+- Quests: [Paris Seine (fr_10)](../quest/fr_10.md)
 
-## solar_system
-- Name: Solar System  
+<a id="solar_system"></a>
+## Solar System
 - Importance: High  
 - Subjects: Science  
 - Target Age: Ages6to10
@@ -387,9 +397,22 @@ Credits:
     - [planetarium](../cards/index.md#planetarium) (RelatedTo)
     - [earth](../cards/index.md#earth) (RelatedTo)
     - [uranus](../cards/index.md#uranus) (RelatedTo)
+- Quests: [Copernicus and the Solar System (pl_07)](../quest/pl_07.md)
 
-## telescope
-- Name: Telescope  
+<a id="street safety"></a>
+## Stree safety
+- Importance: Medium  
+- Target Age: Ages6to10
+- Core card: [danger_sign](../cards/index.md#danger_sign)
+- Connected cards:
+    - [helmet_street_safety](../cards/index.md#helmet_street_safety) (RelatedTo)
+    - [stop_sign](../cards/index.md#stop_sign) (RelatedTo)
+    - [zebra_crossing](../cards/index.md#zebra_crossing) (RelatedTo)
+    - [traffic_lights](../cards/index.md#traffic_lights) (RelatedTo)
+- Quests: [Move around in a city in safety (fr_04)](../quest/fr_04.md)
+
+<a id="telescope"></a>
+## Telescope
 - Importance: Medium  
 - Subjects: Science  
 - Target Age: Ages6to10
@@ -399,9 +422,10 @@ Credits:
     - [eyepiece](../cards/index.md#eyepiece) (RelatedTo)
     - [lens](../cards/index.md#lens) (RelatedTo)
     - [planetarium](../cards/index.md#planetarium) (RelatedTo)
+- Quests: [Copernicus and the Solar System (pl_07)](../quest/pl_07.md)
 
-## warsaw
-- Name: Warsaw  
+<a id="warsaw"></a>
+## Warsaw
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [chopin_monument](../cards/index.md#chopin_monument)
@@ -409,19 +433,10 @@ Credits:
     - [mermaid_of_warsaw](../cards/index.md#mermaid_of_warsaw) (RelatedTo)
     - [wars_and_sawa](../cards/index.md#wars_and_sawa) (RelatedTo)
     - [fryderyk_chopin](../cards/index.md#fryderyk_chopin) (RelatedTo)
+- Quests: [Discover Warszawa (pl_01)](../quest/pl_01.md)
 
-## wroclaw
-- Name: Wroclaw  
-- Importance: Medium  
-- Target Age: Ages6to10
-- Connected cards:
-    - [wroclaw_centennial_hall](../cards/index.md#wroclaw_centennial_hall) (RelatedTo)
-    - [wroclaw_old_town_hall](../cards/index.md#wroclaw_old_town_hall) (RelatedTo)
-    - [wroclaw_sky_tower](../cards/index.md#wroclaw_sky_tower) (RelatedTo)
-    - [wroclaw_cathedral](../cards/index.md#wroclaw_cathedral) (RelatedTo)
-
-## wroclaw
-- Name: Wroclaw  
+<a id="wroclaw"></a>
+## Wroclaw
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [wroclaw](../cards/index.md#wroclaw)
@@ -430,8 +445,23 @@ Credits:
     - [place_odra_river](../cards/index.md#place_odra_river) (RelatedTo)
     - [place_vistula_river](../cards/index.md#place_vistula_river) (RelatedTo)
 
-## wroclaw_zoo
-- Name: wroclaw_zoo  
+<a id="wroclaw_dwarves"></a>
+## Wroclaw Dwarves
+- Importance: Medium  
+- Target Age: Ages6to10
+- Core card: [wroclaw_dwarfs](../cards/index.md#wroclaw_dwarfs)
+- Connected cards:
+    - [animal_lover_dwarf](../cards/index.md#animal_lover_dwarf) (RelatedTo)
+    - [bishop_dwarf](../cards/index.md#bishop_dwarf) (RelatedTo)
+    - [dwarf_expert](../cards/index.md#dwarf_expert) (RelatedTo)
+    - [keymaster_dwarf](../cards/index.md#keymaster_dwarf) (RelatedTo)
+    - [polish_dwarf](../cards/index.md#polish_dwarf) (RelatedTo)
+    - [wroclaw_dwarf_statue](../cards/index.md#wroclaw_dwarf_statue) (RelatedTo)
+    - [wroclaw](../cards/index.md#wroclaw) (LocatedIn)
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quest/pl_02.md)
+
+<a id="wroclaw_zoo"></a>
+## wroclaw zoo
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card: [wroclaw_zoo](../cards/index.md#wroclaw_zoo)
@@ -439,4 +469,16 @@ Credits:
     - [zoo_keeper](../cards/index.md#zoo_keeper) (RelatedTo)
     - [animal_enclosure](../cards/index.md#animal_enclosure) (RelatedTo)
     - [zoo_director](../cards/index.md#zoo_director) (RelatedTo)
+
+<a id="zoo"></a>
+## Zoo Animals
+- Importance: Medium  
+- Subjects: Animal  
+- Target Age: Ages6to10
+- Core card: [animal_elephant](../cards/index.md#animal_elephant)
+- Connected cards:
+    - [animal_giraffe](../cards/index.md#animal_giraffe) (RelatedTo)
+    - [animal_lion](../cards/index.md#animal_lion) (RelatedTo)
+    - [animal_monkey](../cards/index.md#animal_monkey) (RelatedTo)
+    - [animal_penguin](../cards/index.md#animal_penguin) (RelatedTo)
 

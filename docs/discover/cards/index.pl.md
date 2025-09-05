@@ -219,7 +219,7 @@ Flaga Luksemburga ma poziome pasy w kolorze czerwonym, białym i jasnoniebieskim
 - Country: International
 - Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md)
 
-<a id="flag_czech"></a>
+<a id="flag_czech_republic"></a>
 ### Flaga Republiki Czeskiej
 Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z pięknego Zamku Praskiego i kryształowego szkła.
 
@@ -1307,7 +1307,7 @@ Bardzo wysokie zwierzę z długą szyją. Żyrafy są wyższe niż drzewa! Zjada
 
 ## France
 
-<a id="literature_20000_leagues_under_the_sea"></a>
+<a id="book_20000_leagues_under_the_sea"></a>
 ### 20 000 mil podmorskiej żeglugi
 Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Spotykasz gigantyczne morskie stworzenia!
 
@@ -1344,7 +1344,7 @@ Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie 
 - Country: France
 - Quests: [Paryż! (fr_01)](../quest/fr_01.pl.md), [Rozwój (dev)](../quest/dev.pl.md)
 
-<a id="object_hot_air_balloon"></a>
+<a id="hot_air_balloon"></a>
 ### Balon na ogrzane powietrze
 Balon latający na gorące powietrze. Pierwszy taki balon poleciał we Francji.
 
@@ -1414,7 +1414,7 @@ Słynny francuski region z wieloma zamkami.
 - Subjects: Geography, History, Culture
 - Country: France
 
-<a id="literature_around_the_world_80_days"></a>
+<a id="book_around_the_world_80_days"></a>
 ### Dookoła świata w osiemdziesiąt dni
 Ekscytująca książka Juliusza Verne'a o bardzo szybkiej podróży dookoła całego świata pociągami, statkami i balonami na ogrzane powietrze!
 
@@ -1532,7 +1532,7 @@ Człowiek, który zbudował Wieżę Eiffla! Był inżynierem, który uwielbiał 
 - Country: France
 - Quests: [Paryż! (fr_01)](../quest/fr_01.pl.md)
 
-<a id="person_jean_michel_jarre"></a>
+<a id="jean_michel_jarre"></a>
 ### Jean Michel Jarre
 Francuski muzyk znany z muzyki elektronicznej. Tworzy wielkie pokazy świetlne.
 
@@ -1541,7 +1541,7 @@ Francuski muzyk znany z muzyki elektronicznej. Tworzy wielkie pokazy świetlne.
 - Year: 2000
 - Country: France
 
-<a id="person_jules_verne"></a>
+<a id="jules_verne"></a>
 ### Juliusz Verne
 Francuski pisarz, który wyobrażał sobie niesamowite przygody, zanim stały się możliwe! Pisał o okrętach podwodnych, rakietach i podróżach po świecie.
 
@@ -1846,7 +1846,7 @@ Specjalny sposób pisania, w którym wszystkie litery w słowie są połączone.
 - Country: France
 - Quests: [System edukacji (fr_02)](../quest/fr_02.pl.md)
 
-<a id="literature_five_weeks_in_a_balloon"></a>
+<a id="book_five_weeks_in_a_balloon"></a>
 ### Pięć tygodni w balonie
 Książka Juliusza Verne'a o locie nad Afryką balonem na ogrzane powietrze. Pełna przygód i odkryć!
 
@@ -2075,7 +2075,7 @@ Wielka światowa wystawa, na której pokazano Wieżę Eiffla.
 - Country: France
 - Quests: [Paryż! (fr_01)](../quest/fr_01.pl.md)
 
-<a id="literature_from_earth_to_moon"></a>
+<a id="book_from_earth_to_moon"></a>
 ### Z Ziemi na Księżyc
 Książka Juliusza Verne'a o podróży na Księżyc w wielkiej armacie! Została napisana, zanim jeszcze istniały prawdziwe rakiety.
 

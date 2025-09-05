@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
+  m_Name: street safety
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.TopicData
+  Id: 
+  Name: Stree safety
+  Description: 
+  Importance: 20
+  NodeColor: {r: 1, g: 1, b: 1, a: 1}
+  Country: 0
+  CoreCard: {fileID: 11400000, guid: 83ec260d365024ec8ac8b209efb2ae3c, type: 2}
+  Connections:
+  - ConnectedCard: {fileID: 11400000, guid: 9df54fb20d17743a7a7e6334d4a11e53, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.7
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: c1914fe72401646668a1e252edf8cd00, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.7
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 219051fa885314ace919d203acea5209, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.7
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 15852a12b2ced4890832138f67b48f6f, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.7
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  DiscoveryPath:
+  - {fileID: 11400000, guid: 83ec260d365024ec8ac8b209efb2ae3c, type: 2}
+  - {fileID: 11400000, guid: 9df54fb20d17743a7a7e6334d4a11e53, type: 2}
+  - {fileID: 11400000, guid: c1914fe72401646668a1e252edf8cd00, type: 2}
+  - {fileID: 11400000, guid: 219051fa885314ace919d203acea5209, type: 2}
+  - {fileID: 11400000, guid: 15852a12b2ced4890832138f67b48f6f, type: 2}
+  CohesionStrength: 0.8
+  TargetAge: 2
+  Subjects: 
+  Credits: []

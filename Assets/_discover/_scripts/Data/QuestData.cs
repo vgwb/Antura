@@ -65,6 +65,8 @@ namespace Antura.Discover
         [Header("Public website docs")]
         public bool IsPublic;
         public bool IsScriptPublic;
+        [Tooltip("Forum URL for discussion and feedback")]
+        public string ForumUrl;
 
         [Tooltip("for the Website. THis is a Markdown file that contains additional resources for the quest, such as links to videos, articles, etc.")]
         public TextAsset TeacherResources;

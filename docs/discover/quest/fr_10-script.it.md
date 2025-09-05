@@ -7,8 +7,9 @@ hide:
 [Quest Index](./index.it.md) - Language: [english](./fr_10-script.md) - [french](./fr_10-script.fr.md) - [polish](./fr_10-script.pl.md) - italian
 
 !!! note "Educators & Designers: help improving this quest!"
+    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-10-paris-seine/29/1)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_10%20Paris%20Seine/FR_10%20Paris%20Seine%20-%20Yarn%20Script.yarn)  
-    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
 
 <a id="ys-node-init"></a>
 ## init

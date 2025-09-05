@@ -136,7 +136,7 @@ La bandiera presenta strisce orizzontali gialle, verdi e rosse. La Lituania è u
 - Country: International
 - Quests: [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
-<a id="flag_czech"></a>
+<a id="flag_czech_republic"></a>
 ### Bandiera della Repubblica Ceca
 La bandiera è a strisce bianche e rosse con un triangolo blu. La Repubblica Ceca è famosa per il suo splendido Castello di Praga e per la produzione di cristalli.
 
@@ -1307,7 +1307,7 @@ Una regione della Francia dove si trova la capitale Parigi. Qui vivono moltissim
 
 ## France
 
-<a id="literature_20000_leagues_under_the_sea"></a>
+<a id="book_20000_leagues_under_the_sea"></a>
 ### 20000 leghe sotto i mari
 Un libro di Jules Verne sulle avventure subacquee a bordo di un sottomarino chiamato Nautilus. Incontrerete creature marine giganti!
 
@@ -1554,7 +1554,7 @@ Un edificio speciale dove le persone si incontrano per pregare e cantare.
 - Country: France
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
-<a id="literature_five_weeks_in_a_balloon"></a>
+<a id="book_five_weeks_in_a_balloon"></a>
 ### Cinque settimane in mongolfiera
 Un libro di Jules Verne sul volo attraverso l'Africa in mongolfiera. È pieno di avventure e scoperte!
 
@@ -1584,7 +1584,7 @@ Scuola media in Francia per ragazzi dagli 11 ai 15 anni. Gli studenti studiano m
 - Country: France
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md), [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
-<a id="literature_from_earth_to_moon"></a>
+<a id="book_from_earth_to_moon"></a>
 ### Dalla Terra alla Luna
 Un libro di Jules Verne che parla di un viaggio sulla Luna a bordo di un enorme cannone! Fu scritto prima che esistessero i veri razzi.
 
@@ -1684,7 +1684,7 @@ Giardini decorativi per passeggiate e feste.
 - Subjects: Culture, Environment
 - Country: France
 
-<a id="person_jules_verne"></a>
+<a id="jules_verne"></a>
 ### Giulio Verne
 Uno scrittore francese che immaginava avventure incredibili prima che fossero possibili! Scrisse di sottomarini, razzi e viaggi intorno al mondo.
 
@@ -1714,7 +1714,7 @@ L'uomo che costruì la Torre Eiffel! Era un ingegnere che amava costruire in fer
 - Country: France
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
-<a id="literature_around_the_world_80_days"></a>
+<a id="book_around_the_world_80_days"></a>
 ### Il giro del mondo in ottanta giorni
 Un libro emozionante di Jules Verne che racconta come viaggiare velocemente intorno al mondo utilizzando treni, navi e mongolfiere!
 
@@ -1752,7 +1752,7 @@ L'area di ingresso del circuito di Le Mans.
 - Subjects: Geography, Sport, Culture
 - Country: France
 
-<a id="person_jean_michel_jarre"></a>
+<a id="jean_michel_jarre"></a>
 ### Jean Michel Jarre
 Musicista francese famoso per la musica elettronica. Crea grandi spettacoli di luci.
 
@@ -1876,7 +1876,7 @@ Una nota musicale.
 - Subjects: Music, Education
 - Country: France
 
-<a id="object_hot_air_balloon"></a>
+<a id="hot_air_balloon"></a>
 ### Mongolfiera
 Un pallone che vola ad aria calda. Il primo esemplare volò in Francia.
 

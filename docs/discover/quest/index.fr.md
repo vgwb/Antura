@@ -20,6 +20,7 @@ Language: [english](./index.md) - french - [polish](./index.pl.md) - [italian](.
 - [Nourriture et marché (fr_09)](./fr_09.fr.md)
 - [Paris ! (fr_01)](./fr_01.fr.md)
 - [Paris Seine (fr_10)](./fr_10.fr.md)
+- [Se déplacer en ville en toute sécurité (fr_04)](./fr_04.fr.md)
 - [Un conte de deux châteaux (fr_05)](./fr_05.fr.md)
 
 ## Poland

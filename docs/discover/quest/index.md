@@ -16,6 +16,7 @@ Language: english - [french](./index.fr.md) - [polish](./index.pl.md) - [italian
 - [Jules Verne and transportation (fr_03)](./fr_03.md)
 - [La Marseillaise (fr_11)](./fr_11.md)
 - [Mont Blanc & Mountains (fr_08)](./fr_08.md)
+- [Move around in a city in safety (fr_04)](./fr_04.md)
 - [Paris Seine (fr_10)](./fr_10.md)
 - [Paris! (fr_01)](./fr_01.md)
 - [The Colors of the Marseille Market (fr_09)](./fr_09.md)

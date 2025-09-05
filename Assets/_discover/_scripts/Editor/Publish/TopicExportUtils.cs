@@ -32,6 +32,17 @@ namespace Antura.Discover.Editor
                     topics.Add(k);
             }
 
+            // Preload all quests once for cross-referencing
+            var questGuids = AssetDatabase.FindAssets("t:QuestData");
+            var quests = new List<QuestData>(questGuids.Length);
+            foreach (var qg in questGuids)
+            {
+                var qpath = AssetDatabase.GUIDToAssetPath(qg);
+                var qd = AssetDatabase.LoadAssetAtPath<QuestData>(qpath);
+                if (qd != null)
+                    quests.Add(qd);
+            }
+
             // Sort by Id (fallback to name)
             topics = topics
                 .OrderBy(k => string.IsNullOrEmpty(k?.Id) ? k?.name : k.Id)
@@ -42,14 +53,16 @@ namespace Antura.Discover.Editor
                 if (k == null)
                     continue;
                 string kid = string.IsNullOrEmpty(k.Id) ? k.name : k.Id;
-                sb.AppendLine($"## {kid}");
+                if (!string.IsNullOrEmpty(kid))
+                    sb.AppendLine($"<a id=\"{kid}\"></a>");
+                string heading = !string.IsNullOrEmpty(k.Name) ? EscapeInline(k.Name) : kid;
+                sb.AppendLine($"## {heading}");
 
 
                 // Inline meta
                 var meta = new List<string>();
 
-                if (!string.IsNullOrEmpty(k.Name))
-                    meta.Add($"Name: {EscapeInline(k.Name)}");
+                // Name shown in header; no need to repeat in meta
 
                 if (!string.IsNullOrEmpty(k.Description))
                 {
@@ -92,6 +105,28 @@ namespace Antura.Discover.Editor
                             sb.AppendLine("    - " + line);
                     }
                 }
+
+                // Quests that link to this topic (Title (Code) -> localized quest page)
+                var questLinks = quests
+                    .Where(q => q != null && q.Topics != null && q.Topics.Contains(k))
+                    .Distinct()
+                    .Select(q => new
+                    {
+                        Title = PublishUtils.GetHumanTitle(q),
+                        Code = PublishUtils.GetQuestCode(q),
+                        File = PublishUtils.GetQuestPublishFileNameForLocale(q, locale)
+                    })
+                    .Where(x => !string.IsNullOrEmpty(x.Title) && !string.IsNullOrEmpty(x.Code) && !string.IsNullOrEmpty(x.File))
+                    .OrderBy(x => x.Title, StringComparer.OrdinalIgnoreCase)
+                    .Select(x => $"[{x.Title} ({x.Code})](../quest/{x.File})")
+                    .ToList();
+                if (questLinks.Count > 0)
+                {
+                    sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
+                }
+
+
+
 
                 if (k.Credits != null && k.Credits.Count > 0)
                 {

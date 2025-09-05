@@ -43,6 +43,9 @@ namespace Antura.Discover.Editor
                 sb.AppendLine($"[Quest Index]({indexLink}) - Language: {en} - {fr} - {pl} - {it}");
                 sb.AppendLine();
             }
+
+            sb.AppendLine(GetEditInfoSection(q));
+
             sb.AppendLine("Version: " + q.VersionText + "  ");
             sb.AppendLine("Status: " + q.Status + "  ");
             string locName = string.Empty;
@@ -71,6 +74,19 @@ namespace Antura.Discover.Editor
                 foreach (var cc in q.Subjects)
                 {
                     sb.AppendLine("  - " + cc.Subject + " (x" + cc.Count + ")");
+                }
+                sb.AppendLine();
+            }
+
+            // Topics list (links to topics index anchors)
+            if (q.Topics != null && q.Topics.Count > 0)
+            {
+                sb.AppendLine("## Topics");
+                foreach (var topic in q.Topics.Where(t => t != null))
+                {
+                    string tId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.name;
+                    string tName = !string.IsNullOrEmpty(topic.Name) ? topic.Name : tId;
+                    sb.AppendLine($"- [{tName}](../topics/index.md#{tId})");
                 }
                 sb.AppendLine();
             }
@@ -275,13 +291,8 @@ namespace Antura.Discover.Editor
                 sb.AppendLine($"[Quest Index]({indexLink}) - Language: {en} - {fr} - {pl} - {it}");
                 sb.AppendLine();
             }
-            var scriptPath = q != null && q.YarnScript != null ? AssetDatabase.GetAssetPath(q.YarnScript) : "NO_SCRIPT_ATTACHED.yarn";
-            var githublink = "https://github.com/vgwb/Antura/blob/main/" + PublishUtils.EncodeUriString(scriptPath);
-            var googlelink = "https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135";
-            var editInfo = "!!! note \"Educators & Designers: help improving this quest!\"" + "\n";
-            editInfo += $"    **Improve the script**: [propose an edit here]({githublink})  " + "\n";
-            editInfo += $"    **Improve translations**: [comment here]({googlelink})  " + "\n";
-            sb.AppendLine(editInfo);
+
+            sb.AppendLine(GetEditInfoSection(q));
 
             if (q.YarnScript != null)
             {
@@ -388,6 +399,18 @@ namespace Antura.Discover.Editor
             }
             catch { }
             return null;
+        }
+
+        static string GetEditInfoSection(QuestData q)
+        {
+            var scriptPath = q != null && q.YarnScript != null ? AssetDatabase.GetAssetPath(q.YarnScript) : "NO_SCRIPT_ATTACHED.yarn";
+            var githublink = "https://github.com/vgwb/Antura/blob/main/" + PublishUtils.EncodeUriString(scriptPath);
+            var googlelink = "https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135";
+            var editInfo = "!!! note \"Educators & Designers: help improving this quest!\"" + "\n";
+            editInfo += $"    **Comments and feedback**: [discuss in the Forum]({q.ForumUrl})  " + "\n";
+            editInfo += $"    **Improve translations**: [comment the Google Sheet]({googlelink})  " + "\n";
+            editInfo += $"    **Improve the script**: [propose an edit here]({githublink})  " + "\n";
+            return editInfo;
         }
 
         static System.Collections.IEnumerable AsEnumerable(object obj)

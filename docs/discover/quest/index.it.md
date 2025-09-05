@@ -18,6 +18,7 @@ Language: [english](./index.md) - [french](./index.fr.md) - [polish](./index.pl.
 - [Jules Verne e i trasporti (fr_03)](./fr_03.it.md)
 - [La Marsigliese (fr_11)](./fr_11.it.md)
 - [Monte Bianco e montagne (fr_08)](./fr_08.it.md)
+- [Muoversi in città in sicurezza (fr_04)](./fr_04.it.md)
 - [Parigi Senna (fr_10)](./fr_10.it.md)
 - [Parigi! (fr_01)](./fr_01.it.md)
 - [Una storia di due castelli (fr_05)](./fr_05.it.md)

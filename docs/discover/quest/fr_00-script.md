@@ -7,8 +7,9 @@ hide:
 [Quest Index](./index.md) - Language: english - [french](./fr_00-script.fr.md) - [polish](./fr_00-script.pl.md) - [italian](./fr_00-script.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
+    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-00-the-neighbors-of-france/22)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_00%20Geo%20France/FR_00%20Geo%20France%20-%20Yarn%20Script.yarn)  
-    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
 
 <a id="ys-node-init"></a>
 ## init
@@ -69,9 +70,9 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif $france_completed&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping me!</span>
 <span class="yarn-line">    Can you help my other friends?</span>
-<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_of_france"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_france"&gt;&gt;</span>
 <span class="yarn-line">    Yes, that is my flag! Merci! <span class="yarn-meta">#line:01e24a8 </span></span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_france remove&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_france remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_FRENCH_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $france_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
@@ -101,7 +102,7 @@ hide:
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-        <span class="yarn-cmd">&lt;&lt;asset flag_of_france&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;asset flag_france&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Find the French flag. <span class="yarn-meta">#line:0e35434 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_FRENCH_FLAG task_france&gt;&gt;</span>
@@ -115,12 +116,12 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, asset=flag_france</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card  flag_france&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
 <span class="yarn-line">TUTOR: Flag of France. <span class="yarn-meta">#line:01d9617 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_of_france"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_france"&gt;&gt;</span>
     
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_france add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -139,12 +140,12 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping me! <span class="yarn-meta">#line:0eaf07d </span></span>
 <span class="yarn-line">    Berlin is the capital of Germany. <span class="yarn-meta">#line:0446f03 </span></span>
-<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_of_germany"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_germany"&gt;&gt;</span>
 <span class="yarn-line">    Danke! That is my flag! <span class="yarn-meta">#line:0ba8707</span></span>
 <span class="yarn-line">    Can you help my spanish friend? <span class="yarn-meta">#line:03684cb </span></span>
     <span class="yarn-cmd">&lt;&lt;set $germany_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_germany remove&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_germany remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_GERMAN_FLAG &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action spain_active&gt;&gt;</span>
      <span class="yarn-cmd">&lt;&lt;set $germany_completed = true&gt;&gt;</span>
@@ -190,12 +191,12 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card flag_spain&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping me!  <span class="yarn-meta">#line:0a5c214 </span></span>
 <span class="yarn-line">    Barcelona and Madrid are the most important cities in Spain.  <span class="yarn-meta">#line:09cf6c9 </span></span>
-<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_of_spain"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_spain"&gt;&gt;</span>
 <span class="yarn-line">    That is my flag! <span class="yarn-meta">#line:0c57e40 </span></span>
 <span class="yarn-line">    Thank you, can you give my Italian friend their flag? <span class="yarn-meta">#line:0930602 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $spain_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_spain remove&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_spain remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_SPANISH_FLAG &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action italy_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $spain_completed = true&gt;&gt;</span>
@@ -241,10 +242,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $italy_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
 <span class="yarn-line">    Thank you! Our capital is Rome! <span class="yarn-meta">#line:0148edb </span></span>
-<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_of_italy"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_italy"&gt;&gt;</span>
 <span class="yarn-line">    Grazie! That's my flag! <span class="yarn-meta">#line:081ac66 </span></span>
 <span class="yarn-line">    Help the find the Belgian flag and bring it to them! <span class="yarn-meta">#line:001f54f </span></span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_italy remove&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_italy remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_ITALIAN_FLAG &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $italy_completed = true&gt;&gt;</span>
@@ -273,7 +274,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Find the Italian flag. <span class="yarn-meta">#line:0ed29f1 </span></span>
 <span class="yarn-line">It's green, white, and red like basil, mozzarella, and tomato on a pizza! <span class="yarn-meta">#line:0cde44c </span></span>
-<span class="yarn-cmd">&lt;&lt;task_start FIND_ITALY_FLAG task_italy&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start FIND_ITALIAN_FLAG task_italy&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -291,10 +292,10 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping us! <span class="yarn-meta">#line:080a099 </span></span>
 <span class="yarn-line">    Brussels is the capital of Belgium. <span class="yarn-meta">#line:06b3ceb </span></span>
-<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_of_belgium"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_belgium"&gt;&gt;</span>
 <span class="yarn-line">        Thank you, my beautiful flag is back! <span class="yarn-meta">#line:079096a </span></span>
 <span class="yarn-line">        Can you help my Luxemourgian friend?</span>
-        <span class="yarn-cmd">&lt;&lt;inventory flag_of_belgium remove&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;inventory flag_belgium remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_BELGIUM_FLAG &gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $belgium_completed = true&gt;&gt;</span>
@@ -338,10 +339,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
 <span class="yarn-line">TUTOR: Flag of Belgium. <span class="yarn-meta">#line:0b11066 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_of_belgium"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_belgium"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_belgium add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_belgium add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -360,10 +361,10 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card flag_luxembourg&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping us! <span class="yarn-meta">#line:02114ba </span></span>
 
-<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_of_luxembourg"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_luxembourg"&gt;&gt;</span>
 <span class="yarn-line">        Thank you! That is my flag. <span class="yarn-meta">#line:05de5ab </span></span>
 <span class="yarn-line">        Can you help my swiss friend?</span>
-        <span class="yarn-cmd">&lt;&lt;inventory flag_of_luxembourg remove&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;inventory flag_luxembourg remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_LUX_FLAG&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $lux_completed = true&gt;&gt;</span>
@@ -406,10 +407,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_luxembourg&gt;&gt;</span>
 <span class="yarn-line">TUTOR: Flag of Luxembourg. <span class="yarn-meta">#line:05badd7 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_of_luxembourg"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_luxembourg"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_luxembourg add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_luxembourg add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -428,10 +429,10 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card flag_switzerland&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping us! <span class="yarn-meta">#line:02f73c8 </span></span>
 <span class="yarn-line">    The capital of Switzerland is Bern! <span class="yarn-meta">#line:0d2e2d7 </span></span>
-<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_of_swiss"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_switzerland"&gt;&gt;</span>
 <span class="yarn-line">        Thank you for bringing my flag back! <span class="yarn-meta">#line:0ca99a0 </span></span>
 <span class="yarn-line">        Go back to the start and claim your victory!</span>
-        <span class="yarn-cmd">&lt;&lt;inventory flag_of_swiss remove&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;inventory flag_switzerland remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_SWISS_FLAG&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $swiss_completed = true&gt;&gt;</span>
@@ -455,7 +456,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card flag_swiss&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card flag_switzerland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Find the Swiss flag. <span class="yarn-meta">#line:0ec7096 </span></span>
 <span class="yarn-line">It's red with a big white cross — like a first aid kit! <span class="yarn-meta">#line:07cc57e </span></span>
@@ -475,7 +476,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">CRAZY_MAN: Bonjour! I’m from Monaco! <span class="yarn-meta">#line:0a3f8f6 </span></span>
 <span class="yarn-line">CRAZY_MAN: We’re tiny but fancy — with race cars and royal palaces by the sea! <span class="yarn-meta">#line:0dc315a </span></span>
-<span class="yarn-cmd">&lt;&lt;asset flag_of_monaco&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;asset flag_monaco&gt;&gt;</span>
 <span class="yarn-line">CRAZY_MAN: My flag is red and white. <span class="yarn-meta">#line:00bd939 </span></span>
 
 </code></pre></div>
@@ -492,7 +493,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">GUIDE: Hola and Bonjour! I’m from Andorra! <span class="yarn-meta">#line:071f85c </span></span>
 <span class="yarn-line">GUIDE: My flag is blue, yellow, and red. <span class="yarn-meta">#line:02846e8 </span></span>
-<span class="yarn-cmd">&lt;&lt;asset flag_of_andorra&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;asset flag_andorra&gt;&gt;</span>
 <span class="yarn-comment">// Duplicate line removed</span>
 
 
@@ -507,10 +508,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  flag_spain&gt;&gt;</span>
 <span class="yarn-line">TUTOR: Flag of Spain <span class="yarn-meta">#line:006ce10 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_of_spain"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_spain"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_spain add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_spain add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -524,10 +525,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  flag_germany&gt;&gt;</span>
 <span class="yarn-line">TUTOR: Flag of Germany. <span class="yarn-meta">#line:05ff51a </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_of_germany"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_germany"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_germany add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_germany add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -541,10 +542,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
 <span class="yarn-line">TUTOR: Flag of Italy. <span class="yarn-meta">#line:0fdc68b </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_of_italy"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_italy"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_italy add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_italy add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -558,10 +559,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  flag_switzerland&gt;&gt;</span>
 <span class="yarn-line">TUTOR: Flag of Switzerland. <span class="yarn-meta">#line:0768ab7 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_of_swiss"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_switzerland"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_of_swiss add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory flag_switzerland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>

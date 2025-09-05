@@ -7,8 +7,9 @@ hide:
 [Quest Index](./index.pl.md) - Language: [english](./pl_07-script.md) - [french](./pl_07-script.fr.md) - polish - [italian](./pl_07-script.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
+    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/pl-07-copernicus-and-the-solar-system/38/1)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_07%20Solar%20System/PL_07%20Solar%20System%20-%20Yarn%20Script.yarn)  
-    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
 
 <div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// PL_07 - Nicolaus Copernicus &amp; Solar System</span>
 <span class="yarn-header-dim">// Location: Toruń, Poland - Copernicus House, Museum, and Planetarium</span>

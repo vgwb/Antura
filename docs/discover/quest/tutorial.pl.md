@@ -6,6 +6,11 @@ hide:
 # Samouczek (tutorial)
 [Quest Index](./index.pl.md) - Language: [english](./tutorial.md) - [french](./tutorial.fr.md) - polish - [italian](./tutorial.it.md)
 
+!!! note "Educators & Designers: help improving this quest!"
+    **Comments and feedback**: [discuss in the Forum]()  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
+    **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
+
 Version: 1.00  
 Status: NeedsReview  
 Location: International
@@ -18,7 +23,7 @@ Subjects:
 
 ## Words
 ## Activities
-- (none)
+- [JigsawPuzzle](../activities/index.md#JigsawPuzzle)
 
 ## Tasks
 - (none)

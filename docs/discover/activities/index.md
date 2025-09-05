@@ -8,6 +8,9 @@ hide:
 <a id="CleanCanvas"></a>
 ## Canvas
 
+![preview](../../ assets/img/discover/activity_CleanCanvas.jpg)
+Clean all the surface
+
 Categories:
 
   - **Coordination**: Control precise movements and timing.
@@ -32,6 +35,9 @@ Credits:
 <a id="JigsawPuzzle"></a>
 ## Jigsaw Puzzle
 
+![preview](../../ assets/img/discover/activity_JigsawPuzzle.jpg)
+Put the pieces back in place
+
 Categories:
 
   - **Problem Solving**: Analyze situations and find effective solutions.
@@ -54,6 +60,9 @@ Credits:
 
 <a id="Match"></a>
 ## Match
+
+![preview](../../ assets/img/discover/activity_Match.jpg)
+match items by something in common
 
 Categories:
 
@@ -84,6 +93,9 @@ Credits:
 <a id="Memory"></a>
 ## Memory
 
+![preview](../../ assets/img/discover/activity_Memory.jpg)
+the classic memory game
+
 Categories:
 
   - **Memory**: Hold and update information to use it a moment later.
@@ -105,6 +117,9 @@ Credits:
 
 <a id="MoneyCount"></a>
 ## Count the money
+
+![preview](../../ assets/img/discover/activity_MoneyCount.jpg)
+the classic memory game
 
 Categories:
 
@@ -131,6 +146,9 @@ Credits:
 
 <a id="Order"></a>
 ## Order
+
+![preview](../../ assets/img/discover/activity_Order.jpg)
+put elements in the right order
 
 Categories:
 
@@ -160,6 +178,9 @@ Credits:
 
 <a id="Piano"></a>
 ## Piano
+
+![preview](../../ assets/img/discover/activity_Piano.jpg)
+sequential memory and repetition. also musical
 
 Categories:
 

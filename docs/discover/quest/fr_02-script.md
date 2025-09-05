@@ -7,8 +7,9 @@ hide:
 [Quest Index](./index.md) - Language: english - [french](./fr_02-script.fr.md) - [polish](./fr_02-script.pl.md) - [italian](./fr_02-script.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
+    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-02-the-school-system/24/1)  
+    **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_02%20Angers%20School/FR_02%20Angers%20School%20-%20Yarn%20Script.yarn)  
-    **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1233127135#gid=1233127135)  
 
 <div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// </span>
 </code></pre></div>
@@ -35,7 +36,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 10&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_backpack = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Backpack false&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Welcome Angers! It's the first day of school! <span class="yarn-meta">#line:014887e </span></span>
+<span class="yarn-line">Welcome Angers! It's the first day of school! <span class="yarn-meta">#line:014887e </span></span>
 <span class="yarn-line">You are 10 years old and in the last year of elementary school. <span class="yarn-meta">#line:063e8e0 </span></span>
 <span class="yarn-line">Find your school and your classroom! <span class="yarn-meta">#line:0f65a1b </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_SCHOOL task_school_done&gt;&gt;</span>
@@ -47,7 +48,7 @@ hide:
 
 <div class="yarn-node" data-title="task_school_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Find your school!  <span class="yarn-meta">#line:0da284c </span></span>
+<span class="yarn-line">Find your school! <span class="yarn-meta">#line:0da284c </span></span>
 
 </code></pre></div>
 
@@ -145,7 +146,7 @@ hide:
 <div class="yarn-node" data-title="task_find_classroom"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">tags: actor=TUTOR, task</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: TASK: Find your classroom. <span class="yarn-meta">#line:058ddbc </span></span>
+<span class="yarn-line">TASK: Find your classroom. <span class="yarn-meta">#line:058ddbc </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_CLASSROOM task_class_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -214,8 +215,7 @@ hide:
 <a id="ys-node-classroom-5"></a>
 ## classroom_5
 
-<div class="yarn-node" data-title="classroom_5"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">// asset cursive_writing - CC0 - https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png</span>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<div class="yarn-node" data-title="classroom_5"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">actor: GUIDE</span>
 <span class="yarn-header-dim">---</span>
@@ -226,7 +226,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card concept_cursive_writing zoom&gt;&gt;</span>
 <span class="yarn-line">Now for geometry! <span class="yarn-meta">#line:0365921 </span></span>
 <span class="yarn-line">Match each tool to the shape it draws. <span class="yarn-meta">#line:052d22a </span></span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MATCH activity_match_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity match_shapes activity_match_done&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -249,7 +249,7 @@ hide:
 
 <div class="yarn-node" data-title="task_school_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: TASK COMPLETED!  <span class="yarn-meta">#line:03ed76a </span></span>
+<span class="yarn-line">TASK COMPLETED!  <span class="yarn-meta">#line:03ed76a </span></span>
 
 </code></pre></div>
 
@@ -258,7 +258,7 @@ hide:
 
 <div class="yarn-node" data-title="task_backpack_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: TASK COMPLETED! You can now enter school. <span class="yarn-meta">#line:063f354  </span></span>
+<span class="yarn-line">TASK COMPLETED! You can now enter school. <span class="yarn-meta">#line:063f354  </span></span>
 <span class="yarn-cmd">&lt;&lt;set $got_backpack = true&gt;&gt;</span>
 
 </code></pre></div>
@@ -268,7 +268,7 @@ hide:
 
 <div class="yarn-node" data-title="task_class_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: TASK COMPLETED! You can now start the lesson. <span class="yarn-meta">#line:093e91d </span></span>
+<span class="yarn-line">TASK COMPLETED! You can now start the lesson. <span class="yarn-meta">#line:093e91d </span></span>
 
 </code></pre></div>
 
