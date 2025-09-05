@@ -2,6 +2,7 @@ using System;
 using Antura.LivingLetters;
 using DG.DeExtensions;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Antura.Discover
 {
@@ -113,7 +114,7 @@ namespace Antura.Discover
         public override void Update()
         {
             base.Update();
-            if (NavMeshAgent.enabled)
+            if (NavMeshAgent.enabled && IsAgentMoving(NavMeshAgent))
             {
                 letterObjectView.SetState(LLAnimationStates.LL_walking);
                 letterObjectView.SetWalkingSpeed(NavMeshAgent.speed);
@@ -123,6 +124,8 @@ namespace Antura.Discover
                 letterObjectView.SetState(LLAnimationStates.LL_idle);
             }
         }
+
+        bool IsAgentMoving(NavMeshAgent a) => a && a.enabled && a.isOnNavMesh && !a.isStopped && !a.pathPending && (a.velocity.sqrMagnitude > 0.01f || (a.hasPath && a.remainingDistance > a.stoppingDistance + 0.05f));
 
     }
 }
