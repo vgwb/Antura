@@ -1,13 +1,8 @@
-﻿// ============================================================================
-// FR-09 Cotes Dazur Market - Mont Blanc & Mountains  
-// ============================================================================
-//
+﻿// FR-09 Cotes Dazur Market - Mont Blanc & Mountains  
 // Activities:
 // - DONE collect ingredients (bread, fish, orange, lemon, tomato, cheese, salt, pepper, oil)
 // - order ingredients
-//
 // Words used: bread, fish, crab, orange, lemon, tomato, cheese, salt, pepper, oil
-// ============================================================================
 
 title: init
 position: 76,-506
@@ -69,7 +64,7 @@ group: baker
 tags: actor=MAN
 color: purple
 ---
-MAN: Select enough money to pay. #line:0bbf963 
+Select enough money to pay. #line:0bbf963 
 <<activity money_baker baker_payment_done>>
 ===
 
@@ -90,7 +85,7 @@ position: 879,149
 group: baker
 tags: actor=MAN
 ---
-MAN: Sorry, I don't sell that. #line:0875143 
+Sorry, I don't sell that. #line:0875143 
 ===
 
 title: fisher_payment_done

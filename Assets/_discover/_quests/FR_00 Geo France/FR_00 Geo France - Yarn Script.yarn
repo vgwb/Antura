@@ -130,8 +130,8 @@ tags: actor=MAN
      <<set $germany_completed = true>>
     <<jump task_spain>>
 <<elseif $CURRENT_ITEM != "">>
-    MAN: Our flag has horizontal stripes of black, red, and yellow. #line:0cd7024 
-        <<jump task_germany>>
+    Our flag has horizontal stripes of black, red, and yellow. #line:0cd7024 
+    <<jump task_germany>>
 <<elseif $germany_met == false >>
     <<set $germany_met = true>>
     Hallo! I'm from Germany! #line:0068fe1 
@@ -178,8 +178,8 @@ tags:
     <<set $spain_completed = true>>
     <<jump task_italy>>
 <<elseif $CURRENT_ITEM != "">>
-    MAN: Not mine!Our flag is red and ywlloe.  #line:0db05da 
-        <<jump task_spain>>
+    Not mine!Our flag is red and ywlloe  #line:0db05da 
+    <<jump task_spain>>
 <<elseif $spain_met == false >>
     <<set $spain_met = true>>
     Hallo! I'm from Spain!  #line:0f5bc06 
@@ -196,8 +196,8 @@ tags: actor=WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_spain>>
 <<endif>>
-Find the Spanish flag. #line:091cc7c 
-It's red and yellow, like the sun and peppers. #line:09635b4 
+Find the Spanish flag #line:091cc7c 
+It's red and yellow, like the sun and peppers #line:09635b4 
 <<task_start FIND_SPANISH_FLAG task_spain>>
 ===
 
@@ -224,9 +224,9 @@ color: blue
     <<action belgium_active>>
     <<jump task_belgium>>
 <<elseif $CURRENT_ITEM != "">>
-    My flag is different! It's green, white, and red. #line:0dc8623
+    My flag is different! It's green, white, and red #line:0dc8623
     <<set $italy_met = true>>
-        <<jump task_italy>>
+    <<jump task_italy>>
 <<elseif $italy_met == false>>
     <<set $italy_met = true>>
     Ciao! I'm from Italy! #line:0bda0fc 
@@ -242,7 +242,7 @@ tags: actor=KID_MALE
 <<if $EASY_MODE == true>>
     <<card flag_italy>>
 <<endif>>
-Find the Italian flag. #line:0ed29f1 
+Find the Italian flag #line:0ed29f1 
 It's green, white, and red like basil, mozzarella, and tomato on a pizza! #line:0cde44c 
 <<task_start FIND_ITALIAN_FLAG task_italy>>
 ===
@@ -262,19 +262,19 @@ color: blue
     Thank you for helping us! #line:080a099 
     Brussels is the capital of Belgium. #line:06b3ceb 
 <<elseif $CURRENT_ITEM == "flag_belgium">>
-        Thank you, my beautiful flag is back! #line:079096a 
-        Can you help my Luxemourgian friend? #line:03a9b7d 
-        <<inventory flag_belgium remove>>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<task_end FIND_BELGIUM_FLAG >>
-        <<set $belgium_completed = true>>
-        <<action lux_active>>
-        <<set $belgium_met = true>>
-        <<jump task_lux>>
+    Thank you, my beautiful flag is back! #line:079096a 
+    Can you help my Luxemourgian friend? #line:03a9b7d 
+    <<inventory flag_belgium remove>>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<task_end FIND_BELGIUM_FLAG >>
+    <<set $belgium_completed = true>>
+    <<action lux_active>>
+    <<set $belgium_met = true>>
+    <<jump task_lux>>
 <<elseif $CURRENT_ITEM != "">>
     Remember, my flag has vertical stripes. black, yellow, and red. #line:0141a13 
-        <<jump task_belgium>>
-        <<set $belgium_met = true>>
+    <<jump task_belgium>>
+    <<set $belgium_met = true>>
 <<else>>
     <<set $belgium_met = true>>
     Bonjour! I'm from Belgium! #line:0a61b67 
@@ -303,7 +303,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_belgium>>
-TUTOR: Flag of Belgium. #line:0b11066 
+Flag of Belgium. #line:0b11066 
 <<if $CURRENT_ITEM == "flag_belgium">>
 
 <<else>>
@@ -324,16 +324,15 @@ tags: actor=OLD_MAN
 <<if $lux_completed>>
     <<card flag_luxembourg>>
     Thank you for helping us! #line:02114ba 
-
 <<elseif $CURRENT_ITEM == "flag_luxembourg">>
-        Thank you! That is my flag. #line:05de5ab 
-        Can you help my swiss friend? #line:0090192 
-        <<inventory flag_luxembourg remove>>
-        <<task_end FIND_LUX_FLAG>>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<set $lux_completed = true>>
-        <<action swiss_active>>
-        <<jump task_swiss>>
+    Thank you! That is my flag. #line:05de5ab 
+    Can you help my swiss friend? #line:0090192 
+    <<inventory flag_luxembourg remove>>
+    <<task_end FIND_LUX_FLAG>>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $lux_completed = true>>
+    <<action swiss_active>>
+    <<jump task_swiss>>
 <<elseif $CURRENT_ITEM != "">>
     Nope! Our flag is red, white, and light blue. #line:0529472 
     <<set $lux_met = true>>
@@ -367,7 +366,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_luxembourg>>
-TUTOR: Flag of Luxembourg. #line:05badd7 
+Flag of Luxembourg. #line:05badd7 
 <<if $CURRENT_ITEM == "flag_luxembourg">>
 
 <<else>>
@@ -390,15 +389,15 @@ color: blue
     Thank you for helping us! #line:02f73c8 
     The capital of Switzerland is Bern! #line:0d2e2d7 
 <<elseif $CURRENT_ITEM == "flag_switzerland">>
-        Thank you for bringing my flag back! #line:0ca99a0 
-        Go back to the start and claim your victory! #line:0148420 
-        <<inventory flag_switzerland remove>>
-        <<task_end FIND_SWISS_FLAG>>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<set $swiss_completed = true>>
+    Thank you for bringing my flag back! #line:0ca99a0 
+    Go back to the start and claim your victory! #line:0148420 
+    <<inventory flag_switzerland remove>>
+    <<task_end FIND_SWISS_FLAG>>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $swiss_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
-        Not my flag. Our flag is red with a white cross. #line:0caad5a 
-        <<jump task_swiss>>
+    Not my flag. Our flag is red with a white cross. #line:0caad5a 
+    <<jump task_swiss>>
 <<else>>
     <<set $swiss_met = true>>
     Grüezi! I'm from Switzerland! #line:09fe8fc 
@@ -433,10 +432,10 @@ color: blue
 group: monaco
 tags: actor=CRAZY_MAN
 ---
-CRAZY_MAN: Bonjour! I’m from Monaco! #line:0a3f8f6 
-CRAZY_MAN: We’re tiny but fancy — with race cars and royal palaces by the sea! #line:0dc315a 
+Bonjour! I’m from Monaco! #line:0a3f8f6 
+We’re tiny but fancy — with race cars and royal palaces by the sea! #line:0dc315a 
 <<asset flag_monaco>>
-CRAZY_MAN: My flag is red and white. #line:00bd939 
+My flag is red and white. #line:00bd939 
 ===
 
 //--------------------------------------------
@@ -449,10 +448,9 @@ group: andorra
 color: blue
 tags: actor=GUIDE
 ---
-GUIDE: Hola and Bonjour! I’m from Andorra! #line:071f85c 
-GUIDE: My flag is blue, yellow, and red. #line:02846e8 
+Hola and Bonjour! I’m from Andorra! #line:071f85c 
+My flag is blue, yellow, and red. #line:02846e8 
 <<asset flag_andorra>>
-// Duplicate line removed
 
 ===
 
@@ -464,7 +462,7 @@ group: spain
 tags: actor=TUTOR
 ---
 <<card  flag_spain>>
-TUTOR: Flag of Spain #line:006ce10 
+Flag of Spain #line:006ce10 
 <<if $CURRENT_ITEM == "flag_spain">>
 
 <<else>>
@@ -479,7 +477,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card  flag_germany>>
-TUTOR: Flag of Germany. #line:05ff51a 
+Flag of Germany. #line:05ff51a 
 <<if $CURRENT_ITEM == "flag_germany">>
 
 <<else>>
@@ -494,7 +492,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_italy>>
-TUTOR: Flag of Italy. #line:0fdc68b 
+Flag of Italy. #line:0fdc68b 
 <<if $CURRENT_ITEM == "flag_italy">>
 
 <<else>>
@@ -509,11 +507,10 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card  flag_switzerland>>
-TUTOR: Flag of Switzerland. #line:0768ab7 
+Flag of Switzerland. #line:0768ab7 
 <<if $CURRENT_ITEM == "flag_switzerland">>
 
 <<else>>
     <<inventory flag_switzerland add>>
 <<endif>>
 ===
-

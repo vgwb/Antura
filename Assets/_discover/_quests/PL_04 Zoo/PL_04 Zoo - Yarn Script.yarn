@@ -16,12 +16,12 @@ title: init
 type: panel
 position: -952,-145
 group: Intro
-tags: actor=Man, type:Panel
+tags: actor=Man, 
 image: centennial_hall_empty_flag
 color: red
 ---
 <<declare $talked_animals = false>>
-TUTOR: Welcome to Wroclaw Zoo. #line:0fe55d1 
+Welcome to Wroclaw Zoo. #line:0fe55d1 
 There are lots of animals here! #line:005dd46 
 ===
 
@@ -330,7 +330,7 @@ title: task_animals_done
 position: -451,-152
 tags: actor=TUTOR
 ---
-TUTOR: TASK COMPLETED! Go back to the director. #line:0a93d9b 
+TASK COMPLETED! Go back to the director. #line:0a93d9b 
 <<set $talked_animals = true>>
 ===
 
@@ -375,7 +375,7 @@ But then, who took the flag? #line:0fc0ab7
 title: RETURN_DIRECTOR
 position: -669,472
 group: End
-tags: actor=Zoo Director
+tags: actor=ZooDirector
 image: centennial_hall_antura_flag
 ---
 Wait, Look!  #line:0b3d05f 
@@ -384,10 +384,12 @@ ANTURA has the FLAG! #line:0e24973
 <<camera_reset>>
 <<jump CEREMONY_END>>
 ===
+
+
 title: CEREMONY_END
 position: -428,479
 group: End
-tags: actor=Zoo Director
+tags: actor=ZooDirector
 image: flag_on_iglica
 ---
 The FLAG is finally home. #line:0d91701 

@@ -133,8 +133,6 @@ If you buy pierogi for me, you can use my kitchen. #line:0eda999
 	<<jump pay_pierogi>>
 ===
 
-// Payments (money mini-activities) and add-to-cart nodes
-
 title: pay_cloves
 position: 89,482
 group: pay
@@ -297,10 +295,10 @@ tags: type=Variables
 title: pay_pierogi
 position: 1885,492
 group: pay
-tags: actor=MAN
+tags: actor=COOK
 ---
 <<activity ACTIVITY_MONEY_20 pierogi_done>>
-COOK: Select enough money to pay 20zł. #line:0dd43a0 
+Select enough money to pay 20zł. #line:0dd43a0 
 ===
 
 title: pierogi_done
@@ -316,7 +314,7 @@ position: 1361,-24
 group: market
 tags: actor=WOMAN
 ---
-WOMAN: You can buy FLOUR here. #line:077f3e2 
+You can buy FLOUR here. #line:077f3e2 
 -> Buy flour (2zł) #line:00c5178 
 	<<jump pay_flour>>
 ===
@@ -395,6 +393,6 @@ position: 2185,1766
 group: assessment
 tags: actor=GUIDE
 ---
-GUIDE: Great work! You helped Antura and learned new words. #line:0cb84a7 
+Great work! You helped Antura and learned new words. #line:0cb84a7 
 <<quest_end 3>>
 ===

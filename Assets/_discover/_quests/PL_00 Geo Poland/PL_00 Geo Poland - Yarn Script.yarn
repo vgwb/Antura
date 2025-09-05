@@ -328,14 +328,14 @@ tags: actor=OLD_MAN
     Thank you for helping us! #line:02114ba 
     Our capital is Kiev. #line:01b1e6d 
 <<elseif $CURRENT_ITEM == "flag_ukraine">>
-        Thank you! That is my flag. #line:05de5ab 
-        Can you help my slovakian friend? #line:0aa87ef 
-        <<inventory flag_ukraine remove>>
-        <<task_end FIND_ukraine_FLAG>>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<set $ukraine_completed = true>>
-        <<action slovakia_active>>
-        <<jump task_slovakia>>
+    Thank you! That is my flag. #line:05de5ab 
+    Can you help my slovakian friend? #line:0aa87ef 
+    <<inventory flag_ukraine remove>>
+    <<task_end FIND_ukraine_FLAG>>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $ukraine_completed = true>>
+    <<action slovakia_active>>
+    <<jump task_slovakia>>
 <<elseif $CURRENT_ITEM != "">>
     Nope! Our flag is blue and yellow. #line:0a94866 
     <<set $ukraine_met = true>>
@@ -357,7 +357,7 @@ tags: actor=OLD_WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_ukraine>>
 <<endif>>
-Find the flag of Ukraine.   #line:07c148b 
+Find the flag of Ukraine. #line:07c148b 
 It is blue and yellow. #line:0b6e8e7 
 <<task_start FIND_ukraine_FLAG task_ukraine>>
 ===
@@ -392,12 +392,12 @@ color: blue
     Thank you for helping us!  #line:06a6231 
     The capital of Slovakia is Bratislava!  #line:0891aba 
 <<elseif $CURRENT_ITEM == "flag_slovakia">>
-        Thank you for bringing my flag back!  #line:0d453e9 
-        Go back to the start and claim your victory! #line:04bf6d1 
-        <<inventory flag_slovakia remove>>
-        <<task_end FIND_slovakia_FLAG >>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<set $slovakia_completed = true>>
+    Thank you for bringing my flag back!  #line:0d453e9 
+    Go back to the start and claim your victory! #line:04bf6d1 
+    <<inventory flag_slovakia remove>>
+    <<task_end FIND_slovakia_FLAG >>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $slovakia_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
         Our flag is white, red and blue with a coagt of arms. #line:0af30a1 
         <<jump task_slovakia>>
@@ -435,8 +435,8 @@ color: blue
 group: russia
 tags: actor=CRAZY_MAN
 ---
-CRAZY_MAN: Hello, I'm Russia. #line:065c41c 
-CRAZY_MAN: This is just a tiny part of the big country. #line:0a4bae4 
+Hello, I'm Russia. #line:065c41c 
+This is just a tiny part of the big country. #line:0a4bae4 
 <<card flag_russia>>
 
 ===

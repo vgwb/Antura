@@ -4,24 +4,21 @@ title: init
 position: 0,0
 tags: type=Start
 color: red
+type: panel
 ---
 <<set $TOTAL_COINS = 0>>
-<<activity ciccio_mission>>
-===
-title: tutor_mission
-position: 227,519
-tags: actor=TUTOR
----
-Let me see if you learned: climb the stairs and get that coin! #line:0fe9efe 
-<<action AREA_TUTORIAL>>
+Welcome to the Tutorial!
 ===
 
-title: talk_tutor
+
+
+
+title: talk_tutor_1
 position: 238,-2
 tags: actor=TUTOR
 ---
 <<action AREA_INTRO>>
-Welcome to the Tutorial. Touch this text to hear it in your language. #line:03dbfa7 
+Touch this text to hear it in your language. #line:03dbfa7 
 <<asset tutorial_goon>>
 Use this button to advance the dialog. #line:0f4f069 
 <<asset tutorial_image>>
@@ -33,6 +30,9 @@ Use this button to view the photo #line:0784704
     Use this button to jump. #line:0b9c1fa 
 <<endif>>
 ===
+
+
+
 
 title: tutor_walk
 position: 511,-4
@@ -125,7 +125,15 @@ tags:
 <<if $IS_DESKTOP>>
     Press SPACE key to talk or interact. #line:0c18f6b 
 <<else>>
-    <<asset  tutorial_act>>
-     Use this button to talk or interact #line:0c14f65 
+    <<asset tutorial_act>>
+    Use this button to talk or interact #line:0c14f65 
 <<endif>>
+===
+
+title: tutor_mission
+position: 227,519
+tags: actor=TUTOR
+---
+Let me see if you learned: climb the stairs and get that coin! #line:0fe9efe 
+<<action AREA_TUTORIAL>>
 ===

@@ -16,8 +16,8 @@ namespace Antura.Discover
         [Tooltip("if set, it will be resolved at the start of the game")]
         public string DebugAction;
 
-        [Tooltip("The starting location of the player")]
-        private GameObject PlayerSpawnPoint;
+        [Tooltip("The starting location of the player, if set, goes here")]
+        public GameObject PlayerSpawnPoint;
 
         public QuestActionData[] QuestActions;
 
