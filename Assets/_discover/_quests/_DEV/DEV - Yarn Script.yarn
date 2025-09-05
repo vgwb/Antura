@@ -13,7 +13,7 @@
 //--------------------------------------------
 
 // title of a node must be unique to this quest
-// create a new node for anything that must be referenced multi times
+// create a new node for anything that must be referenced multiple times
 // that makes understanding of the flow easier
 title: init
 // position is used to place the node in the Graph view in the Editor
@@ -21,9 +21,8 @@ position: 0,0
 // group is used to organize the nodes in the Graph view in the Editor
 group: docs
 // tags are used to add metadata to the node
-// - actor is the speacking character, used mostly for voice overs
-// - type is used to identify special nodes like Panel, Quiz
-tags: actor=Guide, type=Panel
+// actor is the speacking character, used mostly for voice overs
+tags: actor=Guide
 // color us used like this:
 //  - red for important nodes like init and quest end
 //  - blue for NPCs
@@ -31,6 +30,7 @@ tags: actor=Guide, type=Panel
 //  - green for tasks
 //  - purple for activities
 color: red
+// - type is used to identify special nodes like panel, Quiz
 type: panel
 ---
 // these are the common variables
@@ -43,8 +43,6 @@ type: panel
 <<set $CURRENT_ITEM = "">>
 
 // here we declare new variables for this quest
-<<declare $met_teacher = false>>
-<<declare $got_hint = false>>
 <<declare $doorUnlocked = false>>
 
 Welcome to the DEV quest! #line:0973921 
@@ -53,7 +51,7 @@ You can use this quest to test features and commands. #line:0196a6d
 
 //--------------------------------------------
 // COMMANDS
-// these are the commands available in the game
+// these are the commands available in all  Scripts
 //--------------------------------------------
 
 title: docs_commands
@@ -61,60 +59,49 @@ position: 240,1
 group: docs
 color: red
 ---
-
+/////////////////////////////
+// ACTIONS
 // execute the configured action in the actionManager
 <<action action_id>>
 
-// camera commands
-<<camera_focus palace>>
-<<camera_reset>>
+/////////////////////////////
+// ACTIVITY
+// launches an activity
+<<activity id_activity_setting id_node_to_jump_after_activity>>
 
-<<card food_baguette show>>
-<<card_hide>>
-// shows the image
+/////////////////////////////
+// AREA
+// changes the area (walls), turnng off the previous one
+<<area full_area>>
+<<area off>>
+
+/////////////////////////////
+// ASSETS
+// insted of a card, uses a direct Asset Id
 <<asset id_asset>> 
 // hides the current image
 <<asset_hide>>
 
+/////////////////////////////
+// CAMERA
+<<camera_focus palace>>
+<<camera_reset>>
+
+/////////////////////////////
+// CARDS
+// uses the card Id
+<<card food_baguette show>>
+<<card_hide>>
+
+
+/////////////////////////////
+// INVENTORY
 // adds the item = card to the inventory (needs to be collectable!)
 <<inventory id_card add>>
 <<inventory id_card>> // same as add
 <<inventory id_card remove>>
 
-// starts a task
-<<task_start id_task_configuration>>
-// end a task... if you say nothing, its a success
-<<task_end id_task_configuration>>
-<<task_end id_task_configuration fail>>
-<<task_end>> // or even without the id to end current task
-
-
-// launches an activity
-<<activity id_activity_configuration>>
-
-// end current quest and calculate stars based on progress
-<<quest_end>>
-// end the current quest with n (0, 1,2,3) stars
-<<quest_end 3>>
-
-// --- Yarn built-in commands ---
-<<wait 3>> // waits for 3 seconds
-<<stop>> // stops the current dialogue>>
-
-===
-
-//--------------------------------------------
-// FUNCTIONS
-// these are the functions available in the game
-//--------------------------------------------
-
-title: docs_functions
-position: 483,8
-color: red
-group: docs
----
-// these are the functions available in the game
-
+// Inventory has custom functions to check items
 <<if item_count("flag_france") >= 2>>
     You have more than 2 Flags of France #line:08a1058 #native
     another line #line:0563122 
@@ -132,7 +119,49 @@ group: docs
     You can collect a Flag of France #line:03da430 
 <<endif>>
 
+/////////////////////////////
+// TASKS
+// starts a task
+<<task_start id_task_configuration>>
+// end a task... if you say nothing, its a success
+<<task_end id_task_configuration>>
+<<task_end id_task_configuration fail>>
+<<task_end>> // or even without the id to end current task
+
+/////////////////////////////
+// PARTY
+// makes a NPC join a party following the player
+<<party_join interactable_id>>
+// asks a NPC to leave the party
+<<party_release interactable_id>>
+// if no id, remove all
+<<party_release>> 
+// the default formation in "line", but other are available
+<<party_formation "line">>
+<<party_formation "circle">>
+<<party_formation "V">>
+
+/////////////////////////////
+// QUEST END
+// end current quest and calculate stars based on progress
+<<quest_end>>
+// end the current quest with n (0, 1,2,3) stars
+<<quest_end 3>>
+
+/////////////////////////////
+// TARGET
+// focu the camera on a target
+<<target target_chest>>
+// removes any target
+<<target off>>
+
+
+// --- Yarn built-in commands ---
+<<wait 3>> // waits for 3 seconds
+<<stop>> // stops the current dialogue>>
+
 ===
+
 
 title: test_inventory
 position: 6,244
