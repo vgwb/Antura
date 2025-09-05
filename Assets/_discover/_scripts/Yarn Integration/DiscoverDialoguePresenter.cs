@@ -103,7 +103,7 @@ namespace Antura.Discover
             var CharacterName = line.CharacterName;
             var RawText = line.RawText;
             var TextNative = line.TextWithoutCharacterName;
-            var TextLearning = (line as LocalizedLineDiscover)?.TextLearning;
+            var TextLearning = (line as LocalizedLineDiscover)?.TextInLearningLang;
             var metadata = line.Metadata;
 
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
@@ -222,7 +222,7 @@ namespace Antura.Discover
                     OnOptionSelected = _optionTCS,
                     completionToken = _optionCTS.Token,
                     Index = i,
-                    Content = (option.Line as LocalizedLineDiscover)?.TextLearning,
+                    Content = (option.Line as LocalizedLineDiscover)?.TextInLearningLang,
                     ContentNative = option.Line.TextWithoutCharacterName.Text,
                     AudioId = "",
                     Image = TryGetCardId(option.Line.Metadata) ?? string.Empty,

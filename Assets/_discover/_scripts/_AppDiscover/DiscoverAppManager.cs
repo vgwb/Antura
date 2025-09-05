@@ -5,6 +5,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Antura.Discover
 {
@@ -32,6 +37,11 @@ namespace Antura.Discover
     {
 
         public string LearningLanguageIso2 = "fr";
+
+        // Cached learning locale & localized strings (table:entry:locale -> value)
+        private Locale _cachedLearningLocale;
+        private string _cachedLearningIso2;
+        private readonly Dictionary<string, string> _learningStringCache = new Dictionary<string, string>();
 
         [SerializeField]
         private EconomySettings economySettings;
@@ -92,6 +102,8 @@ namespace Antura.Discover
                 InitializeFromLegacyUuid(AppManager.I.PlayerProfileManager.CurrentPlayer.Uuid,
                                          AppManager.I.PlayerProfileManager.CurrentPlayer);
             }
+
+            LearningLanguageIso2 = AppManager.I.ContentEdition.LearningLanguageConfig.Iso2;
         }
 
         private void OnApplicationPause(bool pauseStatus)
@@ -162,6 +174,8 @@ namespace Antura.Discover
             CurrentProfile = p;
             profileService = (p != null) ? new ProfileService(p, economySettings) : null;
             OnProfileLoaded?.Invoke(CurrentProfile);
+            // Profile switch may impact language choice; clear cached localization
+            ClearLearningLocalizationCache();
         }
 
 
@@ -371,6 +385,88 @@ namespace Antura.Discover
         {
             var p = Application.platform;
             return p == RuntimePlatform.IPhonePlayer || p == RuntimePlatform.Android;
+        }
+
+        // =========================================================
+        //   LEARNING LANGUAGE LOCALIZATION (CACHE)
+        // =========================================================
+
+        /// <summary>Clears the cached learning locale and localized string cache.</summary>
+        public void ClearLearningLocalizationCache()
+        {
+            _cachedLearningLocale = null;
+            _cachedLearningIso2 = null;
+            _learningStringCache.Clear();
+        }
+
+        /// <summary>
+        /// Resolve current learning Locale based on <see cref="LearningLanguageIso2"/>.
+        /// Prefers exact match, then first locale whose code starts with the ISO2.
+        /// Cached until the ISO2 changes.
+        /// </summary>
+        private Locale ResolveLearningLocale()
+        {
+            LearningLanguageIso2 = AppManager.I.ContentEdition.LearningLanguageConfig.Iso2;
+            var iso2 = LearningLanguageIso2;
+            if (string.IsNullOrEmpty(iso2) || LocalizationSettings.AvailableLocales == null)
+                return null;
+
+            if (_cachedLearningLocale != null && string.Equals(_cachedLearningIso2, iso2, StringComparison.OrdinalIgnoreCase))
+                return _cachedLearningLocale;
+
+            Locale locale = LocalizationSettings.AvailableLocales.GetLocale(iso2);
+            if (locale == null)
+            {
+                foreach (var loc in LocalizationSettings.AvailableLocales.Locales)
+                {
+                    if (loc == null)
+                        continue;
+                    var code = loc.Identifier.Code;
+                    if (!string.IsNullOrEmpty(code) && code.StartsWith(iso2, StringComparison.OrdinalIgnoreCase))
+                    { locale = loc; break; }
+                }
+            }
+
+            _cachedLearningLocale = locale;
+            _cachedLearningIso2 = iso2;
+            return locale;
+        }
+
+        /// <summary>
+        /// Get the localized string for the given entry (or shadow) from the specified table, using the learning language locale.
+        /// Results are cached per (table, entry, locale).
+        /// </summary>
+        /// <param name="tableReference">The string table reference.</param>
+        /// <param name="entryId">The primary line/entry ID.</param>
+        /// <param name="shadowEntryId">Optional shadow entry ID to prefer.</param>
+        /// <param name="fallback">Localization fallback behavior.</param>
+        /// <param name="ct">Cancellation token.</param>
+        public async Task<string> GetLearningLocalizedStringAsync(TableReference tableReference, string entryId, string shadowEntryId = null, FallbackBehavior fallback = FallbackBehavior.UseFallback, CancellationToken ct = default)
+        {
+            try
+            {
+                var locale = ResolveLearningLocale();
+                if (locale == null)
+                    return string.Empty;
+
+                var keyEntry = string.IsNullOrEmpty(shadowEntryId) ? entryId : shadowEntryId;
+                var cacheKey = $"{tableReference}:{keyEntry}:{locale.Identifier.Code}";
+                if (_learningStringCache.TryGetValue(cacheKey, out var cached))
+                    return cached;
+
+                var handle = LocalizationSettings.StringDatabase.GetTableEntryAsync(tableReference, keyEntry, locale, fallback);
+                // Await the async operation's task; observe cancellation if supported
+                var result = await handle.Task.ConfigureAwait(false);
+                ct.ThrowIfCancellationRequested();
+                var value = result.Entry?.LocalizedValue ?? string.Empty;
+                _learningStringCache[cacheKey] = value;
+                return value;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"[DiscoverAppManager] GetLearningLocalizedStringAsync failed for entry '{shadowEntryId ?? entryId}': {ex.Message}");
+                return string.Empty;
+            }
         }
     }
 }

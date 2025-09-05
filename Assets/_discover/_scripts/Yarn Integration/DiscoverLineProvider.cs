@@ -16,7 +16,7 @@ namespace Antura.Discover
 {
     public class LocalizedLineDiscover : LocalizedLine
     {
-        public string TextLearning = "";
+        public string TextInLearningLang = "";
     }
 
     public class DiscoverLineProvider : LineProviderBehaviour
@@ -92,44 +92,17 @@ namespace Antura.Discover
             {
                 asset = await YarnTask.WaitForAsyncOperation(LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<UnityEngine.Object>(assetTable.TableReference, shadowLineID ?? line.ID, null, FallbackBehavior.UseFallback), cancellationToken);
             }
-            // Fetch same entry in learning language (if present)
+            // Fetch the same entry in learning language
             string TextInLearningLanguage = string.Empty;
             try
             {
-                var learningIso2 = DiscoverAppManager.I?.LearningLanguageIso2;
-                Locale? learningLocale = null;
-                if (!string.IsNullOrEmpty(learningIso2))
-                {
-                    // Try exact code first
-                    learningLocale = LocalizationSettings.AvailableLocales?.GetLocale(learningIso2);
-                    // Fallback: match starts-with (e.g., "en" -> "en-GB")
-                    if (learningLocale == null && LocalizationSettings.AvailableLocales != null)
-                    {
-                        foreach (var loc in LocalizationSettings.AvailableLocales.Locales)
-                        {
-                            if (loc != null)
-                            {
-                                var code = loc.Identifier.Code;
-                                if (!string.IsNullOrEmpty(code) && code.StartsWith(learningIso2, StringComparison.OrdinalIgnoreCase))
-                                { learningLocale = loc; break; }
-                            }
-                        }
-                    }
-                }
-
-                if (learningLocale != null)
-                {
-                    var learnEntry = await YarnTask.WaitForAsyncOperation(
-                        LocalizationSettings.StringDatabase.GetTableEntryAsync(
-                            stringsTable.TableReference,
-                            shadowLineID ?? line.ID,
-                            learningLocale,
-                            FallbackBehavior.UseFallback
-                        ), cancellationToken);
-
-                    if (learnEntry.Entry != null)
-                        TextInLearningLanguage = learnEntry.Entry.LocalizedValue ?? string.Empty;
-                }
+                TextInLearningLanguage = await DiscoverAppManager.I.GetLearningLocalizedStringAsync(
+                    stringsTable.TableReference,
+                    line.ID,
+                    shadowLineID,
+                    FallbackBehavior.UseFallback,
+                    cancellationToken
+                );
             }
             catch (Exception ex)
             {
@@ -139,7 +112,7 @@ namespace Antura.Discover
             return new LocalizedLineDiscover
             {
                 Text = markup,
-                TextLearning = TextInLearningLanguage, // CUSTOM
+                TextInLearningLang = TextInLearningLanguage, // this is our custom added line!
                 TextID = line.ID,
                 Substitutions = line.Substitutions,
                 RawText = text,
