@@ -229,7 +229,6 @@ Transform:
   m_Children:
   - {fileID: 2929577570865554818}
   - {fileID: 3028603427599440578}
-  - {fileID: 7120369074311885940}
   m_Father: {fileID: 468096492504746371}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7142649580419805674
@@ -261,6 +260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 7120369074311885940}
   - {fileID: 6208392770120665285}
   - {fileID: 4581253766806783674}
   - {fileID: 8266649323666762430}
@@ -400,6 +400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
+      propertyPath: Id
+      value: dwarf_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
       propertyPath: DialogueNode.project
       value: 
       objectReference: {fileID: 7545569452688597077, guid: 9217ad85d2c6341f0b75b235d7635e4e,
@@ -480,6 +485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
+      propertyPath: Id
+      value: dwarf_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
       propertyPath: DialogueNode.project
       value: 
       objectReference: {fileID: 7545569452688597077, guid: 9217ad85d2c6341f0b75b235d7635e4e,
@@ -557,6 +567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dwarf (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
+      propertyPath: Id
+      value: dwarf_3
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
@@ -804,6 +819,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
+      propertyPath: Id
+      value: dwarf_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
       propertyPath: DialogueNode.project
       value: 
       objectReference: {fileID: 7545569452688597077, guid: 9217ad85d2c6341f0b75b235d7635e4e,
@@ -881,6 +901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dwarf (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
+      propertyPath: Id
+      value: dwarf_10
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
@@ -964,6 +989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
+      propertyPath: Id
+      value: dwarf_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
       propertyPath: DialogueNode.project
       value: 
       objectReference: {fileID: 7545569452688597077, guid: 9217ad85d2c6341f0b75b235d7635e4e,
@@ -1041,6 +1071,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dwarf (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
+      propertyPath: Id
+      value: dwarf_7
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
@@ -1140,12 +1175,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1701093741014008825}
+    m_TransformParent: {fileID: 1139127488034329720}
     m_Modifications:
     - target: {fileID: 589851491187305299, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.880001
+      value: 17.28
       objectReference: {fileID: 0}
     - target: {fileID: 589851491187305299, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
@@ -1155,7 +1190,7 @@ PrefabInstance:
     - target: {fileID: 589851491187305299, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -49.28
+      value: -28.279999
       objectReference: {fileID: 0}
     - target: {fileID: 589851491187305299, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
@@ -1195,7 +1230,7 @@ PrefabInstance:
     - target: {fileID: 5461548780857684493, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
       propertyPath: m_Name
-      value: dwarf_1_aaa
+      value: dwarf_1
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
@@ -1384,6 +1419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}
+      propertyPath: Id
+      value: dwarf_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
       propertyPath: DialogueNode.project
       value: 
       objectReference: {fileID: 7545569452688597077, guid: 9217ad85d2c6341f0b75b235d7635e4e,
@@ -1461,6 +1501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dwarf (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
+        type: 3}
+      propertyPath: Id
+      value: dwarf_5
       objectReference: {fileID: 0}
     - target: {fileID: 8279408583997580768, guid: e714242b399434b4f92dc5142c5f5d63,
         type: 3}

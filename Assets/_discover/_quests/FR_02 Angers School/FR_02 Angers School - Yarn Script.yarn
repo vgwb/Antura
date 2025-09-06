@@ -23,6 +23,13 @@ Find your school and your classroom! #line:0f65a1b
 <<task_start TASK_SCHOOL task_school_done>>
 ===
 
+title: task_school_done
+position: 1,145
+tags: actor=TUTOR
+---
+TASK COMPLETED!  #line:03ed76a 
+===
+
 title: task_school_desc
 type: task
 position: 973,-174
@@ -100,7 +107,7 @@ tags: actor=GUIDE
 actor: GUIDE
 ---
 There it is! Let's go inside and start the lesson. #line:0624437 
-<<action DOOR_OPEN_1>>
+<<action door_open_2>>
 Come in! Your classroom is down the hall. #line:0b91268 
 <<jump task_find_classroom >>
 ===
@@ -119,6 +126,13 @@ type: task
 position: 976,82
 ---
 Find your class so you can start the lesson.  #line:00e71a9 
+===
+
+title: task_class_done
+position: 1207,-20
+tags: actor=TUTOR
+---
+YES! You can now start the lesson. #line:093e91d 
 ===
 
 title: classroom_1
@@ -175,6 +189,11 @@ Look, it's a writing lesson. #line:0071a0d
 In France, we learn to write in cursive. #line:0f8995f 
 <<card concept_cursive_writing zoom>>
 Now for geometry! #line:0365921 
+<<jump activity_match_geometry>>
+===
+
+title: activity_match_geometry
+---
 Match each tool to the shape it draws. #line:052d22a 
 <<activity match_shapes activity_match_done>>
 ===
@@ -185,33 +204,18 @@ tags: actor=GUIDE
 actor: GUIDE
 color: purple
 ---
+<<if GetActivityResult("match_shapes") > 0>>
 Great job! #line:0e3f1fa 
 Every morning and afternoon we have a break to play outside. #line:037391b 
 You're all set. Welcome to the class! #line:021df05 
 <<quest_end>>
+<<else>>
+Not quite right, let's try again. #line:0a5c8f1
+<<jump activity_match_geometry>>
+<<endif>>
 ===
 
-title: task_school_done
-position: 1,145
-tags: actor=TUTOR
----
-TASK COMPLETED!  #line:03ed76a 
-===
 
-title: task_backpack_done
-position: 1205,-281
-tags: actor=TUTOR
----
-TASK COMPLETED! You can now enter school. #line:063f354  
-<<set $got_backpack = true>>
-===
-
-title: task_class_done
-position: 1207,-20
-tags: actor=TUTOR
----
-TASK COMPLETED! You can now start the lesson. #line:093e91d 
-===
 
 title: task_backpack
 position: 976,-282
@@ -220,6 +224,14 @@ color: green
 ---
 Find your backpack and then come back. #line:0e3ad75 
 <<task_start TASK_BACKPACK task_backpack_done>>
+===
+
+title: task_backpack_done
+position: 1205,-281
+tags: actor=TUTOR
+---
+TASK COMPLETED! You can now enter school. #line:063f354  
+<<set $got_backpack = true>>
 ===
 
 title: task_backpack_desc

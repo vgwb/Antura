@@ -19,16 +19,16 @@ type: panel
 ---
 <<declare $found = 0>>
 <<declare $need = 10>>
-<<declare $dwarf_1 = false>>
-<<declare $dwarf_2 = false>>
-<<declare $dwarf_3 = false>>
-<<declare $dwarf_4 = false>>
-<<declare $dwarf_5 = false>>
-<<declare $dwarf_6 = false>>
-<<declare $dwarf_7 = false>>
-<<declare $dwarf_8 = false>>
-<<declare $dwarf_9 = false>>
-<<declare $dwarf_10 = false>>
+<<declare $dwarf_1_found = false>>
+<<declare $dwarf_2_found = false>>
+<<declare $dwarf_3_found = false>>
+<<declare $dwarf_4_found = false>>
+<<declare $dwarf_5_found = false>>
+<<declare $dwarf_6_found = false>>
+<<declare $dwarf_7_found = false>>
+<<declare $dwarf_8_found = false>>
+<<declare $dwarf_9_found = false>>
+<<declare $dwarf_10_found = false>>
 
 Welcome to Wrocław!
 ===
@@ -80,14 +80,11 @@ tags: actor=DWARF
 Bravo! You solved the puzzle.
 Now i come with you
 <<inventory wroclaw_dwarfs add>>
+<<set $dwarf_1_found = true>>
 <<SetActive dwarf_1 false>>
-<<if !$dwarf_1>>
-	<<set $dwarf_1 = true>>
-	<<set $found = $found + 1>>
-<<endif>>
 ===
 
-// 1) Old Town Hall
+// 2) Old Town Hall
 title: dwarf_2_town_hall
 position: 280,180
 group: dwarves
@@ -104,106 +101,174 @@ position: 280,180
 group: dwarves
 tags: actor=DWARF
 ---
-
-<<if !$dwarf_2>>
-	<<set $dwarf_2 = true>>
-	<<set $found = $found + 1>>
-<<endif>>
+Well done!
+<<inventory wroclaw_dwarfs add>>
+<<set $dwarf_2_found = true>>
+<<SetActive dwarf_2 false>>
 ===
 
 
 
-// 2) Cathedral with quiz
-title: dwarf_cathedral
+// 3) Cathedral with quiz
+title: dwarf_3_cathedral
 position: 280,360
 group: dwarves
 tags: actor=DWARF
 ---
+<<card bishop_dwarf>>
 This is the Cathedral. It is a large and important church. #line:00f2132 
+Do you know what is a CHURCH?
+-> Yes
+-> No
+ <<detour info_church>>
 It has tall towers and colorful stained-glass windows. #line:08871e4 
 <<jump bishop_quiz>>
 ===
-
-title: bishop_quiz
+title: info_church
 position: 520,360
 group: dwarves
-tags: actor=DWARF, type=Choice
+tags: actor=DWARF
+---
+<<card church>>
+A church is a place where people pray. #line:0b1f4e1
+===
+
+title: dwarf_3__quiz
+position: 520,360
+group: dwarves
+tags: actor=DWARF
 ---
 What do people do in a cathedral? #line:05ea00d 
 -> They shop for food. #line:0c891cc 
-	Not here. Try again. #line:0d84e58 
-	<<jump bishop_quiz>>
+   Not here. Try again. #line:0d84e58 
+   <<jump dwarf_3_quiz>>
 -> They pray. #line:01ac8e6 
-	Yes. You may collect the dwarf. #line:071c92a 
-	<<jump cathedral_collect>>
+   Yes. You may collect the dwarf. #line:071c92a 
+   <<jump dwarf_3_activity>>
 -> They fly planes. #line:09d9b34 
-	No. Try again. #line:06ebc0c 
-	<<jump bishop_quiz>>
+   No. Try again. #line:06ebc0c 
+   <<jump dwarf_3_quiz>>
 ===
 
-title: cathedral_collect
+title: dwarf_3_activity
 position: 760,360
 group: dwarves
 tags: actor=DWARF
 ---
-<<activity jigsawpuzzle wroclaw_cathedral tutorial>>
-<<if !$dwarf_2>>
-	<<set $dwarf_2 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:0ac6a7d 
-<<endif>>
+Let' play a game
+<<activity jigsaw_wroclaw_cathedral dwarf_3_activity_done>>
+
 ===
 
-// 3) ZOO tie-in
-title: dwarf_zoo
+title: dwarf_3_activity_done
+position: 760,360
+group: dwarves
+tags: actor=DWARF
+---
+Great! He is a another Dwarf
+<<inventory wroclaw_dwarfs add>>
+<<set $dwarf_3_found = true>>
+<<SetActive dwarf_3 false>>
+===
+
+// 4) ZOO
+title: dwarf_4_zoo
 position: 280,540
 group: dwarves
 tags: actor=DWARF
 ---
 Visit the Wrocław ZOO, the biggest in Poland. #line:0198e80 
 It has many animals from around the world. #line:01b020e 
-<<activity jigsawpuzzle wroclaw_zoo tutorial>>
-<<if !$dwarf_3>>
-	<<set $dwarf_3 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:0f4a3c9 
-<<endif>>
+<<jump dwarf_4_activity>>
 ===
 
-// 4) Centennial Hall
-title: dwarf_centennial_hall
+title: dwarf_4_activity
+position: 280,540
+group: dwarves
+tags: actor=DWARF
+---
+Let's play a game
+<<activity jigsaw_wroclaw_zoo dwarf_4_activity_done>>
+===
+
+title: dwarf_4_activity_done
+position: 280,540
+group: dwarves
+tags: actor=DWARF
+---
+Great!
+<<inventory wroclaw_dwarfs add>>
+<<set $dwarf_4_found = true>>
+<<SetActive dwarf_4 false>>
+===
+
+// 5) Centennial Hall
+title: dwarf_5
 position: 280,720
 group: dwarves
 tags: actor=DWARF
 ---
 The Centennial Hall is huge. Inside you see shows and concerts. #line:0ebb952 
 The roof looks like a giant dome. #line:0f4189b 
-<<activity jigsawpuzzle centennial_hall tutorial>>
-<<if !$dwarf_4>>
-	<<set $dwarf_4 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:038d2f9 
-<<endif>>
+<<jump dwarf_5_activity>>
 ===
 
-// 5) Multimedia Fountain
-title: dwarf_fountain
+title: dwarf_5_activity
+position: 280,720
+group: dwarves
+tags: actor=DWARF
+---
+Let's do something with it 
+<<activity jigsawpuzzle centennial_hall dwarf_5_activity_done>>
+===
+
+title: dwarf_5_activity_done
+position: 280,720
+group: dwarves
+tags: actor=DWARF
+---
+Great!
+<<inventory wroclaw_dwarfs add>>
+<<set $dwarf_5_found = true>>
+<<SetActive dwarf_5 false>>
+===
+
+
+
+// 6) Multimedia Fountain
+title: dwarf_6
 position: 280,900
 group: dwarves
 tags: actor=DWARF
 ---
 Water dances here with music and lights. #line:0daf76d 
 The shows are beautiful on summer nights. #line:006ed40 
-<<activity jigsawpuzzle multimedia_fountain tutorial>>
-<<if !$dwarf_5>>
-	<<set $dwarf_5 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:004a763 
-<<endif>>
+<<jump dwarf_6_activity>>
 ===
 
-// 6) Panorama Racławicka
-title: dwarf_panorama
+
+title: dwarf_6_activity
+position: 280,900
+group: dwarves
+tags: actor=DWARF
+---
+Let's see how you play this
+<<activity jigsaw_multimedia_fountain dwarf_6_activity_done>>
+
+===
+title: dwarf_6_activity_done
+position: 280,540
+group: dwarves
+tags: actor=DWARF
+---
+Great!
+<<inventory wroclaw_dwarfs add>>
+<<set $dwarf_6_found = true>>
+<<SetActive dwarf_6 false>>
+===
+
+// 7) Panorama Racławicka
+title: dwarf_7
 position: 280,1080
 group: dwarves
 tags: actor=DWARF
@@ -211,15 +276,12 @@ tags: actor=DWARF
 A giant battle painting goes all around you. #line:0de7f17 
 You stand inside the story. #line:0f8436b 
 <<activity jigsawpuzzle panorama_raclawicka tutorial>>
-<<if !$dwarf_6>>
-	<<set $dwarf_6 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:0130584 
-<<endif>>
 ===
 
-// 7) Olga Tokarczuk
-title: dwarf_olga
+
+
+// 8) Olga Tokarczuk
+title: dwarf_8
 position: 280,1260
 group: dwarves
 tags: actor=DWARF
@@ -227,15 +289,10 @@ tags: actor=DWARF
 Olga Tokarczuk is a famous writer who lives in Wrocław. #line:0496de5 
 She won the Nobel Prize in Literature. #line:00ae354 
 <<activity jigsawpuzzle olga_tokarczuk tutorial>>
-<<if !$dwarf_7>>
-	<<set $dwarf_7 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:067f80a 
-<<endif>>
 ===
 
-// 8) Sky Tower Plaza Dwarf
-title: dwarf_plaza
+// 9) Sky Tower Plaza Dwarf
+title: dwarf_9
 position: 560,1260
 group: dwarves
 tags: actor=DWARF
@@ -243,15 +300,10 @@ tags: actor=DWARF
 This is the modern plaza near the Sky Tower. #line:096a9ee 
 People meet here to talk and play. #line:0c899a5 
 <<activity jigsawpuzzle plaza_dwarf tutorial>>
-<<if !$dwarf_8>>
-	<<set $dwarf_8 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:0314653 
-<<endif>>
 ===
 
 // 9) Sky Tower Dwarf
-title: dwarf_sky_tower
+title: dwarf_10
 position: 840,1260
 group: dwarves
 tags: actor=DWARF
@@ -259,11 +311,6 @@ tags: actor=DWARF
 The Sky Tower is very tall. #line:0ccd434 
 You can see very far from the top. #line:0170463 
 <<activity jigsawpuzzle sky_tower_dwarf tutorial>>
-<<if !$dwarf_9>>
-	<<set $dwarf_9 = true>>
-	<<set $found = $found + 1>>
-A dwarf joined us. #line:060daca 
-<<endif>>
 ===
 
 // Keymaster at the elevator

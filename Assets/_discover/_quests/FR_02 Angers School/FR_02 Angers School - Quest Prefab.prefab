@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6248812635050322377}
   m_Layer: 0
-  m_Name: Collectable
+  m_Name: Quest Backpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,36 +342,36 @@ MonoBehaviour:
   - ActivitySettings: {fileID: 11400000, guid: 4786cb6f52ea7514ea4f6e6b1c0408fe, type: 2}
     ActivityGO: {fileID: 8342461007414426982}
   QuestTasks:
-  - Code: TASK_BACKPACK
-    Type: 1
-    InteractGO: {fileID: 0}
-    ProgressPoints: 3
-    NodeDescription: 
-    NodeSuccess: 
-    NodeFail: 
-    ItemsContainer: {fileID: 0}
-    ItemCount: 1
-    ItemTag: backpack
-    TimerSeconds: 0
-    TargetPoint: {fileID: 0}
-    Area: {fileID: 0}
-  - Code: TASK_BACKPACK
-    Type: 1
-    InteractGO: {fileID: 0}
-    ProgressPoints: 3
-    NodeDescription: 
-    NodeSuccess: 
-    NodeFail: 
-    ItemsContainer: {fileID: 0}
-    ItemCount: 1
-    ItemTag: backpack
-    TimerSeconds: 0
-    TargetPoint: {fileID: 0}
-    Area: {fileID: 0}
   - Code: TASK_SCHOOL
     Type: 2
     InteractGO: {fileID: 7984031611574929572}
     ProgressPoints: 3
+    NodeDescription: 
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 0
+    ItemTag: 
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: TASK_BACKPACK
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 3
+    NodeDescription: 
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 2446957662001781893}
+    ItemCount: 1
+    ItemTag: backpack
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: TASK_CLASSROOM
+    Type: 2
+    InteractGO: {fileID: 1806174577269405113}
+    ProgressPoints: 0
     NodeDescription: 
     NodeSuccess: 
     NodeFail: 
@@ -449,10 +449,9 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: Antura.Minigames.DiscoverCountry.Interaction.RotateBy,
-              Assembly-CSharp
-            m_MethodName: Open
-            m_Mode: 1
+            m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_MethodName: SetActive
+            m_Mode: 6
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -607,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3058
+      value: 3073
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -3866,7 +3865,7 @@ PrefabInstance:
     - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: NodePermalink
-      value: classroom_5
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -3969,6 +3968,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b50a02c7e1b0747998fbc2713d17d219, type: 3}
+--- !u!1 &1806174577269405113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
+    type: 3}
+  m_PrefabInstance: {fileID: 1358339557078997541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4574811619323612649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
