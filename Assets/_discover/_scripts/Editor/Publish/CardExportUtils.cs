@@ -38,6 +38,7 @@ namespace Antura.Discover.Editor
 
             var googlelink = "https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977";
             var editInfo = "!!! note \"Educators: help improving these cards!\"" + "\n";
+            editInfo += $"    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group)  " + "\n";
             editInfo += $"    **Improve translations**: [comment here]({googlelink})  " + "\n";
             sb.AppendLine(editInfo);
 
@@ -109,6 +110,15 @@ namespace Antura.Discover.Editor
                         sb.AppendLine("- Words: " + string.Join(", ", wordLinks));
                     }
 
+                    if (c.ImageAsset != null)
+                    {
+                        sb.AppendLine(GetAssetCredits( c.ImageAsset));
+                    }
+                    if (c.AudioAsset != null)
+                    {
+                        sb.AppendLine(GetAssetCredits(c.AudioAsset));
+                    }
+
                     if (c.Quests != null && c.Quests.Count > 0)
                     {
                         var questLinks = c.Quests
@@ -150,6 +160,17 @@ namespace Antura.Discover.Editor
             }
             catch { }
             return null;
+        }
+
+        static string GetAssetCredits(AssetData asset) {
+                        var creditParts = new List<string>();
+                        creditParts.Add(asset.License.ToString());
+                        if (!string.IsNullOrEmpty(asset.Copyright))
+                            creditParts.Add(asset.Copyright);
+                        if (!string.IsNullOrEmpty(asset.SourceUrl))
+                            creditParts.Add($"[source]({asset.SourceUrl})");
+
+                        return "- " + asset.Type.ToString() + " credit: " + string.Join(" | ", creditParts);
         }
 
         static Type FindTypeByName(string name)

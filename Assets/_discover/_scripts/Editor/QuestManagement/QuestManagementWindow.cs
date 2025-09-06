@@ -955,7 +955,7 @@ namespace Antura.Discover.EditorTools
             string newText = before + "\n" + block + "\n" + after; // ensure surrounding newlines
 
             // Normalize spacing after closing tag: exactly one empty line after the // </scene_data> line
-            const string closeTagCommented = "// </scene_data>";
+            // const string closeTagCommented = "// </scene_data>";
             int closeTagLineIdx = newText.IndexOf(closeTagCommented, StringComparison.OrdinalIgnoreCase);
             if (closeTagLineIdx >= 0)
             {

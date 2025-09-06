@@ -253,7 +253,8 @@ namespace Antura.Discover.Editor
                 else if (q.YarnScript != null)
                 {
                     sb.AppendLine("```yarn");
-                    sb.AppendLine(q.YarnScript.text);
+                    var stripped = RemoveSceneDataChunk(q.YarnScript.text);
+                    sb.AppendLine(stripped);
                     sb.AppendLine("```");
                 }
                 else
@@ -296,7 +297,8 @@ namespace Antura.Discover.Editor
 
             if (q.YarnScript != null)
             {
-                sb.AppendLine(RenderYarnAsHtml(q.YarnScript.text));
+                var raw = RemoveSceneDataChunk(q.YarnScript.text);
+                sb.AppendLine(RenderYarnAsHtml(raw));
             }
             else
             {
@@ -311,6 +313,7 @@ namespace Antura.Discover.Editor
         {
             if (string.IsNullOrEmpty(script))
                 return string.Empty;
+            script = RemoveSceneDataChunk(script);
             var parts = script.Split(new[] { "===" }, StringSplitOptions.None);
             var sb = new StringBuilder();
             foreach (var rawPart in parts)
@@ -411,6 +414,36 @@ namespace Antura.Discover.Editor
             editInfo += $"    **Improve translations**: [comment the Google Sheet]({googlelink})  " + "\n";
             editInfo += $"    **Improve the script**: [propose an edit here]({githublink})  " + "\n";
             return editInfo;
+        }
+
+        // Remove the scene_data metadata block (commented or raw tags) from a Yarn script text.
+        static string RemoveSceneDataChunk(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return text;
+            try
+            {
+                // Support commented or raw tags with optional leading whitespace.
+                // Use tempered dot with lazy quantifier to first closing tag occurrence after open.
+                var pattern = @"(?is)^[ \t]*//?[ \t]*<scene_data>[ \t]*\r?\n.*?<\/scene_data>[ \t]*\r?\n?";
+                var cleaned = Regex.Replace(text, pattern, string.Empty);
+                if (cleaned.IndexOf("<scene_data>", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    // Fallback manual removal (single block) if regex missed.
+                    int open = cleaned.IndexOf("<scene_data>", StringComparison.OrdinalIgnoreCase);
+                    if (open >= 0)
+                    {
+                        int close = cleaned.IndexOf("</scene_data>", open, StringComparison.OrdinalIgnoreCase);
+                        if (close > open)
+                        {
+                            int after = close + "</scene_data>".Length;
+                            cleaned = cleaned.Remove(open, after - open);
+                        }
+                    }
+                }
+                return cleaned;
+            }
+            catch { return text; }
         }
 
         static System.Collections.IEnumerable AsEnumerable(object obj)

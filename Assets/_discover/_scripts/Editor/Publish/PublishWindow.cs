@@ -17,10 +17,10 @@ namespace Antura.Discover.Editor
         private Countries filterCountry = Countries.International;
         private bool filterByCountry = false;
 
-        [MenuItem("Antura/Discover/Publish Web & Export Quests", priority = 160)]
+        [MenuItem("Antura/Publish Website & Export", priority = 160)]
         public static void Open()
         {
-            GetWindow<PublishWindow>(title: "Publish Web & Export Quests").Show();
+            GetWindow<PublishWindow>(title: "Publish Website & Export").Show();
         }
 
         private void OnEnable()
@@ -318,8 +318,8 @@ namespace Antura.Discover.Editor
                     File.WriteAllText(Path.Combine(activitiesDir, "index.md"), activitiesMd);
                     var wordsMd = WordExportUtils.BuildWordsIndexMarkdown(en);
                     File.WriteAllText(Path.Combine(wordsDir, "index.md"), wordsMd);
-                    var knoledgesMd = TopicExportUtils.BuildTopicIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(topicsDir, "index.md"), knoledgesMd);
+                    var topicsMd = TopicExportUtils.BuildTopicIndexMarkdown(en);
+                    File.WriteAllText(Path.Combine(topicsDir, "index.md"), topicsMd);
                     var locationsMd = LocationsExportUtils.BuildLocationsIndexMarkdown(en);
                     File.WriteAllText(Path.Combine(locationsDir, "index.md"), locationsMd);
                 });
