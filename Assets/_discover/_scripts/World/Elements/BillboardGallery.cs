@@ -33,7 +33,6 @@ namespace Antura.Discover
     /// Shows a Sprite from AssetData, CardData, TopicData or a list on a 3D billboard (quad/mesh) using UV cropping.
     /// Keeps the panel's world size constant and fits the image by adjusting _MainTex_ST (no stretching).
     /// </summary>
-    [ExecuteAlways]
     public class BillboardGallery : MonoBehaviour
     {
         [Header("Source")]
@@ -103,20 +102,20 @@ namespace Antura.Discover
         private enum GalleryState { Showing, FadingOut, FadingIn }
 
 #if UNITY_EDITOR
-        private void OnEnable()
-        {
-            EditorApplication.projectChanged += EditorProjectChanged;
-            Undo.undoRedoPerformed += RefreshNow;
-            Init();
-            RebuildGalleryIfNeeded();
-            RefreshNow();
-        }
-        private void OnDisable()
-        {
-            EditorApplication.projectChanged -= EditorProjectChanged;
-            Undo.undoRedoPerformed -= RefreshNow;
-        }
-        private void EditorProjectChanged() => RefreshNow();
+        // private void OnEnable()
+        // {
+        //     EditorApplication.projectChanged += EditorProjectChanged;
+        //     Undo.undoRedoPerformed += RefreshNow;
+        //     Init();
+        //     RebuildGalleryIfNeeded();
+        //     RefreshNow();
+        // }
+        // private void OnDisable()
+        // {
+        //     EditorApplication.projectChanged -= EditorProjectChanged;
+        //     Undo.undoRedoPerformed -= RefreshNow;
+        // }
+        // private void EditorProjectChanged() => RefreshNow();
 #else
         private void OnEnable()
         {
