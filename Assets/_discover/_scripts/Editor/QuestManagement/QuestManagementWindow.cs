@@ -133,6 +133,10 @@ namespace Antura.Discover.EditorTools
             var targets = GetTargetQuests();
             _scroll = EditorGUILayout.BeginScrollView(_scroll);
 
+            // Scene-wide ActableAbstract ID uniqueness check
+            DrawActableIdCheck();
+            GUILayout.Space(10);
+
             foreach (var q in targets)
             {
                 DrawQuestSection(q);
@@ -140,6 +144,89 @@ namespace Antura.Discover.EditorTools
             }
 
             EditorGUILayout.EndScrollView();
+        }
+
+        private void DrawActableIdCheck()
+        {
+            using (new EditorGUILayout.VerticalScope("box"))
+            {
+                EditorGUILayout.LabelField("Scene Actable IDs", EditorStyles.boldLabel);
+                var actables = GetSceneActables();
+                var dupes = actables
+                    .Where(a => a != null && !string.IsNullOrEmpty(a.Id))
+                    .GroupBy(a => a.Id, System.StringComparer.OrdinalIgnoreCase)
+                    .Where(g => g.Count() > 1)
+                    .OrderBy(g => g.Key, System.StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+
+                if (actables.Count == 0)
+                {
+                    EditorGUILayout.HelpBox("No ActableAbstract components found in the open scene(s).", MessageType.Info);
+                    return;
+                }
+
+                if (dupes.Count == 0)
+                {
+                    EditorGUILayout.HelpBox($"OK: {actables.Count} actables, all IDs unique (non-empty only).", MessageType.Info);
+                }
+                else
+                {
+                    EditorGUILayout.HelpBox($"Found {dupes.Count} duplicate ID group(s). Click buttons to ping objects.", MessageType.Warning);
+                    foreach (var group in dupes)
+                    {
+                        using (new EditorGUILayout.VerticalScope("box"))
+                        {
+                            EditorGUILayout.LabelField($"ID: {group.Key}  (x{group.Count()})", EditorStyles.boldLabel);
+                            using (new EditorGUILayout.HorizontalScope())
+                            {
+                                int shown = 0;
+                                foreach (var a in group)
+                                {
+                                    if (a == null)
+                                        continue;
+                                    if (GUILayout.Button(a.gameObject.name, GUILayout.MinWidth(120)))
+                                    {
+                                        Selection.activeObject = a.gameObject;
+                                        EditorGUIUtility.PingObject(a.gameObject);
+                                    }
+                                    shown++;
+                                    if (shown % 4 == 0)
+                                    {
+                                        GUILayout.EndHorizontal();
+                                        GUILayout.BeginHorizontal();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private List<ActableAbstract> GetSceneActables()
+        {
+            var list = new List<ActableAbstract>();
+            try
+            {
+#if UNITY_2022_2_OR_NEWER
+                var found = UnityEngine.Object.FindObjectsByType<ActableAbstract>(FindObjectsSortMode.None);
+#else
+                var found = UnityEngine.Object.FindObjectsOfType<ActableAbstract>(true);
+#endif
+                foreach (var a in found)
+                {
+                    if (a == null)
+                        continue;
+                    // Exclude prefabs / assets, keep only scene instances
+                    if (EditorUtility.IsPersistent(a))
+                        continue;
+                    if (!a.gameObject.scene.IsValid())
+                        continue;
+                    list.Add(a);
+                }
+            }
+            catch { }
+            return list;
         }
 
         private IEnumerable<QuestData> GetTargetQuests()
@@ -182,6 +269,8 @@ namespace Antura.Discover.EditorTools
                     }
                     if (GUILayout.Button("Analyze", GUILayout.Width(80)))
                     { AnalyzeQuest(q, force: true); }
+                    if (GUILayout.Button("Inject Scene Data", GUILayout.Width(140)))
+                    { InjectAutomaticSceneData(q); }
                     GUILayout.FlexibleSpace();
                 }
 
@@ -764,6 +853,216 @@ namespace Antura.Discover.EditorTools
                 Debug.LogWarning($"[QuestManagement] Could not read QuestActions from prefab for {q.Id ?? q.name}: {ex.Message}");
             }
             return result;
+        }
+
+        // -------------------------------- Automatic Scene Data Injection -------------------------------
+        private void InjectAutomaticSceneData(QuestData quest)
+        {
+            if (quest == null)
+            {
+                Debug.LogWarning("[QuestManagement] No quest selected for scene data injection.");
+                return;
+            }
+            if (quest.YarnScript == null)
+            {
+                Debug.LogWarning($"[QuestManagement] Quest '{quest.Id}' has no YarnScript assigned.");
+                return;
+            }
+            string path = AssetDatabase.GetAssetPath(quest.YarnScript);
+            if (string.IsNullOrEmpty(path))
+            {
+                Debug.LogWarning($"[QuestManagement] Could not resolve path for YarnScript of quest '{quest.Id}'.");
+                return;
+            }
+            string originalText;
+            try
+            { originalText = File.ReadAllText(path); }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[QuestManagement] Failed reading Yarn script: {ex.Message}");
+                return;
+            }
+
+            // Ensure we have // <scene_data> ... // </scene_data> section (commented). Backwards compatible with raw tags.
+            const string openTagRaw = "<scene_data>";
+            const string closeTagRaw = "</scene_data>";
+            const string openTagCommented = "// <scene_data>";
+            const string closeTagCommented = "// </scene_data>";
+            string actualOpenTag = openTagCommented;
+            string actualCloseTag = closeTagCommented;
+            int openIdx = originalText.IndexOf(openTagCommented, StringComparison.OrdinalIgnoreCase);
+            int closeIdx = originalText.IndexOf(closeTagCommented, StringComparison.OrdinalIgnoreCase);
+            if (openIdx < 0)
+            {
+                openIdx = originalText.IndexOf(openTagRaw, StringComparison.OrdinalIgnoreCase);
+                if (openIdx >= 0)
+                    actualOpenTag = openTagRaw;
+            }
+            if (closeIdx < 0)
+            {
+                closeIdx = originalText.IndexOf(closeTagRaw, StringComparison.OrdinalIgnoreCase);
+                if (closeIdx >= 0)
+                    actualCloseTag = closeTagRaw;
+            }
+            if (openIdx < 0 || closeIdx < 0 || closeIdx < openIdx)
+            {
+                int firstLineEnd = originalText.IndexOf('\n');
+                if (firstLineEnd < 0)
+                    firstLineEnd = 0;
+                else
+                    firstLineEnd += 1;
+                string firstPart = originalText.Substring(0, firstLineEnd);
+                string rest = originalText.Substring(firstLineEnd);
+                string insertion = openTagCommented + "\n" + closeTagCommented + "\n";
+                originalText = firstPart + insertion + rest;
+                actualOpenTag = openTagCommented;
+                actualCloseTag = closeTagCommented;
+                openIdx = originalText.IndexOf(actualOpenTag, StringComparison.OrdinalIgnoreCase);
+                closeIdx = originalText.IndexOf(actualCloseTag, StringComparison.OrdinalIgnoreCase);
+            }
+
+            // Ensure first line is quest header: // Quest: code | TitleEn
+            string questCode = quest.Id ?? quest.name;
+            string questTitle = string.IsNullOrEmpty(quest.TitleEn) ? questCode : quest.TitleEn;
+            string desiredHeader = $"// Quest: {questCode} | {questTitle}";
+            // Split once to inspect first line
+            int firstNewline = originalText.IndexOf('\n');
+            if (firstNewline < 0)
+                firstNewline = originalText.Length; // single line file edge case
+            string firstLine = originalText.Substring(0, firstNewline).TrimEnd('\r');
+            if (!firstLine.StartsWith("// Quest:"))
+            {
+                // Prepend header
+                originalText = desiredHeader + "\n" + originalText;
+                // Recompute indices
+                openIdx = originalText.IndexOf(actualOpenTag, StringComparison.OrdinalIgnoreCase);
+                closeIdx = originalText.IndexOf(actualCloseTag, StringComparison.OrdinalIgnoreCase);
+            }
+            else if (!string.Equals(firstLine, desiredHeader, StringComparison.Ordinal))
+            {
+                // Replace header line
+                originalText = desiredHeader + originalText.Substring(firstNewline);
+                // Indices unchanged positions shift maybe same length? safer to recompute
+                openIdx = originalText.IndexOf(actualOpenTag, StringComparison.OrdinalIgnoreCase);
+                closeIdx = originalText.IndexOf(actualCloseTag, StringComparison.OrdinalIgnoreCase);
+            }
+
+            // Rebuild entire scene_data inner content (we fully replace between tags)
+            string block = BuildAutomaticSceneDataBlock(quest);
+            int innerStart = openIdx + actualOpenTag.Length;
+            string before = originalText.Substring(0, innerStart);
+            string after = originalText.Substring(closeIdx);
+            string newText = before + "\n" + block + "\n" + after; // ensure surrounding newlines
+
+            // Normalize spacing after closing tag: exactly one empty line after the // </scene_data> line
+            const string closeTagCommented = "// </scene_data>";
+            int closeTagLineIdx = newText.IndexOf(closeTagCommented, StringComparison.OrdinalIgnoreCase);
+            if (closeTagLineIdx >= 0)
+            {
+                int endOfLine = newText.IndexOf('\n', closeTagLineIdx);
+                if (endOfLine < 0)
+                {
+                    // File ended right after close tag: add two newlines (one for EOL, one blank line)
+                    newText += "\n\n";
+                }
+                else
+                {
+                    int scan = endOfLine + 1;
+                    while (scan < newText.Length && (newText[scan] == '\n' || newText[scan] == '\r'))
+                        scan++;
+                    string rest = newText.Substring(scan);
+                    newText = newText.Substring(0, endOfLine + 1) + "\n" + rest; // one extra blank line only
+                }
+            }
+
+            try
+            {
+                File.WriteAllText(path, newText);
+                AssetDatabase.ImportAsset(path);
+                EditorGUIUtility.PingObject(quest.YarnScript);
+                Debug.Log($"[QuestManagement] Injected automatic scene data into '{quest.YarnScript.name}'.");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[QuestManagement] Failed writing Yarn script: {ex.Message}");
+            }
+        }
+
+        // Build the content that goes INSIDE <scene_data> ... </scene_data> (without the tags themselves)
+        private string BuildAutomaticSceneDataBlock(QuestData quest)
+        {
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine("// DO NOT EDIT THIS SECTION. It is auto-generated by the editor.");
+            sb.AppendLine("// in the Unity scene these elements are ready to be used in this script:");
+
+            // TOPICS
+            var topicIds = (quest.Topics ?? new List<TopicData>())
+                .Where(t => t != null)
+                .Select(t => t.Id ?? t.name)
+                .Where(id => !string.IsNullOrEmpty(id))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(id => id, StringComparer.OrdinalIgnoreCase)
+                .ToList();
+            sb.AppendLine("// TOPICS");
+            foreach (var id in topicIds)
+                sb.AppendLine("// - " + id);
+            if (topicIds.Count == 0)
+                sb.AppendLine("// - (none)");
+
+            // CARDS
+            var cardIds = (quest.Cards ?? new List<CardData>())
+                .Where(c => c != null)
+                .Select(c => c.Id ?? c.name)
+                .Where(id => !string.IsNullOrEmpty(id))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(id => id, StringComparer.OrdinalIgnoreCase)
+                .ToList();
+            sb.AppendLine("// CARDS");
+            foreach (var id in cardIds)
+                sb.AppendLine("// - " + id);
+            if (cardIds.Count == 0)
+                sb.AppendLine("// - (none)");
+
+            // TASKS
+            var taskCodes = GetQuestTaskCodes(quest).OrderBy(s => s, StringComparer.OrdinalIgnoreCase).ToList();
+            sb.AppendLine("// TASKS");
+            foreach (var t in taskCodes)
+                sb.AppendLine("// - " + t);
+            if (taskCodes.Count == 0)
+                sb.AppendLine("// - (none)");
+
+            // ACTIVITIES
+            var activityCodes = GetQuestActivityCodes(quest).OrderBy(s => s, StringComparer.OrdinalIgnoreCase).ToList();
+            sb.AppendLine("// ACTIVITIES");
+            foreach (var a in activityCodes)
+                sb.AppendLine("// - " + a);
+            if (activityCodes.Count == 0)
+                sb.AppendLine("// - (none)");
+
+            // ACTABLE
+            var actables = GetSceneActables()
+                .Where(a => a != null && !string.IsNullOrEmpty(a.Id))
+                .GroupBy(a => a.Id, StringComparer.OrdinalIgnoreCase)
+                .Select(g => g.Key)
+                .OrderBy(id => id, StringComparer.OrdinalIgnoreCase)
+                .ToList();
+            sb.AppendLine("// ACTABLE");
+            foreach (var id in actables)
+                sb.AppendLine("// - " + id);
+            if (actables.Count == 0)
+                sb.AppendLine("// - (none)");
+
+            // WORDS single line
+            var wordList = (quest.Words ?? new List<WordData>())
+                .Where(w => w != null)
+                .Select(w => string.IsNullOrEmpty(w.TextEn) ? (w.name ?? w.Id) : w.TextEn)
+                .Where(t => !string.IsNullOrEmpty(t))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(t => t, StringComparer.OrdinalIgnoreCase)
+                .ToList();
+            string wordsJoined = wordList.Count == 0 ? "(none)" : string.Join(", ", wordList);
+            sb.AppendLine("// WORDS: " + wordsJoined);
+            return sb.ToString().TrimEnd();
         }
     }
 }
