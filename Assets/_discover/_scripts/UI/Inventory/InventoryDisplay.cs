@@ -16,6 +16,7 @@ namespace Antura.Discover
 
         void Start()
         {
+            QuestBookDisplay.Init();
             // clean container
             foreach (Transform child in ItemsContainer.transform)
             {
@@ -37,9 +38,9 @@ namespace Antura.Discover
             }
         }
 
-        public void OnOpenBook()
+        public void OnClickBookIcon()
         {
-            QuestBookDisplay.OnOpenBook();
+            QuestBookDisplay.OnToggleBook();
         }
 
         public void AddItem(InventoryItem itemData)

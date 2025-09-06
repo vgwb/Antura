@@ -8,20 +8,37 @@ namespace Antura.Discover
     public class QuestBookDisplay : MonoBehaviour
     {
         public QuestCardsUI CardsUI;
+        private bool isOpen = false;
 
         void Start()
         {
-
+            Init();
         }
 
-        public void OnOpenBook()
+        public void Init()
         {
+            CloseBook();
+        }
+
+        public void OnToggleBook()
+        {
+            isOpen = !isOpen;
+            if (isOpen)
+                OpenBook();
+            else
+                CloseBook();
+        }
+
+        public void OpenBook()
+        {
+            isOpen = true;
             CardsUI.Init(QuestManager.I.CurrentQuest);
             gameObject.SetActive(true);
         }
 
-        public void OnCloseBook()
+        public void CloseBook()
         {
+            isOpen = false;
             gameObject.SetActive(false);
         }
 
