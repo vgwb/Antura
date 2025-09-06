@@ -52,6 +52,8 @@ namespace Antura.Discover.Editor
             countriesToEmit.AddRange(order.Where(c => grouped.ContainsKey(c)));
             countriesToEmit.AddRange(grouped.Keys.Where(c => !countriesToEmit.Contains(c)));
 
+            sb.AppendLine($"Total found: **{topics.Count}**\n");
+
             foreach (var country in countriesToEmit)
             {
                 var list = grouped[country];

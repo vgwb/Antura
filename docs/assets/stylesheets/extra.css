@@ -40,6 +40,29 @@ html {
   font-size: 125%;
 }
 
+/* Antura Drawings custom font (copy the .woff2/.otf files into docs/assets/fonts/) */
+@font-face {
+  font-family: 'AnturaDrawings';
+  src: url('../fonts/AnturaWordDrawings-Regular.woff2') format('woff2'),
+       url('../fonts/AnturaWordDrawings-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.word-icon {
+  font-family: 'AnturaDrawings', 'AnturaWordDrawings-Regular', sans-serif;
+  display: inline-block;
+  font-size: 140px; /* increased size */
+  line-height: 1;
+  vertical-align: middle;
+  transform: translateY(0.05em);
+  color: #222;
+}
+[data-md-color-scheme="slate"] .word-icon {
+  color: #eee;
+}
+
 body {
   --md-text-font-family: -apple-system, "SF Pro Text", "Helvetica", sans-serif;
   --md-code-font-family: "SF Mono", "Menlo", monospace;
@@ -58,6 +81,7 @@ body {
   font-kerning: auto;
   font-style: normal;
   -webkit-print-color-adjust: economy;
+  print-color-adjust: economy;
 }
 
 .md-content .md-typeset {

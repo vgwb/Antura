@@ -100,6 +100,10 @@ namespace Antura.Discover.Editor
                 {
                     PublishLocationsOnly();
                 }
+                if (GUILayout.Button("Export Card Images"))
+                {
+                    ExportCardImages();
+                }
             }
 
             EditorGUILayout.HelpBox("Select QuestData assets in Project, choose Locale, then Export. 'Publish All' writes markdown into docs.", MessageType.Info);
@@ -494,6 +498,158 @@ namespace Antura.Discover.Editor
             {
                 Debug.LogError($"[Publish] Failed generating Topic index: {ex.Message}");
             }
+        }
+
+        // Exports all CardData main image assets to /docs/assets/img/discover/cards/{cardId}.jpg
+        // - Max width 640 (preserve aspect)
+        // - JPG quality 85%
+        // - Skips if no image or already up-to-date (same file size & newer timestamp)
+        public static void ExportCardImages()
+        {
+            string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+            string outDir = Path.Combine(projectRoot, "docs", "assets", "img", "discover", "cards");
+            Directory.CreateDirectory(outDir);
+
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+            int exported = 0, skipped = 0, missing = 0;
+
+            try
+            {
+                string[] guids = AssetDatabase.FindAssets("t:CardData");
+                foreach (var guid in guids)
+                {
+                    string path = AssetDatabase.GUIDToAssetPath(guid);
+                    var card = AssetDatabase.LoadAssetAtPath<CardData>(path);
+                    if (card == null)
+                        continue;
+                    if (card.ImageAsset == null || card.ImageAsset.Image == null)
+                    {
+                        missing++;
+                        continue;
+                    }
+                    var sprite = card.ImageAsset.Image;
+                    string fileName = card.Id + ".jpg";
+                    string dstPath = Path.Combine(outDir, fileName);
+
+                    Texture2D srcTex = sprite.texture;
+                    // Compute target width/height
+                    int srcWidth = sprite.rect.width > 0 ? (int)sprite.rect.width : srcTex.width;
+                    int srcHeight = sprite.rect.height > 0 ? (int)sprite.rect.height : srcTex.height;
+                    int targetWidth = Mathf.Min(640, srcWidth);
+                    int targetHeight = Mathf.RoundToInt(srcHeight * (targetWidth / (float)srcWidth));
+
+                    // Simple cache check by size (width/height) stored in filename meta? We'll just overwrite if missing or src is newer.
+                    bool needsExport = true;
+                    if (File.Exists(dstPath))
+                    {
+                        DateTime fileTime = File.GetLastWriteTimeUtc(dstPath);
+                        // If source texture asset is older than exported file and sizes match requested, skip
+                        string assetFullPath = Path.GetFullPath(path);
+                        DateTime assetTime = File.GetLastWriteTimeUtc(assetFullPath);
+                        if (assetTime <= fileTime)
+                        {
+                            // Could also check resolution marker by reading file length but that's overkill: skip.
+                            needsExport = false;
+                        }
+                    }
+                    if (!needsExport)
+                    {
+                        skipped++;
+                        continue;
+                    }
+
+                    // Extract pixels (cropping sprite if needed)
+                    Texture2D readable = GetReadableTexture(srcTex, sprite);
+                    if (readable.width != targetWidth)
+                    {
+                        Texture2D resized = new Texture2D(targetWidth, targetHeight, TextureFormat.RGB24, false, false);
+                        ResizeBilinear(readable, resized);
+                        readable = resized;
+                    }
+
+                    byte[] jpg = readable.EncodeToJPG(85);
+                    File.WriteAllBytes(dstPath, jpg);
+                    exported++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[Publish] Card images export failed: {ex.Message}\n{ex.StackTrace}");
+            }
+
+            sw.Stop();
+            Debug.Log($"[Publish] Card images export complete. Exported: {exported}, Skipped: {skipped}, Missing: {missing}. Time: {sw.ElapsedMilliseconds} ms -> {outDir}");
+            EditorUtility.RevealInFinder(outDir);
+        }
+
+        // Returns a readable Texture2D representing ONLY the sprite area.
+        private static Texture2D GetReadableTexture(Texture2D source, Sprite sprite)
+        {
+            // If sprite covers entire texture and is readable, return directly (clone to ensure readable)
+            Rect r = sprite.rect;
+            Texture2D tmp = new Texture2D((int)r.width, (int)r.height, TextureFormat.RGBA32, false);
+            try
+            {
+                RenderTexture rt = RenderTexture.GetTemporary(source.width, source.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear);
+                Graphics.Blit(source, rt);
+                RenderTexture prev = RenderTexture.active;
+                RenderTexture.active = rt;
+                Texture2D full = new Texture2D(source.width, source.height, TextureFormat.RGBA32, false);
+                full.ReadPixels(new Rect(0, 0, source.width, source.height), 0, 0);
+                full.Apply();
+                RenderTexture.active = prev;
+                RenderTexture.ReleaseTemporary(rt);
+
+                // Crop sprite area
+                Color[] pixels = full.GetPixels((int)r.x, (int)r.y, (int)r.width, (int)r.height);
+                tmp.SetPixels(pixels);
+                tmp.Apply();
+                UnityEngine.Object.DestroyImmediate(full);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[Publish] Failed extracting sprite texture: {ex.Message}");
+            }
+            return tmp;
+        }
+
+        // Bilinear resize from src -> dst
+        private static void ResizeBilinear(Texture2D src, Texture2D dst)
+        {
+            int w = dst.width;
+            int h = dst.height;
+            float invW = 1f / (w - 1);
+            float invH = 1f / (h - 1);
+            Color[] srcPixels = src.GetPixels();
+            int sw = src.width;
+            int sh = src.height;
+            Color[] dstPixels = new Color[w * h];
+            for (int y = 0; y < h; y++)
+            {
+                float v = y * invH;
+                float sy = v * (sh - 1);
+                int y0 = (int)sy;
+                int y1 = Mathf.Min(y0 + 1, sh - 1);
+                float fy = sy - y0;
+                for (int x = 0; x < w; x++)
+                {
+                    float u = x * invW;
+                    float sx = u * (sw - 1);
+                    int x0 = (int)sx;
+                    int x1 = Mathf.Min(x0 + 1, sw - 1);
+                    float fx = sx - x0;
+
+                    Color c00 = srcPixels[y0 * sw + x0];
+                    Color c10 = srcPixels[y0 * sw + x1];
+                    Color c01 = srcPixels[y1 * sw + x0];
+                    Color c11 = srcPixels[y1 * sw + x1];
+                    Color cx0 = Color.Lerp(c00, c10, fx);
+                    Color cx1 = Color.Lerp(c01, c11, fx);
+                    dstPixels[y * w + x] = Color.Lerp(cx0, cx1, fy);
+                }
+            }
+            dst.SetPixels(dstPixels);
+            dst.Apply();
         }
 
         private static Locale FindLocaleByCode(string code)

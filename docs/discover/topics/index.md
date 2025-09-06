@@ -5,6 +5,8 @@ hide:
 
 # Topics
 
+Total found:**34**
+
 ## International
 
 <a id="maths"></a>

@@ -57,6 +57,8 @@ namespace Antura.Discover.Editor
                 return sb.ToString();
             }
 
+            sb.AppendLine($"Total found:** {cards.Count}**\n");
+
             // Group by desired countries: International, France, Poland, then others
             Countries[] order = new[] { Countries.International, Countries.France, Countries.Poland };
             var grouped = cards.GroupBy(c => c.Country).ToDictionary(g => g.Key, g => g.ToList());
@@ -75,6 +77,10 @@ namespace Antura.Discover.Editor
                     if (!string.IsNullOrEmpty(cId))
                         sb.AppendLine($"<a id=\"{cId}\"></a>");
                     sb.AppendLine($"### {title}");
+
+                    if (c.ImageAsset != null)
+                        sb.AppendLine("![preview " + cId + "](../../assets/img/discover/cards/" + cId + ".jpg)\n");
+
                     if (!string.IsNullOrEmpty(desc))
                         sb.AppendLine(desc + "\n");
 

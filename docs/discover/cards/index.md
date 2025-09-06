@@ -10,10 +10,14 @@ Language: english - [french](./index.fr.md) - [polish](./index.pl.md) - [italian
 !!! note "Educators: help improving these cards!"
     **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
+Total found:**358**
+
 ## International
 
 <a id="alps"></a>
 ### Alps
+![preview alps](../../assets/img/discover/cards/alps.jpg)
+
 A tall mountain range in Europe.
 
 - Type: Place
@@ -21,8 +25,42 @@ A tall mountain range in Europe.
 - Country: International
 - Quests: [Mont Blanc & Mountains (fr_08)](../quest/fr_08.md)
 
+<a id="animal_chimpanzee"></a>
+### animal_chimpanzee
+![preview animal_chimpanzee](../../assets/img/discover/cards/animal_chimpanzee.jpg)
+
+- Type: None
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
+<a id="animal_lion_cub"></a>
+### animal_lion_cub
+![preview animal_lion_cub](../../assets/img/discover/cards/animal_lion_cub.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
+<a id="animal_lion_young_male"></a>
+### animal_lion_young_male
+![preview animal_lion_young_male](../../assets/img/discover/cards/animal_lion_young_male.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
+<a id="food_apple"></a>
+### APPLE
+![preview food_apple](../../assets/img/discover/cards/food_apple.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
 <a id="backpack"></a>
 ### Backpack
+![preview backpack](../../assets/img/discover/cards/backpack.jpg)
+
 A bag you carry on your back.
 
 - Type: Object
@@ -32,6 +70,8 @@ A bag you carry on your back.
 
 <a id="person_baker"></a>
 ### Baker
+![preview person_baker](../../assets/img/discover/cards/person_baker.jpg)
+
 A person who makes bread, cakes, and pastries.
 
 - Type: Person
@@ -41,6 +81,8 @@ A person who makes bread, cakes, and pastries.
 
 <a id="ball"></a>
 ### Ball
+![preview ball](../../assets/img/discover/cards/ball.jpg)
+
 A round object used in many games.
 
 - Type: Object
@@ -50,6 +92,8 @@ A round object used in many games.
 
 <a id="baltic_sea"></a>
 ### Baltic Sea
+![preview baltic_sea](../../assets/img/discover/cards/baltic_sea.jpg)
+
 A big sea in northern Europe where Poland, Germany, and other countries meet. It has beautiful beaches and is famous for amber treasures!
 
 - Rationale: The Baltic Sea teaches kids about marine geography and Poland's coastal access
@@ -58,8 +102,18 @@ A big sea in northern Europe where Poland, Germany, and other countries meet. It
 - Country: International
 - Quests: [The Amber Necklace of Gdańsk (pl_05)](../quest/pl_05.md)
 
+<a id="food_banana"></a>
+### BANANA
+![preview food_banana](../../assets/img/discover/cards/food_banana.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
 <a id="beekeeper"></a>
 ### Beekeeper
+![preview beekeeper](../../assets/img/discover/cards/beekeeper.jpg)
+
 A person who cares for bees and collects honey.
 
 - Type: Person
@@ -69,6 +123,8 @@ A person who cares for bees and collects honey.
 
 <a id="country_belarus"></a>
 ### Belarus
+![preview country_belarus](../../assets/img/discover/cards/country_belarus.jpg)
+
 A country in Europe. Capital is Minsk.
 
 - Type: Place
@@ -77,6 +133,8 @@ A country in Europe. Capital is Minsk.
 
 <a id="country_belgium"></a>
 ### Belgium
+![preview country_belgium](../../assets/img/discover/cards/country_belgium.jpg)
+
 A country in Europe. Capital is Brussels.
 
 - Type: Place
@@ -85,6 +143,8 @@ A country in Europe. Capital is Brussels.
 
 <a id="capital_bern"></a>
 ### Bern
+![preview capital_bern](../../assets/img/discover/cards/capital_bern.jpg)
+
 The capital city of Switzerland.
 
 - Type: Place
@@ -93,6 +153,8 @@ The capital city of Switzerland.
 
 <a id="bike"></a>
 ### Bike
+![preview bike](../../assets/img/discover/cards/bike.jpg)
+
 A two‑wheeled vehicle you pedal.
 
 - Type: Object
@@ -102,6 +164,8 @@ A two‑wheeled vehicle you pedal.
 
 <a id="boat_for_goods"></a>
 ### Boat for goods
+![preview boat_for_goods](../../assets/img/discover/cards/boat_for_goods.jpg)
+
 A big boat that carries boxes, food, and other things from place to place.
 
 - Type: Place
@@ -110,6 +174,8 @@ A big boat that carries boxes, food, and other things from place to place.
 
 <a id="boat_people"></a>
 ### Boat for People
+![preview boat_people](../../assets/img/discover/cards/boat_people.jpg)
+
 A boat that carries people from one place to another across the water.
 
 - Type: Place
@@ -118,6 +184,8 @@ A boat that carries people from one place to another across the water.
 
 <a id="boat_house"></a>
 ### Boat House
+![preview boat_house](../../assets/img/discover/cards/boat_house.jpg)
+
 A house that floats on water like a boat. People can live in boat houses!
 
 - Type: Place
@@ -126,6 +194,8 @@ A house that floats on water like a boat. People can live in boat houses!
 
 <a id="bobsled"></a>
 ### Bobsled
+![preview bobsled](../../assets/img/discover/cards/bobsled.jpg)
+
 A fast sled used to slide down ice.
 
 - Type: Object
@@ -135,6 +205,8 @@ A fast sled used to slide down ice.
 
 <a id="capital_bratislava"></a>
 ### Bratislava
+![preview capital_bratislava](../../assets/img/discover/cards/capital_bratislava.jpg)
+
 The capital city of Slovakia.
 
 - Type: Place
@@ -143,6 +215,8 @@ The capital city of Slovakia.
 
 <a id="food_bread"></a>
 ### BREAD
+![preview food_bread](../../assets/img/discover/cards/food_bread.jpg)
+
 A yummy food made from flour and water. You can make sandwiches with bread!
 
 - Type: Object
@@ -152,6 +226,8 @@ A yummy food made from flour and water. You can make sandwiches with bread!
 
 <a id="place_bridge_cars"></a>
 ### Bridge for cars
+![preview place_bridge_cars](../../assets/img/discover/cards/place_bridge_cars.jpg)
+
 A road that goes over water so cars can drive across rivers and lakes.
 
 - Type: Place
@@ -161,6 +237,8 @@ A road that goes over water so cars can drive across rivers and lakes.
 
 <a id="place_bridge_trains"></a>
 ### Bridge for trains
+![preview place_bridge_trains](../../assets/img/discover/cards/place_bridge_trains.jpg)
+
 A special bridge built strong enough for heavy trains to cross over water.
 
 - Type: Place
@@ -170,6 +248,8 @@ A special bridge built strong enough for heavy trains to cross over water.
 
 <a id="capital_brussels"></a>
 ### Brussels
+![preview capital_brussels](../../assets/img/discover/cards/capital_brussels.jpg)
+
 The capital city of Belgium.
 
 - Type: Place
@@ -178,6 +258,8 @@ The capital city of Belgium.
 
 <a id="bus"></a>
 ### Bus
+![preview bus](../../assets/img/discover/cards/bus.jpg)
+
 A big vehicle that carries many people.
 
 - Type: Object
@@ -187,6 +269,8 @@ A big vehicle that carries many people.
 
 <a id="butcher"></a>
 ### Butcher
+![preview butcher](../../assets/img/discover/cards/butcher.jpg)
+
 A person who sells meat.
 
 - Type: Person
@@ -196,6 +280,8 @@ A person who sells meat.
 
 <a id="butter"></a>
 ### Butter
+![preview butter](../../assets/img/discover/cards/butter.jpg)
+
 A yellow fat made from milk, used for cooking and baking.
 
 - Type: Object
@@ -205,6 +291,8 @@ A yellow fat made from milk, used for cooking and baking.
 
 <a id="object_canteen_menu"></a>
 ### Canteen menu
+![preview object_canteen_menu](../../assets/img/discover/cards/object_canteen_menu.jpg)
+
 A list that shows what food you can eat at school lunch. It helps you choose what to eat!
 
 - Type: Object
@@ -214,6 +302,8 @@ A list that shows what food you can eat at school lunch. It helps you choose wha
 
 <a id="car"></a>
 ### Car
+![preview car](../../assets/img/discover/cards/car.jpg)
+
 A small vehicle for roads.
 
 - Type: Object
@@ -223,6 +313,8 @@ A small vehicle for roads.
 
 <a id="place_castle_bridge"></a>
 ### Castle Bridge
+![preview place_castle_bridge](../../assets/img/discover/cards/place_castle_bridge.jpg)
+
 A bridge near a castle. Castles are big, strong buildings where kings and queens lived long ago.
 
 - Type: Place
@@ -231,6 +323,8 @@ A bridge near a castle. Castles are big, strong buildings where kings and queens
 
 <a id="person_cheesemonger"></a>
 ### Cheesemonger
+![preview person_cheesemonger](../../assets/img/discover/cards/person_cheesemonger.jpg)
+
 A person who sells many types of cheese.
 
 - Type: Person
@@ -240,6 +334,8 @@ A person who sells many types of cheese.
 
 <a id="cinnamon"></a>
 ### Cinnamon
+![preview cinnamon](../../assets/img/discover/cards/cinnamon.jpg)
+
 A sweet spice made from tree bark.
 
 - Type: Object
@@ -249,6 +345,8 @@ A sweet spice made from tree bark.
 
 <a id="fr_figure_circle"></a>
 ### Circle
+![preview fr_figure_circle](../../assets/img/discover/cards/fr_figure_circle.jpg)
+
 A round shape with no corners. Circles look like wheels, balls, and coins!
 
 - Type: Concept
@@ -258,6 +356,8 @@ A round shape with no corners. Circles look like wheels, balls, and coins!
 
 <a id="place_classroom"></a>
 ### Classroom
+![preview place_classroom](../../assets/img/discover/cards/place_classroom.jpg)
+
 A room in school where students sit and learn new things from their teacher.
 
 - Type: Place
@@ -267,6 +367,8 @@ A room in school where students sit and learn new things from their teacher.
 
 <a id="climbing"></a>
 ### Climbing
+![preview climbing](../../assets/img/discover/cards/climbing.jpg)
+
 Going up rocks or ice with special gear.
 
 - Type: Concept
@@ -276,6 +378,8 @@ Going up rocks or ice with special gear.
 
 <a id="cloves"></a>
 ### Cloves
+![preview cloves](../../assets/img/discover/cards/cloves.jpg)
+
 A strong spice used to add flavor to food.
 
 - Type: Object
@@ -285,6 +389,8 @@ A strong spice used to add flavor to food.
 
 <a id="coat"></a>
 ### Coat
+![preview coat](../../assets/img/discover/cards/coat.jpg)
+
 A warm jacket for cold weather.
 
 - Type: Object
@@ -294,6 +400,8 @@ A warm jacket for cold weather.
 
 <a id="coins"></a>
 ### Coins
+![preview coins](../../assets/img/discover/cards/coins.jpg)
+
 Small round money made of metal.
 
 - Type: Object
@@ -303,6 +411,8 @@ Small round money made of metal.
 
 <a id="math_compass"></a>
 ### Compass
+![preview math_compass](../../assets/img/discover/cards/math_compass.jpg)
+
 A tool that helps you draw perfect circles. It has two legs like scissors.
 
 - Type: Object
@@ -312,6 +422,8 @@ A tool that helps you draw perfect circles. It has two legs like scissors.
 
 <a id="constitution_of_3_may"></a>
 ### Constitution of 3 May
+![preview constitution_of_3_may](../../assets/img/discover/cards/constitution_of_3_may.jpg)
+
 A historic Polish constitution celebrated on May 3.
 
 - Type: Concept
@@ -321,6 +433,8 @@ A historic Polish constitution celebrated on May 3.
 
 <a id="cook"></a>
 ### Cook
+![preview cook](../../assets/img/discover/cards/cook.jpg)
+
 A person who prepares food.
 
 - Type: Person
@@ -330,6 +444,8 @@ A person who prepares food.
 
 <a id="food_crab"></a>
 ### Crab
+![preview food_crab](../../assets/img/discover/cards/food_crab.jpg)
+
 A sea animal with big claws and a hard shell. Crabs walk sideways on the beach!
 
 - Type: Object
@@ -339,6 +455,8 @@ A sea animal with big claws and a hard shell. Crabs walk sideways on the beach!
 
 <a id="crampons"></a>
 ### Crampons
+![preview crampons](../../assets/img/discover/cards/crampons.jpg)
+
 Spiky metal grips you attach to boots for ice.
 
 - Type: Object
@@ -348,6 +466,8 @@ Spiky metal grips you attach to boots for ice.
 
 <a id="country_czech_republic"></a>
 ### Czech Republic
+![preview country_czech_republic](../../assets/img/discover/cards/country_czech_republic.jpg)
+
 A country in Europe. Capital is Prague.
 
 - Type: Place
@@ -356,6 +476,8 @@ A country in Europe. Capital is Prague.
 
 <a id="dairy_vendor"></a>
 ### Dairy Vendor
+![preview dairy_vendor](../../assets/img/discover/cards/dairy_vendor.jpg)
+
 A person who sells milk, butter, and cheese.
 
 - Type: Person
@@ -365,6 +487,8 @@ A person who sells milk, butter, and cheese.
 
 <a id="danger_sign"></a>
 ### DANGER Sign
+![preview danger_sign](../../assets/img/discover/cards/danger_sign.jpg)
+
 A sign that warns about danger ahead. Be extra careful.
 
 - Type: Object
@@ -373,6 +497,8 @@ A sign that warns about danger ahead. Be extra careful.
 
 <a id="egg_vendor"></a>
 ### Egg Vendor
+![preview egg_vendor](../../assets/img/discover/cards/egg_vendor.jpg)
+
 A person who sells eggs.
 
 - Type: Person
@@ -382,6 +508,8 @@ A person who sells eggs.
 
 <a id="eggs"></a>
 ### Eggs
+![preview eggs](../../assets/img/discover/cards/eggs.jpg)
+
 Food from chickens used for baking and cooking.
 
 - Type: Object
@@ -391,6 +519,8 @@ Food from chickens used for baking and cooking.
 
 <a id="eiffel_tower_map"></a>
 ### Eiffel Tower map
+![preview eiffel_tower_map](../../assets/img/discover/cards/eiffel_tower_map.jpg)
+
 A map that shows where the famous tall tower in Paris is located.
 
 - Type: Object
@@ -400,6 +530,8 @@ A map that shows where the famous tall tower in Paris is located.
 
 <a id="eiffel_tower_ticket"></a>
 ### Eiffel Tower ticket
+![preview eiffel_tower_ticket](../../assets/img/discover/cards/eiffel_tower_ticket.jpg)
+
 A special paper that lets you visit the famous tall tower in Paris, France.
 
 - Type: Object
@@ -409,6 +541,8 @@ A special paper that lets you visit the famous tall tower in Paris, France.
 
 <a id="animal_elephant"></a>
 ### Elephant
+![preview animal_elephant](../../assets/img/discover/cards/animal_elephant.jpg)
+
 A big animal with a trunk. Elephants are the biggest animals that walk on land. They have big ears and love to spray water!
 
 - Rationale: Elephants are amazing animals that kids love learning about at the zoo!
@@ -419,6 +553,8 @@ A big animal with a trunk. Elephants are the biggest animals that walk on land. 
 
 <a id="currency_euro"></a>
 ### Euro Currency
+![preview currency_euro](../../assets/img/discover/cards/currency_euro.jpg)
+
 Money used in many countries in Europe. You can buy toys and ice cream with euros!
 
 - Type: Concept
@@ -428,6 +564,8 @@ Money used in many countries in Europe. You can buy toys and ice cream with euro
 
 <a id="concept_europe_map"></a>
 ### Europe Map
+![preview concept_europe_map](../../assets/img/discover/cards/concept_europe_map.jpg)
+
 A map showing all the countries in Europe. You can see where France, Poland, Germany, and other countries are located.
 
 - Rationale: Maps help kids understand where different countries are and how they connect
@@ -439,6 +577,8 @@ A map showing all the countries in Europe. You can see where France, Poland, Ger
 
 <a id="food_fish"></a>
 ### FISH
+![preview food_fish](../../assets/img/discover/cards/food_fish.jpg)
+
 An animal that lives and swims in water. Fish have fins and gills to breathe underwater.
 
 - Type: Object
@@ -448,6 +588,8 @@ An animal that lives and swims in water. Fish have fins and gills to breathe und
 
 <a id="person_fishmonger"></a>
 ### Fishmonger
+![preview person_fishmonger](../../assets/img/discover/cards/person_fishmonger.jpg)
+
 A person who sells fresh fish and seafood.
 
 - Type: Person
@@ -457,6 +599,8 @@ A person who sells fresh fish and seafood.
 
 <a id="flag_belarus"></a>
 ### Flag of Belarus
+![preview flag_belarus](../../assets/img/discover/cards/flag_belarus.jpg)
+
 The flag of Belarus has red and green horizontal stripes with beautiful traditional patterns on the side. Belarus is Poland's neighbor.
 
 - Rationale: Learning neighboring countries helps kids understand regional geography
@@ -468,6 +612,8 @@ The flag of Belarus has red and green horizontal stripes with beautiful traditio
 
 <a id="flag_belgium"></a>
 ### Flag of Belgium
+![preview flag_belgium](../../assets/img/discover/cards/flag_belgium.jpg)
+
 The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium is famous for chocolate and waffles!
 
 - Rationale: Belgium's unique vertical stripes help kids distinguish different flag patterns
@@ -479,6 +625,8 @@ The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium 
 
 <a id="flag_czech_republic"></a>
 ### Flag of Czech Republic
+![preview flag_czech_republic](../../assets/img/discover/cards/flag_czech_republic.jpg)
+
 The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
 - Rationale: Central European countries help kids understand the region around Poland
@@ -490,6 +638,8 @@ The flag has white and red stripes with a blue triangle. The Czech Republic is f
 
 <a id="flag_lithuania"></a>
 ### Flag of Lithuania
+![preview flag_lithuania](../../assets/img/discover/cards/flag_lithuania.jpg)
+
 The flag has yellow, green, and red horizontal stripes. Lithuania is a Baltic country with beautiful forests and beaches.
 
 - Rationale: Baltic countries teach kids about northern European geography and Poland's neighbors
@@ -501,6 +651,8 @@ The flag has yellow, green, and red horizontal stripes. Lithuania is a Baltic co
 
 <a id="flag_luxembourg"></a>
 ### Flag of Luxembourg
+![preview flag_luxembourg](../../assets/img/discover/cards/flag_luxembourg.jpg)
+
 The flag of Luxembourg has red, white, and light blue horizontal stripes. Luxembourg is a very small country that speaks three languages!
 
 - Rationale: Small multilingual countries teach kids about European diversity
@@ -512,6 +664,8 @@ The flag of Luxembourg has red, white, and light blue horizontal stripes. Luxemb
 
 <a id="flag_russia"></a>
 ### Flag of Russia
+![preview flag_russia](../../assets/img/discover/cards/flag_russia.jpg)
+
 A flag with white, blue, and red stripes. It represents the country of Russia.
 
 - Type: Concept
@@ -521,6 +675,8 @@ A flag with white, blue, and red stripes. It represents the country of Russia.
 
 <a id="flag_slovakia"></a>
 ### Flag of Slovakia
+![preview flag_slovakia](../../assets/img/discover/cards/flag_slovakia.jpg)
+
 A flag with white, blue, and red colors. It represents the country of Slovakia.
 
 - Type: Concept
@@ -530,6 +686,8 @@ A flag with white, blue, and red colors. It represents the country of Slovakia.
 
 <a id="flag_switzerland"></a>
 ### Flag of Switzerland
+![preview flag_switzerland](../../assets/img/discover/cards/flag_switzerland.jpg)
+
 The flag of Switzerland is red with a white cross in the middle. It looks like a first aid kit! Switzerland is famous for mountains and cheese.
 
 - Rationale: The Swiss flag's unique cross design helps kids remember this mountain country
@@ -541,6 +699,8 @@ The flag of Switzerland is red with a white cross in the middle. It looks like a
 
 <a id="flag_ukraine"></a>
 ### Flag of Ukraine
+![preview flag_ukraine](../../assets/img/discover/cards/flag_ukraine.jpg)
+
 A flag with blue and yellow colors like the sky and sun. It represents the country of Ukraine.
 
 - Type: Concept
@@ -550,6 +710,8 @@ A flag with blue and yellow colors like the sky and sun. It represents the count
 
 <a id="food_flour"></a>
 ### Flour
+![preview food_flour](../../assets/img/discover/cards/food_flour.jpg)
+
 White powder made from wheat that is used to make bread.
 
 - Type: Object
@@ -558,6 +720,8 @@ White powder made from wheat that is used to make bread.
 
 <a id="football_soccer"></a>
 ### Football (Soccer)
+![preview football_soccer](../../assets/img/discover/cards/football_soccer.jpg)
+
 A team game played with a ball you kick.
 
 - Type: Object
@@ -567,6 +731,8 @@ A team game played with a ball you kick.
 
 <a id="place_bridge_people"></a>
 ### Footbridges
+![preview place_bridge_people](../../assets/img/discover/cards/place_bridge_people.jpg)
+
 Small bridges for people walking. They keep you safe from traffic.
 
 - Type: Place
@@ -576,6 +742,8 @@ Small bridges for people walking. They keep you safe from traffic.
 
 <a id="object_french_school_poster"></a>
 ### French School Poster
+![preview object_french_school_poster](../../assets/img/discover/cards/object_french_school_poster.jpg)
+
 A big picture with information that hangs on classroom walls in French schools.
 
 - Type: Object
@@ -585,6 +753,8 @@ A big picture with information that hangs on classroom walls in French schools.
 
 <a id="ginger"></a>
 ### Ginger
+![preview ginger](../../assets/img/discover/cards/ginger.jpg)
+
 A spicy root used in cooking and cookies.
 
 - Type: Object
@@ -594,6 +764,8 @@ A spicy root used in cooking and cookies.
 
 <a id="gingerbread_mold"></a>
 ### Gingerbread Mold
+![preview gingerbread_mold](../../assets/img/discover/cards/gingerbread_mold.jpg)
+
 A shaped tool that makes fun cookie shapes.
 
 - Type: Object
@@ -603,6 +775,8 @@ A shaped tool that makes fun cookie shapes.
 
 <a id="animal_giraffe"></a>
 ### Giraffe
+![preview animal_giraffe](../../assets/img/discover/cards/animal_giraffe.jpg)
+
 A very tall animal with a long neck. Giraffes are taller than trees! They eat leaves that other animals cannot reach.
 
 - Rationale: Giraffes are fascinating animals that show kids how nature adapts to find food
@@ -612,6 +786,8 @@ A very tall animal with a long neck. Giraffes are taller than trees! They eat le
 
 <a id="glacier"></a>
 ### Glacier
+![preview glacier](../../assets/img/discover/cards/glacier.jpg)
+
 Slow-moving ice found on high mountains.
 
 - Type: Concept
@@ -621,6 +797,8 @@ Slow-moving ice found on high mountains.
 
 <a id="gloves"></a>
 ### Gloves
+![preview gloves](../../assets/img/discover/cards/gloves.jpg)
+
 Warm covers for your hands.
 
 - Type: Object
@@ -630,6 +808,8 @@ Warm covers for your hands.
 
 <a id="goal"></a>
 ### Goal
+![preview goal](../../assets/img/discover/cards/goal.jpg)
+
 The net you try to score into.
 
 - Type: Object
@@ -639,6 +819,8 @@ The net you try to score into.
 
 <a id="person_greengrocer"></a>
 ### Greengrocer
+![preview person_greengrocer](../../assets/img/discover/cards/person_greengrocer.jpg)
+
 A person who sells fresh fruit and vegetables.
 
 - Type: Person
@@ -648,6 +830,8 @@ A person who sells fresh fruit and vegetables.
 
 <a id="person_grocer"></a>
 ### Grocer
+![preview person_grocer](../../assets/img/discover/cards/person_grocer.jpg)
+
 A person who sells many kinds of food and drinks.
 
 - Type: Person
@@ -657,6 +841,8 @@ A person who sells many kinds of food and drinks.
 
 <a id="hat"></a>
 ### Hat
+![preview hat](../../assets/img/discover/cards/hat.jpg)
+
 A warm cap for your head.
 
 - Type: Object
@@ -666,6 +852,8 @@ A warm cap for your head.
 
 <a id="hiking"></a>
 ### Hiking
+![preview hiking](../../assets/img/discover/cards/hiking.jpg)
+
 Walking on trails in nature.
 
 - Type: Concept
@@ -675,6 +863,8 @@ Walking on trails in nature.
 
 <a id="honey"></a>
 ### Honey
+![preview honey](../../assets/img/discover/cards/honey.jpg)
+
 A sweet food made by bees.
 
 - Type: Object
@@ -684,6 +874,8 @@ A sweet food made by bees.
 
 <a id="ice"></a>
 ### Ice
+![preview ice](../../assets/img/discover/cards/ice.jpg)
+
 Frozen water that can be very slippery.
 
 - Type: Concept
@@ -691,8 +883,18 @@ Frozen water that can be very slippery.
 - Country: International
 - Quests: [Mont Blanc & Mountains (fr_08)](../quest/fr_08.md)
 
+<a id="ice_arctic"></a>
+### ice_arctic
+![preview ice_arctic](../../assets/img/discover/cards/ice_arctic.jpg)
+
+- Type: Place
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
 <a id="ile_de_france"></a>
 ### Ile-de-France
+![preview ile_de_france](../../assets/img/discover/cards/ile_de_france.jpg)
+
 A region in France where the capital city Paris is located. Many people live here!
 
 - Type: Place
@@ -702,6 +904,8 @@ A region in France where the capital city Paris is located. Many people live her
 
 <a id="independence_day_poland"></a>
 ### Independence Day (Poland)
+![preview independence_day_poland](../../assets/img/discover/cards/independence_day_poland.jpg)
+
 A national holiday on 11 November.
 
 - Type: Concept
@@ -711,6 +915,8 @@ A national holiday on 11 November.
 
 <a id="iron_material"></a>
 ### Iron
+![preview iron_material](../../assets/img/discover/cards/iron_material.jpg)
+
 A hot tool used to make wrinkled clothes smooth and flat. Be careful, irons are very hot!
 
 - Type: Object
@@ -719,6 +925,8 @@ A hot tool used to make wrinkled clothes smooth and flat. Be careful, irons are 
 
 <a id="king_sigismunds_column"></a>
 ### King Sigismund’s Column
+![preview king_sigismunds_column](../../assets/img/discover/cards/king_sigismunds_column.jpg)
+
 A tall column honoring King Sigismund in Castle Square.
 
 - Type: Place
@@ -728,6 +936,8 @@ A tall column honoring King Sigismund in Castle Square.
 
 <a id="king_sigismunds_crown"></a>
 ### King Sigismund’s Crown
+![preview king_sigismunds_crown](../../assets/img/discover/cards/king_sigismunds_crown.jpg)
+
 The king’s crown that fell off and must be found.
 
 - Type: Object
@@ -737,6 +947,8 @@ The king’s crown that fell off and must be found.
 
 <a id="kitchen"></a>
 ### Kitchen
+![preview kitchen](../../assets/img/discover/cards/kitchen.jpg)
+
 A room where people cook and bake.
 
 - Type: Place
@@ -746,6 +958,8 @@ A room where people cook and bake.
 
 <a id="capital_kyiv"></a>
 ### Kyiv
+![preview capital_kyiv](../../assets/img/discover/cards/capital_kyiv.jpg)
+
 The capital city of Ukraine.
 
 - Type: Place
@@ -754,6 +968,8 @@ The capital city of Ukraine.
 
 <a id="food_lemon"></a>
 ### Lemon
+![preview food_lemon](../../assets/img/discover/cards/food_lemon.jpg)
+
 A yellow fruit that tastes very sour. Lemons are used to make lemonade!
 
 - Type: Object
@@ -763,6 +979,8 @@ A yellow fruit that tastes very sour. Lemons are used to make lemonade!
 
 <a id="person_leonardodavinci"></a>
 ### Leonardo da Vinci
+![preview person_leonardodavinci](../../assets/img/discover/cards/person_leonardodavinci.jpg)
+
 An amazing artist and scientist from Italy. He painted the Mona Lisa and invented flying machines hundreds of years before airplanes!
 
 - Type: Person
@@ -772,6 +990,8 @@ An amazing artist and scientist from Italy. He painted the Mona Lisa and invente
 
 <a id="fr_figure_line"></a>
 ### Line
+![preview fr_figure_line](../../assets/img/discover/cards/fr_figure_line.jpg)
+
 A straight mark that goes from one point to another. Lines can be long or short.
 
 - Type: Concept
@@ -781,6 +1001,8 @@ A straight mark that goes from one point to another. Lines can be long or short.
 
 <a id="animal_lion"></a>
 ### Lion
+![preview animal_lion](../../assets/img/discover/cards/animal_lion.jpg)
+
 A big cat called the king of animals. It lives in groups called prides.
 
 - Type: Object
@@ -789,6 +1011,8 @@ A big cat called the king of animals. It lives in groups called prides.
 
 <a id="country_lithuania"></a>
 ### Lithuania
+![preview country_lithuania](../../assets/img/discover/cards/country_lithuania.jpg)
+
 A country in Europe. Capital is Vilnius.
 
 - Type: Place
@@ -797,6 +1021,8 @@ A country in Europe. Capital is Vilnius.
 
 <a id="country_luxembourg"></a>
 ### Luxembourg
+![preview country_luxembourg](../../assets/img/discover/cards/country_luxembourg.jpg)
+
 A country in Europe. Capital is Luxembourg City.
 
 - Type: Place
@@ -805,6 +1031,8 @@ A country in Europe. Capital is Luxembourg City.
 
 <a id="capital_luxembourg_city"></a>
 ### Luxembourg City
+![preview capital_luxembourg_city](../../assets/img/discover/cards/capital_luxembourg_city.jpg)
+
 The capital city of Luxembourg.
 
 - Type: Place
@@ -813,6 +1041,8 @@ The capital city of Luxembourg.
 
 <a id="maria_skodowskacurie"></a>
 ### Maria Skłodowska‑Curie
+![preview maria_skodowskacurie](../../assets/img/discover/cards/maria_skodowskacurie.jpg)
+
 A scientist who won two Nobel Prizes.
 
 - Type: Person
@@ -822,6 +1052,8 @@ A scientist who won two Nobel Prizes.
 
 <a id="marmot"></a>
 ### Marmot
+![preview marmot](../../assets/img/discover/cards/marmot.jpg)
+
 A furry mountain animal that whistles.
 
 - Type: Object
@@ -831,6 +1063,8 @@ A furry mountain animal that whistles.
 
 <a id="mazurek_dabrowskiego"></a>
 ### Mazurek Dąbrowskiego
+![preview mazurek_dabrowskiego](../../assets/img/discover/cards/mazurek_dabrowskiego.jpg)
+
 Poland’s national anthem.
 
 - Type: Concept
@@ -840,6 +1074,8 @@ Poland’s national anthem.
 
 <a id="medieval_market"></a>
 ### Medieval Market
+![preview medieval_market](../../assets/img/discover/cards/medieval_market.jpg)
+
 An old-style market where people buy and sell goods.
 
 - Type: Place
@@ -849,6 +1085,8 @@ An old-style market where people buy and sell goods.
 
 <a id="mermaids_sword"></a>
 ### Mermaid’s Sword
+![preview mermaids_sword](../../assets/img/discover/cards/mermaids_sword.jpg)
+
 The mermaid’s sword that must be returned.
 
 - Type: Object
@@ -858,6 +1096,8 @@ The mermaid’s sword that must be returned.
 
 <a id="food_milk"></a>
 ### Milk
+![preview food_milk](../../assets/img/discover/cards/food_milk.jpg)
+
 A white drink that comes from cows. Milk helps your bones and teeth grow strong!
 
 - Type: Object
@@ -867,6 +1107,8 @@ A white drink that comes from cows. Milk helps your bones and teeth grow strong!
 
 <a id="capital_minsk"></a>
 ### Minsk
+![preview capital_minsk](../../assets/img/discover/cards/capital_minsk.jpg)
+
 The capital city of Belarus.
 
 - Type: Place
@@ -875,6 +1117,8 @@ The capital city of Belarus.
 
 <a id="animal_monkey"></a>
 ### Monkey
+![preview animal_monkey](../../assets/img/discover/cards/animal_monkey.jpg)
+
 A smart animal that can climb and play. Some monkeys live in big families.
 
 - Type: Object
@@ -883,6 +1127,8 @@ A smart animal that can climb and play. Some monkeys live in big families.
 
 <a id="place_mont_blanc"></a>
 ### Mont Blanc
+![preview place_mont_blanc](../../assets/img/discover/cards/place_mont_blanc.jpg)
+
 The highest mountain in Western Europe. Covered in snow all year.
 
 - Type: Place
@@ -891,6 +1137,8 @@ The highest mountain in Western Europe. Covered in snow all year.
 
 <a id="capital_moscow"></a>
 ### Moscow
+![preview capital_moscow](../../assets/img/discover/cards/capital_moscow.jpg)
+
 The capital city of Russia.
 
 - Type: Place
@@ -899,6 +1147,8 @@ The capital city of Russia.
 
 <a id="mountain"></a>
 ### Mountain
+![preview mountain](../../assets/img/discover/cards/mountain.jpg)
+
 The pillars of earth
 
 - Type: Concept
@@ -908,6 +1158,8 @@ The pillars of earth
 
 <a id="mountain_guide"></a>
 ### Mountain Guide
+![preview mountain_guide](../../assets/img/discover/cards/mountain_guide.jpg)
+
 A person who helps people climb safely.
 
 - Type: Person
@@ -917,6 +1169,8 @@ A person who helps people climb safely.
 
 <a id="national_stadium_warsaw"></a>
 ### National Stadium (Warsaw)
+![preview national_stadium_warsaw](../../assets/img/discover/cards/national_stadium_warsaw.jpg)
+
 A modern stadium for football games and concerts.
 
 - Type: Place
@@ -926,6 +1180,8 @@ A modern stadium for football games and concerts.
 
 <a id="nicolaus_copernicus_monument_warsaw"></a>
 ### Nicolaus Copernicus Monument (Warsaw)
+![preview nicolaus_copernicus_monument_warsaw](../../assets/img/discover/cards/nicolaus_copernicus_monument_warsaw.jpg)
+
 A monument to the astronomer Nicolaus Copernicus.
 
 - Type: Place
@@ -935,6 +1191,8 @@ A monument to the astronomer Nicolaus Copernicus.
 
 <a id="food_olive_oil"></a>
 ### Olive oil
+![preview food_olive_oil](../../assets/img/discover/cards/food_olive_oil.jpg)
+
 A special oil made from olives. People use it for cooking tasty food.
 
 - Type: Object
@@ -944,6 +1202,8 @@ A special oil made from olives. People use it for cooking tasty food.
 
 <a id="food_orange"></a>
 ### Orange
+![preview food_orange](../../assets/img/discover/cards/food_orange.jpg)
+
 A round, orange fruit that tastes sweet and juicy. Oranges have lots of vitamin C!
 
 - Type: Object
@@ -953,6 +1213,8 @@ A round, orange fruit that tastes sweet and juicy. Oranges have lots of vitamin 
 
 <a id="palace_of_culture_and_science"></a>
 ### Palace of Culture and Science
+![preview palace_of_culture_and_science](../../assets/img/discover/cards/palace_of_culture_and_science.jpg)
+
 A tall building for museums, theaters, and learning.
 
 - Type: Place
@@ -962,6 +1224,8 @@ A tall building for museums, theaters, and learning.
 
 <a id="capital_paris"></a>
 ### Paris
+![preview capital_paris](../../assets/img/discover/cards/capital_paris.jpg)
+
 The capital city of France. Paris has a famous tall tower called the Eiffel Tower!
 
 - Type: Place
@@ -971,6 +1235,8 @@ The capital city of France. Paris has a famous tall tower called the Eiffel Towe
 
 <a id="animal_penguin"></a>
 ### Penguin
+![preview animal_penguin](../../assets/img/discover/cards/animal_penguin.jpg)
+
 A bird that cannot fly but swims very well. It lives in cold places.
 
 - Type: Object
@@ -979,6 +1245,8 @@ A bird that cannot fly but swims very well. It lives in cold places.
 
 <a id="food_pepper_salt"></a>
 ### Pepper Salt
+![preview food_pepper_salt](../../assets/img/discover/cards/food_pepper_salt.jpg)
+
 Spices that make food taste better. Salt is white and pepper is black with tiny pieces.
 
 - Type: Object
@@ -986,8 +1254,42 @@ Spices that make food taste better. Salt is white and pepper is black with tiny 
 - Country: International
 - Quests: [The Colors of the Marseille Market (fr_09)](../quest/fr_09.md)
 
+<a id="plant_apple"></a>
+### plant_apple
+![preview plant_apple](../../assets/img/discover/cards/plant_apple.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
+<a id="plant_banana"></a>
+### plant_banana
+![preview plant_banana](../../assets/img/discover/cards/plant_banana.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
+<a id="plant_orange"></a>
+### plant_orange
+![preview plant_orange](../../assets/img/discover/cards/plant_orange.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
+<a id="tree_wattle"></a>
+### plant_wattle
+![preview tree_wattle](../../assets/img/discover/cards/tree_wattle.jpg)
+
+- Type: Object
+- Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
+
 <a id="country_poland"></a>
 ### Poland
+![preview country_poland](../../assets/img/discover/cards/country_poland.jpg)
+
 A country in Europe. Capital is Warsaw. Poland is famous for scientists like Copernicus and delicious pierogi!
 
 - Type: Place
@@ -996,6 +1298,8 @@ A country in Europe. Capital is Warsaw. Poland is famous for scientists like Cop
 
 <a id="polish_houses_of_parliament"></a>
 ### Polish Houses of Parliament
+![preview polish_houses_of_parliament](../../assets/img/discover/cards/polish_houses_of_parliament.jpg)
+
 Where laws are made: the Sejm and the Senate.
 
 - Type: Place
@@ -1005,6 +1309,8 @@ Where laws are made: the Sejm and the Senate.
 
 <a id="capital_prague"></a>
 ### Prague
+![preview capital_prague](../../assets/img/discover/cards/capital_prague.jpg)
+
 The capital city of Czech Republic.
 
 - Type: Place
@@ -1013,6 +1319,8 @@ The capital city of Czech Republic.
 
 <a id="person_president"></a>
 ### President
+![preview person_president](../../assets/img/discover/cards/person_president.jpg)
+
 The leader chosen to guide the country. People vote in elections.
 
 - Type: Person
@@ -1021,6 +1329,8 @@ The leader chosen to guide the country. People vote in elections.
 
 <a id="presidential_palace"></a>
 ### Presidential Palace
+![preview presidential_palace](../../assets/img/discover/cards/presidential_palace.jpg)
+
 The official home of the President of Poland.
 
 - Type: Place
@@ -1030,6 +1340,8 @@ The official home of the President of Poland.
 
 <a id="boat_river"></a>
 ### River boat
+![preview boat_river](../../assets/img/discover/cards/boat_river.jpg)
+
 A boat that travels on rivers. Rivers are like roads made of water!
 
 - Type: Place
@@ -1039,6 +1351,8 @@ A boat that travels on rivers. Rivers are like roads made of water!
 
 <a id="robert_lewandowski"></a>
 ### Robert Lewandowski
+![preview robert_lewandowski](../../assets/img/discover/cards/robert_lewandowski.jpg)
+
 A famous Polish football player.
 
 - Type: Person
@@ -1048,6 +1362,8 @@ A famous Polish football player.
 
 <a id="rope"></a>
 ### Rope
+![preview rope](../../assets/img/discover/cards/rope.jpg)
+
 A strong line used for safety when climbing.
 
 - Type: Object
@@ -1057,6 +1373,8 @@ A strong line used for safety when climbing.
 
 <a id="royal_castle_warsaw"></a>
 ### Royal Castle (Warsaw)
+![preview royal_castle_warsaw](../../assets/img/discover/cards/royal_castle_warsaw.jpg)
+
 A historic castle of Polish kings, now a museum.
 
 - Type: Place
@@ -1066,6 +1384,8 @@ A historic castle of Polish kings, now a museum.
 
 <a id="math_ruler"></a>
 ### Ruler
+![preview math_ruler](../../assets/img/discover/cards/math_ruler.jpg)
+
 A straight tool used to measure how long things are. Rulers have numbers and lines.
 
 - Type: Object
@@ -1075,6 +1395,8 @@ A straight tool used to measure how long things are. Rulers have numbers and lin
 
 <a id="country_russia"></a>
 ### Russia
+![preview country_russia](../../assets/img/discover/cards/country_russia.jpg)
+
 A country in Europe. Capital is Moscow.
 
 - Type: Place
@@ -1083,6 +1405,8 @@ A country in Europe. Capital is Moscow.
 
 <a id="food_salt"></a>
 ### SALT
+![preview food_salt](../../assets/img/discover/cards/food_salt.jpg)
+
 White crystals that make food taste better. 
 
 - Type: Object
@@ -1091,6 +1415,8 @@ White crystals that make food taste better.
 
 <a id="scarf"></a>
 ### Scarf
+![preview scarf](../../assets/img/discover/cards/scarf.jpg)
+
 A warm cloth you wear around your neck.
 
 - Type: Object
@@ -1100,6 +1426,8 @@ A warm cloth you wear around your neck.
 
 <a id="school_bag"></a>
 ### School bag
+![preview school_bag](../../assets/img/discover/cards/school_bag.jpg)
+
 A bag that students use to carry their books, pencils, and homework to school.
 
 - Type: Object
@@ -1109,6 +1437,8 @@ A bag that students use to carry their books, pencils, and homework to school.
 
 <a id="skiing"></a>
 ### Skiing
+![preview skiing](../../assets/img/discover/cards/skiing.jpg)
+
 Sliding on snow with skis.
 
 - Type: Concept
@@ -1118,6 +1448,8 @@ Sliding on snow with skis.
 
 <a id="country_slovakia"></a>
 ### Slovakia
+![preview country_slovakia](../../assets/img/discover/cards/country_slovakia.jpg)
+
 A country in Europe. Capital is Bratislava.
 
 - Type: Place
@@ -1126,6 +1458,8 @@ A country in Europe. Capital is Bratislava.
 
 <a id="snow"></a>
 ### Snow
+![preview snow](../../assets/img/discover/cards/snow.jpg)
+
 Frozen water that falls in cold weather.
 
 - Type: Concept
@@ -1135,6 +1469,8 @@ Frozen water that falls in cold weather.
 
 <a id="soccer_field"></a>
 ### Soccer Field
+![preview soccer_field](../../assets/img/discover/cards/soccer_field.jpg)
+
 The grass field where football is played.
 
 - Type: Place
@@ -1144,6 +1480,8 @@ The grass field where football is played.
 
 <a id="space_rocket"></a>
 ### Space Rocket
+![preview space_rocket](../../assets/img/discover/cards/space_rocket.jpg)
+
 A rocket that goes into space.
 
 - Type: Object
@@ -1153,6 +1491,8 @@ A rocket that goes into space.
 
 <a id="math_setsquare"></a>
 ### Square
+![preview math_setsquare](../../assets/img/discover/cards/math_setsquare.jpg)
+
 A triangle-shaped tool used to draw straight lines and right angles in math.
 
 - Type: Object
@@ -1162,6 +1502,8 @@ A triangle-shaped tool used to draw straight lines and right angles in math.
 
 <a id="stop_sign"></a>
 ### STOP Sign
+![preview stop_sign](../../assets/img/discover/cards/stop_sign.jpg)
+
 A red sign that means you must stop your vehicle.
 
 - Type: Object
@@ -1170,6 +1512,8 @@ A red sign that means you must stop your vehicle.
 
 <a id="summit"></a>
 ### Summit
+![preview summit](../../assets/img/discover/cards/summit.jpg)
+
 The very top of a mountain.
 
 - Type: Concept
@@ -1179,6 +1523,8 @@ The very top of a mountain.
 
 <a id="sun"></a>
 ### Sun
+![preview sun](../../assets/img/discover/cards/sun.jpg)
+
 Bright light that can reflect on the snow.
 
 - Type: Concept
@@ -1188,6 +1534,8 @@ Bright light that can reflect on the snow.
 
 <a id="sunglasses"></a>
 ### Sunglasses
+![preview sunglasses](../../assets/img/discover/cards/sunglasses.jpg)
+
 Glasses that protect your eyes from bright light.
 
 - Type: Object
@@ -1197,6 +1545,8 @@ Glasses that protect your eyes from bright light.
 
 <a id="country_switzerland"></a>
 ### Switzerland
+![preview country_switzerland](../../assets/img/discover/cards/country_switzerland.jpg)
+
 A country in Europe. Capital is Bern. Switzerland is famous for mountains and cheese.
 
 - Type: Place
@@ -1205,6 +1555,8 @@ A country in Europe. Capital is Bern. Switzerland is famous for mountains and ch
 
 <a id="food_tomato"></a>
 ### Tomato
+![preview food_tomato](../../assets/img/discover/cards/food_tomato.jpg)
+
 A red, round fruit that grows on plants. Tomatoes are used to make pizza sauce!
 
 - Type: Object
@@ -1214,6 +1566,8 @@ A red, round fruit that grows on plants. Tomatoes are used to make pizza sauce!
 
 <a id="train"></a>
 ### Train
+![preview train](../../assets/img/discover/cards/train.jpg)
+
 Trains carry people and goods fast across the country.
 
 - Type: Object
@@ -1222,6 +1576,8 @@ Trains carry people and goods fast across the country.
 
 <a id="tram"></a>
 ### Tram
+![preview tram](../../assets/img/discover/cards/tram.jpg)
+
 A city train that runs on tracks in the street.
 
 - Type: Object
@@ -1231,6 +1587,8 @@ A city train that runs on tracks in the street.
 
 <a id="fr_figure_triangle"></a>
 ### Triangle
+![preview fr_figure_triangle](../../assets/img/discover/cards/fr_figure_triangle.jpg)
+
 A shape with three straight sides and three corners. Triangles look like pizza slices!
 
 - Type: Concept
@@ -1240,6 +1598,8 @@ A shape with three straight sides and three corners. Triangles look like pizza s
 
 <a id="country_ukraine"></a>
 ### Ukraine
+![preview country_ukraine](../../assets/img/discover/cards/country_ukraine.jpg)
+
 A country in Europe. Capital is Kyiv.
 
 - Type: Place
@@ -1248,6 +1608,8 @@ A country in Europe. Capital is Kyiv.
 
 <a id="capital_vilnius"></a>
 ### Vilnius
+![preview capital_vilnius](../../assets/img/discover/cards/capital_vilnius.jpg)
+
 The capital city of Lithuania.
 
 - Type: Place
@@ -1256,6 +1618,8 @@ The capital city of Lithuania.
 
 <a id="wars_and_sawa_statue"></a>
 ### Wars and Sawa Statue
+![preview wars_and_sawa_statue](../../assets/img/discover/cards/wars_and_sawa_statue.jpg)
+
 A statue showing the city’s legend about Wars and Sawa.
 
 - Type: Place
@@ -1265,6 +1629,8 @@ A statue showing the city’s legend about Wars and Sawa.
 
 <a id="capital_warsaw"></a>
 ### Warsaw
+![preview capital_warsaw](../../assets/img/discover/cards/capital_warsaw.jpg)
+
 The capital city of Poland.
 
 - Type: Place
@@ -1273,6 +1639,8 @@ The capital city of Poland.
 
 <a id="food_water"></a>
 ### Water
+![preview food_water](../../assets/img/discover/cards/food_water.jpg)
+
 Water is essential for all life
 
 - Type: Object
@@ -1281,6 +1649,8 @@ Water is essential for all life
 
 <a id="wind"></a>
 ### Wind
+![preview wind](../../assets/img/discover/cards/wind.jpg)
+
 Moving air that can feel strong in the mountains.
 
 - Type: Concept
@@ -1290,6 +1660,8 @@ Moving air that can feel strong in the mountains.
 
 <a id="food_yeast"></a>
 ### Yeast
+![preview food_yeast](../../assets/img/discover/cards/food_yeast.jpg)
+
 Yeast is like magic powder that makes bread soft and tasty!
 
 - Type: Object
@@ -1298,6 +1670,8 @@ Yeast is like magic powder that makes bread soft and tasty!
 
 <a id="zoty_coins"></a>
 ### Złoty Coins
+![preview zoty_coins](../../assets/img/discover/cards/zoty_coins.jpg)
+
 Polish money (złoty) shown as coins.
 
 - Type: Object
@@ -1309,6 +1683,8 @@ Polish money (złoty) shown as coins.
 
 <a id="book_20000_leagues_under_the_sea"></a>
 ### 20000 Leagues Under the Sea
+![preview book_20000_leagues_under_the_sea](../../assets/img/discover/cards/book_20000_leagues_under_the_sea.jpg)
+
 A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
 
 - Type: Object
@@ -1319,6 +1695,8 @@ A book by Jules Verne about underwater adventures in a submarine called the Naut
 
 <a id="24_hours_of_le_mans"></a>
 ### 24 Hours of Le Mans
+![preview 24_hours_of_le_mans](../../assets/img/discover/cards/24_hours_of_le_mans.jpg)
+
 A car race that lasts 24 hours. Teams drive day and night.
 
 - Type: Concept
@@ -1327,6 +1705,8 @@ A car race that lasts 24 hours. Teams drive day and night.
 
 <a id="note_la"></a>
 ### A
+![preview note_la](../../assets/img/discover/cards/note_la.jpg)
+
 A musical note.
 
 - Type: Concept
@@ -1335,6 +1715,8 @@ A musical note.
 
 <a id="marseillaise_1"></a>
 ### Allons enfants
+![preview marseillaise_1](../../assets/img/discover/cards/marseillaise_1.jpg)
+
 The first words of the anthem’s first line.
 
 - Type: Object
@@ -1343,6 +1725,8 @@ The first words of the anthem’s first line.
 
 <a id="armor"></a>
 ### Armor
+![preview armor](../../assets/img/discover/cards/armor.jpg)
+
 Protective metal clothing for a knight.
 
 - Type: Object
@@ -1351,6 +1735,8 @@ Protective metal clothing for a knight.
 
 <a id="book_around_the_world_80_days"></a>
 ### Around the World in Eighty Days
+![preview book_around_the_world_80_days](../../assets/img/discover/cards/book_around_the_world_80_days.jpg)
+
 An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
 
 - Type: Object
@@ -1361,6 +1747,8 @@ An exciting book by Jules Verne about traveling around the whole world very quic
 
 <a id="arrows"></a>
 ### Arrows
+![preview arrows](../../assets/img/discover/cards/arrows.jpg)
+
 Sharp sticks shot from a bow.
 
 - Type: Object
@@ -1369,6 +1757,8 @@ Sharp sticks shot from a bow.
 
 <a id="note_si"></a>
 ### B
+![preview note_si](../../assets/img/discover/cards/note_si.jpg)
+
 A musical note.
 
 - Type: Concept
@@ -1377,6 +1767,8 @@ A musical note.
 
 <a id="ballroom"></a>
 ### Ballroom
+![preview ballroom](../../assets/img/discover/cards/ballroom.jpg)
+
 A big room for dancing and music.
 
 - Type: Place
@@ -1385,6 +1777,8 @@ A big room for dancing and music.
 
 <a id="bicycle"></a>
 ### Bicycle
+![preview bicycle](../../assets/img/discover/cards/bicycle.jpg)
+
 A vehicle with two wheels you pedal.
 
 - Type: Object
@@ -1393,6 +1787,8 @@ A vehicle with two wheels you pedal.
 
 <a id="boatman"></a>
 ### Boatman
+![preview boatman](../../assets/img/discover/cards/boatman.jpg)
+
 A person who rows the boat on the Loire.
 
 - Type: Person
@@ -1401,6 +1797,8 @@ A person who rows the boat on the Loire.
 
 <a id="bouillabaisse"></a>
 ### Bouillabaisse
+![preview bouillabaisse](../../assets/img/discover/cards/bouillabaisse.jpg)
+
 A special fish soup from Marseille in southern France. It's made with many different types of fish and has a delicious smell!
 
 - Type: Object
@@ -1411,6 +1809,8 @@ A special fish soup from Marseille in southern France. It's made with many diffe
 
 <a id="bow"></a>
 ### Bow
+![preview bow](../../assets/img/discover/cards/bow.jpg)
+
 A weapon that shoots arrows.
 
 - Type: Object
@@ -1419,6 +1819,8 @@ A weapon that shoots arrows.
 
 <a id="note_do"></a>
 ### C
+![preview note_do](../../assets/img/discover/cards/note_do.jpg)
+
 A musical note.
 
 - Type: Concept
@@ -1427,6 +1829,8 @@ A musical note.
 
 <a id="castle_chinon"></a>
 ### Castle Chinon
+![preview castle_chinon](../../assets/img/discover/cards/castle_chinon.jpg)
+
 Château de Chinon is a strong stone fortress on a hill above the river in the Loire Valley. Long ago, kings stayed here and Joan of Arc came to meet the future king of France.
 
 - Type: Place
@@ -1436,6 +1840,8 @@ Château de Chinon is a strong stone fortress on a hill above the river in the L
 
 <a id="castle_facade_windows"></a>
 ### Castle Facade (Windows)
+![preview castle_facade_windows](../../assets/img/discover/cards/castle_facade_windows.jpg)
+
 A front wall with many large windows for light and views.
 
 - Type: Concept
@@ -1444,6 +1850,8 @@ A front wall with many large windows for light and views.
 
 <a id="catapult"></a>
 ### Catapult
+![preview catapult](../../assets/img/discover/cards/catapult.jpg)
+
 A machine that throws stones far.
 
 - Type: Object
@@ -1452,6 +1860,8 @@ A machine that throws stones far.
 
 <a id="cathedral"></a>
 ### Cathedral
+![preview cathedral](../../assets/img/discover/cards/cathedral.jpg)
+
 A very large and important church in a city.
 
 - Type: Place
@@ -1461,6 +1871,8 @@ A very large and important church in a city.
 
 <a id="concept_charter_of_secularism"></a>
 ### Charter of Secularism
+![preview concept_charter_of_secularism](../../assets/img/discover/cards/concept_charter_of_secularism.jpg)
+
 A set of rules for respecting everyone's beliefs. It helps people live together in peace.
 
 - Type: Concept
@@ -1471,6 +1883,8 @@ A set of rules for respecting everyone's beliefs. It helps people live together 
 
 <a id="church"></a>
 ### Church
+![preview church](../../assets/img/discover/cards/church.jpg)
+
 A special building where people meet to pray and sing.
 
 - Type: Place
@@ -1480,6 +1894,8 @@ A special building where people meet to pray and sing.
 
 <a id="chateau_de_chambord"></a>
 ### Château de Chambord
+![preview chateau_de_chambord](../../assets/img/discover/cards/chateau_de_chambord.jpg)
+
 A grand palace with many windows and gardens.
 
 - Type: Place
@@ -1488,6 +1904,8 @@ A grand palace with many windows and gardens.
 
 <a id="chateau_de_chinon"></a>
 ### Château de Chinon
+![preview chateau_de_chinon](../../assets/img/discover/cards/chateau_de_chinon.jpg)
+
 A strong stone fortress used for defense.
 
 - Type: Place
@@ -1496,6 +1914,8 @@ A strong stone fortress used for defense.
 
 <a id="code_of_hammurabi"></a>
 ### Code of Hammurabi
+![preview code_of_hammurabi](../../assets/img/discover/cards/code_of_hammurabi.jpg)
+
 A stone with very old laws carved into it.
 
 - Type: Object
@@ -1505,6 +1925,8 @@ A stone with very old laws carved into it.
 
 <a id="education_college_fr"></a>
 ### Collège in France
+![preview education_college_fr](../../assets/img/discover/cards/education_college_fr.jpg)
+
 Middle school in France for kids aged 11 to 15. Students learn many subjects and prepare for high school.
 
 - Rationale: Understanding the French school system helps kids compare education across countries
@@ -1516,6 +1938,8 @@ Middle school in France for kids aged 11 to 15. Students learn many subjects and
 
 <a id="coronation_of_napoleon_david"></a>
 ### Coronation of Napoleon (David)
+![preview coronation_of_napoleon_david](../../assets/img/discover/cards/coronation_of_napoleon_david.jpg)
+
 A huge painting showing a French emperor’s ceremony.
 
 - Type: Object
@@ -1525,6 +1949,8 @@ A huge painting showing a French emperor’s ceremony.
 
 <a id="concept_cursive_writing"></a>
 ### Cursive Writing
+![preview concept_cursive_writing](../../assets/img/discover/cards/concept_cursive_writing.jpg)
+
 A special way of writing where all the letters in a word are connected. In France, children learn to write this way in school.
 
 - Rationale: Cursive writing is an important part of French education and cultural identity
@@ -1536,6 +1962,8 @@ A special way of writing where all the letters in a word are connected. In Franc
 
 <a id="note_re"></a>
 ### D
+![preview note_re](../../assets/img/discover/cards/note_re.jpg)
+
 A musical note.
 
 - Type: Concept
@@ -1544,6 +1972,8 @@ A musical note.
 
 <a id="dancing_shoes"></a>
 ### Dancing Shoes
+![preview dancing_shoes](../../assets/img/discover/cards/dancing_shoes.jpg)
+
 Shoes made for dancing in a ballroom.
 
 - Type: Object
@@ -1552,6 +1982,8 @@ Shoes made for dancing in a ballroom.
 
 <a id="marseillaise_2"></a>
 ### De la patrie
+![preview marseillaise_2](../../assets/img/discover/cards/marseillaise_2.jpg)
+
 Words from the anthem’s first line.
 
 - Type: Object
@@ -1560,6 +1992,8 @@ Words from the anthem’s first line.
 
 <a id="drawbridge"></a>
 ### Drawbridge
+![preview drawbridge](../../assets/img/discover/cards/drawbridge.jpg)
+
 A bridge that lifts to protect a castle entrance.
 
 - Type: Object
@@ -1568,6 +2002,8 @@ A bridge that lifts to protect a castle entrance.
 
 <a id="note_mi"></a>
 ### E
+![preview note_mi](../../assets/img/discover/cards/note_mi.jpg)
+
 A musical note.
 
 - Type: Concept
@@ -1576,6 +2012,8 @@ A musical note.
 
 <a id="eiffel_tower"></a>
 ### Eiffel Tower
+![preview eiffel_tower](../../assets/img/discover/cards/eiffel_tower.jpg)
+
 A tall tower and a symbol of Paris. It's made of iron and is 300 meters talll. You can go up and see the whole city.
 
 - Type: Place
@@ -1586,6 +2024,8 @@ A tall tower and a symbol of Paris. It's made of iron and is 300 meters talll. Y
 
 <a id="eiffel_tower_elevators"></a>
 ### Eiffel Tower Elevators
+![preview eiffel_tower_elevators](../../assets/img/discover/cards/eiffel_tower_elevators.jpg)
+
 Lifts that take visitors up the iron tower.
 
 - Type: Object
@@ -1595,6 +2035,8 @@ Lifts that take visitors up the iron tower.
 
 <a id="marseillaise_4"></a>
 ### Est arrivé
+![preview marseillaise_4](../../assets/img/discover/cards/marseillaise_4.jpg)
+
 Words from the anthem’s first line.
 
 - Type: Object
@@ -1603,6 +2045,8 @@ Words from the anthem’s first line.
 
 <a id="note_fa"></a>
 ### F
+![preview note_fa](../../assets/img/discover/cards/note_fa.jpg)
+
 A musical note.
 
 - Type: Concept
@@ -1611,6 +2055,8 @@ A musical note.
 
 <a id="feathered_hat"></a>
 ### Feathered Hat
+![preview feathered_hat](../../assets/img/discover/cards/feathered_hat.jpg)
+
 A fine hat with a feather for style.
 
 - Type: Object
@@ -1619,6 +2065,8 @@ A fine hat with a feather for style.
 
 <a id="book_five_weeks_in_a_balloon"></a>
 ### Five Weeks in a Balloon
+![preview book_five_weeks_in_a_balloon](../../assets/img/discover/cards/book_five_weeks_in_a_balloon.jpg)
+
 A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
 
 - Type: Object
@@ -1629,6 +2077,8 @@ A book by Jules Verne about flying across Africa in a hot air balloon. It's full
 
 <a id="flag_france"></a>
 ### Flag of France
+![preview flag_france](../../assets/img/discover/cards/flag_france.jpg)
+
 The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
 
 - Rationale: The French flag is essential for teaching French national identity and values
@@ -1640,6 +2090,8 @@ The flag of France has three vertical stripes: blue, white, and red. These color
 
 <a id="flag_monaco"></a>
 ### Flag of Monaco
+![preview flag_monaco](../../assets/img/discover/cards/flag_monaco.jpg)
+
 The flag of Monaco has red and white horizontal stripes. Monaco is tiny but famous for fancy cars and royal palaces by the sea!
 
 - Rationale: Monaco shows kids how small places can be special and important
@@ -1651,6 +2103,8 @@ The flag of Monaco has red and white horizontal stripes. Monaco is tiny but famo
 
 <a id="flying_buttress"></a>
 ### Flying Buttress
+![preview flying_buttress](../../assets/img/discover/cards/flying_buttress.jpg)
+
 Stone arms outside that help hold up tall walls.
 
 - Type: Concept
@@ -1660,6 +2114,8 @@ Stone arms outside that help hold up tall walls.
 
 <a id="formal_gardens"></a>
 ### Formal Gardens
+![preview formal_gardens](../../assets/img/discover/cards/formal_gardens.jpg)
+
 Decorative gardens for walking and parties.
 
 - Type: Place
@@ -1668,6 +2124,8 @@ Decorative gardens for walking and parties.
 
 <a id="country_france"></a>
 ### France
+![preview country_france](../../assets/img/discover/cards/country_france.jpg)
+
 A country in Europe. Capital is Paris.
 
 - Type: Place
@@ -1676,6 +2134,8 @@ A country in Europe. Capital is Paris.
 
 <a id="food_baguette"></a>
 ### French Baguette
+![preview food_baguette](../../assets/img/discover/cards/food_baguette.jpg)
+
 A long, crispy bread that is the most famous food in France. French people buy fresh baguettes every day from the bakery!
 
 - Rationale: Baguettes are iconic French culture that kids can easily understand and remember
@@ -1687,6 +2147,8 @@ A long, crispy bread that is the most famous food in France. French people buy f
 
 <a id="pirates"></a>
 ### French Pirates
+![preview pirates](../../assets/img/discover/cards/pirates.jpg)
+
 Brave sailors who sailed the seas for the King of France. They were called corsairs and protected French ships from enemies.
 
 - Rationale: Pirates capture kids' imagination while teaching about maritime history and French naval power
@@ -1698,6 +2160,8 @@ Brave sailors who sailed the seas for the King of France. They were called corsa
 
 <a id="french_revolution"></a>
 ### French Revolution
+![preview french_revolution](../../assets/img/discover/cards/french_revolution.jpg)
+
 A time in the 1790s when France changed its government.
 
 - Type: Concept
@@ -1706,6 +2170,8 @@ A time in the 1790s when France changed its government.
 
 <a id="book_from_earth_to_moon"></a>
 ### From the Earth to the Moon
+![preview book_from_earth_to_moon](../../assets/img/discover/cards/book_from_earth_to_moon.jpg)
+
 A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
 
 - Type: Object
@@ -1716,6 +2182,8 @@ A book by Jules Verne about going to the Moon in a big cannon! It was written be
 
 <a id="note_sol"></a>
 ### G
+![preview note_sol](../../assets/img/discover/cards/note_sol.jpg)
+
 A musical note.
 
 - Type: Concept
@@ -1724,6 +2192,8 @@ A musical note.
 
 <a id="gargoyle"></a>
 ### Gargoyle
+![preview gargoyle](../../assets/img/discover/cards/gargoyle.jpg)
+
 A funny or scary statue that also works as a rain spout.
 
 - Type: Concept
@@ -1733,6 +2203,8 @@ A funny or scary statue that also works as a rain spout.
 
 <a id="gustave_eiffel"></a>
 ### Gustave Eiffel
+![preview gustave_eiffel](../../assets/img/discover/cards/gustave_eiffel.jpg)
+
 The man who built the Eiffel Tower! He was an engineer who loved building with iron and created the most famous tower in the world.
 
 - Type: Person
@@ -1743,6 +2215,8 @@ The man who built the Eiffel Tower! He was an engineer who loved building with i
 
 <a id="helmet"></a>
 ### Helmet
+![preview helmet](../../assets/img/discover/cards/helmet.jpg)
+
 A metal hat that protects the head.
 
 - Type: Object
@@ -1751,6 +2225,8 @@ A metal hat that protects the head.
 
 <a id="helmet_street_safety"></a>
 ### Helmet (Street Safety)
+![preview helmet_street_safety](../../assets/img/discover/cards/helmet_street_safety.jpg)
+
 A hard hat to protect your head when riding.
 
 - Type: Object
@@ -1759,6 +2235,8 @@ A hard hat to protect your head when riding.
 
 <a id="hot_air_balloon"></a>
 ### Hot-Air Balloon
+![preview hot_air_balloon](../../assets/img/discover/cards/hot_air_balloon.jpg)
+
 A balloon that flies using hot air. The first one flew in France.
 
 - Type: Object
@@ -1768,6 +2246,8 @@ A balloon that flies using hot air. The first one flew in France.
 
 <a id="jean_michel_jarre"></a>
 ### Jean Michel Jarre
+![preview jean_michel_jarre](../../assets/img/discover/cards/jean_michel_jarre.jpg)
+
 A French musician famous for electronic music. He makes big light shows.
 
 - Type: Person
@@ -1777,6 +2257,8 @@ A French musician famous for electronic music. He makes big light shows.
 
 <a id="jules_verne"></a>
 ### Jules Verne
+![preview jules_verne](../../assets/img/discover/cards/jules_verne.jpg)
+
 A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
 
 - Rationale: Jules Verne shows kids how imagination and science can work together
@@ -1788,6 +2270,8 @@ A French writer who imagined amazing adventures before they were possible! He wr
 
 <a id="marseillaise_music"></a>
 ### La Marseillaise
+![preview marseillaise_music](../../assets/img/discover/cards/marseillaise_music.jpg)
+
 The French national song. People sing it at big events and sports games.
 
 - Type: Concept
@@ -1797,6 +2281,8 @@ The French national song. People sing it at big events and sports games.
 
 <a id="marseillaise_3"></a>
 ### Le jour de la gloire
+![preview marseillaise_3](../../assets/img/discover/cards/marseillaise_3.jpg)
+
 Words from the anthem’s first line.
 
 - Type: Object
@@ -1805,6 +2291,8 @@ Words from the anthem’s first line.
 
 <a id="le_mans"></a>
 ### Le Mans
+![preview le_mans](../../assets/img/discover/cards/le_mans.jpg)
+
 A city in France, famous for a 24-hour car race.
 
 - Type: Place
@@ -1813,6 +2301,8 @@ A city in France, famous for a 24-hour car race.
 
 <a id="le_mans_racetrack_entrance"></a>
 ### Le Mans Racetrack Entrance
+![preview le_mans_racetrack_entrance](../../assets/img/discover/cards/le_mans_racetrack_entrance.jpg)
+
 The entrance area of the Le Mans circuit.
 
 - Type: Place
@@ -1821,6 +2311,8 @@ The entrance area of the Le Mans circuit.
 
 <a id="le_mans_train_station"></a>
 ### Le Mans Train Station
+![preview le_mans_train_station](../../assets/img/discover/cards/le_mans_train_station.jpg)
+
 The station where you take the train home.
 
 - Type: Place
@@ -1829,6 +2321,8 @@ The station where you take the train home.
 
 <a id="art_liberty_leading_the_people"></a>
 ### Liberty Leading the People
+![preview art_liberty_leading_the_people](../../assets/img/discover/cards/art_liberty_leading_the_people.jpg)
+
 A famous painting about freedom and courage. It shows a brave woman holding the French flag and leading people to fight for their rights.
 
 - Rationale: This painting teaches kids about fighting for freedom and the French Revolution
@@ -1839,6 +2333,8 @@ A famous painting about freedom and courage. It shows a brave woman holding the 
 
 <a id="loire_river"></a>
 ### Loire River
+![preview loire_river](../../assets/img/discover/cards/loire_river.jpg)
+
 A long river in France with many castles along its banks.
 
 - Type: Place
@@ -1847,6 +2343,8 @@ A long river in France with many castles along its banks.
 
 <a id="loire_valley"></a>
 ### Loire Valley
+![preview loire_valley](../../assets/img/discover/cards/loire_valley.jpg)
+
 A famous French region with many castles.
 
 - Type: Place
@@ -1855,6 +2353,8 @@ A famous French region with many castles.
 
 <a id="loopholes"></a>
 ### Loopholes
+![preview loopholes](../../assets/img/discover/cards/loopholes.jpg)
+
 Narrow windows to shoot arrows out safely.
 
 - Type: Concept
@@ -1863,6 +2363,8 @@ Narrow windows to shoot arrows out safely.
 
 <a id="louvre"></a>
 ### Louvre
+![preview louvre](../../assets/img/discover/cards/louvre.jpg)
+
 A huge museum full of art. It’s where the Mona Lisa lives.
 
 - Type: Place
@@ -1873,6 +2375,8 @@ A huge museum full of art. It’s where the Mona Lisa lives.
 
 <a id="louvre_pyramid"></a>
 ### Louvre Pyramid
+![preview louvre_pyramid](../../assets/img/discover/cards/louvre_pyramid.jpg)
+
 The glass pyramid that is the Louvre’s modern entrance.
 
 - Type: Place
@@ -1882,6 +2386,8 @@ The glass pyramid that is the Louvre’s modern entrance.
 
 <a id="lute"></a>
 ### Lute
+![preview lute](../../assets/img/discover/cards/lute.jpg)
+
 A string instrument played at court.
 
 - Type: Object
@@ -1890,6 +2396,8 @@ A string instrument played at court.
 
 <a id="education_lycee_fr"></a>
 ### Lycée in France
+![preview education_lycee_fr](../../assets/img/discover/cards/education_lycee_fr.jpg)
+
 High school in France for teenagers aged 16 to 18. Students study hard for the Baccalauréat exam to go to university.
 
 - Rationale: The Lycée system shows kids the path to higher education in France
@@ -1901,6 +2409,8 @@ High school in France for teenagers aged 16 to 18. Students study hard for the B
 
 <a id="seine_map_in_paris"></a>
 ### Map of Seine in Paris
+![preview seine_map_in_paris](../../assets/img/discover/cards/seine_map_in_paris.jpg)
+
 A picture that shows how the Seine River flows through the city of Paris.
 
 - Type: Object
@@ -1910,6 +2420,8 @@ A picture that shows how the Seine River flows through the city of Paris.
 
 <a id="seine_map"></a>
 ### Map of Seine River
+![preview seine_map](../../assets/img/discover/cards/seine_map.jpg)
+
 A picture that shows the Seine River and where it flows through the land.
 
 - Type: Object
@@ -1919,6 +2431,8 @@ A picture that shows the Seine River and where it flows through the land.
 
 <a id="masquerade_mask"></a>
 ### Masquerade Mask
+![preview masquerade_mask](../../assets/img/discover/cards/masquerade_mask.jpg)
+
 A mask for parties and balls.
 
 - Type: Object
@@ -1927,6 +2441,8 @@ A mask for parties and balls.
 
 <a id="musical_score"></a>
 ### Musical Score
+![preview musical_score](../../assets/img/discover/cards/musical_score.jpg)
+
 The written notes and words for a song.
 
 - Type: Object
@@ -1935,6 +2451,8 @@ The written notes and words for a song.
 
 <a id="notre_dame_de_paris"></a>
 ### Notre-Dame de Paris
+![preview notre_dame_de_paris](../../assets/img/discover/cards/notre_dame_de_paris.jpg)
+
 A beautiful cathedral in Paris. Its colorful glass windows tell stories.
 
 - Type: Place
@@ -1945,6 +2463,8 @@ A beautiful cathedral in Paris. Its colorful glass windows tell stories.
 
 <a id="notre_dame_de_paris_fire"></a>
 ### Notre-Dame Fire
+![preview notre_dame_de_paris_fire](../../assets/img/discover/cards/notre_dame_de_paris_fire.jpg)
+
 In 2019, a big fire damaged the beautiful Notre-Dame Cathedral in Paris. Many people worked together to save this important building.
 
 - Rationale: This event teaches kids about protecting cultural heritage and community cooperation
@@ -1956,6 +2476,8 @@ In 2019, a big fire damaged the beautiful Notre-Dame Cathedral in Paris. Many pe
 
 <a id="oath_of_the_horatii_david"></a>
 ### Oath of the Horatii (David)
+![preview oath_of_the_horatii_david](../../assets/img/discover/cards/oath_of_the_horatii_david.jpg)
+
 A painting of three brothers making a brave promise.
 
 - Type: Object
@@ -1965,6 +2487,8 @@ A painting of three brothers making a brave promise.
 
 <a id="parapet"></a>
 ### Parapet
+![preview parapet](../../assets/img/discover/cards/parapet.jpg)
+
 The low wall at the edge of the ramparts.
 
 - Type: Concept
@@ -1973,6 +2497,8 @@ The low wall at the edge of the ramparts.
 
 <a id="piano"></a>
 ### Piano
+![preview piano](../../assets/img/discover/cards/piano.jpg)
+
 A keyboard instrument used to play melodies and chords.
 
 - Type: Object
@@ -1981,6 +2507,8 @@ A keyboard instrument used to play melodies and chords.
 
 <a id="pont_alexandre_iii"></a>
 ### Pont Alexandre III
+![preview pont_alexandre_iii](../../assets/img/discover/cards/pont_alexandre_iii.jpg)
+
 A beautiful bridge in Paris with fancy decorations and golden statues on it.
 
 - Type: Place
@@ -1990,6 +2518,8 @@ A beautiful bridge in Paris with fancy decorations and golden statues on it.
 
 <a id="portcullis"></a>
 ### Portcullis
+![preview portcullis](../../assets/img/discover/cards/portcullis.jpg)
+
 A heavy gate that drops to block the doorway.
 
 - Type: Object
@@ -1998,6 +2528,8 @@ A heavy gate that drops to block the doorway.
 
 <a id="education_ecole_primaire_fr"></a>
 ### Primary School in France
+![preview education_ecole_primaire_fr](../../assets/img/discover/cards/education_ecole_primaire_fr.jpg)
+
 School for kids aged 6 to 10. You learn reading, writing, and counting.
 
 - Type: Concept
@@ -2008,6 +2540,8 @@ School for kids aged 6 to 10. You learn reading, writing, and counting.
 
 <a id="race_car"></a>
 ### Race Car
+![preview race_car](../../assets/img/discover/cards/race_car.jpg)
+
 A very fast car used on racetracks.
 
 - Type: Object
@@ -2016,6 +2550,8 @@ A very fast car used on racetracks.
 
 <a id="ramparts"></a>
 ### Ramparts
+![preview ramparts](../../assets/img/discover/cards/ramparts.jpg)
+
 High walls you can walk on to guard the castle.
 
 - Type: Concept
@@ -2024,6 +2560,8 @@ High walls you can walk on to guard the castle.
 
 <a id="rose_window"></a>
 ### Rose Window
+![preview rose_window](../../assets/img/discover/cards/rose_window.jpg)
+
 A big round stained-glass window that tells stories with light.
 
 - Type: Concept
@@ -2033,6 +2571,8 @@ A big round stained-glass window that tells stories with light.
 
 <a id="royal_bedroom"></a>
 ### Royal Bedroom
+![preview royal_bedroom](../../assets/img/discover/cards/royal_bedroom.jpg)
+
 A fancy room with a big canopied bed.
 
 - Type: Place
@@ -2041,6 +2581,8 @@ A fancy room with a big canopied bed.
 
 <a id="scooter"></a>
 ### Scooter
+![preview scooter](../../assets/img/discover/cards/scooter.jpg)
+
 A small two-wheeled scooter (trottinette).
 
 - Type: Object
@@ -2049,6 +2591,8 @@ A small two-wheeled scooter (trottinette).
 
 <a id="seine"></a>
 ### Seine
+![preview seine](../../assets/img/discover/cards/seine.jpg)
+
 A 777-kilometre-long river in northern France
 
 - Type: Place
@@ -2058,6 +2602,8 @@ A 777-kilometre-long river in northern France
 
 <a id="boat_eiffel_tower"></a>
 ### Seine River Boat
+![preview boat_eiffel_tower](../../assets/img/discover/cards/boat_eiffel_tower.jpg)
+
 A special boat that sails on the Seine River in Paris. You can see the Eiffel Tower and other beautiful buildings from the water!
 
 - Rationale: Boat tours help kids see Paris from a different perspective and understand river transportation
@@ -2069,6 +2615,8 @@ A special boat that sails on the Seine River in Paris. You can see the Eiffel To
 
 <a id="submarine_nautilus"></a>
 ### Submarine (The Nautilus)
+![preview submarine_nautilus](../../assets/img/discover/cards/submarine_nautilus.jpg)
+
 A submarine from Jules Verne’s story. It could explore the deep sea.
 
 - Type: Object
@@ -2078,6 +2626,8 @@ A submarine from Jules Verne’s story. It could explore the deep sea.
 
 <a id="sword"></a>
 ### Sword
+![preview sword](../../assets/img/discover/cards/sword.jpg)
+
 A long blade used by knights.
 
 - Type: Object
@@ -2086,6 +2636,8 @@ A long blade used by knights.
 
 <a id="the_seated_scribe"></a>
 ### The Seated Scribe
+![preview the_seated_scribe](../../assets/img/discover/cards/the_seated_scribe.jpg)
+
 An ancient Egyptian statue of a person writing.
 
 - Type: Object
@@ -2095,6 +2647,8 @@ An ancient Egyptian statue of a person writing.
 
 <a id="traffic_lights"></a>
 ### Traffic Lights
+![preview traffic_lights](../../assets/img/discover/cards/traffic_lights.jpg)
+
 Street lights that tell you when to STOP or GO.
 
 - Type: Object
@@ -2103,6 +2657,8 @@ Street lights that tell you when to STOP or GO.
 
 <a id="winged_victory_of_samothrace"></a>
 ### Winged Victory of Samothrace
+![preview winged_victory_of_samothrace](../../assets/img/discover/cards/winged_victory_of_samothrace.jpg)
+
 A famous ancient sculpture of a goddess with wings.
 
 - Type: Object
@@ -2112,6 +2668,8 @@ A famous ancient sculpture of a goddess with wings.
 
 <a id="worlds_fair_1889"></a>
 ### World’s Fair (1889)
+![preview worlds_fair_1889](../../assets/img/discover/cards/worlds_fair_1889.jpg)
+
 The big world expo when the Eiffel Tower was shown.
 
 - Type: Concept
@@ -2121,6 +2679,8 @@ The big world expo when the Eiffel Tower was shown.
 
 <a id="xylophone"></a>
 ### Xylophone
+![preview xylophone](../../assets/img/discover/cards/xylophone.jpg)
+
 An instrument with bars you hit to make notes.
 
 - Type: Object
@@ -2129,6 +2689,8 @@ An instrument with bars you hit to make notes.
 
 <a id="zebra_crossing"></a>
 ### Zebra Crossing
+![preview zebra_crossing](../../assets/img/discover/cards/zebra_crossing.jpg)
+
 White stripes where people cross the street.
 
 - Type: Object
@@ -2137,6 +2699,8 @@ White stripes where people cross the street.
 
 <a id="education_ecole_maternelle_fr"></a>
 ### École Maternelle
+![preview education_ecole_maternelle_fr](../../assets/img/discover/cards/education_ecole_maternelle_fr.jpg)
+
 School for little kids aged 3 to 5. You learn by playing and exploring.
 
 - Type: Concept
@@ -2149,6 +2713,8 @@ School for little kids aged 3 to 5. You learn by playing and exploring.
 
 <a id="amber"></a>
 ### Amber
+![preview amber](../../assets/img/discover/cards/amber.jpg)
+
 Shiny fossil tree resin called 'Baltic Gold'.
 
 - Type: Object
@@ -2158,6 +2724,8 @@ Shiny fossil tree resin called 'Baltic Gold'.
 
 <a id="amber_room"></a>
 ### Amber Room
+![preview amber_room](../../assets/img/discover/cards/amber_room.jpg)
+
 A famous room made of amber with a mysterious history.
 
 - Type: Concept
@@ -2167,6 +2735,8 @@ A famous room made of amber with a mysterious history.
 
 <a id="animal_enclosure"></a>
 ### Animal Enclosure
+![preview animal_enclosure](../../assets/img/discover/cards/animal_enclosure.jpg)
+
 A safe space made for animals to live at the zoo.
 
 - Type: Place
@@ -2176,6 +2746,8 @@ A safe space made for animals to live at the zoo.
 
 <a id="animal_lover_dwarf"></a>
 ### Animal Lover Dwarf
+![preview animal_lover_dwarf](../../assets/img/discover/cards/animal_lover_dwarf.jpg)
+
 A dwarf statue that loves the zoo and animals.
 
 - Type: Object
@@ -2185,6 +2757,8 @@ A dwarf statue that loves the zoo and animals.
 
 <a id="astronomy"></a>
 ### Astronomy
+![preview astronomy](../../assets/img/discover/cards/astronomy.jpg)
+
 The science of studying the Sun, Moon, stars, and planets.
 
 - Type: Concept
@@ -2194,6 +2768,8 @@ The science of studying the Sun, Moon, stars, and planets.
 
 <a id="baltic_sea_coast"></a>
 ### Baltic Sea Coast
+![preview baltic_sea_coast](../../assets/img/discover/cards/baltic_sea_coast.jpg)
+
 The sandy shore along the Baltic Sea.
 
 - Type: Place
@@ -2203,6 +2779,8 @@ The sandy shore along the Baltic Sea.
 
 <a id="barge"></a>
 ### Barge
+![preview barge](../../assets/img/discover/cards/barge.jpg)
+
 A long, flat boat that carries goods on rivers.
 
 - Type: Object
@@ -2212,6 +2790,8 @@ A long, flat boat that carries goods on rivers.
 
 <a id="bishop_dwarf"></a>
 ### Bishop Dwarf
+![preview bishop_dwarf](../../assets/img/discover/cards/bishop_dwarf.jpg)
+
 A dwarf statue who asks a church question.
 
 - Type: Object
@@ -2221,6 +2801,8 @@ A dwarf statue who asks a church question.
 
 <a id="boat"></a>
 ### Boat
+![preview boat](../../assets/img/discover/cards/boat.jpg)
+
 A vehicle that moves on water.
 
 - Type: Object
@@ -2230,6 +2812,8 @@ A vehicle that moves on water.
 
 <a id="bridge"></a>
 ### Bridge
+![preview bridge](../../assets/img/discover/cards/bridge.jpg)
+
 A structure that lets people or vehicles cross water.
 
 - Type: Concept
@@ -2239,6 +2823,8 @@ A structure that lets people or vehicles cross water.
 
 <a id="wroclaw_centennial_hall"></a>
 ### Centennial Hall 
+![preview wroclaw_centennial_hall](../../assets/img/discover/cards/wroclaw_centennial_hall.jpg)
+
 The Centennial Hall is a huge building that looks like a big tent with a roof. It’s very tall. Inside, you can see different shows, listen to concerts, or watch sports games.
 
 - Type: Place
@@ -2248,6 +2834,8 @@ The Centennial Hall is a huge building that looks like a big tent with a roof. I
 
 <a id="chopin_monument"></a>
 ### Chopin Monument
+![preview chopin_monument](../../assets/img/discover/cards/chopin_monument.jpg)
+
 A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It’s also the site of popular open-air piano concerts in summer. (the special tree he is sitting under is a typical polish.. Willow)
 
 
@@ -2258,6 +2846,8 @@ A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It�
 
 <a id="cub"></a>
 ### Cub
+![preview cub](../../assets/img/discover/cards/cub.jpg)
+
 A baby lion.
 
 - Type: Concept
@@ -2267,6 +2857,8 @@ A baby lion.
 
 <a id="cutter"></a>
 ### Cutter
+![preview cutter](../../assets/img/discover/cards/cutter.jpg)
+
 A small fishing boat used at sea.
 
 - Type: Object
@@ -2276,6 +2868,8 @@ A small fishing boat used at sea.
 
 <a id="dwarf_expert"></a>
 ### Dwarf Expert
+![preview dwarf_expert](../../assets/img/discover/cards/dwarf_expert.jpg)
+
 A friendly guide who knows all about the dwarfs.
 
 - Type: Person
@@ -2285,6 +2879,8 @@ A friendly guide who knows all about the dwarfs.
 
 <a id="earth"></a>
 ### Earth
+![preview earth](../../assets/img/discover/cards/earth.jpg)
+
 Our home planet with land, air, and water.
 
 - Type: Object
@@ -2294,6 +2890,8 @@ Our home planet with land, air, and water.
 
 <a id="ecosystem"></a>
 ### Ecosystem
+![preview ecosystem](../../assets/img/discover/cards/ecosystem.jpg)
+
 Living things and their home in nature, working together.
 
 - Type: Concept
@@ -2303,6 +2901,8 @@ Living things and their home in nature, working together.
 
 <a id="eyepiece"></a>
 ### Eyepiece
+![preview eyepiece](../../assets/img/discover/cards/eyepiece.jpg)
+
 The small lens you look through on a telescope.
 
 - Type: Object
@@ -2312,6 +2912,8 @@ The small lens you look through on a telescope.
 
 <a id="fisherman"></a>
 ### Fisherman
+![preview fisherman](../../assets/img/discover/cards/fisherman.jpg)
+
 A person who catches fish at sea.
 
 - Type: Person
@@ -2321,6 +2923,8 @@ A person who catches fish at sea.
 
 <a id="fishing_net"></a>
 ### Fishing Net
+![preview fishing_net](../../assets/img/discover/cards/fishing_net.jpg)
+
 A net used to catch fish.
 
 - Type: Object
@@ -2330,6 +2934,8 @@ A net used to catch fish.
 
 <a id="flag_poland"></a>
 ### Flag of Poland
+![preview flag_poland](../../assets/img/discover/cards/flag_poland.jpg)
+
 The flag of Poland has white and red horizontal stripes. Poland is famous for scientists like Copernicus and delicious pierogi!
 
 - Rationale: The Polish flag is essential for Polish language learning and cultural identity
@@ -2341,6 +2947,8 @@ The flag of Poland has white and red horizontal stripes. Poland is famous for sc
 
 <a id="footbridge"></a>
 ### Footbridge
+![preview footbridge](../../assets/img/discover/cards/footbridge.jpg)
+
 A bridge for people to walk on. No cars.
 
 - Type: Object
@@ -2350,6 +2958,8 @@ A bridge for people to walk on. No cars.
 
 <a id="fryderyk_chopin"></a>
 ### Fryderyk Chopin
+![preview fryderyk_chopin](../../assets/img/discover/cards/fryderyk_chopin.jpg)
+
 A famous piano composer from Poland. He wrote beautiful music that sounds like dancing or telling stories. His music makes people feel happy or sad.
 
 - Rationale: Chopin introduces kids to classical music and shows how music can express emotions
@@ -2361,6 +2971,8 @@ A famous piano composer from Poland. He wrote beautiful music that sounds like d
 
 <a id="gdansk"></a>
 ### Gdańsk
+![preview gdansk](../../assets/img/discover/cards/gdansk.jpg)
+
 A port city in Poland on the Baltic Sea.
 
 - Type: Place
@@ -2370,6 +2982,8 @@ A port city in Poland on the Baltic Sea.
 
 <a id="gdansk_lighthouse"></a>
 ### Gdańsk Lighthouse
+![preview gdansk_lighthouse](../../assets/img/discover/cards/gdansk_lighthouse.jpg)
+
 A historic lighthouse that helps ships find the harbor.
 
 - Type: Place
@@ -2379,6 +2993,8 @@ A historic lighthouse that helps ships find the harbor.
 
 <a id="heliocentric_model"></a>
 ### Heliocentric Model
+![preview heliocentric_model](../../assets/img/discover/cards/heliocentric_model.jpg)
+
 The idea that the Sun is in the center and planets go around it.
 
 - Type: Concept
@@ -2388,6 +3004,8 @@ The idea that the Sun is in the center and planets go around it.
 
 <a id="houseboat"></a>
 ### Houseboat
+![preview houseboat](../../assets/img/discover/cards/houseboat.jpg)
+
 A boat made to live on.
 
 - Type: Object
@@ -2397,6 +3015,8 @@ A boat made to live on.
 
 <a id="iglica"></a>
 ### Iglica
+![preview iglica](../../assets/img/discover/cards/iglica.jpg)
+
 A tall metal sculpture next to Centennial Hall.
 
 - Type: Place
@@ -2406,6 +3026,8 @@ A tall metal sculpture next to Centennial Hall.
 
 <a id="jupiter"></a>
 ### Jupiter
+![preview jupiter](../../assets/img/discover/cards/jupiter.jpg)
+
 The biggest planet, famous for the Great Red Spot.
 
 - Type: Object
@@ -2415,6 +3037,8 @@ The biggest planet, famous for the Great Red Spot.
 
 <a id="kayak"></a>
 ### Kayak
+![preview kayak](../../assets/img/discover/cards/kayak.jpg)
+
 A small boat you paddle.
 
 - Type: Object
@@ -2424,6 +3048,8 @@ A small boat you paddle.
 
 <a id="keymaster_dwarf"></a>
 ### Keymaster Dwarf
+![preview keymaster_dwarf](../../assets/img/discover/cards/keymaster_dwarf.jpg)
+
 A dwarf statue guarding the elevator with a big key.
 
 - Type: Object
@@ -2433,6 +3059,8 @@ A dwarf statue guarding the elevator with a big key.
 
 <a id="person_king_sigismund"></a>
 ### King Sigismund III
+![preview person_king_sigismund](../../assets/img/discover/cards/person_king_sigismund.jpg)
+
 A king of Poland who built many beautiful buildings in Warsaw. His statue stands on a tall column in the city center.
 
 - Rationale: Historical kings help kids understand how cities were built and developed over time
@@ -2444,6 +3072,8 @@ A king of Poland who built many beautiful buildings in Warsaw. His statue stands
 
 <a id="lens"></a>
 ### Lens
+![preview lens](../../assets/img/discover/cards/lens.jpg)
+
 A clear piece of glass or plastic that bends light.
 
 - Type: Object
@@ -2453,6 +3083,8 @@ A clear piece of glass or plastic that bends light.
 
 <a id="primary_school_leonardo_da_vinci"></a>
 ### Leonardo da Vinci Primary School
+![preview primary_school_leonardo_da_vinci](../../assets/img/discover/cards/primary_school_leonardo_da_vinci.jpg)
+
 It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
 
 - Type: None
@@ -2462,6 +3094,8 @@ It’s a friendly place where children learn, create, and explore guided by curi
 
 <a id="main_town_hall"></a>
 ### Main Town Hall
+![preview main_town_hall](../../assets/img/discover/cards/main_town_hall.jpg)
+
 A tall town hall with a tower and museum.
 
 - Type: Place
@@ -2471,6 +3105,8 @@ A tall town hall with a tower and museum.
 
 <a id="wroklaw_map"></a>
 ### Map of Wroklaw
+![preview wroklaw_map](../../assets/img/discover/cards/wroklaw_map.jpg)
+
 A simple map of Wrocław showing the Odra River with its islands and many bridges
 
 - Type: None
@@ -2480,6 +3116,8 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 
 <a id="maria_curie"></a>
 ### Maria Curie
+![preview maria_curie](../../assets/img/discover/cards/maria_curie.jpg)
+
 A brilliant scientist from Poland who discovered radioactivity. She was the first woman to win a Nobel Prize and won it twice!
 
 - Rationale: Maria Curie inspires kids (especially girls) to pursue science and shows Polish contributions to science
@@ -2491,6 +3129,8 @@ A brilliant scientist from Poland who discovered radioactivity. She was the firs
 
 <a id="mars"></a>
 ### Mars
+![preview mars](../../assets/img/discover/cards/mars.jpg)
+
 The red planet with dust and big volcanoes.
 
 - Type: Object
@@ -2500,6 +3140,8 @@ The red planet with dust and big volcanoes.
 
 <a id="mercury"></a>
 ### Mercury
+![preview mercury](../../assets/img/discover/cards/mercury.jpg)
+
 The closest planet to the Sun; small and very fast.
 
 - Type: Object
@@ -2509,6 +3151,8 @@ The closest planet to the Sun; small and very fast.
 
 <a id="mermaid_of_warsaw"></a>
 ### Mermaid of Warsaw
+![preview mermaid_of_warsaw](../../assets/img/discover/cards/mermaid_of_warsaw.jpg)
+
 The city’s symbol is a brave mermaid with a sword and shield. You can see her statue by the river.
 
 - Type: Object
@@ -2518,6 +3162,8 @@ The city’s symbol is a brave mermaid with a sword and shield. You can see her 
 
 <a id="motawa_river"></a>
 ### Motława River
+![preview motawa_river](../../assets/img/discover/cards/motawa_river.jpg)
+
 The river that runs through Gdańsk to the sea.
 
 - Type: Place
@@ -2527,6 +3173,8 @@ The river that runs through Gdańsk to the sea.
 
 <a id="navigation"></a>
 ### Navigation
+![preview navigation](../../assets/img/discover/cards/navigation.jpg)
+
 Finding the way at sea using lights, maps, and tools.
 
 - Type: Concept
@@ -2536,6 +3184,8 @@ Finding the way at sea using lights, maps, and tools.
 
 <a id="necklace"></a>
 ### Necklace
+![preview necklace](../../assets/img/discover/cards/necklace.jpg)
+
 A string of beads or shells you wear around your neck.
 
 - Type: Object
@@ -2545,6 +3195,8 @@ A string of beads or shells you wear around your neck.
 
 <a id="neptune"></a>
 ### Neptune
+![preview neptune](../../assets/img/discover/cards/neptune.jpg)
+
 The sea god from old stories.
 
 - Type: Concept
@@ -2554,6 +3206,8 @@ The sea god from old stories.
 
 <a id="neptune_s_fountain"></a>
 ### Neptune's Fountain
+![preview neptune_s_fountain](../../assets/img/discover/cards/neptune_s_fountain.jpg)
+
 A famous fountain in Gdańsk with the sea god statue.
 
 - Type: Place
@@ -2563,6 +3217,8 @@ A famous fountain in Gdańsk with the sea god statue.
 
 <a id="nicolaus_copernicus"></a>
 ### Nicolaus Copernicus
+![preview nicolaus_copernicus](../../assets/img/discover/cards/nicolaus_copernicus.jpg)
+
 A brilliant scientist from Poland who discovered that the Earth goes around the Sun, not the other way around! This changed how we understand space.
 
 - Rationale: Copernicus teaches kids about scientific discovery and Polish contributions to astronomy
@@ -2574,6 +3230,8 @@ A brilliant scientist from Poland who discovered that the Earth goes around the 
 
 <a id="nicolaus_copernicus_house"></a>
 ### Nicolaus Copernicus’ House
+![preview nicolaus_copernicus_house](../../assets/img/discover/cards/nicolaus_copernicus_house.jpg)
+
 It’s now a museum where you can learn about his life and scientific achievements.
 
 - Type: Place
@@ -2583,6 +3241,8 @@ It’s now a museum where you can learn about his life and scientific achievemen
 
 <a id="place_odra_river"></a>
 ### Odra River
+![preview place_odra_river](../../assets/img/discover/cards/place_odra_river.jpg)
+
 A big river in western Poland. It helps ships travel and trade.
 
 - Type: Place
@@ -2592,6 +3252,8 @@ A big river in western Poland. It helps ships travel and trade.
 
 <a id="odra_river_map"></a>
 ### Odra river map
+![preview odra_river_map](../../assets/img/discover/cards/odra_river_map.jpg)
+
 A simple map that shows the Odra River in Poland and the way it flows to the Baltic Sea
 
 - Type: None
@@ -2601,6 +3263,8 @@ A simple map that shows the Odra River in Poland and the way it flows to the Bal
 
 <a id="wroclaw_old_town_hall"></a>
 ### Old Town Hall (Wroclaw)
+![preview wroclaw_old_town_hall](../../assets/img/discover/cards/wroclaw_old_town_hall.jpg)
+
 A beautiful Gothic building in the main square. It has a famous clock.
 
 - Type: Place
@@ -2610,6 +3274,8 @@ A beautiful Gothic building in the main square. It has a famous clock.
 
 <a id="olga_tokarczuk"></a>
 ### Olga Tokarczuk
+![preview olga_tokarczuk](../../assets/img/discover/cards/olga_tokarczuk.jpg)
+
 A famous Polish writer who lives in Wrocław.
 
 - Type: Person
@@ -2619,6 +3285,8 @@ A famous Polish writer who lives in Wrocław.
 
 <a id="panorama_racawicka"></a>
 ### Panorama Racławicka
+![preview panorama_racawicka](../../assets/img/discover/cards/panorama_racawicka.jpg)
+
 A giant painting all around you about a historic battle.
 
 - Type: Place
@@ -2628,6 +3296,8 @@ A giant painting all around you about a historic battle.
 
 <a id="parrot"></a>
 ### Parrot
+![preview parrot](../../assets/img/discover/cards/parrot.jpg)
+
 A bright bird that can copy sounds.
 
 - Type: Object
@@ -2637,6 +3307,8 @@ A bright bird that can copy sounds.
 
 <a id="peacock"></a>
 ### Peacock
+![preview peacock](../../assets/img/discover/cards/peacock.jpg)
+
 A colorful bird with a big tail of feathers.
 
 - Type: Object
@@ -2646,6 +3318,8 @@ A colorful bird with a big tail of feathers.
 
 <a id="planetarium"></a>
 ### Planetarium
+![preview planetarium](../../assets/img/discover/cards/planetarium.jpg)
+
 A place where you can see the sky and stars indoors.
 
 - Type: Place
@@ -2655,6 +3329,8 @@ A place where you can see the sky and stars indoors.
 
 <a id="polish_dwarf"></a>
 ### Polish Dwarf (Wrocław gnomes)
+![preview polish_dwarf](../../assets/img/discover/cards/polish_dwarf.jpg)
+
 Small dwarf statues hide around Wrocław. Finding them is a fun city game.
 
 - Type: Concept
@@ -2665,6 +3341,8 @@ Small dwarf statues hide around Wrocław. Finding them is a fun city game.
 
 <a id="pierogi"></a>
 ### Polish Pierogi
+![preview pierogi](../../assets/img/discover/cards/pierogi.jpg)
+
 Dumplings filled with things like potato, cheese, or fruit. They are a famous Polish dish.
 
 - Type: Object
@@ -2675,6 +3353,8 @@ Dumplings filled with things like potato, cheese, or fruit. They are a famous Po
 
 <a id="port"></a>
 ### Port
+![preview port](../../assets/img/discover/cards/port.jpg)
+
 A place where ships load and unload.
 
 - Type: Place
@@ -2684,6 +3364,8 @@ A place where ships load and unload.
 
 <a id="road_bridge"></a>
 ### Road Bridge
+![preview road_bridge](../../assets/img/discover/cards/road_bridge.jpg)
+
 A bridge for cars and buses.
 
 - Type: Object
@@ -2693,6 +3375,8 @@ A bridge for cars and buses.
 
 <a id="redzinski_bridge"></a>
 ### Rędziński Bridge
+![preview redzinski_bridge](../../assets/img/discover/cards/redzinski_bridge.jpg)
+
 The longest cable‑stayed bridge in Poland.
 
 - Type: Place
@@ -2702,6 +3386,8 @@ The longest cable‑stayed bridge in Poland.
 
 <a id="saturn"></a>
 ### Saturn
+![preview saturn](../../assets/img/discover/cards/saturn.jpg)
+
 A giant planet with bright rings and many moons.
 
 - Type: Object
@@ -2711,6 +3397,8 @@ A giant planet with bright rings and many moons.
 
 <a id="seagull"></a>
 ### Seagull
+![preview seagull](../../assets/img/discover/cards/seagull.jpg)
+
 A sea bird that lives near the coast.
 
 - Type: Object
@@ -2720,6 +3408,8 @@ A sea bird that lives near the coast.
 
 <a id="seal"></a>
 ### Seal
+![preview seal](../../assets/img/discover/cards/seal.jpg)
+
 A wild sea animal that rests on beaches.
 
 - Type: Object
@@ -2729,6 +3419,8 @@ A wild sea animal that rests on beaches.
 
 <a id="seashell"></a>
 ### Seashell
+![preview seashell](../../assets/img/discover/cards/seashell.jpg)
+
 A hard shell from a sea animal; good for crafts.
 
 - Type: Object
@@ -2738,6 +3430,8 @@ A hard shell from a sea animal; good for crafts.
 
 <a id="ship"></a>
 ### Ship
+![preview ship](../../assets/img/discover/cards/ship.jpg)
+
 A big boat that carries people or goods.
 
 - Type: Object
@@ -2747,6 +3441,8 @@ A big boat that carries people or goods.
 
 <a id="sign"></a>
 ### Sign
+![preview sign](../../assets/img/discover/cards/sign.jpg)
+
 A board with simple facts to help you learn.
 
 - Type: Object
@@ -2756,6 +3452,8 @@ A board with simple facts to help you learn.
 
 <a id="sky_tower_plaza"></a>
 ### Sky Tower Plaza
+![preview sky_tower_plaza](../../assets/img/discover/cards/sky_tower_plaza.jpg)
+
 A modern plaza where people meet near the tower.
 
 - Type: Place
@@ -2765,6 +3463,8 @@ A modern plaza where people meet near the tower.
 
 <a id="solar_system"></a>
 ### Solar System
+![preview solar_system](../../assets/img/discover/cards/solar_system.jpg)
+
 The Sun and the eight planets that travel around it.
 
 - Type: Concept
@@ -2774,6 +3474,8 @@ The Sun and the eight planets that travel around it.
 
 <a id="telescope"></a>
 ### Telescope
+![preview telescope](../../assets/img/discover/cards/telescope.jpg)
+
 A tool that helps us see far‑away things in the sky.
 
 - Type: Object
@@ -2783,6 +3485,8 @@ A tool that helps us see far‑away things in the sky.
 
 <a id="torun_town_hall"></a>
 ### Torun Town Hall
+![preview torun_town_hall](../../assets/img/discover/cards/torun_town_hall.jpg)
+
 A big Gothic building in Toruń next to the market square.
 
 - Type: Place
@@ -2792,6 +3496,8 @@ A big Gothic building in Toruń next to the market square.
 
 <a id="gingerbread"></a>
 ### Torunian gingerbread
+![preview gingerbread](../../assets/img/discover/cards/gingerbread.jpg)
+
 a traditional Polish treat made with spices and honey, often shaped in beautiful designs.
 
 - Type: Object
@@ -2801,6 +3507,8 @@ a traditional Polish treat made with spices and honey, often shaped in beautiful
 
 <a id="torun"></a>
 ### Toruń
+![preview torun](../../assets/img/discover/cards/torun.jpg)
+
 A city in Poland where Nicolaus Copernicus was born.
 
 - Type: Place
@@ -2810,6 +3518,8 @@ A city in Poland where Nicolaus Copernicus was born.
 
 <a id="town_hall"></a>
 ### Town Hall
+![preview town_hall](../../assets/img/discover/cards/town_hall.jpg)
+
 The place where city leaders work and meet.
 
 - Type: Concept
@@ -2819,6 +3529,8 @@ The place where city leaders work and meet.
 
 <a id="train_bridge"></a>
 ### Train Bridge
+![preview train_bridge](../../assets/img/discover/cards/train_bridge.jpg)
+
 A bridge with tracks for trains.
 
 - Type: Object
@@ -2828,6 +3540,8 @@ A bridge with tracks for trains.
 
 <a id="tumski_bridge"></a>
 ### Tumski Bridge
+![preview tumski_bridge](../../assets/img/discover/cards/tumski_bridge.jpg)
+
 A famous bridge with love locks and gas lanterns.
 
 - Type: Place
@@ -2837,6 +3551,8 @@ A famous bridge with love locks and gas lanterns.
 
 <a id="uranus"></a>
 ### Uranus
+![preview uranus](../../assets/img/discover/cards/uranus.jpg)
+
 A blue‑green planet that spins on its side.
 
 - Type: Object
@@ -2846,6 +3562,8 @@ A blue‑green planet that spins on its side.
 
 <a id="venus"></a>
 ### Venus
+![preview venus](../../assets/img/discover/cards/venus.jpg)
+
 A very hot planet covered by thick clouds.
 
 - Type: Object
@@ -2855,6 +3573,8 @@ A very hot planet covered by thick clouds.
 
 <a id="vistula_river"></a>
 ### Vistula River
+![preview vistula_river](../../assets/img/discover/cards/vistula_river.jpg)
+
 Poland’s longest river; it flows to the Baltic Sea.
 
 - Type: Place
@@ -2864,6 +3584,8 @@ Poland’s longest river; it flows to the Baltic Sea.
 
 <a id="place_vistula_river"></a>
 ### Vistula River (Wisła)
+![preview place_vistula_river](../../assets/img/discover/cards/place_vistula_river.jpg)
+
 The longest river in Poland is called Wisła or Vistula. It flows through Kraków and Warsaw.
 
 - Type: Place
@@ -2873,6 +3595,8 @@ The longest river in Poland is called Wisła or Vistula. It flows through Krakó
 
 <a id="wars_and_sawa"></a>
 ### Wars and Sawa
+![preview wars_and_sawa](../../assets/img/discover/cards/wars_and_sawa.jpg)
+
 Two legendary figures who gave Warsaw its name. Wars was a brave warrior and Sawa was a beautiful mermaid who lived in the Vistula River.
 
 - Type: Concept
@@ -2883,6 +3607,8 @@ Two legendary figures who gave Warsaw its name. Wars was a brave warrior and Saw
 
 <a id="waves"></a>
 ### Waves
+![preview waves](../../assets/img/discover/cards/waves.jpg)
+
 Moving water on the sea.
 
 - Type: Concept
@@ -2892,6 +3618,8 @@ Moving water on the sea.
 
 <a id="wroclaw_cathedral"></a>
 ### Wroclaw: Cathedral
+![preview wroclaw_cathedral](../../assets/img/discover/cards/wroclaw_cathedral.jpg)
+
 A big, important church where people pray. You can climb the tower for a view.
 
 - Type: Place
@@ -2901,6 +3629,8 @@ A big, important church where people pray. You can climb the tower for a view.
 
 <a id="wroclaw_sky_tower"></a>
 ### Wroclaw: Sky Tower
+![preview wroclaw_sky_tower](../../assets/img/discover/cards/wroclaw_sky_tower.jpg)
+
 One of the tallest buildings in Poland. It has shops and a viewpoint.
 
 - Type: Place
@@ -2910,6 +3640,8 @@ One of the tallest buildings in Poland. It has shops and a viewpoint.
 
 <a id="wroclaw"></a>
 ### Wrocław
+![preview wroclaw](../../assets/img/discover/cards/wroclaw.jpg)
+
 A city in Poland with rivers, bridges, and history.
 
 - Type: Place
@@ -2919,6 +3651,8 @@ A city in Poland with rivers, bridges, and history.
 
 <a id="wroclaw_bridges"></a>
 ### Wrocław Bridges
+![preview wroclaw_bridges](../../assets/img/discover/cards/wroclaw_bridges.jpg)
+
 Many bridges cross the Odra River in Wrocław.
 
 - Type: Concept
@@ -2928,6 +3662,8 @@ Many bridges cross the Odra River in Wrocław.
 
 <a id="wroclaw_dwarf_statue"></a>
 ### Wrocław Dwarf Statue
+![preview wroclaw_dwarf_statue](../../assets/img/discover/cards/wroclaw_dwarf_statue.jpg)
+
 A small city statue; dwarfs are Wrocław’s symbol.
 
 - Type: Object
@@ -2937,6 +3673,8 @@ A small city statue; dwarfs are Wrocław’s symbol.
 
 <a id="wroclaw_dwarfs"></a>
 ### Wrocław Dwarfs
+![preview wroclaw_dwarfs](../../assets/img/discover/cards/wroclaw_dwarfs.jpg)
+
 Tiny statues across the city that love to play tricks.
 
 - Type: Concept
@@ -2946,6 +3684,8 @@ Tiny statues across the city that love to play tricks.
 
 <a id="wroclaw_flag"></a>
 ### Wrocław Flag
+![preview wroclaw_flag](../../assets/img/discover/cards/wroclaw_flag.jpg)
+
 The city flag that must be found and returned.
 
 - Type: Object
@@ -2955,6 +3695,8 @@ The city flag that must be found and returned.
 
 <a id="wroclaw_market_square"></a>
 ### Wrocław Market Square
+![preview wroclaw_market_square](../../assets/img/discover/cards/wroclaw_market_square.jpg)
+
 The main square of the Old Town, full of life.
 
 - Type: Place
@@ -2964,6 +3706,8 @@ The main square of the Old Town, full of life.
 
 <a id="wroclaw_multimedia_fountain"></a>
 ### Wrocław Multimedia Fountain
+![preview wroclaw_multimedia_fountain](../../assets/img/discover/cards/wroclaw_multimedia_fountain.jpg)
+
 Water that dances with music and colorful lights.
 
 - Type: Place
@@ -2973,6 +3717,8 @@ Water that dances with music and colorful lights.
 
 <a id="wroclaw_zoo"></a>
 ### Wrocław Zoo
+![preview wroclaw_zoo](../../assets/img/discover/cards/wroclaw_zoo.jpg)
+
 A big zoo in Wrocław with many animals to learn about.
 
 - Type: Place
@@ -2982,6 +3728,8 @@ A big zoo in Wrocław with many animals to learn about.
 
 <a id="currency_zloty"></a>
 ### Zloty Currency
+![preview currency_zloty](../../assets/img/discover/cards/currency_zloty.jpg)
+
 The Polish currency is called the złoty. Coins and notes have Polish symbols.
 
 - Type: Concept
@@ -2991,6 +3739,8 @@ The Polish currency is called the złoty. Coins and notes have Polish symbols.
 
 <a id="zoo_director"></a>
 ### Zoo Director
+![preview zoo_director](../../assets/img/discover/cards/zoo_director.jpg)
+
 The person who runs the zoo and helps visitors.
 
 - Type: Person
@@ -3000,6 +3750,8 @@ The person who runs the zoo and helps visitors.
 
 <a id="zoo_keeper"></a>
 ### Zoo Keeper
+![preview zoo_keeper](../../assets/img/discover/cards/zoo_keeper.jpg)
+
 A person who cares for animals at the zoo.
 
 - Type: Person
@@ -3009,6 +3761,8 @@ A person who cares for animals at the zoo.
 
 <a id="zuraw_crane"></a>
 ### Żuraw Crane
+![preview zuraw_crane](../../assets/img/discover/cards/zuraw_crane.jpg)
+
 An old port crane and city gate on the river.
 
 - Type: Place
