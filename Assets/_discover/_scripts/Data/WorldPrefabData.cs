@@ -174,7 +174,8 @@ namespace Antura.Discover
         [Header("Category")]
         public WorldPrefabCategory Category;
         public List<WorldPrefabTag> Tags = new List<WorldPrefabTag>();
-
+        [TextArea(3, 10)]
+        public string Notes; // Editor-only notes
 
 #if UNITY_EDITOR
         // Editor-only helpers used by your prefab creation tool.

@@ -8,8 +8,8 @@ type: panel
 ---
 <<set $TOTAL_COINS = 0>>
 Welcome to the Tutorial!
+<<action area_intro_small>>
 ===
-
 
 
 
@@ -17,27 +17,11 @@ title: talk_tutor_1
 position: 238,-2
 tags: actor=TUTOR
 ---
-<<action AREA_INTRO>>
 Touch this text to hear it in your language. #line:03dbfa7 
 <<asset tutorial_goon>>
 Use this button to advance the dialog. #line:0f4f069 
 <<asset tutorial_image>>
 Use this button to view the photo #line:0784704 
-<<if $IS_DESKTOP>>
-    Press SPACE key to jump #line:07940cf 
-<<else>>
-    <<asset tutorial_jump>>
-    Use this button to jump. #line:0b9c1fa 
-<<endif>>
-===
-
-
-
-
-title: tutor_walk
-position: 511,-4
-tags: actor=TUTOR, asset=tutorial_move
----
 <<if $IS_DESKTOP>>
     Use the keys WASD to walk. #line:037d71d 
 <<else>>
@@ -46,67 +30,8 @@ tags: actor=TUTOR, asset=tutorial_move
 <<endif>>
 ===
 
-title: tutor_run
-position: 826,0
-tags: actor=TUTOR, 
----
-<<asset tutorial_run>>
-Use this button to run. #line:093726d 
-===
 
-title: tutor_interact
-position: 1046,0
-tags: actor=TUTOR
----
-<<asset  tutorial_actions>>
-Explore all objects that have this icon. #line:0139142 
-===
-
-title: tutor_map
-position: 1266,0
-tags: actor=TUTOR, 
----
-<<asset tutorial_map>>
-This button opens the map! #line:01777e4 
-===
-
-title: tutor_biscuit
-position: 1486,0
-tags: actor=TUTOR
----
-<<asset tutorial_biscuits>>
-Take all biscuits you find. They can be useful #line:0f50a6e 
-===
-
-title: tutor_pushball
-position: 1706,0
-tags: actor=TUTOR
----
-<<asset tutorial_ball>>
-Try to push this ball. #line:02253ae 
-===
-
-title: tutor_follow
-position: 229,339
-tags: actor=TUTOR
----
-<<asset tutorial_follow>>
-If you get lost, follow this icon. #line:06c117d 
-<<action  AREA_INTRO2>>
-===
-
-
-title: npc_hallo
-position: 540,165
-tags: actor=KID_FEMALE
----
-=> Ciao! #line:0c47c13 
-=> Hallo! #line:022bd3f 
-=> Salut! #line:00ad419 
-=> чао #line:0591baf 
-===
-
-title: tutor_camera
+title: tutor_2_camera
 position: 826,140
 tags: 
 ---
@@ -118,7 +43,8 @@ tags:
 <<endif>>
 ===
 
-title: tutor_act
+
+title: tutor_3_act
 position: 1266,140
 tags: 
 ---
@@ -130,10 +56,88 @@ tags:
 <<endif>>
 ===
 
-title: tutor_mission
+title: tutor_4_jump
+position: 511,-4
+tags: actor=TUTOR, asset=tutorial_move
+---
+<<if $IS_DESKTOP>>
+    Press SPACE key to jump #line:07940cf 
+<<else>>
+    <<asset tutorial_jump>>
+    Use this button to jump #line:0b9c1fa 
+<<endif>>
+<<action area_intro_large>>
+
+===
+
+title: tutor_5_run
+position: 826,0
+tags: actor=TUTOR, 
+---
+<<asset tutorial_run>>
+Use this button to run. #line:093726d 
+===
+
+
+title: tutor_6_cookies
+position: 1486,0
+tags: actor=TUTOR
+---
+<<asset tutorial_biscuits>>
+Take all biscuits you find. They can be useful #line:0f50a6e 
+===
+
+title: tutor_7_map
+position: 1266,0
+tags: actor=TUTOR, 
+---
+<<asset tutorial_map>>
+This button opens the map! #line:01777e4 
+===
+
+
+title: tutor_8_interact
+position: 1046,0
+tags: actor=TUTOR
+---
+<<asset  tutorial_actions>>
+Explore all objects that have this icon. #line:0139142 
+===
+
+
+
+title: tutor_9_pushball
+position: 1706,0
+tags: actor=TUTOR
+---
+<<asset tutorial_ball>>
+Try to push this ball. #line:02253ae 
+===
+
+title: tutor_10_follow
+position: 229,339
+tags: actor=TUTOR
+---
+<<asset tutorial_follow>>
+If you get lost, follow this icon. #line:06c117d 
+<<action area_tutorial>>
+===
+
+
+title: tutor_11_mission
 position: 227,519
 tags: actor=TUTOR
 ---
 Let me see if you learned: climb the stairs and get that coin! #line:0fe9efe 
 <<action AREA_TUTORIAL>>
+===
+
+title: npc_hallo
+position: 540,165
+tags: actor=KID_FEMALE
+---
+=> Ciao! #line:0c47c13 
+=> Hallo! #line:022bd3f 
+=> Salut! #line:00ad419 
+=> чао #line:0591baf 
 ===

@@ -168,6 +168,7 @@ namespace Antura.Discover
 
         public void CommandSetActive(string name, bool active)
         {
+            // Debug.LogWarning($"CommandSetActive '{name}' set to {active}.");
             var triggerable = FindActableInChildren(name);
             if (triggerable != null)
             {
@@ -308,9 +309,9 @@ namespace Antura.Discover
 
         }
 
-        private Actable FindActableInChildren(string name)
+        private ActableAbstract FindActableInChildren(string name)
         {
-            var list = GetComponentsInChildren<Actable>(includeInactive: true);
+            var list = GetComponentsInChildren<ActableAbstract>(includeInactive: true);
             if (list == null || list.Length == 0)
                 return null;
 
@@ -318,7 +319,8 @@ namespace Antura.Discover
                 return list.FirstOrDefault();
 
             return list.FirstOrDefault(t => string.Equals(t.gameObject.name, name, StringComparison.OrdinalIgnoreCase)
-                                          || string.Equals(t.name, name, StringComparison.OrdinalIgnoreCase));
+                                          || string.Equals(t.name, name, StringComparison.OrdinalIgnoreCase)
+                                          || string.Equals(t.GetComponent<ActableAbstract>().Id, name, StringComparison.OrdinalIgnoreCase));
         }
 
         #region Debug Methods

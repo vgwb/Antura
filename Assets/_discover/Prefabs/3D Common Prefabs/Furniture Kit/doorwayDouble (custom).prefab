@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755245322291012250}
   - component: {fileID: 1798530849385345609}
+  - component: {fileID: 2306472489948053181}
   m_Layer: 0
   m_Name: doorwayDouble (custom)
   m_TagString: Untagged
@@ -46,10 +47,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
   Id: furniture-kit-doorwayDouble
-  Kit: 28
+  Kit: 2
   Country: 0
   Category: 130
-  Tags: 
+  Tags: b4000000b3010000
+  Notes: create from Kenney Furnitures
+--- !u!114 &2306472489948053181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261700503625507301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: 
+  IsInteractable: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &5310641478015521301
 GameObject:
   m_ObjectHideFlags: 0
