@@ -17,7 +17,8 @@ namespace Antura.Discover.EditorTools
     {
         private Vector2 _scroll;
         private string _search = string.Empty;
-        private List<QuestData> _quests = new List<QuestData>(); private int _selectedQuestIndex = 0; // 0 = All, otherwise index+1 in _quests
+        private List<QuestData> _quests = new List<QuestData>();
+        private int _selectedQuestIndex = 0; // Direct index into _quests (single quest mode)
         private List<CardData> _allCards = new List<CardData>();
         private List<AssetData> _allAssets = new List<AssetData>();
         private SearchField _searchField;
@@ -95,12 +96,21 @@ namespace Antura.Discover.EditorTools
         {
             using (new EditorGUILayout.HorizontalScope(EditorStyles.toolbar))
             {
-                // Quest selector: All + each quest label as "id | TitleEn"
-                var labels = new List<string> { "All" };
-                labels.AddRange(_quests.Select(q => GetQuestLabel(q)));
-                int newIdx = EditorGUILayout.Popup(_selectedQuestIndex, labels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(200));
-                if (newIdx != _selectedQuestIndex)
-                { _selectedQuestIndex = newIdx; Repaint(); }
+                // Quest selector: single quest only (removed 'All')
+                if (_quests.Count == 0)
+                {
+                    EditorGUILayout.LabelField("No Quests Found", EditorStyles.toolbarPopup, GUILayout.Width(200));
+                }
+                else
+                {
+                    // Clamp selected index
+                    if (_selectedQuestIndex < 0 || _selectedQuestIndex >= _quests.Count)
+                        _selectedQuestIndex = 0;
+                    var labels = _quests.Select(q => GetQuestLabel(q)).ToArray();
+                    int newIdx = EditorGUILayout.Popup(_selectedQuestIndex, labels, EditorStyles.toolbarPopup, GUILayout.Width(250));
+                    if (newIdx != _selectedQuestIndex)
+                    { _selectedQuestIndex = newIdx; Repaint(); }
+                }
 
                 GUILayout.Space(8);
                 if (GUILayout.Button("Refresh", EditorStyles.toolbarButton, GUILayout.Width(70)))
@@ -134,17 +144,18 @@ namespace Antura.Discover.EditorTools
 
         private IEnumerable<QuestData> GetTargetQuests()
         {
-            IEnumerable<QuestData> list = _quests;
-            if (_selectedQuestIndex > 0 && _selectedQuestIndex - 1 < _quests.Count)
-                list = new[] { _quests[_selectedQuestIndex - 1] };
-            if (!string.IsNullOrEmpty(_search))
-            {
-                string term = _search.Trim();
-                list = list.Where(q => (!string.IsNullOrEmpty(q.Id) && q.Id.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
-                                     || (!string.IsNullOrEmpty(q.TitleEn) && q.TitleEn.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
-                                     || (q.name.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0));
-            }
-            return list;
+            if (_quests.Count == 0)
+                return Enumerable.Empty<QuestData>();
+
+            var quest = _quests[Mathf.Clamp(_selectedQuestIndex, 0, _quests.Count - 1)];
+            if (string.IsNullOrEmpty(_search))
+                return new[] { quest };
+
+            string term = _search.Trim();
+            bool matches = (!string.IsNullOrEmpty(quest.Id) && quest.Id.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                        || (!string.IsNullOrEmpty(quest.TitleEn) && quest.TitleEn.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                        || (quest.name.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0);
+            return matches ? new[] { quest } : Enumerable.Empty<QuestData>();
         }
 
         private void DrawQuestSection(QuestData q)
