@@ -151,8 +151,9 @@ hide:
 <a id="ys-node-obg-helmet"></a>
 ## obg_helmet
 
-<div class="yarn-node" data-title="obg_helmet"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL, asset=obj_helmet</span>
+<div class="yarn-node" data-title="obg_helmet"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, </span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card obj_helmet&gt;&gt;</span>
 <span class="yarn-line">a helmet <span class="yarn-meta">#line:0b492f6 </span></span>
 
 </code></pre></div>

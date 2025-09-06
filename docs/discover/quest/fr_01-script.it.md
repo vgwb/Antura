@@ -215,7 +215,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;asset baguette_salt&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card baguette_salt&gt;&gt;</span>
 <span class="yarn-line">This is salt. <span class="yarn-meta">#line:00f1d2f </span></span>
 
 </code></pre></div>
@@ -227,8 +227,8 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset baguette_flour&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_2&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card baguette_flour&gt;&gt;</span>
 <span class="yarn-line">This is flour. <span class="yarn-meta">#line:06022b0 </span></span>
 
 </code></pre></div>
@@ -241,7 +241,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_3&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;asset baguette_water&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card baguette_water&gt;&gt;</span>
 <span class="yarn-line">This is water. <span class="yarn-meta">#line:0c4d1f6 </span></span>
 
 </code></pre></div>
@@ -254,7 +254,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_4&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;asset baguette_yeast&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card baguette_yeast&gt;&gt;</span>
 <span class="yarn-line">This is yeast. <span class="yarn-meta">#line:025865d </span></span>
 
 </code></pre></div>

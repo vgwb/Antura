@@ -11,28 +11,14 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1243903291#gid=1243903291)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_09%20Food%20&%20Market/FR_09%20Food%20&%20Market%20-%20Yarn%20Script.yarn)  
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// </span>
-</code></pre></div>
-
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">// FR-09 Cotes Dazur Market - Mont Blanc &amp; Mountains  </span>
-<span class="yarn-header-dim">// </span>
-</code></pre></div>
-
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">//</span>
-<span class="yarn-header-dim">// Activities:</span>
-<span class="yarn-header-dim">// - DONE collect ingredients (bread, fish, orange, lemon, tomato, cheese, salt, pepper, oil)</span>
-<span class="yarn-header-dim">// - order ingredients</span>
-<span class="yarn-header-dim">//</span>
-<span class="yarn-header-dim">// Words used: bread, fish, crab, orange, lemon, tomato, cheese, salt, pepper, oil</span>
-<span class="yarn-header-dim">// </span>
-</code></pre></div>
-
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// FR-09 Cotes Dazur Market - Mont Blanc &amp; Mountains  </span>
+<span class="yarn-header-dim">// Activities:</span>
+<span class="yarn-header-dim">// - DONE collect ingredients (bread, fish, orange, lemon, tomato, cheese, salt, pepper, oil)</span>
+<span class="yarn-header-dim">// - order ingredients</span>
+<span class="yarn-header-dim">// Words used: bread, fish, crab, orange, lemon, tomato, cheese, salt, pepper, oil</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
@@ -99,7 +85,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">MAN: Select enough money to pay. <span class="yarn-meta">#line:0bbf963 </span></span>
+<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0bbf963 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity money_baker baker_payment_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -124,7 +110,7 @@ hide:
 <div class="yarn-node" data-title="baker_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">MAN: Sorry, I don't sell that. <span class="yarn-meta">#line:0875143 </span></span>
+<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:0875143 </span></span>
 
 </code></pre></div>
 

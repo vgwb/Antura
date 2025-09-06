@@ -5,7 +5,7 @@ hide:
 
 # Topics
 
-Total found:**34**
+Total found: **34**
 
 ## International
 

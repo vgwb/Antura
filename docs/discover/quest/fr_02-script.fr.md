@@ -43,6 +43,15 @@ hide:
 
 </code></pre></div>
 
+<a id="ys-node-task-school-done"></a>
+## task_school_done
+
+<div class="yarn-node" data-title="task_school_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">TASK COMPLETED!  <span class="yarn-meta">#line:03ed76a </span></span>
+
+</code></pre></div>
+
 <a id="ys-node-task-school-desc"></a>
 ## task_school_desc
 
@@ -134,7 +143,7 @@ hide:
 <span class="yarn-header-dim">actor: GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">There it is! Let's go inside and start the lesson. <span class="yarn-meta">#line:0624437 </span></span>
-<span class="yarn-cmd">&lt;&lt;action DOOR_OPEN_1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;action door_open_2&gt;&gt;</span>
 <span class="yarn-line">Come in! Your classroom is down the hall. <span class="yarn-meta">#line:0b91268 </span></span>
 <span class="yarn-cmd">&lt;&lt;jump task_find_classroom &gt;&gt;</span>
 
@@ -160,6 +169,15 @@ hide:
 
 </code></pre></div>
 
+<a id="ys-node-task-class-done"></a>
+## task_class_done
+
+<div class="yarn-node" data-title="task_class_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">YES! You can now start the lesson. <span class="yarn-meta">#line:093e91d </span></span>
+
+</code></pre></div>
+
 <a id="ys-node-classroom-1"></a>
 ## classroom_1
 
@@ -179,8 +197,7 @@ hide:
 <div class="yarn-node" data-title="classroom_2"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">This is CE1, <span class="yarn-meta">#line:0f699d3 </span></span>
-<span class="yarn-line">the second year of primary school. <span class="yarn-meta">#line:08f3ab2 </span></span>
+<span class="yarn-line">This is CE1, the second year of primary school. <span class="yarn-meta">#line:08f3ab2 </span></span>
 <span class="yarn-line">This is not your class. Try again! <span class="yarn-meta">#line:029fd9c </span></span>
 <span class="yarn-cmd">&lt;&lt;action DOOR_OPEN_3&gt;&gt;</span>
 
@@ -205,8 +222,7 @@ hide:
 <div class="yarn-node" data-title="classroom_4"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Hello! This is CM1, <span class="yarn-meta">#line:043653e </span></span>
-<span class="yarn-line">the second-to-last year of primary school. <span class="yarn-meta">#line:0532330 </span></span>
+<span class="yarn-line">Hello! This is CM1, the second-to-last year of primary school. <span class="yarn-meta">#line:0532330 </span></span>
 <span class="yarn-line">Your class is just over there! <span class="yarn-meta">#line:00f6294 </span></span>
 <span class="yarn-cmd">&lt;&lt;action DOOR_OPEN_5&gt;&gt;</span>
 
@@ -225,6 +241,14 @@ hide:
 <span class="yarn-line">In France, we learn to write in cursive. <span class="yarn-meta">#line:0f8995f </span></span>
 <span class="yarn-cmd">&lt;&lt;card concept_cursive_writing zoom&gt;&gt;</span>
 <span class="yarn-line">Now for geometry! <span class="yarn-meta">#line:0365921 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump activity_match_geometry&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-activity-match-geometry"></a>
+## activity_match_geometry
+
+<div class="yarn-node" data-title="activity_match_geometry"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
 <span class="yarn-line">Match each tool to the shape it draws. <span class="yarn-meta">#line:052d22a </span></span>
 <span class="yarn-cmd">&lt;&lt;activity match_shapes activity_match_done&gt;&gt;</span>
 
@@ -237,38 +261,15 @@ hide:
 <span class="yarn-header-dim">actor: GUIDE</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
+&lt;&lt;if GetActivityResult("match_shapes") &gt; 0&gt;&gt;
 <span class="yarn-line">Great job! <span class="yarn-meta">#line:0e3f1fa </span></span>
 <span class="yarn-line">Every morning and afternoon we have a break to play outside. <span class="yarn-meta">#line:037391b </span></span>
 <span class="yarn-line">You're all set. Welcome to the class! <span class="yarn-meta">#line:021df05 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-
-</code></pre></div>
-
-<a id="ys-node-task-school-done"></a>
-## task_school_done
-
-<div class="yarn-node" data-title="task_school_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">TASK COMPLETED!  <span class="yarn-meta">#line:03ed76a </span></span>
-
-</code></pre></div>
-
-<a id="ys-node-task-backpack-done"></a>
-## task_backpack_done
-
-<div class="yarn-node" data-title="task_backpack_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">TASK COMPLETED! You can now enter school. <span class="yarn-meta">#line:063f354  </span></span>
-<span class="yarn-cmd">&lt;&lt;set $got_backpack = true&gt;&gt;</span>
-
-</code></pre></div>
-
-<a id="ys-node-task-class-done"></a>
-## task_class_done
-
-<div class="yarn-node" data-title="task_class_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">TASK COMPLETED! You can now start the lesson. <span class="yarn-meta">#line:093e91d </span></span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">Not quite right, let's try again. <span class="yarn-meta">#line:0a5c8f1</span></span>
+<span class="yarn-cmd">&lt;&lt;jump activity_match_geometry&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -280,6 +281,16 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find your backpack and then come back. <span class="yarn-meta">#line:0e3ad75 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_BACKPACK task_backpack_done&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-task-backpack-done"></a>
+## task_backpack_done
+
+<div class="yarn-node" data-title="task_backpack_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">TASK COMPLETED! You can now enter school. <span class="yarn-meta">#line:063f354  </span></span>
+<span class="yarn-cmd">&lt;&lt;set $got_backpack = true&gt;&gt;</span>
 
 </code></pre></div>
 

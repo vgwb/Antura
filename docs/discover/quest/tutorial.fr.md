@@ -23,7 +23,7 @@ Subjects:
 
 ## Words
 ## Activities
-- [JigsawPuzzle](../activities/index.md#JigsawPuzzle)
+- (none)
 
 ## Tasks
 - (none)

@@ -10,7 +10,7 @@ Language: [english](./index.md) - french - [polish](./index.pl.md) - [italian](.
 !!! note "Educators: help improving these cards!"
     **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found:**358**
+Total found:** 358**
 
 ## International
 
@@ -480,7 +480,7 @@ Un drapeau bleu et jaune, comme le ciel et le soleil. Il représente l'Ukraine.
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md)
+- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md), [Les voisins de la Pologne (pl_00)](../quest/pl_00.fr.md)
 
 <a id="flag_belgium"></a>
 ### Drapeau de la Belgique
@@ -543,7 +543,7 @@ Le drapeau est composé de bandes blanches et rouges avec un triangle bleu. La R
 - Subjects: Geography, Culture
 - Year: 1920
 - Country: International
-- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md)
+- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md), [Les voisins de la Pologne (pl_00)](../quest/pl_00.fr.md)
 
 <a id="flag_slovakia"></a>
 ### Drapeau de la Slovaquie
@@ -554,7 +554,7 @@ Un drapeau aux couleurs blanche, bleue et rouge. Il représente la Slovaquie.
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md)
+- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md), [Les voisins de la Pologne (pl_00)](../quest/pl_00.fr.md)
 
 <a id="flag_switzerland"></a>
 ### Drapeau de la Suisse
@@ -856,6 +856,7 @@ Un grand félin surnommé le roi des animaux. Il vit en groupes appelés troupes
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Le zoo (pl_04)](../quest/pl_04.fr.md)
 
 <a id="country_lithuania"></a>
 ### Lituanie
@@ -908,6 +909,7 @@ Un oiseau qui ne peut pas voler mais qui nage très bien. Il vit dans les régio
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Le zoo (pl_04)](../quest/pl_04.fr.md)
 
 <a id="coat"></a>
 ### Manteau
@@ -1409,6 +1411,7 @@ Un animal intelligent qui peut grimper et jouer. Certains singes vivent en grand
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Le zoo (pl_04)](../quest/pl_04.fr.md)
 
 <a id="skiing"></a>
 ### Ski
@@ -1645,6 +1648,7 @@ Un gros animal avec une trompe. Les éléphants sont les plus grands animaux ter
 - Subjects: Animal, Environment
 - Country: International
 - Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Quests: [Le zoo (pl_04)](../quest/pl_04.fr.md)
 
 <a id="person_grocer"></a>
 ### Épicier
@@ -1712,6 +1716,7 @@ Les premiers mots de la première ligne de l’hymne.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.fr.md)
 
 <a id="bow"></a>
 ### Arc
@@ -1995,6 +2000,7 @@ Paroles de la première ligne de l’hymne.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.fr.md)
 
 <a id="book_from_earth_to_moon"></a>
 ### De la Terre à la Lune
@@ -2053,6 +2059,7 @@ Paroles de la première ligne de l’hymne.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.fr.md)
 
 <a id="worlds_fair_1889"></a>
 ### Exposition universelle (1889)
@@ -2247,6 +2254,7 @@ L'hymne national français. On le chante lors des grands événements et des com
 - Subjects: Music, Culture
 - Year: 1885
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.fr.md)
 
 <a id="marseillaise_3"></a>
 ### Le jour de la gloire
@@ -2257,6 +2265,7 @@ Paroles de la première ligne de l’hymne.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.fr.md)
 
 <a id="le_mans"></a>
 ### Le Mans

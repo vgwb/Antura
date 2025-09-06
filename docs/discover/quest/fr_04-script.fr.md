@@ -96,9 +96,9 @@ hide:
 <div class="yarn-node" data-title="street_lights"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">These are traffic lights. <span class="yarn-meta">#line:0355437 </span></span>
-<span class="yarn-line">RED: STOP <span class="yarn-meta">#line:0cb35d6</span></span>
-<span class="yarn-line">YELLOW: SLOW DOWN <span class="yarn-meta">#line:0b0c56c </span></span>
-<span class="yarn-line">GREEN: GO! <span class="yarn-meta">#line:0c87bce </span></span>
+<span class="yarn-line">RED - STOP <span class="yarn-meta">#line:0cb35d6</span></span>
+<span class="yarn-line">YELLOW - SLOW DOWN <span class="yarn-meta">#line:0b0c56c </span></span>
+<span class="yarn-line">GREEN - GO! <span class="yarn-meta">#line:0c87bce </span></span>
 
 </code></pre></div>
 

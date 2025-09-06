@@ -10,7 +10,7 @@ Language: [english](./index.md) - [french](./index.fr.md) - polish - [italian](.
 !!! note "Educators: help improving these cards!"
     **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found:**358**
+Total found:** 358**
 
 ## International
 
@@ -310,7 +310,7 @@ Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z piękne
 - Subjects: Geography, Culture
 - Year: 1920
 - Country: International
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.pl.md)
 
 <a id="flag_russia"></a>
 ### Flaga Rosji
@@ -345,7 +345,7 @@ Flaga w kolorach białym, niebieskim i czerwonym. Reprezentuje Słowację.
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.pl.md)
 
 <a id="flag_ukraine"></a>
 ### Flaga Ukrainy
@@ -356,7 +356,7 @@ Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Repr
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.pl.md)
 
 <a id="gingerbread_mold"></a>
 ### Forma do pierników
@@ -613,6 +613,7 @@ Duży kot zwany królem zwierząt. Żyje w grupach zwanych stadami.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Zoo (pl_04)](../quest/pl_04.pl.md)
 
 <a id="rope"></a>
 ### Lina
@@ -755,6 +756,7 @@ Inteligentne zwierzę, które potrafi się wspinać i bawić. Niektóre małpy �
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Zoo (pl_04)](../quest/pl_04.pl.md)
 
 <a id="object_canteen_menu"></a>
 ### Menu stołówki
@@ -1024,6 +1026,7 @@ Ptak, który nie lata, ale świetnie pływa. Żyje w zimnych miejscach.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Zoo (pl_04)](../quest/pl_04.pl.md)
 
 <a id="ball"></a>
 ### Piłka
@@ -1445,6 +1448,7 @@ Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie
 - Subjects: Animal, Environment
 - Country: International
 - Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Quests: [Zoo (pl_04)](../quest/pl_04.pl.md)
 
 <a id="school_bag"></a>
 ### Torba szkolna
@@ -1712,6 +1716,7 @@ Pierwsze słowa pierwszego wersu hymnu.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [Marsylianka (fr_11)](../quest/fr_11.pl.md)
 
 <a id="food_baguette"></a>
 ### Bagietka francuska
@@ -1791,6 +1796,7 @@ Słowa z pierwszego wersu hymnu.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [Marsylianka (fr_11)](../quest/fr_11.pl.md)
 
 <a id="note_do"></a>
 ### Do
@@ -1843,6 +1849,7 @@ Słowa z pierwszego wersu hymnu.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [Marsylianka (fr_11)](../quest/fr_11.pl.md)
 
 <a id="marseillaise_4"></a>
 ### Est Arrivé
@@ -1853,6 +1860,7 @@ Słowa z pierwszego wersu hymnu.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [Marsylianka (fr_11)](../quest/fr_11.pl.md)
 
 <a id="note_fa"></a>
 ### Fa
@@ -2204,6 +2212,7 @@ Francuska pieśń narodowa. Śpiewa się ją podczas wielkich wydarzeń i meczó
 - Subjects: Music, Culture
 - Year: 1885
 - Country: France
+- Quests: [Marsylianka (fr_11)](../quest/fr_11.pl.md)
 
 <a id="masquerade_mask"></a>
 ### Maska maskaradowa

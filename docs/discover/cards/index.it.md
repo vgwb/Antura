@@ -10,7 +10,7 @@ Language: [english](./index.md) - [french](./index.fr.md) - [polish](./index.pl.
 !!! note "Educators: help improving these cards!"
     **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found:**358**
+Total found:** 358**
 
 ## International
 
@@ -168,7 +168,7 @@ Una bandiera con i colori blu e giallo, come il cielo e il sole. Rappresenta il 
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
+- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_belarus"></a>
 ### Bandiera della Bielorussia
@@ -207,7 +207,7 @@ La bandiera è a strisce bianche e rosse con un triangolo blu. La Repubblica Cec
 - Subjects: Geography, Culture
 - Year: 1920
 - Country: International
-- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
+- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_russia"></a>
 ### Bandiera della Russia
@@ -229,7 +229,7 @@ Una bandiera con i colori bianco, blu e rosso. Rappresenta la Slovacchia.
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
+- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_switzerland"></a>
 ### Bandiera della Svizzera
@@ -599,6 +599,7 @@ Un grosso animale con una proboscide. Gli elefanti sono gli animali più grandi 
 - Subjects: Animal, Environment
 - Country: International
 - Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="hiking"></a>
 ### Escursionismo
@@ -790,6 +791,7 @@ Un grosso felino chiamato il re degli animali. Vive in gruppi chiamati branchi.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="food_yeast"></a>
 ### Lievito
@@ -1212,6 +1214,7 @@ Un uccello che non sa volare ma nuota molto bene. Vive in luoghi freddi.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="plant_apple"></a>
 ### plant_apple
@@ -1433,6 +1436,7 @@ Un animale intelligente che sa arrampicarsi e giocare. Alcune scimmie vivono in 
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="danger_sign"></a>
 ### Segnale di PERICOLO
@@ -1712,6 +1716,7 @@ Le prime parole del primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="bow"></a>
 ### Arco
@@ -2041,6 +2046,7 @@ Parole dal primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="note_do"></a>
 ### Do
@@ -2072,6 +2078,7 @@ Parole dal primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="note_fa"></a>
 ### Fa
@@ -2269,6 +2276,7 @@ L'inno nazionale francese. Viene cantato durante i grandi eventi e le partite sp
 - Subjects: Music, Culture
 - Year: 1885
 - Country: France
+- Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="marseillaise_3"></a>
 ### Le jour de la gloire
@@ -2279,6 +2287,7 @@ Parole dal primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="le_mans"></a>
 ### Le Mans

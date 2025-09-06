@@ -28,12 +28,12 @@ hide:
 <span class="yarn-header-dim">// POLAND, WROCŁAW, ZOO, FLAG, CENTENNIAL HALL, IGLICA, ANIMAL, ELEPHANT, GIRAFFE, LION, MONKEY, PENGUIN, PRIDE, CLIMB, SWIM, KEEPER, SIGN</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Man, type:Panel</span>
+<span class="yarn-header-dim">tags: actor=Man, </span>
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;declare $talked_animals = false&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Welcome to Wroclaw Zoo. <span class="yarn-meta">#line:0fe55d1 </span></span>
+<span class="yarn-line">Welcome to Wroclaw Zoo. <span class="yarn-meta">#line:0fe55d1 </span></span>
 <span class="yarn-line">There are lots of animals here! <span class="yarn-meta">#line:005dd46 </span></span>
 
 </code></pre></div>
@@ -233,7 +233,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I'm a lion, the biggest predator in Africa. <span class="yarn-meta">#line:07f2e15 </span></span>
 <span class="yarn-line">I live in groups with other lions. <span class="yarn-meta">#line:042266c </span></span>
-<span class="yarn-line">How well do you know lions? <span class="yarn-meta">#line:0124e1c </span></span>
+<span class="yarn-line">Look at this little cub growing up! <span class="yarn-meta">#line:0124e1c </span></span>
 <span class="yarn-cmd">&lt;&lt;activity order_lion_settings lion_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -288,7 +288,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I'm an ape, and I love to climb trees. <span class="yarn-meta">#line:0867233 </span></span>
 <span class="yarn-line">Did you know? I'm related to humans! <span class="yarn-meta">#line:0eaefd6 </span></span>
-<span class="yarn-line">Clean the path so I can climb. <span class="yarn-meta">#line:079451b </span></span>
+<span class="yarn-line">Can you tell where I got these fruits? <span class="yarn-meta">#line:079451b </span></span>
 <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings monkey_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -345,7 +345,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I'm a penguin, and I'm a strange bird. <span class="yarn-meta">#line:08c70e8 </span></span>
 <span class="yarn-line">I can't fly, but I can swim really well!. <span class="yarn-meta">#line:0540c5a </span></span>
-<span class="yarn-line">Can you rememeber the right path through the ice? <span class="yarn-meta">#line:0a3420c </span></span>
+<span class="yarn-line">Can you find the right path through the ice? <span class="yarn-meta">#line:0a3420c </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings penguin_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -396,7 +396,7 @@ hide:
 
 <div class="yarn-node" data-title="task_animals_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TUTOR: TASK COMPLETED! Go back to the director. <span class="yarn-meta">#line:0a93d9b </span></span>
+<span class="yarn-line">TASK COMPLETED! Go back to the director. <span class="yarn-meta">#line:0a93d9b </span></span>
 <span class="yarn-cmd">&lt;&lt;set $talked_animals = true&gt;&gt;</span>
 
 </code></pre></div>
@@ -448,7 +448,7 @@ hide:
 <span class="yarn-header-dim">// TWIST – FLAG RETURN</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Zoo Director</span>
+<span class="yarn-header-dim">tags: actor=ZooDirector</span>
 <span class="yarn-header-dim">image: centennial_hall_antura_flag</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wait, Look!  <span class="yarn-meta">#line:0b3d05f </span></span>
@@ -463,7 +463,7 @@ hide:
 ## CEREMONY_END
 
 <div class="yarn-node" data-title="CEREMONY_END"><pre class="yarn-code"><code><span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Zoo Director</span>
+<span class="yarn-header-dim">tags: actor=ZooDirector</span>
 <span class="yarn-header-dim">image: flag_on_iglica</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The FLAG is finally home. <span class="yarn-meta">#line:0d91701 </span></span>

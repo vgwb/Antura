@@ -99,9 +99,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Fisherman</span>
 <span class="yarn-header-dim">image: fisherman_cutter_net</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Fisherman: Witaj! I am a FISHERMAN. <span class="yarn-meta">#line:00e94a2 </span></span>
-<span class="yarn-line">Fisherman: This is my CUTTER and NET. <span class="yarn-meta">#line:0270483 </span></span>
-<span class="yarn-line">Fisherman: Let’s find AMBER too. <span class="yarn-meta">#line:0b8e688 </span></span>
+<span class="yarn-line">Witaj! I am a FISHERMAN. <span class="yarn-meta">#line:00e94a2 </span></span>
+<span class="yarn-line">This is my CUTTER and NET. <span class="yarn-meta">#line:0270483 </span></span>
+<span class="yarn-line">Let’s find AMBER too. <span class="yarn-meta">#line:0b8e688 </span></span>
 
 
 </code></pre></div>
@@ -113,8 +113,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=Fisherman</span>
 <span class="yarn-header-dim">image: amber_piles</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Fisherman: AMBER is BALTIC GOLD. <span class="yarn-meta">#line:0901a09 </span></span>
-<span class="yarn-line">Fisherman: Clean the SAND to spot 5. <span class="yarn-meta">#line:03d5567 </span></span>
+<span class="yarn-line">AMBER is BALTIC GOLD. <span class="yarn-meta">#line:0901a09 </span></span>
+<span class="yarn-line">Clean the SAND to spot 5. <span class="yarn-meta">#line:03d5567 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas beach_amber tutorial&gt;&gt;</span>
 
 <span class="yarn-line">-&gt; Lighthouse facts <span class="yarn-meta">#line:015ddce </span></span>
@@ -134,8 +134,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=Fisherman</span>
 <span class="yarn-header-dim">image: gdansk_lighthouse</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Fisherman: A LIGHTHOUSE helps ships. <span class="yarn-meta">#line:049551f </span></span>
-<span class="yarn-line">Fisherman: It shines a bright light. <span class="yarn-meta">#line:050c5f3 </span></span>
+<span class="yarn-line">A LIGHTHOUSE helps ships. <span class="yarn-meta">#line:049551f </span></span>
+<span class="yarn-line">It shines a bright light. <span class="yarn-meta">#line:050c5f3 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle gdansk_lighthouse tutorial&gt;&gt;</span>
 
 <span class="yarn-line">-&gt; Craft the NECKLACE <span class="yarn-meta">#line:0a800e5 </span></span>
@@ -202,9 +202,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Neptune</span>
 <span class="yarn-header-dim">image: neptune_glow</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Neptune: A fine NECKLACE! <span class="yarn-meta">#line:0ca234d </span></span>
-<span class="yarn-line">Neptune: You respect the SEA. <span class="yarn-meta">#line:0d0c226 </span></span>
-<span class="yarn-line">Neptune: I will help you. <span class="yarn-meta">#line:0a0dddf </span></span>
+<span class="yarn-line">A fine NECKLACE! <span class="yarn-meta">#line:0ca234d </span></span>
+<span class="yarn-line">You respect the SEA. <span class="yarn-meta">#line:0d0c226 </span></span>
+<span class="yarn-line">I will help you. <span class="yarn-meta">#line:0a0dddf </span></span>
 
 
 </code></pre></div>
@@ -216,8 +216,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=Neptune</span>
 <span class="yarn-header-dim">image: amber_room_card</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Neptune: AMBER is famous here. <span class="yarn-meta">#line:05ce5f4 </span></span>
-<span class="yarn-line">Neptune: Like the Amber Room story. <span class="yarn-meta">#line:075c0a2 </span></span>
+<span class="yarn-line">AMBER is famous here. <span class="yarn-meta">#line:05ce5f4 </span></span>
+<span class="yarn-line">Like the Amber Room story. <span class="yarn-meta">#line:075c0a2 </span></span>
 
 
 </code></pre></div>
@@ -263,7 +263,6 @@ hide:
 <span class="yarn-header-dim">image: antura_run</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Yea! The quest is done! <span class="yarn-meta">#line:0283435 </span></span>
-
 <span class="yarn-line">-&gt; Review words <span class="yarn-meta">#line:0322b5e </span></span>
     <span class="yarn-cmd">&lt;&lt;jump RECAP_MEMORY&gt;&gt;</span>
 

@@ -10,7 +10,7 @@ Language: english - [french](./index.fr.md) - [polish](./index.pl.md) - [italian
 !!! note "Educators: help improving these cards!"
     **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found:**358**
+Total found:** 358**
 
 ## International
 
@@ -550,6 +550,7 @@ A big animal with a trunk. Elephants are the biggest animals that walk on land. 
 - Subjects: Animal, Environment
 - Country: International
 - Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
 
 <a id="currency_euro"></a>
 ### Euro Currency
@@ -634,7 +635,7 @@ The flag has white and red stripes with a blue triangle. The Czech Republic is f
 - Subjects: Geography, Culture
 - Year: 1920
 - Country: International
-- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md)
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md), [The neighbors of Poland (pl_00)](../quest/pl_00.md)
 
 <a id="flag_lithuania"></a>
 ### Flag of Lithuania
@@ -682,7 +683,7 @@ A flag with white, blue, and red colors. It represents the country of Slovakia.
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md)
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md), [The neighbors of Poland (pl_00)](../quest/pl_00.md)
 
 <a id="flag_switzerland"></a>
 ### Flag of Switzerland
@@ -706,7 +707,7 @@ A flag with blue and yellow colors like the sky and sun. It represents the count
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
-- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md)
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md), [The neighbors of Poland (pl_00)](../quest/pl_00.md)
 
 <a id="food_flour"></a>
 ### Flour
@@ -1008,6 +1009,7 @@ A big cat called the king of animals. It lives in groups called prides.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
 
 <a id="country_lithuania"></a>
 ### Lithuania
@@ -1124,6 +1126,7 @@ A smart animal that can climb and play. Some monkeys live in big families.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
 
 <a id="place_mont_blanc"></a>
 ### Mont Blanc
@@ -1242,6 +1245,7 @@ A bird that cannot fly but swims very well. It lives in cold places.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Quests: [The Zoo (pl_04)](../quest/pl_04.md)
 
 <a id="food_pepper_salt"></a>
 ### Pepper Salt
@@ -1722,6 +1726,7 @@ The first words of the anthem’s first line.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.md)
 
 <a id="armor"></a>
 ### Armor
@@ -1989,6 +1994,7 @@ Words from the anthem’s first line.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.md)
 
 <a id="drawbridge"></a>
 ### Drawbridge
@@ -2042,6 +2048,7 @@ Words from the anthem’s first line.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.md)
 
 <a id="note_fa"></a>
 ### F
@@ -2278,6 +2285,7 @@ The French national song. People sing it at big events and sports games.
 - Subjects: Music, Culture
 - Year: 1885
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.md)
 
 <a id="marseillaise_3"></a>
 ### Le jour de la gloire
@@ -2288,6 +2296,7 @@ Words from the anthem’s first line.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Quests: [La Marseillaise (fr_11)](../quest/fr_11.md)
 
 <a id="le_mans"></a>
 ### Le Mans

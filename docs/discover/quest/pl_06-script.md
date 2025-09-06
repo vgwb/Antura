@@ -166,8 +166,7 @@ hide:
 <a id="ys-node-pay-cloves"></a>
 ## pay_cloves
 
-<div class="yarn-node" data-title="pay_cloves"><pre class="yarn-code"><code><span class="yarn-header-dim">// Payments (money mini-activities) and add-to-cart nodes</span>
-<span class="yarn-header-dim">group: pay</span>
+<div class="yarn-node" data-title="pay_cloves"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pay</span>
 <span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay 1zł. <span class="yarn-meta">#line:019a160 </span></span>
@@ -359,10 +358,10 @@ hide:
 ## pay_pierogi
 
 <div class="yarn-node" data-title="pay_pierogi"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">tags: actor=COOK</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_20 pierogi_done&gt;&gt;</span>
-<span class="yarn-line">COOK: Select enough money to pay 20zł. <span class="yarn-meta">#line:0dd43a0 </span></span>
+<span class="yarn-line">Select enough money to pay 20zł. <span class="yarn-meta">#line:0dd43a0 </span></span>
 
 </code></pre></div>
 
@@ -382,7 +381,7 @@ hide:
 <div class="yarn-node" data-title="flour_hint"><pre class="yarn-code"><code><span class="yarn-header-dim">group: market</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">WOMAN: You can buy FLOUR here. <span class="yarn-meta">#line:077f3e2 </span></span>
+<span class="yarn-line">You can buy FLOUR here. <span class="yarn-meta">#line:077f3e2 </span></span>
 <span class="yarn-line">-&gt; Buy flour (2zł) <span class="yarn-meta">#line:00c5178 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_flour&gt;&gt;</span>
 
@@ -476,7 +475,7 @@ hide:
 <div class="yarn-node" data-title="VOCAB_MATCH_DONE"><pre class="yarn-code"><code><span class="yarn-header-dim">group: assessment</span>
 <span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">GUIDE: Great work! You helped Antura and learned new words. <span class="yarn-meta">#line:0cb84a7 </span></span>
+<span class="yarn-line">Great work! You helped Antura and learned new words. <span class="yarn-meta">#line:0cb84a7 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
 
 </code></pre></div>
