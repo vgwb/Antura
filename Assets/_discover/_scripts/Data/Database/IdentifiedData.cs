@@ -21,8 +21,8 @@ namespace Antura.Discover
             return s;
         }
 
-        /// Build a sanitized ID from a base name with an optional country two-letter code prefix.
-        public static string BuildSanitizedId(string baseName, string countryCode = null)
+        /// Build a sanitized ID from a base name with an optional code prefix.
+        public static string BuildSanitizedId(string baseName, string prefixCode = null)
         {
             return SanitizeId(baseName);
         }
@@ -38,50 +38,16 @@ namespace Antura.Discover
             return expected + (baseName ?? string.Empty);
         }
 
-        /// Best-effort mapping from a Countries enum name to a two-letter lowercase code.
-        public static string CountryNameToCode(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-                return null;
-            switch (name)
-            {
-                case "International":
-                    return null; // No prefix for global items
-                case "Italy":
-                    return "it";
-                case "France":
-                    return "fr";
-                case "Poland":
-                    return "pl";
-                case "Spain":
-                    return "es";
-                case "Germany":
-                    return "de";
-                case "Portugal":
-                    return "pt";
-                case "Greece":
-                    return "gr";
-                case "UnitedKingdom":
-                    return "uk";
-
-                default:
-                    return name.Length >= 2 ? name.Substring(0, 2).ToLowerInvariant() : name.ToLowerInvariant();
-            }
-        }
-
 #if UNITY_EDITOR
         // Editor-only setters used by tools
         public void Editor_SetId(string newId, bool lockAfter = false)
         {
             var sanitized = SanitizeId(newId);
-#if UNITY_EDITOR
             // Ensure uniqueness among assets of the same type by appending _2, _3, ...
             sanitized = EnsureUniqueIdForType(GetType(), sanitized, this);
-#endif
             Id = sanitized;
         }
 
-#if UNITY_EDITOR
         private static string EnsureUniqueIdForType(System.Type type, string baseId, UnityEngine.Object self)
         {
             if (string.IsNullOrEmpty(baseId))
@@ -122,7 +88,6 @@ namespace Antura.Discover
                 return baseId;
             }
         }
-#endif
 #endif
     }
 }

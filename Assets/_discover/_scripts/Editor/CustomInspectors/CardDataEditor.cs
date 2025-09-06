@@ -72,11 +72,9 @@ namespace Antura.Discover
                         if (t is CardData card)
                         {
                             Undo.RecordObject(card, "Set Id (Type + TitleEn)");
-                            string country = IdentifiedData.CountryNameToCode(card.Country.ToString());
                             string typePart = card.Type.ToString();
                             string titlePart = string.IsNullOrWhiteSpace(card.TitleEn) ? card.name : card.TitleEn;
                             string baseName = string.Concat(typePart, "_", titlePart);
-                            // string withCountry = string.IsNullOrEmpty(country) ? baseName : string.Concat(baseName, "_", country);
                             string sanitized = IdentifiedData.SanitizeId(baseName);
                             card.Editor_SetId(sanitized);
                             EditorUtility.SetDirty(card);
@@ -91,13 +89,11 @@ namespace Antura.Discover
                         if (t is CardData card)
                         {
                             Undo.RecordObject(card, "Set Id (First Topic + TitleEn)");
-                            string country = IdentifiedData.CountryNameToCode(card.Country.ToString());
                             string topicPart = (card.Subjects != null && card.Subjects.Count > 0)
                                 ? card.Subjects[0].ToString()
                                 : card.Type.ToString();
                             string titlePart = string.IsNullOrWhiteSpace(card.TitleEn) ? card.name : card.TitleEn;
                             string baseName = string.Concat(topicPart, "_", titlePart);
-                            // string withCountry = string.IsNullOrEmpty(country) ? baseName : string.Concat(baseName, "_", country);
                             string sanitized = IdentifiedData.SanitizeId(baseName);
                             card.Editor_SetId(sanitized);
                             EditorUtility.SetDirty(card);

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// this is the main database of the Discover system.
+// every identified data (ActivityData, CardData, ItemData, etc) must be registered here.
+// the editor script DatabaseManagerEditor has a "Rebuild" command that scans all assets of
+// type IdentifiedData and populates the AllData list.
+// it also checks for common problems (missing ids, duplicate ids, missing references, etc).
+
 /*
 // Fetch anywhere
 // var db = DatabaseProvider.Instance;
