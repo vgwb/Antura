@@ -6,7 +6,7 @@
 .yarn-code code .yarn-header-dim,
 .yarn-code code .yarn-cmd,
 .yarn-code code .yarn-comment { opacity: .6; }
-.yarn-code code .yarn-meta { opacity: .3; }
+.yarn-code code .yarn-meta { opacity: .3; user-select: text; -webkit-user-select: text; -moz-user-select: text; }
 .yarn-code code .yarn-choice { color: inherit; font-weight: inherit; }
 .yarn-code code .yarn-line { font-weight: 700; }
 .yarn-node pre { transition: background-color .2s ease; }

@@ -110,7 +110,7 @@
 .yarn-graph-script-panel .script-content { flex: 1; overflow: auto; padding: 10px; }
 .yarn-graph-script-panel .script-code { display: block; margin: 0; white-space: normal; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; line-height: 1.45; }
 .yarn-graph-script-panel .yarn-block pre { margin: 0 0 12px 0; white-space: pre-wrap; }
-.yarn-graph-script-panel .script-code .yarn-meta { color: #888; }
+.yarn-graph-script-panel .script-code .yarn-meta { color: #888; user-select: text; -webkit-user-select: text; -moz-user-select: text; }
 .yarn-graph-script-panel .script-code .yarn-cmd { color: #0b62b4; }
 .yarn-graph-script-panel .script-code .yarn-comment { color: #6a737d; }
 .yarn-graph-script-panel .script-code .yarn-choice { color: #005a3c; font-weight: 500; }
