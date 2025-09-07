@@ -8,6 +8,7 @@ hide:
 Language: [english](./index.md) - [french](./index.fr.md) - [polish](./index.pl.md) - italian
 
 !!! note "Educators: help improving these cards!"
+    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group)  
     **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
 Total found:** 358**
@@ -23,6 +24,7 @@ L'acqua è essenziale per tutta la vita
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0
 
 <a id="alps"></a>
 ### Alpi
@@ -33,6 +35,7 @@ Un'alta catena montuosa in Europa.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="animal_chimpanzee"></a>
@@ -41,6 +44,7 @@ Un'alta catena montuosa in Europa.
 
 - Type: None
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="animal_lion_cub"></a>
@@ -49,6 +53,7 @@ Un'alta catena montuosa in Europa.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lion_cub_in_Masai_Mara_National_Park.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="animal_lion_young_male"></a>
@@ -57,6 +62,7 @@ Un'alta catena montuosa in Europa.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="beekeeper"></a>
@@ -68,6 +74,7 @@ Persona che si prende cura delle api e raccoglie il miele.
 - Type: Person
 - Subjects: Community, Animal, Food
 - Country: International
+- Image credit: CC_BY | Michael Gäbler | [source](https://commons.wikimedia.org/wiki/File:Beekeeper_keeping_bees.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="food_orange"></a>
@@ -79,6 +86,7 @@ Un frutto rotondo e arancione, dal sapore dolce e succoso. Le arance sono ricche
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="climbing"></a>
@@ -90,6 +98,8 @@ Salire su rocce o ghiaccio con attrezzatura speciale.
 - Type: Concept
 - Subjects: Sport, Safety, Recreation
 - Country: International
+- Image credit: CC_BY_SA | Original version: Valentin Chapuis
+Derivative version: Subsidiary account (image rotated 90 degrees CCW) | [source](https://commons.wikimedia.org/wiki/File:Flo_dans_Juvsøyla_à_Rjukan,_Norvège-rotated.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="place_classroom"></a>
@@ -101,6 +111,7 @@ Un'aula della scuola dove gli studenti si siedono e imparano cose nuove dal loro
 - Type: Place
 - Subjects: Education, Community
 - Country: International
+- Image credit: CC0
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md), [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="car"></a>
@@ -112,6 +123,7 @@ Un piccolo veicolo per le strade.
 - Type: Object
 - Subjects: Transportation
 - Country: International
+- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Abandoned_car_in_Marine_Park_(10852p).jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="bus"></a>
@@ -123,6 +135,7 @@ Un veicolo di grandi dimensioni che trasporta molte persone.
 - Type: Object
 - Subjects: Transportation, Community
 - Country: International
+- Image credit: CC_BY_SA | Xosema | [source](https://commons.wikimedia.org/wiki/File:Setra_S6_-_Empresa_Mosquera_-_02.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="food_banana"></a>
@@ -131,6 +144,7 @@ Un veicolo di grandi dimensioni che trasporta molte persone.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="flag_belgium"></a>
@@ -144,6 +158,7 @@ La bandiera del Belgio ha tre strisce verticali: nera, gialla e rossa. Il Belgio
 - Subjects: Geography, Culture
 - Year: 1831
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
 
 <a id="flag_luxembourg"></a>
@@ -157,6 +172,7 @@ La bandiera del Lussemburgo è a strisce orizzontali rosse, bianche e azzurre. I
 - Subjects: Geography, Culture
 - Year: 1972
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
 
 <a id="flag_ukraine"></a>
@@ -168,6 +184,7 @@ Una bandiera con i colori blu e giallo, come il cielo e il sole. Rappresenta il 
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_belarus"></a>
@@ -181,6 +198,7 @@ La bandiera della Bielorussia presenta strisce orizzontali rosse e verdi con spl
 - Subjects: Geography, Culture
 - Year: 1995
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_lithuania"></a>
@@ -194,6 +212,7 @@ La bandiera presenta strisce orizzontali gialle, verdi e rosse. La Lituania è u
 - Subjects: Geography, Culture
 - Year: 1988
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_czech_republic"></a>
@@ -207,6 +226,7 @@ La bandiera è a strisce bianche e rosse con un triangolo blu. La Repubblica Cec
 - Subjects: Geography, Culture
 - Year: 1920
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_russia"></a>
@@ -218,6 +238,7 @@ Una bandiera a strisce bianche, blu e rosse. Rappresenta la Russia.
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_slovakia"></a>
@@ -229,6 +250,7 @@ Una bandiera con i colori bianco, blu e rosso. Rappresenta la Slovacchia.
 - Type: Concept
 - Subjects: Community, Culture
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="flag_switzerland"></a>
@@ -242,6 +264,7 @@ La bandiera svizzera è rossa con una croce bianca al centro. Sembra un kit di p
 - Subjects: Geography, Culture
 - Year: 1889
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
 
 <a id="boat_river"></a>
@@ -253,6 +276,7 @@ Una barca che naviga sui fiumi. I fiumi sono come strade fatte d'acqua!
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="boat_people"></a>
@@ -264,6 +288,7 @@ Un'imbarcazione che trasporta le persone da un luogo all'altro attraverso l'acqu
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 
 <a id="boat_for_goods"></a>
 ### Barca per merci
@@ -274,6 +299,7 @@ Una grande imbarcazione che trasporta scatole, cibo e altre cose da un posto all
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 
 <a id="country_belgium"></a>
 ### Belgio
@@ -284,6 +310,8 @@ Un paese in Europa. La capitale è Bruxelles.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY | Loc7798_R01.jpg: Marc Ryckaert (MJJR)
+derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki/File:Loc7798_R01_alt.jpg)
 
 <a id="capital_bern"></a>
 ### Berna
@@ -294,6 +322,7 @@ La capitale della Svizzera.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Daniel Kraft | [source](https://commons.wikimedia.org/wiki/File:Bern_Panorama_von_Rosengarten_20211007.jpg)
 
 <a id="bike"></a>
 ### Bicicletta
@@ -304,6 +333,7 @@ Un veicolo a due ruote su cui si pedala.
 - Type: Object
 - Subjects: Transportation, Sport, Health
 - Country: International
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="country_belarus"></a>
@@ -315,6 +345,7 @@ Un paese in Europa. La capitale è Minsk.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Satellite_image_of_Belarus_in_December_2002.jpg)
 
 <a id="eiffel_tower_ticket"></a>
 ### biglietto per la Torre Eiffel
@@ -325,6 +356,7 @@ Una carta speciale che ti consente di visitare la famosa torre alta di Parigi, i
 - Type: Object
 - Subjects: Science
 - Country: International
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="bobsled"></a>
@@ -336,6 +368,7 @@ Una slitta veloce usata per scivolare sul ghiaccio.
 - Type: Object
 - Subjects: Sport, Recreation
 - Country: International
+- Image credit: CC_BY_SA | Steffen Prößdorf | [source](https://commons.wikimedia.org/wiki/File:2020-02-22_IBSF_World_Championships_Bobsleigh_and_Skeleton_Altenberg_1DX_5978_by_Stepro.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="capital_bratislava"></a>
@@ -347,6 +380,7 @@ La capitale della Slovacchia.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:View_of_Bratislava_from_Nový_most,_20210727_1012_0262.jpg)
 
 <a id="capital_brussels"></a>
 ### Bruxelles
@@ -357,6 +391,7 @@ La capitale del Belgio.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Horst J. Meuter | [source](https://commons.wikimedia.org/wiki/File:Atomium,_Brüssel_2.jpg)
 
 <a id="butter"></a>
 ### Burro
@@ -367,6 +402,7 @@ Grasso giallo ricavato dal latte, utilizzato per cucinare e cuocere al forno.
 - Type: Object
 - Subjects: Food, Animal
 - Country: International
+- Image credit: CC0 | Antoine Vollon | [source](https://commons.wikimedia.org/wiki/File:Antoine_Vollon_-_Mound_of_Butter_-_National_Gallery_of_Art.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="math_compass"></a>
@@ -378,6 +414,7 @@ Uno strumento che ti aiuta a disegnare cerchi perfetti. Ha due gambe come forbic
 - Type: Object
 - Subjects: Math
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="football_soccer"></a>
@@ -389,6 +426,7 @@ Un gioco di squadra che si gioca calciando una palla.
 - Type: Object
 - Subjects: Sport, Recreation, Community
 - Country: International
+- Image credit: CC_BY_SA | Clément Bucco-Lechat | [source](https://commons.wikimedia.org/wiki/File:Algérie_-_Arménie_-_20140531_-_Yacine_Brahimi_(Alg)_face_à_Taron_Voskanyan_(Arm).jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="polish_houses_of_parliament"></a>
@@ -400,6 +438,7 @@ Dove vengono fatte le leggi: il Sejm e il Senato.
 - Type: Place
 - Subjects: Civics, History, Geography
 - Country: International
+- Image credit: CC0
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="soccer_field"></a>
@@ -411,6 +450,7 @@ Il campo erboso dove si gioca a calcio.
 - Type: Place
 - Subjects: Sport, Recreation, Community
 - Country: International
+- Image credit: CC_BY_SA | لا روسا | [source](https://commons.wikimedia.org/wiki/File:Santiagobernabeupanoramav45.JPG)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="cinnamon"></a>
@@ -422,6 +462,7 @@ Una spezia dolce ricavata dalla corteccia degli alberi.
 - Type: Object
 - Subjects: Food, Plant
 - Country: International
+- Image credit: CC_BY_SA | Simon A. Eugster | [source](https://commons.wikimedia.org/wiki/File:Cinnamomum_verum_spices.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="hat"></a>
@@ -433,6 +474,7 @@ Un berretto caldo per la testa.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
+- Image credit: CC0 | Michael Evans | [source](https://commons.wikimedia.org/wiki/File:Ronald_Reagan_with_cowboy_hat_12-0071M_edit.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="coat"></a>
@@ -444,6 +486,7 @@ Una giacca calda per il clima freddo.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
+- Image credit: CC_BY_SA | Calistemon | [source](https://commons.wikimedia.org/wiki/File:White_American_Staffordshire_Terrier_in_Vegemite_coat,_August_2022.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="school_bag"></a>
@@ -455,6 +498,7 @@ Una borsa che gli studenti usano per portare a scuola libri, matite e compiti.
 - Type: Object
 - Subjects: Science
 - Country: International
+- Image credit: CC0
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="person_cheesemonger"></a>
@@ -466,6 +510,7 @@ Una persona che vende molti tipi di formaggio.
 - Type: Person
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="royal_castle_warsaw"></a>
@@ -477,6 +522,7 @@ Uno storico castello dei re polacchi, ora un museo.
 - Type: Place
 - Subjects: History, Culture, Geography
 - Country: International
+- Image credit: CC0 | Bernardo Bellotto | [source](https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_-_View_of_Warsaw_from_the_Royal_Castle_-_Google_Art_Project.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="fr_figure_circle"></a>
@@ -488,6 +534,7 @@ Una forma rotonda senza angoli. I cerchi sembrano ruote, palline e monete!
 - Type: Concept
 - Subjects: Math
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squaring_the_circle_a_history_of_the_problem_%281913%29_-_illustration_-_page_29_fig_9.png)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="cloves"></a>
@@ -499,6 +546,7 @@ Una spezia forte usata per insaporire i cibi.
 - Type: Object
 - Subjects: Food, Plant
 - Country: International
+- Image credit: CC_BY_SA | Friedrich Haag | [source](https://commons.wikimedia.org/wiki/File:Gewuerze_004_2024_08_10.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="capital_luxembourg_city"></a>
@@ -510,6 +558,7 @@ La capitale del Lussemburgo.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:City_Hall_of_Luxembourg_City_01.jpg)
 
 <a id="king_sigismunds_column"></a>
 ### Colonna di Re Sigismondo
@@ -520,6 +569,7 @@ Un'alta colonna in onore di Re Sigismondo nella Piazza del Castello.
 - Type: Place
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC_BY_SA | Haydn Blackey from Cardiff, Wales | [source](https://commons.wikimedia.org/wiki/File:Column_of_King_Sigismund_III_Vasa_-_Warsaw_(53113393114).jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="rope"></a>
@@ -531,6 +581,7 @@ Una linea robusta utilizzata per la sicurezza durante l'arrampicata.
 - Type: Object
 - Subjects: Safety, Technology, Sport
 - Country: International
+- Image credit: CC_BY_SA | Nevit Dilmen | [source](https://commons.wikimedia.org/wiki/File:Coiled_rope_03235.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="king_sigismunds_crown"></a>
@@ -542,6 +593,7 @@ La corona del re che è caduta e deve essere ritrovata.
 - Type: Object
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC_BY_SA | Maciej Szczepańczyk | [source](https://commons.wikimedia.org/wiki/File:Sigismund_Augustus_King_of_Poland_and_Grand_Duke_of_Lithuania_incorporates_fiefdoms,_Duchies_of_Courland_and_Semigalia_into_the_Crown_1569.png)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="constitution_of_3_may"></a>
@@ -553,6 +605,7 @@ Una storica costituzione polacca celebrata il 3 maggio.
 - Type: Concept
 - Subjects: Civics, History, Time
 - Country: International
+- Image credit: CC0 | Constitutional Convention | [source](https://commons.wikimedia.org/wiki/File:Constitution_of_the_United_States,_page_1.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="kitchen"></a>
@@ -564,6 +617,8 @@ Una stanza dove le persone cucinano e preparano dolci.
 - Type: Place
 - Subjects: Food
 - Country: International
+- Image credit: CC_BY_SA | Original:  Mithun Kunwar
+Derivative work:  Radomianin | [source](https://commons.wikimedia.org/wiki/File:Grandmother_preparing_food_inside_traditional_kitchen_(edited).jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="cook"></a>
@@ -575,6 +630,7 @@ Una persona che prepara il cibo.
 - Type: Person
 - Subjects: Community, Food
 - Country: International
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Kappabashi-dori_streetcorner_(Kitchen_town_-_southern_end)_a_sunny_morning_in_Tokyo_Japan.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="person_grocer"></a>
@@ -586,6 +642,7 @@ Persona che vende molti tipi di cibo e bevande.
 - Type: Person
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="animal_elephant"></a>
@@ -599,6 +656,7 @@ Un grosso animale con una proboscide. Gli elefanti sono gli animali più grandi 
 - Subjects: Animal, Environment
 - Country: International
 - Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Image credit: CC0
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="hiking"></a>
@@ -610,6 +668,7 @@ Camminare sui sentieri immersi nella natura.
 - Type: Concept
 - Subjects: Recreation, Sport, Environment
 - Country: International
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Roca_de_la_Ley,_Parque_Nacional_de_Þingvellir,_Suðurland,_Islandia,_2014-08-16,_DD_022.JPG)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="food_flour"></a>
@@ -621,6 +680,7 @@ Polvere bianca ricavata dal grano, utilizzata per fare il pane.
 - Type: Object
 - Subjects: Food, Science
 - Country: International
+- Image credit: CC0
 
 <a id="iron_material"></a>
 ### Ferro
@@ -631,6 +691,7 @@ Uno strumento caldo utilizzato per rendere i vestiti stropicciati lisci e piatti
 - Type: Object
 - Subjects: Science
 - Country: International
+- Image credit: CC0
 
 <a id="person_greengrocer"></a>
 ### Fruttivendolo
@@ -641,6 +702,7 @@ Una persona che vende frutta e verdura fresca.
 - Type: Person
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="glacier"></a>
@@ -652,6 +714,7 @@ Ghiaccio lento che si trova sulle alte montagne.
 - Type: Concept
 - Subjects: Geography, Science, Environment
 - Country: International
+- Image credit: CC_BY | Kelvinsong | [source](https://commons.wikimedia.org/wiki/File:Glacier_diagram.svg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="ice"></a>
@@ -663,6 +726,7 @@ Acqua ghiacciata che può essere molto scivolosa.
 - Type: Concept
 - Subjects: Weather, Environment, Science
 - Country: International
+- Image credit: CC_BY_SA | Andreas Tille | [source](https://commons.wikimedia.org/wiki/File:IceBlockNearJoekullsarlon.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="independence_day_poland"></a>
@@ -674,6 +738,7 @@ Festa nazionale l'11 novembre.
 - Type: Concept
 - Subjects: Civics, History, Time
 - Country: International
+- Image credit: CC_BY_SA | Patryk Matyjaszczyk | [source](https://commons.wikimedia.org/wiki/File:Narodowe_Święto_Niepodległości_2012_01.JPG)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="animal_giraffe"></a>
@@ -686,6 +751,7 @@ Un animale molto alto con un collo lungo. Le giraffe sono più alte degli alberi
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Image credit: CC0
 
 <a id="math_ruler"></a>
 ### Governate
@@ -696,6 +762,7 @@ Uno strumento dritto usato per misurare la lunghezza degli oggetti. I righelli h
 - Type: Object
 - Subjects: Math
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Righello.jpg)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="food_crab"></a>
@@ -707,6 +774,7 @@ Un animale marino con grandi chele e un guscio duro. I granchi camminano di trav
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fresh_Crab.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="gloves"></a>
@@ -718,6 +786,7 @@ Coperture calde per le tue mani.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
+- Image credit: CC_BY_SA | Kippelboy | [source](https://commons.wikimedia.org/wiki/File:Centre_de_Documentació_Museu_Tèxtil_de_Terrassa-_Reserves-_Teixits-_Guants002.JPG)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="wars_and_sawa_statue"></a>
@@ -729,6 +798,7 @@ Una statua che raffigura la leggenda della città su Wars e Sawa.
 - Type: Place
 - Subjects: Culture, History
 - Country: International
+- Image credit: CC_BY_SA | Wistula
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="mountain_guide"></a>
@@ -740,6 +810,7 @@ Una persona che aiuta le persone ad arrampicarsi in sicurezza.
 - Type: Person
 - Subjects: Community, Safety, Education
 - Country: International
+- Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Zagedan_Lakes,_Mountaineer,_Mountain_guide,_Caucasus_Mountains,_Karachay-Cherkessia.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="ice_arctic"></a>
@@ -748,6 +819,7 @@ Una persona che aiuta le persone ad arrampicarsi in sicurezza.
 
 - Type: Place
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="capital_kyiv"></a>
@@ -759,6 +831,7 @@ La capitale dell'Ucraina.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Moahim | [source](https://commons.wikimedia.org/wiki/File:2017_-_Київ_-_Світанок_над_Дніпром.jpg)
 
 <a id="food_milk"></a>
 ### Latte
@@ -769,6 +842,7 @@ Una bevanda bianca che proviene dalle mucche. Il latte aiuta a rafforzare ossa e
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Milchflasche_%2812337400564%29.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="person_leonardodavinci"></a>
@@ -781,6 +855,7 @@ Un artista e scienziato italiano straordinario. Ha dipinto la Gioconda e inventa
 - Subjects: Art, Science, History
 - Year: 1452
 - Country: International
+- Image credit: CC0
 
 <a id="animal_lion"></a>
 ### Leone
@@ -791,6 +866,7 @@ Un grosso felino chiamato il re degli animali. Vive in gruppi chiamati branchi.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="food_yeast"></a>
@@ -802,6 +878,7 @@ Il lievito è come una polvere magica che rende il pane morbido e gustoso!
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0
 
 <a id="food_lemon"></a>
 ### Limone
@@ -812,6 +889,7 @@ Un frutto giallo dal sapore molto aspro. I limoni vengono usati per fare la limo
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lemon.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="fr_figure_line"></a>
@@ -823,6 +901,7 @@ Un segno dritto che va da un punto all'altro. Le linee possono essere lunghe o c
 - Type: Concept
 - Subjects: Math
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squaring_the_circle_a_history_of_the_problem_%281913%29_-_illustration_-_page_29_fig_9.png)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="country_lithuania"></a>
@@ -834,6 +913,7 @@ Un paese in Europa. La capitale è Vilnius.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Vilnius_Modern_Skyline_At_Dusk,_Lithuania_-_Diliff.jpg)
 
 <a id="country_luxembourg"></a>
 ### Lussemburgo
@@ -844,6 +924,7 @@ Uno stato europeo. La capitale è la città di Lussemburgo.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Cayambe | [source](https://commons.wikimedia.org/wiki/File:Luxembourg_Pfaffenthal_Alzette_Béinchen_01.jpg)
 
 <a id="butcher"></a>
 ### Macellaio
@@ -854,6 +935,7 @@ Una persona che vende carne.
 - Type: Person
 - Subjects: Community, Food
 - Country: International
+- Image credit: CC_BY_SA | Sabina Bajracharya | [source](https://commons.wikimedia.org/wiki/File:A_Butcher_cutting_buffalo_meat.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="object_french_school_poster"></a>
@@ -865,6 +947,7 @@ Un'immagine di grandi dimensioni con informazioni appesa alle pareti delle aule 
 - Type: Object
 - Subjects: Education
 - Country: International
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="concept_europe_map"></a>
@@ -878,6 +961,7 @@ Una mappa che mostra tutti i paesi d'Europa. Puoi vedere dove si trovano Francia
 - Subjects: Geography, Education
 - Year: 2000
 - Country: International
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="eiffel_tower_map"></a>
@@ -889,6 +973,7 @@ Una mappa che mostra dove si trova la famosa torre alta di Parigi.
 - Type: Object
 - Subjects: Community, Culture
 - Country: International
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="baltic_sea"></a>
@@ -901,6 +986,7 @@ Un grande mare nel nord Europa, dove si incontrano Polonia, Germania e altri pae
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="maria_skodowskacurie"></a>
@@ -912,6 +998,7 @@ Uno scienziato che ha vinto due premi Nobel.
 - Type: Person
 - Subjects: Science, History
 - Country: International
+- Image credit: CC0 | Henri Manuel | [source](https://commons.wikimedia.org/wiki/File:Marie_Curie_c._1920s.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="marmot"></a>
@@ -923,6 +1010,7 @@ Un animale di montagna peloso che fischia.
 - Type: Object
 - Subjects: Animal, Environment, Science
 - Country: International
+- Image credit: CC_BY_SA | Photography captured by Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:071_Wild_marmot_at_Grand_Muveran_Nature_Reserve_Photo_by_Giles_Laurent.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="mazurek_dabrowskiego"></a>
@@ -934,6 +1022,7 @@ Inno nazionale polacco.
 - Type: Concept
 - Subjects: Music, History, Culture
 - Country: International
+- Image credit: CC0 | Józef Wybicki (1747–1822) | [source](https://commons.wikimedia.org/wiki/File:Mazurek_Dąbrowskiego_manuscript.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="food_apple"></a>
@@ -942,6 +1031,7 @@ Inno nazionale polacco.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="object_canteen_menu"></a>
@@ -953,6 +1043,7 @@ Un elenco che mostra quali alimenti puoi mangiare a scuola. Ti aiuta a scegliere
 - Type: Object
 - Subjects: Community, Culture
 - Country: International
+- Image credit: CC0 | CC0 - Valeria | [source](https://pixabay.com/photos/menu-restaurant-diner-cafe-8165227/)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="medieval_market"></a>
@@ -964,6 +1055,7 @@ Un mercato vecchio stile dove le persone comprano e vendono merci.
 - Type: Place
 - Subjects: History, Culture, Community
 - Country: International
+- Image credit: CC_BY_SA | Axel Cotón Gutiérrez | [source](https://commons.wikimedia.org/wiki/File:Feria_Medieval_de_Hämeenlinna_2007_(Horse_Fighting).jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="honey"></a>
@@ -975,6 +1067,7 @@ Un alimento dolce prodotto dalle api.
 - Type: Object
 - Subjects: Food, Animal
 - Country: International
+- Image credit: CC0 | John Severns (Severnjc) | [source](https://commons.wikimedia.org/wiki/File:European_honey_bee_extracts_nectar.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="capital_minsk"></a>
@@ -986,6 +1079,7 @@ La capitale della Bielorussia.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC0 | Dzmitry Rylko | [source](https://commons.wikimedia.org/wiki/File:Minsk,_Belarus,_Serebryanka.jpg)
 
 <a id="coins"></a>
 ### Monete
@@ -996,6 +1090,7 @@ Piccola moneta rotonda in metallo.
 - Type: Object
 - Subjects: Money
 - Country: International
+- Image credit: CC_BY_SA | Livioandronico2013 | [source](https://commons.wikimedia.org/wiki/File:Coins_of_the_Italian_Republic_(500_Lire)_silver_(Caravels).png)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="zoty_coins"></a>
@@ -1007,6 +1102,7 @@ Denaro polacco (złoty) raffigurato come monete.
 - Type: Object
 - Subjects: Money, Geography
 - Country: International
+- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="mountain"></a>
@@ -1018,6 +1114,7 @@ I pilastri della terra
 - Type: Concept
 - Subjects: Environment, Education
 - Country: International
+- Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Himalayas,_Ama_Dablam,_Nepal.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="place_mont_blanc"></a>
@@ -1029,6 +1126,7 @@ La montagna più alta dell'Europa occidentale. Coperta di neve tutto l'anno.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 
 <a id="nicolaus_copernicus_monument_warsaw"></a>
 ### Monumento a Nicola Copernico (Varsavia)
@@ -1039,6 +1137,7 @@ Monumento all'astronomo Niccolò Copernico.
 - Type: Place
 - Subjects: Science, History, Culture
 - Country: International
+- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Staszic_Palace_(22226p).jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="capital_moscow"></a>
@@ -1050,6 +1149,7 @@ La capitale della Russia.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Dmitry A. Mottl (cropped by King of Hearts) | [source](https://commons.wikimedia.org/wiki/File:Moscow_State_University_crop.jpg)
 
 <a id="snow"></a>
 ### Nevicare
@@ -1060,6 +1160,7 @@ Acqua ghiacciata che cade quando fa freddo.
 - Type: Concept
 - Subjects: Weather, Environment, Science
 - Country: International
+- Image credit: CC_BY_SA | Psy guy | [source](https://commons.wikimedia.org/wiki/File:Snow_Scene_at_Shipka_Pass_1.JPG)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="goal"></a>
@@ -1071,6 +1172,7 @@ La rete in cui si cerca di segnare.
 - Type: Object
 - Subjects: Sport, Recreation
 - Country: International
+- Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Dülmen,_Sportzentrum_Süd_--_2012_--_4121.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="sunglasses"></a>
@@ -1082,6 +1184,7 @@ Occhiali che proteggono gli occhi dalla luce intensa.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
+- Image credit: CC_BY_SA | Sofiane mohammed amri | [source](https://commons.wikimedia.org/wiki/File:2_الحداد.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="food_olive_oil"></a>
@@ -1093,6 +1196,7 @@ Un olio speciale ricavato dalle olive. Viene utilizzato per cucinare piatti gust
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="palace_of_culture_and_science"></a>
@@ -1104,6 +1208,7 @@ Un edificio alto per musei, teatri e centri di apprendimento.
 - Type: Place
 - Subjects: Culture, Education, History
 - Country: International
+- Image credit: CC_BY_SA | A.Savin
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="presidential_palace"></a>
@@ -1115,6 +1220,7 @@ La residenza ufficiale del Presidente della Polonia.
 - Type: Place
 - Subjects: Civics, History, Culture
 - Country: International
+- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Warsaw_Presidential_Palace_(22248p).jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="ball"></a>
@@ -1126,6 +1232,7 @@ Un oggetto rotondo utilizzato in molti giochi.
 - Type: Object
 - Subjects: Sport, Recreation
 - Country: International
+- Image credit: CC_BY_SA | Marco Gualazzini | [source](https://commons.wikimedia.org/wiki/File:Playing_in_the_Nuba_mountains.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="food_bread"></a>
@@ -1137,6 +1244,7 @@ Un alimento delizioso a base di farina e acqua. Puoi preparare dei panini con il
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:French_bread_DSC09293.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="person_baker"></a>
@@ -1148,6 +1256,7 @@ Una persona che prepara pane, torte e pasticcini.
 - Type: Person
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="capital_paris"></a>
@@ -1159,6 +1268,7 @@ La capitale della Francia. Parigi ha una famosa torre alta chiamata Torre Eiffel
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="place_bridge_people"></a>
@@ -1170,6 +1280,7 @@ Piccoli ponti per i pedoni. Ti proteggono dal traffico.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="food_fish"></a>
@@ -1181,6 +1292,7 @@ Un animale che vive e nuota nell'acqua. I pesci hanno pinne e branchie per respi
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Grouper_fish_for_Sale.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="person_fishmonger"></a>
@@ -1192,6 +1304,7 @@ Persona che vende pesce fresco e frutti di mare.
 - Type: Person
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fishmonger_weighing_fish_at_Payang_Market,_Kuala_Terengganu.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="math_setsquare"></a>
@@ -1203,6 +1316,7 @@ Strumento a forma di triangolo utilizzato per disegnare linee rette e angoli ret
 - Type: Object
 - Subjects: Math
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squadra_45.jpg)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="animal_penguin"></a>
@@ -1214,6 +1328,7 @@ Un uccello che non sa volare ma nuota molto bene. Vive in luoghi freddi.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="plant_apple"></a>
@@ -1222,6 +1337,7 @@ Un uccello che non sa volare ma nuota molto bene. Vive in luoghi freddi.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="plant_banana"></a>
@@ -1230,6 +1346,7 @@ Un uccello che non sa volare ma nuota molto bene. Vive in luoghi freddi.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="plant_orange"></a>
@@ -1238,6 +1355,7 @@ Un uccello che non sa volare ma nuota molto bene. Vive in luoghi freddi.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="tree_wattle"></a>
@@ -1246,6 +1364,7 @@ Un uccello che non sa volare ma nuota molto bene. Vive in luoghi freddi.
 
 - Type: Object
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Acacia_sp._(51489535138).jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="country_poland"></a>
@@ -1257,6 +1376,7 @@ Un paese in Europa. La capitale è Varsavia. La Polonia è famosa per scienziati
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Basílica_de_Nuestra_Señora_de_Licheń,_Stary_Licheń,_Polonia,_2016-12-21,_DD_39-41_HDR.jpg)
 
 <a id="food_tomato"></a>
 ### Pomodoro
@@ -1267,6 +1387,7 @@ Un frutto rosso e rotondo che cresce sulle piante. I pomodori vengono usati per 
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tomato_je.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="place_castle_bridge"></a>
@@ -1278,6 +1399,7 @@ Un ponte vicino a un castello. I castelli sono edifici grandi e robusti, dove un
 - Type: Place
 - Subjects: Culture, Community
 - Country: International
+- Image credit: CC0
 
 <a id="place_bridge_cars"></a>
 ### Ponte per auto
@@ -1288,6 +1410,7 @@ Una strada che attraversa l'acqua, consentendo alle auto di attraversare fiumi e
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="place_bridge_trains"></a>
@@ -1299,6 +1422,7 @@ Un ponte speciale costruito in modo sufficientemente robusto da consentire ai tr
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="capital_prague"></a>
@@ -1310,6 +1434,7 @@ La capitale della Repubblica Ceca.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Dmitry A. Mottl | [source](https://commons.wikimedia.org/wiki/File:Vltava_river_in_Prague.jpg)
 
 <a id="person_president"></a>
 ### Presidente
@@ -1320,6 +1445,7 @@ Il leader scelto per guidare il Paese. I cittadini votano alle elezioni.
 - Type: Person
 - Subjects: History, Culture
 - Country: International
+- Image credit: CC0 | Aaron Shikler | [source](https://commons.wikimedia.org/wiki/File:John_F_Kennedy_Official_Portrait.jpg)
 
 <a id="crampons"></a>
 ### Ramponi
@@ -1330,6 +1456,7 @@ Impugnature metalliche appuntite da fissare agli scarponi per usare il ghiaccio.
 - Type: Object
 - Subjects: Safety, Technology, Sport
 - Country: International
+- Image credit: CC_BY_SA | Clayoquot | [source](https://commons.wikimedia.org/wiki/File:Strap-on_crampon.JPG)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="space_rocket"></a>
@@ -1341,6 +1468,7 @@ Un razzo che va nello spazio.
 - Type: Object
 - Subjects: Science
 - Country: International
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="country_czech_republic"></a>
@@ -1352,6 +1480,7 @@ Un paese in Europa. La capitale è Praga.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Tadeáš Bednarz | [source](https://commons.wikimedia.org/wiki/File:Daniel_Souček_U21_Czech_Republic_vs_Greece_10-10-2019.jpg)
 
 <a id="boat_house"></a>
 ### Rimessa per barche
@@ -1362,6 +1491,7 @@ Una casa che galleggia sull'acqua come una barca. Le persone possono vivere nell
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 
 <a id="robert_lewandowski"></a>
 ### Roberto Lewandowski
@@ -1372,6 +1502,7 @@ Un famoso calciatore polacco.
 - Type: Person
 - Subjects: Sport, Culture
 - Country: International
+- Image credit: CC_BY_SA | Екатерина Лаут | [source](https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_2018_(cropped).jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="country_russia"></a>
@@ -1383,6 +1514,7 @@ Un paese in Europa. La capitale è Mosca.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Canes | [source](https://commons.wikimedia.org/wiki/File:Мечеть_Санкт-Петербурга._Майолика_портала.jpg)
 
 <a id="food_salt"></a>
 ### SALE
@@ -1393,6 +1525,7 @@ Cristalli bianchi che migliorano il sapore del cibo.
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0
 
 <a id="food_pepper_salt"></a>
 ### Sale al pepe
@@ -1403,6 +1536,7 @@ Spezie che migliorano il sapore del cibo. Il sale è bianco e il pepe è nero, c
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Shakers_%284572668303%29.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="skiing"></a>
@@ -1414,6 +1548,7 @@ Scivolare sulla neve con gli sci.
 - Type: Concept
 - Subjects: Sport, Recreation
 - Country: International
+- Image credit: CC_BY | Letartean | [source](https://commons.wikimedia.org/wiki/File:Quebec_Sprint_Cross-country_Skiing_World_Cup_2012_(4)_V2.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="scarf"></a>
@@ -1425,6 +1560,7 @@ Un panno caldo da indossare intorno al collo.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
+- Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Colored_silk_scarf_from_India_01.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="animal_monkey"></a>
@@ -1436,6 +1572,7 @@ Un animale intelligente che sa arrampicarsi e giocare. Alcune scimmie vivono in 
 - Type: Object
 - Subjects: Animal, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="danger_sign"></a>
@@ -1447,6 +1584,7 @@ Un cartello che avverte di un pericolo imminente. Prestare particolare attenzion
 - Type: Object
 - Subjects: Safety
 - Country: International
+- Image credit: CC0 | Government of Singapore - Land Transport Authority, Public domain, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Singapore_road_sign_-_Warning_-_Other_danger.svg)
 
 <a id="stop_sign"></a>
 ### Segnale di STOP
@@ -1457,6 +1595,7 @@ Un cartello rosso che indica che è obbligatorio fermare il veicolo.
 - Type: Object
 - Subjects: Safety, Transportation
 - Country: International
+- Image credit: CC0
 
 <a id="country_slovakia"></a>
 ### Slovacchia
@@ -1467,6 +1606,7 @@ Un paese in Europa. La capitale è Bratislava.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Oto Zapletal | [source](https://commons.wikimedia.org/wiki/File:Suspension_pedestrian_bridge_over_the_Orava_River_in_Dolny_Kubín,_the_Slovak_republic_01.jpg)
 
 <a id="sun"></a>
 ### Sole
@@ -1477,6 +1617,7 @@ Luce intensa che può riflettersi sulla neve.
 - Type: Concept
 - Subjects: Science, Weather, Environment
 - Country: International
+- Image credit: CC0 | NASA/SDO (AIA) | [source](https://commons.wikimedia.org/wiki/File:The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="mermaids_sword"></a>
@@ -1488,6 +1629,7 @@ La spada della sirena che deve essere restituita.
 - Type: Object
 - Subjects: Culture, History
 - Country: International
+- Image credit: CC_BY_SA | Guillaume Speurt from Vilnius, Lithuania | [source](https://commons.wikimedia.org/wiki/File:Mermaid_statue_with_sword_(8121475992).jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="national_stadium_warsaw"></a>
@@ -1499,6 +1641,7 @@ Uno stadio moderno per partite di calcio e concerti.
 - Type: Place
 - Subjects: Sport, Culture, Community
 - Country: International
+- Image credit: CC_BY_SA | Arne Müseler | [source](https://commons.wikimedia.org/wiki/File:National_Stadium_Warsaw_aerial_view_2.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="gingerbread_mold"></a>
@@ -1510,6 +1653,7 @@ Uno strumento sagomato che consente di creare divertenti forme di biscotti.
 - Type: Object
 - Subjects: Food, Art
 - Country: International
+- Image credit: CC_BY_SA | Piotr Kuczyński | [source](https://commons.wikimedia.org/wiki/File:Traditional_gingerbread_mold_2_(Piotr_Kuczynski).jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="country_switzerland"></a>
@@ -1521,6 +1665,7 @@ Un paese in Europa. La capitale è Berna. La Svizzera è famosa per le montagne 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg)
 
 <a id="tram"></a>
 ### Tram
@@ -1531,6 +1676,7 @@ Un treno urbano che corre sui binari della strada.
 - Type: Object
 - Subjects: Transportation, Technology, Community
 - Country: International
+- Image credit: CC_BY_SA | Chme82 | [source](https://commons.wikimedia.org/wiki/File:Flexity_Tram_Zürich_4001.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="train"></a>
@@ -1542,6 +1688,7 @@ I treni trasportano rapidamente persone e merci in tutto il Paese.
 - Type: Object
 - Subjects: Transportation
 - Country: International
+- Image credit: CC0
 
 <a id="fr_figure_triangle"></a>
 ### Triangolo
@@ -1552,6 +1699,7 @@ Una forma con tre lati dritti e tre angoli. I triangoli sembrano fette di pizza!
 - Type: Concept
 - Subjects: Math
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lobatchevski_-_La_Th%C3%A9orie_des_parall%C3%A8les,_1980_-_Fig-1-05.png)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="country_ukraine"></a>
@@ -1563,6 +1711,7 @@ Un paese in Europa. La capitale è Kiev.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Misha Reme | [source](https://commons.wikimedia.org/wiki/File:Найкращі_миті_життя.jpg)
 
 <a id="eggs"></a>
 ### Uova
@@ -1573,6 +1722,7 @@ Cibo ricavato dai polli e utilizzato per cucinare e cuocere al forno.
 - Type: Object
 - Subjects: Food, Animal
 - Country: International
+- Image credit: CC_BY_SA | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Eggs_in_basket_2020_G1.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="currency_euro"></a>
@@ -1584,6 +1734,7 @@ Valuta utilizzata in molti paesi europei. Con gli euro puoi comprare giocattoli 
 - Type: Concept
 - Subjects: Money, Geography
 - Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes_%28cropped%29.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="capital_warsaw"></a>
@@ -1595,6 +1746,7 @@ La capitale della Polonia.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | A.Savin | [source](https://commons.wikimedia.org/wiki/File:Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg)
 
 <a id="dairy_vendor"></a>
 ### Venditore di latticini
@@ -1605,6 +1757,7 @@ Una persona che vende latte, burro e formaggio.
 - Type: Person
 - Subjects: Community, Food
 - Country: International
+- Image credit: CC_BY_SA | Something Original (talk) | [source](https://commons.wikimedia.org/wiki/File:Pennsylvania_State_University_Food_Science_Building_and_Berkey_Creamery_May_15,_2010.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="egg_vendor"></a>
@@ -1616,6 +1769,7 @@ Una persona che vende uova.
 - Type: Person
 - Subjects: Community, Food
 - Country: International
+- Image credit: CC_BY_SA | Elgabarty2002 | [source](https://commons.wikimedia.org/wiki/File:Egg_Seller_in_Nigeria.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="wind"></a>
@@ -1627,6 +1781,7 @@ Aria in movimento che può risultare forte in montagna.
 - Type: Concept
 - Subjects: Weather, Environment
 - Country: International
+- Image credit: CC0 | Richardfabi | [source](https://commons.wikimedia.org/wiki/File:Windbuchencom.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="summit"></a>
@@ -1638,6 +1793,7 @@ La cima di una montagna.
 - Type: Concept
 - Subjects: Geography, Environment, Education
 - Country: International
+- Image credit: CC_BY | Mountaineer | [source](https://commons.wikimedia.org/wiki/File:Summitting_Island_Peak.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="capital_vilnius"></a>
@@ -1649,6 +1805,7 @@ La capitale della Lituania.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Vilnius_Modern_Skyline_At_Dusk,_Lithuania_-_Diliff.jpg)
 
 <a id="backpack"></a>
 ### Zaino
@@ -1659,6 +1816,7 @@ Una borsa che porti sulla schiena.
 - Type: Object
 - Subjects: Recreation, Transportation, Education
 - Country: International
+- Image credit: CC_BY_SA | FOTO:Fortepan — ID 20607: Adományozó/Donor: Wein Sarolta. archive copy at the Wayback Machine | [source](https://commons.wikimedia.org/wiki/File:Colorful,_backpack_Fortepan_20607.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quest/fr_08.it.md)
 
 <a id="ginger"></a>
@@ -1670,6 +1828,7 @@ Radice piccante utilizzata in cucina e per preparare biscotti.
 - Type: Object
 - Subjects: Food, Plant
 - Country: International
+- Image credit: CC0 | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | [source](https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="ile_de_france"></a>
@@ -1681,6 +1840,7 @@ Una regione della Francia dove si trova la capitale Parigi. Qui vivono moltissim
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 ## France
@@ -1695,6 +1855,7 @@ Un libro di Jules Verne sulle avventure subacquee a bordo di un sottomarino chia
 - Subjects: Literature
 - Year: 1871
 - Country: France
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="24_hours_of_le_mans"></a>
@@ -1706,6 +1867,7 @@ Una gara automobilistica che dura 24 ore. Le squadre guidano giorno e notte.
 - Type: Concept
 - Subjects: Sport, Culture, History
 - Country: France
+- Image credit: CC0
 
 <a id="marseillaise_1"></a>
 ### Allons enfants
@@ -1716,6 +1878,8 @@ Le prime parole del primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
+- Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="bow"></a>
@@ -1727,6 +1891,7 @@ Un'arma che scocca frecce.
 - Type: Object
 - Subjects: History, Technology
 - Country: France
+- Image credit: CC0 | Harold Dean Carsey (1886-1947) | [source](https://commons.wikimedia.org/wiki/File:Clara_Bow,_grayscale.jpg)
 
 <a id="flying_buttress"></a>
 ### Arco rampante
@@ -1737,6 +1902,7 @@ Braccia in pietra all'esterno che aiutano a sostenere alte mura.
 - Type: Concept
 - Subjects: Technology, History, Art
 - Country: France
+- Image credit: CC_BY_SA | Acroterion | [source](https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_gallery_roof_and_buttresses_1980-1.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="armor"></a>
@@ -1748,6 +1914,7 @@ Indumento protettivo in metallo per un cavaliere.
 - Type: Object
 - Subjects: History, Safety
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Armor_MET_DP271145.jpg)
 
 <a id="eiffel_tower_elevators"></a>
 ### Ascensori della Torre Eiffel
@@ -1758,6 +1925,7 @@ Ascensori che portano i visitatori sulla torre di ferro.
 - Type: Object
 - Subjects: Technology, Transportation
 - Country: France
+- Image credit: CC0 | Louis-Emile Durandelle | [source](https://commons.wikimedia.org/wiki/File:Louis-Emile_Durandelle,_The_Eiffel_Tower_-_State_of_the_Construction,_1888.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="zebra_crossing"></a>
@@ -1769,6 +1937,7 @@ Strisce bianche dove le persone attraversano la strada.
 - Type: Object
 - Subjects: Safety, Education, Transportation
 - Country: France
+- Image credit: CC_BY_SA | Shuets Udono | [source](https://commons.wikimedia.org/wiki/File:Japanese_car_accident.jpg)
 
 <a id="race_car"></a>
 ### Auto da corsa
@@ -1779,6 +1948,7 @@ Un'auto molto veloce utilizzata sulle piste da corsa.
 - Type: Object
 - Subjects: Sport, Technology
 - Country: France
+- Image credit: CC_BY_SA | user:AngMoKio | [source](https://commons.wikimedia.org/wiki/File:Porsche_race_car_Verschuur_amk.jpg)
 
 <a id="food_baguette"></a>
 ### Baguette francese
@@ -1791,6 +1961,7 @@ Un pane lungo e croccante, il più famoso in Francia. I francesi comprano baguet
 - Subjects: Food, Culture
 - Year: 1700
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md), [Sviluppo (dev)](../quest/dev.it.md)
 
 <a id="flag_france"></a>
@@ -1804,6 +1975,7 @@ La bandiera francese ha tre strisce verticali: blu, bianco e rosso. Questi color
 - Subjects: Geography, Culture
 - Year: 1794
 - Country: France
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
 
 <a id="flag_monaco"></a>
@@ -1817,6 +1989,7 @@ La bandiera di Monaco è a strisce orizzontali rosse e bianche. Monaco è piccol
 - Subjects: Geography, Culture
 - Year: 1881
 - Country: France
+- Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
 
 <a id="boatman"></a>
@@ -1828,6 +2001,7 @@ Una persona che rema sulla barca sulla Loira.
 - Type: Person
 - Subjects: Community, Transportation
 - Country: France
+- Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Perhentian_Islands,_Boatman,_Malaysia.jpg)
 
 <a id="ramparts"></a>
 ### Bastioni
@@ -1838,6 +2012,7 @@ Alte mura su cui è possibile camminare per proteggere il castello.
 - Type: Concept
 - Subjects: History, Technology
 - Country: France
+- Image credit: CC_BY_SA | Txllxt TxllxT | [source](https://commons.wikimedia.org/wiki/File:Pardubice_-_Zámek_Pardubice_-_Ramparts_View_SSE_-_Renaissance_architecture.jpg)
 
 <a id="boat_eiffel_tower"></a>
 ### Battello sulla Senna
@@ -1850,6 +2025,7 @@ Un'imbarcazione speciale che naviga sulla Senna a Parigi. Dall'acqua si possono 
 - Subjects: Transportation, Geography, Culture
 - Year: 1900
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="bicycle"></a>
@@ -1861,6 +2037,7 @@ Un veicolo con due ruote su cui si pedala.
 - Type: Object
 - Subjects: Transportation, Health, Recreation
 - Country: France
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
 
 <a id="bouillabaisse"></a>
 ### Bouillabaisse
@@ -1872,6 +2049,7 @@ Una zuppa di pesce speciale tipica di Marsiglia, nel sud della Francia. È prepa
 - Subjects: Food, Culture
 - Year: 1700
 - Country: France
+- Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="royal_bedroom"></a>
@@ -1883,6 +2061,7 @@ Una camera elegante con un grande letto a baldacchino.
 - Type: Place
 - Subjects: Culture, History
 - Country: France
+- Image credit: CC0 | Aleksander Gryglewski | [source](https://commons.wikimedia.org/wiki/File:Aleksander_Gryglewski_-_Interior_of_the_royal_bedroom_at_the_Wilanów_Palace_-_MP_184_MNW_-_National_Museum_in_Warsaw.jpg)
 
 <a id="feathered_hat"></a>
 ### Cappello piumato
@@ -1893,6 +2072,7 @@ Un bel cappello con una piuma per un tocco di stile.
 - Type: Object
 - Subjects: Culture, History
 - Country: France
+- Image credit: CC0 | Gustav Klimt | [source](https://commons.wikimedia.org/wiki/File:Gustav_Klimt_019.jpg)
 
 <a id="concept_charter_of_secularism"></a>
 ### Carta della Laicità
@@ -1904,6 +2084,7 @@ Un insieme di regole per rispettare le convinzioni di tutti. Aiuta le persone a 
 - Subjects: Community, Culture
 - Year: 2013
 - Country: France
+- Image credit: CC0 | [source](https://camille-claudel.ecollege.haute-garonne.fr/le-college/charte-de-la-laicite/)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md), [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="helmet"></a>
@@ -1915,6 +2096,7 @@ Un cappello di metallo che protegge la testa.
 - Type: Object
 - Subjects: History, Safety
 - Country: France
+- Image credit: CC0 | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Cavalier_Garde_Républicaine_trois-quart_dos.jpg)
 
 <a id="helmet_street_safety"></a>
 ### Casco (sicurezza stradale)
@@ -1925,6 +2107,7 @@ Un casco protettivo per proteggere la testa durante la guida.
 - Type: Object
 - Subjects: Safety, Health, Education
 - Country: France
+- Image credit: CC_BY | Paul Arps from The Netherlands | [source](https://commons.wikimedia.org/wiki/File:Safety_helmet_(Myanmar_2013)_(11772851273).jpg)
 
 <a id="chateau_de_chambord"></a>
 ### Castello di Chambord
@@ -1935,6 +2118,7 @@ Un grande palazzo con numerose finestre e giardini.
 - Type: Place
 - Subjects: History, Culture, Geography
 - Country: France
+- Image credit: CC_BY_SA | Benh LIEU SONG | [source](https://commons.wikimedia.org/wiki/File:Chambord_Castle_Northwest_facade.jpg)
 
 <a id="castle_chinon"></a>
 ### Castello di Chinon
@@ -1945,6 +2129,7 @@ Il Castello di Chinon è una possente fortezza in pietra su una collina che domi
 - Type: Place
 - Subjects: History
 - Country: France
+- Image credit: CC0
 - Quests: [Una storia di due castelli (fr_05)](../quest/fr_05.it.md)
 
 <a id="chateau_de_chinon"></a>
@@ -1956,6 +2141,7 @@ Una robusta fortezza in pietra utilizzata a scopo difensivo.
 - Type: Place
 - Subjects: History, Geography, Culture
 - Country: France
+- Image credit: CC_BY_SA | Benjamin Smith | [source](https://commons.wikimedia.org/wiki/File:Chinon_-_Château_vu_depuis_la_plage.jpg)
 
 <a id="catapult"></a>
 ### Catapulta
@@ -1966,6 +2152,7 @@ Una macchina che lancia pietre lontano.
 - Type: Object
 - Subjects: Technology, History
 - Country: France
+- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2023_Proca_neurobalistyczna.jpg)
 
 <a id="cathedral"></a>
 ### Cattedrale
@@ -1976,6 +2163,7 @@ Una chiesa molto grande e importante in una città.
 - Type: Place
 - Subjects: Culture, History, Education
 - Country: France
+- Image credit: CC_BY_SA | Richard Bartz, Munich aka Makro Freak | [source](https://commons.wikimedia.org/wiki/File:Svyato_Mihailovsky_Cathedral_Izhevsk_Russia_Richard_Bartz.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="church"></a>
@@ -1987,6 +2175,7 @@ Un edificio speciale dove le persone si incontrano per pregare e cantare.
 - Type: Place
 - Subjects: Culture, Civics, Education
 - Country: France
+- Image credit: CC_BY_SA | King of Hearts | [source](https://commons.wikimedia.org/wiki/File:Stanford_Memorial_Church_May_2011_HDR_1.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="book_five_weeks_in_a_balloon"></a>
@@ -1999,6 +2188,7 @@ Un libro di Jules Verne sul volo attraverso l'Africa in mongolfiera. È pieno di
 - Subjects: Literature
 - Year: 1863
 - Country: France
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="code_of_hammurabi"></a>
@@ -2010,6 +2200,7 @@ Una pietra su cui sono incise leggi molto antiche.
 - Type: Object
 - Subjects: History, Civics
 - Country: France
+- Image credit: CC_BY | Mbzt | [source](https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk.JPG)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="education_college_fr"></a>
@@ -2023,6 +2214,7 @@ Scuola media in Francia per ragazzi dagli 11 ai 15 anni. Gli studenti studiano m
 - Subjects: Education, Culture
 - Year: 1975
 - Country: France
+- Image credit: CC0 | Marie Gaultier, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Ecole_Sup%C3%A9rieure_d%27Agricultures.jpg)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md), [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="book_from_earth_to_moon"></a>
@@ -2035,6 +2227,7 @@ Un libro di Jules Verne che parla di un viaggio sulla Luna a bordo di un enorme 
 - Subjects: Literature, Space, Science
 - Year: 1865
 - Country: France
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="marseillaise_2"></a>
@@ -2046,6 +2239,8 @@ Parole dal primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
+- Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="note_do"></a>
@@ -2057,6 +2252,7 @@ Una nota musicale.
 - Type: Concept
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
 
 <a id="worlds_fair_1889"></a>
 ### Esposizione universale (1889)
@@ -2067,6 +2263,7 @@ La grande esposizione universale in cui venne esposta la Torre Eiffel.
 - Type: Concept
 - Subjects: History, Culture
 - Country: France
+- Image credit: CC0 | imp. de Erhard (Paris), 1889 | [source](https://commons.wikimedia.org/wiki/File:Plan_général_exposition_universelle_de_1889.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="marseillaise_4"></a>
@@ -2078,6 +2275,8 @@ Parole dal primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
+- Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="note_fa"></a>
@@ -2089,6 +2288,7 @@ Una nota musicale.
 - Type: Concept
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY | Aleksey Gnilenkov | [source](https://commons.wikimedia.org/wiki/File:Nong_Fa_Lake.jpg)
 
 <a id="castle_facade_windows"></a>
 ### Facciata del castello (finestre)
@@ -2099,6 +2299,7 @@ Una parete frontale con numerose grandi finestre che lasciano entrare luce e vis
 - Type: Concept
 - Subjects: Culture, Technology
 - Country: France
+- Image credit: CC_BY_SA | Scotch Mist | [source](https://commons.wikimedia.org/wiki/File:Brzeg_Castle_03.jpg)
 
 <a id="loire_river"></a>
 ### fiume Loira
@@ -2109,6 +2310,7 @@ Un lungo fiume in Francia con molti castelli lungo le sue rive.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: France
+- Image credit: CC_BY_SA | Ввласенко | [source](https://commons.wikimedia.org/wiki/File:Loire_river_near_Amboise_in_September._France.jpg)
 
 <a id="country_france"></a>
 ### Francia
@@ -2119,6 +2321,17 @@ Un paese in Europa. La capitale è Parigi.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: France
+- Image credit: CC_BY_SA | Another one of my pictures:
+
+
+
+This photograph was taken by Medium69 (William Crochot) and released under the license stated below. You are free to use it for any purpose as long as you credit the author (William Crochot), the Source (Wikimedia Commons) and the license (CC-BY-SA 4.0) in close relation to the image.
+
+
+
+
+
+Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source RAW. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract. | [source](https://commons.wikimedia.org/wiki/File:Homme_statue_-_214.jpg)
 
 <a id="arrows"></a>
 ### Frecce
@@ -2129,6 +2342,7 @@ Bastoni appuntiti scagliati da un arco.
 - Type: Object
 - Subjects: History, Technology
 - Country: France
+- Image credit: CC_BY | Julian Herzog (Website) | [source](https://commons.wikimedia.org/wiki/File:Red_Arrows_Formation_Duxford_Flying_Finale_2024_02.jpg)
 
 <a id="gargoyle"></a>
 ### Gargoyle
@@ -2139,6 +2353,7 @@ Una statua divertente o spaventosa che funziona anche come sgorgatore di pioggia
 - Type: Concept
 - Subjects: Art, Technology, History
 - Country: France
+- Image credit: CC_BY_SA | Martinvl | [source](https://commons.wikimedia.org/wiki/File:Gargoyle_depicting_Hodgetts,_Chichester_Cathedral.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="formal_gardens"></a>
@@ -2150,6 +2365,7 @@ Giardini decorativi per passeggiate e feste.
 - Type: Place
 - Subjects: Culture, Environment
 - Country: France
+- Image credit: CC_BY_SA | Urban at French Wikipedia | [source](https://commons.wikimedia.org/wiki/File:Orangerie.jpg)
 
 <a id="jules_verne"></a>
 ### Giulio Verne
@@ -2162,6 +2378,7 @@ Uno scrittore francese che immaginava avventure incredibili prima che fossero po
 - Subjects: Literature, Science, History
 - Year: 1828
 - Country: France
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="oath_of_the_horatii_david"></a>
@@ -2173,6 +2390,7 @@ Un dipinto raffigurante tre fratelli che fanno una promessa coraggiosa.
 - Type: Object
 - Subjects: Art, History
 - Country: France
+- Image credit: CC0 | Jacques-Louis David | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David,_Le_Serment_des_Horaces.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="gustave_eiffel"></a>
@@ -2185,6 +2403,7 @@ L'uomo che costruì la Torre Eiffel! Era un ingegnere che amava costruire in fer
 - Subjects: History, Culture, Science
 - Year: 1832
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="book_around_the_world_80_days"></a>
@@ -2197,6 +2416,7 @@ Un libro emozionante di Jules Verne che racconta come viaggiare velocemente into
 - Subjects: Literature
 - Year: 1873
 - Country: France
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="notre_dame_de_paris_fire"></a>
@@ -2210,6 +2430,7 @@ Nel 2019, un grande incendio ha danneggiato la splendida Cattedrale di Notre-Dam
 - Subjects: History, Culture, Environment
 - Year: 2019
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="coronation_of_napoleon_david"></a>
@@ -2221,6 +2442,7 @@ Un enorme dipinto raffigurante la cerimonia di un imperatore francese.
 - Type: Object
 - Subjects: Art, History
 - Country: France
+- Image credit: CC0 | Jacques-Louis David / Georges Rouget | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Coronation_of_Napoleon_(1805-1807).jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="le_mans_racetrack_entrance"></a>
@@ -2232,6 +2454,7 @@ L'area di ingresso del circuito di Le Mans.
 - Type: Place
 - Subjects: Geography, Sport, Culture
 - Country: France
+- Image credit: CC_BY_SA | Neuwieser from Germany | [source](https://commons.wikimedia.org/wiki/File:24h_Le_Mans_2014_(16043688764).jpg)
 
 <a id="jean_michel_jarre"></a>
 ### Jean Michel Jarre
@@ -2243,6 +2466,7 @@ Musicista francese famoso per la musica elettronica. Crea grandi spettacoli di l
 - Subjects: Music, Culture, Technology
 - Year: 2000
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Jean_Michel_a_Roman_Bomboš.jpg)
 
 <a id="note_la"></a>
 ### La
@@ -2253,6 +2477,7 @@ Una nota musicale.
 - Type: Concept
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Karst_peaks_and_green_paddy_fields_under_a_stormy_sky,_South_view_from_Mount_Nam_Xay,_Vang_Vieng,_Laos.jpg)
 
 <a id="art_liberty_leading_the_people"></a>
 ### La libertà che guida il popolo
@@ -2265,6 +2490,7 @@ Un famoso dipinto sulla libertà e il coraggio. Mostra una donna coraggiosa che 
 - Subjects: Art, History, Culture
 - Year: 1830
 - Country: France
+- Image credit: CC0
 
 <a id="marseillaise_music"></a>
 ### La Marsigliese
@@ -2276,6 +2502,8 @@ L'inno nazionale francese. Viene cantato durante i grandi eventi e le partite sp
 - Subjects: Music, Culture
 - Year: 1885
 - Country: France
+- Image credit: CC0
+- Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="marseillaise_3"></a>
@@ -2287,6 +2515,8 @@ Parole dal primo verso dell'inno.
 - Type: Object
 - Subjects: Music, Education, Culture
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
+- Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [La Marsigliese (fr_11)](../quest/fr_11.it.md)
 
 <a id="le_mans"></a>
@@ -2298,6 +2528,7 @@ Città francese famosa per la gara automobilistica di 24 ore.
 - Type: Place
 - Subjects: Geography, Culture, Community
 - Country: France
+- Image credit: CC_BY_SA | Selbymay | [source](https://commons.wikimedia.org/wiki/File:Le_Mans_-_Cathedrale_St_Julien_ext_autumn.jpg)
 
 <a id="education_lycee_fr"></a>
 ### Liceo in Francia
@@ -2310,6 +2541,7 @@ Scuola superiore in Francia per adolescenti dai 16 ai 18 anni. Gli studenti stud
 - Subjects: Education, Culture
 - Year: 1975
 - Country: France
+- Image credit: CC0 | Émeric, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Atelier_lyc%C3%A9e_Chevrollier.jpg)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="lute"></a>
@@ -2321,6 +2553,7 @@ Strumento a corda suonato a corte.
 - Type: Object
 - Subjects: Music, Culture, History
 - Country: France
+- Image credit: CC_BY | Ching | [source](https://commons.wikimedia.org/wiki/File:Lute_(by_Princess_Ruto,_2013-02-11).jpg)
 
 <a id="the_seated_scribe"></a>
 ### Lo scriba seduto
@@ -2331,6 +2564,7 @@ Un'antica statua egizia raffigurante una persona che scrive.
 - Type: Object
 - Subjects: Art, History
 - Country: France
+- Image credit: CC_BY_SA | Rama | [source](https://commons.wikimedia.org/wiki/File:The_seated_scribe-E_3023-IMG_4267-gradient-contrast.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="louvre"></a>
@@ -2343,6 +2577,7 @@ Un enorme museo pieno d'arte. È lì che vive la Monna Lisa.
 - Subjects: Art, Culture, History
 - Year: 1793
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="seine_map"></a>
@@ -2354,6 +2589,7 @@ Un'immagine che mostra la Senna e il suo percorso attraverso il territorio.
 - Type: Object
 - Subjects: Geography, Environment
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="seine_map_in_paris"></a>
@@ -2365,6 +2601,7 @@ Un'immagine che mostra come la Senna scorre attraverso la città di Parigi.
 - Type: Object
 - Subjects: Science
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="masquerade_mask"></a>
@@ -2376,6 +2613,7 @@ Una maschera per feste e balli.
 - Type: Object
 - Subjects: Culture, History, Recreation
 - Country: France
+- Image credit: CC_BY_SA | David Jackson | [source](https://commons.wikimedia.org/wiki/File:BLW_Yoruba_Epa_Mask.jpg)
 
 <a id="note_mi"></a>
 ### Mi
@@ -2386,6 +2624,7 @@ Una nota musicale.
 - Type: Concept
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY | Dwight Burdette | [source](https://commons.wikimedia.org/wiki/File:Lenawee_County_Courthouse_Adrian_Michigan.JPG)
 
 <a id="hot_air_balloon"></a>
 ### Mongolfiera
@@ -2396,6 +2635,7 @@ Un pallone che vola ad aria calda. Il primo esemplare volò in Francia.
 - Type: Object
 - Subjects: Transportation
 - Country: France
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="notre_dame_de_paris"></a>
@@ -2408,6 +2648,7 @@ Una splendida cattedrale di Parigi. Le sue vetrate colorate raccontano storie.
 - Subjects: Geography, Environment
 - Year: 1885
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="parapet"></a>
@@ -2419,6 +2660,7 @@ Il basso muro al limite delle mura.
 - Type: Concept
 - Subjects: History, Technology
 - Country: France
+- Image credit: CC_BY_SA | Johann Jaritz | [source](https://commons.wikimedia.org/wiki/File:Feldkirchen_Kirchgasse_6_Wohn-und_Geschäftshaus_Parapet-Fenster_06062019_7122.jpg)
 
 <a id="piano"></a>
 ### Pianoforte
@@ -2429,6 +2671,7 @@ Strumento a tastiera utilizzato per suonare melodie e accordi.
 - Type: Object
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC0 | Unknown authorUnknown author | [source](https://commons.wikimedia.org/wiki/File:Hupfeld_piano_played_(2018-10-04_@pxhere_1546039).jpg)
 
 <a id="louvre_pyramid"></a>
 ### Piramide del Louvre
@@ -2439,6 +2682,7 @@ La piramide di vetro che costituisce l'ingresso moderno del Louvre.
 - Type: Place
 - Subjects: Art, Culture, Technology
 - Country: France
+- Image credit: CC_BY_SA | Benh LIEU SONG (Flickr) | [source](https://commons.wikimedia.org/wiki/File:Louvre_Courtyard,_Looking_West.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="pirates"></a>
@@ -2452,6 +2696,7 @@ Coraggiosi marinai che solcavano i mari per il re di Francia. Venivano chiamati 
 - Subjects: History, Culture, Transportation
 - Year: 1600
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Forbin_et_Jean_Bart_capture_en_1689.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quest/fr_09.it.md)
 
 <a id="pont_alexandre_iii"></a>
@@ -2463,6 +2708,7 @@ Uno splendido ponte di Parigi con decorazioni fantasiose e statue dorate.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="drawbridge"></a>
@@ -2474,6 +2720,7 @@ Un ponte che si solleva per proteggere l'ingresso di un castello.
 - Type: Object
 - Subjects: Technology, History, Safety
 - Country: France
+- Image credit: CC_BY_SA | Chuck Homler, Focus On Wildlife | [source](https://commons.wikimedia.org/wiki/File:Bufflehead-Tacony-MT.jpg)
 
 <a id="note_re"></a>
 ### Rif
@@ -2484,6 +2731,7 @@ Una nota musicale.
 - Type: Concept
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY_SA | Youlaus | [source](https://commons.wikimedia.org/wiki/File:Nota_Ré_4_(Piano).png)
 
 <a id="french_revolution"></a>
 ### Rivoluzione francese
@@ -2494,6 +2742,7 @@ Periodo degli anni 1790 in cui la Francia cambiò il suo governo.
 - Type: Concept
 - Subjects: History, Civics, Time, Culture
 - Country: France
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:11-french_revolution_1789.jpg)
 
 <a id="rose_window"></a>
 ### Rosone
@@ -2504,6 +2753,7 @@ Una grande vetrata rotonda che racconta storie attraverso la luce.
 - Type: Concept
 - Subjects: Art, Culture, History
 - Country: France
+- Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_Organ_and_Rose_Window,_Picardy,_France_-_Diliff.jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="ballroom"></a>
@@ -2515,6 +2765,7 @@ Una grande sala per ballare e ascoltare musica.
 - Type: Place
 - Subjects: Culture, History
 - Country: France
+- Image credit: CC_BY_SA | P e z i | [source](https://commons.wikimedia.org/wiki/File:Parkhotel_Schoenbrunn_Ballsaal_DSC_5115w.jpg)
 
 <a id="portcullis"></a>
 ### Saracinesca
@@ -2525,6 +2776,7 @@ Un pesante cancello che si abbassa bloccando l'ingresso.
 - Type: Object
 - Subjects: Technology, History, Safety
 - Country: France
+- Image credit: CC_BY | Kevin King from Pensacola, FL, US of A | [source](https://commons.wikimedia.org/wiki/File:Cahir_Castle_Portcullis_by_Kevin_King.jpg)
 
 <a id="loopholes"></a>
 ### Scappatoie
@@ -2535,6 +2787,7 @@ Finestre strette per scoccare le frecce in sicurezza.
 - Type: Concept
 - Subjects: History, Technology
 - Country: France
+- Image credit: CC_BY_SA | A.-K. D. | [source](https://commons.wikimedia.org/wiki/File:Cross_shaped_loophole.jpg)
 
 <a id="dancing_shoes"></a>
 ### Scarpe da ballo
@@ -2545,6 +2798,7 @@ Scarpe fatte per ballare in una sala da ballo.
 - Type: Object
 - Subjects: Culture, Recreation
 - Country: France
+- Image credit: CC_BY | Aoife Cawley | [source](https://commons.wikimedia.org/wiki/File:Wiki_loves_folklore_dance_shoe.png)
 
 <a id="scooter"></a>
 ### Scooter
@@ -2555,6 +2809,7 @@ Un piccolo scooter a due ruote (trottinette).
 - Type: Object
 - Subjects: Transportation, Recreation, Safety
 - Country: France
+- Image credit: CC_BY_SA | Spurzem - Lothar Spurzem | [source](https://commons.wikimedia.org/wiki/File:Zündapp_Bella_R_154_(2008-05-21)_Seitenansicht_ret.jpg)
 
 <a id="concept_cursive_writing"></a>
 ### Scrittura corsiva
@@ -2567,6 +2822,7 @@ Un modo speciale di scrivere in cui tutte le lettere di una parola sono collegat
 - Subjects: Education, Culture, Art
 - Year: 1800
 - Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="education_ecole_primaire_fr"></a>
@@ -2579,6 +2835,7 @@ Scuola per bambini dai 6 ai 10 anni. Si impara a leggere, scrivere e contare.
 - Subjects: Education, Culture
 - Year: 1975
 - Country: France
+- Image credit: Licensed
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 <a id="traffic_lights"></a>
@@ -2590,6 +2847,7 @@ Lampioni che ti dicono quando FERMARTI o ANDARE.
 - Type: Object
 - Subjects: Safety, Education, Transportation
 - Country: France
+- Image credit: CC0
 
 <a id="seine"></a>
 ### Senna
@@ -2600,6 +2858,7 @@ Un fiume lungo 777 chilometri nel nord della Francia
 - Type: Place
 - Subjects: Geography
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quest/fr_10.it.md)
 
 <a id="note_sol"></a>
@@ -2611,6 +2870,7 @@ Una nota musicale.
 - Type: Concept
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY_SA | kallerna | [source](https://commons.wikimedia.org/wiki/File:Sol_de_Mañana_2018.jpg)
 
 <a id="submarine_nautilus"></a>
 ### Sottomarino (Il Nautilus)
@@ -2621,6 +2881,7 @@ Un sottomarino tratto dal racconto di Jules Verne. Poteva esplorare le profondit
 - Type: Object
 - Subjects: Literature, Science
 - Country: France
+- Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quest/fr_03.it.md)
 
 <a id="sword"></a>
@@ -2632,6 +2893,7 @@ Una lunga lama usata dai cavalieri.
 - Type: Object
 - Subjects: History, Culture
 - Country: France
+- Image credit: CC_BY_SA | Rama | [source](https://commons.wikimedia.org/wiki/File:Sword-AO_21069-P5280877-gradient.jpg)
 
 <a id="musical_score"></a>
 ### Spartito musicale
@@ -2642,6 +2904,7 @@ Le note scritte e le parole di una canzone.
 - Type: Object
 - Subjects: Education, Music
 - Country: France
+- Image credit: CC0 | Claude Joseph Rouget de Lisle | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_français_de_Rouget_de_L'Isle_Transcription_de_Langevin-2.jpg)
 
 <a id="le_mans_train_station"></a>
 ### Stazione ferroviaria di Le Mans
@@ -2652,6 +2915,7 @@ La stazione dove prendi il treno per tornare a casa.
 - Type: Place
 - Subjects: Geography, Transportation, Community
 - Country: France
+- Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Man_at_Dundas_subway_station,_Toronto,_2008-05-06.jpg)
 
 <a id="note_si"></a>
 ### Sì
@@ -2662,6 +2926,7 @@ Una nota musicale.
 - Type: Concept
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY_SA | Bureau international des poids et mesures, International Bureau of Weights and Measures (BIPM) | [source](https://commons.wikimedia.org/wiki/File:SI_Logo_with_defining_constants.png)
 
 <a id="eiffel_tower"></a>
 ### Torre Eiffel
@@ -2673,6 +2938,7 @@ Un'alta torre, simbolo di Parigi. È fatta di ferro e alta 300 metri. È possibi
 - Subjects: Geography, History, Culture
 - Year: 1889
 - Country: France
+- Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="loire_valley"></a>
@@ -2684,6 +2950,7 @@ Una famosa regione francese con molti castelli.
 - Type: Place
 - Subjects: Geography, History, Culture
 - Country: France
+- Image credit: CC_BY_SA | Suavemarimagno | [source](https://commons.wikimedia.org/wiki/File:Val-de-loire-montsoreau-lever-de-soleil.jpg)
 
 <a id="winged_victory_of_samothrace"></a>
 ### Vittoria alata di Samotracia
@@ -2694,6 +2961,7 @@ Una famosa scultura antica raffigurante una dea con le ali.
 - Type: Object
 - Subjects: Art, History
 - Country: France
+- Image credit: CC_BY_SA | Rijin | [source](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_(1).jpg)
 - Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 <a id="xylophone"></a>
@@ -2705,6 +2973,7 @@ Uno strumento con delle barre che si percuotono per produrre note.
 - Type: Object
 - Subjects: Music, Education
 - Country: France
+- Image credit: CC_BY | Mayor McGinn | [source](https://commons.wikimedia.org/wiki/File:Mayor_westlake_play_03_(8532405090).jpg)
 
 <a id="education_ecole_maternelle_fr"></a>
 ### École Maternelle
@@ -2716,6 +2985,7 @@ Scuola per bambini dai 3 ai 5 anni. Si impara giocando ed esplorando.
 - Subjects: Education, Culture
 - Year: 1975
 - Country: France
+- Image credit: CC0 | Polymagou, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_Paul-Langevin,_Les_Clayes-sous-Bois,_Yvelines_9-3.jpg)
 - Quests: [Il sistema scolastico (fr_02)](../quest/fr_02.it.md)
 
 ## Poland
@@ -2729,6 +2999,7 @@ Resina fossile lucida di albero chiamata "oro baltico".
 - Type: Object
 - Subjects: History, Culture, Science
 - Country: Poland
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Fuerte_Amber,_Amber,_India,_2009-12-04,_DD_0019.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="astronomy"></a>
@@ -2740,6 +3011,7 @@ La scienza che studia il Sole, la Luna, le stelle e i pianeti.
 - Type: Concept
 - Subjects: Science, Space
 - Country: Poland
+- Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="flag_poland"></a>
@@ -2753,6 +3025,7 @@ La bandiera della Polonia è a strisce orizzontali bianche e rosse. La Polonia �
 - Subjects: Geography, Culture
 - Year: 1919
 - Country: Poland
+- Image credit: CC0
 - Quests: [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
 
 <a id="wroclaw_flag"></a>
@@ -2764,6 +3037,7 @@ La bandiera della città che deve essere ritrovata e restituita.
 - Type: Object
 - Subjects: Culture, Community, History
 - Country: Poland
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:POL_Wroc%C5%82aw_flag.svg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="boat"></a>
@@ -2775,6 +3049,7 @@ Un veicolo che si muove sull'acqua.
 - Type: Object
 - Subjects: Transportation
 - Country: Poland
+- Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="wroclaw"></a>
@@ -2786,6 +3061,7 @@ Una città in Polonia con fiumi, ponti e storia.
 - Type: Place
 - Subjects: Geography, History, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="wroclaw_cathedral"></a>
@@ -2797,6 +3073,7 @@ Una chiesa grande e importante, dove la gente prega. È possibile salire sulla t
 - Type: Place
 - Subjects: History, Culture
 - Country: Poland
+- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="wroclaw_sky_tower"></a>
@@ -2808,6 +3085,7 @@ Uno degli edifici più alti della Polonia. Ospita negozi e un punto panoramico.
 - Type: Place
 - Subjects: Geography, Community, Culture
 - Country: Poland
+- Image credit: CC0 | [source](https://it.wikipedia.org/wiki/File:Wrocław,_2006_-_2012_-_budowa_Sky_Tower_-_fotopolska.eu_(311325).jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="amber_room"></a>
@@ -2819,6 +3097,7 @@ Una famosa stanza fatta di ambra con una storia misteriosa.
 - Type: Concept
 - Subjects: History, Culture
 - Country: Poland
+- Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="sign"></a>
@@ -2830,6 +3109,7 @@ Una lavagna con informazioni semplici per aiutarti a imparare.
 - Type: Object
 - Subjects: Education, Community
 - Country: Poland
+- Image credit: CC_BY_SA | Frank Schulenburg | [source](https://commons.wikimedia.org/wiki/File:Railroad_Park_Resort_in_Dunsmuir,_June_2021.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="nicolaus_copernicus_house"></a>
@@ -2841,6 +3121,7 @@ Ora è un museo dove è possibile scoprire di più sulla sua vita e sui suoi suc
 - Type: Place
 - Subjects: Culture, Science
 - Country: Poland
+- Image credit: CC0 | Pko, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/w/index.php?curid=76433849)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="houseboat"></a>
@@ -2852,6 +3133,7 @@ Una barca fatta per vivere.
 - Type: Object
 - Subjects: Transportation, Community
 - Country: Poland
+- Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Houseboat_in_Copenhagen_Harbor_02.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="barge"></a>
@@ -2863,6 +3145,7 @@ Una lunga imbarcazione piatta che trasporta merci sui fiumi.
 - Type: Object
 - Subjects: Transportation, Geography
 - Country: Poland
+- Image credit: CC_BY_SA | Dietmar Rabich
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="necklace"></a>
@@ -2874,6 +3157,7 @@ Una collana di perline o conchiglie da indossare intorno al collo.
 - Type: Object
 - Subjects: Art, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Necklace_made_of_rough_diamonds.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="seashell"></a>
@@ -2885,6 +3169,7 @@ Un guscio duro di un animale marino, ottimo per i lavoretti.
 - Type: Object
 - Subjects: Animal, Environment, Art
 - Country: Poland
+- Image credit: CC0 | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Flexopecten_ponticus_2008_G1.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="baltic_sea_coast"></a>
@@ -2896,6 +3181,7 @@ La costa sabbiosa lungo il Mar Baltico.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="cub"></a>
@@ -2907,6 +3193,7 @@ Un cucciolo di leone.
 - Type: Concept
 - Subjects: Animal, Science
 - Country: Poland
+- Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_cub_14_months.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="gdansk"></a>
@@ -2918,6 +3205,7 @@ Città portuale in Polonia sul Mar Baltico.
 - Type: Place
 - Subjects: Geography, History, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Calle_Dlugie_Pobrzeze,_Gdansk,_Polonia,_2013-05-20,_DD_05.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="zoo_director"></a>
@@ -2929,6 +3217,7 @@ La persona che gestisce lo zoo e aiuta i visitatori.
 - Type: Person
 - Subjects: Community, Education
 - Country: Poland
+- Image credit: CC0 | USFWS Pacific | [source](https://commons.wikimedia.org/wiki/File:USFWS_director_visits_Oregon_Zoo_(51946414879).jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="ecosystem"></a>
@@ -2940,6 +3229,7 @@ Gli esseri viventi e la loro casa nella natura, che lavorano insieme.
 - Type: Concept
 - Subjects: Environment, Science
 - Country: Poland
+- Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="dwarf_expert"></a>
@@ -2951,6 +3241,7 @@ Una guida amichevole che sa tutto sui nani.
 - Type: Person
 - Subjects: Education, Culture
 - Country: Poland
+- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="gdansk_lighthouse"></a>
@@ -2962,6 +3253,7 @@ Un faro storico che aiuta le navi a trovare il porto.
 - Type: Place
 - Subjects: History, Geography, Transportation
 - Country: Poland
+- Image credit: CC_BY_SA | Yanek | [source](https://commons.wikimedia.org/wiki/File:Gdańsk,_Kapitanat_Portu_-_Port_Północny_-_fotopolska.eu_(304857).jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="motawa_river"></a>
@@ -2973,6 +3265,7 @@ Il fiume che attraversa Danzica fino al mare.
 - Type: Place
 - Subjects: Geography
 - Country: Poland
+- Image credit: CC_BY_SA | John Samuel | [source](https://commons.wikimedia.org/wiki/File:Boat_on_Motława_river_in_Gdańsk.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="place_odra_river"></a>
@@ -2984,6 +3277,7 @@ Un grande fiume nella Polonia occidentale. Aiuta le navi a viaggiare e commercia
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Image credit: CC0
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="vistula_river"></a>
@@ -2995,6 +3289,7 @@ Il fiume più lungo della Polonia; sfocia nel Mar Baltico.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:20200529_Widok_ze_Skały_Okrążek_na_Opactwo_w_Tyńcu_1735_2128.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="place_vistula_river"></a>
@@ -3006,6 +3301,7 @@ Il fiume più lungo della Polonia si chiama Wisła o Vistola. Scorre attraverso 
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Image credit: CC0
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="seal"></a>
@@ -3017,6 +3313,7 @@ Un animale marino selvatico che riposa sulle spiagge.
 - Type: Object
 - Subjects: Animal, Environment, Safety
 - Country: Poland
+- Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Common_seal_(Phoca_vitulina)_2.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="neptune_s_fountain"></a>
@@ -3028,6 +3325,7 @@ Una famosa fontana di Danzica con la statua del dio del mare.
 - Type: Place
 - Subjects: History, Culture, Community
 - Country: Poland
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Monumento_Neptuno,_Gdansk,_Polonia,_2013-05-20,_DD_03.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="wroclaw_multimedia_fountain"></a>
@@ -3039,6 +3337,7 @@ Acqua che danza con musica e luci colorate.
 - Type: Place
 - Subjects: Culture, Technology, Recreation
 - Country: Poland
+- Image credit: CC_BY_SA | Piotr Walczak & Konradr | [source](https://commons.wikimedia.org/wiki/File:Wrocławska_fontanna_Piotr_Walczak2.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="fryderyk_chopin"></a>
@@ -3052,6 +3351,7 @@ Un famoso compositore polacco per pianoforte. Ha scritto musica meravigliosa che
 - Subjects: Music, History, Culture
 - Year: 1810
 - Country: Poland
+- Image credit: CC0
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="seagull"></a>
@@ -3063,6 +3363,7 @@ Un uccello marino che vive vicino alla costa.
 - Type: Object
 - Subjects: Animal, Environment
 - Country: Poland
+- Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Black-headed_Gull_-_St_James's_Park,_London_-_Nov_2006.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="jupiter"></a>
@@ -3074,6 +3375,7 @@ Il pianeta più grande, famoso per la Grande Macchia Rossa.
 - Type: Object
 - Subjects: Space, Science
 - Country: Poland
+- Image credit: CC0 | NASA/JPL/Space Science Institute | [source](https://commons.wikimedia.org/wiki/File:Portrait_of_Jupiter_from_Cassini.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="zoo_keeper"></a>
@@ -3085,6 +3387,7 @@ Una persona che si prende cura degli animali allo zoo.
 - Type: Person
 - Subjects: Community, Animal, Education
 - Country: Poland
+- Image credit: CC_BY_SA | 좀비 브렌다 | [source](https://commons.wikimedia.org/wiki/File:Hadada_Ibis_perched_on_Dallas_Zoo_keeper.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="wars_and_sawa"></a>
@@ -3097,6 +3400,7 @@ Due figure leggendarie che diedero il nome a Varsavia: Wars era un coraggioso gu
 - Subjects: Community, Culture
 - Year: 1300
 - Country: Poland
+- Image credit: CC0 | [source](https://en.m.wikipedia.org/wiki/File:Rzeźba_Warsa_i_Sawy_01.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="iglica"></a>
@@ -3108,6 +3412,7 @@ Un'alta scultura in metallo accanto alla Centennial Hall.
 - Type: Place
 - Subjects: History, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Jonashtand | [source](https://commons.wikimedia.org/wiki/File:202206_Iglica,_Wrocław.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="kayak"></a>
@@ -3119,6 +3424,7 @@ Una piccola barca su cui si pagaia.
 - Type: Object
 - Subjects: Recreation, Sport
 - Country: Poland
+- Image credit: CC_BY_SA | 0x010C
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="lens"></a>
@@ -3130,6 +3436,7 @@ Un pezzo di vetro o plastica trasparente che piega la luce.
 - Type: Object
 - Subjects: Science, Technology
 - Country: Poland
+- Image credit: CC_BY_SA | Christian David | [source](https://commons.wikimedia.org/wiki/File:Village_de_Lens.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="primary_school_leonardo_da_vinci"></a>
@@ -3141,6 +3448,7 @@ It’s a friendly place where children learn, create, and explore guided by curi
 - Type: None
 - Subjects: Education
 - Country: Poland
+- Image credit: CC0
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="keymaster_dwarf"></a>
@@ -3152,6 +3460,7 @@ Una statua nana sorveglia l'ascensore con una grande chiave.
 - Type: Object
 - Subjects: Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:100matolog_(Tooth-dwarf)_Wroclaw_dwarf_02.JPG)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="wroklaw_map"></a>
@@ -3163,6 +3472,7 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 - Type: None
 - Subjects: Geography
 - Country: Poland
+- Image credit: CC0
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md), [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="maria_curie"></a>
@@ -3176,6 +3486,7 @@ Una brillante scienziata polacca che scoprì la radioattività. Fu la prima donn
 - Subjects: Science, History
 - Year: 1867
 - Country: Poland
+- Image credit: CC0
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="mars"></a>
@@ -3187,6 +3498,7 @@ Il pianeta rosso con polvere e grandi vulcani.
 - Type: Object
 - Subjects: Space, Science
 - Country: Poland
+- Image credit: CC_BY_SA | ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO | [source](https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="mercury"></a>
@@ -3198,6 +3510,7 @@ Il pianeta più vicino al Sole; piccolo e molto veloce.
 - Type: Object
 - Subjects: Space, Science
 - Country: Poland
+- Image credit: CC0 | NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. Edited version of Image:Mercury in color - Prockter07.jpg by Papa Lima Whiskey. | [source](https://commons.wikimedia.org/wiki/File:Mercury_in_color_-_Prockter07_centered.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="heliocentric_model"></a>
@@ -3209,6 +3522,7 @@ L'idea che il Sole sia al centro e che i pianeti gli girino attorno.
 - Type: Concept
 - Subjects: Science, Space, History
 - Country: Poland
+- Image credit: CC0 | Andreas Cellarius | [source](https://commons.wikimedia.org/wiki/File:1661_Cellarius's_chart_illustrating_Copernicus'_heliocentric_model_of_the_universe.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="chopin_monument"></a>
@@ -3221,6 +3535,7 @@ Una grande statua nel Parco Łazienki di Varsavia, dedicata a Frédéric Chopin.
 - Type: Object
 - Subjects: Music, Culture
 - Country: Poland
+- Image credit: CC0 | Ethan Doyle White, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:The_Chopin_Monument_in_Warsaw.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="town_hall"></a>
@@ -3232,6 +3547,7 @@ Il luogo in cui i leader della città lavorano e si incontrano.
 - Type: Concept
 - Subjects: Civics, Community, History
 - Country: Poland
+- Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Town_hall_of_Aosta_(3).jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="torun_town_hall"></a>
@@ -3243,6 +3559,7 @@ Un grande edificio gotico a Toruń, vicino alla piazza del mercato.
 - Type: Place
 - Subjects: History, Geography, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Old_town_hall_in_Torun_(6).jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="main_town_hall"></a>
@@ -3254,6 +3571,7 @@ Un alto municipio con torre e museo.
 - Type: Place
 - Subjects: History, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Ayuntamiento_Principal,_Gdansk,_Polonia,_2013-05-20,_DD_01.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="wroclaw_dwarfs"></a>
@@ -3265,6 +3583,7 @@ Piccole statue sparse per la città che amano fare scherzi.
 - Type: Concept
 - Subjects: Culture, Community, History
 - Country: Poland
+- Image credit: CC_BY_SA | Matti Blume | [source](https://commons.wikimedia.org/wiki/File:Dwarf,_Wroclaw_(P1180336).jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="animal_lover_dwarf"></a>
@@ -3276,6 +3595,7 @@ Una statua di un nano che ama lo zoo e gli animali.
 - Type: Object
 - Subjects: Culture, Animal, Education
 - Country: Poland
+- Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="polish_dwarf"></a>
@@ -3288,6 +3608,7 @@ Piccole statue di nani si nascondono in giro per Breslavia. Trovarle è un diver
 - Subjects: Community, Culture
 - Year: 1700
 - Country: Poland
+- Image credit: CC0
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md), [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="ship"></a>
@@ -3299,6 +3620,7 @@ Una grande imbarcazione che trasporta persone o merci.
 - Type: Object
 - Subjects: Transportation
 - Country: Poland
+- Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="navigation"></a>
@@ -3310,6 +3632,7 @@ Orientarsi in mare utilizzando luci, mappe e strumenti.
 - Type: Concept
 - Subjects: Technology, Geography
 - Country: Poland
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Table_of_Geography_and_Hydrography,_Cyclopaedia,_Volume_1.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="neptune"></a>
@@ -3321,6 +3644,7 @@ Il dio del mare delle vecchie storie.
 - Type: Concept
 - Subjects: Culture, History
 - Country: Poland
+- Image credit: CC0 | NASA | [source](https://commons.wikimedia.org/wiki/File:Neptune_Full.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="nicolaus_copernicus"></a>
@@ -3334,6 +3658,7 @@ Un brillante scienziato polacco ha scoperto che è la Terra a girare intorno al 
 - Subjects: Science, History, Space
 - Year: 1473
 - Country: Poland
+- Image credit: CC0
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="eyepiece"></a>
@@ -3345,6 +3670,7 @@ La piccola lente attraverso cui si guarda in un telescopio.
 - Type: Object
 - Subjects: Science, Technology
 - Country: Poland
+- Image credit: CC_BY | SvonHalenbach | [source](https://commons.wikimedia.org/wiki/File:Newtonianscope-eyepiece-detail.JPG)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="odra_river_map"></a>
@@ -3356,6 +3682,7 @@ A simple map that shows the Odra River in Poland and the way it flows to the Bal
 - Type: None
 - Subjects: Geography
 - Country: Poland
+- Image credit: CC0
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="olga_tokarczuk"></a>
@@ -3367,6 +3694,7 @@ Un famoso scrittore polacco che vive a Breslavia.
 - Type: Person
 - Subjects: Literature, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Harald Krichel | [source](https://commons.wikimedia.org/wiki/File:Olga_Tokarczuk-9739.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="waves"></a>
@@ -3378,6 +3706,7 @@ Acqua in movimento sul mare.
 - Type: Concept
 - Subjects: Environment, Science
 - Country: Poland
+- Image credit: CC_BY_SA | Roger McLassus | [source](https://commons.wikimedia.org/wiki/File:2006-01-14_Surface_waves.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="gingerbread"></a>
@@ -3389,6 +3718,7 @@ una delizia tradizionale polacca a base di spezie e miele, spesso decorata con b
 - Type: Object
 - Subjects: Food
 - Country: Poland
+- Image credit: CC0 | Marcin Floryan, CC BY 2.5 <https://creativecommons.org/licenses/by/2.5>, via Wikimedia Commons | [source](https://commons.wikimedia.org/w/index.php?curid=1300867)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="panorama_racawicka"></a>
@@ -3400,6 +3730,7 @@ Un dipinto gigante tutto intorno a te che racconta una battaglia storica.
 - Type: Place
 - Subjects: History, Art, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Barbara Maliszewska
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="parrot"></a>
@@ -3411,6 +3742,7 @@ Un uccello brillante che sa imitare i suoni.
 - Type: Object
 - Subjects: Animal, Science
 - Country: Poland
+- Image credit: CC_BY | Luc Viatour | [source](https://commons.wikimedia.org/wiki/File:Ara_ararauna_Luc_Viatour.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="footbridge"></a>
@@ -3422,6 +3754,7 @@ Un ponte su cui le persone possono camminare. Niente auto.
 - Type: Object
 - Subjects: Transportation, Community
 - Country: Poland
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Front_view_of_a_wooden_footbridge_over_a_lagoon,_trees_and_mountains_in_Vang_Vieng,_Laos.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="peacock"></a>
@@ -3433,6 +3766,7 @@ Un uccello colorato con una grande coda di piume.
 - Type: Object
 - Subjects: Animal, Science, Art
 - Country: Poland
+- Image credit: CC_BY_SA | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Paonroue.JPG)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="fisherman"></a>
@@ -3444,6 +3778,7 @@ Persona che pesca in mare.
 - Type: Person
 - Subjects: Community, Geography
 - Country: Poland
+- Image credit: CC_BY_SA | Benh LIEU SONG (Flickr) | [source](https://commons.wikimedia.org/wiki/File:Leg_Rowing_Fisherman_Inle_Lake_Myanmar.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="wroclaw_market_square"></a>
@@ -3455,6 +3790,7 @@ La piazza principale della Città Vecchia, piena di vita.
 - Type: Place
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
+- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="pierogi"></a>
@@ -3467,6 +3803,7 @@ Ravioli ripieni di patate, formaggio o frutta. Sono un famoso piatto polacco.
 - Subjects: Food, Culture
 - Year: 1600
 - Country: Poland
+- Image credit: CC0
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="planetarium"></a>
@@ -3478,6 +3815,10 @@ Un luogo dove è possibile osservare il cielo e le stelle restando al chiuso.
 - Type: Place
 - Subjects: Education, Science, Space
 - Country: Poland
+- Image credit: CC0 | Atelier Hermann Walter
+
+Bernhard Müller († 1930)
+Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://commons.wikimedia.org/wiki/File:Planetarium_Pfaffendorfer_Strasse_Leipzig_um_1927.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="bridge"></a>
@@ -3489,6 +3830,7 @@ Una struttura che consente alle persone o ai veicoli di attraversare l'acqua.
 - Type: Concept
 - Subjects: Technology, Transportation
 - Country: Poland
+- Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Bridge_and_deck_of_Gullbritt.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="train_bridge"></a>
@@ -3500,6 +3842,7 @@ Un ponte con binari per treni.
 - Type: Object
 - Subjects: Transportation, Technology
 - Country: Poland
+- Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="redzinski_bridge"></a>
@@ -3511,6 +3854,7 @@ Il ponte strallato più lungo della Polonia.
 - Type: Place
 - Subjects: Geography, Transportation, Technology
 - Country: Poland
+- Image credit: CC_BY_SA | Olgierd (Creative Commons licensed only) | [source](https://commons.wikimedia.org/wiki/File:Most_Rędziński_we_Wroclawiu.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="road_bridge"></a>
@@ -3522,6 +3866,7 @@ Un ponte per auto e autobus.
 - Type: Object
 - Subjects: Transportation
 - Country: Poland
+- Image credit: CC_BY_SA | Photographer: Dey.sandip Additional Credit: User Atention for water spot removal. | [source](https://commons.wikimedia.org/wiki/File:Anjarle_Bridge_and_Cows-fix.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="tumski_bridge"></a>
@@ -3533,6 +3878,7 @@ Un famoso ponte con lucchetti dell'amore e lanterne a gas.
 - Type: Place
 - Subjects: Culture, Geography, Community
 - Country: Poland
+- Image credit: CC_BY_SA | Aw58 | [source](https://commons.wikimedia.org/wiki/File:Wrocław,_most_Tumski_widziany_z_bulwaru_Piotra_Włostowica_(MW).jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="wroclaw_bridges"></a>
@@ -3544,6 +3890,7 @@ A Breslavia ci sono molti ponti che attraversano il fiume Odra.
 - Type: Concept
 - Subjects: Geography, Transportation, Community
 - Country: Poland
+- Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
 - Quests: [Fiume Odra (pl_03)](../quest/pl_03.it.md)
 
 <a id="port"></a>
@@ -3555,6 +3902,7 @@ Un luogo dove le navi caricano e scaricano.
 - Type: Place
 - Subjects: Transportation, Community, Geography
 - Country: Poland
+- Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="person_king_sigismund"></a>
@@ -3568,6 +3916,7 @@ Re di Polonia, che costruì molti splendidi edifici a Varsavia. La sua statua si
 - Subjects: History, Culture
 - Year: 1566
 - Country: Poland
+- Image credit: CC0 | Pieter Soutman, Public domain, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Soutman_Sigismund_III_Vasa_in_coronation_robes.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="animal_enclosure"></a>
@@ -3579,6 +3928,7 @@ Uno spazio sicuro pensato per far vivere gli animali allo zoo.
 - Type: Place
 - Subjects: Animal, Safety
 - Country: Poland
+- Image credit: CC0 | Pearson Scott Foresman | [source](https://commons.wikimedia.org/wiki/File:Corral_(PSF).png)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="fishing_net"></a>
@@ -3590,6 +3940,7 @@ Una rete usata per catturare i pesci.
 - Type: Object
 - Subjects: Technology, Community
 - Country: Poland
+- Image credit: CC0 | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Fishing_net_Karystos_Euboea_Greece.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="wroclaw_centennial_hall"></a>
@@ -3601,6 +3952,7 @@ La Centennial Hall è un enorme edificio che sembra una grande tenda con un tett
 - Type: Place
 - Subjects: Culture, Recreation
 - Country: Poland
+- Image credit: CC0 | Taxiarchos228, FAL, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Jahrhunderthalle1.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="saturn"></a>
@@ -3612,6 +3964,7 @@ Un pianeta gigante con anelli luminosi e numerose lune.
 - Type: Object
 - Subjects: Space, Science
 - Country: Poland
+- Image credit: CC0 | NASA/JPL-Caltech/SSI/Cornell | [source](https://commons.wikimedia.org/wiki/File:Top_view_of_the_rings_of_Saturn_by_Cassini_-_October_10,_2013.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="mermaid_of_warsaw"></a>
@@ -3623,6 +3976,7 @@ Il simbolo della città è una coraggiosa sirena con spada e scudo. La sua statu
 - Type: Object
 - Subjects: Culture, History
 - Country: Poland
+- Image credit: CC0 | Grzegorz Polak, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Syrenka_Warszawska.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quest/pl_01.it.md)
 
 <a id="solar_system"></a>
@@ -3634,6 +3988,7 @@ Il Sole e gli otto pianeti che gli ruotano attorno.
 - Type: Concept
 - Subjects: Space, Science
 - Country: Poland
+- Image credit: CC0 | Originally uploaded from NASA by Bricktop; edited by Deuar, KFP, TotoBaggins, City303, JCPagc2015 | [source](https://commons.wikimedia.org/wiki/File:Moons_of_solar_system_v7.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="sky_tower_plaza"></a>
@@ -3645,6 +4000,7 @@ Una piazza moderna dove le persone si incontrano vicino alla torre.
 - Type: Place
 - Subjects: Geography, Community, Recreation
 - Country: Poland
+- Image credit: CC_BY_SA | JamesYoung8167 | [source](https://commons.wikimedia.org/wiki/File:Xiamen_Shimao_Straits_Tower_2016-02-09.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="wroclaw_dwarf_statue"></a>
@@ -3656,6 +4012,7 @@ Una piccola statua cittadina; i nani sono il simbolo di Breslavia.
 - Type: Object
 - Subjects: Culture, Community, History
 - Country: Poland
+- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="cutter"></a>
@@ -3667,6 +4024,7 @@ Una piccola barca da pesca usata in mare.
 - Type: Object
 - Subjects: Transportation, Technology
 - Country: Poland
+- Image credit: CC_BY_SA | Gordon Leggett | [source](https://commons.wikimedia.org/wiki/File:2009-12-06_USCGC_Key_Biscayne_WPB1339.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 
 <a id="telescope"></a>
@@ -3678,6 +4036,7 @@ Uno strumento che ci aiuta a vedere cose lontane nel cielo.
 - Type: Object
 - Subjects: Science, Technology, Space
 - Country: Poland
+- Image credit: CC_BY_SA | Palonitor | [source](https://commons.wikimedia.org/wiki/File:Kométa_C-2020_F3_(NEOWISE).jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="earth"></a>
@@ -3689,6 +4048,7 @@ Il nostro pianeta natale con terra, aria e acqua.
 - Type: Object
 - Subjects: Space, Science, Geography, Environment
 - Country: Poland
+- Image credit: CC0 | NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans | [source](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="torun"></a>
@@ -3700,6 +4060,7 @@ Città della Polonia in cui nacque Niccolò Copernico.
 - Type: Place
 - Subjects: Geography, History, Culture
 - Country: Poland
+- Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:Widok_zza_Wisły_na_Toruń,_20210908_1711_2822.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="uranus"></a>
@@ -3711,6 +4072,7 @@ Un pianeta blu-verde che ruota su un lato.
 - Type: Object
 - Subjects: Space, Science
 - Country: Poland
+- Image credit: CC0 | NASA/JPL-Caltech | [source](https://commons.wikimedia.org/wiki/File:Uranus2.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="currency_zloty"></a>
@@ -3722,6 +4084,7 @@ La valuta polacca si chiama złoty. Monete e banconote riportano simboli polacch
 - Type: Concept
 - Subjects: Money, Geography
 - Country: Poland
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Bitllets_de_banc_polonesos_2024.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quest/pl_06.it.md)
 
 <a id="wroclaw_old_town_hall"></a>
@@ -3733,6 +4096,7 @@ Uno splendido edificio gotico nella piazza principale. Ha un famoso orologio.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/7/70/Wroclaw-Rathaus.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="venus"></a>
@@ -3744,6 +4108,7 @@ Un pianeta molto caldo ricoperto da spesse nubi.
 - Type: Object
 - Subjects: Space, Science
 - Country: Poland
+- Image credit: CC_BY | ESO/Y. Beletsky | [source](https://commons.wikimedia.org/wiki/File:Mercury,_Venus_and_the_Moon_Align.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quest/pl_07.it.md)
 
 <a id="bishop_dwarf"></a>
@@ -3755,6 +4120,7 @@ Una statua nana che pone una domanda in chiesa.
 - Type: Object
 - Subjects: Culture, History
 - Country: Poland
+- Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quest/pl_02.it.md)
 
 <a id="wroclaw_zoo"></a>
@@ -3766,6 +4132,7 @@ Un grande zoo a Breslavia con molti animali da scoprire.
 - Type: Place
 - Subjects: Geography, Education, Animal
 - Country: Poland
+- Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
 <a id="zuraw_crane"></a>
@@ -3777,5 +4144,6 @@ Una vecchia gru portuale e una porta della città sul fiume.
 - Type: Place
 - Subjects: History, Technology, Geography
 - Country: Poland
+- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
 

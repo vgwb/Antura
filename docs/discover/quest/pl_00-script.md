@@ -131,7 +131,7 @@ Why don't you draw you flag, now?
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-line">Flag of Poland. <span class="yarn-meta">#line:07ca581 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_poland"&gt;&gt;</span>
-
+    
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -278,7 +278,7 @@ Why don't you draw you flag, now?
     <span class="yarn-cmd">&lt;&lt;action lithuania_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">My flag is different! It's white and red with a blue triangle. <span class="yarn-meta">#line:0000741 </span></span>
+<span class="yarn-line">    My flag is different! It's white and red with a blue triangle. <span class="yarn-meta">#line:0000741 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $czech_met = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $czech_met == false&gt;&gt;</span>

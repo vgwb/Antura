@@ -6,7 +6,7 @@ The docs are _always WIP_ please report any error or requests for details (on Di
 The repository of this project is: <https://github.com/vgwb/Antura>  
 
 ## Discover Quests
-To create a new Quest [Design Discover Quests](DiscoverModule/index.md)  
+To create a new Quest [Design Discover Quests](../manual/quest-design/index.md)  
 
 ## Game Design
 

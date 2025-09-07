@@ -7,6 +7,20 @@ hide:
 
 Total found: **34**
 
+!!! note "NOTE: connections type can be:"
+    **Created By** (agent (person/org) who made/discovered/commissioned)  
+    **Located In**       (where it is/was)  
+    **Is A**             (type/category relation (Baguette is a Bread))  
+    **Part Of**         (whole/part relation (Crust is part of Baguette))  
+    **Made Of**          (physical composition)  
+    **Time Context**     (period/event/date)  
+    **Cultural Context** (origin/tradition/symbolism)  
+    **Causal**           (clear cause→effect)  
+    **Purpose**          (used for…)  
+    **Compare**          (compare/Kind similar/contrast/analogy)  
+    **Related To**     (whatever else, last choice...)  
+
+
 ## International
 
 <a id="maths"></a>

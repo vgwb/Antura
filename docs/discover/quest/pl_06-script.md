@@ -93,17 +93,17 @@ Why don't you draw ...
 <span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">GUIDE: Visit the stands and talk to vendors. <span class="yarn-meta">#line:0c470ae </span></span>
-<span class="yarn-line">-&gt; Grocer (spices) <span class="yarn-meta">#line:0c33932 </span></span>
+<span class="yarn-line">Grocer (spices) <span class="yarn-meta">#line:0c33932 </span></span>
 	<span class="yarn-cmd">&lt;&lt;camera_focus shop_grocer&gt;&gt;</span>
-<span class="yarn-line">-&gt; Beekeeper (honey) <span class="yarn-meta">#line:0431cbc </span></span>
+<span class="yarn-line">Beekeeper (honey) <span class="yarn-meta">#line:0431cbc </span></span>
 	<span class="yarn-cmd">&lt;&lt;camera_focus shop_beekeeper&gt;&gt;</span>
-<span class="yarn-line">-&gt; Dairy vendor (milk, butter) <span class="yarn-meta">#line:0bfeb9e </span></span>
+<span class="yarn-line">Dairy vendor (milk, butter) <span class="yarn-meta">#line:0bfeb9e </span></span>
 	<span class="yarn-cmd">&lt;&lt;camera_focus shop_dairy&gt;&gt;</span>
-<span class="yarn-line">-&gt; Egg vendor (eggs) <span class="yarn-meta">#line:0aed436 </span></span>
+<span class="yarn-line">Egg vendor (eggs) <span class="yarn-meta">#line:0aed436 </span></span>
 	<span class="yarn-cmd">&lt;&lt;camera_focus shop_eggs&gt;&gt;</span>
-<span class="yarn-line">-&gt; Greengrocer (fruits, vegetables) <span class="yarn-meta">#line:0b3cc4d </span></span>
+<span class="yarn-line">Greengrocer (fruits, vegetables) <span class="yarn-meta">#line:0b3cc4d </span></span>
 	<span class="yarn-cmd">&lt;&lt;camera_focus shop_greengrocer&gt;&gt;</span>
-<span class="yarn-line">-&gt; Cook (pierogi) <span class="yarn-meta">#line:0486ae8 </span></span>
+<span class="yarn-line">Cook (pierogi) <span class="yarn-meta">#line:0486ae8 </span></span>
 	<span class="yarn-cmd">&lt;&lt;camera_focus shop_cook&gt;&gt;</span>
 
 </code></pre></div>
@@ -115,11 +115,11 @@ Why don't you draw ...
 <span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell cloves, cinnamon, and ginger. I'm a grocer. <span class="yarn-meta">#line:0a66f1e </span></span>
-<span class="yarn-line">-&gt; Buy cloves (1zł) <span class="yarn-meta">#line:0eff39a </span></span>
+<span class="yarn-line">Buy cloves (1zł) <span class="yarn-meta">#line:0eff39a </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_cloves&gt;&gt;</span>
-<span class="yarn-line">-&gt; Buy cinnamon (1zł) <span class="yarn-meta">#line:02f52e1 </span></span>
+<span class="yarn-line">Buy cinnamon (1zł) <span class="yarn-meta">#line:02f52e1 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_cinnamon&gt;&gt;</span>
-<span class="yarn-line">-&gt; Buy ginger (1zł) <span class="yarn-meta">#line:077537d </span></span>
+<span class="yarn-line">Buy ginger (1zł) <span class="yarn-meta">#line:077537d </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_ginger&gt;&gt;</span>
 
 </code></pre></div>
@@ -131,7 +131,7 @@ Why don't you draw ...
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell honey. I'm a beekeeper. <span class="yarn-meta">#line:001922d </span></span>
-<span class="yarn-line">-&gt; Buy honey (1zł) <span class="yarn-meta">#line:086cd0b </span></span>
+<span class="yarn-line">Buy honey (1zł) <span class="yarn-meta">#line:086cd0b </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_honey&gt;&gt;</span>
 
 </code></pre></div>
@@ -143,9 +143,9 @@ Why don't you draw ...
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell milk and butter. I'm a dairy vendor. <span class="yarn-meta">#line:0acb509 </span></span>
-<span class="yarn-line">-&gt; Buy milk (5zł) <span class="yarn-meta">#line:0cd7285 </span></span>
+<span class="yarn-line">Buy milk (5zł) <span class="yarn-meta">#line:0cd7285 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_milk&gt;&gt;</span>
-<span class="yarn-line">-&gt; Buy butter (5zł) <span class="yarn-meta">#line:0e1775b </span></span>
+<span class="yarn-line">Buy butter (5zł) <span class="yarn-meta">#line:0e1775b </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_butter&gt;&gt;</span>
 
 </code></pre></div>
@@ -157,7 +157,7 @@ Why don't you draw ...
 <span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell eggs. I'm an egg vendor. <span class="yarn-meta">#line:03de236 </span></span>
-<span class="yarn-line">-&gt; Buy eggs (10zł) <span class="yarn-meta">#line:07a79e8 </span></span>
+<span class="yarn-line">Buy eggs (10zł) <span class="yarn-meta">#line:07a79e8 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_eggs&gt;&gt;</span>
 
 </code></pre></div>
@@ -170,7 +170,7 @@ Why don't you draw ...
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell fruits and vegetables. I'm a greengrocer. <span class="yarn-meta">#line:082b55f </span></span>
 <span class="yarn-line">Today you need spices and baking items. <span class="yarn-meta">#line:0af9f1e </span></span>
-<span class="yarn-line">-&gt; Buy flour (2zł) <span class="yarn-meta">#line:0cf3d86 </span></span>
+<span class="yarn-line">Buy flour (2zł) <span class="yarn-meta">#line:0cf3d86 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_flour&gt;&gt;</span>
 
 </code></pre></div>
@@ -183,7 +183,7 @@ Why don't you draw ...
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell pierogi. <span class="yarn-meta">#line:0d24718 </span></span>
 <span class="yarn-line">If you buy pierogi for me, you can use my kitchen. <span class="yarn-meta">#line:0eda999 </span></span>
-<span class="yarn-line">-&gt; Buy pierogi (20zł) <span class="yarn-meta">#line:01729c1 </span></span>
+<span class="yarn-line">Buy pierogi (20zł) <span class="yarn-meta">#line:01729c1 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_pierogi&gt;&gt;</span>
 
 </code></pre></div>
@@ -407,7 +407,7 @@ Why don't you draw ...
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">You can buy FLOUR here. <span class="yarn-meta">#line:077f3e2 </span></span>
-<span class="yarn-line">-&gt; Buy flour (2zł) <span class="yarn-meta">#line:00c5178 </span></span>
+<span class="yarn-line">Buy flour (2zł) <span class="yarn-meta">#line:00c5178 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump pay_flour&gt;&gt;</span>
 
 </code></pre></div>

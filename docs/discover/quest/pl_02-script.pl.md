@@ -108,7 +108,7 @@ hide:
 [MISSING TRANSLATION: -&gt; yes]
 	<span class="yarn-cmd">&lt;&lt;activity jigsaw_dwarf_origin dwarf_1_origin_done&gt;&gt;</span>
 [MISSING TRANSLATION: -&gt; no]
-[MISSING TRANSLATION: 	Oh, okay. Maybe later.]
+	[MISSING TRANSLATION: 	Oh, okay. Maybe later.]
 	<span class="yarn-cmd">&lt;&lt;SetActive dwarf_1 false&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -191,13 +191,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">[MISSING TRANSLATION: What do people do in a cathedral?] <span class="yarn-meta">#line:05ea00d </span></span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; They shop for food.] <span class="yarn-meta">#line:0c891cc </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:    Not here. Try again.] <span class="yarn-meta">#line:0d84e58 </span></span>
+<span class="yarn-line">   [MISSING TRANSLATION:    Not here. Try again.] <span class="yarn-meta">#line:0d84e58 </span></span>
    <span class="yarn-cmd">&lt;&lt;jump dwarf_3_quiz&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; They pray.] <span class="yarn-meta">#line:01ac8e6 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:    Yes. You may collect the dwarf.] <span class="yarn-meta">#line:071c92a </span></span>
+<span class="yarn-line">   [MISSING TRANSLATION:    Yes. You may collect the dwarf.] <span class="yarn-meta">#line:071c92a </span></span>
    <span class="yarn-cmd">&lt;&lt;jump dwarf_3_activity&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; They fly planes.] <span class="yarn-meta">#line:09d9b34 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:    No. Try again.] <span class="yarn-meta">#line:06ebc0c </span></span>
+<span class="yarn-line">   [MISSING TRANSLATION:    No. Try again.] <span class="yarn-meta">#line:06ebc0c </span></span>
    <span class="yarn-cmd">&lt;&lt;jump dwarf_3_quiz&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -400,9 +400,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">[MISSING TRANSLATION: I guard the elevator.] <span class="yarn-meta">#line:0dd986c </span></span>
 &lt;&lt;if $found &lt; $need&gt;&gt;
-<span class="yarn-line">[MISSING TRANSLATION: 	You still need more dwarves. Keep exploring the city.] <span class="yarn-meta">#line:08dfa28 </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	You still need more dwarves. Keep exploring the city.] <span class="yarn-meta">#line:08dfa28 </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: 	Great! You found them all. I open the door with my key.] <span class="yarn-meta">#line:0fdc177 </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Great! You found them all. I open the door with my key.] <span class="yarn-meta">#line:0fdc177 </span></span>
 	<span class="yarn-cmd">&lt;&lt;action activate_elevator&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -427,10 +427,10 @@ hide:
 	<span class="yarn-cmd">&lt;&lt;jump assessment_intro&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;set $top_met = true&gt;&gt;</span>
-[MISSING TRANSLATION: 	AHhh Antura was here.]
-[MISSING TRANSLATION: 	But it just went away!]
-[MISSING TRANSLATION: 	Maybe next time you'll make it!]
-[MISSING TRANSLATION: 	But isn't the view beautiful?]
+	[MISSING TRANSLATION: 	AHhh Antura was here.]
+	[MISSING TRANSLATION: 	But it just went away!]
+	[MISSING TRANSLATION: 	Maybe next time you'll make it!]
+	[MISSING TRANSLATION: 	But isn't the view beautiful?]
 	<span class="yarn-cmd">&lt;&lt;jump assessment_intro&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -446,7 +446,7 @@ hide:
 [MISSING TRANSLATION: -&gt; Yes]
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
 [MISSING TRANSLATION: -&gt; No]
-[MISSING TRANSLATION: 	Ok. Come back to me to end the game]
+	[MISSING TRANSLATION: 	Ok. Come back to me to end the game]
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -457,13 +457,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">[MISSING TRANSLATION: What is the symbol of Wrocław?] <span class="yarn-meta">#line:020c66a </span></span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; a dog] <span class="yarn-meta">#line:03ffcee </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: 	Not this.] <span class="yarn-meta">#line:07344d2 </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Not this.] <span class="yarn-meta">#line:07344d2 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; a monkey] <span class="yarn-meta">#line:0760b20 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: 	No.] <span class="yarn-meta">#line:0868c5e </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	No.] <span class="yarn-meta">#line:0868c5e </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; a dwarf] <span class="yarn-meta">#line:0972bf0 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: 	Correct!] <span class="yarn-meta">#line:088b881 </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Correct!] <span class="yarn-meta">#line:088b881 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q2&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -475,13 +475,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">[MISSING TRANSLATION: Wrocław is the ... biggest city of Poland.] <span class="yarn-meta">#line:09d303d </span></span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; first] <span class="yarn-meta">#line:0ce9571 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: 	No.] <span class="yarn-meta">#line:039419a </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	No.] <span class="yarn-meta">#line:039419a </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q2&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; second] <span class="yarn-meta">#line:0fea2e7 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: 	Not this.] <span class="yarn-meta">#line:028148c </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Not this.] <span class="yarn-meta">#line:028148c </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q2&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; third] <span class="yarn-meta">#line:0ebe219 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: 	Correct! Well done.] <span class="yarn-meta">#line:0802440 </span></span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Correct! Well done.] <span class="yarn-meta">#line:0802440 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_end&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>

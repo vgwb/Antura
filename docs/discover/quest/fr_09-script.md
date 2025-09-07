@@ -71,11 +71,11 @@ What is your favourite food?
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Testing start <span class="yarn-meta">#line:0215305</span></span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:09460ce </span></span>
+<span class="yarn-line">Bonjour! <span class="yarn-meta">#line:09460ce </span></span>
     <span class="yarn-cmd">&lt;&lt;jump baker_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0bf3f32 </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:0bf3f32 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Banana! <span class="yarn-meta">#line:0ebf8b2 </span></span>
+<span class="yarn-line">Banana! <span class="yarn-meta">#line:0ebf8b2 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
@@ -87,13 +87,13 @@ What is your favourite food?
 <span class="yarn-header-dim">tags: actor=MAN_BIG, type=Choice</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:00279c8 </span></span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:00eab87 </span></span>
+<span class="yarn-line">Bread <span class="yarn-meta">#line:00eab87 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump baker_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Fish and Crab <span class="yarn-meta">#line:08177a5 </span></span>
+<span class="yarn-line">Fish and Crab <span class="yarn-meta">#line:08177a5 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0a8294a </span></span>
+<span class="yarn-line">Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0a8294a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:0babba5 </span></span>
+<span class="yarn-line">Salt, Pepper, and Oil <span class="yarn-meta">#line:0babba5 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
@@ -117,9 +117,9 @@ What is your favourite food?
 <span class="yarn-header-dim">tags: actor=MAN, no_translate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Testing end <span class="yarn-meta">#line:0110b76 </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:00da30a </span></span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:00cbd60 </span></span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:00cd1cf </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:00da30a </span></span>
+<span class="yarn-line">Au revoir! <span class="yarn-meta">#line:00cbd60 </span></span>
+<span class="yarn-line">Bonne journée! <span class="yarn-meta">#line:00cd1cf </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Baker&gt;&gt;</span>
 
 </code></pre></div>
@@ -140,9 +140,9 @@ What is your favourite food?
 <div class="yarn-node" data-title="fisher_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
 <span class="yarn-header-dim">tags: actor=MAN_OLD, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:02e64ff </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:02c23e5 </span></span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:080d945 </span></span>
+<span class="yarn-line">Au revoir! <span class="yarn-meta">#line:02e64ff </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:02c23e5 </span></span>
+<span class="yarn-line">Bonne journée! <span class="yarn-meta">#line:080d945 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Fisher&gt;&gt;</span>
 
 </code></pre></div>
@@ -164,13 +164,13 @@ What is your favourite food?
 <span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:04deddc </span></span>
-<span class="yarn-line">-&gt; Fish &amp; Crab <span class="yarn-meta">#line:0e562df </span></span>
+<span class="yarn-line">Fish &amp; Crab <span class="yarn-meta">#line:0e562df </span></span>
     <span class="yarn-cmd">&lt;&lt;jump fisher_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:085463e </span></span>
+<span class="yarn-line">Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:085463e </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 <span class="yarn-line">Bread <span class="yarn-meta">#line:0604902 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0c5f144 </span></span>
+<span class="yarn-line">Milk <span class="yarn-meta">#line:0c5f144 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
@@ -182,11 +182,11 @@ What is your favourite food?
 <span class="yarn-header-dim">group: fisher</span>
 <span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Lycée! <span class="yarn-meta">#line:0d65316 </span></span>
+<span class="yarn-line">Lycée! <span class="yarn-meta">#line:0d65316 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:089f618 </span></span>
+<span class="yarn-line">Bonjour! <span class="yarn-meta">#line:089f618 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump fisher_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:06b0535 </span></span>
+<span class="yarn-line">Au revoir! <span class="yarn-meta">#line:06b0535 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
@@ -212,11 +212,11 @@ What is your favourite food?
 <span class="yarn-header-dim">group: cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0693ba6 </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:0693ba6 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:022bf02 </span></span>
+<span class="yarn-line">Bonjour! <span class="yarn-meta">#line:022bf02 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump cheesemonger_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Chat! <span class="yarn-meta">#line:0b56a4d </span></span>
+<span class="yarn-line">Chat! <span class="yarn-meta">#line:0b56a4d </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
@@ -229,13 +229,13 @@ What is your favourite food?
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:03009de </span></span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0aa7def </span></span>
+<span class="yarn-line">Milk <span class="yarn-meta">#line:0aa7def </span></span>
     <span class="yarn-cmd">&lt;&lt;jump cheesemonger_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:057f694 </span></span>
+<span class="yarn-line">Salt, Pepper, and Oil <span class="yarn-meta">#line:057f694 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:087919f </span></span>
+<span class="yarn-line">Bread <span class="yarn-meta">#line:087919f </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:067bfab </span></span>
+<span class="yarn-line">Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:067bfab </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
@@ -246,9 +246,9 @@ What is your favourite food?
 <div class="yarn-node" data-title="cheesemonger_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group:cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:0dd3ac3 </span></span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:02a1238 </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0273de1 </span></span>
+<span class="yarn-line">Bonne journée! <span class="yarn-meta">#line:0dd3ac3 </span></span>
+<span class="yarn-line">Au revoir! <span class="yarn-meta">#line:02a1238 </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:0273de1 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Cheesemonger&gt;&gt;</span>
 
 </code></pre></div>
@@ -292,9 +292,9 @@ What is your favourite food?
 <div class="yarn-node" data-title="greengrocer_payment_activity"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:0ff9361 </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0741be3 </span></span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:023f352 </span></span>
+<span class="yarn-line">Bonne journée! <span class="yarn-meta">#line:0ff9361 </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:0741be3 </span></span>
+<span class="yarn-line">Au revoir! <span class="yarn-meta">#line:023f352 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Greengrocer&gt;&gt;</span>
 
 </code></pre></div>
@@ -306,13 +306,13 @@ What is your favourite food?
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:042eb5a </span></span>
-<span class="yarn-line">-&gt; Fish and Crab <span class="yarn-meta">#line:0fead1d </span></span>
+<span class="yarn-line">Fish and Crab <span class="yarn-meta">#line:0fead1d </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:0879f58 </span></span>
+<span class="yarn-line">Bread <span class="yarn-meta">#line:0879f58 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:015a2b4 </span></span>
+<span class="yarn-line">Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:015a2b4 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump greengrocer_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0fd3f3a </span></span>
+<span class="yarn-line">Milk <span class="yarn-meta">#line:0fd3f3a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code></pre></div>
@@ -324,11 +324,11 @@ What is your favourite food?
 <span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0a43c28 </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:0a43c28 </span></span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Train! <span class="yarn-meta">#line:02af86a </span></span>
+<span class="yarn-line">Train! <span class="yarn-meta">#line:02af86a </span></span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:0039ce8 </span></span>
+<span class="yarn-line">Bonjour! <span class="yarn-meta">#line:0039ce8 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump greengrocer_bonjour&gt;&gt;</span>
 
 </code></pre></div>
@@ -353,9 +353,9 @@ What is your favourite food?
 <div class="yarn-node" data-title="grocer_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN_OLD, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:0ce6f8a </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0e8ec1b </span></span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:062029a </span></span>
+<span class="yarn-line">Au revoir! <span class="yarn-meta">#line:0ce6f8a </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:0e8ec1b </span></span>
+<span class="yarn-line">Bonne journée! <span class="yarn-meta">#line:062029a </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Grocer&gt;&gt;</span>
 
 </code></pre></div>
@@ -379,13 +379,13 @@ What is your favourite food?
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:0c36100 </span></span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0d6dabd </span></span>
+<span class="yarn-line">Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0d6dabd </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:03eeda4 </span></span>
+<span class="yarn-line">Bread <span class="yarn-meta">#line:03eeda4 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:097fca2 </span></span>
+<span class="yarn-line">Milk <span class="yarn-meta">#line:097fca2 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:0068f15 </span></span>
+<span class="yarn-line">Salt, Pepper, and Oil <span class="yarn-meta">#line:0068f15 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump grocer_pay_activity&gt;&gt;</span>
 
 </code></pre></div>
@@ -397,11 +397,11 @@ What is your favourite food?
 <span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0dd992c </span></span>
+<span class="yarn-line">Merci! <span class="yarn-meta">#line:0dd992c </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:0623f71 </span></span>
+<span class="yarn-line">Bonjour! <span class="yarn-meta">#line:0623f71 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump grocer_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Livre! <span class="yarn-meta">#line:0b4db3b </span></span>
+<span class="yarn-line">Livre! <span class="yarn-meta">#line:0b4db3b </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 
 </code></pre></div>
@@ -655,9 +655,9 @@ What is your favourite food?
 <div class="yarn-node" data-title="talk_dont_understand"><pre class="yarn-code" style="--node-color:orange"><code><span class="yarn-header-dim">tags: detour</span>
 <span class="yarn-header-dim">color: orange</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; Sorry, I don't think I understand... <span class="yarn-meta">#line:0f9044b </span></span>
-<span class="yarn-line">=&gt; What?? <span class="yarn-meta">#line:09682b7 </span></span>
-<span class="yarn-line">=&gt; Huh? <span class="yarn-meta">#line:0c1b3e0 </span></span>
+<span class="yarn-line">Sorry, I don't think I understand... <span class="yarn-meta">#line:0f9044b </span></span>
+<span class="yarn-line">What?? <span class="yarn-meta">#line:09682b7 </span></span>
+<span class="yarn-line">Huh? <span class="yarn-meta">#line:0c1b3e0 </span></span>
 
 </code></pre></div>
 
@@ -667,7 +667,7 @@ What is your favourite food?
 <div class="yarn-node" data-title="talk_dont_sell"><pre class="yarn-code" style="--node-color:orange"><code><span class="yarn-header-dim">tags: detour</span>
 <span class="yarn-header-dim">color: orange</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; Sorry, I don't sell that. <span class="yarn-meta">#line:08700b0 </span></span>
+<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:08700b0 </span></span>
 
 </code></pre></div>
 

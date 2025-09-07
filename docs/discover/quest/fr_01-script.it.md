@@ -27,7 +27,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $MET_MAJOR = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $MET_MONALISA = false&gt;&gt;</span>
 [MISSING TRANSLATION: ]
-<span class="yarn-line">[MISSING TRANSLATION: Welcome to Paris!] <span class="yarn-meta">#line:fr01_start </span></span>
+<span class="yarn-line">Benvenuti a Parigi! <span class="yarn-meta">#line:fr01_start </span></span>
 <span class="yarn-line">[MISSING TRANSLATION: Go and talk with the tutor!] <span class="yarn-meta">#line:fr01_start_2</span></span>
 <span class="yarn-cmd">&lt;&lt;target tutor&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -40,7 +40,7 @@ hide:
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">OTTIMO! Ora posso cuocere la baguette. E... <span class="yarn-meta">#line:0017917 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: CONGRATULATIONS! You won the game! Did you like it?] <span class="yarn-meta">#line:0d11596 </span></span>
+<span class="yarn-line">CONGRATULAZIONI! Hai vinto la partita! Ti è piaciuta? <span class="yarn-meta">#line:0d11596 </span></span>
 <span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -63,10 +63,10 @@ hide:
 <div class="yarn-node" data-title="talk_tutor"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">actor: tutor</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I saw Antura going to the Eiffel Tower.] <span class="yarn-meta">#line:fr01_talk_tutor</span></span>
+<span class="yarn-line">Ho visto Antura andare alla Torre Eiffel. <span class="yarn-meta">#line:fr01_talk_tutor</span></span>
 <span class="yarn-cmd">&lt;&lt;camera_focus tour_eiffell&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Follow the target or use the map!] <span class="yarn-meta">#line:fr01_talk_tutor_2 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Get there as soon as possible!] <span class="yarn-meta">#line:fr01_talk_tutor_3 </span></span>
+<span class="yarn-line">Segui il bersaglio o usa la mappa! <span class="yarn-meta">#line:fr01_talk_tutor_2 </span></span>
+<span class="yarn-line">Arrivate il prima possibile! <span class="yarn-meta">#line:fr01_talk_tutor_3 </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -77,14 +77,14 @@ hide:
 <span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset toureiffell&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: The Eiffel Tower is 300 meters tall.] <span class="yarn-meta">#line:08c1973 </span></span>
+<span class="yarn-line">La Torre Eiffel è alta 300 metri. <span class="yarn-meta">#line:08c1973 </span></span>
 <span class="yarn-cmd">&lt;&lt;asset mr_eiffel&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Built by Mr Eiffel in 1887.] <span class="yarn-meta">#line:09e5c3b </span></span>
+<span class="yarn-line">Costruito dal signor Eiffel nel 1887. <span class="yarn-meta">#line:09e5c3b </span></span>
 <span class="yarn-cmd">&lt;&lt;asset iron&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: It's made of iron!] <span class="yarn-meta">#line:0d59ade </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I saw Antura going towards Notre Dame.] <span class="yarn-meta">#line:04d1e52 </span></span>
+<span class="yarn-line">È fatto di ferro! <span class="yarn-meta">#line:0d59ade </span></span>
+<span class="yarn-line">Ho visto Antura dirigersi verso Notre Dame. <span class="yarn-meta">#line:04d1e52 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_focus notredame&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Get there!] <span class="yarn-meta">#line:083b3bf </span></span>
+<span class="yarn-line">Arrivate! <span class="yarn-meta">#line:083b3bf </span></span>
 [MISSING TRANSLATION: ]
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -96,17 +96,17 @@ hide:
 <span class="yarn-header-dim">actor: guide</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $TOTAL_COINS &gt; 2&gt;&gt;
-<span class="yarn-line">[MISSING TRANSLATION:     Here is your ticket.] <span class="yarn-meta">#line:04e74ad </span></span>
+<span class="yarn-line">    Ecco il tuo biglietto. <span class="yarn-meta">#line:04e74ad </span></span>
     <span class="yarn-cmd">&lt;&lt;asset tour_eiffell_ticket&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = $TOTAL_COINS-3&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action area_toureiffel&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset tour_eiffell_map&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     I saw Antura going up to the top of the tower.] <span class="yarn-meta">#line:089abda </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Take the elevator!] <span class="yarn-meta">#line:0585a5e </span></span>
+<span class="yarn-line">    Ho visto Antura salire in cima alla torre. <span class="yarn-meta">#line:089abda </span></span>
+<span class="yarn-line">    Prendi l'ascensore! <span class="yarn-meta">#line:0585a5e </span></span>
 &lt;&lt;elseif $TOTAL_COINS &gt; 0&gt;&gt; 
-<span class="yarn-line">[MISSING TRANSLATION:     Collect all coins!] <span class="yarn-meta">#line:04d966b </span></span>
+<span class="yarn-line">    Raccogli tutte le monete! <span class="yarn-meta">#line:04d966b </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     The ticket for the Eiffel Tower costs 3 coins.] <span class="yarn-meta">#line:069cbb3 </span></span>
+<span class="yarn-line">    Il biglietto per la Torre Eiffel costa 3 monete. <span class="yarn-meta">#line:069cbb3 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -117,12 +117,12 @@ hide:
 <div class="yarn-node" data-title="talk_notre_dame"><pre class="yarn-code"><code><span class="yarn-header-dim">group: notredame</span>
 <span class="yarn-header-dim">tags: actor=MAN_OLD, asset=notredame</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm the Mayor of Paris.] <span class="yarn-meta">#line:0cc11fa </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: This is Notre-Dame Cathedral.] <span class="yarn-meta">#line:06f3fa2 </span></span>
+<span class="yarn-line">Sono il sindaco di Parigi. <span class="yarn-meta">#line:0cc11fa </span></span>
+<span class="yarn-line">Questa è la cattedrale di Notre-Dame. <span class="yarn-meta">#line:06f3fa2 </span></span>
 <span class="yarn-cmd">&lt;&lt;card notredame zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: It is a famous Gothic church, built in 1182.] <span class="yarn-meta">#line:02edc0f </span></span>
+<span class="yarn-line">È una famosa chiesa gotica, costruita nel 1182. <span class="yarn-meta">#line:02edc0f </span></span>
 <span class="yarn-cmd">&lt;&lt;action AREA_NOTREDAME_ROOF&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Come with me up to the roof of the church!] <span class="yarn-meta">#line:083dfcc </span></span>
+<span class="yarn-line">Vieni con me sul tetto della chiesa! <span class="yarn-meta">#line:083dfcc </span></span>
 <span class="yarn-cmd">&lt;&lt;set $MET_MAJOR = true&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -136,13 +136,13 @@ hide:
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 4&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Help me! Antura made a mess in my kitchen!] <span class="yarn-meta">#line:07bbb10 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     I can't find the ingredients to make the baguette.] <span class="yarn-meta">#line:09e867c </span></span>
+<span class="yarn-line">    Aiutatemi! Antura ha fatto un pasticcio nella mia cucina! <span class="yarn-meta">#line:07bbb10 </span></span>
+<span class="yarn-line">    Non riesco a trovare gli ingredienti per preparare la baguette. <span class="yarn-meta">#line:09e867c </span></span>
     <span class="yarn-cmd">&lt;&lt;asset  baguette&gt;&gt;</span>
-<span class="yarn-line">Il nostro pane francese speciale! <span class="yarn-meta">#line:0874503 </span></span>
+<span class="yarn-line">    Il nostro pane francese speciale! <span class="yarn-meta">#line:0874503 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $QUEST_ITEMS = 4&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Please bring me 4 ingredients:] <span class="yarn-meta">#line:07d64c7 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     flour, water, yeast, and salt.] <span class="yarn-meta">#line:0c01530 </span></span>
+<span class="yarn-line">    Per favore portami 4 ingredienti: <span class="yarn-meta">#line:07d64c7 </span></span>
+<span class="yarn-line">    farina, acqua, lievito e sale. <span class="yarn-meta">#line:0c01530 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 [MISSING TRANSLATION: ]
@@ -155,7 +155,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset louvre_inside&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: You can find many sculptures and paintings.] <span class="yarn-meta">#line:08dc97f </span></span>
+<span class="yarn-line">Si possono trovare numerose sculture e dipinti. <span class="yarn-meta">#line:08dc97f </span></span>
 <span class="yarn-cmd">&lt;&lt;jump find_monalisa&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -178,9 +178,9 @@ hide:
 <div class="yarn-node" data-title="go_bakery"><pre class="yarn-code"><code><span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: ]
-<span class="yarn-line">[MISSING TRANSLATION: Now look for Antura! It went to the bakery for a baguette!] <span class="yarn-meta">#line:076ef0f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Hurry up!] <span class="yarn-meta">#line:0e9c3e7 </span></span>
+ [MISSING TRANSLATION: ]
+<span class="yarn-line">Ora cerca Antura! È andata in panetteria a prendere una baguette! <span class="yarn-meta">#line:076ef0f </span></span>
+<span class="yarn-line">Affrettarsi! <span class="yarn-meta">#line:0e9c3e7 </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -193,7 +193,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_salt&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: This is salt.] <span class="yarn-meta">#line:00f1d2f </span></span>
+<span class="yarn-line">Questo è sale. <span class="yarn-meta">#line:00f1d2f </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -206,7 +206,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_2&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_flour&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: This is flour.] <span class="yarn-meta">#line:06022b0 </span></span>
+<span class="yarn-line">Questa è farina. <span class="yarn-meta">#line:06022b0 </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -219,7 +219,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_water&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: This is water.] <span class="yarn-meta">#line:0c4d1f6 </span></span>
+<span class="yarn-line">Questa è acqua. <span class="yarn-meta">#line:0c4d1f6 </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -232,7 +232,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_yeast&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: This is yeast.] <span class="yarn-meta">#line:025865d </span></span>
+<span class="yarn-line">Questo è lievito. <span class="yarn-meta">#line:025865d </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -243,9 +243,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset notredame_fire&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: There was a big fire in 2019, but we could repair it.] <span class="yarn-meta">#line:09a0ead </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I saw Antura run into the Louvre Museum.] <span class="yarn-meta">#line:02ba888 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It is just across the River Seine.] <span class="yarn-meta">#line:00d22e5 </span></span>
+<span class="yarn-line">Nel 2019 c'è stato un grande incendio, ma siamo riusciti a ripararlo. <span class="yarn-meta">#line:09a0ead </span></span>
+<span class="yarn-line">Ho visto Antura correre al Museo del Louvre. <span class="yarn-meta">#line:02ba888 </span></span>
+<span class="yarn-line">Si trova proprio dall'altra parte della Senna. <span class="yarn-meta">#line:00d22e5 </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -256,13 +256,13 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Welcome to the Louvre Museum. What do you want to do?] <span class="yarn-meta">#line:0e6d2a5 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Tell me about the Louvre] <span class="yarn-meta">#line:0a5fc63 </span></span>
+<span class="yarn-line">Benvenuti al Museo del Louvre. Cosa volete fare? <span class="yarn-meta">#line:0e6d2a5 </span></span>
+<span class="yarn-line">Parlami del Louvre <span class="yarn-meta">#line:0a5fc63 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump visit_louvre&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Exit] <span class="yarn-meta">#line:0efc18f </span></span>
+<span class="yarn-line">Uscita <span class="yarn-meta">#line:0efc18f </span></span>
     <span class="yarn-cmd">&lt;&lt;if $MET_MONALISA&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_EXIT&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:         Come back!] <span class="yarn-meta">#line:07dd921 </span></span>
+<span class="yarn-line">        Ritorno! <span class="yarn-meta">#line:07dd921 </span></span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump find_monalisa&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -307,7 +307,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN, </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset venusmilo&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: The Venus de Milo, an ancient Greek marble sculpture.] <span class="yarn-meta">#line:053d4fe </span></span>
+<span class="yarn-line">La Venere di Milo, antica scultura greca in marmo. <span class="yarn-meta">#line:053d4fe </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -321,13 +321,13 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump go_bakery&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;asset louvre&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: This is the entrance to the Louvre, our national art museum.] <span class="yarn-meta">#line:0cf1cc8 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Do you want to enter?] <span class="yarn-meta">#line:0f74ff9</span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Yes:] <span class="yarn-meta">#line:090114f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Enjoy your visit!] <span class="yarn-meta">#line:056e051 </span></span>
+<span class="yarn-line">donna: Questo è l'ingresso del Louvre, il nostro museo d'arte nazionale. <span class="yarn-meta">#line:0cf1cc8 </span></span>
+<span class="yarn-line">donna: Vuoi entrare? <span class="yarn-meta">#line:0f74ff9</span></span>
+<span class="yarn-line">SÌ <span class="yarn-meta">#line:090114f </span></span>
+<span class="yarn-line">    Buona visita! <span class="yarn-meta">#line:056e051 </span></span>
     <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_ENTER &gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; No:] <span class="yarn-meta">#line:077422a </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Okay.] <span class="yarn-meta">#line:0c28ea0 </span></span>
+<span class="yarn-line">NO <span class="yarn-meta">#line:077422a </span></span>
+<span class="yarn-line">    Va bene. <span class="yarn-meta">#line:0c28ea0 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
@@ -345,15 +345,15 @@ hide:
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ciao. Cosa vuoi sapere? <span class="yarn-meta">#line:0070084 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; What is the Eiffel Tower?] <span class="yarn-meta">#line:0d91dc0 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     The famous iron tower, 300 meters tall.] <span class="yarn-meta">#line:0f17af0 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     The symbol of Paris!] <span class="yarn-meta">#line:07a113f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Where are we?] <span class="yarn-meta">#line:09dd1da </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     We are in Paris, the city of love!] <span class="yarn-meta">#line:02b627d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Is this place real?] <span class="yarn-meta">#line:08bede4 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Sure! Why are you asking?] <span class="yarn-meta">#line:08654e6 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Well... it looks like a video game, doesn't it?] <span class="yarn-meta">#line:0bc62a3 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Nothing. Bye.] <span class="yarn-meta">#line:0fe0732 </span></span>
+<span class="yarn-line">Cos'è la Torre Eiffel? <span class="yarn-meta">#line:0d91dc0 </span></span>
+<span class="yarn-line">    La famosa torre di ferro, alta 300 metri. <span class="yarn-meta">#line:0f17af0 </span></span>
+<span class="yarn-line">    Il simbolo di Parigi! <span class="yarn-meta">#line:07a113f </span></span>
+<span class="yarn-line">Dove siamo? <span class="yarn-meta">#line:09dd1da </span></span>
+<span class="yarn-line">    Siamo a Parigi, la città dell'amore! <span class="yarn-meta">#line:02b627d </span></span>
+<span class="yarn-line">Questo posto è reale? <span class="yarn-meta">#line:08bede4 </span></span>
+<span class="yarn-line">    Certo! Perché me lo chiedi? <span class="yarn-meta">#line:08654e6 </span></span>
+<span class="yarn-line">    Beh... sembra un videogioco, non è vero? <span class="yarn-meta">#line:0bc62a3 </span></span>
+<span class="yarn-line">Niente. Ciao. <span class="yarn-meta">#line:0fe0732 </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -364,17 +364,17 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: generic</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Do you have any questions?] <span class="yarn-meta">#line:07b94e9 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Have you seen Antura?] <span class="yarn-meta">#line:0f18ad3 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     =&gt; Yes! Talk to everybody and follow the lights!] <span class="yarn-meta">#line:0cf9b4e </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     =&gt; No. Who is Antura?] <span class="yarn-meta">#line:0f9dd62 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; What are you doing?] <span class="yarn-meta">#line:002796f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     =&gt; I'm going to work!] <span class="yarn-meta">#line:0fe4ff4 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     =&gt; I'm going to buy bread at the bakery.] <span class="yarn-meta">#line:05a38a8 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Where do you come from?] <span class="yarn-meta">#line:05eabcf </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     =&gt; I wasn't born in this country.] <span class="yarn-meta">#line:0635a6a </span></span>
-<span class="yarn-line">Dal pianeta Terra. <span class="yarn-meta">#line:0749690 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Goodbye] <span class="yarn-meta">#line:0ee51fc </span></span>
+<span class="yarn-line">Hai qualche domanda? <span class="yarn-meta">#line:07b94e9 </span></span>
+<span class="yarn-line">Hai visto Antura? <span class="yarn-meta">#line:0f18ad3 </span></span>
+<span class="yarn-line">    Sì! Parla con tutti e segui le luci! <span class="yarn-meta">#line:0cf9b4e </span></span>
+<span class="yarn-line">    No. Chi è Antura? <span class="yarn-meta">#line:0f9dd62 </span></span>
+<span class="yarn-line">Cosa fai? <span class="yarn-meta">#line:002796f </span></span>
+<span class="yarn-line">    Vado a lavorare! <span class="yarn-meta">#line:0fe4ff4 </span></span>
+<span class="yarn-line">    Vado a comprare il pane al panificio. <span class="yarn-meta">#line:05a38a8 </span></span>
+<span class="yarn-line">Da dove vieni? <span class="yarn-meta">#line:05eabcf </span></span>
+<span class="yarn-line">    Non sono nato in questo paese. <span class="yarn-meta">#line:0635a6a </span></span>
+<span class="yarn-line">    Dal pianeta Terra. <span class="yarn-meta">#line:0749690 </span></span>
+<span class="yarn-line">Arrivederci <span class="yarn-meta">#line:0ee51fc </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -385,8 +385,8 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: kids</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; Hi!] <span class="yarn-meta">#line:0c4d9e4 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; How are you?] <span class="yarn-meta">#line:032d401 </span></span>
+<span class="yarn-line">CIAO! <span class="yarn-meta">#line:0c4d9e4 </span></span>
+<span class="yarn-line">Come stai? <span class="yarn-meta">#line:032d401 </span></span>
 [MISSING TRANSLATION: ]
 </code></pre></div>
 

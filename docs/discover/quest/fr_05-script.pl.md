@@ -117,7 +117,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">[MISSING TRANSLATION: Find all the things a knight wears:] <span class="yarn-meta">#line:0bfad5e </span></span>
 <span class="yarn-line">[MISSING TRANSLATION: helmet, sword, bow, and armor.] <span class="yarn-meta">#line:08b44fc </span></span>
-[MISSING TRANSLATION: ]
+ [MISSING TRANSLATION: ]
 [MISSING TRANSLATION: ]
 </code></pre></div>
 
@@ -128,7 +128,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">[MISSING TRANSLATION: Find all the prince's items:] <span class="yarn-meta">#line:0cb22cb </span></span>
 <span class="yarn-line">[MISSING TRANSLATION: hat, musical instrument, dance shoes, and ball mask.] <span class="yarn-meta">#line:0d2be40 </span></span>
-[MISSING TRANSLATION: ]
+ [MISSING TRANSLATION: ]
 [MISSING TRANSLATION: ]
 </code></pre></div>
 

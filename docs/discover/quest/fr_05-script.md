@@ -117,7 +117,7 @@ Now draw your favourite castle!
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find all the things a knight wears: <span class="yarn-meta">#line:0bfad5e </span></span>
 <span class="yarn-line">helmet, sword, bow, and armor. <span class="yarn-meta">#line:08b44fc </span></span>
-
+ 
 
 </code></pre></div>
 
@@ -128,7 +128,7 @@ Now draw your favourite castle!
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find all the prince's items: <span class="yarn-meta">#line:0cb22cb </span></span>
 <span class="yarn-line">hat, musical instrument, dance shoes, and ball mask. <span class="yarn-meta">#line:0d2be40 </span></span>
-
+ 
 
 </code></pre></div>
 
@@ -138,9 +138,9 @@ Now draw your favourite castle!
 <div class="yarn-node" data-title="guide_question"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Did you find Antura? <span class="yarn-meta">#line:01003d0 </span></span>
-<span class="yarn-line">-&gt; "YES": <span class="yarn-meta">#line:0d9f509 </span></span>
+<span class="yarn-line">"YES": <span class="yarn-meta">#line:0d9f509 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump guide_done&gt;&gt;</span>
-<span class="yarn-line">-&gt; "NO": <span class="yarn-meta">#line:0de6ebb </span></span>
+<span class="yarn-line">"NO": <span class="yarn-meta">#line:0de6ebb </span></span>
     <span class="yarn-cmd">&lt;&lt;jump guide_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -334,11 +334,11 @@ Did you like the castles?
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; Did you know that the Loire Valley is a UNESCO World Heritage site? <span class="yarn-meta">#line:0c3f4e1 </span></span>
-<span class="yarn-line">=&gt; The castle of Chambord has 440 rooms! <span class="yarn-meta">#line:0a5f4f1 </span></span>
-<span class="yarn-line">=&gt; The castle of Chinon was a favorite residence of King Henry II of England. <span class="yarn-meta">#line:0b6e2c3 </span></span>
-<span class="yarn-line">=&gt; The Loire Valley is known as the "Garden of France". <span class="yarn-meta">#line:0d1e4b5 </span></span>
-<span class="yarn-line">=&gt; The castle of Chambord was built in the 16th century. <span class="yarn-meta">#line:0e2f6d7 </span></span>
+<span class="yarn-line">Did you know that the Loire Valley is a UNESCO World Heritage site? <span class="yarn-meta">#line:0c3f4e1 </span></span>
+<span class="yarn-line">The castle of Chambord has 440 rooms! <span class="yarn-meta">#line:0a5f4f1 </span></span>
+<span class="yarn-line">The castle of Chinon was a favorite residence of King Henry II of England. <span class="yarn-meta">#line:0b6e2c3 </span></span>
+<span class="yarn-line">The Loire Valley is known as the "Garden of France". <span class="yarn-meta">#line:0d1e4b5 </span></span>
+<span class="yarn-line">The castle of Chambord was built in the 16th century. <span class="yarn-meta">#line:0e2f6d7 </span></span>
 
 </code></pre></div>
 

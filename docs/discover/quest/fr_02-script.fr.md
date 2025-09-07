@@ -272,7 +272,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("match_shapes") &gt; 0&gt;&gt;
-<span class="yarn-line">[MISSING TRANSLATION:     Great job!] <span class="yarn-meta">#line:0e3f1fa </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Great job!] <span class="yarn-meta">#line:0e3f1fa </span></span>
     <span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: Not quite right, let's try again.] <span class="yarn-meta">#line:0a5c8f1</span></span>

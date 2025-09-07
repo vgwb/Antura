@@ -139,7 +139,7 @@ Why don't you draw the Eiffel Tower?
 <span class="yarn-line">    Help me! Antura made a mess in my kitchen! <span class="yarn-meta">#line:07bbb10 </span></span>
 <span class="yarn-line">    I can't find the ingredients to make the baguette. <span class="yarn-meta">#line:09e867c </span></span>
     <span class="yarn-cmd">&lt;&lt;asset  baguette&gt;&gt;</span>
-<span class="yarn-line">Our special French bread! <span class="yarn-meta">#line:0874503 </span></span>
+<span class="yarn-line">    Our special French bread! <span class="yarn-meta">#line:0874503 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $QUEST_ITEMS = 4&gt;&gt;</span>
 <span class="yarn-line">    Please bring me 4 ingredients: <span class="yarn-meta">#line:07d64c7 </span></span>
 <span class="yarn-line">    flour, water, yeast, and salt. <span class="yarn-meta">#line:0c01530 </span></span>
@@ -178,7 +178,7 @@ Why don't you draw the Eiffel Tower?
 <div class="yarn-node" data-title="go_bakery"><pre class="yarn-code"><code><span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
-
+ 
 <span class="yarn-line">Now look for Antura! It went to the bakery for a baguette! <span class="yarn-meta">#line:076ef0f </span></span>
 <span class="yarn-line">Hurry up! <span class="yarn-meta">#line:0e9c3e7 </span></span>
 
@@ -257,9 +257,9 @@ Why don't you draw the Eiffel Tower?
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Welcome to the Louvre Museum. What do you want to do? <span class="yarn-meta">#line:0e6d2a5 </span></span>
-<span class="yarn-line">-&gt; Tell me about the Louvre <span class="yarn-meta">#line:0a5fc63 </span></span>
+<span class="yarn-line">Tell me about the Louvre <span class="yarn-meta">#line:0a5fc63 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump visit_louvre&gt;&gt;</span>
-<span class="yarn-line">-&gt; Exit <span class="yarn-meta">#line:0efc18f </span></span>
+<span class="yarn-line">Exit <span class="yarn-meta">#line:0efc18f </span></span>
     <span class="yarn-cmd">&lt;&lt;if $MET_MONALISA&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_EXIT&gt;&gt;</span>
 <span class="yarn-line">        Come back! <span class="yarn-meta">#line:07dd921 </span></span>
@@ -277,11 +277,11 @@ Why don't you draw the Eiffel Tower?
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset monalisa&gt;&gt;</span>
-<span class="yarn-line">This is the famous Mona Lisa. nalisa_1 <span class="yarn-meta">#line:louvre_monalisa_1</span></span>
+<span class="yarn-line">This is the famous Mona Lisa. <span class="yarn-meta">#line:louvre_monalisa_1</span></span>
 <span class="yarn-cmd">&lt;&lt;set $MET_MONALISA = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;asset leaonardodavinci&gt;&gt;</span>
-<span class="yarn-line">It was painted around 1500 nalisa_2 <span class="yarn-meta">#line:louvre_monalisa_2</span></span>
-<span class="yarn-line">by the artist and scientist Leonardo da Vinci. nalisa_3 <span class="yarn-meta">#line:louvre_monalisa_3</span></span>
+<span class="yarn-line">It was painted around 1500 <span class="yarn-meta">#line:louvre_monalisa_2</span></span>
+<span class="yarn-line">by the artist and scientist Leonardo da Vinci. <span class="yarn-meta">#line:louvre_monalisa_3</span></span>
 
 </code></pre></div>
 
@@ -323,10 +323,10 @@ Why don't you draw the Eiffel Tower?
 <span class="yarn-cmd">&lt;&lt;asset louvre&gt;&gt;</span>
 <span class="yarn-line">This is the entrance to the Louvre, our national art museum. <span class="yarn-meta">#line:0cf1cc8 </span></span>
 <span class="yarn-line">Do you want to enter? <span class="yarn-meta">#line:0f74ff9</span></span>
-<span class="yarn-line">-&gt; Yes: <span class="yarn-meta">#line:090114f </span></span>
+<span class="yarn-line">Yes: <span class="yarn-meta">#line:090114f </span></span>
 <span class="yarn-line">    Enjoy your visit! <span class="yarn-meta">#line:056e051 </span></span>
     <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_ENTER &gt;&gt;</span>
-<span class="yarn-line">-&gt; No: <span class="yarn-meta">#line:077422a </span></span>
+<span class="yarn-line">No: <span class="yarn-meta">#line:077422a </span></span>
 <span class="yarn-line">    Okay. <span class="yarn-meta">#line:0c28ea0 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -345,15 +345,15 @@ Why don't you draw the Eiffel Tower?
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ciao. What do you want to know? <span class="yarn-meta">#line:0070084 </span></span>
-<span class="yarn-line">-&gt; What is the Eiffel Tower? <span class="yarn-meta">#line:0d91dc0 </span></span>
+<span class="yarn-line">What is the Eiffel Tower? <span class="yarn-meta">#line:0d91dc0 </span></span>
 <span class="yarn-line">    The famous iron tower, 300 meters tall. <span class="yarn-meta">#line:0f17af0 </span></span>
 <span class="yarn-line">    The symbol of Paris! <span class="yarn-meta">#line:07a113f </span></span>
-<span class="yarn-line">-&gt; Where are we? <span class="yarn-meta">#line:09dd1da </span></span>
+<span class="yarn-line">Where are we? <span class="yarn-meta">#line:09dd1da </span></span>
 <span class="yarn-line">    We are in Paris, the city of love! <span class="yarn-meta">#line:02b627d </span></span>
-<span class="yarn-line">-&gt; Is this place real? <span class="yarn-meta">#line:08bede4 </span></span>
+<span class="yarn-line">Is this place real? <span class="yarn-meta">#line:08bede4 </span></span>
 <span class="yarn-line">    Sure! Why are you asking? <span class="yarn-meta">#line:08654e6 </span></span>
 <span class="yarn-line">    Well... it looks like a video game, doesn't it? <span class="yarn-meta">#line:0bc62a3 </span></span>
-<span class="yarn-line">-&gt; Nothing. Bye. <span class="yarn-meta">#line:0fe0732 </span></span>
+<span class="yarn-line">Nothing. Bye. <span class="yarn-meta">#line:0fe0732 </span></span>
 
 </code></pre></div>
 
@@ -365,16 +365,16 @@ Why don't you draw the Eiffel Tower?
 <span class="yarn-header-dim">spawn_group: generic</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Do you have any questions? <span class="yarn-meta">#line:07b94e9 </span></span>
-<span class="yarn-line">-&gt; Have you seen Antura? <span class="yarn-meta">#line:0f18ad3 </span></span>
-<span class="yarn-line">    =&gt; Yes! Talk to everybody and follow the lights! <span class="yarn-meta">#line:0cf9b4e </span></span>
-<span class="yarn-line">    =&gt; No. Who is Antura? <span class="yarn-meta">#line:0f9dd62 </span></span>
-<span class="yarn-line">-&gt; What are you doing? <span class="yarn-meta">#line:002796f </span></span>
-<span class="yarn-line">    =&gt; I'm going to work! <span class="yarn-meta">#line:0fe4ff4 </span></span>
-<span class="yarn-line">    =&gt; I'm going to buy bread at the bakery. <span class="yarn-meta">#line:05a38a8 </span></span>
-<span class="yarn-line">-&gt; Where do you come from? <span class="yarn-meta">#line:05eabcf </span></span>
-<span class="yarn-line">    =&gt; I wasn't born in this country. <span class="yarn-meta">#line:0635a6a </span></span>
-<span class="yarn-line">From planet Earth. <span class="yarn-meta">#line:0749690 </span></span>
-<span class="yarn-line">-&gt; Goodbye <span class="yarn-meta">#line:0ee51fc </span></span>
+<span class="yarn-line">Have you seen Antura? <span class="yarn-meta">#line:0f18ad3 </span></span>
+<span class="yarn-line">    Yes! Talk to everybody and follow the lights! <span class="yarn-meta">#line:0cf9b4e </span></span>
+<span class="yarn-line">    No. Who is Antura? <span class="yarn-meta">#line:0f9dd62 </span></span>
+<span class="yarn-line">What are you doing? <span class="yarn-meta">#line:002796f </span></span>
+<span class="yarn-line">    I'm going to work! <span class="yarn-meta">#line:0fe4ff4 </span></span>
+<span class="yarn-line">    I'm going to buy bread at the bakery. <span class="yarn-meta">#line:05a38a8 </span></span>
+<span class="yarn-line">Where do you come from? <span class="yarn-meta">#line:05eabcf </span></span>
+<span class="yarn-line">    I wasn't born in this country. <span class="yarn-meta">#line:0635a6a </span></span>
+<span class="yarn-line">    From planet Earth. <span class="yarn-meta">#line:0749690 </span></span>
+<span class="yarn-line">Goodbye <span class="yarn-meta">#line:0ee51fc </span></span>
 
 </code></pre></div>
 
@@ -385,8 +385,8 @@ Why don't you draw the Eiffel Tower?
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: kids</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; Hi! <span class="yarn-meta">#line:0c4d9e4 </span></span>
-<span class="yarn-line">=&gt; How are you? <span class="yarn-meta">#line:032d401 </span></span>
+<span class="yarn-line">Hi! <span class="yarn-meta">#line:0c4d9e4 </span></span>
+<span class="yarn-line">How are you? <span class="yarn-meta">#line:032d401 </span></span>
 
 </code></pre></div>
 

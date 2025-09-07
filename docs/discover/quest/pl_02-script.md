@@ -108,7 +108,7 @@ Do you want to play with me?.
 -&gt; yes
 	<span class="yarn-cmd">&lt;&lt;activity jigsaw_dwarf_origin dwarf_1_origin_done&gt;&gt;</span>
 -&gt; no
-	Oh, okay. Maybe later.
+		Oh, okay. Maybe later.
 	<span class="yarn-cmd">&lt;&lt;SetActive dwarf_1 false&gt;&gt;</span>
 
 </code></pre></div>
@@ -190,13 +190,13 @@ Do you know what is a CHURCH?
 <span class="yarn-header-dim">tags: actor=DWARF</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do people do in a cathedral? <span class="yarn-meta">#line:05ea00d </span></span>
-<span class="yarn-line">-&gt; They shop for food. <span class="yarn-meta">#line:0c891cc </span></span>
+<span class="yarn-line">They shop for food. <span class="yarn-meta">#line:0c891cc </span></span>
 <span class="yarn-line">   Not here. Try again. <span class="yarn-meta">#line:0d84e58 </span></span>
    <span class="yarn-cmd">&lt;&lt;jump dwarf_3_quiz&gt;&gt;</span>
-<span class="yarn-line">-&gt; They pray. <span class="yarn-meta">#line:01ac8e6 </span></span>
+<span class="yarn-line">They pray. <span class="yarn-meta">#line:01ac8e6 </span></span>
 <span class="yarn-line">   Yes. You may collect the dwarf. <span class="yarn-meta">#line:071c92a </span></span>
    <span class="yarn-cmd">&lt;&lt;jump dwarf_3_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; They fly planes. <span class="yarn-meta">#line:09d9b34 </span></span>
+<span class="yarn-line">They fly planes. <span class="yarn-meta">#line:09d9b34 </span></span>
 <span class="yarn-line">   No. Try again. <span class="yarn-meta">#line:06ebc0c </span></span>
    <span class="yarn-cmd">&lt;&lt;jump dwarf_3_quiz&gt;&gt;</span>
 
@@ -427,10 +427,10 @@ Great!
 	<span class="yarn-cmd">&lt;&lt;jump assessment_intro&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;set $top_met = true&gt;&gt;</span>
-	AHhh Antura was here.
-	But it just went away!
-	Maybe next time you'll make it!
-	But isn't the view beautiful?
+		AHhh Antura was here.
+		But it just went away!
+		Maybe next time you'll make it!
+		But isn't the view beautiful?
 	<span class="yarn-cmd">&lt;&lt;jump assessment_intro&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -446,7 +446,7 @@ Would you like to anwear two short questions??
 -&gt; Yes
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
 -&gt; No
-	Ok. Come back to me to end the game
+		Ok. Come back to me to end the game
 
 </code></pre></div>
 
@@ -456,13 +456,13 @@ Would you like to anwear two short questions??
 <div class="yarn-node" data-title="assessment_q1"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: assessment, actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What is the symbol of Wrocław? <span class="yarn-meta">#line:020c66a </span></span>
-<span class="yarn-line">-&gt; a dog <span class="yarn-meta">#line:03ffcee </span></span>
+<span class="yarn-line">a dog <span class="yarn-meta">#line:03ffcee </span></span>
 <span class="yarn-line">	Not this. <span class="yarn-meta">#line:07344d2 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
-<span class="yarn-line">-&gt; a monkey <span class="yarn-meta">#line:0760b20 </span></span>
+<span class="yarn-line">a monkey <span class="yarn-meta">#line:0760b20 </span></span>
 <span class="yarn-line">	No. <span class="yarn-meta">#line:0868c5e </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
-<span class="yarn-line">-&gt; a dwarf <span class="yarn-meta">#line:0972bf0 </span></span>
+<span class="yarn-line">a dwarf <span class="yarn-meta">#line:0972bf0 </span></span>
 <span class="yarn-line">	Correct! <span class="yarn-meta">#line:088b881 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q2&gt;&gt;</span>
 
@@ -474,14 +474,14 @@ Would you like to anwear two short questions??
 <div class="yarn-node" data-title="assessment_q2"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: assessment, actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wrocław is the ... biggest city of Poland. <span class="yarn-meta">#line:09d303d </span></span>
-<span class="yarn-line">-&gt; first <span class="yarn-meta">#line:0ce9571 </span></span>
+<span class="yarn-line">first <span class="yarn-meta">#line:0ce9571 </span></span>
 <span class="yarn-line">	No. <span class="yarn-meta">#line:039419a </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q2&gt;&gt;</span>
-<span class="yarn-line">-&gt; second <span class="yarn-meta">#line:0fea2e7 </span></span>
+<span class="yarn-line">second <span class="yarn-meta">#line:0fea2e7 </span></span>
 <span class="yarn-line">	Not this. <span class="yarn-meta">#line:028148c </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_q2&gt;&gt;</span>
-<span class="yarn-line">-&gt; third <span class="yarn-meta">#line:0ebe219 </span></span>
-<span class="yarn-line">Correct! Well done. <span class="yarn-meta">#line:0802440 </span></span>
+<span class="yarn-line">third <span class="yarn-meta">#line:0ebe219 </span></span>
+<span class="yarn-line">	Correct! Well done. <span class="yarn-meta">#line:0802440 </span></span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_end&gt;&gt;</span>
 
 </code></pre></div>

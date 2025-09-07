@@ -151,9 +151,9 @@ Draw a map of the streets around your home!
 
 <div class="yarn-node" data-title="bravo"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; You made it! <span class="yarn-meta">#line:03b112c </span></span>
+<span class="yarn-line">You made it! <span class="yarn-meta">#line:03b112c </span></span>
 <span class="yarn-line">you followed all the rules perfectly. <span class="yarn-meta">#line:0662662 </span></span>
-<span class="yarn-line">=&gt; You're a street safety expert! Have a good trip! <span class="yarn-meta">#line:0c88cfb </span></span>
+<span class="yarn-line">You're a street safety expert! Have a good trip! <span class="yarn-meta">#line:0c88cfb </span></span>
 
 </code></pre></div>
 

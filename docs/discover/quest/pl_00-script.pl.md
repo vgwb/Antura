@@ -79,27 +79,27 @@ hide:
 &lt;&lt;if $CURRENT_PROGRESS &gt;= $MAX_PROGRESS&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;jump poland_npc_win&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $poland_completed == true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0a4a56f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Can you help my other friends?] <span class="yarn-meta">#line:097eeb8 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0a4a56f </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Can you help my other friends?] <span class="yarn-meta">#line:097eeb8 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_poland"&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Yes, that is my flag! Thank you!] <span class="yarn-meta">#line:0c9fa89 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Yes, that is my flag! Thank you!] <span class="yarn-meta">#line:0c9fa89 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_polish_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $poland_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Can you find the German Flag?] <span class="yarn-meta">#line:04bd4db </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Can you find the German Flag?] <span class="yarn-meta">#line:04bd4db </span></span>
     <span class="yarn-cmd">&lt;&lt;set $poland_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action germany_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action area_bigger&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_germany  &gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     That's not my flag. Mine is white and red.] <span class="yarn-meta">#line:0f967da </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     That's not my flag. Mine is white and red.] <span class="yarn-meta">#line:0f967da </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Hello! I am from Poland!] <span class="yarn-meta">#line:017ad80 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Antura made a mess and all the flags have been mixed up!] <span class="yarn-meta">#line:0b9e31d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     My flag, the polish one is white and red.] <span class="yarn-meta">#line:08a2f6d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Can you help me?] <span class="yarn-meta">#line:0fe57ef </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Hello! I am from Poland!] <span class="yarn-meta">#line:017ad80 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Antura made a mess and all the flags have been mixed up!] <span class="yarn-meta">#line:0b9e31d </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     My flag, the polish one is white and red.] <span class="yarn-meta">#line:08a2f6d </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Can you help me?] <span class="yarn-meta">#line:0fe57ef </span></span>
     <span class="yarn-cmd">&lt;&lt;set $poland_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -131,7 +131,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: Flag of Poland.] <span class="yarn-meta">#line:07ca581 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_poland"&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+    [MISSING TRANSLATION: ]
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -164,11 +164,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $germany_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0eaf07d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Berlin is the capital of Germany.] <span class="yarn-meta">#line:0446f03 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0eaf07d </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Berlin is the capital of Germany.] <span class="yarn-meta">#line:0446f03 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_germany"&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Danke! That is my flag!] <span class="yarn-meta">#line:0ba8707</span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Can you help my belarusian friend?] <span class="yarn-meta">#line:06c463a </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Danke! That is my flag!] <span class="yarn-meta">#line:0ba8707</span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Can you help my belarusian friend?] <span class="yarn-meta">#line:06c463a </span></span>
     <span class="yarn-cmd">&lt;&lt;set $germany_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_germany remove&gt;&gt;</span>
@@ -177,12 +177,12 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $germany_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_belarus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     MAN: Our flag has horizontal stripes of black, red, and yellow.] <span class="yarn-meta">#line:0cd7024 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     MAN: Our flag has horizontal stripes of black, red, and yellow.] <span class="yarn-meta">#line:0cd7024 </span></span>
         <span class="yarn-cmd">&lt;&lt;jump task_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $germany_met == false &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $germany_met = true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Hallo! I'm from Germany!] <span class="yarn-meta">#line:0068fe1 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     We're famous for castles, forests, and trains!] <span class="yarn-meta">#line:04dc97a </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Hallo! I'm from Germany!] <span class="yarn-meta">#line:0068fe1 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     We're famous for castles, forests, and trains!] <span class="yarn-meta">#line:04dc97a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -215,11 +215,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $belarus_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_belarus&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0a5c214 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Minsk is the capital of Belarus!] <span class="yarn-meta">#line:0aecb59 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0a5c214 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Minsk is the capital of Belarus!] <span class="yarn-meta">#line:0aecb59 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_belarus"&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     That is my flag!] <span class="yarn-meta">#line:0c57e40 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you, can you give my czech friend their flag?] <span class="yarn-meta">#line:021e1a2 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     That is my flag!] <span class="yarn-meta">#line:0c57e40 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you, can you give my czech friend their flag?] <span class="yarn-meta">#line:021e1a2 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $belarus_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_belarus remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
@@ -228,12 +228,12 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $belarus_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:         My flag is red and green with a red pattern on the left.] <span class="yarn-meta">#line:0653fae </span></span>
+<span class="yarn-line">        [MISSING TRANSLATION:         My flag is red and green with a red pattern on the left.] <span class="yarn-meta">#line:0653fae </span></span>
         <span class="yarn-cmd">&lt;&lt;jump task_belarus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $belarus_met == false &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $belarus_met = true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Hallo! I'm from Belarus!] <span class="yarn-meta">#line:0ccf58d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     We have a primeaval forest, it has been growing for centuries!] <span class="yarn-meta">#line:0c6ac62 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Hallo! I'm from Belarus!] <span class="yarn-meta">#line:0ccf58d </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     We have a primeaval forest, it has been growing for centuries!] <span class="yarn-meta">#line:0c6ac62 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_belarus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -267,10 +267,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $czech_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_czech_republic&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you! Our capital is Minsk!] <span class="yarn-meta">#line:08473de </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you! Our capital is Minsk!] <span class="yarn-meta">#line:08473de </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_czech_republic"&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you! That's my flag!] <span class="yarn-meta">#line:07ba10f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Help the find the lithuanian flag and bring it to them!] <span class="yarn-meta">#line:0a1e0a3 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you! That's my flag!] <span class="yarn-meta">#line:07ba10f </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Help the find the lithuanian flag and bring it to them!] <span class="yarn-meta">#line:0a1e0a3 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_czech_republic remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_czech_republic_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
@@ -278,13 +278,13 @@ hide:
     <span class="yarn-cmd">&lt;&lt;action lithuania_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     My flag is different! It's white and red with a blue triangle.] <span class="yarn-meta">#line:0000741 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     My flag is different! It's white and red with a blue triangle.] <span class="yarn-meta">#line:0000741 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $czech_met = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $czech_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $czech_met = true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Hi! I'm from Czech Republic!] <span class="yarn-meta">#line:0ded863 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     We have the most castle in Europe!] <span class="yarn-meta">#line:03dc09c </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Hi! I'm from Czech Republic!] <span class="yarn-meta">#line:0ded863 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     We have the most castle in Europe!] <span class="yarn-meta">#line:03dc09c </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -317,11 +317,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $lithuania_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_lithuania&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:06cf019 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Brussels is the capital of Lithuania.] <span class="yarn-meta">#line:0acbb04 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:06cf019 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Brussels is the capital of Lithuania.] <span class="yarn-meta">#line:0acbb04 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_lithuania"&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:         Thank you, my beautiful flag is back!] <span class="yarn-meta">#line:0d2f54c </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:         Can you help my Ukrainian friend?] <span class="yarn-meta">#line:0bcf83b </span></span>
+<span class="yarn-line">        [MISSING TRANSLATION:         Thank you, my beautiful flag is back!] <span class="yarn-meta">#line:0d2f54c </span></span>
+<span class="yarn-line">        [MISSING TRANSLATION:         Can you help my Ukrainian friend?] <span class="yarn-meta">#line:0bcf83b </span></span>
         <span class="yarn-cmd">&lt;&lt;inventory flag_lithuania remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_lithuania_FLAG &gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
@@ -330,13 +330,13 @@ hide:
         <span class="yarn-cmd">&lt;&lt;set $lithuania_met = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_ukraine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Remember, my flag is red, green and yellow.] <span class="yarn-meta">#line:00af906 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Remember, my flag is red, green and yellow.] <span class="yarn-meta">#line:00af906 </span></span>
         <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $lithuania_met = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $lithuania_met = true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Hi! I'm from Lithuania!] <span class="yarn-meta">#line:0534a85 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     One third of our country is covered by forests!] <span class="yarn-meta">#line:0465c31 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Hi! I'm from Lithuania!] <span class="yarn-meta">#line:0534a85 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     One third of our country is covered by forests!] <span class="yarn-meta">#line:0465c31 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -386,11 +386,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $ukraine_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_ukraine&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:02114ba </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Our capital is Kiev.] <span class="yarn-meta">#line:01b1e6d </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:02114ba </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Our capital is Kiev.] <span class="yarn-meta">#line:01b1e6d </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_ukraine"&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you! That is my flag.] <span class="yarn-meta">#line:05de5ab </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Can you help my slovakian friend?] <span class="yarn-meta">#line:0aa87ef </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you! That is my flag.] <span class="yarn-meta">#line:05de5ab </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Can you help my slovakian friend?] <span class="yarn-meta">#line:0aa87ef </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_ukraine remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_ukraine_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
@@ -398,13 +398,13 @@ hide:
     <span class="yarn-cmd">&lt;&lt;action slovakia_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Nope! Our flag is blue and yellow.] <span class="yarn-meta">#line:0a94866 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Nope! Our flag is blue and yellow.] <span class="yarn-meta">#line:0a94866 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $ukraine_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_ukraine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $ukraine_met = true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Moien! I’m from Ukraine!] <span class="yarn-meta">#line:07ea99a </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     We are called the "Bread Basket" of Europe because we produce a lot of grain!] <span class="yarn-meta">#line:0dbd4af </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Moien! I’m from Ukraine!] <span class="yarn-meta">#line:07ea99a </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     We are called the "Bread Basket" of Europe because we produce a lot of grain!] <span class="yarn-meta">#line:0dbd4af </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_ukraine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]
@@ -454,22 +454,22 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $slovakia_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_slovakia&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:06a6231 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     The capital of Slovakia is Bratislava!] <span class="yarn-meta">#line:0891aba </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:06a6231 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     The capital of Slovakia is Bratislava!] <span class="yarn-meta">#line:0891aba </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_slovakia"&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     Thank you for bringing my flag back!] <span class="yarn-meta">#line:0d453e9 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     Go back to the start and claim your victory!] <span class="yarn-meta">#line:04bf6d1 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for bringing my flag back!] <span class="yarn-meta">#line:0d453e9 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Go back to the start and claim your victory!] <span class="yarn-meta">#line:04bf6d1 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_slovakia remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_slovakia_FLAG &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $slovakia_completed = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:         Our flag is white, red and blue with a coagt of arms.] <span class="yarn-meta">#line:0af30a1 </span></span>
+<span class="yarn-line">        [MISSING TRANSLATION:         Our flag is white, red and blue with a coagt of arms.] <span class="yarn-meta">#line:0af30a1 </span></span>
         <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $slovakia_met = true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION:     I'm from Slovakia!] <span class="yarn-meta">#line:054e1b8 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION:     We used to be a country with Czech Republic.] <span class="yarn-meta">#line:0278f6a </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     I'm from Slovakia!] <span class="yarn-meta">#line:054e1b8 </span></span>
+<span class="yarn-line">    [MISSING TRANSLATION:     We used to be a country with Czech Republic.] <span class="yarn-meta">#line:0278f6a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 [MISSING TRANSLATION: ]

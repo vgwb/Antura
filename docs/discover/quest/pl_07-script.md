@@ -94,7 +94,7 @@ Why don't you draw the Solar System?
 <span class="yarn-line">Hello! I am NICOLAUS COPERNICUS. <span class="yarn-meta">#line:0c5050d </span></span>
 <span class="yarn-line">I can help you rescue ANTURA. <span class="yarn-meta">#line:0a41815 </span></span>
 <span class="yarn-line">First, fix my SOLAR SYSTEM map. <span class="yarn-meta">#line:0f17151 </span></span>
-<span class="yarn-line">-&gt; Help with planets <span class="yarn-meta">#line:07bdf91 </span></span>
+<span class="yarn-line">Help with planets <span class="yarn-meta">#line:07bdf91 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump PLANETS_ORDER&gt;&gt;</span>
 
 <span class="yarn-comment">//--------------------------------------------</span>
@@ -110,7 +110,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity order planets_order tutorial&gt;&gt;</span>
-<span class="yarn-line">-&gt; Done <span class="yarn-meta">#line:06c0d36 </span></span>
+<span class="yarn-line">Done <span class="yarn-meta">#line:06c0d36 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump AFTER_PLANETS_ORDER&gt;&gt;</span>
 
 <span class="yarn-comment">//--------------------------------------------</span>
@@ -163,7 +163,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">image: telescope_lens_dirty</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas telescope_lens_clean tutorial&gt;&gt;</span>
-<span class="yarn-line">-&gt; Learn the parts <span class="yarn-meta">#line:0e91a5e </span></span>
+<span class="yarn-line">Learn the parts <span class="yarn-meta">#line:0e91a5e </span></span>
 
 
 <span class="yarn-comment">//--------------------------------------------</span>
@@ -182,7 +182,7 @@ Why don't you draw the Solar System?
 <span class="yarn-line">A TELESCOPE helps us see far. <span class="yarn-meta">#line:0314ed5 </span></span>
 <span class="yarn-line">It has a LENS and an EYEPIECE. <span class="yarn-meta">#line:062693e </span></span>
 <span class="yarn-line">A PLANETARIUM shows the sky indoors. <span class="yarn-meta">#line:0cab30b </span></span>
-<span class="yarn-line">-&gt; Match the parts <span class="yarn-meta">#line:015eb34 </span></span>
+<span class="yarn-line">Match the parts <span class="yarn-meta">#line:015eb34 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump TELESCOPE_PARTS&gt;&gt;</span>
 
 <span class="yarn-comment">//--------------------------------------------</span>
@@ -198,7 +198,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity memory telescope_parts tutorial&gt;&gt;</span>
-<span class="yarn-line">-&gt; Piano memory <span class="yarn-meta">#line:0db50a7 </span></span>
+<span class="yarn-line">Piano memory <span class="yarn-meta">#line:0db50a7 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump PIANO_INTRO&gt;&gt;</span>
 
 <span class="yarn-comment">//--------------------------------------------</span>
@@ -216,7 +216,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Music helps memory. <span class="yarn-meta">#line:08d3111 </span></span>
 <span class="yarn-line">Play the PLANET order tune. <span class="yarn-meta">#line:0471676 </span></span>
-<span class="yarn-line">-&gt; Play <span class="yarn-meta">#line:0f08a91 </span></span>
+<span class="yarn-line">Play <span class="yarn-meta">#line:0f08a91 </span></span>
 
 
 </code></pre></div>
@@ -228,7 +228,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity piano planet_order_song tutorial&gt;&gt;</span>
-<span class="yarn-line">-&gt; Find PLANETS <span class="yarn-meta">#line:013de52 </span></span>
+<span class="yarn-line">Find PLANETS <span class="yarn-meta">#line:013de52 </span></span>
 
 <span class="yarn-comment">//--------------------------------------------</span>
 <span class="yarn-comment">// DISCOVER THE PLANETS</span>
@@ -245,7 +245,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Let's visit each PLANET. <span class="yarn-meta">#line:0b015a8 </span></span>
 <span class="yarn-line">They appear in the model when found. <span class="yarn-meta">#line:00d6fdf </span></span>
-<span class="yarn-line">-&gt; Start with MERCURY <span class="yarn-meta">#line:04ba61d </span></span>
+<span class="yarn-line">Start with MERCURY <span class="yarn-meta">#line:04ba61d </span></span>
 
 <span class="yarn-comment">// MERCURY</span>
 
@@ -315,7 +315,7 @@ Why don't you draw the Solar System?
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_mars tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Mars to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">-&gt; Next: JUPITER <span class="yarn-meta">#line:08af681 </span></span>
+<span class="yarn-line">Next: JUPITER <span class="yarn-meta">#line:08af681 </span></span>
 
 
 <span class="yarn-comment">// JUPITER</span>
@@ -334,7 +334,7 @@ Why don't you draw the Solar System?
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_jupiter tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Jupiter to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">-&gt; Next: SATURN <span class="yarn-meta">#line:07229a6 </span></span>
+<span class="yarn-line">Next: SATURN <span class="yarn-meta">#line:07229a6 </span></span>
 
 
 <span class="yarn-comment">// SATURN</span>
@@ -353,7 +353,7 @@ Why don't you draw the Solar System?
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_saturn tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Saturn to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">-&gt; Next: URANUS <span class="yarn-meta">#line:09ba1f7 </span></span>
+<span class="yarn-line">Next: URANUS <span class="yarn-meta">#line:09ba1f7 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump PLANET_URANUS&gt;&gt;</span>
 
 <span class="yarn-comment">// URANUS</span>
@@ -432,7 +432,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Thank you for your help. <span class="yarn-meta">#line:0d7e5be </span></span>
 <span class="yarn-line">"Remember: the SUN is in the center."" <span class="yarn-meta">#line:0b0e4bf </span></span>
-<span class="yarn-line">-&gt; Final Quiz <span class="yarn-meta">#line:0a535da </span></span>
+<span class="yarn-line">Final Quiz <span class="yarn-meta">#line:0a535da </span></span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
 
 

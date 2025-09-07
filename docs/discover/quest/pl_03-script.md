@@ -106,7 +106,7 @@ Why don't you draw the river?
 <span class="yarn-line">Hint look for TRACKS <span class="yarn-meta">#line:03bf613 </span></span>
 
 <span class="yarn-cmd">&lt;&lt;activity memory odra_bridges tutorial&gt;&gt;</span>
-<span class="yarn-line">-&gt; Next: ROAD BRIDGE <span class="yarn-meta">#line:08d07e5 </span></span>
+<span class="yarn-line">Next: ROAD BRIDGE <span class="yarn-meta">#line:08d07e5 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump BRIDGE_CAR_HINT&gt;&gt;</span>
 
 </code></pre></div>
@@ -138,7 +138,7 @@ Why don't you draw the river?
 <span class="yarn-line">Many BOATS on the ODRA. <span class="yarn-meta">#line:0eb639b </span></span>
 <span class="yarn-line">Find a BARGE first. <span class="yarn-meta">#line:0d21cc3 </span></span>
 
-<span class="yarn-line">-&gt; Show me a BARGE <span class="yarn-meta">#line:03495d2 </span></span>
+<span class="yarn-line">Show me a BARGE <span class="yarn-meta">#line:03495d2 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump BOAT_BARGE_HINT&gt;&gt;</span>
 
 </code></pre></div>
@@ -154,7 +154,7 @@ Why don't you draw the river?
 <span class="yarn-line">It carries GOODS <span class="yarn-meta">#line:083423e </span></span>
 
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle odra_barge tutorial&gt;&gt;</span>
-<span class="yarn-line">-&gt; Find a HOUSEBOAT <span class="yarn-meta">#line:0a09f26 </span></span>
+<span class="yarn-line">Find a HOUSEBOAT <span class="yarn-meta">#line:0a09f26 </span></span>
 
 </code></pre></div>
 
@@ -202,7 +202,7 @@ Why don't you draw the river?
 <span class="yarn-line">WISŁA is 1, the longest. <span class="yarn-meta">#line:03fe124 </span></span>
 <span class="yarn-line">Both flow to the BALTIC SEA. <span class="yarn-meta">#line:0941615 </span></span>
 
-<span class="yarn-line">-&gt; Map check <span class="yarn-meta">#line:0fe3ec3 </span></span>
+<span class="yarn-line">Map check <span class="yarn-meta">#line:0fe3ec3 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump MAP_ACTIVITY&gt;&gt;</span>
 
 </code></pre></div>

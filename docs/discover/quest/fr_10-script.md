@@ -194,11 +194,11 @@ Draw a bridge in your notebook!
 <div class="yarn-node" data-title="question_seine_map"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The Seine flows into a sea. Which one? <span class="yarn-meta">#line:0adc7b7 </span></span>
-<span class="yarn-line">-&gt; "The Mediterranean Sea": <span class="yarn-meta">#line:04cf904 </span></span>
+<span class="yarn-line">"The Mediterranean Sea": <span class="yarn-meta">#line:04cf904 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump question_wrong&gt;&gt;</span>
-<span class="yarn-line">-&gt; "The English Channel": <span class="yarn-meta">#line:041b8ec </span></span>
+<span class="yarn-line">"The English Channel": <span class="yarn-meta">#line:041b8ec </span></span>
     <span class="yarn-cmd">&lt;&lt;jump question_correct&gt;&gt;</span>
-<span class="yarn-line">-&gt; "The Atlantic Ocean": <span class="yarn-meta">#line:0cdce92 </span></span>
+<span class="yarn-line">"The Atlantic Ocean": <span class="yarn-meta">#line:0cdce92 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump question_wrong&gt;&gt;</span>
 
 </code></pre></div>
@@ -230,7 +230,7 @@ Draw a bridge in your notebook!
 
 <div class="yarn-node" data-title="npc_train"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; I would love to ride a train! <span class="yarn-meta">#line:01663fa </span></span>
+<span class="yarn-line">I would love to ride a train! <span class="yarn-meta">#line:01663fa </span></span>
 <span class="yarn-line">I love trains! <span class="yarn-meta">#line:0574872 </span></span>
 
 </code></pre></div>
@@ -240,9 +240,9 @@ Draw a bridge in your notebook!
 
 <div class="yarn-node" data-title="npc_boat"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; No, I didn't see your dog. <span class="yarn-meta">#line:0614aef </span></span>
-<span class="yarn-line">=&gt; A dog? There are many dogs here... <span class="yarn-meta">#line:09f3f7a </span></span>
-<span class="yarn-line">=&gt; I did see a dog walking around, yes. <span class="yarn-meta">#line:02ed36d </span></span>
+<span class="yarn-line">No, I didn't see your dog. <span class="yarn-meta">#line:0614aef </span></span>
+<span class="yarn-line">A dog? There are many dogs here... <span class="yarn-meta">#line:09f3f7a </span></span>
+<span class="yarn-line">I did see a dog walking around, yes. <span class="yarn-meta">#line:02ed36d </span></span>
 
 </code></pre></div>
 

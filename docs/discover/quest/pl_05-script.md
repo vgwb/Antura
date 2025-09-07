@@ -106,7 +106,7 @@ Why don't you draw a shell?
 <span class="yarn-line">Find 5 SHELL piles. <span class="yarn-meta">#line:03e5d4f </span></span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas beach_shells tutorial&gt;&gt;</span>
 
-<span class="yarn-line">-&gt; Meet the FISHERMAN <span class="yarn-meta">#line:0b3a2d8 </span></span>
+<span class="yarn-line">Meet the FISHERMAN <span class="yarn-meta">#line:0b3a2d8 </span></span>
 <span class="yarn-cmd">&lt;&lt;jump FISHERMAN_MEET&gt;&gt;</span>
 
 
@@ -141,7 +141,7 @@ Why don't you draw a shell?
 <span class="yarn-line">Clean the SAND to spot 5. <span class="yarn-meta">#line:03d5567 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas beach_amber tutorial&gt;&gt;</span>
 
-<span class="yarn-line">-&gt; Lighthouse facts <span class="yarn-meta">#line:015ddce </span></span>
+<span class="yarn-line">Lighthouse facts <span class="yarn-meta">#line:015ddce </span></span>
     <span class="yarn-cmd">&lt;&lt;jump LIGHTHOUSE_FACT&gt;&gt;</span>
 
 
@@ -162,7 +162,7 @@ Why don't you draw a shell?
 <span class="yarn-line">It shines a bright light. <span class="yarn-meta">#line:050c5f3 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle gdansk_lighthouse tutorial&gt;&gt;</span>
 
-<span class="yarn-line">-&gt; Craft the NECKLACE <span class="yarn-meta">#line:0a800e5 </span></span>
+<span class="yarn-line">Craft the NECKLACE <span class="yarn-meta">#line:0a800e5 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump CRAFTING_INTRO&gt;&gt;</span>
 
 
@@ -197,7 +197,7 @@ Why don't you draw a shell?
 <span class="yarn-line">AMBER–SHELL–AMBER–SHELL… <span class="yarn-meta">#line:09746e2 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity order necklace_sequence tutorial&gt;&gt;</span>
 
-<span class="yarn-line">-&gt; To NEPTUNE’S FOUNTAIN <span class="yarn-meta">#line:0e2f20d </span></span>
+<span class="yarn-line">To NEPTUNE’S FOUNTAIN <span class="yarn-meta">#line:0e2f20d </span></span>
     <span class="yarn-cmd">&lt;&lt;jump NEPTUNE_FOUNTAIN&gt;&gt;</span>
 
 
@@ -256,7 +256,7 @@ Why don't you draw a shell?
 <span class="yarn-line">FLASH! The LIGHTHOUSE shines. <span class="yarn-meta">#line:0941ab9 </span></span>
 <span class="yarn-line">Great job! <span class="yarn-meta">#line:0a44f23 </span></span>
 
-<span class="yarn-line">-&gt; Watch for SEALS <span class="yarn-meta">#line:009476a </span></span>
+<span class="yarn-line">Watch for SEALS <span class="yarn-meta">#line:009476a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump SEALS_WARNING&gt;&gt;</span>
 
 
@@ -287,7 +287,7 @@ Why don't you draw a shell?
 <span class="yarn-header-dim">image: antura_run</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Yea! The quest is done! <span class="yarn-meta">#line:0283435 </span></span>
-<span class="yarn-line">-&gt; Review words <span class="yarn-meta">#line:0322b5e </span></span>
+<span class="yarn-line">Review words <span class="yarn-meta">#line:0322b5e </span></span>
     <span class="yarn-cmd">&lt;&lt;jump RECAP_MEMORY&gt;&gt;</span>
 
 
@@ -307,7 +307,7 @@ Why don't you draw a shell?
 <span class="yarn-line">Match the words. <span class="yarn-meta">#line:0372493 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity memory sea_vocab tutorial&gt;&gt;</span>
 
-<span class="yarn-line">-&gt; Final Quiz <span class="yarn-meta">#line:05251b3 </span></span>
+<span class="yarn-line">Final Quiz <span class="yarn-meta">#line:05251b3 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
 
 
