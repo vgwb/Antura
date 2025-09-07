@@ -21,8 +21,8 @@ namespace Antura.Discover.EditorTools
         private int _selectedQuestIndex = 0; // Direct index into _quests (single quest mode)
         private List<CardData> _allCards = new List<CardData>();
         private List<AssetData> _allAssets = new List<AssetData>();
-    private List<TopicData> _allTopics = new List<TopicData>();
-    private List<ActivitySettingsAbstract> _allActivitySettings = new List<ActivitySettingsAbstract>();
+        private List<TopicData> _allTopics = new List<TopicData>();
+        private List<ActivitySettingsAbstract> _allActivitySettings = new List<ActivitySettingsAbstract>();
         private SearchField _searchField;
 
         // Cache last parse results
@@ -128,8 +128,10 @@ namespace Antura.Discover.EditorTools
                     int success = 0;
                     foreach (var q in _quests)
                     {
-                        if (q == null) continue;
-                        try { InjectAutomaticSceneData(q); success++; }
+                        if (q == null)
+                            continue;
+                        try
+                        { InjectAutomaticSceneData(q); success++; }
                         catch (Exception ex) { Debug.LogError($"[QuestManagement] Failed injecting scene data for {q.name}: {ex.Message}"); }
                     }
                     Debug.Log($"[QuestManagement] Injected scene data for {success} quests.");
@@ -319,7 +321,9 @@ namespace Antura.Discover.EditorTools
                 analysis.ActionMentions.RemoveWhere(s => string.Equals(s, "init", StringComparison.OrdinalIgnoreCase));
                 var missingActions = analysis.ActionMentions.Where(a => !prefabActionCodes.Contains(a)).OrderBy(s => s).ToList();
 
-                var questCardIds = new HashSet<string>((q.Cards ?? new List<CardData>()).Where(c => c != null).Select(c => c.Id ?? c.name), StringComparer.OrdinalIgnoreCase);
+                // Include cards coming from Topics too (aggregated quest knowledge)
+                var aggregatedQuestCards = q.GetAllCards();
+                var questCardIds = new HashSet<string>(aggregatedQuestCards.Where(c => c != null).Select(c => c.Id ?? c.name), StringComparer.OrdinalIgnoreCase);
                 var missingInQuest = allMentions.Where(m => !questCardIds.Contains(m)).OrderBy(s => s).ToList();
 
                 // Unity -> Script mismatches (Right)
@@ -347,7 +351,7 @@ namespace Antura.Discover.EditorTools
                             if (missingInDb.Count > 0)
                             { EditorGUILayout.LabelField("Missing in CardData DB:", EditorStyles.miniBoldLabel); DrawTagList(missingInDb); }
                             if (missingInQuest.Count > 0)
-                            { DrawCopyableList($"Mentioned but not in QuestData.Cards ({missingInQuest.Count})", missingInQuest); }
+                            { DrawCopyableList($"Mentioned but not in Aggregated Quest Cards (Cards + Topics) ({missingInQuest.Count})", missingInQuest); }
                         }
                         // ASSETS
                         if (missingAssets.Count > 0)
@@ -416,7 +420,7 @@ namespace Antura.Discover.EditorTools
                         {
                             GUILayout.Space(6);
                             EditorGUILayout.LabelField("CARDS", EditorStyles.boldLabel);
-                            DrawCopyableList($"Cards in QuestData.Cards but NOT used ({unusedInScript.Count})", unusedInScript);
+                            DrawCopyableList($"Aggregated Quest Cards (Cards + Topics) but NOT used ({unusedInScript.Count})", unusedInScript);
                         }
                     }
                 }
@@ -1025,7 +1029,8 @@ namespace Antura.Discover.EditorTools
             string scriptText = quest.YarnScript != null ? quest.YarnScript.text : string.Empty;
             foreach (var tid in allTopicIds)
             {
-                if (string.IsNullOrEmpty(tid)) continue;
+                if (string.IsNullOrEmpty(tid))
+                    continue;
                 // word boundary match (case-insensitive)
                 if (Regex.IsMatch(scriptText, $@"\\b{Regex.Escape(tid)}\\b", RegexOptions.IgnoreCase))
                     usedTopicIds.Add(tid);
@@ -1046,7 +1051,9 @@ namespace Antura.Discover.EditorTools
 
             // CARDS (used & present, used but missing, present but unused)
             var allCardIds = new HashSet<string>(_allCards.Select(c => c.Id ?? c.name), StringComparer.OrdinalIgnoreCase); // global DB
-            var questCardIds = new HashSet<string>((quest.Cards ?? new List<CardData>()).Where(c => c != null).Select(c => c.Id ?? c.name), StringComparer.OrdinalIgnoreCase); // quest-specific
+            // Use aggregation method to include cards from Topics + quest-level list
+            var questAllCards = quest.GetAllCards();
+            var questCardIds = new HashSet<string>(questAllCards.Where(c => c != null).Select(c => c.Id ?? c.name), StringComparer.OrdinalIgnoreCase); // aggregated
             var usedCardIds = analysis.CardsMentioned.OrderBy(s => s, StringComparer.OrdinalIgnoreCase).ToList();
             // Used & present in THIS QUEST
             var usedAndPresent = usedCardIds.Where(id => questCardIds.Contains(id)).OrderBy(s => s, StringComparer.OrdinalIgnoreCase).ToList();
@@ -1108,15 +1115,16 @@ namespace Antura.Discover.EditorTools
             sb.AppendLine("// ACTABLE");
             foreach (var id in actablesUsedAndPresent)
                 sb.AppendLine("// - " + id);
-            foreach (var id in actablesUsedButMissing)
-                sb.AppendLine("//   - BROKEN " + id);
+            // Do not list BROKEN actables: action codes are not ActableAbstract IDs.
             foreach (var id in actablesPresentButUnused)
                 sb.AppendLine("//   - TODO " + id);
             if (actablesUsedAndPresent.Count == 0 && actablesUsedButMissing.Count == 0 && actablesPresentButUnused.Count == 0)
                 sb.AppendLine("// - (none)");
 
             // WORDS single line
-            var wordList = (quest.Words ?? new List<WordData>())
+            // Aggregate from quest + cards via new API
+            var aggregatedWords = quest.GetAllWords();
+            var wordList = aggregatedWords
                 .Where(w => w != null)
                 .Select(w => string.IsNullOrEmpty(w.TextEn) ? (w.name ?? w.Id) : w.TextEn)
                 .Where(t => !string.IsNullOrEmpty(t))

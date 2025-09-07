@@ -158,6 +158,69 @@ namespace Antura.Discover
 
         public string SubjectsListText => QuestSubjectsUtility.BuildSummaryTextSimple(GetSubjectsBreakdown());
 
+        /// Returns ALL unique cards related to this quest.
+        /// (all cards in Topics + all cards explicitly listed)
+        public List<CardData> GetAllCards()
+        {
+            var set = new HashSet<CardData>();
+
+            if (Topics != null)
+            {
+                foreach (var topic in Topics)
+                {
+                    if (topic == null)
+                        continue;
+                    try
+                    {
+                        var tCards = topic.GetAllCards();
+                        if (tCards != null)
+                        {
+                            foreach (var c in tCards)
+                                if (c != null)
+                                    set.Add(c);
+                        }
+                    }
+                    catch { }
+                }
+            }
+
+            if (Cards != null)
+            {
+                foreach (var c in Cards)
+                    if (c != null)
+                        set.Add(c);
+            }
+
+            return set.ToList();
+        }
+
+        /// Returns ALL unique words related to the quest by aggregating:
+        ///  Words from every card + words explicitly listed
+        public List<WordData> GetAllWords()
+        {
+            var set = new HashSet<WordData>();
+
+            // From cards
+            foreach (var card in GetAllCards())
+            {
+                if (card == null || card.Words == null)
+                    continue;
+                foreach (var w in card.Words)
+                    if (w != null)
+                        set.Add(w);
+            }
+
+            // Quest-level words (if any)
+            if (Words != null)
+            {
+                foreach (var w in Words)
+                    if (w != null)
+                        set.Add(w);
+            }
+
+            return set.ToList();
+        }
+
 #if UNITY_EDITOR
         [ContextMenu("Refresh Top Subjects")]
         private void RefreshTopSubjects()
