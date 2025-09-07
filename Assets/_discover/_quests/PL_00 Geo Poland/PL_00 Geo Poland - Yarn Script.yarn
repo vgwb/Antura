@@ -30,7 +30,7 @@
 // WORDS: (none)
 // </scene_data>
 
-title: init
+title: quest_start
 position: 0,0
 tags: Start
 color: red
@@ -58,16 +58,16 @@ We are in Europe
 Let's meet other kids from nearby countries.
 ===
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
 ---
 This quest is complete.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -153,7 +153,7 @@ Good job! You did it! #line:0ba3c4c
 <<card concept_europe_map>>
 You discovered a part of Central Euorpe! #line:031f72c 
 <<card concept_europe_map zoom>>
-<<jump the_end>>
+<<jump quest_end>>
 ===
 
 //--------------------------------------------

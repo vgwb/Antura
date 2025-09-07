@@ -75,7 +75,7 @@
 //
 // Words used: TRANSPORT (TRAIN, TRAM, BUS, CAR, BIKE), SPORT (FOOTBALL, BALL, GOAL, FIELD), FLAG, ZŁOTY, MERMAID OF WARSAW, CHOPIN, WARS & SAWA, KING SIGISMUND, PRESIDENT/SEJM, PALACE OF CULTURE AND SCIENCE, MARIA SKŁODOWSKA-CURIE, NATIONAL STADIUM, COPERNICUS
 
-title: init
+title: quest_start
 position: 0,0
 tags: type=Start
 color: red
@@ -87,16 +87,16 @@ Welcome to Warsaw! #line:07c7f43
 
 ===
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
 ---
 This quest is complete.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -296,5 +296,5 @@ Final questions. #line:01faf50
 // Q2: Match picture with words (TRANSPORT/SPORT vocabulary)
 <<activity quiz warsaw_basics tutorial>>
 Well done! #line:08f99a0 
-<<jump the_end>>
+<<jump quest_end>>
 ===

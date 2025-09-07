@@ -43,7 +43,7 @@
 // - WroclawCathedral (religious architecture)
 // - WroclawSkyTower (modern landmark)
 
-title: init
+title: quest_start
 position: 0,0
 tags: type=Start
 color: red
@@ -66,16 +66,16 @@ type: panel
 Welcome to Wrocław!
 ===
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
 ---
 This quest is complete.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -456,5 +456,5 @@ position: 1769,1692
 tags: actor=GUIDE
 ---
 GREAT! You finished the quest! #line:0fc1bad 
-<<jump the_end>>
+<<jump quest_end>>
 ===

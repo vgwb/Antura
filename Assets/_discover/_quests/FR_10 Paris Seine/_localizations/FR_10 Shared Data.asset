@@ -265,6 +265,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226082763702422
+  - m_Id: 2304840599330816
+    m_Key: line:ccb0bfc8
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470773
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -280,12 +285,12 @@ MonoBehaviour:
     - rid: 6508225959587479872
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 6508225959587479873
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 6508225959587479874
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -401,12 +406,12 @@ MonoBehaviour:
     - rid: 6508225959587479896
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: quest_proposal
+        nodeName: post_quest_activity
         tags: []
     - rid: 6508225959587479897
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: the_end
+        nodeName: quest_end
         tags: []
     - rid: 6508225959587479898
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -466,7 +471,7 @@ MonoBehaviour:
     - rid: 6508226082763702410
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: quest_proposal
+        nodeName: post_quest_activity
         tags: []
     - rid: 6508226082763702411
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -536,3 +541,8 @@ MonoBehaviour:
         nodeName: spawned_french_man
         tags:
         - do_not_translate
+    - rid: 6508226101711470773
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: post_quest_activity
+        tags: []

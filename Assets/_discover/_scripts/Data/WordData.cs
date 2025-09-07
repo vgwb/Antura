@@ -23,6 +23,10 @@ namespace Antura.Discover
         public WordDataKind Kind;
         public WordDataCategory Category;
         public WordDataForm Form;
+
+        // [Tooltip("If the word is plural, this points to the singular version")]
+        // TODO public WordData RelativeWord;
+
         public string Value;
         public string SortValue;
 

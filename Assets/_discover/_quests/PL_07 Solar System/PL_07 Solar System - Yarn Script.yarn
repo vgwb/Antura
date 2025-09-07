@@ -58,7 +58,7 @@
 // - memory telescope_parts (match telescope components)
 // - jigsawpuzzle planet_mercury through planet_neptune (8 individual planet jigsaws)
 
-title: Init
+title: quest_start
 position: 0,0
 group: Intro
 tags: actor=Guide
@@ -75,7 +75,7 @@ Let's ask COPERNICUS for help. #line:031963d
 ===
 
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
@@ -83,10 +83,10 @@ color: green
 This quest is complete.
 Today we learned about the SOLAR SYSTEM.
 And knew that the SUN is in the center.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -416,5 +416,5 @@ group: End
 color: red
 ---
 Well done!
-<<jump the_end>>
+<<jump quest_end>>
 ===

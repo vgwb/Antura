@@ -49,7 +49,7 @@
 // - Pierogi Challenge: order/memory of ingredients (flour, eggs, cheese, potatoes)
 // Words used: Toruń, market, vendor, grocer, beekeeper, dairy, eggs, milk, butter, flour, honey, cloves, cinnamon, ginger, pierogi, molds, coins, zloty, kitchen, gingerbread, medieval
 
-title: init
+title: quest_start
 position: 0,0
 type: panel
 color: red
@@ -69,16 +69,16 @@ color: red
 Welcome to Torun!
 ===
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
 ---
 This quest is complete.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -447,5 +447,5 @@ group: assessment
 tags: actor=GUIDE
 ---
 Great work! You helped Antura and learned new words. #line:0cb84a7 
-<<jump the_end>>
+<<jump quest_end>>
 ===

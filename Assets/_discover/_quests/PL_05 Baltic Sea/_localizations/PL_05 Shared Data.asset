@@ -255,6 +255,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226082763702438
+  - m_Id: 2300861878362112
+    m_Key: line:717aa7b4
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470781
+  - m_Id: 2300861878362113
+    m_Key: line:182e2b18
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470782
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -270,17 +280,17 @@ MonoBehaviour:
     - rid: 6508225959587479826
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 6508225959587479827
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 6508225959587479828
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 6508225959587479829
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -502,10 +512,20 @@ MonoBehaviour:
     - rid: 6508226082763702437
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: the_end
+        nodeName: quest_end
         tags: []
     - rid: 6508226082763702438
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: quest_proposal
+        nodeName: post_quest_activity
+        tags: []
+    - rid: 6508226101711470781
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: quest_end
+        tags: []
+    - rid: 6508226101711470782
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: post_quest_activity
         tags: []

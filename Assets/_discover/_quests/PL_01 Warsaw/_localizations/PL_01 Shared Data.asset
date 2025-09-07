@@ -340,6 +340,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226082763702468
+  - m_Id: 2303260693094400
+    m_Key: line:e5fdfcd9
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470837
+  - m_Id: 2303260701483008
+    m_Key: line:4cb57d81
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470838
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -665,15 +675,25 @@ MonoBehaviour:
     - rid: 6508226014524998150
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 6508226082763702467
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: the_end
+        nodeName: quest_end
         tags: []
     - rid: 6508226082763702468
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: quest_proposal
+        nodeName: post_quest_activity
+        tags: []
+    - rid: 6508226101711470837
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: quest_end
+        tags: []
+    - rid: 6508226101711470838
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: post_quest_activity
         tags: []

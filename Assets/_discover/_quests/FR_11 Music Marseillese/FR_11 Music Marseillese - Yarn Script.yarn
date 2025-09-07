@@ -21,7 +21,7 @@
 // WORDS: (none)
 // </scene_data>
 
-title: init
+title: quest_start
 position: 0,0
 tags:
 type: panel
@@ -33,16 +33,16 @@ Welcome to the music quest! #line:0e2f565
 // <<activity order_marseillese_audio marseillese_played>>
 ===
 
-title: the_end
+title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
 ---
 This quest is over.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 color: green
 panel: panel

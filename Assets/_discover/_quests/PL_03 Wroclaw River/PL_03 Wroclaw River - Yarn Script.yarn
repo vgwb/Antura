@@ -43,7 +43,7 @@
 
 // INTRO – DOCK
 
-title: init
+title: quest_start
 position: 0,0
 group: Intro
 tags: actor=BoatCaptain
@@ -55,17 +55,17 @@ This is the ODRA RIVER #line:053bcb9
 Ready to explore? #line:06099c1 
 ===
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
 ---
 This quest is complete.
 
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -262,5 +262,5 @@ image: quest_complete
 Great work, RIVER explorer! #line:012f97c 
 See you on the next trip! #line:045c7d9 
 
-<<jump the_end>>
+<<jump quest_end>>
 ===

@@ -51,7 +51,7 @@
 // - Quiz on mountain safety and geography
 // Words used:Europe, flags, France, Italy, Switzerland, Alps, altitude, summit, glacier, avalanche, marmot, crampons, rope, weather, safety
 
-title: init
+title: quest_start
 position: 0,0
 type: panel
 color: red
@@ -59,23 +59,27 @@ color: red
 <<set $COLLECTED_ITEMS = 0>>
 ===
 
-title: the_end
+title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
 ---
-The game is complete! Congratulations!
-Did you like it?
-<<jump quest_proposal>>
+You reached Mont Blanc and learned summit facts!
+You placed all three flags.
+<<card mountain>>
+You got ready with warm gear.
+Brave mountain explorer!
+<<card summit>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 color: green
 panel: panel
 tags: proposal
 ---
-Now draw your favourite mountain?
+Why don't you draw Mont Blanc with the three flags.
 <<quest_end>>
 ===
 
@@ -86,6 +90,70 @@ tags:  asset=mont_blanc
 You have to go up the Mont Blanc #line:0f4644b 
 the highest mountain in Europe #line:07d23cb 
 and put the 3 flags correctly #line:07f2699 
+===
+
+
+title: item_backpack
+position: 1300,0
+tags: actor=TUTOR asset=backpack
+---
+<<card backpack>>
+This backpack carries food, water and a map.
+It keeps hands free while hiking.
+===
+
+title: item_coat
+position: 1500,0
+tags: actor=TUTOR asset=coat
+---
+<<card coat>>
+This coat keeps your body warm in wind and snow.
+Always zip it up high.
+===
+
+title: item_gloves
+position: 1700,0
+tags: actor=TUTOR asset=gloves
+---
+<<card gloves>>
+Gloves keep fingers warm and dry.
+Cold hands make climbing hard.
+===
+
+title: item_hat
+position: 1900,0
+tags: actor=TUTOR asset=hat
+---
+<<card hat>>
+A warm hat keeps heat from leaving your head.
+Wear it even in bright sun.
+===
+
+title: item_rope
+position: 2100,0
+tags: actor=TUTOR asset=rope
+---
+<<card rope>>
+The rope helps climbers stay safe on ice and rock.
+Always clip it correctly.
+===
+
+title: item_scarf
+position: 2300,0
+tags: actor=TUTOR asset=scarf
+---
+<<card scarf>>
+A scarf blocks wind on your neck.
+Tuck it so it will not flap.
+===
+
+title: item_sunglasses
+position: 2500,0
+tags: actor=TUTOR asset=sunglasses
+---
+<<card sunglasses>>
+Snow and ice reflect bright sun.
+Glasses protect your eyes.
 ===
 
 title: flag_france
@@ -128,4 +196,39 @@ spawn_group: tourists
 => The view from the summit must be amazing!
 => Don't forget to bring warm clothes!
 => Mountains can be dangerous, be careful!
+===
+
+
+title: spawned_hiker
+position: -200,60
+color: purple
+actor:
+spawn_group: hikers
+---
+=> Hiking here needs good boots.
+<<card hiking>>
+=> The wind can change fast.
+<<card wind>>
+=> I follow the rope line when it is icy.
+<<card rope>>
+=> That glacier looks like a frozen river.
+<<card glacier>>
+===
+
+title: spawned_alps_climber
+position: -200,120
+color: purple
+actor:
+spawn_group: alps_climber
+---
+=> The Alps are my playground.
+<<card alps>>
+=> Summit soon! I can feel the sun.
+<<card summit>>
+<<card sun>>
+=> Crampons help me on hard ice.
+<<card crampons>>
+=> Climbing with a guide is safer.
+<<card climbing>>
+<<card mountain_guide>>
 ===

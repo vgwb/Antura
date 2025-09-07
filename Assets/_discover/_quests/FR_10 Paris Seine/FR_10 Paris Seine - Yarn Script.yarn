@@ -23,7 +23,7 @@
 // WORDS: (none)
 // </scene_data>
 
-title: init
+title: quest_start
 position: 0,0
 tags:
 type: panel
@@ -36,16 +36,16 @@ Welcome to the River Seine in Paris! #line:042160f
 You will learn about the river, its bridges, and the boats that sail on it. #line:0280e8f 
 ===
 
-title: the_end
+title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
 ---
 Great, you found all bridges. #line:0c408c3 
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 color: green
 panel: panel
@@ -192,7 +192,7 @@ color: purple
 ---
 Yes! The Seine flows into the English Channel, in northern France. #line:023623a 
 <<card seine_map>>
-<<jump the_end>>
+<<jump quest_end>>
 ===
 
 title: question_wrong

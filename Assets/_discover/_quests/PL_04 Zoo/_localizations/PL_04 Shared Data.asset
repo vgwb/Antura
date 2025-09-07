@@ -460,6 +460,21 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226082763702425
+  - m_Id: 2301224777932800
+    m_Key: line:10efce37
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470775
+  - m_Id: 2301224777932801
+    m_Key: line:86dfc940
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470776
+  - m_Id: 2301224777932802
+    m_Key: line:18d2d811
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470777
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -535,12 +550,12 @@ MonoBehaviour:
     - rid: 2102001355925487652
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 2102001355925487653
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 2102001355925487654
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -905,15 +920,30 @@ MonoBehaviour:
     - rid: 6508226082763702423
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: the_end
+        nodeName: quest_end
         tags: []
     - rid: 6508226082763702424
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: the_end
+        nodeName: quest_end
         tags: []
     - rid: 6508226082763702425
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: quest_proposal
+        nodeName: post_quest_activity
+        tags: []
+    - rid: 6508226101711470775
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: quest_end
+        tags: []
+    - rid: 6508226101711470776
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: quest_end
+        tags: []
+    - rid: 6508226101711470777
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: post_quest_activity
         tags: []

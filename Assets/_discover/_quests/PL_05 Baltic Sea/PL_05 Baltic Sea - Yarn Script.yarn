@@ -50,7 +50,7 @@
 // memory sea_vocab                - Memory cards: FISHERMAN, CUTTER, NET, SEAL, BEACH, AMBER
 // quiz baltic_basics              - Final quiz.
 
-title: init
+title: quest_start
 position: 0,0
 group: Intro
 tags: 
@@ -62,16 +62,16 @@ The LIGHTHOUSE is off. #line:060d616
 Let’s fix it! #line:05414f7 
 ===
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
 ---
 This quest is complete.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -314,5 +314,5 @@ image: quest_complete
 ---
 You helped GDAŃSK. #line:0a7204e 
 The LIGHTHOUSE shines again! #line:0d95290 
-<<jump the_end>>
+<<jump quest_end>>
 ===

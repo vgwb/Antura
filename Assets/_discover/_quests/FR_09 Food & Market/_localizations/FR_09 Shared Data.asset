@@ -695,6 +695,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226082763702384
+  - m_Id: 2306651322310656
+    m_Key: line:9c0650b2
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470766
+  - m_Id: 2306651322310657
+    m_Key: line:85acd1eb
+    m_Metadata:
+      m_Items:
+      - rid: 6508226101711470767
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -762,7 +772,7 @@ MonoBehaviour:
     - rid: 6508225951601787645
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: init
+        nodeName: quest_start
         tags: []
     - rid: 6508225951601787646
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -1343,12 +1353,12 @@ MonoBehaviour:
     - rid: 6508226082763702374
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: the_end
+        nodeName: quest_end
         tags: []
     - rid: 6508226082763702375
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: quest_proposal
+        nodeName: post_quest_activity
         tags: []
     - rid: 6508226082763702376
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -1394,4 +1404,14 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_buyer
+        tags: []
+    - rid: 6508226101711470766
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: quest_end
+        tags: []
+    - rid: 6508226101711470767
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: post_quest_activity
         tags: []

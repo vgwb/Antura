@@ -45,7 +45,7 @@
 // </scene_data>
 
 
-title: init
+title: quest_start
 type: panel
 position: -952,-145
 group: Intro
@@ -58,17 +58,17 @@ Welcome to Wroclaw Zoo. #line:0fe55d1
 There are lots of animals here! #line:005dd46 
 ===
 
-title: the_end
+title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
 ---
 This quest is complete.
 Today you learned about ZOO ANIMALS.
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 236,184
 panel: panel
 color: green
@@ -472,5 +472,5 @@ image: quest_complete
 color: red
 ---
 Great work at the ZOO! #line:056d51c 
-<<jump the_end>>
+<<jump quest_end>>
 ===

@@ -36,7 +36,7 @@
 // WORDS: WATER
 // </scene_data>
 
-title: init
+title: quest_start
 position: 0,0
 type: panel
 tags: 
@@ -44,13 +44,13 @@ color: red
 ---
 <<declare $got_backpack = false>>
 <<SetActive Collect_Backpack false>>
-Welcome Angers! It's the first day of school! #line:014887e 
-You are 10 years old and in the last year of elementary school. #line:063e8e0 
+Welcome to Angers! It is the first day of school! #line:014887e 
+You are 10 years old and in the last year of primary school. #line:063e8e0 
 Find your school and your classroom! #line:0f65a1b 
 <<task_start TASK_FIND_SCHOOL task_find_school_done>>
 ===
 
-title: the_end
+title: quest_end
 position: 2169,385
 color: green
 panel: panel_endgame
@@ -58,10 +58,10 @@ panel: panel_endgame
 The game is complete! Congratulations!
 This is our school day
 
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
+title: post_quest_activity
 position: 2472,380
 color: green
 panel: panel
@@ -76,7 +76,7 @@ title: task_find_school_done
 position: 1,145
 tags: actor=TUTOR
 ---
-TASK COMPLETED!  #line:03ed76a 
+You found your school!  #line:03ed76a 
 ===
 
 title: task_find_school_desc
@@ -91,8 +91,8 @@ position: 338,-337
 tags: actor=WOMAN
 actor: WOMAN
 ---
-Welcome! This is a nursery school, for our youngest pupils aged 3 to 5. #line:096b721 
-You are too big for our small chairs! Your school is nearby. #line:07ed07b 
+Welcome! This is a nursery school for children aged 3 to 5. #line:096b721 
+You are too big for our small chairs. Your school is nearby. #line:07ed07b 
 
 ===
 title: school_2
@@ -111,9 +111,9 @@ position: 724,-284
 tags: actor=GUIDE
 actor: GUIDE
 ---
-Bonjour! Welcome! You've found it. This is your elementary school. #line:092b309 
+Bonjour! Welcome! You found it. This is your elementary school. #line:092b309 
 It looks like you forgot your backpack. #line:0dd7977 
-You'll need your books for the lesson. #line:044385f 
+You need your books for the lesson. #line:044385f 
 <<jump task_backpack>>
 ===
 
@@ -123,7 +123,7 @@ tags: actor=KID_M
 actor: KID_MALE
 ---
 Hi! This is a middle school for ages 11 to 15. #line:06478e9 
-You're almost old enough, but not yet. Keep looking! #line:0df97f8 
+You are almost old enough, but not yet. Keep looking! #line:0df97f8 
 ===
 
 title: school_4
@@ -133,7 +133,7 @@ actor: MAN
 ---
 Bonjour! This is a high school for ages 16 to 18. #line:04a0e4b 
 Students study for the Baccalauréat exam here before university. #line:027eba1 
-You're a bit too young. Try another school. #line:0630d14 
+You are too young. Try another school. #line:0630d14 
 ===
 
 
@@ -181,7 +181,7 @@ title: task_class_done
 position: 1207,-20
 tags: actor=TUTOR
 ---
-YES! You can now start the lesson. #line:093e91d 
+Yes! You can start the lesson now. #line:093e91d 
 ===
 
 title: classroom_1
@@ -210,9 +210,9 @@ position: 1581,54
 tags: actor=WOMAN
 actor: WOMAN
 ---
-Hi there! This is the CE2 classroom #line:0bce01a 
+Hi! This is the CE2 classroom. #line:0bce01a 
 for students who are 8 years old. #line:0b411ce 
-This is not your class, but you're getting close! #line:0e4aa95 
+This is not your class, but you are close! #line:0e4aa95 
 <<action DOOR_OPEN_4>>
 ===
 
@@ -233,11 +233,11 @@ color: purple
 actor: GUIDE
 ---
 There you are! Welcome to CM2! #line:02797f8 
-Let's get to work. #line:0f90123 
-Look, it's a writing lesson. #line:0071a0d 
+Let's start. #line:0f90123 
+It is a writing lesson. #line:0071a0d 
 In France, we learn to write in cursive. #line:0f8995f 
 <<card concept_cursive_writing zoom>>
-Now for geometry! #line:0365921 
+Now we do geometry! #line:0365921 
 <<jump activity_match_geometry>>
 ===
 
@@ -255,9 +255,9 @@ color: purple
 ---
 <<if GetActivityResult("match_shapes") > 0>>
     Great job! #line:0e3f1fa 
-    <<jump the_end>>
+    <<jump quest_end>>
 <<else>>
-Not quite right, let's try again. #line:0a5c8f1
+Not quite right. Try again. #line:0a5c8f1
 <<jump activity_match_geometry>>
 <<endif>>
 ===
@@ -277,7 +277,7 @@ title: task_backpack_done
 position: 1205,-281
 tags: actor=TUTOR
 ---
-TASK COMPLETED! You can now enter school. #line:063f354  
+Task completed! You can enter the school. #line:063f354  
 <<set $got_backpack = true>>
 ===
 
@@ -293,9 +293,9 @@ position: 1830,-269
 tags: actor=WOMAN_OLD, 
 color: yellow
 ---
-Hello! I hope you're registered for the canteen. #line:021132d 
+Hello! I hope you are registered for the canteen. #line:021132d 
 <<card object_canteen_menu>>
-Look what's on the menu today! #line:0978619 
+Look at the menu for today! #line:0978619 
 <<card object_canteen_menu zoom>>
 Enjoy your meal!
 ===
@@ -322,7 +322,7 @@ color: purple
 actor: KID_F
 spawn_group: kids 
 ---
-=> Every morning and afternoon we have a break to play outside. 
+=> We have a play break morning and afternoon.
 => I like to draw and color.
 => My favorite subject is art.
 ===
@@ -333,9 +333,9 @@ color: purple
 actor: KID_M
 spawn_group: kids 
 ---
-=> I like math because I like numbers.
-=> I like to play soccer with my friends
-=> I love videogames!
+=> I like math because of numbers.
+=> I play soccer with friends.
+=> I love video games!
 ===
 
 title: spawned_adult
@@ -343,9 +343,9 @@ position: -364,410
 color: purple
 spawn_group: adults 
 ---
-=> In france the school year starts in September and ends in June.
-=> There are several holidays during the school year.
-=> I love when my kids tell me what they learned at school.
+=> In France school starts in September and ends in June.
+=> There are many holidays in the school year.
+=> I like when my kids tell me what they learned.
 ===
 
 title: spawned_teacher
@@ -353,8 +353,8 @@ position: -363,270
 color: purple
 spawn_group: teachers 
 ---
-=> The school day is from 8am to 4pm.
-=> You can bring your lunch or eat at the canteen.
-=> We learn to write in cursive.
+=> School is from 8 a.m. to 4 p.m.
+=> Bring lunch or eat in the canteen.
+=> We learn cursive writing.
 ===
 

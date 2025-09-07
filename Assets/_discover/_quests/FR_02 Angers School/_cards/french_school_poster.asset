@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: place_classroom
+  m_Name: french_school_poster
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
-  Id: place_classroom
+  Id: object_french_school_poster
   Status: 1
   Importance: 20
-  Type: 1
-  Topics: 1400000026000000
+  Type: 3
+  Topics: 14000000
   Year: 0
   Country: 0
   Location: {fileID: 0}
   WikipediaUrl: 
-  TitleEn: Classroom
-  DescriptionEn: A room in school where students sit and learn new things from their
-    teacher.
+  TitleEn: French School Poster
+  DescriptionEn: A big picture with information that hangs on classroom walls in
+    French schools.
   Title:
     m_TableReference:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: place_classroom
+      m_Key: object_french_school_poster
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -38,12 +38,11 @@ MonoBehaviour:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: place_classroom.desc
+      m_Key: object_french_school_poster.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Quests:
-  - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
   MasteryPointsToUnlock: 1
@@ -51,7 +50,7 @@ MonoBehaviour:
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: dc4dac468adf54bc08866b2af22b92a1, type: 2}
+  ImageAsset: {fileID: 11400000, guid: 43a55bb5c0cee41979bcef7e9413b732, type: 2}
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -64,9 +63,9 @@ MonoBehaviour:
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
-  _lastTitleEn: Classroom
-  _lastDescriptionEn: A room in school where students sit and learn new things from
-    their teacher.
+  _lastTitleEn: French School Poster
+  _lastDescriptionEn: A big picture with information that hangs on classroom walls
+    in French schools.
   references:
     version: 2
     RefIds: []

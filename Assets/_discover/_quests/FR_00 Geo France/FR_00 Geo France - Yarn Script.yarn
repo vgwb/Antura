@@ -34,7 +34,7 @@
 // </scene_data>
 
 
-title: init
+title: quest_start
 position: 0,0
 tags: Start
 color: red
@@ -64,17 +64,17 @@ Let’s meet kids from nearby countries. #line:08a09de
 
 ===
 
-title: the_end
-position: 234,7
+title: quest_end
+position: 220,0
 panel: panel_endgame
 color: green
 ---
 The quest is complete. #line:0432689 
-<<jump quest_proposal>>
+<<jump post_quest_activity>>
 ===
 
-title: quest_proposal
-position: 236,184
+title: post_quest_activity
+position: 220,160
 panel: panel
 color: green
 tags: proposal
@@ -97,7 +97,7 @@ panel: panel_endgame
 Good job! You did it! #line:0ba3c4c 
 <<card concept_europe_map>>
 You found part of Europe! #line:06e1dd4 
-<<jump the_end>>
+<<jump quest_end>>
 ===
 
 title: france_npc
