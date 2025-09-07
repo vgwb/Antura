@@ -5,13 +5,17 @@
 // TOPICS
 //   - TODO street-safety
 // CARDS
-// - (none)
+// - danger_sign
+// - stop_sign
+// - traffic_lights
+// - zebra_crossing
+//   - TODO helmet_street_safety
+//   - TODO street_safety
 // TASKS
 // - (none)
 // ACTIVITIES
 // - (none)
 // ACTABLE
-//   - BROKEN GIVE_SCOOTER
 // WORDS: (none)
 // </scene_data>
 
@@ -46,9 +50,9 @@ position: 334,976
 color: green
 panel: panel_endgame
 ---
-Great job!
-You used the signs to stay safe.
-Road safety can be fun!
+Great job! #line:08cd696 
+You used the signs to stay safe. #line:0298d64 
+Road safety can be fun! #line:001499f 
 <<jump post_quest_activity>>
 ===
 
@@ -58,7 +62,7 @@ color: green
 panel: panel
 tags: proposal
 ---
-Draw a map of the streets around your home!
+Draw a map of the streets around your home! #line:0acd0a1 
 <<quest_end>>
 ===
 
@@ -176,11 +180,11 @@ color: purple
 actor: 
 spawn_group: pedestrian 
 ---
-=> Always look both ways before crossing the street!
-=> Never run across the street, even if you're in a hurry!
-=> Always use a crosswalk or pedestrian crossing when available!
-=> Wear bright or reflective clothing when walking at night!
-=> Never use your phone or headphones when crossing the street!
+=> Always look both ways before crossing the street! #line:0d65c60 
+=> Never run across the street, even if you're in a hurry! #line:084a760 
+=> Always use a crosswalk or pedestrian crossing when available! #line:07f8272 
+=> Wear bright or reflective clothing when walking at night! #line:0587fd6 
+=> Never use your phone or headphones when crossing the street! #line:044f000 
 ===
 
 title: spawned_race_lemans
@@ -189,10 +193,10 @@ color: purple
 actor: MAN
 spawn_group: race 
 ---
-=> The Le Mans race lasts 24 hours!
-=> Race cars go fast on the track, not on streets.
-=> Speed is for the circuit.
-=> In the streets we go slowly.
+=> The Le Mans race lasts 24 hours! #line:02e7a89 
+=> Race cars go fast on the track, not on streets. #line:0518750 
+=> Speed is for the circuit. #line:02e3d19 
+=> In the streets we go slowly. #line:02f57a4 
 ===
 
 title: spawned_kids_walking
@@ -201,9 +205,9 @@ color: purple
 actor: 
 spawn_group: kids 
 ---
-=> We walk on the sidewalk.
-=> We stop and look before we cross.
-=> We wait for green at the lights.
-=> We look left and right for cars.
-=> We do not play in the street.
+=> We walk on the sidewalk. #line:0999d95 
+=> We stop and look before we cross. #line:04b17e0 
+=> We wait for green at the lights. #line:0b0fe8c 
+=> We look left and right for cars. #line:0bbc9ed 
+=> We do not play in the street. #line:08097b8 
 ===
