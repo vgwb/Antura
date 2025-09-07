@@ -59,6 +59,25 @@ Go and talk with the tutor! #line:fr01_start_2
 <<target tutor>>
 ===
 
+title: the_end
+position: 334,976
+color: green
+panel: panel_endgame
+---
+GREAT! I can now bake the Baguette. And... #line:0017917 
+CONGRATULATIONS! You won the game! Did you like it? #line:0d11596 
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+color: green
+panel: panel
+tags: proposal
+---
+Why don't you draw the Eiffel Tower?
+<<quest_end>>
+===
 
 
 title: talk_tutor
@@ -72,25 +91,6 @@ Follow the target or use the map! #line:fr01_talk_tutor_2
 Get there as soon as possible! #line:fr01_talk_tutor_3 
 ===
 
-
-title: talk_louvre_external
-position: 320,61
-group: louvre
-actor: OLD_WOMAN
----
-<<if $MET_MONALISA>>
-    <<jump go_bakery>>
-<<else>>
-<<asset louvre>>
-This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
-Do you want to enter? #line:0f74ff9
--> Yes: #line:090114f 
-    Enjoy your visit! #line:056e051 
-    <<action AREA_LOUVRE_ENTER >>
--> No: #line:077422a 
-    Okay. #line:0c28ea0 
-<<endif>>
-===
 
 title: talk_eiffell_roof
 position: 319,-444
@@ -133,11 +133,11 @@ actor: guide
 title: talk_notre_dame
 position: 327,-203
 group: notredame
-tags: actor=OLD_MAN, asset=notredame
+tags: actor=MAN_OLD, asset=notredame
 ---
 I'm the Mayor of Paris. #line:0cc11fa 
 This is Notre-Dame Cathedral. #line:06f3fa2 
-<<asset notredame>>
+<<card notredame zoom>>
 It is a famous Gothic church, built in 1182. #line:02edc0f 
 <<action AREA_NOTREDAME_ROOF>>
 Come with me up to the roof of the church! #line:083dfcc 
@@ -150,9 +150,7 @@ group: bakery
 actor: CRAZY_MAN
 ---
 <<if $COLLECTED_ITEMS >= 4>>
-    GREAT! I can now bake the Baguette. And... #line:0017917 
-    CONGRATULATIONS! You won the game! Did you like it? #line:0d11596 
-    <<quest_end 3>>
+    <<jump the_end>>
 <<else>>
     Help me! Antura made a mess in my kitchen! #line:07bbb10 
     I can't find the ingredients to make the baguette. #line:09e867c 
@@ -168,17 +166,18 @@ actor: CRAZY_MAN
 title: visit_louvre
 position: 748,580
 group: louvre
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 <<asset louvre_inside>>
 You can find many sculptures and paintings. #line:08dc97f 
 <<jump find_monalisa>>
 ===
 
+
 title: find_monalisa
 position: 1120,434
 group: louvre
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 
 <<action monalisa>>
@@ -188,7 +187,7 @@ Go and find the Mona Lisa! #line:0442392
 title: go_bakery
 position: 605,64
 group: louvre
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
  
 Now look for Antura! It went to the bakery for a baguette! #line:076ef0f 
@@ -199,7 +198,7 @@ title: baguette_salt
 position: 846,1165
 group: bakery
 color: yellow
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 ---
 <<action COLLECT_1>>
 <<card baguette_salt>>
@@ -211,7 +210,7 @@ title: baguette_flour
 position: 1080,1165
 group: bakery
 color: yellow
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 ---
 <<action COLLECT_2>>
 <<card baguette_flour>>
@@ -223,7 +222,7 @@ title: baguette_water
 position: 581,1166
 group: bakery
 color: yellow
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 ---
 <<action COLLECT_3>>
 <<card baguette_water>>
@@ -234,7 +233,7 @@ title: baguette_yeast
 position: 334,1160
 group: bakery
 color: yellow
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 ---
 <<action COLLECT_4>>
 <<card baguette_yeast>>
@@ -244,7 +243,7 @@ This is yeast. #line:025865d
 title: talk_notre_dame_roof
 position: 638,-205
 group: notredame
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 ---
 <<asset notredame_fire>>
 There was a big fire in 2019, but we could repair it. #line:09a0ead 
@@ -256,7 +255,7 @@ It is just across the River Seine. #line:00d22e5
 title: talk_louvre_guide
 position: 749,285
 group: louvre
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 color: blue
 ---
 Welcome to the Louvre Museum. What do you want to do? #line:0e6d2a5 
@@ -275,7 +274,7 @@ title: louvre_monalisa
 position: 320,589
 group: louvre
 color: yellow
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 <<asset monalisa>>
 This is the famous Mona Lisa. #line:louvre_monalisa_1
@@ -289,7 +288,7 @@ title: louvre_liberty
 position: 322,431
 group: louvre
 color: yellow
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 <<asset liberty_leading>>
 This painting represents freedom. #line:louvre_liberty_1
@@ -301,16 +300,44 @@ title: louvre_venus
 position: 323,272
 group: louvre
 color: yellow
-tags: actor=CRAZY_WOMAN, 
+tags: actor=WOMAN, 
 ---
 <<asset venusmilo>>
 The Venus de Milo, an ancient Greek marble sculpture. #line:053d4fe 
 ===
 
-title: npc_woman
+
+title: talk_louvre_external
+position: 320,61
+group: louvre
+actor: OLD_WOMAN
+---
+<<if $MET_MONALISA>>
+    <<jump go_bakery>>
+<<else>>
+<<asset louvre>>
+This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
+Do you want to enter? #line:0f74ff9
+-> Yes: #line:090114f 
+    Enjoy your visit! #line:056e051 
+    <<action AREA_LOUVRE_ENTER >>
+-> No: #line:077422a 
+    Okay. #line:0c28ea0 
+<<endif>>
+===
+
+
+///////// NPCs SPAWNED IN THE SCENE //////////
+// these npc are spawn automatically in the scene
+// use these to add random facts. everythime you meet them
+// they will say one of these lines randomly
+
+title: spawned_woman
 position: -284,321
 tags: actor=WOMAN
 color: purple
+spawn_group: generic
+
 ---
 Ciao. What do you want to know? #line:0070084 
 -> What is the Eiffel Tower? #line:0d91dc0 
@@ -325,10 +352,11 @@ Ciao. What do you want to know? #line:0070084
 ===
 
 
-title: npc_man
+title: spawned_man
 position: -286,162
 tags: actor=MAN
 color: purple
+spawn_group: generic
 ---
 Do you have any questions? #line:07b94e9 
 -> Have you seen Antura? #line:0f18ad3 
@@ -343,12 +371,11 @@ Do you have any questions? #line:07b94e9
 -> Goodbye #line:0ee51fc 
 ===
 
-
-
 title: npc_kid
 position: -279,0
-tags: actor=KID_MALE
+tags: actor=KID_M
 color: purple
+spawn_group: kids
 ---
 => Hi! #line:0c4d9e4 
 => How are you? #line:032d401 

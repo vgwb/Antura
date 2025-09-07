@@ -87,6 +87,26 @@ Welcome to Warsaw! #line:07c7f43
 
 ===
 
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw...
+<<quest_end>>
+===
+
+
 // ————————————————————————————————————————————————————————————————————
 // GUIDE — WELCOME
 // ————————————————————————————————————————————————————————————————————
@@ -181,7 +201,7 @@ group: Warsaw
 Greetings. I am KING SIGISMUND. #line:0735d68 
 My CROWN fell when ANTURA ran past! #line:06acced 
 It should be nearby. Please find it. #line:0a6c3f8 
-// Task hint (scene action suggested)
+// Task hint
 // task=find_crown, action=HighlightCrown could be handled by scene logic if needed
 Well done. My CROWN is back. #line:0853f81 
 Go to the PARLIAMENT. The MERMAID’s SWORD is there. #line:0fe293d 
@@ -238,7 +258,7 @@ I heard noise at the NATIONAL STADIUM. #line:0762923
 ===
 
 // ————————————————————————————————————————————————————————————————————
-// NATIONAL STADIUM — SCORE 5 GOALS + ANTHEM
+// NATIONAL STADIUM 
 // ————————————————————————————————————————————————————————————————————
 title: NATIONAL_STADIUM
 tags: actor=Robert_Lewandowski
@@ -254,9 +274,6 @@ People sing our NATIONAL ANTHEM here. #line:0b65eb8
 Independence Day is on 11 NOVEMBER. #line:09c2e0c 
 ===
 
-// ————————————————————————————————————————————————————————————————————
-// GUIDE — OUTRO
-// ————————————————————————————————————————————————————————————————————
 title: GUIDE_OUTRO
 tags: actor=Guide
 type: panel
@@ -268,9 +285,6 @@ The MERMAID, CHOPIN, and friends say thank you. #line:0be619e
 Keep exploring POLAND! #line:0aeb8fb 
 ===
 
-// ————————————————————————————————————————————————————————————————————
-// FINAL QUIZ — 2 QUESTIONS (FLAG + VOCAB MATCH)
-// ————————————————————————————————————————————————————————————————————
 title: FINAL_QUIZ
 tags: actor= Narrator
 type: quiz
@@ -282,4 +296,5 @@ Final questions. #line:01faf50
 // Q2: Match picture with words (TRANSPORT/SPORT vocabulary)
 <<activity quiz warsaw_basics tutorial>>
 Well done! #line:08f99a0 
+<<jump the_end>>
 ===

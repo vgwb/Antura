@@ -14,15 +14,14 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// FR_03 NANTES_MUSEUM - Jules Verne</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_03 | Jules Verne (Nantes)</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">// Tasks:</span>
 <span class="yarn-header-dim">// - FIND_BOOKS (collect 4 Jules Verne books)</span>
 <span class="yarn-header-dim">// - COLLECT_TRAIN (collect from "Around the World in 80 Days")</span>
 <span class="yarn-header-dim">// - COLLECT_ROCKET (collect from "From Earth to the Moon")</span>
 <span class="yarn-header-dim">// - COLLECT_SUBMARINE (collect from "20,000 Leagues Under the Sea")</span>
 <span class="yarn-header-dim">// - COLLECT_BALLOON (collect from "Five Weeks in a Balloon")</span>
-<span class="yarn-header-dim">// Words:</span>
-<span class="yarn-header-dim">// writer, map, book, train, rocket, submarine, hot air balloon, science fiction, invention, exploration, adventure</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">type: panel</span>
@@ -34,17 +33,41 @@ hide:
 
 </code></pre></div>
 
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">---</span>
+Now you know something about Jules Verne
+and his amazing books!
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Read one of his books!
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+
+</code></pre></div>
+
 <a id="ys-node-talk-guide"></a>
 ## talk_guide
 
-<div class="yarn-node" data-title="talk_guide"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=CRAZY_WOMAN, asset=jules_verne_1</span>
+<div class="yarn-node" data-title="talk_guide"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN, asset=jules_verne_1</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $COLLECTED_ITEMS == 0&gt;&gt;</span>
 <span class="yarn-line">Welcome to the house of Jules Verne! <span class="yarn-meta">#line:08f7bc1 </span></span>
 &lt;&lt;elseif $COLLECTED_ITEMS &lt; $QUEST_ITEMS&gt;&gt;
-<span class="yarn-cmd">&lt;&lt;jump task_find_books&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_find_books&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;jump won&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump won&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -104,12 +127,12 @@ hide:
 <a id="ys-node-won"></a>
 ## won
 
-<div class="yarn-node" data-title="won"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
+<div class="yarn-node" data-title="won"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset jules_verne_2&gt;&gt;</span>
 <span class="yarn-line">Great! You met Jules Verne, <span class="yarn-meta">#line:099cdca </span></span>
 <span class="yarn-line">the famous science fiction writer. <span class="yarn-meta">#line:05a032e </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -200,6 +223,24 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card book_5weeksballoon&gt;&gt;</span>
 <span class="yarn-line">This book is "Five Weeks in a Balloon". <span class="yarn-meta">#line:0934a7c </span></span>
 <span class="yarn-cmd">&lt;&lt;jump paint_5weeks&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-visitor"></a>
+## spawned_visitor
+
+<div class="yarn-node" data-title="spawned_visitor"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">spawn_group: generic </span>
+<span class="yarn-header-dim">---</span>
+=&gt; I love reading books!
+=&gt; Did you know that Jules Verne is considered one of the fathers of science fiction?
+=&gt; I heard that Jules Verne wrote more than 60 novels in his life!
+=&gt; I read that Jules Verne's works have been translated into more than 140 languages!
 
 </code></pre></div>
 

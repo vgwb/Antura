@@ -14,15 +14,8 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// FR_10 PARIS_SEINE - Seine River Journey</span>
-<span class="yarn-header-dim">// Location: Paris, France - Seine River and bridges</span>
-<span class="yarn-header-dim">// Cards:</span>
-<span class="yarn-header-dim">// - seine_river (geographical feature)</span>
-<span class="yarn-header-dim">// - seine_map (navigation aid)</span>
-<span class="yarn-header-dim">// - seine_river_panoramic (scenic view)</span>
-<span class="yarn-header-dim">// - boat_eiffel (river transportation)</span>
-<span class="yarn-header-dim">// - bridge_alexander_iii (architectural landmark)</span>
-<span class="yarn-header-dim">// Words used: Seine, river, boat, bridge, Paris, Notre-Dame, navigation, water, transportation, history</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_10 | Seine (Paris)</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
@@ -32,6 +25,30 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 8&gt;&gt;</span>
 <span class="yarn-line">Welcome to the River Seine in Paris! <span class="yarn-meta">#line:042160f </span></span>
 <span class="yarn-line">You will learn about the river, its bridges, and the boats that sail on it. <span class="yarn-meta">#line:0280e8f </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Great, you found all bridges. <span class="yarn-meta">#line:0c408c3 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Draw a bridge in your notebook!
+<span class="yarn-line">Do you remember the Pont Alexandre III? <span class="yarn-meta">#line:06c5bed </span></span>
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -163,7 +180,7 @@ hide:
 <a id="ys-node-look-seine-map"></a>
 ## look_seine_map
 
-<div class="yarn-node" data-title="look_seine_map"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=</span>
+<div class="yarn-node" data-title="look_seine_map"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  seine_france_map&gt;&gt;</span>
 <span class="yarn-line">Now look at this map of the Seine. <span class="yarn-meta">#line:0b03341 </span></span>
@@ -174,7 +191,7 @@ hide:
 <a id="ys-node-question-seine-map"></a>
 ## question_seine_map
 
-<div class="yarn-node" data-title="question_seine_map"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, type=Choice</span>
+<div class="yarn-node" data-title="question_seine_map"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The Seine flows into a sea. Which one? <span class="yarn-meta">#line:0adc7b7 </span></span>
 <span class="yarn-line">-&gt; "The Mediterranean Sea": <span class="yarn-meta">#line:04cf904 </span></span>
@@ -193,11 +210,8 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Yes! The Seine flows into the English Channel, in northern France. <span class="yarn-meta">#line:023623a </span></span>
-<span class="yarn-cmd">&lt;&lt;card  seine_map&gt;&gt;</span>
-<span class="yarn-line">On this map, name the monuments you recognize. <span class="yarn-meta">#line:0406145 </span></span>
-<span class="yarn-line">Draw a bridge in your notebook! Do you remember the Pont Alexandre III? <span class="yarn-meta">#line:06c5bed </span></span>
-<span class="yarn-line">Great, you finished this level. <span class="yarn-meta">#line:0c408c3 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -217,7 +231,7 @@ hide:
 <div class="yarn-node" data-title="npc_train"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">=&gt; I would love to ride a train! <span class="yarn-meta">#line:01663fa </span></span>
-<span class="yarn-line">=&gt; I love trains! <span class="yarn-meta">#line:0574872 </span></span>
+<span class="yarn-line">I love trains! <span class="yarn-meta">#line:0574872 </span></span>
 
 </code></pre></div>
 
@@ -270,6 +284,52 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card alexander_iii_bridge&gt;&gt;</span>
 <span class="yarn-line">This is the Pont Alexandre III, a historic monument. <span class="yarn-meta">#line:09c706f </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-tourist"></a>
+## spawned_tourist
+
+<div class="yarn-node" data-title="spawned_tourist"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">spawn_group: tourists </span>
+<span class="yarn-header-dim">---</span>
+=&gt; I love Paris!
+=&gt; The Seine is so romantic!
+=&gt; I want to see the Eiffel Tower!
+=&gt; I would like to sleep on a boat on the Seine!
+
+</code></pre></div>
+
+<a id="ys-node-spawned-french-woman"></a>
+## spawned_french_woman
+
+<div class="yarn-node" data-title="spawned_french_woman"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">spawn_group: residents </span>
+<span class="yarn-header-dim">---</span>
+=&gt; Bonjour! #do_not_translate
+=&gt; J'adore Paris! #do_not_translate
+=&gt; La Seine est magnifique! #do_not_translate
+=&gt; Il y a beaucoup de ponts à Paris! #do_not_translate
+
+</code></pre></div>
+
+<a id="ys-node-spawned-french-man"></a>
+## spawned_french_man
+
+<div class="yarn-node" data-title="spawned_french_man"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">spawn_group: residents </span>
+<span class="yarn-header-dim">---</span>
+=&gt; Salut! #do_not_translate
+=&gt; J'aime bien faire du vélo le long de la Seine! #do_not_translate
+=&gt; Paris est la plus belle ville du monde! #do_not_translate
+=&gt; La Seine est très longue! #do_not_translate
 
 </code></pre></div>
 

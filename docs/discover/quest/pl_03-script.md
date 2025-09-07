@@ -14,13 +14,11 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// PL_03 - A Voyage on the Odra River</span>
-<span class="yarn-header-dim">// Cards:</span>
-<span class="yarn-header-dim">// - odra_river (geographical feature)</span>
-<span class="yarn-header-dim">// - RiverOdra (major river)</span>
-<span class="yarn-header-dim">// - wroclaw_bridges (infrastructure)</span>
-<span class="yarn-header-dim">// - Footbridges (bridge types)</span>
-<span class="yarn-header-dim">// Activities:</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_03 | Odra River (Wroclaw)</span>
+<span class="yarn-header-dim">// PL_03 - A Voyage on the Odra River</span>
+<span class="yarn-header-dim">// </span>
+<span class="yarn-header-dim">// ---------------------------------------------</span>
+<span class="yarn-header-dim">// WANTED:</span>
 <span class="yarn-header-dim">// cleancanvas odra_footbridge  — Clean the FOOTBRIDGE image; concept: BRIDGE for people (no CARS).</span>
 <span class="yarn-header-dim">// memory odra_bridges          — Match BRIDGE types; concepts: TRAIN BRIDGE (tracks), ROAD BRIDGE (CARS).</span>
 <span class="yarn-header-dim">// jigsawpuzzle odra_barge      — Rebuild BARGE image; concept: BOAT that carries GOODS.</span>
@@ -38,6 +36,30 @@ hide:
 <span class="yarn-line">Welcome to WROCŁAW in POLAND <span class="yarn-meta">#line:03f03fe </span></span>
 <span class="yarn-line">This is the ODRA RIVER <span class="yarn-meta">#line:053bcb9 </span></span>
 <span class="yarn-line">Ready to explore? <span class="yarn-meta">#line:06099c1 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">---</span>
+This quest is complete.
+
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw the river?
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -248,7 +270,7 @@ hide:
 <span class="yarn-line">Great work, RIVER explorer! <span class="yarn-meta">#line:012f97c </span></span>
 <span class="yarn-line">See you on the next trip! <span class="yarn-meta">#line:045c7d9 </span></span>
 
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 

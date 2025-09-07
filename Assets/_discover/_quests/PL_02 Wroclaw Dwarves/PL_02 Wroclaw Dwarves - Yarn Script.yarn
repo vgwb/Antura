@@ -61,9 +61,30 @@ type: panel
 <<declare $dwarf_8_found = false>>
 <<declare $dwarf_9_found = false>>
 <<declare $dwarf_10_found = false>>
+<<declare $top_met = false>>
 
 Welcome to Wrocław!
 ===
+
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw your Dwarf?
+<<quest_end>>
+===
+
 
 title: npg_task_dwarves
 position: 0,180
@@ -165,7 +186,7 @@ tags: actor=DWARF
 A church is a place where people pray. #line:0b1f4e1
 ===
 
-title: dwarf_3__quiz
+title: dwarf_3_quiz
 position: 520,360
 group: dwarves
 tags: actor=DWARF
@@ -345,6 +366,8 @@ You can see very far from the top. #line:0170463
 <<activity jigsawpuzzle sky_tower_dwarf tutorial>>
 ===
 
+
+
 // Keymaster at the elevator
 title: elevator_keymaster
 position: 1137,1267
@@ -353,10 +376,10 @@ tags: actor=DWARF
 ---
 I guard the elevator. #line:0dd986c 
 <<if $found < $need>>
-You still need more dwarves. Keep exploring the city. #line:08dfa28 
+	You still need more dwarves. Keep exploring the city. #line:08dfa28 
 <<else>>
-Great! You found them all. I open the door with my key. #line:0fdc177 
-<<action activate_elevator>>
+	Great! You found them all. I open the door with my key. #line:0fdc177 
+	<<action activate_elevator>>
 <<endif>>
 ===
 
@@ -368,14 +391,20 @@ The elevator goes up... Ding! #line:0abe973
 The view is beautiful. #line:008b500 
 ===
 
-title: rescue_top
+title: npg_rescue_top
 position: 851,1818
 tags: actor=ANTURA
 ---
-I'm here! Thank you! #line:066b636 
-Wink... POOF! #line:0a6619b 
-Magic! Antura is playful. #line:0de1060 
-
+<<if $top_met>>
+	<<jump assessment_intro>>
+<<else>>
+	<<set $top_met = true>>
+	AHhh Antura was here.
+	But it just went away!
+	Maybe next time you'll make it!
+	But isn't the view beautiful?
+	<<jump assessment_intro>>
+<<endif>>
 ===
 
 // Final Assessment
@@ -383,9 +412,11 @@ title: assessment_intro
 position: 851,1618
 tags: actor=GUIDE
 ---
-Quick check. #line:0816525 
-Two short questions. #line:03ddff0 
-<<jump assessment_q1>>
+Would you like to anwear two short questions??
+-> Yes
+	<<jump assessment_q1>>
+-> No 
+	Ok. Come back to me to end the game
 ===
 
 title: assessment_q1
@@ -424,6 +455,6 @@ title: assessment_end
 position: 1769,1692
 tags: actor=GUIDE
 ---
-You finished the quest! #line:0fc1bad 
-<<quest_end 3>>
+GREAT! You finished the quest! #line:0fc1bad 
+<<jump the_end>>
 ===

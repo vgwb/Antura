@@ -36,6 +36,26 @@ Welcome to the River Seine in Paris! #line:042160f
 You will learn about the river, its bridges, and the boats that sail on it. #line:0280e8f 
 ===
 
+title: the_end
+position: 334,976
+color: green
+panel: panel_endgame
+---
+Great, you found all bridges. #line:0c408c3 
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+color: green
+panel: panel
+tags: proposal
+---
+Draw a bridge in your notebook!
+Do you remember the Pont Alexandre III? #line:06c5bed 
+<<quest_end>>
+===
+
 title: talk_tutor
 position: 270,1
 tags: type=Condition
@@ -145,7 +165,7 @@ This boat transports goods. #line:0f13a44
 
 title: look_seine_map
 position: 863,-3
-tags: actor=TUTOR, asset=
+tags: actor=TUTOR
 ---
 <<card  seine_france_map>>
 Now look at this map of the Seine. #line:0b03341 
@@ -154,7 +174,7 @@ Now look at this map of the Seine. #line:0b03341
 
 title: question_seine_map
 position: 1135,-4
-tags: actor=TUTOR, type=Choice
+tags: actor=TUTOR
 ---
 The Seine flows into a sea. Which one? #line:0adc7b7 
 -> "The Mediterranean Sea": #line:04cf904 
@@ -171,11 +191,8 @@ tags: actor=TUTOR
 color: purple
 ---
 Yes! The Seine flows into the English Channel, in northern France. #line:023623a 
-<<card  seine_map>>
-On this map, name the monuments you recognize. #line:0406145 
-Draw a bridge in your notebook! Do you remember the Pont Alexandre III? #line:06c5bed 
-Great, you finished this level. #line:0c408c3 
-<<quest_end 3>>
+<<card seine_map>>
+<<jump the_end>>
 ===
 
 title: question_wrong
@@ -235,4 +252,45 @@ tags: actor=WOMAN
 ---
 <<card alexander_iii_bridge>>
 This is the Pont Alexandre III, a historic monument. #line:09c706f 
+===
+
+///////// NPCs SPAWNED IN THE SCENE //////////
+// these npc are spawn automatically in the scene
+// use these to add random facts. everythime you meet them
+// they will say one of these lines randomly
+
+title: spawned_tourist
+position: -367,1
+color: purple
+actor: 
+spawn_group: tourists 
+---
+=> I love Paris! 
+=> The Seine is so romantic!
+=> I want to see the Eiffel Tower!
+=> I would like to sleep on a boat on the Seine! 
+===
+
+title: spawned_french_woman
+position: -367,1
+color: purple
+actor: WOMAN
+spawn_group: residents 
+---
+=> Bonjour! #do_not_translate
+=> J'adore Paris! #do_not_translate
+=> La Seine est magnifique! #do_not_translate
+=> Il y a beaucoup de ponts à Paris! #do_not_translate
+===
+
+title: spawned_french_man
+position: -367,1
+color: purple
+actor: MAN
+spawn_group: residents 
+---
+=> Salut! #do_not_translate
+=> J'aime bien faire du vélo le long de la Seine! #do_not_translate
+=> Paris est la plus belle ville du monde! #do_not_translate
+=> La Seine est très longue! #do_not_translate
 ===

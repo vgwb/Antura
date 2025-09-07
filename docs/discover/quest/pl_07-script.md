@@ -11,9 +11,12 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=783699917#gid=783699917)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_07%20Solar%20System/PL_07%20Solar%20System%20-%20Yarn%20Script.yarn)  
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// PL_07 - Nicolaus Copernicus &amp; Solar System</span>
-<span class="yarn-header-dim">// Location: Toruń, Poland - Copernicus House, Museum, and Planetarium</span>
-<span class="yarn-header-dim">//</span>
+<a id="ys-node-init"></a>
+## Init
+
+<div class="yarn-node" data-title="Init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_07 | Solar System (Torun)</span>
+<span class="yarn-header-dim">// </span>
+<span class="yarn-header-dim">// WANTED:</span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - NicolausCopernicus (scientific figure)</span>
 <span class="yarn-header-dim">// - planet_mercury (planetary education)</span>
@@ -38,15 +41,6 @@ hide:
 <span class="yarn-header-dim">// - cleancanvas telescope_lens_clean (clean telescope lens)</span>
 <span class="yarn-header-dim">// - memory telescope_parts (match telescope components)</span>
 <span class="yarn-header-dim">// - jigsawpuzzle planet_mercury through planet_neptune (8 individual planet jigsaws)</span>
-<span class="yarn-header-dim">//</span>
-<span class="yarn-header-dim">// Words used: POLAND, TORUŃ, COPERNICUS, SUN, PLANET, SOLAR SYSTEM, TELESCOPE, LENS, PLANETARIUM, MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE, MOONS, CENTER, ASTRONOMY, SCIENTIST</span>
-<span class="yarn-header-dim">// </span>
-</code></pre></div>
-
-<a id="ys-node-init"></a>
-## Init
-
-<div class="yarn-node" data-title="Init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
 <span class="yarn-header-dim">group: Intro</span>
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: torun_street</span>
@@ -60,16 +54,40 @@ hide:
 <span class="yarn-line">ANTURA is stuck in his house! <span class="yarn-meta">#line:00589bc </span></span>
 <span class="yarn-line">Let's ask COPERNICUS for help. <span class="yarn-meta">#line:031963d </span></span>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// MEET COPERNICUS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
+</code></pre></div>
+
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">---</span>
+This quest is complete.
+Today we learned about the SOLAR SYSTEM.
+And knew that the SUN is in the center.
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw the Solar System?
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
 <a id="ys-node-copernicus-outside"></a>
 ## COPERNICUS_OUTSIDE
 
-<div class="yarn-node" data-title="COPERNICUS_OUTSIDE"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Intro</span>
+<div class="yarn-node" data-title="COPERNICUS_OUTSIDE"><pre class="yarn-code"><code><span class="yarn-header-dim">//--------------------------------------------</span>
+<span class="yarn-header-dim">// MEET COPERNICUS</span>
+<span class="yarn-header-dim">//--------------------------------------------</span>
+<span class="yarn-header-dim">group: Intro</span>
 <span class="yarn-header-dim">tags: actor=Copernicus</span>
 <span class="yarn-header-dim">image: copernicus_house_front</span>
 <span class="yarn-header-dim">---</span>
@@ -375,9 +393,7 @@ hide:
 
 <span class="yarn-cmd">&lt;&lt;jump ALL_PLANETS_FOUND&gt;&gt;</span>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// ALL PLANETS FOUND – MOVE TO RESCUE</span>
-<span class="yarn-comment">//--------------------------------------------</span>
+<span class="yarn-comment">// ALL PLANETS FOUND</span>
 
 </code></pre></div>
 
@@ -390,12 +406,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">You found all 8 PLANETS. <span class="yarn-meta">#line:0d91787 </span></span>
 <span class="yarn-line">The model is complete. <span class="yarn-meta">#line:0d9ce49 </span></span>
-<span class="yarn-line">-&gt; Rescue ANTURA <span class="yarn-meta">#line:0896149 </span></span>
-
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// RESCUE ANTURA – SCENE</span>
-<span class="yarn-comment">//--------------------------------------------</span>
+<span class="yarn-line">now rescue ANTURA! <span class="yarn-meta">#line:0896149 </span></span>
 
 </code></pre></div>
 
@@ -424,9 +435,6 @@ hide:
 <span class="yarn-line">-&gt; Final Quiz <span class="yarn-meta">#line:0a535da </span></span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// FINAL QUIZ – ALWAYS LAST</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
@@ -438,7 +446,6 @@ hide:
 <span class="yarn-header-dim">image: quiz_solar_system</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Answer the questions. <span class="yarn-meta">#line:08bea58 </span></span>
-<span class="yarn-line">Tap the best choice. <span class="yarn-meta">#line:082b5ff </span></span>
 <span class="yarn-cmd">&lt;&lt;activity quiz copernicus_basics tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Suggested questions in preset:</span>
 <span class="yarn-comment">// 1) Who is in the center of the SOLAR SYSTEM? a) EARTH  b) SUN ✅  c) MOON</span>
@@ -447,9 +454,6 @@ hide:
 
 <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// END</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
@@ -457,13 +461,10 @@ hide:
 ## QUEST_COMPLETE
 
 <div class="yarn-node" data-title="QUEST_COMPLETE"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
-<span class="yarn-header-dim">image: quest_complete</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">You helped COPERNICUS. <span class="yarn-meta">#line:0be7346 </span></span>
-<span class="yarn-line">The SOLAR SYSTEM is complete! <span class="yarn-meta">#line:0410bab </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+Well done!
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 

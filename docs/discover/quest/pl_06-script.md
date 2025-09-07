@@ -14,8 +14,10 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// PL_06_TORUN_MARKET - Gingerbread &amp; food market</span>
-<span class="yarn-header-dim">// Location: Toruń, Poland - Medieval Market Square</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_06 | Market (Torun)</span>
+<span class="yarn-header-dim">// </span>
+<span class="yarn-header-dim">// ---------</span>
+<span class="yarn-header-dim">// WANTED:</span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - torun_gingerbread (cultural tradition)</span>
 <span class="yarn-header-dim">// - torun_town_hall (Gothic architecture)</span>
@@ -30,7 +32,6 @@ hide:
 <span class="yarn-header-dim">// - bake gingerbread (order/memory of ingredients)</span>
 <span class="yarn-header-dim">// - Pierogi Challenge: order/memory of ingredients (flour, eggs, cheese, potatoes)</span>
 <span class="yarn-header-dim">// Words used: Toruń, market, vendor, grocer, beekeeper, dairy, eggs, milk, butter, flour, honey, cloves, cinnamon, ginger, pierogi, molds, coins, zloty, kitchen, gingerbread, medieval</span>
-<span class="yarn-header-dim">tags: type=Start</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
@@ -46,6 +47,30 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $got_cloves = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_cinnamon = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_ginger = false&gt;&gt;</span>
+Welcome to Torun!
+
+</code></pre></div>
+
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">---</span>
+This quest is complete.
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw ...
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -87,7 +112,7 @@ hide:
 ## shop_grocer
 
 <div class="yarn-node" data-title="shop_grocer"><pre class="yarn-code"><code><span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell cloves, cinnamon, and ginger. I'm a grocer. <span class="yarn-meta">#line:0a66f1e </span></span>
 <span class="yarn-line">-&gt; Buy cloves (1zł) <span class="yarn-meta">#line:0eff39a </span></span>
@@ -129,7 +154,7 @@ hide:
 ## shop_eggs
 
 <div class="yarn-node" data-title="shop_eggs"><pre class="yarn-code"><code><span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I sell eggs. I'm an egg vendor. <span class="yarn-meta">#line:03de236 </span></span>
 <span class="yarn-line">-&gt; Buy eggs (10zł) <span class="yarn-meta">#line:07a79e8 </span></span>
@@ -167,7 +192,7 @@ hide:
 ## pay_cloves
 
 <div class="yarn-node" data-title="pay_cloves"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay 1zł. <span class="yarn-meta">#line:019a160 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_cloves_done&gt;&gt;</span>
@@ -191,7 +216,7 @@ hide:
 ## pay_cinnamon
 
 <div class="yarn-node" data-title="pay_cinnamon"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay 1zł. <span class="yarn-meta">#line:055af31 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_cinnamon_done&gt;&gt;</span>
@@ -215,7 +240,7 @@ hide:
 ## pay_ginger
 
 <div class="yarn-node" data-title="pay_ginger"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay 1zł. <span class="yarn-meta">#line:0172345 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_ginger_done&gt;&gt;</span>
@@ -310,7 +335,7 @@ hide:
 ## pay_eggs
 
 <div class="yarn-node" data-title="pay_eggs"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Select enough money to pay 10zł. <span class="yarn-meta">#line:0bdf451 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_10 add_eggs_done&gt;&gt;</span>
@@ -476,7 +501,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great work! You helped Antura and learned new words. <span class="yarn-meta">#line:0cb84a7 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 

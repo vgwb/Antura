@@ -44,18 +44,36 @@ type: panel
 Welcome to the Museum of Jules Verne in Nantes! #line:0b5e2f3
 ===
 
+title: the_end
+position: 334,976
+color: green
+panel: panel_endgame
+---
+Now you know something about Jules Verne 
+and his amazing books!
+<<jump quest_proposal>>
+===
 
+title: quest_proposal
+position: 236,184
+color: green
+panel: panel
+tags: proposal
+---
+Read one of his books!
+<<quest_end>>
+===
 
 title: talk_guide
 position: 337,219
-tags: actor=CRAZY_WOMAN, asset=jules_verne_1
+tags: actor=WOMAN, asset=jules_verne_1
 ---
 <<if $COLLECTED_ITEMS == 0>>
 Welcome to the house of Jules Verne! #line:08f7bc1 
 <<elseif $COLLECTED_ITEMS < $QUEST_ITEMS>>
-<<jump task_find_books>>
+    <<jump task_find_books>>
 <<else>>
-<<jump won>>
+    <<jump won>>
 <<endif>>
 ===
 
@@ -102,12 +120,12 @@ tags:
 
 title: won
 position: 796,-106
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 <<asset jules_verne_2>>
 Great! You met Jules Verne, #line:099cdca 
 the famous science fiction writer. #line:05a032e 
-<<quest_end 3>>
+<<jump the_end>>
 ===
 
 title: book_80days
@@ -182,4 +200,21 @@ tags: actor=TUTOR
 <<card book_5weeksballoon>>
 This book is "Five Weeks in a Balloon". #line:0934a7c 
 <<jump paint_5weeks>>
+===
+
+///////// NPCs SPAWNED IN THE SCENE //////////
+// these npc are spawn automatically in the scene
+// use these to add random facts. everythime you meet them
+// they will say one of these lines randomly
+
+title: spawned_visitor
+position: -367,1
+color: purple
+actor: 
+spawn_group: generic 
+---
+=> I love reading books!
+=> Did you know that Jules Verne is considered one of the fathers of science fiction?
+=> I heard that Jules Verne wrote more than 60 novels in his life!
+=> I read that Jules Verne's works have been translated into more than 140 languages!
 ===

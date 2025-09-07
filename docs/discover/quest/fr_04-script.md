@@ -39,10 +39,33 @@ hide:
 
 </code></pre></div>
 
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">---</span>
+The quest is over
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Draw a map of the streets around your home!
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+
+</code></pre></div>
+
 <a id="ys-node-talk-friend"></a>
 ## talk_friend
 
-<div class="yarn-node" data-title="talk_friend"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=MAN</span>
+<div class="yarn-node" data-title="talk_friend"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is the race of Le Mans <span class="yarn-meta">#line:02f370e </span></span>
 <span class="yarn-line">Cars are very fast! <span class="yarn-meta">#line:07f77f0 </span></span>
@@ -61,7 +84,7 @@ hide:
 <a id="ys-node-sign-stop"></a>
 ## sign_stop
 
-<div class="yarn-node" data-title="sign_stop"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="sign_stop"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is a STOP sign. <span class="yarn-meta">#line:09ac224 </span></span>
 <span class="yarn-line">It means you must always come to a complete stop <span class="yarn-meta">#line:0fde84a </span></span>
@@ -73,7 +96,7 @@ hide:
 <a id="ys-node-restart-level"></a>
 ## restart_level
 
-<div class="yarn-node" data-title="restart_level"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="restart_level"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">you didn't pay attention! retry! <span class="yarn-meta">#line:0eed8ec </span></span>
 
@@ -82,7 +105,7 @@ hide:
 <a id="ys-node-sign-danger"></a>
 ## sign_danger
 
-<div class="yarn-node" data-title="sign_danger"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="sign_danger"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is a DANGER sign! <span class="yarn-meta">#line:0a57038 </span></span>
 <span class="yarn-line">It warns you to be careful and slow down <span class="yarn-meta">#line:02cfe75 </span></span>
@@ -93,7 +116,7 @@ hide:
 <a id="ys-node-street-lights"></a>
 ## street_lights
 
-<div class="yarn-node" data-title="street_lights"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="street_lights"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">These are traffic lights. <span class="yarn-meta">#line:0355437 </span></span>
 <span class="yarn-line">RED - STOP <span class="yarn-meta">#line:0cb35d6</span></span>
@@ -105,7 +128,7 @@ hide:
 <a id="ys-node-zebra-crossing"></a>
 ## zebra_crossing
 
-<div class="yarn-node" data-title="zebra_crossing"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR, </span>
+<div class="yarn-node" data-title="zebra_crossing"><pre class="yarn-code"><code><span class="yarn-header-dim">tags:  </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">These white stripes are a zebra crossing. <span class="yarn-meta">#line:02fbb57 </span></span>
 <span class="yarn-line">It gives pedestrians the right way. <span class="yarn-meta">#line:085d81b </span></span>
@@ -117,7 +140,7 @@ hide:
 <a id="ys-node-danger-signs"></a>
 ## danger_signs
 
-<div class="yarn-node" data-title="danger_signs"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="danger_signs"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">They are TRIANGLE <span class="yarn-meta">#line:08c3073 </span></span>
 
@@ -126,11 +149,30 @@ hide:
 <a id="ys-node-bravo"></a>
 ## bravo
 
-<div class="yarn-node" data-title="bravo"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=MAN</span>
+<div class="yarn-node" data-title="bravo"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">=&gt; You made it! <span class="yarn-meta">#line:03b112c </span></span>
-<span class="yarn-line">=&gt; you followed all the rules perfectly. <span class="yarn-meta">#line:0662662 </span></span>
+<span class="yarn-line">you followed all the rules perfectly. <span class="yarn-meta">#line:0662662 </span></span>
 <span class="yarn-line">=&gt; You're a street safety expert! Have a good trip! <span class="yarn-meta">#line:0c88cfb </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-pedestrian"></a>
+## spawned_pedestrian
+
+<div class="yarn-node" data-title="spawned_pedestrian"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">spawn_group: pedestrian </span>
+<span class="yarn-header-dim">---</span>
+=&gt; Always look both ways before crossing the street!
+=&gt; Never run across the street, even if you're in a hurry!
+=&gt; Always use a crosswalk or pedestrian crossing when available!
+=&gt; Wear bright or reflective clothing when walking at night!
+=&gt; Never use your phone or headphones when crossing the street!
 
 </code></pre></div>
 

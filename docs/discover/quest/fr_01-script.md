@@ -14,32 +14,8 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// FR_01 PARIS</span>
-<span class="yarn-header-dim">// Cards:</span>
-<span class="yarn-header-dim">// - tour_eiffell (landmark education)</span>
-<span class="yarn-header-dim">// - mr_eiffel (historical figure)</span>
-<span class="yarn-header-dim">// - tour_eiffell_ticket (cultural practice)</span>
-<span class="yarn-header-dim">// - tour_eiffell_map (navigation aid)</span>
-<span class="yarn-header-dim">// - louvre (landmark education)</span>
-<span class="yarn-header-dim">// - louvre_inside (cultural immersion)</span>
-<span class="yarn-header-dim">// - monalisa (art education)</span>
-<span class="yarn-header-dim">// - leaonardodavinci (historical figure)</span>
-<span class="yarn-header-dim">// - liberty_leading (art education)</span>
-<span class="yarn-header-dim">// - venusmilo (art education)</span>
-<span class="yarn-header-dim">// - notredame (landmark education)</span>
-<span class="yarn-header-dim">// - notredame_fire (recent history)</span>
-<span class="yarn-header-dim">// - baguette (cultural food)</span>
-<span class="yarn-header-dim">// - baguette_flour (ingredient education)</span>
-<span class="yarn-header-dim">// - baguette_water (ingredient education)</span>
-<span class="yarn-header-dim">// - baguette_yeast (ingredient education)</span>
-<span class="yarn-header-dim">// - baguette_salt (ingredient education)</span>
-<span class="yarn-header-dim">// Tasks:</span>
-<span class="yarn-header-dim">// - Collect 4 baguette ingredients from various locations</span>
-<span class="yarn-header-dim">// - Reach Monalisa</span>
-<span class="yarn-header-dim">// Activities:</span>
-<span class="yarn-header-dim">// - puzzle - Eiffel Tower</span>
-<span class="yarn-header-dim">// Words: </span>
-<span class="yarn-header-dim">// ticket, coin, baguette, flour, water, yeast, salt, map, elevator, iron, museum, cathedral, painting, sculpture,</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_01 | Paris</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
@@ -57,6 +33,30 @@ hide:
 
 </code></pre></div>
 
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">GREAT! I can now bake the Baguette. And... <span class="yarn-meta">#line:0017917 </span></span>
+<span class="yarn-line">CONGRATULATIONS! You won the game! Did you like it? <span class="yarn-meta">#line:0d11596 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw the Eiffel Tower?
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+
+</code></pre></div>
+
 <a id="ys-node-talk-tutor"></a>
 ## talk_tutor
 
@@ -67,27 +67,6 @@ hide:
 <span class="yarn-cmd">&lt;&lt;camera_focus tour_eiffell&gt;&gt;</span>
 <span class="yarn-line">Follow the target or use the map! <span class="yarn-meta">#line:fr01_talk_tutor_2 </span></span>
 <span class="yarn-line">Get there as soon as possible! <span class="yarn-meta">#line:fr01_talk_tutor_3 </span></span>
-
-</code></pre></div>
-
-<a id="ys-node-talk-louvre-external"></a>
-## talk_louvre_external
-
-<div class="yarn-node" data-title="talk_louvre_external"><pre class="yarn-code"><code><span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">actor: OLD_WOMAN</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $MET_MONALISA&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;jump go_bakery&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;asset louvre&gt;&gt;</span>
-<span class="yarn-line">This is the entrance to the Louvre, our national art museum. <span class="yarn-meta">#line:0cf1cc8 </span></span>
-<span class="yarn-line">Do you want to enter? <span class="yarn-meta">#line:0f74ff9</span></span>
-<span class="yarn-line">-&gt; Yes: <span class="yarn-meta">#line:090114f </span></span>
-<span class="yarn-line">    Enjoy your visit! <span class="yarn-meta">#line:056e051 </span></span>
-    <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_ENTER &gt;&gt;</span>
-<span class="yarn-line">-&gt; No: <span class="yarn-meta">#line:077422a </span></span>
-<span class="yarn-line">    Okay. <span class="yarn-meta">#line:0c28ea0 </span></span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -136,11 +115,11 @@ hide:
 ## talk_notre_dame
 
 <div class="yarn-node" data-title="talk_notre_dame"><pre class="yarn-code"><code><span class="yarn-header-dim">group: notredame</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN, asset=notredame</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD, asset=notredame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I'm the Mayor of Paris. <span class="yarn-meta">#line:0cc11fa </span></span>
 <span class="yarn-line">This is Notre-Dame Cathedral. <span class="yarn-meta">#line:06f3fa2 </span></span>
-<span class="yarn-cmd">&lt;&lt;asset notredame&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card notredame zoom&gt;&gt;</span>
 <span class="yarn-line">It is a famous Gothic church, built in 1182. <span class="yarn-meta">#line:02edc0f </span></span>
 <span class="yarn-cmd">&lt;&lt;action AREA_NOTREDAME_ROOF&gt;&gt;</span>
 <span class="yarn-line">Come with me up to the roof of the church! <span class="yarn-meta">#line:083dfcc </span></span>
@@ -155,14 +134,12 @@ hide:
 <span class="yarn-header-dim">actor: CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 4&gt;&gt;
-<span class="yarn-line">    GREAT! I can now bake the Baguette. And... <span class="yarn-meta">#line:0017917 </span></span>
-<span class="yarn-line">    CONGRATULATIONS! You won the game! Did you like it? <span class="yarn-meta">#line:0d11596 </span></span>
-    <span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Help me! Antura made a mess in my kitchen! <span class="yarn-meta">#line:07bbb10 </span></span>
 <span class="yarn-line">    I can't find the ingredients to make the baguette. <span class="yarn-meta">#line:09e867c </span></span>
     <span class="yarn-cmd">&lt;&lt;asset  baguette&gt;&gt;</span>
-<span class="yarn-line">    Our special French bread! <span class="yarn-meta">#line:0874503 </span></span>
+<span class="yarn-line">Our special French bread! <span class="yarn-meta">#line:0874503 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $QUEST_ITEMS = 4&gt;&gt;</span>
 <span class="yarn-line">    Please bring me 4 ingredients: <span class="yarn-meta">#line:07d64c7 </span></span>
 <span class="yarn-line">    flour, water, yeast, and salt. <span class="yarn-meta">#line:0c01530 </span></span>
@@ -175,7 +152,7 @@ hide:
 ## visit_louvre
 
 <div class="yarn-node" data-title="visit_louvre"><pre class="yarn-code"><code><span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset louvre_inside&gt;&gt;</span>
 <span class="yarn-line">You can find many sculptures and paintings. <span class="yarn-meta">#line:08dc97f </span></span>
@@ -187,7 +164,7 @@ hide:
 ## find_monalisa
 
 <div class="yarn-node" data-title="find_monalisa"><pre class="yarn-code"><code><span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 
 <span class="yarn-cmd">&lt;&lt;action monalisa&gt;&gt;</span>
@@ -199,9 +176,9 @@ hide:
 ## go_bakery
 
 <div class="yarn-node" data-title="go_bakery"><pre class="yarn-code"><code><span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
- 
+
 <span class="yarn-line">Now look for Antura! It went to the bakery for a baguette! <span class="yarn-meta">#line:076ef0f </span></span>
 <span class="yarn-line">Hurry up! <span class="yarn-meta">#line:0e9c3e7 </span></span>
 
@@ -212,7 +189,7 @@ hide:
 
 <div class="yarn-node" data-title="baguette_salt"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_salt&gt;&gt;</span>
@@ -225,7 +202,7 @@ hide:
 
 <div class="yarn-node" data-title="baguette_flour"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_2&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_flour&gt;&gt;</span>
@@ -238,7 +215,7 @@ hide:
 
 <div class="yarn-node" data-title="baguette_water"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_water&gt;&gt;</span>
@@ -251,7 +228,7 @@ hide:
 
 <div class="yarn-node" data-title="baguette_yeast"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_yeast&gt;&gt;</span>
@@ -263,7 +240,7 @@ hide:
 ## talk_notre_dame_roof
 
 <div class="yarn-node" data-title="talk_notre_dame_roof"><pre class="yarn-code"><code><span class="yarn-header-dim">group: notredame</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset notredame_fire&gt;&gt;</span>
 <span class="yarn-line">There was a big fire in 2019, but we could repair it. <span class="yarn-meta">#line:09a0ead </span></span>
@@ -276,7 +253,7 @@ hide:
 ## talk_louvre_guide
 
 <div class="yarn-node" data-title="talk_louvre_guide"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Welcome to the Louvre Museum. What do you want to do? <span class="yarn-meta">#line:0e6d2a5 </span></span>
@@ -297,14 +274,14 @@ hide:
 
 <div class="yarn-node" data-title="louvre_monalisa"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset monalisa&gt;&gt;</span>
-<span class="yarn-line">This is the famous Mona Lisa. <span class="yarn-meta">#line:louvre_monalisa_1</span></span>
+<span class="yarn-line">This is the famous Mona Lisa. nalisa_1 <span class="yarn-meta">#line:louvre_monalisa_1</span></span>
 <span class="yarn-cmd">&lt;&lt;set $MET_MONALISA = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;asset leaonardodavinci&gt;&gt;</span>
-<span class="yarn-line">It was painted around 1500 <span class="yarn-meta">#line:louvre_monalisa_2</span></span>
-<span class="yarn-line">by the artist and scientist Leonardo da Vinci. <span class="yarn-meta">#line:louvre_monalisa_3</span></span>
+<span class="yarn-line">It was painted around 1500 nalisa_2 <span class="yarn-meta">#line:louvre_monalisa_2</span></span>
+<span class="yarn-line">by the artist and scientist Leonardo da Vinci. nalisa_3 <span class="yarn-meta">#line:louvre_monalisa_3</span></span>
 
 </code></pre></div>
 
@@ -313,7 +290,7 @@ hide:
 
 <div class="yarn-node" data-title="louvre_liberty"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset liberty_leading&gt;&gt;</span>
 <span class="yarn-line">This painting represents freedom. <span class="yarn-meta">#line:louvre_liberty_1</span></span>
@@ -327,18 +304,45 @@ hide:
 
 <div class="yarn-node" data-title="louvre_venus"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_WOMAN, </span>
+<span class="yarn-header-dim">tags: actor=WOMAN, </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset venusmilo&gt;&gt;</span>
 <span class="yarn-line">The Venus de Milo, an ancient Greek marble sculpture. <span class="yarn-meta">#line:053d4fe </span></span>
 
 </code></pre></div>
 
-<a id="ys-node-npc-woman"></a>
-## npc_woman
+<a id="ys-node-talk-louvre-external"></a>
+## talk_louvre_external
 
-<div class="yarn-node" data-title="npc_woman"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
+<div class="yarn-node" data-title="talk_louvre_external"><pre class="yarn-code"><code><span class="yarn-header-dim">group: louvre</span>
+<span class="yarn-header-dim">actor: OLD_WOMAN</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $MET_MONALISA&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump go_bakery&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;asset louvre&gt;&gt;</span>
+<span class="yarn-line">This is the entrance to the Louvre, our national art museum. <span class="yarn-meta">#line:0cf1cc8 </span></span>
+<span class="yarn-line">Do you want to enter? <span class="yarn-meta">#line:0f74ff9</span></span>
+<span class="yarn-line">-&gt; Yes: <span class="yarn-meta">#line:090114f </span></span>
+<span class="yarn-line">    Enjoy your visit! <span class="yarn-meta">#line:056e051 </span></span>
+    <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_ENTER &gt;&gt;</span>
+<span class="yarn-line">-&gt; No: <span class="yarn-meta">#line:077422a </span></span>
+<span class="yarn-line">    Okay. <span class="yarn-meta">#line:0c28ea0 </span></span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-woman"></a>
+## spawned_woman
+
+<div class="yarn-node" data-title="spawned_woman"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">spawn_group: generic</span>
+
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ciao. What do you want to know? <span class="yarn-meta">#line:0070084 </span></span>
 <span class="yarn-line">-&gt; What is the Eiffel Tower? <span class="yarn-meta">#line:0d91dc0 </span></span>
@@ -353,11 +357,12 @@ hide:
 
 </code></pre></div>
 
-<a id="ys-node-npc-man"></a>
-## npc_man
+<a id="ys-node-spawned-man"></a>
+## spawned_man
 
-<div class="yarn-node" data-title="npc_man"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=MAN</span>
+<div class="yarn-node" data-title="spawned_man"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">spawn_group: generic</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Do you have any questions? <span class="yarn-meta">#line:07b94e9 </span></span>
 <span class="yarn-line">-&gt; Have you seen Antura? <span class="yarn-meta">#line:0f18ad3 </span></span>
@@ -368,7 +373,7 @@ hide:
 <span class="yarn-line">    =&gt; I'm going to buy bread at the bakery. <span class="yarn-meta">#line:05a38a8 </span></span>
 <span class="yarn-line">-&gt; Where do you come from? <span class="yarn-meta">#line:05eabcf </span></span>
 <span class="yarn-line">    =&gt; I wasn't born in this country. <span class="yarn-meta">#line:0635a6a </span></span>
-<span class="yarn-line">    =&gt; From planet Earth. <span class="yarn-meta">#line:0749690 </span></span>
+<span class="yarn-line">From planet Earth. <span class="yarn-meta">#line:0749690 </span></span>
 <span class="yarn-line">-&gt; Goodbye <span class="yarn-meta">#line:0ee51fc </span></span>
 
 </code></pre></div>
@@ -376,8 +381,9 @@ hide:
 <a id="ys-node-npc-kid"></a>
 ## npc_kid
 
-<div class="yarn-node" data-title="npc_kid"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=KID_MALE</span>
+<div class="yarn-node" data-title="npc_kid"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=KID_M</span>
 <span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">spawn_group: kids</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">=&gt; Hi! <span class="yarn-meta">#line:0c4d9e4 </span></span>
 <span class="yarn-line">=&gt; How are you? <span class="yarn-meta">#line:032d401 </span></span>

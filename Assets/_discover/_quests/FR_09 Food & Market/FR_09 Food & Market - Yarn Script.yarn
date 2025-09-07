@@ -49,6 +49,26 @@ color: red
 Welcome to Côte d'Azur! It's a sunny day on the coast. #line:078e646 
 ===
 
+title: the_end
+position: 334,976
+color: green
+panel: panel_endgame
+---
+The game is complete! Congratulations!
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+color: green
+panel: panel
+tags: proposal
+---
+What is your favourite food?
+<<quest_end>>
+===
+
+
 title: baker_bonjour
 position: 646,-11
 group: baker
@@ -64,7 +84,7 @@ Every day I wake up early to bake. #line:0f6e48a
 title: shop_baker
 position: 405,-9
 group: baker
-tags: actor=BAKER, noRepeatLastLine
+tags: actor=MAN_BIG, noRepeatLastLine
 color: blue
 ---
 Testing start #line:0215305
@@ -79,7 +99,7 @@ Testing start #line:0215305
 title: baker_question
 position: 880,-10
 group: baker
-tags: actor=BAKER, type=Choice
+tags: actor=MAN_BIG, type=Choice
 ---
 What do you want to buy? #line:00279c8 
 -> Bread #line:00eab87 
@@ -125,7 +145,7 @@ Sorry, I don't sell that. #line:0875143
 title: fisher_payment_done
 position: 2169,551
 group: fisher
-tags: actor=OLD_MAN, do_not_translate
+tags: actor=MAN_OLD, do_not_translate
 ---
 -> Au revoir! #line:02e64ff 
 -> Merci! #line:02c23e5 
@@ -136,7 +156,7 @@ tags: actor=OLD_MAN, do_not_translate
 title: fisher_dontsell
 position: 1925,554
 group: fisher
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 ---
 Sorry, I don't sell that. #line:01ea288 
 ===
@@ -144,7 +164,7 @@ Sorry, I don't sell that. #line:01ea288
 title: fisher_question
 position: 1925,391
 group: fisher
-tags: actor=OLD_MAN, type=Choice
+tags: actor=MAN_OLD
 ---
 What do you want to buy? #line:04deddc 
 -> Fish & Crab #line:0e562df 
@@ -161,7 +181,7 @@ title: shop_fisher
 position: 1434,393
 color: blue
 group: fisher
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 ---
 -> Lycée! #line:0d65316 
     <<jump talk_dont_understand>>
@@ -174,7 +194,7 @@ tags: actor=OLD_MAN
 title: fisher_bonjour
 position: 1689,392
 group: fisher
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 actor: OLD_MAN
 ---
 Good morning! I sell fish and crab. I'm a fishmonger. #line:04b4a87 
@@ -200,7 +220,7 @@ tags: actor=WOMAN, do_not_translate
 title: cheesemonger_question
 position: 876,400
 group: cheesemonger
-tags: actor=WOMAN, type=Choice
+tags: actor=WOMAN
 actor: WOMAN
 ---
 What do you want to buy? #line:03009de 
@@ -308,7 +328,7 @@ My items are always fresh! #line:0969b87
 title: grocer_payment_done
 position: 2168,154
 group: grocer
-tags: actor=OLD_WOMAN, do_not_translate
+tags: actor=WOMAN_OLD, do_not_translate
 ---
 -> Au revoir! #line:0ce6f8a 
 -> Merci! #line:0e8ec1b 
@@ -319,7 +339,7 @@ tags: actor=OLD_WOMAN, do_not_translate
 title: grocer_dontsell
 position: 1918,155
 group: grocer
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 action: OLD_WOMAN
 ---
 Sorry, I don't sell that. #line:0977493 
@@ -328,7 +348,7 @@ Sorry, I don't sell that. #line:0977493
 title: grocer_question
 position: 1919,-5
 group: grocer
-tags: actor=OLD_WOMAN, type=Choice
+tags: actor=WOMAN_OLD
 actor: OLD_WOMAN
 ---
 What do you want to buy? #line:0c36100 
@@ -345,7 +365,7 @@ What do you want to buy? #line:0c36100
 title: shop_grocer
 position: 1437,-12
 group: grocer
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 color: blue
 ---
 -> Merci! #line:0dd992c 
@@ -359,7 +379,7 @@ color: blue
 title: grocer_bonjour
 position: 1684,-8
 group: grocer
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 actor: OLD_WOMAN
 ---
 Hello! I sell spices and pantry goods. I am a grocer. #line:0ffbfa4 
@@ -371,7 +391,7 @@ You can use my items for many recipes. #line:0c6a554
 title: pirate
 position: 1428,-273
 group: pirates
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 actor: CRAZY_MAN
 ---
 Ahoy! Welcome aboard. #line:04ee922 
@@ -393,7 +413,7 @@ Complete the image. #line:08396f2
 title: activity_pirate_done
 position: 1892,-264
 group: pirates
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 actor: CRAZY_MAN
 ---
 We worked for the King of France. #line:0af3bba 
@@ -496,19 +516,15 @@ group: chef
 ---
 Well done! You matched all the items. #line:01648b2 
 Now, let's cook the bouillabaisse! #line:0f0f617 
-<<quest_end>>
+<<jump the_end>>
 ===
-
-
-
-
 
 
 
 title: fisher_pay_activity
 position: 2173,388
 group: fisher
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 color: purple
 ---
 Select enough money to pay. #line:0995020 
@@ -528,7 +544,7 @@ Select enough money to pay. #line:0f44ea7
 title: grocer_pay_activity
 position: 2166,-4
 group: grocer
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 color: purple
 ---
 Select enough money to pay. #line:0c80f9e 
@@ -563,7 +579,7 @@ Sorry, I don't think I understand... #line:01a0ec9
 title: grocer_notunderstand
 position: 1437,157
 group: grocer
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 Sorry, I don't think I understand... #line:0a30381 
 ===
@@ -665,4 +681,34 @@ tags: actor=TUTOR, item
 ---
 <<card food_olive_oil>>
 Olive oil #line:0156410 
+===
+
+///////// NPCs SPAWNED IN THE SCENE //////////
+// these npc are spawn automatically in the scene
+// use these to add random facts. everythime you meet them
+// they will say one of these lines randomly
+
+title: spawned_tourist
+position: -367,1
+color: purple
+actor: 
+spawn_group: tourists 
+---
+=> Hi! I'm visiting from Paris.
+=> The food here is amazing!
+=> I love the sea!
+=> The market is so lively!
+=> The bouillabaisse is my favorite dish!
+===
+
+title: spawned_buyer
+position: -367,1
+color: purple
+actor: 
+spawn_group: buyers 
+---
+=> I need to buy some fresh ingredients.
+=> The market has the best produce.
+=> Fresh fish is the best!
+=> I can't wait to cook a delicious meal!
 ===

@@ -14,9 +14,10 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// PL_01 - WARSAW - Discover Warsaw</span>
-<span class="yarn-header-dim">// Location: Warsaw, Poland </span>
-<span class="yarn-header-dim">//</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_01 | Warsaw</span>
+<span class="yarn-header-dim">// </span>
+<span class="yarn-header-dim">// ---------------------------------------------</span>
+<span class="yarn-header-dim">// WANTED:</span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - MermaidOfWarsaw (cultural symbol)</span>
 <span class="yarn-header-dim">// - warsaw_chopin_monument (musical heritage)</span>
@@ -53,6 +54,29 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
 <span class="yarn-line">Welcome to Warsaw! <span class="yarn-meta">#line:07c7f43 </span></span>
 
+
+</code></pre></div>
+
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">---</span>
+This quest is complete.
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw...
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -170,7 +194,7 @@ hide:
 <span class="yarn-line">Greetings. I am KING SIGISMUND. <span class="yarn-meta">#line:0735d68 </span></span>
 <span class="yarn-line">My CROWN fell when ANTURA ran past! <span class="yarn-meta">#line:06acced </span></span>
 <span class="yarn-line">It should be nearby. Please find it. <span class="yarn-meta">#line:0a6c3f8 </span></span>
-<span class="yarn-comment">// Task hint (scene action suggested)</span>
+<span class="yarn-comment">// Task hint</span>
 <span class="yarn-comment">// task=find_crown, action=HighlightCrown could be handled by scene logic if needed</span>
 <span class="yarn-line">Well done. My CROWN is back. <span class="yarn-meta">#line:0853f81 </span></span>
 <span class="yarn-line">Go to the PARLIAMENT. The MERMAID’s SWORD is there. <span class="yarn-meta">#line:0fe293d </span></span>
@@ -240,7 +264,7 @@ hide:
 ## NATIONAL_STADIUM
 
 <div class="yarn-node" data-title="NATIONAL_STADIUM"><pre class="yarn-code"><code><span class="yarn-header-dim">// ————————————————————————————————————————————————————————————————————</span>
-<span class="yarn-header-dim">// NATIONAL STADIUM — SCORE 5 GOALS + ANTHEM</span>
+<span class="yarn-header-dim">// NATIONAL STADIUM </span>
 <span class="yarn-header-dim">// ————————————————————————————————————————————————————————————————————</span>
 <span class="yarn-header-dim">tags: actor=Robert_Lewandowski</span>
 <span class="yarn-header-dim">group: Warsaw</span>
@@ -259,10 +283,7 @@ hide:
 <a id="ys-node-guide-outro"></a>
 ## GUIDE_OUTRO
 
-<div class="yarn-node" data-title="GUIDE_OUTRO"><pre class="yarn-code"><code><span class="yarn-header-dim">// ————————————————————————————————————————————————————————————————————</span>
-<span class="yarn-header-dim">// GUIDE — OUTRO</span>
-<span class="yarn-header-dim">// ————————————————————————————————————————————————————————————————————</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<div class="yarn-node" data-title="GUIDE_OUTRO"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
@@ -276,10 +297,7 @@ hide:
 <a id="ys-node-final-quiz"></a>
 ## FINAL_QUIZ
 
-<div class="yarn-node" data-title="FINAL_QUIZ"><pre class="yarn-code"><code><span class="yarn-header-dim">// ————————————————————————————————————————————————————————————————————</span>
-<span class="yarn-header-dim">// FINAL QUIZ — 2 QUESTIONS (FLAG + VOCAB MATCH)</span>
-<span class="yarn-header-dim">// ————————————————————————————————————————————————————————————————————</span>
-<span class="yarn-header-dim">tags: actor= Narrator</span>
+<div class="yarn-node" data-title="FINAL_QUIZ"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor= Narrator</span>
 <span class="yarn-header-dim">type: quiz</span>
 <span class="yarn-header-dim">group: Quiz</span>
 <span class="yarn-header-dim">---</span>
@@ -289,6 +307,7 @@ hide:
 <span class="yarn-comment">// Q2: Match picture with words (TRANSPORT/SPORT vocabulary)</span>
 <span class="yarn-cmd">&lt;&lt;activity quiz warsaw_basics tutorial&gt;&gt;</span>
 <span class="yarn-line">Well done! <span class="yarn-meta">#line:08f99a0 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 

@@ -14,7 +14,8 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// FR_08 MONT_BLANC_MOUNTAINS - Mont Blanc &amp; Mountains  </span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_08 | Mont Blanc</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - mont_blanc (geographical landmark)</span>
 <span class="yarn-header-dim">// - flag_france (national symbol)</span>
@@ -35,10 +36,34 @@ hide:
 
 </code></pre></div>
 
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">---</span>
+The game is complete! Congratulations!
+Did you like it?
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Now draw your favourite mountain?
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+
+</code></pre></div>
+
 <a id="ys-node-talk-tutor"></a>
 ## talk_tutor
 
-<div class="yarn-node" data-title="talk_tutor"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR, asset=mont_blanc</span>
+<div class="yarn-node" data-title="talk_tutor"><pre class="yarn-code"><code><span class="yarn-header-dim">tags:  asset=mont_blanc</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">You have to go up the Mont Blanc <span class="yarn-meta">#line:0f4644b </span></span>
 <span class="yarn-line">the highest mountain in Europe <span class="yarn-meta">#line:07d23cb </span></span>
@@ -49,7 +74,7 @@ hide:
 <a id="ys-node-flag-france"></a>
 ## flag_france
 
-<div class="yarn-node" data-title="flag_france"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR, asset=flag_france</span>
+<div class="yarn-node" data-title="flag_france"><pre class="yarn-code"><code><span class="yarn-header-dim">tags:  asset=flag_france</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find the French flag. <span class="yarn-meta">#line:0d23529 </span></span>
 
@@ -58,7 +83,7 @@ hide:
 <a id="ys-node-flag-italy"></a>
 ## flag_italy
 
-<div class="yarn-node" data-title="flag_italy"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR, asset=flag_italy</span>
+<div class="yarn-node" data-title="flag_italy"><pre class="yarn-code"><code><span class="yarn-header-dim">tags:  asset=flag_italy</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find the Italian flag. <span class="yarn-meta">#line:050fe70 </span></span>
 
@@ -67,9 +92,31 @@ hide:
 <a id="ys-node-flag-swiss"></a>
 ## flag_swiss
 
-<div class="yarn-node" data-title="flag_swiss"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR, asset=flag_swiss</span>
+<div class="yarn-node" data-title="flag_swiss"><pre class="yarn-code"><code><span class="yarn-header-dim">tags:  asset=flag_swiss</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find the Swiss flag. <span class="yarn-meta">#line:03db010 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-tourist"></a>
+## spawned_tourist
+
+<div class="yarn-node" data-title="spawned_tourist"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">spawn_group: tourists </span>
+<span class="yarn-header-dim">---</span>
+=&gt; I love the mountains!
+=&gt; The Alps are beautiful!
+=&gt; Mont Blanc is the highest mountain in Europe!
+=&gt; I want to climb Mont Blanc one day!
+=&gt; I hope to see a marmot!
+=&gt; The view from the summit must be amazing!
+=&gt; Don't forget to bring warm clothes!
+=&gt; Mountains can be dangerous, be careful!
 
 </code></pre></div>
 

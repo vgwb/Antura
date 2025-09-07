@@ -14,18 +14,8 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// PL_04 – Wroclaw Zoo</span>
-<span class="yarn-header-dim">// Activities:</span>
-<span class="yarn-header-dim">// 1) &lt;&lt;activity memory elephant_sounds tutorial&gt;&gt; – Repeat sound order (ELEPHANT, MEMORY).</span>
-<span class="yarn-header-dim">// 2) &lt;&lt;activity cleancanvas giraffe_leaves tutorial&gt;&gt; – Clean to help EAT (GIRAFFE, NECK, LEAVES).</span>
-<span class="yarn-header-dim">// 3) &lt;&lt;activity order lion_pride tutorial&gt;&gt; – Match LION facts (PRIDE, MANE, CUB).</span>
-<span class="yarn-header-dim">// 4) &lt;&lt;activity cleancanvas monkey_climb tutorial&gt;&gt; – Clean climb path (MONKEY, CLIMB).</span>
-<span class="yarn-header-dim">// 5) &lt;&lt;activity memory penguin_paths tutorial&gt;&gt; – Remember icy path (PENGUIN, SWIM).</span>
-<span class="yarn-header-dim">// 6) &lt;&lt;activity order zoo_animal_facts tutorial&gt;&gt; – Pair ANIMALS ↔ FACTS (recap).</span>
-<span class="yarn-header-dim">// 7) &lt;&lt;activity memory zoo_animal_cards tutorial&gt;&gt; – Animal card pairs (recap).</span>
-<span class="yarn-header-dim">// 8) &lt;&lt;activity quiz wroclaw_zoo_basics tutorial&gt;&gt; – Final quiz (FLAG, facts).</span>
-<span class="yarn-header-dim">// Words:</span>
-<span class="yarn-header-dim">// POLAND, WROCŁAW, ZOO, FLAG, CENTENNIAL HALL, IGLICA, ANIMAL, ELEPHANT, GIRAFFE, LION, MONKEY, PENGUIN, PRIDE, CLIMB, SWIM, KEEPER, SIGN</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_04 | Zoo (Wroclaw)</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">group: Intro</span>
 <span class="yarn-header-dim">tags: actor=Man, </span>
@@ -35,6 +25,30 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $talked_animals = false&gt;&gt;</span>
 <span class="yarn-line">Welcome to Wroclaw Zoo. <span class="yarn-meta">#line:0fe55d1 </span></span>
 <span class="yarn-line">There are lots of animals here! <span class="yarn-meta">#line:005dd46 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">---</span>
+This quest is complete.
+Today you learned about ZOO ANIMALS.
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw your favourite animal?
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -155,7 +169,7 @@ hide:
 ## ELEPHANT_KID
 
 <div class="yarn-node" data-title="ELEPHANT_KID"><pre class="yarn-code"><code><span class="yarn-header-dim">group: ELEPHANT</span>
-<span class="yarn-header-dim">tags: actor=Kid</span>
+<span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_elephant</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Its ears are bigger than me! <span class="yarn-meta">#line:0fc78ad </span></span>
@@ -211,7 +225,7 @@ hide:
 ## GIRAFFE_KID
 
 <div class="yarn-node" data-title="GIRAFFE_KID"><pre class="yarn-code"><code><span class="yarn-header-dim">group: GIRAFFE</span>
-<span class="yarn-header-dim">tags: actor=Kid</span>
+<span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_giraffe</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">With a neck like that, <span class="yarn-meta">#line:068daeb </span></span>
@@ -267,7 +281,7 @@ hide:
 ## LION_KID
 
 <div class="yarn-node" data-title="LION_KID"><pre class="yarn-code"><code><span class="yarn-header-dim">group: LION</span>
-<span class="yarn-header-dim">tags: actor=Kid</span>
+<span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_lion</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What a roar! <span class="yarn-meta">#line:079f4e0 </span></span>
@@ -323,7 +337,7 @@ hide:
 ## MONKEY_KID
 
 <div class="yarn-node" data-title="MONKEY_KID"><pre class="yarn-code"><code><span class="yarn-header-dim">group: MONKEY</span>
-<span class="yarn-header-dim">tags: actor=Kid</span>
+<span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_monkey</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">He copied my dance! <span class="yarn-meta">#line:0bf2346 </span></span>
@@ -379,7 +393,7 @@ hide:
 ## PENGUIN_KID
 
 <div class="yarn-node" data-title="PENGUIN_KID"><pre class="yarn-code"><code><span class="yarn-header-dim">group: PENGUIN</span>
-<span class="yarn-header-dim">tags: actor=Kid</span>
+<span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_penguin</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">How cute! <span class="yarn-meta">#line:0ae73f3 </span></span>
@@ -405,13 +419,13 @@ hide:
 ## director_task_done
 
 <div class="yarn-node" data-title="director_task_done"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Man, type:Panel</span>
+<span class="yarn-header-dim">tags: actor=Man</span>
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good, you talked to all the animals. <span class="yarn-meta">#line:032811f </span></span>
 <span class="yarn-line">Now let's review these facts. <span class="yarn-meta">#line:0364f30 </span></span>
-<span class="yarn-line">Help me put the pieces toghether.  <span class="yarn-meta">#line:08de86f </span></span>
+<span class="yarn-line">Help me put the pieces toghether. <span class="yarn-meta">#line:08de86f </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_zoo_settings director_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -451,7 +465,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=ZooDirector</span>
 <span class="yarn-header-dim">image: centennial_hall_antura_flag</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Wait, Look!  <span class="yarn-meta">#line:0b3d05f </span></span>
+<span class="yarn-line">Wait, Look! <span class="yarn-meta">#line:0b3d05f </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_focus Antura with Flag&gt;&gt;</span>
 <span class="yarn-line">ANTURA has the FLAG! <span class="yarn-meta">#line:0e24973 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
@@ -497,8 +511,7 @@ hide:
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great work at the ZOO! <span class="yarn-meta">#line:056d51c </span></span>
-<span class="yarn-line">See you on the ODRA RIVER! <span class="yarn-meta">#line:0d4f5f7 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 

@@ -40,8 +40,8 @@ tags: Start
 color: red
 type: panel
 ---
-<<set $CURRENT_PROGRESS = 0>>
-<<set $MAX_PROGRESS = 7>>
+<<declare $COUNTRIES_COMPLETED = 0>>
+<<declare $TOTAL_COUNTRIES = 7>>
 <<declare $france_met = false>>
 <<declare $france_completed = false>>
 <<declare $germany_met = false>>
@@ -58,9 +58,31 @@ type: panel
 <<declare $spain_completed = false>>
 <<action area_small>>
 
-Welcome to the Geography Quest! #line:046db1f 
+Welcome to France! #line:046db1f 
+We are in Europe
+Let's meet other kids from nearby countries.
 
 ===
+
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw you flag, now?
+<<quest_end>>
+===
+
 
 //--------------------------------------------
 // FRANCE
@@ -68,22 +90,23 @@ Welcome to the Geography Quest! #line:046db1f
 
 title: win
 position: 819,-1478
-tags: actor=KID_FEMALE
+tags: actor=KID_F
 color: purple
+panel: panel_endgame
 ---
 Good job! You did it! #line:0ba3c4c 
-You discovered a part of Western Euorpe! #line:06e1dd4 
 <<card concept_europe_map>>
-<<quest_end>>
+You discovered a part of Europe! #line:06e1dd4 
+<<jump the_end>>
 ===
 
 title: france_npc
 position: 472,-1288
 color: blue
 group: france
-tags: actor=KID_FEMALE
+tags: actor=KID_F
 ---
-<<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
+<<if $COUNTRIES_COMPLETED >= $TOTAL_COUNTRIES>>
     <<jump win>>
 <<elseif $france_completed>>
     Thank you for helping me! #line:04e2d8b 
@@ -94,7 +117,7 @@ tags: actor=KID_FEMALE
     <<task_end FIND_FRENCH_FLAG>>
     <<set $france_completed = true>>
     <<set $CURRENT_ITEM = "">>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     Can you find the German Flag? #line:04bd4db 
     <<set $france_met = true>>
     <<action germany_active>>
@@ -131,10 +154,8 @@ color: yellow
 tags: actor=TUTOR, asset=flag_france
 ---
 <<card flag_france>>
-TUTOR: Flag of France. #line:01d9617 
-<<if $CURRENT_ITEM == "flag_france">>
-    
-<<else>>
+Flag of France. #line:01d9617 
+<<if $CURRENT_ITEM != "flag_france">>
     <<inventory flag_france add>>
 <<endif>>
 ===
@@ -158,7 +179,7 @@ tags: actor=MAN
     Danke! That is my flag! #line:0ba8707
     Can you help my spanish friend? #line:03684cb 
     <<set $germany_met = true>>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<inventory flag_germany remove>>
     <<task_end FIND_GERMAN_FLAG >>
     <<action spain_active>>
@@ -206,7 +227,7 @@ tags:
     That is my flag! #line:0c57e40 
     Thank you, can you give my Italian friend their flag? #line:0930602 
     <<set $spain_met = true>>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<inventory flag_spain remove>>
     <<task_end FIND_SPANISH_FLAG >>
     <<action italy_active>>
@@ -243,7 +264,7 @@ It's red and yellow, like the sun and peppers #line:09635b4
 title: italy_npc
 position: 506,-622
 group: italy
-tags: actor=KID_MALE
+tags: actor=KID_M
 color: blue
 ---
 <<if $italy_completed>>
@@ -253,7 +274,7 @@ color: blue
     Grazie! That's my flag! #line:081ac66 
     Help the find the Belgian flag and bring it to them! #line:001f54f 
     <<inventory flag_italy remove>>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<task_end FIND_ITALIAN_FLAG >>
     <<set $italy_completed = true>>
     <<action belgium_active>>
@@ -272,7 +293,7 @@ color: blue
 title: task_italy
 position: 843,-617
 group: italy
-tags: actor=KID_MALE
+tags: actor=KID_M
 ---
 <<if $EASY_MODE == true>>
     <<card flag_italy>>
@@ -289,7 +310,7 @@ It's green, white, and red like basil, mozzarella, and tomato on a pizza! #line:
 title: belgium_npc
 position: 508,-395
 group: belgium
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 color: blue
 ---
 <<if $belgium_completed>>
@@ -300,7 +321,7 @@ color: blue
     Thank you, my beautiful flag is back! #line:079096a 
     Can you help my Luxemourgian friend? #line:03a9b7d 
     <<inventory flag_belgium remove>>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<task_end FIND_BELGIUM_FLAG >>
     <<set $belgium_completed = true>>
     <<action lux_active>>
@@ -321,7 +342,7 @@ color: blue
 title: task_belgium
 position: 838,-385
 group: belgium
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 <<if $EASY_MODE == true>>
     <<card flag_belgium>>
@@ -339,9 +360,7 @@ tags: actor=TUTOR
 ---
 <<card flag_belgium>>
 Flag of Belgium. #line:0b11066 
-<<if $CURRENT_ITEM == "flag_belgium">>
-
-<<else>>
+<<if $CURRENT_ITEM != "flag_belgium">>
     <<inventory flag_belgium add>>
 <<endif>>
 ===
@@ -354,7 +373,7 @@ title: luxembourg_npc
 position: 532,-164
 group: lux
 color: blue
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 ---
 <<if $lux_completed>>
     <<card flag_luxembourg>>
@@ -364,7 +383,7 @@ tags: actor=OLD_MAN
     Can you help my swiss friend? #line:0090192 
     <<inventory flag_luxembourg remove>>
     <<task_end FIND_LUX_FLAG>>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<set $lux_completed = true>>
     <<action swiss_active>>
     <<jump task_swiss>>
@@ -384,7 +403,7 @@ tags: actor=OLD_MAN
 title: task_lux
 position: 881,-165
 group: lux
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 <<if $EASY_MODE == true>>
     <<card flag_luxembourg>>
@@ -402,9 +421,7 @@ tags: actor=TUTOR
 ---
 <<card flag_luxembourg>>
 Flag of Luxembourg. #line:05badd7 
-<<if $CURRENT_ITEM == "flag_luxembourg">>
-
-<<else>>
+<<if $CURRENT_ITEM != "flag_luxembourg">>
     <<inventory flag_luxembourg add>>
 <<endif>>
 ===
@@ -416,7 +433,7 @@ Flag of Luxembourg. #line:05badd7
 title: npc_swiss
 position: 546,76
 group: swiss
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 color: blue
 ---
 <<if $swiss_completed>>
@@ -428,7 +445,7 @@ color: blue
     Go back to the start and claim your victory! #line:0148420 
     <<inventory flag_switzerland remove>>
     <<task_end FIND_SWISS_FLAG>>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<set $swiss_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
     Not my flag. Our flag is red with a white cross. #line:0caad5a 
@@ -446,7 +463,7 @@ color: blue
 title: task_swiss
 position: 903,83
 group: swiss
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 <<if $EASY_MODE == true>>
     <<card flag_switzerland>>
@@ -462,10 +479,10 @@ It's red with a big white cross — like a first aid kit! #line:07cc57e
 //--------------------------------------------
 
 title: monaco
-position: 512,877
+position: 556,356
 color: blue
 group: monaco
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 ---
 Bonjour! I’m from Monaco! #line:0a3f8f6 
 We’re tiny but fancy — with race cars and royal palaces by the sea! #line:0dc315a 
@@ -478,7 +495,7 @@ My flag is red and white. #line:00bd939
 //--------------------------------------------
 
 title: andorra
-position: 520,1135
+position: 559,589
 group: andorra
 color: blue
 tags: actor=GUIDE
@@ -513,9 +530,7 @@ tags: actor=TUTOR
 ---
 <<card  flag_germany>>
 Flag of Germany. #line:05ff51a 
-<<if $CURRENT_ITEM == "flag_germany">>
-
-<<else>>
+<<if $CURRENT_ITEM != "flag_germany">>
     <<inventory flag_germany add>>
 <<endif>>
 ===
@@ -528,9 +543,7 @@ tags: actor=TUTOR
 ---
 <<card flag_italy>>
 Flag of Italy. #line:0fdc68b 
-<<if $CURRENT_ITEM == "flag_italy">>
-
-<<else>>
+<<if $CURRENT_ITEM != "flag_italy">>
     <<inventory flag_italy add>>
 <<endif>>
 ===
@@ -543,9 +556,23 @@ tags: actor=TUTOR
 ---
 <<card  flag_switzerland>>
 Flag of Switzerland. #line:0768ab7 
-<<if $CURRENT_ITEM == "flag_switzerland">>
-
-<<else>>
+<<if $CURRENT_ITEM != "flag_switzerland">>
     <<inventory flag_switzerland add>>
 <<endif>>
 ===
+
+///////// NPCs SPAWNED IN THE SCENE //////////
+// these npc are spawn automatically in the scene
+// use these to add random facts. everythime you meet them
+// they will say one of these lines randomly
+
+title: spawned_npc
+position: -367,1
+actor: 
+spawn_group: all 
+---
+=> In Europe, there are over 200 languages spoken!
+=> You can move around these countries freely, no passport needed!
+=> France is the largest country in the European Union.
+===
+

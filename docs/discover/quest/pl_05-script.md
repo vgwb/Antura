@@ -14,7 +14,10 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// PL_05 - BALTIC_SEA - The Amber Necklace of Gdańsk</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_05 | The Amber Necklace of Gdańsk</span>
+<span class="yarn-header-dim">// </span>
+<span class="yarn-header-dim">// ---------------------------------------------</span>
+<span class="yarn-header-dim">// WANTED:</span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - baltic_sea_coast ( coastal geography)</span>
 <span class="yarn-header-dim">// - BalticSea (water body)</span>
@@ -27,7 +30,6 @@ hide:
 <span class="yarn-header-dim">// order necklace_sequence         - Craft NECKLACE: pattern of AMBER + SHELL.</span>
 <span class="yarn-header-dim">// memory sea_vocab                - Memory cards: FISHERMAN, CUTTER, NET, SEAL, BEACH, AMBER</span>
 <span class="yarn-header-dim">// quiz baltic_basics              - Final quiz.</span>
-<span class="yarn-header-dim">// Words used: Baltic Sea, coast, amber, lighthouse, Gdansk, fishing, maritime, beach, waves, seagull, ship, port, navigation, ecosystem, Poland</span>
 <span class="yarn-header-dim">group: Intro</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">image: gdansk_lighthouse_off</span>
@@ -37,6 +39,28 @@ hide:
 <span class="yarn-line">The LIGHTHOUSE is off. <span class="yarn-meta">#line:060d616 </span></span>
 <span class="yarn-line">Let’s fix it! <span class="yarn-meta">#line:05414f7 </span></span>
 
+</code></pre></div>
+
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">---</span>
+This quest is complete.
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw a shell?
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -297,24 +321,16 @@ hide:
 ## FINAL_QUIZ
 
 <div class="yarn-node" data-title="FINAL_QUIZ"><pre class="yarn-code"><code><span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">image: baltic_quiz</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Answer two questions. <span class="yarn-meta">#line:00a0665 </span></span>
 <span class="yarn-line">Tap the best choice. <span class="yarn-meta">#line:07c72eb </span></span>
-<span class="yarn-cmd">&lt;&lt;activity quiz baltic_basics tutorial&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity quiz_baltic_basics tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Suggested questions in preset:</span>
 <span class="yarn-comment">// 1) What sea is near GDAŃSK? a) BLACK  b) BALTIC ✅</span>
 <span class="yarn-comment">// 2) What is BALTIC GOLD?     a) AMBER ✅ b) SAND</span>
 <span class="yarn-comment">// 3) What does a LIGHTHOUSE do? a) Helps ships ✅ b) Catches fish</span>
-
-<span class="yarn-line">-&gt; Quest Complete <span class="yarn-meta">#line:07016a3 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// END</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
@@ -327,7 +343,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">You helped GDAŃSK. <span class="yarn-meta">#line:0a7204e </span></span>
 <span class="yarn-line">The LIGHTHOUSE shines again! <span class="yarn-meta">#line:0d95290 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 

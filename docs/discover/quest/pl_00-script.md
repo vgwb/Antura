@@ -11,15 +11,11 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1929643794#gid=1929643794)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_00%20Geo%20Poland/PL_00%20Geo%20Poland%20-%20Yarn%20Script.yarn)  
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// PL_00 GEOGRAPHY - Polish Geography Overview</span>
-<span class="yarn-header-dim">// </span>
-</code></pre></div>
-
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">// Words used: Poland, geography, Vistula, Odra, Tatra, Baltic Sea, Warsaw, Krakow, Wroclaw, Gdansk, mountains, rivers, coast, regions, cities</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_00 | Poland GEO</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags: Start</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
@@ -41,19 +37,31 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $czech_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action area_small&gt;&gt;</span>
 
+<span class="yarn-line">Welcome to Poland! <span class="yarn-meta">#line:046db1f </span></span>
+We are in Europe
+Let's meet other kids from nearby countries.
 
 </code></pre></div>
 
-<a id="ys-node-win"></a>
-## win
+<a id="ys-node-the-end"></a>
+## the_end
 
-<div class="yarn-node" data-title="win"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=KID_FEMALE</span>
-<span class="yarn-header-dim">color: purple</span>
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Good job! You did it! <span class="yarn-meta">#line:0ba3c4c </span></span>
-<span class="yarn-line">You discovered a part of Central Euorpe! <span class="yarn-meta">#line:031f72c </span></span>
-<span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card concept_europe_map zoom&gt;&gt;</span>
+This quest is complete.
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Why don't you draw you flag, now?
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
@@ -66,10 +74,10 @@ hide:
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: poland</span>
-<span class="yarn-header-dim">tags: actor=KID_FEMALE</span>
+<span class="yarn-header-dim">tags: actor=KID_F</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $CURRENT_PROGRESS &gt;= $MAX_PROGRESS&gt;&gt;
-    <span class="yarn-cmd">&lt;&lt;jump win&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump poland_npc_win&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $poland_completed == true&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping me! <span class="yarn-meta">#line:0a4a56f </span></span>
 <span class="yarn-line">    Can you help my other friends? <span class="yarn-meta">#line:097eeb8 </span></span>
@@ -88,10 +96,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    That's not my flag. Mine is white and red. <span class="yarn-meta">#line:0f967da </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Hello! I am from Poland!  <span class="yarn-meta">#line:017ad80 </span></span>
+<span class="yarn-line">    Hello! I am from Poland! <span class="yarn-meta">#line:017ad80 </span></span>
 <span class="yarn-line">    Antura made a mess and all the flags have been mixed up! <span class="yarn-meta">#line:0b9e31d </span></span>
-<span class="yarn-line">    My flag, the polish one is white and red.  <span class="yarn-meta">#line:08a2f6d </span></span>
-<span class="yarn-line">    Can you help me?  <span class="yarn-meta">#line:0fe57ef </span></span>
+<span class="yarn-line">    My flag, the polish one is white and red. <span class="yarn-meta">#line:08a2f6d </span></span>
+<span class="yarn-line">    Can you help me? <span class="yarn-meta">#line:0fe57ef </span></span>
     <span class="yarn-cmd">&lt;&lt;set $poland_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -121,12 +129,26 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, asset=flag_poland</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
-<span class="yarn-line">Flag of Poland.  <span class="yarn-meta">#line:07ca581 </span></span>
+<span class="yarn-line">Flag of Poland. <span class="yarn-meta">#line:07ca581 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_poland"&gt;&gt;</span>
-    
+
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-poland-npc-win"></a>
+## poland_npc_win
+
+<div class="yarn-node" data-title="poland_npc_win"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=KID_F</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Good job! You did it! <span class="yarn-meta">#line:0ba3c4c </span></span>
+<span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
+<span class="yarn-line">You discovered a part of Central Euorpe! <span class="yarn-meta">#line:031f72c </span></span>
+<span class="yarn-cmd">&lt;&lt;card concept_europe_map zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -193,8 +215,8 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $belarus_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_belarus&gt;&gt;</span>
-<span class="yarn-line">    Thank you for helping me!  <span class="yarn-meta">#line:0a5c214 </span></span>
-<span class="yarn-line">    Minsk is the capital of Belarus!  <span class="yarn-meta">#line:0aecb59 </span></span>
+<span class="yarn-line">    Thank you for helping me! <span class="yarn-meta">#line:0a5c214 </span></span>
+<span class="yarn-line">    Minsk is the capital of Belarus! <span class="yarn-meta">#line:0aecb59 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_belarus"&gt;&gt;</span>
 <span class="yarn-line">    That is my flag! <span class="yarn-meta">#line:0c57e40 </span></span>
 <span class="yarn-line">    Thank you, can you give my czech friend their flag? <span class="yarn-meta">#line:021e1a2 </span></span>
@@ -210,8 +232,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;jump task_belarus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $belarus_met == false &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $belarus_met = true&gt;&gt;</span>
-<span class="yarn-line">    Hallo! I'm from Belarus!   <span class="yarn-meta">#line:0ccf58d </span></span>
-<span class="yarn-line">    We have a primeaval forest, it has been growing for centuries!   <span class="yarn-meta">#line:0c6ac62 </span></span>
+<span class="yarn-line">    Hallo! I'm from Belarus! <span class="yarn-meta">#line:0ccf58d </span></span>
+<span class="yarn-line">    We have a primeaval forest, it has been growing for centuries! <span class="yarn-meta">#line:0c6ac62 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_belarus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -227,8 +249,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_belarus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Find the belarusian flag.  <span class="yarn-meta">#line:0c00afe </span></span>
-<span class="yarn-line">It's red and green, with a pattern on the left!  <span class="yarn-meta">#line:05c6081 </span></span>
+<span class="yarn-line">Find the belarusian flag. <span class="yarn-meta">#line:0c00afe </span></span>
+<span class="yarn-line">It's red and green, with a pattern on the left! <span class="yarn-meta">#line:05c6081 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_belarusian_FLAG task_belarus&gt;&gt;</span>
 
 </code></pre></div>
@@ -240,15 +262,15 @@ hide:
 <span class="yarn-header-dim">// czech_republic</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: czech_republic</span>
-<span class="yarn-header-dim">tags: actor=KID_MALE</span>
+<span class="yarn-header-dim">tags: actor=KID_M</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $czech_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_czech_republic&gt;&gt;</span>
-<span class="yarn-line">    Thank you! Our capital is Minsk!   <span class="yarn-meta">#line:08473de </span></span>
+<span class="yarn-line">    Thank you! Our capital is Minsk! <span class="yarn-meta">#line:08473de </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_czech_republic"&gt;&gt;</span>
-<span class="yarn-line">    Thank you! That's my flag!  <span class="yarn-meta">#line:07ba10f </span></span>
-<span class="yarn-line">    Help the find the lithuanian flag and bring it to them!  <span class="yarn-meta">#line:0a1e0a3 </span></span>
+<span class="yarn-line">    Thank you! That's my flag! <span class="yarn-meta">#line:07ba10f </span></span>
+<span class="yarn-line">    Help the find the lithuanian flag and bring it to them! <span class="yarn-meta">#line:0a1e0a3 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_czech_republic remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_czech_republic_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
@@ -256,7 +278,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;action lithuania_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">    My flag is different! It's white and red with a blue triangle. <span class="yarn-meta">#line:0000741 </span></span>
+<span class="yarn-line">My flag is different! It's white and red with a blue triangle. <span class="yarn-meta">#line:0000741 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $czech_met = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $czech_met == false&gt;&gt;</span>
@@ -272,12 +294,12 @@ hide:
 ## task_czech_republic
 
 <div class="yarn-node" data-title="task_czech_republic"><pre class="yarn-code"><code><span class="yarn-header-dim">group: czech_republic</span>
-<span class="yarn-header-dim">tags: actor=KID_MALE</span>
+<span class="yarn-header-dim">tags: actor=KID_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Find the Czech flag.  <span class="yarn-meta">#line:0ff23aa </span></span>
+<span class="yarn-line">Find the Czech flag. <span class="yarn-meta">#line:0ff23aa </span></span>
 <span class="yarn-line">It's white and red with a blue triangle. <span class="yarn-meta">#line:03cb303 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_czech_republic_FLAG task_czech_republic&gt;&gt;</span>
 
@@ -290,15 +312,15 @@ hide:
 <span class="yarn-header-dim">// lithuania</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: lithuania</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $lithuania_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_lithuania&gt;&gt;</span>
 <span class="yarn-line">    Thank you for helping us! <span class="yarn-meta">#line:06cf019 </span></span>
-<span class="yarn-line">    Brussels is the capital of Lithuania.  <span class="yarn-meta">#line:0acbb04 </span></span>
+<span class="yarn-line">    Brussels is the capital of Lithuania. <span class="yarn-meta">#line:0acbb04 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_lithuania"&gt;&gt;</span>
-<span class="yarn-line">        Thank you, my beautiful flag is back!  <span class="yarn-meta">#line:0d2f54c </span></span>
+<span class="yarn-line">        Thank you, my beautiful flag is back! <span class="yarn-meta">#line:0d2f54c </span></span>
 <span class="yarn-line">        Can you help my Ukrainian friend? <span class="yarn-meta">#line:0bcf83b </span></span>
         <span class="yarn-cmd">&lt;&lt;inventory flag_lithuania remove&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;task_end FIND_lithuania_FLAG &gt;&gt;</span>
@@ -313,8 +335,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;set $lithuania_met = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $lithuania_met = true&gt;&gt;</span>
-<span class="yarn-line">    Hi! I'm from Lithuania!  <span class="yarn-meta">#line:0534a85 </span></span>
-<span class="yarn-line">    One third of our country is covered by forests!  <span class="yarn-meta">#line:0465c31 </span></span>
+<span class="yarn-line">    Hi! I'm from Lithuania! <span class="yarn-meta">#line:0534a85 </span></span>
+<span class="yarn-line">    One third of our country is covered by forests! <span class="yarn-meta">#line:0465c31 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -324,12 +346,12 @@ hide:
 ## task_lithuania
 
 <div class="yarn-node" data-title="task_lithuania"><pre class="yarn-code"><code><span class="yarn-header-dim">group: lithuania</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_lithuania&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Find the Lithuanian flag.  <span class="yarn-meta">#line:0b88326 </span></span>
+<span class="yarn-line">Find the Lithuanian flag. <span class="yarn-meta">#line:0b88326 </span></span>
 <span class="yarn-line">It's red, green and yellow. <span class="yarn-meta">#line:0754062 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_lithuania_FLAG task_lithuania&gt;&gt;</span>
 
@@ -343,7 +365,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_lithuania&gt;&gt;</span>
-<span class="yarn-line">Flag of Lithuania.  <span class="yarn-meta">#line:0942331 </span></span>
+<span class="yarn-line">Flag of Lithuania. <span class="yarn-meta">#line:0942331 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_lithuania"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -360,7 +382,7 @@ hide:
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: ukraine</span>
 <span class="yarn-header-dim">color: blue</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $ukraine_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_ukraine&gt;&gt;</span>
@@ -392,7 +414,7 @@ hide:
 ## task_ukraine
 
 <div class="yarn-node" data-title="task_ukraine"><pre class="yarn-code"><code><span class="yarn-header-dim">group: ukraine</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_ukraine&gt;&gt;</span>
@@ -411,7 +433,7 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_ukraine&gt;&gt;</span>
-<span class="yarn-line">Flag of Ukraine.  <span class="yarn-meta">#line:0805b90 </span></span>
+<span class="yarn-line">Flag of Ukraine. <span class="yarn-meta">#line:0805b90 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_ukraine"&gt;&gt;</span>
 
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -427,15 +449,15 @@ hide:
 <span class="yarn-header-dim">// slovakia</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: slovakia</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $slovakia_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_slovakia&gt;&gt;</span>
-<span class="yarn-line">    Thank you for helping us!  <span class="yarn-meta">#line:06a6231 </span></span>
-<span class="yarn-line">    The capital of Slovakia is Bratislava!  <span class="yarn-meta">#line:0891aba </span></span>
+<span class="yarn-line">    Thank you for helping us! <span class="yarn-meta">#line:06a6231 </span></span>
+<span class="yarn-line">    The capital of Slovakia is Bratislava! <span class="yarn-meta">#line:0891aba </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_slovakia"&gt;&gt;</span>
-<span class="yarn-line">    Thank you for bringing my flag back!  <span class="yarn-meta">#line:0d453e9 </span></span>
+<span class="yarn-line">    Thank you for bringing my flag back! <span class="yarn-meta">#line:0d453e9 </span></span>
 <span class="yarn-line">    Go back to the start and claim your victory! <span class="yarn-meta">#line:04bf6d1 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_slovakia remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_slovakia_FLAG &gt;&gt;</span>
@@ -447,7 +469,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $slovakia_met = true&gt;&gt;</span>
 <span class="yarn-line">    I'm from Slovakia! <span class="yarn-meta">#line:054e1b8 </span></span>
-<span class="yarn-line">    We used to be a country with Czech Republic.  <span class="yarn-meta">#line:0278f6a </span></span>
+<span class="yarn-line">    We used to be a country with Czech Republic. <span class="yarn-meta">#line:0278f6a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -458,12 +480,12 @@ hide:
 ## task_slovakia
 
 <div class="yarn-node" data-title="task_slovakia"><pre class="yarn-code"><code><span class="yarn-header-dim">group: slovakia</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Find the Slovakian flag.   <span class="yarn-meta">#line:04b6692 </span></span>
+<span class="yarn-line">Find the Slovakian flag. <span class="yarn-meta">#line:04b6692 </span></span>
 <span class="yarn-line">It's white, red and blue with the coat of arms. <span class="yarn-meta">#line:0866ee1 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_slovakia_FLAG npc_slovakia&gt;&gt;</span>
 
@@ -477,7 +499,7 @@ hide:
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: russia</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello, I'm Russia. <span class="yarn-meta">#line:065c41c </span></span>
 <span class="yarn-line">This is just a tiny part of the big country. <span class="yarn-meta">#line:0a4bae4 </span></span>

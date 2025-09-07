@@ -50,6 +50,27 @@ color: red
 Welcome to the castles of the Loire! #line:09dda7c 
 ===
 
+title: the_end
+position: 334,976
+color: green
+panel: panel_endgame
+---
+The game is complete! Congratulations!
+Did you like it?
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+color: green
+panel: panel
+tags: proposal
+---
+Now draw your favourite castle!
+<<quest_end>>
+===
+
+
 title: talk_guide
 position: 220,0
 tags: actor=GUIDE
@@ -63,7 +84,7 @@ Antura ran away and is hiding in a castle! #line:067c028
 
 title: guide_defence
 position: 440,0
-tags: actor=CRAZY_WOMAN, asset=chinon
+tags: actor=WOMAN, asset=chinon
 ---
 This is the castle of Chinon. #line:06eaf5c 
 <<jump FR_05_CASTLES_Text_98_0a_8d>>
@@ -71,7 +92,7 @@ This is the castle of Chinon. #line:06eaf5c
 
 title: guide_living
 position: 660,0
-tags: actor=CRAZY_WOMAN, asset=chambord
+tags: actor=WOMAN, asset=chambord
 ---
 Welcome to Chambord Castle. #line:0a06d3f 
 <<jump FR_05_CASTLES_Text_91139071>>
@@ -79,7 +100,7 @@ Welcome to Chambord Castle. #line:0a06d3f
 
 title: FR_05_CASTLES_Text_02040108
 position: 880,0
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 Find all the things a knight wears: #line:0bfad5e 
 helmet, sword, bow, and armor. #line:08b44fc 
@@ -88,7 +109,7 @@ helmet, sword, bow, and armor. #line:08b44fc
 
 title: FR_05_CASTLES_Text_02082173
 position: 1100,0
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 Find all the prince's items: #line:0cb22cb 
 hat, musical instrument, dance shoes, and ball mask. #line:0d2be40 
@@ -101,30 +122,31 @@ tags: actor=GUIDE
 ---
 Did you find Antura? #line:01003d0 
 -> "YES": #line:0d9f509 
-    <<jump endgame>>
+    <<jump guide_done>>
 -> "NO": #line:0de6ebb 
-    <<jump endgame>>
+    <<jump guide_done>>
 ===
 
-title: endgame
+title: guide_done
 position: 1540,0
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 <<asset map>>
-Did you like the castles? There are 200 castles like this in the Loire Valley! #line:01e6614 
-<<quest_end 3>>
+Did you like the castles?
+There are 200 castles like this in the Loire Valley! #line:01e6614 
+<<jump the_end>>
 ===
 
 title: view_bridge
 position: 1760,0
-tags: actor=CRAZY_WOMAN, asset=bridge
+tags: actor=WOMAN, asset=bridge
 ---
 A drawbridge is a kind of movable bridge used in castles. #line:0010896 
 ===
 
 title: view_parapet
 position: 1980,0
-tags: actor=CRAZY_WOMAN, asset=parapet
+tags: actor=WOMAN, asset=parapet
 ---
 A parapet has gaps used for defense. #line:0aaf4dd 
 ===
@@ -174,7 +196,7 @@ this is an armor #line:01ac543
 title: view_loopholes
 position: 812,518
 color: yellow
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 <<asset loopholes>>
 These are loopholes. They are used to shoot arrows at the enemy. #line:050e177 
@@ -182,7 +204,7 @@ These are loopholes. They are used to shoot arrows at the enemy. #line:050e177
 
 title: FR_05_CASTLES_Text_08_89_98
 position: 1100,140
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 ---
 <<asset  chinon_defence>>
 This castle was used for defense. #line:026073b 
@@ -191,7 +213,7 @@ This castle was used for defense. #line:026073b
 
 title: FR_05_CASTLES_Text_98_0a_8d
 position: 1320,140
-tags: actor=CRAZY_WOMAN, asset=chinon_old
+tags: actor=WOMAN, asset=chinon_old
 ---
 It is very old. #line:0a0e0ca 
 <<jump FR_05_CASTLES_Text_08_89_98>>
@@ -199,7 +221,7 @@ It is very old. #line:0a0e0ca
 
 title: FR_05_CASTLES_Text_91139071
 position: 1540,140
-tags: actor=CRAZY_WOMAN, asset=chambord_ball
+tags: actor=WOMAN, asset=chambord_ball
 ---
 Kings and princes used this castle for balls, plays, and concerts. #line:07d0b04 
 <<jump FR_05_CASTLES_Text_02082173>>
@@ -247,3 +269,20 @@ tags: actor=TUTOR, asset=chambord_interior
 It is very nice! #line:082ac97 
 ===
 
+///////// NPCs SPAWNED IN THE SCENE //////////
+// these npc are spawn automatically in the scene
+// use these to add random facts. everythime you meet them
+// they will say one of these lines randomly
+
+title: spawned_tourist
+position: -367,1
+color: purple
+actor: 
+spawn_group: tourists 
+---
+=> Did you know that the Loire Valley is a UNESCO World Heritage site? #line:0c3f4e1 
+=> The castle of Chambord has 440 rooms! #line:0a5f4f1 
+=> The castle of Chinon was a favorite residence of King Henry II of England. #line:0b6e2c3 
+=> The Loire Valley is known as the "Garden of France". #line:0d1e4b5 
+=> The castle of Chambord was built in the 16th century. #line:0e2f6d7 
+===

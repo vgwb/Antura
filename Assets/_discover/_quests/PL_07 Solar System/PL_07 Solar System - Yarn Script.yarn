@@ -72,11 +72,36 @@ Welcome to TORUŃ in POLAND. #line:0673aff
 COPERNICUS was born here. #line:00fe710 
 ANTURA is stuck in his house! #line:00589bc 
 Let's ask COPERNICUS for help. #line:031963d 
+===
+
+
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+Today we learned about the SOLAR SYSTEM.
+And knew that the SUN is in the center.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw the Solar System?
+<<quest_end>>
+===
+
+
 
 //--------------------------------------------
 // MEET COPERNICUS
 //--------------------------------------------
-===
+
 title: COPERNICUS_OUTSIDE
 position: 162,-138
 group: Intro
@@ -334,9 +359,7 @@ It is deep blue. #line:0584147
 
 <<jump ALL_PLANETS_FOUND>>
 
-//--------------------------------------------
-// ALL PLANETS FOUND – MOVE TO RESCUE
-//--------------------------------------------
+// ALL PLANETS FOUND
 ===
 title: ALL_PLANETS_FOUND
 position: 1800,220
@@ -346,13 +369,9 @@ image: solar_model_finale
 ---
 You found all 8 PLANETS. #line:0d91787 
 The model is complete. #line:0d9ce49 
--> Rescue ANTURA #line:0896149 
-
-
-//--------------------------------------------
-// RESCUE ANTURA – SCENE
-//--------------------------------------------
+now rescue ANTURA! #line:0896149 
 ===
+
 title: RESCUE_ANTURA_GUIDE
 position: 1726,713
 group: Finale
@@ -374,9 +393,6 @@ Thank you for your help. #line:0d7e5be
 -> Final Quiz #line:0a535da 
     <<jump FINAL_QUIZ>>
 
-//--------------------------------------------
-// FINAL QUIZ – ALWAYS LAST
-//--------------------------------------------
 ===
 title: FINAL_QUIZ
 position: 372,1108
@@ -385,7 +401,6 @@ tags: actor=Narrator
 image: quiz_solar_system
 ---
 Answer the questions. #line:08bea58 
-Tap the best choice. #line:082b5ff 
 <<activity quiz copernicus_basics tutorial>>
 // Suggested questions in preset:
 // 1) Who is in the center of the SOLAR SYSTEM? a) EARTH  b) SUN ✅  c) MOON
@@ -394,18 +409,12 @@ Tap the best choice. #line:082b5ff
 
 <<jump QUEST_COMPLETE>>
 
-//--------------------------------------------
-// END
-//--------------------------------------------
 ===
 title: QUEST_COMPLETE
 position: 727,1084
 group: End
-tags: actor=Narrator
-image: quest_complete
 color: red
 ---
-You helped COPERNICUS. #line:0be7346 
-The SOLAR SYSTEM is complete! #line:0410bab 
-<<quest_end 3>>
+Well done!
+<<jump the_end>>
 ===

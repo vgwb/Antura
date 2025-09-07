@@ -55,6 +55,27 @@ This is the ODRA RIVER #line:053bcb9
 Ready to explore? #line:06099c1 
 ===
 
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw the river?
+<<quest_end>>
+===
+
+
 //--------------------------------------------
 // PART 1 – CITY OF BRIDGES
 //--------------------------------------------
@@ -241,5 +262,5 @@ image: quest_complete
 Great work, RIVER explorer! #line:012f97c 
 See you on the next trip! #line:045c7d9 
 
-<<quest_end 3>>
+<<jump the_end>>
 ===

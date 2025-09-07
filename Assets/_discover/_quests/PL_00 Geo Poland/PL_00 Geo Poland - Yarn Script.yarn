@@ -53,20 +53,30 @@ color: red
 <<declare $czech_completed = false>>
 <<action area_small>>
 
+Welcome to Poland! #line:046db1f 
+We are in Europe
+Let's meet other kids from nearby countries.
 ===
 
-
-title: win
-position: 819,-1478
-tags: actor=KID_FEMALE
-color: purple
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
 ---
-Good job! You did it! #line:0ba3c4c 
-You discovered a part of Central Euorpe! #line:031f72c 
-<<card concept_europe_map>>
-<<card concept_europe_map zoom>>
+This quest is complete.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw you flag, now?
 <<quest_end>>
 ===
+
 //--------------------------------------------
 // poland
 //--------------------------------------------
@@ -75,10 +85,10 @@ title: poland_npc
 position: 472,-1288
 color: blue
 group: poland
-tags: actor=KID_FEMALE
+tags: actor=KID_F
 ---
 <<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
-    <<jump win>>
+    <<jump poland_npc_win>>
 <<elseif $poland_completed == true>>
     Thank you for helping me! #line:0a4a56f 
     Can you help my other friends? #line:097eeb8 
@@ -132,6 +142,18 @@ Flag of Poland.  #line:07ca581
 <<else>>
     <<inventory flag_poland add>>
 <<endif>>
+===
+
+title: poland_npc_win
+position: 819,-1478
+tags: actor=KID_F
+color: purple
+---
+Good job! You did it! #line:0ba3c4c 
+<<card concept_europe_map>>
+You discovered a part of Central Euorpe! #line:031f72c 
+<<card concept_europe_map zoom>>
+<<jump the_end>>
 ===
 
 //--------------------------------------------
@@ -238,7 +260,7 @@ It's red and green, with a pattern on the left!  #line:05c6081
 title: czech_republic_npc
 position: 506,-622
 group: czech_republic
-tags: actor=KID_MALE
+tags: actor=KID_M
 color: blue
 ---
 <<if $czech_completed>>
@@ -268,7 +290,7 @@ color: blue
 title: task_czech_republic
 position: 843,-617
 group: czech_republic
-tags: actor=KID_MALE
+tags: actor=KID_M
 ---
 <<if $EASY_MODE == true>>
     <<card flag_czech_republic>>
@@ -285,7 +307,7 @@ It's white and red with a blue triangle. #line:03cb303
 title: lithuania_npc
 position: 508,-395
 group: lithuania
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 color: blue
 ---
 <<if $lithuania_completed>>
@@ -317,7 +339,7 @@ color: blue
 title: task_lithuania
 position: 838,-385
 group: lithuania
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 <<if $EASY_MODE == true>>
     <<card flag_lithuania>>
@@ -350,7 +372,7 @@ title: ukraine_npc
 position: 532,-164
 group: ukraine
 color: blue
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 ---
 <<if $ukraine_completed>>
     <<card flag_ukraine>>
@@ -381,7 +403,7 @@ tags: actor=OLD_MAN
 title: task_ukraine
 position: 881,-165
 group: ukraine
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 <<if $EASY_MODE == true>>
     <<card flag_ukraine>>
@@ -413,7 +435,7 @@ Flag of Ukraine.  #line:0805b90
 title: npc_slovakia
 position: 546,76
 group: slovakia
-tags: actor=CRAZY_WOMAN
+tags: actor=WOMAN
 color: blue
 ---
 <<if $slovakia_completed>>
@@ -443,7 +465,7 @@ color: blue
 title: task_slovakia
 position: 903,83
 group: slovakia
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 <<if $EASY_MODE == true>>
     <<card flag_slovakia>>
@@ -462,7 +484,7 @@ title: russia
 position: 512,877
 color: blue
 group: russia
-tags: actor=CRAZY_MAN
+tags: actor=MAN_BIG
 ---
 Hello, I'm Russia. #line:065c41c 
 This is just a tiny part of the big country. #line:0a4bae4 

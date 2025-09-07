@@ -60,8 +60,27 @@ color: red
 Welcome to GDAŃSK in POLAND. #line:086baaf 
 The LIGHTHOUSE is off. #line:060d616 
 Let’s fix it! #line:05414f7 
-
 ===
+
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw a shell?
+<<quest_end>>
+===
+
 title: MISSION_NOTE
 position: -24,-127
 group: Intro
@@ -273,25 +292,20 @@ Match the words. #line:0372493
 title: FINAL_QUIZ
 position: 217,892
 group: End
-tags: actor=Narrator
+tags: 
 image: baltic_quiz
 ---
 Answer two questions. #line:00a0665 
 Tap the best choice. #line:07c72eb 
-<<activity quiz baltic_basics tutorial>>
+<<activity quiz_baltic_basics tutorial>>
 // Suggested questions in preset:
 // 1) What sea is near GDAŃSK? a) BLACK  b) BALTIC ✅
 // 2) What is BALTIC GOLD?     a) AMBER ✅ b) SAND
 // 3) What does a LIGHTHOUSE do? a) Helps ships ✅ b) Catches fish
-
--> Quest Complete #line:07016a3 
-    <<jump QUEST_COMPLETE>>
-
-
-//--------------------------------------------
-// END
-//--------------------------------------------
 ===
+
+
+
 title: QUEST_COMPLETE
 position: 457,892
 group: End
@@ -300,5 +314,5 @@ image: quest_complete
 ---
 You helped GDAŃSK. #line:0a7204e 
 The LIGHTHOUSE shines again! #line:0d95290 
-<<quest_end 3>>
+<<jump the_end>>
 ===

@@ -11,51 +11,62 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1873232287#gid=1873232287)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_02%20Angers%20School/FR_02%20Angers%20School%20-%20Yarn%20Script.yarn)  
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// </span>
-</code></pre></div>
-
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">// FR_02_ANGERS_SCHOOL - Jules Verne</span>
-<span class="yarn-header-dim">// </span>
-</code></pre></div>
-
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">// Words used: school, classroom, backpack, lesson, CP, CE1, CE2, CM1, CM2, Collège, Lycée, Baccalauréat, geometry, cursive, canteen/menu</span>
-<span class="yarn-header-dim">// activities in this quest:</span>
-<span class="yarn-header-dim">// - find your classroom (task)</span>
-<span class="yarn-header-dim">// - find your backpack (task)</span>
-<span class="yarn-header-dim">// - match tools to shapes (geometry activity)</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// fr_02 | Schools (Angers)</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">color: red</span>
-<span class="yarn-header-dim">actor: TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 10&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_backpack = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Backpack false&gt;&gt;</span>
 <span class="yarn-line">Welcome Angers! It's the first day of school! <span class="yarn-meta">#line:014887e </span></span>
 <span class="yarn-line">You are 10 years old and in the last year of elementary school. <span class="yarn-meta">#line:063e8e0 </span></span>
 <span class="yarn-line">Find your school and your classroom! <span class="yarn-meta">#line:0f65a1b </span></span>
-<span class="yarn-cmd">&lt;&lt;task_start TASK_SCHOOL task_school_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start TASK_FIND_SCHOOL task_find_school_done&gt;&gt;</span>
 
 </code></pre></div>
 
-<a id="ys-node-task-school-done"></a>
-## task_school_done
+<a id="ys-node-the-end"></a>
+## the_end
 
-<div class="yarn-node" data-title="task_school_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TASK COMPLETED!  <span class="yarn-meta">#line:03ed76a </span></span>
+The game is complete! Congratulations!
+This is our school day
+
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
 
 </code></pre></div>
 
-<a id="ys-node-task-school-desc"></a>
-## task_school_desc
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
 
-<div class="yarn-node" data-title="task_school_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+Now draw a map of your classroom!
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-task-find-school-done"></a>
+## task_find_school_done
+
+<div class="yarn-node" data-title="task_find_school_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">TASK COMPLETED! <span class="yarn-meta">#line:03ed76a </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-task-find-school-desc"></a>
+## task_find_school_desc
+
+<div class="yarn-node" data-title="task_find_school_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find your school! <span class="yarn-meta">#line:0da284c </span></span>
 
@@ -102,7 +113,7 @@ hide:
 <a id="ys-node-school-3"></a>
 ## school_3
 
-<div class="yarn-node" data-title="school_3"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=KID_MALE</span>
+<div class="yarn-node" data-title="school_3"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=KID_M</span>
 <span class="yarn-header-dim">actor: KID_MALE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hi! This is a middle school for ages 11 to 15. <span class="yarn-meta">#line:06478e9 </span></span>
@@ -125,7 +136,7 @@ hide:
 <a id="ys-node-school-4-talk-man"></a>
 ## school_4_talk_man
 
-<div class="yarn-node" data-title="school_4_talk_man"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<div class="yarn-node" data-title="school_4_talk_man"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">actor: OLD_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I found a backpack on my way here. <span class="yarn-meta">#line:0c3b4fe </span></span>
@@ -165,7 +176,7 @@ hide:
 
 <div class="yarn-node" data-title="task_classroom_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Find your class so you can start the lesson.  <span class="yarn-meta">#line:00e71a9 </span></span>
+<span class="yarn-line">Find your class so you can start the lesson. <span class="yarn-meta">#line:00e71a9 </span></span>
 
 </code></pre></div>
 
@@ -219,7 +230,7 @@ hide:
 <a id="ys-node-classroom-4"></a>
 ## classroom_4
 
-<div class="yarn-node" data-title="classroom_4"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<div class="yarn-node" data-title="classroom_4"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! This is CM1, the second-to-last year of primary school. <span class="yarn-meta">#line:0532330 </span></span>
@@ -258,14 +269,11 @@ hide:
 ## activity_match_done
 
 <div class="yarn-node" data-title="activity_match_done"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=GUIDE</span>
-<span class="yarn-header-dim">actor: GUIDE</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("match_shapes") &gt; 0&gt;&gt;
-<span class="yarn-line">Great job! <span class="yarn-meta">#line:0e3f1fa </span></span>
-<span class="yarn-line">Every morning and afternoon we have a break to play outside. <span class="yarn-meta">#line:037391b </span></span>
-<span class="yarn-line">You're all set. Welcome to the class! <span class="yarn-meta">#line:021df05 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+<span class="yarn-line">    Great job! <span class="yarn-meta">#line:0e3f1fa </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Not quite right, let's try again. <span class="yarn-meta">#line:0a5c8f1</span></span>
 <span class="yarn-cmd">&lt;&lt;jump activity_match_geometry&gt;&gt;</span>
@@ -299,19 +307,21 @@ hide:
 
 <div class="yarn-node" data-title="task_backpack_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Find your backpack so you can go to school.  <span class="yarn-meta">#line:00faf2f </span></span>
+<span class="yarn-line">Find your backpack so you can go to school. <span class="yarn-meta">#line:00faf2f </span></span>
 
 </code></pre></div>
 
 <a id="ys-node-school-canteen"></a>
 ## school_canteen
 
-<div class="yarn-node" data-title="school_canteen"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=OLD_WOMAN, </span>
+<div class="yarn-node" data-title="school_canteen"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=WOMAN_OLD, </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I hope you're registered for the canteen. <span class="yarn-meta">#line:021132d </span></span>
-<span class="yarn-line">Look what's on the menu today! <span class="yarn-meta">#line:0978619 </span></span>
 <span class="yarn-cmd">&lt;&lt;card object_canteen_menu&gt;&gt;</span>
+<span class="yarn-line">Look what's on the menu today! <span class="yarn-meta">#line:0978619 </span></span>
+<span class="yarn-cmd">&lt;&lt;card object_canteen_menu zoom&gt;&gt;</span>
+Enjoy your meal!
 
 </code></pre></div>
 
@@ -325,6 +335,60 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card concept_charter_of_secularism&gt;&gt;</span>
 <span class="yarn-line">At school, everyone is welcome and respected, <span class="yarn-meta">#line:02977c9 </span></span>
 <span class="yarn-line">no matter their beliefs. <span class="yarn-meta">#line:09c12ac </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-kid-f"></a>
+## spawned_kid_f
+
+<div class="yarn-node" data-title="spawned_kid_f"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: KID_F</span>
+<span class="yarn-header-dim">spawn_group: kids </span>
+<span class="yarn-header-dim">---</span>
+=&gt; Every morning and afternoon we have a break to play outside.
+=&gt; I like to draw and color.
+=&gt; My favorite subject is art.
+
+</code></pre></div>
+
+<a id="ys-node-spawned-kid-m"></a>
+## spawned_kid_m
+
+<div class="yarn-node" data-title="spawned_kid_m"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: KID_M</span>
+<span class="yarn-header-dim">spawn_group: kids </span>
+<span class="yarn-header-dim">---</span>
+=&gt; I like math because I like numbers.
+=&gt; I like to play soccer with my friends
+=&gt; I love videogames!
+
+</code></pre></div>
+
+<a id="ys-node-spawned-adult"></a>
+## spawned_adult
+
+<div class="yarn-node" data-title="spawned_adult"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">spawn_group: adults </span>
+<span class="yarn-header-dim">---</span>
+=&gt; In france the school year starts in September and ends in June.
+=&gt; There are several holidays during the school year.
+=&gt; I love when my kids tell me what they learned at school.
+
+</code></pre></div>
+
+<a id="ys-node-spawned-teacher"></a>
+## spawned_teacher
+
+<div class="yarn-node" data-title="spawned_teacher"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">spawn_group: teachers </span>
+<span class="yarn-header-dim">---</span>
+=&gt; The school day is from 8am to 4pm.
+=&gt; You can bring your lunch or eat at the canteen.
+=&gt; We learn to write in cursive.
 
 </code></pre></div>
 

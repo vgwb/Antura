@@ -14,19 +14,39 @@ hide:
 <a id="ys-node-init"></a>
 ## init
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// FR-09 Cotes Dazur Market - Mont Blanc &amp; Mountains  </span>
-<span class="yarn-header-dim">// Activities:</span>
-<span class="yarn-header-dim">// - DONE collect ingredients (bread, fish, orange, lemon, tomato, cheese, salt, pepper, oil)</span>
-<span class="yarn-header-dim">// - order ingredients</span>
-<span class="yarn-header-dim">// Words used: bread, fish, crab, orange, lemon, tomato, cheese, salt, pepper, oil</span>
+<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_09 | Food &amp; Market (Marseille)</span>
+<span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 7&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $ingredients = 0&gt;&gt;</span>
-<span class="yarn-line">Welcome to Côte d'Azur! It's a sunny day on the coast. <span class="yarn-meta">#line:078e646 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Welcome to Côte d'Azur! It's a sunny day on the coast.] <span class="yarn-meta">#line:078e646 </span></span>
+[MISSING TRANSLATION: ]
+</code></pre></div>
 
+<a id="ys-node-the-end"></a>
+## the_end
+
+<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">---</span>
+[MISSING TRANSLATION: The game is complete! Congratulations!]
+<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+[MISSING TRANSLATION: ]
+</code></pre></div>
+
+<a id="ys-node-quest-proposal"></a>
+## quest_proposal
+
+<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">---</span>
+[MISSING TRANSLATION: What is your favourite food?]
+<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-baker-bonjour"></a>
@@ -36,46 +56,46 @@ hide:
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset shop_baker&gt;&gt;</span>
-<span class="yarn-line">Bonjour! I sell fresh bread. I am a baker. <span class="yarn-meta">#line:0c6f41f </span></span>
-<span class="yarn-line">Every day I wake up early to bake. <span class="yarn-meta">#line:0f6e48a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Bonjour! I sell fresh bread. I am a baker.] <span class="yarn-meta">#line:0c6f41f </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Every day I wake up early to bake.] <span class="yarn-meta">#line:0f6e48a </span></span>
 <span class="yarn-cmd">&lt;&lt;card person_baker zoom&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump baker_question&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-shop-baker"></a>
 ## shop_baker
 
 <div class="yarn-node" data-title="shop_baker"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actor=BAKER, noRepeatLastLine</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG, noRepeatLastLine</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Testing start <span class="yarn-meta">#line:0215305</span></span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:09460ce </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Testing start] <span class="yarn-meta">#line:0215305</span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonjour!] <span class="yarn-meta">#line:09460ce </span></span>
     <span class="yarn-cmd">&lt;&lt;jump baker_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0bf3f32 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:0bf3f32 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Banana! <span class="yarn-meta">#line:0ebf8b2 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Banana!] <span class="yarn-meta">#line:0ebf8b2 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-baker-question"></a>
 ## baker_question
 
 <div class="yarn-node" data-title="baker_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actor=BAKER, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG, type=Choice</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:00279c8 </span></span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:00eab87 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: What do you want to buy?] <span class="yarn-meta">#line:00279c8 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bread] <span class="yarn-meta">#line:00eab87 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump baker_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Fish and Crab <span class="yarn-meta">#line:08177a5 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Fish and Crab] <span class="yarn-meta">#line:08177a5 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0a8294a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Tomatoes, Oranges, and Lemons] <span class="yarn-meta">#line:0a8294a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:0babba5 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Salt, Pepper, and Oil] <span class="yarn-meta">#line:0babba5 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-baker-pay-activity"></a>
@@ -85,9 +105,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0bbf963 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Select enough money to pay.] <span class="yarn-meta">#line:0bbf963 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity money_baker baker_payment_done&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-baker-payment-done"></a>
@@ -96,12 +116,12 @@ hide:
 <div class="yarn-node" data-title="baker_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
 <span class="yarn-header-dim">tags: actor=MAN, no_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Testing end <span class="yarn-meta">#line:0110b76 </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:00da30a </span></span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:00cbd60 </span></span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:00cd1cf </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Testing end] <span class="yarn-meta">#line:0110b76 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:00da30a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Au revoir!] <span class="yarn-meta">#line:00cbd60 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonne journée!] <span class="yarn-meta">#line:00cd1cf </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Baker&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-baker-dontsell"></a>
@@ -110,49 +130,49 @@ hide:
 <div class="yarn-node" data-title="baker_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:0875143 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Sorry, I don't sell that.] <span class="yarn-meta">#line:0875143 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-fisher-payment-done"></a>
 ## fisher_payment_done
 
 <div class="yarn-node" data-title="fisher_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN, do_not_translate</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:02e64ff </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:02c23e5 </span></span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:080d945 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Au revoir!] <span class="yarn-meta">#line:02e64ff </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:02c23e5 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonne journée!] <span class="yarn-meta">#line:080d945 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Fisher&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-fisher-dontsell"></a>
 ## fisher_dontsell
 
 <div class="yarn-node" data-title="fisher_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:01ea288 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Sorry, I don't sell that.] <span class="yarn-meta">#line:01ea288 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-fisher-question"></a>
 ## fisher_question
 
 <div class="yarn-node" data-title="fisher_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:04deddc </span></span>
-<span class="yarn-line">-&gt; Fish &amp; Crab <span class="yarn-meta">#line:0e562df </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: What do you want to buy?] <span class="yarn-meta">#line:04deddc </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Fish &amp; Crab] <span class="yarn-meta">#line:0e562df </span></span>
     <span class="yarn-cmd">&lt;&lt;jump fisher_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:085463e </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Tomatoes, Oranges, and Lemons] <span class="yarn-meta">#line:085463e </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:0604902 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bread] <span class="yarn-meta">#line:0604902 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0c5f144 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Milk] <span class="yarn-meta">#line:0c5f144 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-shop-fisher"></a>
@@ -160,29 +180,29 @@ hide:
 
 <div class="yarn-node" data-title="shop_fisher"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Lycée! <span class="yarn-meta">#line:0d65316 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Lycée!] <span class="yarn-meta">#line:0d65316 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:089f618 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonjour!] <span class="yarn-meta">#line:089f618 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump fisher_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:06b0535 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Au revoir!] <span class="yarn-meta">#line:06b0535 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-fisher-bonjour"></a>
 ## fisher_bonjour
 
 <div class="yarn-node" data-title="fisher_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">actor: OLD_MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Good morning! I sell fish and crab. I'm a fishmonger. <span class="yarn-meta">#line:04b4a87 </span></span>
-<span class="yarn-line">All of my items come from the sea! <span class="yarn-meta">#line:0aa9ce7 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Good morning! I sell fish and crab. I'm a fishmonger.] <span class="yarn-meta">#line:04b4a87 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: All of my items come from the sea!] <span class="yarn-meta">#line:0aa9ce7 </span></span>
 <span class="yarn-cmd">&lt;&lt;card  person_fishmonger zoom&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump fisher_question&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-shop-cheesemonger"></a>
@@ -192,32 +212,32 @@ hide:
 <span class="yarn-header-dim">group: cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0693ba6 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:0693ba6 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:022bf02 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonjour!] <span class="yarn-meta">#line:022bf02 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump cheesemonger_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Chat! <span class="yarn-meta">#line:0b56a4d </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Chat!] <span class="yarn-meta">#line:0b56a4d </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-cheesemonger-question"></a>
 ## cheesemonger_question
 
 <div class="yarn-node" data-title="cheesemonger_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: cheesemonger</span>
-<span class="yarn-header-dim">tags: actor=WOMAN, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:03009de </span></span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0aa7def </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: What do you want to buy?] <span class="yarn-meta">#line:03009de </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Milk] <span class="yarn-meta">#line:0aa7def </span></span>
     <span class="yarn-cmd">&lt;&lt;jump cheesemonger_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:057f694 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Salt, Pepper, and Oil] <span class="yarn-meta">#line:057f694 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:087919f </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bread] <span class="yarn-meta">#line:087919f </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:067bfab </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Tomatoes, Oranges, and Lemons] <span class="yarn-meta">#line:067bfab </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-cheesemonger-payment-done"></a>
@@ -226,11 +246,11 @@ hide:
 <div class="yarn-node" data-title="cheesemonger_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group:cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:0dd3ac3 </span></span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:02a1238 </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0273de1 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonne journée!] <span class="yarn-meta">#line:0dd3ac3 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Au revoir!] <span class="yarn-meta">#line:02a1238 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:0273de1 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Cheesemonger&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-cheesemonger-bonjour"></a>
@@ -239,11 +259,11 @@ hide:
 <div class="yarn-node" data-title="cheesemonger_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Hi! I sell cheese and milk. I am a cheesemonger. <span class="yarn-meta">#line:09eb222 </span></span>
-<span class="yarn-line">I use both cow milk and goat milk. <span class="yarn-meta">#line:02f4bc9 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Hi! I sell cheese and milk. I am a cheesemonger.] <span class="yarn-meta">#line:09eb222 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: I use both cow milk and goat milk.] <span class="yarn-meta">#line:02f4bc9 </span></span>
 <span class="yarn-cmd">&lt;&lt;card  person_cheesemonger zoom&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump cheesemonger_question&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-cheesemonger-dontsell"></a>
@@ -252,8 +272,8 @@ hide:
 <div class="yarn-node" data-title="cheesemonger_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group:cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:058fc6d </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Sorry, I don't sell that.] <span class="yarn-meta">#line:058fc6d </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-greengrocer-dontsell"></a>
@@ -262,8 +282,8 @@ hide:
 <div class="yarn-node" data-title="greengrocer_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">MAN: Sorry, I don't sell that. <span class="yarn-meta">#line:03b0024 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: MAN: Sorry, I don't sell that.] <span class="yarn-meta">#line:03b0024 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-greengrocer-payment-activity"></a>
@@ -272,11 +292,11 @@ hide:
 <div class="yarn-node" data-title="greengrocer_payment_activity"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:0ff9361 </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0741be3 </span></span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:023f352 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonne journée!] <span class="yarn-meta">#line:0ff9361 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:0741be3 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Au revoir!] <span class="yarn-meta">#line:023f352 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Greengrocer&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-greengrocer-question"></a>
@@ -285,16 +305,16 @@ hide:
 <div class="yarn-node" data-title="greengrocer_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:042eb5a </span></span>
-<span class="yarn-line">-&gt; Fish and Crab <span class="yarn-meta">#line:0fead1d </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: What do you want to buy?] <span class="yarn-meta">#line:042eb5a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Fish and Crab] <span class="yarn-meta">#line:0fead1d </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:0879f58 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bread] <span class="yarn-meta">#line:0879f58 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:015a2b4 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Tomatoes, Oranges, and Lemons] <span class="yarn-meta">#line:015a2b4 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump greengrocer_pay_activity&gt;&gt;</span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:0fd3f3a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Milk] <span class="yarn-meta">#line:0fd3f3a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-shop-greengrocer"></a>
@@ -304,13 +324,13 @@ hide:
 <span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0a43c28 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:0a43c28 </span></span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Train! <span class="yarn-meta">#line:02af86a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Train!] <span class="yarn-meta">#line:02af86a </span></span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:0039ce8 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonjour!] <span class="yarn-meta">#line:0039ce8 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump greengrocer_bonjour&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-greengrocer-bonjour"></a>
@@ -320,98 +340,98 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Hello! I sell fruits and vegetables. I'm a greengrocer. <span class="yarn-meta">#line:041ade1 </span></span>
-<span class="yarn-line">My items are always fresh! <span class="yarn-meta">#line:0969b87 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Hello! I sell fruits and vegetables. I'm a greengrocer.] <span class="yarn-meta">#line:041ade1 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: My items are always fresh!] <span class="yarn-meta">#line:0969b87 </span></span>
 <span class="yarn-cmd">&lt;&lt;card  person_greengrocer zoom&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump greengrocer_question&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-grocer-payment-done"></a>
 ## grocer_payment_done
 
 <div class="yarn-node" data-title="grocer_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN, do_not_translate</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Au revoir! <span class="yarn-meta">#line:0ce6f8a </span></span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0e8ec1b </span></span>
-<span class="yarn-line">-&gt; Bonne journée! <span class="yarn-meta">#line:062029a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Au revoir!] <span class="yarn-meta">#line:0ce6f8a </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:0e8ec1b </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonne journée!] <span class="yarn-meta">#line:062029a </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Grocer&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-grocer-dontsell"></a>
 ## grocer_dontsell
 
 <div class="yarn-node" data-title="grocer_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">action: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:0977493 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Sorry, I don't sell that.] <span class="yarn-meta">#line:0977493 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-grocer-question"></a>
 ## grocer_question
 
 <div class="yarn-node" data-title="grocer_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:0c36100 </span></span>
-<span class="yarn-line">-&gt; Tomatoes, Oranges, and Lemons <span class="yarn-meta">#line:0d6dabd </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: What do you want to buy?] <span class="yarn-meta">#line:0c36100 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Tomatoes, Oranges, and Lemons] <span class="yarn-meta">#line:0d6dabd </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bread <span class="yarn-meta">#line:03eeda4 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bread] <span class="yarn-meta">#line:03eeda4 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Milk <span class="yarn-meta">#line:097fca2 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Milk] <span class="yarn-meta">#line:097fca2 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">-&gt; Salt, Pepper, and Oil <span class="yarn-meta">#line:0068f15 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Salt, Pepper, and Oil] <span class="yarn-meta">#line:0068f15 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump grocer_pay_activity&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-shop-grocer"></a>
 ## shop_grocer
 
 <div class="yarn-node" data-title="shop_grocer"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:0dd992c </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Merci!] <span class="yarn-meta">#line:0dd992c </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">-&gt; Bonjour! <span class="yarn-meta">#line:0623f71 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Bonjour!] <span class="yarn-meta">#line:0623f71 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump grocer_bonjour&gt;&gt;</span>
-<span class="yarn-line">-&gt; Livre! <span class="yarn-meta">#line:0b4db3b </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Livre!] <span class="yarn-meta">#line:0b4db3b </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-grocer-bonjour"></a>
 ## grocer_bonjour
 
 <div class="yarn-node" data-title="grocer_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Hello! I sell spices and pantry goods. I am a grocer. <span class="yarn-meta">#line:0ffbfa4 </span></span>
-<span class="yarn-line">You can use my items for many recipes. <span class="yarn-meta">#line:0c6a554 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Hello! I sell spices and pantry goods. I am a grocer.] <span class="yarn-meta">#line:0ffbfa4 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: You can use my items for many recipes.] <span class="yarn-meta">#line:0c6a554 </span></span>
 <span class="yarn-cmd">&lt;&lt;card  person_grocer zoom&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump grocer_question&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-pirate"></a>
 ## pirate
 
 <div class="yarn-node" data-title="pirate"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pirates</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">actor: CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ahoy! Welcome aboard. <span class="yarn-meta">#line:04ee922 </span></span>
-<span class="yarn-line">We come from Saint-Malo and sailed the seas to get here. <span class="yarn-meta">#line:056c70d </span></span>
-<span class="yarn-line">People call us pirates, but we were corsairs—privateers. <span class="yarn-meta">#line:0f764a6 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Ahoy! Welcome aboard.] <span class="yarn-meta">#line:04ee922 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: We come from Saint-Malo and sailed the seas to get here.] <span class="yarn-meta">#line:056c70d </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: People call us pirates, but we were corsairs—privateers.] <span class="yarn-meta">#line:0f764a6 </span></span>
 <span class="yarn-cmd">&lt;&lt;jump pirate_activity&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-pirate-activity"></a>
@@ -421,22 +441,22 @@ hide:
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Complete the image. <span class="yarn-meta">#line:08396f2 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Complete the image.] <span class="yarn-meta">#line:08396f2 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_pirate activity_pirate_done&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-activity-pirate-done"></a>
 ## activity_pirate_done
 
 <div class="yarn-node" data-title="activity_pirate_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pirates</span>
-<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">actor: CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">We worked for the King of France. <span class="yarn-meta">#line:0af3bba </span></span>
-<span class="yarn-line">In the past, we took items from the king's enemies, but those days are gone. <span class="yarn-meta">#line:0b61715 </span></span>
-<span class="yarn-line">You should pay for what you need so the shops can stay open! <span class="yarn-meta">#line:02c49d0 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: We worked for the King of France.] <span class="yarn-meta">#line:0af3bba </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: In the past, we took items from the king's enemies, but those days are gone.] <span class="yarn-meta">#line:0b61715 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: You should pay for what you need so the shops can stay open!] <span class="yarn-meta">#line:02c49d0 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-chef"></a>
@@ -453,7 +473,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump chef_welcome&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-chef-welcome"></a>
@@ -462,12 +482,12 @@ hide:
 <div class="yarn-node" data-title="chef_welcome"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bonjour! Welcome to Marseille, on the Mediterranean Sea! <span class="yarn-meta">#line:02548dd </span></span>
-<span class="yarn-line">I want to make a special dish for you, a bouillabaisse! <span class="yarn-meta">#line:0c65de3 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Bonjour! Welcome to Marseille, on the Mediterranean Sea!] <span class="yarn-meta">#line:02548dd </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: I want to make a special dish for you, a bouillabaisse!] <span class="yarn-meta">#line:0c65de3 </span></span>
 <span class="yarn-cmd">&lt;&lt;card bouillabaisse zoom&gt;&gt;</span>
-<span class="yarn-line">But I need some ingredients. <span class="yarn-meta">#line:0623733 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: But I need some ingredients.] <span class="yarn-meta">#line:0623733 </span></span>
 <span class="yarn-cmd">&lt;&lt;jump task_ingredients&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-task-ingredients"></a>
@@ -477,12 +497,12 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Please go to the market and buy them for me. <span class="yarn-meta">#line:06602c6 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Please go to the market and buy them for me.] <span class="yarn-meta">#line:06602c6 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start COLLECT_THE_INGREDIENTS task_ingredients_done&gt;&gt;</span>
-<span class="yarn-line">Remember your manners! <span class="yarn-meta">#line:02819db </span></span>
-<span class="yarn-line">Say "Bonjour" to greet someone, <span class="yarn-meta">#line:04c9d69 </span></span>
-<span class="yarn-line">and "Merci" to thank them. <span class="yarn-meta">#line:022fd8f </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Remember your manners!] <span class="yarn-meta">#line:02819db </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Say "Bonjour" to greet someone,] <span class="yarn-meta">#line:04c9d69 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: and "Merci" to thank them.] <span class="yarn-meta">#line:022fd8f </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-task-ingredients-desc"></a>
@@ -490,9 +510,9 @@ hide:
 
 <div class="yarn-node" data-title="task_ingredients_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Collect all the ingredients for the recipe. <span class="yarn-meta">#line:00849bb </span></span>
-<span class="yarn-line">They are: bread, fish, orange, lemon, tomato, milk, pepper and salt, oil. <span class="yarn-meta">#line:03fbee1 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Collect all the ingredients for the recipe.] <span class="yarn-meta">#line:00849bb </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: They are: bread, fish, orange, lemon, tomato, milk, pepper and salt, oil.] <span class="yarn-meta">#line:03fbee1 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-chef-not-enough"></a>
@@ -501,9 +521,9 @@ hide:
 <div class="yarn-node" data-title="chef_not_enough"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I need more ingredients! <span class="yarn-meta">#line:0c5c6ac </span></span>
-<span class="yarn-line">Make sure you talk to everyone in the market. <span class="yarn-meta">#line:0060c01 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: I need more ingredients!] <span class="yarn-meta">#line:0c5c6ac </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Make sure you talk to everyone in the market.] <span class="yarn-meta">#line:0060c01 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-task-ingredients-done"></a>
@@ -511,8 +531,8 @@ hide:
 
 <div class="yarn-node" data-title="task_ingredients_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">You got all the ingredients! Go back to the chef. <span class="yarn-meta">#line:05398f2 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: You got all the ingredients! Go back to the chef.] <span class="yarn-meta">#line:05398f2 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-chef-ingredients-done"></a>
@@ -521,11 +541,11 @@ hide:
 <div class="yarn-node" data-title="chef_ingredients_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Magnifique! You have everything. <span class="yarn-meta">#line:0257fc7 </span></span>
-<span class="yarn-line">You were very polite. <span class="yarn-meta">#line:0112e25 </span></span>
-<span class="yarn-line">Now, let's prepare our feast! <span class="yarn-meta">#line:0051174 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Magnifique! You have everything.] <span class="yarn-meta">#line:0257fc7 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: You were very polite.] <span class="yarn-meta">#line:0112e25 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Now, let's prepare our feast!] <span class="yarn-meta">#line:0051174 </span></span>
 <span class="yarn-cmd">&lt;&lt;jump activity_match_ingredients&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-activity-match-ingredients"></a>
@@ -535,9 +555,9 @@ hide:
 <span class="yarn-header-dim">tags: activity</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Match each item to the right seller. <span class="yarn-meta">#line:0a6e106 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Match each item to the right seller.] <span class="yarn-meta">#line:0a6e106 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity match_ingredients activity_match_done&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-activity-match-done"></a>
@@ -545,22 +565,22 @@ hide:
 
 <div class="yarn-node" data-title="activity_match_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Well done! You matched all the items. <span class="yarn-meta">#line:01648b2 </span></span>
-<span class="yarn-line">Now, let's cook the bouillabaisse! <span class="yarn-meta">#line:0f0f617 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Well done! You matched all the items.] <span class="yarn-meta">#line:01648b2 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Now, let's cook the bouillabaisse!] <span class="yarn-meta">#line:0f0f617 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-fisher-pay-activity"></a>
 ## fisher_pay_activity
 
 <div class="yarn-node" data-title="fisher_pay_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0995020 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Select enough money to pay.] <span class="yarn-meta">#line:0995020 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity money_fishmonger fisher_payment_done&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-cheesemonger-pay-activity"></a>
@@ -570,21 +590,21 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0f44ea7 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Select enough money to pay.] <span class="yarn-meta">#line:0f44ea7 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity money_cheesemonger cheesemonger_payment_activity&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-grocer-pay-activity"></a>
 ## grocer_pay_activity
 
 <div class="yarn-node" data-title="grocer_pay_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0c80f9e </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Select enough money to pay.] <span class="yarn-meta">#line:0c80f9e </span></span>
 <span class="yarn-cmd">&lt;&lt;activity money_grocer grocer_payment_done&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-greengrocer-pay-activity"></a>
@@ -594,9 +614,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:08fc94e </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Select enough money to pay.] <span class="yarn-meta">#line:08fc94e </span></span>
 <span class="yarn-cmd">&lt;&lt;activity money_greengrocer greengrocer_payment_activity&gt;&gt;</span>
-
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-baker-notunderstand"></a>
@@ -605,8 +625,8 @@ hide:
 <div class="yarn-node" data-title="baker_notunderstand"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
 <span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sorry, I don't think I understand... <span class="yarn-meta">#line:0db5121 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Sorry, I don't think I understand...] <span class="yarn-meta">#line:0db5121 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-cheesemonger-notunderstand"></a>
@@ -615,18 +635,18 @@ hide:
 <div class="yarn-node" data-title="cheesemonger_notunderstand"><pre class="yarn-code"><code><span class="yarn-header-dim">group: cheesemonger</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sorry, I don't think I understand... <span class="yarn-meta">#line:01a0ec9 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Sorry, I don't think I understand...] <span class="yarn-meta">#line:01a0ec9 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-grocer-notunderstand"></a>
 ## grocer_notunderstand
 
 <div class="yarn-node" data-title="grocer_notunderstand"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sorry, I don't think I understand... <span class="yarn-meta">#line:0a30381 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Sorry, I don't think I understand...] <span class="yarn-meta">#line:0a30381 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-talk-dont-understand"></a>
@@ -635,10 +655,10 @@ hide:
 <div class="yarn-node" data-title="talk_dont_understand"><pre class="yarn-code" style="--node-color:orange"><code><span class="yarn-header-dim">tags: detour</span>
 <span class="yarn-header-dim">color: orange</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; Sorry, I don't think I understand... <span class="yarn-meta">#line:0f9044b </span></span>
-<span class="yarn-line">=&gt; What?? <span class="yarn-meta">#line:09682b7 </span></span>
-<span class="yarn-line">=&gt; Huh? <span class="yarn-meta">#line:0c1b3e0 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: =&gt; Sorry, I don't think I understand...] <span class="yarn-meta">#line:0f9044b </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: =&gt; What??] <span class="yarn-meta">#line:09682b7 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: =&gt; Huh?] <span class="yarn-meta">#line:0c1b3e0 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-talk-dont-sell"></a>
@@ -647,8 +667,8 @@ hide:
 <div class="yarn-node" data-title="talk_dont_sell"><pre class="yarn-code" style="--node-color:orange"><code><span class="yarn-header-dim">tags: detour</span>
 <span class="yarn-header-dim">color: orange</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">=&gt; Sorry, I don't sell that. <span class="yarn-meta">#line:08700b0 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: =&gt; Sorry, I don't sell that.] <span class="yarn-meta">#line:08700b0 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-bread"></a>
@@ -658,8 +678,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_bread&gt;&gt;</span>
-<span class="yarn-line">Bread <span class="yarn-meta">#line:08e101e </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Bread] <span class="yarn-meta">#line:08e101e </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-fish"></a>
@@ -669,8 +689,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_fish&gt;&gt;</span>
-<span class="yarn-line">Fish <span class="yarn-meta">#line:0feed79 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Fish] <span class="yarn-meta">#line:0feed79 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-crab"></a>
@@ -680,8 +700,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_crab&gt;&gt;</span>
-<span class="yarn-line">Crab   <span class="yarn-meta">#line:0c81979 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Crab] <span class="yarn-meta">#line:0c81979 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-orange"></a>
@@ -691,8 +711,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_orange&gt;&gt;</span>
-<span class="yarn-line">Orange <span class="yarn-meta">#line:0c0fa04 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Orange] <span class="yarn-meta">#line:0c0fa04 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-lemon"></a>
@@ -702,8 +722,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_lemon&gt;&gt;</span>
-<span class="yarn-line">Lemon <span class="yarn-meta">#line:0c6b991 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Lemon] <span class="yarn-meta">#line:0c6b991 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-tomato"></a>
@@ -713,8 +733,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_tomato&gt;&gt;</span>
-<span class="yarn-line">Tomato <span class="yarn-meta">#line:0a6782d </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Tomato] <span class="yarn-meta">#line:0a6782d </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-milk"></a>
@@ -724,8 +744,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_milk&gt;&gt;</span>
-<span class="yarn-line">Milk <span class="yarn-meta">#line:0acd781 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Milk] <span class="yarn-meta">#line:0acd781 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-pepper-salt"></a>
@@ -735,8 +755,8 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_pepper_salt&gt;&gt;</span>
-<span class="yarn-line">Salt and Pepper <span class="yarn-meta">#line:07bbcb0 </span></span>
-
+<span class="yarn-line">[MISSING TRANSLATION: Salt and Pepper] <span class="yarn-meta">#line:07bbcb0 </span></span>
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-item-oil"></a>
@@ -746,8 +766,41 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_olive_oil&gt;&gt;</span>
-<span class="yarn-line">Olive oil <span class="yarn-meta">#line:0156410 </span></span>
+<span class="yarn-line">[MISSING TRANSLATION: Olive oil] <span class="yarn-meta">#line:0156410 </span></span>
+[MISSING TRANSLATION: ]
+</code></pre></div>
 
+<a id="ys-node-spawned-tourist"></a>
+## spawned_tourist
+
+<div class="yarn-node" data-title="spawned_tourist"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">spawn_group: tourists </span>
+<span class="yarn-header-dim">---</span>
+[MISSING TRANSLATION: =&gt; Hi! I'm visiting from Paris.]
+[MISSING TRANSLATION: =&gt; The food here is amazing!]
+[MISSING TRANSLATION: =&gt; I love the sea!]
+[MISSING TRANSLATION: =&gt; The market is so lively!]
+[MISSING TRANSLATION: =&gt; The bouillabaisse is my favorite dish!]
+[MISSING TRANSLATION: ]
+</code></pre></div>
+
+<a id="ys-node-spawned-buyer"></a>
+## spawned_buyer
+
+<div class="yarn-node" data-title="spawned_buyer"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">spawn_group: buyers </span>
+<span class="yarn-header-dim">---</span>
+[MISSING TRANSLATION: =&gt; I need to buy some fresh ingredients.]
+[MISSING TRANSLATION: =&gt; The market has the best produce.]
+[MISSING TRANSLATION: =&gt; Fresh fish is the best!]
+[MISSING TRANSLATION: =&gt; I can't wait to cook a delicious meal!]
+[MISSING TRANSLATION: ]
 </code></pre></div>
 
 

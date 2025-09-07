@@ -51,7 +51,6 @@
 
 title: init
 position: 0,0
-tags: type=Start
 type: panel
 color: red
 ---
@@ -67,6 +66,26 @@ color: red
 <<declare $got_cloves = false>>
 <<declare $got_cinnamon = false>>
 <<declare $got_ginger = false>>
+Welcome to Torun!
+===
+
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw ...
+<<quest_end>>
 ===
 
 title: intro
@@ -102,7 +121,7 @@ GUIDE: Visit the stands and talk to vendors. #line:0c470ae
 title: shop_grocer
 position: 289,235
 group: market
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 I sell cloves, cinnamon, and ginger. I'm a grocer. #line:0a66f1e 
 -> Buy cloves (1zł) #line:0eff39a 
@@ -138,7 +157,7 @@ I sell milk and butter. I'm a dairy vendor. #line:0acb509
 title: shop_eggs
 position: 1285,220
 group: market
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 ---
 I sell eggs. I'm an egg vendor. #line:03de236 
 -> Buy eggs (10zł) #line:07a79e8 
@@ -170,7 +189,7 @@ If you buy pierogi for me, you can use my kitchen. #line:0eda999
 title: pay_cloves
 position: 89,482
 group: pay
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 Select enough money to pay 1zł. #line:019a160 
 <<activity ACTIVITY_MONEY_1 add_cloves_done>>
@@ -190,7 +209,7 @@ tags: type=Variables
 title: pay_cinnamon
 position: 504,459
 group: pay
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 Select enough money to pay 1zł. #line:055af31 
 <<activity ACTIVITY_MONEY_1 add_cinnamon_done>>
@@ -210,7 +229,7 @@ tags: type=Variables
 title: pay_ginger
 position: 255,626
 group: pay
-tags: actor=OLD_WOMAN
+tags: actor=WOMAN_OLD
 ---
 Select enough money to pay 1zł. #line:0172345 
 <<activity ACTIVITY_MONEY_1 add_ginger_done>>
@@ -289,7 +308,7 @@ tags: type=Variables
 title: pay_eggs
 position: 1325,470
 group: pay
-tags: actor=OLD_MAN
+tags: actor=MAN_OLD
 ---
 Select enough money to pay 10zł. #line:0bdf451 
 <<activity ACTIVITY_MONEY_10 add_eggs_done>>
@@ -428,5 +447,5 @@ group: assessment
 tags: actor=GUIDE
 ---
 Great work! You helped Antura and learned new words. #line:0cb84a7 
-<<quest_end 3>>
+<<jump the_end>>
 ===

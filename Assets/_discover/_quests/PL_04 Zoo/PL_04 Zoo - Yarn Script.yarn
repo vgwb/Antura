@@ -58,6 +58,27 @@ Welcome to Wroclaw Zoo. #line:0fe55d1
 There are lots of animals here! #line:005dd46 
 ===
 
+title: the_end
+position: 234,7
+panel: panel_endgame
+color: green
+---
+This quest is complete.
+Today you learned about ZOO ANIMALS.
+<<jump quest_proposal>>
+===
+
+title: quest_proposal
+position: 236,184
+panel: panel
+color: green
+tags: proposal
+---
+Why don't you draw your favourite animal?
+<<quest_end>>
+===
+
+
 title: director_talk
 position: -951,-5
 group: Intro
@@ -160,7 +181,7 @@ Largest land ANIMAL. #line:0b1cca2
 title: ELEPHANT_KID
 position: 612,13
 group: ELEPHANT
-tags: actor=Kid
+tags: actor=KID
 image: kid_elephant
 ---
 Its ears are bigger than me! #line:0fc78ad 
@@ -207,7 +228,7 @@ Long EYELASHES. #line:0291317
 title: GIRAFFE_KID
 position: 1134,0
 group: GIRAFFE
-tags: actor=Kid
+tags: actor=KID
 image: kid_giraffe
 ---
 With a neck like that, #line:068daeb 
@@ -254,7 +275,7 @@ Males have MANES. #line:0d2883b
 title: LION_KID
 position: 616,401
 group: LION
-tags: actor=Kid
+tags: actor=KID
 image: kid_lion
 ---
 What a roar! #line:079f4e0 
@@ -301,7 +322,7 @@ Loves FRUIT. #line:021b299
 title: MONKEY_KID
 position: 1123,394
 group: MONKEY
-tags: actor=Kid
+tags: actor=KID
 image: kid_monkey
 ---
 He copied my dance! #line:0bf2346 
@@ -348,7 +369,7 @@ Lives near OCEANS. #line:0eac350
 title: PENGUIN_KID
 position: 613,777
 group: PENGUIN
-tags: actor=Kid
+tags: actor=KID
 image: kid_penguin
 ---
 How cute! #line:0ae73f3 
@@ -370,7 +391,7 @@ TASK COMPLETED! Go back to the director. #line:0a93d9b
 title: director_task_done
 position: -709,89
 group: Intro
-tags: actor=Man, type:Panel
+tags: actor=Man
 image: centennial_hall_empty_flag
 color: purple
 ---
@@ -451,6 +472,5 @@ image: quest_complete
 color: red
 ---
 Great work at the ZOO! #line:056d51c 
-See you on the ODRA RIVER! #line:0d4f5f7 
-<<quest_end>>
+<<jump the_end>>
 ===
