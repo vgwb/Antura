@@ -50,7 +50,7 @@ Welcome to Côte d'Azur! It's a sunny day on the coast. #line:078e646
 ===
 
 title: the_end
-position: 334,976
+position: 1293,-720
 color: green
 panel: panel_endgame
 ---
@@ -59,7 +59,7 @@ The game is complete! Congratulations!
 ===
 
 title: quest_proposal
-position: 236,184
+position: 1520,-720
 color: green
 panel: panel
 tags: proposal
@@ -68,13 +68,11 @@ What is your favourite food?
 <<quest_end>>
 ===
 
-
 title: baker_bonjour
 position: 646,-11
 group: baker
 tags: actor=MAN
 ---
-<<asset shop_baker>>
 Bonjour! I sell fresh bread. I am a baker. #line:0c6f41f 
 Every day I wake up early to bake. #line:0f6e48a 
 <<card person_baker zoom>>
@@ -87,7 +85,6 @@ group: baker
 tags: actor=MAN_BIG, noRepeatLastLine
 color: blue
 ---
-Testing start #line:0215305
 -> Bonjour! #line:09460ce 
     <<jump baker_bonjour>>
 -> Merci! #line:0bf3f32 
@@ -125,9 +122,8 @@ Select enough money to pay. #line:0bbf963
 title: baker_payment_done
 position: 1131,145
 group: baker
-tags: actor=MAN, no_translate
+tags: actor=MAN, no_translate, noRepeatLastLine
 ---
-Testing end #line:0110b76 
 -> Merci! #line:00da30a 
 -> Au revoir! #line:00cbd60 
 -> Bonne journée! #line:00cd1cf 
@@ -145,7 +141,7 @@ Sorry, I don't sell that. #line:0875143
 title: fisher_payment_done
 position: 2169,551
 group: fisher
-tags: actor=MAN_OLD, do_not_translate
+tags: actor=MAN_OLD, do_not_translate, noRepeatLastLine
 ---
 -> Au revoir! #line:02e64ff 
 -> Merci! #line:02c23e5 
@@ -167,7 +163,7 @@ group: fisher
 tags: actor=MAN_OLD
 ---
 What do you want to buy? #line:04deddc 
--> Fish & Crab #line:0e562df 
+-> Fish and Crab #line:0e562df 
     <<jump fisher_pay_activity>>
 -> Tomatoes, Oranges, and Lemons #line:085463e 
     <<jump talk_dont_sell>>
@@ -181,7 +177,7 @@ title: shop_fisher
 position: 1434,393
 color: blue
 group: fisher
-tags: actor=MAN_OLD
+tags: actor=MAN_OLD, noRepeatLastLine
 ---
 -> Lycée! #line:0d65316 
     <<jump talk_dont_understand>>
@@ -207,7 +203,7 @@ title: shop_cheesemonger
 position: 403,401
 color: blue
 group: cheesemonger
-tags: actor=WOMAN, do_not_translate
+tags: actor=WOMAN, do_not_translate, noRepeatLastLine
 ---
 -> Merci! #line:0693ba6 
     <<jump talk_dont_understand>>
@@ -237,7 +233,7 @@ What do you want to buy? #line:03009de
 title: cheesemonger_payment_done
 position: 1117,550
 group:cheesemonger
-tags: actor=WOMAN, do_not_translate
+tags: actor=WOMAN, do_not_translate, noRepeatLastLine
 ---
 -> Bonne journée! #line:0dd3ac3 
 -> Au revoir! #line:02a1238 
@@ -275,7 +271,7 @@ MAN: Sorry, I don't sell that. #line:03b0024
 title: greengrocer_payment_activity
 position: 1105,976
 group: greengrocer
-tags: actor=WOMAN, do_not_translate
+tags: actor=WOMAN, do_not_translate, noRepeatLastLine
 ---
 -> Bonne journée! #line:0ff9361 
 -> Merci! #line:0741be3 
@@ -303,7 +299,7 @@ title: shop_greengrocer
 position: 401,822
 color: blue
 group: greengrocer
-tags: actor=WOMAN
+tags: actor=WOMAN, noRepeatLastLine
 ---
 -> Merci! #line:0a43c28 
     <<detour talk_dont_understand>>
@@ -328,7 +324,7 @@ My items are always fresh! #line:0969b87
 title: grocer_payment_done
 position: 2168,154
 group: grocer
-tags: actor=WOMAN_OLD, do_not_translate
+tags: actor=WOMAN_OLD, do_not_translate, noRepeatLastLine
 ---
 -> Au revoir! #line:0ce6f8a 
 -> Merci! #line:0e8ec1b 
@@ -365,7 +361,7 @@ What do you want to buy? #line:0c36100
 title: shop_grocer
 position: 1437,-12
 group: grocer
-tags: actor=WOMAN_OLD
+tags: actor=WOMAN_OLD, noRepeatLastLine
 color: blue
 ---
 -> Merci! #line:0dd992c 
@@ -532,13 +528,13 @@ Select enough money to pay. #line:0995020
 ===
 
 title: cheesemonger_pay_activity
-position: 1116,400
+position: 1116,398
 group:cheesemonger
 tags: actor=WOMAN
 color: purple
 ---
 Select enough money to pay. #line:0f44ea7 
-<<activity money_cheesemonger cheesemonger_payment_activity>>
+<<activity money_cheesemonger cheesemonger_payment_done>>
 ===
 
 title: grocer_pay_activity
@@ -595,7 +591,7 @@ color: orange
 ===
 
 title: talk_dont_sell
-position: 1707,1033
+position: 1648,822
 tags: detour
 color: orange
 ---
