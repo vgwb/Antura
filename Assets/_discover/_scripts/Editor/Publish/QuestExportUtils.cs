@@ -298,7 +298,7 @@ namespace Antura.Discover.Editor
             if (q.YarnScript != null)
             {
                 var raw = RemoveSceneDataChunk(q.YarnScript.text);
-                sb.AppendLine(RenderYarnAsHtml(raw));
+                sb.AppendLine(RenderYarnAsHtml(raw, q, locale));
             }
             else
             {
@@ -309,11 +309,51 @@ namespace Antura.Discover.Editor
         }
 
         // Render Yarn script like the JS viewer: H2 per node + tokenized code inside a styled <pre>
-        static string RenderYarnAsHtml(string script)
+        // Enhanced renderer with optional translation lookup from QuestData.QuestStringsTable.
+        static string RenderYarnAsHtml(string script, QuestData quest = null, Locale locale = null)
         {
             if (string.IsNullOrEmpty(script))
                 return string.Empty;
             script = RemoveSceneDataChunk(script);
+
+            // Prepare translation table if available.
+            UnityEngine.Localization.Tables.StringTable translationTable = null;
+            if (quest != null && quest.QuestStringsTable != null)
+            {
+                try
+                {
+                    if (locale != null)
+                    {
+                        translationTable = UnityEngine.Localization.Settings.LocalizationSettings.StringDatabase.GetTable(quest.QuestStringsTable.TableReference, locale);
+                    }
+                    if (translationTable == null)
+                    {
+                        // Fallback to currently selected locale or default
+                        translationTable = quest.QuestStringsTable.GetTable();
+                    }
+                }
+                catch { }
+            }
+
+            string LookupTranslation(string lineKey)
+            {
+                if (translationTable == null || string.IsNullOrEmpty(lineKey))
+                    return string.Empty;
+                try
+                {
+                    var entry = translationTable.GetEntry(lineKey);
+                    if (entry != null)
+                    {
+                        // Prefer direct value to avoid re-resolving locale context.
+                        var val = entry.Value;
+                        if (!string.IsNullOrEmpty(val))
+                            return val.Trim();
+                    }
+                }
+                catch { }
+                return string.Empty;
+            }
+
             var parts = script.Split(new[] { "===" }, StringSplitOptions.None);
             var sb = new StringBuilder();
             foreach (var rawPart in parts)
@@ -350,18 +390,92 @@ namespace Antura.Discover.Editor
                     }
                     else
                     {
-                        string processed = line;
-                        processed = Regex.Replace(processed, "&lt;&lt;[^&]*?&gt;&gt;", m => $"<span class=\"yarn-cmd\">{m.Value}</span>");
-                        processed = Regex.Replace(processed, "#line:[^\\n]*", m => $"<span class=\"yarn-meta\">{m.Value}</span>");
-                        if (Regex.IsMatch(t, @"^[-\\s]?>"))
-                        { processed = $"<span class=\"yarn-choice\">{processed}</span>"; }
-                        if (t.StartsWith("//"))
-                        { processed = $"<span class=\"yarn-comment\">{processed}</span>"; }
-                        bool isSpoken = t.Length > 0 && !t.StartsWith("//") && !Regex.IsMatch(t, @"^[-\\s]?>") && !t.StartsWith("#line:") && !t.StartsWith("&lt;&lt;");
-                        if (isSpoken)
-                            code.AppendLine($"<span class=\"yarn-line\">{processed}</span>");
+                        // We now output ONLY translations (no original English) for spoken/choice lines.
+                        string originalEscaped = line; // kept for fallback if no translation.
+                        string lineKey = string.Empty;
+                        var mTag = Regex.Match(lineRaw, @"#line:([A-Za-z0-9_]+)");
+                        if (mTag.Success && mTag.Groups.Count > 1)
+                        { lineKey = "line:" + mTag.Groups[1].Value; }
+
+                        bool isChoice = Regex.IsMatch(t, @"^[-\\s]?>");
+                        bool isComment = t.StartsWith("//");
+                        bool isCommandOnly = t.StartsWith("&lt;&lt;") || Regex.IsMatch(t, "&lt;&lt;[^&]*?&gt;&gt;");
+                        bool hasLineTag = t.Contains("#line:");
+                        bool isSpoken = !isComment && !isChoice && !isCommandOnly && !string.IsNullOrEmpty(t) && hasLineTag;
+
+                        // Capture leading indentation from original raw line (spaces/tabs) to reapply before translated text.
+                        string indent = System.Text.RegularExpressions.Regex.Match(lineRaw, @"^\s*").Value;
+                        string indentHtml = PublishUtils.HtmlEscape(indent);
+
+                        // Determine translation
+                        string translation = string.IsNullOrEmpty(lineKey) ? string.Empty : LookupTranslation(lineKey);
+                        string metaHtml = hasLineTag ? Regex.Replace(originalEscaped, ".*?(#line:[^\\n]*)", m => $"<span class=\"yarn-meta\">{PublishUtils.HtmlEscape(m.Groups[1].Value)}</span>") : string.Empty;
+
+                        if (isComment)
+                        {
+                            // Keep comments as-is (optional). Still show meta if present.
+                            string commentLine = originalEscaped;
+                            commentLine = Regex.Replace(commentLine, "#line:[^\\n]*", m => $"<span class=\"yarn-meta\">{m.Value}</span>");
+                            code.AppendLine($"<span class=\"yarn-comment\">{commentLine}</span>");
+                            continue;
+                        }
+
+                        if (isCommandOnly)
+                        {
+                            // Show commands untouched (developers may want them) + meta if any.
+                            string cmdProcessed = Regex.Replace(originalEscaped, "&lt;&lt;[^&]*?&gt;&gt;", m => $"<span class=\"yarn-cmd\">{m.Value}</span>");
+                            cmdProcessed = Regex.Replace(cmdProcessed, "#line:[^\\n]*", m => $"<span class=\"yarn-meta\">{m.Value}</span>");
+                            code.AppendLine(cmdProcessed);
+                            continue;
+                        }
+
+                        // Build choice prefix if present
+                        string choicePrefix = string.Empty;
+                        if (isChoice)
+                        {
+                            var mChoice = Regex.Match(lineRaw, @"^\s*[-\s]*>");
+                            if (mChoice.Success)
+                                choicePrefix = PublishUtils.HtmlEscape(mChoice.Value.TrimEnd()) + " ";
+                        }
+
+                        string finalText;
+                        if (!string.IsNullOrEmpty(translation))
+                        {
+                            finalText = PublishUtils.HtmlEscape(translation);
+                        }
                         else
-                            code.AppendLine(processed);
+                        {
+                            // Missing translation fallback depends on locale:
+                            // - English: show original (no brackets)
+                            // - Other locales: show placeholder with original inside brackets
+                            string originalPlain = lineRaw;
+                            originalPlain = Regex.Replace(originalPlain, @"#line:[^\\n]*", "").TrimEnd();
+                            string langCode = locale != null ? PublishUtils.GetLanguageCode(locale) : string.Empty;
+                            if (PublishUtils.IsEnglish(langCode) || string.IsNullOrEmpty(langCode))
+                            {
+                                finalText = PublishUtils.HtmlEscape(originalPlain);
+                            }
+                            else
+                            {
+                                finalText = "[MISSING TRANSLATION: " + PublishUtils.HtmlEscape(originalPlain) + "]";
+                            }
+                        }
+
+                        string lineHtml = indentHtml + choicePrefix + finalText + (string.IsNullOrEmpty(metaHtml) ? string.Empty : " " + metaHtml);
+
+                        if (isChoice)
+                        {
+                            code.AppendLine($"<span class=\"yarn-choice\">{lineHtml}</span>");
+                        }
+                        else if (isSpoken)
+                        {
+                            code.AppendLine($"<span class=\"yarn-line\">{lineHtml}</span>");
+                        }
+                        else
+                        {
+                            // Lines that don't fit above categories (unlikely) output raw
+                            code.AppendLine(lineHtml);
+                        }
                     }
                 }
 
