@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=736863861#gid=736863861)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_08%20Mont%20Blanc/FR_08%20Mont%20Blanc%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_08 | Mont Blanc</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// fr_08 | Mont Blanc</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - mont_blanc (geographical landmark)</span>
@@ -36,26 +36,30 @@ hide:
 
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
-The game is complete! Congratulations!
-Did you like it?
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+<span class="yarn-line">You reached Mont Blanc and learned summit facts! <span class="yarn-meta">#line:0b99e77 </span></span>
+<span class="yarn-line">You placed all three flags. <span class="yarn-meta">#line:057afc7 </span></span>
+<span class="yarn-cmd">&lt;&lt;card mountain&gt;&gt;</span>
+<span class="yarn-line">You got ready with warm gear. <span class="yarn-meta">#line:0dda4d7 </span></span>
+<span class="yarn-line">Brave mountain explorer! <span class="yarn-meta">#line:04f90c6 </span></span>
+<span class="yarn-cmd">&lt;&lt;card summit&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-Now draw your favourite mountain?
+<span class="yarn-line">Why don't you draw Mont Blanc with the three flags. <span class="yarn-meta">#line:0232ab7 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
@@ -68,6 +72,83 @@ Now draw your favourite mountain?
 <span class="yarn-line">You have to go up the Mont Blanc <span class="yarn-meta">#line:0f4644b </span></span>
 <span class="yarn-line">the highest mountain in Europe <span class="yarn-meta">#line:07d23cb </span></span>
 <span class="yarn-line">and put the 3 flags correctly <span class="yarn-meta">#line:07f2699 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-backpack"></a>
+## item_backpack
+
+<div class="yarn-node" data-title="item_backpack"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR asset=backpack</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card backpack&gt;&gt;</span>
+<span class="yarn-line">This backpack carries food, water and a map. <span class="yarn-meta">#line:05e80cb </span></span>
+<span class="yarn-line">It keeps hands free while hiking. <span class="yarn-meta">#line:06d7fcf </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-coat"></a>
+## item_coat
+
+<div class="yarn-node" data-title="item_coat"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR asset=coat</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card coat&gt;&gt;</span>
+<span class="yarn-line">This coat keeps your body warm in wind and snow. <span class="yarn-meta">#line:0e23f1f </span></span>
+<span class="yarn-line">Always zip it up high. <span class="yarn-meta">#line:06fe689 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-gloves"></a>
+## item_gloves
+
+<div class="yarn-node" data-title="item_gloves"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR asset=gloves</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card gloves&gt;&gt;</span>
+<span class="yarn-line">Gloves keep fingers warm and dry. <span class="yarn-meta">#line:0f2aac7 </span></span>
+<span class="yarn-line">Cold hands make climbing hard. <span class="yarn-meta">#line:0d01879 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-hat"></a>
+## item_hat
+
+<div class="yarn-node" data-title="item_hat"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR asset=hat</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card hat&gt;&gt;</span>
+<span class="yarn-line">A warm hat keeps heat from leaving your head. <span class="yarn-meta">#line:000fc05 </span></span>
+<span class="yarn-line">Wear it even in bright sun. <span class="yarn-meta">#line:059d744 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-rope"></a>
+## item_rope
+
+<div class="yarn-node" data-title="item_rope"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR asset=rope</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card rope&gt;&gt;</span>
+<span class="yarn-line">The rope helps climbers stay safe on ice and rock. <span class="yarn-meta">#line:038d1bc </span></span>
+<span class="yarn-line">Always clip it correctly. <span class="yarn-meta">#line:0b3d07e </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-scarf"></a>
+## item_scarf
+
+<div class="yarn-node" data-title="item_scarf"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR asset=scarf</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card scarf&gt;&gt;</span>
+<span class="yarn-line">A scarf blocks wind on your neck. <span class="yarn-meta">#line:0afb2dc </span></span>
+<span class="yarn-line">Tuck it so it will not flap. <span class="yarn-meta">#line:07cb76f </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-sunglasses"></a>
+## item_sunglasses
+
+<div class="yarn-node" data-title="item_sunglasses"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR asset=sunglasses</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card sunglasses&gt;&gt;</span>
+<span class="yarn-line">Snow and ice reflect bright sun. <span class="yarn-meta">#line:02a2ea9 </span></span>
+<span class="yarn-line">Glasses protect your eyes. <span class="yarn-meta">#line:088fb7f </span></span>
 
 </code></pre></div>
 
@@ -109,14 +190,52 @@ Now draw your favourite mountain?
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
-=&gt; I love the mountains!
-=&gt; The Alps are beautiful!
-=&gt; Mont Blanc is the highest mountain in Europe!
-=&gt; I want to climb Mont Blanc one day!
-=&gt; I hope to see a marmot!
-=&gt; The view from the summit must be amazing!
-=&gt; Don't forget to bring warm clothes!
-=&gt; Mountains can be dangerous, be careful!
+<span class="yarn-line">I love the mountains! <span class="yarn-meta">#line:011dc7e </span></span>
+<span class="yarn-line">The Alps are beautiful! <span class="yarn-meta">#line:0e6a8d1 </span></span>
+<span class="yarn-line">Mont Blanc is the highest mountain in Europe! <span class="yarn-meta">#line:003ecb2 </span></span>
+<span class="yarn-line">I want to climb Mont Blanc one day! <span class="yarn-meta">#line:01c1599 </span></span>
+<span class="yarn-line">I hope to see a marmot! <span class="yarn-meta">#line:04bbada </span></span>
+<span class="yarn-line">The view from the summit must be amazing! <span class="yarn-meta">#line:031feca </span></span>
+<span class="yarn-line">Don't forget to bring warm clothes! <span class="yarn-meta">#line:0590129 </span></span>
+<span class="yarn-line">Mountains can be dangerous, be careful! <span class="yarn-meta">#line:097ecf0 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-hiker"></a>
+## spawned_hiker
+
+<div class="yarn-node" data-title="spawned_hiker"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">spawn_group: hikers</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Hiking here needs good boots. <span class="yarn-meta">#line:0dbac73 </span></span>
+<span class="yarn-cmd">&lt;&lt;card hiking&gt;&gt;</span>
+<span class="yarn-line">The wind can change fast. <span class="yarn-meta">#line:0557ef5 </span></span>
+<span class="yarn-cmd">&lt;&lt;card wind&gt;&gt;</span>
+<span class="yarn-line">I follow the rope line when it is icy. <span class="yarn-meta">#line:0bc67f7 </span></span>
+<span class="yarn-cmd">&lt;&lt;card rope&gt;&gt;</span>
+<span class="yarn-line">That glacier looks like a frozen river. <span class="yarn-meta">#line:01e5f66 </span></span>
+<span class="yarn-cmd">&lt;&lt;card glacier&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-alps-climber"></a>
+## spawned_alps_climber
+
+<div class="yarn-node" data-title="spawned_alps_climber"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">spawn_group: alps_climber</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">The Alps are my playground. <span class="yarn-meta">#line:0809dce </span></span>
+<span class="yarn-cmd">&lt;&lt;card alps&gt;&gt;</span>
+<span class="yarn-line">Summit soon! I can feel the sun. <span class="yarn-meta">#line:0face28 </span></span>
+<span class="yarn-cmd">&lt;&lt;card summit&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card sun&gt;&gt;</span>
+<span class="yarn-line">Crampons help me on hard ice. <span class="yarn-meta">#line:081fbe4 </span></span>
+<span class="yarn-cmd">&lt;&lt;card crampons&gt;&gt;</span>
+<span class="yarn-line">Climbing with a guide is safer. <span class="yarn-meta">#line:0371d31 </span></span>
+<span class="yarn-cmd">&lt;&lt;card climbing&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card mountain_guide&gt;&gt;</span>
 
 </code></pre></div>
 

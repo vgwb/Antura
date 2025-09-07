@@ -77,8 +77,13 @@ namespace Antura.Discover.Editor
                 sb.AppendLine($"## {country}");
                 sb.AppendLine();
 
-                foreach (var k in list.OrderBy(x => string.IsNullOrEmpty(x?.Name) ? (string.IsNullOrEmpty(x?.Id) ? x?.name : x.Id) : x.Name, StringComparer.OrdinalIgnoreCase))
+                var orderedTopics = list
+                    .OrderBy(x => string.IsNullOrEmpty(x?.Name) ? (string.IsNullOrEmpty(x?.Id) ? x?.name : x.Id) : x.Name, StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+
+                for (int ti = 0; ti < orderedTopics.Count; ti++)
                 {
+                    var k = orderedTopics[ti];
                     if (k == null)
                         continue;
                     string kid = string.IsNullOrEmpty(k.Id) ? k.name : k.Id;
@@ -101,29 +106,49 @@ namespace Antura.Discover.Editor
                     if (meta.Count > 0)
                         sb.AppendLine("- " + string.Join("  \n- ", meta));
 
-                    // Core card link
+                    // Core card (expanded with description and image)
                     if (k.CoreCard != null)
                     {
-                        var cid = string.IsNullOrEmpty(k.CoreCard.Id) ? k.CoreCard.name : k.CoreCard.Id;
-                        sb.AppendLine($"- Core card: [{cid}](../cards/index.md#{Slug(cid)})");
+                        var core = k.CoreCard;
+                        var cid = string.IsNullOrEmpty(core.Id) ? core.name : core.Id;
+                        var cDisplay = GetCardDisplayTitle(core, locale);
+                        if (string.IsNullOrEmpty(cDisplay))
+                            cDisplay = cid;
+                        sb.AppendLine("- Core card:");
+                        sb.AppendLine($"    - **[{EscapeInline(cDisplay)}](../cards/index.md#{Slug(cid)})**");
+                        string cDesc = PublishUtils.SafeLocalized(core.Description, string.Empty);
+                        if (!string.IsNullOrEmpty(cDesc))
+                            sb.AppendLine($"    {cDesc}");
+                        sb.AppendLine();
+                        if (core.ImageAsset != null)
+                            sb.AppendLine($"    ![preview {cid}](../../assets/img/discover/cards/{cid}.jpg){{ width=\"200\" }}");
                     }
 
-                    // Connections (sub-list)
+                    // Connected cards (expanded)
                     if (k.Connections != null && k.Connections.Count > 0)
                     {
-                        var conns = k.Connections
-                            .Where(c => c != null && c.ConnectedCard != null)
-                            .Select(c =>
-                            {
-                                var cid = string.IsNullOrEmpty(c.ConnectedCard.Id) ? c.ConnectedCard.name : c.ConnectedCard.Id;
-                                return $"[{cid}](../cards/index.md#{Slug(cid)}) ({c.ConnectionType})";
-                            })
-                            .ToList();
-                        if (conns.Count > 0)
+                        var validConns = k.Connections.Where(c => c != null && c.ConnectedCard != null).ToList();
+                        if (validConns.Count > 0)
                         {
                             sb.AppendLine("- Connected cards:");
-                            foreach (var line in conns)
-                                sb.AppendLine("    - " + line);
+                            foreach (var c in validConns)
+                            {
+                                var card = c.ConnectedCard;
+                                var cid = string.IsNullOrEmpty(card.Id) ? card.name : card.Id;
+                                var display = GetCardDisplayTitle(card, locale);
+                                if (string.IsNullOrEmpty(display))
+                                    display = cid;
+                                sb.AppendLine($"    - **[{EscapeInline(display)}](../cards/index.md#{Slug(cid)})** ({c.ConnectionType})");
+                                string desc = PublishUtils.SafeLocalized(card.Description, string.Empty);
+                                if (!string.IsNullOrEmpty(desc))
+                                    sb.AppendLine($"    {desc}");
+                                sb.AppendLine();
+                                if (card.ImageAsset != null)
+                                {
+                                    sb.AppendLine($"    ![preview {cid}](../../assets/img/discover/cards/{cid}.jpg){{ width=\"200\" }}");
+                                    sb.AppendLine();
+                                }
+                            }
                         }
                     }
 
@@ -151,7 +176,17 @@ namespace Antura.Discover.Editor
                             sb.AppendLine("  - " + PublishUtils.FormatAuthor(c.Author));
                     }
 
-                    sb.AppendLine();
+                    // Separator between topics as requested
+                    if (ti < orderedTopics.Count - 1)
+                    {
+                        sb.AppendLine();
+                        sb.AppendLine("---");
+                        sb.AppendLine();
+                    }
+                    else
+                    {
+                        sb.AppendLine();
+                    }
                 }
             }
 
@@ -170,6 +205,33 @@ namespace Antura.Discover.Editor
             if (string.IsNullOrEmpty(s))
                 return string.Empty;
             return s.Replace("|", "\\|").Replace("*", "\\*");
+        }
+
+        private static string GetCardDisplayTitle(CardData card, Locale locale)
+        {
+            if (card == null)
+                return string.Empty;
+            string title = null;
+#if UNITY_EDITOR
+            try
+            {
+                if (card.Title != null)
+                {
+                    // Ensure locale is active so GetLocalizedString pulls the right value
+                    if (locale != null && LocalizationSettings.SelectedLocale != locale)
+                    {
+                        LocalizationSettings.SelectedLocale = locale;
+                    }
+                    title = card.Title.GetLocalizedString();
+                }
+            }
+            catch { }
+#endif
+            if (string.IsNullOrEmpty(title))
+                title = card.TitleEn;
+            if (string.IsNullOrEmpty(title))
+                title = string.IsNullOrEmpty(card.Id) ? card.name : card.Id;
+            return title;
         }
     }
 }

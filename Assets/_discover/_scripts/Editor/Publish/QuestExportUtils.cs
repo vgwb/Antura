@@ -78,7 +78,8 @@ namespace Antura.Discover.Editor
                 sb.AppendLine();
             }
 
-            // Topics list (links to topics index anchors)
+            // Topics list (links + their cards)
+            var topicCardsSet = new HashSet<CardData>();
             if (q.Topics != null && q.Topics.Count > 0)
             {
                 sb.AppendLine("## Topics");
@@ -86,32 +87,79 @@ namespace Antura.Discover.Editor
                 {
                     string tId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.name;
                     string tName = !string.IsNullOrEmpty(topic.Name) ? topic.Name : tId;
-                    sb.AppendLine($"- [{tName}](../topics/index.md#{tId})");
+                    sb.AppendLine($"### [{tName}](../topics/index.md#{tId})");
+                    sb.AppendLine();
+
+                    // List all cards of the topic (core + connections + discovery path) with description
+                    try
+                    {
+                        var allCards = topic.GetAllCards();
+                        foreach (var c in allCards.Where(ca => ca != null))
+                        {
+                            topicCardsSet.Add(c);
+                            string cId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
+                            string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Title"), fallback: cId);
+                            string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Description"), fallback: string.Empty);
+                            sb.AppendLine($"  - **[{cTitle}](../cards/index.md#{cId})**  ");
+                            if (!string.IsNullOrEmpty(cDesc))
+                                sb.AppendLine($"    {cDesc}  ");
+                        }
+                    }
+                    catch { }
                 }
                 sb.AppendLine();
             }
 
-            // Linked cards (expanded)
+            // Additional quest cards (those not already covered by topics)
             if (q.Cards != null && q.Cards.Count > 0)
             {
-                sb.AppendLine();
-                sb.AppendLine("## Cards");
-                foreach (var card in q.Cards.Where(c => c != null))
+                var additional = q.Cards.Where(c => c != null && !topicCardsSet.Contains(c)).ToList();
+                if (additional.Count > 0)
                 {
-                    string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Title"), fallback: string.IsNullOrEmpty(card.Id) ? card.name : card.Id);
-                    string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Description"), fallback: string.Empty);
-                    string cCategory = PublishUtils.GetCardCategoryString(card);
-                    string cYear = PublishUtils.GetCardYearString(card);
-                    string cCountry = PublishUtils.TryToString(() => card.Country.ToString());
-                    string cKV = PublishUtils.TryToString(() => card.Points.ToString());
-                    string cImagePath = PublishUtils.GetCardImageAssetPath(card);
-                    string cId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
-
-                    sb.AppendLine($"**[{cTitle}](../cards/index.md#{cId})**  ");
-                    sb.AppendLine($"{cDesc}  ");
-                    sb.AppendLine();
+                    sb.AppendLine("## Additional Cards");
+                    foreach (var card in additional)
+                    {
+                        string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Title"), fallback: string.IsNullOrEmpty(card.Id) ? card.name : card.Id);
+                        string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Description"), fallback: string.Empty);
+                        string cId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
+                        sb.AppendLine($"**[{cTitle}](../cards/index.md#{cId})**  ");
+                        if (!string.IsNullOrEmpty(cDesc))
+                            sb.AppendLine($"{cDesc}  ");
+                        sb.AppendLine();
+                    }
                 }
             }
+
+            // Quest Script placed early (before other metadata)
+            sb.AppendLine("## Quest Script");
+            sb.AppendLine();
+            if (q.IsScriptPublic)
+            {
+                if (!string.IsNullOrEmpty(scriptPageFileName))
+                {
+                    sb.AppendLine($"[See the full script here](./{scriptPageFileName})");
+                }
+                else if (q.YarnScript != null)
+                {
+                    sb.AppendLine("```yarn");
+                    var strippedEarly = RemoveSceneDataChunk(q.YarnScript.text);
+                    sb.AppendLine(strippedEarly);
+                    sb.AppendLine("```");
+                }
+                else
+                {
+                    sb.AppendLine("(No YarnScript attached)");
+                }
+            }
+            else
+            {
+                sb.AppendLine("(Script not public)");
+            }
+
+            // Separator before remaining sections
+            sb.AppendLine();
+            sb.AppendLine("---");
+            sb.AppendLine();
 
             sb.AppendLine("## Words");
             if (q.Words != null && q.Words.Count > 0)
@@ -235,32 +283,6 @@ namespace Antura.Discover.Editor
                 // sb.AppendLine("## Additional Resources");
                 sb.AppendLine();
                 sb.AppendLine(q.AdditionalResources.text);
-            }
-
-            sb.AppendLine();
-            sb.AppendLine("---");
-            sb.AppendLine();
-
-            // Script section (published only if IsScriptPublic)
-            if (q.IsScriptPublic)
-            {
-                sb.AppendLine("## Quest Script");
-                sb.AppendLine();
-                if (!string.IsNullOrEmpty(scriptPageFileName))
-                {
-                    sb.AppendLine($"[See the full script here](./{scriptPageFileName})");
-                }
-                else if (q.YarnScript != null)
-                {
-                    sb.AppendLine("```yarn");
-                    var stripped = RemoveSceneDataChunk(q.YarnScript.text);
-                    sb.AppendLine(stripped);
-                    sb.AppendLine("```");
-                }
-                else
-                {
-                    sb.AppendLine("(No YarnScript attached)");
-                }
             }
 
             return sb.ToString();
@@ -445,13 +467,17 @@ namespace Antura.Discover.Editor
                         }
                         else
                         {
-                            // Missing translation fallback depends on locale:
-                            // - English: show original (no brackets)
-                            // - Other locales: show placeholder with original inside brackets
+                            // Missing translation fallback depends on locale, but if the original has no visible text (only a tag) leave it blank.
                             string originalPlain = lineRaw;
                             originalPlain = Regex.Replace(originalPlain, @"#line:[^\\n]*", "").TrimEnd();
                             string langCode = locale != null ? PublishUtils.GetLanguageCode(locale) : string.Empty;
-                            if (PublishUtils.IsEnglish(langCode) || string.IsNullOrEmpty(langCode))
+
+                            if (string.IsNullOrWhiteSpace(originalPlain))
+                            {
+                                // Truly blank line (or only metadata): render as blank without placeholder.
+                                finalText = string.Empty;
+                            }
+                            else if (PublishUtils.IsEnglish(langCode) || string.IsNullOrEmpty(langCode))
                             {
                                 finalText = PublishUtils.HtmlEscape(originalPlain);
                             }

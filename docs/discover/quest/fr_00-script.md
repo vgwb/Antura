@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_00%20Geo%20France/FR_00%20Geo%20France%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_00 | France GEO</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// fr_00 | France GEO</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags: Start</span>
 <span class="yarn-header-dim">color: red</span>
@@ -45,21 +45,21 @@ hide:
 
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The quest is complete. <span class="yarn-meta">#line:0432689 </span></span>
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
@@ -81,7 +81,7 @@ hide:
 <span class="yarn-line">Good job! You did it! <span class="yarn-meta">#line:0ba3c4c </span></span>
 <span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
 <span class="yarn-line">You found part of Europe! <span class="yarn-meta">#line:06e1dd4 </span></span>
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code></pre></div>
 

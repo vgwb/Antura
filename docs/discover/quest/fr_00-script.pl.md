@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_00%20Geo%20France/FR_00%20Geo%20France%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: fr_00 | France GEO</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// fr_00 | France GEO</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags: Start</span>
 <span class="yarn-header-dim">color: red</span>
@@ -37,35 +37,35 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $spain_met = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $spain_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action area_small&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-<span class="yarn-line">PL venenut <span class="yarn-meta">#line:046db1f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: We are in Europe.] <span class="yarn-meta">#line:08a8ce8 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Let’s meet kids from nearby countries.] <span class="yarn-meta">#line:08a09de </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+<span class="yarn-line">Witamy we Francji! <span class="yarn-meta">#line:046db1f </span></span>
+<span class="yarn-line">Jesteśmy w Europie. <span class="yarn-meta">#line:08a8ce8 </span></span>
+<span class="yarn-line">Poznajmy dzieci z pobliskich krajów. <span class="yarn-meta">#line:08a09de </span></span>
+
+
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: The quest is complete.] <span class="yarn-meta">#line:0432689 </span></span>
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Zadanie ukończone. <span class="yarn-meta">#line:0432689 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
+
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Can you draw your flag now?] <span class="yarn-meta">#line:0c48a14 </span></span>
+<span class="yarn-line">Czy możesz teraz narysować swoją flagę? <span class="yarn-meta">#line:0c48a14 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-win"></a>
@@ -80,9 +80,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobra robota! Udało ci się! <span class="yarn-meta">#line:0ba3c4c </span></span>
 <span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: You found part of Europe!] <span class="yarn-meta">#line:06e1dd4 </span></span>
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Znalazłeś część Europy! <span class="yarn-meta">#line:06e1dd4 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+
 </code></pre></div>
 
 <a id="ys-node-france-npc"></a>
@@ -95,31 +95,31 @@ hide:
 &lt;&lt;if $COUNTRIES_COMPLETED &gt;= $TOTAL_COUNTRIES&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;jump win&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $france_completed&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:04e2d8b </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Can you help my other friends?] <span class="yarn-meta">#line:0e426ba </span></span>
+<span class="yarn-line">    Dziękuję za pomoc! <span class="yarn-meta">#line:04e2d8b </span></span>
+<span class="yarn-line">    Czy możesz pomóc moim pozostałym znajomym? <span class="yarn-meta">#line:0e426ba </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_france"&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Yes, that is my flag! Merci!] <span class="yarn-meta">#line:01e24a8 </span></span>
+<span class="yarn-line">    Tak, to moja flaga! Dziękuję! <span class="yarn-meta">#line:01e24a8 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_france remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_FRENCH_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $france_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Can you find the German flag?] <span class="yarn-meta">#line:04bd4db </span></span>
+<span class="yarn-line">    Czy potrafisz znaleźć niemiecką flagę? <span class="yarn-meta">#line:04bd4db </span></span>
     <span class="yarn-cmd">&lt;&lt;set $france_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action germany_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action area_bigger&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_germany  &gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     That’s not my flag. Mine is blue, white, and red.] <span class="yarn-meta">#line:04e0432 </span></span>
+<span class="yarn-line">    To nie moja flaga. Moja jest niebiesko-biało-czerwona. <span class="yarn-meta">#line:04e0432 </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Hello! I’m from France!] <span class="yarn-meta">#line:06dfdd6 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Antura mixed up all the flags!] <span class="yarn-meta">#line:0a20eed </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     My flag is blue, white, and red.] <span class="yarn-meta">#line:0868737 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Can you help me?] <span class="yarn-meta">#line:0a9f34e </span></span>
+<span class="yarn-line">    Cześć! Jestem z Francji! <span class="yarn-meta">#line:06dfdd6 </span></span>
+<span class="yarn-line">    Antura pomyliła wszystkie flagi! <span class="yarn-meta">#line:0a20eed </span></span>
+<span class="yarn-line">    Moja flaga jest niebiesko-biało-czerwona. <span class="yarn-meta">#line:0868737 </span></span>
+<span class="yarn-line">    Czy możesz mi pomóc? <span class="yarn-meta">#line:0a9f34e </span></span>
     <span class="yarn-cmd">&lt;&lt;set $france_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_france&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-task-france"></a>
@@ -131,9 +131,9 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset flag_france&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the French flag.] <span class="yarn-meta">#line:0e35434 </span></span>
+<span class="yarn-line">Znajdź flagę francuską. <span class="yarn-meta">#line:0e35434 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_FRENCH_FLAG task_france&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-item-flag-france"></a>
@@ -144,11 +144,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, asset=flag_france</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Flag of France.] <span class="yarn-meta">#line:01d9617 </span></span>
+<span class="yarn-line">Flaga Francji. <span class="yarn-meta">#line:01d9617 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_france"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-germany-npc"></a>
@@ -163,11 +163,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $germany_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0eaf07d </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Berlin is the capital of Germany.] <span class="yarn-meta">#line:0446f03 </span></span>
+<span class="yarn-line">    Dziękuję za pomoc! <span class="yarn-meta">#line:0eaf07d </span></span>
+<span class="yarn-line">    Berlin jest stolicą Niemiec. <span class="yarn-meta">#line:0446f03 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_germany"&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Danke! That is my flag!] <span class="yarn-meta">#line:0ba8707</span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Can you help my Spanish friend?] <span class="yarn-meta">#line:03684cb </span></span>
+<span class="yarn-line">    Dziękuję! To moja flaga! <span class="yarn-meta">#line:0ba8707</span></span>
+<span class="yarn-line">    Czy możesz pomóc mojemu hiszpańskiemu przyjacielowi? <span class="yarn-meta">#line:03684cb </span></span>
     <span class="yarn-cmd">&lt;&lt;set $germany_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_germany remove&gt;&gt;</span>
@@ -176,15 +176,15 @@ hide:
      <span class="yarn-cmd">&lt;&lt;set $germany_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_spain&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Our flag has stripes: black, red, yellow.] <span class="yarn-meta">#line:0cd7024 </span></span>
+<span class="yarn-line">    Nasza flaga ma paski: czarny, czerwony, żółty. <span class="yarn-meta">#line:0cd7024 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $germany_met == false &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $germany_met = true&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Hello! I’m from Germany!] <span class="yarn-meta">#line:0068fe1 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     We're famous for castles, forests, and trains!] <span class="yarn-meta">#line:04dc97a </span></span>
+<span class="yarn-line">    Cześć! Jestem z Niemiec! <span class="yarn-meta">#line:0068fe1 </span></span>
+<span class="yarn-line">    Słyniemy z zamków, lasów i pociągów! <span class="yarn-meta">#line:04dc97a </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-task-germany"></a>
@@ -196,10 +196,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the German flag and bring it back.] <span class="yarn-meta">#line:029ee72 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It has stripes: black, red, yellow.] <span class="yarn-meta">#line:0f95ef2 </span></span>
+<span class="yarn-line">Znajdź niemiecką flagę i przynieś ją. <span class="yarn-meta">#line:029ee72 </span></span>
+<span class="yarn-line">Posiada paski: czarny, czerwony, żółty. <span class="yarn-meta">#line:0f95ef2 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_GERMAN_FLAG task_germany&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-spain-npc"></a>
@@ -214,11 +214,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $spain_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_spain&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping me!] <span class="yarn-meta">#line:0a5c214 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Barcelona and Madrid are big cities in Spain.] <span class="yarn-meta">#line:09cf6c9 </span></span>
+<span class="yarn-line">    Dziękuję za pomoc! <span class="yarn-meta">#line:0a5c214 </span></span>
+<span class="yarn-line">    Barcelona i Madryt to duże miasta w Hiszpanii. <span class="yarn-meta">#line:09cf6c9 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_spain"&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     That is my flag!] <span class="yarn-meta">#line:0c57e40 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you. Can you give my Italian friend their flag?] <span class="yarn-meta">#line:0930602 </span></span>
+<span class="yarn-line">    To moja flaga! <span class="yarn-meta">#line:0c57e40 </span></span>
+<span class="yarn-line">    Dziękuję. Czy możesz przekazać mojemu włoskiemu przyjacielowi ich flagę? <span class="yarn-meta">#line:0930602 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $spain_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_spain remove&gt;&gt;</span>
@@ -227,16 +227,16 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $spain_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_italy&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Not mine! Our flag is red and yellow.] <span class="yarn-meta">#line:0db05da </span></span>
+<span class="yarn-line">    Nie moja! Nasza flaga jest czerwono-żółta. <span class="yarn-meta">#line:0db05da </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_spain&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $spain_met == false &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $spain_met = true&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Hola! I’m from Spain!] <span class="yarn-meta">#line:0f5bc06 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     We have a dance called flamenco!] <span class="yarn-meta">#line:05e6d48 </span></span>
+<span class="yarn-line">    Cześć! Jestem z Hiszpanii! <span class="yarn-meta">#line:0f5bc06 </span></span>
+<span class="yarn-line">    Mamy taniec, który nazywa się flamenco! <span class="yarn-meta">#line:05e6d48 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_spain&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+
 </code></pre></div>
 
 <a id="ys-node-task-spain"></a>
@@ -248,10 +248,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_spain&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the Spanish flag.] <span class="yarn-meta">#line:091cc7c </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It is red and yellow like the sun.] <span class="yarn-meta">#line:09635b4 </span></span>
+<span class="yarn-line">Znajdź flagę Hiszpanii. <span class="yarn-meta">#line:091cc7c </span></span>
+<span class="yarn-line">Jest czerwony i żółty jak słońce. <span class="yarn-meta">#line:09635b4 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_SPANISH_FLAG task_spain&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-italy-npc"></a>
@@ -266,10 +266,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $italy_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you! Our capital is Rome!] <span class="yarn-meta">#line:0148edb </span></span>
+<span class="yarn-line">    Dziękujemy! Naszą stolicą jest Rzym! <span class="yarn-meta">#line:0148edb </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_italy"&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Grazie! That's my flag!] <span class="yarn-meta">#line:081ac66 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Help them find the Belgian flag!] <span class="yarn-meta">#line:001f54f </span></span>
+<span class="yarn-line">    Dziękuję! To moja flaga! <span class="yarn-meta">#line:081ac66 </span></span>
+<span class="yarn-line">    Pomóż im znaleźć belgijską flagę! <span class="yarn-meta">#line:001f54f </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_italy remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_ITALIAN_FLAG &gt;&gt;</span>
@@ -277,15 +277,15 @@ hide:
     <span class="yarn-cmd">&lt;&lt;action belgium_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_belgium&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     My flag is green, white, and red.] <span class="yarn-meta">#line:0dc8623</span></span>
+<span class="yarn-line">    Moja flaga jest zielono-biało-czerwona. <span class="yarn-meta">#line:0dc8623</span></span>
     <span class="yarn-cmd">&lt;&lt;set $italy_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_italy&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $italy_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $italy_met = true&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Ciao! I'm from Italy!] <span class="yarn-meta">#line:0bda0fc </span></span>
+<span class="yarn-line">    Cześć! Jestem z Włoch! <span class="yarn-meta">#line:0bda0fc </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_italy&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-task-italy"></a>
@@ -297,10 +297,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the Italian flag.] <span class="yarn-meta">#line:0ed29f1 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It is green, white, and red like a pizza!] <span class="yarn-meta">#line:0cde44c </span></span>
+<span class="yarn-line">Znajdź włoską flagę. <span class="yarn-meta">#line:0ed29f1 </span></span>
+<span class="yarn-line">Jest zielony, biały i czerwony jak pizza! <span class="yarn-meta">#line:0cde44c </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_ITALIAN_FLAG task_italy&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-belgium-npc"></a>
@@ -315,11 +315,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $belgium_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:080a099 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Brussels is the capital of Belgium.] <span class="yarn-meta">#line:06b3ceb </span></span>
+<span class="yarn-line">    Dziękujemy za pomoc! <span class="yarn-meta">#line:080a099 </span></span>
+<span class="yarn-line">    Bruksela jest stolicą Belgii. <span class="yarn-meta">#line:06b3ceb </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_belgium"&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you! My flag is back!] <span class="yarn-meta">#line:079096a </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Can you help my Luxembourg friend?] <span class="yarn-meta">#line:03a9b7d </span></span>
+<span class="yarn-line">    Dziękuję! Moja flaga wróciła! <span class="yarn-meta">#line:079096a </span></span>
+<span class="yarn-line">    Czy możesz pomóc mojemu przyjacielowi z Luksemburga? <span class="yarn-meta">#line:03a9b7d </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_belgium remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_BELGIUM_FLAG &gt;&gt;</span>
@@ -328,16 +328,16 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $belgium_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_lux&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Remember: my flag has stripes: black, yellow, red.] <span class="yarn-meta">#line:0141a13 </span></span>
+<span class="yarn-line">    Pamiętaj: moja flaga ma paski: czarny, żółty, czerwony. <span class="yarn-meta">#line:0141a13 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_belgium&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $belgium_met = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $belgium_met = true&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Bonjour! I'm from Belgium!] <span class="yarn-meta">#line:0a61b67 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     We also speak French!] <span class="yarn-meta">#line:0b18893 </span></span>
+<span class="yarn-line">    Cześć! Jestem z Belgii! <span class="yarn-meta">#line:0a61b67 </span></span>
+<span class="yarn-line">    Mówimy również po francusku! <span class="yarn-meta">#line:0b18893 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_belgium&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-task-belgium"></a>
@@ -349,10 +349,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the Belgian flag.] <span class="yarn-meta">#line:0f08126 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It's black, yellow, and red with vertical stripes.] <span class="yarn-meta">#line:079ecca </span></span>
+<span class="yarn-line">Znajdź flagę belgijską. <span class="yarn-meta">#line:0f08126 </span></span>
+<span class="yarn-line">Jest czarny, żółty i czerwony z pionowymi paskami. <span class="yarn-meta">#line:079ecca </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_BELGIUM_FLAG task_belgium&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-item-flag-belgium"></a>
@@ -363,11 +363,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Flag of Belgium.] <span class="yarn-meta">#line:0b11066 </span></span>
+<span class="yarn-line">Flaga Belgii. <span class="yarn-meta">#line:0b11066 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_belgium"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_belgium add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-luxembourg-npc"></a>
@@ -382,10 +382,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $lux_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card flag_luxembourg&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you for helping us!] <span class="yarn-meta">#line:02114ba </span></span>
+<span class="yarn-line">    Dziękujemy za pomoc! <span class="yarn-meta">#line:02114ba </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_luxembourg"&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Thank you! That is my flag.] <span class="yarn-meta">#line:05de5ab </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Can you help my Swiss friend?] <span class="yarn-meta">#line:0090192 </span></span>
+<span class="yarn-line">    Dziękuję! To moja flaga. <span class="yarn-meta">#line:05de5ab </span></span>
+<span class="yarn-line">    Czy możesz pomóc mojemu szwajcarskiemu przyjacielowi? <span class="yarn-meta">#line:0090192 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_luxembourg remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_LUX_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
@@ -393,16 +393,16 @@ hide:
     <span class="yarn-cmd">&lt;&lt;action swiss_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_swiss&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Nope! Our flag is red, white, and light blue.] <span class="yarn-meta">#line:0529472 </span></span>
+<span class="yarn-line">    Nie! Nasza flaga jest czerwono-biało-jasnoniebieska. <span class="yarn-meta">#line:0529472 </span></span>
     <span class="yarn-cmd">&lt;&lt;set $lux_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_lux&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $lux_met = true&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Moien! I’m from Luxembourg!] <span class="yarn-meta">#line:0b22d58 </span></span>
-<span class="yarn-line">    Może i jesteśmy małą firmą, ale mówimy trzema językami! <span class="yarn-meta">#line:0a3d0e3 </span></span>
+<span class="yarn-line">    Moien! Jestem z Luksemburga! <span class="yarn-meta">#line:0b22d58 </span></span>
+<span class="yarn-line">    Jesteśmy małą firmą i mówimy trzema językami! <span class="yarn-meta">#line:0a3d0e3 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_lux&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-task-lux"></a>
@@ -417,7 +417,7 @@ hide:
 <span class="yarn-line">Znajdź flagę Luksemburga. <span class="yarn-meta">#line:0ed3698 </span></span>
 <span class="yarn-line">Jest w kolorze czerwonym, białym i jasnoniebieskim. <span class="yarn-meta">#line:018e4cf </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_LUX_FLAG task_lux&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-item-flag-lux"></a>
@@ -428,11 +428,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_luxembourg&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Flaga Luksemburga. <span class="yarn-meta">#line:05badd7 </span></span>
+<span class="yarn-line">Flaga Luksemburga. <span class="yarn-meta">#line:05badd7 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_luxembourg"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_luxembourg add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-npc-swiss"></a>
@@ -451,7 +451,7 @@ hide:
 <span class="yarn-line">    Stolicą Szwajcarii jest Berno! <span class="yarn-meta">#line:0d2e2d7 </span></span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM == "flag_switzerland"&gt;&gt;</span>
 <span class="yarn-line">    Dziękuję za przywrócenie mojej flagi! <span class="yarn-meta">#line:0ca99a0 </span></span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Go back to the start and get your prize!] <span class="yarn-meta">#line:0148420 </span></span>
+<span class="yarn-line">    Wróć na start i odbierz swoją nagrodę! <span class="yarn-meta">#line:0148420 </span></span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_switzerland remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_end FIND_SWISS_FLAG&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
@@ -461,12 +461,12 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump task_swiss&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $swiss_met = true&gt;&gt;</span>
-<span class="yarn-line">    Grüezi! Jestem ze Szwajcarii! <span class="yarn-meta">#line:09fe8fc </span></span>
+<span class="yarn-line">    Cześć! Jestem ze Szwajcarii! <span class="yarn-meta">#line:09fe8fc </span></span>
 <span class="yarn-line">    Słyniemy z ośnieżonych gór i sera. <span class="yarn-meta">#line:0bf6b0d </span></span>
     <span class="yarn-cmd">&lt;&lt;jump task_swiss&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+
 </code></pre></div>
 
 <a id="ys-node-task-swiss"></a>
@@ -479,9 +479,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card flag_switzerland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Znajdź flagę Szwajcarii. <span class="yarn-meta">#line:0ec7096 </span></span>
-<span class="yarn-line">Jest czerwony i ma duży biały krzyż — jak apteczka pierwszej pomocy! <span class="yarn-meta">#line:07cc57e </span></span>
+<span class="yarn-line">Jest czerwony i ma duży biały krzyż, wygląda jak apteczka pierwszej pomocy. <span class="yarn-meta">#line:07cc57e </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_SWISS_FLAG npc_swiss&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-monaco"></a>
@@ -494,11 +494,11 @@ hide:
 <span class="yarn-header-dim">group: monaco</span>
 <span class="yarn-header-dim">tags: actor=MAN_BIG</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">CRAZY_MAN: Bonjour! Jestem z Monako! <span class="yarn-meta">#line:0a3f8f6 </span></span>
-<span class="yarn-line">CRAZY_MAN: Jesteśmy malutcy, ale luksusowi — mamy samochody wyścigowe i królewskie pałace nad morzem! <span class="yarn-meta">#line:0dc315a </span></span>
+<span class="yarn-line">Cześć! Jestem z Monako! <span class="yarn-meta">#line:0a3f8f6 </span></span>
+<span class="yarn-line">Jesteśmy mali. Mamy wyścigi samochodowe i pałac nad morzem! <span class="yarn-meta">#line:0dc315a </span></span>
 <span class="yarn-cmd">&lt;&lt;asset flag_monaco&gt;&gt;</span>
-<span class="yarn-line">CRAZY_MAN: Moja flaga jest czerwono-biała. <span class="yarn-meta">#line:00bd939 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Moja flaga jest czerwono-biała. <span class="yarn-meta">#line:00bd939 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-andorra"></a>
@@ -511,11 +511,11 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">PRZEWODNIK: Hola i Bonjour! Jestem z Andory! <span class="yarn-meta">#line:071f85c </span></span>
-<span class="yarn-line">PRZEWODNIK: Moja flaga jest niebiesko-żółto-czerwona. <span class="yarn-meta">#line:02846e8 </span></span>
+<span class="yarn-line">Cześć! Jestem z Andory! <span class="yarn-meta">#line:071f85c </span></span>
+<span class="yarn-line">Moja flaga jest niebiesko-żółto-czerwona. <span class="yarn-meta">#line:02846e8 </span></span>
 <span class="yarn-cmd">&lt;&lt;asset flag_andorra&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+
 </code></pre></div>
 
 <a id="ys-node-item-flag-spain"></a>
@@ -526,11 +526,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  flag_spain&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Flaga Hiszpanii <span class="yarn-meta">#line:006ce10 </span></span>
+<span class="yarn-line">Flaga Hiszpanii <span class="yarn-meta">#line:006ce10 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_spain"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_spain add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-item-flag-germany"></a>
@@ -541,11 +541,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  flag_germany&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Flaga Niemiec. <span class="yarn-meta">#line:05ff51a </span></span>
+<span class="yarn-line">Flaga Niemiec. <span class="yarn-meta">#line:05ff51a </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_germany"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_germany add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-item-flag-italy"></a>
@@ -556,11 +556,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Flaga Włoch. <span class="yarn-meta">#line:0fdc68b </span></span>
+<span class="yarn-line">Flaga Włoch. <span class="yarn-meta">#line:0fdc68b </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_italy"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_italy add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-item-flag-switzerland"></a>
@@ -571,11 +571,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  flag_switzerland&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Flaga Szwajcarii. <span class="yarn-meta">#line:0768ab7 </span></span>
+<span class="yarn-line">Flaga Szwajcarii. <span class="yarn-meta">#line:0768ab7 </span></span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_switzerland"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_switzerland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-spawned-npc"></a>
@@ -588,10 +588,10 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: all </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; In Europe, people speak over 200 languages!] <span class="yarn-meta">#line:04f4280 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; You can visit many of these countries without a passport!] <span class="yarn-meta">#line:08d624d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; France is the biggest country in the European Union.] <span class="yarn-meta">#line:0ab3dd9 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">W Europie ludzie mówią ponad 200 językami! <span class="yarn-meta">#line:04f4280 </span></span>
+<span class="yarn-line">Do wielu z tych krajów możesz dotrzeć bez paszportu! <span class="yarn-meta">#line:08d624d </span></span>
+<span class="yarn-line">Francja jest największym krajem w Unii Europejskiej. <span class="yarn-meta">#line:0ab3dd9 </span></span>
+
 </code></pre></div>
 
 

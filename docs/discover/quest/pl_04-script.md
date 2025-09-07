@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=819047762#gid=819047762)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_04%20Zoo/PL_04%20Zoo%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_04 | Zoo (Wroclaw)</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// pl_04 | Zoo (Wroclaw)</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">group: Intro</span>
@@ -23,31 +23,32 @@ hide:
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;declare $talked_animals = false&gt;&gt;</span>
-<span class="yarn-line">Welcome to Wroclaw Zoo. <span class="yarn-meta">#line:0fe55d1 </span></span>
-<span class="yarn-line">There are lots of animals here! <span class="yarn-meta">#line:005dd46 </span></span>
+<span class="yarn-line">Welcome to WROCŁAW ZOO. <span class="yarn-meta">#line:0fe55d1 </span></span>
+<span class="yarn-cmd">&lt;&lt;card wroclaw_zoo&gt;&gt;</span>
+<span class="yarn-line">There are many ANIMALS here! <span class="yarn-meta">#line:005dd46 </span></span>
 
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-This quest is complete.
-Today you learned about ZOO ANIMALS.
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+<span class="yarn-line">This quest is complete. <span class="yarn-meta">#line:0bcc257 </span></span>
+<span class="yarn-line">You learned about ZOO ANIMALS. <span class="yarn-meta">#line:054cc37 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-Why don't you draw your favourite animal?
+<span class="yarn-line">Draw your favorite ANIMAL. <span class="yarn-meta">#line:0809ac5 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
@@ -77,10 +78,11 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Oh no! The FLAG is missing! <span class="yarn-meta">#line:09c6bf7 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_focus FlagPole&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card iglica&gt;&gt;</span>
 <span class="yarn-line">It was on the IGLICA at CENTENNIAL HALL. <span class="yarn-meta">#line:02f35e4 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">Please help me, find it! <span class="yarn-meta">#line:0fd5d1a </span></span>
-<span class="yarn-line">Talk to the animals, maybe one of them took it. <span class="yarn-meta">#line:012b933 </span></span>
+<span class="yarn-line">Please help me find it! <span class="yarn-meta">#line:0fd5d1a </span></span>
+<span class="yarn-line">Talk to ANIMALS. One may have it. <span class="yarn-meta">#line:012b933 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -90,7 +92,7 @@ Why don't you draw your favourite animal?
 
 <div class="yarn-node" data-title="task_animals_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Find the flag! <span class="yarn-meta">#line:0da284c </span></span>
+<span class="yarn-line">Find the FLAG! <span class="yarn-meta">#line:0da284c </span></span>
 <span class="yarn-line">Talk to all the animals. Maybe they know where the flag is. <span class="yarn-meta">#line:010adc5 </span></span>
 
 </code></pre></div>
@@ -105,8 +107,8 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">tags: actor=Peacock</span>
 <span class="yarn-header-dim">image: zoo_gate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I don't need a flag, <span class="yarn-meta">#line:0085a8a </span></span>
-<span class="yarn-line">my tail is a FLAG already! <span class="yarn-meta">#line:04fff6b </span></span>
+<span class="yarn-line">I do not need a FLAG. <span class="yarn-meta">#line:0085a8a </span></span>
+<span class="yarn-line">My tail is a FLAG! <span class="yarn-meta">#line:04fff6b </span></span>
 
 </code></pre></div>
 
@@ -124,17 +126,15 @@ Why don't you draw your favourite animal?
 <a id="ys-node-elephant-talk"></a>
 ## elephant_talk
 
-<div class="yarn-node" data-title="elephant_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// PART 1 – ELEPHANT</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
+<div class="yarn-node" data-title="elephant_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 1 – ELEPHANT</span>
 <span class="yarn-header-dim">group: ELEPHANT</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: elephant_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I'm an elephant, the biggest animal on land. <span class="yarn-meta">#line:027b51f </span></span>
-<span class="yarn-line">I have great memory. <span class="yarn-meta">#line:03a150c </span></span>
-<span class="yarn-line">Do you have a good memory too? <span class="yarn-meta">#line:0f98478 </span></span>
+<span class="yarn-line">I am the biggest land ANIMAL. <span class="yarn-meta">#line:027b51f </span></span>
+<span class="yarn-line">I have good MEMORY. <span class="yarn-meta">#line:03a150c </span></span>
+<span class="yarn-line">Do you have good MEMORY? <span class="yarn-meta">#line:0f98478 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings elephant_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -148,8 +148,8 @@ Why don't you draw your favourite animal?
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_elephant add&gt;&gt;</span>
-<span class="yarn-line">A flag? I don't have one. <span class="yarn-meta">#line:0b79d01 </span></span>
-<span class="yarn-line">If I had taken it, I would remember! <span class="yarn-meta">#line:0f124bf </span></span>
+<span class="yarn-line">A FLAG? I do not have it. <span class="yarn-meta">#line:0b79d01 </span></span>
+<span class="yarn-line">If I took it I would remember! <span class="yarn-meta">#line:0f124bf </span></span>
 
 </code></pre></div>
 
@@ -172,26 +172,24 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_elephant</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Its ears are bigger than me! <span class="yarn-meta">#line:0fc78ad </span></span>
-<span class="yarn-line">Can it fan me in the summer? <span class="yarn-meta">#line:004abc7 </span></span>
+<span class="yarn-line">Its EARS are bigger than me! <span class="yarn-meta">#line:0fc78ad </span></span>
+<span class="yarn-line">Can it fan me in summer? <span class="yarn-meta">#line:004abc7 </span></span>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 2 – GIRAFFE</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
 <a id="ys-node-giraffe-talk"></a>
 ## giraffe_talk
 
-<div class="yarn-node" data-title="giraffe_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: GIRAFFE</span>
+<div class="yarn-node" data-title="giraffe_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 2 – GIRAFFE</span>
+<span class="yarn-header-dim">group: GIRAFFE</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: giraffe_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I'm a giraffe, the tallest of the animals. <span class="yarn-meta">#line:0d5c607 </span></span>
-<span class="yarn-line">My long neck help me reach the leaves. <span class="yarn-meta">#line:0a4d24e </span></span>
-<span class="yarn-line">Do you want to watch me eat? <span class="yarn-meta">#line:04b42f2 </span></span>
+<span class="yarn-line">I am the tallest ANIMAL. <span class="yarn-meta">#line:0d5c607 </span></span>
+<span class="yarn-line">My long NECK helps me reach leaves. <span class="yarn-meta">#line:0a4d24e </span></span>
+<span class="yarn-line">I eat WATTLE leaves! <span class="yarn-meta">#line:04b42f2 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings giraffe_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -204,8 +202,8 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">image: giraffe_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_elephant add&gt;&gt;</span>
-<span class="yarn-line">I didn't take the flag, <span class="yarn-meta">#line:0877d6f </span></span>
-<span class="yarn-line">it's too tall for even me to reach! <span class="yarn-meta">#line:02d00e2 </span></span>
+<span class="yarn-line">I did not take the FLAG. <span class="yarn-meta">#line:0877d6f </span></span>
+<span class="yarn-line">It is too high for me! <span class="yarn-meta">#line:02d00e2 </span></span>
 
 </code></pre></div>
 
@@ -228,26 +226,24 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_giraffe</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">With a neck like that, <span class="yarn-meta">#line:068daeb </span></span>
-<span class="yarn-line">I could see my house even from here. <span class="yarn-meta">#line:0bee484 </span></span>
+<span class="yarn-line">With a NECK like that! <span class="yarn-meta">#line:068daeb </span></span>
+<span class="yarn-line">I could see my house from here. <span class="yarn-meta">#line:0bee484 </span></span>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 3 – LION</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
 <a id="ys-node-lion-talk"></a>
 ## lion_talk
 
-<div class="yarn-node" data-title="lion_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: LION</span>
+<div class="yarn-node" data-title="lion_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 3 – LION</span>
+<span class="yarn-header-dim">group: LION</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I'm a lion, the biggest predator in Africa. <span class="yarn-meta">#line:07f2e15 </span></span>
-<span class="yarn-line">I live in groups with other lions. <span class="yarn-meta">#line:042266c </span></span>
-<span class="yarn-line">Look at this little cub growing up! <span class="yarn-meta">#line:0124e1c </span></span>
+<span class="yarn-line">I am a LION in AFRICA. <span class="yarn-meta">#line:07f2e15 </span></span>
+<span class="yarn-line">I live in a PRIDE. <span class="yarn-meta">#line:042266c </span></span>
+<span class="yarn-line">Look at this small CUB! <span class="yarn-meta">#line:0124e1c </span></span>
 <span class="yarn-cmd">&lt;&lt;activity order_lion_settings lion_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -260,8 +256,8 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_lion add&gt;&gt;</span>
-<span class="yarn-line">You have to find the flag! <span class="yarn-meta">#line:05da6d7 </span></span>
-<span class="yarn-line">I like watching it flutter in the wind. <span class="yarn-meta">#line:01b3593 </span></span>
+<span class="yarn-line">You must find the FLAG! <span class="yarn-meta">#line:05da6d7 </span></span>
+<span class="yarn-line">I like watching it in wind. <span class="yarn-meta">#line:01b3593 </span></span>
 
 </code></pre></div>
 
@@ -286,23 +282,20 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What a roar! <span class="yarn-meta">#line:079f4e0 </span></span>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 4 – MONKEY</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-
 </code></pre></div>
 
 <a id="ys-node-monkey-talk"></a>
 ## monkey_talk
 
-<div class="yarn-node" data-title="monkey_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: MONKEY</span>
+<div class="yarn-node" data-title="monkey_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 4 – MONKEY</span>
+<span class="yarn-header-dim">group: MONKEY</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: monkey_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I'm an ape, and I love to climb trees. <span class="yarn-meta">#line:0867233 </span></span>
-<span class="yarn-line">Did you know? I'm related to humans! <span class="yarn-meta">#line:0eaefd6 </span></span>
-<span class="yarn-line">Can you tell where I got these fruits? <span class="yarn-meta">#line:079451b </span></span>
+<span class="yarn-line">I am a MONKEY. I climb TREES. <span class="yarn-meta">#line:0867233 </span></span>
+<span class="yarn-line">We are close to HUMANS! <span class="yarn-meta">#line:0eaefd6 </span></span>
+<span class="yarn-line">Where did I get these FRUITS? <span class="yarn-meta">#line:079451b </span></span>
 <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings monkey_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -316,8 +309,8 @@ Why don't you draw your favourite animal?
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_monkey add&gt;&gt;</span>
-<span class="yarn-line">I'm not the one who took the flag. <span class="yarn-meta">#line:0c53945 </span></span>
-<span class="yarn-line">But it would be fun to climb that pole... <span class="yarn-meta">#line:0a43c85 </span></span>
+<span class="yarn-line">I did not take the FLAG. <span class="yarn-meta">#line:0c53945 </span></span>
+<span class="yarn-line">It would be fun to climb that pole. <span class="yarn-meta">#line:0a43c85 </span></span>
 
 </code></pre></div>
 
@@ -341,25 +334,22 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">image: kid_monkey</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">He copied my dance! <span class="yarn-meta">#line:0bf2346 </span></span>
-<span class="yarn-line">Do monkeys wink? <span class="yarn-meta">#line:0eecdf9 </span></span>
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 5 – PENGUIN</span>
-<span class="yarn-comment">//--------------------------------------------</span>
+<span class="yarn-line">Do MONKEYS wink? <span class="yarn-meta">#line:0eecdf9 </span></span>
 
 </code></pre></div>
 
 <a id="ys-node-penguin-talk"></a>
 ## penguin_talk
 
-<div class="yarn-node" data-title="penguin_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: PENGUIN</span>
+<div class="yarn-node" data-title="penguin_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 5 – PENGUIN</span>
+<span class="yarn-header-dim">group: PENGUIN</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I'm a penguin, and I'm a strange bird. <span class="yarn-meta">#line:08c70e8 </span></span>
-<span class="yarn-line">I can't fly, but I can swim really well!. <span class="yarn-meta">#line:0540c5a </span></span>
-<span class="yarn-line">Can you find the right path through the ice? <span class="yarn-meta">#line:0a3420c </span></span>
+<span class="yarn-line">I am a PENGUIN, a strange BIRD. <span class="yarn-meta">#line:08c70e8 </span></span>
+<span class="yarn-line">I can't fly, but I swim well! <span class="yarn-meta">#line:0540c5a </span></span>
+<span class="yarn-line">Can you find the path in ICE? <span class="yarn-meta">#line:0a3420c </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings penguin_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -372,7 +362,7 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_penguin add&gt;&gt;</span>
-<span class="yarn-line">No, I didn't take the flag. <span class="yarn-meta">#line:078190f </span></span>
+<span class="yarn-line">No, I did not take the FLAG. <span class="yarn-meta">#line:078190f </span></span>
 <span class="yarn-line">I can't fly, remember? <span class="yarn-meta">#line:08568f5 </span></span>
 
 </code></pre></div>
@@ -397,11 +387,7 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">image: kid_penguin</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">How cute! <span class="yarn-meta">#line:0ae73f3 </span></span>
-<span class="yarn-line">It looks like it's wearing a tiny tuxedo. <span class="yarn-meta">#line:05ac327 </span></span>
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// RECAP – MATCH &amp; CARDS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
+<span class="yarn-line">It looks neat. <span class="yarn-meta">#line:05ac327 </span></span>
 
 </code></pre></div>
 
@@ -410,7 +396,7 @@ Why don't you draw your favourite animal?
 
 <div class="yarn-node" data-title="task_animals_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TASK COMPLETED! Go back to the director. <span class="yarn-meta">#line:0a93d9b </span></span>
+<span class="yarn-line">TASK DONE! Go back to the DIRECTOR. <span class="yarn-meta">#line:0a93d9b </span></span>
 <span class="yarn-cmd">&lt;&lt;set $talked_animals = true&gt;&gt;</span>
 
 </code></pre></div>
@@ -423,9 +409,9 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Good, you talked to all the animals. <span class="yarn-meta">#line:032811f </span></span>
-<span class="yarn-line">Now let's review these facts. <span class="yarn-meta">#line:0364f30 </span></span>
-<span class="yarn-line">Help me put the pieces toghether. <span class="yarn-meta">#line:08de86f </span></span>
+<span class="yarn-line">Good. You talked to all ANIMALS. <span class="yarn-meta">#line:032811f </span></span>
+<span class="yarn-line">Now let's review facts. <span class="yarn-meta">#line:0364f30 </span></span>
+<span class="yarn-line">Help me put pieces together. <span class="yarn-meta">#line:08de86f </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_zoo_settings director_activity_done&gt;&gt;</span>
 
 </code></pre></div>
@@ -448,8 +434,8 @@ Why don't you draw your favourite animal?
 <div class="yarn-node" data-title="director_activity_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">image: zoo_recap</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">It looks like the animals are all innocent. <span class="yarn-meta">#line:0bc2b46 </span></span>
-<span class="yarn-line">But then, who took the flag? <span class="yarn-meta">#line:0fc0ab7 </span></span>
+<span class="yarn-line">All ANIMALS are innocent. <span class="yarn-meta">#line:0bc2b46 </span></span>
+<span class="yarn-line">Who took the FLAG? <span class="yarn-meta">#line:0fc0ab7 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Antura with Flag&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump RETURN_DIRECTOR&gt;&gt;</span>
 
@@ -458,14 +444,12 @@ Why don't you draw your favourite animal?
 <a id="ys-node-return-director"></a>
 ## RETURN_DIRECTOR
 
-<div class="yarn-node" data-title="RETURN_DIRECTOR"><pre class="yarn-code"><code><span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// TWIST – FLAG RETURN</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
+<div class="yarn-node" data-title="RETURN_DIRECTOR"><pre class="yarn-code"><code><span class="yarn-header-dim">// TWIST – FLAG RETURN</span>
 <span class="yarn-header-dim">group: End</span>
 <span class="yarn-header-dim">tags: actor=ZooDirector</span>
 <span class="yarn-header-dim">image: centennial_hall_antura_flag</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Wait, Look! <span class="yarn-meta">#line:0b3d05f </span></span>
+<span class="yarn-line">Wait, look! <span class="yarn-meta">#line:0b3d05f </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_focus Antura with Flag&gt;&gt;</span>
 <span class="yarn-line">ANTURA has the FLAG! <span class="yarn-meta">#line:0e24973 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
@@ -480,38 +464,9 @@ Why don't you draw your favourite animal?
 <span class="yarn-header-dim">tags: actor=ZooDirector</span>
 <span class="yarn-header-dim">image: flag_on_iglica</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">The FLAG is finally home. <span class="yarn-meta">#line:0d91701 </span></span>
-<span class="yarn-line">Thank you, detective. <span class="yarn-meta">#line:08c71db </span></span>
-<span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// FINAL QUIZ</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-
-</code></pre></div>
-
-<a id="ys-node-final-quiz"></a>
-## FINAL_QUIZ
-
-<div class="yarn-node" data-title="FINAL_QUIZ"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Icebox</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
-<span class="yarn-header-dim">image: wroclaw_flag_quiz</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Answer the questions. <span class="yarn-meta">#line:010b191 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity quiz wroclaw_zoo_basics QUEST_COMPLETE&gt;&gt;</span>
-
-</code></pre></div>
-
-<a id="ys-node-quest-complete"></a>
-## QUEST_COMPLETE
-
-<div class="yarn-node" data-title="QUEST_COMPLETE"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
-<span class="yarn-header-dim">image: quest_complete</span>
-<span class="yarn-header-dim">color: red</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Great work at the ZOO! <span class="yarn-meta">#line:056d51c </span></span>
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
+<span class="yarn-line">The FLAG is home. <span class="yarn-meta">#line:0d91701 </span></span>
+<span class="yarn-line">Thank you, helper. <span class="yarn-meta">#line:08c71db </span></span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code></pre></div>
 

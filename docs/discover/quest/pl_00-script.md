@@ -11,13 +11,14 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1929643794#gid=1929643794)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_00%20Geo%20Poland/PL_00%20Geo%20Poland%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_00 | Poland GEO</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// pl_00 | Poland GEO</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags: Start</span>
 <span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 7&gt;&gt;</span>
@@ -38,30 +39,30 @@ hide:
 <span class="yarn-cmd">&lt;&lt;action area_small&gt;&gt;</span>
 
 <span class="yarn-line">Welcome to Poland! <span class="yarn-meta">#line:046db1f </span></span>
-We are in Europe
-Let's meet other kids from nearby countries.
+<span class="yarn-line">We are in Europe <span class="yarn-meta">#line:002aafd </span></span>
+<span class="yarn-line">Let's meet other kids from nearby countries. <span class="yarn-meta">#line:0862117 </span></span>
 
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
-<span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
-This quest is complete.
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+<span class="yarn-line">This quest is complete. <span class="yarn-meta">#line:085bc39 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
-<span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-Why don't you draw you flag, now?
+<span class="yarn-line">Why don't you draw you flag, now? <span class="yarn-meta">#line:01f830b </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
@@ -130,9 +131,7 @@ Why don't you draw you flag, now?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-line">Flag of Poland. <span class="yarn-meta">#line:07ca581 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_poland"&gt;&gt;</span>
-    
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_poland"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -148,7 +147,7 @@ Why don't you draw you flag, now?
 <span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
 <span class="yarn-line">You discovered a part of Central Euorpe! <span class="yarn-meta">#line:031f72c </span></span>
 <span class="yarn-cmd">&lt;&lt;card concept_europe_map zoom&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -366,9 +365,7 @@ Why don't you draw you flag, now?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_lithuania&gt;&gt;</span>
 <span class="yarn-line">Flag of Lithuania. <span class="yarn-meta">#line:0942331 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_lithuania"&gt;&gt;</span>
-
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_lithuania"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_lithuania add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -378,7 +375,7 @@ Why don't you draw you flag, now?
 ## ukraine_npc
 
 <div class="yarn-node" data-title="ukraine_npc"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// ukraineEMBURG</span>
+<span class="yarn-header-dim">// ukraine</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: ukraine</span>
 <span class="yarn-header-dim">color: blue</span>
@@ -434,9 +431,7 @@ Why don't you draw you flag, now?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_ukraine&gt;&gt;</span>
 <span class="yarn-line">Flag of Ukraine. <span class="yarn-meta">#line:0805b90 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_ukraine"&gt;&gt;</span>
-
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_ukraine"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_ukraine add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -505,7 +500,6 @@ Why don't you draw you flag, now?
 <span class="yarn-line">This is just a tiny part of the big country. <span class="yarn-meta">#line:0a4bae4 </span></span>
 <span class="yarn-cmd">&lt;&lt;card flag_russia&gt;&gt;</span>
 
-
 </code></pre></div>
 
 <a id="ys-node-item-flag-belarus"></a>
@@ -517,9 +511,7 @@ Why don't you draw you flag, now?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_belarus&gt;&gt;</span>
 <span class="yarn-line">Flag of belarus <span class="yarn-meta">#line:006ce10 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_belarus"&gt;&gt;</span>
-
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_belarus"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_belarus add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -534,9 +526,7 @@ Why don't you draw you flag, now?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
 <span class="yarn-line">Flag of Germany. <span class="yarn-meta">#line:05ff51a </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_germany"&gt;&gt;</span>
-
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_germany"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_germany add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -551,9 +541,7 @@ Why don't you draw you flag, now?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_czech_republic&gt;&gt;</span>
 <span class="yarn-line">Flag of Czech Republic. <span class="yarn-meta">#line:0fdc68b </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_czech_republic"&gt;&gt;</span>
-
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_czech_republic"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_czech_republic add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -568,9 +556,7 @@ Why don't you draw you flag, now?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_slovakia&gt;&gt;</span>
 <span class="yarn-line">Flag of slovakia. <span class="yarn-meta">#line:0768ab7 </span></span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM == "flag_slovakia"&gt;&gt;</span>
-
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_slovakia"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_slovakia add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 

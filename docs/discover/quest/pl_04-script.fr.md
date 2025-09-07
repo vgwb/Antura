@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=819047762#gid=819047762)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_04%20Zoo/PL_04%20Zoo%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_04 | Zoo (Wroclaw)</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// pl_04 | Zoo (Wroclaw)</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">group: Intro</span>
@@ -23,33 +23,34 @@ hide:
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;declare $talked_animals = false&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Welcome to Wroclaw Zoo.] <span class="yarn-meta">#line:0fe55d1 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: There are lots of animals here!] <span class="yarn-meta">#line:005dd46 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Bienvenue au ZOO de WROCŁAW. <span class="yarn-meta">#line:0fe55d1 </span></span>
+<span class="yarn-cmd">&lt;&lt;card wroclaw_zoo&gt;&gt;</span>
+<span class="yarn-line">Il y a beaucoup d'ANIMAUX ici ! <span class="yarn-meta">#line:005dd46 </span></span>
+
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: This quest is complete.]
-[MISSING TRANSLATION: Today you learned about ZOO ANIMALS.]
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Cette quête est terminée. <span class="yarn-meta">#line:0bcc257 </span></span>
+<span class="yarn-line">Vous avez appris des choses sur les ANIMAUX DU ZOO. <span class="yarn-meta">#line:054cc37 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
+
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: Why don't you draw your favourite animal?]
+<span class="yarn-line">Dessine ton ANIMAL préféré. <span class="yarn-meta">#line:0809ac5 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-director-talk"></a>
@@ -64,7 +65,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-director-task"></a>
@@ -75,14 +76,15 @@ hide:
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Oh no! The FLAG is missing!] <span class="yarn-meta">#line:09c6bf7 </span></span>
+<span class="yarn-line">Oh non ! Le DRAPEAU a disparu ! <span class="yarn-meta">#line:09c6bf7 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_focus FlagPole&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: It was on the IGLICA at CENTENNIAL HALL.] <span class="yarn-meta">#line:02f35e4 </span></span>
+<span class="yarn-cmd">&lt;&lt;card iglica&gt;&gt;</span>
+<span class="yarn-line">C'était sur l'IGLICA au CENTENNIAL HALL. <span class="yarn-meta">#line:02f35e4 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Please help me, find it!] <span class="yarn-meta">#line:0fd5d1a </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Talk to the animals, maybe one of them took it.] <span class="yarn-meta">#line:012b933 </span></span>
+<span class="yarn-line">S'il vous plaît, aidez-moi à le trouver ! <span class="yarn-meta">#line:0fd5d1a </span></span>
+<span class="yarn-line">Parlez aux ANIMAUX. L'un d'eux pourrait l'avoir. <span class="yarn-meta">#line:012b933 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-task-animals-desc"></a>
@@ -90,9 +92,9 @@ hide:
 
 <div class="yarn-node" data-title="task_animals_desc"><pre class="yarn-code"><code><span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the flag!] <span class="yarn-meta">#line:0da284c </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Talk to all the animals. Maybe they know where the flag is.] <span class="yarn-meta">#line:010adc5 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Trouvez le DRAPEAU ! <span class="yarn-meta">#line:0da284c </span></span>
+<span class="yarn-line">Parlez à tous les animaux. Peut-être savent-ils où se trouve le drapeau. <span class="yarn-meta">#line:010adc5 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-animal-peacock"></a>
@@ -105,9 +107,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Peacock</span>
 <span class="yarn-header-dim">image: zoo_gate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I don't need a flag,] <span class="yarn-meta">#line:0085a8a </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: my tail is a FLAG already!] <span class="yarn-meta">#line:04fff6b </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Je n'ai pas besoin d'un DRAPEAU. <span class="yarn-meta">#line:0085a8a </span></span>
+<span class="yarn-line">Ma queue est un DRAPEAU ! <span class="yarn-meta">#line:04fff6b </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-animal-parrot"></a>
@@ -117,26 +119,24 @@ hide:
 <span class="yarn-header-dim">tags: actor=Parrot</span>
 <span class="yarn-header-dim">image: zoo_gate</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Squawk! Red and yellow ran by!] <span class="yarn-meta">#line:0e84545 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Crac ! Rouge et jaune sont passés en courant ! <span class="yarn-meta">#line:0e84545 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-elephant-talk"></a>
 ## elephant_talk
 
-<div class="yarn-node" data-title="elephant_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// PART 1 – ELEPHANT</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
+<div class="yarn-node" data-title="elephant_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 1 – ELEPHANT</span>
 <span class="yarn-header-dim">group: ELEPHANT</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: elephant_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm an elephant, the biggest animal on land.] <span class="yarn-meta">#line:027b51f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I have great memory.] <span class="yarn-meta">#line:03a150c </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Do you have a good memory too?] <span class="yarn-meta">#line:0f98478 </span></span>
+<span class="yarn-line">Je suis le plus grand ANIMAL terrestre. <span class="yarn-meta">#line:027b51f </span></span>
+<span class="yarn-line">J'ai une bonne MÉMOIRE. <span class="yarn-meta">#line:03a150c </span></span>
+<span class="yarn-line">Avez-vous une bonne MÉMOIRE ? <span class="yarn-meta">#line:0f98478 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings elephant_activity_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-elephant-activity-done"></a>
@@ -148,9 +148,9 @@ hide:
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_elephant add&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: A flag? I don't have one.] <span class="yarn-meta">#line:0b79d01 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: If I had taken it, I would remember!] <span class="yarn-meta">#line:0f124bf </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Un drapeau ? Je n'en ai pas. <span class="yarn-meta">#line:0b79d01 </span></span>
+<span class="yarn-line">Si je le prenais, je m'en souviendrais ! <span class="yarn-meta">#line:0f124bf </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-elephant-sign"></a>
@@ -160,9 +160,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=tutor</span>
 <span class="yarn-header-dim">image: elephant_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: ELEPHANT. Thick skin. Big EARS.] <span class="yarn-meta">#line:048e8a1 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Largest land ANIMAL.] <span class="yarn-meta">#line:0b1cca2 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">ÉLÉPHANT. Peau épaisse. Grandes OREILLES. <span class="yarn-meta">#line:048e8a1 </span></span>
+<span class="yarn-line">Le plus grand animal terrestre. <span class="yarn-meta">#line:0b1cca2 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-elephant-kid"></a>
@@ -172,28 +172,26 @@ hide:
 <span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_elephant</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Its ears are bigger than me!] <span class="yarn-meta">#line:0fc78ad </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Can it fan me in the summer?] <span class="yarn-meta">#line:004abc7 </span></span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 2 – GIRAFFE</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Ses OREILLES sont plus grandes que moi ! <span class="yarn-meta">#line:0fc78ad </span></span>
+<span class="yarn-line">Est-ce que ça peut me ventiler en été ? <span class="yarn-meta">#line:004abc7 </span></span>
+
+
 </code></pre></div>
 
 <a id="ys-node-giraffe-talk"></a>
 ## giraffe_talk
 
-<div class="yarn-node" data-title="giraffe_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: GIRAFFE</span>
+<div class="yarn-node" data-title="giraffe_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 2 – GIRAFFE</span>
+<span class="yarn-header-dim">group: GIRAFFE</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: giraffe_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm a giraffe, the tallest of the animals.] <span class="yarn-meta">#line:0d5c607 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: My long neck help me reach the leaves.] <span class="yarn-meta">#line:0a4d24e </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Do you want to watch me eat?] <span class="yarn-meta">#line:04b42f2 </span></span>
+<span class="yarn-line">Je suis l'ANIMAL le plus grand. <span class="yarn-meta">#line:0d5c607 </span></span>
+<span class="yarn-line">Mon long COU m'aide à atteindre les feuilles. <span class="yarn-meta">#line:0a4d24e </span></span>
+<span class="yarn-line">Je mange des feuilles d'ACAILLON ! <span class="yarn-meta">#line:04b42f2 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings giraffe_activity_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-giraffe-activity-done"></a>
@@ -204,9 +202,9 @@ hide:
 <span class="yarn-header-dim">image: giraffe_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_elephant add&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: I didn't take the flag,] <span class="yarn-meta">#line:0877d6f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: it's too tall for even me to reach!] <span class="yarn-meta">#line:02d00e2 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Je n'ai pas pris le DRAPEAU. <span class="yarn-meta">#line:0877d6f </span></span>
+<span class="yarn-line">C'est trop haut pour moi ! <span class="yarn-meta">#line:02d00e2 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-giraffe-sign"></a>
@@ -216,9 +214,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Sign</span>
 <span class="yarn-header-dim">image: giraffe_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: GIRAFFE. Tall. Long NECK.] <span class="yarn-meta">#line:0a8a73f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Long EYELASHES.] <span class="yarn-meta">#line:0291317 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">GIRAFE. Grande. Long COU. <span class="yarn-meta">#line:0a8a73f </span></span>
+<span class="yarn-line">CILS longs. <span class="yarn-meta">#line:0291317 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-giraffe-kid"></a>
@@ -228,28 +226,26 @@ hide:
 <span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_giraffe</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: With a neck like that,] <span class="yarn-meta">#line:068daeb </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I could see my house even from here.] <span class="yarn-meta">#line:0bee484 </span></span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 3 – LION</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Avec un COU comme ça ! <span class="yarn-meta">#line:068daeb </span></span>
+<span class="yarn-line">Je pouvais voir ma maison d'ici. <span class="yarn-meta">#line:0bee484 </span></span>
+
+
 </code></pre></div>
 
 <a id="ys-node-lion-talk"></a>
 ## lion_talk
 
-<div class="yarn-node" data-title="lion_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: LION</span>
+<div class="yarn-node" data-title="lion_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 3 – LION</span>
+<span class="yarn-header-dim">group: LION</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm a lion, the biggest predator in Africa.] <span class="yarn-meta">#line:07f2e15 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I live in groups with other lions.] <span class="yarn-meta">#line:042266c </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Look at this little cub growing up!] <span class="yarn-meta">#line:0124e1c </span></span>
+<span class="yarn-line">Je suis un LION en AFRIQUE. <span class="yarn-meta">#line:07f2e15 </span></span>
+<span class="yarn-line">Je vis dans un PRIDE. <span class="yarn-meta">#line:042266c </span></span>
+<span class="yarn-line">Regardez ce petit ourson ! <span class="yarn-meta">#line:0124e1c </span></span>
 <span class="yarn-cmd">&lt;&lt;activity order_lion_settings lion_activity_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-lion-activity-done"></a>
@@ -260,9 +256,9 @@ hide:
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_lion add&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: You have to find the flag!] <span class="yarn-meta">#line:05da6d7 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I like watching it flutter in the wind.] <span class="yarn-meta">#line:01b3593 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Vous devez trouver le DRAPEAU ! <span class="yarn-meta">#line:05da6d7 </span></span>
+<span class="yarn-line">J'aime le regarder dans le vent. <span class="yarn-meta">#line:01b3593 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-lion-sign"></a>
@@ -272,9 +268,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Sign</span>
 <span class="yarn-header-dim">image: lion_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: LION. PRIDE = family of lions.] <span class="yarn-meta">#line:0ac6cc0 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Males have MANES.] <span class="yarn-meta">#line:0d2883b </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">LION. ORGUEIL = famille de lions. <span class="yarn-meta">#line:0ac6cc0 </span></span>
+<span class="yarn-line">Les mâles ont des CRINIÈRES. <span class="yarn-meta">#line:0d2883b </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-lion-kid"></a>
@@ -284,27 +280,24 @@ hide:
 <span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_lion</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: What a roar!] <span class="yarn-meta">#line:079f4e0 </span></span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 4 – MONKEY</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Quel rugissement ! <span class="yarn-meta">#line:079f4e0 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-monkey-talk"></a>
 ## monkey_talk
 
-<div class="yarn-node" data-title="monkey_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: MONKEY</span>
+<div class="yarn-node" data-title="monkey_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 4 – MONKEY</span>
+<span class="yarn-header-dim">group: MONKEY</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: monkey_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm an ape, and I love to climb trees.] <span class="yarn-meta">#line:0867233 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Did you know? I'm related to humans!] <span class="yarn-meta">#line:0eaefd6 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Can you tell where I got these fruits?] <span class="yarn-meta">#line:079451b </span></span>
+<span class="yarn-line">Je suis un SINGE. Je grimpe aux ARBRES. <span class="yarn-meta">#line:0867233 </span></span>
+<span class="yarn-line">Nous sommes proches des HUMAINS ! <span class="yarn-meta">#line:0eaefd6 </span></span>
+<span class="yarn-line">Où ai-je trouvé ces FRUITS ? <span class="yarn-meta">#line:079451b </span></span>
 <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings monkey_activity_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-monkey-activity-done"></a>
@@ -316,9 +309,9 @@ hide:
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_monkey add&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm not the one who took the flag.] <span class="yarn-meta">#line:0c53945 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: But it would be fun to climb that pole...] <span class="yarn-meta">#line:0a43c85 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Je n'ai pas pris le DRAPEAU. <span class="yarn-meta">#line:0c53945 </span></span>
+<span class="yarn-line">Ce serait amusant de grimper sur ce poteau. <span class="yarn-meta">#line:0a43c85 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-monkey-sign"></a>
@@ -328,9 +321,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Sign</span>
 <span class="yarn-header-dim">image: monkey_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: MONKEY. Great CLIMBER.] <span class="yarn-meta">#line:0900219 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Loves FRUIT.] <span class="yarn-meta">#line:021b299 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">SINGE. Grand GRIMPEUR. <span class="yarn-meta">#line:0900219 </span></span>
+<span class="yarn-line">Aime les FRUITS. <span class="yarn-meta">#line:021b299 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-monkey-kid"></a>
@@ -340,28 +333,25 @@ hide:
 <span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_monkey</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: He copied my dance!] <span class="yarn-meta">#line:0bf2346 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Do monkeys wink?] <span class="yarn-meta">#line:0eecdf9 </span></span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// PART 5 – PENGUIN</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Il a copié ma danse ! <span class="yarn-meta">#line:0bf2346 </span></span>
+<span class="yarn-line">Les SINGES font-ils des clins d’œil ? <span class="yarn-meta">#line:0eecdf9 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-penguin-talk"></a>
 ## penguin_talk
 
-<div class="yarn-node" data-title="penguin_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: PENGUIN</span>
+<div class="yarn-node" data-title="penguin_talk"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">// PART 5 – PENGUIN</span>
+<span class="yarn-header-dim">group: PENGUIN</span>
 <span class="yarn-header-dim">tags: actor=Keeper</span>
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm a penguin, and I'm a strange bird.] <span class="yarn-meta">#line:08c70e8 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I can't fly, but I can swim really well!.] <span class="yarn-meta">#line:0540c5a </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Can you find the right path through the ice?] <span class="yarn-meta">#line:0a3420c </span></span>
+<span class="yarn-line">Je suis un PINGOUIN, un OISEAU étrange. <span class="yarn-meta">#line:08c70e8 </span></span>
+<span class="yarn-line">Je ne sais pas voler, mais je nage bien ! <span class="yarn-meta">#line:0540c5a </span></span>
+<span class="yarn-line">Pouvez-vous trouver le chemin dans ICE ? <span class="yarn-meta">#line:0a3420c </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings penguin_activity_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-penguin-activity-done"></a>
@@ -372,9 +362,9 @@ hide:
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_penguin add&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: No, I didn't take the flag.] <span class="yarn-meta">#line:078190f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I can't fly, remember?] <span class="yarn-meta">#line:08568f5 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Non, je n'ai pas pris le DRAPEAU. <span class="yarn-meta">#line:078190f </span></span>
+<span class="yarn-line">Je ne peux pas voler, tu te souviens ? <span class="yarn-meta">#line:08568f5 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-penguin-sign"></a>
@@ -384,9 +374,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Tutor</span>
 <span class="yarn-header-dim">image: penguin_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: PENGUIN. Bird. Swimmer.] <span class="yarn-meta">#line:0877d95 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Lives near OCEANS.] <span class="yarn-meta">#line:0eac350 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">PINGOUIN. Oiseau. Nageur. <span class="yarn-meta">#line:0877d95 </span></span>
+<span class="yarn-line">Vit près des OCÉANS. <span class="yarn-meta">#line:0eac350 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-penguin-kid"></a>
@@ -396,13 +386,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=KID</span>
 <span class="yarn-header-dim">image: kid_penguin</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: How cute!] <span class="yarn-meta">#line:0ae73f3 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It looks like it's wearing a tiny tuxedo.] <span class="yarn-meta">#line:05ac327 </span></span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// RECAP – MATCH &amp; CARDS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Comme c'est mignon ! <span class="yarn-meta">#line:0ae73f3 </span></span>
+<span class="yarn-line">Ça a l'air soigné. <span class="yarn-meta">#line:05ac327 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-task-animals-done"></a>
@@ -410,9 +396,9 @@ hide:
 
 <div class="yarn-node" data-title="task_animals_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: TASK COMPLETED! Go back to the director.] <span class="yarn-meta">#line:0a93d9b </span></span>
+<span class="yarn-line">TÂCHE ACCOMPLIE ! Retournez voir le DIRECTEUR. <span class="yarn-meta">#line:0a93d9b </span></span>
 <span class="yarn-cmd">&lt;&lt;set $talked_animals = true&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-director-task-done"></a>
@@ -423,11 +409,11 @@ hide:
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Good, you talked to all the animals.] <span class="yarn-meta">#line:032811f </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Now let's review these facts.] <span class="yarn-meta">#line:0364f30 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Help me put the pieces toghether.] <span class="yarn-meta">#line:08de86f </span></span>
+<span class="yarn-line">Bien. Tu as parlé à tous les ANIMAUX. <span class="yarn-meta">#line:032811f </span></span>
+<span class="yarn-line">Passons maintenant en revue les faits. <span class="yarn-meta">#line:0364f30 </span></span>
+<span class="yarn-line">Aidez-moi à assembler les pièces. <span class="yarn-meta">#line:08de86f </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_zoo_settings director_activity_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-recap-cards"></a>
@@ -437,9 +423,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">image: zoo_cards</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Now match the CARDS.] <span class="yarn-meta">#line:0f6f882 </span></span>
+<span class="yarn-line">Associez maintenant les CARTES. <span class="yarn-meta">#line:0f6f882 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity memory zoo_animal_cards tutorial&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-director-activity-done"></a>
@@ -448,29 +434,27 @@ hide:
 <div class="yarn-node" data-title="director_activity_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">image: zoo_recap</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: It looks like the animals are all innocent.] <span class="yarn-meta">#line:0bc2b46 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: But then, who took the flag?] <span class="yarn-meta">#line:0fc0ab7 </span></span>
+<span class="yarn-line">Tous les ANIMAUX sont innocents. <span class="yarn-meta">#line:0bc2b46 </span></span>
+<span class="yarn-line">Qui a pris le DRAPEAU ? <span class="yarn-meta">#line:0fc0ab7 </span></span>
 <span class="yarn-cmd">&lt;&lt;SetActive Antura with Flag&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump RETURN_DIRECTOR&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-return-director"></a>
 ## RETURN_DIRECTOR
 
-<div class="yarn-node" data-title="RETURN_DIRECTOR"><pre class="yarn-code"><code><span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// TWIST – FLAG RETURN</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
+<div class="yarn-node" data-title="RETURN_DIRECTOR"><pre class="yarn-code"><code><span class="yarn-header-dim">// TWIST – FLAG RETURN</span>
 <span class="yarn-header-dim">group: End</span>
 <span class="yarn-header-dim">tags: actor=ZooDirector</span>
 <span class="yarn-header-dim">image: centennial_hall_antura_flag</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Wait, Look!] <span class="yarn-meta">#line:0b3d05f </span></span>
+<span class="yarn-line">Attends, regarde ! <span class="yarn-meta">#line:0b3d05f </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_focus Antura with Flag&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: ANTURA has the FLAG!] <span class="yarn-meta">#line:0e24973 </span></span>
+<span class="yarn-line">ANTURA a le DRAPEAU ! <span class="yarn-meta">#line:0e24973 </span></span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump CEREMONY_END&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-ceremony-end"></a>
@@ -480,39 +464,10 @@ hide:
 <span class="yarn-header-dim">tags: actor=ZooDirector</span>
 <span class="yarn-header-dim">image: flag_on_iglica</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: The FLAG is finally home.] <span class="yarn-meta">#line:0d91701 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Thank you, detective.] <span class="yarn-meta">#line:08c71db </span></span>
-<span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// FINAL QUIZ</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
+<span class="yarn-line">Le DRAPEAU est chez nous. <span class="yarn-meta">#line:0d91701 </span></span>
+<span class="yarn-line">Merci, aide. <span class="yarn-meta">#line:08c71db </span></span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
-<a id="ys-node-final-quiz"></a>
-## FINAL_QUIZ
-
-<div class="yarn-node" data-title="FINAL_QUIZ"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Icebox</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
-<span class="yarn-header-dim">image: wroclaw_flag_quiz</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Answer the questions.] <span class="yarn-meta">#line:010b191 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity quiz wroclaw_zoo_basics QUEST_COMPLETE&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
-
-<a id="ys-node-quest-complete"></a>
-## QUEST_COMPLETE
-
-<div class="yarn-node" data-title="QUEST_COMPLETE"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
-<span class="yarn-header-dim">image: quest_complete</span>
-<span class="yarn-header-dim">color: red</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Great work at the ZOO!] <span class="yarn-meta">#line:056d51c </span></span>
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
 </code></pre></div>
 
 

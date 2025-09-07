@@ -245,7 +245,14 @@ namespace Antura.Discover.Editor
                             continue;
                         indexSb.AppendLine($"## {countryLabel(c)}");
                         indexSb.AppendLine();
-                        foreach (var kv in list.OrderBy(k => k.Key, StringComparer.OrdinalIgnoreCase))
+                        // Sort by quest code (filename without extension and language suffix) rather than title
+                        IEnumerable<KeyValuePair<string, string>> sorted;
+                        try
+                        {
+                            sorted = list.OrderBy(kv => ExtractQuestCode(kv.Value), StringComparer.OrdinalIgnoreCase);
+                        }
+                        catch { sorted = list; }
+                        foreach (var kv in sorted)
                             indexSb.AppendLine($"- [{kv.Key}](./{kv.Value})");
                         indexSb.AppendLine();
                     }
@@ -261,6 +268,16 @@ namespace Antura.Discover.Editor
             }
 
             return (ok, fail);
+        }
+
+        // Helper to extract quest code from generated markdown file name (e.g., pl_05.md => pl_05)
+        static string ExtractQuestCode(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
+                return string.Empty;
+            var name = System.IO.Path.GetFileNameWithoutExtension(fileName);
+            // remove language suffixes like .fr, .pl already trimmed by GetFileNameWithoutExtension
+            return name;
         }
 
         public static void PublishAllToDocs()

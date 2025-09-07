@@ -11,8 +11,7 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1463729744#gid=1463729744)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_05%20Loire%20Castles/FR_05%20Loire%20Castles%20-%20Yarn%20Script.yarn)  
 
-<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// Quest: fr_05 | Castles (Loire)</span>
-<span class="yarn-header-dim">// FR_05 CASTLES - A tale of two castles</span>
+<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// fr_05 | Castles (Loire)</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">// Cards:</span>
 <span class="yarn-header-dim">// - chinon (historical castle)</span>
@@ -40,41 +39,45 @@ hide:
 <span class="yarn-header-dim">// </span>
 </code></pre></div>
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Welcome to the castles of the Loire!] <span class="yarn-meta">#line:09dda7c </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Benvenuti ai castelli della Loira! <span class="yarn-meta">#line:09dda7c </span></span>
+
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: The game is complete! Congratulations!]
-[MISSING TRANSLATION: Did you like it?]
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Hai esplorato due castelli: il possente Chinon e l'elegante Chambord! <span class="yarn-meta">#line:0a8f25d </span></span>
+<span class="yarn-line">Hai paragonato la difesa alla vita del partito reale. <span class="yarn-meta">#line:05802fa </span></span>
+<span class="yarn-line">Hai trovato equipaggiamento da cavaliere e cose per la festa del principe. <span class="yarn-meta">#line:06d186d </span></span>
+<span class="yarn-line">Grande esploratore di castelli! <span class="yarn-meta">#line:032ff51 </span></span>
+<span class="yarn-cmd">&lt;&lt;card chinon&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
+
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: Now draw your favourite castle!]
+<span class="yarn-line">Adesso disegna il tuo castello preferito! <span class="yarn-meta">#line:0f0bba8 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-talk-guide"></a>
@@ -85,51 +88,74 @@ hide:
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 8&gt;&gt;
 <span class="yarn-cmd">&lt;&lt;jump guide_question&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Antura ran away and is hiding in a castle!] <span class="yarn-meta">#line:067c028 </span></span>
+<span class="yarn-line">Antura è scappata e si è nascosta in un castello! <span class="yarn-meta">#line:067c028 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
-<a id="ys-node-guide-defence"></a>
-## guide_defence
+<a id="ys-node-guide-chinon"></a>
+## guide_chinon
 
-<div class="yarn-node" data-title="guide_defence"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN, asset=chinon</span>
+<div class="yarn-node" data-title="guide_chinon"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: This is the castle of Chinon.] <span class="yarn-meta">#line:06eaf5c </span></span>
-<span class="yarn-cmd">&lt;&lt;jump FR_05_CASTLES_Text_98_0a_8d&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card chinon&gt;&gt;</span>
+<span class="yarn-line">Questo è il castello di Chinon. <span class="yarn-meta">#line:06eaf5c </span></span>
+<span class="yarn-cmd">&lt;&lt;card  chinon_old zoom&gt;&gt;</span>
+<span class="yarn-line">È molto vecchio. <span class="yarn-meta">#line:0a0e0ca </span></span>
+<span class="yarn-cmd">&lt;&lt;card  chinon_defence&gt;&gt;</span>
+<span class="yarn-line">Questo castello veniva utilizzato a scopo difensivo. <span class="yarn-meta">#line:026073b </span></span>
+<span class="yarn-cmd">&lt;&lt;card chinon&gt;&gt;</span>
+
 </code></pre></div>
 
-<a id="ys-node-guide-living"></a>
-## guide_living
+<a id="ys-node-guide-chambord"></a>
+## guide_chambord
 
-<div class="yarn-node" data-title="guide_living"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN, asset=chambord</span>
+<div class="yarn-node" data-title="guide_chambord"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN,</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Welcome to Chambord Castle.] <span class="yarn-meta">#line:0a06d3f </span></span>
-<span class="yarn-cmd">&lt;&lt;jump FR_05_CASTLES_Text_91139071&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Benvenuti al castello di Chambord. <span class="yarn-meta">#line:0a06d3f </span></span>
+<span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
+<span class="yarn-line">Re e principi usavano questo castello per <span class="yarn-meta">#line:04d7920 </span></span>
+<span class="yarn-cmd">&lt;&lt;card chambord_ball&gt;&gt;</span>
+<span class="yarn-line">balli, spettacoli teatrali e concerti. <span class="yarn-meta">#line:07d0b04 </span></span>
+
+
 </code></pre></div>
 
-<a id="ys-node-fr-05-castles-text-02040108"></a>
-## FR_05_CASTLES_Text_02040108
+<a id="ys-node-task-find-knights-items"></a>
+## task_find_knights_items
 
-<div class="yarn-node" data-title="FR_05_CASTLES_Text_02040108"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
+<div class="yarn-node" data-title="task_find_knights_items"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find all the things a knight wears:] <span class="yarn-meta">#line:0bfad5e </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: helmet, sword, bow, and armor.] <span class="yarn-meta">#line:08b44fc </span></span>
- [MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Scopri tutto ciò che indossa un cavaliere: <span class="yarn-meta">#line:0bfad5e </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_helmet&gt;&gt;</span>
+<span class="yarn-line">casco <span class="yarn-meta">#line:0fd1dc5 </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_sword&gt;&gt;</span>
+<span class="yarn-line">spada <span class="yarn-meta">#line:059a4f0 </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_bow&gt;&gt;</span>
+<span class="yarn-line">arco <span class="yarn-meta">#line:05a78b7 </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_armor&gt;&gt;</span>
+<span class="yarn-line">e armatura. <span class="yarn-meta">#line:08b44fc </span></span>
+ 
+
 </code></pre></div>
 
-<a id="ys-node-fr-05-castles-text-02082173"></a>
-## FR_05_CASTLES_Text_02082173
+<a id="ys-node-task-find-prince-items"></a>
+## task_find_prince_items
 
-<div class="yarn-node" data-title="FR_05_CASTLES_Text_02082173"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
+<div class="yarn-node" data-title="task_find_prince_items"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Find all the prince's items:] <span class="yarn-meta">#line:0cb22cb </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: hat, musical instrument, dance shoes, and ball mask.] <span class="yarn-meta">#line:0d2be40 </span></span>
- [MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Trova tutti gli oggetti del principe: <span class="yarn-meta">#line:0cb22cb </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_hat&gt;&gt;</span>
+<span class="yarn-line">cappello <span class="yarn-meta">#line:0f686f2 </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_musical_instruments&gt;&gt;</span>
+<span class="yarn-line">strumento musicale <span class="yarn-meta">#line:046a357 </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_dance_shoes&gt;&gt;</span>
+<span class="yarn-line">scarpe da ballo <span class="yarn-meta">#line:05e472f </span></span>
+<span class="yarn-cmd">&lt;&lt;card obj_ball_mask&gt;&gt;</span>
+<span class="yarn-line">e maschera da palla. <span class="yarn-meta">#line:0d2be40 </span></span>
+ 
+
 </code></pre></div>
 
 <a id="ys-node-guide-question"></a>
@@ -137,12 +163,12 @@ hide:
 
 <div class="yarn-node" data-title="guide_question"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Did you find Antura?] <span class="yarn-meta">#line:01003d0 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; "YES":] <span class="yarn-meta">#line:0d9f509 </span></span>
+<span class="yarn-line">Hai trovato Antura? <span class="yarn-meta">#line:01003d0 </span></span>
+<span class="yarn-line">SÌ <span class="yarn-meta">#line:0d9f509 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump guide_done&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; "NO":] <span class="yarn-meta">#line:0de6ebb </span></span>
+<span class="yarn-line">NO <span class="yarn-meta">#line:0de6ebb </span></span>
     <span class="yarn-cmd">&lt;&lt;jump guide_done&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-guide-done"></a>
@@ -151,10 +177,10 @@ hide:
 <div class="yarn-node" data-title="guide_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset map&gt;&gt;</span>
-[MISSING TRANSLATION: Did you like the castles?]
-<span class="yarn-line">[MISSING TRANSLATION: There are 200 castles like this in the Loire Valley!] <span class="yarn-meta">#line:01e6614 </span></span>
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Ti sono piaciuti i castelli? <span class="yarn-meta">#line:02a8dd7 </span></span>
+<span class="yarn-line">Nella Valle della Loira ci sono 200 castelli come questo! <span class="yarn-meta">#line:01e6614 </span></span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+
 </code></pre></div>
 
 <a id="ys-node-view-bridge"></a>
@@ -162,8 +188,9 @@ hide:
 
 <div class="yarn-node" data-title="view_bridge"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN, asset=bridge</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: A drawbridge is a kind of movable bridge used in castles.] <span class="yarn-meta">#line:0010896 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card bridge&gt;&gt;</span>
+<span class="yarn-line">Un ponte levatoio è un tipo di ponte mobile utilizzato nei castelli. <span class="yarn-meta">#line:0010896 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-view-parapet"></a>
@@ -171,8 +198,9 @@ hide:
 
 <div class="yarn-node" data-title="view_parapet"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN, asset=parapet</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: A parapet has gaps used for defense.] <span class="yarn-meta">#line:0aaf4dd </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card parapet&gt;&gt;</span>
+<span class="yarn-line">Un parapetto presenta delle fessure utilizzate a scopo difensivo. <span class="yarn-meta">#line:0aaf4dd </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-obg-helmet"></a>
@@ -181,8 +209,8 @@ hide:
 <div class="yarn-node" data-title="obg_helmet"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_helmet&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: a helmet] <span class="yarn-meta">#line:0b492f6 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">un casco <span class="yarn-meta">#line:0b492f6 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-obj-hat"></a>
@@ -190,8 +218,9 @@ hide:
 
 <div class="yarn-node" data-title="obj_hat"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_hat</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: a hat] <span class="yarn-meta">#line:0806c77 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card obj_hat&gt;&gt;</span>
+<span class="yarn-line">un cappello <span class="yarn-meta">#line:0806c77 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-obg-sword"></a>
@@ -201,8 +230,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset obj_sword&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: sword] <span class="yarn-meta">#line:0733b81 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card obj_sword&gt;&gt;</span>
+<span class="yarn-line">spada <span class="yarn-meta">#line:0733b81 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-obg-bow"></a>
@@ -211,9 +241,9 @@ hide:
 <div class="yarn-node" data-title="obg_bow"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset  obj_bow&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: a bow and arrows] <span class="yarn-meta">#line:049d6e8 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card obj_bow&gt;&gt;</span>
+<span class="yarn-line">un arco e delle frecce <span class="yarn-meta">#line:049d6e8 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-obg-armor"></a>
@@ -222,9 +252,9 @@ hide:
 <div class="yarn-node" data-title="obg_armor"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset  obj_armor&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: this is an armor] <span class="yarn-meta">#line:01ac543 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card obj_armor&gt;&gt;</span>
+<span class="yarn-line">questa è un'armatura <span class="yarn-meta">#line:01ac543 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-view-loopholes"></a>
@@ -233,40 +263,9 @@ hide:
 <div class="yarn-node" data-title="view_loopholes"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset loopholes&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: These are loopholes. They are used to shoot arrows at the enemy.] <span class="yarn-meta">#line:050e177 </span></span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
+<span class="yarn-cmd">&lt;&lt;card loopholes&gt;&gt;</span>
+<span class="yarn-line">Sono delle scappatoie. Servono per scoccare frecce al nemico. <span class="yarn-meta">#line:050e177 </span></span>
 
-<a id="ys-node-fr-05-castles-text-08-89-98"></a>
-## FR_05_CASTLES_Text_08_89_98
-
-<div class="yarn-node" data-title="FR_05_CASTLES_Text_08_89_98"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset  chinon_defence&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: This castle was used for defense.] <span class="yarn-meta">#line:026073b </span></span>
-<span class="yarn-cmd">&lt;&lt;jump FR_05_CASTLES_Text_02040108&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
-
-<a id="ys-node-fr-05-castles-text-98-0a-8d"></a>
-## FR_05_CASTLES_Text_98_0a_8d
-
-<div class="yarn-node" data-title="FR_05_CASTLES_Text_98_0a_8d"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN, asset=chinon_old</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: It is very old.] <span class="yarn-meta">#line:0a0e0ca </span></span>
-<span class="yarn-cmd">&lt;&lt;jump FR_05_CASTLES_Text_08_89_98&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
-
-<a id="ys-node-fr-05-castles-text-91139071"></a>
-## FR_05_CASTLES_Text_91139071
-
-<div class="yarn-node" data-title="FR_05_CASTLES_Text_91139071"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN, asset=chambord_ball</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Kings and princes used this castle for balls, plays, and concerts.] <span class="yarn-meta">#line:07d0b04 </span></span>
-<span class="yarn-cmd">&lt;&lt;jump FR_05_CASTLES_Text_02082173&gt;&gt;</span>
-[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-obj-musical-intrument"></a>
@@ -274,8 +273,9 @@ hide:
 
 <div class="yarn-node" data-title="obj_musical_intrument"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_musical_instruments</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: a musical instrument] <span class="yarn-meta">#line:07f4c19 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card obj_musical_instruments&gt;&gt;</span>
+<span class="yarn-line">uno strumento musicale <span class="yarn-meta">#line:07f4c19 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-obj-shoes"></a>
@@ -283,8 +283,9 @@ hide:
 
 <div class="yarn-node" data-title="obj_shoes"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_dance_shoes</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: dance shoes] <span class="yarn-meta">#line:01ee90f </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card obj_dance_shoes&gt;&gt;</span>
+<span class="yarn-line">scarpe da ballo <span class="yarn-meta">#line:01ee90f </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-obj-ball-mask"></a>
@@ -292,8 +293,9 @@ hide:
 
 <div class="yarn-node" data-title="obj_ball_mask"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_ball_mask</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: a ball mask] <span class="yarn-meta">#line:0071a08 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card obj_ball_mask&gt;&gt;</span>
+<span class="yarn-line">una maschera da palla <span class="yarn-meta">#line:0071a08 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-view-chambord-map"></a>
@@ -301,8 +303,9 @@ hide:
 
 <div class="yarn-node" data-title="view_chambord_map"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=chambord_map</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: This is a map of the castle.] <span class="yarn-meta">#line:0b62127 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
+<span class="yarn-line">Questa è una mappa del castello. <span class="yarn-meta">#line:0b62127 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-view-chambord-room"></a>
@@ -310,8 +313,9 @@ hide:
 
 <div class="yarn-node" data-title="view_chambord_room"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=chambord_room</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: What a room!] <span class="yarn-meta">#line:0f99fd5 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
+<span class="yarn-line">Che stanza! <span class="yarn-meta">#line:0f99fd5 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-view-interior"></a>
@@ -319,8 +323,9 @@ hide:
 
 <div class="yarn-node" data-title="view_interior"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, asset=chambord_interior</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: It is very nice!] <span class="yarn-meta">#line:082ac97 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
+<span class="yarn-line">È molto bello! <span class="yarn-meta">#line:082ac97 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-spawned-tourist"></a>
@@ -334,12 +339,66 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; Did you know that the Loire Valley is a UNESCO World Heritage site?] <span class="yarn-meta">#line:0c3f4e1 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; The castle of Chambord has 440 rooms!] <span class="yarn-meta">#line:0a5f4f1 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; The castle of Chinon was a favorite residence of King Henry II of England.] <span class="yarn-meta">#line:0b6e2c3 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; The Loire Valley is known as the "Garden of France".] <span class="yarn-meta">#line:0d1e4b5 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: =&gt; The castle of Chambord was built in the 16th century.] <span class="yarn-meta">#line:0e2f6d7 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Sapevi che la Valle della Loira è patrimonio mondiale dell'UNESCO? <span class="yarn-meta">#line:0c3f4e1 </span></span>
+<span class="yarn-line">Il castello di Chambord ha 440 stanze! <span class="yarn-meta">#line:0a5f4f1 </span></span>
+<span class="yarn-line">Il castello di Chinon era una delle residenze preferite del re Enrico II d'Inghilterra. <span class="yarn-meta">#line:0b6e2c3 </span></span>
+<span class="yarn-line">La Valle della Loira è conosciuta come il "Giardino di Francia". <span class="yarn-meta">#line:0d1e4b5 </span></span>
+<span class="yarn-line">Il castello di Chambord fu costruito nel XVI secolo. <span class="yarn-meta">#line:0e2f6d7 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-tourist-chambord"></a>
+## spawned_tourist_chambord
+
+<div class="yarn-node" data-title="spawned_tourist_chambord"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">spawn_group: tourists_chambord</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Chambord ha una scalinata così tortuosa che mi perderei di proposito! <span class="yarn-meta">#line:03571b7 </span></span>
+<span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
+<span class="yarn-line">440 stanze... Avrei bisogno di 440 pisolini. <span class="yarn-meta">#line:0e2823f </span></span>
+<span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
+<span class="yarn-line">Balli reali? Ballerei come una baguette ondeggiante. <span class="yarn-meta">#line:0fd58d9 </span></span>
+<span class="yarn-cmd">&lt;&lt;card chambord_ball&gt;&gt;</span>
+<span class="yarn-line">Se vivessi qui, dimenticherei ancora dove ho lasciato le scarpe. <span class="yarn-meta">#line:0409c6b </span></span>
+<span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-tourist-chinon"></a>
+## spawned_tourist_chinon
+
+<div class="yarn-node" data-title="spawned_tourist_chinon"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">spawn_group: tourists_chinon</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Le pareti di Chinon sono così resistenti che nemmeno la mia migliore battuta riesce a romperle! <span class="yarn-meta">#line:0b32af0 </span></span>
+<span class="yarn-cmd">&lt;&lt;card chinon_defence&gt;&gt;</span>
+<span class="yarn-line">Faccio finta di essere un cavaliere... in realtà sto sorvegliando degli snack. <span class="yarn-meta">#line:0d55219 </span></span>
+<span class="yarn-cmd">&lt;&lt;card chinon&gt;&gt;</span>
+<span class="yarn-line">Scappatoie: piccole finestre per le frecce... o onde molto sottili. <span class="yarn-meta">#line:0664af8 </span></span>
+<span class="yarn-cmd">&lt;&lt;card loopholes&gt;&gt;</span>
+<span class="yarn-line">I parapetti sono perfetti per sbirciare senza essere visti. <span class="yarn-meta">#line:0c42fc1 </span></span>
+<span class="yarn-cmd">&lt;&lt;card parapet&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-tourist-loire"></a>
+## spawned_tourist_loire
+
+<div class="yarn-node" data-title="spawned_tourist_loire"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">spawn_group: tourists_loire</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">La Loira sembra un lungo nastro argentato, ma senza carta da regalo! <span class="yarn-meta">#line:08a92f7 </span></span>
+<span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
+<span class="yarn-line">Saluto ogni castello. Un giorno una torre potrebbe ricambiare il saluto. <span class="yarn-meta">#line:0d7652c </span></span>
+<span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
+<span class="yarn-line">I ponti sono ottimi posti dove pensare agli spuntini. <span class="yarn-meta">#line:0724a44 </span></span>
+<span class="yarn-cmd">&lt;&lt;card bridge&gt;&gt;</span>
+<span class="yarn-line">Ci sono così tanti castelli che persino le nuvole sono turisti. <span class="yarn-meta">#line:0b1036c </span></span>
+<span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
+
 </code></pre></div>
 
 

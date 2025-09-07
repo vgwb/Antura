@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=783699917#gid=783699917)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_07%20Solar%20System/PL_07%20Solar%20System%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## Init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="Init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_07 | Solar System (Torun)</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// pl_07 | Solar System (Torun)</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">// WANTED:</span>
 <span class="yarn-header-dim">// Cards:</span>
@@ -29,12 +29,10 @@ hide:
 <span class="yarn-header-dim">// - planet_neptune (planetary education)</span>
 <span class="yarn-header-dim">// - telescope (scientific instrument)</span>
 <span class="yarn-header-dim">// - planetarium (educational facility)</span>
-<span class="yarn-header-dim">//</span>
 <span class="yarn-header-dim">// Tasks:</span>
 <span class="yarn-header-dim">// - Fix solar system map with correct planetary order</span>
 <span class="yarn-header-dim">// - Clean and learn about telescope parts</span>
 <span class="yarn-header-dim">// - Visit each planet in order with individual activities</span>
-<span class="yarn-header-dim">//</span>
 <span class="yarn-header-dim">// Activities:</span>
 <span class="yarn-header-dim">// - order planets_order (arrange 8 planets from Sun)</span>
 <span class="yarn-header-dim">// - piano planet_order_song (musical mnemonic for planet order)</span>
@@ -49,34 +47,38 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;declare $planets_found = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $planets_needed = 8&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card torun&gt;&gt;</span>
 <span class="yarn-line">Welcome to TORUŃ in POLAND. <span class="yarn-meta">#line:0673aff </span></span>
+<span class="yarn-cmd">&lt;&lt;card nicolaus_copernicus&gt;&gt;</span>
 <span class="yarn-line">COPERNICUS was born here. <span class="yarn-meta">#line:00fe710 </span></span>
+<span class="yarn-cmd">&lt;&lt;card nicolaus_copernicus_house&gt;&gt;</span>
 <span class="yarn-line">ANTURA is stuck in his house! <span class="yarn-meta">#line:00589bc </span></span>
 <span class="yarn-line">Let's ask COPERNICUS for help. <span class="yarn-meta">#line:031963d </span></span>
 
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-This quest is complete.
-Today we learned about the SOLAR SYSTEM.
-And knew that the SUN is in the center.
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
+<span class="yarn-line">Great work on this quest. <span class="yarn-meta">#line:0a0a2ce </span></span>
+<span class="yarn-cmd">&lt;&lt;card solar_system&gt;&gt;</span>
+<span class="yarn-line">Today we learned the SOLAR SYSTEM. <span class="yarn-meta">#line:0cce3a4 </span></span>
+
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-Why don't you draw the Solar System?
+<span class="yarn-line">Draw the 8 PLANETS with the SUN in center. <span class="yarn-meta">#line:064c54e </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
@@ -84,38 +86,26 @@ Why don't you draw the Solar System?
 <a id="ys-node-copernicus-outside"></a>
 ## COPERNICUS_OUTSIDE
 
-<div class="yarn-node" data-title="COPERNICUS_OUTSIDE"><pre class="yarn-code"><code><span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// MEET COPERNICUS</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
+<div class="yarn-node" data-title="COPERNICUS_OUTSIDE"><pre class="yarn-code"><code><span class="yarn-header-dim">// LEt'S MEET COPERNICUS</span>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Copernicus</span>
-<span class="yarn-header-dim">image: copernicus_house_front</span>
+<span class="yarn-header-dim">tags: actor=Scientist</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;action card nicolaus_copernicus_house&gt;&gt;</span>
 <span class="yarn-line">Hello! I am NICOLAUS COPERNICUS. <span class="yarn-meta">#line:0c5050d </span></span>
 <span class="yarn-line">I can help you rescue ANTURA. <span class="yarn-meta">#line:0a41815 </span></span>
 <span class="yarn-line">First, fix my SOLAR SYSTEM map. <span class="yarn-meta">#line:0f17151 </span></span>
 <span class="yarn-line">Help with planets <span class="yarn-meta">#line:07bdf91 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump PLANETS_ORDER&gt;&gt;</span>
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// ACTIVITY – ORDER THE PLANETS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
 <a id="ys-node-planets-order"></a>
 ## PLANETS_ORDER
 
-<div class="yarn-node" data-title="PLANETS_ORDER"><pre class="yarn-code"><code><span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<div class="yarn-node" data-title="PLANETS_ORDER"><pre class="yarn-code"><code><span class="yarn-header-dim">// ACTIVITY – ORDER THE PLANETS</span>
+<span class="yarn-header-dim">group: SolarSystem</span>
+<span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity order planets_order tutorial&gt;&gt;</span>
-<span class="yarn-line">Done <span class="yarn-meta">#line:06c0d36 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump AFTER_PLANETS_ORDER&gt;&gt;</span>
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// AFTER ORDERING – HELIOCENTRIC IDEA</span>
-<span class="yarn-comment">//--------------------------------------------</span>
+<span class="yarn-cmd">&lt;&lt;activity order planets_order AFTER_PLANETS_ORDER&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -127,12 +117,8 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Well done! <span class="yarn-meta">#line:06ea147 </span></span>
 <span class="yarn-line">Long ago, people put EARTH in the center. <span class="yarn-meta">#line:0af451b </span></span>
+<span class="yarn-cmd">&lt;&lt;card heliocentric_model&gt;&gt;</span>
 <span class="yarn-line">I found the SUN is in the center. <span class="yarn-meta">#line:0392dfd </span></span>
-
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// MUSEUM – CENTER MODEL</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
@@ -143,32 +129,35 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: museum_hall</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card solar_system&gt;&gt;</span>
 <span class="yarn-line">Here is a 3D SOLAR SYSTEM. <span class="yarn-meta">#line:0069f70 </span></span>
 <span class="yarn-line">It spins in the hall. <span class="yarn-meta">#line:04de41d </span></span>
 <span class="yarn-line">Find PLANETS to add them here. <span class="yarn-meta">#line:01e7dda </span></span>
-<span class="yarn-line">Clean the TELESCOPE <span class="yarn-meta">#line:0c22e2c </span></span>
+<span class="yarn-line">Clean the TELESCOPE. <span class="yarn-meta">#line:0c22e2c </span></span>
 
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// ACTIVITY – CLEAN THE TELESCOPE LENS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
 <a id="ys-node-telescope-dirty"></a>
 ## TELESCOPE_DIRTY
 
-<div class="yarn-node" data-title="TELESCOPE_DIRTY"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Museum</span>
+<div class="yarn-node" data-title="TELESCOPE_DIRTY"><pre class="yarn-code"><code><span class="yarn-header-dim">// ACTIVITY – CLEAN THE TELESCOPE LENS</span>
+<span class="yarn-header-dim">group: Museum</span>
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">image: telescope_lens_dirty</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas telescope_lens_clean tutorial&gt;&gt;</span>
-<span class="yarn-line">Learn the parts <span class="yarn-meta">#line:0e91a5e </span></span>
 
+</code></pre></div>
 
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// TELESCOPE – PARTS &amp; PLANETARIUM</span>
-<span class="yarn-comment">//--------------------------------------------</span>
+<a id="ys-node-telescope-lens-clean-done"></a>
+## telescope_lens_clean_done
+
+<div class="yarn-node" data-title="telescope_lens_clean_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Museum</span>
+<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Great job cleaning the lens! <span class="yarn-meta">#line:06ba2c4 </span></span>
+<span class="yarn-line">Now we can see the planets better. <span class="yarn-meta">#line:0dd17cf </span></span>
 
 </code></pre></div>
 
@@ -177,17 +166,13 @@ Why don't you draw the Solar System?
 
 <div class="yarn-node" data-title="TELESCOPE_EXPLAIN"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Museum</span>
 <span class="yarn-header-dim">tags: actor=Copernicus</span>
-<span class="yarn-header-dim">image: telescope_display</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card telescope&gt;&gt;</span>
 <span class="yarn-line">A TELESCOPE helps us see far. <span class="yarn-meta">#line:0314ed5 </span></span>
+<span class="yarn-cmd">&lt;&lt;card lens&gt;&gt;</span>
 <span class="yarn-line">It has a LENS and an EYEPIECE. <span class="yarn-meta">#line:062693e </span></span>
+<span class="yarn-cmd">&lt;&lt;card planetarium&gt;&gt;</span>
 <span class="yarn-line">A PLANETARIUM shows the sky indoors. <span class="yarn-meta">#line:0cab30b </span></span>
-<span class="yarn-line">Match the parts <span class="yarn-meta">#line:015eb34 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump TELESCOPE_PARTS&gt;&gt;</span>
-
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// ACTIVITY – MATCH TELESCOPE PARTS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
 
 </code></pre></div>
 
@@ -243,6 +228,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: solar_model_center</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card astronomy&gt;&gt;</span>
 <span class="yarn-line">Let's visit each PLANET. <span class="yarn-meta">#line:0b015a8 </span></span>
 <span class="yarn-line">They appear in the model when found. <span class="yarn-meta">#line:00d6fdf </span></span>
 <span class="yarn-line">Start with MERCURY <span class="yarn-meta">#line:04ba61d </span></span>
@@ -258,6 +244,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_mercury</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card mercury&gt;&gt;</span>
 <span class="yarn-line">MERCURY is closest to the SUN. <span class="yarn-meta">#line:0235ac2 </span></span>
 <span class="yarn-line">It goes around very fast. <span class="yarn-meta">#line:03c1c86 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_mercury tutorial&gt;&gt;</span>
@@ -275,6 +262,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_venus</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card venus&gt;&gt;</span>
 <span class="yarn-line">VENUS is very hot. <span class="yarn-meta">#line:0fbc89d </span></span>
 <span class="yarn-line">Thick clouds cover it. <span class="yarn-meta">#line:0244228 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_venus tutorial&gt;&gt;</span>
@@ -292,6 +280,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_earth</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card earth&gt;&gt;</span>
 <span class="yarn-line">EARTH is our home. <span class="yarn-meta">#line:01002c7 </span></span>
 <span class="yarn-line">It has land, air, and seas. <span class="yarn-meta">#line:032ae50 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_earth tutorial&gt;&gt;</span>
@@ -310,32 +299,31 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_mars</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card mars&gt;&gt;</span>
 <span class="yarn-line">MARS is red and dusty. <span class="yarn-meta">#line:007f580 </span></span>
 <span class="yarn-line">It has big volcanoes. <span class="yarn-meta">#line:0bc9c83 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_mars tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Mars to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">Next: JUPITER <span class="yarn-meta">#line:08af681 </span></span>
-
-
-<span class="yarn-comment">// JUPITER</span>
 
 </code></pre></div>
 
 <a id="ys-node-planet-jupiter"></a>
 ## PLANET_JUPITER
 
-<div class="yarn-node" data-title="PLANET_JUPITER"><pre class="yarn-code"><code><span class="yarn-header-dim">group: SolarSystem</span>
+<div class="yarn-node" data-title="PLANET_JUPITER"><pre class="yarn-code"><code><span class="yarn-header-dim">// JUPITER</span>
+<span class="yarn-header-dim">group: SolarSystem</span>
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_jupiter</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card jupiter&gt;&gt;</span>
 <span class="yarn-line">JUPITER is the biggest PLANET. <span class="yarn-meta">#line:06e72b3 </span></span>
 <span class="yarn-line">It has a Great Red Spot. <span class="yarn-meta">#line:094d7dd </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_jupiter tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Jupiter to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">Next: SATURN <span class="yarn-meta">#line:07229a6 </span></span>
-
+<span class="yarn-line">Next is SATURN <span class="yarn-meta">#line:07229a6 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump PLANET_SATURN&gt;&gt;</span>
 
 <span class="yarn-comment">// SATURN</span>
 
@@ -348,12 +336,13 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_saturn</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card saturn&gt;&gt;</span>
 <span class="yarn-line">SATURN has bright RINGS. <span class="yarn-meta">#line:0e6de7d </span></span>
 <span class="yarn-line">Many MOONS orbit it. <span class="yarn-meta">#line:00a70f4 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_saturn tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Saturn to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">Next: URANUS <span class="yarn-meta">#line:09ba1f7 </span></span>
+<span class="yarn-line">Next is URANUS <span class="yarn-meta">#line:09ba1f7 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump PLANET_URANUS&gt;&gt;</span>
 
 <span class="yarn-comment">// URANUS</span>
@@ -367,6 +356,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_uranus</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card uranus&gt;&gt;</span>
 <span class="yarn-line">URANUS spins on its side. <span class="yarn-meta">#line:04df973 </span></span>
 <span class="yarn-line">It looks blue‑green. <span class="yarn-meta">#line:01e724d </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_uranus tutorial&gt;&gt;</span>
@@ -385,6 +375,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_neptune</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card neptune&gt;&gt;</span>
 <span class="yarn-line">NEPTUNE is far and windy. <span class="yarn-meta">#line:0191651 </span></span>
 <span class="yarn-line">It is deep blue. <span class="yarn-meta">#line:0584147 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_neptune tutorial&gt;&gt;</span>
@@ -406,7 +397,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">You found all 8 PLANETS. <span class="yarn-meta">#line:0d91787 </span></span>
 <span class="yarn-line">The model is complete. <span class="yarn-meta">#line:0d9ce49 </span></span>
-<span class="yarn-line">now rescue ANTURA! <span class="yarn-meta">#line:0896149 </span></span>
+<span class="yarn-line">Now rescue ANTURA! <span class="yarn-meta">#line:0896149 </span></span>
 
 </code></pre></div>
 
@@ -431,10 +422,7 @@ Why don't you draw the Solar System?
 <span class="yarn-header-dim">image: antura_rescued</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Thank you for your help. <span class="yarn-meta">#line:0d7e5be </span></span>
-<span class="yarn-line">"Remember: the SUN is in the center."" <span class="yarn-meta">#line:0b0e4bf </span></span>
-<span class="yarn-line">Final Quiz <span class="yarn-meta">#line:0a535da </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
-
+<span class="yarn-line">Remember that the SUN is in the center. <span class="yarn-meta">#line:0b0e4bf </span></span>
 
 </code></pre></div>
 
@@ -463,8 +451,31 @@ Why don't you draw the Solar System?
 <div class="yarn-node" data-title="QUEST_COMPLETE"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">group: End</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
-Well done!
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
+<span class="yarn-line">Well done! <span class="yarn-meta">#line:03529aa </span></span>
+
+<span class="yarn-comment">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-comment">// these npc are spawn automatically in the scene</span>
+<span class="yarn-comment">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-comment">// they will say one of these lines randomly</span>
+
+<span class="yarn-line">title: spawned_child <span class="yarn-meta">#line:0ab69a2 </span></span>
+<span class="yarn-line">position: 900,1400 <span class="yarn-meta">#line:0d47d3c </span></span>
+<span class="yarn-line">group: Spawned <span class="yarn-meta">#line:0d190d0 </span></span>
+<span class="yarn-line">tags: actor=Child <span class="yarn-meta">#line:00c76ad </span></span>
+<span class="yarn-line">--- <span class="yarn-meta">#line:06824fe </span></span>
+<span class="yarn-line">I saw blue NEPTUNE. <span class="yarn-meta">#line:0db085c </span></span>
+<span class="yarn-line">Rings on SATURN shine. <span class="yarn-meta">#line:0a7ab40 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-student"></a>
+## spawned_student
+
+<div class="yarn-node" data-title="spawned_student"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Spawned</span>
+<span class="yarn-header-dim">tags: actor=Student</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Planets move around SUN. <span class="yarn-meta">#line:0275852 </span></span>
+<span class="yarn-line">the MOON is our satellite. <span class="yarn-meta">#line:07430b2 </span></span>
 
 </code></pre></div>
 

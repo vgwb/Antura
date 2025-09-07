@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=849141304#gid=849141304)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_11%20Music%20Marseillese/FR_11%20Music%20Marseillese%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code"><code><span class="yarn-header-dim">// Quest: fr_11 | La Marseillaise</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code"><code><span class="yarn-header-dim">// fr_11 | La Marseillaise</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
@@ -22,58 +22,37 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Welcome to the music quest!] <span class="yarn-meta">#line:0e2f565 </span></span>
+<span class="yarn-line">Bienvenue dans la quête musicale ! <span class="yarn-meta">#line:0e2f565 </span></span>
 <span class="yarn-comment">// &lt;&lt;activity order_marseillese_audio marseillese_played&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: This quest is over.]
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Super! Vous avez exploré "La Marseillaise". <span class="yarn-meta">#line:06e7b8f </span></span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_music&gt;&gt;</span>
+<span class="yarn-line">L'hymne qui représente la France et son peuple. <span class="yarn-meta">#line:0c2ef1b </span></span>
+<span class="yarn-line">La musique peut raconter beaucoup de choses sur l’histoire. <span class="yarn-meta">#line:0f62ef6 </span></span>
+<span class="yarn-cmd">&lt;&lt;card musical_score&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
+
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: Can you write the tezt of the Marseillaise in your notebook?]
+<span class="yarn-line">Peux-tu écrire le texte de « La Marseillaise » dans ton cahier ? <span class="yarn-meta">#line:00ee9c6 </span></span>
+<span class="yarn-line">Dessinez les 7 notes : Do Re Mi Fa Sol La Si. <span class="yarn-meta">#line:078a4a9 </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
 
-<a id="ys-node-npc-robot"></a>
-## npc_robot
-
-<div class="yarn-node" data-title="npc_robot"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: now play Jigsaw] <span class="yarn-meta">#line:09d7993 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity jigsaw_marseillese marseillese_played&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
-
-<a id="ys-node-npc-ll"></a>
-## npc_ll
-
-<div class="yarn-node" data-title="npc_ll"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: now play Order] <span class="yarn-meta">#line:00f2510 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity order_marseillese_audio marseillese_played&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-</code></pre></div>
-
-<a id="ys-node-marseillese-played"></a>
-## marseillese_played
-
-<div class="yarn-node" data-title="marseillese_played"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Well done! You played "La Marseillaise"!] <span class="yarn-meta">#line:0a5f3e1</span></span>
-[MISSING TRANSLATION: ]
 </code></pre></div>
 
 <a id="ys-node-band-member"></a>
@@ -82,49 +61,245 @@ hide:
 <div class="yarn-node" data-title="band_member"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 7&gt;&gt;
-<span class="yarn-line">[MISSING TRANSLATION: Thank you for helping us!] <span class="yarn-meta">#line:09fc7ad </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Can you put it together?] <span class="yarn-meta">#line:0515a95 </span></span>
+<span class="yarn-line">Merci de nous aider ! <span class="yarn-meta">#line:09fc7ad </span></span>
+<span class="yarn-line">Peux-tu le mettre ensemble ? <span class="yarn-meta">#line:0515a95 </span></span>
 <span class="yarn-cmd">&lt;&lt;action order_notes&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Hello! We're part of a band. We're musicians.] <span class="yarn-meta">#line:09a50f8 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: We wanted to play the French Anthem, but we cannot!] <span class="yarn-meta">#line:0a9df26 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Antura has mixed up the musical script.] <span class="yarn-meta">#line:0f0ccdf </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the notes of the script.] <span class="yarn-meta">#line:0c9616b </span></span>
+<span class="yarn-line">Bonjour ! Nous faisons partie d'un groupe. Nous sommes musiciens. <span class="yarn-meta">#line:09a50f8 </span></span>
+<span class="yarn-line">Nous voulions jouer l'hymne français, mais nous ne pouvons pas ! <span class="yarn-meta">#line:0a9df26 </span></span>
+<span class="yarn-line">Antura a mélangé le scénario musical. <span class="yarn-meta">#line:0f0ccdf </span></span>
+<span class="yarn-line">Retrouvez les notes du script. <span class="yarn-meta">#line:0c9616b </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start find_the_script_parts&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
+</code></pre></div>
+
+<a id="ys-node-npc-robot"></a>
+## npc_robot
+
+<div class="yarn-node" data-title="npc_robot"><pre class="yarn-code"><code><span class="yarn-header-dim">// TESTING</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Jouez maintenant à Jigsaw <span class="yarn-meta">#line:09d7993 </span></span>
+<span class="yarn-cmd">&lt;&lt;activity jigsaw_marseillese marseillese_played&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-npc-ll"></a>
+## npc_ll
+
+<div class="yarn-node" data-title="npc_ll"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
+<span class="yarn-line">maintenant joue cette chanson <span class="yarn-meta">#line:00f2510 </span></span>
+<span class="yarn-cmd">&lt;&lt;activity order_marseillese_audio marseillese_played&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-marseillese-played"></a>
+## marseillese_played
+
+<div class="yarn-node" data-title="marseillese_played"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
+<span class="yarn-line">Bravo ! Vous avez joué « La Marseillaise » ! <span class="yarn-meta">#line:0a5f3e1</span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-marseillaise-1"></a>
+## item_marseillaise_1
+
+<div class="yarn-node" data-title="item_marseillaise_1"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_1&gt;&gt;</span>
+<span class="yarn-line">Il est écrit « Allons les enfants » <span class="yarn-meta">#line:0637a75 </span></span>
+<span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-item-marseillaise-2"></a>
+## item_marseillaise_2
+
+<div class="yarn-node" data-title="item_marseillaise_2"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_2&gt;&gt;</span>
+<span class="yarn-line">Il est écrit « De la patrie » <span class="yarn-meta">#line:0265e2d </span></span>
+<span class="yarn-cmd">&lt;&lt;action COLLECT_2&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-item-marseillaise-3"></a>
+## item_marseillaise_3
+
+<div class="yarn-node" data-title="item_marseillaise_3"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_3&gt;&gt;</span>
+<span class="yarn-line">Il est écrit "Le jour de la gloire" <span class="yarn-meta">#line:0d4d50b </span></span>
+<span class="yarn-cmd">&lt;&lt;action COLLECT_3&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-item-marseillaise-4"></a>
+## item_marseillaise_4
+
+<div class="yarn-node" data-title="item_marseillaise_4"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_4&gt;&gt;</span>
+<span class="yarn-line">Il est écrit "Est arrivé" <span class="yarn-meta">#line:06d83a3 </span></span>
+<span class="yarn-cmd">&lt;&lt;action COLLECT_4&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-item-note-do"></a>
+## item_note_do
+
+<div class="yarn-node" data-title="item_note_do"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card note_do&gt;&gt;</span>
+<span class="yarn-line">"DO" est la première note. <span class="yarn-meta">#line:05d7453 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-note-re"></a>
+## item_note_re
+
+<div class="yarn-node" data-title="item_note_re"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card note_re&gt;&gt;</span>
+<span class="yarn-line">"RE" est la deuxième note. <span class="yarn-meta">#line:027b4cf </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-note-mi"></a>
+## item_note_mi
+
+<div class="yarn-node" data-title="item_note_mi"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card note_mi&gt;&gt;</span>
+<span class="yarn-line">"MI" est la troisième note. <span class="yarn-meta">#line:05fb9da </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-note-fa"></a>
+## item_note_fa
+
+<div class="yarn-node" data-title="item_note_fa"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card note_fa&gt;&gt;</span>
+<span class="yarn-line">"FA" est la quatrième note. <span class="yarn-meta">#line:06c6c61 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-note-sol"></a>
+## item_note_sol
+
+<div class="yarn-node" data-title="item_note_sol"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card note_sol&gt;&gt;</span>
+<span class="yarn-line">"SOL" est la cinquième note. <span class="yarn-meta">#line:0624b86 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-note-la"></a>
+## item_note_la
+
+<div class="yarn-node" data-title="item_note_la"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card note_la&gt;&gt;</span>
+<span class="yarn-line">"LA" est la sixième note. <span class="yarn-meta">#line:05898e9 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-item-note-si"></a>
+## item_note_si
+
+<div class="yarn-node" data-title="item_note_si"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card note_si&gt;&gt;</span>
+<span class="yarn-line">« SI » est la septième note. <span class="yarn-meta">#line:0e7f004 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-facts-notes"></a>
+## facts_notes
+
+<div class="yarn-node" data-title="facts_notes"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card musical_score&gt;&gt;</span>
+<span class="yarn-line">Ce sont 7 notes : Do Re Mi Fa Sol La Si. <span class="yarn-meta">#line:057ed8c </span></span>
+<span class="yarn-line">Ils se répètent encore et encore dans la musique. <span class="yarn-meta">#line:0a9001d </span></span>
+<span class="yarn-line">Nous utilisons des notes pour écrire des chansons. <span class="yarn-meta">#line:0d7a884 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-facts-marseillaise"></a>
+## facts_marseillaise
+
+<div class="yarn-node" data-title="facts_marseillaise"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_music&gt;&gt;</span>
+<span class="yarn-line">L'hymne a été écrit en 1792. <span class="yarn-meta">#line:0edd950 </span></span>
+<span class="yarn-cmd">&lt;&lt;card french_revolution&gt;&gt;</span>
+<span class="yarn-line">Il est devenu un symbole pendant la Révolution française. <span class="yarn-meta">#line:03e8eec </span></span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_1&gt;&gt;</span>
+<span class="yarn-line">Chaque partie contient des mots puissants. <span class="yarn-meta">#line:0165048 </span></span>
+<span class="yarn-line">La musique peut unir les gens. <span class="yarn-meta">#line:01d4688 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-jean-michelle-jarre"></a>
 ## jean_michelle_jarre
 
-<div class="yarn-node" data-title="jean_michelle_jarre"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: </span>
+<div class="yarn-node" data-title="jean_michelle_jarre"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">tags: actor=MAN </span>
+<span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 11&gt;&gt;
-<span class="yarn-line">[MISSING TRANSLATION: Thank you! The words of the French Hymn are important.] <span class="yarn-meta">#line:025e35b </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: The French National Anthem, "La Marseillaise" rapresents France and its people.] <span class="yarn-meta">#line:0e4484d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Can you put the words in order?] <span class="yarn-meta">#line:07e4ff1 </span></span>
+<span class="yarn-line">Merci ! Les paroles de l'hymne français sont importantes. <span class="yarn-meta">#line:025e35b </span></span>
+<span class="yarn-line">L'hymne national français, « La Marseillaise », représente la France et son peuple. <span class="yarn-meta">#line:0e4484d </span></span>
+<span class="yarn-line">Peux-tu mettre les mots dans l'ordre ? <span class="yarn-meta">#line:07e4ff1 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity order_words&gt;&gt;</span>
 &lt;&lt;elseif $COLLECTED_ITEMS &gt;= 7&gt;&gt;
-<span class="yarn-line">[MISSING TRANSLATION: Hello I'm Jean Michelle Jarre.] <span class="yarn-meta">#line:02f7c8b </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm a french composer, and I'm helping the band play "La Marseillaise".] <span class="yarn-meta">#line:0bd77b7 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Find the words of the anthem.] <span class="yarn-meta">#line:0e7033c </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: They've been scattered around by Antura.] <span class="yarn-meta">#line:0dc84d4 </span></span>
+<span class="yarn-line">Bonjour, je m'appelle Jean Michelle Jarre. <span class="yarn-meta">#line:02f7c8b </span></span>
+<span class="yarn-line">Je suis un compositeur français et j'aide le groupe à jouer "La Marseillaise". <span class="yarn-meta">#line:0bd77b7 </span></span>
+<span class="yarn-line">Trouvez les paroles de l'hymne. <span class="yarn-meta">#line:0e7033c </span></span>
+<span class="yarn-line">Ils ont été dispersés par Antura. <span class="yarn-meta">#line:0dc84d4 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start find_the_words&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: I'm busy right now, come talk to me later] <span class="yarn-meta">#line:08be987 </span></span>
+<span class="yarn-line">Je suis occupé en ce moment, viens me parler plus tard <span class="yarn-meta">#line:08be987 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+
 </code></pre></div>
 
 <a id="ys-node-win-order"></a>
 ## win_order
 
 <div class="yarn-node" data-title="win_order"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Now let's try to play the song!] <span class="yarn-meta">#line:0cef358 </span></span>
+<span class="yarn-line">Essayons maintenant de jouer la chanson ! <span class="yarn-meta">#line:0cef358 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity play_piano&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
+</code></pre></div>
+
+<a id="ys-node-spawned-note-musician"></a>
+## spawned_note_musician
+
+<div class="yarn-node" data-title="spawned_note_musician"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">spawn_group: note_teacher</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Do Re Mi est le début de la gamme. <span class="yarn-meta">#line:06bcd7a </span></span>
+<span class="yarn-line">Fa et Sol viennent ensuite. <span class="yarn-meta">#line:0203a16 </span></span>
+<span class="yarn-line">La et Si terminent les 7 notes. <span class="yarn-meta">#line:080491f </span></span>
+<span class="yarn-line">Les notes nous aident à lire la musique. <span class="yarn-meta">#line:003d7fb </span></span>
+
 </code></pre></div>
 
 

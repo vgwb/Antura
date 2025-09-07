@@ -97,7 +97,7 @@ namespace Antura.Discover
             isIntroRunning = true;
             if (questManager != null)
             {
-                questManager.StartDialogue("init");
+                questManager.StartDialogue("quest_start");
             }
         }
 

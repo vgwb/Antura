@@ -42,6 +42,7 @@ namespace Antura.Discover.Editor
             editInfo += $"    **Improve translations**: [comment here]({googlelink})  " + "\n";
             sb.AppendLine(editInfo);
 
+            // Load all cards
             var guids = AssetDatabase.FindAssets("t:CardData");
             var cards = new List<CardData>();
             foreach (var guid in guids)
@@ -50,6 +51,36 @@ namespace Antura.Discover.Editor
                 var c = AssetDatabase.LoadAssetAtPath<CardData>(path);
                 if (c != null)
                     cards.Add(c);
+            }
+
+            // Load topics once to build reverse index card -> topics
+            var topicGuids = AssetDatabase.FindAssets("t:TopicData");
+            var topics = new List<TopicData>();
+            foreach (var tguid in topicGuids)
+            {
+                var tpath = AssetDatabase.GUIDToAssetPath(tguid);
+                var tdata = AssetDatabase.LoadAssetAtPath<TopicData>(tpath);
+                if (tdata != null)
+                    topics.Add(tdata);
+            }
+            var cardToTopics = new Dictionary<CardData, List<TopicData>>();
+            foreach (var t in topics)
+            {
+                if (t == null)
+                    continue;
+                List<CardData> tCards;
+                try
+                { tCards = t.GetAllCards(); }
+                catch { tCards = null; }
+                if (tCards == null)
+                    continue;
+                foreach (var card in tCards.Where(cc => cc != null))
+                {
+                    if (!cardToTopics.TryGetValue(card, out var lst))
+                    { lst = new List<TopicData>(); cardToTopics[card] = lst; }
+                    if (!lst.Contains(t))
+                        lst.Add(t);
+                }
             }
 
             if (cards.Count == 0)
@@ -70,17 +101,18 @@ namespace Antura.Discover.Editor
                     continue;
                 sb.AppendLine($"## {country}");
                 sb.AppendLine();
-                foreach (var c in list.OrderBy(x => PublishUtils.SafeLocalized(x.Title, x.name), StringComparer.OrdinalIgnoreCase))
+                var orderedCards = list.OrderBy(x => PublishUtils.SafeLocalized(x.Title, x.name), StringComparer.OrdinalIgnoreCase).ToList();
+                for (int i = 0; i < orderedCards.Count; i++)
                 {
+                    var c = orderedCards[i];
                     string title = PublishUtils.SafeLocalized(c.Title, c.name);
                     string desc = PublishUtils.SafeLocalized(c.Description, string.Empty);
                     string cId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
-                    if (!string.IsNullOrEmpty(cId))
-                        sb.AppendLine($"<a id=\"{cId}\"></a>");
-                    sb.AppendLine($"### {title}");
+                    // Heading with embedded anchor id
+                    sb.AppendLine($"### <a id=\"{cId}\"></a>{title}");
 
                     if (c.ImageAsset != null)
-                        sb.AppendLine("![preview " + cId + "](../../assets/img/discover/cards/" + cId + ".jpg)\n");
+                        sb.AppendLine("![preview " + cId + "](../../assets/img/discover/cards/" + cId + ".jpg){ loading=lazy }\n");
 
                     if (!string.IsNullOrEmpty(desc))
                         sb.AppendLine(desc + "\n");
@@ -100,6 +132,21 @@ namespace Antura.Discover.Editor
                     //     sb.AppendLine("- Image: " + AssetDatabase.GetAssetPath(c.ImageAsset.Image));
                     // if (c.AudioAsset != null)
                     //     sb.AppendLine("- Audio: " + AssetDatabase.GetAssetPath(c.AudioAsset.Audio));
+                    // Topics referencing this card
+                    if (cardToTopics.TryGetValue(c, out var tList) && tList.Count > 0)
+                    {
+                        var topicLinks = tList
+                            .Where(t => t != null)
+                            .Select(t =>
+                            {
+                                var tid = !string.IsNullOrEmpty(t.Id) ? t.Id : t.name;
+                                string tName = !string.IsNullOrEmpty(t.Name) ? t.Name : tid;
+                                return $"[{tName}](../topics/index.md#{tid})";
+                            });
+                        sb.AppendLine("- Topics: " + string.Join(", ", topicLinks));
+                    }
+
+                    // Words list (expanded style)
                     if (c.Words != null && c.Words.Count > 0)
                     {
                         var wordLinks = c.Words
@@ -112,7 +159,7 @@ namespace Antura.Discover.Editor
 
                     if (c.ImageAsset != null)
                     {
-                        sb.AppendLine(GetAssetCredits( c.ImageAsset));
+                        sb.AppendLine(GetAssetCredits(c.ImageAsset));
                     }
                     if (c.AudioAsset != null)
                     {
@@ -133,6 +180,11 @@ namespace Antura.Discover.Editor
                         sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
                     }
                     sb.AppendLine();
+                    // Separator between cards (not after last)
+                    if (i < orderedCards.Count - 1)
+                    {
+                        sb.AppendLine("---\n");
+                    }
                 }
             }
 
@@ -162,15 +214,16 @@ namespace Antura.Discover.Editor
             return null;
         }
 
-        static string GetAssetCredits(AssetData asset) {
-                        var creditParts = new List<string>();
-                        creditParts.Add(asset.License.ToString());
-                        if (!string.IsNullOrEmpty(asset.Copyright))
-                            creditParts.Add(asset.Copyright);
-                        if (!string.IsNullOrEmpty(asset.SourceUrl))
-                            creditParts.Add($"[source]({asset.SourceUrl})");
+        static string GetAssetCredits(AssetData asset)
+        {
+            var creditParts = new List<string>();
+            creditParts.Add(asset.License.ToString());
+            if (!string.IsNullOrEmpty(asset.Copyright))
+                creditParts.Add(asset.Copyright);
+            if (!string.IsNullOrEmpty(asset.SourceUrl))
+                creditParts.Add($"[source]({asset.SourceUrl})");
 
-                        return "- " + asset.Type.ToString() + " credit: " + string.Join(" | ", creditParts);
+            return "- " + asset.Type.ToString() + " credit: " + string.Join(" | ", creditParts);
         }
 
         static Type FindTypeByName(string name)

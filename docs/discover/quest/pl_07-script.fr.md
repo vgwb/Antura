@@ -11,10 +11,10 @@ hide:
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=783699917#gid=783699917)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_07%20Solar%20System/PL_07%20Solar%20System%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## Init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="Init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// Quest: pl_07 | Solar System (Torun)</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// pl_07 | Solar System (Torun)</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">// WANTED:</span>
 <span class="yarn-header-dim">// Cards:</span>
@@ -29,12 +29,10 @@ hide:
 <span class="yarn-header-dim">// - planet_neptune (planetary education)</span>
 <span class="yarn-header-dim">// - telescope (scientific instrument)</span>
 <span class="yarn-header-dim">// - planetarium (educational facility)</span>
-<span class="yarn-header-dim">//</span>
 <span class="yarn-header-dim">// Tasks:</span>
 <span class="yarn-header-dim">// - Fix solar system map with correct planetary order</span>
 <span class="yarn-header-dim">// - Clean and learn about telescope parts</span>
 <span class="yarn-header-dim">// - Visit each planet in order with individual activities</span>
-<span class="yarn-header-dim">//</span>
 <span class="yarn-header-dim">// Activities:</span>
 <span class="yarn-header-dim">// - order planets_order (arrange 8 planets from Sun)</span>
 <span class="yarn-header-dim">// - piano planet_order_song (musical mnemonic for planet order)</span>
@@ -49,74 +47,66 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;declare $planets_found = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $planets_needed = 8&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Welcome to TORUŃ in POLAND.] <span class="yarn-meta">#line:0673aff </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: COPERNICUS was born here.] <span class="yarn-meta">#line:00fe710 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: ANTURA is stuck in his house!] <span class="yarn-meta">#line:00589bc </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Let's ask COPERNICUS for help.] <span class="yarn-meta">#line:031963d </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card torun&gt;&gt;</span>
+<span class="yarn-line">Bienvenue à TORUŃ en POLOGNE. <span class="yarn-meta">#line:0673aff </span></span>
+<span class="yarn-cmd">&lt;&lt;card nicolaus_copernicus&gt;&gt;</span>
+<span class="yarn-line">COPERNIC est né ici. <span class="yarn-meta">#line:00fe710 </span></span>
+<span class="yarn-cmd">&lt;&lt;card nicolaus_copernicus_house&gt;&gt;</span>
+<span class="yarn-line">ANTURA est coincé dans sa maison ! <span class="yarn-meta">#line:00589bc </span></span>
+<span class="yarn-line">Demandons de l’aide à COPERNIC. <span class="yarn-meta">#line:031963d </span></span>
+
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: This quest is complete.]
-[MISSING TRANSLATION: Today we learned about the SOLAR SYSTEM.]
-[MISSING TRANSLATION: And knew that the SUN is in the center.]
-<span class="yarn-cmd">&lt;&lt;jump quest_proposal&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Excellent travail sur cette quête. <span class="yarn-meta">#line:0a0a2ce </span></span>
+<span class="yarn-cmd">&lt;&lt;card solar_system&gt;&gt;</span>
+<span class="yarn-line">Aujourd'hui, nous avons appris le SYSTÈME SOLAIRE. <span class="yarn-meta">#line:0cce3a4 </span></span>
+
+<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
+
 </code></pre></div>
 
-<a id="ys-node-quest-proposal"></a>
-## quest_proposal
+<a id="ys-node-post-quest-activity"></a>
+## post_quest_activity
 
-<div class="yarn-node" data-title="quest_proposal"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
+<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: Why don't you draw the Solar System?]
+<span class="yarn-line">Dessinez les 8 PLANÈTES avec le SOLEIL au centre. <span class="yarn-meta">#line:064c54e </span></span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-copernicus-outside"></a>
 ## COPERNICUS_OUTSIDE
 
-<div class="yarn-node" data-title="COPERNICUS_OUTSIDE"><pre class="yarn-code"><code><span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// MEET COPERNICUS</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
+<div class="yarn-node" data-title="COPERNICUS_OUTSIDE"><pre class="yarn-code"><code><span class="yarn-header-dim">// LEt'S MEET COPERNICUS</span>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Copernicus</span>
-<span class="yarn-header-dim">image: copernicus_house_front</span>
+<span class="yarn-header-dim">tags: actor=Scientist</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Hello! I am NICOLAUS COPERNICUS.] <span class="yarn-meta">#line:0c5050d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I can help you rescue ANTURA.] <span class="yarn-meta">#line:0a41815 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: First, fix my SOLAR SYSTEM map.] <span class="yarn-meta">#line:0f17151 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Help with planets] <span class="yarn-meta">#line:07bdf91 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump PLANETS_ORDER&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// ACTIVITY – ORDER THE PLANETS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;action card nicolaus_copernicus_house&gt;&gt;</span>
+<span class="yarn-line">Bonjour ! Je suis Nicolas Copernic. <span class="yarn-meta">#line:0c5050d </span></span>
+<span class="yarn-line">Je peux vous aider à sauver ANTURA. <span class="yarn-meta">#line:0a41815 </span></span>
+<span class="yarn-line">Tout d’abord, corrigez ma carte du SYSTÈME SOLAIRE. <span class="yarn-meta">#line:0f17151 </span></span>
+<span class="yarn-line">Aide avec les planètes <span class="yarn-meta">#line:07bdf91 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-planets-order"></a>
 ## PLANETS_ORDER
 
-<div class="yarn-node" data-title="PLANETS_ORDER"><pre class="yarn-code"><code><span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<div class="yarn-node" data-title="PLANETS_ORDER"><pre class="yarn-code"><code><span class="yarn-header-dim">// ACTIVITY – ORDER THE PLANETS</span>
+<span class="yarn-header-dim">group: SolarSystem</span>
+<span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity order planets_order tutorial&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Done] <span class="yarn-meta">#line:06c0d36 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump AFTER_PLANETS_ORDER&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// AFTER ORDERING – HELIOCENTRIC IDEA</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;activity order planets_order AFTER_PLANETS_ORDER&gt;&gt;</span>
+
 </code></pre></div>
 
 <a id="ys-node-after-planets-order"></a>
@@ -125,15 +115,11 @@ hide:
 <div class="yarn-node" data-title="AFTER_PLANETS_ORDER"><pre class="yarn-code"><code><span class="yarn-header-dim">group: SolarSystem</span>
 <span class="yarn-header-dim">tags: actor=Copernicus</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Well done!] <span class="yarn-meta">#line:06ea147 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Long ago, people put EARTH in the center.] <span class="yarn-meta">#line:0af451b </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: I found the SUN is in the center.] <span class="yarn-meta">#line:0392dfd </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// MUSEUM – CENTER MODEL</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Bien joué! <span class="yarn-meta">#line:06ea147 </span></span>
+<span class="yarn-line">Il y a longtemps, les gens mettaient la TERRE au centre. <span class="yarn-meta">#line:0af451b </span></span>
+<span class="yarn-cmd">&lt;&lt;card heliocentric_model&gt;&gt;</span>
+<span class="yarn-line">J'ai trouvé que le SOLEIL est au centre. <span class="yarn-meta">#line:0392dfd </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-inside-museum"></a>
@@ -143,33 +129,36 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: museum_hall</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Here is a 3D SOLAR SYSTEM.] <span class="yarn-meta">#line:0069f70 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It spins in the hall.] <span class="yarn-meta">#line:04de41d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Find PLANETS to add them here.] <span class="yarn-meta">#line:01e7dda </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Clean the TELESCOPE] <span class="yarn-meta">#line:0c22e2c </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// ACTIVITY – CLEAN THE TELESCOPE LENS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card solar_system&gt;&gt;</span>
+<span class="yarn-line">Voici un SYSTÈME SOLAIRE en 3D. <span class="yarn-meta">#line:0069f70 </span></span>
+<span class="yarn-line">Ça tourne dans le couloir. <span class="yarn-meta">#line:04de41d </span></span>
+<span class="yarn-line">Trouvez des PLANÈTES pour les ajouter ici. <span class="yarn-meta">#line:01e7dda </span></span>
+<span class="yarn-line">Nettoyer le TÉLESCOPE. <span class="yarn-meta">#line:0c22e2c </span></span>
+
+
 </code></pre></div>
 
 <a id="ys-node-telescope-dirty"></a>
 ## TELESCOPE_DIRTY
 
-<div class="yarn-node" data-title="TELESCOPE_DIRTY"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Museum</span>
+<div class="yarn-node" data-title="TELESCOPE_DIRTY"><pre class="yarn-code"><code><span class="yarn-header-dim">// ACTIVITY – CLEAN THE TELESCOPE LENS</span>
+<span class="yarn-header-dim">group: Museum</span>
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">image: telescope_lens_dirty</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas telescope_lens_clean tutorial&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Learn the parts] <span class="yarn-meta">#line:0e91a5e </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// TELESCOPE – PARTS &amp; PLANETARIUM</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+
+</code></pre></div>
+
+<a id="ys-node-telescope-lens-clean-done"></a>
+## telescope_lens_clean_done
+
+<div class="yarn-node" data-title="telescope_lens_clean_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Museum</span>
+<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Excellent travail de nettoyage de l'objectif ! <span class="yarn-meta">#line:06ba2c4 </span></span>
+<span class="yarn-line">Maintenant, nous pouvons mieux voir les planètes. <span class="yarn-meta">#line:0dd17cf </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-telescope-explain"></a>
@@ -177,18 +166,14 @@ hide:
 
 <div class="yarn-node" data-title="TELESCOPE_EXPLAIN"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Museum</span>
 <span class="yarn-header-dim">tags: actor=Copernicus</span>
-<span class="yarn-header-dim">image: telescope_display</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: A TELESCOPE helps us see far.] <span class="yarn-meta">#line:0314ed5 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It has a LENS and an EYEPIECE.] <span class="yarn-meta">#line:062693e </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: A PLANETARIUM shows the sky indoors.] <span class="yarn-meta">#line:0cab30b </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Match the parts] <span class="yarn-meta">#line:015eb34 </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump TELESCOPE_PARTS&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">//--------------------------------------------</span>
-<span class="yarn-comment">// ACTIVITY – MATCH TELESCOPE PARTS</span>
-<span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card telescope&gt;&gt;</span>
+<span class="yarn-line">Un TÉLESCOPE nous aide à voir loin. <span class="yarn-meta">#line:0314ed5 </span></span>
+<span class="yarn-cmd">&lt;&lt;card lens&gt;&gt;</span>
+<span class="yarn-line">Il possède une LENTILLE et un OCULAIRE. <span class="yarn-meta">#line:062693e </span></span>
+<span class="yarn-cmd">&lt;&lt;card planetarium&gt;&gt;</span>
+<span class="yarn-line">Un PLANÉTARIUM montre le ciel à l'intérieur. <span class="yarn-meta">#line:0cab30b </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-telescope-parts"></a>
@@ -198,13 +183,13 @@ hide:
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity memory telescope_parts tutorial&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Piano memory] <span class="yarn-meta">#line:0db50a7 </span></span>
+<span class="yarn-line">Mémoire de piano <span class="yarn-meta">#line:0db50a7 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump PIANO_INTRO&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 <span class="yarn-comment">//--------------------------------------------</span>
 <span class="yarn-comment">// PIANO – PLANET ORDER SONG</span>
 <span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-piano-intro"></a>
@@ -214,11 +199,11 @@ hide:
 <span class="yarn-header-dim">tags: actor=Copernicus</span>
 <span class="yarn-header-dim">image: planet_piano_card</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Music helps memory.] <span class="yarn-meta">#line:08d3111 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Play the PLANET order tune.] <span class="yarn-meta">#line:0471676 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Play] <span class="yarn-meta">#line:0f08a91 </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+<span class="yarn-line">La musique aide la mémoire. <span class="yarn-meta">#line:08d3111 </span></span>
+<span class="yarn-line">Jouez la mélodie de l'ordre PLANET. <span class="yarn-meta">#line:0471676 </span></span>
+<span class="yarn-line">Jouer <span class="yarn-meta">#line:0f08a91 </span></span>
+
+
 </code></pre></div>
 
 <a id="ys-node-piano-play"></a>
@@ -228,12 +213,12 @@ hide:
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity piano planet_order_song tutorial&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Find PLANETS] <span class="yarn-meta">#line:013de52 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Trouver des PLANÈTES <span class="yarn-meta">#line:013de52 </span></span>
+
 <span class="yarn-comment">//--------------------------------------------</span>
 <span class="yarn-comment">// DISCOVER THE PLANETS</span>
 <span class="yarn-comment">//--------------------------------------------</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-find-planets"></a>
@@ -243,12 +228,13 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: solar_model_center</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Let's visit each PLANET.] <span class="yarn-meta">#line:0b015a8 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: They appear in the model when found.] <span class="yarn-meta">#line:00d6fdf </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Start with MERCURY] <span class="yarn-meta">#line:04ba61d </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-cmd">&lt;&lt;card astronomy&gt;&gt;</span>
+<span class="yarn-line">Visitons chaque PLANÈTE. <span class="yarn-meta">#line:0b015a8 </span></span>
+<span class="yarn-line">Ils apparaissent dans le modèle lorsqu'ils sont trouvés. <span class="yarn-meta">#line:00d6fdf </span></span>
+<span class="yarn-line">Commencez avec MERCURE <span class="yarn-meta">#line:04ba61d </span></span>
+
 <span class="yarn-comment">// MERCURY</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-mercury"></a>
@@ -258,14 +244,15 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_mercury</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: MERCURY is closest to the SUN.] <span class="yarn-meta">#line:0235ac2 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It goes around very fast.] <span class="yarn-meta">#line:03c1c86 </span></span>
+<span class="yarn-cmd">&lt;&lt;card mercury&gt;&gt;</span>
+<span class="yarn-line">MERCURE est le plus proche du SOLEIL. <span class="yarn-meta">#line:0235ac2 </span></span>
+<span class="yarn-line">Ça tourne très vite. <span class="yarn-meta">#line:03c1c86 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_mercury tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Mercury to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 <span class="yarn-comment">// VENUS</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-venus"></a>
@@ -275,14 +262,15 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_venus</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: VENUS is very hot.] <span class="yarn-meta">#line:0fbc89d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Thick clouds cover it.] <span class="yarn-meta">#line:0244228 </span></span>
+<span class="yarn-cmd">&lt;&lt;card venus&gt;&gt;</span>
+<span class="yarn-line">VÉNUS est très chaude. <span class="yarn-meta">#line:0fbc89d </span></span>
+<span class="yarn-line">D'épais nuages ​​le recouvrent. <span class="yarn-meta">#line:0244228 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_venus tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Venus to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 <span class="yarn-comment">// EARTH</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-earth"></a>
@@ -292,15 +280,16 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_earth</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: EARTH is our home.] <span class="yarn-meta">#line:01002c7 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It has land, air, and seas.] <span class="yarn-meta">#line:032ae50 </span></span>
+<span class="yarn-cmd">&lt;&lt;card earth&gt;&gt;</span>
+<span class="yarn-line">La TERRE est notre maison. <span class="yarn-meta">#line:01002c7 </span></span>
+<span class="yarn-line">Il y a de la terre, de l'air et des mers. <span class="yarn-meta">#line:032ae50 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_earth tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Earth to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+
 <span class="yarn-comment">// MARS</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-mars"></a>
@@ -310,35 +299,34 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_mars</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: MARS is red and dusty.] <span class="yarn-meta">#line:007f580 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It has big volcanoes.] <span class="yarn-meta">#line:0bc9c83 </span></span>
+<span class="yarn-cmd">&lt;&lt;card mars&gt;&gt;</span>
+<span class="yarn-line">MARS est rouge et poussiéreux. <span class="yarn-meta">#line:007f580 </span></span>
+<span class="yarn-line">Il y a de grands volcans. <span class="yarn-meta">#line:0bc9c83 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_mars tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Mars to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Next: JUPITER] <span class="yarn-meta">#line:08af681 </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
-<span class="yarn-comment">// JUPITER</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-jupiter"></a>
 ## PLANET_JUPITER
 
-<div class="yarn-node" data-title="PLANET_JUPITER"><pre class="yarn-code"><code><span class="yarn-header-dim">group: SolarSystem</span>
+<div class="yarn-node" data-title="PLANET_JUPITER"><pre class="yarn-code"><code><span class="yarn-header-dim">// JUPITER</span>
+<span class="yarn-header-dim">group: SolarSystem</span>
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_jupiter</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: JUPITER is the biggest PLANET.] <span class="yarn-meta">#line:06e72b3 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It has a Great Red Spot.] <span class="yarn-meta">#line:094d7dd </span></span>
+<span class="yarn-cmd">&lt;&lt;card jupiter&gt;&gt;</span>
+<span class="yarn-line">JUPITER est la plus grande PLANÈTE. <span class="yarn-meta">#line:06e72b3 </span></span>
+<span class="yarn-line">Il a une grande tache rouge. <span class="yarn-meta">#line:094d7dd </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_jupiter tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Jupiter to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Next: SATURN] <span class="yarn-meta">#line:07229a6 </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Le prochain est SATURNE <span class="yarn-meta">#line:07229a6 </span></span>
+    <span class="yarn-cmd">&lt;&lt;jump PLANET_SATURN&gt;&gt;</span>
+
 <span class="yarn-comment">// SATURN</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-saturn"></a>
@@ -348,16 +336,17 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_saturn</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: SATURN has bright RINGS.] <span class="yarn-meta">#line:0e6de7d </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: Many MOONS orbit it.] <span class="yarn-meta">#line:00a70f4 </span></span>
+<span class="yarn-cmd">&lt;&lt;card saturn&gt;&gt;</span>
+<span class="yarn-line">SATURNE a des ANNEAUX brillants. <span class="yarn-meta">#line:0e6de7d </span></span>
+<span class="yarn-line">De nombreuses LUNES gravitent autour d'elle. <span class="yarn-meta">#line:00a70f4 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_saturn tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Saturn to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Next: URANUS] <span class="yarn-meta">#line:09ba1f7 </span></span>
+<span class="yarn-line">Le prochain est URANUS <span class="yarn-meta">#line:09ba1f7 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump PLANET_URANUS&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 <span class="yarn-comment">// URANUS</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-uranus"></a>
@@ -367,15 +356,16 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_uranus</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: URANUS spins on its side.] <span class="yarn-meta">#line:04df973 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It looks blue‑green.] <span class="yarn-meta">#line:01e724d </span></span>
+<span class="yarn-cmd">&lt;&lt;card uranus&gt;&gt;</span>
+<span class="yarn-line">URANUS tourne sur le côté. <span class="yarn-meta">#line:04df973 </span></span>
+<span class="yarn-line">Cela semble bleu-vert. <span class="yarn-meta">#line:01e724d </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_uranus tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Uranus to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+
 <span class="yarn-comment">// NEPTUNE</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-planet-neptune"></a>
@@ -385,16 +375,17 @@ hide:
 <span class="yarn-header-dim">tags: actor=Guide</span>
 <span class="yarn-header-dim">image: planet_neptune</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: NEPTUNE is far and windy.] <span class="yarn-meta">#line:0191651 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: It is deep blue.] <span class="yarn-meta">#line:0584147 </span></span>
+<span class="yarn-cmd">&lt;&lt;card neptune&gt;&gt;</span>
+<span class="yarn-line">NEPTUNE est loin et venteux. <span class="yarn-meta">#line:0191651 </span></span>
+<span class="yarn-line">C'est d'un bleu profond. <span class="yarn-meta">#line:0584147 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_neptune tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Neptune to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 <span class="yarn-cmd">&lt;&lt;jump ALL_PLANETS_FOUND&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+
 <span class="yarn-comment">// ALL PLANETS FOUND</span>
-[MISSING TRANSLATION: ]
+
 </code></pre></div>
 
 <a id="ys-node-all-planets-found"></a>
@@ -404,10 +395,10 @@ hide:
 <span class="yarn-header-dim">tags: actor=Copernicus</span>
 <span class="yarn-header-dim">image: solar_model_finale</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: You found all 8 PLANETS.] <span class="yarn-meta">#line:0d91787 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: The model is complete.] <span class="yarn-meta">#line:0d9ce49 </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: now rescue ANTURA!] <span class="yarn-meta">#line:0896149 </span></span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Vous avez trouvé les 8 PLANÈTES. <span class="yarn-meta">#line:0d91787 </span></span>
+<span class="yarn-line">Le modèle est complet. <span class="yarn-meta">#line:0d9ce49 </span></span>
+<span class="yarn-line">Maintenant, sauvez ANTURA ! <span class="yarn-meta">#line:0896149 </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-rescue-antura-guide"></a>
@@ -418,9 +409,9 @@ hide:
 <span class="yarn-header-dim">image: antura_trail</span>
 
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: ANTURA is free!] <span class="yarn-meta">#line:0294715 </span></span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+<span class="yarn-line">ANTURA est gratuit ! <span class="yarn-meta">#line:0294715 </span></span>
+
+
 </code></pre></div>
 
 <a id="ys-node-rescue-antura-cop"></a>
@@ -430,12 +421,9 @@ hide:
 <span class="yarn-header-dim">tags: actor=Copernicus</span>
 <span class="yarn-header-dim">image: antura_rescued</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Thank you for your help.] <span class="yarn-meta">#line:0d7e5be </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: "Remember: the SUN is in the center.""] <span class="yarn-meta">#line:0b0e4bf </span></span>
-<span class="yarn-line">[MISSING TRANSLATION: -&gt; Final Quiz] <span class="yarn-meta">#line:0a535da </span></span>
-    <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Merci pour votre aide. <span class="yarn-meta">#line:0d7e5be </span></span>
+<span class="yarn-line">N'oubliez pas que le SOLEIL est au centre. <span class="yarn-meta">#line:0b0e4bf </span></span>
+
 </code></pre></div>
 
 <a id="ys-node-final-quiz"></a>
@@ -445,16 +433,16 @@ hide:
 <span class="yarn-header-dim">tags: actor=Narrator</span>
 <span class="yarn-header-dim">image: quiz_solar_system</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Answer the questions.] <span class="yarn-meta">#line:08bea58 </span></span>
+<span class="yarn-line">Répondez aux questions. <span class="yarn-meta">#line:08bea58 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity quiz copernicus_basics tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Suggested questions in preset:</span>
 <span class="yarn-comment">// 1) Who is in the center of the SOLAR SYSTEM? a) EARTH  b) SUN ✅  c) MOON</span>
 <span class="yarn-comment">// 2) How many PLANETS are there?             a) 7  b) 8 ✅  c) 9</span>
 <span class="yarn-comment">// 3) COPERNICUS was from which country?       a) POLAND ✅  b) ITALY  c) FRANCE</span>
-[MISSING TRANSLATION: ]
+
 <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-[MISSING TRANSLATION: ]
-[MISSING TRANSLATION: ]
+
+
 </code></pre></div>
 
 <a id="ys-node-quest-complete"></a>
@@ -463,9 +451,32 @@ hide:
 <div class="yarn-node" data-title="QUEST_COMPLETE"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">group: End</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: Well done!]
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
-[MISSING TRANSLATION: ]
+<span class="yarn-line">Bien joué! <span class="yarn-meta">#line:03529aa </span></span>
+
+<span class="yarn-comment">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-comment">// these npc are spawn automatically in the scene</span>
+<span class="yarn-comment">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-comment">// they will say one of these lines randomly</span>
+
+<span class="yarn-line">titre : enfant engendré <span class="yarn-meta">#line:0ab69a2 </span></span>
+<span class="yarn-line">position : 900,1400 <span class="yarn-meta">#line:0d47d3c </span></span>
+<span class="yarn-line">groupe : engendré <span class="yarn-meta">#line:0d190d0 </span></span>
+<span class="yarn-line">tags : acteur=Enfant <span class="yarn-meta">#line:00c76ad </span></span>
+<span class="yarn-line">--- <span class="yarn-meta">#line:06824fe </span></span>
+<span class="yarn-line">J'ai vu NEPTUNE bleu. <span class="yarn-meta">#line:0db085c </span></span>
+<span class="yarn-line">Les anneaux de SATURNE brillent. <span class="yarn-meta">#line:0a7ab40 </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-spawned-student"></a>
+## spawned_student
+
+<div class="yarn-node" data-title="spawned_student"><pre class="yarn-code"><code><span class="yarn-header-dim">group: Spawned</span>
+<span class="yarn-header-dim">tags: actor=Student</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Les planètes se déplacent autour du SOLEIL. <span class="yarn-meta">#line:0275852 </span></span>
+<span class="yarn-line">la LUNE est notre satellite. <span class="yarn-meta">#line:07430b2 </span></span>
+
 </code></pre></div>
 
 
