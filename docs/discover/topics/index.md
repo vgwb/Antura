@@ -81,6 +81,7 @@ Credits:
     A person who catches fish at sea.
 
     ![preview fisherman](../../assets/img/discover/cards/fisherman.jpg){ width="200" }
+
 - Connected cards:
     - **[Port](../cards/index.md#port)** (RelatedTo)
     A place where ships load and unload.
@@ -119,6 +120,7 @@ Credits:
     A map showing all the countries in Europe. You can see where France, Poland, Germany, and other countries are located.
 
     ![preview concept_europe_map](../../assets/img/discover/cards/concept_europe_map.jpg){ width="200" }
+
 - Connected cards:
     - **[Flag of Germany](../cards/index.md#flag_germany)** (RelatedTo)
     The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
@@ -188,6 +190,7 @@ Credits:
     The pillars of earth
 
     ![preview mountain](../../assets/img/discover/cards/mountain.jpg){ width="200" }
+
 - Connected cards:
     - **[Mountain Guide](../cards/index.md#mountain_guide)** (RelatedTo)
     A person who helps people climb safely.
@@ -223,6 +226,7 @@ Credits:
     The pillars of earth
 
     ![preview mountain](../../assets/img/discover/cards/mountain.jpg){ width="200" }
+
 - Connected cards:
     - **[Gloves](../cards/index.md#gloves)** (RelatedTo)
     Warm covers for your hands.
@@ -272,6 +276,7 @@ Credits:
     The written notes and words for a song.
 
     ![preview musical_score](../../assets/img/discover/cards/musical_score.jpg){ width="200" }
+
 - Connected cards:
     - **[Piano](../cards/index.md#piano)** (RelatedTo)
     A keyboard instrument used to play melodies and chords.
@@ -327,6 +332,7 @@ Credits:
     The Sun and the eight planets that travel around it.
 
     ![preview solar_system](../../assets/img/discover/cards/solar_system.jpg){ width="200" }
+
 - Connected cards:
     - **[Mercury](../cards/index.md#mercury)** (RelatedTo)
     The closest planet to the Sun; small and very fast.
@@ -435,6 +441,7 @@ Credits:
     A tool that helps us see far‑away things in the sky.
 
     ![preview telescope](../../assets/img/discover/cards/telescope.jpg){ width="200" }
+
 - Connected cards:
     - **[Nicolaus Copernicus](../cards/index.md#nicolaus_copernicus)** (RelatedTo)
     A brilliant scientist from Poland who discovered that the Earth goes around the Sun, not the other way around! This changed how we understand space.
@@ -510,6 +517,7 @@ Credits:
     A long, crispy bread that is the most famous food in France. French people buy fresh baguettes every day from the bakery!
 
     ![preview food_baguette](../../assets/img/discover/cards/food_baguette.jpg){ width="200" }
+
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
     The capital city of France. Paris has a famous tall tower called the Eiffel Tower!
@@ -554,6 +562,7 @@ Credits:
     A special fish soup from Marseille in southern France. It's made with many different types of fish and has a delicious smell!
 
     ![preview bouillabaisse](../../assets/img/discover/cards/bouillabaisse.jpg){ width="200" }
+
 - Connected cards:
     - **[BREAD](../cards/index.md#food_bread)** (MadeOf)
     A yummy food made from flour and water. You can make sandwiches with bread!
@@ -616,6 +625,7 @@ Credits:
     A country in Europe. Capital is Paris.
 
     ![preview country_france](../../assets/img/discover/cards/country_france.jpg){ width="200" }
+
 - Connected cards:
     - **[Switzerland](../cards/index.md#country_switzerland)** (RelatedTo)
     A country in Europe. Capital is Bern. Switzerland is famous for mountains and cheese.
@@ -686,6 +696,7 @@ Credits:
     A tall tower and a symbol of Paris. It's made of iron and is 300 meters talll. You can go up and see the whole city.
 
     ![preview eiffel_tower](../../assets/img/discover/cards/eiffel_tower.jpg){ width="200" }
+
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
     The capital city of France. Paris has a famous tall tower called the Eiffel Tower!
@@ -725,6 +736,7 @@ Credits:
     A country in Europe. Capital is Paris.
 
     ![preview country_france](../../assets/img/discover/cards/country_france.jpg){ width="200" }
+
 - Connected cards:
     - **[Flag of France](../cards/index.md#flag_france)** (RelatedTo)
     The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
@@ -798,6 +810,7 @@ Credits:
     A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
 
     ![preview jules_verne](../../assets/img/discover/cards/jules_verne.jpg){ width="200" }
+
 - Connected cards:
     - **[Around the World in Eighty Days](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
     An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
@@ -846,6 +859,7 @@ Credits:
     A huge museum full of art. It’s where the Mona Lisa lives.
 
     ![preview louvre](../../assets/img/discover/cards/louvre.jpg){ width="200" }
+
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
     The capital city of France. Paris has a famous tall tower called the Eiffel Tower!
@@ -924,6 +938,7 @@ Credits:
     The French national song. People sing it at big events and sports games.
 
     ![preview marseillaise_music](../../assets/img/discover/cards/marseillaise_music.jpg){ width="200" }
+
 - Connected cards:
     - **[French Revolution](../cards/index.md#french_revolution)** (RelatedTo)
     A time in the 1790s when France changed its government.
@@ -963,6 +978,7 @@ Credits:
     The highest mountain in Western Europe. Covered in snow all year.
 
     ![preview place_mont_blanc](../../assets/img/discover/cards/place_mont_blanc.jpg){ width="200" }
+
 - Connected cards:
     - **[Mountain Guide](../cards/index.md#mountain_guide)** (RelatedTo)
     A person who helps people climb safely.
@@ -1013,6 +1029,7 @@ Credits:
     A beautiful cathedral in Paris. Its colorful glass windows tell stories.
 
     ![preview notre_dame_de_paris](../../assets/img/discover/cards/notre_dame_de_paris.jpg){ width="200" }
+
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
     The capital city of France. Paris has a famous tall tower called the Eiffel Tower!
@@ -1042,6 +1059,7 @@ Credits:
     A road that goes over water so cars can drive across rivers and lakes.
 
     ![preview place_bridge_cars](../../assets/img/discover/cards/place_bridge_cars.jpg){ width="200" }
+
 - Connected cards:
     - **[Footbridges](../cards/index.md#place_bridge_people)** (RelatedTo)
     Small bridges for people walking. They keep you safe from traffic.
@@ -1071,6 +1089,7 @@ Credits:
     A port city in Poland on the Baltic Sea.
 
     ![preview gdansk](../../assets/img/discover/cards/gdansk.jpg){ width="200" }
+
 - Connected cards:
     - **[Gdańsk Lighthouse](../cards/index.md#gdansk_lighthouse)** (RelatedTo)
     A historic lighthouse that helps ships find the harbor.
@@ -1105,6 +1124,7 @@ Credits:
     a traditional Polish treat made with spices and honey, often shaped in beautiful designs.
 
     ![preview gingerbread](../../assets/img/discover/cards/gingerbread.jpg){ width="200" }
+
 - Connected cards:
     - **[Gingerbread Mold](../cards/index.md#gingerbread_mold)** (RelatedTo)
     A shaped tool that makes fun cookie shapes.
@@ -1148,6 +1168,7 @@ Credits:
     A famous fountain in Gdańsk with the sea god statue.
 
     ![preview neptune_s_fountain](../../assets/img/discover/cards/neptune_s_fountain.jpg){ width="200" }
+
 - Connected cards:
     - **[Amber](../cards/index.md#amber)** (RelatedTo)
     Shiny fossil tree resin called 'Baltic Gold'.
@@ -1186,6 +1207,7 @@ Credits:
     A big river in western Poland. It helps ships travel and trade.
 
     ![preview place_odra_river](../../assets/img/discover/cards/place_odra_river.jpg){ width="200" }
+
 - Connected cards:
     - **[Footbridge](../cards/index.md#footbridge)** (RelatedTo)
     A bridge for people to walk on. No cars.
@@ -1267,6 +1289,7 @@ Credits:
     A country in Europe. Capital is Warsaw. Poland is famous for scientists like Copernicus and delicious pierogi!
 
     ![preview country_poland](../../assets/img/discover/cards/country_poland.jpg){ width="200" }
+
 - Connected cards:
     - **[Slovakia](../cards/index.md#country_slovakia)** (RelatedTo)
     A country in Europe. Capital is Bratislava.
@@ -1345,6 +1368,7 @@ Credits:
     A country in Europe. Capital is Warsaw. Poland is famous for scientists like Copernicus and delicious pierogi!
 
     ![preview country_poland](../../assets/img/discover/cards/country_poland.jpg){ width="200" }
+
 - Connected cards:
     - **[Flag of Poland](../cards/index.md#flag_poland)** (RelatedTo)
     The flag of Poland has white and red horizontal stripes. Poland is famous for scientists like Copernicus and delicious pierogi!
@@ -1370,6 +1394,7 @@ Credits:
 
 
     ![preview chopin_monument](../../assets/img/discover/cards/chopin_monument.jpg){ width="200" }
+
 - Connected cards:
     - **[Mermaid of Warsaw](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
     The city’s symbol is a brave mermaid with a sword and shield. You can see her statue by the river.
@@ -1399,6 +1424,7 @@ Credits:
     A city in Poland with rivers, bridges, and history.
 
     ![preview wroclaw](../../assets/img/discover/cards/wroclaw.jpg){ width="200" }
+
 - Connected cards:
     - **[Wrocław Bridges](../cards/index.md#wroclaw_bridges)** (RelatedTo)
     Many bridges cross the Odra River in Wrocław.
@@ -1427,6 +1453,7 @@ Credits:
     Tiny statues across the city that love to play tricks.
 
     ![preview wroclaw_dwarfs](../../assets/img/discover/cards/wroclaw_dwarfs.jpg){ width="200" }
+
 - Connected cards:
     - **[Animal Lover Dwarf](../cards/index.md#animal_lover_dwarf)** (RelatedTo)
     A dwarf statue that loves the zoo and animals.
@@ -1476,6 +1503,7 @@ Credits:
     A big zoo in Wrocław with many animals to learn about.
 
     ![preview wroclaw_zoo](../../assets/img/discover/cards/wroclaw_zoo.jpg){ width="200" }
+
 - Connected cards:
     - **[Zoo Keeper](../cards/index.md#zoo_keeper)** (RelatedTo)
     A person who cares for animals at the zoo.

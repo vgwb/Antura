@@ -121,7 +121,10 @@ namespace Antura.Discover.Editor
                             sb.AppendLine($"    {cDesc}");
                         sb.AppendLine();
                         if (core.ImageAsset != null)
+                        {
                             sb.AppendLine($"    ![preview {cid}](../../assets/img/discover/cards/{cid}.jpg){{ width=\"200\" }}");
+                            sb.AppendLine();
+                        }
                     }
 
                     // Connected cards (expanded)
