@@ -80,7 +80,7 @@ tags:
 ---
 <<if $activity2 == true>>
 Great job!
-<<elseif $activity1 == true >>
+<<elseif $quest2 == true >>
     Thank you! The words of the French Hymn are important. #line:025e35b 
     The French National Anthem, "La Marseillaise" rapresents France and its people. #line:0e4484d 
     Can you put the words in order? #line:07e4ff1 
@@ -91,7 +91,7 @@ Great job!
     I'm a french composer, and I'm helping the band play "La Marseillaise". #line:0bd77b7 
     Find the words of the anthem. #line:0e7033c 
     They've been scattered around by Antura. #line:0dc84d4 
-    <<task_start find_the_words>>
+    <<task_start find_the_words win_quest2>>
 <<else>>
 I'm busy right now, come talk to me later #line:08be987 
 <<endif>>
@@ -110,6 +110,14 @@ position: 1
 ---
 <<set $quest1 = true>>
 <<task_end find_the_script_parts>>
+
+
+===
+title : win_quest2
+position: 1
+---
+<<set $quest2 = true>>
+<<task_end find_the_words>>
 
 ===
 // TESTING
