@@ -1,7 +1,15 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace Antura.Discover.Activities
 {
+
+    public enum SelectionMode
+    {
+        ManualSet,
+        RandomFromTopic,
+    }
+
     public class ActivitySettingsAbstract : IdentifiedData
     {
         [ReadOnly]
@@ -15,7 +23,7 @@ namespace Antura.Discover.Activities
         [Tooltip("Timer for the activity, if enabled")]
         public bool HasTimer = true;
         [Range(1, 600)]
-        public int TimerSeconds = 60;
+        public int TimerSeconds = 120;
 
         [Header("Points")]
 
@@ -29,5 +37,9 @@ namespace Antura.Discover.Activities
         [HideInInspector]
         public int PointsExpert = 3;
 
+        [Header("Topic")]
+        public TopicData MainTopic;
+        [Tooltip("How to select the cards for the activity")]
+        public SelectionMode SelectionMode;
     }
 }
