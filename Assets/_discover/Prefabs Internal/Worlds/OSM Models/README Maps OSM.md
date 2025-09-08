@@ -1,10 +1,10 @@
 # OSM maps
 We use https://github.com/vvoovv/blosm 
 a Blender plugin that converst OpenStreet Maps into 3D mesh
-
 here are the coordinates of various places
 https://prochitecture.com/blender-osm/extent/
 
+## Coordinates used
 Paris Center
 2.29056,48.84905,2.35288,48.86666
 
@@ -16,6 +16,12 @@ Wroklaw Zoo
 
 Angers
 -0.56229,47.46886,-0.55703,47.47132
+
+Warsaw city
+21.00685,52.23288,21.05036,52.25219
+
+Torun
+18.60009,53.00670,18.61022,53.01206
 
 ---
 
