@@ -340,7 +340,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh-59104
-  serializedVersion: 11
+  serializedVersion: 12
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -498,6 +498,19 @@ Mesh:
     offset: 0
     size: 0
     path: 
+  m_MeshLodInfo:
+    serializedVersion: 2
+    m_LodSelectionCurve:
+      serializedVersion: 1
+      m_LodSlope: 0
+      m_LodBias: 0
+    m_NumLevels: 1
+    m_SubMeshes:
+    - serializedVersion: 2
+      m_Levels:
+      - serializedVersion: 1
+        m_IndexStart: 0
+        m_IndexCount: 0
 --- !u!1 &865676622
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +958,7 @@ PrefabInstance:
     - target: {fileID: 3869670508763437673, guid: f4029d0eca7b344e99053fc00b1b223f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3489
+      value: 3495
       objectReference: {fileID: 0}
     - target: {fileID: 5889902377241073793, guid: f4029d0eca7b344e99053fc00b1b223f,
         type: 3}
