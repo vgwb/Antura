@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentQuest: {fileID: 11400000, guid: c55158fa3c0e24dc184dbdabf7028997, type: 2}
+  ActivityConfigs: []
+  QuestTasks: []
   DebugQuest: 1
   DebugLanguage: IT
   EasyMode: 0
@@ -166,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugAction: 
+  PlayerSpawnPoint: {fileID: 0}
   QuestActions:
   - ActionCode: INIT
     Commands:
@@ -176,7 +179,6 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
-  Tasks: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
 --- !u!1 &7021348432232420695
