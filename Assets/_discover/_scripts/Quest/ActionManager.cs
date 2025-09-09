@@ -109,7 +109,7 @@ namespace Antura.Discover
                     return;
                 }
 
-                if (QuestManager.I.DebugQuest)
+                if (QuestManager.I.DebugMode)
                     Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
 
                 if (actionData.Commands == null || actionData.Commands.Count == 0)

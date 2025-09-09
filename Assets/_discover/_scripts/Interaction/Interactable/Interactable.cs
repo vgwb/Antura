@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using Yarn;
 using Yarn.Unity;
-using Yarn.Unity.Attributes;
 
 namespace Antura.Discover
 {

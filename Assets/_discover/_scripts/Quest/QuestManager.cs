@@ -1,19 +1,41 @@
 using Antura.Core;
 using Antura.Audio;
 using Antura.Discover.Activities;
-using Antura.Profile;
-using Antura.UI;
 using Antura.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
-using DG.DeExtensions;
+using Yarn.Unity;
+using System;
 
 namespace Antura.Discover
 {
+    [Serializable]
+    public class QuestDebugConfig
+    {
+        public string DebugLanguage = "";
+
+        [Tooltip("Dialogue node to start")]
+        public DialogueReference DebugNode = new();
+
+        [Tooltip("Force the EASY_MODE var")]
+        public bool ForceEasyMode = false;
+
+        [Header("Readonly")]
+        public string LanguageCode = "";
+        public string NativeLanguageCode = "";
+
+    }
+
+
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
+
         public QuestData CurrentQuest;
+        public bool DebugMode;
+        private bool _debugQuestApplied;
+        public QuestDebugConfig DebugConfig;
+
         public List<ActivityConfig> ActivityConfigs;
 
         public QuestTask[] QuestTasks;
@@ -24,19 +46,7 @@ namespace Antura.Discover
         public ProgressManager Progress;
         public QuestTaskManager TaskManager;
 
-        [Header("DEBUG")]
-        public bool DebugQuest = false;
-        public string DebugLanguage = "";
-        private bool _debugQuestApplied;
-
-        [Tooltip("Force the EASY_MODE var")]
-        public bool EasyMode = false;
-
-        [Header("Readonly")]
-        public string LanguageCode = "";
-        public string NativeLanguageCode = "";
         private GameObject currentNPC;
-        private PlayerController playerController;
         private int total_coins = 0;
         private int collected_items = 0;
 
@@ -50,18 +60,17 @@ namespace Antura.Discover
 
         void Start()
         {
-            playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             total_coins = 0;
 
-            LanguageCode = (DebugQuest && DebugLanguage != "") ? DebugLanguage : "FR";
-            NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);
+            DebugConfig.LanguageCode = (DebugMode && DebugConfig.DebugLanguage != "") ? DebugConfig.DebugLanguage : "FR";
+            DebugConfig.NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);
 
             var yarnManager = YarnAnturaManager.I;
             if (yarnManager == null)
             {
                 yarnManager = FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             }
-            yarnManager?.Setup(LanguageCode, NativeLanguageCode);
+            yarnManager?.Setup(DebugConfig.LanguageCode, DebugConfig.NativeLanguageCode);
 
             // Initialize inventory target from Yarn variables if present
             int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
@@ -95,7 +104,7 @@ namespace Antura.Discover
 
             // DiscoverGameManager is responsible for starting the intro Yarn node
 
-            ApplyInteractableDebugLabels(DebugQuest);
+            ApplyInteractableDebugLabels(DebugMode);
 
             // TODO, maybe in taskmanager
             UIManager.I.ProgressDisplay.Setup(30);
@@ -114,9 +123,9 @@ namespace Antura.Discover
 
         void Update()
         {
-            if (DebugQuest != _debugQuestApplied)
+            if (DebugMode != _debugQuestApplied)
             {
-                ApplyInteractableDebugLabels(DebugQuest);
+                ApplyInteractableDebugLabels(DebugMode);
             }
         }
 
@@ -132,9 +141,21 @@ namespace Antura.Discover
             }
         }
 
+        public void QuestStart()
+        {
+            if (DebugMode && DebugConfig.DebugNode != null)
+            {
+                StartDialogue(DebugConfig.DebugNode);
+            }
+            else
+            {
+                StartDialogue("quest_start");
+            }
+        }
+
         public void QuestEnd()
         {
-            if (DebugConfig.I.VerboseAntura)
+            if (DebugMode)
                 Debug.Log("QuestEnd");
 
             QuestEnd questResult = new QuestEnd();
@@ -311,7 +332,7 @@ namespace Antura.Discover
         private QuestNode _lastYarnNode;
         private void OnYarnNodeStarted(string nodeName)
         {
-            if (DebugQuest)
+            if (DebugMode)
                 Debug.Log($"[Yarn] Node started: {nodeName}");
         }
         private void OnYarnQuestNode(QuestNode node)
@@ -363,8 +384,8 @@ namespace Antura.Discover
 
         private void ApplyInteractableDebugLabels(bool enable)
         {
-            _debugQuestApplied = DebugQuest;
-            var interactables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            _debugQuestApplied = DebugMode;
+            var interactables = FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (var it in interactables)
             {
                 if (enable)

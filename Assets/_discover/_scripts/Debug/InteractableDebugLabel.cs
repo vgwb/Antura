@@ -57,7 +57,7 @@ namespace Antura.Discover.Debugging
             transform.position = target.position + offset;
             transform.rotation = Quaternion.LookRotation(transform.position - mainCam.transform.position);
             if (!alwaysVisible && worldCanvas != null)
-                worldCanvas.enabled = QuestManager.I != null && QuestManager.I.DebugQuest;
+                worldCanvas.enabled = QuestManager.I != null && QuestManager.I.DebugMode;
         }
 
         public void UpdateText()
