@@ -48,7 +48,7 @@ namespace Antura.Discover.Activities
         private readonly List<GameObject> spawned = new();
 
         private const float EPS = 0.01f;
-        private bool ended; // prevent multiple close calls
+        private bool ended;
 
         [Header("Layout")]
         [Tooltip("Padding from edges when scattering in tray.")]

@@ -173,7 +173,7 @@ namespace Antura.Discover.Activities
 
         protected virtual void Update()
         {
-            if (!(QuestManager.I?.DebugQuest ?? false))
+            if (!(QuestManager.I?.DebugMode ?? false))
                 return;
             if (state != ActivityPlayState.Playing)
                 return;

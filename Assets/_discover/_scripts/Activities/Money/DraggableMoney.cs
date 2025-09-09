@@ -46,9 +46,13 @@ namespace Antura.Discover.Activities
         public void OnDrag(PointerEventData eventData)
         {
             lastEvent = eventData;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out var localPoint);
-            rt.anchoredPosition = localPoint;
+            // Convert pointer to the local space of the current drag parent so the center stays under the cursor
+            RectTransform parentRT = (dragRoot != null ? dragRoot : canvas.transform as RectTransform);
+            if (parentRT && RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out var localPoint))
+            {
+                // With pivot already set to center (0.5,0.5) this places the token center at the pointer.
+                rt.anchoredPosition = localPoint;
+            }
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -68,10 +72,26 @@ namespace Antura.Discover.Activities
                 }
                 return;
             }
-
-            // Not on valid zone -> return
-            transform.SetParent(OriginalParent, true);
-            rt.anchoredPosition = startPos;
+            // Not on a different drop zone: freely reposition within original tray instead of snapping back
+            if (OriginalParent is RectTransform parentRT)
+            {
+                transform.SetParent(OriginalParent, true);
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out var lpTray))
+                {
+                    // Optionally clamp within tray bounds
+                    var r = parentRT.rect;
+                    float halfW = r.width * 0.5f;
+                    float halfH = r.height * 0.5f;
+                    lpTray.x = Mathf.Clamp(lpTray.x, -halfW, halfW);
+                    lpTray.y = Mathf.Clamp(lpTray.y, -halfH, halfH);
+                    rt.anchoredPosition = lpTray;
+                }
+                else
+                {
+                    // Fallback: keep last dragged position (already in canvas space). Convert through canvas if needed.
+                    rt.anchoredPosition = startPos; // very unlikely path
+                }
+            }
         }
     }
 }
