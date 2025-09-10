@@ -139,7 +139,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7310812614239283757}
   - component: {fileID: 3552218827578048219}
-  - component: {fileID: 7390466331460216240}
   m_Layer: 0
   m_Name: DiscoverAudioManager
   m_TagString: Untagged
@@ -182,30 +181,6 @@ MonoBehaviour:
   cardSource: {fileID: 0}
   cardVolume: 1
   sfxListAsset: {fileID: 11400000, guid: 538eb3e8867554c5eb5d7010ba831c3f, type: 2}
-  tts: {fileID: 0}
-  defaultVoiceProfile: {fileID: 0}
-  keepTtsSessionAlive: 1
---- !u!114 &7390466331460216240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5043440914614895103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f21c7215d864abc9cf68b558bc4c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.RealtimeTTSPreview
-  ApiKey: sk_f634b1935a1224643b413978c682d561f9b9ea83e096305d
-  VoiceId: JBFqnCBsd6RMkjVDRZzb
-  ModelId: eleven_flash_v2_5
-  SampleRate: 24000
-  Stability: 0.5
-  SimilarityBoost: 0.8
-  StyleExaggeration: 0
-  UseSpeakerBoost: 0
-  _src: {fileID: 7951239594481525680}
 --- !u!1 &5354015535354949541
 GameObject:
   m_ObjectHideFlags: 0

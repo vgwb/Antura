@@ -9,9 +9,7 @@ namespace Antura.Discover
     public class CountryButton : MonoBehaviour
     {
         public CountryData country;
-
         public TMP_Text countryLabel;
-
         private SpriteRenderer _sprite;
         private static readonly List<CountryButton> _all = new List<CountryButton>();
         private const float OtherAlpha = 0.25f;
@@ -88,7 +86,7 @@ namespace Antura.Discover
         }
         private void OnCountryClicked()
         {
-            Debug.Log($"Country {country.CountryId} clicked.");
+            //  Debug.Log($"Country {country.CountryId} clicked.");
             EarthManager.I.SelectCountry(country.CountryId);
         }
 
