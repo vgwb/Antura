@@ -72,12 +72,7 @@ namespace Antura.UI
             btChangeClass.onClick.AddListener(() => OpenSelectClassroomPopup());
             header.BtClose.onClick.AddListener(() =>
             {
-                switch (state)
-                {
-                    case State.Profiles:
-                        AppManager.I.NavigationManager.GoBack();
-                        break;
-                }
+                AppManager.I.NavigationManager.GoBack();
             });
             btCreateTeacher.onClick.AddListener(() => CreateProfile(true));
             header.BtClass.onToggleOn.AddListener(() => SwitchState(State.Profiles));
@@ -213,8 +208,8 @@ namespace Antura.UI
 
         void Close()
         {
-            if (!isOpen)
-                return;
+            // if (!isOpen)
+            //     return;
 
             isOpen = false;
             if (hideGlobalUIBackButton && backButtonWasOn)

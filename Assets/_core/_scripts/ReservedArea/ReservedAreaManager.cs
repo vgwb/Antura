@@ -7,7 +7,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Demigiant.DemiTools.DeUnityExtended;
 using DG.DeInspektor.Attributes;
 
 namespace Antura.ReservedArea
@@ -16,28 +15,18 @@ namespace Antura.ReservedArea
     {
 
         [Header("References")]
-        public CheckIcon AnalyticsCheckIcon;
-        public CheckIcon NotificationsCheckIcon;
-        [DeEmptyAlert]
-        public CheckIcon ClassroomModeCheckIcon;
         [DeEmptyAlert]
         [SerializeField] ClassroomPanel classroomPanel;
         [DeEmptyAlert]
-        [SerializeField] GameObject oldUI, newUI;
+        [SerializeField] GameObject UIPanel;
 
         void Awake()
         {
-            oldUI.SetActive(false);
-            newUI.SetActive(true);
+            UIPanel.SetActive(true);
         }
 
-        IEnumerator Start()
+        void Start()
         {
-            AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ShareAnalyticsEnabled);
-            NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.NotificationsEnabled);
-            ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0);
-            yield return null;
-
             // If "no classroom" open popup to choose classroom, otherwise select current classroom
             int currClassroomIndex = AppManager.I.AppSettings.ClassRoomMode;
             if (currClassroomIndex >= 0)
@@ -108,56 +97,6 @@ namespace Antura.ReservedArea
         }
 
         #endregion
-
-        public void OnBtnShareData()
-        {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
-            () =>
-            {
-                AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
-                AnalyticsCheckIcon.Set(true);
-            }, () =>
-            {
-                AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
-                AnalyticsCheckIcon.Set(false);
-            });
-        }
-
-        public void OnBtnNotifications()
-        {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications,
-            () =>
-            {
-                AppManager.I.AppSettingsManager.EnableNotifications(true);
-                NotificationsCheckIcon.Set(true);
-            }, () =>
-            {
-                AppManager.I.AppSettingsManager.EnableNotifications(false);
-                NotificationsCheckIcon.Set(false);
-            });
-        }
-
-        public void OnBtnClassroomMode()
-        {
-            // // NEW open classroom selector
-            // // Stub data
-            // List<string> classroomIDs = GetStubClassroomIDs();
-            // GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
-            //     classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
-            // });
-
-            // OLD SYSTEM where classroom mode button was a toggle
-            // if (AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0)
-            // {
-            //     AppManager.I.AppSettingsManager.SetClassroomMode(0);
-            //     ClassroomModeCheckIcon.Set(false);
-            // }
-            // else
-            // {
-            //     AppManager.I.AppSettingsManager.SetClassroomMode(1);
-            //     ClassroomModeCheckIcon.Set(true);
-            // }
-        }
 
         public void OnOpenDonate()
         {
