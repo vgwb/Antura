@@ -1,4 +1,3 @@
-using System.Linq;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
@@ -25,8 +24,11 @@ namespace Antura.Scenes
 
         [Header("References")]
         public EditionSelectionManager SelectionManager;
-        public AnturaPetSwitcher PetSwitcher;
-        public LivingLetterController LLAnimController;
+        public AnturaPetSwitcher Antura;
+        public AnturaPetSwitcher Cat;
+        public LivingLetterController LL_letter;
+        public LivingLetterController LL_word;
+        public LivingLetterController LL_image;
         public GameObject DialogReservedArea;
         public GameObject ProfileSelectorUI;
         public GameObject PanelAppUpdate;
@@ -47,8 +49,11 @@ namespace Antura.Scenes
             if (EditionSelectionManager.MustChooseContentEditions)
             {
                 // First choose a learning edition
-                PetSwitcher.gameObject.SetActive(false);
-                LLAnimController.gameObject.SetActive(false);
+                Antura.gameObject.SetActive(false);
+                Cat.gameObject.SetActive(false);
+                LL_letter.gameObject.SetActive(false);
+                LL_word.gameObject.SetActive(false);
+                LL_image.gameObject.SetActive(false);
                 HomeLogo.SetActive(false);
                 GlobalUI.ShowPauseMenu(false, PauseMenuType.StartScreen);
             }
@@ -57,8 +62,14 @@ namespace Antura.Scenes
                 GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
                 // Fix: [Home] a wrong audio is played #508
                 //KeeperManager.I.PlayDialogue(AppManager.I.ContentEdition.LearnMethod.TitleLocID, false, true, TutorCreateProfile, KeeperMode.LearningNoSubtitles);
-                PetSwitcher.AnimController.State = AnturaAnimation;
-                LLAnimController.State = LLAnimation;
+                Antura.AnimController.State = AnturaAnimation;
+                Cat.AnimController.State = AnturaAnimation;
+                LL_letter.GetComponent<HomeSceneLetter>().ChangeLetter();
+                LL_letter.State = LLAnimation;
+                LL_word.GetComponent<HomeSceneLetter>().ChangeWord();
+                LL_word.State = LLAnimation;
+                LL_image.GetComponent<HomeSceneLetter>().ChangeWord();
+                LL_image.State = LLAnimation;
             }
 
             updateClassroomName();
