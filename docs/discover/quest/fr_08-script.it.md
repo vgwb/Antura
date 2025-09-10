@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.it.md) - Language: [english](./fr_08-script.md) - [french](./fr_08-script.fr.md) - [polish](./fr_08-script.pl.md) - italian
 
 !!! note "Educators & Designers: help improving this quest!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-08-mont-blanc-mountains/27/1)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-08-mont-blanc-mountains/27/1)  
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=736863861#gid=736863861)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_08%20Mont%20Blanc/FR_08%20Mont%20Blanc%20-%20Yarn%20Script.yarn)  
 

@@ -38,7 +38,7 @@ namespace Antura.Discover.Editor
 
             var googlelink = "https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977";
             var editInfo = "!!! note \"Educators: help improving these cards!\"" + "\n";
-            editInfo += $"    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group)  " + "\n";
+            editInfo += $"    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  " + "\n";
             editInfo += $"    **Improve translations**: [comment here]({googlelink})  " + "\n";
             sb.AppendLine(editInfo);
 

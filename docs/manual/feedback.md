@@ -13,7 +13,7 @@ Think about what could be added or changed in the game to make it more fun or ed
 ### Submit Feedback
 
 Send feedback to the developers by joining our community:
-👉🏼 [https://vgwb.discourse.group/](https://vgwb.discourse.group/c/antura/5)
+👉🏼 [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
 
 or with this form:  
 [https://forms.gle/aKV7vdKugtGDfM7A8](https://forms.gle/aKV7vdKugtGDfM7A8)

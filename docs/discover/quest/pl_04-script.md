@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.md) - Language: english - [french](./pl_04-script.fr.md) - [polish](./pl_04-script.pl.md) - [italian](./pl_04-script.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/pl-04-the-zoo/35/1)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-04-the-zoo/35/1)  
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=819047762#gid=819047762)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_04%20Zoo/PL_04%20Zoo%20-%20Yarn%20Script.yarn)  
 
@@ -24,7 +24,6 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;declare $talked_animals = false&gt;&gt;</span>
 <span class="yarn-line">Welcome to WROCŁAW ZOO. <span class="yarn-meta">#line:0fe55d1 </span></span>
-<span class="yarn-cmd">&lt;&lt;card wroclaw_zoo&gt;&gt;</span>
 <span class="yarn-line">There are many ANIMALS here! <span class="yarn-meta">#line:005dd46 </span></span>
 
 </code></pre></div>
@@ -133,6 +132,7 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I am the biggest land ANIMAL. <span class="yarn-meta">#line:027b51f </span></span>
+<span class="yarn-cmd">&lt;&lt;card animal_elephant&gt;&gt;</span>
 <span class="yarn-line">I have good MEMORY. <span class="yarn-meta">#line:03a150c </span></span>
 <span class="yarn-line">Do you have good MEMORY? <span class="yarn-meta">#line:0f98478 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings elephant_activity_done&gt;&gt;</span>
@@ -242,8 +242,11 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I am a LION in AFRICA. <span class="yarn-meta">#line:07f2e15 </span></span>
+<span class="yarn-cmd">&lt;&lt;card  animal_lion&gt;&gt;</span>
 <span class="yarn-line">I live in a PRIDE. <span class="yarn-meta">#line:042266c </span></span>
 <span class="yarn-line">Look at this small CUB! <span class="yarn-meta">#line:0124e1c </span></span>
+<span class="yarn-cmd">&lt;&lt;card  animal_lion_cub&gt;&gt;</span>
+<span class="yarn-line">I grow up small, then medium, then old... <span class="yarn-meta">#line:0774b92 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity order_lion_settings lion_activity_done&gt;&gt;</span>
 
 </code></pre></div>

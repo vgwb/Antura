@@ -7,14 +7,14 @@ hide:
 [Quest Index](./index.pl.md) - Language: [english](./fr_09-script.md) - [french](./fr_09-script.fr.md) - polish - [italian](./fr_09-script.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-09-the-colors-of-the-marseille-market/28/1)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-09-the-colors-of-the-marseille-market/28/1)  
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1243903291#gid=1243903291)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_09%20Food%20&%20Market/FR_09%20Food%20&%20Market%20-%20Yarn%20Script.yarn)  
 
-<a id="ys-node-init"></a>
-## init
+<a id="ys-node-quest-start"></a>
+## quest_start
 
-<div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// fr_09 | Food &amp; Market (Marseille)</span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">// fr_09 | Food &amp; Market (Marseille)</span>
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">type: panel</span>
@@ -26,10 +26,10 @@ hide:
 
 </code></pre></div>
 
-<a id="ys-node-the-end"></a>
-## the_end
+<a id="ys-node-quest-end"></a>
+## quest_end
 
-<div class="yarn-node" data-title="the_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
+<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Gra ukończona! Gratulacje! <span class="yarn-meta">#line:0f5c958 </span></span>
@@ -140,7 +140,7 @@ hide:
 <span class="yarn-line">Do widzenia! <span class="yarn-meta">#line:02e64ff </span></span>
 <span class="yarn-line">Dziękuję! <span class="yarn-meta">#line:02c23e5 </span></span>
 <span class="yarn-line">Bonne journée! <span class="yarn-meta">#line:080d945 </span></span>
-<span class="yarn-cmd">&lt;&lt;SetActive Collect_Fisher&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetActive Collect_Fisherman&gt;&gt;</span>
 
 </code></pre></div>
 

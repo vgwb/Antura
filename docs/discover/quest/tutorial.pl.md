@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.pl.md) - Language: [english](./tutorial.md) - [french](./tutorial.fr.md) - polish - [italian](./tutorial.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/quest-tutorial/41)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
 

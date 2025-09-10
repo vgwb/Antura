@@ -8,7 +8,7 @@ hide:
 Language: [english](./index.md) - [french](./index.fr.md) - polish - [italian](./index.it.md)
 
 !!! note "Educators: help improving these cards!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
     **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
 Total found:** 364**

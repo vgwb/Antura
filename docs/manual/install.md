@@ -15,7 +15,7 @@ Ensure that the tablets have the latest version of iOS (minimal iOS 12.0).
 Download the app using from this url from the device: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)
 
 !!! note
-    if you can't download the app, please send an email to Stefano or Francesco or get into the community [https://vgwb.discourse.group/](https://vgwb.discourse.group/c/antura/5)
+    if you can't download the app, please send an email to Stefano or Francesco or get into the community [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
 
 (Testflight is a service to test application that are in development)
 

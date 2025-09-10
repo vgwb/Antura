@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.it.md) - Language: [english](./pl_06-script.md) - [french](./pl_06-script.fr.md) - [polish](./pl_06-script.pl.md) - italian
 
 !!! note "Educators & Designers: help improving this quest!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/pl-06-gingerbread-food-market/37/1)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-06-gingerbread-food-market/37/1)  
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1211829352#gid=1211829352)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_06%20Torun%20Market/PL_06%20Torun%20Market%20-%20Yarn%20Script.yarn)  
 

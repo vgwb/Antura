@@ -7,7 +7,7 @@ email: [contact@antura.org](mailto:contact@antura.org)
 
 ## Community
 we use Discord as main developer community tool, but we have just started this community website: please join use and let's talk here: 
-👉🏼 [https://vgwb.discourse.group/](https://vgwb.discourse.group)
+👉🏼 [https://antura.discourse.group/](https://antura.discourse.group)
 
 ## Social
 

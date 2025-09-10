@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.md) - Language: english - [french](./fr_04-script.fr.md) - [polish](./fr_04-script.pl.md) - [italian](./fr_04-script.it.md)
 
 !!! note "Educators & Designers: help improving this quest!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-04-road-safety-les-mans/40/1)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-04-road-safety-les-mans/40/1)  
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1892167235#gid=1892167235)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_04%20Le%20Mans%20Streets/FR_04%20Le%20Mans%20Streets%20-%20Yarn%20Script.yarn)  
 

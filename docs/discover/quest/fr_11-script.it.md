@@ -7,51 +7,30 @@ hide:
 [Quest Index](./index.it.md) - Language: [english](./fr_11-script.md) - [french](./fr_11-script.fr.md) - [polish](./fr_11-script.pl.md) - italian
 
 !!! note "Educators & Designers: help improving this quest!"
-    **Comments and feedback**: [discuss in the Forum](https://vgwb.discourse.group/t/fr-11-la-marseillaise/30/1)  
+    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-11-la-marseillaise/30/1)  
     **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=849141304#gid=849141304)  
     **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_11%20Music%20Marseillese/FR_11%20Music%20Marseillese%20-%20Yarn%20Script.yarn)  
+
+<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">// fr_11 | La Marseillaise</span>
+<span class="yarn-header-dim">// </span>
+<span class="yarn-header-dim">// </span>
+</code></pre></div>
 
 <a id="ys-node-quest-start"></a>
 ## quest_start
 
-<div class="yarn-node" data-title="quest_start"><pre class="yarn-code"><code><span class="yarn-header-dim">// fr_11 | La Marseillaise</span>
-<span class="yarn-header-dim">// </span>
+<div class="yarn-node" data-title="quest_start"><pre class="yarn-code"><code><span class="yarn-header-dim">=</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $quest1 = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $activity1 = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $quest2 = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $activity2 = false&gt;&gt;</span>
 <span class="yarn-line">Benvenuti alla ricerca della musica! <span class="yarn-meta">#line:0e2f565 </span></span>
-<span class="yarn-comment">// &lt;&lt;activity order_marseillese_audio marseillese_played&gt;&gt;</span>
-
-</code></pre></div>
-
-<a id="ys-node-quest-end"></a>
-## quest_end
-
-<div class="yarn-node" data-title="quest_end"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel_endgame</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Grande! Hai esplorato "La Marseillaise". <span class="yarn-meta">#line:06e7b8f </span></span>
-<span class="yarn-cmd">&lt;&lt;card marseillaise_music&gt;&gt;</span>
-<span class="yarn-line">L'inno che rappresenta la Francia e il suo popolo. <span class="yarn-meta">#line:0c2ef1b </span></span>
-<span class="yarn-line">La musica può raccontare molte cose sulla storia. <span class="yarn-meta">#line:0f62ef6 </span></span>
-<span class="yarn-cmd">&lt;&lt;card musical_score&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
-
-</code></pre></div>
-
-<a id="ys-node-post-quest-activity"></a>
-## post_quest_activity
-
-<div class="yarn-node" data-title="post_quest_activity"><pre class="yarn-code" style="--node-color:green"><code><span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel</span>
-<span class="yarn-header-dim">tags: proposal</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Riesci a scrivere il testo de "La Marsigliese" sul tuo quaderno? <span class="yarn-meta">#line:00ee9c6 </span></span>
-<span class="yarn-line">Disegna le 7 note: Do Re Mi Fa Sol La Si. <span class="yarn-meta">#line:078a4a9 </span></span>
-<span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -60,17 +39,74 @@ hide:
 
 <div class="yarn-node" data-title="band_member"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if $COLLECTED_ITEMS &gt;= 7&gt;&gt;
-<span class="yarn-line">Grazie per averci aiutato! <span class="yarn-meta">#line:09fc7ad </span></span>
-<span class="yarn-line">Riesci a metterlo insieme? <span class="yarn-meta">#line:0515a95 </span></span>
-<span class="yarn-cmd">&lt;&lt;action order_notes&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $quest1 == true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;if $activity1 == false&gt;&gt;</span>
+<span class="yarn-line">    Grazie per averci aiutato! <span class="yarn-meta">#line:09fc7ad </span></span>
+<span class="yarn-line">    Riesci a metterlo insieme? <span class="yarn-meta">#line:0515a95 </span></span>
+    <span class="yarn-cmd">&lt;&lt;set $activity1 = true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity order_Musical_notes&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;elseif $activity1 ==true &gt;&gt;</span>
+    [MISSING TRANSLATION:     We're gonna play soon!]
+    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Ciao! Siamo una band. Siamo musicisti. <span class="yarn-meta">#line:09a50f8 </span></span>
 <span class="yarn-line">Volevamo suonare l'inno francese, ma non possiamo! <span class="yarn-meta">#line:0a9df26 </span></span>
 <span class="yarn-line">Antura ha confuso la sceneggiatura musicale. <span class="yarn-meta">#line:0f0ccdf </span></span>
 <span class="yarn-line">Trova le note della sceneggiatura. <span class="yarn-meta">#line:0c9616b </span></span>
-<span class="yarn-cmd">&lt;&lt;task_start find_the_script_parts&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start find_the_script_parts win_quest1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-jean-michelle-jarre"></a>
+## jean_michelle_jarre
+
+<div class="yarn-node" data-title="jean_michelle_jarre"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $activity2 == true&gt;&gt;</span>
+[MISSING TRANSLATION: Great job!]
+<span class="yarn-cmd">&lt;&lt;elseif $quest2 == true &gt;&gt;</span>
+<span class="yarn-line">    Grazie! Le parole dell'inno francese sono importanti. <span class="yarn-meta">#line:025e35b </span></span>
+<span class="yarn-line">    L'inno nazionale francese, "La Marsigliese", rappresenta la Francia e il suo popolo. <span class="yarn-meta">#line:0e4484d </span></span>
+<span class="yarn-line">    Riesci a mettere in ordine le parole? <span class="yarn-meta">#line:07e4ff1 </span></span>
+    <span class="yarn-cmd">&lt;&lt;set $activity2 = true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity  order_marseillese_audio marseillese_played&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $activity1 ==true &gt;&gt;</span>
+<span class="yarn-line">    Ciao, sono Jean Michelle Jarre. <span class="yarn-meta">#line:02f7c8b </span></span>
+<span class="yarn-line">    Sono un compositore francese e aiuto la band a suonare "La Marsigliese". <span class="yarn-meta">#line:0bd77b7 </span></span>
+<span class="yarn-line">    Trova le parole dell'inno. <span class="yarn-meta">#line:0e7033c </span></span>
+<span class="yarn-line">    Sono stati sparsi in giro da Antura. <span class="yarn-meta">#line:0dc84d4 </span></span>
+    <span class="yarn-cmd">&lt;&lt;task_start find_the_words win_quest2&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">Sono occupato in questo momento, torna a trovarmi più tardi <span class="yarn-meta">#line:08be987 </span></span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+
+</code></pre></div>
+
+<a id="ys-node-win-order"></a>
+## win_order
+
+<div class="yarn-node" data-title="win_order"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
+<span class="yarn-line">Adesso proviamo a suonare la canzone! <span class="yarn-meta">#line:0cef358 </span></span>
+<span class="yarn-cmd">&lt;&lt;activity play_piano&gt;&gt;</span>
+
+</code></pre></div>
+
+<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">title : win_quest1</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;set $quest1 = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_end find_the_script_parts&gt;&gt;</span>
+
+
+
+</code></pre></div>
+
+<div class="yarn-node"><pre class="yarn-code"><code><span class="yarn-header-dim">title : win_quest2</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;set $quest2 = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_end find_the_words&gt;&gt;</span>
+
 
 </code></pre></div>
 
@@ -253,52 +289,6 @@ hide:
 <span class="yarn-line">Ogni parte contiene parole potenti. <span class="yarn-meta">#line:0165048 </span></span>
 <span class="yarn-line">La musica può unire le persone. <span class="yarn-meta">#line:01d4688 </span></span>
 
-</code></pre></div>
-
-<a id="ys-node-jean-michelle-jarre"></a>
-## jean_michelle_jarre
-
-<div class="yarn-node" data-title="jean_michelle_jarre"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">tags: actor=MAN </span>
-<span class="yarn-header-dim">color: blue</span>
-<span class="yarn-header-dim">---</span>
-&lt;&lt;if $COLLECTED_ITEMS &gt;= 11&gt;&gt;
-<span class="yarn-line">Grazie! Le parole dell'inno francese sono importanti. <span class="yarn-meta">#line:025e35b </span></span>
-<span class="yarn-line">L'inno nazionale francese, "La Marsigliese", rappresenta la Francia e il suo popolo. <span class="yarn-meta">#line:0e4484d </span></span>
-<span class="yarn-line">Riesci a mettere in ordine le parole? <span class="yarn-meta">#line:07e4ff1 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity order_words&gt;&gt;</span>
-&lt;&lt;elseif $COLLECTED_ITEMS &gt;= 7&gt;&gt;
-<span class="yarn-line">Ciao, sono Jean Michelle Jarre. <span class="yarn-meta">#line:02f7c8b </span></span>
-<span class="yarn-line">Sono un compositore francese e aiuto la band a suonare "La Marsigliese". <span class="yarn-meta">#line:0bd77b7 </span></span>
-<span class="yarn-line">Trova le parole dell'inno. <span class="yarn-meta">#line:0e7033c </span></span>
-<span class="yarn-line">Sono stati sparsi in giro da Antura. <span class="yarn-meta">#line:0dc84d4 </span></span>
-<span class="yarn-cmd">&lt;&lt;task_start find_the_words&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Sono occupato in questo momento, torna a trovarmi più tardi <span class="yarn-meta">#line:08be987 </span></span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-
-
-</code></pre></div>
-
-<a id="ys-node-win-order"></a>
-## win_order
-
-<div class="yarn-node" data-title="win_order"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
-<span class="yarn-line">Adesso proviamo a suonare la canzone! <span class="yarn-meta">#line:0cef358 </span></span>
-<span class="yarn-cmd">&lt;&lt;activity play_piano&gt;&gt;</span>
-
-</code></pre></div>
-
-<a id="ys-node-spawned-note-musician"></a>
-## spawned_note_musician
-
-<div class="yarn-node" data-title="spawned_note_musician"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
-<span class="yarn-header-dim">spawn_group: note_teacher</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Do Re Mi è l'inizio della scala. <span class="yarn-meta">#line:06bcd7a </span></span>
-<span class="yarn-line">Poi vengono Fa e Sol. <span class="yarn-meta">#line:0203a16 </span></span>
-<span class="yarn-line">La e Si completano le 7 note. <span class="yarn-meta">#line:080491f </span></span>
-<span class="yarn-line">Le note ci aiutano a leggere la musica. <span class="yarn-meta">#line:003d7fb </span></span>
 
 </code></pre></div>
 
