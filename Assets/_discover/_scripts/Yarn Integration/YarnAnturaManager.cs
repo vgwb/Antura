@@ -15,9 +15,6 @@ namespace Antura.Discover
         [SerializeField] private DiscoverDialoguePresenter presenter;
         [SerializeField] private DiscoverLineProvider lineProvider;
 
-        [Header("Locale")] public string CurrentLanguage = "EN";
-        public string NativeLanguage = "EN";
-
         public event Action<string> OnNodeStarted;
         public event Action<QuestNode> OnQuestNode;
         public event Action<QuestNode> OnQuestOptions;
@@ -75,12 +72,10 @@ namespace Antura.Discover
             }
         }
 
-
-
-        public void Setup(string language = "EN", string native = "EN")
+        public void Setup()
         {
-            CurrentLanguage = language;
-            NativeLanguage = native;
+            // any setup goes here
+
         }
 
         public void InitNode(string nodeName)

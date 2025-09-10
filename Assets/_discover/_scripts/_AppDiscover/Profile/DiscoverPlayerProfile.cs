@@ -1,3 +1,4 @@
+using AdventurEd;
 using Antura.Profile;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ namespace Antura.Discover
 {
     public enum TalkToPlayerMode
     {
-        DontTalk = 0,
+        Default = 0,
         NativeOnly = 1,
         LearningLanguageOnly = 2,
         LearningThenNative = 3,
@@ -49,7 +50,7 @@ namespace Antura.Discover
         public string id;
         public string uuid;
         public string displayName;
-        public string locale;       // e.g., "it-IT"
+        public string locale;       // e.g., "it"
         public string countryIso2;  // e.g., "PL"
         public int classroom;       // 0 => none
         public bool easyMode;

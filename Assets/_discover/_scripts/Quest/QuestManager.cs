@@ -1,3 +1,4 @@
+using AdventurEd;
 using Antura.Core;
 using Antura.Audio;
 using Antura.Discover.Activities;
@@ -13,20 +14,15 @@ namespace Antura.Discover
     [Serializable]
     public class QuestDebugConfig
     {
-        public string DebugLanguage = "";
-
         [Tooltip("Dialogue node to start")]
         public DialogueReference DebugNode = new();
 
-        [Tooltip("Force the EASY_MODE var")]
-        public bool ForceEasyMode = false;
-
-        [Header("Readonly")]
-        public string LanguageCode = "";
-        public string NativeLanguageCode = "";
-
+        [Header("Override player settings")]
+        public DifficultyLevel DifficultyLevel = DifficultyLevel.Default;
+        public TalkToPlayerMode TalkToPlayerMode = TalkToPlayerMode.Default;
+        public LanguageCode NativeLanguage;
+        public LanguageCode LearningLanguage;
     }
-
 
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
@@ -62,15 +58,26 @@ namespace Antura.Discover
         {
             total_coins = 0;
 
-            DebugConfig.LanguageCode = (DebugMode && DebugConfig.DebugLanguage != "") ? DebugConfig.DebugLanguage : "FR";
-            DebugConfig.NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);
+            if (DebugMode)
+            {
+                if (DebugConfig.LearningLanguage != "")
+                {
+
+                }
+                if (DebugConfig.NativeLanguage != "")
+                {
+                    // DiscoverAppManager.I.CurrentProfile.
+                    // AppManager.I..SetNativeLanguage(DebugConfig.NativeLanguageCode);
+                }
+
+            }
 
             var yarnManager = YarnAnturaManager.I;
             if (yarnManager == null)
             {
                 yarnManager = FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             }
-            yarnManager?.Setup(DebugConfig.LanguageCode, DebugConfig.NativeLanguageCode);
+            yarnManager?.Setup();
 
             // Initialize inventory target from Yarn variables if present
             int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
