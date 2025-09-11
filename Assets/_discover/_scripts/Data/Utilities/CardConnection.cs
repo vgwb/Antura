@@ -37,7 +37,6 @@ namespace Antura.Discover
         [Tooltip("How strongly related (0.1 = weak, 1.0 = very strong)")]
         public float ConnectionStrength = 0.7f;
 
-        [TextArea(1, 3)]
         [Tooltip("Why these cards are connected")]
         public string ConnectionReason;
 
@@ -69,6 +68,14 @@ namespace Antura.Discover
                 case ConnectionType.MadeOf:
                 case ConnectionType.Purpose:
                     return Directionality.Directed;
+
+                case ConnectionType.IsA:
+                case ConnectionType.TimeContext:
+                case ConnectionType.CulturalContext:
+                case ConnectionType.Compare:
+                case ConnectionType.RelatedTo:
+                    return Directionality.Symmetric;
+
                 default:
                     return Directionality.Symmetric;
             }

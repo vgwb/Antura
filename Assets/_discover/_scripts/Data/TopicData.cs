@@ -37,9 +37,7 @@ namespace Antura.Discover
         [Header("Connected Cards")]
         public List<CardConnection> Connections = new List<CardConnection>();
 
-        [Header("Discovery Flow")]
-        [Tooltip("Suggested order for discovering related cards")]
-        public List<CardData> DiscoveryPath = new List<CardData>();
+        // Discovery path removed
 
         [Header("Settings")]
         [Range(0.1f, 1.0f)]
@@ -75,11 +73,7 @@ namespace Antura.Discover
                     allCards.Add(connection.ConnectedCard);
             }
 
-            foreach (var card in DiscoveryPath)
-            {
-                if (card != null)
-                    allCards.Add(card);
-            }
+            // Discovery path removed
 
             return new List<CardData>(allCards);
         }
@@ -128,21 +122,10 @@ namespace Antura.Discover
                     return true;
             }
 
-            return DiscoveryPath.Contains(card);
+            return false;
         }
 
-        /// <summary>
-        /// Get next suggested card in discovery path
-        /// </summary>
-        public CardData GetNextInDiscoveryPath(CardData currentCard)
-        {
-            int currentIndex = DiscoveryPath.IndexOf(currentCard);
-            if (currentIndex >= 0 && currentIndex < DiscoveryPath.Count - 1)
-            {
-                return DiscoveryPath[currentIndex + 1];
-            }
-            return null;
-        }
+        // Discovery path helpers removed
 
         // === VALIDATION ===
         [ContextMenu("Validate Topic")]
@@ -172,12 +155,7 @@ namespace Antura.Discover
                 }
             }
 
-            // Check discovery path validity
-            foreach (var card in DiscoveryPath)
-            {
-                if (card != null && !ContainsCard(card))
-                    issues.Add($"Discovery path contains unconnected card: {card.name}");
-            }
+            // Discovery path checks removed
 
             if (issues.Count > 0)
             {

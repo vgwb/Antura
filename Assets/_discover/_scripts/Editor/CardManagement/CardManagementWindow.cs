@@ -21,7 +21,7 @@ namespace Antura.Discover
         private bool dryRun = false;
         private bool includeDevRow = true;
 
-        [MenuItem("Antura/Discover/Card Management", priority = 149)]
+        [MenuItem("Antura/Card Management", priority = 22)]
         public static void ShowWindow()
         {
             var wnd = GetWindow<CardManagementWindow>(false, "Card Management", true);
