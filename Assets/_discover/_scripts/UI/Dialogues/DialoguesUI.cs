@@ -408,10 +408,10 @@ namespace Antura.Discover
 
         void OnPostcardFocusViewClicked()
         {
-            if (gotoNextWhenPostcardFocusViewCloses)
-                Next(currChoiceIndex);
-            else
-                HidePostcardFocusView();
+            // if (gotoNextWhenPostcardFocusViewCloses)
+            //     Next(currChoiceIndex);
+            // else
+            HidePostcardFocusView();
         }
 
         #endregion
