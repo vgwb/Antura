@@ -4808,6 +4808,7 @@ GameObject:
   - component: {fileID: 1923449408019932333}
   - component: {fileID: 7454122277407610650}
   - component: {fileID: 2930970448969497708}
+  - component: {fileID: 4983163919647635669}
   m_Layer: 0
   m_Name: WorldSystems
   m_TagString: Untagged
@@ -4926,6 +4927,21 @@ MonoBehaviour:
   DefaultProfile:
     Density: 0.6
   Density: 0.6
+--- !u!114 &4983163919647635669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5659934351583949219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6d0e05e99f04574957fd613ad0af8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AdventurEd.Core::AdventurEd.WorldNorth
+  mode: 0
+  northAngleDegrees: 0
+  northMarker: {fileID: 0}
 --- !u!1 &7256734755043339348
 GameObject:
   m_ObjectHideFlags: 0
