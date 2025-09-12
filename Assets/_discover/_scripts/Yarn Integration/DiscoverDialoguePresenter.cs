@@ -225,8 +225,8 @@ namespace Antura.Discover
                     Content = (option.Line as LocalizedLineDiscover)?.TextInLearningLang,
                     ContentNative = option.Line.TextWithoutCharacterName.Text,
                     AudioId = "",
-                    Image = TryGetCardId(option.Line.Metadata) ?? string.Empty,
-                    Highlight = false
+                    Image = TryGetLineTagValue(option.Line.Metadata, "card") ?? string.Empty,
+                    Highlight = TryGetLineTagExists(option.Line.Metadata, "highlight"),
                 };
                 qn.Choices.Add(newChoice);
             }
@@ -249,10 +249,9 @@ namespace Antura.Discover
         }
 
         /// <summary>
-        /// Extract a card/image id from line metadata. Supports formats like "card:my_id" or "card=my_id".
-        /// Returns null if no card tag is present.
+        /// Extract a tag value from line metadata. Supports formats like "card:my_id" or "card=my_id".
         /// </summary>
-        private string TryGetCardId(string[] metadata)
+        private string TryGetLineTagValue(string[] metadata, string tagname)
         {
             if (metadata == null || metadata.Length == 0)
                 return null;
@@ -266,10 +265,28 @@ namespace Antura.Discover
                     continue;
                 var key = parts[0].Trim().ToLowerInvariant();
                 var val = parts[1].Trim();
-                if (key == "card" && !string.IsNullOrEmpty(val))
+                if (key == tagname && !string.IsNullOrEmpty(val))
                     return val;
             }
             return null;
+        }
+
+        /// <summary>
+        /// Extract if a tag exists in line metadata.
+        /// </summary>
+        private bool TryGetLineTagExists(string[] metadata, string tagname)
+        {
+            if (metadata == null || metadata.Length == 0)
+                return false;
+            for (int i = 0; i < metadata.Length; i++)
+            {
+                var raw = metadata[i];
+                if (string.IsNullOrWhiteSpace(raw))
+                    continue;
+                if (raw.Trim().ToLowerInvariant() == tagname)
+                    return true;
+            }
+            return false;
         }
 
         private void ApplyTagsToQuestNode(QuestNode node, string[] attributes)
