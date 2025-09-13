@@ -3,15 +3,22 @@ title: Credits
 ---
 # Credits
 
-This project started in 2016 as the original v1 game **Antura and the Letters - Arabic** (see credits) and evolved in the years. Many people have gived contributions.
+This project started in 2016 as the original game **Antura and the Letters - Arabic** and evolved in the years with three main iterations. Many people have given contributions.
 
-**DEVELOPED BY**
+- 2025 - Antura 3.0 - Discover Countries Edition
+- 2021 - Antura 2.0 - Learn Languages Edition
+- 2016 - Antura 1.0 - EduApp4Syria Edition
 
-- [Video Games Without Borders](http://vgwb.org)   
-- [TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
+**Global partners**
 
-**IN COLLABORATION WITH**
+- [VGWB - Video Games Without Borders](http://vgwb.org)
+- [CGL - TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
 
+**Additional partners**  
+
+- [Académie de Nantes Rectorat, France](https://www.ac-nantes.fr)
+- Dolnośląska Szkoła Wyższa, Poland
+- Ogólnopolski Operator Oświaty, Poland
 - [Wixel Studios](http://www.wixelstudios.com)  
 - Institut Français du Maroc  
 - Asociación Oleaje  
@@ -20,154 +27,186 @@ This project started in 2016 as the original v1 game **Antura and the Letters - 
 - Code To Inspire  
 - Amerike: Instituto de Estudios Universitarios  
 
-## Dev Team
+## Antura 3.0 - Discover Countries Edition
 
-**PROJECT LEAD AND PRODUCTION**  
+**R&D and Production Lead**  
+Stefano Cecere (VGWB)
+
+**General Coordination**  
+Francesco Cavallari (VGWB)
+
+**Content input and validation - France**  
+Lucie Durant (ac-nantes)  
+Anne
+
+**Content input and validation - Poland**  
+Jan Stasieńko  
+Macie
+
+**UI/UX**  
+Daniele Giardini  
+
+**Quest design and development support**  
+Valeria Passarella  
+Vieri Toti  
+Lorenzo Castrovilli  
+
+**World/Level Design**  
+Fabio Cecere  
+
+**Art**
+Michele Maggiolini (heritage monuments)
+
+**Special thanks**  
+Secret Lab ([Yarn Spinner](https://www.yarnspinner.dev/))  
+Kenney ([Kenney.nl](https://kenney.nl/))  
+Pietro Polsinelli ([OpenLab](https://open-lab.com/))  
+Matteo Bicocchi ([OpenLab](https://open-lab.com/))  
+Bruno Cecere  
+Antonella Prunecchi  
+
+
+## Antura 2.0 - Learn Languages Edition
+
+**Project Lead and Production**  
 Francesco Cavallari
 
-**BRAND & RESEARCH DIRECTOR**  
+**Brand & Research Director**  
 Prof. Dr. Emmanuel Guardiola (CGL)
 
-**R&D, PRODUCTION AND ADDITIONAL GAME DESIGN**  
-**DISCOVER MODULE LEAD, DESIGN AND DEVELOPMENT**  
+**R&D, Production and Additional Game Design**  
 Stefano Cecere
 
-**PROGRAMMING**  
+**Programming**  
 Michele Pirovano  
 Stefano Cecere  
 Daniele Giardini
-Paolo Bragonzi (v1)  
-Davide Barbieri (v1)  
 
-**ADDITIONAL PROGRAMMING**  
+**Additional Programming**  
 Alejandro J. Zbrun  
 Giacomo “Sugni” Salvadori  
-Armando Teora (v1)  
-Elena Blanes (v1)  
-Dario Oliveri (v1)  
 
-**ART & GRAPHIC DESIGN**  
-Gaetano Leonardi (v1)  
+**Art & Graphic Design**  
 Daniele Giardini  
 Yadira Marin
 
-**UI/UX DESIGN**  
+**UI/UX Design**  
 Daniele Giardini
 
-**2D DRAWINGS**  
-Cristina Segura Toro (Margarito Estudio)   
+**2D Drawings**  
+Cristina Segura Toro (Margarito Estudio)  
 Pierre Schlömp
 
-**MUSIC, AUDIO DESIGN & FRENCH TRANSLATION**  
+**Music, Audio Design & French Translation**  
 Hamza Chioua
 
-**LOCALIZATION COORDINATOR AND PRODUCTION**  
+**Localization Coordinator and Production**  
 Chad Comeau  
 
-**VOICE RECORDING & EDITING**  
+**Voice Recording & Editing**  
 Tabea Steinhauer
 
-**FRENCH VOICE ACTING**  
+**French Voice Acting**  
 Mouna Belgrini
 
-**ARABIC TRANSLATION & VOICE ACTING**  
+**Arabic Translation & Voice Acting**  
 Mounir Oubry
 
-**ARABIC TRANSLATION & TESTING**  
+**Arabic Translation & Testing**  
 Wassim Bassil
 
-**DARI TRANSLATION, VOICE RECORDING & TESTING**  
+**Dari Translation, Voice Recording & Testing**  
 Hasib Rassa (Code To Inspire)
 
-**DARI VOICE ACTING**  
+**Dari Voice Acting**  
 Alem Daneshyar
 
-**DARI SINGING**  
+**Dari Singing**  
 Tahera Nikmanesh
 
-**DARI TESTING**  
+**Dari Testing**  
 Yaganeh Saber
 Nastaran Fazli
 
-**DARI PROOFREADING & REVIEW**  
+**Dari Proofreading & Review**  
 Sahar Habib (Partnership Afghanistan Canada)  
 Shabnam Hazrati (Partnership Afghanistan Canada)  
 
-**ENGLISH VOICE ACTING**  
+**English Voice Acting**  
 Lydia V. Lord
 
-**ENGLISH VOICE RECORDING & EDITING**  
+**English Voice Recording & Editing**  
 Carlos Casco (Krill Audio)
 
-**UKRAINIAN TRANSLATION**  
+**Ukrainian Translation**  
 Yurii Mashtalir
 Viktor Yakubiv
 Myroslava Osadcha
 
-**UKRAINIAN PROOFREADING**  
+**Ukrainian Proofreading**  
 Oleksandra Pinchuk
 
-**UKRAINIAN VOICE ACTING**  
+**Ukrainian Voice Acting**  
 Dmytro Zabarylo
 
-**POLISH PROOFREADING**  
+**Polish Proofreading**  
 Agnieszka Kwasow Translations
 
-**POLISH VOICE ACTING**  
+**Polish Voice Acting**  
 Sonia Fizek
 
-**RUSSIAN TRANSLATION**  
+**Russian Translation**  
 Iuliia Chesnok
 
-**UKRAINIAN & POLISH TESTING**  
+**Ukrainian & Polish Testing**  
 Joanna Nowosad  
 
-**RUSSIAN PROOFREADING & VOICE ACTING**  
+**Russian Proofreading & Voice Acting**  
 Arkadijs Gribacovs
 
-**ROMANIAN TRANSLATION**  
+**Romanian Translation**  
 Ioana Sandu  
 Cătălina Sandu  
 
-**ROMANIAN PROOFREADING**  
+**Romanian Proofreading**  
 Adela Ichimescu
 
-**ROMANIAN VOICE ACTING**  
+**Romanian Voice Acting**  
 Monica Constantin
 
-**HUNGARIAN TRANSLATION**  
+**Hungarian Translation**  
 György Droste  
 Poór Anikó
 
-**HUNGARIAN PROOFREADING**  
+**Hungarian Proofreading**  
 Poór Anikó
 
-**HUNGARIAN VOICE ACTING**  
+**Hungarian Voice Acting**  
 György Droste
 
-**GERMAN TRANSLATION**  
+**German Translation**  
 Alexander Oemus
 
-**GERMAN PROOFREADING & VOICE ACTING**  
+**German Proofreading & Voice Acting**  
 Tabea Steinhauer
 
-**SPANISH VOICE ACTING & RECORDING**  
+**Spanish Voice Acting & Recording**  
 Sergio Arturo García Hernández
 
-**ITALIAN VOICE ACTING & RECORDING**  
+**Italian Voice Acting & Recording**  
 Stefano Cecere
 
-**LEARN ENGLISH CURRICULUM & PEDAGOGY**  
+**Learn English Curriculum & Pedagogy**  
 José Manuel Salado Fernández  
 Pablo García Centeno
 
-**COOPERATION ATTACHÉ FOR THE FRENCH LANGUAGE**  
+**Cooperation Attaché for the French Language**  
 Anouchka Kerouas (Institut Français du Maroc)
 
-**SCIENTIFIC TRANSLATION COORDINATOR INSPECTOR**  
+**Scientific Translation Coordinator Inspector**  
 Amina Alaoui (AREF de la région Casablanca-Settat)
 
-## Special thanks
+**Special thanks**
 
 - Kateryna Holubinka  
 - Pauline Müller  
@@ -200,155 +239,155 @@ Amina Alaoui (AREF de la région Casablanca-Settat)
 - Techfugees  
 - UNHCR NGO Innovation Award Team  
 
-**A VERY SPECIAL THANKS TO UBISOFT** for their support of this game!
+**A very special thanks to Ubisoft** for their support of this game!
 
 ---
 
-## Original Antura v1 (Arabic) Credits
+## Antura 1.0 - EduApp4Syria Edition
 
-**DEVELOPED BY**
+**Developed by**
 
 - [TH Köln / Cologne Game Lab](https://www.colognegamelab.de)
 - [Video Games Without Borders](https://vgwb.org)
 - [Wixel Studios](https://www.wixelstudios.com)
 
-**CORE TEAM**
+**Core Team**
 
-**PROJECT LEAD AND CREATIVE DIRECTOR**  
+**Project Lead and Creative Director**  
 Prof. Dr. Emmanuel Guardiola (TH Köln / Cologne Game Lab)
 
-**ART DIRECTOR AND LEAD ARTIST**  
+**Art Director and Lead Artist**  
 Gaetano Leonardi
 
-**GAME DESIGNER AND UX/UI MASTER**  
+**Game Designer and UX/UI Master**  
 Daniele Giardini
 
-**LEAD PROGRAMMERS**  
+**Lead Programmers**  
 Paolo Bragonzi  
 Davide Barbieri  
 Michele Pirovano  
 
-**MUSIC AND SOUND DESIGNER**  
+**Music and Sound Designer**  
 Hamza Chioua
 
-**R&D AND PRODUCTION**  
+**R&D and Production**  
 Stefano Cecere
 
-**ASSOCIATE PRODUCER AND ADDITIONAL GAME DESIGN**  
+**Associate Producer and Additional Game Design**  
 Ziad Feghali
 
-**PRODUCER AND ADDITIONAL GAME DESIGN**  
+**Producer and Additional Game Design**  
 Francesco Cavallari
 
 ---
 
-**TH KÖLN / COLOGNE GAME LAB**
+**TH Köln / Cologne Game Lab**
 
-**PROJECT LEAD AND CREATIVE DIRECTOR**  
+**Project Lead and Creative Director**  
 Prof. Dr. Emmanuel Guardiola
 
-**PSYCHOLOGY ADVISOR**  
+**Psychology Advisor**  
 Dr. Marc Wittmann
 
-**MAIN PEDAGOGICAL ADVISOR**  
+**Main Pedagogical Advisor**  
 Safâa El Ouafi
 
-**PEDAGOGICAL EXPERTS**  
+**Pedagogical Experts**  
 Mouna Barmada
 Bahjat Moura
 
-**PLAYTESTS AND FIELD TESTS COORDINATORS**  
+**Playtests and Field Tests Coordinators**  
 Lubna Odeh (CNAM Paris)  
 Dr Yavuz Samur (Bahcesehir University Istanbul)  
 Fatimaezzahra Benmarrakchi (Université Chouaib Doukkali)  
 Dr Antoun Yaacoub (Université Libanaise Beirut)  
 
-**DATA ANALYST**  
+**Data Analyst**  
 Thiago Gatti
 
-**ADMINISTRATION COORDINATION**  
+**Administration Coordination**  
 Sebastian Felzmann
 Katharina Tillmanns
 
-**LEAD MARKETING STRATEGIST**  
+**Lead Marketing Strategist**  
 Odile Limpach
 
-**COMMUNICATION COORDINATOR**  
+**Communication Coordinator**  
 Imaad Manzar
 
-**PR COORDINATOR**  
+**PR Coordinator**  
 Judith Neumann
 
-**DIGITAL MARKETING COORDINATOR AND 2D ILLUSTRATOR**  
+**Digital Marketing Coordinator and 2D Illustrator**  
 Pierre Schlömp
 
-**PROMOTIONAL ART AND DESIGN**  
+**Promotional Art and Design**  
 Karen Barbosa
 
 ---
-**VIDEO GAMES WITHOUT BORDERS**
+**Video Games Without Borders**
 
-**PRODUCER AND ADDITIONAL GAME DESIGN**  
+**Producer and Additional Game Design**  
 Francesco Cavallari
 
-**R&D AND PRODUCTION**  
+**R&D and Production**  
 Stefano Cecere
 
-**ART DIRECTOR AND LEAD ARTIST**  
+**Art Director and Lead Artist**  
 Gaetano Leonardi
 
-**GAME DESIGNER AND UX/UI MASTER**  
+**Game Designer and UX/UI Master**  
 Daniele Giardini
 
-**LEAD PROGRAMMERS**  
+**Lead Programmers**  
 Paolo Bragonzi  
 Davide Barbieri  
 Michele Pirovano
 
-**PROGRAMMERS**  
+**Programmers**  
 Armando Teora  
 Elena Blanes  
 Dario Oliveri
 
-**MUSIC AND SOUND DESIGNER**  
+**Music and Sound Designer**  
 Hamza Chioua
 
-**3D ART PRODUCER**  
+**3D Art Producer**  
 Andrey Sazonov
 
-**3D MODELER**  
+**3D Modeler**  
 Andrey Kolesnikov
 
-**3D ANIMATOR**  
+**3D Animator**  
 Dmitriy Tunik
 
-**2D ILLUSTRATOR**  
+**2D Illustrator**  
 Ksenia Glebova
 
-**PR & COMMUNICATION**  
+**PR & Communication**  
 Mar Mas
 
-**ADMINISTRATION**  
+**Administration**  
 Montse Villar
 
 ---
 
-**WIXEL STUDIOS**
+**Wixel Studios**
 
-**ASSOCIATE PRODUCER AND ADDITIONAL GAME DESIGN**  
+**Associate Producer and Additional Game Design**  
 Ziad Feghali
 
-**PROGRAMMERS**  
+**Programmers**  
 George Habr  
 Hussam Kazah  
 Joseph Saade  
 Fouad Tabsh  
 Modar Dergham  
 
-**ARABIC COPYWRITING**  
+**Arabic Copywriting**  
 Sary Al-Assad
 
-**TESTERS**  
+**Testers**  
 Sleiman Hammoud  
 Ali Mzahem  
 Remi Abdel Rassoul  
@@ -357,13 +396,13 @@ Rami Bordokani
 
 ---
 
-**UNIVERSITY OF VERONA**
-MASTER IN COMPUTER GAMES DEVELOPMENT
+**University of Verona**
+Master in Computer Games Development
 
-**LAB SUPERVISOR**  
+**Lab Supervisor**  
 Diego Zamprogno
 
-**MASTER STUDENTS**  
+**Master Students**  
 Marco Comencini  
 Federico Gobbato  
 Enrico Pernigo  
@@ -371,81 +410,81 @@ Simone Pessotto
 Simone Sommaggio  
 Edoardo Tosatti  
 
-**MASTER COORDINATOR**  
+**Master Coordinator**  
 Umberto Castellani
 
 ---
 
-**VOICES**
+**Voices**
 
-**THE KEEPER**  
+**The Keeper**  
 Fares Al-Helou
 
-**VOCABULARY, TUTORIAL & SONGS**  
+**Vocabulary, Tutorial & Songs**  
 Ibtissam Shakar
 
 ---
 
-**MARKETING AND COMMUNICATION CONTRIBUTORS**
+**Marketing and Communication Contributors**
 
-**SENIOR MARKETING AND PR SPECIALIST (ELECTRONIC ARTS)**  
+**Senior Marketing and PR Specialist (Electronic Arts)**  
 Martin Lorber
 
-**MARKETING AND PR SPECIALIST (ELECTRONIC ARTS)**  
+**Marketing and PR Specialist (Electronic Arts)**  
 Ana Corina Arredondo
 
-**COMMUNICATION SPECIALISTS (UBISOFT BLUE BYTE)**  
+**Communication Specialists (Ubisoft Blue Byte)**  
 Stefan Böhne  
 Nils Ehlert
 
-**DIGITAL VISIBILITY SPECIALIST (UBISOFT BLUE BYTE)**  
+**Digital Visibility Specialist (Ubisoft Blue Byte)**  
 Henning Wasserfuhr
 
-**DIGITAL MARKETING AND VISIBILITY EXPERT (UBISOFT SAN FRANCISCO)**  
+**Digital Marketing and Visibility Expert (Ubisoft San Francisco)**  
 Rachel Alves
 
-**POLICY CONTRIBUTOR (OSBORNE CLARKE)**  
+**Policy Contributor (Osborne Clarke)**  
 Konstantin Ewald
 
-**MENA MARKETING AND PR SPECIALIST  (ABDULLAH AND EBTISAM’S CHARITABLE ASSOCIATION)**  
+**MENA Marketing and PR Specialist  (Abdullah and Ebtisam’s Charitable Association)**  
 Zaina Alyemni
 
 ---
 
-**OTHER CONTRIBUTORS**
+**Other Contributors**
 
-**PRODUCER (ALPHA VERSION)**  
-Coline Pannier 
+**Producer (Alpha Version)**  
+Coline Pannier
 
-**3D CHARACTER ANIMATOR (ALPHA VERSION)**  
+**3D Character Animator (Alpha Version)**  
 Prof. Nanette Kaulig (TH Köln / Cologne Game Lab)
  
-**3D CHARACTER MODELING (ALPHA VERSION)**  
+**3D Character Modeling (Alpha Version)**  
 Sebastian Schoellhammer
 
-**ARTIST  (ALPHA VERSION)**  
+**Artist  (Alpha Version)**  
 Reine Abbas
 
-**ARTIST  (CONCEPT  PHASE)**  
+**Artist  (Concept  Phase)**  
 Delphine Soriano
 
-**DEVELOPER (CONCEPT PHASE)**  
+**Developer (Concept Phase)**  
 Dr. Zahen Malla Osman
 
 ---
-**SCIENTIFIC BOARD**
+**Scientific Board**
 
 **UNHCR**  
 Jackie Strecker
 
-**CNAM PARIS**  
+**CNAM Paris**  
 Prof. Stephane Natkin
 
-**UNIVERSITY OF TAMPERE**  
+**University of Tampere**  
 Dr. Juho Hamari
 	
 ---
-**SPECIAL THANKS TO**
+**Special thanks to**
 
 - Gaby Gehlen (Wiku Köln)  
 - Sultana Denise Marquardt (Wiku Köln)  
@@ -463,13 +502,15 @@ Dr. Juho Hamari
 - Suany Lima  
 - Fabio Cecere  
 
-**PRODUCED WITH THE GENEROUS SUPPORT OF**  
+**Produced with the generous support of**  
+
 - Unity
 - TextMesh Pro
 - Slack
 - Abdullah & Ebtisam's Charitable Association
 
-**AND THE SUPPORT OF**  
+**And the support of**  
+
 - DOTween (C# library)
 - Arabic Support (C# library)
 - GitHub

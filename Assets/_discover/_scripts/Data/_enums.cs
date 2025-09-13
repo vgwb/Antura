@@ -42,12 +42,13 @@ namespace Antura.Discover
     public enum CardType
     {
         None = 0,
-        Place = 1,        // Cities, rivers, mountains, landmarks
-        Person = 2,       // Historical figures, teachers, friends
-        Object = 3,       // Items to interact with or collect
-        Concept = 4,      // Abstract ideas (friendship, safety, peace)
-        Activity = 5,     // Games, puzzles, cooking, sports
-        Lore = 6,         // Optional storytelling/mascot/flavor
+        Place = 1,        // WHERE - Cities, rivers, mountains, landmarks
+        Event = 8,        // WHEN - Historical events, holidays, festivals
+        Person = 2,       // WHO - Historical figures, teachers, friends
+        Object = 3,       // WHAT - Items to interact with or collect
+        Concept = 4,      // THINK - Abstract ideas (friendship, safety, peace)
+        Activity = 5,     // DO - Games, puzzles, cooking, sports
+        Lore = 6,         // NICE - Optional storytelling/mascot/flavor
         Achievement = 7   // Badges, trophies
     }
 

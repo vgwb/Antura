@@ -6,7 +6,7 @@ title: Contact and Community
 email: [contact@antura.org](mailto:contact@antura.org)
 
 ## Community
-we use Discord as main developer community tool, but we have just started this community website: please join use and let's talk here: 
+we use Discord as main developer community tool and a public forum as general discussion with teachers, users and designers:  
 👉🏼 [https://antura.discourse.group/](https://antura.discourse.group)
 
 ## Social

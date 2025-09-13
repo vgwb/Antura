@@ -1,16 +1,20 @@
-# Learn Language
-
-## Summary
+---
+title: Learn Language Modules
+---
+# Learn Language Modules
 
 ![Alt text](../assets/img/docs_antura_home.jpg)
 
-Learn with Antura is a game for the introduction to English (and many other languages) as a second language, aimed at children between 5 and 8 years old; equivalent to the contents of PreA1 according to the Common European Framework of Reference for Languages. Throughout the game, children learn the entire English alphabet, more than 250 words and a series of phrases and expressions. words and a series of simple phrases and expressions in a playful way.
+Learn with Antura is a game for the introduction to different languages (ENglish, French, Polish, Spanish, Arabics...) as a second language, aimed at children between 5 and 9 years old; equivalent to the contents of **PreA1** according to the **Common European Framework of Reference for Languages**.  
+
+Throughout the game, children learn the entire  alphabet, more than 250 words and a series of phrases and expressions. words and a series of simple phrases and expressions in a playful way.
 
 The game is organized in 6 different worlds each world includes between 15 and 20 didactic 20 didactic units, each one with a specific pedagogical specific pedagogical objective that is learned learning thanks to a series of mini-games and a final and concludes with a final test to reinforce the learning process.
 
 To pass the different mini-games words, images and sounds so that the learning process sounds so that the learning process and the learning process and progress in the game go hand in hand.
 
 ## Current Learning Modules
+
 ### Learning a new Language
 
 - Learn English
@@ -50,7 +54,7 @@ To pass the different mini-games words, images and sounds so that the learning p
 
 ![book](../assets/img/docs_antura_book.jpg)
 
-Learn with Antura aims to introduce children between 5 and 8 years old to the English language without the need to have had previous contact with it; this can take place in both academic and informal contexts, serving as a teaching support tool and a playful approach to learning English as a second language.
+Learn with Antura aims to introduce to the language without the need to have had previous contact with it; this can take place in both academic and informal contexts, serving as a teaching support tool and a playful approach to learning English as a second language.
 
 Our main objective will be to familiarize children with basic English vocabulary and with the sonority of English at a level equivalent to PreA1; all this with great attention to the speaking part, which becomes a constant element throughout the game.
 
@@ -60,14 +64,13 @@ For the selection of this vocabulary we have taken into account the use of close
 
 ## Methodology
 
-Learn English with Antura bases its pedagogical model on meaningful learning through a playful learning environment reinforced by a reward system. It complements learning models based on the communicative approach and oral communication with game systems that favor Stealth Learning, a method that allows children to focus on the game and the challenges it entails, without really having to make an effort to learn or memorize concepts.
+Learn with Antura bases its **pedagogical model on meaningful learning** through a playful learning environment reinforced by a reward system. It complements learning models based on the communicative approach and oral communication with game systems that favor **Stealth Learning**, a method that allows children to focus on the game and the challenges it entails, without really having to make an effort to learn or memorize concepts.
 
 The game introduces new concepts without any theoretical explanation, it simply proposes a challenge and guides the player through the first steps so that he/she can then advance on his/her own, creating his/her own mental model of knowledge. Each time the player interacts with a letter or a word, the game pronounces it in the correct way, reinforcing the learning process.
 
-
 The content has been organized around the learning of words through pictograms, locutions and their written forms so that they are related in a triangular way giving rise to inferences and deductions that serve to grasp the proposed vocabulary through its use in the various game mechanics.
 
-In Learn English with Antura, priority is given to the listening process, the association of sound and pictogram and the sonority of all clickable elements to reinforce at all times the phonetic issues and familiarization with the English sonority.
+Priority is given to the listening process, the association of sound and pictogram and the sonority of all clickable elements to reinforce at all times the phonetic issues and familiarization with the English sonority.
 
 In addition, the game offers rewards in the form of cookies that can be used to purchase aesthetic accessories to add to Antura's character, who will be our companion in our adventures throughout the game. This way we add an additional motivation to complete the different levels properly and to use the application frequently.
 
@@ -126,12 +129,11 @@ This section allows the player to check his main statistics and consult the dict
 When a player launches the game and starts playing with an existing profile, the first section presented to him/her is this one; it will appear the first time the game is started each day. We are in a moment of reflection on their mood thanks to a simple question: "How are you feeling today?" It is answered simply by touching one of the 5 emoticons that appear on the screen.
 
 ## Daily prizes
-Every day the player will receive cookies just for launching the game and answering the question about his/her mood. The number of cookies increases each time the player plays again the next day, motivating a daily use of the game.
+Every day the player will **receive cookies just for launching the game** and answering the question about his/her mood. The number of cookies increases each time the player plays again the next day, motivating a daily use of the game.
 
-## Teaching Section
+## Teacher Panel
 This section is protected by a question (so children cannot access it on their own) and will offer all the functionalities exclusively for teachers:
-Possibility to create a Teacher profile to freely access all the contents of the game.
-Possibility to consult the progress of the profile as an external observer.
+Possibility to create a Teacher profile to freely access all the contents of the game. Possibility to consult the progress of the profile as an external observer.
 
 CODE TO ACCESS THE TEACHER PROFILE: press the green button 5 times and then press the red button once. When entering with the teacher profile we will start at the end of the game, right at the end of the last didactic unit of the last world; this way we will be able to move around the map without restrictions and access all the didactic units.
 
@@ -154,9 +156,9 @@ For each group of letters the playr will repeat the same pedagogucal steps and a
 
 **1. Discover Letters and their name**
 
-- ColorTickle_LetterName 
-- ThrowBalls_LetterName 
-- FastCrowd_LetterName 
+- ColorTickle_LetterName
+- ThrowBalls_LetterName
+- FastCrowd_LetterName
 - Assessment_LetterName (test)
 
 **2. Recognize letters by its name**
@@ -173,345 +175,77 @@ For each group of letters the playr will repeat the same pedagogucal steps and a
 - Egg_BuildWord
 - Assessment_OrderLettersOfWord (test)
 
-In this world we'll learn these letters usong the following words from the common vocabulary:
 
-`arm, ball, blue, box, boy, breeze, camel, car, cat, chair, dog, ear, fire, four, fox, frog, garlic, gloves, hill, juice, lion, lizard, man, meat, moon, one, oven, pink, rat, red, river, road, salt, sea, soap, son, squirrel, star, sun, tea, tear, test, town, toy, tree, truck, white, woman, yellow, zoo.`
-
-### Discover vocabulary
+### Discover vocabulary
 Each world from 2 to 6 wil work with about 50 words organized in several subgroup of 10 words each. For each group will be repeated the same pedagogycal steps and the same activities, organized like in the following sequences of 4 didactical units:
 
-1. Discover and recognize words by their image and sound 
-
-- ColorTickle_Image
-- ThrowBalls_Image
-- FastCrowd_Image
-- Balloons_Image
-- Egg_Image
-- HideSeek_Image
-- Assessment_MatchWordToImage (test)
-
-1. Discover words by its lettering, sounds and drawings
-
-- ThrowBalls_BuildWord
-- FastCrowd_BuildWord
-- Egg_BuildWord
-- MixedLetters_BuildWord
-- Assessment_MatchWordToImage (test)
-
-1. Recognize words by it's lettering, sounds and drawing
-
-- ThrowBalls_Word
-- FastCrowd_Word
-- Balloons_Word
-- Assessment_SelectPronouncedWord (test)
-
-1. Get used to short sentences using the learned words
-
-- Song_Word
-- ReadingGame_Phrase
-- MissingLetter_Phrase
-- Assessment_QuestionAndReply (test)
+1. Discover and recognize words by their image and sound
+    - ColorTickle_Image
+    - ThrowBalls_Image
+    - FastCrowd_Image
+    - Balloons_Image
+    - Egg_Image
+    - HideSeek_Image
+    - Assessment_MatchWordToImage (test)
+2. Discover words by its lettering, sounds and drawings
+    - ThrowBalls_BuildWord
+    - FastCrowd_BuildWord
+    - Egg_BuildWord
+    - MixedLetters_BuildWord
+    - Assessment_MatchWordToImage (test)
+3. Recognize words by it's lettering, sounds and drawing
+    - ThrowBalls_Word
+    - FastCrowd_Word
+    - Balloons_Word
+    - Assessment_SelectPronouncedWord (test)
+4. Get used to short sentences using the learned words
+    - Song_Word
+    - ReadingGame_Phrase
+    - MissingLetter_Phrase
+    - Assessment_QuestionAndReply (test)
 
 ### World 2: Animals and Nature
 
-#### Nature
+**Nature**  
+BEACH, BREEZE, CLOUD, DESERT, FIRE, FLOWER, FOREST, HILL, ISLAND, MOON, MOUNTAIN, PLANT, RAIN, RIVER, SEA, SKY, SNOW, STAR, STONE, SUN, TREE, VOLCANO
 
-- BEACH
-- BREEZE
-- CLOUD
-- DESERT
-- FIRE
-- FLOWER
-- FOREST
-- HILL
-- ISLAND
-- MOON
-- MOUNTAIN
-- PLANT
-- RAIN
-- RIVER
-- SEA
-- SKY
-- SNOW
-- STAR
-- STONE
-- SUN
-- TREE
-- VOLCANO
-
-#### Animals
-
-- BEAR
-- BEE
-- BIRD
-- CAMEL
-- CAT
-- CHICKEN
-- COW
-- CROCODILE
-- DOG
-- DUCK
-- ELEPHANT
-- FOX
-- FROG
-- GOAT
-- HORSE
-- LION
-- LIZARD
-- MONKEY
-- OCTOPUS
-- PARROT
-- PENGUIN
-- PIG
-- RAT
-- SNAKE
-- SQUIRREL
-- TIGER
-- TURTLE
-- WHALE
+**Animals**  
+BEAR, BEE, BIRD, CAMEL, CAT, CHICKEN, COW, CROCODILE, DOG, DUCK, ELEPHANT, FOX, FROG, GOAT, HORSE, LION, LIZARD, MONKEY, OCTOPUS, PARROT, PENGUIN, PIG, RAT, SNAKE, SQUIRREL, TIGER, TURTLE, WHALE
 
 ### World 3: Home, Objects, Cloths
 
-#### Home
+**Home**  
+BED, BEDROOM, CHAIR, CLOSET, COMPUTER, COUCH, CUP, DISH, DOOR, FLOOR, FORK, FRIDGE, KITCHEN, KNIFE, LAMP, MIRROR, OVEN, ROOF, SHOWER, SINK, SOAP, SPOON, STAIRS, STOVE, TABLE, TELEVISION, TOILET, TOWEL, WINDOW
 
-- BED
-- BEDROOM
-- CHAIR
-- CLOSET
-- COMPUTER
-- COUCH
-- CUP
-- DISH
-- DOOR
-- FLOOR
-- FORK
-- FRIDGE
-- KITCHEN
-- KNIFE
-- LAMP
-- MIRROR
-- OVEN
-- ROOF
-- SHOWER
-- SINK
-- SOAP
-- SPOON
-- STAIRS
-- STOVE
-- TABLE
-- TELEVISION
-- TOILET
-- TOWEL
-- WINDOW
-
-#### Objects, Clothes
-
-- BALL
-- BOOK
-- BOX
-- COAT
-- DOLL
-- GLOVES
-- GLUE
-- HAT
-- JACKET
-- NEEDLE
-- PAPER
-- PENCIL
-- SCARF
-- SCISSORS
-- SHIRT
-- SHOES
-- SKIRT
-- SOCKS
-- TEST
-- TOY
-- TROUSERS
+**Objects and Clothes**  
+BALL, BOOK, BOX, COAT, DOLL, GLOVES, GLUE, HAT, JACKET, NEEDLE, PAPER, PENCIL, SCARF, SCISSORS, SHIRT, SHOES, SKIRT, SOCKS, TEST, TOY, TROUSERS
 
 ### World 4: City, Family
 
-#### City
-
-- AIRPORT
-- BANK
-- BICYCLE
-- BUS
-- CAR
-- CASTLE
-- CHURCH
-- CITY
-- CLASSROOM
-- FIELD
-- GARDEN
-- HOSPITAL
-- HOUSE
-- LIBRARY
-- MARKET
-- MOTORBIKE
-- MUSEUM
-- PARK
-- PHARMACY
-- PLANE
-- PLAYGROUND
-- RESTAURANT
-- PORT
-- ROAD
-- SCHOOL
-- SHOP
-- STATION
-- STREET
-- THEATRE
-- TOWN
-- TRAIN
-- TRUCK
-- ZOO
-
-#### Family
-
-- AUNT
-- BOY
-- BROTHER
-- DAUGHTER
-- FATHER
-- GIRL
-- GRANDDAUGHTER
-- GRANDFATHER
-- GRANDMOTHER
-- GRANDSON
-- MAN
-- MOTHER
-- PET
-- SISTER
-- SON
-- UNCLE
-- WOMAN
+**City**  
+AIRPORT, BANK, BICYCLE, BUS, CAR, CASTLE, CHURCH, CITY, CLASSROOM, FIELD, GARDEN, HOSPITAL, HOUSE, LIBRARY, MARKET, MOTORBIKE, MUSEUM, PARK, PHARMACY, PLANE, PLAYGROUND, RESTAURANT, PORT, ROAD, SCHOOL, SHOP, STATION, STREET, THEATRE, TOWN, TRAIN, TRUCK, Z, ## Fami, AUNT, BOY, BROTHER, DAUGHTER, FATHER, GIRL, GRANDDAUGHTER, GRANDFATHER, GRANDMOTHER, GRANDSON, MAN, MOTHER, PET, SISTER, SON, UNCLE, WOMAN
 
 ### World 5: Food, Body
 
-#### Food
+**Food**  
+APPLE, APRICOT, BANANA, BREAD, CAKE, CARROT, CHEESE, CHERRY, CHICKPEA, COFFEE, CUCUMBER, FOOD, GARLIC, GRAPES, JUICE, MEAT, OIL, ONION, PEAR, PEPPER, POTATO, RICE, SALT, SUGAR, TEA, TOMATO, WATER, WATERMELON, YOGHURT
 
-- APPLE
-- APRICOT
-- BANANA
-- BREAD
-- CAKE
-- CARROT
-- CHEESE
-- CHERRY
-- CHICKPEA
-- COFFEE
-- CUCUMBER
-- FOOD
-- GARLIC
-- GRAPES
-- JUICE
-- MEAT
-- OIL
-- ONION
-- PEAR
-- PEPPER
-- POTATO
-- RICE
-- SALT
-- SUGAR
-- TEA
-- TOMATO
-- WATER
-- WATERMELON
-- YOGHURT
-
-#### Body
-
-- ARM
-- BACK
-- BELLY
-- BRAIN
-- CHEST
-- EAR
-- EYE
-- FACE
-- FINGER
-- FOOT
-- HAIR
-- HAND
-- HEAD
-- LEG
-- LIPS
-- MOUTH
-- NAIL
-- NOSE
-- TEAR
-- TONGUE
-- TOOTH
+**Body**  
+ARM, BACK, BELLY, BRAIN, CHEST, EAR, EYE, FACE, FINGER, FOOT, HAIR, HAND, HEAD, LEG, LIPS, MOUTH, NAIL, NOSE, TEAR, TONGUE, TOOTH
 
 ### World 6: Calendar, Colors, Numbers
 
-#### Colors
+**Colors**  
+BLACK, BLUE, BROWN, GREEN, GREY, ORANGE, PINK, PURPLE, RED, WHITE, YELLOW
 
-- BLACK
-- BLUE
-- BROWN
-- GREEN
-- GREY
-- ORANGE
-- PINK
-- PURPLE
-- RED
-- WHITE
-- YELLOW
+**Days & Seasons**  
+MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY, SPRING, SUMMER, AUTUMN, WINTER
 
-#### Days & Seasons
+**Numbers**  
+ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE, THIRTEEN, FOURTEEN, FIFTEEN, SIXTEEN, SEVENTEEN, EIGHTEEN, NINETEEN, TWENTY
 
-- MONDAY
-- TUESDAY
-- WEDNESDAY
-- THURSDAY
-- FRIDAY
-- SATURDAY
-- SUNDAY
-- SPRING
-- SUMMER
-- AUTUMN
-- WINTER
-
-#### Numbers
-
-- ZERO
-- ONE
-- TWO
-- THREE
-- FOUR
-- FIVE
-- SIX
-- SEVEN
-- EIGHT
-- NINE
-- TEN
-- ELEVEN
-- TWELVE
-- THIRTEEN
-- FOURTEEN
-- FIFTEEN
-- SIXTEEN
-- SEVENTEEN
-- EIGHTEEN
-- NINETEEN
-- TWENTY
-
-#### Months
-
-- JANUARY
-- FEBRUARY
-- MARCH
-- APRIL
-- MAY
-- JUNE
-- JULY
-- AUGUST
-- SEPTEMBER
-- OCTOBER
-- NOVEMBER
-- DECEMBER
+**Months**  
+JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
 
 ![content 1](../assets/img/docs_antura_content_1.jpg)
 ![content 2](../assets/img/docs_antura_book2.jpg)

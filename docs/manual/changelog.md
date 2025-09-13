@@ -3,23 +3,24 @@ title: Changelog
 ---
 # Antura Changelog
 All notable changes to this project will be documented in this file.
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
-## [3.0.0] - 2025
+## [3.0.0] - Discover Europe - 2025
 
 ### New Features
 
-- Discover Europe Module (France and Poland)
+- Discover Europe Module
+- French and Poland initial quests
 - Classroom mode
 - the Cat model
+- update antura.org website with content from the game itself
 
 ### Dev notes
 
 - Removed Facebook SDK
 - Unity 6.2
+- initial refactoring of content with editor management and validation tools
 
-## [2.4.0] - 2022
+## [2.4.0] - Pashto - 2022
 New Supported languages:
 
 - Pashto
@@ -28,7 +29,7 @@ New Learning Content:
 
 - Learn to Read - Pashto
 
-## [2.3.0] - 2022
+## [2.3.0] - Hungarian - 2022
 New Supported languages:
 
 - Hungarian
@@ -44,7 +45,7 @@ Bugfix and Improvements:
 - improved arabic and dari ligatures
 - fixed missing Audios
 
-## [2.2.0] - 2022-7 - new languages
+## [2.2.0] - New Languages - July 2022
 New Supported languages:
 
 - German
@@ -61,7 +62,7 @@ New Learning Content:
 
 And some bugfix and performance improvements
 
-## [2.1.0] - 2022-06 - The Multiedition One App
+## [2.1.0] - The Multiedition One App - June 2022
 From this version Antura and the Letters supports multiple languages and a variety of learning contents, including both learning to read in your language and discovering a new language, with the priority set in helping Syrian, Afghan and Ukrainian kids.
 
 Supported languages:
@@ -72,7 +73,7 @@ Supported languages:
 - French
 - Ukrainian
 - Russian
- 
+
 Learning Content:
 
 - Learn to Read in Arabic (as before)
@@ -88,14 +89,14 @@ New features:
 
 Plenty of bug fixes
 
-## [2.0.0] - 2021-11-17
+## [2.0.0] - New Arabic - November 2021
 - new Arabic
 - Addressables system
 
-## [1.4.0] - 2020-08-07
+## [1.4.0] - Learn French - August 2020
 - Learn French edition (v1.0.0 french)
 
-## [1.3.0] - 2019-02-18
+## [1.3.0] - Learn English - February 2019
 this is the first release of the Learn English with Antura.
 it's fully functional but obviously lacks a lot of polish contents.
 
@@ -106,7 +107,7 @@ The app is developed to allow any "native / instructions language" (the one used
 
 if you find any important bug, please let us know. the project is open source!
 
-## [1.2.0] - 2018-02-18
+## [1.2.0] - Arabic Release - February 2018
 - the first full arabic release
 - new arabic curriculum
 - new map
@@ -115,15 +116,11 @@ if you find any important bug, please let us know. the project is open source!
 - daily rewards and notifications
 - feminime arabic localizations and speeches
 
-## [1.0.7] - 2017-10-27
-- project optimization
-- migrated to TextmeshPro free and optimized all font assets
-- [debug] added SHIFT + R shortcut
-- export complete Database from reserved area
-- [desktop] disable Rate Button on Desktop build
 
-## [0.6.0] - 2017-03-11
+## [0.6.0] - Beta - March 2017
 First Arabic Beta
 
-## [0.6.0] - 2017-03-11
-Arabic Phase 1 Alpha
+---
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)

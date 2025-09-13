@@ -1,34 +1,29 @@
 ---
-title: "Antura Teacher's Manual"
+title: "Antura's Manual"
 ---
-# AnturaTeacher's Manual
+# Antura's Manual
 
+!!! note
+    We are rewriting here the [previous Google Doc version](https://docs.google.com/document/d/1Yk8cvbJIE2IKIKsVDs7eHWq_nueZ-O6HCGTl9xVusJk/edit?usp=sharing)
 
-This is the one and only public manual of the game, to introduce all features, how to play and how to use it in the classroom.
+This manual is for:
 
-The full manual is [here](https://docs.google.com/document/d/1Yk8cvbJIE2IKIKsVDs7eHWq_nueZ-O6HCGTl9xVusJk/edit?usp=sharing)
+- **Teachers** who want to use Antura in the classroom
+- **Parents** who want to know more about this game
+- **Designers** who want to create new quests
+- **Philanthropists** who want to support innovetive open source educational projects
 
 ## Sections
 
-- [Install](./install.md)
-- [Feedback](./feedback.md)
-- [Learn Language Module](./learnlanguage.md)
-- [Discover Module](./discover.md)
-- [Quests](../discover/quest/index.md)
+- [How to Install and Setup](./install.md)
+- [Learn Languages](./learnlanguage_module.md)
+- [Discover Europe](./discover_module.md)
+- [How to Play Discover](./discover_how_to_play.md)
+- [Teacher Classroom Guide](./classroom_guide.md)
+- [Feedback and Support](./support.md)
+- [FAQ](./faq.md)
+- [Changelog](./changelog.md)
 
-## Quest creators
-
-- [How to create a new quest](./quest-design/index.md)
-
-### Target readers
-
-- Teachers who want to use Antura in the classroom  
-- Parents who want to know more about this game  
-- Developers who want an full overview of the features  
-- Philanthropists who want to support open source educational projects
-
-### Editors
-
-The main editors are [Stefano Cecere](mailto:stefano.cecere@gmail.com) and [francy.vgwb@gmail.com](mailto:francy.vgwb@gmail.com)  
-**You can comment on this document to make it as clear as possible.**  
-If you want the possibility to comment on this document, please write them.  
+## Quest creators & developers
+We have a custom section of this website dedicated to developers.  
+Start here: [How to create a new Quest](../dev/quest-design/index.md)
