@@ -1,7 +1,7 @@
 ---
-title: Learn Language Modules
+title: Learn Languages
 ---
-# Learn Language Modules
+# Learn Languages
 
 ![Alt text](../assets/img/docs_antura_home.jpg)
 

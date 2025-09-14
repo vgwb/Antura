@@ -1,8 +1,9 @@
 ---
-title: How to Play Discover Quests
+title: How to play Quests
+status: new
 ---
 
-# How to play Discover Quests
+# How to play Discover quests
 
 ## Choose a quest
 

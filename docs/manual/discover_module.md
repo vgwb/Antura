@@ -1,84 +1,9 @@
 ---
-title: Discover Europe Modules
+title: Discover Features
+status: new
 ---
 
-# Discover Europe Modules
-
-!!! note "How to Play guide"
-    This doc exmplains the game features, there is a dedicated page on [How to play](./discover_how_to_play.md)
-
-Discover Europe helps children explore the culture, language, and daily life of different countries through short, replayable quests.
-
-It is designed to support **migrant children**, but can also be used in any school to promote **cultural awareness** and **language learning**.
-
-- **Where to use it**: in class or at home
-- **For whom**: children aged 6–12
-- **Values**: simple, safe, accessible
-
-Here is a short introduction to the game, followed by a detailed description of each feature.
-
-## The game in 2 minutes
-
-- Children play as a **Cat character** in colorful 3D worlds.
-- They take on **Quests** (5–15 minutes each), which are short adventures focusing on cultural or educational themes.
-- Each quest combines:
-    - exploration of authentic places
-    - meeting characters
-    - solving puzzles and mini-games
-    - collecting cultural elements (**Knowledge Cards**)
-
-### Language Support
-
-- All dialogues are bilingual: **the child’s native language** + **the host country’s language** (e.g., Polish, French).
-- This makes it easier for children to follow the story while learning new words and phrases.
-
-### Learning through Play
-
-Discover teaches in two ways:
-
-1. **Indirect learning**: children absorb culture and language while exploring and playing.
-2. **Direct learning**: short questions and quizzes reinforce knowledge before advancing.
-
-Topics include history, food, traditions, geography, daily life, and more.
-
-### Knowledge Cards & Book
-
-- **Cards**: represent facts, people, objects, traditions, or places.
-- Children **collect them in quests** and can review them anytime in the **Book**.
-- Cards are linked into a **Knowledge Graph** that shows how cultural elements connect (e.g., baguette → bread → French cuisine).
-
-### Motivation & Progress
-
-- **Gems** = mastery of tasks (real learning progress).
-- **Cookies** = fun currency for customizing the cat.
-- **Stars** = performance rating of each quest.
-- **Achievements** = long-term goals (e.g., “collect all cards in France”).
-
-### Teacher & Parent Tools
-
-- **Teacher Panel**: adjust difficulty, choose language mode, monitor quests and progress.
-- **Automatic Website**: shows topics, cards, and activities completed, aligning gameplay with the **curriculum** and making progress **transparent** for teachers and parents.
-
-### Skills Developed
-
-While playing, children train:
-
-- memory and recall
-- logical reasoning
-- spatial orientation
-- language comprehension and production
-- cultural awareness and citizenship
-
-### Classroom Integration
-
-After playing, teachers can:
-
-- rebuild the knowledge graph with students
-- extend it with new ideas
-- retell the quest together
-- compare with real-life resources (maps, books, visits)
-
-___
+# Discover Europe details
 
 ## Content
 
@@ -266,8 +191,24 @@ By default the game speaks the learning language first, then the native language
 
 ### Difficulty levels
 
+All gameplay and content is classified in three difficulty levels:
+
+- Easy
+- Normal
+- Expert
+
 Teachers can adjust difficulty in the Teacher Panel to adapt timing, hints, and challenge density to the learner’s level. Some quests also unlock extra optional tasks on replay for advanced learners.
 
+### Locations
+Each quest is located in a specific location (usually a city or a part of a city) selectable in the worl map.
+They are build with two methodologies:
+
+1. **Abstract art**  
+Designers build generic environment using common 3D models. Good for common topics that are not aboslutely linked to a geographic position.
+
+2. **Realistic maps**  
+The city are build starting from a realisti map (from [OpenStreetMap](https://www.openstreetmap.org)), with defined GPS coordinates and orientation.
+This scenarios are best for real "urban" quests where orientation matters.
 
 ## Gameplay
 
@@ -292,17 +233,19 @@ Quests can require prior quests as knowledge prerequisites.
 
 ### Modes (Classroom vs Home)
 
-- Classroom: focus on one country/topic; quests freely selectable within it.  
-- Home: countries selectable; quests typically unlock sequentially for exploration.  
+- In Classroom Mode the focus on one country/topic and quests freely selectable within it.  
+- Home Mode: all countries selectable and quests are typically unlock sequentially for exploration.  
 
 ### Accessibility
 
 - Subtitles and icon prompts support early readers and multilingual play.  
-- Classroom mode reduces noise; short sessions make debriefing easy.  
+- Classroom mode reduces noise
+- All sentences are spoken in all languages
+- We use and color and shape and sound marks
 
 ### Devices and controls
 
-- Works with keyboard/mouse and touch. See [How to Play](./discover_how_to_play.md) for controls, map, interactions, and the activities gallery.  
+Works with keyboard/mouse and touch. See [How to Play](./discover_how_to_play.md) for controls, map, interactions, and the activities gallery.  
 
 ## Motivation and rewards
 

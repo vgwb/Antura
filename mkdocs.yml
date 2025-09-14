@@ -15,7 +15,7 @@ theme:
     edit: material/file-edit-outline
   features:
     - content.action.edit
-#    - navigation.footer
+    - navigation.footer
     - navigation.tracking
     - navigation.tabs
 #    - navigation.tabs.sticky
@@ -23,7 +23,7 @@ theme:
     - navigation.indexes
 #    - navigation.expand
 #    - navigation.sections
-#    - announce.dismiss
+    - announce.dismiss
   font:
     text: Roboto
     code: Roboto Mono
@@ -41,6 +41,12 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+# Additional configuration
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+
 markdown_extensions:
   - tables
   - footnotes
@@ -57,6 +63,8 @@ markdown_extensions:
   - attr_list
   - def_list
   - md_in_html
+  - toc:
+      permalink: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -104,3 +112,39 @@ extra_css:
   - assets/stylesheets/extra.css
 #  - assets/yarn/yarn-graph.css
   - assets/yarn/yarn-script.css
+
+#not_in_nav: |
+#  /discover/quest/*.md
+#
+## Page tree
+#nav:
+#  - Home: index.md
+#  - Blog: 
+#      - blog/index.md
+#  - Manual:
+#      - manual/index.md
+#      - How to Install and Setup: manual/install.md
+#      - Learn Languages: manual/learnlanguage_module.md
+#      - Discover Europe:
+#        - Introduction: manual/discover_introduction.md
+#        - Features: manual/discover_module.md
+#        - How to play quests: manual/discover_how_to_play.md
+#      - Classroom Guide: manual/classroom_guide.md
+#      - Feedback and Support: manual/support.md
+#      - FAQ: manual/faq.md
+#      - Changelog: manual/changelog.md
+#  - Discover:
+#      - discover/index.md
+#      - Quests: discover/quest/index.md
+#      - Topics: discover/topics/index.md
+#      - Cards: discover/cards/index.md
+#      - Words: discover/words/index.md
+#      - Activities: discover/activities/index.md
+#      - Locations: discover/locations/index.md
+#  - About:
+#      - Learn with Antura: about/index.md
+#      - The Team: about/team.md
+#      - VGWB: about/vgwb.md
+#      - Privacy Policy: about/privacy-policy.md
+#  - Forum: https://antura.discourse.group
+

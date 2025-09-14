@@ -17,9 +17,10 @@ This manual is for:
 
 - [How to Install and Setup](./install.md)
 - [Learn Languages](./learnlanguage_module.md)
+- [Discover Europe introduction](./discover_introduction.md)
 - [Discover Europe](./discover_module.md)
-- [How to Play Discover](./discover_how_to_play.md)
-- [Teacher Classroom Guide](./classroom_guide.md)
+- [How to play Discover quests](./discover_how_to_play.md)
+- [Classroom Guide](./classroom_guide.md)
 - [Feedback and Support](./support.md)
 - [FAQ](./faq.md)
 - [Changelog](./changelog.md)

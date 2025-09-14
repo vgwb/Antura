@@ -5,9 +5,9 @@ title: Credits
 
 This project started in 2016 as the original game **Antura and the Letters - Arabic** and evolved in the years with three main iterations. Many people have given contributions.
 
-- 2025 - Antura 3.0 - Discover Countries Edition
-- 2021 - Antura 2.0 - Learn Languages Edition
-- 2016 - Antura 1.0 - EduApp4Syria Edition
+- Antura 3.0 (2025) - Discover Europe Edition
+- Antura 2.0 (2021) - Learn Languages Edition
+- Antura 1.0 (2017) - EduApp4Syria Edition
 
 **Global partners**
 
@@ -27,7 +27,7 @@ This project started in 2016 as the original game **Antura and the Letters - Ara
 - Code To Inspire  
 - Amerike: Instituto de Estudios Universitarios  
 
-## Antura 3.0 - Discover Countries Edition
+## Antura 3.0 - Discover Europe Edition
 
 **R&D and Production Lead**  
 Stefano Cecere (VGWB)

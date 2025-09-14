@@ -1,8 +1,9 @@
 ---
-title: Teacher classroom guide
+title: Classroom guide
+status: new
 ---
 
-# Teacher classroom guide
+# Classroom guide
 
 This guide provides some practical suggestions for teachers who want to use **Learn with Antura** in class, that means:  
 
