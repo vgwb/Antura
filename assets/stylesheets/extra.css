@@ -1,0 +1,194 @@
+hr {
+    height: 6px;
+    background-color: #FF9400 ;
+    border-radius: 5px;
+}
+
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color:        #0079b5;
+    --md-primary-fg-color--light: #0079b5;
+    --md-primary-fg-color--dark: #0079b5;
+    --md-accent-fg-color: #FF9400;
+}
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        #0079b5;
+    --md-accent-fg-color: #FF9400;
+}
+
+[data-md-color-scheme="default"] .md-typeset h1 {
+    font-weight: 600 !important;
+    color: #0079b5 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+    font-weight: 600 !important;
+    color: #3c86b4 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset h2 {
+    font-weight: 00 !important;
+    color: #3c86b4 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+    font-weight: 400 !important;
+    color: #3c86b4 !important;
+}
+
+html {
+  font-synthesis: none;
+  font-size: 125%;
+}
+
+/* Antura Drawings custom font (copy the .woff2/.otf files into docs/assets/fonts/) */
+@font-face {
+  font-family: 'AnturaDrawings';
+  src: url('../fonts/AnturaWordDrawings-Regular.woff2') format('woff2'),
+       url('../fonts/AnturaWordDrawings-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.word-icon {
+  font-family: 'AnturaDrawings', 'AnturaWordDrawings-Regular', sans-serif;
+  display: inline-block;
+  font-size: 140px; /* increased size */
+  line-height: 1;
+  vertical-align: middle;
+  transform: translateY(0.05em);
+  color: #222;
+}
+[data-md-color-scheme="slate"] .word-icon {
+  color: #eee;
+}
+
+body {
+  --md-text-font-family: -apple-system, "SF Pro Text", "Helvetica", sans-serif;
+  --md-code-font-family: "SF Mono", "Menlo", monospace;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: normal;
+}
+
+/* Override Main Article Options */
+.md-typeset,
+.md-search-result .md-typeset {
+  color: var(--text-color);
+}
+
+.md-typeset {
+  text-rendering: optimizeLegibility;
+  font-kerning: auto;
+  font-style: normal;
+  -webkit-print-color-adjust: economy;
+  print-color-adjust: economy;
+}
+
+.md-content .md-typeset {
+  font-size: 0.85rem;
+}
+
+.md-content .md-typeset h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      margin-top: -0.4rem;
+      text-align: center;
+      letter-spacing: 0.002rem;
+  }
+
+.md-content .md-typeset h2 {
+      font-size: 1.6rem;
+      line-height: 1.09375;
+      font-weight: 500;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.0055rem;
+}
+
+.md-content .md-typeset h3 {
+      font-size: 1.2rem;
+      line-height: 1.09375;
+      font-weight: 500;
+      letter-spacing: -0.0055rem;
+}
+
+.md-content .md-typeset h4 {
+      font-size: 1.1rem;
+      line-height: 1.09375;
+      font-weight: 500;
+}
+
+.md-content .md-typeset h5 {
+      font-size: 1rem;
+      line-height: 1.09375;
+      font-weight: 500;
+}
+
+.md-content .md-typeset h6 {
+  font-size: 0.85rem;
+  line-height: 1.09375;
+  font-weight: 500;
+}
+
+.md-content .md-typeset p {
+  font-size: 0.85rem;
+  font-weight: 400;
+  font-feature-settings: normal;
+  letter-spacing: -0.0105rem;
+  margin-top: 0;
+  margin-bottom: 1.50rem;
+}
+
+.md-content pre {
+  margin-left: -1.1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+  border: 1px solid var(--code-border-color);
+}
+
+.md-content .md-typeset code {
+  font-size: .85rem;
+  line-height: 1.25rem;
+}
+
+.md-typeset a:hover {
+  text-decoration: underline;
+}
+
+tr {
+  font-size: 0.85rem;
+}
+
+/* Sidebar */
+.md-nav__link {
+  color: var(--link-color);
+}
+
+.md-nav__link--passed {
+  opacity: 0.5;
+}
+
+.md-nav__link--active {
+  opacity: initial;
+  font-weight: bold;
+}
+
+.md-nav a:hover {
+  text-decoration: underline;
+}
+
+.md-tabs__link {
+  opacity: 1;
+  transform: 0.3s ease-out;
+}
+
+.md-tabs__link:hover {
+  color: var(--link-color);
+}
+
+/* Handle pop up menu on smaller screen sizes */
+.md-nav--primary .md-nav__title {
+  color: var(--md-primary-bg-color);
+  background-color: var(--md-primary-fg-color);
+}
