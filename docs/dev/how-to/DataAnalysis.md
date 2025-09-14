@@ -8,7 +8,7 @@ nav_order: 3
 
 the app logs several types of data during the gameplay to allow analysis of behaviours and results of the learning experience.
 
-see docs [Logging](../Modules/Logging.md) and [Database](../Modules/Database.md) for technical details.
+see docs [Logging](../language-modules/Logging.md) and [Database](../language-modules/Database.md) for technical details.
 
 these are the main queries that we need to extract from data:
 

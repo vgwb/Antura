@@ -645,7 +645,7 @@ A big animal with a trunk. Elephants are the biggest animals that walk on land. 
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Words: elephant, zoo
 - Image credit: CC0
 - Quests: [The Zoo (pl_04)](../quest/pl_04.md)
 
@@ -2737,7 +2737,7 @@ A long, crispy bread that is the most famous food in France. French people buy f
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paris! (fr_01)](../quest/fr_01.md), [Development (dev)](../quest/dev.md)
+- Quests: [Paris! (fr_01)](../quest/fr_01.md)
 
 ---
 
@@ -4753,4 +4753,173 @@ An old port crane and city gate on the river.
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
 - Quests: [The Amber Necklace of Gdańsk (pl_05)](../quest/pl_05.md)
+
+## Others
+
+### <a id="capital_berlin"></a>Berlin
+![preview capital_berlin](../../assets/img/discover/cards/capital_berlin.jpg){ loading=lazy }
+
+The capital city of Germany.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
+
+---
+
+### <a id="flag_germany"></a>Flag of Germany
+![preview flag_germany](../../assets/img/discover/cards/flag_germany.jpg){ loading=lazy }
+
+The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
+
+- Rationale: The German flag helps kids learn about France's important neighbor country
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1949
+- Country: Germany
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC0
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md), [The neighbors of Poland (pl_00)](../quest/pl_00.md)
+
+---
+
+### <a id="country_germany"></a>Germany
+![preview country_germany](../../assets/img/discover/cards/country_germany.jpg){ loading=lazy }
+
+A country in Europe. Capital is Berlin.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC_BY_SA | Ansgar Koreng | [source](https://commons.wikimedia.org/wiki/File:Kloster_Paulinzella,_Thüringen,_170316,_ako_(2).jpg)
+
+---
+
+### <a id="art_venus_milo"></a>Venus de Milo
+![preview art_venus_milo](../../assets/img/discover/cards/art_venus_milo.jpg){ loading=lazy }
+
+A beautiful ancient statue of a woman made from white marble. Her arms are missing but she is still considered one of the most beautiful statues ever made.
+
+- Rationale: This statue teaches kids about ancient Greek art and how old things can still be beautiful
+- Type: Concept
+- Subjects: Art, History, Culture
+- Year: 130
+- Country: Greece
+- Topics: [Louvre](../topics/index.md#louvre)
+- Image credit: CC0
+
+---
+
+### <a id="flag_italy"></a>Flag of Italy
+![preview flag_italy](../../assets/img/discover/cards/flag_italy.jpg){ loading=lazy }
+
+The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
+
+- Rationale: The Italian flag connection to pizza helps kids remember the colors easily
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1946
+- Country: Italy
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md)
+
+---
+
+### <a id="country_italy"></a>Italy
+![preview country_italy](../../assets/img/discover/cards/country_italy.jpg){ loading=lazy }
+
+A country in Europe. Capital is Rome.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Agnes Monkelbaan | [source](https://commons.wikimedia.org/wiki/File:Bergwandeltocht_van_Peio_Paese_naar_Lago_Covel_(1,839_m)_in_het_Nationaal_park_Stelvio_(Italy)_23.jpg)
+
+---
+
+### <a id="art_monalisa"></a>Mona Lisa
+![preview art_monalisa](../../assets/img/discover/cards/art_monalisa.jpg){ loading=lazy }
+
+The most famous painting in the world! A woman with a mysterious smile painted by Leonardo da Vinci. She seems to follow you with her eyes.
+
+- Rationale: Kids are fascinated by this mysterious painting and it introduces Renaissance art
+- Type: Object
+- Subjects: Art, History, Culture
+- Year: 1503
+- Country: Italy
+- Topics: [Louvre](../topics/index.md#louvre)
+- Words: woman
+- Image credit: CC0
+- Quests: [Paris! (fr_01)](../quest/fr_01.md)
+
+---
+
+### <a id="capital_rome"></a>Rome
+![preview capital_rome](../../assets/img/discover/cards/capital_rome.jpg){ loading=lazy }
+
+The capital city of Italy.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
+
+---
+
+### <a id="flag_andorra"></a>Flag of Andorra
+![preview flag_andorra](../../assets/img/discover/cards/flag_andorra.jpg){ loading=lazy }
+
+The flag of Andorra has blue, yellow, and red stripes with a coat of arms in the middle. Andorra is a tiny country between France and Spain.
+
+- Rationale: Learning about small countries helps kids understand European diversity
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1866
+- Country: Spain
+- Image credit: CC0
+
+---
+
+### <a id="flag_spain"></a>Flag of Spain
+![preview flag_spain](../../assets/img/discover/cards/flag_spain.jpg){ loading=lazy }
+
+The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
+
+- Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1981
+- Country: Spain
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [The neighbors of France (fr_00)](../quest/fr_00.md)
+
+---
+
+### <a id="capital_madrid"></a>Madrid
+![preview capital_madrid](../../assets/img/discover/cards/capital_madrid.jpg){ loading=lazy }
+
+The capital city of Spain.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
+
+---
+
+### <a id="country_spain"></a>Spain
+![preview country_spain](../../assets/img/discover/cards/country_spain.jpg){ loading=lazy }
+
+A country in Europe. Capital is Madrid. Spain invented flamenco dancing.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Olite,_Navarra,_España,_2015-01-06,_DD_07-09_HDR.JPG)
 

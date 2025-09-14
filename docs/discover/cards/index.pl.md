@@ -1836,7 +1836,7 @@ Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Words: elephant, zoo
 - Image credit: CC0
 - Quests: [Zoo (pl_04)](../quest/pl_04.pl.md)
 
@@ -2223,7 +2223,7 @@ Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie 
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.pl.md), [Rozwój (dev)](../quest/dev.pl.md)
+- Quests: [Paryż! (fr_01)](../quest/fr_01.pl.md)
 
 ---
 
@@ -4753,4 +4753,173 @@ Stary dźwig portowy i brama miejska nad rzeką.
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
 - Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.pl.md)
+
+## Others
+
+### <a id="capital_berlin"></a>Berlin
+![preview capital_berlin](../../assets/img/discover/cards/capital_berlin.jpg){ loading=lazy }
+
+Stolica Niemiec.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
+
+---
+
+### <a id="flag_germany"></a>Flaga Niemiec
+![preview flag_germany](../../assets/img/discover/cards/flag_germany.jpg){ loading=lazy }
+
+Flaga Niemiec ma trzy poziome pasy: czarny, czerwony i żółty. Niemcy słyną z samochodów, zamków i bajek!
+
+- Rationale: The German flag helps kids learn about France's important neighbor country
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1949
+- Country: Germany
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC0
+- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.pl.md)
+
+---
+
+### <a id="country_germany"></a>Niemcy
+![preview country_germany](../../assets/img/discover/cards/country_germany.jpg){ loading=lazy }
+
+Państwo w Europie. Stolicą jest Berlin.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC_BY_SA | Ansgar Koreng | [source](https://commons.wikimedia.org/wiki/File:Kloster_Paulinzella,_Thüringen,_170316,_ako_(2).jpg)
+
+---
+
+### <a id="art_venus_milo"></a>Wenus z Milo
+![preview art_venus_milo](../../assets/img/discover/cards/art_venus_milo.jpg){ loading=lazy }
+
+Piękna, starożytna statua kobiety wykonana z białego marmuru. Brakuje jej ramion, ale i tak jest uważana za jedną z najpiękniejszych rzeźb, jakie kiedykolwiek powstały.
+
+- Rationale: This statue teaches kids about ancient Greek art and how old things can still be beautiful
+- Type: Concept
+- Subjects: Art, History, Culture
+- Year: 130
+- Country: Greece
+- Topics: [Louvre](../topics/index.md#louvre)
+- Image credit: CC0
+
+---
+
+### <a id="flag_italy"></a>Flaga Włoch
+![preview flag_italy](../../assets/img/discover/cards/flag_italy.jpg){ loading=lazy }
+
+Flaga Włoch ma trzy pionowe pasy: zielony, biały i czerwony. Kolory te przypominają bazylię, mozzarellę i pomidory na pizzy!
+
+- Rationale: The Italian flag connection to pizza helps kids remember the colors easily
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1946
+- Country: Italy
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md)
+
+---
+
+### <a id="art_monalisa"></a>Mona Lisa
+![preview art_monalisa](../../assets/img/discover/cards/art_monalisa.jpg){ loading=lazy }
+
+Najsłynniejszy obraz świata! Kobieta o tajemniczym uśmiechu namalowana przez Leonarda da Vinci. Wydaje się, że śledzi cię wzrokiem.
+
+- Rationale: Kids are fascinated by this mysterious painting and it introduces Renaissance art
+- Type: Object
+- Subjects: Art, History, Culture
+- Year: 1503
+- Country: Italy
+- Topics: [Louvre](../topics/index.md#louvre)
+- Words: woman
+- Image credit: CC0
+- Quests: [Paryż! (fr_01)](../quest/fr_01.pl.md)
+
+---
+
+### <a id="capital_rome"></a>Rzym
+![preview capital_rome](../../assets/img/discover/cards/capital_rome.jpg){ loading=lazy }
+
+Stolica Włoch.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
+
+---
+
+### <a id="country_italy"></a>Włochy
+![preview country_italy](../../assets/img/discover/cards/country_italy.jpg){ loading=lazy }
+
+Państwo w Europie. Stolicą jest Rzym.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Agnes Monkelbaan | [source](https://commons.wikimedia.org/wiki/File:Bergwandeltocht_van_Peio_Paese_naar_Lago_Covel_(1,839_m)_in_het_Nationaal_park_Stelvio_(Italy)_23.jpg)
+
+---
+
+### <a id="flag_andorra"></a>Flaga Andory
+![preview flag_andorra](../../assets/img/discover/cards/flag_andorra.jpg){ loading=lazy }
+
+Flaga Andory ma niebieskie, żółte i czerwone pasy z herbem pośrodku. Andora to malutkie państwo położone między Francją a Hiszpanią.
+
+- Rationale: Learning about small countries helps kids understand European diversity
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1866
+- Country: Spain
+- Image credit: CC0
+
+---
+
+### <a id="flag_spain"></a>Flaga Hiszpanii
+![preview flag_spain](../../assets/img/discover/cards/flag_spain.jpg){ loading=lazy }
+
+Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają słońce i paprykę! To Hiszpania wynalazła taniec flamenco.
+
+- Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1981
+- Country: Spain
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.pl.md)
+
+---
+
+### <a id="country_spain"></a>Hiszpania
+![preview country_spain](../../assets/img/discover/cards/country_spain.jpg){ loading=lazy }
+
+Kraj w Europie. Stolicą jest Madryt. Hiszpania wynalazła taniec flamenco.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Olite,_Navarra,_España,_2015-01-06,_DD_07-09_HDR.JPG)
+
+---
+
+### <a id="capital_madrid"></a>Madryt
+![preview capital_madrid](../../assets/img/discover/cards/capital_madrid.jpg){ loading=lazy }
+
+Stolica Hiszpanii.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
 

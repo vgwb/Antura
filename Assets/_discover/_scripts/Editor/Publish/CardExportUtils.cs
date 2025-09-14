@@ -153,7 +153,7 @@ namespace Antura.Discover.Editor
                             .Where(w => w != null)
                             .Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)
                             .Where(id => !string.IsNullOrEmpty(id))
-                            .Select(id => $"[{id}](../words/{id}.md)");
+                            .Select(id => $"{id}");
                         sb.AppendLine("- Words: " + string.Join(", ", wordLinks));
                     }
 
@@ -166,21 +166,128 @@ namespace Antura.Discover.Editor
                         sb.AppendLine(GetAssetCredits(c.AudioAsset));
                     }
 
-                    if (c.Quests != null && c.Quests.Count > 0)
+                    if (c.Quests != null)
                     {
-                        var questLinks = c.Quests
-                            .Where(q => q != null)
-                            .Select(q =>
+                        var linkable = c.Quests
+                            .Where(q => q != null && IsQuestLinkable(q))
+                            .ToList();
+                        if (linkable.Count > 0)
+                        {
+                            var questLinks = linkable.Select(q =>
                             {
                                 var qTitle = PublishUtils.GetHumanTitle(q);
                                 var qCode = PublishUtils.GetQuestCode(q);
                                 var qFile = PublishUtils.GetQuestPublishFileNameForLocale(q, locale);
                                 return $"[{qTitle} ({qCode})](../quest/{qFile})";
                             });
-                        sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
+                            sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
+                        }
                     }
                     sb.AppendLine();
                     // Separator between cards (not after last)
+                    if (i < orderedCards.Count - 1)
+                    {
+                        sb.AppendLine("---\n");
+                    }
+                }
+            }
+
+            // Others: all countries not in the primary order
+            var primary = new HashSet<Countries>(order);
+            var othersCards = new List<CardData>();
+            foreach (var kv in grouped)
+            {
+                if (!primary.Contains(kv.Key) && kv.Value != null && kv.Value.Count > 0)
+                    othersCards.AddRange(kv.Value);
+            }
+            if (othersCards.Count > 0)
+            {
+                sb.AppendLine("## Others");
+                sb.AppendLine();
+                var orderedCards = othersCards
+                    .OrderBy(x => x.Country.ToString(), StringComparer.OrdinalIgnoreCase)
+                    .ThenBy(x => PublishUtils.SafeLocalized(x.Title, x.name), StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+
+                for (int i = 0; i < orderedCards.Count; i++)
+                {
+                    var c = orderedCards[i];
+                    string title = PublishUtils.SafeLocalized(c.Title, c.name);
+                    string desc = PublishUtils.SafeLocalized(c.Description, string.Empty);
+                    string cId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
+                    // Heading with embedded anchor id
+                    sb.AppendLine($"### <a id=\"{cId}\"></a>{title}");
+
+                    if (c.ImageAsset != null)
+                        sb.AppendLine("![preview " + cId + "](../../assets/img/discover/cards/" + cId + ".jpg){ loading=lazy }\n");
+
+                    if (!string.IsNullOrEmpty(desc))
+                        sb.AppendLine(desc + "\n");
+
+                    if (!string.IsNullOrEmpty(c.Rationale))
+                    {
+                        sb.AppendLine($"- Rationale: {PublishUtils.EscapeParagraph(c.Rationale)}");
+                    }
+
+                    sb.AppendLine("- Type: " + c.Type);
+                    if (c.Subjects != null && c.Subjects.Count > 0)
+                        sb.AppendLine("- Subjects: " + string.Join(", ", c.Subjects));
+                    if (c.Year != 0)
+                        sb.AppendLine("- Year: " + c.Year);
+                    sb.AppendLine("- Country: " + c.Country);
+
+                    // Topics referencing this card
+                    if (cardToTopics.TryGetValue(c, out var tList) && tList.Count > 0)
+                    {
+                        var topicLinks = tList
+                            .Where(t => t != null)
+                            .Select(t =>
+                            {
+                                var tid = !string.IsNullOrEmpty(t.Id) ? t.Id : t.name;
+                                string tName = !string.IsNullOrEmpty(t.Name) ? t.Name : tid;
+                                return $"[{tName}](../topics/index.md#{tid})";
+                            });
+                        sb.AppendLine("- Topics: " + string.Join(", ", topicLinks));
+                    }
+
+                    // Words list (expanded style)
+                    if (c.Words != null && c.Words.Count > 0)
+                    {
+                        var wordLinks = c.Words
+                            .Where(w => w != null)
+                            .Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)
+                            .Where(id => !string.IsNullOrEmpty(id))
+                            .Select(id => $"{id}");
+                        sb.AppendLine("- Words: " + string.Join(", ", wordLinks));
+                    }
+
+                    if (c.ImageAsset != null)
+                    {
+                        sb.AppendLine(GetAssetCredits(c.ImageAsset));
+                    }
+                    if (c.AudioAsset != null)
+                    {
+                        sb.AppendLine(GetAssetCredits(c.AudioAsset));
+                    }
+
+                    if (c.Quests != null)
+                    {
+                        var linkable = c.Quests
+                            .Where(q => q != null && IsQuestLinkable(q))
+                            .ToList();
+                        if (linkable.Count > 0)
+                        {
+                            var questLinks = linkable.Select(q =>
+                            {
+                                var qTitle = PublishUtils.GetHumanTitle(q);
+                                var qCode = PublishUtils.GetQuestCode(q);
+                                var qFile = PublishUtils.GetQuestPublishFileNameForLocale(q, locale);
+                                return $"[{qTitle} ({qCode})](../quest/{qFile})";
+                            });
+                            sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
+                        }
+                    }
+                    sb.AppendLine();
                     if (i < orderedCards.Count - 1)
                     {
                         sb.AppendLine("---\n");
@@ -243,6 +350,16 @@ namespace Antura.Discover.Editor
             }
             catch { }
             return null;
+        }
+
+        // A quest is linkable in public cards index if it is public and not Standby
+        static bool IsQuestLinkable(QuestData q)
+        {
+            try
+            {
+                return q != null && q.IsPublic && q.Status != Status.Standby;
+            }
+            catch { return false; }
         }
     }
 }

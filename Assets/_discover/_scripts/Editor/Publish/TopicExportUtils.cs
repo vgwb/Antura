@@ -158,6 +158,7 @@ namespace Antura.Discover.Editor
                     // Quests that link to this topic (Title (Code) -> localized quest page)
                     var questLinks = quests
                         .Where(q => q != null && q.Topics != null && q.Topics.Contains(k))
+                        .Where(q => IsQuestLinkable(q))
                         .Distinct()
                         .Select(q => new
                         {
@@ -235,6 +236,16 @@ namespace Antura.Discover.Editor
             if (string.IsNullOrEmpty(title))
                 title = string.IsNullOrEmpty(card.Id) ? card.name : card.Id;
             return title;
+        }
+
+        // A quest is linkable in public topic index if it is public and not Standby
+        private static bool IsQuestLinkable(QuestData q)
+        {
+            try
+            {
+                return q != null && q.IsPublic && q.Status != Status.Standby;
+            }
+            catch { return false; }
         }
     }
 }

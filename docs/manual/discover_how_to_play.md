@@ -70,39 +70,39 @@ title: How to Play Discover Quests
 
 ## Activities inside quests
 
-Quick practice games appear during quests. Details of each activity are here: [Activities overview](../discover/activities/).  
+Quick practice games appear during quests. Details of each activity are here: [Activities overview](../discover/activities/index.md).  
 
-### [Canvas](../discover/activities/#CleanCanvas)  
+### [Canvas](../discover/activities/index.md#CleanCanvas)  
 reveal the image while avoiding obstacles.
 
 ![Canvas activity](../assets/img/discover/activities/activity_CleanCanvas.jpg)  
 
-### [Jigsaw Puzzle](../discover/activities/#JigsawPuzzle)
+### [Jigsaw Puzzle](../discover/activities/index.md#JigsawPuzzle)
 rebuild the full picture from pieces.  
 
 ![Jigsaw activity](../assets/img/discover/activities/activity_JigsawPuzzle.jpg)  
 
-### [Match](../discover/activities/#Match)
+### [Match](../discover/activities/index.md#Match)
 pair items that belong together.  
 
 ![Match activity](../assets/img/discover/activities/activity_Match.jpg)  
 
-### [Memory](../discover/activities/#Memory)
+### [Memory](../discover/activities/index.md#Memory)
 find matching pairs from memory.  
 
 ![Memory activity](../assets/img/discover/activities/activity_Memory.jpg)  
 
-### [Count the Money](../discover/activities/#MoneyCount)
+### [Count the Money](../discover/activities/index.md#MoneyCount)
 pick coins/notes to reach the target sum.  
 
 ![Money activity](../assets/img/discover/activities/activity_MoneyCount.jpg)  
 
-### [Order](../discover/activities/#Order)
+### [Order](../discover/activities/index.md#Order)
 arrange steps in the correct sequence.  
 
 ![Order activity](../assets/img/discover/activities/activity_Order.jpg)  
 
-### [Piano](../discover/activities/#Piano)
+### [Piano](../discover/activities/index.md#Piano)
 repeat sequences of colors / sound / notes.  
 
 ![Piano activity](../assets/img/discover/activities/activity_Piano.jpg)  

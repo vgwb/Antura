@@ -42,13 +42,13 @@ We designed the Antura "DiscoverED" module to allow thousands of quests of any c
 We already had a dozen created by game design students. And since the project is open source it will be nice to engage new collaborators to help the project.
 In this way we can also experiments with different ways to introduce the cultural elements: it could be a more story driven quest, or an espace room. A journey or a labyrinth, an exploration to find an object or an arcade game to undertand a sport's rules. We could allow any kind of interactivity.
 
-[here is a list of available quests](../discover/quest/index.md)
+[here is a list of available quests](../../discover/quest/index.md)
 
 
 ### Tasks
 
 ## Activities
-[here is a list of available activities](../discover/activities/index.md)
+[here is a list of available activities](../../discover/activities/index.md)
 
 ## Book
 

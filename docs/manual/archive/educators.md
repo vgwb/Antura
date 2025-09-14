@@ -7,7 +7,7 @@ The pedagogical design features a stealth learning approach through game-based t
 
 The game was playtested in an open beta phase since March 2017 and verified independently to show improvement in the educational development of children. The final version released in February 2018 is shaped by the feedback and data collected during the testing phase.
 
-![](../assets/img/Playtest_Jordan_2017-Quttan-girls-playing-Antura.jpg)
+![](../../assets/img/Playtest_Jordan_2017-Quttan-girls-playing-Antura.jpg)
 
 ## Supported learning outcomes
 

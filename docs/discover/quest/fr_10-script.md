@@ -35,19 +35,17 @@ hide:
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great, you found all bridges. <span class="yarn-meta">#line:0c408c3 </span></span>
+<span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
 <span class="yarn-line">You learned about bridges for trains, cars, and people. <span class="yarn-meta">#line:091e9fc </span></span>
+<span class="yarn-cmd">&lt;&lt;card boat_river&gt;&gt;</span>
 <span class="yarn-line">You saw boats for people, for goods, and even a house boat. <span class="yarn-meta">#line:01d91fb </span></span>
+<span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
 <span class="yarn-line">We looked at the map to see where the Seine flows. <span class="yarn-meta">#line:0ca298e </span></span>
 <span class="yarn-line">The Seine ends in the English Channel. <span class="yarn-meta">#line:0c693da </span></span>
-<span class="yarn-line">Pont Alexandre III is a famous bridge with golden statues. <span class="yarn-meta">#line:091d35c </span></span>
-<span class="yarn-line">Paris grows around the Seine. Rivers help cities live. <span class="yarn-meta">#line:08cc02a </span></span>
-<span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card pont_alexandre_iii&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card place_bridge_trains&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card place_bridge_cars&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
+<span class="yarn-line">Pont Alexandre III is a famous bridge with golden statues. <span class="yarn-meta">#line:091d35c </span></span>
 <span class="yarn-cmd">&lt;&lt;card boat_eiffel_tower&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card boat_river&gt;&gt;</span>
+<span class="yarn-line">Paris grows around the Seine. Rivers help cities live. <span class="yarn-meta">#line:08cc02a </span></span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code></pre></div>

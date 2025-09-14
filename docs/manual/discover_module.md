@@ -256,7 +256,7 @@ Activities can be embedded in quests or played separately from the Book and deal
 - **Quiz**: text, image, or mixed answers
 - **Final Assessments**: formal checks after quests
 
-Explore all activities: [Activities overview](../discover/activities/).
+Explore all activities: [Activities overview](../discover/activities/index.md).
 
 ### Languages
 All dialogues are bilingual: the child’s native language + the host country’s language (e.g., Polish, French).

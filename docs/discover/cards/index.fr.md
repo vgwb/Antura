@@ -2106,7 +2106,7 @@ Un gros animal avec une trompe. Les éléphants sont les plus grands animaux ter
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Words: elephant, zoo
 - Image credit: CC0
 - Quests: [Le zoo (pl_04)](../quest/pl_04.fr.md)
 
@@ -2273,7 +2273,7 @@ Un pain long et croustillant, l'aliment le plus célèbre en France. Les França
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quest/fr_01.fr.md), [Développement (dev)](../quest/dev.fr.md)
+- Quests: [Paris ! (fr_01)](../quest/fr_01.fr.md)
 
 ---
 
@@ -4752,4 +4752,173 @@ Une statue naine qui pose une question d'église.
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
 - Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quest/pl_02.fr.md)
+
+## Others
+
+### <a id="country_germany"></a>Allemagne
+![preview country_germany](../../assets/img/discover/cards/country_germany.jpg){ loading=lazy }
+
+Un pays d'Europe. La capitale est Berlin.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC_BY_SA | Ansgar Koreng | [source](https://commons.wikimedia.org/wiki/File:Kloster_Paulinzella,_Thüringen,_170316,_ako_(2).jpg)
+
+---
+
+### <a id="capital_berlin"></a>Berlin
+![preview capital_berlin](../../assets/img/discover/cards/capital_berlin.jpg){ loading=lazy }
+
+La capitale de l'Allemagne.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
+
+---
+
+### <a id="flag_germany"></a>Drapeau de l'Allemagne
+![preview flag_germany](../../assets/img/discover/cards/flag_germany.jpg){ loading=lazy }
+
+Le drapeau allemand comporte trois bandes horizontales : noire, rouge et jaune. L'Allemagne est célèbre pour ses voitures, ses châteaux et ses contes de fées !
+
+- Rationale: The German flag helps kids learn about France's important neighbor country
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1949
+- Country: Germany
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC0
+- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md), [Les voisins de la Pologne (pl_00)](../quest/pl_00.fr.md)
+
+---
+
+### <a id="art_venus_milo"></a>Vénus de Milo
+![preview art_venus_milo](../../assets/img/discover/cards/art_venus_milo.jpg){ loading=lazy }
+
+Magnifique statue antique de femme en marbre blanc. Ses bras ont disparu, mais elle reste considérée comme l'une des plus belles statues jamais réalisées.
+
+- Rationale: This statue teaches kids about ancient Greek art and how old things can still be beautiful
+- Type: Concept
+- Subjects: Art, History, Culture
+- Year: 130
+- Country: Greece
+- Topics: [Louvre](../topics/index.md#louvre)
+- Image credit: CC0
+
+---
+
+### <a id="flag_italy"></a>Drapeau de l'Italie
+![preview flag_italy](../../assets/img/discover/cards/flag_italy.jpg){ loading=lazy }
+
+Le drapeau italien comporte trois bandes verticales : verte, blanche et rouge. Ces couleurs rappellent le basilic, la mozzarella et les tomates sur une pizza !
+
+- Rationale: The Italian flag connection to pizza helps kids remember the colors easily
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1946
+- Country: Italy
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md)
+
+---
+
+### <a id="country_italy"></a>Italie
+![preview country_italy](../../assets/img/discover/cards/country_italy.jpg){ loading=lazy }
+
+Un pays d'Europe. La capitale est Rome.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Agnes Monkelbaan | [source](https://commons.wikimedia.org/wiki/File:Bergwandeltocht_van_Peio_Paese_naar_Lago_Covel_(1,839_m)_in_het_Nationaal_park_Stelvio_(Italy)_23.jpg)
+
+---
+
+### <a id="art_monalisa"></a>La Joconde
+![preview art_monalisa](../../assets/img/discover/cards/art_monalisa.jpg){ loading=lazy }
+
+Le tableau le plus célèbre du monde ! Une femme au sourire mystérieux, peinte par Léonard de Vinci. Elle semble vous suivre du regard.
+
+- Rationale: Kids are fascinated by this mysterious painting and it introduces Renaissance art
+- Type: Object
+- Subjects: Art, History, Culture
+- Year: 1503
+- Country: Italy
+- Topics: [Louvre](../topics/index.md#louvre)
+- Words: woman
+- Image credit: CC0
+- Quests: [Paris ! (fr_01)](../quest/fr_01.fr.md)
+
+---
+
+### <a id="capital_rome"></a>Rome
+![preview capital_rome](../../assets/img/discover/cards/capital_rome.jpg){ loading=lazy }
+
+La capitale de l'Italie.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
+
+---
+
+### <a id="flag_andorra"></a>Drapeau d'Andorre
+![preview flag_andorra](../../assets/img/discover/cards/flag_andorra.jpg){ loading=lazy }
+
+Le drapeau d'Andorre est composé de bandes bleues, jaunes et rouges, avec un blason au centre. Andorre est un petit pays situé entre la France et l'Espagne.
+
+- Rationale: Learning about small countries helps kids understand European diversity
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1866
+- Country: Spain
+- Image credit: CC0
+
+---
+
+### <a id="flag_spain"></a>Drapeau de l'Espagne
+![preview flag_spain](../../assets/img/discover/cards/flag_spain.jpg){ loading=lazy }
+
+Le drapeau espagnol est orné de bandes horizontales rouges et jaunes. Ces couleurs évoquent le soleil et les poivrons ! L'Espagne a inventé le flamenco.
+
+- Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1981
+- Country: Spain
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [Les voisins de la France (fr_00)](../quest/fr_00.fr.md)
+
+---
+
+### <a id="country_spain"></a>Espagne
+![preview country_spain](../../assets/img/discover/cards/country_spain.jpg){ loading=lazy }
+
+Un pays d'Europe dont la capitale est Madrid. L'Espagne a inventé le flamenco.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Olite,_Navarra,_España,_2015-01-06,_DD_07-09_HDR.JPG)
+
+---
+
+### <a id="capital_madrid"></a>Madrid
+![preview capital_madrid](../../assets/img/discover/cards/capital_madrid.jpg){ loading=lazy }
+
+La capitale de l'Espagne.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
 

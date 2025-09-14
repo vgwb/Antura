@@ -564,7 +564,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ottimo lavoro! Hai abbinato tutti gli elementi. <span class="yarn-meta">#line:01648b2 </span></span>
 <span class="yarn-line">Adesso prepariamo la bouillabaisse! <span class="yarn-meta">#line:0f0f617 </span></span>
-<span class="yarn-cmd">&lt;&lt;jump the_end&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code></pre></div>
 

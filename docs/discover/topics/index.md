@@ -34,32 +34,32 @@ Total found: **34**
     Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
 - Connected cards:
-    - **[Line](../cards/index.md#fr_figure_line)** (RelatedTo)
+    - **[Line](../cards/index.md#fr_figure_line)** (PartOf)
     A straight mark that goes from one point to another. Lines can be long or short.
 
     ![preview fr_figure_line](../../assets/img/discover/cards/fr_figure_line.jpg){ width="200" }
 
-    - **[Triangle](../cards/index.md#fr_figure_triangle)** (RelatedTo)
+    - **[Triangle](../cards/index.md#fr_figure_triangle)** (PartOf)
     A shape with three straight sides and three corners. Triangles look like pizza slices!
 
     ![preview fr_figure_triangle](../../assets/img/discover/cards/fr_figure_triangle.jpg){ width="200" }
 
-    - **[Compass](../cards/index.md#math_compass)** (RelatedTo)
+    - **[Compass](../cards/index.md#math_compass)** (Purpose)
     A tool that helps you draw perfect circles. It has two legs like scissors.
 
     ![preview math_compass](../../assets/img/discover/cards/math_compass.jpg){ width="200" }
 
-    - **[Ruler](../cards/index.md#math_ruler)** (RelatedTo)
+    - **[Ruler](../cards/index.md#math_ruler)** (Purpose)
     A straight tool used to measure how long things are. Rulers have numbers and lines.
 
     ![preview math_ruler](../../assets/img/discover/cards/math_ruler.jpg){ width="200" }
 
-    - **[Square](../cards/index.md#math_setsquare)** (RelatedTo)
+    - **[Square](../cards/index.md#math_setsquare)** (Purpose)
     A triangle-shaped tool used to draw straight lines and right angles in math.
 
     ![preview math_setsquare](../../assets/img/discover/cards/math_setsquare.jpg){ width="200" }
 
-    - **[Circle](../cards/index.md#fr_figure_circle)** (RelatedTo)
+    - **[Circle](../cards/index.md#fr_figure_circle)** (PartOf)
     A round shape with no corners. Circles look like wheels, balls, and coins!
 
     ![preview fr_figure_circle](../../assets/img/discover/cards/fr_figure_circle.jpg){ width="200" }
@@ -83,7 +83,7 @@ Credits:
     ![preview fisherman](../../assets/img/discover/cards/fisherman.jpg){ width="200" }
 
 - Connected cards:
-    - **[Port](../cards/index.md#port)** (RelatedTo)
+    - **[Port](../cards/index.md#port)** (LocatedIn)
     A place where ships load and unload.
 
     ![preview port](../../assets/img/discover/cards/port.jpg){ width="200" }
@@ -98,7 +98,7 @@ Credits:
 
     ![preview navigation](../../assets/img/discover/cards/navigation.jpg){ width="200" }
 
-    - **[Fishing Net](../cards/index.md#fishing_net)** (RelatedTo)
+    - **[Fishing Net](../cards/index.md#fishing_net)** (Purpose)
     A net used to catch fish.
 
     ![preview fishing_net](../../assets/img/discover/cards/fishing_net.jpg){ width="200" }
@@ -122,57 +122,57 @@ Credits:
     ![preview concept_europe_map](../../assets/img/discover/cards/concept_europe_map.jpg){ width="200" }
 
 - Connected cards:
-    - **[Flag of Germany](../cards/index.md#flag_germany)** (RelatedTo)
+    - **[Flag of Germany](../cards/index.md#flag_germany)** (CulturalContext)
     The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
 
     ![preview flag_germany](../../assets/img/discover/cards/flag_germany.jpg){ width="200" }
 
-    - **[Flag of Italy](../cards/index.md#flag_italy)** (RelatedTo)
+    - **[Flag of Italy](../cards/index.md#flag_italy)** (CulturalContext)
     The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
 
     ![preview flag_italy](../../assets/img/discover/cards/flag_italy.jpg){ width="200" }
 
-    - **[Flag of Luxembourg](../cards/index.md#flag_luxembourg)** (RelatedTo)
+    - **[Flag of Luxembourg](../cards/index.md#flag_luxembourg)** (CulturalContext)
     The flag of Luxembourg has red, white, and light blue horizontal stripes. Luxembourg is a very small country that speaks three languages!
 
     ![preview flag_luxembourg](../../assets/img/discover/cards/flag_luxembourg.jpg){ width="200" }
 
-    - **[Flag of Monaco](../cards/index.md#flag_monaco)** (RelatedTo)
+    - **[Flag of Monaco](../cards/index.md#flag_monaco)** (CulturalContext)
     The flag of Monaco has red and white horizontal stripes. Monaco is tiny but famous for fancy cars and royal palaces by the sea!
 
     ![preview flag_monaco](../../assets/img/discover/cards/flag_monaco.jpg){ width="200" }
 
-    - **[Flag of Belgium](../cards/index.md#flag_belgium)** (RelatedTo)
+    - **[Flag of Belgium](../cards/index.md#flag_belgium)** (CulturalContext)
     The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium is famous for chocolate and waffles!
 
     ![preview flag_belgium](../../assets/img/discover/cards/flag_belgium.jpg){ width="200" }
 
-    - **[Flag of Spain](../cards/index.md#flag_spain)** (RelatedTo)
+    - **[Flag of Spain](../cards/index.md#flag_spain)** (CulturalContext)
     The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
 
     ![preview flag_spain](../../assets/img/discover/cards/flag_spain.jpg){ width="200" }
 
-    - **[Flag of Switzerland](../cards/index.md#flag_switzerland)** (RelatedTo)
+    - **[Flag of Switzerland](../cards/index.md#flag_switzerland)** (CulturalContext)
     The flag of Switzerland is red with a white cross in the middle. It looks like a first aid kit! Switzerland is famous for mountains and cheese.
 
     ![preview flag_switzerland](../../assets/img/discover/cards/flag_switzerland.jpg){ width="200" }
 
-    - **[Flag of France](../cards/index.md#flag_france)** (RelatedTo)
+    - **[Flag of France](../cards/index.md#flag_france)** (CulturalContext)
     The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
 
     ![preview flag_france](../../assets/img/discover/cards/flag_france.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (RelatedTo)
+    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../assets/img/discover/cards/flag_czech_republic.jpg){ width="200" }
 
-    - **[Flag of Slovakia](../cards/index.md#flag_slovakia)** (RelatedTo)
+    - **[Flag of Slovakia](../cards/index.md#flag_slovakia)** (CulturalContext)
     A flag with white, blue, and red colors. It represents the country of Slovakia.
 
     ![preview flag_slovakia](../../assets/img/discover/cards/flag_slovakia.jpg){ width="200" }
 
-    - **[Flag of Ukraine](../cards/index.md#flag_ukraine)** (RelatedTo)
+    - **[Flag of Ukraine](../cards/index.md#flag_ukraine)** (CulturalContext)
     A flag with blue and yellow colors like the sky and sun. It represents the country of Ukraine.
 
     ![preview flag_ukraine](../../assets/img/discover/cards/flag_ukraine.jpg){ width="200" }
@@ -549,7 +549,7 @@ Credits:
 
     ![preview food_water](../../assets/img/discover/cards/food_water.jpg){ width="200" }
 
-- Quests: [Development (dev)](../quest/dev.md), [Paris! (fr_01)](../quest/fr_01.md)
+- Quests: [Paris! (fr_01)](../quest/fr_01.md)
 
 ---
 
@@ -642,32 +642,32 @@ Credits:
 
     ![preview country_italy](../../assets/img/discover/cards/country_italy.jpg){ width="200" }
 
-    - **[Flag of Spain](../cards/index.md#flag_spain)** (RelatedTo)
+    - **[Flag of Spain](../cards/index.md#flag_spain)** (CulturalContext)
     The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
 
     ![preview flag_spain](../../assets/img/discover/cards/flag_spain.jpg){ width="200" }
 
-    - **[Flag of Germany](../cards/index.md#flag_germany)** (RelatedTo)
+    - **[Flag of Germany](../cards/index.md#flag_germany)** (CulturalContext)
     The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
 
     ![preview flag_germany](../../assets/img/discover/cards/flag_germany.jpg){ width="200" }
 
-    - **[Flag of Italy](../cards/index.md#flag_italy)** (RelatedTo)
+    - **[Flag of Italy](../cards/index.md#flag_italy)** (CulturalContext)
     The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
 
     ![preview flag_italy](../../assets/img/discover/cards/flag_italy.jpg){ width="200" }
 
-    - **[Flag of Luxembourg](../cards/index.md#flag_luxembourg)** (RelatedTo)
+    - **[Flag of Luxembourg](../cards/index.md#flag_luxembourg)** (CulturalContext)
     The flag of Luxembourg has red, white, and light blue horizontal stripes. Luxembourg is a very small country that speaks three languages!
 
     ![preview flag_luxembourg](../../assets/img/discover/cards/flag_luxembourg.jpg){ width="200" }
 
-    - **[Flag of Belgium](../cards/index.md#flag_belgium)** (RelatedTo)
+    - **[Flag of Belgium](../cards/index.md#flag_belgium)** (CulturalContext)
     The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium is famous for chocolate and waffles!
 
     ![preview flag_belgium](../../assets/img/discover/cards/flag_belgium.jpg){ width="200" }
 
-    - **[Flag of Switzerland](../cards/index.md#flag_switzerland)** (RelatedTo)
+    - **[Flag of Switzerland](../cards/index.md#flag_switzerland)** (CulturalContext)
     The flag of Switzerland is red with a white cross in the middle. It looks like a first aid kit! Switzerland is famous for mountains and cheese.
 
     ![preview flag_switzerland](../../assets/img/discover/cards/flag_switzerland.jpg){ width="200" }
@@ -738,7 +738,7 @@ Credits:
     ![preview country_france](../../assets/img/discover/cards/country_france.jpg){ width="200" }
 
 - Connected cards:
-    - **[Flag of France](../cards/index.md#flag_france)** (RelatedTo)
+    - **[Flag of France](../cards/index.md#flag_france)** (CulturalContext)
     The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
 
     ![preview flag_france](../../assets/img/discover/cards/flag_france.jpg){ width="200" }
@@ -866,22 +866,22 @@ Credits:
 
     ![preview capital_paris](../../assets/img/discover/cards/capital_paris.jpg){ width="200" }
 
-    - **[Mona Lisa](../cards/index.md#art_monalisa)** (MadeOf)
+    - **[Mona Lisa](../cards/index.md#art_monalisa)** (PartOf)
     The most famous painting in the world! A woman with a mysterious smile painted by Leonardo da Vinci. She seems to follow you with her eyes.
 
     ![preview art_monalisa](../../assets/img/discover/cards/art_monalisa.jpg){ width="200" }
 
-    - **[Leonardo da Vinci](../cards/index.md#person_leonardodavinci)** (CreatedBy)
+    - **[Leonardo da Vinci](../cards/index.md#person_leonardodavinci)** (RelatedTo)
     An amazing artist and scientist from Italy. He painted the Mona Lisa and invented flying machines hundreds of years before airplanes!
 
     ![preview person_leonardodavinci](../../assets/img/discover/cards/person_leonardodavinci.jpg){ width="200" }
 
-    - **[Liberty Leading the People](../cards/index.md#art_liberty_leading_the_people)** (MadeOf)
+    - **[Liberty Leading the People](../cards/index.md#art_liberty_leading_the_people)** (PartOf)
     A famous painting about freedom and courage. It shows a brave woman holding the French flag and leading people to fight for their rights.
 
     ![preview art_liberty_leading_the_people](../../assets/img/discover/cards/art_liberty_leading_the_people.jpg){ width="200" }
 
-    - **[Venus de Milo](../cards/index.md#art_venus_milo)** (MadeOf)
+    - **[Venus de Milo](../cards/index.md#art_venus_milo)** (PartOf)
     A beautiful ancient statue of a woman made from white marble. Her arms are missing but she is still considered one of the most beautiful statues ever made.
 
     ![preview art_venus_milo](../../assets/img/discover/cards/art_venus_milo.jpg){ width="200" }
@@ -1311,37 +1311,37 @@ Credits:
 
     ![preview country_belarus](../../assets/img/discover/cards/country_belarus.jpg){ width="200" }
 
-    - **[Flag of Belarus](../cards/index.md#flag_belarus)** (RelatedTo)
+    - **[Flag of Belarus](../cards/index.md#flag_belarus)** (CulturalContext)
     The flag of Belarus has red and green horizontal stripes with beautiful traditional patterns on the side. Belarus is Poland's neighbor.
 
     ![preview flag_belarus](../../assets/img/discover/cards/flag_belarus.jpg){ width="200" }
 
-    - **[Flag of Russia](../cards/index.md#flag_russia)** (RelatedTo)
+    - **[Flag of Russia](../cards/index.md#flag_russia)** (CulturalContext)
     A flag with white, blue, and red stripes. It represents the country of Russia.
 
     ![preview flag_russia](../../assets/img/discover/cards/flag_russia.jpg){ width="200" }
 
-    - **[Flag of Slovakia](../cards/index.md#flag_slovakia)** (RelatedTo)
+    - **[Flag of Slovakia](../cards/index.md#flag_slovakia)** (CulturalContext)
     A flag with white, blue, and red colors. It represents the country of Slovakia.
 
     ![preview flag_slovakia](../../assets/img/discover/cards/flag_slovakia.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (RelatedTo)
+    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../assets/img/discover/cards/flag_czech_republic.jpg){ width="200" }
 
-    - **[Flag of Lithuania](../cards/index.md#flag_lithuania)** (RelatedTo)
+    - **[Flag of Lithuania](../cards/index.md#flag_lithuania)** (CulturalContext)
     The flag has yellow, green, and red horizontal stripes. Lithuania is a Baltic country with beautiful forests and beaches.
 
     ![preview flag_lithuania](../../assets/img/discover/cards/flag_lithuania.jpg){ width="200" }
 
-    - **[Flag of Ukraine](../cards/index.md#flag_ukraine)** (RelatedTo)
+    - **[Flag of Ukraine](../cards/index.md#flag_ukraine)** (CulturalContext)
     A flag with blue and yellow colors like the sky and sun. It represents the country of Ukraine.
 
     ![preview flag_ukraine](../../assets/img/discover/cards/flag_ukraine.jpg){ width="200" }
 
-    - **[Flag of Germany](../cards/index.md#flag_germany)** (RelatedTo)
+    - **[Flag of Germany](../cards/index.md#flag_germany)** (CulturalContext)
     The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
 
     ![preview flag_germany](../../assets/img/discover/cards/flag_germany.jpg){ width="200" }
@@ -1370,7 +1370,7 @@ Credits:
     ![preview country_poland](../../assets/img/discover/cards/country_poland.jpg){ width="200" }
 
 - Connected cards:
-    - **[Flag of Poland](../cards/index.md#flag_poland)** (RelatedTo)
+    - **[Flag of Poland](../cards/index.md#flag_poland)** (CulturalContext)
     The flag of Poland has white and red horizontal stripes. Poland is famous for scientists like Copernicus and delicious pierogi!
 
     ![preview flag_poland](../../assets/img/discover/cards/flag_poland.jpg){ width="200" }

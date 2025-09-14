@@ -35,19 +35,17 @@ hide:
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Super, vous avez trouvé tous les ponts. <span class="yarn-meta">#line:0c408c3 </span></span>
+<span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
 <span class="yarn-line">Vous avez appris l’existence des ponts pour les trains, les voitures et les personnes. <span class="yarn-meta">#line:091e9fc </span></span>
+<span class="yarn-cmd">&lt;&lt;card boat_river&gt;&gt;</span>
 <span class="yarn-line">Vous avez vu des bateaux pour les personnes, pour les marchandises et même une péniche. <span class="yarn-meta">#line:01d91fb </span></span>
+<span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
 <span class="yarn-line">Nous avons regardé la carte pour voir où coule la Seine. <span class="yarn-meta">#line:0ca298e </span></span>
 <span class="yarn-line">La Seine se jette dans la Manche. <span class="yarn-meta">#line:0c693da </span></span>
-<span class="yarn-line">Le Pont Alexandre III est un pont célèbre avec des statues dorées. <span class="yarn-meta">#line:091d35c </span></span>
-<span class="yarn-line">Paris se développe autour de la Seine. Les fleuves font vivre les villes. <span class="yarn-meta">#line:08cc02a </span></span>
-<span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card pont_alexandre_iii&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card place_bridge_trains&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card place_bridge_cars&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
+<span class="yarn-line">Le Pont Alexandre III est un pont célèbre avec des statues dorées. <span class="yarn-meta">#line:091d35c </span></span>
 <span class="yarn-cmd">&lt;&lt;card boat_eiffel_tower&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card boat_river&gt;&gt;</span>
+<span class="yarn-line">Paris se développe autour de la Seine. Les fleuves font vivre les villes. <span class="yarn-meta">#line:08cc02a </span></span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code></pre></div>

@@ -697,7 +697,7 @@ Un grosso animale con una proboscide. Gli elefanti sono gli animali più grandi 
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Words: [elephant](../words/elephant.md), [zoo](../words/zoo.md)
+- Words: elephant, zoo
 - Image credit: CC0
 - Quests: [Lo zoo (pl_04)](../quest/pl_04.it.md)
 
@@ -2298,7 +2298,7 @@ Un pane lungo e croccante, il più famoso in Francia. I francesi comprano baguet
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Parigi! (fr_01)](../quest/fr_01.it.md), [Sviluppo (dev)](../quest/dev.it.md)
+- Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
 
 ---
 
@@ -4753,4 +4753,173 @@ Una vecchia gru portuale e una porta della città sul fiume.
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quest/pl_05.it.md)
+
+## Others
+
+### <a id="flag_germany"></a>Bandiera della Germania
+![preview flag_germany](../../assets/img/discover/cards/flag_germany.jpg){ loading=lazy }
+
+La bandiera della Germania ha tre strisce orizzontali: nera, rossa e gialla. La Germania è famosa per le automobili, i castelli e le fiabe!
+
+- Rationale: The German flag helps kids learn about France's important neighbor country
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1949
+- Country: Germany
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC0
+- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md), [I vicini della Polonia (pl_00)](../quest/pl_00.it.md)
+
+---
+
+### <a id="capital_berlin"></a>Berlino
+![preview capital_berlin](../../assets/img/discover/cards/capital_berlin.jpg){ loading=lazy }
+
+La capitale della Germania.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
+
+---
+
+### <a id="country_germany"></a>Germania
+![preview country_germany](../../assets/img/discover/cards/country_germany.jpg){ loading=lazy }
+
+Un paese in Europa. La capitale è Berlino.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC_BY_SA | Ansgar Koreng | [source](https://commons.wikimedia.org/wiki/File:Kloster_Paulinzella,_Thüringen,_170316,_ako_(2).jpg)
+
+---
+
+### <a id="art_venus_milo"></a>Venere di Milo
+![preview art_venus_milo](../../assets/img/discover/cards/art_venus_milo.jpg){ loading=lazy }
+
+Una splendida statua antica di donna in marmo bianco. Le mancano le braccia, ma è comunque considerata una delle statue più belle mai realizzate.
+
+- Rationale: This statue teaches kids about ancient Greek art and how old things can still be beautiful
+- Type: Concept
+- Subjects: Art, History, Culture
+- Year: 130
+- Country: Greece
+- Topics: [Louvre](../topics/index.md#louvre)
+- Image credit: CC0
+
+---
+
+### <a id="flag_italy"></a>Bandiera dell'Italia
+![preview flag_italy](../../assets/img/discover/cards/flag_italy.jpg){ loading=lazy }
+
+La bandiera italiana ha tre strisce verticali: verde, bianco e rosso. I colori ricordano il basilico, la mozzarella e i pomodori sulla pizza!
+
+- Rationale: The Italian flag connection to pizza helps kids remember the colors easily
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1946
+- Country: Italy
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
+
+---
+
+### <a id="country_italy"></a>Italia
+![preview country_italy](../../assets/img/discover/cards/country_italy.jpg){ loading=lazy }
+
+Un paese in Europa. La capitale è Roma.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Agnes Monkelbaan | [source](https://commons.wikimedia.org/wiki/File:Bergwandeltocht_van_Peio_Paese_naar_Lago_Covel_(1,839_m)_in_het_Nationaal_park_Stelvio_(Italy)_23.jpg)
+
+---
+
+### <a id="art_monalisa"></a>Monna Lisa
+![preview art_monalisa](../../assets/img/discover/cards/art_monalisa.jpg){ loading=lazy }
+
+Il dipinto più famoso del mondo! Una donna dal sorriso misterioso dipinta da Leonardo da Vinci. Sembra seguirti con lo sguardo.
+
+- Rationale: Kids are fascinated by this mysterious painting and it introduces Renaissance art
+- Type: Object
+- Subjects: Art, History, Culture
+- Year: 1503
+- Country: Italy
+- Topics: [Louvre](../topics/index.md#louvre)
+- Words: woman
+- Image credit: CC0
+- Quests: [Parigi! (fr_01)](../quest/fr_01.it.md)
+
+---
+
+### <a id="capital_rome"></a>Roma
+![preview capital_rome](../../assets/img/discover/cards/capital_rome.jpg){ loading=lazy }
+
+La capitale d'Italia.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Italy
+- Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
+
+---
+
+### <a id="flag_spain"></a>Bandiera della Spagna
+![preview flag_spain](../../assets/img/discover/cards/flag_spain.jpg){ loading=lazy }
+
+La bandiera spagnola ha strisce orizzontali rosse e gialle. I colori sono quelli del sole e dei peperoni! La Spagna ha inventato il flamenco.
+
+- Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1981
+- Country: Spain
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [I vicini della Francia (fr_00)](../quest/fr_00.it.md)
+
+---
+
+### <a id="flag_andorra"></a>Bandiera di Andorra
+![preview flag_andorra](../../assets/img/discover/cards/flag_andorra.jpg){ loading=lazy }
+
+La bandiera di Andorra è composta da strisce blu, gialle e rosse con uno stemma al centro. Andorra è un piccolo stato tra Francia e Spagna.
+
+- Rationale: Learning about small countries helps kids understand European diversity
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1866
+- Country: Spain
+- Image credit: CC0
+
+---
+
+### <a id="capital_madrid"></a>Madrid
+![preview capital_madrid](../../assets/img/discover/cards/capital_madrid.jpg){ loading=lazy }
+
+La capitale della Spagna.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
+
+---
+
+### <a id="country_spain"></a>Spagna
+![preview country_spain](../../assets/img/discover/cards/country_spain.jpg){ loading=lazy }
+
+Un paese in Europa. La capitale è Madrid. La Spagna ha inventato il flamenco.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Olite,_Navarra,_España,_2015-01-06,_DD_07-09_HDR.JPG)
 
