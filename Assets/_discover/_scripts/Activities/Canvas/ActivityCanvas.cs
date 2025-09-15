@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Antura; // for Sfx enum
-using Antura.Audio; // for AudioManager
+using Antura.Audio;
 using TMPro;
 using DG.Tweening;
 using System.Collections.Generic;

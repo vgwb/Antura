@@ -8,7 +8,6 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using System;
 using DG.Tweening;
-using Antura.Discover;
 
 namespace Antura.Discover.Activities
 {
