@@ -19,6 +19,10 @@ namespace Antura.Discover
         public int MaintainCount = 24;
         public int HardMaxLive = 64;
 
+        [Header("Discovery")]
+        [Tooltip("If true and no volumes are set/found as children, the spawner will auto-discover SpawnVolume components in the scene (including inactive).")]
+        public bool AutoDiscoverSceneVolumes = true;
+
         [Header("Ratios")]
         [Range(0f, 1f)] public float LetterRatio { get; set; } = 0.45f;
         [Range(0f, 1f)] public float WordRatio { get; set; } = 0.35f;
@@ -53,7 +57,13 @@ namespace Antura.Discover
 
             // If no volumes provided but UseVolumes is on, auto-pick children
             if (UseVolumes && Volumes.Count == 0)
+            {
                 Volumes.AddRange(GetComponentsInChildren<SpawnVolume>(true));
+                if (Volumes.Count == 0 && AutoDiscoverSceneVolumes)
+                {
+                    Volumes.AddRange(FindObjectsByType<SpawnVolume>(FindObjectsInactive.Include, FindObjectsSortMode.None));
+                }
+            }
 
             // Build pools if Topic is set
             if (Topic)
@@ -144,34 +154,12 @@ namespace Antura.Discover
             if (_live.Count >= HardMaxLive)
                 return false;
 
-            // Pick kind
+            // Normalize ratios for potential future use (currently not selecting a visual payload here)
             NormalizeRatios();
-            float r = Random.value;
-            LivingLetterKind kind =
-                (r < LetterRatio) ? LivingLetterKind.Letter :
-                (r < LetterRatio + WordRatio) ? LivingLetterKind.Word :
-                LivingLetterKind.Card;
-
-            // Pick payload
-            string text = "?";
-            CardData card = null;
-
-            switch (kind)
-            {
-                case LivingLetterKind.Letter:
-                    text = Pick(LetterPool);
-                    break;
-                case LivingLetterKind.Word:
-                    text = Pick(WordPool);
-                    break;
-                case LivingLetterKind.Card:
-                    card = Pick(CardPool);
-                    text = GetCardLabel(card) ?? "Card";
-                    break;
-            }
 
             // Pick position on NavMesh
-            Vector3 pos = UseVolumes ? RandomFromVolumes() : RandomInsideRadius();
+            SpawnVolume volumeUsed = null;
+            Vector3 pos = UseVolumes ? RandomFromVolumes(out volumeUsed) : RandomInsideRadius();
             if (!TrySampleNavMesh(pos, NavMeshMaxSampleDist, out var hit))
             {
                 // Try a few fallbacks near the spawner
@@ -182,14 +170,32 @@ namespace Antura.Discover
             }
 
             // Spawn
-            // var inst = Instantiate(Prefab, hit.position, Quaternion.identity, transform);
-            // inst.Configure(kind, text, card);
+            var inst = Instantiate(Prefab, hit.position, Quaternion.identity, transform);
+            // Configure payload on LL and Interactable for dialogues
+            var interactable = inst.GetComponent<Interactable>();
 
-            // // Ensure wanderer
-            // var wander = inst.GetComponent<WanderAgent>() ?? inst.gameObject.AddComponent<WanderAgent>();
-            // wander.WanderRadius = DefaultWanderRadius;
+            // If a volume provides a TopicOverride, you can use it to customize spawned content (pools already available)
+            if (volumeUsed && volumeUsed.TopicOverride)
+            {
+                // Optionally rebuild pools temporarily for this instance:
+                // var savedTopic = Topic; var savedLetters = new List<string>(LetterPool); var savedWords = new List<string>(WordPool); var savedCards = new List<CardData>(CardPool);
+                // BuildPoolsFromTopic(volumeUsed.TopicOverride);
+                // TODO: configure inst visuals from pools (letters/words/cards) when the LL API supports it
+                // Restore pools if you used overrides per instance
+                // Topic = savedTopic; LetterPool = savedLetters; WordPool = savedWords; CardPool = savedCards;
+            }
 
-            //_live.Add(inst.gameObject);
+            // Dialogue routing: prefer an explicit Yarn node from the volume, otherwise group name
+            if (interactable)
+            {
+                string yarnNode = volumeUsed ? volumeUsed.PickYarnNode() : null;
+                if (!string.IsNullOrWhiteSpace(yarnNode))
+                {
+                    interactable.NodePermalink = yarnNode;
+                }
+            }
+
+            _live.Add(inst.gameObject);
             return true;
         }
 
@@ -219,8 +225,9 @@ namespace Antura.Discover
             return transform.position + new Vector3(r.x, 0f, r.y);
         }
 
-        private Vector3 RandomFromVolumes()
+        private Vector3 RandomFromVolumes(out SpawnVolume used)
         {
+            used = null;
             if (Volumes == null || Volumes.Count == 0)
                 return RandomInsideRadius();
 
@@ -235,6 +242,7 @@ namespace Antura.Discover
             }
             if (!chosen)
                 chosen = Volumes[Random.Range(0, Volumes.Count)];
+            used = chosen;
             return chosen ? chosen.RandomPointInside() : RandomInsideRadius();
         }
 
