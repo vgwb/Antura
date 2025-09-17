@@ -65,7 +65,7 @@ There are many ANIMALS here! #line:005dd46
 ===
 
 title: quest_end
-position: 234,7
+position: -18,236
 panel: panel_endgame
 color: green
 ---
@@ -75,7 +75,7 @@ You learned about ZOO ANIMALS. #line:054cc37
 ===
 
 title: post_quest_activity
-position: 236,184
+position: -16,413
 panel: panel
 color: green
 tags: proposal
@@ -105,13 +105,13 @@ tags: actor=Man, type:Panel
 image: centennial_hall_empty_flag
 color: green
 ---
-Oh no! The FLAG is missing! #line:09c6bf7 
 <<camera_focus FlagPole>>
-<<card iglica>>
-It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
+Oh no! The FLAG is missing! #line:09c6bf7 
 <<camera_reset>>
+It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
+<<card iglica zoom>>
 Please help me find it! #line:0fd5d1a 
-Talk to ANIMALS. One may have it. #line:012b933 
+Talk to the ANIMALS. Maybe one of them has it. #line:012b933 
 <<task_start TASK_ANIMALS task_animals_done>>
 ===
 
@@ -156,9 +156,9 @@ image: elephant_keeper
 color: blue
 ---
 I am the biggest land ANIMAL. #line:027b51f 
-<<card animal_elephant>>
-I have good MEMORY. #line:03a150c 
-Do you have good MEMORY? #line:0f98478 
+<<card animal_elephant zoom>>
+I have great MEMORY. #line:03a150c 
+Do you have a good MEMORY? #line:0f98478 
 <<activity memory_elephant_settings elephant_activity_done>>
 ===
 
@@ -205,6 +205,7 @@ image: giraffe_keeper
 color: blue
 ---
 I am the tallest ANIMAL. #line:0d5c607 
+<<card animal_giraffe zoom>>
 My long NECK helps me reach leaves. #line:0a4d24e 
 I eat WATTLE leaves! #line:04b42f2 
 <<activity canvas_giraffe_settings giraffe_activity_done>>
@@ -251,11 +252,11 @@ tags: actor=Keeper
 image: lion_keeper
 color: blue
 ---
-I am a LION in AFRICA. #line:07f2e15 
-<<card  animal_lion>>
+I am a LION from AFRICA. #line:07f2e15 
+<<card  animal_lion zoom>>
 I live in a PRIDE. #line:042266c 
 Look at this small CUB! #line:0124e1c 
-<<card  animal_lion_cub>>
+<<card  animal_lion_cub zoom>>
 I grow up small, then medium, then old... #line:0774b92 
 <<activity order_lion_settings lion_activity_done>>
 ===
@@ -300,6 +301,7 @@ image: monkey_keeper
 color: blue
 ---
 I am a MONKEY. I climb TREES. #line:0867233 
+<<card animal_chimpanzee zoom>>
 We are close to HUMANS! #line:0eaefd6 
 Where did I get these FRUITS? #line:079451b 
 <<activity match_monkey_settings monkey_activity_done>>
@@ -340,13 +342,14 @@ Do MONKEYS wink? #line:0eecdf9
 // PART 5 – PENGUIN
 
 title: penguin_talk
-position: 385,628
+position: 385,630
 group: PENGUIN
 tags: actor=Keeper
 image: penguin_keeper
 color: blue
 ---
 I am a PENGUIN, a strange BIRD. #line:08c70e8 
+<<card animal_penguin zoom>>
 I can't fly, but I swim well! #line:0540c5a 
 Can you find the path in ICE? #line:0a3420c 
 <<activity jigsaw_penguin_settings penguin_activity_done>>
@@ -405,7 +408,7 @@ Help me put pieces together. #line:08de86f
 ===
 
 title: RECAP_CARDS
-position: -46,23
+position: -298,252
 group: Icebox
 tags: actor=Narrator
 image: zoo_cards
