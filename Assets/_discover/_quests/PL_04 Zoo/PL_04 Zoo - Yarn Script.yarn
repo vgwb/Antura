@@ -105,7 +105,7 @@ tags: actor=Man, type:Panel
 image: centennial_hall_empty_flag
 color: green
 ---
-<<camera_focus FlagPole>>
+<<camera_focus Flagpole>>
 Oh no! The FLAG is missing! #line:09c6bf7 
 <<camera_reset>>
 It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
@@ -424,7 +424,7 @@ image: zoo_recap
 ---
 All ANIMALS are innocent. #line:0bc2b46 
 Who took the FLAG? #line:0fc0ab7 
-<<SetActive Antura with Flag>>
+<<SetActive anturaFlag>>
 <<jump RETURN_DIRECTOR>>
 ===
 
@@ -437,7 +437,7 @@ tags: actor=ZooDirector
 image: centennial_hall_antura_flag
 ---
 Wait, look! #line:0b3d05f 
-<<camera_focus Antura with Flag>>
+<<camera_focus Antura>>
 ANTURA has the FLAG! #line:0e24973 
 <<camera_reset>>
 <<jump CEREMONY_END>>
