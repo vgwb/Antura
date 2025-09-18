@@ -42,6 +42,7 @@ namespace Antura.Discover
             return DOTween.Sequence()
                 .Join(box.DOScale(scale, duration).SetEase(Ease.OutBack))
                 .Join(tf.transform.DOScale(1 / scale, duration).SetEase(Ease.OutBack))
+                .Join(((RectTransform)(tf.transform)).DOAnchorPosX(deselectedShift, duration).From(true).SetEase(Ease.OutBack))
                 .Join(bg.DOScale(scale, duration * 0.75f).SetEase(Ease.OutBack))
                 .Join(btConfirm.GetComponent<RectTransform>().DOAnchorPosX(160, duration).From(true).SetEase(Ease.OutBack))
                 .Join(numbox.DOAnchorPos(new Vector2(100, 32), duration).SetRelative().SetEase(Ease.OutBack))

@@ -24,7 +24,7 @@ namespace Antura.Discover
         #region Serialized
 
         [SerializeField] protected float selectedScale = 1.2f;
-        [SerializeField] protected float selectedShift = 0; // Used by children
+        [SerializeField] protected float deselectedShift = 0; // Used by children
         [SerializeField] Color selectedNumberColor = Color.green;
         [Header("Exit Choice ColorBlock")]
         [SerializeField] ColorBlock exitChoiceColors = ColorBlock.defaultColorBlock;
