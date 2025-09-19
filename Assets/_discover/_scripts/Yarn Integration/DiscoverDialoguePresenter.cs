@@ -51,7 +51,7 @@ namespace Antura.Discover
         public override YarnTask OnDialogueCompleteAsync()
         {
             // Close the dialogue UI once at the end
-            UIManager.I.dialogues.CloseDialogue();
+            UIManager.I?.dialogues?.CloseDialogue();
             return YarnTask.CompletedTask;
         }
 
