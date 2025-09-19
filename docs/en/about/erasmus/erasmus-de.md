@@ -1,6 +1,6 @@
 # Erasmus+ DE
 
-![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
+![Erasmus+](../../../assets/img/blog/Co-fundedbytheEU.webp)
 
 ## Über das projekt
 
@@ -132,6 +132,6 @@ Jede dieser Organisationen bringt entscheidende Fähigkeiten und Kenntnisse in d
 
 ---
 
-![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
+![Erasmus+](../../../assets/img/blog/Co-fundedbytheEU.webp)
 
 Von der Europäischen Union finanziert. Die geäußerten Ansichten und Meinungen entsprechen jedoch ausschließlich denen des Autors bzw. der Autoren und spiegeln nicht zwingend die der Europäischen Union oder der Europäischen Exekutivagentur für Bildung und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden.

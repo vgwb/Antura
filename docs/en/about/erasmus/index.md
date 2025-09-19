@@ -1,6 +1,6 @@
 # Erasmus+
 
-![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
+![Erasmus+](../../../assets/img/blog/Co-fundedbytheEU.webp)
 
 !!! note
     more informations about Antura and Erasmus+ are here: [https://anturainschools.blogspot.com](https://anturainschools.blogspot.com)
@@ -117,6 +117,6 @@ Each of these organizations brings critical skills and knowledge to the ANTURA p
 
 ---
 
-![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
+![Erasmus+](../../../assets/img/blog/Co-fundedbytheEU.webp)
 
 Funded by the European Union. However, the views and opinions expressed are solely those of the author(s) and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor the EACEA can be held responsible for them

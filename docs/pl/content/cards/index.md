@@ -23,7 +23,7 @@ Wysokie pasmo górskie w Europie.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -36,7 +36,7 @@ Duży pojazd, którym można przewieźć wiele osób.
 - Subjects: Transportation, Community
 - Country: International
 - Image credit: CC_BY_SA | Xosema | [source](https://commons.wikimedia.org/wiki/File:Setra_S6_-_Empresa_Mosquera_-_02.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -50,7 +50,7 @@ Osoba sprzedająca świeże owoce i warzywa.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -112,7 +112,7 @@ Specjalny dokument umożliwiający odwiedzenie słynnej wysokiej wieży w Paryż
 - Country: International
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -125,7 +125,7 @@ Szybkie sanki służące do zjeżdżania po lodzie.
 - Subjects: Sport, Recreation
 - Country: International
 - Image credit: CC_BY_SA | Steffen Prößdorf | [source](https://commons.wikimedia.org/wiki/File:2020-02-22_IBSF_World_Championships_Bobsleigh_and_Skeleton_Altenberg_1DX_5978_by_Stepro.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -138,7 +138,7 @@ Trawiaste boisko, na którym gra się w piłkę nożną.
 - Subjects: Sport, Recreation, Community
 - Country: International
 - Image credit: CC_BY_SA | لا روسا | [source](https://commons.wikimedia.org/wiki/File:Santiagobernabeupanoramav45.JPG)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -151,7 +151,7 @@ Siatka, do której próbujesz strzelić gola.
 - Subjects: Sport, Recreation
 - Country: International
 - Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Dülmen,_Sportzentrum_Süd_--_2012_--_4121.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -187,7 +187,7 @@ No translation found for 'animal_chimpanzee.desc' in Cards
 - Type: None
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -201,7 +201,7 @@ Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:French_bread_DSC09293.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -215,7 +215,7 @@ Słodka przyprawa wytwarzana z kory drzewa.
 - Country: International
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC_BY_SA | Simon A. Eugster | [source](https://commons.wikimedia.org/wiki/File:Cinnamomum_verum_spices.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -229,7 +229,7 @@ Słodka przyprawa wytwarzana z kory drzewa.
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lemon.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -280,7 +280,7 @@ Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i sm
 - Subjects: Civics, History, Time
 - Country: International
 - Image credit: CC_BY_SA | Patryk Matyjaszczyk | [source](https://commons.wikimedia.org/wiki/File:Narodowe_Święto_Niepodległości_2012_01.JPG)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -305,7 +305,7 @@ The flag has white and red stripes with a blue triangle. The Czech Republic is f
 - Country: International
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -321,7 +321,7 @@ Flaga Belgii ma trzy pionowe pasy: czarny, żółty i czerwony. Belgia słynie z
 - Country: International
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -337,7 +337,7 @@ Flaga Białorusi ma poziome, czerwone i zielone pasy z pięknymi, tradycyjnymi w
 - Country: International
 - Topics: [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -353,7 +353,7 @@ Flaga ma poziome pasy w kolorze żółtym, zielonym i czerwonym. Litwa to kraj b
 - Country: International
 - Topics: [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -369,7 +369,7 @@ Flaga Luksemburga ma poziome pasy w kolorze czerwonym, białym i jasnoniebieskim
 - Country: International
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -383,7 +383,7 @@ Flaga z białymi, niebieskimi i czerwonymi paskami. Reprezentuje Rosję.
 - Country: International
 - Topics: [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -399,7 +399,7 @@ Flaga Szwajcarii jest czerwona z białym krzyżem pośrodku. Wygląda jak aptecz
 - Country: International
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -413,7 +413,7 @@ Flaga w kolorach białym, niebieskim i czerwonym. Reprezentuje Słowację.
 - Country: International
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -427,7 +427,7 @@ Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Repr
 - Country: International
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -439,7 +439,7 @@ No translation found for 'food_apple.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -451,7 +451,7 @@ No translation found for 'food_banana.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -465,7 +465,7 @@ Narzędzie w kształcie ciasteczka, które pozwala na tworzenie ciekawych kszta�
 - Country: International
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC_BY_SA | Piotr Kuczyński | [source](https://commons.wikimedia.org/wiki/File:Traditional_gingerbread_mold_2_(Piotr_Kuczynski).jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -478,7 +478,7 @@ Duży obraz z informacjami, który wisi na ścianach klas we francuskich szkoła
 - Subjects: Education
 - Country: International
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -501,7 +501,7 @@ Mocna przyprawa używana do wzbogacania smaku potraw.
 - Subjects: Food, Plant
 - Country: International
 - Image credit: CC_BY_SA | Friedrich Haag | [source](https://commons.wikimedia.org/wiki/File:Gewuerze_004_2024_08_10.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -515,7 +515,7 @@ Filary ziemi
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc), [mountain activities](../topics/index.md#mountain_activities), [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Himalayas,_Ama_Dablam,_Nepal.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -527,7 +527,7 @@ No translation found for 'ice_arctic.desc' in Cards
 - Type: Place
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -541,7 +541,7 @@ Region we Francji, w którym znajduje się stolica, Paryż. Mieszka tu wielu lud
 - Country: International
 - Topics: [Notre Dame](../topics/index.md#notredame)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -555,7 +555,7 @@ Pokarm z kurczaków, używany do pieczenia i gotowania.
 - Country: International
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC_BY_SA | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Eggs_in_basket_2020_G1.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -569,7 +569,7 @@ Ciepła czapka na głowę.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC0 | Michael Evans | [source](https://commons.wikimedia.org/wiki/File:Ronald_Reagan_with_cowboy_hat_12-0071M_edit.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -594,7 +594,7 @@ Pomieszczenie w szkole, w którym uczniowie siedzą i uczą się nowych rzeczy o
 - Subjects: Education, Community
 - Country: International
 - Image credit: CC0
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -607,7 +607,7 @@ Wysoka kolumna ku czci króla Zygmunta na Placu Zamkowym.
 - Subjects: History, Culture
 - Country: International
 - Image credit: CC_BY_SA | Haydn Blackey from Cardiff, Wales | [source](https://commons.wikimedia.org/wiki/File:Column_of_King_Sigismund_III_Vasa_-_Warsaw_(53113393114).jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -621,7 +621,7 @@ Narzędzie, które pomaga rysować idealne okręgi. Ma dwie nogi jak nożyczki.
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -634,7 +634,7 @@ Historyczna polska konstytucja obchodzona 3 Maja.
 - Subjects: Civics, History, Time
 - Country: International
 - Image credit: CC0 | Constitutional Convention | [source](https://commons.wikimedia.org/wiki/File:Constitution_of_the_United_States,_page_1.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -647,7 +647,7 @@ Korona króla, która spadła i musi zostać odnaleziona.
 - Subjects: History, Culture
 - Country: International
 - Image credit: CC_BY_SA | Maciej Szczepańczyk | [source](https://commons.wikimedia.org/wiki/File:Sigismund_Augustus_King_of_Poland_and_Grand_Duke_of_Lithuania_incorporates_fiefdoms,_Duchies_of_Courland_and_Semigalia_into_the_Crown_1569.png)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -661,7 +661,7 @@ Okrągły kształt bez rogów. Koła wyglądają jak koła, piłki i monety!
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squaring_the_circle_a_history_of_the_problem_%281913%29_-_illustration_-_page_29_fig_9.png)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -675,7 +675,7 @@ Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą bokiem p
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fresh_Crab.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -688,7 +688,7 @@ Osoba przygotowująca jedzenie.
 - Subjects: Community, Food
 - Country: International
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Kappabashi-dori_streetcorner_(Kitchen_town_-_southern_end)_a_sunny_morning_in_Tokyo_Japan.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -702,7 +702,7 @@ Pomieszczenie, w którym ludzie gotują i pieką.
 - Country: International
 - Image credit: CC_BY_SA | Original:  Mithun Kunwar
 Derivative work:  Radomianin | [source](https://commons.wikimedia.org/wiki/File:Grandmother_preparing_food_inside_traditional_kitchen_(edited).jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -716,7 +716,7 @@ Osoba sprzedająca wiele rodzajów sera.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -730,7 +730,7 @@ Narzędzie w kształcie trójkąta, służące do rysowania linii prostych i ką
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squadra_45.jpg)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -744,7 +744,7 @@ Małe mostki dla pieszych. Chronią przed ruchem ulicznym.
 - Country: International
 - Topics: [Seine Bridges](../topics/index.md#seine_bridges)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -772,7 +772,7 @@ Duży kot zwany królem zwierząt. Żyje w grupach zwanych stadami.
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -786,7 +786,7 @@ Mocna lina używana do zapewnienia bezpieczeństwa podczas wspinaczki.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Nevit Dilmen | [source](https://commons.wikimedia.org/wiki/File:Coiled_rope_03235.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -800,7 +800,7 @@ Linia prosta, która prowadzi z jednego punktu do drugiego. Linie mogą być dł
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squaring_the_circle_a_history_of_the_problem_%281913%29_-_illustration_-_page_29_fig_9.png)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -814,7 +814,7 @@ Proste narzędzie do pomiaru długości przedmiotów. Linijki mają cyfry i lini
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Righello.jpg)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -826,7 +826,7 @@ No translation found for 'animal_lion_cub.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lion_cub_in_Masai_Mara_National_Park.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -852,7 +852,7 @@ Wolno poruszający się lód występujący w wysokich górach.
 - Subjects: Geography, Science, Environment
 - Country: International
 - Image credit: CC_BY | Kelvinsong | [source](https://commons.wikimedia.org/wiki/File:Glacier_diagram.svg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -879,7 +879,7 @@ Zamarznięta woda, która może być bardzo śliska.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Andreas Tille | [source](https://commons.wikimedia.org/wiki/File:IceBlockNearJoekullsarlon.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -895,7 +895,7 @@ Mapa przedstawiająca wszystkie kraje Europy. Możesz zobaczyć, gdzie znajdują
 - Country: International
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -909,7 +909,7 @@ Mapa pokazująca lokalizację słynnej wysokiej wieży w Paryżu.
 - Country: International
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -922,7 +922,7 @@ Naukowiec, który zdobył dwie Nagrody Nobla.
 - Subjects: Science, History
 - Country: International
 - Image credit: CC0 | Henri Manuel | [source](https://commons.wikimedia.org/wiki/File:Marie_Curie_c._1920s.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -946,7 +946,7 @@ People who sell food and goods at market stalls—like fishmongers, cheesemonger
 - Country: International
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC0 | Antoine Vollon | [source](https://commons.wikimedia.org/wiki/File:Antoine_Vollon_-_Mound_of_Butter_-_National_Gallery_of_Art.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -959,7 +959,7 @@ Hymn narodowy Polski.
 - Subjects: Music, History, Culture
 - Country: International
 - Image credit: CC0 | Józef Wybicki (1747–1822) | [source](https://commons.wikimedia.org/wiki/File:Mazurek_Dąbrowskiego_manuscript.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -973,7 +973,7 @@ Inteligentne zwierzę, które potrafi się wspinać i bawić. Niektóre małpy �
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -987,7 +987,7 @@ Lista pokazująca, co możesz zjeść w szkolnym lunchu. Pomoże Ci wybrać, co 
 - Country: International
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | CC0 - Valeria | [source](https://pixabay.com/photos/menu-restaurant-diner-cafe-8165227/)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -1012,7 +1012,7 @@ Miecz syreny, który musi zostać zwrócony.
 - Subjects: Culture, History
 - Country: International
 - Image credit: CC_BY_SA | Guillaume Speurt from Vilnius, Lithuania | [source](https://commons.wikimedia.org/wiki/File:Mermaid_statue_with_sword_(8121475992).jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1026,7 +1026,7 @@ Słodki przysmak wytwarzany przez pszczoły.
 - Country: International
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC0 | John Severns (Severnjc) | [source](https://commons.wikimedia.org/wiki/File:European_honey_bee_extracts_nectar.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1052,7 +1052,7 @@ Biały napój pochodzący od krów. Mleko wzmacnia kości i zęby!
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Milchflasche_%2812337400564%29.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1065,7 +1065,7 @@ Małe okrągłe pieniądze wykonane z metalu.
 - Subjects: Money
 - Country: International
 - Image credit: CC_BY_SA | Livioandronico2013 | [source](https://commons.wikimedia.org/wiki/File:Coins_of_the_Italian_Republic_(500_Lire)_silver_(Caravels).png)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1078,7 +1078,7 @@ Polskie pieniądze (złoty) przedstawiane jako monety.
 - Subjects: Money, Geography
 - Country: International
 - Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1106,7 +1106,7 @@ Wielkie morze w północnej Europie, gdzie spotykają się Polska, Niemcy i inne
 - Country: International
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC0
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -1132,7 +1132,7 @@ Specjalny most o konstrukcji wystarczająco wytrzymałej, aby umożliwić przeja
 - Country: International
 - Topics: [Seine Bridges](../topics/index.md#seine_bridges)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1146,7 +1146,7 @@ Droga biegnąca nad wodą, dzięki której samochody mogą pokonywać rzeki i je
 - Country: International
 - Topics: [Seine Bridges](../topics/index.md#seine_bridges)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1185,7 +1185,7 @@ Zjeżdżanie na nartach po śniegu.
 - Country: International
 - Topics: [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY | Letartean | [source](https://commons.wikimedia.org/wiki/File:Quebec_Sprint_Cross-country_Skiing_World_Cup_2012_(4)_V2.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1199,7 +1199,7 @@ Okulary chroniące oczy przed jasnym światłem.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Sofiane mohammed amri | [source](https://commons.wikimedia.org/wiki/File:2_الحداد.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1213,7 +1213,7 @@ Specjalny olej z oliwek. Ludzie używają go do gotowania smacznych potraw.
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1227,7 +1227,7 @@ Pikantny korzeń używany w kuchni i ciasteczkach.
 - Country: International
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC0 | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | [source](https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1241,7 +1241,7 @@ Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!
 - Country: International
 - Topics: [France country](../topics/index.md#france), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -1254,7 +1254,7 @@ Wysoki budynek przeznaczony na muzea, teatry i placówki edukacyjne.
 - Subjects: Culture, Education, History
 - Country: International
 - Image credit: CC_BY_SA | A.Savin
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1267,7 +1267,7 @@ Oficjalna siedziba Prezydenta Polski.
 - Subjects: Civics, History, Culture
 - Country: International
 - Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Warsaw_Presidential_Palace_(22248p).jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1281,7 +1281,7 @@ Osoba zajmująca się wypiekiem chleba, ciast i wypieków.
 - Country: International
 - Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1295,7 +1295,7 @@ Przyprawy, które poprawiają smak potraw. Sól jest biała, a pieprz czarny i m
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Shakers_%284572668303%29.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1309,7 +1309,7 @@ Ptak, który nie lata, ale świetnie pływa. Żyje w zimnych miejscach.
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1322,7 +1322,7 @@ Okrągły obiekt używany w wielu grach.
 - Subjects: Sport, Recreation
 - Country: International
 - Image credit: CC_BY_SA | Marco Gualazzini | [source](https://commons.wikimedia.org/wiki/File:Playing_in_the_Nuba_mountains.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1335,7 +1335,7 @@ Gra zespołowa, w którą gra się piłką, którą się kopie.
 - Subjects: Sport, Recreation, Community
 - Country: International
 - Image credit: CC_BY_SA | Clément Bucco-Lechat | [source](https://commons.wikimedia.org/wiki/File:Algérie_-_Arménie_-_20140531_-_Yacine_Brahimi_(Alg)_face_à_Taron_Voskanyan_(Arm).jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1347,7 +1347,7 @@ No translation found for 'plant_apple.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1359,7 +1359,7 @@ No translation found for 'plant_banana.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1371,7 +1371,7 @@ No translation found for 'plant_orange.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1383,7 +1383,7 @@ No translation found for 'tree_wattle.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Acacia_sp._(51489535138).jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1397,7 +1397,7 @@ Torba, którą nosisz na plecach.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | FOTO:Fortepan — ID 20607: Adományozó/Donor: Wein Sarolta. archive copy at the Wayback Machine | [source](https://commons.wikimedia.org/wiki/File:Colorful,_backpack_Fortepan_20607.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1435,7 +1435,7 @@ Gdzie tworzone jest prawo: Sejm i Senat.
 - Subjects: Civics, History, Geography
 - Country: International
 - Image credit: CC0
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1449,7 +1449,7 @@ Okrągły, pomarańczowy owoc o słodkim i soczystym smaku. Pomarańcze mają mn
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1463,7 +1463,7 @@ Czerwony, okrągły owoc rosnący na roślinach. Pomidory służą do robienia s
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tomato_je.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1476,7 +1476,7 @@ Pomnik astronoma Mikołaja Kopernika.
 - Subjects: Science, History, Culture
 - Country: International
 - Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Staszic_Palace_(22226p).jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1514,7 +1514,7 @@ Osoba, która pomaga ludziom bezpiecznie się wspinać.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc), [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Zagedan_Lakes,_Mountaineer,_Mountain_guide,_Caucasus_Mountains,_Karachay-Cherkessia.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1527,7 +1527,7 @@ Osoba opiekująca się pszczołami i zbierająca miód.
 - Subjects: Community, Animal, Food
 - Country: International
 - Image credit: CC_BY | Michael Gäbler | [source](https://commons.wikimedia.org/wiki/File:Beekeeper_keeping_bees.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1540,7 +1540,7 @@ Ciepła kurtka na zimne dni.
 - Subjects: Health, Safety, Weather
 - Country: International
 - Image credit: CC_BY_SA | Calistemon | [source](https://commons.wikimedia.org/wiki/File:White_American_Staffordshire_Terrier_in_Vegemite_coat,_August_2022.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1554,7 +1554,7 @@ Kolczaste metalowe uchwyty przymocowane do butów, aby móc jeździć po lodzie.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Clayoquot | [source](https://commons.wikimedia.org/wiki/File:Strap-on_crampon.JPG)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1568,7 +1568,7 @@ Rakieta, która leci w kosmos.
 - Country: International
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -1581,7 +1581,7 @@ Znany polski piłkarz.
 - Subjects: Sport, Culture
 - Country: International
 - Image credit: CC_BY_SA | Екатерина Лаут | [source](https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_2018_(cropped).jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1607,7 +1607,7 @@ Dwukołowy pojazd, który napędza się pedałami.
 - Subjects: Transportation, Sport, Health
 - Country: International
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1621,7 +1621,7 @@ Zwierzę żyjące i pływające w wodzie. Ryby mają płetwy i skrzela, które u
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Grouper_fish_for_Sale.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1634,7 +1634,7 @@ Stary rynek, na którym ludzie kupują i sprzedają towary.
 - Subjects: History, Culture, Community
 - Country: International
 - Image credit: CC_BY_SA | Axel Cotón Gutiérrez | [source](https://commons.wikimedia.org/wiki/File:Feria_Medieval_de_Hämeenlinna_2007_(Horse_Fighting).jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1647,7 +1647,7 @@ Osoba sprzedająca mięso.
 - Subjects: Community, Food
 - Country: International
 - Image credit: CC_BY_SA | Sabina Bajracharya | [source](https://commons.wikimedia.org/wiki/File:A_Butcher_cutting_buffalo_meat.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1661,7 +1661,7 @@ Ciepłe okrycia na dłonie.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Kippelboy | [source](https://commons.wikimedia.org/wiki/File:Centre_de_Documentació_Museu_Tèxtil_de_Terrassa-_Reserves-_Teixits-_Guants002.JPG)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1674,7 +1674,7 @@ Mały pojazd do jazdy po drogach.
 - Subjects: Transportation
 - Country: International
 - Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Abandoned_car_in_Marine_Park_(10852p).jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1687,7 +1687,7 @@ Osoba sprzedająca jajka.
 - Subjects: Community, Food
 - Country: International
 - Image credit: CC_BY_SA | Elgabarty2002 | [source](https://commons.wikimedia.org/wiki/File:Egg_Seller_in_Nigeria.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1700,7 +1700,7 @@ Osoba sprzedająca mleko, masło i ser.
 - Subjects: Community, Food
 - Country: International
 - Image credit: CC_BY_SA | Something Original (talk) | [source](https://commons.wikimedia.org/wiki/File:Pennsylvania_State_University_Food_Science_Building_and_Berkey_Creamery_May_15,_2010.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1714,7 +1714,7 @@ Osoba sprzedająca świeże ryby i owoce morza.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fishmonger_weighing_fish_at_Payang_Market,_Kuala_Terengganu.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1727,7 +1727,7 @@ Nowoczesny stadion przeznaczony do meczów piłkarskich i koncertów.
 - Subjects: Sport, Culture, Community
 - Country: International
 - Image credit: CC_BY_SA | Arne Müseler | [source](https://commons.wikimedia.org/wiki/File:National_Stadium_Warsaw_aerial_view_2.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1740,7 +1740,7 @@ Rzeźba przedstawiająca legendę miasta o Warsie i Sawie.
 - Subjects: Culture, History
 - Country: International
 - Image credit: CC_BY_SA | Wistula
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1754,7 +1754,7 @@ Ciepły materiał noszony wokół szyi.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Colored_silk_scarf_from_India_01.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1768,7 +1768,7 @@ Sam szczyt góry.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY | Mountaineer | [source](https://commons.wikimedia.org/wiki/File:Summitting_Island_Peak.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1807,7 +1807,7 @@ Jasne światło, które może odbijać się od śniegu.
 - Subjects: Science, Weather, Environment
 - Country: International
 - Image credit: CC0 | NASA/SDO (AIA) | [source](https://commons.wikimedia.org/wiki/File:The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1836,7 +1836,7 @@ Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Words: elephant, zoo
 - Image credit: CC0
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1849,7 +1849,7 @@ Torba, w której uczniowie noszą do szkoły książki, ołówki i prace domowe.
 - Subjects: Science
 - Country: International
 - Image credit: CC0
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -1862,7 +1862,7 @@ Pociąg miejski poruszający się po torach ulicznych.
 - Subjects: Transportation, Technology, Community
 - Country: International
 - Image credit: CC_BY_SA | Chme82 | [source](https://commons.wikimedia.org/wiki/File:Flexity_Tram_Zürich_4001.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1876,7 +1876,7 @@ Kształt z trzema prostymi bokami i trzema narożnikami. Trójkąty wyglądają 
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lobatchevski_-_La_Th%C3%A9orie_des_parall%C3%A8les,_1980_-_Fig-1-05.png)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -1890,7 +1890,7 @@ Wędrówki po szlakach na łonie natury.
 - Country: International
 - Topics: [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Roca_de_la_Ley,_Parque_Nacional_de_Þingvellir,_Suðurland,_Islandia,_2014-08-16,_DD_022.JPG)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1915,7 +1915,7 @@ Waluta używana w wielu krajach Europy. Za euro można kupić zabawki i lody!
 - Subjects: Money, Geography
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes_%28cropped%29.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1942,7 +1942,7 @@ Ruch powietrza, który w górach może być odczuwalnie silniejszy.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC0 | Richardfabi | [source](https://commons.wikimedia.org/wiki/File:Windbuchencom.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1982,7 +1982,7 @@ Wchodzenie na skały lub lód przy użyciu specjalnego sprzętu.
 - Topics: [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY_SA | Original version: Valentin Chapuis
 Derivative version: Subsidiary account (image rotated 90 degrees CCW) | [source](https://commons.wikimedia.org/wiki/File:Flo_dans_Juvsøyla_à_Rjukan,_Norvège-rotated.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1996,7 +1996,7 @@ Osoba sprzedająca różnego rodzaju żywność i napoje.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2008,7 +2008,7 @@ No translation found for 'animal_lion_young_male.desc' in Cards
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -2021,7 +2021,7 @@ Historyczny zamek królów polskich, obecnie muzeum.
 - Subjects: History, Culture, Geography
 - Country: International
 - Image credit: CC0 | Bernardo Bellotto | [source](https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_-_View_of_Warsaw_from_the_Royal_Castle_-_Google_Art_Project.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -2082,7 +2082,7 @@ Auto-created card for topic 'Zoo Animals'.
 - Country: International
 - Topics: [Seine Bridges](../topics/index.md#seine_bridges)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -2108,7 +2108,7 @@ Zamarznięta woda spadająca w zimne dni.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Psy guy | [source](https://commons.wikimedia.org/wiki/File:Snow_Scene_at_Shipka_Pass_1.JPG)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2121,7 +2121,7 @@ Futrzane zwierzę górskie, które gwiżdże.
 - Subjects: Animal, Environment, Science
 - Country: International
 - Image credit: CC_BY_SA | Photography captured by Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:071_Wild_marmot_at_Grand_Muveran_Nature_Reserve_Photo_by_Giles_Laurent.jpg)
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2163,7 +2163,7 @@ A book by Jules Verne about underwater adventures in a submarine called the Naut
 - Country: France
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2190,7 +2190,7 @@ Pierwsze słowa pierwszego wersu hymnu.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quest/fr_11.md)
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2205,7 +2205,7 @@ An exciting book by Jules Verne about traveling around the whole world very quic
 - Country: France
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2221,7 +2221,7 @@ Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie 
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2236,7 +2236,7 @@ Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu r
 - Country: France
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2276,7 +2276,7 @@ Szkoła średnia we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą 
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | Marie Gaultier, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Ecole_Sup%C3%A9rieure_d%27Agricultures.jpg)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2291,7 +2291,7 @@ Słowa z pierwszego wersu hymnu.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quest/fr_11.md)
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2343,7 +2343,7 @@ Słowa z pierwszego wersu hymnu.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quest/fr_11.md)
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2358,7 +2358,7 @@ Słowa z pierwszego wersu hymnu.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quest/fr_11.md)
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2397,7 +2397,7 @@ A book by Jules Verne about flying across Africa in a hot air balloon. It's full
 - Year: 1863
 - Country: France
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2413,7 +2413,7 @@ Flaga Francji ma trzy pionowe pasy: niebieski, biały i czerwony. Te kolory symb
 - Country: France
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [France country](../topics/index.md#france)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -2429,7 +2429,7 @@ Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słyn
 - Country: France
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -2480,7 +2480,7 @@ Odważni żeglarze, którzy żeglowali po morzach dla króla Francji. Nazywano i
 - Year: 1600
 - Country: France
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Forbin_et_Jean_Bart_capture_en_1689.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2495,7 +2495,7 @@ A book by Jules Verne about going to the Moon in a big cannon! It was written be
 - Country: France
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2508,7 +2508,7 @@ Zabawna lub straszna figurka, która pełni również funkcję rynny deszczowej.
 - Subjects: Art, Technology, History
 - Country: France
 - Image credit: CC_BY_SA | Martinvl | [source](https://commons.wikimedia.org/wiki/File:Gargoyle_depicting_Hodgetts,_Chichester_Cathedral.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2523,7 +2523,7 @@ Człowiek, który zbudował Wieżę Eiffla! Był inżynierem, który uwielbiał 
 - Country: France
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2537,7 +2537,7 @@ A balloon that flies using hot air. The first one flew in France.
 - Country: France
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2566,7 +2566,7 @@ A French writer who imagined amazing adventures before they were possible! He wr
 - Country: France
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2593,7 +2593,7 @@ Zbiór zasad szanujących przekonania każdego. Pomaga ludziom żyć razem w pok
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | [source](https://camille-claudel.ecollege.haute-garonne.fr/le-college/charte-de-la-laicite/)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2643,7 +2643,7 @@ Bardzo duży i ważny kościół w mieście.
 - Subjects: Culture, History, Education
 - Country: France
 - Image credit: CC_BY_SA | Richard Bartz, Munich aka Makro Freak | [source](https://commons.wikimedia.org/wiki/File:Svyato_Mihailovsky_Cathedral_Izhevsk_Russia_Richard_Bartz.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2658,7 +2658,7 @@ Piękna katedra w Paryżu. Jej kolorowe witraże opowiadają historie.
 - Country: France
 - Topics: [Notre Dame](../topics/index.md#notredame)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2671,7 +2671,7 @@ Kamień z wyrytymi bardzo starymi prawami.
 - Subjects: History, Civics
 - Country: France
 - Image credit: CC_BY | Mbzt | [source](https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk.JPG)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2684,7 +2684,7 @@ Ogromny obraz przedstawiający ceremonię cesarza Francji.
 - Subjects: Art, History
 - Country: France
 - Image credit: CC0 | Jacques-Louis David / Georges Rouget | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Coronation_of_Napoleon_(1805-1807).jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2697,7 +2697,7 @@ Specjalny budynek, w którym ludzie spotykają się, aby modlić się i śpiewa�
 - Subjects: Culture, Civics, Education
 - Country: France
 - Image credit: CC_BY_SA | King of Hearts | [source](https://commons.wikimedia.org/wiki/File:Stanford_Memorial_Church_May_2011_HDR_1.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2747,7 +2747,7 @@ Kamienne ramiona na zewnątrz, które pomagają podtrzymywać wysokie mury.
 - Subjects: Technology, History, Art
 - Country: France
 - Image credit: CC_BY_SA | Acroterion | [source](https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_gallery_roof_and_buttresses_1980-1.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2775,7 +2775,7 @@ Szkoła średnia we Francji dla nastolatków w wieku od 16 do 18 lat. Uczniowie 
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | Émeric, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Atelier_lyc%C3%A9e_Chevrollier.jpg)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -2812,7 +2812,7 @@ Zdjęcie przedstawiające rzekę Sekwanę i jej przepływ przez ląd.
 - Subjects: Geography, Environment
 - Country: France
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -2825,7 +2825,7 @@ Zdjęcie przedstawiające przepływ rzeki Sekwany przez Paryż.
 - Subjects: Science
 - Country: France
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -2841,7 +2841,7 @@ Francuska pieśń narodowa. Śpiewa się ją podczas wielkich wydarzeń i meczó
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quest/fr_11.md)
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2891,7 +2891,7 @@ Piękny most w Paryżu z misternymi dekoracjami i złotymi posągami.
 - Subjects: Geography, Environment
 - Country: France
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -2929,7 +2929,7 @@ Słynna starożytna rzeźba przedstawiająca boginię ze skrzydłami.
 - Subjects: Art, History
 - Country: France
 - Image credit: CC_BY_SA | Rijin | [source](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_(1).jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2967,7 +2967,7 @@ Duży, okrągły witraż opowiadający historie światłem.
 - Subjects: Art, Culture, History
 - Country: France
 - Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_Organ_and_Rose_Window,_Picardy,_France_-_Diliff.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2992,7 +2992,7 @@ Szklana piramida, która stanowi współczesne wejście do Luwru.
 - Subjects: Art, Culture, Technology
 - Country: France
 - Image credit: CC_BY_SA | Benh LIEU SONG (Flickr) | [source](https://commons.wikimedia.org/wiki/File:Louvre_Courtyard,_Looking_West.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3008,7 +3008,7 @@ Specjalny sposób pisania, w którym wszystkie litery w słowie są połączone.
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -3024,7 +3024,7 @@ W 2019 roku wielki pożar zniszczył piękną katedrę Notre-Dame w Paryżu. Wie
 - Country: France
 - Topics: [Notre Dame](../topics/index.md#notredame)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3049,7 +3049,7 @@ Obraz przedstawiający trzech braci składających odważną obietnicę.
 - Subjects: Art, History
 - Country: France
 - Image credit: CC0 | Jacques-Louis David | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David,_Le_Serment_des_Horaces.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3124,7 +3124,7 @@ Rzeka o długości 777 kilometrów w północnej Francji
 - Subjects: Geography
 - Country: France
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3150,7 +3150,7 @@ Starożytna egipska statua przedstawiająca osobę piszącą.
 - Subjects: Art, History
 - Country: France
 - Image credit: CC_BY_SA | Rama | [source](https://commons.wikimedia.org/wiki/File:The_seated_scribe-E_3023-IMG_4267-gradient-contrast.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3190,7 +3190,7 @@ Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę E
 - Year: 1900
 - Country: France
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3230,7 +3230,7 @@ Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i 
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | Polymagou, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_Paul-Langevin,_Les_Clayes-sous-Bois,_Yvelines_9-3.jpg)
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -3245,7 +3245,7 @@ Szkoła dla dzieci w wieku od 6 do 10 lat. Uczysz się czytania, pisania i licze
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: Licensed
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -3296,7 +3296,7 @@ Wysoka wieża i symbol Paryża. Jest wykonana z żelaza i ma 300 metrów wysoko�
 - Country: France
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3309,7 +3309,7 @@ Windy, którymi zwiedzający mogą wjechać na żelazną wieżę.
 - Subjects: Technology, Transportation
 - Country: France
 - Image credit: CC0 | Louis-Emile Durandelle | [source](https://commons.wikimedia.org/wiki/File:Louis-Emile_Durandelle,_The_Eiffel_Tower_-_State_of_the_Construction,_1888.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3337,7 +3337,7 @@ Wielka światowa wystawa, na której pokazano Wieżę Eiffla.
 - Subjects: History, Culture
 - Country: France
 - Image credit: CC0 | imp. de Erhard (Paris), 1889 | [source](https://commons.wikimedia.org/wiki/File:Plan_général_exposition_universelle_de_1889.jpg)
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3362,7 +3362,7 @@ Zamek Chinon to potężna kamienna twierdza na wzgórzu nad rzeką w Dolinie Loa
 - Subjects: History
 - Country: France
 - Image credit: CC0
-- Quests: [Opowieść o dwóch zamkach (fr_05)](../quest/fr_05.md)
+- Quests: [Opowieść o dwóch zamkach (fr_05)](../quests/quest/fr_05.md)
 
 ---
 
@@ -3413,7 +3413,7 @@ Białe pasy tam, gdzie ludzie przechodzą przez ulicę.
 - Country: France
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -3428,7 +3428,7 @@ Ogromne muzeum pełne sztuki. To tu mieszka Mona Lisa.
 - Country: France
 - Topics: [Louvre](../topics/index.md#louvre)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ## Poland
 
@@ -3442,7 +3442,7 @@ Nauka zajmująca się badaniem Słońca, Księżyca, gwiazd i planet.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3455,7 +3455,7 @@ Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
 - Subjects: Transportation, Geography
 - Country: Poland
 - Image credit: CC_BY_SA | Dietmar Rabich
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3469,7 +3469,7 @@ Posąg karła zadającego pytanie kościelne.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3483,7 +3483,7 @@ Błyszcząca skamieniała żywica drzewna zwana „Bałtyckim Złotem”.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Fuerte_Amber,_Amber,_India,_2009-12-04,_DD_0019.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3496,7 +3496,7 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 - Subjects: Culture, Science
 - Country: Poland
 - Image credit: CC0 | Pko, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/w/index.php?curid=76433849)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3510,7 +3510,7 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Houseboat_in_Copenhagen_Harbor_02.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3524,7 +3524,7 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 - Country: Poland
 - Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC0 | USFWS Pacific | [source](https://commons.wikimedia.org/wiki/File:USFWS_director_visits_Oregon_Zoo_(51946414879).jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -3537,7 +3537,7 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 - Subjects: Environment, Science
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3551,7 +3551,7 @@ Przyjazny przewodnik, który wie wszystko o krasnoludkach.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3565,7 +3565,7 @@ Ruch wody na morzu.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Roger McLassus | [source](https://commons.wikimedia.org/wiki/File:2006-01-14_Surface_waves.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3581,7 +3581,7 @@ Flaga Polski ma poziome, biało-czerwone pasy. Polska słynie z naukowców takic
 - Country: Poland
 - Topics: [Poland country](../topics/index.md#poland)
 - Image credit: CC0
-- Quests: [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -3594,7 +3594,7 @@ Flaga miasta, którą należy znaleźć i zwrócić.
 - Subjects: Culture, Community, History
 - Country: Poland
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:POL_Wroc%C5%82aw_flag.svg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -3607,7 +3607,7 @@ Dzikie zwierzę morskie, odpoczywające na plażach.
 - Subjects: Animal, Environment, Safety
 - Country: Poland
 - Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Common_seal_(Phoca_vitulina)_2.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3621,7 +3621,7 @@ Słynna fontanna w Gdańsku z figurą boga morza.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Monumento_Neptuno,_Gdansk,_Polonia,_2013-05-20,_DD_03.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3637,7 +3637,7 @@ Znany polski kompozytor fortepianowy. Tworzył piękną muzykę, która brzmi ja
 - Country: Poland
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -3651,7 +3651,7 @@ Miasto portowe w Polsce nad Morzem Bałtyckim.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk), [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Calle_Dlugie_Pobrzeze,_Gdansk,_Polonia,_2013-05-20,_DD_05.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3664,7 +3664,7 @@ Wysoki ratusz z wieżą i muzeum.
 - Subjects: History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Ayuntamiento_Principal,_Gdansk,_Polonia,_2013-05-20,_DD_01.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3677,7 +3677,7 @@ Hala Stulecia to ogromny budynek przypominający wielki namiot z dachem. Jest ba
 - Subjects: Culture, Recreation
 - Country: Poland
 - Image credit: CC0 | Taxiarchos228, FAL, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Jahrhunderthalle1.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3690,7 +3690,7 @@ Wysoka metalowa rzeźba obok Centennial Hall.
 - Subjects: History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Jonashtand | [source](https://commons.wikimedia.org/wiki/File:202206_Iglica,_Wrocław.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -3704,7 +3704,7 @@ Największa planeta, słynąca z Wielkiej Czerwonej Plamy.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL/Space Science Institute | [source](https://commons.wikimedia.org/wiki/File:Portrait_of_Jupiter_from_Cassini.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3717,7 +3717,7 @@ Mała łódka, którą wiosłujesz.
 - Subjects: Recreation, Sport
 - Country: Poland
 - Image credit: CC_BY_SA | 0x010C
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3731,7 +3731,7 @@ Malutkie figurki w całym mieście, które uwielbiają płatać figle.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Matti Blume | [source](https://commons.wikimedia.org/wiki/File:Dwarf,_Wroclaw_(P1180336).jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3745,7 +3745,7 @@ Posąg krasnoluda pilnującego windy z dużym kluczem.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:100matolog_(Tooth-dwarf)_Wroclaw_dwarf_02.JPG)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3760,7 +3760,7 @@ Król Polski, który wzniósł wiele pięknych budowli w Warszawie. Jego pomnik 
 - Year: 1566
 - Country: Poland
 - Image credit: CC0 | Pieter Soutman, Public domain, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Soutman_Sigismund_III_Vasa_in_coronation_robes.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -3774,7 +3774,7 @@ Most, po którym ludzie mogą chodzić. Bez samochodów.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Front_view_of_a_wooden_footbridge_over_a_lagoon,_trees_and_mountains_in_Vang_Vieng,_Laos.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3788,7 +3788,7 @@ Zabytkowa latarnia morska, która pomaga statkom znaleźć port.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Yanek | [source](https://commons.wikimedia.org/wiki/File:Gdańsk,_Kapitanat_Portu_-_Port_Północny_-_fotopolska.eu_(304857).jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3801,7 +3801,7 @@ It’s a friendly place where children learn, create, and explore guided by curi
 - Subjects: Education
 - Country: Poland
 - Image credit: CC0
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3814,7 +3814,7 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 - Subjects: Geography
 - Country: Poland
 - Image credit: CC0
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md), [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md), [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3829,7 +3829,7 @@ Genialna polska naukowiec, która odkryła radioaktywność. Była pierwszą kob
 - Year: 1867
 - Country: Poland
 - Image credit: CC0
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -3843,7 +3843,7 @@ Czerwona planeta z pyłem i dużymi wulkanami.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY_SA | ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO | [source](https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3856,7 +3856,7 @@ Ptak morski żyjący w pobliżu wybrzeża.
 - Subjects: Animal, Environment
 - Country: Poland
 - Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Black-headed_Gull_-_St_James's_Park,_London_-_Nov_2006.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3872,7 +3872,7 @@ Genialny naukowiec z Polski, który odkrył, że to Ziemia krąży wokół Sło�
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC0
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3886,7 +3886,7 @@ Figurka krasnala, który uwielbia zoo i zwierzęta.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3900,7 +3900,7 @@ Pogląd, że Słońce znajduje się w centrum, a planety krążą wokół niego.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Andreas Cellarius | [source](https://commons.wikimedia.org/wiki/File:1661_Cellarius's_chart_illustrating_Copernicus'_heliocentric_model_of_the_universe.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3913,7 +3913,7 @@ Konstrukcja umożliwiająca ludziom lub pojazdom przekraczanie wody.
 - Subjects: Technology, Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Bridge_and_deck_of_Gullbritt.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3927,7 +3927,7 @@ Most dla samochodów i autobusów.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Photographer: Dey.sandip Additional Credit: User Atention for water spot removal. | [source](https://commons.wikimedia.org/wiki/File:Anjarle_Bridge_and_Cows-fix.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3941,7 +3941,7 @@ Most z torami kolejowymi.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3955,7 +3955,7 @@ Najdłuższy most wantowy w Polsce.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Olgierd (Creative Commons licensed only) | [source](https://commons.wikimedia.org/wiki/File:Most_Rędziński_we_Wroclawiu.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3969,7 +3969,7 @@ Słynny most z kłódkami symbolizującymi miłość i latarniami gazowymi.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Aw58 | [source](https://commons.wikimedia.org/wiki/File:Wrocław,_most_Tumski_widziany_z_bulwaru_Piotra_Włostowica_(MW).jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3983,7 +3983,7 @@ We Wrocławiu nad Odrą przebiega wiele mostów.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3997,7 +3997,7 @@ Twardy muszla zwierzęcia morskiego, przydatna do rękodzieła.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Flexopecten_ponticus_2008_G1.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4010,7 +4010,7 @@ Mały lew.
 - Subjects: Animal, Science
 - Country: Poland
 - Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_cub_14_months.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4024,7 +4024,7 @@ Sznur koralików lub muszelek noszony na szyi.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Necklace_made_of_rough_diamonds.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4038,7 +4038,7 @@ Znalezienie drogi na morzu za pomocą świateł, map i narzędzi.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Table_of_Geography_and_Hydrography,_Cyclopaedia,_Volume_1.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4052,7 +4052,7 @@ Bóg morza ze starych opowieści.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA | [source](https://commons.wikimedia.org/wiki/File:Neptune_Full.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4065,7 +4065,7 @@ Mała łódź rybacka używana na morzu.
 - Subjects: Transportation, Technology
 - Country: Poland
 - Image credit: CC_BY_SA | Gordon Leggett | [source](https://commons.wikimedia.org/wiki/File:2009-12-06_USCGC_Key_Biscayne_WPB1339.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4079,7 +4079,7 @@ Przezroczysta szyba lub plastik, która załamuje światło.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Christian David | [source](https://commons.wikimedia.org/wiki/File:Village_de_Lens.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4092,7 +4092,7 @@ A simple map that shows the Odra River in Poland and the way it flows to the Bal
 - Subjects: Geography
 - Country: Poland
 - Image credit: CC0
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4106,7 +4106,7 @@ Duży ogród zoologiczny we Wrocławiu, w którym można poznać wiele zwierząt
 - Country: Poland
 - Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4120,7 +4120,7 @@ Mała soczewka, przez którą patrzysz w teleskopie.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY | SvonHalenbach | [source](https://commons.wikimedia.org/wiki/File:Newtonianscope-eyepiece-detail.JPG)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4133,7 +4133,7 @@ Znany polski pisarz mieszkający we Wrocławiu.
 - Subjects: Literature, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Harald Krichel | [source](https://commons.wikimedia.org/wiki/File:Olga_Tokarczuk-9739.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4147,7 +4147,7 @@ Osoba opiekująca się zwierzętami w zoo.
 - Country: Poland
 - Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY_SA | 좀비 브렌다 | [source](https://commons.wikimedia.org/wiki/File:Hadada_Ibis_perched_on_Dallas_Zoo_keeper.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4160,7 +4160,7 @@ Otacza Cię gigantyczny obraz przedstawiający historyczną bitwę.
 - Subjects: History, Art, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Barbara Maliszewska
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4173,7 +4173,7 @@ Jasny ptak, który potrafi naśladować dźwięki.
 - Subjects: Animal, Science
 - Country: Poland
 - Image credit: CC_BY | Luc Viatour | [source](https://commons.wikimedia.org/wiki/File:Ara_ararauna_Luc_Viatour.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4186,7 +4186,7 @@ Kolorowy ptak z dużym ogonem z piór.
 - Subjects: Animal, Science, Art
 - Country: Poland
 - Image credit: CC_BY_SA | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Paonroue.JPG)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4200,7 +4200,7 @@ tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtow
 - Country: Poland
 - Topics: [Gingerbread](../topics/index.md#gingerbread), [Pierogi Recipe](../topics/index.md#pierogi)
 - Image credit: CC0 | Marcin Floryan, CC BY 2.5 <https://creativecommons.org/licenses/by/2.5>, via Wikimedia Commons | [source](https://commons.wikimedia.org/w/index.php?curid=1300867)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -4227,7 +4227,7 @@ Miejsce, w którym można zobaczyć niebo i gwiazdy w pomieszczeniu.
 
 Bernhard Müller († 1930)
 Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://commons.wikimedia.org/wiki/File:Planetarium_Pfaffendorfer_Strasse_Leipzig_um_1927.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4240,7 +4240,7 @@ Tablica z prostymi faktami, które pomogą Ci się uczyć.
 - Subjects: Education, Community
 - Country: Poland
 - Image credit: CC_BY_SA | Frank Schulenburg | [source](https://commons.wikimedia.org/wiki/File:Railroad_Park_Resort_in_Dunsmuir,_June_2021.jpg)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4254,7 +4254,7 @@ Słynny pokój z bursztynu o tajemniczej historii.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4269,7 +4269,7 @@ Małe figurki krasnali kryją się we Wrocławiu. Ich odnalezienie to fajna gra 
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC0
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4284,7 +4284,7 @@ Pierogi z nadzieniem ziemniaczanym, serowym lub owocowym. To słynne polskie dan
 - Country: Poland
 - Topics: [Pierogi Recipe](../topics/index.md#pierogi)
 - Image credit: CC0
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -4299,7 +4299,7 @@ Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Ch
 - Country: Poland
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | Ethan Doyle White, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:The_Chopin_Monument_in_Warsaw.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -4313,7 +4313,7 @@ Miejsce, w którym statki załadowują się i rozładowują.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4326,7 +4326,7 @@ Miejsce, w którym pracują i spotykają się przywódcy miasta.
 - Subjects: Civics, Community, History
 - Country: Poland
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Town_hall_of_Aosta_(3).jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4339,7 +4339,7 @@ Duża gotycka budowla w Toruniu, położona tuż przy rynku.
 - Subjects: History, Geography, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Old_town_hall_in_Torun_(6).jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -4353,7 +4353,7 @@ Najbliższa Słońcu planeta, mała i bardzo szybka.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. Edited version of Image:Mercury in color - Prockter07.jpg by Papa Lima Whiskey. | [source](https://commons.wikimedia.org/wiki/File:Mercury_in_color_-_Prockter07_centered.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4367,7 +4367,7 @@ Osoba łowiąca ryby w morzu.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Benh LIEU SONG (Flickr) | [source](https://commons.wikimedia.org/wiki/File:Leg_Rowing_Fisherman_Inle_Lake_Myanmar.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4380,7 +4380,7 @@ Główny plac Starego Miasta, pełen życia.
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4394,7 +4394,7 @@ Rzeka przepływająca przez Gdańsk do morza.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | John Samuel | [source](https://commons.wikimedia.org/wiki/File:Boat_on_Motława_river_in_Gdańsk.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4408,7 +4408,7 @@ Duża rzeka w zachodniej Polsce. Umożliwia statkom podróżowanie i handel.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4422,7 +4422,7 @@ Niewielka figurka miejska; krasnale są symbolem Wrocławia.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4436,7 +4436,7 @@ Olbrzymia planeta z jasnymi pierścieniami i wieloma księżycami.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech/SSI/Cornell | [source](https://commons.wikimedia.org/wiki/File:Top_view_of_the_rings_of_Saturn_by_Cassini_-_October_10,_2013.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4450,7 +4450,7 @@ Sieć służąca do połowu ryb.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Fishing_net_Karystos_Euboea_Greece.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4463,7 +4463,7 @@ Nowoczesny plac, na którym ludzie spotykają się w pobliżu wieży.
 - Subjects: Geography, Community, Recreation
 - Country: Poland
 - Image credit: CC_BY_SA | JamesYoung8167 | [source](https://commons.wikimedia.org/wiki/File:Xiamen_Shimao_Straits_Tower_2016-02-09.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4476,7 +4476,7 @@ Piękny gotycki budynek na głównym placu. Znajduje się w nim słynny zegar.
 - Subjects: Geography, Environment
 - Country: Poland
 - Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/7/70/Wroclaw-Rathaus.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4490,7 +4490,7 @@ Duża łódź przewożąca ludzi lub towary.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4504,7 +4504,7 @@ Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg można zoba
 - Country: Poland
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | Grzegorz Polak, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Syrenka_Warszawska.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -4518,7 +4518,7 @@ Narzędzie pozwalające nam zobaczyć odległe obiekty na niebie.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Palonitor | [source](https://commons.wikimedia.org/wiki/File:Kométa_C-2020_F3_(NEOWISE).jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4531,7 +4531,7 @@ Miasto w Polsce, w którym urodził się Mikołaj Kopernik.
 - Subjects: Geography, History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:Widok_zza_Wisły_na_Toruń,_20210908_1711_2822.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4545,7 +4545,7 @@ Słońce i osiem planet krążących wokół niego.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Originally uploaded from NASA by Bricktop; edited by Deuar, KFP, TotoBaggins, City303, JCPagc2015 | [source](https://commons.wikimedia.org/wiki/File:Moons_of_solar_system_v7.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4559,7 +4559,7 @@ Niebiesko-zielona planeta obracająca się na boku.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech | [source](https://commons.wikimedia.org/wiki/File:Uranus2.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4573,7 +4573,7 @@ Walutą polską jest złoty. Monety i banknoty mają symbole polskie.
 - Country: Poland
 - Topics: [Pierogi Recipe](../topics/index.md#pierogi)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Bitllets_de_banc_polonesos_2024.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -4588,7 +4588,7 @@ Dwie legendarne postacie, które nadały Warszawie nazwę. Wars był dzielnym wo
 - Country: Poland
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | [source](https://en.m.wikipedia.org/wiki/File:Rzeźba_Warsa_i_Sawy_01.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -4602,7 +4602,7 @@ Bardzo gorąca planeta pokryta grubymi chmurami.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Y. Beletsky | [source](https://commons.wikimedia.org/wiki/File:Mercury,_Venus_and_the_Moon_Align.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4615,7 +4615,7 @@ Najdłuższa rzeka Polski. Uchodzi do Morza Bałtyckiego.
 - Subjects: Geography, Environment
 - Country: Poland
 - Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:20200529_Widok_ze_Skały_Okrążek_na_Opactwo_w_Tyńcu_1735_2128.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4629,7 +4629,7 @@ Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warsz
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4643,7 +4643,7 @@ Miasto w Polsce z rzekami, mostami i historią.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4656,7 +4656,7 @@ Duży, ważny kościół, w którym ludzie się modlą. Można wspiąć się na 
 - Subjects: History, Culture
 - Country: Poland
 - Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4669,7 +4669,7 @@ Jeden z najwyższych budynków w Polsce. Znajdują się w nim sklepy i punkt wid
 - Subjects: Geography, Community, Culture
 - Country: Poland
 - Image credit: CC0 | [source](https://it.wikipedia.org/wiki/File:Wrocław,_2006_-_2012_-_budowa_Sky_Tower_-_fotopolska.eu_(311325).jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4682,7 +4682,7 @@ Woda tańcząca w rytm muzyki i kolorowych świateł.
 - Subjects: Culture, Technology, Recreation
 - Country: Poland
 - Image credit: CC_BY_SA | Piotr Walczak & Konradr | [source](https://commons.wikimedia.org/wiki/File:Wrocławska_fontanna_Piotr_Walczak2.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4696,7 +4696,7 @@ Bezpieczna przestrzeń w zoo, w której mogą żyć zwierzęta.
 - Country: Poland
 - Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC0 | Pearson Scott Foresman | [source](https://commons.wikimedia.org/wiki/File:Corral_(PSF).png)
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4710,7 +4710,7 @@ Piaskowy brzeg Morza Bałtyckiego.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4724,7 +4724,7 @@ Nasza planeta rodzinna z lądem, powietrzem i wodą.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans | [source](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4737,7 +4737,7 @@ Pojazd poruszający się po wodzie.
 - Subjects: Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quest/pl_03.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4750,7 +4750,7 @@ Stary dźwig portowy i brama miejska nad rzeką.
 - Subjects: History, Technology, Geography
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quest/pl_05.md)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ## Others
 
@@ -4778,7 +4778,7 @@ Flaga Niemiec ma trzy poziome pasy: czarny, czerwony i żółty. Niemcy słyną 
 - Country: Germany
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around), [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -4822,7 +4822,7 @@ Flaga Włoch ma trzy pionowe pasy: zielony, biały i czerwony. Kolory te przypom
 - Country: Italy
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -4839,7 +4839,7 @@ Najsłynniejszy obraz świata! Kobieta o tajemniczym uśmiechu namalowana przez 
 - Topics: [Louvre](../topics/index.md#louvre)
 - Words: woman
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -4894,7 +4894,7 @@ Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają s�
 - Country: Spain
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 

@@ -168,7 +168,7 @@ namespace Antura.Discover.Editor
                         })
                         .Where(x => !string.IsNullOrEmpty(x.Title) && !string.IsNullOrEmpty(x.Code) && !string.IsNullOrEmpty(x.File))
                         .OrderBy(x => x.Title, StringComparer.OrdinalIgnoreCase)
-                        .Select(x => $"[{x.Title} ({x.Code})](../quest/{x.File})")
+                        .Select(x => $"[{x.Title} ({x.Code})](../quests/quest/{x.File})")
                         .ToList();
                     if (questLinks.Count > 0)
                         sb.AppendLine("- Quests: " + string.Join(", ", questLinks));

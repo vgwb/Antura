@@ -173,7 +173,7 @@ namespace Antura.Discover.Editor
                         {
                             string codeStr = GetActivityCode(item);
                             if (!string.IsNullOrEmpty(codeStr))
-                                sb.AppendLine($"- [{codeStr}](../activities/index.md#{codeStr})");
+                                sb.AppendLine($"- [{codeStr}](../../activities/index.md#{codeStr})");
                             else
                             {
                                 string label = GetActivityLabel(item);

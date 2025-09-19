@@ -64,7 +64,7 @@ Total found: **34**
 
     ![preview fr_figure_circle](../../../assets/img/content/cards/fr_figure_circle.jpg){ width="200" }
 
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 Credits:
   - Valeria Passarella (Italy)
@@ -177,7 +177,7 @@ Credits:
 
     ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ width="200" }
 
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -212,7 +212,7 @@ Credits:
 
     ![preview skiing](../../../assets/img/content/cards/skiing.jpg){ width="200" }
 
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -263,7 +263,7 @@ Credits:
 
     ![preview sunglasses](../../../assets/img/content/cards/sunglasses.jpg){ width="200" }
 
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -318,7 +318,7 @@ Credits:
 
     ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
 
-- Quests: [Marsylianka (fr_11)](../quest/fr_11.md)
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -389,7 +389,7 @@ Credits:
 
     ![preview uranus](../../../assets/img/content/cards/uranus.jpg){ width="200" }
 
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -427,7 +427,7 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
-- Quests: [Poruszaj się bezpiecznie po mieście (fr_04)](../quest/fr_04.md)
+- Quests: [Poruszaj się bezpiecznie po mieście (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -463,7 +463,7 @@ Credits:
 
     ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ width="200" }
 
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quest/pl_07.md)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -502,7 +502,7 @@ Credits:
 
     ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ width="200" }
 
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ## France
 
@@ -549,7 +549,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -609,7 +609,7 @@ Credits:
 
     ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ width="200" }
 
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 Credits:
   - Valeria Passarella (Italy)
@@ -723,7 +723,7 @@ Credits:
 
     ![preview eiffel_tower_ticket](../../../assets/img/content/cards/eiffel_tower_ticket.jpg){ width="200" }
 
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -748,7 +748,7 @@ Credits:
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
-- Quests: [Sąsiedzi Francji (fr_00)](../quest/fr_00.md)
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -797,7 +797,7 @@ Credits:
 
     ![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ width="200" }
 
-- Quests: [System edukacji (fr_02)](../quest/fr_02.md)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -842,7 +842,7 @@ Credits:
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
-- Quests: [Juliusz Verne i transport (fr_03)](../quest/fr_03.md)
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 Credits:
   - Lucie Paillat (France)
@@ -886,7 +886,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -925,7 +925,7 @@ Credits:
 
     ![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ width="200" }
 
-- Quests: [Jedzenie i targ (fr_09)](../quest/fr_09.md)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -965,7 +965,7 @@ Credits:
 
     ![preview marseillaise_4](../../../assets/img/content/cards/marseillaise_4.jpg){ width="200" }
 
-- Quests: [Marsylianka (fr_11)](../quest/fr_11.md)
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -1015,7 +1015,7 @@ Credits:
 
     ![preview ice](../../../assets/img/content/cards/ice.jpg){ width="200" }
 
-- Quests: [Mont Blanc i góry (fr_08)](../quest/fr_08.md)
+- Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1046,7 +1046,7 @@ Credits:
 
     ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
 
-- Quests: [Paryż! (fr_01)](../quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -1076,7 +1076,7 @@ Credits:
 
     ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ width="200" }
 
-- Quests: [Paryż Sekwana (fr_10)](../quest/fr_10.md)
+- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ## Poland
 
@@ -1276,7 +1276,7 @@ Credits:
 
     ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ width="200" }
 
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quest/pl_06.md)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1380,7 +1380,7 @@ Credits:
 
     ![preview capital_warsaw](../../../assets/img/content/cards/capital_warsaw.jpg){ width="200" }
 
-- Quests: [Sąsiedzi Polski (pl_00)](../quest/pl_00.md)
+- Quests: [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -1411,7 +1411,7 @@ Credits:
 
     ![preview fryderyk_chopin](../../../assets/img/content/cards/fryderyk_chopin.jpg){ width="200" }
 
-- Quests: [Odkryj Warszawę (pl_01)](../quest/pl_01.md)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1490,7 +1490,7 @@ Credits:
 
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
 
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -1520,5 +1520,5 @@ Credits:
 
     ![preview zoo_director](../../../assets/img/content/cards/zoo_director.jpg){ width="200" }
 
-- Quests: [Zoo (pl_04)](../quest/pl_04.md)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 

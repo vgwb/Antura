@@ -23,6 +23,6 @@ The meeting in Angers underscored the consortium's commitment to the project's m
 
 ---
 
-![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
+![Erasmus+](../../../assets/img/blog/Co-fundedbytheEU.webp)
 
 ANTURA Project: Empowering Refugee and Migrant Children through Interactive Learning The ANTURA project, funded by the Erasmus+ Programme under the KA220-SCH - Cooperation Partnerships in School Education.

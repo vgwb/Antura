@@ -178,7 +178,7 @@ namespace Antura.Discover.Editor
                                 var qTitle = PublishUtils.GetHumanTitle(q);
                                 var qCode = PublishUtils.GetQuestCode(q);
                                 var qFile = PublishUtils.GetQuestPublishFileNameForLocale(q, locale);
-                                return $"[{qTitle} ({qCode})](../quest/{qFile})";
+                                return $"[{qTitle} ({qCode})](../quests/quest/{qFile})";
                             });
                             sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
                         }
@@ -282,7 +282,7 @@ namespace Antura.Discover.Editor
                                 var qTitle = PublishUtils.GetHumanTitle(q);
                                 var qCode = PublishUtils.GetQuestCode(q);
                                 var qFile = PublishUtils.GetQuestPublishFileNameForLocale(q, locale);
-                                return $"[{qTitle} ({qCode})](../quest/{qFile})";
+                                return $"[{qTitle} ({qCode})](../quests/quest/{qFile})";
                             });
                             sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
                         }

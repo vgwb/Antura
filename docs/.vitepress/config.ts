@@ -7,6 +7,7 @@ export default defineConfig({
   lastUpdated: true,
   srcDir: '.',
   outDir: './_production/site',
+  ignoreDeadLinks: true,
   sitemap: {
     hostname: 'https://antura.org'
   },

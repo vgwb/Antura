@@ -17,7 +17,7 @@ Join our community: <https://antura.discourse.group>
 
 ## Report a problem
 
-Each quest has a dedicated area in our community forum where you can share feedback, bugs, and ideas. Please check the corresponding link from [quest pages](../content/quests/index.md)
+Each quest has a dedicated area in our community forum where you can share feedback, bugs, and ideas. Please check the corresponding link from [quest pages](../content/quest/index.md)
 
 **What to include:**
 
