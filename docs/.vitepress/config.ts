@@ -30,12 +30,12 @@ export default defineConfig({
       text: 'Last updated'
     },
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Blog', link: '/blog/' },
-      { text: 'Manual', link: '/manual/' },
-      { text: 'Discover', link: '/discover/' },
-      { text: 'About', link: '/about/' },
-      { text: 'Forum', link: '/forum' },
+      { text: 'Home', link: '/en/' },
+      { text: 'Blog', link: '/en/blog/' },
+      { text: 'Manual', link: '/en/manual/' },
+      { text: 'Content', link: '/en/content/' },
+      { text: 'About', link: '/en/about/' },
+      { text: 'Forum', link: 'https://antura.discourse.group' },
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vgwb/Antura' }
@@ -52,76 +52,77 @@ export default defineConfig({
     root: {
       label: 'English',
       lang: 'en',
+      link: '/en/',
       themeConfig: {
         nav: [
-          { text: 'Home', link: '/' },
-          { text: 'Blog', link: '/blog/' },
-          { text: 'Manual', link: '/manual/' },
-          { text: 'Discover', link: '/discover/' },
-          { text: 'About', link: '/about/' },
-          { text: 'Forum', link: '/forum' },
+          { text: 'Home', link: '/en/' },
+          { text: 'Manual', link: '/en/manual/' },
+          { text: 'Content', link: '/en/content/' },
+          { text: 'Developer', link: '/en/dev/' },
+          { text: 'About', link: '/en/about/' },
+          { text: 'Forum', link: 'https://antura.discourse.group' },
         ],
         sidebar: {
-          '/manual/': [
+          '/en/manual/': [
             {
               text: 'Manual',
               items: [
-                { text: 'Introduction', link: '/manual/' },
-                { text: 'How to Install and Setup', link: '/manual/install' },
-                { text: 'Learn Languages', link: '/manual/learnlanguage_module' },
+                { text: 'Introduction', link: '/en/manual/' },
+                { text: 'How to Install and Setup', link: '/en/manual/install' },
+                { text: 'Learn Languages', link: '/en/manual/learnlanguage_module' },
                 {
                   text: 'Discover Europe',
                   items: [
-                    { text: 'Introduction', link: '/manual/discover_introduction' },
-                    { text: 'Features', link: '/manual/discover_module' },
-                    { text: 'How to play quests', link: '/manual/discover_how_to_play' },
+                    { text: 'Introduction', link: '/en/manual/discover_introduction' },
+                    { text: 'Features', link: '/en/manual/discover_module' },
+                    { text: 'How to play quests', link: '/en/manual/discover_how_to_play' },
                   ]
                 },
-                { text: 'Classroom Guide', link: '/manual/classroom_guide' },
-                { text: 'Feedback and Support', link: '/manual/support' },
-                { text: 'FAQ', link: '/manual/faq' },
-                { text: 'Changelog', link: '/manual/changelog' },
+                { text: 'Classroom Guide', link: '/en/manual/classroom_guide' },
+                { text: 'Feedback and Support', link: '/en/manual/support' },
+                { text: 'FAQ', link: '/en/manual/faq' },
+                { text: 'Changelog', link: '/en/manual/changelog' },
               ]
             }
           ],
-          '/discover/': [
+          '/en/content/': [
             {
-              text: 'Discover',
+              text: 'Content',
               items: [
-                { text: 'Overview', link: '/discover/' },
-                { text: 'Quests', link: '/discover/quest/' },
-                { text: 'Topics', link: '/discover/topics/' },
-                { text: 'Cards', link: '/discover/cards/' },
-                { text: 'Words', link: '/discover/words/' },
-                { text: 'Activities', link: '/discover/activities/' },
-                { text: 'Locations', link: '/discover/locations/' }
+                { text: 'Overview', link: '/en/content/' },
+                { text: 'Quests', link: '/en/content/quest/' },
+                { text: 'Topics', link: '/en/content/topics/' },
+                { text: 'Cards', link: '/en/content/cards/' },
+                { text: 'Words', link: '/en/content/words/' },
+                { text: 'Activities', link: '/en/content/activities/' },
+                { text: 'Locations', link: '/en/content/locations/' }
               ]
             }
           ],
-          '/about/': [
+          '/en/about/': [
             {
               text: 'About',
               items: [
-                { text: 'Learn with Antura', link: '/about/' },
-                { text: 'History', link: '/about/history' },
-                { text: 'Erasmus+', link: '/about/erasmus/' },
-                { text: 'Credits', link: '/about/credits' },
-                { text: 'Credits (Assets)', link: '/about/credits-assets' },
-                { text: 'License', link: '/about/license' },
+                { text: 'Learn with Antura', link: '/en/about/' },
+                { text: 'History', link: '/en/about/history' },
+                { text: 'Erasmus+', link: '/en/about/erasmus/' },
+                { text: 'Credits', link: '/en/about/credits' },
+                { text: 'Credits (Assets)', link: '/en/about/credits-assets' },
+                { text: 'License', link: '/en/about/license' },
                 { text: 'Contact', link: '/about/contact' },
               ]
             }
           ],
-          '/dev/': [
+          '/en/dev/': [
             {
               text: 'Developer Docs',
               items: [
-                { text: 'Overview', link: '/dev/' },
-                { text: 'Adventure(d) Framework', link: '/dev/adventured-framework/' },
-                { text: 'How To', link: '/dev/how-to/' },
-                { text: 'Language Minigames', link: '/dev/language-minigames/' },
-                { text: 'Language Modules', link: '/dev/language-modules/' },
-                { text: 'Quest Design', link: '/dev/quest-design/' }
+                { text: 'Overview', link: '/en/dev/' },
+                { text: 'Adventure(d) Framework', link: '/en/dev/adventured-framework/' },
+                { text: 'How To', link: '/en/dev/how-to/' },
+                { text: 'Language Minigames', link: '/en/dev/language-minigames/' },
+                { text: 'Language Modules', link: '/en/dev/language-modules/' },
+                { text: 'Quest Design', link: '/en/dev/quest-design/' }
               ]
             }
           ],
@@ -129,7 +130,7 @@ export default defineConfig({
             {
               text: 'Blog',
               items: [
-                { text: 'All Posts', link: '/blog/' }
+                { text: 'All Posts', link: '/en/blog/' }
               ]
             }
           ],
@@ -137,10 +138,10 @@ export default defineConfig({
             {
               text: 'Getting Started',
               items: [
-                { text: 'Home', link: '/' },
-                { text: 'Manual', link: '/manual/' },
-                { text: 'Discover', link: '/discover/' },
-                { text: 'About', link: '/about/' },
+                { text: 'Home', link: '/en/' },
+                { text: 'Manual', link: '/en/manual/' },
+                { text: 'Discover', link: '/en/discover/' },
+                { text: 'About', link: '/en/about/' },
               ]
             }
           ]
@@ -269,17 +270,17 @@ export default defineConfig({
               ]
             }
           ],
-          '/pl/discover/': [
+          '/pl/content/': [
             {
               text: 'Odkrywaj',
               items: [
-                { text: 'Przegląd', link: '/pl/discover/' },
-                { text: 'Zadania', link: '/pl/discover/quest/' },
-                { text: 'Tematy', link: '/pl/discover/topics/' },
-                { text: 'Karty', link: '/pl/discover/cards/' },
-                { text: 'Słowa', link: '/pl/discover/words/' },
-                { text: 'Aktywności', link: '/pl/discover/activities/' },
-                { text: 'Lokacje', link: '/pl/discover/locations/' }
+                { text: 'Przegląd', link: '/pl/content/' },
+                { text: 'Zadania', link: '/pl/content/quest/' },
+                { text: 'Tematy', link: '/pl/content/topics/' },
+                { text: 'Karty', link: '/pl/content/cards/' },
+                { text: 'Słowa', link: '/pl/content/words/' },
+                { text: 'Aktywności', link: '/pl/content/activities/' },
+                { text: 'Lokacje', link: '/pl/content/locations/' }
               ]
             }
           ],
@@ -319,92 +320,5 @@ export default defineConfig({
         }
       }
     },
-    ar: {
-      label: 'العربية',
-      lang: 'ar',
-      dir: 'rtl',
-      link: '/ar/',
-      themeConfig: {
-        nav: [
-          { text: 'الرئيسية', link: '/ar/' },
-          { text: 'المدونة', link: '/ar/blog/' },
-          { text: 'الدليل', link: '/ar/manual/' },
-          { text: 'اكتشف', link: '/ar/discover/' },
-          { text: 'عن', link: '/ar/about/' },
-          { text: 'المنتدى', link: '/forum' }
-        ],
-        sidebar: {
-          '/ar/manual/': [
-            {
-              text: 'الدليل',
-              items: [
-                { text: 'مقدمة', link: '/ar/manual/' },
-                { text: 'التثبيت والإعداد', link: '/ar/manual/install' },
-                { text: 'تعلّم اللغات', link: '/ar/manual/learnlanguage_module' },
-                {
-                  text: 'اكتشف أوروبا',
-                  items: [
-                    { text: 'مقدمة', link: '/ar/manual/discover_introduction' },
-                    { text: 'الميزات', link: '/ar/manual/discover_module' },
-                    { text: 'كيف تلعب المهام', link: '/ar/manual/discover_how_to_play' },
-                  ]
-                },
-                { text: 'دليل الفصول', link: '/ar/manual/classroom_guide' },
-                { text: 'الدعم والتغذية الراجعة', link: '/ar/manual/support' },
-                { text: 'الأسئلة الشائعة', link: '/ar/manual/faq' },
-                { text: 'سجل التغييرات', link: '/ar/manual/changelog' },
-              ]
-            }
-          ],
-          '/ar/discover/': [
-            {
-              text: 'اكتشف',
-              items: [
-                { text: 'نظرة عامة', link: '/ar/discover/' },
-                { text: 'المهام', link: '/ar/discover/quest/' },
-                { text: 'المواضيع', link: '/ar/discover/topics/' },
-                { text: 'البطاقات', link: '/ar/discover/cards/' },
-                { text: 'الكلمات', link: '/ar/discover/words/' },
-                { text: 'الأنشطة', link: '/ar/discover/activities/' },
-                { text: 'الأماكن', link: '/ar/discover/locations/' }
-              ]
-            }
-          ],
-          '/ar/about/': [
-            {
-              text: 'عن',
-              items: [
-                { text: 'عن المشروع', link: '/ar/about/' },
-                { text: 'التاريخ', link: '/ar/about/history' },
-                { text: 'إيراسموس+', link: '/ar/about/erasmus/' },
-                { text: 'الشكر والتقدير', link: '/ar/about/credits' },
-                { text: 'الشكر (الأصول)', link: '/ar/about/credits-assets' },
-                { text: 'الرخصة', link: '/ar/about/license' },
-                { text: 'اتصال', link: '/ar/about/contact' },
-              ]
-            }
-          ],
-          '/ar/blog/': [
-            {
-              text: 'المدونة',
-              items: [
-                { text: 'كل المقالات', link: '/ar/blog/' }
-              ]
-            }
-          ],
-          '/ar/': [
-            {
-              text: 'ابدأ',
-              items: [
-                { text: 'الرئيسية', link: '/ar/' },
-                { text: 'الدليل', link: '/ar/manual/' },
-                { text: 'اكتشف', link: '/ar/discover/' },
-                { text: 'عن', link: '/ar/about/' },
-              ]
-            }
-          ]
-        }
-      }
-    }
   }
 })

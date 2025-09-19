@@ -1,4 +1,22 @@
 :root {
-  --vp-c-brand-1: #3f51b5;
-  --vp-c-brand-2: #303f9f;
+  --vp-c-brand-1: #0079b5; /* turquoise */
+  --vp-c-brand-2: #e69200; /* darker turquoise */
+  --vp-c-bg-nav: #0079b5; /* site header background */
+  --vp-c-bg-sidebar: #47f005; /* light #0079b5 for sidebar */
 }
+
+/* Style all links: no underline, bold, turquoise */
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0079b5;
+}
+
+/* Ensure links in content and nav are styled */
+.vp-doc a,
+.vp-nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0079b5;
+}
+

@@ -1,3 +1,25 @@
-# Apprendre avec Antura
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
 
-Page d’accueil en français (brouillon). Ajoutez du contenu localisé selon vos besoins.
+hero:
+  name: "Antura"
+  text: "A VitePress Site"
+  tagline: My great project tagline
+  actions:
+    - theme: brand
+      text: Markdown Examples
+      link: /markdown-examples
+    - theme: alt
+      text: API Examples
+      link: /api-examples
+
+features:
+  - title: Feature A
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Feature B
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Feature C
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+---
+
