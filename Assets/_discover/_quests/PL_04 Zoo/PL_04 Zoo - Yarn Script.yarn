@@ -60,6 +60,11 @@ image: centennial_hall_empty_flag
 color: red
 ---
 <<declare $talked_animals = false>>
+<<declare $elephant_completed = false>>
+<<declare $giraffe_completed = false>>
+<<declare $lion_completed = false>>
+<<declare $monkey_completed = false>>
+<<declare $penguin_completed = false>>
 Welcome to WROCŁAW ZOO. #line:0fe55d1 
 There are many ANIMALS here! #line:005dd46 
 ===
@@ -105,8 +110,9 @@ tags: actor=Man, type:Panel
 image: centennial_hall_empty_flag
 color: green
 ---
+Oh no!  #line:0c71176 
 <<camera_focus Flagpole>>
-Oh no! The FLAG is missing! #line:09c6bf7 
+The FLAG is missing! #line:09c6bf7 
 <<camera_reset>>
 It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
 <<card iglica zoom>>
@@ -146,6 +152,26 @@ image: zoo_gate
 Squawk! Red and yellow ran by! #line:0e84545 
 ===
 
+title: animal_fox
+position: 1152,640
+group: ZOO
+tags: actor=Parrot
+image: zoo_gate
+---
+Hehe! I'm not actually from the zoo. #line:03c4553 
+I didn't see a flag anywhere. #line:074fe29 
+===
+
+title: item_chest
+position: 1227,1876
+tags: actor=TUTOR
+group: actions
+color: yellow
+---
+What a nice surprise! #line:03321d5 
+<<action open_chest>>
+===
+
 // PART 1 – ELEPHANT
 
 title: elephant_talk
@@ -155,11 +181,16 @@ tags: actor=Keeper
 image: elephant_keeper
 color: blue
 ---
-I am the biggest land ANIMAL. #line:027b51f 
-<<card animal_elephant zoom>>
-I have great MEMORY. #line:03a150c 
-Do you have a good MEMORY? #line:0f98478 
-<<activity memory_elephant_settings elephant_activity_done>>
+<<if $elephant_completed>>
+    A FLAG? I do not have it. #line:03879f8 
+    If I took it I would remember! #line:0103606 
+<<else>>
+    I am the biggest land ANIMAL. #line:027b51f 
+    <<card animal_elephant zoom>>
+    I have great MEMORY. #line:03a150c 
+    Do you have a good MEMORY? #line:0f98478 
+    <<activity memory_elephant_settings elephant_activity_done>>
+<<endif>>
 ===
 
 title: elephant_activity_done
@@ -172,6 +203,7 @@ image: elephant_keeper
 <<inventory animal_elephant add>>
 A FLAG? I do not have it. #line:0b79d01 
 If I took it I would remember! #line:0f124bf 
+<<set $elephant_completed = true>>
 ===
 
 title: ELEPHANT_SIGN
@@ -198,17 +230,22 @@ Can it fan me in summer? #line:004abc7
 // PART 2 – GIRAFFE
 
 title: giraffe_talk
-position: 898,-136
+position: 898,-140
 group: GIRAFFE
 tags: actor=Keeper
 image: giraffe_keeper
 color: blue
 ---
-I am the tallest ANIMAL. #line:0d5c607 
-<<card animal_giraffe zoom>>
-My long NECK helps me reach leaves. #line:0a4d24e 
-I eat WATTLE leaves! #line:04b42f2 
-<<activity canvas_giraffe_settings giraffe_activity_done>>
+<<if $giraffe_completed>>
+    I did not take the FLAG. #line:05d1f0a 
+    It is too high for me! #line:04947e6 
+<<else>>
+    I am the tallest ANIMAL. #line:0d5c607 
+    <<card animal_giraffe zoom>>
+    My long NECK helps me reach leaves. #line:0a4d24e 
+    I eat WATTLE leaves! #line:04b42f2 
+    <<activity canvas_giraffe_settings giraffe_activity_done>>
+<<endif>>
 ===
 
 title: giraffe_activity_done
@@ -220,6 +257,7 @@ image: giraffe_keeper
 <<inventory animal_elephant add>>
 I did not take the FLAG. #line:0877d6f 
 It is too high for me! #line:02d00e2 
+<<set $giraffe_completed = true>>
 ===
 
 title: GIRAFFE_SIGN
@@ -252,13 +290,18 @@ tags: actor=Keeper
 image: lion_keeper
 color: blue
 ---
-I am a LION from AFRICA. #line:07f2e15 
-<<card  animal_lion zoom>>
-I live in a PRIDE. #line:042266c 
-Look at this small CUB! #line:0124e1c 
-<<card  animal_lion_cub zoom>>
-I grow up small, then medium, then old... #line:0774b92 
-<<activity order_lion_settings lion_activity_done>>
+<<if $lion_completed>>
+    You must find the FLAG! #line:0b1109f 
+    I like watching it in wind. #line:095bf3c 
+<<else>>
+    I am a LION from AFRICA. #line:07f2e15 
+    <<card  animal_lion zoom>>
+    I live in a PRIDE. #line:042266c 
+    Look at this small CUB! #line:0124e1c 
+    <<card  animal_lion_cub zoom>>
+    I grow up small, then medium, then old... #line:0774b92 
+    <<activity order_lion_settings lion_activity_done>>
+<<endif>>
 ===
 
 title: lion_activity_done
@@ -270,6 +313,7 @@ image: lion_keeper
 <<inventory animal_lion add>>
 You must find the FLAG! #line:05da6d7 
 I like watching it in wind. #line:01b3593 
+<<set $lion_completed = true>>
 ===
 
 title: LION_SIGN
@@ -300,11 +344,16 @@ tags: actor=Keeper
 image: monkey_keeper
 color: blue
 ---
-I am a MONKEY. I climb TREES. #line:0867233 
-<<card animal_chimpanzee zoom>>
-We are close to HUMANS! #line:0eaefd6 
-Where did I get these FRUITS? #line:079451b 
-<<activity match_monkey_settings monkey_activity_done>>
+<<if $monkey_completed>>
+    I did not take the FLAG. #line:092a68e 
+    It would be fun to climb that pole. #line:097810d 
+<<else>>
+    I am a CHIMPANZEE. I climb TREES. #line:0867233 
+    <<card animal_chimpanzee zoom>>
+    We are close to HUMANS! #line:0eaefd6 
+    Where did I get these FRUITS? #line:079451b 
+    <<activity match_monkey_settings monkey_activity_done>>
+<<endif>>
 ===
 
 title: monkey_activity_done
@@ -316,7 +365,8 @@ image: monkey_keeper
 ---
 <<inventory animal_monkey add>>
 I did not take the FLAG. #line:0c53945 
-It would be fun to climb that pole. #line:0a43c85 
+It would be fun to climb that pole. #line:0a43c85
+<<set $monkey_completed = true>> 
 ===
 
 title: MONKEY_SIGN
@@ -325,7 +375,7 @@ group: MONKEY
 tags: actor=Sign
 image: monkey_sign
 ---
-MONKEY. Great CLIMBER. #line:0900219 
+CHIMPANZEE. Great CLIMBER. #line:0900219 
 Loves FRUIT. #line:021b299 
 ===
 
@@ -336,7 +386,7 @@ tags: actor=KID
 image: kid_monkey
 ---
 He copied my dance! #line:0bf2346 
-Do MONKEYS wink? #line:0eecdf9 
+Do CHIMPANZEES wink? #line:0eecdf9 
 ===
 
 // PART 5 – PENGUIN
@@ -348,11 +398,16 @@ tags: actor=Keeper
 image: penguin_keeper
 color: blue
 ---
-I am a PENGUIN, a strange BIRD. #line:08c70e8 
-<<card animal_penguin zoom>>
-I can't fly, but I swim well! #line:0540c5a 
-Can you find the path in ICE? #line:0a3420c 
-<<activity jigsaw_penguin_settings penguin_activity_done>>
+<<if $penguin_completed>>
+    No, I did not take the FLAG. #line:0b71fae 
+    I can't fly, remember? #line:03e6fc7 
+<<else>>
+    I am a PENGUIN, a strange BIRD. #line:08c70e8 
+    <<card animal_penguin zoom>>
+    I can't fly, but I swim well! #line:0540c5a 
+    Can you find the path in ICE? #line:0a3420c 
+    <<activity jigsaw_penguin_settings penguin_activity_done>>
+<<endif>>
 ===
 
 title: penguin_activity_done
@@ -364,6 +419,7 @@ image: penguin_keeper
 <<inventory animal_penguin add>>
 No, I did not take the FLAG. #line:078190f 
 I can't fly, remember? #line:08568f5 
+<<set $penguin_completed = true>>
 ===
 
 title: PENGUIN_SIGN
@@ -451,6 +507,7 @@ tags: actor=ZooDirector
 image: flag_on_iglica
 ---
 The FLAG is home. #line:0d91701 
+<<card wroclaw_flag>>
 Thank you, helper. #line:08c71db 
 <<jump quest_end>>
 ===
