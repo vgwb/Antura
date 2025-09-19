@@ -370,7 +370,8 @@ namespace Antura.Discover
 
         void OnActClicked()
         {
-            if (postcardFocusView.IsOpen && !gotoNextWhenPostcardFocusViewCloses)
+            // if (postcardFocusView.IsOpen && !gotoNextWhenPostcardFocusViewCloses)
+            if (postcardFocusView.IsOpen)
             {
                 postcardFocusView.Hide();
             }
