@@ -1,6 +1,7 @@
 ﻿using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,16 +17,22 @@ namespace Antura.Discover
 
         #region Serialized
 
+        [Header("References")]
+
         [DeEmptyAlert]
         [SerializeField] RectTransform bg;
         [DeEmptyAlert]
         [SerializeField] Image img;
+        [DeEmptyAlert]
+        [SerializeField] TMP_Text tfTitle;
 
         #endregion
 
         public bool IsOpen { get; private set; }
 
         bool initialized;
+        float titleBottomOffset;
+        RectTransform imgRT;
         Button bt;
         Tween showTween;
 
@@ -37,6 +44,9 @@ namespace Antura.Discover
                 return;
 
             initialized = true;
+
+            imgRT = (RectTransform)img.transform;
+            titleBottomOffset = imgRT.offsetMin.y;
 
             bt = this.GetComponent<Button>();
 
@@ -57,11 +67,15 @@ namespace Antura.Discover
 
         #region Public Methods
 
-        public void Show(Sprite sprite)
+        public void Show(Sprite sprite, string title = null)
         {
             Init();
             IsOpen = true;
             img.sprite = sprite;
+            bool hasTitle = !string.IsNullOrEmpty(title);
+            tfTitle.gameObject.SetActive(hasTitle);
+            if (hasTitle) tfTitle.text = title;
+            imgRT.offsetMin = new Vector2(imgRT.offsetMin.x, hasTitle ? titleBottomOffset : 0);
             showTween.timeScale = 1;
             showTween.Restart();
             this.gameObject.SetActive(true);

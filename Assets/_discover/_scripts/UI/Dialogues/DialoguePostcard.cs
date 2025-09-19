@@ -1,6 +1,7 @@
 ﻿using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,10 @@ namespace Antura.Discover
         [Header("References")]
         [DeEmptyAlert]
         [SerializeField] Image img;
+        [DeEmptyAlert]
+        [SerializeField] RectTransform titleContent;
+        [DeEmptyAlert]
+        [SerializeField] TMP_Text tfTitle;
 
         #endregion
 
@@ -68,7 +73,8 @@ namespace Antura.Discover
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Append(rt.DOAnchorPos(defAnchoredP, inDuration).From(defAnchoredP + new Vector2(-380, -380)).SetEase(Ease.OutCubic))
                 .Join(this.transform.DOScale(defScale, inDuration).From(0).SetEase(Ease.OutBack))
-                .Join(this.transform.DOLocalRotate(defRot, inDuration, RotateMode.FastBeyond360).From(new Vector3(0, 0, 90)).SetEase(Ease.OutCubic));
+                .Join(this.transform.DOLocalRotate(defRot, inDuration, RotateMode.FastBeyond360).From(new Vector3(0, 0, 90)).SetEase(Ease.OutCubic))
+                .Insert(inDuration * 0.5f, titleContent.DOAnchorPosY(200, 0.35f).From(true).SetEase(Ease.OutQuad));
             hideTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Join(this.transform.DOScale(0, outDuration).From(defScale).SetEase(Ease.InBack))
                 .Join(rt.DOAnchorPos(defAnchoredP + new Vector2(290, 340), outDuration).From(defAnchoredP).SetEase(Ease.InQuad))
@@ -88,7 +94,7 @@ namespace Antura.Discover
 
         #region Public Methods
 
-        public void Show(Sprite sprite, ViewMode? customViewMode = null)
+        public void Show(Sprite sprite, string title = null, ViewMode? customViewMode = null)
         {
             Init();
             
@@ -96,6 +102,9 @@ namespace Antura.Discover
             img.sprite = sprite;
             if (CurrSprite != sprite)
             {
+                bool hasTitle = !string.IsNullOrEmpty(title);
+                titleContent.gameObject.SetActive(hasTitle);
+                if (hasTitle) tfTitle.text = title;
                 hideTween.Complete();
                 showTween.Restart();
                 ViewMode m = customViewMode == null ? viewMode : (ViewMode)customViewMode;
