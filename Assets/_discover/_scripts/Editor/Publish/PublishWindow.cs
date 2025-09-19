@@ -189,18 +189,27 @@ namespace Antura.Discover.Editor
                         try
                         {
                             string fileName = PublishUtils.GetQuestPublishFileNameForLocale(q, locale);
-                            string outPath = Path.Combine(folder, fileName);
+                            // language-specific directory: /docs/<lang>/content/quests/
+                            // folder is typically .../docs/en/content/quests -> go up 3 levels to reach /docs
+                            var contentDir = Directory.GetParent(folder).FullName;      // .../docs/en/content
+                            var langDir = Directory.GetParent(contentDir).FullName;      // .../docs/en
+                            var docsRoot = Directory.GetParent(langDir).FullName;        // .../docs
+                            string langRoot = Path.Combine(docsRoot, lang, "content");
+                            string outDir = Path.Combine(langRoot, "quests");
+                            string detailsDir = Path.Combine(outDir, "quest");
+                            Directory.CreateDirectory(detailsDir);
+                            string outPath = Path.Combine(detailsDir, fileName);
 
                             string scriptFileName = null;
                             if (q.IsScriptPublic)
                             {
                                 scriptFileName = PublishUtils.GetQuestScriptPublishFileNameForLocale(q, locale);
-                                string scriptPath = Path.Combine(folder, scriptFileName);
-                                var scriptMd = QuestExportUtils.BuildQuestScriptMarkdown(q, includeLanguageMenu: true, locale: locale);
+                                string scriptPath = Path.Combine(detailsDir, scriptFileName);
+                                var scriptMd = QuestExportUtils.BuildQuestScriptMarkdown(q, includeLanguageMenu: false, locale: locale);
                                 File.WriteAllText(scriptPath, scriptMd);
                             }
 
-                            var md = QuestExportUtils.BuildQuestMarkdown(q, includeLanguageMenu: true, scriptPageFileName: scriptFileName, locale: locale);
+                            var md = QuestExportUtils.BuildQuestMarkdown(q, includeLanguageMenu: false, scriptPageFileName: scriptFileName, locale: locale);
                             File.WriteAllText(outPath, md);
 
                             var title = PublishUtils.GetHumanTitle(q)?.Replace("\r", " ").Replace("\n", " ");
@@ -228,15 +237,6 @@ namespace Antura.Discover.Editor
                     indexSb.AppendLine("---");
                     indexSb.AppendLine();
                     indexSb.AppendLine("# Quests");
-                    var langs = new (string code, string label)[] { ("en", "english"), ("fr", "french"), ("pl", "polish"), ("it", "italian") };
-                    var parts = new List<string>(langs.Length);
-                    foreach (var l in langs)
-                    {
-                        bool isCurrent = lang.StartsWith(l.code, StringComparison.OrdinalIgnoreCase);
-                        string file = l.code == "en" ? "index.md" : $"index.{l.code}.md";
-                        parts.Add(isCurrent ? l.label : $"[{l.label}](./{file})");
-                    }
-                    indexSb.AppendLine($"Language: {string.Join(" - ", parts)}");
                     indexSb.AppendLine();
 
                     foreach (var c in order)
@@ -253,12 +253,17 @@ namespace Antura.Discover.Editor
                         }
                         catch { sorted = list; }
                         foreach (var kv in sorted)
-                            indexSb.AppendLine($"- [{kv.Key}](./{kv.Value})");
+                            indexSb.AppendLine($"- [{kv.Key}](./quest/{kv.Value})");
                         indexSb.AppendLine();
                     }
 
-                    string indexName = lang.StartsWith("en") ? "index.md" : $"index.{lang}.md";
-                    string indexPath = Path.Combine(folder, indexName);
+                    var contentDir2 = Directory.GetParent(folder).FullName;    // .../docs/en/content
+                    var langDir2 = Directory.GetParent(contentDir2).FullName;   // .../docs/en
+                    var docsRoot2 = Directory.GetParent(langDir2).FullName;     // .../docs
+                    string langRoot = Path.Combine(docsRoot2, lang, "content");
+                    string outDir = Path.Combine(langRoot, "quests");
+                    Directory.CreateDirectory(outDir);
+                    string indexPath = Path.Combine(outDir, "index.md");
                     File.WriteAllText(indexPath, indexSb.ToString());
                 }
                 catch (Exception ex)
@@ -283,17 +288,30 @@ namespace Antura.Discover.Editor
         public static void PublishAllToDocs()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string folder = Path.Combine(discoverRoot, "quest");
-            Directory.CreateDirectory(discoverRoot);
+            string folder = Path.Combine(projectRoot, "docs", "en", "content", "quests");
             Directory.CreateDirectory(folder);
 
             try
             {
-                foreach (var file in Directory.GetFiles(folder, "*.md", SearchOption.TopDirectoryOnly))
+                // Clean quest indexes and details for all languages, but DO NOT touch /docs/<lang>/content/index.md
+                var langsToClean = new[] { "en", "fr", "pl", "it" };
+                foreach (var lang in langsToClean)
                 {
-                    // Discover folder is fully generated; safe to clear all .md files
-                    File.Delete(file);
+                    var langQuestsFolder = Path.Combine(Directory.GetParent(Application.dataPath).FullName, "docs", lang, "content", "quests");
+                    if (!Directory.Exists(langQuestsFolder))
+                        continue;
+                    // Clean index at /content/quests (we regenerate it)
+                    foreach (var file in Directory.GetFiles(langQuestsFolder, "*.md", SearchOption.TopDirectoryOnly))
+                    {
+                        File.Delete(file);
+                    }
+                    // Clean details under /content/quests/quest
+                    var detailsDir = Path.Combine(langQuestsFolder, "quest");
+                    if (Directory.Exists(detailsDir))
+                    {
+                        foreach (var file in Directory.GetFiles(detailsDir, "*.md", SearchOption.TopDirectoryOnly))
+                            File.Delete(file);
+                    }
                 }
             }
             catch (Exception ex)
@@ -316,30 +334,32 @@ namespace Antura.Discover.Editor
 
             try
             {
-                var en = FindLocaleByCode("en");
-                string activitiesDir = Path.Combine(discoverRoot, "activities");
-                string cardsDir = Path.Combine(discoverRoot, "cards");
-                string wordsDir = Path.Combine(discoverRoot, "words");
-                string topicsDir = Path.Combine(discoverRoot, "topics");
-                string locationsDir = Path.Combine(discoverRoot, "locations");
-                Directory.CreateDirectory(activitiesDir);
-                Directory.CreateDirectory(cardsDir);
-                Directory.CreateDirectory(wordsDir);
-                Directory.CreateDirectory(topicsDir);
-                Directory.CreateDirectory(locationsDir);
-
-                // Activities/Words/Topics remain English-only for now
-                PublishUtils.WithLocale(en, () =>
+                var contentLangs = new[] { "en", "fr", "pl", "it" };
+                foreach (var lang in contentLangs)
                 {
-                    var activitiesMd = ActivityExportUtils.BuildActivitiesIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(activitiesDir, "index.md"), activitiesMd);
-                    var wordsMd = WordExportUtils.BuildWordsIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(wordsDir, "index.md"), wordsMd);
-                    var topicsMd = TopicExportUtils.BuildTopicIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(topicsDir, "index.md"), topicsMd);
-                    var locationsMd = LocationsExportUtils.BuildLocationsIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(locationsDir, "index.md"), locationsMd);
-                });
+                    var locale = FindLocaleByCode(lang);
+                    var baseContent = Path.Combine(projectRoot, "docs", lang, "content");
+                    var activitiesDir = Path.Combine(baseContent, "activities");
+                    var wordsDir = Path.Combine(baseContent, "words");
+                    var topicsDir = Path.Combine(baseContent, "topics");
+                    var locationsDir = Path.Combine(baseContent, "locations");
+                    Directory.CreateDirectory(activitiesDir);
+                    Directory.CreateDirectory(wordsDir);
+                    Directory.CreateDirectory(topicsDir);
+                    Directory.CreateDirectory(locationsDir);
+
+                    PublishUtils.WithLocale(locale, () =>
+                    {
+                        var activitiesMd = ActivityExportUtils.BuildActivitiesIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(activitiesDir, "index.md"), activitiesMd);
+                        var wordsMd = WordExportUtils.BuildWordsIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(wordsDir, "index.md"), wordsMd);
+                        var topicsMd = TopicExportUtils.BuildTopicIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(topicsDir, "index.md"), topicsMd);
+                        var locationsMd = LocationsExportUtils.BuildLocationsIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(locationsDir, "index.md"), locationsMd);
+                    });
+                }
 
                 // Multilingual Cards indexes (en, fr, pl, it)
                 var cardsLangs = new[] { "en", "fr", "pl", "it" };
@@ -349,8 +369,9 @@ namespace Antura.Discover.Editor
                     PublishUtils.WithLocale(locale, () =>
                     {
                         var cardsMd = CardExportUtils.BuildCardsIndexMarkdown(locale);
-                        string file = lang.StartsWith("en") ? "index.md" : $"index.{lang}.md";
-                        File.WriteAllText(Path.Combine(cardsDir, file), cardsMd);
+                        string cardsOut = Path.Combine(projectRoot, "docs", lang, "content", "cards");
+                        Directory.CreateDirectory(cardsOut);
+                        File.WriteAllText(Path.Combine(cardsOut, "index.md"), cardsMd);
                     });
                 }
             }
@@ -365,9 +386,7 @@ namespace Antura.Discover.Editor
         public static void PublishQuestsOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string folder = Path.Combine(discoverRoot, "quest");
-            Directory.CreateDirectory(discoverRoot);
+            string folder = Path.Combine(projectRoot, "docs", "en", "content", "quests");
             Directory.CreateDirectory(folder);
 
             try
@@ -400,9 +419,7 @@ namespace Antura.Discover.Editor
         public static void PublishCardsOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string cardsDir = Path.Combine(discoverRoot, "cards");
-            Directory.CreateDirectory(cardsDir);
+            Directory.CreateDirectory(Path.Combine(projectRoot, "docs"));
             try
             {
                 var cardLangs = new[] { "en", "fr", "pl", "it" };
@@ -412,12 +429,13 @@ namespace Antura.Discover.Editor
                     PublishUtils.WithLocale(locale, () =>
                     {
                         var cardsMd = CardExportUtils.BuildCardsIndexMarkdown(locale);
-                        string file = lang.StartsWith("en") ? "index.md" : $"index.{lang}.md";
-                        File.WriteAllText(Path.Combine(cardsDir, file), cardsMd);
+                        string outDir = Path.Combine(projectRoot, "docs", lang, "content", "cards");
+                        Directory.CreateDirectory(outDir);
+                        File.WriteAllText(Path.Combine(outDir, "index.md"), cardsMd);
                     });
                 }
-                Debug.Log($"[Publish] Published Cards index to {cardsDir}");
-                EditorUtility.RevealInFinder(cardsDir);
+                Debug.Log($"[Publish] Published Cards indexes under /docs/<lang>/content/cards");
+                EditorUtility.RevealInFinder(Path.Combine(projectRoot, "docs"));
             }
             catch (Exception ex)
             {
@@ -428,19 +446,21 @@ namespace Antura.Discover.Editor
         public static void PublishWordsOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string wordsDir = Path.Combine(discoverRoot, "words");
-            Directory.CreateDirectory(wordsDir);
             try
             {
-                var en = FindLocaleByCode("en");
-                PublishUtils.WithLocale(en, () =>
+                foreach (var lang in new[] { "en", "fr", "pl", "it" })
                 {
-                    var wordsMd = WordExportUtils.BuildWordsIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(wordsDir, "index.md"), wordsMd);
-                });
-                Debug.Log($"[Publish] Published Words index to {wordsDir}");
-                EditorUtility.RevealInFinder(wordsDir);
+                    var locale = FindLocaleByCode(lang);
+                    var outDir = Path.Combine(projectRoot, "docs", lang, "content", "words");
+                    Directory.CreateDirectory(outDir);
+                    PublishUtils.WithLocale(locale, () =>
+                    {
+                        var wordsMd = WordExportUtils.BuildWordsIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(outDir, "index.md"), wordsMd);
+                    });
+                }
+                Debug.Log($"[Publish] Published Words indexes under /docs/<lang>/content/words");
+                EditorUtility.RevealInFinder(Path.Combine(projectRoot, "docs"));
             }
             catch (Exception ex)
             {
@@ -451,19 +471,21 @@ namespace Antura.Discover.Editor
         public static void PublishActivitiesOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string activitiesDir = Path.Combine(discoverRoot, "activities");
-            Directory.CreateDirectory(activitiesDir);
             try
             {
-                var en = FindLocaleByCode("en");
-                PublishUtils.WithLocale(en, () =>
+                foreach (var lang in new[] { "en", "fr", "pl", "it" })
                 {
-                    var activitiesMd = ActivityExportUtils.BuildActivitiesIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(activitiesDir, "index.md"), activitiesMd);
-                });
-                Debug.Log($"[Publish] Published Activities index to {activitiesDir}");
-                EditorUtility.RevealInFinder(activitiesDir);
+                    var locale = FindLocaleByCode(lang);
+                    var outDir = Path.Combine(projectRoot, "docs", lang, "content", "activities");
+                    Directory.CreateDirectory(outDir);
+                    PublishUtils.WithLocale(locale, () =>
+                    {
+                        var activitiesMd = ActivityExportUtils.BuildActivitiesIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(outDir, "index.md"), activitiesMd);
+                    });
+                }
+                Debug.Log($"[Publish] Published Activities indexes under /docs/<lang>/content/activities");
+                EditorUtility.RevealInFinder(Path.Combine(projectRoot, "docs"));
             }
             catch (Exception ex)
             {
@@ -474,19 +496,21 @@ namespace Antura.Discover.Editor
         public static void PublishTopicOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string topicsDir = Path.Combine(discoverRoot, "topics");
-            Directory.CreateDirectory(topicsDir);
             try
             {
-                var en = FindLocaleByCode("en");
-                PublishUtils.WithLocale(en, () =>
+                foreach (var lang in new[] { "en", "fr", "pl", "it" })
                 {
-                    var topicMd = TopicExportUtils.BuildTopicIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(topicsDir, "index.md"), topicMd);
-                });
-                Debug.Log($"[Publish] Published Topic index to {topicsDir}");
-                EditorUtility.RevealInFinder(topicsDir);
+                    var locale = FindLocaleByCode(lang);
+                    var outDir = Path.Combine(projectRoot, "docs", lang, "content", "topics");
+                    Directory.CreateDirectory(outDir);
+                    PublishUtils.WithLocale(locale, () =>
+                    {
+                        var topicMd = TopicExportUtils.BuildTopicIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(outDir, "index.md"), topicMd);
+                    });
+                }
+                Debug.Log($"[Publish] Published Topic indexes under /docs/<lang>/content/topics");
+                EditorUtility.RevealInFinder(Path.Combine(projectRoot, "docs"));
             }
             catch (Exception ex)
             {
@@ -497,19 +521,21 @@ namespace Antura.Discover.Editor
         public static void PublishLocationsOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string locationsDir = Path.Combine(discoverRoot, "locations");
-            Directory.CreateDirectory(locationsDir);
             try
             {
-                var en = FindLocaleByCode("en");
-                PublishUtils.WithLocale(en, () =>
+                foreach (var lang in new[] { "en", "fr", "pl", "it" })
                 {
-                    var topicMd = LocationsExportUtils.BuildLocationsIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(locationsDir, "index.md"), topicMd);
-                });
-                Debug.Log($"[Publish] Published Topic index to {locationsDir}");
-                EditorUtility.RevealInFinder(locationsDir);
+                    var locale = FindLocaleByCode(lang);
+                    var outDir = Path.Combine(projectRoot, "docs", lang, "content", "locations");
+                    Directory.CreateDirectory(outDir);
+                    PublishUtils.WithLocale(locale, () =>
+                    {
+                        var topicMd = LocationsExportUtils.BuildLocationsIndexMarkdown(locale);
+                        File.WriteAllText(Path.Combine(outDir, "index.md"), topicMd);
+                    });
+                }
+                Debug.Log($"[Publish] Published Location indexes under /docs/<lang>/content/locations");
+                EditorUtility.RevealInFinder(Path.Combine(projectRoot, "docs"));
             }
             catch (Exception ex)
             {
@@ -517,14 +543,14 @@ namespace Antura.Discover.Editor
             }
         }
 
-        // Exports all CardData main image assets to /docs/assets/img/discover/cards/{cardId}.jpg
+        // Exports all CardData main image assets to /docs/assets/img/content/cards/{cardId}.jpg
         // - Max width 640 (preserve aspect)
         // - JPG quality 85%
         // - Skips if no image or already up-to-date (same file size & newer timestamp)
         public static void ExportCardImages()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            string outDir = Path.Combine(projectRoot, "docs", "assets", "img", "discover", "cards");
+            string outDir = Path.Combine(projectRoot, "docs", "assets", "img", "content", "cards");
             Directory.CreateDirectory(outDir);
 
             var sw = System.Diagnostics.Stopwatch.StartNew();

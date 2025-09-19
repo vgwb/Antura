@@ -26,20 +26,20 @@ namespace Antura.Discover.Editor
             sb.AppendLine("---\n");
             sb.AppendLine("# Cards(" + lang + ")\n");
 
-            var langs = new (string code, string label)[] { ("en", "english"), ("fr", "french"), ("pl", "polish"), ("it", "italian") };
-            var parts = new List<string>(langs.Length);
-            foreach (var l in langs)
-            {
-                bool isCurrent = !string.IsNullOrEmpty(lang) ? lang.StartsWith(l.code, StringComparison.OrdinalIgnoreCase) : l.code == "en";
-                string file = l.code == "en" ? "index.md" : $"index.{l.code}.md";
-                parts.Add(isCurrent ? l.label : $"[{l.label}](./{file})");
-            }
-            sb.AppendLine($"Language: {string.Join(" - ", parts)}\n");
+            // var langs = new (string code, string label)[] { ("en", "english"), ("fr", "french"), ("pl", "polish"), ("it", "italian") };
+            // var parts = new List<string>(langs.Length);
+            // foreach (var l in langs)
+            // {
+            //     bool isCurrent = !string.IsNullOrEmpty(lang) ? lang.StartsWith(l.code, StringComparison.OrdinalIgnoreCase) : l.code == "en";
+            //     string file = l.code == "en" ? "index.md" : $"index.{l.code}.md";
+            //     parts.Add(isCurrent ? l.label : $"[{l.label}](./{file})");
+            // }
+            // sb.AppendLine($"Language: {string.Join(" - ", parts)}\n");
 
             var googlelink = "https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977";
-            var editInfo = "!!! note \"Educators: help improving these cards!\"" + "\n";
-            editInfo += $"    **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  " + "\n";
-            editInfo += $"    **Improve translations**: [comment here]({googlelink})  " + "\n";
+            var editInfo = "> [!note] Educators: help improving these cards!" + "\n";
+            editInfo += $"> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  " + "\n";
+            editInfo += $"> **Improve translations**: [comment here]({googlelink})  " + "\n";
             sb.AppendLine(editInfo);
 
             // Load all cards
@@ -89,7 +89,7 @@ namespace Antura.Discover.Editor
                 return sb.ToString();
             }
 
-            sb.AppendLine($"Total found:** {cards.Count}**\n");
+            sb.AppendLine($"Total found: **{cards.Count}**\n");
 
             // Group by desired countries: International, France, Poland, then others
             Countries[] order = new[] { Countries.International, Countries.France, Countries.Poland };
@@ -112,7 +112,7 @@ namespace Antura.Discover.Editor
                     sb.AppendLine($"### <a id=\"{cId}\"></a>{title}");
 
                     if (c.ImageAsset != null)
-                        sb.AppendLine("![preview " + cId + "](../../assets/img/discover/cards/" + cId + ".jpg){ loading=lazy }\n");
+                        sb.AppendLine("![preview " + cId + "](../../../assets/img/content/cards/" + cId + ".jpg){ loading=lazy }\n");
 
                     if (!string.IsNullOrEmpty(desc))
                         sb.AppendLine(desc + "\n");
@@ -219,7 +219,7 @@ namespace Antura.Discover.Editor
                     sb.AppendLine($"### <a id=\"{cId}\"></a>{title}");
 
                     if (c.ImageAsset != null)
-                        sb.AppendLine("![preview " + cId + "](../../assets/img/discover/cards/" + cId + ".jpg){ loading=lazy }\n");
+                        sb.AppendLine("![preview " + cId + "](../../../assets/img/content/cards/" + cId + ".jpg){ loading=lazy }\n");
 
                     if (!string.IsNullOrEmpty(desc))
                         sb.AppendLine(desc + "\n");

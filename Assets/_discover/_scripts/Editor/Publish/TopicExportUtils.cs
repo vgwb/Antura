@@ -54,18 +54,18 @@ namespace Antura.Discover.Editor
 
             sb.AppendLine($"Total found: **{topics.Count}**\n");
 
-            var info = "!!! note \"NOTE: connections type can be:\"\n";
-            info += "    **Created By** (agent (person/org) who made/discovered/commissioned)  \n";
-            info += "    **Located In**       (where it is/was)  \n";
-            info += "    **Is A**             (type/category relation (Baguette is a Bread))  \n";
-            info += "    **Part Of**         (whole/part relation (Crust is part of Baguette))  \n";
-            info += "    **Made Of**          (physical composition)  \n";
-            info += "    **Time Context**     (period/event/date)  \n";
-            info += "    **Cultural Context** (origin/tradition/symbolism)  \n";
-            info += "    **Causal**           (clear cause→effect)  \n";
-            info += "    **Purpose**          (used for…)  \n";
-            info += "    **Compare**          (compare/Kind similar/contrast/analogy)  \n";
-            info += "    **Related To**     (whatever else, last choice...)  \n";
+            var info = "> [!note] NOTE: connections type can be:\n";
+            info += "> **Created By** (agent (person/org) who made/discovered/commissioned)  \n";
+            info += "> **Located In**       (where it is/was)  \n";
+            info += "> **Is A**             (type/category relation (Baguette is a Bread))  \n";
+            info += "> **Part Of**         (whole/part relation (Crust is part of Baguette))  \n";
+            info += "> **Made Of**          (physical composition)  \n";
+            info += "> **Time Context**     (period/event/date)  \n";
+            info += "> **Cultural Context** (origin/tradition/symbolism)  \n";
+            info += "> **Causal**           (clear cause→effect)  \n";
+            info += "> **Purpose**          (used for…)  \n";
+            info += "> **Compare**          (compare/Kind similar/contrast/analogy)  \n";
+            info += "> **Related To**     (whatever else, last choice...)  \n";
             sb.AppendLine(info + "\n");
 
             foreach (var country in countriesToEmit)
@@ -122,7 +122,7 @@ namespace Antura.Discover.Editor
                         sb.AppendLine();
                         if (core.ImageAsset != null)
                         {
-                            sb.AppendLine($"    ![preview {cid}](../../assets/img/discover/cards/{cid}.jpg){{ width=\"200\" }}");
+                            sb.AppendLine($"    ![preview {cid}](../../../assets/img/content/cards/{cid}.jpg){{ width=\"200\" }}");
                             sb.AppendLine();
                         }
                     }
@@ -148,7 +148,7 @@ namespace Antura.Discover.Editor
                                 sb.AppendLine();
                                 if (card.ImageAsset != null)
                                 {
-                                    sb.AppendLine($"    ![preview {cid}](../../assets/img/discover/cards/{cid}.jpg){{ width=\"200\" }}");
+                                    sb.AppendLine($"    ![preview {cid}](../../../assets/img/content/cards/{cid}.jpg){{ width=\"200\" }}");
                                     sb.AppendLine();
                                 }
                             }

@@ -8,7 +8,7 @@ hide:
 <a id="CleanCanvas"></a>
 ## Canvas
 
-![preview](../../../assets/img/discover/activities/activity_CleanCanvas.jpg)
+![preview](../../../assets/img/content/activities/activity_CleanCanvas.jpg)
 Clean all the surface
 
 Categories:
@@ -35,7 +35,7 @@ Credits:
 <a id="JigsawPuzzle"></a>
 ## Jigsaw Puzzle
 
-![preview](../../../assets/img/discover/activities/activity_JigsawPuzzle.jpg)
+![preview](../../../assets/img/content/activities/activity_JigsawPuzzle.jpg)
 Put the pieces back in place
 
 Categories:
@@ -61,7 +61,7 @@ Credits:
 <a id="Match"></a>
 ## Match
 
-![preview](../../../assets/img/discover/activities/activity_Match.jpg)
+![preview](../../../assets/img/content/activities/activity_Match.jpg)
 match items by something in common
 
 Categories:
@@ -93,7 +93,7 @@ Credits:
 <a id="Memory"></a>
 ## Memory
 
-![preview](../../../assets/img/discover/activities/activity_Memory.jpg)
+![preview](../../../assets/img/content/activities/activity_Memory.jpg)
 the classic memory game
 
 Categories:
@@ -118,7 +118,7 @@ Credits:
 <a id="MoneyCount"></a>
 ## Count the money
 
-![preview](../../../assets/img/discover/activities/activity_MoneyCount.jpg)
+![preview](../../../assets/img/content/activities/activity_MoneyCount.jpg)
 the classic memory game
 
 Categories:
@@ -147,7 +147,7 @@ Credits:
 <a id="Order"></a>
 ## Order
 
-![preview](../../../assets/img/discover/activities/activity_Order.jpg)
+![preview](../../../assets/img/content/activities/activity_Order.jpg)
 put elements in the right order
 
 Categories:
@@ -179,7 +179,7 @@ Credits:
 <a id="Piano"></a>
 ## Piano
 
-![preview](../../../assets/img/discover/activities/activity_Piano.jpg)
+![preview](../../../assets/img/content/activities/activity_Piano.jpg)
 sequential memory and repetition. also musical
 
 Categories:

@@ -24,19 +24,15 @@ namespace Antura.Discover.Editor
 
         public static string GetQuestPublishFileNameForLocale(QuestData q, Locale locale)
         {
+            // Filenames are the same across locales; directories differ per language
             string code = GetQuestCode(q);
-            string lang = GetLanguageCode(locale);
-            if (!IsEnglish(lang) && !string.IsNullOrEmpty(lang))
-                return $"{code}.{lang}.md";
             return code + ".md";
         }
 
         public static string GetQuestScriptPublishFileNameForLocale(QuestData q, Locale locale)
         {
+            // Filenames are the same across locales; directories differ per language
             string code = GetQuestCode(q);
-            string lang = GetLanguageCode(locale);
-            if (!IsEnglish(lang) && !string.IsNullOrEmpty(lang))
-                return $"{code}-script.{lang}.md";
             return code + "-script.md";
         }
 

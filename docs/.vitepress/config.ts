@@ -6,7 +6,6 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   srcDir: '.',
-  // Build into docs/_production/site to align with GitHub Pages workflow
   outDir: './_production/site',
   sitemap: {
     hostname: 'https://antura.org'
@@ -15,7 +14,6 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/assets/icon.png' }],
     ['meta', { name: 'author', content: 'VGWB' }],
     ['meta', { name: 'description', content: 'The Learn with Antura project website and docs for Educators, Designers and Game Developers' }],
-    // Include legacy assets used in MkDocs
     ['link', { rel: 'stylesheet', href: '/assets/stylesheets/extra.css' }],
     ['link', { rel: 'stylesheet', href: '/assets/yarn/yarn-script.css' }],
     ['script', { src: '/assets/yarn/yarn-script.js', defer: '' }]
@@ -90,7 +88,7 @@ export default defineConfig({
               text: 'Content',
               items: [
                 { text: 'Overview', link: '/en/content/' },
-                { text: 'Quests', link: '/en/content/quest/' },
+                { text: 'Quests', link: '/en/content/quests/' },
                 { text: 'Topics', link: '/en/content/topics/' },
                 { text: 'Cards', link: '/en/content/cards/' },
                 { text: 'Words', link: '/en/content/words/' },
@@ -140,7 +138,7 @@ export default defineConfig({
               items: [
                 { text: 'Home', link: '/en/' },
                 { text: 'Manual', link: '/en/manual/' },
-                { text: 'Discover', link: '/en/discover/' },
+                { text: 'Content', link: '/en/content/' },
                 { text: 'About', link: '/en/about/' },
               ]
             }
@@ -157,7 +155,7 @@ export default defineConfig({
           { text: 'Accueil', link: '/fr/' },
           { text: 'Blog', link: '/fr/blog/' },
           { text: 'Manuel', link: '/fr/manual/' },
-          { text: 'Découvrir', link: '/fr/discover/' },
+          { text: 'Contenu', link: '/fr/content/' },
           { text: 'À propos', link: '/fr/about/' },
           { text: 'Forum', link: '/forum' }
         ],
@@ -184,17 +182,17 @@ export default defineConfig({
               ]
             }
           ],
-          '/fr/discover/': [
+          '/fr/content/': [
             {
-              text: 'Découvrir',
+              text: 'Contenu',
               items: [
-                { text: 'Aperçu', link: '/fr/discover/' },
-                { text: 'Quêtes', link: '/fr/discover/quest/' },
-                { text: 'Thèmes', link: '/fr/discover/topics/' },
-                { text: 'Cartes', link: '/fr/discover/cards/' },
-                { text: 'Mots', link: '/fr/discover/words/' },
-                { text: 'Activités', link: '/fr/discover/activities/' },
-                { text: 'Lieux', link: '/fr/discover/locations/' }
+                { text: 'Aperçu', link: '/fr/content/' },
+                { text: 'Quêtes', link: '/fr/content/quests/' },
+                { text: 'Thèmes', link: '/fr/content/topics/' },
+                { text: 'Cartes', link: '/fr/content/cards/' },
+                { text: 'Mots', link: '/fr/content/words/' },
+                { text: 'Activités', link: '/fr/content/activities/' },
+                { text: 'Lieux', link: '/fr/content/locations/' }
               ]
             }
           ],
@@ -226,7 +224,7 @@ export default defineConfig({
               items: [
                 { text: 'Accueil', link: '/fr/' },
                 { text: 'Manuel', link: '/fr/manual/' },
-                { text: 'Découvrir', link: '/fr/discover/' },
+                { text: 'Contenu', link: '/fr/content/' },
                 { text: 'À propos', link: '/fr/about/' },
               ]
             }
@@ -243,7 +241,7 @@ export default defineConfig({
           { text: 'Start', link: '/pl/' },
           { text: 'Blog', link: '/pl/blog/' },
           { text: 'Podręcznik', link: '/pl/manual/' },
-          { text: 'Odkrywaj', link: '/pl/discover/' },
+          { text: 'Zawartość', link: '/pl/content/' },
           { text: 'O nas', link: '/pl/about/' },
           { text: 'Forum', link: '/forum' }
         ],
@@ -275,7 +273,7 @@ export default defineConfig({
               text: 'Odkrywaj',
               items: [
                 { text: 'Przegląd', link: '/pl/content/' },
-                { text: 'Zadania', link: '/pl/content/quest/' },
+                { text: 'Zadania', link: '/pl/content/quests/' },
                 { text: 'Tematy', link: '/pl/content/topics/' },
                 { text: 'Karty', link: '/pl/content/cards/' },
                 { text: 'Słowa', link: '/pl/content/words/' },
@@ -312,7 +310,7 @@ export default defineConfig({
               items: [
                 { text: 'Start', link: '/pl/' },
                 { text: 'Podręcznik', link: '/pl/manual/' },
-                { text: 'Odkrywaj', link: '/pl/discover/' },
+                { text: 'Zawartość', link: '/pl/content/' },
                 { text: 'O nas', link: '/pl/about/' },
               ]
             }
@@ -320,5 +318,36 @@ export default defineConfig({
         }
       }
     },
+    it: {
+      label: 'Italiano',
+      lang: 'it',
+      link: '/it/',
+      themeConfig: {
+        nav: [
+          { text: 'Home', link: '/it/' },
+          { text: 'Manuale', link: '/it/manual/' },
+          { text: 'Contenuti', link: '/it/content/' },
+          { text: 'Informazioni', link: '/it/about/' },
+          { text: 'Forum', link: '/forum' }
+        ],
+        sidebar: {
+          '/it/content/': [
+            {
+              text: 'Contenuti',
+              items: [
+                { text: 'Panoramica', link: '/it/content/' },
+                { text: 'Missioni', link: '/it/content/quests/' },
+                { text: 'Temi', link: '/it/content/topics/' },
+                { text: 'Carte', link: '/it/content/cards/' },
+                { text: 'Parole', link: '/it/content/words/' },
+                { text: 'Attività', link: '/it/content/activities/' },
+                { text: 'Luoghi', link: '/it/content/locations/' }
+              ]
+            }
+          ],
+        }
+      }
+    },
+
   }
 })

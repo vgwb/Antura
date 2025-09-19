@@ -30,19 +30,7 @@ namespace Antura.Discover.Editor
 
             sb.AppendLine("# " + title + " (" + code + ")");
 
-            if (includeLanguageMenu)
-            {
-                var lang = PublishUtils.GetLanguageCode(locale);
-                var indexLink = string.IsNullOrEmpty(lang) || PublishUtils.IsEnglish(lang) ? "./index.md" : $"./index.{lang}.md";
-
-                string en = (string.IsNullOrEmpty(lang) || PublishUtils.IsEnglish(lang)) ? "english" : $"[english](./{code}.md)";
-                string fr = (!string.IsNullOrEmpty(lang) && lang.StartsWith("fr")) ? "french" : $"[french](./{code}.fr.md)";
-                string pl = (!string.IsNullOrEmpty(lang) && lang.StartsWith("pl")) ? "polish" : $"[polish](./{code}.pl.md)";
-                string it = (!string.IsNullOrEmpty(lang) && lang.StartsWith("it")) ? "italian" : $"[italian](./{code}.it.md)";
-
-                sb.AppendLine($"[Quest Index]({indexLink}) - Language: {en} - {fr} - {pl} - {it}");
-                sb.AppendLine();
-            }
+            // Language menu removed: global locale switch handles language selection now.
 
             sb.AppendLine(GetEditInfoSection(q));
 
@@ -87,7 +75,7 @@ namespace Antura.Discover.Editor
                 {
                     string tId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.name;
                     string tName = !string.IsNullOrEmpty(topic.Name) ? topic.Name : tId;
-                    sb.AppendLine($"### [{tName}](../topics/index.md#{tId})");
+                    sb.AppendLine($"### [{tName}](../../topics/index.md#{tId})");
                     sb.AppendLine();
 
                     // List all cards of the topic (core + connections + discovery path) with description
@@ -100,7 +88,7 @@ namespace Antura.Discover.Editor
                             string cId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
                             string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Title"), fallback: cId);
                             string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Description"), fallback: string.Empty);
-                            sb.AppendLine($"  - **[{cTitle}](../cards/index.md#{cId})**  ");
+                            sb.AppendLine($"  - **[{cTitle}](../../cards/index.md#{cId})**  ");
                             if (!string.IsNullOrEmpty(cDesc))
                                 sb.AppendLine($"    {cDesc}  ");
                         }
@@ -122,7 +110,7 @@ namespace Antura.Discover.Editor
                         string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Title"), fallback: string.IsNullOrEmpty(card.Id) ? card.name : card.Id);
                         string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Description"), fallback: string.Empty);
                         string cId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
-                        sb.AppendLine($"**[{cTitle}](../cards/index.md#{cId})**  ");
+                        sb.AppendLine($"**[{cTitle}](../../cards/index.md#{cId})**  ");
                         if (!string.IsNullOrEmpty(cDesc))
                             sb.AppendLine($"{cDesc}  ");
                         sb.AppendLine();
@@ -289,7 +277,7 @@ namespace Antura.Discover.Editor
         }
 
         // Build the separate script page for web publish
-        public static string BuildQuestScriptMarkdown(QuestData q, bool includeLanguageMenu = true, Locale locale = null)
+        public static string BuildQuestScriptMarkdown(QuestData q, bool includeLanguageMenu = false, Locale locale = null)
         {
             var sb = new StringBuilder();
             string code = PublishUtils.GetQuestCode(q);
@@ -303,17 +291,7 @@ namespace Antura.Discover.Editor
             sb.AppendLine();
 
             sb.AppendLine("# " + title + " (" + code + ") - Script");
-            if (includeLanguageMenu)
-            {
-                var lang = PublishUtils.GetLanguageCode(locale);
-                var indexLink = string.IsNullOrEmpty(lang) || PublishUtils.IsEnglish(lang) ? "./index.md" : $"./index.{lang}.md";
-                string en = (string.IsNullOrEmpty(lang) || PublishUtils.IsEnglish(lang)) ? "english" : $"[english](./{code}-script.md)";
-                string fr = (!string.IsNullOrEmpty(lang) && lang.StartsWith("fr")) ? "french" : $"[french](./{code}-script.fr.md)";
-                string pl = (!string.IsNullOrEmpty(lang) && lang.StartsWith("pl")) ? "polish" : $"[polish](./{code}-script.pl.md)";
-                string it = (!string.IsNullOrEmpty(lang) && lang.StartsWith("it")) ? "italian" : $"[italian](./{code}-script.it.md)";
-                sb.AppendLine($"[Quest Index]({indexLink}) - Language: {en} - {fr} - {pl} - {it}");
-                sb.AppendLine();
-            }
+            // Language menu removed: global locale switch handles language selection now.
 
             sb.AppendLine(GetEditInfoSection(q));
 
@@ -413,7 +391,7 @@ namespace Antura.Discover.Editor
                     else
                     {
                         // We now output ONLY translations (no original English) for spoken/choice lines.
-                        string originalEscaped = line; // kept for fallback if no translation.
+                        string originalEscaped = line; // HTML-escaped original line
                         string lineKey = string.Empty;
                         var mTag = Regex.Match(lineRaw, @"#line:([A-Za-z0-9_]+)");
                         if (mTag.Success && mTag.Groups.Count > 1)
@@ -429,25 +407,32 @@ namespace Antura.Discover.Editor
                         string indent = System.Text.RegularExpressions.Regex.Match(lineRaw, @"^\s*").Value;
                         string indentHtml = PublishUtils.HtmlEscape(indent);
 
+                        // Extract meta tag text (e.g., #line:abc123) without wrapping it yet
+                        string metaText = string.Empty;
+                        var metaMatch = Regex.Match(lineRaw, @"#line:[^\r\n]*");
+                        if (metaMatch.Success)
+                            metaText = metaMatch.Value;
+
                         // Determine translation
                         string translation = string.IsNullOrEmpty(lineKey) ? string.Empty : LookupTranslation(lineKey);
-                        string metaHtml = hasLineTag ? Regex.Replace(originalEscaped, ".*?(#line:[^\\n]*)", m => $"<span class=\"yarn-meta\">{PublishUtils.HtmlEscape(m.Groups[1].Value)}</span>") : string.Empty;
 
                         if (isComment)
                         {
-                            // Keep comments as-is (optional). Still show meta if present.
-                            string commentLine = originalEscaped;
-                            commentLine = Regex.Replace(commentLine, "#line:[^\\n]*", m => $"<span class=\"yarn-meta\">{m.Value}</span>");
-                            code.AppendLine($"<span class=\"yarn-comment\">{commentLine}</span>");
+                            // Output comment content without meta as one span and meta as a sibling span (no nested spans)
+                            string commentContent = Regex.Replace(lineRaw, @"#line:[^\r\n]*", "");
+                            commentContent = PublishUtils.HtmlEscape(commentContent.TrimEnd());
+                            var metaSuffix = string.IsNullOrEmpty(metaText) ? string.Empty : (" <span class=\"yarn-meta\">" + PublishUtils.HtmlEscape(metaText) + "</span>\n");
+                            code.AppendLine($"<span class=\"yarn-comment\">{commentContent}</span>{metaSuffix}");
                             continue;
                         }
 
                         if (isCommandOnly)
                         {
-                            // Show commands untouched (developers may want them) + meta if any.
+                            // Highlight commands, append meta as a sibling span (no nesting)
                             string cmdProcessed = Regex.Replace(originalEscaped, "&lt;&lt;[^&]*?&gt;&gt;", m => $"<span class=\"yarn-cmd\">{m.Value}</span>");
-                            cmdProcessed = Regex.Replace(cmdProcessed, "#line:[^\\n]*", m => $"<span class=\"yarn-meta\">{m.Value}</span>");
-                            code.AppendLine(cmdProcessed);
+                            cmdProcessed = Regex.Replace(cmdProcessed, @"#line:[^\n]*", "");
+                            var metaSuffix = string.IsNullOrEmpty(metaText) ? string.Empty : (" <span class=\"yarn-meta\">" + PublishUtils.HtmlEscape(metaText) + "</span>");
+                            code.AppendLine(cmdProcessed + metaSuffix);
                             continue;
                         }
 
@@ -469,7 +454,7 @@ namespace Antura.Discover.Editor
                         {
                             // Missing translation fallback depends on locale, but if the original has no visible text (only a tag) leave it blank.
                             string originalPlain = lineRaw;
-                            originalPlain = Regex.Replace(originalPlain, @"#line:[^\\n]*", "").TrimEnd();
+                            originalPlain = Regex.Replace(originalPlain, @"#line:[^\n]*", "").TrimEnd();
                             string langCode = locale != null ? PublishUtils.GetLanguageCode(locale) : string.Empty;
 
                             if (string.IsNullOrWhiteSpace(originalPlain))
@@ -487,27 +472,28 @@ namespace Antura.Discover.Editor
                             }
                         }
 
-                        string lineHtml = indentHtml + choicePrefix + finalText + (string.IsNullOrEmpty(metaHtml) ? string.Empty : " " + metaHtml);
+                        string contentHtml = indentHtml + choicePrefix + finalText;
+                        string metaSuffix2 = string.IsNullOrEmpty(metaText) ? string.Empty : (" <span class=\"yarn-meta\">" + PublishUtils.HtmlEscape(metaText) + "</span>");
 
                         if (isChoice)
                         {
-                            code.AppendLine($"<span class=\"yarn-choice\">{lineHtml}</span>");
+                            code.AppendLine($"<span class=\"yarn-choice\">{contentHtml}</span>{metaSuffix2}");
                         }
                         else if (isSpoken)
                         {
-                            code.AppendLine($"<span class=\"yarn-line\">{lineHtml}</span>");
+                            code.AppendLine($"<span class=\"yarn-line\">{contentHtml}</span>{metaSuffix2}");
                         }
                         else
                         {
-                            // Lines that don't fit above categories (unlikely) output raw
-                            code.AppendLine(lineHtml);
+                            // Lines that don't fit above categories: emit content followed by optional meta span
+                            code.AppendLine(contentHtml + metaSuffix2);
                         }
                     }
                 }
 
                 if (!string.IsNullOrEmpty(title))
                 {
-                    sb.AppendLine($"<a id=\"{nodeId}\"></a>");
+                    sb.AppendLine($"<a id=\"{nodeId}\"></a>\n");
                     sb.AppendLine($"## {PublishUtils.HtmlEscape(title)}");
                     sb.AppendLine();
                 }
@@ -515,10 +501,10 @@ namespace Antura.Discover.Editor
                 sb.Append("<div class=\"yarn-node\"");
                 if (!string.IsNullOrEmpty(title))
                     sb.Append($" data-title=\"{PublishUtils.HtmlAttributeEscape(title)}\"");
-                sb.Append(">");
-                sb.Append($"<pre class=\"yarn-code\"{style}><code>");
+                sb.Append(">\n");
+                sb.Append($"<pre class=\"yarn-code\"{style}><code>\n");
                 sb.Append(code.ToString());
-                sb.Append("</code></pre></div>\n\n");
+                sb.Append("</code>\n</pre>\n</div>\n\n");
             }
 
             return sb.ToString();
@@ -549,10 +535,10 @@ namespace Antura.Discover.Editor
             var scriptPath = q != null && q.YarnScript != null ? AssetDatabase.GetAssetPath(q.YarnScript) : "NO_SCRIPT_ATTACHED.yarn";
             var githublink = "https://github.com/vgwb/Antura/blob/main/" + PublishUtils.EncodeUriString(scriptPath);
             var googlelink = q.GoogleSheetUrl;
-            var editInfo = "!!! note \"Educators & Designers: help improving this quest!\"" + "\n";
-            editInfo += $"    **Comments and feedback**: [discuss in the Forum]({q.ForumUrl})  " + "\n";
-            editInfo += $"    **Improve translations**: [comment the Google Sheet]({googlelink})  " + "\n";
-            editInfo += $"    **Improve the script**: [propose an edit here]({githublink})  " + "\n";
+            var editInfo = "> [!note] Educators & Designers: help improving this quest!" + "\n";
+            editInfo += $"> **Comments and feedback**: [discuss in the Forum]({q.ForumUrl})  " + "\n";
+            editInfo += $"> **Improve translations**: [comment the Google Sheet]({googlelink})  " + "\n";
+            editInfo += $"> **Improve the script**: [propose an edit here]({githublink})  " + "\n";
             return editInfo;
         }
 

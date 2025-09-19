@@ -195,7 +195,7 @@ namespace Antura.Discover.Editor
                             DateTime assetTime = File.GetLastWriteTimeUtc(fullAssetPath);
                             if (assetTime <= existing)
                             {
-                                return $"![](../../assets/img/discover/words/{fileName})"; // Already exported
+                                return $"![](../../../assets/img/discover/words/{fileName})"; // Already exported
                             }
                         }
                     }
@@ -303,7 +303,7 @@ namespace Antura.Discover.Editor
                 UnityEngine.Object.DestroyImmediate(tex);
                 UnityEngine.Object.DestroyImmediate(root);
 
-                return $"![](../../assets/img/discover/words/{fileName})"; // relative from words index.md
+                return $"![](../../../assets/img/discover/words/{fileName})"; // relative from words index.md
             }
             catch (Exception ex)
             {
