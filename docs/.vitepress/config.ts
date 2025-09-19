@@ -12,12 +12,12 @@ export default defineConfig({
     hostname: 'https://antura.org'
   },
   head: [
-    ['link', { rel: 'icon', href: '/assets/icon.png' }],
+    ['link', { rel: 'icon', href: '/icon.png' }],
     ['meta', { name: 'author', content: 'VGWB' }],
     ['meta', { name: 'description', content: 'The Learn with Antura project website and docs for Educators, Designers and Game Developers' }],
   ],
   themeConfig: {
-    logo: '/assets/icon.png',
+    logo: '/icon.png',
     editLink: {
       pattern: 'https://github.com/vgwb/Antura/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
