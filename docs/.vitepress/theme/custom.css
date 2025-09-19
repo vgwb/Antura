@@ -26,3 +26,20 @@ hr {
     border-radius: 5px;
 }
 
+
+/* yarn-script.css: Styles for the Yarn script reader */
+.yarn-script-container { min-height: 60vh; }
+.yarn-script-container pre { background: #f9fafb; color: #111; padding: 14px 16px; border-radius: 8px; overflow: auto; border: 1px solid #eef0f2; }
+.yarn-script-container code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; line-height: 1.5; white-space: pre-wrap; }
+/* Token styles apply within the <code> area */
+.yarn-code code .yarn-header-dim,
+.yarn-code code .yarn-cmd,
+.yarn-code code .yarn-comment { opacity: .6; }
+.yarn-code code .yarn-meta { opacity: .3; user-select: text; -webkit-user-select: text; -moz-user-select: text; }
+.yarn-code code .yarn-choice { color: inherit; font-weight: inherit; }
+.yarn-code code .yarn-line { font-weight: 700; }
+.yarn-code code .yarn-translation { display: block; margin: 2px 0 6px 0; padding-left: 12px; font-weight: 400; opacity: 0.9; color: #0a4f72; border-left: 3px solid #bcd6e5; }
+.yarn-node pre { transition: background-color .2s ease; }
+/* Very light node color overlay via CSS variable */
+.yarn-node pre { background: linear-gradient(0deg, color-mix(in oklab, var(--node-color, transparent) 8%, white), color-mix(in oklab, var(--node-color, transparent) 8%, white)); }
+

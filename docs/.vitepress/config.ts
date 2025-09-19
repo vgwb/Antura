@@ -15,9 +15,6 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/assets/icon.png' }],
     ['meta', { name: 'author', content: 'VGWB' }],
     ['meta', { name: 'description', content: 'The Learn with Antura project website and docs for Educators, Designers and Game Developers' }],
-    ['link', { rel: 'stylesheet', href: '/assets/stylesheets/extra.css' }],
-    ['link', { rel: 'stylesheet', href: '/assets/yarn/yarn-script.css' }],
-    ['script', { src: '/assets/yarn/yarn-script.js', defer: '' }]
   ],
   themeConfig: {
     logo: '/assets/icon.png',

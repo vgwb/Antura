@@ -14,7 +14,7 @@ hero:
       text: Forum
       link: https://antura.discourse.group
   image:
-    src: ../assets/img/antura_gametitle.jpg
+    src: ../../assets/img/antura_gametitle.jpg
     alt: VitePress
 features:
   - title: Feature A
