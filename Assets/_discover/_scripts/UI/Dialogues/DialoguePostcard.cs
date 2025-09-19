@@ -8,6 +8,12 @@ namespace Antura.Discover
 {
     public class DialoguePostcard : MonoBehaviour
     {
+        public enum ViewMode
+        {
+            Fit,
+            Crop
+        }
+        
         #region Events
 
         public readonly ActionEvent<Sprite> OnClicked = new("DialoguePostcard.OnClicked");
@@ -16,6 +22,8 @@ namespace Antura.Discover
 
         #region Serialized
 
+        [SerializeField] ViewMode viewMode = ViewMode.Crop;
+        
         [Header("References")]
         [DeEmptyAlert]
         [SerializeField] Image img;
@@ -25,13 +33,28 @@ namespace Antura.Discover
         public bool IsActive { get; private set; }
         public Sprite CurrSprite { get; private set; }
 
+        bool initialized;
+        Vector2 defImgSize;
+        RectTransform imgRT;
         Button bt;
         Tween showTween, hideTween;
 
-        #region Unity
+        #region Unity + INIT
+
+        void Init()
+        {
+            if (initialized) return;
+
+            initialized = true;
+
+            imgRT = (RectTransform)img.transform;
+            defImgSize = imgRT.sizeDelta;
+        }
 
         void Start()
         {
+            Init();
+            
             bt = this.GetComponent<Button>();
             RectTransform rt = this.GetComponent<RectTransform>();
             Vector3 defScale = this.transform.localScale;
@@ -63,14 +86,27 @@ namespace Antura.Discover
 
         #region Public Methods
 
-        public void Show(Sprite sprite)
+        public void Show(Sprite sprite, ViewMode? customViewMode = null)
         {
+            Init();
+            
             IsActive = true;
             img.sprite = sprite;
             if (CurrSprite != sprite)
             {
                 hideTween.Complete();
                 showTween.Restart();
+                ViewMode m = customViewMode == null ? viewMode : (ViewMode)customViewMode;
+                switch (m)
+                {
+                    case ViewMode.Fit:
+                        imgRT.sizeDelta = defImgSize;
+                        break;
+                    case ViewMode.Crop:
+                        bool isLandscape = img.sprite.texture.width >= img.sprite.texture.height;
+                        imgRT.sizeDelta = isLandscape ? new Vector2(3000, defImgSize.y) : new Vector2(defImgSize.x, 3000);
+                        break;
+                }
             }
             this.gameObject.SetActive(true);
             CurrSprite = sprite;
