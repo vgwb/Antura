@@ -63,14 +63,16 @@ namespace Antura.Discover
 
             bt.onClick.AddListener(() => OnClicked.Dispatch(CurrSprite));
 
+            const float inDuration = 0.35f;
+            const float outDuration = 0.35f;
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
-                .Append(rt.DOAnchorPos(defAnchoredP, 0.5f).From(defAnchoredP + new Vector2(-380, -960)).SetEase(Ease.OutCubic))
-                .Join(this.transform.DOScale(defScale, 0.5f).From(0).SetEase(Ease.OutBack))
-                .Join(this.transform.DOLocalRotate(defRot, 0.5f, RotateMode.FastBeyond360).From(new Vector3(0, 0, 960)).SetEase(Ease.OutCubic));
+                .Append(rt.DOAnchorPos(defAnchoredP, inDuration).From(defAnchoredP + new Vector2(-380, -380)).SetEase(Ease.OutCubic))
+                .Join(this.transform.DOScale(defScale, inDuration).From(0).SetEase(Ease.OutBack))
+                .Join(this.transform.DOLocalRotate(defRot, inDuration, RotateMode.FastBeyond360).From(new Vector3(0, 0, 90)).SetEase(Ease.OutCubic));
             hideTween = DOTween.Sequence().SetAutoKill(false).Pause()
-                .Join(this.transform.DOScale(0, 0.5f).From(defScale).SetEase(Ease.InBack))
-                .Join(rt.DOAnchorPos(defAnchoredP + new Vector2(290, 340), 0.5f).From(defAnchoredP).SetEase(Ease.InQuad))
-                .Join(this.transform.DOLocalRotate(new Vector3(0, 0, 60), 0.5f).From(defRot).SetEase(Ease.InSine))
+                .Join(this.transform.DOScale(0, outDuration).From(defScale).SetEase(Ease.InBack))
+                .Join(rt.DOAnchorPos(defAnchoredP + new Vector2(290, 340), outDuration).From(defAnchoredP).SetEase(Ease.InQuad))
+                .Join(this.transform.DOLocalRotate(new Vector3(0, 0, 60), outDuration).From(defRot).SetEase(Ease.InSine))
                 .OnComplete(() => this.gameObject.SetActive(false));
 
             this.gameObject.SetActive(false);
