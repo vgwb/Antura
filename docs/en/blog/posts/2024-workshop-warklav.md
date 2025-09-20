@@ -1,7 +1,7 @@
 ---
 title: Workshops in Wrocław
 slug: workshop-wroclaw
-description: 
+description: ""
 date: 2024-03-01
 authors: 
  - stefano

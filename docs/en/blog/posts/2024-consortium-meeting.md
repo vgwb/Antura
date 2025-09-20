@@ -1,7 +1,7 @@
 ---
 title: Consortium Meeting in Angers
 slug: consortium-meeting-angers
-description: 
+description: ""
 date: 2024-07-01
 authors: 
  - stefano

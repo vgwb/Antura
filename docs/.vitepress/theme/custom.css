@@ -26,6 +26,25 @@ hr {
     border-radius: 5px;
 }
 
+/* Antura Drawings custom font (copy the .woff2/.otf files into docs/assets/fonts/) */
+@font-face {
+  font-family: 'AnturaDrawings';
+  src: url('/fonts/AnturaWordDrawings-Regular.woff2') format('woff2'),
+       url('/fonts/AnturaWordDrawings-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.word-icon {
+  font-family: 'AnturaDrawings', 'AnturaWordDrawings-Regular', sans-serif;
+  display: inline-block;
+  font-size: 140px; /* increased size */
+  line-height: 1;
+  vertical-align: middle;
+  transform: translateY(0.05em);
+  color: #222;
+}
 
 /* yarn-script.css: Styles for the Yarn script reader */
 .yarn-script-container { min-height: 60vh; }

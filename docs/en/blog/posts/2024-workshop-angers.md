@@ -1,7 +1,7 @@
 ---
 title: Workshops in Angers
 slug: workshop-angers
-description: 
+description: ""
 date: 2024-02-01
 authors: 
  - stefano

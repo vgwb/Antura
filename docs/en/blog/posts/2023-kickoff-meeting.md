@@ -1,7 +1,7 @@
 ---
 title: Kick off meeting - Cologne
 slug: kickoff-meeting
-description: 
+description: ""
 date: 2023-12-15
 authors: 
  - stefano

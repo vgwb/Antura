@@ -25,7 +25,7 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-![antura_gametitle](../assets/img/antura_gametitle.jpg)
+![antura_gametitle](/img/antura_gametitle.jpg)
 
 > Learn to read and discover new languages with this award-winning free game!
 > It has been developed to help children that are not able to attend school, mainly from Syria, Afghanistan and Ukraine, but any child can play and learn easily with Antura.
