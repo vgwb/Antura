@@ -43,6 +43,8 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
+    outline: [2,3],
+    externalLinkIcon: true,
     // Default (fallback) sidebar can be empty since we define per-section sidebars below in locales
   },
 

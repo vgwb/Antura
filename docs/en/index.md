@@ -1,29 +1,41 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "Learn with Antura"
-  text: "an open source videogame"
-  tagline: My great project tagline
+  text: "Play. Learn. Discover."
+  tagline: "An award-winning open source videogame that turns reading, language, and culture into an adventure."
   actions:
     - theme: brand
       text: Download
-      link: /en/manual/
+      link: /en/#download
     - theme: alt
       text: Forum
       link: https://antura.discourse.group
   image:
     src: ../../assets/img/antura_gametitle.jpg
-    alt: VitePress
+    alt: Antura and the Letters
+
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: "🎮 Learn through play"
+    details: "Children explore fun minigames to practice letters, words, and cultural content in multiple languages."
+  - title: "🌍 Discover countries and cultures"
+    details: "Through quests and stories, Antura introduces children to the heritage, traditions, and daily life of European countries and beyond."
+  - title: "🆓 Free and open source"
+    details: "Developed by educators and game designers, Antura is 100% free and open for teachers, families, and developers."
+  - title: "📚 Resources and open content"
+    details: "Guides, documentation, and all of the game’s cards, topics, and quests are accessible on this website for teachers, designers, and developers."
+  - title: "🏆 International recognition"
+    details: "Winner of the EduApp4Syria international competition, supported by UNICEF and global partners."
+  - title: "🧩 Open quest framework"
+    details: "Antura’s flexible framework lets you design and add new quests and activities, expanding the educational universe."
+  - title: "🗣️ Speaks multiple languages"
+    details: "Play in Arabic, English, French, German, Hungarian, Italian, Polish, Romanian, Russian, Spanish, Ukrainian."
+  - title: "💻📱 Cross-platform"
+    details: "Antura runs on both PC and mobile devices, reaching children everywhere."
 ---
+
+<hr>
 
 ![antura_gametitle](/img/antura_gametitle.jpg)
 

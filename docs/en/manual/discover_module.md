@@ -13,8 +13,8 @@ We start from all the words of the [Learning Language Module](./learnlanguage_mo
 
 Words are presented by Living Letters (LL) that speak the words when interacted with and are evidenced in the dialogs. This reinforces language learning in a fun, contextual way.  
 
-!!! note "Words database"
-    The current list of [all words in the game](../content/words/index.md)
+> [!note] Words database
+> The current list of [all words in the game](../content/words/index.md)
 
 ### Cards
 At the heart of each quest are Cards, which represent an "atom of knowledge" like facts, people, places, objects, traditions, foods, fauna, and flora.
@@ -75,8 +75,8 @@ Social and practical life:
 - **Safety**
 - **Time** - understanding clocks/calendars
 
-!!! note "Cards database"
-    The current list of [all cards in the game](../content/cards/index.md)
+> [!note] Cards database
+> The current list of [all cards in the game](../content/cards/index.md)
 
 ### Topics
 Topics are defined by educators by connecting a set of cards, defining the relationships and forming a **visible knowledge graph**.
@@ -101,8 +101,8 @@ root((Topic))
     RelatedTo("**Related To**")
 ```
 
-!!! note "Topics database"
-    The current list of [all topics in the game](../content/topics/index.md)
+> [!note] Topics database
+> The current list of [all topics in the game](../content/topics/index.md)
 
 ## Quests
 
@@ -169,8 +169,8 @@ Once mastered, repeating gives cookies but not gems.
 
 Activities can be embedded in quests or played separately from the Book and deal with topics.
 
-!!! note
-    One of the new features of our framework is that these activities can be asked to reinforce a topic, and automatically fetch cards to be played.
+> [!note]
+> One of the new features of our framework is that these activities can be asked to reinforce a topic, and automatically fetch cards to be played.
 
 - **Order**: put elements in sequence
 - **Piano**: repeat melodies/colors
@@ -316,9 +316,9 @@ Example debrief (10 minutes):
 
 ### Analytics
 
-!!! note
-    We care about privacy and anonymity. We collect gameplay data without linking it to personally identifiable information.  
-    Linking students to profiles (if needed) is managed by the teacher according to school policies.
+> [!note]
+> We care about privacy and anonymity. We collect gameplay data without linking it to personally identifiable information.  
+> Linking students to profiles (if needed) is managed by the teacher according to school policies.
 
 - Logs gameplay events (play time, quest attempts, bonus/malus, card collection).  
 - Data can be exported in a simple format for manual evaluation (JSON) or automatic (xAPI).  

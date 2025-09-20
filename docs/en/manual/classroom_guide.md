@@ -43,8 +43,8 @@ It could be useful for the teacher to play the tutorial on a big screen and let 
 - Excellent for **whole-class discussions**.  
 - Tip: start with the **Tutorial** quest together.  
 
-!!! tip "Example prompt"
-    “We’ve found a bakery — what clues tell us it’s important in French culture?”  
+> [!tip] Example prompt
+> “We’ve found a bakery — what clues tell us it’s important in French culture?”  
 
 #### 2. Individual play / independent learning
 
@@ -53,8 +53,8 @@ It could be useful for the teacher to play the tutorial on a big screen and let 
 - Objective: finish a quest or stop at time limit.  
 - Benefits: self-paced learning, hidden secrets encourage replay.  
 
-!!! tip "Teacher tip"
-    Give a micro-goal like “unlock 2 cards and take a screenshot of your Book”.  
+> [!tip] Teacher tip
+> Give a micro-goal like “unlock 2 cards and take a screenshot of your Book”.  
 
 #### 3. Group play / pair learning
 
@@ -77,8 +77,8 @@ Variation: Assign roles (navigator, reader, controller) and swap every 5 minutes
 - Assign a quest to be played at home.  
 - Next session, hold a discussion about what they discovered.  
 
-!!! tip "Home reflection prompt"
-    “Tell a family member one new word and where you saw it.”  
+> [!tip] Home reflection prompt
+> “Tell a family member one new word and where you saw it.”  
 
 ---
 
@@ -86,17 +86,17 @@ Variation: Assign roles (navigator, reader, controller) and swap every 5 minutes
 
 ### Words
 
-!!! note "Pronunciation activity"
-    Students repeat after a Living Letter, then use the word in a sentence related to the quest.  
+> [!tip] Pronunciation activity
+> Students repeat after a Living Letter, then use the word in a sentence related to the quest.  
 
-!!! note "Explain a card"
-    After play, ask learners to open the Book and explain one card to a peer.  
+> [!tip] Explain a card
+> After play, ask learners to open the Book and explain one card to a peer.  
 
-!!! note "Bonus Malus"
-    Citizenship link: Discuss how in‑game choices mirror respectful behavior in real life.  
+> [!tip] Bonus Malus
+> Citizenship link: Discuss how in‑game choices mirror respectful behavior in real life.  
 
-!!! note "world map"
-    For homework, let students explore in Home mode and bring one new card to share.  
+> [!tip] world map
+> For homework, let students explore in Home mode and bring one new card to share.  
 
 
 Reflection after play helps consolidate learning.  

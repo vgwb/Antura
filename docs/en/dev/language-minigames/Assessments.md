@@ -30,7 +30,7 @@ Antura is the only interactive object: when the player touches Antura or swipe o
 - `Assessment_WordsWithLetter` Select the Words containing the indicated Letter (fix: ONE word only)
 - `Assessment_MatchLettersToWord` Match the Letters to the Words containing them
 - `Assessment_CompleteWord_Form` Select the missing Letter (form) to complete the Word (mod -> Phoneme)
-- `Assessment_MatchLettersToWord_Form` Match the Letters forms to the Words containing them (GOOOD!!!!)
+- `Assessment_MatchLettersToWord_Form` Match the Letters forms to the Words containing them (GOOD!)
 - `Assessment_OrderLettersOfWord` Order the letters to compose the indicated Word (FIX with all forms & phonems)
 - `Assessment_CompleteWord` Select the missing Letter to complete the Word + Image (FIX with all forms & phonems)
 - `Assessment_MatchWordToImage` Match the good Word to the good Image

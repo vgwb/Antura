@@ -20,8 +20,8 @@ The official iOS version is here: [Apple Store](https://apps.apple.com/us/app/an
 The v3.0 beta version is here: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)  
 (Use this url from the device you want to install. Testflight is a service to test application that are in development)
 
-!!! note
-    if you can't download the app, please send a message into the community [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
+> [!note]
+> if you can't download the app, please send a message into the community [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
 
 ## Android devices
 

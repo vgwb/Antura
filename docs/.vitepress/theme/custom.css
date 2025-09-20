@@ -20,6 +20,11 @@ a {
   color: #0079b5;
 }
 
+.active {
+  background-color: #cce7f5;
+  font-weight: bold;
+}
+
 hr {
     height: 6px;
     background-color: #FF9400 ;
@@ -29,8 +34,7 @@ hr {
 /* Antura Drawings custom font (copy the .woff2/.otf files into docs/assets/fonts/) */
 @font-face {
   font-family: 'AnturaDrawings';
-  src: url('/fonts/AnturaWordDrawings-Regular.woff2') format('woff2'),
-       url('/fonts/AnturaWordDrawings-Regular.otf') format('opentype');
+  src: url('/fonts/AnturaWordDrawings-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

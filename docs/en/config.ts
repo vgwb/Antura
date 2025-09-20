@@ -15,29 +15,41 @@ export default defineAdditionalConfig({
 
 function nav(): DefaultTheme.NavItem[] {
   return [
-    { text: 'Manual', link: '/en/manual/', activeMatch: '/en/manual/' },
+    { text: 'Manual', link: '/en/manual/', activeMatch: '/en/manual/'},
     { text: 'Content', link: '/en/content/', activeMatch: '/en/content/' },
     { text: 'Developer', link: '/en/dev/', activeMatch: '/en/dev/' },
     { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
+    { text: 'Download', link: '/en/#download'},
     { text: 'Forum', link: 'https://antura.discourse.group' }
   ]
 }
 
 function sidebarManual(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'Introduction', link: '/' },
+    { text: 'Antura Manual', link: '/' },
     { text: 'How to Install and Setup', link: 'install' },
-    { text: 'Learn Languages', link: 'learnlanguage_module' },
     {
-      text: 'Discover Europe',
+      text: 'Learn Languages Modules',
+      items: [
+        { text: 'Introduction', link: 'learnlanguage_module' },
+        { text: 'How to play minigames', link: 'learnlanguage_how_to_play' }
+      ]
+    },
+    {
+      text: 'Discover Europe Modules',
       items: [
         { text: 'Introduction', link: 'discover_introduction' },
         { text: 'Features', link: 'discover_module' },
         { text: 'How to play quests', link: 'discover_how_to_play' }
       ]
     },
-    { text: 'Classroom Guide', link: 'classroom_guide' },
-    { text: 'Feedback and Support', link: 'support' },
+    {
+      text: 'In the Classroom',
+      items: [
+        { text: 'Classroom Guide', link: 'classroom_guide' },
+        { text: 'Feedback and Support', link: 'support' },
+      ]
+    },
     { text: 'FAQ', link: 'faq' },
     { text: 'Changelog', link: 'changelog' }
   ]

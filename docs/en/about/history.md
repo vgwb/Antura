@@ -4,7 +4,11 @@ title: The Antura Project History
 
 # The Antura Project History
 
-This original Arabic project was developed by the Cologne Game Lab – TH Köln (German university of Applied Sciences), Video Games Without Borders (a nonprofit organization registered in Spain) and Wixel Studios (a Lebanese development studio).[![CGL logo](https://www.antura.org/wp-content/uploads/2017/01/CGL-TH_Logo-300x51.png)](http://www.colognegamelab.de/) [![VGWB logo](https://www.antura.org/wp-content/uploads/2017/03/VGWB_Logo_Horiz-300x65.jpg)](http://vgwb.org/) ![Wixel logo](https://www.antura.org/wp-content/uploads/2017/01/WixelLogo_HiRes-300x180.png)
+This original Arabic project was developed by the [Cologne Game Lab – TH Köln](http://www.colognegamelab.de/) (German university of Applied Sciences), [Video Games Without Borders](http://vgwb.org/) (a nonprofit organization registered in Spain) and Wixel Studios (a Lebanese development studio).
+
+![CGL logo](../../assets/img/erasmus/logo_cgl.jpg){ width="200" }
+
+![VGWB logo](../../assets/img/erasmus/logo_vgwb.jpg){ width="300" }
 
 Later on, several additional partners joined and helped adapt the game to address other emergencies and learning needs in different contexts with the priority set on 3 humanitarian crises: Syria, Afghanistan and Ukraine.
 
