@@ -63,7 +63,7 @@ tags: actor=MAN
     <<set $activity1 = true>>
     <<activity order_Musical_notes>>
     <<elseif $activity1 ==true >>
-    We're gonna play soon!
+    We're gonna play soon! #line:0ef876c 
     <<endif>>
 <<else>>
 Hello! We're part of a band. We're musicians. #line:09a50f8 
@@ -79,7 +79,9 @@ position: 279,122
 tags: 
 ---
 <<if $activity2 == true>>
-Great job!
+    Great job! #line:0227e33 
+    Let's try to play it! #line:0501e94 
+    <<jump win>>
 <<elseif $quest2 == true >>
     Thank you! The words of the French Hymn are important. #line:025e35b 
     The French National Anthem, "La Marseillaise" rapresents France and its people. #line:0e4484d 
@@ -109,6 +111,8 @@ title : win_quest1
 position: 1
 ---
 <<set $quest1 = true>>
+Good job! Now go back to speak with the band manager. #line:0064edf 
+<<target band_member>>
 <<task_end find_the_script_parts>>
 
 
@@ -117,6 +121,8 @@ title : win_quest2
 position: 1
 ---
 <<set $quest2 = true>>
+Now go talk with Jean! #line:0a28908 
+<<target Jean_MJ>>
 <<task_end find_the_words>>
 
 ===
@@ -264,4 +270,28 @@ It became a symbol during the French Revolution. #line:03e8eec
 Each part has powerful words. #line:0165048 
 Music can unite people. #line:01d4688 
 
+===
+
+
+title: secret_ll
+position: 1040,60
+color: purple
+actor: TUTOR
+---
+You found me! #line:0d732f4 
+<<card arc_de_triomphe zoom>>
+We're standing on top of the Arc Du Triomphe! #line:0236a86 
+I'll reward you with some more cookies! #line:0bb0568 
+<<action cookies_unleashed>>
+
+===
+
+title: win
+position: 1040,60
+color: purple
+actor: TUTOR
+---
+Good job! #line:03e7bc4 
+<<card marseillaise_music zoom>>
+<<quest_end >>
 ===
