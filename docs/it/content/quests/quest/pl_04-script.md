@@ -24,6 +24,11 @@ hide:
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;declare $talked_animals = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $elephant_completed = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $giraffe_completed = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $lion_completed = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $monkey_completed = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $penguin_completed = false&gt;&gt;</span>
 <span class="yarn-line">Benvenuti allo ZOO DI WROCŁAW.</span> <span class="yarn-meta">#line:0fe55d1 </span>
 <span class="yarn-line">Ci sono molti ANIMALI qui!</span> <span class="yarn-meta">#line:005dd46 </span>
 
@@ -96,6 +101,7 @@ hide:
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-line">[MISSING TRANSLATION: Oh no!]</span> <span class="yarn-meta">#line:0c71176 </span>
 <span class="yarn-cmd">&lt;&lt;camera_focus Flagpole&gt;&gt;</span>
 <span class="yarn-line">Oh no! Manca la BANDIERA!</span> <span class="yarn-meta">#line:09c6bf7 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
@@ -160,6 +166,40 @@ hide:
 </pre>
 </div>
 
+<a id="ys-node-animal-fox"></a>
+
+## animal_fox
+
+<div class="yarn-node" data-title="animal_fox">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: ZOO</span>
+<span class="yarn-header-dim">tags: actor=Parrot</span>
+<span class="yarn-header-dim">image: zoo_gate</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">[MISSING TRANSLATION: Hehe! I'm not actually from the zoo.]</span> <span class="yarn-meta">#line:03c4553 </span>
+<span class="yarn-line">[MISSING TRANSLATION: I didn't see a flag anywhere.]</span> <span class="yarn-meta">#line:074fe29 </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-chest"></a>
+
+## item_chest
+
+<div class="yarn-node" data-title="item_chest">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">group: actions</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">[MISSING TRANSLATION: What a nice surprise!]</span> <span class="yarn-meta">#line:03321d5 </span>
+<span class="yarn-cmd">&lt;&lt;action open_chest&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
 <a id="ys-node-elephant-talk"></a>
 
 ## elephant_talk
@@ -172,11 +212,16 @@ hide:
 <span class="yarn-header-dim">image: elephant_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sono il più grande ANIMALE terrestre.</span> <span class="yarn-meta">#line:027b51f </span>
-<span class="yarn-cmd">&lt;&lt;card animal_elephant zoom&gt;&gt;</span>
-<span class="yarn-line">Ho una buona MEMORIA.</span> <span class="yarn-meta">#line:03a150c </span>
-<span class="yarn-line">Hai una buona MEMORIA?</span> <span class="yarn-meta">#line:0f98478 </span>
-<span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings elephant_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $elephant_completed&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     A FLAG? I do not have it.]</span> <span class="yarn-meta">#line:03879f8 </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     If I took it I would remember!]</span> <span class="yarn-meta">#line:0103606 </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Sono il più grande ANIMALE terrestre.</span> <span class="yarn-meta">#line:027b51f </span>
+    <span class="yarn-cmd">&lt;&lt;card animal_elephant zoom&gt;&gt;</span>
+<span class="yarn-line">    Ho una buona MEMORIA.</span> <span class="yarn-meta">#line:03a150c </span>
+<span class="yarn-line">    Hai una buona MEMORIA?</span> <span class="yarn-meta">#line:0f98478 </span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings elephant_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -196,6 +241,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;inventory animal_elephant add&gt;&gt;</span>
 <span class="yarn-line">UNA BANDIERA? Non ce l'ho.</span> <span class="yarn-meta">#line:0b79d01 </span>
 <span class="yarn-line">Se lo prendessi me lo ricorderei!</span> <span class="yarn-meta">#line:0f124bf </span>
+<span class="yarn-cmd">&lt;&lt;set $elephant_completed = true&gt;&gt;</span>
 
 </code>
 </pre>
@@ -248,11 +294,16 @@ hide:
 <span class="yarn-header-dim">image: giraffe_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sono l'ANIMALE più alto.</span> <span class="yarn-meta">#line:0d5c607 </span>
-<span class="yarn-cmd">&lt;&lt;card animal_giraffe zoom&gt;&gt;</span>
-<span class="yarn-line">Il mio lungo COLLO mi aiuta a raggiungere le foglie.</span> <span class="yarn-meta">#line:0a4d24e </span>
-<span class="yarn-line">Io mangio le foglie di AMICA!</span> <span class="yarn-meta">#line:04b42f2 </span>
-<span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings giraffe_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $giraffe_completed&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     I did not take the FLAG.]</span> <span class="yarn-meta">#line:05d1f0a </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     It is too high for me!]</span> <span class="yarn-meta">#line:04947e6 </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Sono l'ANIMALE più alto.</span> <span class="yarn-meta">#line:0d5c607 </span>
+    <span class="yarn-cmd">&lt;&lt;card animal_giraffe zoom&gt;&gt;</span>
+<span class="yarn-line">    Il mio lungo COLLO mi aiuta a raggiungere le foglie.</span> <span class="yarn-meta">#line:0a4d24e </span>
+<span class="yarn-line">    Io mangio le foglie di AMICA!</span> <span class="yarn-meta">#line:04b42f2 </span>
+    <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings giraffe_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -271,6 +322,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;inventory animal_elephant add&gt;&gt;</span>
 <span class="yarn-line">Non ho preso la BANDIERA.</span> <span class="yarn-meta">#line:0877d6f </span>
 <span class="yarn-line">Per me è troppo alto!</span> <span class="yarn-meta">#line:02d00e2 </span>
+<span class="yarn-cmd">&lt;&lt;set $giraffe_completed = true&gt;&gt;</span>
 
 </code>
 </pre>
@@ -323,13 +375,18 @@ hide:
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sono un LEONE in AFRICA.</span> <span class="yarn-meta">#line:07f2e15 </span>
-<span class="yarn-cmd">&lt;&lt;card  animal_lion zoom&gt;&gt;</span>
-<span class="yarn-line">Vivo in un PRIDE.</span> <span class="yarn-meta">#line:042266c </span>
-<span class="yarn-line">Guarda questo piccolo CUB!</span> <span class="yarn-meta">#line:0124e1c </span>
-<span class="yarn-cmd">&lt;&lt;card  animal_lion_cub zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: I grow up small, then medium, then old...]</span> <span class="yarn-meta">#line:0774b92 </span>
-<span class="yarn-cmd">&lt;&lt;activity order_lion_settings lion_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $lion_completed&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     You must find the FLAG!]</span> <span class="yarn-meta">#line:0b1109f </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     I like watching it in wind.]</span> <span class="yarn-meta">#line:095bf3c </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Sono un LEONE in AFRICA.</span> <span class="yarn-meta">#line:07f2e15 </span>
+    <span class="yarn-cmd">&lt;&lt;card  animal_lion zoom&gt;&gt;</span>
+<span class="yarn-line">    Vivo in un PRIDE.</span> <span class="yarn-meta">#line:042266c </span>
+<span class="yarn-line">    Guarda questo piccolo CUB!</span> <span class="yarn-meta">#line:0124e1c </span>
+    <span class="yarn-cmd">&lt;&lt;card  animal_lion_cub zoom&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     I grow up small, then medium, then old...]</span> <span class="yarn-meta">#line:0774b92 </span>
+    <span class="yarn-cmd">&lt;&lt;activity order_lion_settings lion_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -348,6 +405,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;inventory animal_lion add&gt;&gt;</span>
 <span class="yarn-line">Devi trovare la BANDIERA!</span> <span class="yarn-meta">#line:05da6d7 </span>
 <span class="yarn-line">Mi piace guardarlo nel vento.</span> <span class="yarn-meta">#line:01b3593 </span>
+<span class="yarn-cmd">&lt;&lt;set $lion_completed = true&gt;&gt;</span>
 
 </code>
 </pre>
@@ -398,11 +456,16 @@ hide:
 <span class="yarn-header-dim">image: monkey_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sono una SCIMMIA. Mi arrampico sugli ALBERI.</span> <span class="yarn-meta">#line:0867233 </span>
-<span class="yarn-cmd">&lt;&lt;card animal_chimpanzee zoom&gt;&gt;</span>
-<span class="yarn-line">Siamo vicini agli UMANI!</span> <span class="yarn-meta">#line:0eaefd6 </span>
-<span class="yarn-line">Dove ho preso questa FRUTTA?</span> <span class="yarn-meta">#line:079451b </span>
-<span class="yarn-cmd">&lt;&lt;activity match_monkey_settings monkey_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $monkey_completed&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     I did not take the FLAG.]</span> <span class="yarn-meta">#line:092a68e </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     It would be fun to climb that pole.]</span> <span class="yarn-meta">#line:097810d </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Sono una SCIMMIA. Mi arrampico sugli ALBERI.</span> <span class="yarn-meta">#line:0867233 </span>
+    <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee zoom&gt;&gt;</span>
+<span class="yarn-line">    Siamo vicini agli UMANI!</span> <span class="yarn-meta">#line:0eaefd6 </span>
+<span class="yarn-line">    Dove ho preso questa FRUTTA?</span> <span class="yarn-meta">#line:079451b </span>
+    <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings monkey_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -421,7 +484,8 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_monkey add&gt;&gt;</span>
 <span class="yarn-line">Non ho preso la BANDIERA.</span> <span class="yarn-meta">#line:0c53945 </span>
-<span class="yarn-line">Sarebbe divertente arrampicarsi su quel palo.</span> <span class="yarn-meta">#line:0a43c85 </span>
+<span class="yarn-line">Sarebbe divertente arrampicarsi su quel palo.</span> <span class="yarn-meta">#line:0a43c85</span>
+<span class="yarn-cmd">&lt;&lt;set $monkey_completed = true&gt;&gt;</span> 
 
 </code>
 </pre>
@@ -473,11 +537,16 @@ hide:
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sono un PINGUINO, uno strano UCCELLO.</span> <span class="yarn-meta">#line:08c70e8 </span>
-<span class="yarn-cmd">&lt;&lt;card animal_penguin zoom&gt;&gt;</span>
-<span class="yarn-line">Non so volare, ma nuoto bene!</span> <span class="yarn-meta">#line:0540c5a </span>
-<span class="yarn-line">Riesci a trovare il percorso in ICE?</span> <span class="yarn-meta">#line:0a3420c </span>
-<span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings penguin_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $penguin_completed&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     No, I did not take the FLAG.]</span> <span class="yarn-meta">#line:0b71fae </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     I can't fly, remember?]</span> <span class="yarn-meta">#line:03e6fc7 </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Sono un PINGUINO, uno strano UCCELLO.</span> <span class="yarn-meta">#line:08c70e8 </span>
+    <span class="yarn-cmd">&lt;&lt;card animal_penguin zoom&gt;&gt;</span>
+<span class="yarn-line">    Non so volare, ma nuoto bene!</span> <span class="yarn-meta">#line:0540c5a </span>
+<span class="yarn-line">    Riesci a trovare il percorso in ICE?</span> <span class="yarn-meta">#line:0a3420c </span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings penguin_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -496,6 +565,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;inventory animal_penguin add&gt;&gt;</span>
 <span class="yarn-line">No, non ho preso la BANDIERA.</span> <span class="yarn-meta">#line:078190f </span>
 <span class="yarn-line">Non so volare, ricordi?</span> <span class="yarn-meta">#line:08568f5 </span>
+<span class="yarn-cmd">&lt;&lt;set $penguin_completed = true&gt;&gt;</span>
 
 </code>
 </pre>
@@ -637,6 +707,7 @@ hide:
 <span class="yarn-header-dim">image: flag_on_iglica</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La FLAG è casa.</span> <span class="yarn-meta">#line:0d91701 </span>
+<span class="yarn-cmd">&lt;&lt;card wroclaw_flag&gt;&gt;</span>
 <span class="yarn-line">Grazie, aiutante.</span> <span class="yarn-meta">#line:08c71db </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 

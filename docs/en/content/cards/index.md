@@ -13,7 +13,7 @@ Total found: **364**
 
 ## International
 
-### <a id="alps"></a>Alps
+### Alps {#alps}
 ![preview alps](../../../assets/img/content/cards/alps.jpg){ loading=lazy }
 
 A tall mountain range in Europe.
@@ -27,7 +27,7 @@ A tall mountain range in Europe.
 
 ---
 
-### <a id="backpack"></a>Backpack
+### Backpack {#backpack}
 ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
 
 A bag you carry on your back.
@@ -41,7 +41,7 @@ A bag you carry on your back.
 
 ---
 
-### <a id="person_baker"></a>Baker
+### Baker {#person_baker}
 ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
 
 A person who makes bread, cakes, and pastries.
@@ -55,7 +55,7 @@ A person who makes bread, cakes, and pastries.
 
 ---
 
-### <a id="ball"></a>Ball
+### Ball {#ball}
 ![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
 
 A round object used in many games.
@@ -68,7 +68,7 @@ A round object used in many games.
 
 ---
 
-### <a id="baltic_sea"></a>Baltic Sea
+### Baltic Sea {#baltic_sea}
 ![preview baltic_sea](../../../assets/img/content/cards/baltic_sea.jpg){ loading=lazy }
 
 A big sea in northern Europe where Poland, Germany, and other countries meet. It has beautiful beaches and is famous for amber treasures!
@@ -83,7 +83,7 @@ A big sea in northern Europe where Poland, Germany, and other countries meet. It
 
 ---
 
-### <a id="beekeeper"></a>Beekeeper
+### Beekeeper {#beekeeper}
 ![preview beekeeper](../../../assets/img/content/cards/beekeeper.jpg){ loading=lazy }
 
 A person who cares for bees and collects honey.
@@ -96,7 +96,7 @@ A person who cares for bees and collects honey.
 
 ---
 
-### <a id="country_belarus"></a>Belarus
+### Belarus {#country_belarus}
 ![preview country_belarus](../../../assets/img/content/cards/country_belarus.jpg){ loading=lazy }
 
 A country in Europe. Capital is Minsk.
@@ -109,7 +109,7 @@ A country in Europe. Capital is Minsk.
 
 ---
 
-### <a id="country_belgium"></a>Belgium
+### Belgium {#country_belgium}
 ![preview country_belgium](../../../assets/img/content/cards/country_belgium.jpg){ loading=lazy }
 
 A country in Europe. Capital is Brussels.
@@ -122,7 +122,7 @@ derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki
 
 ---
 
-### <a id="capital_bern"></a>Bern
+### Bern {#capital_bern}
 ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ loading=lazy }
 
 The capital city of Switzerland.
@@ -134,7 +134,7 @@ The capital city of Switzerland.
 
 ---
 
-### <a id="bike"></a>Bike
+### Bike {#bike}
 ![preview bike](../../../assets/img/content/cards/bike.jpg){ loading=lazy }
 
 A two‑wheeled vehicle you pedal.
@@ -147,7 +147,7 @@ A two‑wheeled vehicle you pedal.
 
 ---
 
-### <a id="boat_for_goods"></a>Boat for goods
+### Boat for goods {#boat_for_goods}
 ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ loading=lazy }
 
 A big boat that carries boxes, food, and other things from place to place.
@@ -159,7 +159,7 @@ A big boat that carries boxes, food, and other things from place to place.
 
 ---
 
-### <a id="boat_people"></a>Boat for People
+### Boat for People {#boat_people}
 ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ loading=lazy }
 
 A boat that carries people from one place to another across the water.
@@ -171,7 +171,7 @@ A boat that carries people from one place to another across the water.
 
 ---
 
-### <a id="boat_house"></a>Boat House
+### Boat House {#boat_house}
 ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ loading=lazy }
 
 A house that floats on water like a boat. People can live in boat houses!
@@ -183,7 +183,7 @@ A house that floats on water like a boat. People can live in boat houses!
 
 ---
 
-### <a id="bobsled"></a>Bobsled
+### Bobsled {#bobsled}
 ![preview bobsled](../../../assets/img/content/cards/bobsled.jpg){ loading=lazy }
 
 A fast sled used to slide down ice.
@@ -196,7 +196,7 @@ A fast sled used to slide down ice.
 
 ---
 
-### <a id="capital_bratislava"></a>Bratislava
+### Bratislava {#capital_bratislava}
 ![preview capital_bratislava](../../../assets/img/content/cards/capital_bratislava.jpg){ loading=lazy }
 
 The capital city of Slovakia.
@@ -208,7 +208,7 @@ The capital city of Slovakia.
 
 ---
 
-### <a id="food_bread"></a>BREAD
+### BREAD {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
 A yummy food made from flour and water. You can make sandwiches with bread!
@@ -222,7 +222,7 @@ A yummy food made from flour and water. You can make sandwiches with bread!
 
 ---
 
-### <a id="place_bridge_cars"></a>Bridge for cars
+### Bridge for cars {#place_bridge_cars}
 ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ loading=lazy }
 
 A road that goes over water so cars can drive across rivers and lakes.
@@ -236,7 +236,7 @@ A road that goes over water so cars can drive across rivers and lakes.
 
 ---
 
-### <a id="place_bridge_trains"></a>Bridge for trains
+### Bridge for trains {#place_bridge_trains}
 ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ loading=lazy }
 
 A special bridge built strong enough for heavy trains to cross over water.
@@ -250,7 +250,7 @@ A special bridge built strong enough for heavy trains to cross over water.
 
 ---
 
-### <a id="capital_brussels"></a>Brussels
+### Brussels {#capital_brussels}
 ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ loading=lazy }
 
 The capital city of Belgium.
@@ -262,7 +262,7 @@ The capital city of Belgium.
 
 ---
 
-### <a id="bus"></a>Bus
+### Bus {#bus}
 ![preview bus](../../../assets/img/content/cards/bus.jpg){ loading=lazy }
 
 A big vehicle that carries many people.
@@ -275,7 +275,7 @@ A big vehicle that carries many people.
 
 ---
 
-### <a id="butcher"></a>Butcher
+### Butcher {#butcher}
 ![preview butcher](../../../assets/img/content/cards/butcher.jpg){ loading=lazy }
 
 A person who sells meat.
@@ -288,7 +288,7 @@ A person who sells meat.
 
 ---
 
-### <a id="butter"></a>Butter
+### Butter {#butter}
 ![preview butter](../../../assets/img/content/cards/butter.jpg){ loading=lazy }
 
 A yellow fat made from milk, used for cooking and baking.
@@ -302,7 +302,7 @@ A yellow fat made from milk, used for cooking and baking.
 
 ---
 
-### <a id="object_canteen_menu"></a>Canteen menu
+### Canteen menu {#object_canteen_menu}
 ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ loading=lazy }
 
 A list that shows what food you can eat at school lunch. It helps you choose what to eat!
@@ -316,7 +316,7 @@ A list that shows what food you can eat at school lunch. It helps you choose wha
 
 ---
 
-### <a id="car"></a>Car
+### Car {#car}
 ![preview car](../../../assets/img/content/cards/car.jpg){ loading=lazy }
 
 A small vehicle for roads.
@@ -329,7 +329,7 @@ A small vehicle for roads.
 
 ---
 
-### <a id="place_castle_bridge"></a>Castle Bridge
+### Castle Bridge {#place_castle_bridge}
 ![preview place_castle_bridge](../../../assets/img/content/cards/place_castle_bridge.jpg){ loading=lazy }
 
 A bridge near a castle. Castles are big, strong buildings where kings and queens lived long ago.
@@ -341,7 +341,7 @@ A bridge near a castle. Castles are big, strong buildings where kings and queens
 
 ---
 
-### <a id="person_cheesemonger"></a>Cheesemonger
+### Cheesemonger {#person_cheesemonger}
 ![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ loading=lazy }
 
 A person who sells many types of cheese.
@@ -355,7 +355,7 @@ A person who sells many types of cheese.
 
 ---
 
-### <a id="animal_chimpanzee"></a>Chimpanzee
+### Chimpanzee {#animal_chimpanzee}
 ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
 
 No translation found for 'animal_chimpanzee.desc' in Cards
@@ -367,7 +367,7 @@ No translation found for 'animal_chimpanzee.desc' in Cards
 
 ---
 
-### <a id="cinnamon"></a>Cinnamon
+### Cinnamon {#cinnamon}
 ![preview cinnamon](../../../assets/img/content/cards/cinnamon.jpg){ loading=lazy }
 
 A sweet spice made from tree bark.
@@ -381,7 +381,7 @@ A sweet spice made from tree bark.
 
 ---
 
-### <a id="fr_figure_circle"></a>Circle
+### Circle {#fr_figure_circle}
 ![preview fr_figure_circle](../../../assets/img/content/cards/fr_figure_circle.jpg){ loading=lazy }
 
 A round shape with no corners. Circles look like wheels, balls, and coins!
@@ -395,7 +395,7 @@ A round shape with no corners. Circles look like wheels, balls, and coins!
 
 ---
 
-### <a id="place_classroom"></a>Classroom
+### Classroom {#place_classroom}
 ![preview place_classroom](../../../assets/img/content/cards/place_classroom.jpg){ loading=lazy }
 
 A room in school where students sit and learn new things from their teacher.
@@ -408,7 +408,7 @@ A room in school where students sit and learn new things from their teacher.
 
 ---
 
-### <a id="climbing"></a>Climbing
+### Climbing {#climbing}
 ![preview climbing](../../../assets/img/content/cards/climbing.jpg){ loading=lazy }
 
 Going up rocks or ice with special gear.
@@ -423,7 +423,7 @@ Derivative version: Subsidiary account (image rotated 90 degrees CCW) | [source]
 
 ---
 
-### <a id="cloves"></a>Cloves
+### Cloves {#cloves}
 ![preview cloves](../../../assets/img/content/cards/cloves.jpg){ loading=lazy }
 
 A strong spice used to add flavor to food.
@@ -436,7 +436,7 @@ A strong spice used to add flavor to food.
 
 ---
 
-### <a id="coat"></a>Coat
+### Coat {#coat}
 ![preview coat](../../../assets/img/content/cards/coat.jpg){ loading=lazy }
 
 A warm jacket for cold weather.
@@ -449,7 +449,7 @@ A warm jacket for cold weather.
 
 ---
 
-### <a id="coins"></a>Coins
+### Coins {#coins}
 ![preview coins](../../../assets/img/content/cards/coins.jpg){ loading=lazy }
 
 Small round money made of metal.
@@ -462,7 +462,7 @@ Small round money made of metal.
 
 ---
 
-### <a id="math_compass"></a>Compass
+### Compass {#math_compass}
 ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
 
 A tool that helps you draw perfect circles. It has two legs like scissors.
@@ -476,7 +476,7 @@ A tool that helps you draw perfect circles. It has two legs like scissors.
 
 ---
 
-### <a id="constitution_of_3_may"></a>Constitution of 3 May
+### Constitution of 3 May {#constitution_of_3_may}
 ![preview constitution_of_3_may](../../../assets/img/content/cards/constitution_of_3_may.jpg){ loading=lazy }
 
 A historic Polish constitution celebrated on May 3.
@@ -489,7 +489,7 @@ A historic Polish constitution celebrated on May 3.
 
 ---
 
-### <a id="cook"></a>Cook
+### Cook {#cook}
 ![preview cook](../../../assets/img/content/cards/cook.jpg){ loading=lazy }
 
 A person who prepares food.
@@ -502,7 +502,7 @@ A person who prepares food.
 
 ---
 
-### <a id="food_crab"></a>Crab
+### Crab {#food_crab}
 ![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ loading=lazy }
 
 A sea animal with big claws and a hard shell. Crabs walk sideways on the beach!
@@ -516,7 +516,7 @@ A sea animal with big claws and a hard shell. Crabs walk sideways on the beach!
 
 ---
 
-### <a id="crampons"></a>Crampons
+### Crampons {#crampons}
 ![preview crampons](../../../assets/img/content/cards/crampons.jpg){ loading=lazy }
 
 Spiky metal grips you attach to boots for ice.
@@ -530,7 +530,7 @@ Spiky metal grips you attach to boots for ice.
 
 ---
 
-### <a id="country_czech_republic"></a>Czech Republic
+### Czech Republic {#country_czech_republic}
 ![preview country_czech_republic](../../../assets/img/content/cards/country_czech_republic.jpg){ loading=lazy }
 
 A country in Europe. Capital is Prague.
@@ -543,7 +543,7 @@ A country in Europe. Capital is Prague.
 
 ---
 
-### <a id="dairy_vendor"></a>Dairy Vendor
+### Dairy Vendor {#dairy_vendor}
 ![preview dairy_vendor](../../../assets/img/content/cards/dairy_vendor.jpg){ loading=lazy }
 
 A person who sells milk, butter, and cheese.
@@ -556,7 +556,7 @@ A person who sells milk, butter, and cheese.
 
 ---
 
-### <a id="danger_sign"></a>DANGER Sign
+### DANGER Sign {#danger_sign}
 ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ loading=lazy }
 
 A sign that warns about danger ahead. Be extra careful.
@@ -569,7 +569,7 @@ A sign that warns about danger ahead. Be extra careful.
 
 ---
 
-### <a id="egg_vendor"></a>Egg Vendor
+### Egg Vendor {#egg_vendor}
 ![preview egg_vendor](../../../assets/img/content/cards/egg_vendor.jpg){ loading=lazy }
 
 A person who sells eggs.
@@ -582,7 +582,7 @@ A person who sells eggs.
 
 ---
 
-### <a id="eggs"></a>Eggs
+### Eggs {#eggs}
 ![preview eggs](../../../assets/img/content/cards/eggs.jpg){ loading=lazy }
 
 Food from chickens used for baking and cooking.
@@ -596,7 +596,7 @@ Food from chickens used for baking and cooking.
 
 ---
 
-### <a id="eiffel_tower_map"></a>Eiffel Tower map
+### Eiffel Tower map {#eiffel_tower_map}
 ![preview eiffel_tower_map](../../../assets/img/content/cards/eiffel_tower_map.jpg){ loading=lazy }
 
 A map that shows where the famous tall tower in Paris is located.
@@ -610,7 +610,7 @@ A map that shows where the famous tall tower in Paris is located.
 
 ---
 
-### <a id="eiffel_tower_ticket"></a>Eiffel Tower ticket
+### Eiffel Tower ticket {#eiffel_tower_ticket}
 ![preview eiffel_tower_ticket](../../../assets/img/content/cards/eiffel_tower_ticket.jpg){ loading=lazy }
 
 A special paper that lets you visit the famous tall tower in Paris, France.
@@ -624,7 +624,7 @@ A special paper that lets you visit the famous tall tower in Paris, France.
 
 ---
 
-### <a id="elementary_maths"></a>Eleementary Maths
+### Eleementary Maths {#elementary_maths}
 Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
 - Type: None
@@ -633,7 +633,7 @@ Numbers and shapes for everyday life: counting, adding and subtracting, simple f
 
 ---
 
-### <a id="animal_elephant"></a>Elephant
+### Elephant {#animal_elephant}
 ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ loading=lazy }
 
 A big animal with a trunk. Elephants are the biggest animals that walk on land. They have big ears and love to spray water!
@@ -649,7 +649,7 @@ A big animal with a trunk. Elephants are the biggest animals that walk on land. 
 
 ---
 
-### <a id="currency_euro"></a>Euro Currency
+### Euro Currency {#currency_euro}
 ![preview currency_euro](../../../assets/img/content/cards/currency_euro.jpg){ loading=lazy }
 
 Money used in many countries in Europe. You can buy toys and ice cream with euros!
@@ -662,7 +662,7 @@ Money used in many countries in Europe. You can buy toys and ice cream with euro
 
 ---
 
-### <a id="concept_europe_map"></a>Europe Map
+### Europe Map {#concept_europe_map}
 ![preview concept_europe_map](../../../assets/img/content/cards/concept_europe_map.jpg){ loading=lazy }
 
 A map showing all the countries in Europe. You can see where France, Poland, Germany, and other countries are located.
@@ -678,7 +678,7 @@ A map showing all the countries in Europe. You can see where France, Poland, Ger
 
 ---
 
-### <a id="food_fish"></a>FISH
+### FISH {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
 An animal that lives and swims in water. Fish have fins and gills to breathe underwater.
@@ -692,7 +692,7 @@ An animal that lives and swims in water. Fish have fins and gills to breathe und
 
 ---
 
-### <a id="person_fishmonger"></a>Fishmonger
+### Fishmonger {#person_fishmonger}
 ![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ loading=lazy }
 
 A person who sells fresh fish and seafood.
@@ -706,7 +706,7 @@ A person who sells fresh fish and seafood.
 
 ---
 
-### <a id="flag_belarus"></a>Flag of Belarus
+### Flag of Belarus {#flag_belarus}
 ![preview flag_belarus](../../../assets/img/content/cards/flag_belarus.jpg){ loading=lazy }
 
 The flag of Belarus has red and green horizontal stripes with beautiful traditional patterns on the side. Belarus is Poland's neighbor.
@@ -722,7 +722,7 @@ The flag of Belarus has red and green horizontal stripes with beautiful traditio
 
 ---
 
-### <a id="flag_belgium"></a>Flag of Belgium
+### Flag of Belgium {#flag_belgium}
 ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ loading=lazy }
 
 The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium is famous for chocolate and waffles!
@@ -738,7 +738,7 @@ The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium 
 
 ---
 
-### <a id="flag_czech_republic"></a>Flag of Czech Republic
+### Flag of Czech Republic {#flag_czech_republic}
 ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
 
 The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
@@ -754,7 +754,7 @@ The flag has white and red stripes with a blue triangle. The Czech Republic is f
 
 ---
 
-### <a id="flag_lithuania"></a>Flag of Lithuania
+### Flag of Lithuania {#flag_lithuania}
 ![preview flag_lithuania](../../../assets/img/content/cards/flag_lithuania.jpg){ loading=lazy }
 
 The flag has yellow, green, and red horizontal stripes. Lithuania is a Baltic country with beautiful forests and beaches.
@@ -770,7 +770,7 @@ The flag has yellow, green, and red horizontal stripes. Lithuania is a Baltic co
 
 ---
 
-### <a id="flag_luxembourg"></a>Flag of Luxembourg
+### Flag of Luxembourg {#flag_luxembourg}
 ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ loading=lazy }
 
 The flag of Luxembourg has red, white, and light blue horizontal stripes. Luxembourg is a very small country that speaks three languages!
@@ -786,7 +786,7 @@ The flag of Luxembourg has red, white, and light blue horizontal stripes. Luxemb
 
 ---
 
-### <a id="flag_russia"></a>Flag of Russia
+### Flag of Russia {#flag_russia}
 ![preview flag_russia](../../../assets/img/content/cards/flag_russia.jpg){ loading=lazy }
 
 A flag with white, blue, and red stripes. It represents the country of Russia.
@@ -800,7 +800,7 @@ A flag with white, blue, and red stripes. It represents the country of Russia.
 
 ---
 
-### <a id="flag_slovakia"></a>Flag of Slovakia
+### Flag of Slovakia {#flag_slovakia}
 ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ loading=lazy }
 
 A flag with white, blue, and red colors. It represents the country of Slovakia.
@@ -814,7 +814,7 @@ A flag with white, blue, and red colors. It represents the country of Slovakia.
 
 ---
 
-### <a id="flag_switzerland"></a>Flag of Switzerland
+### Flag of Switzerland {#flag_switzerland}
 ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ loading=lazy }
 
 The flag of Switzerland is red with a white cross in the middle. It looks like a first aid kit! Switzerland is famous for mountains and cheese.
@@ -830,7 +830,7 @@ The flag of Switzerland is red with a white cross in the middle. It looks like a
 
 ---
 
-### <a id="flag_ukraine"></a>Flag of Ukraine
+### Flag of Ukraine {#flag_ukraine}
 ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ loading=lazy }
 
 A flag with blue and yellow colors like the sky and sun. It represents the country of Ukraine.
@@ -844,7 +844,7 @@ A flag with blue and yellow colors like the sky and sun. It represents the count
 
 ---
 
-### <a id="food_flour"></a>Flour
+### Flour {#food_flour}
 ![preview food_flour](../../../assets/img/content/cards/food_flour.jpg){ loading=lazy }
 
 White powder made from wheat that is used to make bread.
@@ -857,7 +857,7 @@ White powder made from wheat that is used to make bread.
 
 ---
 
-### <a id="food_apple"></a>food_apple
+### food_apple {#food_apple}
 ![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
 
 No translation found for 'food_apple.desc' in Cards
@@ -869,7 +869,7 @@ No translation found for 'food_apple.desc' in Cards
 
 ---
 
-### <a id="food_banana"></a>food_banana
+### food_banana {#food_banana}
 ![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
 
 No translation found for 'food_banana.desc' in Cards
@@ -881,7 +881,7 @@ No translation found for 'food_banana.desc' in Cards
 
 ---
 
-### <a id="football_soccer"></a>Football (Soccer)
+### Football (Soccer) {#football_soccer}
 ![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
 
 A team game played with a ball you kick.
@@ -894,7 +894,7 @@ A team game played with a ball you kick.
 
 ---
 
-### <a id="place_bridge_people"></a>Footbridges
+### Footbridges {#place_bridge_people}
 ![preview place_bridge_people](../../../assets/img/content/cards/place_bridge_people.jpg){ loading=lazy }
 
 Small bridges for people walking. They keep you safe from traffic.
@@ -908,7 +908,7 @@ Small bridges for people walking. They keep you safe from traffic.
 
 ---
 
-### <a id="object_french_school_poster"></a>French School Poster
+### French School Poster {#object_french_school_poster}
 ![preview object_french_school_poster](../../../assets/img/content/cards/object_french_school_poster.jpg){ loading=lazy }
 
 A big picture with information that hangs on classroom walls in French schools.
@@ -921,7 +921,7 @@ A big picture with information that hangs on classroom walls in French schools.
 
 ---
 
-### <a id="french_schools"></a>French Schools
+### French Schools {#french_schools}
 In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
 
 - Type: Concept
@@ -931,7 +931,7 @@ In France, school happens in four main steps: maternelle (play-and-learn for lit
 
 ---
 
-### <a id="ginger"></a>Ginger
+### Ginger {#ginger}
 ![preview ginger](../../../assets/img/content/cards/ginger.jpg){ loading=lazy }
 
 A spicy root used in cooking and cookies.
@@ -945,7 +945,7 @@ A spicy root used in cooking and cookies.
 
 ---
 
-### <a id="gingerbread_mold"></a>Gingerbread Mold
+### Gingerbread Mold {#gingerbread_mold}
 ![preview gingerbread_mold](../../../assets/img/content/cards/gingerbread_mold.jpg){ loading=lazy }
 
 A shaped tool that makes fun cookie shapes.
@@ -959,7 +959,7 @@ A shaped tool that makes fun cookie shapes.
 
 ---
 
-### <a id="animal_giraffe"></a>Giraffe
+### Giraffe {#animal_giraffe}
 ![preview animal_giraffe](../../../assets/img/content/cards/animal_giraffe.jpg){ loading=lazy }
 
 A very tall animal with a long neck. Giraffes are taller than trees! They eat leaves that other animals cannot reach.
@@ -973,7 +973,7 @@ A very tall animal with a long neck. Giraffes are taller than trees! They eat le
 
 ---
 
-### <a id="glacier"></a>Glacier
+### Glacier {#glacier}
 ![preview glacier](../../../assets/img/content/cards/glacier.jpg){ loading=lazy }
 
 Slow-moving ice found on high mountains.
@@ -986,7 +986,7 @@ Slow-moving ice found on high mountains.
 
 ---
 
-### <a id="gloves"></a>Gloves
+### Gloves {#gloves}
 ![preview gloves](../../../assets/img/content/cards/gloves.jpg){ loading=lazy }
 
 Warm covers for your hands.
@@ -1000,7 +1000,7 @@ Warm covers for your hands.
 
 ---
 
-### <a id="goal"></a>Goal
+### Goal {#goal}
 ![preview goal](../../../assets/img/content/cards/goal.jpg){ loading=lazy }
 
 The net you try to score into.
@@ -1013,7 +1013,7 @@ The net you try to score into.
 
 ---
 
-### <a id="person_greengrocer"></a>Greengrocer
+### Greengrocer {#person_greengrocer}
 ![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ loading=lazy }
 
 A person who sells fresh fruit and vegetables.
@@ -1027,7 +1027,7 @@ A person who sells fresh fruit and vegetables.
 
 ---
 
-### <a id="person_grocer"></a>Grocer
+### Grocer {#person_grocer}
 ![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ loading=lazy }
 
 A person who sells many kinds of food and drinks.
@@ -1041,7 +1041,7 @@ A person who sells many kinds of food and drinks.
 
 ---
 
-### <a id="hat"></a>Hat
+### Hat {#hat}
 ![preview hat](../../../assets/img/content/cards/hat.jpg){ loading=lazy }
 
 A warm cap for your head.
@@ -1055,7 +1055,7 @@ A warm cap for your head.
 
 ---
 
-### <a id="hiking"></a>Hiking
+### Hiking {#hiking}
 ![preview hiking](../../../assets/img/content/cards/hiking.jpg){ loading=lazy }
 
 Walking on trails in nature.
@@ -1069,7 +1069,7 @@ Walking on trails in nature.
 
 ---
 
-### <a id="honey"></a>Honey
+### Honey {#honey}
 ![preview honey](../../../assets/img/content/cards/honey.jpg){ loading=lazy }
 
 A sweet food made by bees.
@@ -1083,7 +1083,7 @@ A sweet food made by bees.
 
 ---
 
-### <a id="ice"></a>Ice
+### Ice {#ice}
 ![preview ice](../../../assets/img/content/cards/ice.jpg){ loading=lazy }
 
 Frozen water that can be very slippery.
@@ -1097,7 +1097,7 @@ Frozen water that can be very slippery.
 
 ---
 
-### <a id="ice_arctic"></a>ice_arctic
+### ice_arctic {#ice_arctic}
 ![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
 
 No translation found for 'ice_arctic.desc' in Cards
@@ -1109,7 +1109,7 @@ No translation found for 'ice_arctic.desc' in Cards
 
 ---
 
-### <a id="ile_de_france"></a>Ile-de-France
+### Ile-de-France {#ile_de_france}
 ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ loading=lazy }
 
 A region in France where the capital city Paris is located. Many people live here!
@@ -1123,7 +1123,7 @@ A region in France where the capital city Paris is located. Many people live her
 
 ---
 
-### <a id="independence_day_poland"></a>Independence Day (Poland)
+### Independence Day (Poland) {#independence_day_poland}
 ![preview independence_day_poland](../../../assets/img/content/cards/independence_day_poland.jpg){ loading=lazy }
 
 A national holiday on 11 November.
@@ -1136,7 +1136,7 @@ A national holiday on 11 November.
 
 ---
 
-### <a id="iron_material"></a>Iron
+### Iron {#iron_material}
 ![preview iron_material](../../../assets/img/content/cards/iron_material.jpg){ loading=lazy }
 
 A hot tool used to make wrinkled clothes smooth and flat. Be careful, irons are very hot!
@@ -1149,7 +1149,7 @@ A hot tool used to make wrinkled clothes smooth and flat. Be careful, irons are 
 
 ---
 
-### <a id="king_sigismunds_column"></a>King Sigismund’s Column
+### King Sigismund’s Column {#king_sigismunds_column}
 ![preview king_sigismunds_column](../../../assets/img/content/cards/king_sigismunds_column.jpg){ loading=lazy }
 
 A tall column honoring King Sigismund in Castle Square.
@@ -1162,7 +1162,7 @@ A tall column honoring King Sigismund in Castle Square.
 
 ---
 
-### <a id="king_sigismunds_crown"></a>King Sigismund’s Crown
+### King Sigismund’s Crown {#king_sigismunds_crown}
 ![preview king_sigismunds_crown](../../../assets/img/content/cards/king_sigismunds_crown.jpg){ loading=lazy }
 
 The king’s crown that fell off and must be found.
@@ -1175,7 +1175,7 @@ The king’s crown that fell off and must be found.
 
 ---
 
-### <a id="kitchen"></a>Kitchen
+### Kitchen {#kitchen}
 ![preview kitchen](../../../assets/img/content/cards/kitchen.jpg){ loading=lazy }
 
 A room where people cook and bake.
@@ -1189,7 +1189,7 @@ Derivative work:  Radomianin | [source](https://commons.wikimedia.org/wiki/File:
 
 ---
 
-### <a id="capital_kyiv"></a>Kyiv
+### Kyiv {#capital_kyiv}
 ![preview capital_kyiv](../../../assets/img/content/cards/capital_kyiv.jpg){ loading=lazy }
 
 The capital city of Ukraine.
@@ -1201,7 +1201,7 @@ The capital city of Ukraine.
 
 ---
 
-### <a id="food_lemon"></a>Lemon
+### Lemon {#food_lemon}
 ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
 
 A yellow fruit that tastes very sour. Lemons are used to make lemonade!
@@ -1215,7 +1215,7 @@ A yellow fruit that tastes very sour. Lemons are used to make lemonade!
 
 ---
 
-### <a id="person_leonardodavinci"></a>Leonardo da Vinci
+### Leonardo da Vinci {#person_leonardodavinci}
 ![preview person_leonardodavinci](../../../assets/img/content/cards/person_leonardodavinci.jpg){ loading=lazy }
 
 An amazing artist and scientist from Italy. He painted the Mona Lisa and invented flying machines hundreds of years before airplanes!
@@ -1229,7 +1229,7 @@ An amazing artist and scientist from Italy. He painted the Mona Lisa and invente
 
 ---
 
-### <a id="fr_figure_line"></a>Line
+### Line {#fr_figure_line}
 ![preview fr_figure_line](../../../assets/img/content/cards/fr_figure_line.jpg){ loading=lazy }
 
 A straight mark that goes from one point to another. Lines can be long or short.
@@ -1243,7 +1243,7 @@ A straight mark that goes from one point to another. Lines can be long or short.
 
 ---
 
-### <a id="animal_lion"></a>Lion
+### Lion {#animal_lion}
 ![preview animal_lion](../../../assets/img/content/cards/animal_lion.jpg){ loading=lazy }
 
 A big cat called the king of animals. It lives in groups called prides.
@@ -1257,7 +1257,7 @@ A big cat called the king of animals. It lives in groups called prides.
 
 ---
 
-### <a id="animal_lion_cub"></a>Lion Cub
+### Lion Cub {#animal_lion_cub}
 ![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
 
 No translation found for 'animal_lion_cub.desc' in Cards
@@ -1269,7 +1269,7 @@ No translation found for 'animal_lion_cub.desc' in Cards
 
 ---
 
-### <a id="country_lithuania"></a>Lithuania
+### Lithuania {#country_lithuania}
 ![preview country_lithuania](../../../assets/img/content/cards/country_lithuania.jpg){ loading=lazy }
 
 A country in Europe. Capital is Vilnius.
@@ -1282,7 +1282,7 @@ A country in Europe. Capital is Vilnius.
 
 ---
 
-### <a id="country_luxembourg"></a>Luxembourg
+### Luxembourg {#country_luxembourg}
 ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ loading=lazy }
 
 A country in Europe. Capital is Luxembourg City.
@@ -1295,7 +1295,7 @@ A country in Europe. Capital is Luxembourg City.
 
 ---
 
-### <a id="capital_luxembourg_city"></a>Luxembourg City
+### Luxembourg City {#capital_luxembourg_city}
 ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ loading=lazy }
 
 The capital city of Luxembourg.
@@ -1307,7 +1307,7 @@ The capital city of Luxembourg.
 
 ---
 
-### <a id="maria_skodowskacurie"></a>Maria Skłodowska‑Curie
+### Maria Skłodowska‑Curie {#maria_skodowskacurie}
 ![preview maria_skodowskacurie](../../../assets/img/content/cards/maria_skodowskacurie.jpg){ loading=lazy }
 
 A scientist who won two Nobel Prizes.
@@ -1320,7 +1320,7 @@ A scientist who won two Nobel Prizes.
 
 ---
 
-### <a id="market_traders"></a>Market traders
+### Market traders {#market_traders}
 People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
 
 - Type: Person
@@ -1330,7 +1330,7 @@ People who sell food and goods at market stalls—like fishmongers, cheesemonger
 
 ---
 
-### <a id="marmot"></a>Marmot
+### Marmot {#marmot}
 ![preview marmot](../../../assets/img/content/cards/marmot.jpg){ loading=lazy }
 
 A furry mountain animal that whistles.
@@ -1343,7 +1343,7 @@ A furry mountain animal that whistles.
 
 ---
 
-### <a id="mazurek_dabrowskiego"></a>Mazurek Dąbrowskiego
+### Mazurek Dąbrowskiego {#mazurek_dabrowskiego}
 ![preview mazurek_dabrowskiego](../../../assets/img/content/cards/mazurek_dabrowskiego.jpg){ loading=lazy }
 
 Poland’s national anthem.
@@ -1356,7 +1356,7 @@ Poland’s national anthem.
 
 ---
 
-### <a id="medieval_market"></a>Medieval Market
+### Medieval Market {#medieval_market}
 ![preview medieval_market](../../../assets/img/content/cards/medieval_market.jpg){ loading=lazy }
 
 An old-style market where people buy and sell goods.
@@ -1369,7 +1369,7 @@ An old-style market where people buy and sell goods.
 
 ---
 
-### <a id="mermaids_sword"></a>Mermaid’s Sword
+### Mermaid’s Sword {#mermaids_sword}
 ![preview mermaids_sword](../../../assets/img/content/cards/mermaids_sword.jpg){ loading=lazy }
 
 The mermaid’s sword that must be returned.
@@ -1382,7 +1382,7 @@ The mermaid’s sword that must be returned.
 
 ---
 
-### <a id="food_milk"></a>Milk
+### Milk {#food_milk}
 ![preview food_milk](../../../assets/img/content/cards/food_milk.jpg){ loading=lazy }
 
 A white drink that comes from cows. Milk helps your bones and teeth grow strong!
@@ -1396,7 +1396,7 @@ A white drink that comes from cows. Milk helps your bones and teeth grow strong!
 
 ---
 
-### <a id="capital_minsk"></a>Minsk
+### Minsk {#capital_minsk}
 ![preview capital_minsk](../../../assets/img/content/cards/capital_minsk.jpg){ loading=lazy }
 
 The capital city of Belarus.
@@ -1408,7 +1408,7 @@ The capital city of Belarus.
 
 ---
 
-### <a id="animal_monkey"></a>Monkey
+### Monkey {#animal_monkey}
 ![preview animal_monkey](../../../assets/img/content/cards/animal_monkey.jpg){ loading=lazy }
 
 A smart animal that can climb and play. Some monkeys live in big families.
@@ -1422,7 +1422,7 @@ A smart animal that can climb and play. Some monkeys live in big families.
 
 ---
 
-### <a id="place_mont_blanc"></a>Mont Blanc
+### Mont Blanc {#place_mont_blanc}
 ![preview place_mont_blanc](../../../assets/img/content/cards/place_mont_blanc.jpg){ loading=lazy }
 
 The highest mountain in Western Europe. Covered in snow all year.
@@ -1435,7 +1435,7 @@ The highest mountain in Western Europe. Covered in snow all year.
 
 ---
 
-### <a id="capital_moscow"></a>Moscow
+### Moscow {#capital_moscow}
 ![preview capital_moscow](../../../assets/img/content/cards/capital_moscow.jpg){ loading=lazy }
 
 The capital city of Russia.
@@ -1447,7 +1447,7 @@ The capital city of Russia.
 
 ---
 
-### <a id="mountain"></a>Mountain
+### Mountain {#mountain}
 ![preview mountain](../../../assets/img/content/cards/mountain.jpg){ loading=lazy }
 
 The pillars of earth
@@ -1461,7 +1461,7 @@ The pillars of earth
 
 ---
 
-### <a id="mountain_guide"></a>Mountain Guide
+### Mountain Guide {#mountain_guide}
 ![preview mountain_guide](../../../assets/img/content/cards/mountain_guide.jpg){ loading=lazy }
 
 A person who helps people climb safely.
@@ -1475,7 +1475,7 @@ A person who helps people climb safely.
 
 ---
 
-### <a id="national_stadium_warsaw"></a>National Stadium (Warsaw)
+### National Stadium (Warsaw) {#national_stadium_warsaw}
 ![preview national_stadium_warsaw](../../../assets/img/content/cards/national_stadium_warsaw.jpg){ loading=lazy }
 
 A modern stadium for football games and concerts.
@@ -1488,7 +1488,7 @@ A modern stadium for football games and concerts.
 
 ---
 
-### <a id="nicolaus_copernicus_monument_warsaw"></a>Nicolaus Copernicus Monument (Warsaw)
+### Nicolaus Copernicus Monument (Warsaw) {#nicolaus_copernicus_monument_warsaw}
 ![preview nicolaus_copernicus_monument_warsaw](../../../assets/img/content/cards/nicolaus_copernicus_monument_warsaw.jpg){ loading=lazy }
 
 A monument to the astronomer Nicolaus Copernicus.
@@ -1501,7 +1501,7 @@ A monument to the astronomer Nicolaus Copernicus.
 
 ---
 
-### <a id="food_olive_oil"></a>Olive oil
+### Olive oil {#food_olive_oil}
 ![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ loading=lazy }
 
 A special oil made from olives. People use it for cooking tasty food.
@@ -1515,7 +1515,7 @@ A special oil made from olives. People use it for cooking tasty food.
 
 ---
 
-### <a id="food_orange"></a>Orange
+### Orange {#food_orange}
 ![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ loading=lazy }
 
 A round, orange fruit that tastes sweet and juicy. Oranges have lots of vitamin C!
@@ -1529,7 +1529,7 @@ A round, orange fruit that tastes sweet and juicy. Oranges have lots of vitamin 
 
 ---
 
-### <a id="palace_of_culture_and_science"></a>Palace of Culture and Science
+### Palace of Culture and Science {#palace_of_culture_and_science}
 ![preview palace_of_culture_and_science](../../../assets/img/content/cards/palace_of_culture_and_science.jpg){ loading=lazy }
 
 A tall building for museums, theaters, and learning.
@@ -1542,7 +1542,7 @@ A tall building for museums, theaters, and learning.
 
 ---
 
-### <a id="capital_paris"></a>Paris
+### Paris {#capital_paris}
 ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ loading=lazy }
 
 The capital city of France. Paris has a famous tall tower called the Eiffel Tower!
@@ -1550,13 +1550,13 @@ The capital city of France. Paris has a famous tall tower called the Eiffel Towe
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
-### <a id="animal_penguin"></a>Penguin
+### Penguin {#animal_penguin}
 ![preview animal_penguin](../../../assets/img/content/cards/animal_penguin.jpg){ loading=lazy }
 
 A bird that cannot fly but swims very well. It lives in cold places.
@@ -1570,7 +1570,7 @@ A bird that cannot fly but swims very well. It lives in cold places.
 
 ---
 
-### <a id="food_pepper_salt"></a>Pepper Salt
+### Pepper Salt {#food_pepper_salt}
 ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ loading=lazy }
 
 Spices that make food taste better. Salt is white and pepper is black with tiny pieces.
@@ -1584,7 +1584,7 @@ Spices that make food taste better. Salt is white and pepper is black with tiny 
 
 ---
 
-### <a id="plant_apple"></a>plant_apple
+### plant_apple {#plant_apple}
 ![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
 
 No translation found for 'plant_apple.desc' in Cards
@@ -1596,7 +1596,7 @@ No translation found for 'plant_apple.desc' in Cards
 
 ---
 
-### <a id="plant_banana"></a>plant_banana
+### plant_banana {#plant_banana}
 ![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
 
 No translation found for 'plant_banana.desc' in Cards
@@ -1608,7 +1608,7 @@ No translation found for 'plant_banana.desc' in Cards
 
 ---
 
-### <a id="plant_orange"></a>plant_orange
+### plant_orange {#plant_orange}
 ![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
 
 No translation found for 'plant_orange.desc' in Cards
@@ -1620,7 +1620,7 @@ No translation found for 'plant_orange.desc' in Cards
 
 ---
 
-### <a id="tree_wattle"></a>plant_wattle
+### plant_wattle {#tree_wattle}
 ![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
 
 No translation found for 'tree_wattle.desc' in Cards
@@ -1632,7 +1632,7 @@ No translation found for 'tree_wattle.desc' in Cards
 
 ---
 
-### <a id="country_poland"></a>Poland
+### Poland {#country_poland}
 ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ loading=lazy }
 
 A country in Europe. Capital is Warsaw. Poland is famous for scientists like Copernicus and delicious pierogi!
@@ -1640,12 +1640,12 @@ A country in Europe. Capital is Warsaw. Poland is famous for scientists like Cop
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [Poland country](../topics/index.md#poland), [Poland Countries](../topics/index.md#poland_countries_around)
+- Topics: [Poland country](../topics/index.md#poland-country), [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Basílica_de_Nuestra_Señora_de_Licheń,_Stary_Licheń,_Polonia,_2016-12-21,_DD_39-41_HDR.jpg)
 
 ---
 
-### <a id="polish_houses_of_parliament"></a>Polish Houses of Parliament
+### Polish Houses of Parliament {#polish_houses_of_parliament}
 ![preview polish_houses_of_parliament](../../../assets/img/content/cards/polish_houses_of_parliament.jpg){ loading=lazy }
 
 Where laws are made: the Sejm and the Senate.
@@ -1658,7 +1658,7 @@ Where laws are made: the Sejm and the Senate.
 
 ---
 
-### <a id="capital_prague"></a>Prague
+### Prague {#capital_prague}
 ![preview capital_prague](../../../assets/img/content/cards/capital_prague.jpg){ loading=lazy }
 
 The capital city of Czech Republic.
@@ -1670,7 +1670,7 @@ The capital city of Czech Republic.
 
 ---
 
-### <a id="person_president"></a>President
+### President {#person_president}
 ![preview person_president](../../../assets/img/content/cards/person_president.jpg){ loading=lazy }
 
 The leader chosen to guide the country. People vote in elections.
@@ -1682,7 +1682,7 @@ The leader chosen to guide the country. People vote in elections.
 
 ---
 
-### <a id="presidential_palace"></a>Presidential Palace
+### Presidential Palace {#presidential_palace}
 ![preview presidential_palace](../../../assets/img/content/cards/presidential_palace.jpg){ loading=lazy }
 
 The official home of the President of Poland.
@@ -1695,7 +1695,7 @@ The official home of the President of Poland.
 
 ---
 
-### <a id="boat_river"></a>River boat
+### River boat {#boat_river}
 ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ loading=lazy }
 
 A boat that travels on rivers. Rivers are like roads made of water!
@@ -1709,7 +1709,7 @@ A boat that travels on rivers. Rivers are like roads made of water!
 
 ---
 
-### <a id="robert_lewandowski"></a>Robert Lewandowski
+### Robert Lewandowski {#robert_lewandowski}
 ![preview robert_lewandowski](../../../assets/img/content/cards/robert_lewandowski.jpg){ loading=lazy }
 
 A famous Polish football player.
@@ -1722,7 +1722,7 @@ A famous Polish football player.
 
 ---
 
-### <a id="rope"></a>Rope
+### Rope {#rope}
 ![preview rope](../../../assets/img/content/cards/rope.jpg){ loading=lazy }
 
 A strong line used for safety when climbing.
@@ -1736,7 +1736,7 @@ A strong line used for safety when climbing.
 
 ---
 
-### <a id="royal_castle_warsaw"></a>Royal Castle (Warsaw)
+### Royal Castle (Warsaw) {#royal_castle_warsaw}
 ![preview royal_castle_warsaw](../../../assets/img/content/cards/royal_castle_warsaw.jpg){ loading=lazy }
 
 A historic castle of Polish kings, now a museum.
@@ -1749,7 +1749,7 @@ A historic castle of Polish kings, now a museum.
 
 ---
 
-### <a id="math_ruler"></a>Ruler
+### Ruler {#math_ruler}
 ![preview math_ruler](../../../assets/img/content/cards/math_ruler.jpg){ loading=lazy }
 
 A straight tool used to measure how long things are. Rulers have numbers and lines.
@@ -1763,7 +1763,7 @@ A straight tool used to measure how long things are. Rulers have numbers and lin
 
 ---
 
-### <a id="country_russia"></a>Russia
+### Russia {#country_russia}
 ![preview country_russia](../../../assets/img/content/cards/country_russia.jpg){ loading=lazy }
 
 A country in Europe. Capital is Moscow.
@@ -1776,7 +1776,7 @@ A country in Europe. Capital is Moscow.
 
 ---
 
-### <a id="food_salt"></a>SALT
+### SALT {#food_salt}
 ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
 
 White crystals that make food taste better. 
@@ -1789,7 +1789,7 @@ White crystals that make food taste better.
 
 ---
 
-### <a id="scarf"></a>Scarf
+### Scarf {#scarf}
 ![preview scarf](../../../assets/img/content/cards/scarf.jpg){ loading=lazy }
 
 A warm cloth you wear around your neck.
@@ -1803,7 +1803,7 @@ A warm cloth you wear around your neck.
 
 ---
 
-### <a id="school_bag"></a>School bag
+### School bag {#school_bag}
 ![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
 
 A bag that students use to carry their books, pencils, and homework to school.
@@ -1816,7 +1816,7 @@ A bag that students use to carry their books, pencils, and homework to school.
 
 ---
 
-### <a id="skiing"></a>Skiing
+### Skiing {#skiing}
 ![preview skiing](../../../assets/img/content/cards/skiing.jpg){ loading=lazy }
 
 Sliding on snow with skis.
@@ -1830,7 +1830,7 @@ Sliding on snow with skis.
 
 ---
 
-### <a id="country_slovakia"></a>Slovakia
+### Slovakia {#country_slovakia}
 ![preview country_slovakia](../../../assets/img/content/cards/country_slovakia.jpg){ loading=lazy }
 
 A country in Europe. Capital is Bratislava.
@@ -1843,7 +1843,7 @@ A country in Europe. Capital is Bratislava.
 
 ---
 
-### <a id="snow"></a>Snow
+### Snow {#snow}
 ![preview snow](../../../assets/img/content/cards/snow.jpg){ loading=lazy }
 
 Frozen water that falls in cold weather.
@@ -1857,7 +1857,7 @@ Frozen water that falls in cold weather.
 
 ---
 
-### <a id="soccer_field"></a>Soccer Field
+### Soccer Field {#soccer_field}
 ![preview soccer_field](../../../assets/img/content/cards/soccer_field.jpg){ loading=lazy }
 
 The grass field where football is played.
@@ -1870,7 +1870,7 @@ The grass field where football is played.
 
 ---
 
-### <a id="space_rocket"></a>Space Rocket
+### Space Rocket {#space_rocket}
 ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ loading=lazy }
 
 A rocket that goes into space.
@@ -1884,7 +1884,7 @@ A rocket that goes into space.
 
 ---
 
-### <a id="math_setsquare"></a>Square
+### Square {#math_setsquare}
 ![preview math_setsquare](../../../assets/img/content/cards/math_setsquare.jpg){ loading=lazy }
 
 A triangle-shaped tool used to draw straight lines and right angles in math.
@@ -1898,7 +1898,7 @@ A triangle-shaped tool used to draw straight lines and right angles in math.
 
 ---
 
-### <a id="stop_sign"></a>STOP Sign
+### STOP Sign {#stop_sign}
 ![preview stop_sign](../../../assets/img/content/cards/stop_sign.jpg){ loading=lazy }
 
 A red sign that means you must stop your vehicle.
@@ -1911,7 +1911,7 @@ A red sign that means you must stop your vehicle.
 
 ---
 
-### <a id="street_safety"></a>Street Safety
+### Street Safety {#street_safety}
 Rules that keep everyone safe on the road.
 
 - Type: Concept
@@ -1921,7 +1921,7 @@ Rules that keep everyone safe on the road.
 
 ---
 
-### <a id="summit"></a>Summit
+### Summit {#summit}
 ![preview summit](../../../assets/img/content/cards/summit.jpg){ loading=lazy }
 
 The very top of a mountain.
@@ -1935,7 +1935,7 @@ The very top of a mountain.
 
 ---
 
-### <a id="sun"></a>Sun
+### Sun {#sun}
 ![preview sun](../../../assets/img/content/cards/sun.jpg){ loading=lazy }
 
 Bright light that can reflect on the snow.
@@ -1948,7 +1948,7 @@ Bright light that can reflect on the snow.
 
 ---
 
-### <a id="sunglasses"></a>Sunglasses
+### Sunglasses {#sunglasses}
 ![preview sunglasses](../../../assets/img/content/cards/sunglasses.jpg){ loading=lazy }
 
 Glasses that protect your eyes from bright light.
@@ -1962,7 +1962,7 @@ Glasses that protect your eyes from bright light.
 
 ---
 
-### <a id="country_switzerland"></a>Switzerland
+### Switzerland {#country_switzerland}
 ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ loading=lazy }
 
 A country in Europe. Capital is Bern. Switzerland is famous for mountains and cheese.
@@ -1975,7 +1975,7 @@ A country in Europe. Capital is Bern. Switzerland is famous for mountains and ch
 
 ---
 
-### <a id="food_tomato"></a>Tomato
+### Tomato {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
 A red, round fruit that grows on plants. Tomatoes are used to make pizza sauce!
@@ -1989,7 +1989,7 @@ A red, round fruit that grows on plants. Tomatoes are used to make pizza sauce!
 
 ---
 
-### <a id="train"></a>Train
+### Train {#train}
 ![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
 
 Trains carry people and goods fast across the country.
@@ -2001,7 +2001,7 @@ Trains carry people and goods fast across the country.
 
 ---
 
-### <a id="tram"></a>Tram
+### Tram {#tram}
 ![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
 
 A city train that runs on tracks in the street.
@@ -2014,7 +2014,7 @@ A city train that runs on tracks in the street.
 
 ---
 
-### <a id="fr_figure_triangle"></a>Triangle
+### Triangle {#fr_figure_triangle}
 ![preview fr_figure_triangle](../../../assets/img/content/cards/fr_figure_triangle.jpg){ loading=lazy }
 
 A shape with three straight sides and three corners. Triangles look like pizza slices!
@@ -2028,7 +2028,7 @@ A shape with three straight sides and three corners. Triangles look like pizza s
 
 ---
 
-### <a id="country_ukraine"></a>Ukraine
+### Ukraine {#country_ukraine}
 ![preview country_ukraine](../../../assets/img/content/cards/country_ukraine.jpg){ loading=lazy }
 
 A country in Europe. Capital is Kyiv.
@@ -2040,7 +2040,7 @@ A country in Europe. Capital is Kyiv.
 
 ---
 
-### <a id="capital_vilnius"></a>Vilnius
+### Vilnius {#capital_vilnius}
 ![preview capital_vilnius](../../../assets/img/content/cards/capital_vilnius.jpg){ loading=lazy }
 
 The capital city of Lithuania.
@@ -2052,7 +2052,7 @@ The capital city of Lithuania.
 
 ---
 
-### <a id="wars_and_sawa_statue"></a>Wars and Sawa Statue
+### Wars and Sawa Statue {#wars_and_sawa_statue}
 ![preview wars_and_sawa_statue](../../../assets/img/content/cards/wars_and_sawa_statue.jpg){ loading=lazy }
 
 A statue showing the city’s legend about Wars and Sawa.
@@ -2065,7 +2065,7 @@ A statue showing the city’s legend about Wars and Sawa.
 
 ---
 
-### <a id="capital_warsaw"></a>Warsaw
+### Warsaw {#capital_warsaw}
 ![preview capital_warsaw](../../../assets/img/content/cards/capital_warsaw.jpg){ loading=lazy }
 
 The capital city of Poland.
@@ -2073,12 +2073,12 @@ The capital city of Poland.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [Poland country](../topics/index.md#poland)
+- Topics: [Poland country](../topics/index.md#poland-country)
 - Image credit: CC_BY_SA | A.Savin | [source](https://commons.wikimedia.org/wiki/File:Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg)
 
 ---
 
-### <a id="food_water"></a>Water
+### Water {#food_water}
 ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ loading=lazy }
 
 Water is essential for all life
@@ -2091,7 +2091,7 @@ Water is essential for all life
 
 ---
 
-### <a id="wind"></a>Wind
+### Wind {#wind}
 ![preview wind](../../../assets/img/content/cards/wind.jpg){ loading=lazy }
 
 Moving air that can feel strong in the mountains.
@@ -2105,7 +2105,7 @@ Moving air that can feel strong in the mountains.
 
 ---
 
-### <a id="food_yeast"></a>Yeast
+### Yeast {#food_yeast}
 ![preview food_yeast](../../../assets/img/content/cards/food_yeast.jpg){ loading=lazy }
 
 Yeast is like magic powder that makes bread soft and tasty!
@@ -2118,7 +2118,7 @@ Yeast is like magic powder that makes bread soft and tasty!
 
 ---
 
-### <a id="animal_lion_young_male"></a>Young Lion Male
+### Young Lion Male {#animal_lion_young_male}
 ![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
 
 No translation found for 'animal_lion_young_male.desc' in Cards
@@ -2130,7 +2130,7 @@ No translation found for 'animal_lion_young_male.desc' in Cards
 
 ---
 
-### <a id="zoo_animals"></a>Zoo Animals
+### Zoo Animals {#zoo_animals}
 Auto-created card for topic 'Zoo Animals'.
 
 - Type: None
@@ -2139,7 +2139,7 @@ Auto-created card for topic 'Zoo Animals'.
 
 ---
 
-### <a id="zoty_coins"></a>Złoty Coins
+### Złoty Coins {#zoty_coins}
 ![preview zoty_coins](../../../assets/img/content/cards/zoty_coins.jpg){ loading=lazy }
 
 Polish money (złoty) shown as coins.
@@ -2152,7 +2152,7 @@ Polish money (złoty) shown as coins.
 
 ## France
 
-### <a id="book_20000_leagues_under_the_sea"></a>20000 Leagues Under the Sea
+### 20000 Leagues Under the Sea {#book_20000_leagues_under_the_sea}
 ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
 A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
@@ -2167,7 +2167,7 @@ A book by Jules Verne about underwater adventures in a submarine called the Naut
 
 ---
 
-### <a id="24_hours_of_le_mans"></a>24 Hours of Le Mans
+### 24 Hours of Le Mans {#24_hours_of_le_mans}
 ![preview 24_hours_of_le_mans](../../../assets/img/content/cards/24_hours_of_le_mans.jpg){ loading=lazy }
 
 A car race that lasts 24 hours. Teams drive day and night.
@@ -2179,7 +2179,7 @@ A car race that lasts 24 hours. Teams drive day and night.
 
 ---
 
-### <a id="note_la"></a>A note
+### A note {#note_la}
 ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ loading=lazy }
 
 A musical note.
@@ -2192,7 +2192,7 @@ A musical note.
 
 ---
 
-### <a id="marseillaise_1"></a>Allons enfants
+### Allons enfants {#marseillaise_1}
 ![preview marseillaise_1](../../../assets/img/content/cards/marseillaise_1.jpg){ loading=lazy }
 
 The first words of the anthem’s first line.
@@ -2207,7 +2207,7 @@ The first words of the anthem’s first line.
 
 ---
 
-### <a id="armor"></a>Armor
+### Armor {#armor}
 ![preview armor](../../../assets/img/content/cards/armor.jpg){ loading=lazy }
 
 Protective metal clothing for a knight.
@@ -2219,7 +2219,7 @@ Protective metal clothing for a knight.
 
 ---
 
-### <a id="book_around_the_world_80_days"></a>Around the World in Eighty Days
+### Around the World in Eighty Days {#book_around_the_world_80_days}
 ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
 An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
@@ -2234,7 +2234,7 @@ An exciting book by Jules Verne about traveling around the whole world very quic
 
 ---
 
-### <a id="arrows"></a>Arrows
+### Arrows {#arrows}
 ![preview arrows](../../../assets/img/content/cards/arrows.jpg){ loading=lazy }
 
 Sharp sticks shot from a bow.
@@ -2246,7 +2246,7 @@ Sharp sticks shot from a bow.
 
 ---
 
-### <a id="note_si"></a>B note
+### B note {#note_si}
 ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
 
 A musical note.
@@ -2259,7 +2259,7 @@ A musical note.
 
 ---
 
-### <a id="ballroom"></a>Ballroom
+### Ballroom {#ballroom}
 ![preview ballroom](../../../assets/img/content/cards/ballroom.jpg){ loading=lazy }
 
 A big room for dancing and music.
@@ -2272,7 +2272,7 @@ A big room for dancing and music.
 
 ---
 
-### <a id="bicycle"></a>Bicycle
+### Bicycle {#bicycle}
 ![preview bicycle](../../../assets/img/content/cards/bicycle.jpg){ loading=lazy }
 
 A vehicle with two wheels you pedal.
@@ -2284,7 +2284,7 @@ A vehicle with two wheels you pedal.
 
 ---
 
-### <a id="boatman"></a>Boatman
+### Boatman {#boatman}
 ![preview boatman](../../../assets/img/content/cards/boatman.jpg){ loading=lazy }
 
 A person who rows the boat on the Loire.
@@ -2296,7 +2296,7 @@ A person who rows the boat on the Loire.
 
 ---
 
-### <a id="bouillabaisse"></a>Bouillabaisse
+### Bouillabaisse {#bouillabaisse}
 ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ loading=lazy }
 
 A special fish soup from Marseille in southern France. It's made with many different types of fish and has a delicious smell!
@@ -2311,7 +2311,7 @@ A special fish soup from Marseille in southern France. It's made with many diffe
 
 ---
 
-### <a id="bow"></a>Bow
+### Bow {#bow}
 ![preview bow](../../../assets/img/content/cards/bow.jpg){ loading=lazy }
 
 A weapon that shoots arrows.
@@ -2323,7 +2323,7 @@ A weapon that shoots arrows.
 
 ---
 
-### <a id="note_do"></a>C note
+### C note {#note_do}
 ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
 
 A musical note.
@@ -2336,7 +2336,7 @@ A musical note.
 
 ---
 
-### <a id="castle_chinon"></a>Castle Chinon
+### Castle Chinon {#castle_chinon}
 ![preview castle_chinon](../../../assets/img/content/cards/castle_chinon.jpg){ loading=lazy }
 
 Château de Chinon is a strong stone fortress on a hill above the river in the Loire Valley. Long ago, kings stayed here and Joan of Arc came to meet the future king of France.
@@ -2349,7 +2349,7 @@ Château de Chinon is a strong stone fortress on a hill above the river in the L
 
 ---
 
-### <a id="castle_facade_windows"></a>Castle Facade (Windows)
+### Castle Facade (Windows) {#castle_facade_windows}
 ![preview castle_facade_windows](../../../assets/img/content/cards/castle_facade_windows.jpg){ loading=lazy }
 
 A front wall with many large windows for light and views.
@@ -2361,7 +2361,7 @@ A front wall with many large windows for light and views.
 
 ---
 
-### <a id="catapult"></a>Catapult
+### Catapult {#catapult}
 ![preview catapult](../../../assets/img/content/cards/catapult.jpg){ loading=lazy }
 
 A machine that throws stones far.
@@ -2373,7 +2373,7 @@ A machine that throws stones far.
 
 ---
 
-### <a id="cathedral"></a>Cathedral
+### Cathedral {#cathedral}
 ![preview cathedral](../../../assets/img/content/cards/cathedral.jpg){ loading=lazy }
 
 A very large and important church in a city.
@@ -2386,7 +2386,7 @@ A very large and important church in a city.
 
 ---
 
-### <a id="concept_charter_of_secularism"></a>Charter of Secularism
+### Charter of Secularism {#concept_charter_of_secularism}
 ![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ loading=lazy }
 
 A set of rules for respecting everyone's beliefs. It helps people live together in peace.
@@ -2401,7 +2401,7 @@ A set of rules for respecting everyone's beliefs. It helps people live together 
 
 ---
 
-### <a id="church"></a>Church
+### Church {#church}
 ![preview church](../../../assets/img/content/cards/church.jpg){ loading=lazy }
 
 A special building where people meet to pray and sing.
@@ -2414,7 +2414,7 @@ A special building where people meet to pray and sing.
 
 ---
 
-### <a id="chateau_de_chambord"></a>Château de Chambord
+### Château de Chambord {#chateau_de_chambord}
 ![preview chateau_de_chambord](../../../assets/img/content/cards/chateau_de_chambord.jpg){ loading=lazy }
 
 A grand palace with many windows and gardens.
@@ -2426,7 +2426,7 @@ A grand palace with many windows and gardens.
 
 ---
 
-### <a id="chateau_de_chinon"></a>Château de Chinon
+### Château de Chinon {#chateau_de_chinon}
 ![preview chateau_de_chinon](../../../assets/img/content/cards/chateau_de_chinon.jpg){ loading=lazy }
 
 A strong stone fortress used for defense.
@@ -2438,7 +2438,7 @@ A strong stone fortress used for defense.
 
 ---
 
-### <a id="code_of_hammurabi"></a>Code of Hammurabi
+### Code of Hammurabi {#code_of_hammurabi}
 ![preview code_of_hammurabi](../../../assets/img/content/cards/code_of_hammurabi.jpg){ loading=lazy }
 
 A stone with very old laws carved into it.
@@ -2451,7 +2451,7 @@ A stone with very old laws carved into it.
 
 ---
 
-### <a id="education_college_fr"></a>Collège in France
+### Collège in France {#education_college_fr}
 ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
 
 Middle school in France for kids aged 11 to 15. Students learn many subjects and prepare for high school.
@@ -2467,7 +2467,7 @@ Middle school in France for kids aged 11 to 15. Students learn many subjects and
 
 ---
 
-### <a id="coronation_of_napoleon_david"></a>Coronation of Napoleon (David)
+### Coronation of Napoleon (David) {#coronation_of_napoleon_david}
 ![preview coronation_of_napoleon_david](../../../assets/img/content/cards/coronation_of_napoleon_david.jpg){ loading=lazy }
 
 A huge painting showing a French emperor’s ceremony.
@@ -2480,7 +2480,7 @@ A huge painting showing a French emperor’s ceremony.
 
 ---
 
-### <a id="concept_cursive_writing"></a>Cursive Writing
+### Cursive Writing {#concept_cursive_writing}
 ![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ loading=lazy }
 
 A special way of writing where all the letters in a word are connected. In France, children learn to write this way in school.
@@ -2496,7 +2496,7 @@ A special way of writing where all the letters in a word are connected. In Franc
 
 ---
 
-### <a id="note_re"></a>D note
+### D note {#note_re}
 ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
 
 A musical note.
@@ -2509,7 +2509,7 @@ A musical note.
 
 ---
 
-### <a id="dancing_shoes"></a>Dancing Shoes
+### Dancing Shoes {#dancing_shoes}
 ![preview dancing_shoes](../../../assets/img/content/cards/dancing_shoes.jpg){ loading=lazy }
 
 Shoes made for dancing in a ballroom.
@@ -2521,7 +2521,7 @@ Shoes made for dancing in a ballroom.
 
 ---
 
-### <a id="marseillaise_2"></a>De la patrie
+### De la patrie {#marseillaise_2}
 ![preview marseillaise_2](../../../assets/img/content/cards/marseillaise_2.jpg){ loading=lazy }
 
 Words from the anthem’s first line.
@@ -2536,7 +2536,7 @@ Words from the anthem’s first line.
 
 ---
 
-### <a id="drawbridge"></a>Drawbridge
+### Drawbridge {#drawbridge}
 ![preview drawbridge](../../../assets/img/content/cards/drawbridge.jpg){ loading=lazy }
 
 A bridge that lifts to protect a castle entrance.
@@ -2548,7 +2548,7 @@ A bridge that lifts to protect a castle entrance.
 
 ---
 
-### <a id="note_mi"></a>E note
+### E note {#note_mi}
 ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ loading=lazy }
 
 A musical note.
@@ -2561,7 +2561,7 @@ A musical note.
 
 ---
 
-### <a id="eiffel_tower"></a>Eiffel Tower
+### Eiffel Tower {#eiffel_tower}
 ![preview eiffel_tower](../../../assets/img/content/cards/eiffel_tower.jpg){ loading=lazy }
 
 A tall tower and a symbol of Paris. It's made of iron and is 300 meters talll. You can go up and see the whole city.
@@ -2576,7 +2576,7 @@ A tall tower and a symbol of Paris. It's made of iron and is 300 meters talll. Y
 
 ---
 
-### <a id="eiffel_tower_elevators"></a>Eiffel Tower Elevators
+### Eiffel Tower Elevators {#eiffel_tower_elevators}
 ![preview eiffel_tower_elevators](../../../assets/img/content/cards/eiffel_tower_elevators.jpg){ loading=lazy }
 
 Lifts that take visitors up the iron tower.
@@ -2589,7 +2589,7 @@ Lifts that take visitors up the iron tower.
 
 ---
 
-### <a id="marseillaise_4"></a>Est arrivé
+### Est arrivé {#marseillaise_4}
 ![preview marseillaise_4](../../../assets/img/content/cards/marseillaise_4.jpg){ loading=lazy }
 
 Words from the anthem’s first line.
@@ -2604,7 +2604,7 @@ Words from the anthem’s first line.
 
 ---
 
-### <a id="note_fa"></a>F note
+### F note {#note_fa}
 ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ loading=lazy }
 
 A musical note.
@@ -2617,7 +2617,7 @@ A musical note.
 
 ---
 
-### <a id="feathered_hat"></a>Feathered Hat
+### Feathered Hat {#feathered_hat}
 ![preview feathered_hat](../../../assets/img/content/cards/feathered_hat.jpg){ loading=lazy }
 
 A fine hat with a feather for style.
@@ -2629,7 +2629,7 @@ A fine hat with a feather for style.
 
 ---
 
-### <a id="book_five_weeks_in_a_balloon"></a>Five Weeks in a Balloon
+### Five Weeks in a Balloon {#book_five_weeks_in_a_balloon}
 ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
 
 A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
@@ -2643,7 +2643,7 @@ A book by Jules Verne about flying across Africa in a hot air balloon. It's full
 
 ---
 
-### <a id="flag_france"></a>Flag of France
+### Flag of France {#flag_france}
 ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ loading=lazy }
 
 The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
@@ -2653,13 +2653,13 @@ The flag of France has three vertical stripes: blue, white, and red. These color
 - Subjects: Geography, Culture
 - Year: 1794
 - Country: France
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [France country](../topics/index.md#france)
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [France country](../topics/index.md#france-country)
 - Image credit: CC0
 - Quests: [The neighbors of France (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
-### <a id="flag_monaco"></a>Flag of Monaco
+### Flag of Monaco {#flag_monaco}
 ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ loading=lazy }
 
 The flag of Monaco has red and white horizontal stripes. Monaco is tiny but famous for fancy cars and royal palaces by the sea!
@@ -2675,7 +2675,7 @@ The flag of Monaco has red and white horizontal stripes. Monaco is tiny but famo
 
 ---
 
-### <a id="flying_buttress"></a>Flying Buttress
+### Flying Buttress {#flying_buttress}
 ![preview flying_buttress](../../../assets/img/content/cards/flying_buttress.jpg){ loading=lazy }
 
 Stone arms outside that help hold up tall walls.
@@ -2688,7 +2688,7 @@ Stone arms outside that help hold up tall walls.
 
 ---
 
-### <a id="formal_gardens"></a>Formal Gardens
+### Formal Gardens {#formal_gardens}
 ![preview formal_gardens](../../../assets/img/content/cards/formal_gardens.jpg){ loading=lazy }
 
 Decorative gardens for walking and parties.
@@ -2700,7 +2700,7 @@ Decorative gardens for walking and parties.
 
 ---
 
-### <a id="country_france"></a>France
+### France {#country_france}
 ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ loading=lazy }
 
 A country in Europe. Capital is Paris.
@@ -2708,7 +2708,7 @@ A country in Europe. Capital is Paris.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: France
-- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country)
 - Image credit: CC_BY_SA | Another one of my pictures:
 
 
@@ -2723,7 +2723,7 @@ Please do not upload an updated image here without consultation with the Author.
 
 ---
 
-### <a id="food_baguette"></a>French Baguette
+### French Baguette {#food_baguette}
 ![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ loading=lazy }
 
 A long, crispy bread that is the most famous food in France. French people buy fresh baguettes every day from the bakery!
@@ -2739,7 +2739,7 @@ A long, crispy bread that is the most famous food in France. French people buy f
 
 ---
 
-### <a id="pirates"></a>French Pirates
+### French Pirates {#pirates}
 ![preview pirates](../../../assets/img/content/cards/pirates.jpg){ loading=lazy }
 
 Brave sailors who sailed the seas for the King of France. They were called corsairs and protected French ships from enemies.
@@ -2754,7 +2754,7 @@ Brave sailors who sailed the seas for the King of France. They were called corsa
 
 ---
 
-### <a id="french_revolution"></a>French Revolution
+### French Revolution {#french_revolution}
 ![preview french_revolution](../../../assets/img/content/cards/french_revolution.jpg){ loading=lazy }
 
 A time in the 1790s when France changed its government.
@@ -2767,7 +2767,7 @@ A time in the 1790s when France changed its government.
 
 ---
 
-### <a id="book_from_earth_to_moon"></a>From the Earth to the Moon
+### From the Earth to the Moon {#book_from_earth_to_moon}
 ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
 
 A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
@@ -2782,7 +2782,7 @@ A book by Jules Verne about going to the Moon in a big cannon! It was written be
 
 ---
 
-### <a id="note_sol"></a>G note
+### G note {#note_sol}
 ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
 
 A musical note.
@@ -2795,7 +2795,7 @@ A musical note.
 
 ---
 
-### <a id="gargoyle"></a>Gargoyle
+### Gargoyle {#gargoyle}
 ![preview gargoyle](../../../assets/img/content/cards/gargoyle.jpg){ loading=lazy }
 
 A funny or scary statue that also works as a rain spout.
@@ -2808,7 +2808,7 @@ A funny or scary statue that also works as a rain spout.
 
 ---
 
-### <a id="gustave_eiffel"></a>Gustave Eiffel
+### Gustave Eiffel {#gustave_eiffel}
 ![preview gustave_eiffel](../../../assets/img/content/cards/gustave_eiffel.jpg){ loading=lazy }
 
 The man who built the Eiffel Tower! He was an engineer who loved building with iron and created the most famous tower in the world.
@@ -2823,7 +2823,7 @@ The man who built the Eiffel Tower! He was an engineer who loved building with i
 
 ---
 
-### <a id="helmet"></a>Helmet
+### Helmet {#helmet}
 ![preview helmet](../../../assets/img/content/cards/helmet.jpg){ loading=lazy }
 
 A metal hat that protects the head.
@@ -2835,7 +2835,7 @@ A metal hat that protects the head.
 
 ---
 
-### <a id="helmet_street_safety"></a>Helmet (Street Safety)
+### Helmet (Street Safety) {#helmet_street_safety}
 ![preview helmet_street_safety](../../../assets/img/content/cards/helmet_street_safety.jpg){ loading=lazy }
 
 A hard hat to protect your head when riding.
@@ -2848,7 +2848,7 @@ A hard hat to protect your head when riding.
 
 ---
 
-### <a id="hot_air_balloon"></a>Hot-Air Balloon
+### Hot-Air Balloon {#hot_air_balloon}
 ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ loading=lazy }
 
 A balloon that flies using hot air. The first one flew in France.
@@ -2862,7 +2862,7 @@ A balloon that flies using hot air. The first one flew in France.
 
 ---
 
-### <a id="jean_michel_jarre"></a>Jean Michel Jarre
+### Jean Michel Jarre {#jean_michel_jarre}
 ![preview jean_michel_jarre](../../../assets/img/content/cards/jean_michel_jarre.jpg){ loading=lazy }
 
 A French musician famous for electronic music
@@ -2875,7 +2875,7 @@ A French musician famous for electronic music
 
 ---
 
-### <a id="jules_verne"></a>Jules Verne
+### Jules Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
 A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
@@ -2891,7 +2891,7 @@ A French writer who imagined amazing adventures before they were possible! He wr
 
 ---
 
-### <a id="marseillaise_music"></a>La Marseillaise
+### La Marseillaise {#marseillaise_music}
 ![preview marseillaise_music](../../../assets/img/content/cards/marseillaise_music.jpg){ loading=lazy }
 
 The French national song. People sing it at big events and sports games.
@@ -2907,7 +2907,7 @@ The French national song. People sing it at big events and sports games.
 
 ---
 
-### <a id="marseillaise_3"></a>Le jour de la gloire
+### Le jour de la gloire {#marseillaise_3}
 ![preview marseillaise_3](../../../assets/img/content/cards/marseillaise_3.jpg){ loading=lazy }
 
 Words from the anthem’s first line.
@@ -2922,7 +2922,7 @@ Words from the anthem’s first line.
 
 ---
 
-### <a id="le_mans"></a>Le Mans
+### Le Mans {#le_mans}
 ![preview le_mans](../../../assets/img/content/cards/le_mans.jpg){ loading=lazy }
 
 A city in France, famous for a 24-hour car race.
@@ -2934,7 +2934,7 @@ A city in France, famous for a 24-hour car race.
 
 ---
 
-### <a id="le_mans_racetrack_entrance"></a>Le Mans Racetrack Entrance
+### Le Mans Racetrack Entrance {#le_mans_racetrack_entrance}
 ![preview le_mans_racetrack_entrance](../../../assets/img/content/cards/le_mans_racetrack_entrance.jpg){ loading=lazy }
 
 The entrance area of the Le Mans circuit.
@@ -2946,7 +2946,7 @@ The entrance area of the Le Mans circuit.
 
 ---
 
-### <a id="le_mans_train_station"></a>Le Mans Train Station
+### Le Mans Train Station {#le_mans_train_station}
 ![preview le_mans_train_station](../../../assets/img/content/cards/le_mans_train_station.jpg){ loading=lazy }
 
 The station where you take the train home.
@@ -2958,7 +2958,7 @@ The station where you take the train home.
 
 ---
 
-### <a id="art_liberty_leading_the_people"></a>Liberty Leading the People
+### Liberty Leading the People {#art_liberty_leading_the_people}
 ![preview art_liberty_leading_the_people](../../../assets/img/content/cards/art_liberty_leading_the_people.jpg){ loading=lazy }
 
 A famous painting about freedom and courage. It shows a brave woman holding the French flag and leading people to fight for their rights.
@@ -2973,7 +2973,7 @@ A famous painting about freedom and courage. It shows a brave woman holding the 
 
 ---
 
-### <a id="loire_river"></a>Loire River
+### Loire River {#loire_river}
 ![preview loire_river](../../../assets/img/content/cards/loire_river.jpg){ loading=lazy }
 
 A long river in France with many castles along its banks.
@@ -2985,7 +2985,7 @@ A long river in France with many castles along its banks.
 
 ---
 
-### <a id="loire_valley"></a>Loire Valley
+### Loire Valley {#loire_valley}
 ![preview loire_valley](../../../assets/img/content/cards/loire_valley.jpg){ loading=lazy }
 
 A famous French region with many castles.
@@ -2997,7 +2997,7 @@ A famous French region with many castles.
 
 ---
 
-### <a id="loopholes"></a>Loopholes
+### Loopholes {#loopholes}
 ![preview loopholes](../../../assets/img/content/cards/loopholes.jpg){ loading=lazy }
 
 Narrow windows to shoot arrows out safely.
@@ -3009,7 +3009,7 @@ Narrow windows to shoot arrows out safely.
 
 ---
 
-### <a id="louvre"></a>Louvre
+### Louvre {#louvre}
 ![preview louvre](../../../assets/img/content/cards/louvre.jpg){ loading=lazy }
 
 A huge museum full of art. It’s where the Mona Lisa lives.
@@ -3024,7 +3024,7 @@ A huge museum full of art. It’s where the Mona Lisa lives.
 
 ---
 
-### <a id="louvre_pyramid"></a>Louvre Pyramid
+### Louvre Pyramid {#louvre_pyramid}
 ![preview louvre_pyramid](../../../assets/img/content/cards/louvre_pyramid.jpg){ loading=lazy }
 
 The glass pyramid that is the Louvre’s modern entrance.
@@ -3037,7 +3037,7 @@ The glass pyramid that is the Louvre’s modern entrance.
 
 ---
 
-### <a id="lute"></a>Lute
+### Lute {#lute}
 ![preview lute](../../../assets/img/content/cards/lute.jpg){ loading=lazy }
 
 A string instrument played at court.
@@ -3049,7 +3049,7 @@ A string instrument played at court.
 
 ---
 
-### <a id="education_lycee_fr"></a>Lycée in France
+### Lycée in France {#education_lycee_fr}
 ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ loading=lazy }
 
 High school in France for teenagers aged 16 to 18. Students study hard for the Baccalauréat exam to go to university.
@@ -3065,7 +3065,7 @@ High school in France for teenagers aged 16 to 18. Students study hard for the B
 
 ---
 
-### <a id="seine_map_in_paris"></a>Map of Seine in Paris
+### Map of Seine in Paris {#seine_map_in_paris}
 ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ loading=lazy }
 
 A picture that shows how the Seine River flows through the city of Paris.
@@ -3078,7 +3078,7 @@ A picture that shows how the Seine River flows through the city of Paris.
 
 ---
 
-### <a id="seine_map"></a>Map of Seine River
+### Map of Seine River {#seine_map}
 ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ loading=lazy }
 
 A picture that shows the Seine River and where it flows through the land.
@@ -3091,7 +3091,7 @@ A picture that shows the Seine River and where it flows through the land.
 
 ---
 
-### <a id="masquerade_mask"></a>Masquerade Mask
+### Masquerade Mask {#masquerade_mask}
 ![preview masquerade_mask](../../../assets/img/content/cards/masquerade_mask.jpg){ loading=lazy }
 
 A mask for parties and balls.
@@ -3103,7 +3103,7 @@ A mask for parties and balls.
 
 ---
 
-### <a id="musical_score"></a>Musical Score
+### Musical Score {#musical_score}
 ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ loading=lazy }
 
 The written notes and words for a song.
@@ -3116,7 +3116,7 @@ The written notes and words for a song.
 
 ---
 
-### <a id="notre_dame_de_paris"></a>Notre-Dame de Paris
+### Notre-Dame de Paris {#notre_dame_de_paris}
 ![preview notre_dame_de_paris](../../../assets/img/content/cards/notre_dame_de_paris.jpg){ loading=lazy }
 
 A beautiful cathedral in Paris. Its colorful glass windows tell stories.
@@ -3131,7 +3131,7 @@ A beautiful cathedral in Paris. Its colorful glass windows tell stories.
 
 ---
 
-### <a id="notre_dame_de_paris_fire"></a>Notre-Dame Fire
+### Notre-Dame Fire {#notre_dame_de_paris_fire}
 ![preview notre_dame_de_paris_fire](../../../assets/img/content/cards/notre_dame_de_paris_fire.jpg){ loading=lazy }
 
 In 2019, a big fire damaged the beautiful Notre-Dame Cathedral in Paris. Many people worked together to save this important building.
@@ -3147,7 +3147,7 @@ In 2019, a big fire damaged the beautiful Notre-Dame Cathedral in Paris. Many pe
 
 ---
 
-### <a id="oath_of_the_horatii_david"></a>Oath of the Horatii (David)
+### Oath of the Horatii (David) {#oath_of_the_horatii_david}
 ![preview oath_of_the_horatii_david](../../../assets/img/content/cards/oath_of_the_horatii_david.jpg){ loading=lazy }
 
 A painting of three brothers making a brave promise.
@@ -3160,7 +3160,7 @@ A painting of three brothers making a brave promise.
 
 ---
 
-### <a id="parapet"></a>Parapet
+### Parapet {#parapet}
 ![preview parapet](../../../assets/img/content/cards/parapet.jpg){ loading=lazy }
 
 The low wall at the edge of the ramparts.
@@ -3172,7 +3172,7 @@ The low wall at the edge of the ramparts.
 
 ---
 
-### <a id="piano"></a>Piano
+### Piano {#piano}
 ![preview piano](../../../assets/img/content/cards/piano.jpg){ loading=lazy }
 
 A keyboard instrument used to play melodies and chords.
@@ -3185,7 +3185,7 @@ A keyboard instrument used to play melodies and chords.
 
 ---
 
-### <a id="pont_alexandre_iii"></a>Pont Alexandre III
+### Pont Alexandre III {#pont_alexandre_iii}
 ![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ loading=lazy }
 
 A beautiful bridge in Paris with fancy decorations and golden statues on it.
@@ -3198,7 +3198,7 @@ A beautiful bridge in Paris with fancy decorations and golden statues on it.
 
 ---
 
-### <a id="portcullis"></a>Portcullis
+### Portcullis {#portcullis}
 ![preview portcullis](../../../assets/img/content/cards/portcullis.jpg){ loading=lazy }
 
 A heavy gate that drops to block the doorway.
@@ -3210,7 +3210,7 @@ A heavy gate that drops to block the doorway.
 
 ---
 
-### <a id="education_ecole_primaire_fr"></a>Primary School in France
+### Primary School in France {#education_ecole_primaire_fr}
 ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ loading=lazy }
 
 School for kids aged 6 to 10. You learn reading, writing, and counting.
@@ -3225,7 +3225,7 @@ School for kids aged 6 to 10. You learn reading, writing, and counting.
 
 ---
 
-### <a id="race_car"></a>Race Car
+### Race Car {#race_car}
 ![preview race_car](../../../assets/img/content/cards/race_car.jpg){ loading=lazy }
 
 A very fast car used on racetracks.
@@ -3237,7 +3237,7 @@ A very fast car used on racetracks.
 
 ---
 
-### <a id="ramparts"></a>Ramparts
+### Ramparts {#ramparts}
 ![preview ramparts](../../../assets/img/content/cards/ramparts.jpg){ loading=lazy }
 
 High walls you can walk on to guard the castle.
@@ -3249,7 +3249,7 @@ High walls you can walk on to guard the castle.
 
 ---
 
-### <a id="rose_window"></a>Rose Window
+### Rose Window {#rose_window}
 ![preview rose_window](../../../assets/img/content/cards/rose_window.jpg){ loading=lazy }
 
 A big round stained-glass window that tells stories with light.
@@ -3262,7 +3262,7 @@ A big round stained-glass window that tells stories with light.
 
 ---
 
-### <a id="royal_bedroom"></a>Royal Bedroom
+### Royal Bedroom {#royal_bedroom}
 ![preview royal_bedroom](../../../assets/img/content/cards/royal_bedroom.jpg){ loading=lazy }
 
 A fancy room with a big canopied bed.
@@ -3274,7 +3274,7 @@ A fancy room with a big canopied bed.
 
 ---
 
-### <a id="scooter"></a>Scooter
+### Scooter {#scooter}
 ![preview scooter](../../../assets/img/content/cards/scooter.jpg){ loading=lazy }
 
 A small two-wheeled scooter (trottinette).
@@ -3286,7 +3286,7 @@ A small two-wheeled scooter (trottinette).
 
 ---
 
-### <a id="seine"></a>Seine
+### Seine {#seine}
 ![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
 
 A 777-kilometre-long river in northern France
@@ -3299,7 +3299,7 @@ A 777-kilometre-long river in northern France
 
 ---
 
-### <a id="boat_eiffel_tower"></a>Seine River Boat
+### Seine River Boat {#boat_eiffel_tower}
 ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ loading=lazy }
 
 A special boat that sails on the Seine River in Paris. You can see the Eiffel Tower and other beautiful buildings from the water!
@@ -3314,7 +3314,7 @@ A special boat that sails on the Seine River in Paris. You can see the Eiffel To
 
 ---
 
-### <a id="submarine_nautilus"></a>Submarine (The Nautilus)
+### Submarine (The Nautilus) {#submarine_nautilus}
 ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ loading=lazy }
 
 A submarine from Jules Verne’s story. It could explore the deep sea.
@@ -3328,7 +3328,7 @@ A submarine from Jules Verne’s story. It could explore the deep sea.
 
 ---
 
-### <a id="sword"></a>Sword
+### Sword {#sword}
 ![preview sword](../../../assets/img/content/cards/sword.jpg){ loading=lazy }
 
 A long blade used by knights.
@@ -3340,7 +3340,7 @@ A long blade used by knights.
 
 ---
 
-### <a id="the_seated_scribe"></a>The Seated Scribe
+### The Seated Scribe {#the_seated_scribe}
 ![preview the_seated_scribe](../../../assets/img/content/cards/the_seated_scribe.jpg){ loading=lazy }
 
 An ancient Egyptian statue of a person writing.
@@ -3353,7 +3353,7 @@ An ancient Egyptian statue of a person writing.
 
 ---
 
-### <a id="traffic_lights"></a>Traffic Lights
+### Traffic Lights {#traffic_lights}
 ![preview traffic_lights](../../../assets/img/content/cards/traffic_lights.jpg){ loading=lazy }
 
 Street lights that tell you when to STOP or GO.
@@ -3366,7 +3366,7 @@ Street lights that tell you when to STOP or GO.
 
 ---
 
-### <a id="winged_victory_of_samothrace"></a>Winged Victory of Samothrace
+### Winged Victory of Samothrace {#winged_victory_of_samothrace}
 ![preview winged_victory_of_samothrace](../../../assets/img/content/cards/winged_victory_of_samothrace.jpg){ loading=lazy }
 
 A famous ancient sculpture of a goddess with wings.
@@ -3379,7 +3379,7 @@ A famous ancient sculpture of a goddess with wings.
 
 ---
 
-### <a id="worlds_fair_1889"></a>World’s Fair (1889)
+### World’s Fair (1889) {#worlds_fair_1889}
 ![preview worlds_fair_1889](../../../assets/img/content/cards/worlds_fair_1889.jpg){ loading=lazy }
 
 The big world expo when the Eiffel Tower was shown.
@@ -3392,7 +3392,7 @@ The big world expo when the Eiffel Tower was shown.
 
 ---
 
-### <a id="xylophone"></a>Xylophone
+### Xylophone {#xylophone}
 ![preview xylophone](../../../assets/img/content/cards/xylophone.jpg){ loading=lazy }
 
 An instrument with bars you hit to make notes.
@@ -3404,7 +3404,7 @@ An instrument with bars you hit to make notes.
 
 ---
 
-### <a id="zebra_crossing"></a>Zebra Crossing
+### Zebra Crossing {#zebra_crossing}
 ![preview zebra_crossing](../../../assets/img/content/cards/zebra_crossing.jpg){ loading=lazy }
 
 White stripes where people cross the street.
@@ -3417,7 +3417,7 @@ White stripes where people cross the street.
 
 ---
 
-### <a id="education_ecole_maternelle_fr"></a>École Maternelle
+### École Maternelle {#education_ecole_maternelle_fr}
 ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
 
 School for little kids aged 3 to 5. You learn by playing and exploring.
@@ -3432,7 +3432,7 @@ School for little kids aged 3 to 5. You learn by playing and exploring.
 
 ## Poland
 
-### <a id="amber"></a>Amber
+### Amber {#amber}
 ![preview amber](../../../assets/img/content/cards/amber.jpg){ loading=lazy }
 
 Shiny fossil tree resin called 'Baltic Gold'.
@@ -3446,7 +3446,7 @@ Shiny fossil tree resin called 'Baltic Gold'.
 
 ---
 
-### <a id="amber_room"></a>Amber Room
+### Amber Room {#amber_room}
 ![preview amber_room](../../../assets/img/content/cards/amber_room.jpg){ loading=lazy }
 
 A famous room made of amber with a mysterious history.
@@ -3460,7 +3460,7 @@ A famous room made of amber with a mysterious history.
 
 ---
 
-### <a id="animal_enclosure"></a>Animal Enclosure
+### Animal Enclosure {#animal_enclosure}
 ![preview animal_enclosure](../../../assets/img/content/cards/animal_enclosure.jpg){ loading=lazy }
 
 A safe space made for animals to live at the zoo.
@@ -3474,7 +3474,7 @@ A safe space made for animals to live at the zoo.
 
 ---
 
-### <a id="animal_lover_dwarf"></a>Animal Lover Dwarf
+### Animal Lover Dwarf {#animal_lover_dwarf}
 ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ loading=lazy }
 
 A dwarf statue that loves the zoo and animals.
@@ -3488,7 +3488,7 @@ A dwarf statue that loves the zoo and animals.
 
 ---
 
-### <a id="astronomy"></a>Astronomy
+### Astronomy {#astronomy}
 ![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
 
 The science of studying the Sun, Moon, stars, and planets.
@@ -3502,7 +3502,7 @@ The science of studying the Sun, Moon, stars, and planets.
 
 ---
 
-### <a id="baltic_sea_coast"></a>Baltic Sea Coast
+### Baltic Sea Coast {#baltic_sea_coast}
 ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
 
 The sandy shore along the Baltic Sea.
@@ -3516,7 +3516,7 @@ The sandy shore along the Baltic Sea.
 
 ---
 
-### <a id="barge"></a>Barge
+### Barge {#barge}
 ![preview barge](../../../assets/img/content/cards/barge.jpg){ loading=lazy }
 
 A long, flat boat that carries goods on rivers.
@@ -3529,7 +3529,7 @@ A long, flat boat that carries goods on rivers.
 
 ---
 
-### <a id="bishop_dwarf"></a>Bishop Dwarf
+### Bishop Dwarf {#bishop_dwarf}
 ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
 
 A dwarf statue who asks a church question.
@@ -3543,7 +3543,7 @@ A dwarf statue who asks a church question.
 
 ---
 
-### <a id="boat"></a>Boat
+### Boat {#boat}
 ![preview boat](../../../assets/img/content/cards/boat.jpg){ loading=lazy }
 
 A vehicle that moves on water.
@@ -3556,7 +3556,7 @@ A vehicle that moves on water.
 
 ---
 
-### <a id="bridge"></a>Bridge
+### Bridge {#bridge}
 ![preview bridge](../../../assets/img/content/cards/bridge.jpg){ loading=lazy }
 
 A structure that lets people or vehicles cross water.
@@ -3569,7 +3569,7 @@ A structure that lets people or vehicles cross water.
 
 ---
 
-### <a id="wroclaw_centennial_hall"></a>Centennial Hall 
+### Centennial Hall  {#wroclaw_centennial_hall}
 ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ loading=lazy }
 
 The Centennial Hall is a huge building that looks like a big tent with a roof. It’s very tall. Inside, you can see different shows, listen to concerts, or watch sports games.
@@ -3582,7 +3582,7 @@ The Centennial Hall is a huge building that looks like a big tent with a roof. I
 
 ---
 
-### <a id="chopin_monument"></a>Chopin Monument
+### Chopin Monument {#chopin_monument}
 ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
 
 A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It’s also the site of popular open-air piano concerts in summer. (the special tree he is sitting under is a typical polish.. Willow)
@@ -3597,7 +3597,7 @@ A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It�
 
 ---
 
-### <a id="cub"></a>Cub
+### Cub {#cub}
 ![preview cub](../../../assets/img/content/cards/cub.jpg){ loading=lazy }
 
 A baby lion.
@@ -3610,7 +3610,7 @@ A baby lion.
 
 ---
 
-### <a id="cutter"></a>Cutter
+### Cutter {#cutter}
 ![preview cutter](../../../assets/img/content/cards/cutter.jpg){ loading=lazy }
 
 A small fishing boat used at sea.
@@ -3623,7 +3623,7 @@ A small fishing boat used at sea.
 
 ---
 
-### <a id="dwarf_expert"></a>Dwarf Expert
+### Dwarf Expert {#dwarf_expert}
 ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
 
 A friendly guide who knows all about the dwarfs.
@@ -3637,7 +3637,7 @@ A friendly guide who knows all about the dwarfs.
 
 ---
 
-### <a id="earth"></a>Earth
+### Earth {#earth}
 ![preview earth](../../../assets/img/content/cards/earth.jpg){ loading=lazy }
 
 Our home planet with land, air, and water.
@@ -3651,7 +3651,7 @@ Our home planet with land, air, and water.
 
 ---
 
-### <a id="ecosystem"></a>Ecosystem
+### Ecosystem {#ecosystem}
 ![preview ecosystem](../../../assets/img/content/cards/ecosystem.jpg){ loading=lazy }
 
 Living things and their home in nature, working together.
@@ -3664,7 +3664,7 @@ Living things and their home in nature, working together.
 
 ---
 
-### <a id="eyepiece"></a>Eyepiece
+### Eyepiece {#eyepiece}
 ![preview eyepiece](../../../assets/img/content/cards/eyepiece.jpg){ loading=lazy }
 
 The small lens you look through on a telescope.
@@ -3678,7 +3678,7 @@ The small lens you look through on a telescope.
 
 ---
 
-### <a id="fisherman"></a>Fisherman
+### Fisherman {#fisherman}
 ![preview fisherman](../../../assets/img/content/cards/fisherman.jpg){ loading=lazy }
 
 A person who catches fish at sea.
@@ -3692,7 +3692,7 @@ A person who catches fish at sea.
 
 ---
 
-### <a id="fishing_net"></a>Fishing Net
+### Fishing Net {#fishing_net}
 ![preview fishing_net](../../../assets/img/content/cards/fishing_net.jpg){ loading=lazy }
 
 A net used to catch fish.
@@ -3706,7 +3706,7 @@ A net used to catch fish.
 
 ---
 
-### <a id="flag_poland"></a>Flag of Poland
+### Flag of Poland {#flag_poland}
 ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ loading=lazy }
 
 The flag of Poland has white and red horizontal stripes. Poland is famous for scientists like Copernicus and delicious pierogi!
@@ -3716,13 +3716,13 @@ The flag of Poland has white and red horizontal stripes. Poland is famous for sc
 - Subjects: Geography, Culture
 - Year: 1919
 - Country: Poland
-- Topics: [Poland country](../topics/index.md#poland)
+- Topics: [Poland country](../topics/index.md#poland-country)
 - Image credit: CC0
 - Quests: [The neighbors of Poland (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
-### <a id="footbridge"></a>Footbridge
+### Footbridge {#footbridge}
 ![preview footbridge](../../../assets/img/content/cards/footbridge.jpg){ loading=lazy }
 
 A bridge for people to walk on. No cars.
@@ -3736,7 +3736,7 @@ A bridge for people to walk on. No cars.
 
 ---
 
-### <a id="fryderyk_chopin"></a>Fryderyk Chopin
+### Fryderyk Chopin {#fryderyk_chopin}
 ![preview fryderyk_chopin](../../../assets/img/content/cards/fryderyk_chopin.jpg){ loading=lazy }
 
 A famous piano composer from Poland. He wrote beautiful music that sounds like dancing or telling stories. His music makes people feel happy or sad.
@@ -3752,7 +3752,7 @@ A famous piano composer from Poland. He wrote beautiful music that sounds like d
 
 ---
 
-### <a id="gdansk"></a>Gdańsk
+### Gdańsk {#gdansk}
 ![preview gdansk](../../../assets/img/content/cards/gdansk.jpg){ loading=lazy }
 
 A port city in Poland on the Baltic Sea.
@@ -3766,7 +3766,7 @@ A port city in Poland on the Baltic Sea.
 
 ---
 
-### <a id="gdansk_lighthouse"></a>Gdańsk Lighthouse
+### Gdańsk Lighthouse {#gdansk_lighthouse}
 ![preview gdansk_lighthouse](../../../assets/img/content/cards/gdansk_lighthouse.jpg){ loading=lazy }
 
 A historic lighthouse that helps ships find the harbor.
@@ -3780,7 +3780,7 @@ A historic lighthouse that helps ships find the harbor.
 
 ---
 
-### <a id="heliocentric_model"></a>Heliocentric Model
+### Heliocentric Model {#heliocentric_model}
 ![preview heliocentric_model](../../../assets/img/content/cards/heliocentric_model.jpg){ loading=lazy }
 
 The idea that the Sun is in the center and planets go around it.
@@ -3794,7 +3794,7 @@ The idea that the Sun is in the center and planets go around it.
 
 ---
 
-### <a id="houseboat"></a>Houseboat
+### Houseboat {#houseboat}
 ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ loading=lazy }
 
 A boat made to live on.
@@ -3808,7 +3808,7 @@ A boat made to live on.
 
 ---
 
-### <a id="iglica"></a>Iglica
+### Iglica {#iglica}
 ![preview iglica](../../../assets/img/content/cards/iglica.jpg){ loading=lazy }
 
 A tall metal sculpture next to Centennial Hall.
@@ -3821,7 +3821,7 @@ A tall metal sculpture next to Centennial Hall.
 
 ---
 
-### <a id="jupiter"></a>Jupiter
+### Jupiter {#jupiter}
 ![preview jupiter](../../../assets/img/content/cards/jupiter.jpg){ loading=lazy }
 
 The biggest planet, famous for the Great Red Spot.
@@ -3835,7 +3835,7 @@ The biggest planet, famous for the Great Red Spot.
 
 ---
 
-### <a id="kayak"></a>Kayak
+### Kayak {#kayak}
 ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ loading=lazy }
 
 A small boat you paddle.
@@ -3848,7 +3848,7 @@ A small boat you paddle.
 
 ---
 
-### <a id="keymaster_dwarf"></a>Keymaster Dwarf
+### Keymaster Dwarf {#keymaster_dwarf}
 ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
 
 A dwarf statue guarding the elevator with a big key.
@@ -3862,7 +3862,7 @@ A dwarf statue guarding the elevator with a big key.
 
 ---
 
-### <a id="person_king_sigismund"></a>King Sigismund III
+### King Sigismund III {#person_king_sigismund}
 ![preview person_king_sigismund](../../../assets/img/content/cards/person_king_sigismund.jpg){ loading=lazy }
 
 A king of Poland who built many beautiful buildings in Warsaw. His statue stands on a tall column in the city center.
@@ -3877,7 +3877,7 @@ A king of Poland who built many beautiful buildings in Warsaw. His statue stands
 
 ---
 
-### <a id="lens"></a>Lens
+### Lens {#lens}
 ![preview lens](../../../assets/img/content/cards/lens.jpg){ loading=lazy }
 
 A clear piece of glass or plastic that bends light.
@@ -3891,7 +3891,7 @@ A clear piece of glass or plastic that bends light.
 
 ---
 
-### <a id="primary_school_leonardo_da_vinci"></a>Leonardo da Vinci Primary School
+### Leonardo da Vinci Primary School {#primary_school_leonardo_da_vinci}
 ![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
 
 It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
@@ -3904,7 +3904,7 @@ It’s a friendly place where children learn, create, and explore guided by curi
 
 ---
 
-### <a id="main_town_hall"></a>Main Town Hall
+### Main Town Hall {#main_town_hall}
 ![preview main_town_hall](../../../assets/img/content/cards/main_town_hall.jpg){ loading=lazy }
 
 A tall town hall with a tower and museum.
@@ -3917,7 +3917,7 @@ A tall town hall with a tower and museum.
 
 ---
 
-### <a id="wroklaw_map"></a>Map of Wroklaw
+### Map of Wroklaw {#wroklaw_map}
 ![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
 
 A simple map of Wrocław showing the Odra River with its islands and many bridges
@@ -3930,7 +3930,7 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 
 ---
 
-### <a id="maria_curie"></a>Maria Curie
+### Maria Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
 A brilliant scientist from Poland who discovered radioactivity. She was the first woman to win a Nobel Prize and won it twice!
@@ -3945,7 +3945,7 @@ A brilliant scientist from Poland who discovered radioactivity. She was the firs
 
 ---
 
-### <a id="mars"></a>Mars
+### Mars {#mars}
 ![preview mars](../../../assets/img/content/cards/mars.jpg){ loading=lazy }
 
 The red planet with dust and big volcanoes.
@@ -3959,7 +3959,7 @@ The red planet with dust and big volcanoes.
 
 ---
 
-### <a id="mercury"></a>Mercury
+### Mercury {#mercury}
 ![preview mercury](../../../assets/img/content/cards/mercury.jpg){ loading=lazy }
 
 The closest planet to the Sun; small and very fast.
@@ -3973,7 +3973,7 @@ The closest planet to the Sun; small and very fast.
 
 ---
 
-### <a id="mermaid_of_warsaw"></a>Mermaid of Warsaw
+### Mermaid of Warsaw {#mermaid_of_warsaw}
 ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ loading=lazy }
 
 The city’s symbol is a brave mermaid with a sword and shield. You can see her statue by the river.
@@ -3987,7 +3987,7 @@ The city’s symbol is a brave mermaid with a sword and shield. You can see her 
 
 ---
 
-### <a id="motawa_river"></a>Motława River
+### Motława River {#motawa_river}
 ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ loading=lazy }
 
 The river that runs through Gdańsk to the sea.
@@ -4001,7 +4001,7 @@ The river that runs through Gdańsk to the sea.
 
 ---
 
-### <a id="navigation"></a>Navigation
+### Navigation {#navigation}
 ![preview navigation](../../../assets/img/content/cards/navigation.jpg){ loading=lazy }
 
 Finding the way at sea using lights, maps, and tools.
@@ -4015,7 +4015,7 @@ Finding the way at sea using lights, maps, and tools.
 
 ---
 
-### <a id="necklace"></a>Necklace
+### Necklace {#necklace}
 ![preview necklace](../../../assets/img/content/cards/necklace.jpg){ loading=lazy }
 
 A string of beads or shells you wear around your neck.
@@ -4029,7 +4029,7 @@ A string of beads or shells you wear around your neck.
 
 ---
 
-### <a id="neptune"></a>Neptune
+### Neptune {#neptune}
 ![preview neptune](../../../assets/img/content/cards/neptune.jpg){ loading=lazy }
 
 The sea god from old stories.
@@ -4043,7 +4043,7 @@ The sea god from old stories.
 
 ---
 
-### <a id="neptune_s_fountain"></a>Neptune's Fountain
+### Neptune's Fountain {#neptune_s_fountain}
 ![preview neptune_s_fountain](../../../assets/img/content/cards/neptune_s_fountain.jpg){ loading=lazy }
 
 A famous fountain in Gdańsk with the sea god statue.
@@ -4057,7 +4057,7 @@ A famous fountain in Gdańsk with the sea god statue.
 
 ---
 
-### <a id="nicolaus_copernicus"></a>Nicolaus Copernicus
+### Nicolaus Copernicus {#nicolaus_copernicus}
 ![preview nicolaus_copernicus](../../../assets/img/content/cards/nicolaus_copernicus.jpg){ loading=lazy }
 
 A brilliant scientist from Poland who discovered that the Earth goes around the Sun, not the other way around! This changed how we understand space.
@@ -4073,7 +4073,7 @@ A brilliant scientist from Poland who discovered that the Earth goes around the 
 
 ---
 
-### <a id="nicolaus_copernicus_house"></a>Nicolaus Copernicus’ House
+### Nicolaus Copernicus’ House {#nicolaus_copernicus_house}
 ![preview nicolaus_copernicus_house](../../../assets/img/content/cards/nicolaus_copernicus_house.jpg){ loading=lazy }
 
 It’s now a museum where you can learn about his life and scientific achievements.
@@ -4086,7 +4086,7 @@ It’s now a museum where you can learn about his life and scientific achievemen
 
 ---
 
-### <a id="place_odra_river"></a>Odra River
+### Odra River {#place_odra_river}
 ![preview place_odra_river](../../../assets/img/content/cards/place_odra_river.jpg){ loading=lazy }
 
 A big river in western Poland. It helps ships travel and trade.
@@ -4100,7 +4100,7 @@ A big river in western Poland. It helps ships travel and trade.
 
 ---
 
-### <a id="odra_river_map"></a>Odra river map
+### Odra river map {#odra_river_map}
 ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
 
 A simple map that shows the Odra River in Poland and the way it flows to the Baltic Sea
@@ -4113,7 +4113,7 @@ A simple map that shows the Odra River in Poland and the way it flows to the Bal
 
 ---
 
-### <a id="wroclaw_old_town_hall"></a>Old Town Hall (Wroclaw)
+### Old Town Hall (Wroclaw) {#wroclaw_old_town_hall}
 ![preview wroclaw_old_town_hall](../../../assets/img/content/cards/wroclaw_old_town_hall.jpg){ loading=lazy }
 
 A beautiful Gothic building in the main square. It has a famous clock.
@@ -4126,7 +4126,7 @@ A beautiful Gothic building in the main square. It has a famous clock.
 
 ---
 
-### <a id="olga_tokarczuk"></a>Olga Tokarczuk
+### Olga Tokarczuk {#olga_tokarczuk}
 ![preview olga_tokarczuk](../../../assets/img/content/cards/olga_tokarczuk.jpg){ loading=lazy }
 
 A famous Polish writer who lives in Wrocław.
@@ -4139,7 +4139,7 @@ A famous Polish writer who lives in Wrocław.
 
 ---
 
-### <a id="panorama_racawicka"></a>Panorama Racławicka
+### Panorama Racławicka {#panorama_racawicka}
 ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ loading=lazy }
 
 A giant painting all around you about a historic battle.
@@ -4152,7 +4152,7 @@ A giant painting all around you about a historic battle.
 
 ---
 
-### <a id="parrot"></a>Parrot
+### Parrot {#parrot}
 ![preview parrot](../../../assets/img/content/cards/parrot.jpg){ loading=lazy }
 
 A bright bird that can copy sounds.
@@ -4165,7 +4165,7 @@ A bright bird that can copy sounds.
 
 ---
 
-### <a id="peacock"></a>Peacock
+### Peacock {#peacock}
 ![preview peacock](../../../assets/img/content/cards/peacock.jpg){ loading=lazy }
 
 A colorful bird with a big tail of feathers.
@@ -4178,7 +4178,7 @@ A colorful bird with a big tail of feathers.
 
 ---
 
-### <a id="pierogi_recipe"></a>Pierogi Recipe
+### Pierogi Recipe {#pierogi_recipe}
 Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
 
 - Type: Object
@@ -4188,7 +4188,7 @@ Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil u
 
 ---
 
-### <a id="planetarium"></a>Planetarium
+### Planetarium {#planetarium}
 ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ loading=lazy }
 
 A place where you can see the sky and stars indoors.
@@ -4205,7 +4205,7 @@ Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://common
 
 ---
 
-### <a id="polish_dwarf"></a>Polish Dwarf (Wrocław gnomes)
+### Polish Dwarf (Wrocław gnomes) {#polish_dwarf}
 ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ loading=lazy }
 
 Small dwarf statues hide around Wrocław. Finding them is a fun city game.
@@ -4220,7 +4220,7 @@ Small dwarf statues hide around Wrocław. Finding them is a fun city game.
 
 ---
 
-### <a id="pierogi"></a>Polish Pierogi
+### Polish Pierogi {#pierogi}
 ![preview pierogi](../../../assets/img/content/cards/pierogi.jpg){ loading=lazy }
 
 Dumplings filled with things like potato, cheese, or fruit. They are a famous Polish dish.
@@ -4235,7 +4235,7 @@ Dumplings filled with things like potato, cheese, or fruit. They are a famous Po
 
 ---
 
-### <a id="port"></a>Port
+### Port {#port}
 ![preview port](../../../assets/img/content/cards/port.jpg){ loading=lazy }
 
 A place where ships load and unload.
@@ -4249,7 +4249,7 @@ A place where ships load and unload.
 
 ---
 
-### <a id="road_bridge"></a>Road Bridge
+### Road Bridge {#road_bridge}
 ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ loading=lazy }
 
 A bridge for cars and buses.
@@ -4263,7 +4263,7 @@ A bridge for cars and buses.
 
 ---
 
-### <a id="redzinski_bridge"></a>Rędziński Bridge
+### Rędziński Bridge {#redzinski_bridge}
 ![preview redzinski_bridge](../../../assets/img/content/cards/redzinski_bridge.jpg){ loading=lazy }
 
 The longest cable‑stayed bridge in Poland.
@@ -4277,7 +4277,7 @@ The longest cable‑stayed bridge in Poland.
 
 ---
 
-### <a id="saturn"></a>Saturn
+### Saturn {#saturn}
 ![preview saturn](../../../assets/img/content/cards/saturn.jpg){ loading=lazy }
 
 A giant planet with bright rings and many moons.
@@ -4291,7 +4291,7 @@ A giant planet with bright rings and many moons.
 
 ---
 
-### <a id="seagull"></a>Seagull
+### Seagull {#seagull}
 ![preview seagull](../../../assets/img/content/cards/seagull.jpg){ loading=lazy }
 
 A sea bird that lives near the coast.
@@ -4304,7 +4304,7 @@ A sea bird that lives near the coast.
 
 ---
 
-### <a id="seal"></a>Seal
+### Seal {#seal}
 ![preview seal](../../../assets/img/content/cards/seal.jpg){ loading=lazy }
 
 A wild sea animal that rests on beaches.
@@ -4317,7 +4317,7 @@ A wild sea animal that rests on beaches.
 
 ---
 
-### <a id="seashell"></a>Seashell
+### Seashell {#seashell}
 ![preview seashell](../../../assets/img/content/cards/seashell.jpg){ loading=lazy }
 
 A hard shell from a sea animal; good for crafts.
@@ -4331,7 +4331,7 @@ A hard shell from a sea animal; good for crafts.
 
 ---
 
-### <a id="ship"></a>Ship
+### Ship {#ship}
 ![preview ship](../../../assets/img/content/cards/ship.jpg){ loading=lazy }
 
 A big boat that carries people or goods.
@@ -4345,7 +4345,7 @@ A big boat that carries people or goods.
 
 ---
 
-### <a id="sign"></a>Sign
+### Sign {#sign}
 ![preview sign](../../../assets/img/content/cards/sign.jpg){ loading=lazy }
 
 A board with simple facts to help you learn.
@@ -4358,7 +4358,7 @@ A board with simple facts to help you learn.
 
 ---
 
-### <a id="sky_tower_plaza"></a>Sky Tower Plaza
+### Sky Tower Plaza {#sky_tower_plaza}
 ![preview sky_tower_plaza](../../../assets/img/content/cards/sky_tower_plaza.jpg){ loading=lazy }
 
 A modern plaza where people meet near the tower.
@@ -4371,7 +4371,7 @@ A modern plaza where people meet near the tower.
 
 ---
 
-### <a id="solar_system"></a>Solar System
+### Solar System {#solar_system}
 ![preview solar_system](../../../assets/img/content/cards/solar_system.jpg){ loading=lazy }
 
 The Sun and the eight planets that travel around it.
@@ -4385,7 +4385,7 @@ The Sun and the eight planets that travel around it.
 
 ---
 
-### <a id="telescope"></a>Telescope
+### Telescope {#telescope}
 ![preview telescope](../../../assets/img/content/cards/telescope.jpg){ loading=lazy }
 
 A tool that helps us see far‑away things in the sky.
@@ -4399,7 +4399,7 @@ A tool that helps us see far‑away things in the sky.
 
 ---
 
-### <a id="torun_town_hall"></a>Torun Town Hall
+### Torun Town Hall {#torun_town_hall}
 ![preview torun_town_hall](../../../assets/img/content/cards/torun_town_hall.jpg){ loading=lazy }
 
 A big Gothic building in Toruń next to the market square.
@@ -4412,7 +4412,7 @@ A big Gothic building in Toruń next to the market square.
 
 ---
 
-### <a id="gingerbread"></a>Torunian gingerbread
+### Torunian gingerbread {#gingerbread}
 ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ loading=lazy }
 
 a traditional Polish treat made with spices and honey, often shaped in beautiful designs.
@@ -4426,7 +4426,7 @@ a traditional Polish treat made with spices and honey, often shaped in beautiful
 
 ---
 
-### <a id="torun"></a>Toruń
+### Toruń {#torun}
 ![preview torun](../../../assets/img/content/cards/torun.jpg){ loading=lazy }
 
 A city in Poland where Nicolaus Copernicus was born.
@@ -4439,7 +4439,7 @@ A city in Poland where Nicolaus Copernicus was born.
 
 ---
 
-### <a id="town_hall"></a>Town Hall
+### Town Hall {#town_hall}
 ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ loading=lazy }
 
 The place where city leaders work and meet.
@@ -4452,7 +4452,7 @@ The place where city leaders work and meet.
 
 ---
 
-### <a id="train_bridge"></a>Train Bridge
+### Train Bridge {#train_bridge}
 ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ loading=lazy }
 
 A bridge with tracks for trains.
@@ -4466,7 +4466,7 @@ A bridge with tracks for trains.
 
 ---
 
-### <a id="tumski_bridge"></a>Tumski Bridge
+### Tumski Bridge {#tumski_bridge}
 ![preview tumski_bridge](../../../assets/img/content/cards/tumski_bridge.jpg){ loading=lazy }
 
 A famous bridge with love locks and gas lanterns.
@@ -4480,7 +4480,7 @@ A famous bridge with love locks and gas lanterns.
 
 ---
 
-### <a id="uranus"></a>Uranus
+### Uranus {#uranus}
 ![preview uranus](../../../assets/img/content/cards/uranus.jpg){ loading=lazy }
 
 A blue‑green planet that spins on its side.
@@ -4494,7 +4494,7 @@ A blue‑green planet that spins on its side.
 
 ---
 
-### <a id="venus"></a>Venus
+### Venus {#venus}
 ![preview venus](../../../assets/img/content/cards/venus.jpg){ loading=lazy }
 
 A very hot planet covered by thick clouds.
@@ -4508,7 +4508,7 @@ A very hot planet covered by thick clouds.
 
 ---
 
-### <a id="vistula_river"></a>Vistula River
+### Vistula River {#vistula_river}
 ![preview vistula_river](../../../assets/img/content/cards/vistula_river.jpg){ loading=lazy }
 
 Poland’s longest river; it flows to the Baltic Sea.
@@ -4521,7 +4521,7 @@ Poland’s longest river; it flows to the Baltic Sea.
 
 ---
 
-### <a id="place_vistula_river"></a>Vistula River (Wisła)
+### Vistula River (Wisła) {#place_vistula_river}
 ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ loading=lazy }
 
 The longest river in Poland is called Wisła or Vistula. It flows through Kraków and Warsaw.
@@ -4535,7 +4535,7 @@ The longest river in Poland is called Wisła or Vistula. It flows through Krakó
 
 ---
 
-### <a id="wars_and_sawa"></a>Wars and Sawa
+### Wars and Sawa {#wars_and_sawa}
 ![preview wars_and_sawa](../../../assets/img/content/cards/wars_and_sawa.jpg){ loading=lazy }
 
 Two legendary figures who gave Warsaw its name. Wars was a brave warrior and Sawa was a beautiful mermaid who lived in the Vistula River.
@@ -4550,7 +4550,7 @@ Two legendary figures who gave Warsaw its name. Wars was a brave warrior and Saw
 
 ---
 
-### <a id="waves"></a>Waves
+### Waves {#waves}
 ![preview waves](../../../assets/img/content/cards/waves.jpg){ loading=lazy }
 
 Moving water on the sea.
@@ -4564,7 +4564,7 @@ Moving water on the sea.
 
 ---
 
-### <a id="wroclaw_cathedral"></a>Wroclaw: Cathedral
+### Wroclaw: Cathedral {#wroclaw_cathedral}
 ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
 
 A big, important church where people pray. You can climb the tower for a view.
@@ -4577,7 +4577,7 @@ A big, important church where people pray. You can climb the tower for a view.
 
 ---
 
-### <a id="wroclaw_sky_tower"></a>Wroclaw: Sky Tower
+### Wroclaw: Sky Tower {#wroclaw_sky_tower}
 ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ loading=lazy }
 
 One of the tallest buildings in Poland. It has shops and a viewpoint.
@@ -4590,7 +4590,7 @@ One of the tallest buildings in Poland. It has shops and a viewpoint.
 
 ---
 
-### <a id="wroclaw"></a>Wrocław
+### Wrocław {#wroclaw}
 ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
 
 A city in Poland with rivers, bridges, and history.
@@ -4604,7 +4604,7 @@ A city in Poland with rivers, bridges, and history.
 
 ---
 
-### <a id="wroclaw_bridges"></a>Wrocław Bridges
+### Wrocław Bridges {#wroclaw_bridges}
 ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ loading=lazy }
 
 Many bridges cross the Odra River in Wrocław.
@@ -4618,7 +4618,7 @@ Many bridges cross the Odra River in Wrocław.
 
 ---
 
-### <a id="wroclaw_dwarf_statue"></a>Wrocław Dwarf Statue
+### Wrocław Dwarf Statue {#wroclaw_dwarf_statue}
 ![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ loading=lazy }
 
 A small city statue; dwarfs are Wrocław’s symbol.
@@ -4632,7 +4632,7 @@ A small city statue; dwarfs are Wrocław’s symbol.
 
 ---
 
-### <a id="wroclaw_dwarfs"></a>Wrocław Dwarfs
+### Wrocław Dwarfs {#wroclaw_dwarfs}
 ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ loading=lazy }
 
 Tiny statues across the city that love to play tricks.
@@ -4646,7 +4646,7 @@ Tiny statues across the city that love to play tricks.
 
 ---
 
-### <a id="wroclaw_flag"></a>Wrocław Flag
+### Wrocław Flag {#wroclaw_flag}
 ![preview wroclaw_flag](../../../assets/img/content/cards/wroclaw_flag.jpg){ loading=lazy }
 
 The city flag that must be found and returned.
@@ -4659,7 +4659,7 @@ The city flag that must be found and returned.
 
 ---
 
-### <a id="wroclaw_market_square"></a>Wrocław Market Square
+### Wrocław Market Square {#wroclaw_market_square}
 ![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ loading=lazy }
 
 The main square of the Old Town, full of life.
@@ -4672,7 +4672,7 @@ The main square of the Old Town, full of life.
 
 ---
 
-### <a id="wroclaw_multimedia_fountain"></a>Wrocław Multimedia Fountain
+### Wrocław Multimedia Fountain {#wroclaw_multimedia_fountain}
 ![preview wroclaw_multimedia_fountain](../../../assets/img/content/cards/wroclaw_multimedia_fountain.jpg){ loading=lazy }
 
 Water that dances with music and colorful lights.
@@ -4685,7 +4685,7 @@ Water that dances with music and colorful lights.
 
 ---
 
-### <a id="wroclaw_zoo"></a>Wrocław Zoo
+### Wrocław Zoo {#wroclaw_zoo}
 ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ loading=lazy }
 
 A big zoo in Wrocław with many animals to learn about.
@@ -4699,7 +4699,7 @@ A big zoo in Wrocław with many animals to learn about.
 
 ---
 
-### <a id="currency_zloty"></a>Zloty Currency
+### Zloty Currency {#currency_zloty}
 ![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ loading=lazy }
 
 The Polish currency is called the złoty. Coins and notes have Polish symbols.
@@ -4713,7 +4713,7 @@ The Polish currency is called the złoty. Coins and notes have Polish symbols.
 
 ---
 
-### <a id="zoo_director"></a>Zoo Director
+### Zoo Director {#zoo_director}
 ![preview zoo_director](../../../assets/img/content/cards/zoo_director.jpg){ loading=lazy }
 
 The person who runs the zoo and helps visitors.
@@ -4727,7 +4727,7 @@ The person who runs the zoo and helps visitors.
 
 ---
 
-### <a id="zoo_keeper"></a>Zoo Keeper
+### Zoo Keeper {#zoo_keeper}
 ![preview zoo_keeper](../../../assets/img/content/cards/zoo_keeper.jpg){ loading=lazy }
 
 A person who cares for animals at the zoo.
@@ -4741,7 +4741,7 @@ A person who cares for animals at the zoo.
 
 ---
 
-### <a id="zuraw_crane"></a>Żuraw Crane
+### Żuraw Crane {#zuraw_crane}
 ![preview zuraw_crane](../../../assets/img/content/cards/zuraw_crane.jpg){ loading=lazy }
 
 An old port crane and city gate on the river.
@@ -4754,7 +4754,8 @@ An old port crane and city gate on the river.
 
 ## Others
 
-### <a id="capital_berlin"></a>Berlin
+<a id="capital_berlin"></a>
+### Berlin
 ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ loading=lazy }
 
 The capital city of Germany.
@@ -4766,7 +4767,8 @@ The capital city of Germany.
 
 ---
 
-### <a id="flag_germany"></a>Flag of Germany
+<a id="flag_germany"></a>
+### Flag of Germany
 ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ loading=lazy }
 
 The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
@@ -4782,7 +4784,8 @@ The flag of Germany has three horizontal stripes: black, red, and yellow. German
 
 ---
 
-### <a id="country_germany"></a>Germany
+<a id="country_germany"></a>
+### Germany
 ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ loading=lazy }
 
 A country in Europe. Capital is Berlin.
@@ -4795,7 +4798,8 @@ A country in Europe. Capital is Berlin.
 
 ---
 
-### <a id="art_venus_milo"></a>Venus de Milo
+<a id="art_venus_milo"></a>
+### Venus de Milo
 ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ loading=lazy }
 
 A beautiful ancient statue of a woman made from white marble. Her arms are missing but she is still considered one of the most beautiful statues ever made.
@@ -4810,7 +4814,8 @@ A beautiful ancient statue of a woman made from white marble. Her arms are missi
 
 ---
 
-### <a id="flag_italy"></a>Flag of Italy
+<a id="flag_italy"></a>
+### Flag of Italy
 ![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ loading=lazy }
 
 The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
@@ -4826,7 +4831,8 @@ The flag of Italy has three vertical stripes: green, white, and red. The colors 
 
 ---
 
-### <a id="country_italy"></a>Italy
+<a id="country_italy"></a>
+### Italy
 ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ loading=lazy }
 
 A country in Europe. Capital is Rome.
@@ -4839,7 +4845,8 @@ A country in Europe. Capital is Rome.
 
 ---
 
-### <a id="art_monalisa"></a>Mona Lisa
+<a id="art_monalisa"></a>
+### Mona Lisa
 ![preview art_monalisa](../../../assets/img/content/cards/art_monalisa.jpg){ loading=lazy }
 
 The most famous painting in the world! A woman with a mysterious smile painted by Leonardo da Vinci. She seems to follow you with her eyes.
@@ -4856,7 +4863,8 @@ The most famous painting in the world! A woman with a mysterious smile painted b
 
 ---
 
-### <a id="capital_rome"></a>Rome
+<a id="capital_rome"></a>
+### Rome
 ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ loading=lazy }
 
 The capital city of Italy.
@@ -4868,7 +4876,8 @@ The capital city of Italy.
 
 ---
 
-### <a id="flag_andorra"></a>Flag of Andorra
+<a id="flag_andorra"></a>
+### Flag of Andorra
 ![preview flag_andorra](../../../assets/img/content/cards/flag_andorra.jpg){ loading=lazy }
 
 The flag of Andorra has blue, yellow, and red stripes with a coat of arms in the middle. Andorra is a tiny country between France and Spain.
@@ -4882,7 +4891,8 @@ The flag of Andorra has blue, yellow, and red stripes with a coat of arms in the
 
 ---
 
-### <a id="flag_spain"></a>Flag of Spain
+<a id="flag_spain"></a>
+### Flag of Spain
 ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ loading=lazy }
 
 The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
@@ -4898,7 +4908,8 @@ The flag of Spain has red and yellow horizontal stripes. The colors are like the
 
 ---
 
-### <a id="capital_madrid"></a>Madrid
+<a id="capital_madrid"></a>
+### Madrid
 ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ loading=lazy }
 
 The capital city of Spain.
@@ -4910,7 +4921,8 @@ The capital city of Spain.
 
 ---
 
-### <a id="country_spain"></a>Spain
+<a id="country_spain"></a>
+### Spain
 ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ loading=lazy }
 
 A country in Europe. Capital is Madrid. Spain invented flamenco dancing.

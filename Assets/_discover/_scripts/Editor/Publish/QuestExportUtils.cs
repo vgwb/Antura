@@ -73,9 +73,9 @@ namespace Antura.Discover.Editor
                 sb.AppendLine("## Topics");
                 foreach (var topic in q.Topics.Where(t => t != null))
                 {
-                    string tId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.name;
-                    string tName = !string.IsNullOrEmpty(topic.Name) ? topic.Name : tId;
-                    sb.AppendLine($"### [{tName}](../../topics/index.md#{tId})");
+                    string topicId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.name;
+                    string tName = !string.IsNullOrEmpty(topic.Name) ? topic.Name : topicId;
+                    sb.AppendLine($"### [{tName}](../../topics/index.md#{topicId})");
                     sb.AppendLine();
 
                     // List all cards of the topic (core + connections + discovery path) with description
@@ -85,10 +85,10 @@ namespace Antura.Discover.Editor
                         foreach (var c in allCards.Where(ca => ca != null))
                         {
                             topicCardsSet.Add(c);
-                            string cId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
-                            string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Title"), fallback: cId);
+                            string cardId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
+                            string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Title"), fallback: cardId);
                             string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Description"), fallback: string.Empty);
-                            sb.AppendLine($"  - **[{cTitle}](../../cards/index.md#{cId})**  ");
+                            sb.AppendLine($"  - **[{cTitle}](../../cards/index.md#{cardId})**  ");
                             if (!string.IsNullOrEmpty(cDesc))
                                 sb.AppendLine($"    {cDesc}  ");
                         }

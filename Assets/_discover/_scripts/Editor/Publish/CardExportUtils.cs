@@ -108,8 +108,7 @@ namespace Antura.Discover.Editor
                     string title = PublishUtils.SafeLocalized(c.Title, c.name);
                     string desc = PublishUtils.SafeLocalized(c.Description, string.Empty);
                     string cId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
-                    // Heading with embedded anchor id
-                    sb.AppendLine($"### <a id=\"{cId}\"></a>{title}");
+                    sb.AppendLine($"### {title} {{#{cId}}}");
 
                     if (c.ImageAsset != null)
                         sb.AppendLine("![preview " + cId + "](../../../assets/img/content/cards/" + cId + ".jpg){ loading=lazy }\n");
@@ -215,8 +214,9 @@ namespace Antura.Discover.Editor
                     string title = PublishUtils.SafeLocalized(c.Title, c.name);
                     string desc = PublishUtils.SafeLocalized(c.Description, string.Empty);
                     string cId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
-                    // Heading with embedded anchor id
-                    sb.AppendLine($"### <a id=\"{cId}\"></a>{title}");
+                    // Explicit anchor to preserve exact id (including underscores)
+                    sb.AppendLine($"<a id=\"{cId}\"></a>");
+                    sb.AppendLine($"### {title}");
 
                     if (c.ImageAsset != null)
                         sb.AppendLine("![preview " + cId + "](../../../assets/img/content/cards/" + cId + ".jpg){ loading=lazy }\n");

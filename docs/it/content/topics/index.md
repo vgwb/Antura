@@ -23,8 +23,7 @@ Total found: **34**
 
 ## International
 
-<a id="elementary-maths"></a>
-### Elementary Math
+### Elementary Math {#elementary-maths}
 - Description: Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.  
 - Importance: Medium  
 - Subjects: Math  
@@ -72,8 +71,7 @@ Credits:
 
 ---
 
-<a id="fisherman"></a>
-### Fisherman
+### Fisherman {#fisherman}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -111,8 +109,7 @@ Credits:
 
 ---
 
-<a id="flags_euroe"></a>
-### Flags of Europe
+### Flags of Europe {#flags_euroe}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -181,8 +178,7 @@ Credits:
 
 ---
 
-<a id="mountain_activities"></a>
-### mountain activities
+### mountain activities {#mountain_activities}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -216,8 +212,7 @@ Credits:
 
 ---
 
-<a id="mountain_tools"></a>
-### mountain tools
+### mountain tools {#mountain_tools}
 - Description: what we need to stay ssafe in the mountain  
 - Importance: Medium  
 - Target Age: Ages6to10
@@ -267,8 +262,7 @@ Credits:
 
 ---
 
-<a id="musical_notes"></a>
-### Musical Notes
+### Musical Notes {#musical_notes}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -322,8 +316,7 @@ Credits:
 
 ---
 
-<a id="solar_system"></a>
-### Solar System
+### Solar System {#solar_system}
 - Importance: High  
 - Subjects: Science  
 - Target Age: Ages6to10
@@ -393,8 +386,7 @@ Credits:
 
 ---
 
-<a id="street-safety"></a>
-### Stree safety
+### Stree safety {#street-safety}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -431,8 +423,7 @@ Credits:
 
 ---
 
-<a id="telescope"></a>
-### Telescope
+### Telescope {#telescope}
 - Importance: Medium  
 - Subjects: Science  
 - Target Age: Ages6to10
@@ -467,8 +458,7 @@ Credits:
 
 ---
 
-<a id="zoo"></a>
-### Zoo Animals
+### Zoo Animals {#zoo}
 - Importance: Medium  
 - Subjects: Animal  
 - Target Age: Ages6to10
@@ -506,8 +496,7 @@ Credits:
 
 ## France
 
-<a id="baguette"></a>
-### Baguette
+### Baguette {#baguette}
 - Description: the french bread famous all around the world!  
 - Importance: Medium  
 - Subjects: Food  
@@ -553,8 +542,7 @@ Credits:
 
 ---
 
-<a id="bouillabaisse"></a>
-### Bouillabaisse
+### Bouillabaisse {#bouillabaisse}
 - Importance: Low  
 - Target Age: Ages6to10
 - Core card:
@@ -616,8 +604,7 @@ Credits:
 
 ---
 
-<a id="france_countries_around"></a>
-### Countries around France
+### Countries around France {#france_countries_around}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -685,8 +672,7 @@ Credits:
 
 ---
 
-<a id="eiffel-tower"></a>
-### Eiffel Tower
+### Eiffel Tower {#eiffel-tower}
 - Description: What we need to know about the iconic Paris landmark  
 - Importance: Critical  
 - Subjects: History  
@@ -727,8 +713,7 @@ Credits:
 
 ---
 
-<a id="france"></a>
-### France country
+### France country {#france-country}
 - Importance: Critical  
 - Target Age: Ages6to10
 - Core card:
@@ -752,8 +737,7 @@ Credits:
 
 ---
 
-<a id="frenchschool"></a>
-### French School
+### French School {#frenchschool}
 - Importance: High  
 - Subjects: Education  
 - Target Age: Ages6to10
@@ -801,8 +785,7 @@ Credits:
 
 ---
 
-<a id="jules_verne"></a>
-### Jules Verne
+### Jules Verne {#jules_verne}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -849,8 +832,7 @@ Credits:
 
 ---
 
-<a id="louvre"></a>
-### Louvre
+### Louvre {#louvre}
 - Importance: Critical  
 - Subjects: Art  
 - Target Age: Ages6to10
@@ -890,8 +872,7 @@ Credits:
 
 ---
 
-<a id="marketers"></a>
-### market traders
+### market traders {#marketers}
 - Description: People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.  
 - Importance: Medium  
 - Target Age: Ages6to10
@@ -929,8 +910,7 @@ Credits:
 
 ---
 
-<a id="marseillaise_music"></a>
-### marseillaise music
+### marseillaise music {#marseillaise_music}
 - Importance: High  
 - Target Age: Ages6to10
 - Core card:
@@ -969,8 +949,7 @@ Credits:
 
 ---
 
-<a id="mont_blanc"></a>
-### mont blanc
+### mont blanc {#mont_blanc}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1019,8 +998,7 @@ Credits:
 
 ---
 
-<a id="notredame"></a>
-### Notre Dame
+### Notre Dame {#notredame}
 - Importance: High  
 - Subjects: Culture  
 - Target Age: Ages6to10
@@ -1050,8 +1028,7 @@ Credits:
 
 ---
 
-<a id="seine_bridges"></a>
-### Seine Bridges
+### Seine Bridges {#seine_bridges}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1080,8 +1057,7 @@ Credits:
 
 ## Poland
 
-<a id="gdansk"></a>
-### gdansk
+### gdansk {#gdansk}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1114,8 +1090,7 @@ Credits:
 
 ---
 
-<a id="gingerbread"></a>
-### Gingerbread
+### Gingerbread {#gingerbread}
 - Importance: Medium  
 - Subjects: Food  
 - Target Age: Ages6to10
@@ -1159,8 +1134,7 @@ Credits:
 
 ---
 
-<a id="neptune_fountain"></a>
-### Neptune's fountain
+### Neptune's fountain {#neptune_fountain}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1198,8 +1172,7 @@ Credits:
 
 ---
 
-<a id="odra_river"></a>
-### Odra river
+### Odra river {#odra_river}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1252,8 +1225,7 @@ Credits:
 
 ---
 
-<a id="pierogi"></a>
-### Pierogi Recipe
+### Pierogi Recipe {#pierogi}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1280,8 +1252,7 @@ Credits:
 
 ---
 
-<a id="poland_countries_around"></a>
-### Poland Countries
+### Poland Countries {#poland_countries_around}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1359,8 +1330,7 @@ Credits:
 
 ---
 
-<a id="poland"></a>
-### Poland country
+### Poland country {#poland-country}
 - Importance: Critical  
 - Target Age: Ages6to10
 - Core card:
@@ -1384,8 +1354,7 @@ Credits:
 
 ---
 
-<a id="warsaw"></a>
-### Warsaw
+### Warsaw {#warsaw}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1415,8 +1384,7 @@ Credits:
 
 ---
 
-<a id="wroclaw"></a>
-### Wroclaw
+### Wroclaw {#wroclaw}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1444,8 +1412,7 @@ Credits:
 
 ---
 
-<a id="wroclaw_dwarves"></a>
-### Wroclaw Dwarves
+### Wroclaw Dwarves {#wroclaw_dwarves}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -1494,8 +1461,7 @@ Credits:
 
 ---
 
-<a id="wroclaw_zoo"></a>
-### wroclaw zoo
+### wroclaw zoo {#wroclaw_zoo}
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:

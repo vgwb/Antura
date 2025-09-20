@@ -13,7 +13,7 @@ Total found: **364**
 
 ## International
 
-### <a id="alps"></a>Alpy
+### Alpy {#alps}
 ![preview alps](../../../assets/img/content/cards/alps.jpg){ loading=lazy }
 
 Wysokie pasmo górskie w Europie.
@@ -27,7 +27,7 @@ Wysokie pasmo górskie w Europie.
 
 ---
 
-### <a id="bus"></a>Autobus
+### Autobus {#bus}
 ![preview bus](../../../assets/img/content/cards/bus.jpg){ loading=lazy }
 
 Duży pojazd, którym można przewieźć wiele osób.
@@ -40,7 +40,7 @@ Duży pojazd, którym można przewieźć wiele osób.
 
 ---
 
-### <a id="person_greengrocer"></a>Badylarz
+### Badylarz {#person_greengrocer}
 ![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ loading=lazy }
 
 Osoba sprzedająca świeże owoce i warzywa.
@@ -54,7 +54,7 @@ Osoba sprzedająca świeże owoce i warzywa.
 
 ---
 
-### <a id="country_belgium"></a>Belgia
+### Belgia {#country_belgium}
 ![preview country_belgium](../../../assets/img/content/cards/country_belgium.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest Bruksela.
@@ -67,7 +67,7 @@ derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki
 
 ---
 
-### <a id="capital_bern"></a>Berno
+### Berno {#capital_bern}
 ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ loading=lazy }
 
 Stolica Szwajcarii.
@@ -79,7 +79,7 @@ Stolica Szwajcarii.
 
 ---
 
-### <a id="street_safety"></a>Bezpieczeństwo na ulicy
+### Bezpieczeństwo na ulicy {#street_safety}
 Zasady zapewniające bezpieczeństwo wszystkim uczestnikom ruchu drogowego.
 
 - Type: Concept
@@ -89,7 +89,7 @@ Zasady zapewniające bezpieczeństwo wszystkim uczestnikom ruchu drogowego.
 
 ---
 
-### <a id="country_belarus"></a>Białoruś
+### Białoruś {#country_belarus}
 ![preview country_belarus](../../../assets/img/content/cards/country_belarus.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest Mińsk.
@@ -102,7 +102,7 @@ Państwo w Europie. Stolicą jest Mińsk.
 
 ---
 
-### <a id="eiffel_tower_ticket"></a>Bilet na Wieżę Eiffla
+### Bilet na Wieżę Eiffla {#eiffel_tower_ticket}
 ![preview eiffel_tower_ticket](../../../assets/img/content/cards/eiffel_tower_ticket.jpg){ loading=lazy }
 
 Specjalny dokument umożliwiający odwiedzenie słynnej wysokiej wieży w Paryżu, we Francji.
@@ -116,7 +116,7 @@ Specjalny dokument umożliwiający odwiedzenie słynnej wysokiej wieży w Paryż
 
 ---
 
-### <a id="bobsled"></a>Bobsleje
+### Bobsleje {#bobsled}
 ![preview bobsled](../../../assets/img/content/cards/bobsled.jpg){ loading=lazy }
 
 Szybkie sanki służące do zjeżdżania po lodzie.
@@ -129,7 +129,7 @@ Szybkie sanki służące do zjeżdżania po lodzie.
 
 ---
 
-### <a id="soccer_field"></a>Boisko do piłki nożnej
+### Boisko do piłki nożnej {#soccer_field}
 ![preview soccer_field](../../../assets/img/content/cards/soccer_field.jpg){ loading=lazy }
 
 Trawiaste boisko, na którym gra się w piłkę nożną.
@@ -142,7 +142,7 @@ Trawiaste boisko, na którym gra się w piłkę nożną.
 
 ---
 
-### <a id="goal"></a>Bramka
+### Bramka {#goal}
 ![preview goal](../../../assets/img/content/cards/goal.jpg){ loading=lazy }
 
 Siatka, do której próbujesz strzelić gola.
@@ -155,7 +155,7 @@ Siatka, do której próbujesz strzelić gola.
 
 ---
 
-### <a id="capital_bratislava"></a>Bratysława
+### Bratysława {#capital_bratislava}
 ![preview capital_bratislava](../../../assets/img/content/cards/capital_bratislava.jpg){ loading=lazy }
 
 Stolica Słowacji.
@@ -167,7 +167,7 @@ Stolica Słowacji.
 
 ---
 
-### <a id="capital_brussels"></a>Bruksela
+### Bruksela {#capital_brussels}
 ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ loading=lazy }
 
 Stolica Belgii.
@@ -179,7 +179,7 @@ Stolica Belgii.
 
 ---
 
-### <a id="animal_chimpanzee"></a>Chimpanzee
+### Chimpanzee {#animal_chimpanzee}
 ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
 
 No translation found for 'animal_chimpanzee.desc' in Cards
@@ -191,7 +191,7 @@ No translation found for 'animal_chimpanzee.desc' in Cards
 
 ---
 
-### <a id="food_bread"></a>CHLEB
+### CHLEB {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
 Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
@@ -205,7 +205,7 @@ Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
 
 ---
 
-### <a id="cinnamon"></a>Cynamon
+### Cynamon {#cinnamon}
 ![preview cinnamon](../../../assets/img/content/cards/cinnamon.jpg){ loading=lazy }
 
 Słodka przyprawa wytwarzana z kory drzewa.
@@ -219,7 +219,7 @@ Słodka przyprawa wytwarzana z kory drzewa.
 
 ---
 
-### <a id="food_lemon"></a>Cytrynowy
+### Cytrynowy {#food_lemon}
 ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
 
 Żółty owoc o bardzo kwaśnym smaku. Cytryny służą do robienia lemoniady!
@@ -233,7 +233,7 @@ Słodka przyprawa wytwarzana z kory drzewa.
 
 ---
 
-### <a id="country_czech_republic"></a>Czechy
+### Czechy {#country_czech_republic}
 ![preview country_czech_republic](../../../assets/img/content/cards/country_czech_republic.jpg){ loading=lazy }
 
 Kraj w Europie. Stolicą jest Praga.
@@ -246,7 +246,7 @@ Kraj w Europie. Stolicą jest Praga.
 
 ---
 
-### <a id="boat_house"></a>Dom na łodzi
+### Dom na łodzi {#boat_house}
 ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ loading=lazy }
 
 Dom, który unosi się na wodzie jak łódź. Ludzie mogą mieszkać w domkach-łódkach!
@@ -258,7 +258,7 @@ Dom, który unosi się na wodzie jak łódź. Ludzie mogą mieszkać w domkach-�
 
 ---
 
-### <a id="food_yeast"></a>Drożdże
+### Drożdże {#food_yeast}
 ![preview food_yeast](../../../assets/img/content/cards/food_yeast.jpg){ loading=lazy }
 
 Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i smaczny!
@@ -271,7 +271,7 @@ Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i sm
 
 ---
 
-### <a id="independence_day_poland"></a>Dzień Niepodległości (Polska)
+### Dzień Niepodległości (Polska) {#independence_day_poland}
 ![preview independence_day_poland](../../../assets/img/content/cards/independence_day_poland.jpg){ loading=lazy }
 
 Święto narodowe obchodzone 11 listopada.
@@ -284,7 +284,7 @@ Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i sm
 
 ---
 
-### <a id="elementary_maths"></a>Eleementary Maths
+### Eleementary Maths {#elementary_maths}
 Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
 - Type: None
@@ -293,7 +293,7 @@ Numbers and shapes for everyday life: counting, adding and subtracting, simple f
 
 ---
 
-### <a id="flag_czech_republic"></a>Flag of Czech Republic
+### Flag of Czech Republic {#flag_czech_republic}
 ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
 
 The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
@@ -309,7 +309,7 @@ The flag has white and red stripes with a blue triangle. The Czech Republic is f
 
 ---
 
-### <a id="flag_belgium"></a>Flaga Belgii
+### Flaga Belgii {#flag_belgium}
 ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ loading=lazy }
 
 Flaga Belgii ma trzy pionowe pasy: czarny, żółty i czerwony. Belgia słynie z czekolady i gofrów!
@@ -325,7 +325,7 @@ Flaga Belgii ma trzy pionowe pasy: czarny, żółty i czerwony. Belgia słynie z
 
 ---
 
-### <a id="flag_belarus"></a>Flaga Białorusi
+### Flaga Białorusi {#flag_belarus}
 ![preview flag_belarus](../../../assets/img/content/cards/flag_belarus.jpg){ loading=lazy }
 
 Flaga Białorusi ma poziome, czerwone i zielone pasy z pięknymi, tradycyjnymi wzorami po bokach. Białoruś jest sąsiadem Polski.
@@ -341,7 +341,7 @@ Flaga Białorusi ma poziome, czerwone i zielone pasy z pięknymi, tradycyjnymi w
 
 ---
 
-### <a id="flag_lithuania"></a>Flaga Litwy
+### Flaga Litwy {#flag_lithuania}
 ![preview flag_lithuania](../../../assets/img/content/cards/flag_lithuania.jpg){ loading=lazy }
 
 Flaga ma poziome pasy w kolorze żółtym, zielonym i czerwonym. Litwa to kraj bałtycki z pięknymi lasami i plażami.
@@ -357,7 +357,7 @@ Flaga ma poziome pasy w kolorze żółtym, zielonym i czerwonym. Litwa to kraj b
 
 ---
 
-### <a id="flag_luxembourg"></a>Flaga Luksemburga
+### Flaga Luksemburga {#flag_luxembourg}
 ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ loading=lazy }
 
 Flaga Luksemburga ma poziome pasy w kolorze czerwonym, białym i jasnoniebieskim. Luksemburg to bardzo mały kraj, w którym mówi się trzema językami!
@@ -373,7 +373,7 @@ Flaga Luksemburga ma poziome pasy w kolorze czerwonym, białym i jasnoniebieskim
 
 ---
 
-### <a id="flag_russia"></a>Flaga Rosji
+### Flaga Rosji {#flag_russia}
 ![preview flag_russia](../../../assets/img/content/cards/flag_russia.jpg){ loading=lazy }
 
 Flaga z białymi, niebieskimi i czerwonymi paskami. Reprezentuje Rosję.
@@ -387,7 +387,7 @@ Flaga z białymi, niebieskimi i czerwonymi paskami. Reprezentuje Rosję.
 
 ---
 
-### <a id="flag_switzerland"></a>Flaga Szwajcarii
+### Flaga Szwajcarii {#flag_switzerland}
 ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ loading=lazy }
 
 Flaga Szwajcarii jest czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
@@ -403,7 +403,7 @@ Flaga Szwajcarii jest czerwona z białym krzyżem pośrodku. Wygląda jak aptecz
 
 ---
 
-### <a id="flag_slovakia"></a>Flaga Słowacji
+### Flaga Słowacji {#flag_slovakia}
 ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ loading=lazy }
 
 Flaga w kolorach białym, niebieskim i czerwonym. Reprezentuje Słowację.
@@ -417,7 +417,7 @@ Flaga w kolorach białym, niebieskim i czerwonym. Reprezentuje Słowację.
 
 ---
 
-### <a id="flag_ukraine"></a>Flaga Ukrainy
+### Flaga Ukrainy {#flag_ukraine}
 ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ loading=lazy }
 
 Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Reprezentuje Ukrainę.
@@ -431,7 +431,7 @@ Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Repr
 
 ---
 
-### <a id="food_apple"></a>food_apple
+### food_apple {#food_apple}
 ![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
 
 No translation found for 'food_apple.desc' in Cards
@@ -443,7 +443,7 @@ No translation found for 'food_apple.desc' in Cards
 
 ---
 
-### <a id="food_banana"></a>food_banana
+### food_banana {#food_banana}
 ![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
 
 No translation found for 'food_banana.desc' in Cards
@@ -455,7 +455,7 @@ No translation found for 'food_banana.desc' in Cards
 
 ---
 
-### <a id="gingerbread_mold"></a>Forma do pierników
+### Forma do pierników {#gingerbread_mold}
 ![preview gingerbread_mold](../../../assets/img/content/cards/gingerbread_mold.jpg){ loading=lazy }
 
 Narzędzie w kształcie ciasteczka, które pozwala na tworzenie ciekawych kształtów.
@@ -469,7 +469,7 @@ Narzędzie w kształcie ciasteczka, które pozwala na tworzenie ciekawych kszta�
 
 ---
 
-### <a id="object_french_school_poster"></a>Francuski plakat szkolny
+### Francuski plakat szkolny {#object_french_school_poster}
 ![preview object_french_school_poster](../../../assets/img/content/cards/object_french_school_poster.jpg){ loading=lazy }
 
 Duży obraz z informacjami, który wisi na ścianach klas we francuskich szkołach.
@@ -482,7 +482,7 @@ Duży obraz z informacjami, który wisi na ścianach klas we francuskich szkoła
 
 ---
 
-### <a id="french_schools"></a>French Schools
+### French Schools {#french_schools}
 In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
 
 - Type: Concept
@@ -492,7 +492,7 @@ In France, school happens in four main steps: maternelle (play-and-learn for lit
 
 ---
 
-### <a id="cloves"></a>Goździki
+### Goździki {#cloves}
 ![preview cloves](../../../assets/img/content/cards/cloves.jpg){ loading=lazy }
 
 Mocna przyprawa używana do wzbogacania smaku potraw.
@@ -505,7 +505,7 @@ Mocna przyprawa używana do wzbogacania smaku potraw.
 
 ---
 
-### <a id="mountain"></a>Góra
+### Góra {#mountain}
 ![preview mountain](../../../assets/img/content/cards/mountain.jpg){ loading=lazy }
 
 Filary ziemi
@@ -519,7 +519,7 @@ Filary ziemi
 
 ---
 
-### <a id="ice_arctic"></a>ice_arctic
+### ice_arctic {#ice_arctic}
 ![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
 
 No translation found for 'ice_arctic.desc' in Cards
@@ -531,7 +531,7 @@ No translation found for 'ice_arctic.desc' in Cards
 
 ---
 
-### <a id="ile_de_france"></a>Ile-de-France
+### Ile-de-France {#ile_de_france}
 ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ loading=lazy }
 
 Region we Francji, w którym znajduje się stolica, Paryż. Mieszka tu wielu ludzi!
@@ -545,7 +545,7 @@ Region we Francji, w którym znajduje się stolica, Paryż. Mieszka tu wielu lud
 
 ---
 
-### <a id="eggs"></a>Jajka
+### Jajka {#eggs}
 ![preview eggs](../../../assets/img/content/cards/eggs.jpg){ loading=lazy }
 
 Pokarm z kurczaków, używany do pieczenia i gotowania.
@@ -559,7 +559,7 @@ Pokarm z kurczaków, używany do pieczenia i gotowania.
 
 ---
 
-### <a id="hat"></a>Kapelusz
+### Kapelusz {#hat}
 ![preview hat](../../../assets/img/content/cards/hat.jpg){ loading=lazy }
 
 Ciepła czapka na głowę.
@@ -573,7 +573,7 @@ Ciepła czapka na głowę.
 
 ---
 
-### <a id="capital_kyiv"></a>Kijów
+### Kijów {#capital_kyiv}
 ![preview capital_kyiv](../../../assets/img/content/cards/capital_kyiv.jpg){ loading=lazy }
 
 Stolica Ukrainy.
@@ -585,7 +585,7 @@ Stolica Ukrainy.
 
 ---
 
-### <a id="place_classroom"></a>Klasa
+### Klasa {#place_classroom}
 ![preview place_classroom](../../../assets/img/content/cards/place_classroom.jpg){ loading=lazy }
 
 Pomieszczenie w szkole, w którym uczniowie siedzą i uczą się nowych rzeczy od nauczyciela.
@@ -598,7 +598,7 @@ Pomieszczenie w szkole, w którym uczniowie siedzą i uczą się nowych rzeczy o
 
 ---
 
-### <a id="king_sigismunds_column"></a>Kolumna Króla Zygmunta
+### Kolumna Króla Zygmunta {#king_sigismunds_column}
 ![preview king_sigismunds_column](../../../assets/img/content/cards/king_sigismunds_column.jpg){ loading=lazy }
 
 Wysoka kolumna ku czci króla Zygmunta na Placu Zamkowym.
@@ -611,7 +611,7 @@ Wysoka kolumna ku czci króla Zygmunta na Placu Zamkowym.
 
 ---
 
-### <a id="math_compass"></a>Kompas
+### Kompas {#math_compass}
 ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
 
 Narzędzie, które pomaga rysować idealne okręgi. Ma dwie nogi jak nożyczki.
@@ -625,7 +625,7 @@ Narzędzie, które pomaga rysować idealne okręgi. Ma dwie nogi jak nożyczki.
 
 ---
 
-### <a id="constitution_of_3_may"></a>Konstytucja 3 Maja
+### Konstytucja 3 Maja {#constitution_of_3_may}
 ![preview constitution_of_3_may](../../../assets/img/content/cards/constitution_of_3_may.jpg){ loading=lazy }
 
 Historyczna polska konstytucja obchodzona 3 Maja.
@@ -638,7 +638,7 @@ Historyczna polska konstytucja obchodzona 3 Maja.
 
 ---
 
-### <a id="king_sigismunds_crown"></a>Korona króla Zygmunta
+### Korona króla Zygmunta {#king_sigismunds_crown}
 ![preview king_sigismunds_crown](../../../assets/img/content/cards/king_sigismunds_crown.jpg){ loading=lazy }
 
 Korona króla, która spadła i musi zostać odnaleziona.
@@ -651,7 +651,7 @@ Korona króla, która spadła i musi zostać odnaleziona.
 
 ---
 
-### <a id="fr_figure_circle"></a>Koło
+### Koło {#fr_figure_circle}
 ![preview fr_figure_circle](../../../assets/img/content/cards/fr_figure_circle.jpg){ loading=lazy }
 
 Okrągły kształt bez rogów. Koła wyglądają jak koła, piłki i monety!
@@ -665,7 +665,7 @@ Okrągły kształt bez rogów. Koła wyglądają jak koła, piłki i monety!
 
 ---
 
-### <a id="food_crab"></a>Krab
+### Krab {#food_crab}
 ![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ loading=lazy }
 
 Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą bokiem po plaży!
@@ -679,7 +679,7 @@ Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą bokiem p
 
 ---
 
-### <a id="cook"></a>Kucharz
+### Kucharz {#cook}
 ![preview cook](../../../assets/img/content/cards/cook.jpg){ loading=lazy }
 
 Osoba przygotowująca jedzenie.
@@ -692,7 +692,7 @@ Osoba przygotowująca jedzenie.
 
 ---
 
-### <a id="kitchen"></a>Kuchnia
+### Kuchnia {#kitchen}
 ![preview kitchen](../../../assets/img/content/cards/kitchen.jpg){ loading=lazy }
 
 Pomieszczenie, w którym ludzie gotują i pieką.
@@ -706,7 +706,7 @@ Derivative work:  Radomianin | [source](https://commons.wikimedia.org/wiki/File:
 
 ---
 
-### <a id="person_cheesemonger"></a>Kupiec handlujący serem
+### Kupiec handlujący serem {#person_cheesemonger}
 ![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ loading=lazy }
 
 Osoba sprzedająca wiele rodzajów sera.
@@ -720,7 +720,7 @@ Osoba sprzedająca wiele rodzajów sera.
 
 ---
 
-### <a id="math_setsquare"></a>Kwadrat
+### Kwadrat {#math_setsquare}
 ![preview math_setsquare](../../../assets/img/content/cards/math_setsquare.jpg){ loading=lazy }
 
 Narzędzie w kształcie trójkąta, służące do rysowania linii prostych i kątów prostych w matematyce.
@@ -734,7 +734,7 @@ Narzędzie w kształcie trójkąta, służące do rysowania linii prostych i ką
 
 ---
 
-### <a id="place_bridge_people"></a>Kładki dla pieszych
+### Kładki dla pieszych {#place_bridge_people}
 ![preview place_bridge_people](../../../assets/img/content/cards/place_bridge_people.jpg){ loading=lazy }
 
 Małe mostki dla pieszych. Chronią przed ruchem ulicznym.
@@ -748,7 +748,7 @@ Małe mostki dla pieszych. Chronią przed ruchem ulicznym.
 
 ---
 
-### <a id="person_leonardodavinci"></a>Leonardo da Vinci
+### Leonardo da Vinci {#person_leonardodavinci}
 ![preview person_leonardodavinci](../../../assets/img/content/cards/person_leonardodavinci.jpg){ loading=lazy }
 
 Niesamowity artysta i naukowiec z Włoch. Namalował Monę Lisę i wynalazł maszyny latające setki lat przed samolotami!
@@ -762,7 +762,7 @@ Niesamowity artysta i naukowiec z Włoch. Namalował Monę Lisę i wynalazł mas
 
 ---
 
-### <a id="animal_lion"></a>Lew
+### Lew {#animal_lion}
 ![preview animal_lion](../../../assets/img/content/cards/animal_lion.jpg){ loading=lazy }
 
 Duży kot zwany królem zwierząt. Żyje w grupach zwanych stadami.
@@ -776,7 +776,7 @@ Duży kot zwany królem zwierząt. Żyje w grupach zwanych stadami.
 
 ---
 
-### <a id="rope"></a>Lina
+### Lina {#rope}
 ![preview rope](../../../assets/img/content/cards/rope.jpg){ loading=lazy }
 
 Mocna lina używana do zapewnienia bezpieczeństwa podczas wspinaczki.
@@ -790,7 +790,7 @@ Mocna lina używana do zapewnienia bezpieczeństwa podczas wspinaczki.
 
 ---
 
-### <a id="fr_figure_line"></a>Linia
+### Linia {#fr_figure_line}
 ![preview fr_figure_line](../../../assets/img/content/cards/fr_figure_line.jpg){ loading=lazy }
 
 Linia prosta, która prowadzi z jednego punktu do drugiego. Linie mogą być długie lub krótkie.
@@ -804,7 +804,7 @@ Linia prosta, która prowadzi z jednego punktu do drugiego. Linie mogą być dł
 
 ---
 
-### <a id="math_ruler"></a>Linijka
+### Linijka {#math_ruler}
 ![preview math_ruler](../../../assets/img/content/cards/math_ruler.jpg){ loading=lazy }
 
 Proste narzędzie do pomiaru długości przedmiotów. Linijki mają cyfry i linie.
@@ -818,7 +818,7 @@ Proste narzędzie do pomiaru długości przedmiotów. Linijki mają cyfry i lini
 
 ---
 
-### <a id="animal_lion_cub"></a>Lion Cub
+### Lion Cub {#animal_lion_cub}
 ![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
 
 No translation found for 'animal_lion_cub.desc' in Cards
@@ -830,7 +830,7 @@ No translation found for 'animal_lion_cub.desc' in Cards
 
 ---
 
-### <a id="country_lithuania"></a>Litwa
+### Litwa {#country_lithuania}
 ![preview country_lithuania](../../../assets/img/content/cards/country_lithuania.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest Wilno.
@@ -843,7 +843,7 @@ Państwo w Europie. Stolicą jest Wilno.
 
 ---
 
-### <a id="glacier"></a>Lodowiec
+### Lodowiec {#glacier}
 ![preview glacier](../../../assets/img/content/cards/glacier.jpg){ loading=lazy }
 
 Wolno poruszający się lód występujący w wysokich górach.
@@ -856,7 +856,7 @@ Wolno poruszający się lód występujący w wysokich górach.
 
 ---
 
-### <a id="country_luxembourg"></a>Luksemburg
+### Luksemburg {#country_luxembourg}
 ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest miasto Luksemburg.
@@ -869,7 +869,7 @@ Państwo w Europie. Stolicą jest miasto Luksemburg.
 
 ---
 
-### <a id="ice"></a>Lód
+### Lód {#ice}
 ![preview ice](../../../assets/img/content/cards/ice.jpg){ loading=lazy }
 
 Zamarznięta woda, która może być bardzo śliska.
@@ -883,7 +883,7 @@ Zamarznięta woda, która może być bardzo śliska.
 
 ---
 
-### <a id="concept_europe_map"></a>Mapa Europy
+### Mapa Europy {#concept_europe_map}
 ![preview concept_europe_map](../../../assets/img/content/cards/concept_europe_map.jpg){ loading=lazy }
 
 Mapa przedstawiająca wszystkie kraje Europy. Możesz zobaczyć, gdzie znajdują się Francja, Polska, Niemcy i inne kraje.
@@ -899,7 +899,7 @@ Mapa przedstawiająca wszystkie kraje Europy. Możesz zobaczyć, gdzie znajdują
 
 ---
 
-### <a id="eiffel_tower_map"></a>Mapa Wieży Eiffla
+### Mapa Wieży Eiffla {#eiffel_tower_map}
 ![preview eiffel_tower_map](../../../assets/img/content/cards/eiffel_tower_map.jpg){ loading=lazy }
 
 Mapa pokazująca lokalizację słynnej wysokiej wieży w Paryżu.
@@ -913,7 +913,7 @@ Mapa pokazująca lokalizację słynnej wysokiej wieży w Paryżu.
 
 ---
 
-### <a id="maria_skodowskacurie"></a>Maria Skłodowska‑Curie
+### Maria Skłodowska‑Curie {#maria_skodowskacurie}
 ![preview maria_skodowskacurie](../../../assets/img/content/cards/maria_skodowskacurie.jpg){ loading=lazy }
 
 Naukowiec, który zdobył dwie Nagrody Nobla.
@@ -926,7 +926,7 @@ Naukowiec, który zdobył dwie Nagrody Nobla.
 
 ---
 
-### <a id="market_traders"></a>Market traders
+### Market traders {#market_traders}
 People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
 
 - Type: Person
@@ -936,7 +936,7 @@ People who sell food and goods at market stalls—like fishmongers, cheesemonger
 
 ---
 
-### <a id="butter"></a>Masło
+### Masło {#butter}
 ![preview butter](../../../assets/img/content/cards/butter.jpg){ loading=lazy }
 
 Żółty tłuszcz wytwarzany z mleka, używany do gotowania i pieczenia.
@@ -950,7 +950,7 @@ People who sell food and goods at market stalls—like fishmongers, cheesemonger
 
 ---
 
-### <a id="mazurek_dabrowskiego"></a>Mazurek Dąbrowskiego
+### Mazurek Dąbrowskiego {#mazurek_dabrowskiego}
 ![preview mazurek_dabrowskiego](../../../assets/img/content/cards/mazurek_dabrowskiego.jpg){ loading=lazy }
 
 Hymn narodowy Polski.
@@ -963,7 +963,7 @@ Hymn narodowy Polski.
 
 ---
 
-### <a id="animal_monkey"></a>Małpa
+### Małpa {#animal_monkey}
 ![preview animal_monkey](../../../assets/img/content/cards/animal_monkey.jpg){ loading=lazy }
 
 Inteligentne zwierzę, które potrafi się wspinać i bawić. Niektóre małpy żyją w dużych rodzinach.
@@ -977,7 +977,7 @@ Inteligentne zwierzę, które potrafi się wspinać i bawić. Niektóre małpy �
 
 ---
 
-### <a id="object_canteen_menu"></a>Menu stołówki
+### Menu stołówki {#object_canteen_menu}
 ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ loading=lazy }
 
 Lista pokazująca, co możesz zjeść w szkolnym lunchu. Pomoże Ci wybrać, co zjeść!
@@ -991,7 +991,7 @@ Lista pokazująca, co możesz zjeść w szkolnym lunchu. Pomoże Ci wybrać, co 
 
 ---
 
-### <a id="capital_luxembourg_city"></a>Miasto Luksemburg
+### Miasto Luksemburg {#capital_luxembourg_city}
 ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ loading=lazy }
 
 Stolica Luksemburga.
@@ -1003,7 +1003,7 @@ Stolica Luksemburga.
 
 ---
 
-### <a id="mermaids_sword"></a>Miecz Syreny
+### Miecz Syreny {#mermaids_sword}
 ![preview mermaids_sword](../../../assets/img/content/cards/mermaids_sword.jpg){ loading=lazy }
 
 Miecz syreny, który musi zostać zwrócony.
@@ -1016,7 +1016,7 @@ Miecz syreny, który musi zostać zwrócony.
 
 ---
 
-### <a id="honey"></a>Miód
+### Miód {#honey}
 ![preview honey](../../../assets/img/content/cards/honey.jpg){ loading=lazy }
 
 Słodki przysmak wytwarzany przez pszczoły.
@@ -1030,7 +1030,7 @@ Słodki przysmak wytwarzany przez pszczoły.
 
 ---
 
-### <a id="capital_minsk"></a>Mińsk
+### Mińsk {#capital_minsk}
 ![preview capital_minsk](../../../assets/img/content/cards/capital_minsk.jpg){ loading=lazy }
 
 Stolica Białorusi.
@@ -1042,7 +1042,7 @@ Stolica Białorusi.
 
 ---
 
-### <a id="food_milk"></a>Mleko
+### Mleko {#food_milk}
 ![preview food_milk](../../../assets/img/content/cards/food_milk.jpg){ loading=lazy }
 
 Biały napój pochodzący od krów. Mleko wzmacnia kości i zęby!
@@ -1056,7 +1056,7 @@ Biały napój pochodzący od krów. Mleko wzmacnia kości i zęby!
 
 ---
 
-### <a id="coins"></a>Monety
+### Monety {#coins}
 ![preview coins](../../../assets/img/content/cards/coins.jpg){ loading=lazy }
 
 Małe okrągłe pieniądze wykonane z metalu.
@@ -1069,7 +1069,7 @@ Małe okrągłe pieniądze wykonane z metalu.
 
 ---
 
-### <a id="zoty_coins"></a>Monety złote
+### Monety złote {#zoty_coins}
 ![preview zoty_coins](../../../assets/img/content/cards/zoty_coins.jpg){ loading=lazy }
 
 Polskie pieniądze (złoty) przedstawiane jako monety.
@@ -1082,7 +1082,7 @@ Polskie pieniądze (złoty) przedstawiane jako monety.
 
 ---
 
-### <a id="place_mont_blanc"></a>Mont Blanc
+### Mont Blanc {#place_mont_blanc}
 ![preview place_mont_blanc](../../../assets/img/content/cards/place_mont_blanc.jpg){ loading=lazy }
 
 Najwyższa góra w Europie Zachodniej. Pokryta śniegiem przez cały rok.
@@ -1095,7 +1095,7 @@ Najwyższa góra w Europie Zachodniej. Pokryta śniegiem przez cały rok.
 
 ---
 
-### <a id="baltic_sea"></a>Morze Bałtyckie
+### Morze Bałtyckie {#baltic_sea}
 ![preview baltic_sea](../../../assets/img/content/cards/baltic_sea.jpg){ loading=lazy }
 
 Wielkie morze w północnej Europie, gdzie spotykają się Polska, Niemcy i inne kraje. Ma piękne plaże i słynie z bursztynowych skarbów!
@@ -1110,7 +1110,7 @@ Wielkie morze w północnej Europie, gdzie spotykają się Polska, Niemcy i inne
 
 ---
 
-### <a id="capital_moscow"></a>Moskwa
+### Moskwa {#capital_moscow}
 ![preview capital_moscow](../../../assets/img/content/cards/capital_moscow.jpg){ loading=lazy }
 
 Stolica Rosji.
@@ -1122,7 +1122,7 @@ Stolica Rosji.
 
 ---
 
-### <a id="place_bridge_trains"></a>Most dla pociągów
+### Most dla pociągów {#place_bridge_trains}
 ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ loading=lazy }
 
 Specjalny most o konstrukcji wystarczająco wytrzymałej, aby umożliwić przejazd ciężkich pociągów nad wodą.
@@ -1136,7 +1136,7 @@ Specjalny most o konstrukcji wystarczająco wytrzymałej, aby umożliwić przeja
 
 ---
 
-### <a id="place_bridge_cars"></a>Most dla samochodów
+### Most dla samochodów {#place_bridge_cars}
 ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ loading=lazy }
 
 Droga biegnąca nad wodą, dzięki której samochody mogą pokonywać rzeki i jeziora.
@@ -1150,7 +1150,7 @@ Droga biegnąca nad wodą, dzięki której samochody mogą pokonywać rzeki i je
 
 ---
 
-### <a id="place_castle_bridge"></a>Most Zamkowy
+### Most Zamkowy {#place_castle_bridge}
 ![preview place_castle_bridge](../../../assets/img/content/cards/place_castle_bridge.jpg){ loading=lazy }
 
 Most w pobliżu zamku. Zamki to duże, potężne budowle, w których dawno temu mieszkali królowie i królowe.
@@ -1162,7 +1162,7 @@ Most w pobliżu zamku. Zamki to duże, potężne budowle, w których dawno temu 
 
 ---
 
-### <a id="food_flour"></a>Mąka
+### Mąka {#food_flour}
 ![preview food_flour](../../../assets/img/content/cards/food_flour.jpg){ loading=lazy }
 
 Biały proszek z pszenicy, używany do wypieku chleba.
@@ -1175,7 +1175,7 @@ Biały proszek z pszenicy, używany do wypieku chleba.
 
 ---
 
-### <a id="skiing"></a>Narciarstwo
+### Narciarstwo {#skiing}
 ![preview skiing](../../../assets/img/content/cards/skiing.jpg){ loading=lazy }
 
 Zjeżdżanie na nartach po śniegu.
@@ -1189,7 +1189,7 @@ Zjeżdżanie na nartach po śniegu.
 
 ---
 
-### <a id="sunglasses"></a>Okulary przeciwsłoneczne
+### Okulary przeciwsłoneczne {#sunglasses}
 ![preview sunglasses](../../../assets/img/content/cards/sunglasses.jpg){ loading=lazy }
 
 Okulary chroniące oczy przed jasnym światłem.
@@ -1203,7 +1203,7 @@ Okulary chroniące oczy przed jasnym światłem.
 
 ---
 
-### <a id="food_olive_oil"></a>Oliwa z oliwek
+### Oliwa z oliwek {#food_olive_oil}
 ![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ loading=lazy }
 
 Specjalny olej z oliwek. Ludzie używają go do gotowania smacznych potraw.
@@ -1217,7 +1217,7 @@ Specjalny olej z oliwek. Ludzie używają go do gotowania smacznych potraw.
 
 ---
 
-### <a id="ginger"></a>Ożywić
+### Ożywić {#ginger}
 ![preview ginger](../../../assets/img/content/cards/ginger.jpg){ loading=lazy }
 
 Pikantny korzeń używany w kuchni i ciasteczkach.
@@ -1231,7 +1231,7 @@ Pikantny korzeń używany w kuchni i ciasteczkach.
 
 ---
 
-### <a id="capital_paris"></a>Paryż
+### Paryż {#capital_paris}
 ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ loading=lazy }
 
 Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!
@@ -1239,13 +1239,13 @@ Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
-### <a id="palace_of_culture_and_science"></a>Pałac Kultury i Nauki
+### Pałac Kultury i Nauki {#palace_of_culture_and_science}
 ![preview palace_of_culture_and_science](../../../assets/img/content/cards/palace_of_culture_and_science.jpg){ loading=lazy }
 
 Wysoki budynek przeznaczony na muzea, teatry i placówki edukacyjne.
@@ -1258,7 +1258,7 @@ Wysoki budynek przeznaczony na muzea, teatry i placówki edukacyjne.
 
 ---
 
-### <a id="presidential_palace"></a>Pałac Prezydencki
+### Pałac Prezydencki {#presidential_palace}
 ![preview presidential_palace](../../../assets/img/content/cards/presidential_palace.jpg){ loading=lazy }
 
 Oficjalna siedziba Prezydenta Polski.
@@ -1271,7 +1271,7 @@ Oficjalna siedziba Prezydenta Polski.
 
 ---
 
-### <a id="person_baker"></a>Piekarz
+### Piekarz {#person_baker}
 ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
 
 Osoba zajmująca się wypiekiem chleba, ciast i wypieków.
@@ -1285,7 +1285,7 @@ Osoba zajmująca się wypiekiem chleba, ciast i wypieków.
 
 ---
 
-### <a id="food_pepper_salt"></a>Pieprz Sól
+### Pieprz Sól {#food_pepper_salt}
 ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ loading=lazy }
 
 Przyprawy, które poprawiają smak potraw. Sól jest biała, a pieprz czarny i ma drobne kawałki.
@@ -1299,7 +1299,7 @@ Przyprawy, które poprawiają smak potraw. Sól jest biała, a pieprz czarny i m
 
 ---
 
-### <a id="animal_penguin"></a>Pingwin
+### Pingwin {#animal_penguin}
 ![preview animal_penguin](../../../assets/img/content/cards/animal_penguin.jpg){ loading=lazy }
 
 Ptak, który nie lata, ale świetnie pływa. Żyje w zimnych miejscach.
@@ -1313,7 +1313,7 @@ Ptak, który nie lata, ale świetnie pływa. Żyje w zimnych miejscach.
 
 ---
 
-### <a id="ball"></a>Piłka
+### Piłka {#ball}
 ![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
 
 Okrągły obiekt używany w wielu grach.
@@ -1326,7 +1326,7 @@ Okrągły obiekt używany w wielu grach.
 
 ---
 
-### <a id="football_soccer"></a>Piłka nożna
+### Piłka nożna {#football_soccer}
 ![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
 
 Gra zespołowa, w którą gra się piłką, którą się kopie.
@@ -1339,7 +1339,7 @@ Gra zespołowa, w którą gra się piłką, którą się kopie.
 
 ---
 
-### <a id="plant_apple"></a>plant_apple
+### plant_apple {#plant_apple}
 ![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
 
 No translation found for 'plant_apple.desc' in Cards
@@ -1351,7 +1351,7 @@ No translation found for 'plant_apple.desc' in Cards
 
 ---
 
-### <a id="plant_banana"></a>plant_banana
+### plant_banana {#plant_banana}
 ![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
 
 No translation found for 'plant_banana.desc' in Cards
@@ -1363,7 +1363,7 @@ No translation found for 'plant_banana.desc' in Cards
 
 ---
 
-### <a id="plant_orange"></a>plant_orange
+### plant_orange {#plant_orange}
 ![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
 
 No translation found for 'plant_orange.desc' in Cards
@@ -1375,7 +1375,7 @@ No translation found for 'plant_orange.desc' in Cards
 
 ---
 
-### <a id="tree_wattle"></a>plant_wattle
+### plant_wattle {#tree_wattle}
 ![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
 
 No translation found for 'tree_wattle.desc' in Cards
@@ -1387,7 +1387,7 @@ No translation found for 'tree_wattle.desc' in Cards
 
 ---
 
-### <a id="backpack"></a>Plecak
+### Plecak {#backpack}
 ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
 
 Torba, którą nosisz na plecach.
@@ -1401,7 +1401,7 @@ Torba, którą nosisz na plecach.
 
 ---
 
-### <a id="train"></a>Pociąg
+### Pociąg {#train}
 ![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
 
 Pociągi szybko przewożą ludzi i towary przez cały kraj.
@@ -1413,7 +1413,7 @@ Pociągi szybko przewożą ludzi i towary przez cały kraj.
 
 ---
 
-### <a id="country_poland"></a>Polska
+### Polska {#country_poland}
 ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ loading=lazy }
 
 Kraj w Europie. Stolicą jest Warszawa. Polska słynie z naukowców takich jak Kopernik i pysznych pierogów!
@@ -1421,12 +1421,12 @@ Kraj w Europie. Stolicą jest Warszawa. Polska słynie z naukowców takich jak K
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [Poland country](../topics/index.md#poland), [Poland Countries](../topics/index.md#poland_countries_around)
+- Topics: [Poland country](../topics/index.md#poland-country), [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Basílica_de_Nuestra_Señora_de_Licheń,_Stary_Licheń,_Polonia,_2016-12-21,_DD_39-41_HDR.jpg)
 
 ---
 
-### <a id="polish_houses_of_parliament"></a>Polskie Izby Parlamentu
+### Polskie Izby Parlamentu {#polish_houses_of_parliament}
 ![preview polish_houses_of_parliament](../../../assets/img/content/cards/polish_houses_of_parliament.jpg){ loading=lazy }
 
 Gdzie tworzone jest prawo: Sejm i Senat.
@@ -1439,7 +1439,7 @@ Gdzie tworzone jest prawo: Sejm i Senat.
 
 ---
 
-### <a id="food_orange"></a>Pomarańczowy
+### Pomarańczowy {#food_orange}
 ![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ loading=lazy }
 
 Okrągły, pomarańczowy owoc o słodkim i soczystym smaku. Pomarańcze mają mnóstwo witaminy C!
@@ -1453,7 +1453,7 @@ Okrągły, pomarańczowy owoc o słodkim i soczystym smaku. Pomarańcze mają mn
 
 ---
 
-### <a id="food_tomato"></a>Pomidor
+### Pomidor {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
 Czerwony, okrągły owoc rosnący na roślinach. Pomidory służą do robienia sosu do pizzy!
@@ -1467,7 +1467,7 @@ Czerwony, okrągły owoc rosnący na roślinach. Pomidory służą do robienia s
 
 ---
 
-### <a id="nicolaus_copernicus_monument_warsaw"></a>Pomnik Mikołaja Kopernika (Warszawa)
+### Pomnik Mikołaja Kopernika (Warszawa) {#nicolaus_copernicus_monument_warsaw}
 ![preview nicolaus_copernicus_monument_warsaw](../../../assets/img/content/cards/nicolaus_copernicus_monument_warsaw.jpg){ loading=lazy }
 
 Pomnik astronoma Mikołaja Kopernika.
@@ -1480,7 +1480,7 @@ Pomnik astronoma Mikołaja Kopernika.
 
 ---
 
-### <a id="capital_prague"></a>Praga
+### Praga {#capital_prague}
 ![preview capital_prague](../../../assets/img/content/cards/capital_prague.jpg){ loading=lazy }
 
 Stolica Republiki Czeskiej.
@@ -1492,7 +1492,7 @@ Stolica Republiki Czeskiej.
 
 ---
 
-### <a id="person_president"></a>Prezydent
+### Prezydent {#person_president}
 ![preview person_president](../../../assets/img/content/cards/person_president.jpg){ loading=lazy }
 
 Przywódca wybrany do przewodzenia krajowi. Ludzie głosują w wyborach.
@@ -1504,7 +1504,7 @@ Przywódca wybrany do przewodzenia krajowi. Ludzie głosują w wyborach.
 
 ---
 
-### <a id="mountain_guide"></a>Przewodnik górski
+### Przewodnik górski {#mountain_guide}
 ![preview mountain_guide](../../../assets/img/content/cards/mountain_guide.jpg){ loading=lazy }
 
 Osoba, która pomaga ludziom bezpiecznie się wspinać.
@@ -1518,7 +1518,7 @@ Osoba, która pomaga ludziom bezpiecznie się wspinać.
 
 ---
 
-### <a id="beekeeper"></a>Pszczelarz
+### Pszczelarz {#beekeeper}
 ![preview beekeeper](../../../assets/img/content/cards/beekeeper.jpg){ loading=lazy }
 
 Osoba opiekująca się pszczołami i zbierająca miód.
@@ -1531,7 +1531,7 @@ Osoba opiekująca się pszczołami i zbierająca miód.
 
 ---
 
-### <a id="coat"></a>Płaszcz
+### Płaszcz {#coat}
 ![preview coat](../../../assets/img/content/cards/coat.jpg){ loading=lazy }
 
 Ciepła kurtka na zimne dni.
@@ -1544,7 +1544,7 @@ Ciepła kurtka na zimne dni.
 
 ---
 
-### <a id="crampons"></a>Raki
+### Raki {#crampons}
 ![preview crampons](../../../assets/img/content/cards/crampons.jpg){ loading=lazy }
 
 Kolczaste metalowe uchwyty przymocowane do butów, aby móc jeździć po lodzie.
@@ -1558,7 +1558,7 @@ Kolczaste metalowe uchwyty przymocowane do butów, aby móc jeździć po lodzie.
 
 ---
 
-### <a id="space_rocket"></a>Rakieta kosmiczna
+### Rakieta kosmiczna {#space_rocket}
 ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ loading=lazy }
 
 Rakieta, która leci w kosmos.
@@ -1572,7 +1572,7 @@ Rakieta, która leci w kosmos.
 
 ---
 
-### <a id="robert_lewandowski"></a>Robert Lewandowski
+### Robert Lewandowski {#robert_lewandowski}
 ![preview robert_lewandowski](../../../assets/img/content/cards/robert_lewandowski.jpg){ loading=lazy }
 
 Znany polski piłkarz.
@@ -1585,7 +1585,7 @@ Znany polski piłkarz.
 
 ---
 
-### <a id="country_russia"></a>Rosja
+### Rosja {#country_russia}
 ![preview country_russia](../../../assets/img/content/cards/country_russia.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest Moskwa.
@@ -1598,7 +1598,7 @@ Państwo w Europie. Stolicą jest Moskwa.
 
 ---
 
-### <a id="bike"></a>Rower
+### Rower {#bike}
 ![preview bike](../../../assets/img/content/cards/bike.jpg){ loading=lazy }
 
 Dwukołowy pojazd, który napędza się pedałami.
@@ -1611,7 +1611,7 @@ Dwukołowy pojazd, który napędza się pedałami.
 
 ---
 
-### <a id="food_fish"></a>RYBA
+### RYBA {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
 Zwierzę żyjące i pływające w wodzie. Ryby mają płetwy i skrzela, które umożliwiają im oddychanie pod wodą.
@@ -1625,7 +1625,7 @@ Zwierzę żyjące i pływające w wodzie. Ryby mają płetwy i skrzela, które u
 
 ---
 
-### <a id="medieval_market"></a>Rynek średniowieczny
+### Rynek średniowieczny {#medieval_market}
 ![preview medieval_market](../../../assets/img/content/cards/medieval_market.jpg){ loading=lazy }
 
 Stary rynek, na którym ludzie kupują i sprzedają towary.
@@ -1638,7 +1638,7 @@ Stary rynek, na którym ludzie kupują i sprzedają towary.
 
 ---
 
-### <a id="butcher"></a>Rzeźnik
+### Rzeźnik {#butcher}
 ![preview butcher](../../../assets/img/content/cards/butcher.jpg){ loading=lazy }
 
 Osoba sprzedająca mięso.
@@ -1651,7 +1651,7 @@ Osoba sprzedająca mięso.
 
 ---
 
-### <a id="gloves"></a>Rękawice
+### Rękawice {#gloves}
 ![preview gloves](../../../assets/img/content/cards/gloves.jpg){ loading=lazy }
 
 Ciepłe okrycia na dłonie.
@@ -1665,7 +1665,7 @@ Ciepłe okrycia na dłonie.
 
 ---
 
-### <a id="car"></a>Samochód
+### Samochód {#car}
 ![preview car](../../../assets/img/content/cards/car.jpg){ loading=lazy }
 
 Mały pojazd do jazdy po drogach.
@@ -1678,7 +1678,7 @@ Mały pojazd do jazdy po drogach.
 
 ---
 
-### <a id="egg_vendor"></a>Sprzedawca jajek
+### Sprzedawca jajek {#egg_vendor}
 ![preview egg_vendor](../../../assets/img/content/cards/egg_vendor.jpg){ loading=lazy }
 
 Osoba sprzedająca jajka.
@@ -1691,7 +1691,7 @@ Osoba sprzedająca jajka.
 
 ---
 
-### <a id="dairy_vendor"></a>Sprzedawca produktów mlecznych
+### Sprzedawca produktów mlecznych {#dairy_vendor}
 ![preview dairy_vendor](../../../assets/img/content/cards/dairy_vendor.jpg){ loading=lazy }
 
 Osoba sprzedająca mleko, masło i ser.
@@ -1704,7 +1704,7 @@ Osoba sprzedająca mleko, masło i ser.
 
 ---
 
-### <a id="person_fishmonger"></a>Sprzedawca ryb
+### Sprzedawca ryb {#person_fishmonger}
 ![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ loading=lazy }
 
 Osoba sprzedająca świeże ryby i owoce morza.
@@ -1718,7 +1718,7 @@ Osoba sprzedająca świeże ryby i owoce morza.
 
 ---
 
-### <a id="national_stadium_warsaw"></a>Stadion Narodowy (Warszawa)
+### Stadion Narodowy (Warszawa) {#national_stadium_warsaw}
 ![preview national_stadium_warsaw](../../../assets/img/content/cards/national_stadium_warsaw.jpg){ loading=lazy }
 
 Nowoczesny stadion przeznaczony do meczów piłkarskich i koncertów.
@@ -1731,7 +1731,7 @@ Nowoczesny stadion przeznaczony do meczów piłkarskich i koncertów.
 
 ---
 
-### <a id="wars_and_sawa_statue"></a>Statua Warsa i Sawy
+### Statua Warsa i Sawy {#wars_and_sawa_statue}
 ![preview wars_and_sawa_statue](../../../assets/img/content/cards/wars_and_sawa_statue.jpg){ loading=lazy }
 
 Rzeźba przedstawiająca legendę miasta o Warsie i Sawie.
@@ -1744,7 +1744,7 @@ Rzeźba przedstawiająca legendę miasta o Warsie i Sawie.
 
 ---
 
-### <a id="scarf"></a>Szalik
+### Szalik {#scarf}
 ![preview scarf](../../../assets/img/content/cards/scarf.jpg){ loading=lazy }
 
 Ciepły materiał noszony wokół szyi.
@@ -1758,7 +1758,7 @@ Ciepły materiał noszony wokół szyi.
 
 ---
 
-### <a id="summit"></a>Szczyt
+### Szczyt {#summit}
 ![preview summit](../../../assets/img/content/cards/summit.jpg){ loading=lazy }
 
 Sam szczyt góry.
@@ -1772,7 +1772,7 @@ Sam szczyt góry.
 
 ---
 
-### <a id="country_switzerland"></a>Szwajcaria
+### Szwajcaria {#country_switzerland}
 ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ loading=lazy }
 
 Kraj w Europie. Stolicą jest Berno. Szwajcaria słynie z gór i sera.
@@ -1785,7 +1785,7 @@ Kraj w Europie. Stolicą jest Berno. Szwajcaria słynie z gór i sera.
 
 ---
 
-### <a id="food_salt"></a>SÓL
+### SÓL {#food_salt}
 ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
 
 Białe kryształy, które poprawiają smak potraw.
@@ -1798,7 +1798,7 @@ Białe kryształy, które poprawiają smak potraw.
 
 ---
 
-### <a id="sun"></a>Słoneczny
+### Słoneczny {#sun}
 ![preview sun](../../../assets/img/content/cards/sun.jpg){ loading=lazy }
 
 Jasne światło, które może odbijać się od śniegu.
@@ -1811,7 +1811,7 @@ Jasne światło, które może odbijać się od śniegu.
 
 ---
 
-### <a id="country_slovakia"></a>Słowacja
+### Słowacja {#country_slovakia}
 ![preview country_slovakia](../../../assets/img/content/cards/country_slovakia.jpg){ loading=lazy }
 
 Kraj w Europie. Stolicą jest Bratysława.
@@ -1824,7 +1824,7 @@ Kraj w Europie. Stolicą jest Bratysława.
 
 ---
 
-### <a id="animal_elephant"></a>Słoń
+### Słoń {#animal_elephant}
 ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ loading=lazy }
 
 Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie. Mają duże uszy i uwielbiają pryskać wodą!
@@ -1840,7 +1840,7 @@ Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie
 
 ---
 
-### <a id="school_bag"></a>Torba szkolna
+### Torba szkolna {#school_bag}
 ![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
 
 Torba, w której uczniowie noszą do szkoły książki, ołówki i prace domowe.
@@ -1853,7 +1853,7 @@ Torba, w której uczniowie noszą do szkoły książki, ołówki i prace domowe.
 
 ---
 
-### <a id="tram"></a>Tramwajowy
+### Tramwajowy {#tram}
 ![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
 
 Pociąg miejski poruszający się po torach ulicznych.
@@ -1866,7 +1866,7 @@ Pociąg miejski poruszający się po torach ulicznych.
 
 ---
 
-### <a id="fr_figure_triangle"></a>Trójkąt
+### Trójkąt {#fr_figure_triangle}
 ![preview fr_figure_triangle](../../../assets/img/content/cards/fr_figure_triangle.jpg){ loading=lazy }
 
 Kształt z trzema prostymi bokami i trzema narożnikami. Trójkąty wyglądają jak kawałki pizzy!
@@ -1880,7 +1880,7 @@ Kształt z trzema prostymi bokami i trzema narożnikami. Trójkąty wyglądają 
 
 ---
 
-### <a id="hiking"></a>Turystyka piesza
+### Turystyka piesza {#hiking}
 ![preview hiking](../../../assets/img/content/cards/hiking.jpg){ loading=lazy }
 
 Wędrówki po szlakach na łonie natury.
@@ -1894,7 +1894,7 @@ Wędrówki po szlakach na łonie natury.
 
 ---
 
-### <a id="country_ukraine"></a>Ukraina
+### Ukraina {#country_ukraine}
 ![preview country_ukraine](../../../assets/img/content/cards/country_ukraine.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest Kijów.
@@ -1906,7 +1906,7 @@ Państwo w Europie. Stolicą jest Kijów.
 
 ---
 
-### <a id="currency_euro"></a>Waluta euro
+### Waluta euro {#currency_euro}
 ![preview currency_euro](../../../assets/img/content/cards/currency_euro.jpg){ loading=lazy }
 
 Waluta używana w wielu krajach Europy. Za euro można kupić zabawki i lody!
@@ -1919,7 +1919,7 @@ Waluta używana w wielu krajach Europy. Za euro można kupić zabawki i lody!
 
 ---
 
-### <a id="capital_warsaw"></a>Warszawa
+### Warszawa {#capital_warsaw}
 ![preview capital_warsaw](../../../assets/img/content/cards/capital_warsaw.jpg){ loading=lazy }
 
 Stolica Polski.
@@ -1927,12 +1927,12 @@ Stolica Polski.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [Poland country](../topics/index.md#poland)
+- Topics: [Poland country](../topics/index.md#poland-country)
 - Image credit: CC_BY_SA | A.Savin | [source](https://commons.wikimedia.org/wiki/File:Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg)
 
 ---
 
-### <a id="wind"></a>Wiatr
+### Wiatr {#wind}
 ![preview wind](../../../assets/img/content/cards/wind.jpg){ loading=lazy }
 
 Ruch powietrza, który w górach może być odczuwalnie silniejszy.
@@ -1946,7 +1946,7 @@ Ruch powietrza, który w górach może być odczuwalnie silniejszy.
 
 ---
 
-### <a id="capital_vilnius"></a>Wilno
+### Wilno {#capital_vilnius}
 ![preview capital_vilnius](../../../assets/img/content/cards/capital_vilnius.jpg){ loading=lazy }
 
 Stolica Litwy.
@@ -1958,7 +1958,7 @@ Stolica Litwy.
 
 ---
 
-### <a id="food_water"></a>Woda
+### Woda {#food_water}
 ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ loading=lazy }
 
 Woda jest niezbędna do życia
@@ -1971,7 +1971,7 @@ Woda jest niezbędna do życia
 
 ---
 
-### <a id="climbing"></a>Wspinaczka
+### Wspinaczka {#climbing}
 ![preview climbing](../../../assets/img/content/cards/climbing.jpg){ loading=lazy }
 
 Wchodzenie na skały lub lód przy użyciu specjalnego sprzętu.
@@ -1986,7 +1986,7 @@ Derivative version: Subsidiary account (image rotated 90 degrees CCW) | [source]
 
 ---
 
-### <a id="person_grocer"></a>Właściciel sklepu spożywczego
+### Właściciel sklepu spożywczego {#person_grocer}
 ![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ loading=lazy }
 
 Osoba sprzedająca różnego rodzaju żywność i napoje.
@@ -2000,7 +2000,7 @@ Osoba sprzedająca różnego rodzaju żywność i napoje.
 
 ---
 
-### <a id="animal_lion_young_male"></a>Young Lion Male
+### Young Lion Male {#animal_lion_young_male}
 ![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
 
 No translation found for 'animal_lion_young_male.desc' in Cards
@@ -2012,7 +2012,7 @@ No translation found for 'animal_lion_young_male.desc' in Cards
 
 ---
 
-### <a id="royal_castle_warsaw"></a>Zamek Królewski (Warszawa)
+### Zamek Królewski (Warszawa) {#royal_castle_warsaw}
 ![preview royal_castle_warsaw](../../../assets/img/content/cards/royal_castle_warsaw.jpg){ loading=lazy }
 
 Historyczny zamek królów polskich, obecnie muzeum.
@@ -2025,7 +2025,7 @@ Historyczny zamek królów polskich, obecnie muzeum.
 
 ---
 
-### <a id="danger_sign"></a>Znak NIEBEZPIECZEŃSTWO
+### Znak NIEBEZPIECZEŃSTWO {#danger_sign}
 ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ loading=lazy }
 
 Znak ostrzegający przed zbliżającym się niebezpieczeństwem. Zachowaj szczególną ostrożność.
@@ -2038,7 +2038,7 @@ Znak ostrzegający przed zbliżającym się niebezpieczeństwem. Zachowaj szczeg
 
 ---
 
-### <a id="stop_sign"></a>Znak STOP
+### Znak STOP {#stop_sign}
 ![preview stop_sign](../../../assets/img/content/cards/stop_sign.jpg){ loading=lazy }
 
 Czerwony znak oznaczający, że musisz zatrzymać pojazd.
@@ -2051,7 +2051,7 @@ Czerwony znak oznaczający, że musisz zatrzymać pojazd.
 
 ---
 
-### <a id="zoo_animals"></a>Zoo Animals
+### Zoo Animals {#zoo_animals}
 Auto-created card for topic 'Zoo Animals'.
 
 - Type: None
@@ -2060,7 +2060,7 @@ Auto-created card for topic 'Zoo Animals'.
 
 ---
 
-### <a id="boat_people"></a>Łódź dla ludzi
+### Łódź dla ludzi {#boat_people}
 ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ loading=lazy }
 
 Łódź przewożąca ludzi z jednego miejsca do drugiego przez wodę.
@@ -2072,7 +2072,7 @@ Auto-created card for topic 'Zoo Animals'.
 
 ---
 
-### <a id="boat_river"></a>Łódź rzeczna
+### Łódź rzeczna {#boat_river}
 ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ loading=lazy }
 
 Łódź, która płynie po rzekach. Rzeki są jak drogi zbudowane z wody!
@@ -2086,7 +2086,7 @@ Auto-created card for topic 'Zoo Animals'.
 
 ---
 
-### <a id="boat_for_goods"></a>Łódź towarowa
+### Łódź towarowa {#boat_for_goods}
 ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ loading=lazy }
 
 Duża łódź, która przewozi pudełka, żywność i inne rzeczy z miejsca na miejsce.
@@ -2098,7 +2098,7 @@ Duża łódź, która przewozi pudełka, żywność i inne rzeczy z miejsca na m
 
 ---
 
-### <a id="snow"></a>Śnieg
+### Śnieg {#snow}
 ![preview snow](../../../assets/img/content/cards/snow.jpg){ loading=lazy }
 
 Zamarznięta woda spadająca w zimne dni.
@@ -2112,7 +2112,7 @@ Zamarznięta woda spadająca w zimne dni.
 
 ---
 
-### <a id="marmot"></a>Świstak
+### Świstak {#marmot}
 ![preview marmot](../../../assets/img/content/cards/marmot.jpg){ loading=lazy }
 
 Futrzane zwierzę górskie, które gwiżdże.
@@ -2125,7 +2125,7 @@ Futrzane zwierzę górskie, które gwiżdże.
 
 ---
 
-### <a id="iron_material"></a>Żelazo
+### Żelazo {#iron_material}
 ![preview iron_material](../../../assets/img/content/cards/iron_material.jpg){ loading=lazy }
 
 Gorące narzędzie służące do wygładzania i prostowania pogniecionych ubrań. Uwaga, żelazka są bardzo gorące!
@@ -2138,7 +2138,7 @@ Gorące narzędzie służące do wygładzania i prostowania pogniecionych ubrań
 
 ---
 
-### <a id="animal_giraffe"></a>Żyrafa
+### Żyrafa {#animal_giraffe}
 ![preview animal_giraffe](../../../assets/img/content/cards/animal_giraffe.jpg){ loading=lazy }
 
 Bardzo wysokie zwierzę z długą szyją. Żyrafy są wyższe niż drzewa! Zjadają liście, do których inne zwierzęta nie mogą dosięgnąć.
@@ -2152,7 +2152,7 @@ Bardzo wysokie zwierzę z długą szyją. Żyrafy są wyższe niż drzewa! Zjada
 
 ## France
 
-### <a id="book_20000_leagues_under_the_sea"></a>20000 Leagues Under the Sea
+### 20000 Leagues Under the Sea {#book_20000_leagues_under_the_sea}
 ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
 A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
@@ -2167,7 +2167,7 @@ A book by Jules Verne about underwater adventures in a submarine called the Naut
 
 ---
 
-### <a id="24_hours_of_le_mans"></a>24-godzinny wyścig Le Mans
+### 24-godzinny wyścig Le Mans {#24_hours_of_le_mans}
 ![preview 24_hours_of_le_mans](../../../assets/img/content/cards/24_hours_of_le_mans.jpg){ loading=lazy }
 
 Wyścig samochodowy trwający 24 godziny. Zespoły ścigają się dniem i nocą.
@@ -2179,7 +2179,7 @@ Wyścig samochodowy trwający 24 godziny. Zespoły ścigają się dniem i nocą.
 
 ---
 
-### <a id="marseillaise_1"></a>Allons enfants
+### Allons enfants {#marseillaise_1}
 ![preview marseillaise_1](../../../assets/img/content/cards/marseillaise_1.jpg){ loading=lazy }
 
 Pierwsze słowa pierwszego wersu hymnu.
@@ -2194,7 +2194,7 @@ Pierwsze słowa pierwszego wersu hymnu.
 
 ---
 
-### <a id="book_around_the_world_80_days"></a>Around the World in Eighty Days
+### Around the World in Eighty Days {#book_around_the_world_80_days}
 ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
 An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
@@ -2209,7 +2209,7 @@ An exciting book by Jules Verne about traveling around the whole world very quic
 
 ---
 
-### <a id="food_baguette"></a>Bagietka francuska
+### Bagietka francuska {#food_baguette}
 ![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ loading=lazy }
 
 Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie kupują świeże bagietki z piekarni!
@@ -2225,7 +2225,7 @@ Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie 
 
 ---
 
-### <a id="bouillabaisse"></a>Bouillabaisse
+### Bouillabaisse {#bouillabaisse}
 ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ loading=lazy }
 
 Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu różnych gatunków ryb, ma pyszny zapach!
@@ -2240,7 +2240,7 @@ Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu r
 
 ---
 
-### <a id="portcullis"></a>Brona
+### Brona {#portcullis}
 ![preview portcullis](../../../assets/img/content/cards/portcullis.jpg){ loading=lazy }
 
 Ciężka brama, która opada i blokuje wejście.
@@ -2252,7 +2252,7 @@ Ciężka brama, która opada i blokuje wejście.
 
 ---
 
-### <a id="dancing_shoes"></a>Buty do tańca
+### Buty do tańca {#dancing_shoes}
 ![preview dancing_shoes](../../../assets/img/content/cards/dancing_shoes.jpg){ loading=lazy }
 
 Buty przeznaczone do tańca na sali balowej.
@@ -2264,7 +2264,7 @@ Buty przeznaczone do tańca na sali balowej.
 
 ---
 
-### <a id="education_college_fr"></a>Collège we Francji
+### Collège we Francji {#education_college_fr}
 ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
 
 Szkoła średnia we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wielu przedmiotów i przygotowują się do szkoły średniej.
@@ -2280,7 +2280,7 @@ Szkoła średnia we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą 
 
 ---
 
-### <a id="marseillaise_2"></a>De la patrie
+### De la patrie {#marseillaise_2}
 ![preview marseillaise_2](../../../assets/img/content/cards/marseillaise_2.jpg){ loading=lazy }
 
 Słowa z pierwszego wersu hymnu.
@@ -2295,7 +2295,7 @@ Słowa z pierwszego wersu hymnu.
 
 ---
 
-### <a id="note_do"></a>Do
+### Do {#note_do}
 ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -2308,7 +2308,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="loire_valley"></a>Dolina Loary
+### Dolina Loary {#loire_valley}
 ![preview loire_valley](../../../assets/img/content/cards/loire_valley.jpg){ loading=lazy }
 
 Słynny francuski region z wieloma zamkami.
@@ -2320,7 +2320,7 @@ Słynny francuski region z wieloma zamkami.
 
 ---
 
-### <a id="le_mans_train_station"></a>Dworzec kolejowy Le Mans
+### Dworzec kolejowy Le Mans {#le_mans_train_station}
 ![preview le_mans_train_station](../../../assets/img/content/cards/le_mans_train_station.jpg){ loading=lazy }
 
 Stacja, z której wsiadasz do pociągu, którym wracasz do domu.
@@ -2332,7 +2332,7 @@ Stacja, z której wsiadasz do pociągu, którym wracasz do domu.
 
 ---
 
-### <a id="marseillaise_3"></a>Dzień chwały
+### Dzień chwały {#marseillaise_3}
 ![preview marseillaise_3](../../../assets/img/content/cards/marseillaise_3.jpg){ loading=lazy }
 
 Słowa z pierwszego wersu hymnu.
@@ -2347,7 +2347,7 @@ Słowa z pierwszego wersu hymnu.
 
 ---
 
-### <a id="marseillaise_4"></a>Est Arrivé
+### Est Arrivé {#marseillaise_4}
 ![preview marseillaise_4](../../../assets/img/content/cards/marseillaise_4.jpg){ loading=lazy }
 
 Słowa z pierwszego wersu hymnu.
@@ -2362,7 +2362,7 @@ Słowa z pierwszego wersu hymnu.
 
 ---
 
-### <a id="note_fa"></a>Fa
+### Fa {#note_fa}
 ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -2375,7 +2375,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="castle_facade_windows"></a>Fasada zamku (okna)
+### Fasada zamku (okna) {#castle_facade_windows}
 ![preview castle_facade_windows](../../../assets/img/content/cards/castle_facade_windows.jpg){ loading=lazy }
 
 Ściana frontowa z wieloma dużymi oknami zapewniającymi światło i widoki.
@@ -2387,7 +2387,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="book_five_weeks_in_a_balloon"></a>Five Weeks in a Balloon
+### Five Weeks in a Balloon {#book_five_weeks_in_a_balloon}
 ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
 
 A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
@@ -2401,7 +2401,7 @@ A book by Jules Verne about flying across Africa in a hot air balloon. It's full
 
 ---
 
-### <a id="flag_france"></a>Flaga Francji
+### Flaga Francji {#flag_france}
 ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ loading=lazy }
 
 Flaga Francji ma trzy pionowe pasy: niebieski, biały i czerwony. Te kolory symbolizują wolność, równość i braterstwo!
@@ -2411,13 +2411,13 @@ Flaga Francji ma trzy pionowe pasy: niebieski, biały i czerwony. Te kolory symb
 - Subjects: Geography, Culture
 - Year: 1794
 - Country: France
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [France country](../topics/index.md#france)
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [France country](../topics/index.md#france-country)
 - Image credit: CC0
 - Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
-### <a id="flag_monaco"></a>Flaga Monako
+### Flaga Monako {#flag_monaco}
 ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ loading=lazy }
 
 Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem!
@@ -2433,7 +2433,7 @@ Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słyn
 
 ---
 
-### <a id="piano"></a>Fortepian
+### Fortepian {#piano}
 ![preview piano](../../../assets/img/content/cards/piano.jpg){ loading=lazy }
 
 Instrument klawiszowy służący do grania melodii i akordów.
@@ -2446,7 +2446,7 @@ Instrument klawiszowy służący do grania melodii i akordów.
 
 ---
 
-### <a id="country_france"></a>Francja
+### Francja {#country_france}
 ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ loading=lazy }
 
 Kraj w Europie. Stolicą jest Paryż.
@@ -2454,7 +2454,7 @@ Kraj w Europie. Stolicą jest Paryż.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: France
-- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country)
 - Image credit: CC_BY_SA | Another one of my pictures:
 
 
@@ -2469,7 +2469,7 @@ Please do not upload an updated image here without consultation with the Author.
 
 ---
 
-### <a id="pirates"></a>Francuscy piraci
+### Francuscy piraci {#pirates}
 ![preview pirates](../../../assets/img/content/cards/pirates.jpg){ loading=lazy }
 
 Odważni żeglarze, którzy żeglowali po morzach dla króla Francji. Nazywano ich korsarzami i chronili francuskie statki przed wrogami.
@@ -2484,7 +2484,7 @@ Odważni żeglarze, którzy żeglowali po morzach dla króla Francji. Nazywano i
 
 ---
 
-### <a id="book_from_earth_to_moon"></a>From the Earth to the Moon
+### From the Earth to the Moon {#book_from_earth_to_moon}
 ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
 
 A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
@@ -2499,7 +2499,7 @@ A book by Jules Verne about going to the Moon in a big cannon! It was written be
 
 ---
 
-### <a id="gargoyle"></a>Gargulec
+### Gargulec {#gargoyle}
 ![preview gargoyle](../../../assets/img/content/cards/gargoyle.jpg){ loading=lazy }
 
 Zabawna lub straszna figurka, która pełni również funkcję rynny deszczowej.
@@ -2512,7 +2512,7 @@ Zabawna lub straszna figurka, która pełni również funkcję rynny deszczowej.
 
 ---
 
-### <a id="gustave_eiffel"></a>Gustave Eiffel
+### Gustave Eiffel {#gustave_eiffel}
 ![preview gustave_eiffel](../../../assets/img/content/cards/gustave_eiffel.jpg){ loading=lazy }
 
 Człowiek, który zbudował Wieżę Eiffla! Był inżynierem, który uwielbiał budować z żelaza i stworzył najsłynniejszą wieżę na świecie.
@@ -2527,7 +2527,7 @@ Człowiek, który zbudował Wieżę Eiffla! Był inżynierem, który uwielbiał 
 
 ---
 
-### <a id="hot_air_balloon"></a>Hot-Air Balloon
+### Hot-Air Balloon {#hot_air_balloon}
 ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ loading=lazy }
 
 A balloon that flies using hot air. The first one flew in France.
@@ -2541,7 +2541,7 @@ A balloon that flies using hot air. The first one flew in France.
 
 ---
 
-### <a id="jean_michel_jarre"></a>Jean Michel Jarre
+### Jean Michel Jarre {#jean_michel_jarre}
 ![preview jean_michel_jarre](../../../assets/img/content/cards/jean_michel_jarre.jpg){ loading=lazy }
 
 A French musician famous for electronic music
@@ -2554,7 +2554,7 @@ A French musician famous for electronic music
 
 ---
 
-### <a id="jules_verne"></a>Jules Verne
+### Jules Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
 A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
@@ -2570,7 +2570,7 @@ A French writer who imagined amazing adventures before they were possible! He wr
 
 ---
 
-### <a id="feathered_hat"></a>Kapelusz z piórami
+### Kapelusz z piórami {#feathered_hat}
 ![preview feathered_hat](../../../assets/img/content/cards/feathered_hat.jpg){ loading=lazy }
 
 Elegancki kapelusz z piórkiem dodającym stylu.
@@ -2582,7 +2582,7 @@ Elegancki kapelusz z piórkiem dodającym stylu.
 
 ---
 
-### <a id="concept_charter_of_secularism"></a>Karta świeckości
+### Karta świeckości {#concept_charter_of_secularism}
 ![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ loading=lazy }
 
 Zbiór zasad szanujących przekonania każdego. Pomaga ludziom żyć razem w pokoju.
@@ -2597,7 +2597,7 @@ Zbiór zasad szanujących przekonania każdego. Pomaga ludziom żyć razem w pok
 
 ---
 
-### <a id="helmet"></a>Kask
+### Kask {#helmet}
 ![preview helmet](../../../assets/img/content/cards/helmet.jpg){ loading=lazy }
 
 Metalowy kapelusz chroniący głowę.
@@ -2609,7 +2609,7 @@ Metalowy kapelusz chroniący głowę.
 
 ---
 
-### <a id="helmet_street_safety"></a>Kask (bezpieczeństwo uliczne)
+### Kask (bezpieczeństwo uliczne) {#helmet_street_safety}
 ![preview helmet_street_safety](../../../assets/img/content/cards/helmet_street_safety.jpg){ loading=lazy }
 
 Twardy kask chroniący głowę podczas jazdy.
@@ -2622,7 +2622,7 @@ Twardy kask chroniący głowę podczas jazdy.
 
 ---
 
-### <a id="catapult"></a>Katapultować
+### Katapultować {#catapult}
 ![preview catapult](../../../assets/img/content/cards/catapult.jpg){ loading=lazy }
 
 Maszyna, która rzuca kamieniami na dużą odległość.
@@ -2634,7 +2634,7 @@ Maszyna, która rzuca kamieniami na dużą odległość.
 
 ---
 
-### <a id="cathedral"></a>Katedra
+### Katedra {#cathedral}
 ![preview cathedral](../../../assets/img/content/cards/cathedral.jpg){ loading=lazy }
 
 Bardzo duży i ważny kościół w mieście.
@@ -2647,7 +2647,7 @@ Bardzo duży i ważny kościół w mieście.
 
 ---
 
-### <a id="notre_dame_de_paris"></a>Katedra Notre-Dame w Paryżu
+### Katedra Notre-Dame w Paryżu {#notre_dame_de_paris}
 ![preview notre_dame_de_paris](../../../assets/img/content/cards/notre_dame_de_paris.jpg){ loading=lazy }
 
 Piękna katedra w Paryżu. Jej kolorowe witraże opowiadają historie.
@@ -2662,7 +2662,7 @@ Piękna katedra w Paryżu. Jej kolorowe witraże opowiadają historie.
 
 ---
 
-### <a id="code_of_hammurabi"></a>Kodeks Hammurabiego
+### Kodeks Hammurabiego {#code_of_hammurabi}
 ![preview code_of_hammurabi](../../../assets/img/content/cards/code_of_hammurabi.jpg){ loading=lazy }
 
 Kamień z wyrytymi bardzo starymi prawami.
@@ -2675,7 +2675,7 @@ Kamień z wyrytymi bardzo starymi prawami.
 
 ---
 
-### <a id="coronation_of_napoleon_david"></a>Koronacja Napoleona (Dawid)
+### Koronacja Napoleona (Dawid) {#coronation_of_napoleon_david}
 ![preview coronation_of_napoleon_david](../../../assets/img/content/cards/coronation_of_napoleon_david.jpg){ loading=lazy }
 
 Ogromny obraz przedstawiający ceremonię cesarza Francji.
@@ -2688,7 +2688,7 @@ Ogromny obraz przedstawiający ceremonię cesarza Francji.
 
 ---
 
-### <a id="church"></a>Kościół
+### Kościół {#church}
 ![preview church](../../../assets/img/content/cards/church.jpg){ loading=lazy }
 
 Specjalny budynek, w którym ludzie spotykają się, aby modlić się i śpiewać.
@@ -2701,7 +2701,7 @@ Specjalny budynek, w którym ludzie spotykają się, aby modlić się i śpiewa�
 
 ---
 
-### <a id="royal_bedroom"></a>Królewska sypialnia
+### Królewska sypialnia {#royal_bedroom}
 ![preview royal_bedroom](../../../assets/img/content/cards/royal_bedroom.jpg){ loading=lazy }
 
 Elegancki pokój z dużym łóżkiem z baldachimem.
@@ -2713,7 +2713,7 @@ Elegancki pokój z dużym łóżkiem z baldachimem.
 
 ---
 
-### <a id="xylophone"></a>Ksylofon
+### Ksylofon {#xylophone}
 ![preview xylophone](../../../assets/img/content/cards/xylophone.jpg){ loading=lazy }
 
 Instrument z prętami, w które uderza się, aby uzyskać nuty.
@@ -2725,7 +2725,7 @@ Instrument z prętami, w które uderza się, aby uzyskać nuty.
 
 ---
 
-### <a id="note_la"></a>La
+### La {#note_la}
 ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -2738,7 +2738,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="flying_buttress"></a>Latająca przypora
+### Latająca przypora {#flying_buttress}
 ![preview flying_buttress](../../../assets/img/content/cards/flying_buttress.jpg){ loading=lazy }
 
 Kamienne ramiona na zewnątrz, które pomagają podtrzymywać wysokie mury.
@@ -2751,7 +2751,7 @@ Kamienne ramiona na zewnątrz, które pomagają podtrzymywać wysokie mury.
 
 ---
 
-### <a id="le_mans"></a>Le Mans
+### Le Mans {#le_mans}
 ![preview le_mans](../../../assets/img/content/cards/le_mans.jpg){ loading=lazy }
 
 Miasto we Francji słynące z 24-godzinnego wyścigu samochodowego.
@@ -2763,7 +2763,7 @@ Miasto we Francji słynące z 24-godzinnego wyścigu samochodowego.
 
 ---
 
-### <a id="education_lycee_fr"></a>Liceum we Francji
+### Liceum we Francji {#education_lycee_fr}
 ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ loading=lazy }
 
 Szkoła średnia we Francji dla nastolatków w wieku od 16 do 18 lat. Uczniowie intensywnie przygotowują się do egzaminu maturalnego, aby móc iść na uniwersytet.
@@ -2779,7 +2779,7 @@ Szkoła średnia we Francji dla nastolatków w wieku od 16 do 18 lat. Uczniowie 
 
 ---
 
-### <a id="loopholes"></a>Luki
+### Luki {#loopholes}
 ![preview loopholes](../../../assets/img/content/cards/loopholes.jpg){ loading=lazy }
 
 Wąskie okna umożliwiające bezpieczne strzelanie.
@@ -2791,7 +2791,7 @@ Wąskie okna umożliwiające bezpieczne strzelanie.
 
 ---
 
-### <a id="lute"></a>Lutnia
+### Lutnia {#lute}
 ![preview lute](../../../assets/img/content/cards/lute.jpg){ loading=lazy }
 
 Instrument strunowy, na którym gra się na dworze.
@@ -2803,7 +2803,7 @@ Instrument strunowy, na którym gra się na dworze.
 
 ---
 
-### <a id="seine_map"></a>Mapa Sekwany
+### Mapa Sekwany {#seine_map}
 ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ loading=lazy }
 
 Zdjęcie przedstawiające rzekę Sekwanę i jej przepływ przez ląd.
@@ -2816,7 +2816,7 @@ Zdjęcie przedstawiające rzekę Sekwanę i jej przepływ przez ląd.
 
 ---
 
-### <a id="seine_map_in_paris"></a>Mapa Sekwany w Paryżu
+### Mapa Sekwany w Paryżu {#seine_map_in_paris}
 ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ loading=lazy }
 
 Zdjęcie przedstawiające przepływ rzeki Sekwany przez Paryż.
@@ -2829,7 +2829,7 @@ Zdjęcie przedstawiające przepływ rzeki Sekwany przez Paryż.
 
 ---
 
-### <a id="marseillaise_music"></a>Marsylianka
+### Marsylianka {#marseillaise_music}
 ![preview marseillaise_music](../../../assets/img/content/cards/marseillaise_music.jpg){ loading=lazy }
 
 Francuska pieśń narodowa. Śpiewa się ją podczas wielkich wydarzeń i meczów sportowych.
@@ -2845,7 +2845,7 @@ Francuska pieśń narodowa. Śpiewa się ją podczas wielkich wydarzeń i meczó
 
 ---
 
-### <a id="masquerade_mask"></a>Maska maskaradowa
+### Maska maskaradowa {#masquerade_mask}
 ![preview masquerade_mask](../../../assets/img/content/cards/masquerade_mask.jpg){ loading=lazy }
 
 Maska na imprezy i bale.
@@ -2857,7 +2857,7 @@ Maska na imprezy i bale.
 
 ---
 
-### <a id="note_mi"></a>Mi
+### Mi {#note_mi}
 ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -2870,7 +2870,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="sword"></a>Miecz
+### Miecz {#sword}
 ![preview sword](../../../assets/img/content/cards/sword.jpg){ loading=lazy }
 
 Długie ostrze używane przez rycerzy.
@@ -2882,7 +2882,7 @@ Długie ostrze używane przez rycerzy.
 
 ---
 
-### <a id="pont_alexandre_iii"></a>Most Aleksandra III
+### Most Aleksandra III {#pont_alexandre_iii}
 ![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ loading=lazy }
 
 Piękny most w Paryżu z misternymi dekoracjami i złotymi posągami.
@@ -2895,7 +2895,7 @@ Piękny most w Paryżu z misternymi dekoracjami i złotymi posągami.
 
 ---
 
-### <a id="drawbridge"></a>Most zwodzony
+### Most zwodzony {#drawbridge}
 ![preview drawbridge](../../../assets/img/content/cards/drawbridge.jpg){ loading=lazy }
 
 Most podnoszony w celu ochrony wejścia do zamku.
@@ -2907,7 +2907,7 @@ Most podnoszony w celu ochrony wejścia do zamku.
 
 ---
 
-### <a id="musical_score"></a>Muzyka
+### Muzyka {#musical_score}
 ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ loading=lazy }
 
 Zapis nutowy i słowa piosenki.
@@ -2920,7 +2920,7 @@ Zapis nutowy i słowa piosenki.
 
 ---
 
-### <a id="winged_victory_of_samothrace"></a>Nike z Samotraki
+### Nike z Samotraki {#winged_victory_of_samothrace}
 ![preview winged_victory_of_samothrace](../../../assets/img/content/cards/winged_victory_of_samothrace.jpg){ loading=lazy }
 
 Słynna starożytna rzeźba przedstawiająca boginię ze skrzydłami.
@@ -2933,7 +2933,7 @@ Słynna starożytna rzeźba przedstawiająca boginię ze skrzydłami.
 
 ---
 
-### <a id="note_re"></a>Odnośnie
+### Odnośnie {#note_re}
 ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -2946,7 +2946,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="formal_gardens"></a>Ogrody formalne
+### Ogrody formalne {#formal_gardens}
 ![preview formal_gardens](../../../assets/img/content/cards/formal_gardens.jpg){ loading=lazy }
 
 Ogrody ozdobne do spacerów i przyjęć.
@@ -2958,7 +2958,7 @@ Ogrody ozdobne do spacerów i przyjęć.
 
 ---
 
-### <a id="rose_window"></a>Okno rozetowe
+### Okno rozetowe {#rose_window}
 ![preview rose_window](../../../assets/img/content/cards/rose_window.jpg){ loading=lazy }
 
 Duży, okrągły witraż opowiadający historie światłem.
@@ -2971,7 +2971,7 @@ Duży, okrągły witraż opowiadający historie światłem.
 
 ---
 
-### <a id="parapet"></a>Parapet
+### Parapet {#parapet}
 ![preview parapet](../../../assets/img/content/cards/parapet.jpg){ loading=lazy }
 
 Niski mur na skraju wałów obronnych.
@@ -2983,7 +2983,7 @@ Niski mur na skraju wałów obronnych.
 
 ---
 
-### <a id="louvre_pyramid"></a>Piramida Luwru
+### Piramida Luwru {#louvre_pyramid}
 ![preview louvre_pyramid](../../../assets/img/content/cards/louvre_pyramid.jpg){ loading=lazy }
 
 Szklana piramida, która stanowi współczesne wejście do Luwru.
@@ -2996,7 +2996,7 @@ Szklana piramida, która stanowi współczesne wejście do Luwru.
 
 ---
 
-### <a id="concept_cursive_writing"></a>Pismo odręczne
+### Pismo odręczne {#concept_cursive_writing}
 ![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ loading=lazy }
 
 Specjalny sposób pisania, w którym wszystkie litery w słowie są połączone. We Francji dzieci uczą się tego sposobu pisania w szkole.
@@ -3012,7 +3012,7 @@ Specjalny sposób pisania, w którym wszystkie litery w słowie są połączone.
 
 ---
 
-### <a id="notre_dame_de_paris_fire"></a>Pożar Notre-Dame
+### Pożar Notre-Dame {#notre_dame_de_paris_fire}
 ![preview notre_dame_de_paris_fire](../../../assets/img/content/cards/notre_dame_de_paris_fire.jpg){ loading=lazy }
 
 W 2019 roku wielki pożar zniszczył piękną katedrę Notre-Dame w Paryżu. Wiele osób współpracowało, aby uratować ten ważny budynek.
@@ -3028,7 +3028,7 @@ W 2019 roku wielki pożar zniszczył piękną katedrę Notre-Dame w Paryżu. Wie
 
 ---
 
-### <a id="boatman"></a>Przewoźnik
+### Przewoźnik {#boatman}
 ![preview boatman](../../../assets/img/content/cards/boatman.jpg){ loading=lazy }
 
 Osoba wiosłująca łodzią po Loarze.
@@ -3040,7 +3040,7 @@ Osoba wiosłująca łodzią po Loarze.
 
 ---
 
-### <a id="oath_of_the_horatii_david"></a>Przysięga Horacjuszy (Dawida)
+### Przysięga Horacjuszy (Dawida) {#oath_of_the_horatii_david}
 ![preview oath_of_the_horatii_david](../../../assets/img/content/cards/oath_of_the_horatii_david.jpg){ loading=lazy }
 
 Obraz przedstawiający trzech braci składających odważną obietnicę.
@@ -3053,7 +3053,7 @@ Obraz przedstawiający trzech braci składających odważną obietnicę.
 
 ---
 
-### <a id="french_revolution"></a>Rewolucja francuska
+### Rewolucja francuska {#french_revolution}
 ![preview french_revolution](../../../assets/img/content/cards/french_revolution.jpg){ loading=lazy }
 
 Okres lat dziewięćdziesiątych XVIII wieku, kiedy we Francji nastąpiła zmiana rządu.
@@ -3066,7 +3066,7 @@ Okres lat dziewięćdziesiątych XVIII wieku, kiedy we Francji nastąpiła zmian
 
 ---
 
-### <a id="bicycle"></a>Rower
+### Rower {#bicycle}
 ![preview bicycle](../../../assets/img/content/cards/bicycle.jpg){ loading=lazy }
 
 Pojazd z dwoma kołami, do których pedałuje się.
@@ -3078,7 +3078,7 @@ Pojazd z dwoma kołami, do których pedałuje się.
 
 ---
 
-### <a id="loire_river"></a>Rzeka Loara
+### Rzeka Loara {#loire_river}
 ![preview loire_river](../../../assets/img/content/cards/loire_river.jpg){ loading=lazy }
 
 Długa rzeka we Francji, wzdłuż której brzegów znajduje się wiele zamków.
@@ -3090,7 +3090,7 @@ Długa rzeka we Francji, wzdłuż której brzegów znajduje się wiele zamków.
 
 ---
 
-### <a id="ballroom"></a>Sala balowa
+### Sala balowa {#ballroom}
 ![preview ballroom](../../../assets/img/content/cards/ballroom.jpg){ loading=lazy }
 
 Duża sala do tańca i muzyki.
@@ -3103,7 +3103,7 @@ Duża sala do tańca i muzyki.
 
 ---
 
-### <a id="race_car"></a>Samochód wyścigowy
+### Samochód wyścigowy {#race_car}
 ![preview race_car](../../../assets/img/content/cards/race_car.jpg){ loading=lazy }
 
 Bardzo szybki samochód używany na torach wyścigowych.
@@ -3115,7 +3115,7 @@ Bardzo szybki samochód używany na torach wyścigowych.
 
 ---
 
-### <a id="seine"></a>Sekwana
+### Sekwana {#seine}
 ![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
 
 Rzeka o długości 777 kilometrów w północnej Francji
@@ -3128,7 +3128,7 @@ Rzeka o długości 777 kilometrów w północnej Francji
 
 ---
 
-### <a id="note_si"></a>Si
+### Si {#note_si}
 ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -3141,7 +3141,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="the_seated_scribe"></a>Siedzący skryba
+### Siedzący skryba {#the_seated_scribe}
 ![preview the_seated_scribe](../../../assets/img/content/cards/the_seated_scribe.jpg){ loading=lazy }
 
 Starożytna egipska statua przedstawiająca osobę piszącą.
@@ -3154,7 +3154,7 @@ Starożytna egipska statua przedstawiająca osobę piszącą.
 
 ---
 
-### <a id="scooter"></a>Skuter
+### Skuter {#scooter}
 ![preview scooter](../../../assets/img/content/cards/scooter.jpg){ loading=lazy }
 
 Mały dwukołowy skuter (trottinette).
@@ -3166,7 +3166,7 @@ Mały dwukołowy skuter (trottinette).
 
 ---
 
-### <a id="note_sol"></a>Sol
+### Sol {#note_sol}
 ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -3179,7 +3179,7 @@ Nuta muzyczna.
 
 ---
 
-### <a id="boat_eiffel_tower"></a>Statek po Sekwanie
+### Statek po Sekwanie {#boat_eiffel_tower}
 ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ loading=lazy }
 
 Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę Eiffla i inne piękne budynki!
@@ -3194,7 +3194,7 @@ Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę E
 
 ---
 
-### <a id="arrows"></a>Strzałki
+### Strzałki {#arrows}
 ![preview arrows](../../../assets/img/content/cards/arrows.jpg){ loading=lazy }
 
 Ostre patyki wystrzeliwane z łuku.
@@ -3206,7 +3206,7 @@ Ostre patyki wystrzeliwane z łuku.
 
 ---
 
-### <a id="traffic_lights"></a>Sygnalizacja świetlna
+### Sygnalizacja świetlna {#traffic_lights}
 ![preview traffic_lights](../../../assets/img/content/cards/traffic_lights.jpg){ loading=lazy }
 
 Latarnie uliczne informujące, kiedy należy się ZATRZYMAĆ lub JECHAĆ.
@@ -3219,7 +3219,7 @@ Latarnie uliczne informujące, kiedy należy się ZATRZYMAĆ lub JECHAĆ.
 
 ---
 
-### <a id="education_ecole_maternelle_fr"></a>Szkoła Maternelle
+### Szkoła Maternelle {#education_ecole_maternelle_fr}
 ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
 
 Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i odkrywanie.
@@ -3234,7 +3234,7 @@ Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i 
 
 ---
 
-### <a id="education_ecole_primaire_fr"></a>Szkoła podstawowa we Francji
+### Szkoła podstawowa we Francji {#education_ecole_primaire_fr}
 ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ loading=lazy }
 
 Szkoła dla dzieci w wieku od 6 do 10 lat. Uczysz się czytania, pisania i liczenia.
@@ -3249,7 +3249,7 @@ Szkoła dla dzieci w wieku od 6 do 10 lat. Uczysz się czytania, pisania i licze
 
 ---
 
-### <a id="bow"></a>Ukłon
+### Ukłon {#bow}
 ![preview bow](../../../assets/img/content/cards/bow.jpg){ loading=lazy }
 
 Broń strzelająca strzałami.
@@ -3261,7 +3261,7 @@ Broń strzelająca strzałami.
 
 ---
 
-### <a id="ramparts"></a>Wały
+### Wały {#ramparts}
 ![preview ramparts](../../../assets/img/content/cards/ramparts.jpg){ loading=lazy }
 
 Wysokie mury, po których można chodzić i strzec zamku.
@@ -3273,7 +3273,7 @@ Wysokie mury, po których można chodzić i strzec zamku.
 
 ---
 
-### <a id="le_mans_racetrack_entrance"></a>Wejście na tor wyścigowy Le Mans
+### Wejście na tor wyścigowy Le Mans {#le_mans_racetrack_entrance}
 ![preview le_mans_racetrack_entrance](../../../assets/img/content/cards/le_mans_racetrack_entrance.jpg){ loading=lazy }
 
 Wejście na tor wyścigowy Le Mans.
@@ -3285,7 +3285,7 @@ Wejście na tor wyścigowy Le Mans.
 
 ---
 
-### <a id="eiffel_tower"></a>Wieża Eiffla
+### Wieża Eiffla {#eiffel_tower}
 ![preview eiffel_tower](../../../assets/img/content/cards/eiffel_tower.jpg){ loading=lazy }
 
 Wysoka wieża i symbol Paryża. Jest wykonana z żelaza i ma 300 metrów wysokości. Można na nią wejść i zobaczyć całe miasto.
@@ -3300,7 +3300,7 @@ Wysoka wieża i symbol Paryża. Jest wykonana z żelaza i ma 300 metrów wysoko�
 
 ---
 
-### <a id="eiffel_tower_elevators"></a>Windy Wieży Eiffla
+### Windy Wieży Eiffla {#eiffel_tower_elevators}
 ![preview eiffel_tower_elevators](../../../assets/img/content/cards/eiffel_tower_elevators.jpg){ loading=lazy }
 
 Windy, którymi zwiedzający mogą wjechać na żelazną wieżę.
@@ -3313,7 +3313,7 @@ Windy, którymi zwiedzający mogą wjechać na żelazną wieżę.
 
 ---
 
-### <a id="art_liberty_leading_the_people"></a>Wolność wiodąca lud
+### Wolność wiodąca lud {#art_liberty_leading_the_people}
 ![preview art_liberty_leading_the_people](../../../assets/img/content/cards/art_liberty_leading_the_people.jpg){ loading=lazy }
 
 Słynny obraz o wolności i odwadze. Przedstawia odważną kobietę trzymającą flagę Francji i prowadzącą ludzi do walki o swoje prawa.
@@ -3328,7 +3328,7 @@ Słynny obraz o wolności i odwadze. Przedstawia odważną kobietę trzymającą
 
 ---
 
-### <a id="worlds_fair_1889"></a>Wystawa światowa (1889)
+### Wystawa światowa (1889) {#worlds_fair_1889}
 ![preview worlds_fair_1889](../../../assets/img/content/cards/worlds_fair_1889.jpg){ loading=lazy }
 
 Wielka światowa wystawa, na której pokazano Wieżę Eiffla.
@@ -3341,7 +3341,7 @@ Wielka światowa wystawa, na której pokazano Wieżę Eiffla.
 
 ---
 
-### <a id="chateau_de_chambord"></a>Zamek Chambord
+### Zamek Chambord {#chateau_de_chambord}
 ![preview chateau_de_chambord](../../../assets/img/content/cards/chateau_de_chambord.jpg){ loading=lazy }
 
 Wspaniały pałac z wieloma oknami i ogrodami.
@@ -3353,7 +3353,7 @@ Wspaniały pałac z wieloma oknami i ogrodami.
 
 ---
 
-### <a id="castle_chinon"></a>Zamek Chinon
+### Zamek Chinon {#castle_chinon}
 ![preview castle_chinon](../../../assets/img/content/cards/castle_chinon.jpg){ loading=lazy }
 
 Zamek Chinon to potężna kamienna twierdza na wzgórzu nad rzeką w Dolinie Loary. Dawno temu przebywali tu królowie, a Joanna d'Arc przybyła tu, aby spotkać się z przyszłym królem Francji.
@@ -3366,7 +3366,7 @@ Zamek Chinon to potężna kamienna twierdza na wzgórzu nad rzeką w Dolinie Loa
 
 ---
 
-### <a id="chateau_de_chinon"></a>Zamek Chinon
+### Zamek Chinon {#chateau_de_chinon}
 ![preview chateau_de_chinon](../../../assets/img/content/cards/chateau_de_chinon.jpg){ loading=lazy }
 
 Mocna kamienna twierdza, wykorzystywana do obrony.
@@ -3378,7 +3378,7 @@ Mocna kamienna twierdza, wykorzystywana do obrony.
 
 ---
 
-### <a id="armor"></a>Zbroja
+### Zbroja {#armor}
 ![preview armor](../../../assets/img/content/cards/armor.jpg){ loading=lazy }
 
 Metalowy ubiór ochronny dla rycerza.
@@ -3390,7 +3390,7 @@ Metalowy ubiór ochronny dla rycerza.
 
 ---
 
-### <a id="zebra_crossing"></a>Zebra
+### Zebra {#zebra_crossing}
 ![preview zebra_crossing](../../../assets/img/content/cards/zebra_crossing.jpg){ loading=lazy }
 
 Białe pasy tam, gdzie ludzie przechodzą przez ulicę.
@@ -3403,7 +3403,7 @@ Białe pasy tam, gdzie ludzie przechodzą przez ulicę.
 
 ---
 
-### <a id="submarine_nautilus"></a>Łódź podwodna (Nautilus)
+### Łódź podwodna (Nautilus) {#submarine_nautilus}
 ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ loading=lazy }
 
 Łódź podwodna z powieści Juliusza Verne'a. Mogła eksplorować głębiny morskie.
@@ -3417,7 +3417,7 @@ Białe pasy tam, gdzie ludzie przechodzą przez ulicę.
 
 ---
 
-### <a id="louvre"></a>Żaluzja
+### Żaluzja {#louvre}
 ![preview louvre](../../../assets/img/content/cards/louvre.jpg){ loading=lazy }
 
 Ogromne muzeum pełne sztuki. To tu mieszka Mona Lisa.
@@ -3432,7 +3432,7 @@ Ogromne muzeum pełne sztuki. To tu mieszka Mona Lisa.
 
 ## Poland
 
-### <a id="astronomy"></a>Astronomia
+### Astronomia {#astronomy}
 ![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
 
 Nauka zajmująca się badaniem Słońca, Księżyca, gwiazd i planet.
@@ -3446,7 +3446,7 @@ Nauka zajmująca się badaniem Słońca, Księżyca, gwiazd i planet.
 
 ---
 
-### <a id="barge"></a>Barka
+### Barka {#barge}
 ![preview barge](../../../assets/img/content/cards/barge.jpg){ loading=lazy }
 
 Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
@@ -3459,7 +3459,7 @@ Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
 
 ---
 
-### <a id="bishop_dwarf"></a>Biskup Krasnolud
+### Biskup Krasnolud {#bishop_dwarf}
 ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
 
 Posąg karła zadającego pytanie kościelne.
@@ -3473,7 +3473,7 @@ Posąg karła zadającego pytanie kościelne.
 
 ---
 
-### <a id="amber"></a>Bursztyn
+### Bursztyn {#amber}
 ![preview amber](../../../assets/img/content/cards/amber.jpg){ loading=lazy }
 
 Błyszcząca skamieniała żywica drzewna zwana „Bałtyckim Złotem”.
@@ -3487,7 +3487,7 @@ Błyszcząca skamieniała żywica drzewna zwana „Bałtyckim Złotem”.
 
 ---
 
-### <a id="nicolaus_copernicus_house"></a>Dom Mikołaja Kopernika
+### Dom Mikołaja Kopernika {#nicolaus_copernicus_house}
 ![preview nicolaus_copernicus_house](../../../assets/img/content/cards/nicolaus_copernicus_house.jpg){ loading=lazy }
 
 Obecnie mieści się tam muzeum, w którym można poznać historię jego życia i osiągnięć naukowych.
@@ -3500,7 +3500,7 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 
 ---
 
-### <a id="houseboat"></a>Dom na wodzie
+### Dom na wodzie {#houseboat}
 ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ loading=lazy }
 
 Łódź stworzona do życia na niej.
@@ -3514,7 +3514,7 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 
 ---
 
-### <a id="zoo_director"></a>Dyrektor zoo
+### Dyrektor zoo {#zoo_director}
 ![preview zoo_director](../../../assets/img/content/cards/zoo_director.jpg){ loading=lazy }
 
 Osoba zarządzająca zoo i pomagająca zwiedzającym.
@@ -3528,7 +3528,7 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 
 ---
 
-### <a id="ecosystem"></a>Ekosystem
+### Ekosystem {#ecosystem}
 ![preview ecosystem](../../../assets/img/content/cards/ecosystem.jpg){ loading=lazy }
 
 Żywe organizmy i ich środowisko naturalne, współpracujące ze sobą.
@@ -3541,7 +3541,7 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 
 ---
 
-### <a id="dwarf_expert"></a>Ekspert Krasnoludów
+### Ekspert Krasnoludów {#dwarf_expert}
 ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
 
 Przyjazny przewodnik, który wie wszystko o krasnoludkach.
@@ -3555,7 +3555,7 @@ Przyjazny przewodnik, który wie wszystko o krasnoludkach.
 
 ---
 
-### <a id="waves"></a>Fale
+### Fale {#waves}
 ![preview waves](../../../assets/img/content/cards/waves.jpg){ loading=lazy }
 
 Ruch wody na morzu.
@@ -3569,7 +3569,7 @@ Ruch wody na morzu.
 
 ---
 
-### <a id="flag_poland"></a>Flaga Polski
+### Flaga Polski {#flag_poland}
 ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ loading=lazy }
 
 Flaga Polski ma poziome, biało-czerwone pasy. Polska słynie z naukowców takich jak Kopernik i pysznych pierogów!
@@ -3579,13 +3579,13 @@ Flaga Polski ma poziome, biało-czerwone pasy. Polska słynie z naukowców takic
 - Subjects: Geography, Culture
 - Year: 1919
 - Country: Poland
-- Topics: [Poland country](../topics/index.md#poland)
+- Topics: [Poland country](../topics/index.md#poland-country)
 - Image credit: CC0
 - Quests: [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
-### <a id="wroclaw_flag"></a>Flaga Wrocławia
+### Flaga Wrocławia {#wroclaw_flag}
 ![preview wroclaw_flag](../../../assets/img/content/cards/wroclaw_flag.jpg){ loading=lazy }
 
 Flaga miasta, którą należy znaleźć i zwrócić.
@@ -3598,7 +3598,7 @@ Flaga miasta, którą należy znaleźć i zwrócić.
 
 ---
 
-### <a id="seal"></a>Foka
+### Foka {#seal}
 ![preview seal](../../../assets/img/content/cards/seal.jpg){ loading=lazy }
 
 Dzikie zwierzę morskie, odpoczywające na plażach.
@@ -3611,7 +3611,7 @@ Dzikie zwierzę morskie, odpoczywające na plażach.
 
 ---
 
-### <a id="neptune_s_fountain"></a>Fontanna Neptuna
+### Fontanna Neptuna {#neptune_s_fountain}
 ![preview neptune_s_fountain](../../../assets/img/content/cards/neptune_s_fountain.jpg){ loading=lazy }
 
 Słynna fontanna w Gdańsku z figurą boga morza.
@@ -3625,7 +3625,7 @@ Słynna fontanna w Gdańsku z figurą boga morza.
 
 ---
 
-### <a id="fryderyk_chopin"></a>Fryderyk Chopin
+### Fryderyk Chopin {#fryderyk_chopin}
 ![preview fryderyk_chopin](../../../assets/img/content/cards/fryderyk_chopin.jpg){ loading=lazy }
 
 Znany polski kompozytor fortepianowy. Tworzył piękną muzykę, która brzmi jak taniec lub opowiadanie historii. Jego muzyka sprawia, że ​​ludzie czują się szczęśliwi lub smutni.
@@ -3641,7 +3641,7 @@ Znany polski kompozytor fortepianowy. Tworzył piękną muzykę, która brzmi ja
 
 ---
 
-### <a id="gdansk"></a>Gdańsk
+### Gdańsk {#gdansk}
 ![preview gdansk](../../../assets/img/content/cards/gdansk.jpg){ loading=lazy }
 
 Miasto portowe w Polsce nad Morzem Bałtyckim.
@@ -3655,7 +3655,7 @@ Miasto portowe w Polsce nad Morzem Bałtyckim.
 
 ---
 
-### <a id="main_town_hall"></a>Główny Ratusz
+### Główny Ratusz {#main_town_hall}
 ![preview main_town_hall](../../../assets/img/content/cards/main_town_hall.jpg){ loading=lazy }
 
 Wysoki ratusz z wieżą i muzeum.
@@ -3668,7 +3668,7 @@ Wysoki ratusz z wieżą i muzeum.
 
 ---
 
-### <a id="wroclaw_centennial_hall"></a>Hala Stulecia
+### Hala Stulecia {#wroclaw_centennial_hall}
 ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ loading=lazy }
 
 Hala Stulecia to ogromny budynek przypominający wielki namiot z dachem. Jest bardzo wysoki. Wewnątrz można oglądać różne pokazy, słuchać koncertów i oglądać mecze sportowe.
@@ -3681,7 +3681,7 @@ Hala Stulecia to ogromny budynek przypominający wielki namiot z dachem. Jest ba
 
 ---
 
-### <a id="iglica"></a>Iglica
+### Iglica {#iglica}
 ![preview iglica](../../../assets/img/content/cards/iglica.jpg){ loading=lazy }
 
 Wysoka metalowa rzeźba obok Centennial Hall.
@@ -3694,7 +3694,7 @@ Wysoka metalowa rzeźba obok Centennial Hall.
 
 ---
 
-### <a id="jupiter"></a>Jupiter
+### Jupiter {#jupiter}
 ![preview jupiter](../../../assets/img/content/cards/jupiter.jpg){ loading=lazy }
 
 Największa planeta, słynąca z Wielkiej Czerwonej Plamy.
@@ -3708,7 +3708,7 @@ Największa planeta, słynąca z Wielkiej Czerwonej Plamy.
 
 ---
 
-### <a id="kayak"></a>Kajak
+### Kajak {#kayak}
 ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ loading=lazy }
 
 Mała łódka, którą wiosłujesz.
@@ -3721,7 +3721,7 @@ Mała łódka, którą wiosłujesz.
 
 ---
 
-### <a id="wroclaw_dwarfs"></a>Krasnale wrocławskie
+### Krasnale wrocławskie {#wroclaw_dwarfs}
 ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ loading=lazy }
 
 Malutkie figurki w całym mieście, które uwielbiają płatać figle.
@@ -3735,7 +3735,7 @@ Malutkie figurki w całym mieście, które uwielbiają płatać figle.
 
 ---
 
-### <a id="keymaster_dwarf"></a>Krasnolud Klucznik
+### Krasnolud Klucznik {#keymaster_dwarf}
 ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
 
 Posąg krasnoluda pilnującego windy z dużym kluczem.
@@ -3749,7 +3749,7 @@ Posąg krasnoluda pilnującego windy z dużym kluczem.
 
 ---
 
-### <a id="person_king_sigismund"></a>Król Zygmunt III
+### Król Zygmunt III {#person_king_sigismund}
 ![preview person_king_sigismund](../../../assets/img/content/cards/person_king_sigismund.jpg){ loading=lazy }
 
 Król Polski, który wzniósł wiele pięknych budowli w Warszawie. Jego pomnik stoi na wysokiej kolumnie w centrum miasta.
@@ -3764,7 +3764,7 @@ Król Polski, który wzniósł wiele pięknych budowli w Warszawie. Jego pomnik 
 
 ---
 
-### <a id="footbridge"></a>Kładka
+### Kładka {#footbridge}
 ![preview footbridge](../../../assets/img/content/cards/footbridge.jpg){ loading=lazy }
 
 Most, po którym ludzie mogą chodzić. Bez samochodów.
@@ -3778,7 +3778,7 @@ Most, po którym ludzie mogą chodzić. Bez samochodów.
 
 ---
 
-### <a id="gdansk_lighthouse"></a>Latarnia Morska Gdańsk
+### Latarnia Morska Gdańsk {#gdansk_lighthouse}
 ![preview gdansk_lighthouse](../../../assets/img/content/cards/gdansk_lighthouse.jpg){ loading=lazy }
 
 Zabytkowa latarnia morska, która pomaga statkom znaleźć port.
@@ -3792,7 +3792,7 @@ Zabytkowa latarnia morska, która pomaga statkom znaleźć port.
 
 ---
 
-### <a id="primary_school_leonardo_da_vinci"></a>Leonardo da Vinci Primary School
+### Leonardo da Vinci Primary School {#primary_school_leonardo_da_vinci}
 ![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
 
 It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
@@ -3805,7 +3805,7 @@ It’s a friendly place where children learn, create, and explore guided by curi
 
 ---
 
-### <a id="wroklaw_map"></a>Map of Wroklaw
+### Map of Wroklaw {#wroklaw_map}
 ![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
 
 A simple map of Wrocław showing the Odra River with its islands and many bridges
@@ -3818,7 +3818,7 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 
 ---
 
-### <a id="maria_curie"></a>Maria Curie
+### Maria Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
 Genialna polska naukowiec, która odkryła radioaktywność. Była pierwszą kobietą, która otrzymała Nagrodę Nobla i to dwukrotnie!
@@ -3833,7 +3833,7 @@ Genialna polska naukowiec, która odkryła radioaktywność. Była pierwszą kob
 
 ---
 
-### <a id="mars"></a>Mars
+### Mars {#mars}
 ![preview mars](../../../assets/img/content/cards/mars.jpg){ loading=lazy }
 
 Czerwona planeta z pyłem i dużymi wulkanami.
@@ -3847,7 +3847,7 @@ Czerwona planeta z pyłem i dużymi wulkanami.
 
 ---
 
-### <a id="seagull"></a>Mewa
+### Mewa {#seagull}
 ![preview seagull](../../../assets/img/content/cards/seagull.jpg){ loading=lazy }
 
 Ptak morski żyjący w pobliżu wybrzeża.
@@ -3860,7 +3860,7 @@ Ptak morski żyjący w pobliżu wybrzeża.
 
 ---
 
-### <a id="nicolaus_copernicus"></a>Mikołaj Kopernik
+### Mikołaj Kopernik {#nicolaus_copernicus}
 ![preview nicolaus_copernicus](../../../assets/img/content/cards/nicolaus_copernicus.jpg){ loading=lazy }
 
 Genialny naukowiec z Polski, który odkrył, że to Ziemia krąży wokół Słońca, a nie odwrotnie! To zmieniło nasze rozumienie kosmosu.
@@ -3876,7 +3876,7 @@ Genialny naukowiec z Polski, który odkrył, że to Ziemia krąży wokół Sło�
 
 ---
 
-### <a id="animal_lover_dwarf"></a>Miłośnik zwierząt Krasnolud
+### Miłośnik zwierząt Krasnolud {#animal_lover_dwarf}
 ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ loading=lazy }
 
 Figurka krasnala, który uwielbia zoo i zwierzęta.
@@ -3890,7 +3890,7 @@ Figurka krasnala, który uwielbia zoo i zwierzęta.
 
 ---
 
-### <a id="heliocentric_model"></a>Model heliocentryczny
+### Model heliocentryczny {#heliocentric_model}
 ![preview heliocentric_model](../../../assets/img/content/cards/heliocentric_model.jpg){ loading=lazy }
 
 Pogląd, że Słońce znajduje się w centrum, a planety krążą wokół niego.
@@ -3904,7 +3904,7 @@ Pogląd, że Słońce znajduje się w centrum, a planety krążą wokół niego.
 
 ---
 
-### <a id="bridge"></a>Most
+### Most {#bridge}
 ![preview bridge](../../../assets/img/content/cards/bridge.jpg){ loading=lazy }
 
 Konstrukcja umożliwiająca ludziom lub pojazdom przekraczanie wody.
@@ -3917,7 +3917,7 @@ Konstrukcja umożliwiająca ludziom lub pojazdom przekraczanie wody.
 
 ---
 
-### <a id="road_bridge"></a>Most drogowy
+### Most drogowy {#road_bridge}
 ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ loading=lazy }
 
 Most dla samochodów i autobusów.
@@ -3931,7 +3931,7 @@ Most dla samochodów i autobusów.
 
 ---
 
-### <a id="train_bridge"></a>Most kolejowy
+### Most kolejowy {#train_bridge}
 ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ loading=lazy }
 
 Most z torami kolejowymi.
@@ -3945,7 +3945,7 @@ Most z torami kolejowymi.
 
 ---
 
-### <a id="redzinski_bridge"></a>Most Rędziński
+### Most Rędziński {#redzinski_bridge}
 ![preview redzinski_bridge](../../../assets/img/content/cards/redzinski_bridge.jpg){ loading=lazy }
 
 Najdłuższy most wantowy w Polsce.
@@ -3959,7 +3959,7 @@ Najdłuższy most wantowy w Polsce.
 
 ---
 
-### <a id="tumski_bridge"></a>Most Tumski
+### Most Tumski {#tumski_bridge}
 ![preview tumski_bridge](../../../assets/img/content/cards/tumski_bridge.jpg){ loading=lazy }
 
 Słynny most z kłódkami symbolizującymi miłość i latarniami gazowymi.
@@ -3973,7 +3973,7 @@ Słynny most z kłódkami symbolizującymi miłość i latarniami gazowymi.
 
 ---
 
-### <a id="wroclaw_bridges"></a>Mosty Wrocławskie
+### Mosty Wrocławskie {#wroclaw_bridges}
 ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ loading=lazy }
 
 We Wrocławiu nad Odrą przebiega wiele mostów.
@@ -3987,7 +3987,7 @@ We Wrocławiu nad Odrą przebiega wiele mostów.
 
 ---
 
-### <a id="seashell"></a>Muszla
+### Muszla {#seashell}
 ![preview seashell](../../../assets/img/content/cards/seashell.jpg){ loading=lazy }
 
 Twardy muszla zwierzęcia morskiego, przydatna do rękodzieła.
@@ -4001,7 +4001,7 @@ Twardy muszla zwierzęcia morskiego, przydatna do rękodzieła.
 
 ---
 
-### <a id="cub"></a>Młode
+### Młode {#cub}
 ![preview cub](../../../assets/img/content/cards/cub.jpg){ loading=lazy }
 
 Mały lew.
@@ -4014,7 +4014,7 @@ Mały lew.
 
 ---
 
-### <a id="necklace"></a>Naszyjnik
+### Naszyjnik {#necklace}
 ![preview necklace](../../../assets/img/content/cards/necklace.jpg){ loading=lazy }
 
 Sznur koralików lub muszelek noszony na szyi.
@@ -4028,7 +4028,7 @@ Sznur koralików lub muszelek noszony na szyi.
 
 ---
 
-### <a id="navigation"></a>Nawigacja
+### Nawigacja {#navigation}
 ![preview navigation](../../../assets/img/content/cards/navigation.jpg){ loading=lazy }
 
 Znalezienie drogi na morzu za pomocą świateł, map i narzędzi.
@@ -4042,7 +4042,7 @@ Znalezienie drogi na morzu za pomocą świateł, map i narzędzi.
 
 ---
 
-### <a id="neptune"></a>Neptun
+### Neptun {#neptune}
 ![preview neptune](../../../assets/img/content/cards/neptune.jpg){ loading=lazy }
 
 Bóg morza ze starych opowieści.
@@ -4056,7 +4056,7 @@ Bóg morza ze starych opowieści.
 
 ---
 
-### <a id="cutter"></a>Nóż
+### Nóż {#cutter}
 ![preview cutter](../../../assets/img/content/cards/cutter.jpg){ loading=lazy }
 
 Mała łódź rybacka używana na morzu.
@@ -4069,7 +4069,7 @@ Mała łódź rybacka używana na morzu.
 
 ---
 
-### <a id="lens"></a>Obiektyw
+### Obiektyw {#lens}
 ![preview lens](../../../assets/img/content/cards/lens.jpg){ loading=lazy }
 
 Przezroczysta szyba lub plastik, która załamuje światło.
@@ -4083,7 +4083,7 @@ Przezroczysta szyba lub plastik, która załamuje światło.
 
 ---
 
-### <a id="odra_river_map"></a>Odra river map
+### Odra river map {#odra_river_map}
 ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
 
 A simple map that shows the Odra River in Poland and the way it flows to the Baltic Sea
@@ -4096,7 +4096,7 @@ A simple map that shows the Odra River in Poland and the way it flows to the Bal
 
 ---
 
-### <a id="wroclaw_zoo"></a>Ogród Zoologiczny we Wrocławiu
+### Ogród Zoologiczny we Wrocławiu {#wroclaw_zoo}
 ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ loading=lazy }
 
 Duży ogród zoologiczny we Wrocławiu, w którym można poznać wiele zwierząt.
@@ -4110,7 +4110,7 @@ Duży ogród zoologiczny we Wrocławiu, w którym można poznać wiele zwierząt
 
 ---
 
-### <a id="eyepiece"></a>Okular
+### Okular {#eyepiece}
 ![preview eyepiece](../../../assets/img/content/cards/eyepiece.jpg){ loading=lazy }
 
 Mała soczewka, przez którą patrzysz w teleskopie.
@@ -4124,7 +4124,7 @@ Mała soczewka, przez którą patrzysz w teleskopie.
 
 ---
 
-### <a id="olga_tokarczuk"></a>Olga Tokarczuk
+### Olga Tokarczuk {#olga_tokarczuk}
 ![preview olga_tokarczuk](../../../assets/img/content/cards/olga_tokarczuk.jpg){ loading=lazy }
 
 Znany polski pisarz mieszkający we Wrocławiu.
@@ -4137,7 +4137,7 @@ Znany polski pisarz mieszkający we Wrocławiu.
 
 ---
 
-### <a id="zoo_keeper"></a>Opiekun zoo
+### Opiekun zoo {#zoo_keeper}
 ![preview zoo_keeper](../../../assets/img/content/cards/zoo_keeper.jpg){ loading=lazy }
 
 Osoba opiekująca się zwierzętami w zoo.
@@ -4151,7 +4151,7 @@ Osoba opiekująca się zwierzętami w zoo.
 
 ---
 
-### <a id="panorama_racawicka"></a>Panorama Racławicka
+### Panorama Racławicka {#panorama_racawicka}
 ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ loading=lazy }
 
 Otacza Cię gigantyczny obraz przedstawiający historyczną bitwę.
@@ -4164,7 +4164,7 @@ Otacza Cię gigantyczny obraz przedstawiający historyczną bitwę.
 
 ---
 
-### <a id="parrot"></a>Papuga
+### Papuga {#parrot}
 ![preview parrot](../../../assets/img/content/cards/parrot.jpg){ loading=lazy }
 
 Jasny ptak, który potrafi naśladować dźwięki.
@@ -4177,7 +4177,7 @@ Jasny ptak, który potrafi naśladować dźwięki.
 
 ---
 
-### <a id="peacock"></a>Paw
+### Paw {#peacock}
 ![preview peacock](../../../assets/img/content/cards/peacock.jpg){ loading=lazy }
 
 Kolorowy ptak z dużym ogonem z piór.
@@ -4190,7 +4190,7 @@ Kolorowy ptak z dużym ogonem z piór.
 
 ---
 
-### <a id="gingerbread"></a>Pierniki toruńskie
+### Pierniki toruńskie {#gingerbread}
 ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ loading=lazy }
 
 tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtowany w piękne wzory.
@@ -4204,7 +4204,7 @@ tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtow
 
 ---
 
-### <a id="pierogi_recipe"></a>Pierogi Recipe
+### Pierogi Recipe {#pierogi_recipe}
 Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
 
 - Type: Object
@@ -4214,7 +4214,7 @@ Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil u
 
 ---
 
-### <a id="planetarium"></a>Planetarium
+### Planetarium {#planetarium}
 ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ loading=lazy }
 
 Miejsce, w którym można zobaczyć niebo i gwiazdy w pomieszczeniu.
@@ -4231,7 +4231,7 @@ Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://common
 
 ---
 
-### <a id="sign"></a>Podpisać
+### Podpisać {#sign}
 ![preview sign](../../../assets/img/content/cards/sign.jpg){ loading=lazy }
 
 Tablica z prostymi faktami, które pomogą Ci się uczyć.
@@ -4244,7 +4244,7 @@ Tablica z prostymi faktami, które pomogą Ci się uczyć.
 
 ---
 
-### <a id="amber_room"></a>Pokój Bursztynowy
+### Pokój Bursztynowy {#amber_room}
 ![preview amber_room](../../../assets/img/content/cards/amber_room.jpg){ loading=lazy }
 
 Słynny pokój z bursztynu o tajemniczej historii.
@@ -4258,7 +4258,7 @@ Słynny pokój z bursztynu o tajemniczej historii.
 
 ---
 
-### <a id="polish_dwarf"></a>Polskie krasnale (wrocławskie krasnale)
+### Polskie krasnale (wrocławskie krasnale) {#polish_dwarf}
 ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ loading=lazy }
 
 Małe figurki krasnali kryją się we Wrocławiu. Ich odnalezienie to fajna gra miejska.
@@ -4273,7 +4273,7 @@ Małe figurki krasnali kryją się we Wrocławiu. Ich odnalezienie to fajna gra 
 
 ---
 
-### <a id="pierogi"></a>Polskie pierogi
+### Polskie pierogi {#pierogi}
 ![preview pierogi](../../../assets/img/content/cards/pierogi.jpg){ loading=lazy }
 
 Pierogi z nadzieniem ziemniaczanym, serowym lub owocowym. To słynne polskie danie.
@@ -4288,7 +4288,7 @@ Pierogi z nadzieniem ziemniaczanym, serowym lub owocowym. To słynne polskie dan
 
 ---
 
-### <a id="chopin_monument"></a>Pomnik Chopina
+### Pomnik Chopina {#chopin_monument}
 ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
 
 Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Specjalne drzewo, pod którym siedzi, to typowa polska… wierzba)
@@ -4303,7 +4303,7 @@ Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Ch
 
 ---
 
-### <a id="port"></a>Port
+### Port {#port}
 ![preview port](../../../assets/img/content/cards/port.jpg){ loading=lazy }
 
 Miejsce, w którym statki załadowują się i rozładowują.
@@ -4317,7 +4317,7 @@ Miejsce, w którym statki załadowują się i rozładowują.
 
 ---
 
-### <a id="town_hall"></a>Ratusz
+### Ratusz {#town_hall}
 ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ loading=lazy }
 
 Miejsce, w którym pracują i spotykają się przywódcy miasta.
@@ -4330,7 +4330,7 @@ Miejsce, w którym pracują i spotykają się przywódcy miasta.
 
 ---
 
-### <a id="torun_town_hall"></a>Ratusz w Toruniu
+### Ratusz w Toruniu {#torun_town_hall}
 ![preview torun_town_hall](../../../assets/img/content/cards/torun_town_hall.jpg){ loading=lazy }
 
 Duża gotycka budowla w Toruniu, położona tuż przy rynku.
@@ -4343,7 +4343,7 @@ Duża gotycka budowla w Toruniu, położona tuż przy rynku.
 
 ---
 
-### <a id="mercury"></a>Rtęć
+### Rtęć {#mercury}
 ![preview mercury](../../../assets/img/content/cards/mercury.jpg){ loading=lazy }
 
 Najbliższa Słońcu planeta, mała i bardzo szybka.
@@ -4357,7 +4357,7 @@ Najbliższa Słońcu planeta, mała i bardzo szybka.
 
 ---
 
-### <a id="fisherman"></a>Rybak
+### Rybak {#fisherman}
 ![preview fisherman](../../../assets/img/content/cards/fisherman.jpg){ loading=lazy }
 
 Osoba łowiąca ryby w morzu.
@@ -4371,7 +4371,7 @@ Osoba łowiąca ryby w morzu.
 
 ---
 
-### <a id="wroclaw_market_square"></a>Rynek wrocławski
+### Rynek wrocławski {#wroclaw_market_square}
 ![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ loading=lazy }
 
 Główny plac Starego Miasta, pełen życia.
@@ -4384,7 +4384,7 @@ Główny plac Starego Miasta, pełen życia.
 
 ---
 
-### <a id="motawa_river"></a>Rzeka Motława
+### Rzeka Motława {#motawa_river}
 ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ loading=lazy }
 
 Rzeka przepływająca przez Gdańsk do morza.
@@ -4398,7 +4398,7 @@ Rzeka przepływająca przez Gdańsk do morza.
 
 ---
 
-### <a id="place_odra_river"></a>Rzeka Odra
+### Rzeka Odra {#place_odra_river}
 ![preview place_odra_river](../../../assets/img/content/cards/place_odra_river.jpg){ loading=lazy }
 
 Duża rzeka w zachodniej Polsce. Umożliwia statkom podróżowanie i handel.
@@ -4412,7 +4412,7 @@ Duża rzeka w zachodniej Polsce. Umożliwia statkom podróżowanie i handel.
 
 ---
 
-### <a id="wroclaw_dwarf_statue"></a>Rzeźba Krasnala wrocławskiego
+### Rzeźba Krasnala wrocławskiego {#wroclaw_dwarf_statue}
 ![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ loading=lazy }
 
 Niewielka figurka miejska; krasnale są symbolem Wrocławia.
@@ -4426,7 +4426,7 @@ Niewielka figurka miejska; krasnale są symbolem Wrocławia.
 
 ---
 
-### <a id="saturn"></a>Saturn
+### Saturn {#saturn}
 ![preview saturn](../../../assets/img/content/cards/saturn.jpg){ loading=lazy }
 
 Olbrzymia planeta z jasnymi pierścieniami i wieloma księżycami.
@@ -4440,7 +4440,7 @@ Olbrzymia planeta z jasnymi pierścieniami i wieloma księżycami.
 
 ---
 
-### <a id="fishing_net"></a>Sieć rybacka
+### Sieć rybacka {#fishing_net}
 ![preview fishing_net](../../../assets/img/content/cards/fishing_net.jpg){ loading=lazy }
 
 Sieć służąca do połowu ryb.
@@ -4454,7 +4454,7 @@ Sieć służąca do połowu ryb.
 
 ---
 
-### <a id="sky_tower_plaza"></a>Sky Tower Plaza
+### Sky Tower Plaza {#sky_tower_plaza}
 ![preview sky_tower_plaza](../../../assets/img/content/cards/sky_tower_plaza.jpg){ loading=lazy }
 
 Nowoczesny plac, na którym ludzie spotykają się w pobliżu wieży.
@@ -4467,7 +4467,7 @@ Nowoczesny plac, na którym ludzie spotykają się w pobliżu wieży.
 
 ---
 
-### <a id="wroclaw_old_town_hall"></a>Stary Ratusz (Wrocław)
+### Stary Ratusz (Wrocław) {#wroclaw_old_town_hall}
 ![preview wroclaw_old_town_hall](../../../assets/img/content/cards/wroclaw_old_town_hall.jpg){ loading=lazy }
 
 Piękny gotycki budynek na głównym placu. Znajduje się w nim słynny zegar.
@@ -4480,7 +4480,7 @@ Piękny gotycki budynek na głównym placu. Znajduje się w nim słynny zegar.
 
 ---
 
-### <a id="ship"></a>Statek
+### Statek {#ship}
 ![preview ship](../../../assets/img/content/cards/ship.jpg){ loading=lazy }
 
 Duża łódź przewożąca ludzi lub towary.
@@ -4494,7 +4494,7 @@ Duża łódź przewożąca ludzi lub towary.
 
 ---
 
-### <a id="mermaid_of_warsaw"></a>Syrena Warszawska
+### Syrena Warszawska {#mermaid_of_warsaw}
 ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ loading=lazy }
 
 Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg można zobaczyć nad rzeką.
@@ -4508,7 +4508,7 @@ Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg można zoba
 
 ---
 
-### <a id="telescope"></a>Teleskop
+### Teleskop {#telescope}
 ![preview telescope](../../../assets/img/content/cards/telescope.jpg){ loading=lazy }
 
 Narzędzie pozwalające nam zobaczyć odległe obiekty na niebie.
@@ -4522,7 +4522,7 @@ Narzędzie pozwalające nam zobaczyć odległe obiekty na niebie.
 
 ---
 
-### <a id="torun"></a>Toruń
+### Toruń {#torun}
 ![preview torun](../../../assets/img/content/cards/torun.jpg){ loading=lazy }
 
 Miasto w Polsce, w którym urodził się Mikołaj Kopernik.
@@ -4535,7 +4535,7 @@ Miasto w Polsce, w którym urodził się Mikołaj Kopernik.
 
 ---
 
-### <a id="solar_system"></a>Układ Słoneczny
+### Układ Słoneczny {#solar_system}
 ![preview solar_system](../../../assets/img/content/cards/solar_system.jpg){ loading=lazy }
 
 Słońce i osiem planet krążących wokół niego.
@@ -4549,7 +4549,7 @@ Słońce i osiem planet krążących wokół niego.
 
 ---
 
-### <a id="uranus"></a>Uran
+### Uran {#uranus}
 ![preview uranus](../../../assets/img/content/cards/uranus.jpg){ loading=lazy }
 
 Niebiesko-zielona planeta obracająca się na boku.
@@ -4563,7 +4563,7 @@ Niebiesko-zielona planeta obracająca się na boku.
 
 ---
 
-### <a id="currency_zloty"></a>Waluta Złoty
+### Waluta Złoty {#currency_zloty}
 ![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ loading=lazy }
 
 Walutą polską jest złoty. Monety i banknoty mają symbole polskie.
@@ -4577,7 +4577,7 @@ Walutą polską jest złoty. Monety i banknoty mają symbole polskie.
 
 ---
 
-### <a id="wars_and_sawa"></a>Wars i Sawa
+### Wars i Sawa {#wars_and_sawa}
 ![preview wars_and_sawa](../../../assets/img/content/cards/wars_and_sawa.jpg){ loading=lazy }
 
 Dwie legendarne postacie, które nadały Warszawie nazwę. Wars był dzielnym wojownikiem, a Sawa piękną syreną, która mieszkała w Wiśle.
@@ -4592,7 +4592,7 @@ Dwie legendarne postacie, które nadały Warszawie nazwę. Wars był dzielnym wo
 
 ---
 
-### <a id="venus"></a>Wenus
+### Wenus {#venus}
 ![preview venus](../../../assets/img/content/cards/venus.jpg){ loading=lazy }
 
 Bardzo gorąca planeta pokryta grubymi chmurami.
@@ -4606,7 +4606,7 @@ Bardzo gorąca planeta pokryta grubymi chmurami.
 
 ---
 
-### <a id="vistula_river"></a>Wisła
+### Wisła {#vistula_river}
 ![preview vistula_river](../../../assets/img/content/cards/vistula_river.jpg){ loading=lazy }
 
 Najdłuższa rzeka Polski. Uchodzi do Morza Bałtyckiego.
@@ -4619,7 +4619,7 @@ Najdłuższa rzeka Polski. Uchodzi do Morza Bałtyckiego.
 
 ---
 
-### <a id="place_vistula_river"></a>Wisła (Wisła)
+### Wisła (Wisła) {#place_vistula_river}
 ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ loading=lazy }
 
 Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warszawę.
@@ -4633,7 +4633,7 @@ Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warsz
 
 ---
 
-### <a id="wroclaw"></a>Wrocław
+### Wrocław {#wroclaw}
 ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
 
 Miasto w Polsce z rzekami, mostami i historią.
@@ -4647,7 +4647,7 @@ Miasto w Polsce z rzekami, mostami i historią.
 
 ---
 
-### <a id="wroclaw_cathedral"></a>Wrocław: Katedra
+### Wrocław: Katedra {#wroclaw_cathedral}
 ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
 
 Duży, ważny kościół, w którym ludzie się modlą. Można wspiąć się na wieżę, żeby zobaczyć widok.
@@ -4660,7 +4660,7 @@ Duży, ważny kościół, w którym ludzie się modlą. Można wspiąć się na 
 
 ---
 
-### <a id="wroclaw_sky_tower"></a>Wrocław: Sky Tower
+### Wrocław: Sky Tower {#wroclaw_sky_tower}
 ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ loading=lazy }
 
 Jeden z najwyższych budynków w Polsce. Znajdują się w nim sklepy i punkt widokowy.
@@ -4673,7 +4673,7 @@ Jeden z najwyższych budynków w Polsce. Znajdują się w nim sklepy i punkt wid
 
 ---
 
-### <a id="wroclaw_multimedia_fountain"></a>Wrocławska Fontanna Multimedialna
+### Wrocławska Fontanna Multimedialna {#wroclaw_multimedia_fountain}
 ![preview wroclaw_multimedia_fountain](../../../assets/img/content/cards/wroclaw_multimedia_fountain.jpg){ loading=lazy }
 
 Woda tańcząca w rytm muzyki i kolorowych świateł.
@@ -4686,7 +4686,7 @@ Woda tańcząca w rytm muzyki i kolorowych świateł.
 
 ---
 
-### <a id="animal_enclosure"></a>Wybieg dla zwierząt
+### Wybieg dla zwierząt {#animal_enclosure}
 ![preview animal_enclosure](../../../assets/img/content/cards/animal_enclosure.jpg){ loading=lazy }
 
 Bezpieczna przestrzeń w zoo, w której mogą żyć zwierzęta.
@@ -4700,7 +4700,7 @@ Bezpieczna przestrzeń w zoo, w której mogą żyć zwierzęta.
 
 ---
 
-### <a id="baltic_sea_coast"></a>Wybrzeże Morza Bałtyckiego
+### Wybrzeże Morza Bałtyckiego {#baltic_sea_coast}
 ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
 
 Piaskowy brzeg Morza Bałtyckiego.
@@ -4714,7 +4714,7 @@ Piaskowy brzeg Morza Bałtyckiego.
 
 ---
 
-### <a id="earth"></a>Ziemia
+### Ziemia {#earth}
 ![preview earth](../../../assets/img/content/cards/earth.jpg){ loading=lazy }
 
 Nasza planeta rodzinna z lądem, powietrzem i wodą.
@@ -4728,7 +4728,7 @@ Nasza planeta rodzinna z lądem, powietrzem i wodą.
 
 ---
 
-### <a id="boat"></a>Łódź
+### Łódź {#boat}
 ![preview boat](../../../assets/img/content/cards/boat.jpg){ loading=lazy }
 
 Pojazd poruszający się po wodzie.
@@ -4741,7 +4741,7 @@ Pojazd poruszający się po wodzie.
 
 ---
 
-### <a id="zuraw_crane"></a>Żuraw Żuraw
+### Żuraw Żuraw {#zuraw_crane}
 ![preview zuraw_crane](../../../assets/img/content/cards/zuraw_crane.jpg){ loading=lazy }
 
 Stary dźwig portowy i brama miejska nad rzeką.
@@ -4754,7 +4754,8 @@ Stary dźwig portowy i brama miejska nad rzeką.
 
 ## Others
 
-### <a id="capital_berlin"></a>Berlin
+<a id="capital_berlin"></a>
+### Berlin
 ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ loading=lazy }
 
 Stolica Niemiec.
@@ -4766,7 +4767,8 @@ Stolica Niemiec.
 
 ---
 
-### <a id="flag_germany"></a>Flaga Niemiec
+<a id="flag_germany"></a>
+### Flaga Niemiec
 ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ loading=lazy }
 
 Flaga Niemiec ma trzy poziome pasy: czarny, czerwony i żółty. Niemcy słyną z samochodów, zamków i bajek!
@@ -4782,7 +4784,8 @@ Flaga Niemiec ma trzy poziome pasy: czarny, czerwony i żółty. Niemcy słyną 
 
 ---
 
-### <a id="country_germany"></a>Niemcy
+<a id="country_germany"></a>
+### Niemcy
 ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest Berlin.
@@ -4795,7 +4798,8 @@ Państwo w Europie. Stolicą jest Berlin.
 
 ---
 
-### <a id="art_venus_milo"></a>Wenus z Milo
+<a id="art_venus_milo"></a>
+### Wenus z Milo
 ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ loading=lazy }
 
 Piękna, starożytna statua kobiety wykonana z białego marmuru. Brakuje jej ramion, ale i tak jest uważana za jedną z najpiękniejszych rzeźb, jakie kiedykolwiek powstały.
@@ -4810,7 +4814,8 @@ Piękna, starożytna statua kobiety wykonana z białego marmuru. Brakuje jej ram
 
 ---
 
-### <a id="flag_italy"></a>Flaga Włoch
+<a id="flag_italy"></a>
+### Flaga Włoch
 ![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ loading=lazy }
 
 Flaga Włoch ma trzy pionowe pasy: zielony, biały i czerwony. Kolory te przypominają bazylię, mozzarellę i pomidory na pizzy!
@@ -4826,7 +4831,8 @@ Flaga Włoch ma trzy pionowe pasy: zielony, biały i czerwony. Kolory te przypom
 
 ---
 
-### <a id="art_monalisa"></a>Mona Lisa
+<a id="art_monalisa"></a>
+### Mona Lisa
 ![preview art_monalisa](../../../assets/img/content/cards/art_monalisa.jpg){ loading=lazy }
 
 Najsłynniejszy obraz świata! Kobieta o tajemniczym uśmiechu namalowana przez Leonarda da Vinci. Wydaje się, że śledzi cię wzrokiem.
@@ -4843,7 +4849,8 @@ Najsłynniejszy obraz świata! Kobieta o tajemniczym uśmiechu namalowana przez 
 
 ---
 
-### <a id="capital_rome"></a>Rzym
+<a id="capital_rome"></a>
+### Rzym
 ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ loading=lazy }
 
 Stolica Włoch.
@@ -4855,7 +4862,8 @@ Stolica Włoch.
 
 ---
 
-### <a id="country_italy"></a>Włochy
+<a id="country_italy"></a>
+### Włochy
 ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ loading=lazy }
 
 Państwo w Europie. Stolicą jest Rzym.
@@ -4868,7 +4876,8 @@ Państwo w Europie. Stolicą jest Rzym.
 
 ---
 
-### <a id="flag_andorra"></a>Flaga Andory
+<a id="flag_andorra"></a>
+### Flaga Andory
 ![preview flag_andorra](../../../assets/img/content/cards/flag_andorra.jpg){ loading=lazy }
 
 Flaga Andory ma niebieskie, żółte i czerwone pasy z herbem pośrodku. Andora to malutkie państwo położone między Francją a Hiszpanią.
@@ -4882,7 +4891,8 @@ Flaga Andory ma niebieskie, żółte i czerwone pasy z herbem pośrodku. Andora 
 
 ---
 
-### <a id="flag_spain"></a>Flaga Hiszpanii
+<a id="flag_spain"></a>
+### Flaga Hiszpanii
 ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ loading=lazy }
 
 Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają słońce i paprykę! To Hiszpania wynalazła taniec flamenco.
@@ -4898,7 +4908,8 @@ Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają s�
 
 ---
 
-### <a id="country_spain"></a>Hiszpania
+<a id="country_spain"></a>
+### Hiszpania
 ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ loading=lazy }
 
 Kraj w Europie. Stolicą jest Madryt. Hiszpania wynalazła taniec flamenco.
@@ -4911,7 +4922,8 @@ Kraj w Europie. Stolicą jest Madryt. Hiszpania wynalazła taniec flamenco.
 
 ---
 
-### <a id="capital_madrid"></a>Madryt
+<a id="capital_madrid"></a>
+### Madryt
 ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ loading=lazy }
 
 Stolica Hiszpanii.

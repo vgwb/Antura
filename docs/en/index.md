@@ -13,7 +13,7 @@ hero:
       text: Forum
       link: https://antura.discourse.group
   image:
-    src: ../../assets/img/antura_gametitle.jpg
+    src: /img/antura_gametitle.jpg
     alt: Antura and the Letters
 
 features:

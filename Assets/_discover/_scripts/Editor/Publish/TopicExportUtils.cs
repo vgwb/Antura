@@ -81,41 +81,39 @@ namespace Antura.Discover.Editor
                     .OrderBy(x => string.IsNullOrEmpty(x?.Name) ? (string.IsNullOrEmpty(x?.Id) ? x?.name : x.Id) : x.Name, StringComparer.OrdinalIgnoreCase)
                     .ToList();
 
-                for (int ti = 0; ti < orderedTopics.Count; ti++)
+                for (int foundTopics = 0; foundTopics < orderedTopics.Count; foundTopics++)
                 {
-                    var k = orderedTopics[ti];
-                    if (k == null)
+                    var topic = orderedTopics[foundTopics];
+                    if (topic == null)
                         continue;
-                    string kid = string.IsNullOrEmpty(k.Id) ? k.name : k.Id;
-                    if (!string.IsNullOrEmpty(kid))
-                        sb.AppendLine($"<a id=\"{kid}\"></a>");
-                    string heading = !string.IsNullOrEmpty(k.Name) ? EscapeInline(k.Name) : kid;
-                    sb.AppendLine($"### {heading}");
+
+                    string topicId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.Name;
+                    sb.AppendLine($"### {topic.Name} {{#{topicId}}}");
 
                     // Inline meta
                     var meta = new List<string>();
-                    if (!string.IsNullOrEmpty(k.Description))
-                        meta.Add($"Description: {PublishUtils.EscapeParagraph(k.Description)}");
-                    meta.Add($"Importance: {k.Importance}");
-                    if (k.Subjects != null && k.Subjects.Count > 0)
+                    if (!string.IsNullOrEmpty(topic.Description))
+                        meta.Add($"Description: {PublishUtils.EscapeParagraph(topic.Description)}");
+                    meta.Add($"Importance: {topic.Importance}");
+                    if (topic.Subjects != null && topic.Subjects.Count > 0)
                     {
-                        var tops = string.Join(", ", k.Subjects.Select(t => t.ToString()));
+                        var tops = string.Join(", ", topic.Subjects.Select(t => t.ToString()));
                         meta.Add($"Subjects: {tops}");
                     }
-                    meta.Add($"Target Age: {k.TargetAge}");
+                    meta.Add($"Target Age: {topic.TargetAge}");
                     if (meta.Count > 0)
                         sb.AppendLine("- " + string.Join("  \n- ", meta));
 
                     // Core card (expanded with description and image)
-                    if (k.CoreCard != null)
+                    if (topic.CoreCard != null)
                     {
-                        var core = k.CoreCard;
+                        var core = topic.CoreCard;
                         var cid = string.IsNullOrEmpty(core.Id) ? core.name : core.Id;
                         var cDisplay = GetCardDisplayTitle(core, locale);
                         if (string.IsNullOrEmpty(cDisplay))
                             cDisplay = cid;
                         sb.AppendLine("- Core card:");
-                        sb.AppendLine($"    - **[{EscapeInline(cDisplay)}](../cards/index.md#{Slug(cid)})**");
+                        sb.AppendLine($"    - **[{EscapeInline(cDisplay)}](../cards/index.md#{cid})**");
                         string cDesc = PublishUtils.SafeLocalized(core.Description, string.Empty);
                         if (!string.IsNullOrEmpty(cDesc))
                             sb.AppendLine($"    {cDesc}");
@@ -128,9 +126,9 @@ namespace Antura.Discover.Editor
                     }
 
                     // Connected cards (expanded)
-                    if (k.Connections != null && k.Connections.Count > 0)
+                    if (topic.Connections != null && topic.Connections.Count > 0)
                     {
-                        var validConns = k.Connections.Where(c => c != null && c.ConnectedCard != null).ToList();
+                        var validConns = topic.Connections.Where(c => c != null && c.ConnectedCard != null).ToList();
                         if (validConns.Count > 0)
                         {
                             sb.AppendLine("- Connected cards:");
@@ -141,7 +139,7 @@ namespace Antura.Discover.Editor
                                 var display = GetCardDisplayTitle(card, locale);
                                 if (string.IsNullOrEmpty(display))
                                     display = cid;
-                                sb.AppendLine($"    - **[{EscapeInline(display)}](../cards/index.md#{Slug(cid)})** ({c.ConnectionType})");
+                                sb.AppendLine($"    - **[{EscapeInline(display)}](../cards/index.md#{cid})** ({c.ConnectionType})");
                                 string desc = PublishUtils.SafeLocalized(card.Description, string.Empty);
                                 if (!string.IsNullOrEmpty(desc))
                                     sb.AppendLine($"    {desc}");
@@ -157,7 +155,7 @@ namespace Antura.Discover.Editor
 
                     // Quests that link to this topic (Title (Code) -> localized quest page)
                     var questLinks = quests
-                        .Where(q => q != null && q.Topics != null && q.Topics.Contains(k))
+                        .Where(q => q != null && q.Topics != null && q.Topics.Contains(topic))
                         .Where(q => IsQuestLinkable(q))
                         .Distinct()
                         .Select(q => new
@@ -173,15 +171,15 @@ namespace Antura.Discover.Editor
                     if (questLinks.Count > 0)
                         sb.AppendLine("- Quests: " + string.Join(", ", questLinks));
 
-                    if (k.Credits != null && k.Credits.Count > 0)
+                    if (topic.Credits != null && topic.Credits.Count > 0)
                     {
                         sb.AppendLine("\nCredits:");
-                        foreach (var c in k.Credits.Where(c => c != null && c.Author != null))
+                        foreach (var c in topic.Credits.Where(c => c != null && c.Author != null))
                             sb.AppendLine("  - " + PublishUtils.FormatAuthor(c.Author));
                     }
 
                     // Separator between topics as requested
-                    if (ti < orderedTopics.Count - 1)
+                    if (foundTopics < orderedTopics.Count - 1)
                     {
                         sb.AppendLine();
                         sb.AppendLine("---");
