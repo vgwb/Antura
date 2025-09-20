@@ -12,7 +12,6 @@ using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Antura.Discover;
 
 namespace Antura.UI
 {

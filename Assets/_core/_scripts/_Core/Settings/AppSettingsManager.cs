@@ -27,8 +27,6 @@ namespace Antura.Core
                 }
             }
         }
-
-        private bool isFirstIstall;
         public Version AppVersionPrevious;
 
         public AppSettingsManager()
@@ -50,7 +48,6 @@ namespace Antura.Core
             else
             {
                 // FIRST INSTALLATION
-                isFirstIstall = true;
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
                 Settings = new AppSettings();
                 Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);

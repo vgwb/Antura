@@ -1,5 +1,4 @@
-﻿#nullable enable
-using DG.DeInspektor.Attributes;
+﻿using DG.DeInspektor.Attributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
