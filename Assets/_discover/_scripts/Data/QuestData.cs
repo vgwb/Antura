@@ -10,8 +10,6 @@ using UnityEngine.Serialization;
 
 namespace Antura.Discover
 {
-    // SubjectCount moved to QuestSubjectsUtility to keep this class lean.
-
     [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover/Quest Data")]
     public class QuestData : IdentifiedData
     {
@@ -89,6 +87,7 @@ namespace Antura.Discover
         public string assetsFolder;
         public string scene;
         public LocalizedStringTable QuestStringsTable;
+        public LocalizedAssetTable QuestAssetsTable;
 
         public int GetBestStars()
         {
