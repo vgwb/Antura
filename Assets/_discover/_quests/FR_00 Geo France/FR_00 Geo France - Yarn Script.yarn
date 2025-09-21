@@ -121,6 +121,7 @@ tags: actor=KID_F
     Can you find the German flag? #line:04bd4db 
     <<set $france_met = true>>
     <<action germany_active>>
+    <<camera_focus NPC_Germany>>
     <<action area_bigger>>
     <<jump task_germany  >>
 <<elseif $CURRENT_ITEM != "">>
@@ -144,6 +145,7 @@ tags: task
     <<asset flag_france>>
 <<endif>>
 Find the French flag. #line:0e35434 
+<<camera_focus Flag_France>>
 <<task_start FIND_FRENCH_FLAG task_france>>
 ===
 
@@ -183,7 +185,8 @@ tags: actor=MAN
     <<inventory flag_germany remove>>
     <<task_end FIND_GERMAN_FLAG >>
     <<action spain_active>>
-     <<set $germany_completed = true>>
+    <<set $germany_completed = true>>
+    <<camera_focus NPC_Spain>>
     <<jump task_spain>>
 <<elseif $CURRENT_ITEM != "">>
     Our flag has stripes: black, red, yellow. #line:0cd7024 
@@ -231,6 +234,7 @@ tags:
     <<inventory flag_spain remove>>
     <<task_end FIND_SPANISH_FLAG >>
     <<action italy_active>>
+    <<camera_focus NPC_Italy>>
     <<set $spain_completed = true>>
     <<jump task_italy>>
 <<elseif $CURRENT_ITEM != "">>
@@ -253,7 +257,8 @@ tags: actor=WOMAN
     <<card flag_spain>>
 <<endif>>
 Find the Spanish flag. #line:091cc7c 
-It is red and yellow like the sun. #line:09635b4 
+It is red and yellow like the sun. #line:09635b4
+<<camera_focus Flag_Spain>>
 <<task_start FIND_SPANISH_FLAG task_spain>>
 ===
 
@@ -278,6 +283,7 @@ color: blue
     <<task_end FIND_ITALIAN_FLAG >>
     <<set $italy_completed = true>>
     <<action belgium_active>>
+    <<camera_focus NPC_Belgium>>
     <<jump task_belgium>>
 <<elseif $CURRENT_ITEM != "">>
     My flag is green, white, and red. #line:0dc8623
@@ -300,6 +306,7 @@ tags: actor=KID_M
 <<endif>>
 Find the Italian flag. #line:0ed29f1 
 It is green, white, and red like a pizza! #line:0cde44c 
+<<camera_focus Flag_Italy>>
 <<task_start FIND_ITALIAN_FLAG task_italy>>
 ===
 
@@ -325,6 +332,7 @@ color: blue
     <<task_end FIND_BELGIUM_FLAG >>
     <<set $belgium_completed = true>>
     <<action lux_active>>
+    <<camera_focus NPC_Lux>>
     <<set $belgium_met = true>>
     <<jump task_lux>>
 <<elseif $CURRENT_ITEM != "">>
@@ -349,6 +357,7 @@ tags: actor=WOMAN_OLD
 <<endif>>
 Find the Belgian flag. #line:0f08126 
 It's black, yellow, and red with vertical stripes. #line:079ecca 
+<<camera_focus Flag_Belgium>>
 <<task_start FIND_BELGIUM_FLAG task_belgium>>
 ===
 
@@ -386,6 +395,7 @@ tags: actor=MAN_OLD
     <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<set $lux_completed = true>>
     <<action swiss_active>>
+    <<camera_focus NPC_Swiss>>
     <<jump task_swiss>>
 <<elseif $CURRENT_ITEM != "">>
     Nope! Our flag is red, white, and light blue. #line:0529472 
@@ -410,6 +420,7 @@ tags: actor=WOMAN_OLD
 <<endif>>
 Find the Luxembourg flag. #line:0ed3698 
 It is red, white, and light blue. #line:018e4cf 
+<<camera_focus Flag_Lux>>
 <<task_start FIND_LUX_FLAG task_lux>>
 ===
 
@@ -447,6 +458,7 @@ color: blue
     <<task_end FIND_SWISS_FLAG>>
     <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<set $swiss_completed = true>>
+    <<camera_focus NPC_France>>
 <<elseif $CURRENT_ITEM != "">>
     Not my flag. Our flag is red with a white cross. #line:0caad5a 
     <<jump task_swiss>>
@@ -470,6 +482,7 @@ tags: actor=WOMAN_OLD
 <<endif>>
 Find the Swiss flag. #line:0ec7096 
 It is red with a big white cross like a first aid kit. #line:07cc57e 
+<<camera_focus Flag_Swiss>>
 <<task_start FIND_SWISS_FLAG npc_swiss>>
 ===
 
