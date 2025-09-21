@@ -226,11 +226,7 @@ namespace Antura.Discover.EditorTools
             var list = new List<ActableAbstract>();
             try
             {
-#if UNITY_2022_2_OR_NEWER
-                var found = UnityEngine.Object.FindObjectsByType<ActableAbstract>(FindObjectsSortMode.None);
-#else
-                var found = UnityEngine.Object.FindObjectsOfType<ActableAbstract>(true);
-#endif
+                var found = FindObjectsByType<ActableAbstract>(FindObjectsSortMode.None);
                 foreach (var a in found)
                 {
                     if (a == null)

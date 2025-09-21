@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.Audio
 {
     public class DiscoverAudioManager : SingletonMonoBehaviour<DiscoverAudioManager>
     {

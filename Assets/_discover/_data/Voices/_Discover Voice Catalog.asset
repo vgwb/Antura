@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c258fb44d2f5f4c2c85c3903638c88de, type: 3}
+  m_Name: _Discover Voice Catalog
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Audio.VoiceProfileCatalog
+  GlobalDefault: {fileID: 11400000, guid: f88fee11aeda740c0b8e133706e3e2e6, type: 2}
+  GlobalPerActor:
+  - Actor: 9
+    Profile: {fileID: 11400000, guid: fe1e8d1da9e444459b05b99530b2c67a, type: 2}
+  - Actor: 5
+    Profile: {fileID: 11400000, guid: 65593ef4e658641c0b157b8421620360, type: 2}
+  Languages:
+  - LanguageCode: uk
+    DefaultProfile: {fileID: 11400000, guid: 4ba7615d3b9384e50ae86582ea994f1a, type: 2}
+    PerActor: []
+  - LanguageCode: es
+    DefaultProfile: {fileID: 11400000, guid: 27a1fbec4e1be47a1822b7bcff5d88ce, type: 2}
+    PerActor: []
+  - LanguageCode: fr
+    DefaultProfile: {fileID: 11400000, guid: 9c17cd5ce8a07494c91f9263bc694f56, type: 2}
+    PerActor:
+    - Actor: 5
+      Profile: {fileID: 11400000, guid: 2859687e7d05e4ace955b872cef469f5, type: 2}
+  - LanguageCode: it
+    DefaultProfile: {fileID: 11400000, guid: 7da709e1b933f4b3ba410684d2810631, type: 2}
+    PerActor: []
+  - LanguageCode: ro
+    DefaultProfile: {fileID: 11400000, guid: a5789a24874b24fdc90ec3986cbbaab6, type: 2}
+    PerActor: []
+  - LanguageCode: ar
+    DefaultProfile: {fileID: 11400000, guid: 979ffc4d38f74485986dba0adb5243b6, type: 2}
+    PerActor: []
+  - LanguageCode: ru
+    DefaultProfile: {fileID: 11400000, guid: 53334d79113f3479c8b2e19760c5762b, type: 2}
+    PerActor: []
+  - LanguageCode: en
+    DefaultProfile: {fileID: 11400000, guid: f88fee11aeda740c0b8e133706e3e2e6, type: 2}
+    PerActor: []
+  - LanguageCode: po
+    DefaultProfile: {fileID: 11400000, guid: 249a134e1228c45a8abcbe761c1f298c, type: 2}
+    PerActor: []

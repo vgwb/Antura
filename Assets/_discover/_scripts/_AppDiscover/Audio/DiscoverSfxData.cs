@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.Audio
 {
     public enum DiscoverSfx
     {
