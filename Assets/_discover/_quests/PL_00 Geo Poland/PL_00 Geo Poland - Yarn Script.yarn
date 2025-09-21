@@ -111,6 +111,7 @@ tags: actor=KID_F
     Can you find the German Flag? #line:04bd4db 
     <<set $poland_met = true>>
     <<action germany_active>>
+    <<camera_focus NPC_Germany>>
     <<action area_bigger>>
     <<jump task_germany  >>
 <<elseif $CURRENT_ITEM != "">>
@@ -135,6 +136,7 @@ tags: task
 <<endif>>
 Find the polish flag. #line:09e3b54 
 It's white and red. #line:0b52ba1 
+<<camera_focus Flag_Poland>>
 <<task_start FIND_polish_FLAG task_poland>>
 ===
 
@@ -187,6 +189,7 @@ tags: actor=MAN
     <<task_end FIND_GERMAN_FLAG>>
     <<action belarus_active>>
     <<set $germany_completed = true>>
+    <<camera_focus NPC_Belarus>>
     <<jump task_belarus>>
 <<elseif $CURRENT_ITEM != "">>
     MAN: Our flag has horizontal stripes of black, red, and yellow. #line:0cd7024 
@@ -209,6 +212,7 @@ tags: task
 <<endif>>
 Find the German flag and bring it to the German person. #line:029ee72 
 It has horizontal stripes of black, red, and yellow. #line:0f95ef2 
+<<camera_focus Flag_Germany>>
 <<task_start FIND_GERMAN_FLAG task_germany>>
 ===
 
@@ -235,6 +239,7 @@ tags:
     <<task_end FIND_belarusian_FLAG>>
     <<action czech_republic_active>>
     <<set $belarus_completed = true>>
+    <<camera_focus NPC_Czech>>
     <<jump task_czech_republic>>
 <<elseif $CURRENT_ITEM != "">>
         My flag is red and green with a red pattern on the left. #line:0653fae 
@@ -257,6 +262,7 @@ tags: actor=WOMAN
 <<endif>>
 Find the belarusian flag.  #line:0c00afe 
 It's red and green, with a pattern on the left!  #line:05c6081 
+<<camera_focus Flag_Belarus>>
 <<task_start FIND_belarusian_FLAG task_belarus>>
 ===
 
@@ -281,6 +287,7 @@ color: blue
     <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
     <<set $czech_completed = true>>
     <<action lithuania_active>>
+    <<camera_focus NPC_Lithuania>>
     <<jump task_lithuania>>
 <<elseif $CURRENT_ITEM != "">>
     My flag is different! It's white and red with a blue triangle. #line:0000741 
@@ -304,6 +311,7 @@ tags: actor=KID_M
 <<endif>>
 Find the Czech flag.  #line:0ff23aa 
 It's white and red with a blue triangle. #line:03cb303 
+<<camera_focus Flag_Czech>>
 <<task_start FIND_czech_republic_FLAG task_czech_republic>>
 ===
 
@@ -329,6 +337,7 @@ color: blue
         <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
         <<set $lithuania_completed = true>>
         <<action ukraine_active>>
+        <<camera_focus NPC_Ukraine>>
         <<set $lithuania_met = true>>
         <<jump task_ukraine>>
 <<elseif $CURRENT_ITEM != "">>
@@ -353,6 +362,7 @@ tags: actor=WOMAN_OLD
 <<endif>>
 Find the Lithuanian flag.  #line:0b88326 
 It's red, green and yellow. #line:0754062 
+<<camera_focus Flag_Lithuania>>
 <<task_start FIND_lithuania_FLAG task_lithuania>>
 ===
 
@@ -391,6 +401,7 @@ tags: actor=MAN_OLD
     <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
     <<set $ukraine_completed = true>>
     <<action slovakia_active>>
+    <<camera_focus NPC_Slovakia>>
     <<jump task_slovakia>>
 <<elseif $CURRENT_ITEM != "">>
     Nope! Our flag is blue and yellow. #line:0a94866 
@@ -415,6 +426,7 @@ tags: actor=WOMAN_OLD
 <<endif>>
 Find the flag of Ukraine. #line:07c148b 
 It is blue and yellow. #line:0b6e8e7 
+<<camera_focus Flag_Ukraine>>
 <<task_start FIND_ukraine_FLAG task_ukraine>>
 ===
 
@@ -450,6 +462,7 @@ color: blue
     Go back to the start and claim your victory! #line:04bf6d1 
     <<inventory flag_slovakia remove>>
     <<task_end FIND_slovakia_FLAG >>
+    <<camera_focus NPC_Poland>>
     <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
     <<set $slovakia_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
@@ -475,6 +488,7 @@ tags: actor=WOMAN_OLD
 <<endif>>
 Find the Slovakian flag.   #line:04b6692 
 It's white, red and blue with the coat of arms. #line:0866ee1 
+<<camera_focus Flag_Slovakia>>
 <<task_start FIND_slovakia_FLAG npc_slovakia>>
 ===
 
