@@ -16,7 +16,6 @@ This manual is for:
 - **Social Workers** who want to use Antura with refugee or vulnerable children
 - **Parents** who want to know more about this game
 - **Creators & Designers** who want to create new content for the game
-- **Philanthropists** who want to support innovative open source educational projects like ours
 
 ## Sections
 
