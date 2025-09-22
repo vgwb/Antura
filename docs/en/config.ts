@@ -20,7 +20,7 @@ function nav(): DefaultTheme.NavItem[] {
     { text: 'Developer', link: '/en/dev/', activeMatch: '/en/dev/' },
     { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
     { text: 'Download', link: '/en/download'},
-    { text: 'Forum', link: 'https://antura.discourse.group' }
+    { text: 'Blog & Forum', link: 'https://antura.discourse.group/c/news/5' }
   ]
 }
 
@@ -127,7 +127,7 @@ function sidebarAbout(): DefaultTheme.SidebarItem[] {
         { text: 'Credits', link: 'credits' },
         { text: 'Credits (Assets)', link: 'credits-assets' },
         { text: 'License', link: 'license' },
-        { text: 'Contact', link: '/about/contact' }
+        { text: 'Contact', link: 'contact' }
       ]
     }
   ]

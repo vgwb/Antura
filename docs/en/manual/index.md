@@ -3,27 +3,19 @@ title: "User Manual"
 ---
 # Learn with Antura User Manual
 
-Antura is an award-winning open source videogame that turns reading, language and culture into a joyful adventure.
-Through autonomous play or usage in the classroom, 5-10 years old kids can learn to read in their mother language, learn a foreign language or discover the local culture.
+> [!NOTE] For Educators 👩‍🏫  
+> Antura is more than a game: it can be combined with classroom activities, follow-up discussions, and learning materials.  
+> This manual helps you integrate Antura into your lessons and guide children through both play and discovery.
 
-## Sections
+## How to use this manual
 
-- [How to Install and Setup](./install.md)
-- [Learn Languages](./learnlanguage_module.md)
-- [How to play](./how_to_play.md)
+- 📥 [Install Antura](./install.md) — instructions for setting up on mobile or PC.  
+- 🎮 [Learn Languages](./learnlanguage_module.md) — the minigames that train letters, words, and vocabulary.  
+- 🌍 [Discover Quests](./discover_introduction.md) — explore countries, traditions, and cultural heritage.  
+- 👩‍🏫 [Classroom Guide](./classroom_guide.md) — practical advice for using Antura with your students.  
+- ❓ [FAQ](./faq.md) — answers to the most common questions.
 
-- [Learn Language introduction](./learnlanguage_module.md)
-- [How to play Learn Language](./learnlanguage_how_to_play.md)
+## For quest creators & developers
 
-- [Discover introduction](./discover_introduction.md)
-- [Discover Features](./discover_module.md)
-- [How to play Discover quests](./discover_how_to_play.md)
-
-- [Classroom Guide](./classroom_guide.md)
-- [Feedback and Support](./support.md)
-- [FAQ](./faq.md)
-- [Changelog](./changelog.md)
-
-## Quest creators & developers
-We have a custom section of this website dedicated to developers.  
-Start here: [How to create a new Quest](../dev/quest-design/index.md)
+Antura is built as an open framework. If you want to design new quests, activities, or contribute to the code:  
+👉 Start here: [How to create a new Quest](../dev/quest-design/index.md)

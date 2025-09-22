@@ -10,8 +10,8 @@ hero:
       text: Download
       link: /en/download
     - theme: alt
-      text: Forum
-      link: https://antura.discourse.group
+      text: Blog
+      link: https://antura.discourse.group/c/news/5
   image:
     src: /img/antura_gametitle.jpg
     alt: Learn with Antura

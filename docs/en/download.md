@@ -1,6 +1,6 @@
-# Download Learn with Antura
+# Download & Install Antura
 
-Once installed, the game runs fully **offline**
+Antura is free and open source. You can play it on **mobile** or **PC** — no ads, no subscriptions.
 
 
 ## 📱 iOS (iPhone & iPad)
@@ -42,6 +42,13 @@ You can already **join the beta test** and help us improve:
 - New quests and cultural content.  
 - Redesigned interface.  
 - Early access for teachers, parents, and game designers.  
+
+---
+
+## 📖 Changelog & Updates
+
+Want to know what’s new?  
+Check the [Changelog](./manual/changelog.md) for the latest updates, improvements, and bug fixes.  
 
 ---
 
