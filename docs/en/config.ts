@@ -19,7 +19,7 @@ function nav(): DefaultTheme.NavItem[] {
     { text: 'Content', link: '/en/content/', activeMatch: '/en/content/' },
     { text: 'Developer', link: '/en/dev/', activeMatch: '/en/dev/' },
     { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
-    { text: 'Download', link: '/en/#download'},
+    { text: 'Download', link: '/en/download'},
     { text: 'Forum', link: 'https://antura.discourse.group' }
   ]
 }
