@@ -1,7 +1,7 @@
 ---
-title: "Antura's Manual"
+title: "User Manual"
 ---
-# Antura's Manual
+# User Manual
 
 > [!note]
 > We are rewriting here the [previous Google Doc version](https://docs.google.com/document/d/1Yk8cvbJIE2IKIKsVDs7eHWq_nueZ-O6HCGTl9xVusJk/edit?usp=sharing)
@@ -11,7 +11,7 @@ This manual is for:
 - **Teachers** who want to use Antura in the classroom
 - **Parents** who want to know more about this game
 - **Designers** who want to create new quests
-- **Philanthropists** who want to support innovetive open source educational projects
+- **Philanthropists** who want to support innovative open source educational projects like ours
 
 ## Sections
 
