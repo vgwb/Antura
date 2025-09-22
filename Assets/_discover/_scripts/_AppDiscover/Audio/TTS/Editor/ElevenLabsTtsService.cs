@@ -54,7 +54,7 @@ namespace Antura.Discover.Audio.Editor
                     style = profile != null ? profile.StyleExaggeration : 0f,
                     use_speaker_boost = profile != null && profile.UseSpeakerBoost
                 },
-                output_format = "mp3_44100_128"
+                output_format = "mp3_44100_96"
             };
 
             var json = JsonUtility.ToJson(payload);
