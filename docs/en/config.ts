@@ -26,20 +26,24 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebarManual(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'Antura Manual', link: '/' },
-    { text: 'How to Install and Setup', link: 'install' },
+    { text: 'User Manual', link: '/' ,
+      items: [
+        { text: 'How to Install and Setup', link: 'install' },
+        { text: 'How to play Learn with Antura', link: 'how_to_play' }
+      ]
+    },
     {
       text: 'Learn Languages Modules',
       items: [
-        { text: 'Introduction', link: 'learnlanguage_module' },
+        { text: 'Learn Languages overview', link: 'learnlanguage_module' },
         { text: 'How to play minigames', link: 'learnlanguage_how_to_play' }
       ]
     },
     {
-      text: 'Discover Europe Modules',
+      text: 'Discover Modules',
       items: [
-        { text: 'Introduction', link: 'discover_introduction' },
-        { text: 'Features', link: 'discover_module' },
+        { text: 'Discover overview', link: 'discover_introduction' },
+        { text: 'Discover features', link: 'discover_module' },
         { text: 'How to play quests', link: 'discover_how_to_play' }
       ]
     },
