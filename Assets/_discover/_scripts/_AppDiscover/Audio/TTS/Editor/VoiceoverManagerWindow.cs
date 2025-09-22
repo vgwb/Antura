@@ -95,7 +95,7 @@ namespace Antura.Discover.Audio.Editor
         private const string LangBundlesRoot = "Assets/_lang_bundles/_quests";
         private const string CardsBundlesRoot = "Assets/_lang_bundles/_cards";
 
-        [MenuItem("Tools/Discover/Quest Voiceover Manager")]
+        [MenuItem("Antura/Audio/Voiceover Manager")]
         public static void ShowWindow()
         {
             var w = GetWindow<VoiceoverManagerWindow>(false, "Quest Voiceover", true);
@@ -710,9 +710,8 @@ namespace Antura.Discover.Audio.Editor
                     VoiceActors actorForFile = _selectedActor;
                     if (meta.Actors != null && meta.Actors.TryGetValue(lineIdShort, out var aOpt) && aOpt.HasValue)
                         actorForFile = aOpt.Value;
-                    string fileBase = actorForFile == VoiceActors.Default
-                        ? BuildFileBase(quest.Id, nodeTitle, lineIdShort)
-                        : BuildFileBaseWithActor(quest.Id, nodeTitle, lineIdShort, actorForFile.ToString());
+                    // Filenames now simplified: questId_lineId (no nodeTitle, no actor)
+                    string fileBase = $"{SanitizeFileNamePart(quest.Id)}_{SanitizeFileNamePart(lineIdShort)}";
                     string finalExt = convertToOgg ? ".ogg" : ".mp3";
                     string finalAssetPath = CombinePath(folder, fileBase + finalExt);
                     string mp3TempPath = CombinePath(folder, fileBase + ".mp3");
@@ -735,6 +734,11 @@ namespace Antura.Discover.Audio.Editor
                         var entry = at.GetEntry(key) ?? at.AddEntry(key, guid ?? string.Empty);
                         if (!string.IsNullOrEmpty(guid))
                             entry.Guid = guid;
+                        // Manifest upsert for existing file path
+                        var audioFileName = Path.GetFileName(finalAssetPath);
+                        var normText = VoiceoverManifestUtil.NormalizeText(text);
+                        var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, localeDefaultVoice?.Id, actorForFile.ToString(), locale.Identifier.Code);
+                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: localeDefaultVoice?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
                         continue;
                     }
 
@@ -768,6 +772,11 @@ namespace Antura.Discover.Audio.Editor
                                     eAssign.Guid = gogg;
                                 if (!keepMp3)
                                     AssetDatabase.DeleteAsset(mp3TempPath);
+                                // Manifest upsert after conversion
+                                var audioFileName = Path.GetFileName(finalAssetPath);
+                                var normText = VoiceoverManifestUtil.NormalizeText(text);
+                                var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
+                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
                             }
                             EditorUtility.SetDirty(at);
                             continue;
@@ -825,6 +834,11 @@ namespace Antura.Discover.Audio.Editor
                             Debug.Log($"[QVM] Created [{locale.Identifier.Code}] {Path.GetFileName(assignPath)} ← {assignPath}", obj);
                         else
                             Debug.Log($"[QVM] Created [{locale.Identifier.Code}] {Path.GetFileName(assignPath)} ← {assignPath}");
+                        // Manifest upsert after generation
+                        var audioFileName = Path.GetFileName(assignPath);
+                        var normText = VoiceoverManifestUtil.NormalizeText(text);
+                        var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
+                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: Mathf.RoundToInt((obj != null ? obj.length : 0f) * 1000f), voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
                     }
                 }
 
@@ -888,24 +902,8 @@ namespace Antura.Discover.Audio.Editor
                         var entry = questAssets.Values.FirstOrDefault(v => string.Equals(v.Guid, mp3Guid, StringComparison.OrdinalIgnoreCase));
                         if (entry == null)
                         {
-                            // New format: quest-nodeTitle-lineId[-actor]; actor may be omitted for Default
-                            string[] tokens = nameNoExt.Contains('-') ? nameNoExt.Split('-') : nameNoExt.Split('_');
-                            string lineIdShort = null;
-                            if (tokens.Length >= 2)
-                            {
-                                string last = tokens[tokens.Length - 1];
-                                if (Enum.TryParse<VoiceActors>(last, true, out _))
-                                {
-                                    if (tokens.Length >= 2)
-                                        lineIdShort = tokens[tokens.Length - 2];
-                                }
-                                else
-                                {
-                                    lineIdShort = last;
-                                }
-                            }
-                            if (string.IsNullOrEmpty(lineIdShort))
-                                lineIdShort = ExtractLastUnderscoreToken(nameNoExt);
+                            // New simplified format: questId_lineId
+                            string lineIdShort = ExtractLastUnderscoreToken(nameNoExt);
                             string key = !string.IsNullOrEmpty(lineIdShort) ? ("line:" + lineIdShort) : null;
                             if (!string.IsNullOrEmpty(key))
                                 entry = questAssets.GetEntry(key) ?? questAssets.AddEntry(key, string.Empty);
@@ -915,6 +913,15 @@ namespace Antura.Discover.Audio.Editor
                             var oggGuid = AssetDatabase.AssetPathToGUID(ogg);
                             if (!string.IsNullOrEmpty(oggGuid))
                             { entry.Guid = oggGuid; EditorUtility.SetDirty(questAssets); }
+                            // Also update manifest using derived key
+                            var audioFileName = Path.GetFileName(ogg);
+                            var keyShort = entry?.SharedEntry?.Key;
+                            if (!string.IsNullOrEmpty(keyShort) && keyShort.StartsWith("line:"))
+                                keyShort = keyShort.Substring("line:".Length);
+                            if (!string.IsNullOrEmpty(keyShort))
+                            {
+                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: keyShort, audioFileName: audioFileName, textHash: null, durationMs: null, voiceProfileId: null, actorId: null, nodeTitle: null, sourceText: null);
+                            }
                         }
                     }
 
@@ -1064,12 +1071,8 @@ namespace Antura.Discover.Audio.Editor
                         if (vp != null)
                             useVoice = vp;
                     }
-                    VoiceActors actorForFile2 = _selectedActor;
-                    if (meta.Actors != null && meta.Actors.TryGetValue(idShort, out var aOpt2) && aOpt2.HasValue)
-                        actorForFile2 = aOpt2.Value;
-                    string baseName = actorForFile2 == VoiceActors.Default
-                        ? BuildFileBase(quest.Id, title, idShort)
-                        : BuildFileBaseWithActor(quest.Id, title, idShort, actorForFile2.ToString());
+                    // Filenames simplified: questId_lineId only
+                    string baseName = $"{SanitizeFileNamePart(quest.Id)}_{SanitizeFileNamePart(idShort)}";
                     string finalExt = convertToOgg ? ".ogg" : ".mp3";
                     string finalPath = CombinePath(folder, baseName + finalExt);
                     if (onlyMissing)
