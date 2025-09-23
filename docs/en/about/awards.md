@@ -47,4 +47,8 @@ Antura has been honored internationally for its impact in education, innovation,
     <strong>NGO Innovation Award – Winner</strong><br/>
     UNHCR, 2019
   </li>
+  <li>
+    <strong>Special Award for Social Commitment – Winner</strong><br/>
+    German Developer Awards, 2022
+  </li>
 </ul>
