@@ -70,6 +70,7 @@ namespace Antura.Discover
         public void Show(Sprite sprite, string title = null)
         {
             Init();
+            
             IsOpen = true;
             img.sprite = sprite;
             bool hasTitle = !string.IsNullOrEmpty(title);
@@ -84,6 +85,7 @@ namespace Antura.Discover
         public void Hide(bool immediate = false)
         {
             Init();
+            
             IsOpen = false;
             if (immediate)
             {

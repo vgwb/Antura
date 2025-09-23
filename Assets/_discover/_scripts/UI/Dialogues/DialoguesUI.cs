@@ -33,18 +33,15 @@ namespace Antura.Discover
         [DeEmptyAlert]
         [SerializeField] DialoguePostcard postcard;
         [DeEmptyAlert]
-        [SerializeField] DialoguePostcardFocusView postcardFocusView;
-        [DeEmptyAlert]
         [SerializeField] StartEndPanel startEndPanel;
 
         #endregion
 
         public bool IsOpen { get; private set; }
-        public bool IsPostcardOpen => IsOpen && postcardFocusView.IsOpen;
+        public bool IsPostcardOpen => IsOpen && postcard.IsActive;
         public DialogueType CurrDialogueType { get; private set; }
 
         int currChoiceIndex;
-        bool currPostcardWasZoomedOnce; // TRUE when current postcard was zoomed in at least once
         bool gotoNextWhenPostcardFocusViewCloses;
         bool UseLearningLanguage = true;
         QuestNode currNode;
@@ -60,7 +57,6 @@ namespace Antura.Discover
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
             startEndPanel.gameObject.SetActive(true);
-            postcardFocusView.Hide(true);
             previewSignalPrefab = Instantiate(signal, signal.transform.parent, false);
             signal.Setup(false);
 
@@ -69,8 +65,6 @@ namespace Antura.Discover
             startEndPanel.OnBalloonClicked.Subscribe(OnBalloonClicked);
             startEndPanel.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
-            postcard.OnClicked.Subscribe(OnPostcardClicked);
-            postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
 
@@ -84,8 +78,6 @@ namespace Antura.Discover
             startEndPanel.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             startEndPanel.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
-            postcard.OnClicked.Unsubscribe(OnPostcardClicked);
-            postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
 
@@ -173,25 +165,15 @@ namespace Antura.Discover
             CurrDialogueType = DialogueType.None;
         }
 
-        public void ShowPostcard(Sprite sprite, bool zoom = false)
+        public void ShowPostcard(Sprite sprite, string title = null, bool zoom = false, DialoguePostcard.ViewMode? customViewMode = null)
         {
-            if (zoom)
-            {
-                currPostcardWasZoomedOnce = true;
-                postcardFocusView.Show(sprite);
-            }
-            else
-            {
-                currPostcardWasZoomedOnce = false;
-                postcard.Show(sprite);
-            }
+            postcard.Show(sprite, title, zoom);
         }
 
         public void HidePostcard()
         {
             gotoNextWhenPostcardFocusViewCloses = false;
             postcard.Hide();
-            postcardFocusView.Hide();
         }
 
         #endregion
@@ -201,7 +183,7 @@ namespace Antura.Discover
         void ShowDialogueFor(QuestNode node)
         {
             currChoiceIndex = 0;
-            currPostcardWasZoomedOnce = gotoNextWhenPostcardFocusViewCloses = false;
+            gotoNextWhenPostcardFocusViewCloses = false;
             CoroutineRunner.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
         }
 
@@ -317,18 +299,18 @@ namespace Antura.Discover
             if (gotoNextWhenPostcardFocusViewCloses)
             {
                 // Close postcard zoom and move onward
-                if (postcardFocusView.IsOpen)
+                if (postcard.IsMagnified)
                 {
-                    HidePostcardFocusView();
+                    postcard.CloseMagnification();
                     yield return new WaitForSeconds(0.15f);
                 }
             }
             else
             {
-                if (currNode.ImageAutoOpen && postcard.IsActive && !currPostcardWasZoomedOnce)
+                if (currNode.ImageAutoOpen && postcard.IsActive && !postcard.CurrSpriteWasMagnifiedOnce)
                 {
                     // Zoom into postcard and wait for next action
-                    ShowPostcard(postcard.CurrSprite, true);
+                    postcard.Magnify();
                     gotoNextWhenPostcardFocusViewCloses = true;
                     yield break;
                 }
@@ -358,21 +340,16 @@ namespace Antura.Discover
             coNext = null;
         }
 
-        void HidePostcardFocusView()
-        {
-            postcardFocusView.Hide();
-        }
-
         #endregion
 
         #region Callbacks
 
         void OnActClicked()
         {
-            // if (postcardFocusView.IsOpen && !gotoNextWhenPostcardFocusViewCloses)
-            if (postcardFocusView.IsOpen)
+            // if (postcard.IsMagnified && !gotoNextWhenPostcardFocusViewCloses)
+            if (postcard.IsMagnified)
             {
-                postcardFocusView.Hide();
+                postcard.CloseMagnification();
             }
             else if (CurrDialogueType == DialogueType.Text && (!InteractionManager.I.IsUsingFocusView || this.gameObject.activeSelf))
             {
@@ -399,19 +376,6 @@ namespace Antura.Discover
         void OnChoiceConfirmed(int choiceIndex)
         {
             Next(choiceIndex);
-        }
-
-        void OnPostcardClicked(Sprite sprite)
-        {
-            ShowPostcard(sprite, true);
-        }
-
-        void OnPostcardFocusViewClicked()
-        {
-            // if (gotoNextWhenPostcardFocusViewCloses)
-            //     Next(currChoiceIndex);
-            // else
-            HidePostcardFocusView();
         }
 
         #endregion

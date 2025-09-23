@@ -17,15 +17,19 @@ namespace Antura.Discover
         
         #region Events
 
-        public readonly ActionEvent<Sprite> OnClicked = new("DialoguePostcard.OnClicked");
+        // public readonly ActionEvent<Sprite> OnClicked = new("DialoguePostcard.OnClicked");
+        // public readonly ActionEvent OnFocusViewOpened = new("DialoguePostcard.OnFocusViewOpened");
+        // public readonly ActionEvent OnFocusViewClosed = new("DialoguePostcard.OnFocusViewClosed");
 
         #endregion
 
         #region Serialized
 
         [SerializeField] ViewMode viewMode = ViewMode.Crop;
-        
+
         [Header("References")]
+        [DeEmptyAlert]
+        [SerializeField] DialoguePostcardFocusView focusView;
         [DeEmptyAlert]
         [SerializeField] Image img;
         [DeEmptyAlert]
@@ -36,7 +40,9 @@ namespace Antura.Discover
         #endregion
 
         public bool IsActive { get; private set; }
+        public bool IsMagnified => focusView.IsOpen;
         public Sprite CurrSprite { get; private set; }
+        public bool CurrSpriteWasMagnifiedOnce { get; private set; }
 
         bool initialized;
         bool hasEntranceExitAnimations;
@@ -55,6 +61,8 @@ namespace Antura.Discover
 
             imgRT = (RectTransform)img.transform;
             defImgSize = imgRT.sizeDelta;
+            
+            focusView.Hide(true);
         }
 
         void Start()
@@ -67,7 +75,7 @@ namespace Antura.Discover
             Vector3 defRot = this.transform.localEulerAngles;
             Vector2 defAnchoredP = rt.anchoredPosition;
 
-            bt.onClick.AddListener(() => OnClicked.Dispatch(CurrSprite));
+            bt.onClick.AddListener(Magnify);
 
             const float inDuration = 0.35f;
             const float outDuration = 0.35f;
@@ -83,12 +91,15 @@ namespace Antura.Discover
                 .OnComplete(() => this.gameObject.SetActive(false));
 
             this.gameObject.SetActive(false);
+            
+            focusView.OnClicked.Subscribe(OnFocusViewClicked);
         }
 
         void OnDestroy()
         {
             showTween.Kill();
             hideTween.Kill();
+            focusView.OnClicked.Unsubscribe(OnFocusViewClicked);
         }
 
         #endregion
@@ -96,20 +107,22 @@ namespace Antura.Discover
         #region Public Methods
 
         /// <summary>
-        /// Shows the postcard with an entrance animation,
-        /// mainly to be used with normal dialogue postcards
+        /// Shows the postcard with an entrance animation
+        /// (mainly to be used with normal dialogue postcards),
+        /// with options for title, magnification and view mode
         /// </summary>
-        public void Show(Sprite sprite, string title = null, ViewMode? customViewMode = null)
+        public void Show(Sprite sprite, string title = null, bool magnified = false, ViewMode? customViewMode = null)
         {
-            DoShow(sprite, title, customViewMode, false);
+            DoShow(sprite, title, magnified, customViewMode, false);
         }
         
         /// <summary>
-        /// Shows the postcard immediately and without animations
+        /// Shows the postcard immediately and without animations,
+        /// with options for title, magnification and view mode
         /// </summary>
-        public void ShowImmediate(Sprite sprite, string title = null, ViewMode? customViewMode = null)
+        public void ShowImmediate(Sprite sprite, string title = null, bool magnified = false, ViewMode? customViewMode = null)
         {
-            DoShow(sprite, title, customViewMode, true);
+            DoShow(sprite, title, magnified, customViewMode, true);
         }
 
         /// <summary>
@@ -117,18 +130,42 @@ namespace Antura.Discover
         /// </summary>
         public void Hide()
         {
+            Init();
+            
             IsActive = false;
             CurrSprite = null;
             showTween.Complete();
             if (hasEntranceExitAnimations) hideTween.Restart();
             else hideTween.Complete();
+            focusView.Hide();
+        }
+
+        /// <summary>
+        /// Shows the fullscreen zoomed in version of the postcard
+        /// </summary>
+        public void Magnify()
+        {
+            Init();
+            
+            CurrSpriteWasMagnifiedOnce = true;
+            focusView.Show(CurrSprite);
+        }
+
+        /// <summary>
+        /// Closes the magnified focus view of the postcard
+        /// </summary>
+        public void CloseMagnification()
+        {
+            Init();
+            
+            focusView.Hide();
         }
 
         #endregion
 
         #region Methods
 
-        void DoShow(Sprite sprite, string title, ViewMode? customViewMode, bool immediate)
+        void DoShow(Sprite sprite, string title, bool magnified, ViewMode? customViewMode, bool immediate)
         {
             Init();
             
@@ -137,11 +174,12 @@ namespace Antura.Discover
             hasEntranceExitAnimations = !immediate;
             if (CurrSprite != sprite)
             {
+                CurrSpriteWasMagnifiedOnce = false;
                 bool hasTitle = !string.IsNullOrEmpty(title);
                 titleContent.gameObject.SetActive(hasTitle);
                 if (hasTitle) tfTitle.text = title;
                 hideTween.Complete();
-                if (immediate)showTween.Complete();
+                if (immediate || magnified) showTween.Complete();
                 else showTween.Restart();
                 ViewMode m = customViewMode == null ? viewMode : (ViewMode)customViewMode;
                 switch (m)
@@ -157,6 +195,16 @@ namespace Antura.Discover
             }
             this.gameObject.SetActive(true);
             CurrSprite = sprite;
+            if (magnified) Magnify();
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        void OnFocusViewClicked()
+        {
+            CloseMagnification();
         }
 
         #endregion

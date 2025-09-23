@@ -258,7 +258,7 @@ namespace Antura.Discover
             CardData card = c;
 
             bool openZoomed = (zoom.ToLower() == "zoom");
-            UIManager.I.dialogues.ShowPostcard(card.ImageAsset.Image, openZoomed);
+            UIManager.I.dialogues.ShowPostcard(card.ImageAsset.Image, null, openZoomed);
             DiscoverAppManager.I.RecordCardInteraction(card, true);
         }
 
