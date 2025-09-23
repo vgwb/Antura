@@ -46,6 +46,7 @@ namespace Antura.Discover
 
         bool initialized;
         bool hasEntranceExitAnimations;
+        string currTitle;
         Vector2 defImgSize;
         RectTransform imgRT;
         Button bt;
@@ -148,7 +149,7 @@ namespace Antura.Discover
             Init();
             
             CurrSpriteWasMagnifiedOnce = true;
-            focusView.Show(CurrSprite);
+            focusView.Show(CurrSprite, currTitle);
         }
 
         /// <summary>
@@ -172,6 +173,7 @@ namespace Antura.Discover
             IsActive = true;
             img.sprite = sprite;
             hasEntranceExitAnimations = !immediate;
+            currTitle = title;
             if (CurrSprite != sprite)
             {
                 CurrSpriteWasMagnifiedOnce = false;

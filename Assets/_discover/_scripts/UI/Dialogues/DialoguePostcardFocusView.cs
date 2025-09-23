@@ -1,4 +1,5 @@
-﻿using Demigiant.DemiTools;
+﻿using Antura.UI;
+using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using TMPro;
@@ -24,7 +25,7 @@ namespace Antura.Discover
         [DeEmptyAlert]
         [SerializeField] Image img;
         [DeEmptyAlert]
-        [SerializeField] TMP_Text tfTitle;
+        [SerializeField] TextRender tfTitle;
 
         #endregion
 
