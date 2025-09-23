@@ -18,9 +18,11 @@ Later on, several additional partners joined and helped adapt the game to addres
 
 Our team is located all over the world and mainly comprises European, Middle Eastern and North African residents and refugees. It is a mix of veteran game developers, scientists and humanitarians. More than 100 people collaborated on the development and distribution of this game.
 
+![playtest](../../assets/img/about/Playtest_Jordan_2017-Quttan-girls-playing-Antura.jpg)
+
 ## Funding partners
 
-In 2017, Antura and the Letters won the international [EduApp4Syria competition](https://www.norad.no/en/front/thematic-areas/education/innovation/eduapp4syria/), funded by the Norwegian Ministry of Foreign Affairs and focused on helping Syrian refugee kids.
+In 2017, Antura and the Letters won the international [EduApp4Syria competition](https://www.norad.no/en/front/thematic-areas/education/innovation/eduapp4syria/), funded by the **Norwegian Ministry of Foreign Affairs** and focused on helping Syrian refugee kids.
 
 In 2019, Antura and the Letters received the [UNHCR’s NGO Innovation Award](https://www.unhcr.org/innovation/innovation-award-2019/) for its plans for scaling its impact to Afghanistan.
 

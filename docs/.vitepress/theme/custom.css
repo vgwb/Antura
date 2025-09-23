@@ -50,6 +50,39 @@ hr {
   color: #222;
 }
 
+/* Awards grid styling */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.awards-grid li {
+  list-style: none;
+  text-align: center;
+  background: #f4de9e;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.awards-grid li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.awards-grid li strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+
 /* yarn-script.css: Styles for the Yarn script reader */
 .yarn-script-container { min-height: 60vh; }
 .yarn-script-container pre { background: #f9fafb; color: #111; padding: 14px 16px; border-radius: 8px; overflow: auto; border: 1px solid #eef0f2; }

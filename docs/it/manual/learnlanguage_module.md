@@ -3,7 +3,7 @@ title: Learn Languages
 ---
 # Learn Languages
 
-![Alt text](../../assets/img/docs_antura_home.jpg)
+![Alt text](../../assets/img/screenshot/docs_antura_home.jpg)
 
 Learn with Antura is a game for the introduction to different languages (ENglish, French, Polish, Spanish, Arabics...) as a second language, aimed at children between 5 and 9 years old; equivalent to the contents of **PreA1** according to the **Common European Framework of Reference for Languages**.  
 
@@ -52,7 +52,7 @@ To pass the different mini-games words, images and sounds so that the learning p
 
 ## Objectives
 
-![book](../../assets/img/docs_antura_book.jpg)
+![book](../../assets/img/screenshot/docs_antura_book.jpg)
 
 Learn with Antura aims to introduce to the language without the need to have had previous contact with it; this can take place in both academic and informal contexts, serving as a teaching support tool and a playful approach to learning English as a second language.
 
@@ -76,7 +76,7 @@ In addition, the game offers rewards in the form of cookies that can be used to 
 
 ## Pedagogical path
 
-![path](../../assets/img/docs_antura_flow.jpg)
+![path](../../assets/img/screenshot/docs_antura_flow.jpg)
 
 The game is composed of 6 different worlds that we will go through playing the different didactic units and tests. Each of the worlds includes several groups of words, in each one we will work with around 50 words organized in groups of between 8 and 12.
 
@@ -95,14 +95,14 @@ We start with an introductory world where you will become familiar with English 
 
 This is the flowchart of the entire application with the transitions between the different sections of the application:
 
-![flow](../../assets/img/docs_antura_flow2.jpg)
+![flow](../../assets/img/screenshot/docs_antura_flow2.jpg)
 
 ### Start
 The first screen of the game offers the possibility to create a new profile or to continue playing with a previously created profile. Also from this section you can access the options (e.g. to turn on or off the background music) and the section reserved for the teacher.
 
 ### Profile creation
 
-![profile](../../assets/img/docs_antura_profile.jpg)
+![profile](../../assets/img/screenshot/docs_antura_profile.jpg)
 
 The game allows you to create custom profiles with different faces, colors for the skin, hair and background of your avatar. For the creation of teacher profiles we will have to access the Teacher Section.
 
@@ -111,7 +111,7 @@ As soon as you create a profile you will receive the first gift to customize Ant
 
 ### Antura Space
 
-![space](../../assets/img/docs_antura_space.jpg)
+![space](../../assets/img/screenshot/docs_antura_space.jpg)
 
 In this section the player can customize Antura with the gifts he has received and can also use the bone-shaped cookies that he will earn by advancing in the game.
 
@@ -247,6 +247,6 @@ ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE,
 **Months**  
 JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
 
-![content 1](../../assets/img/docs_antura_content_1.jpg)
-![content 2](../../assets/img/docs_antura_book2.jpg)
-![book](../../assets/img/docs_antura_book2.jpg)
+![content 1](../../assets/img/screenshot/docs_antura_content_1.jpg)
+![content 2](../../assets/img/screenshot/docs_antura_book2.jpg)
+![book](../../assets/img/screenshot/docs_antura_book2.jpg)

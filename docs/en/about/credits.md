@@ -5,46 +5,49 @@ title: Credits
 
 This project started in 2016 as the original game **Antura and the Letters - Arabic** and evolved in the years with three main iterations. Many people have given contributions.
 
-- Antura 3.0 (2025) - Discover Europe Edition
+- Antura 3.0 (2025) - Discover & Classroom Edition
 - Antura 2.0 (2021) - Learn Languages Edition
 - Antura 1.0 (2017) - EduApp4Syria Edition
 
-**Global partners**
+## Antura 3.0 – Discover & Classroom Edition
 
-- [VGWB - Video Games Without Borders](http://vgwb.org)
-- [CGL - TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
+> [!NOTE] Detailed design and content credits  
+> Antura 3.0 includes **in-game native credits** for quests, activities, levels, and didactical content.  
+> See the [Content section](../content/index.md).
 
-**Additional partners**  
+**Partners**
 
-- [Académie de Nantes Rectorat, France](https://www.ac-nantes.fr)
-- Dolnośląska Szkoła Wyższa, Poland
-- Ogólnopolski Operator Oświaty, Poland
-- [Wixel Studios](http://www.wixelstudios.com)  
-- Institut Français du Maroc  
-- Asociación Oleaje  
-- Zone 3:45  
-- Partnership Afghanistan Canada  
-- Code To Inspire  
-- Amerike: Instituto de Estudios Universitarios  
+- [VGWB - Video Games Without Borders](http://vgwb.org) - design & development
+- [CGL - TH Köln / Cologne Game Lab](http://www.colognegamelab.de) - Erasmus+ lead and coordination
+- [Académie de Nantes Rectorat, France](https://www.ac-nantes.fr) - content and validation
+- Dolnośląska Szkoła Wyższa, Poland - validation
+- Ogólnopolski Operator Oświaty, Poland - dissemination
 
-## Antura 3.0 - Discover Europe Edition
-
-**R&D and Production Lead**  
-Stefano Cecere (VGWB)
+**Erasmus+ project coordination**  
+Franziska Funken (CGL)
 
 **General Coordination**  
 Francesco Cavallari (VGWB)
 
+**R&D and Production Lead**  
+[Stefano Cecere](https://github.com/StefanoCecere/) (VGWB)
+
 **Content input and validation - France**  
 Lucie Durant (ac-nantes)  
-Anne
+Anne Du-Merle (ac-nantes)  
+Nadja Maillard  (ac-nantes)
 
 **Content input and validation - Poland**  
 Jan Stasieńko  
-Macie
+Maciej Śledz
 
 **UI/UX**  
+Daniele Giardini
+
+**Programming**  
+Stefano Cecere  
 Daniele Giardini  
+Michele Pirovano  
 
 **Quest design and development support**  
 Valeria Passarella  
@@ -65,17 +68,28 @@ Matteo Bicocchi ([OpenLab](https://open-lab.com/))
 Bruno Cecere  
 Antonella Prunecchi  
 
-
 ## Antura 2.0 - Learn Languages Edition
 
+**Partners**
+
+- [VGWB - Video Games Without Borders](http://vgwb.org) - design and development
+- [CGL - TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
+- [Techfugess](http://techfugees.com)
+- Institut Français du Maroc  
+- Asociación Oleaje  
+- Zone 3:45  
+- Partnership Afghanistan Canada  
+- Code To Inspire  
+- Amerike: Instituto de Estudios Universitarios  
+
 **Project Lead and Production**  
-Francesco Cavallari
+Francesco Cavallari (VGWB)
 
 **Brand & Research Director**  
 Prof. Dr. Emmanuel Guardiola (CGL)
 
 **R&D, Production and Additional Game Design**  
-Stefano Cecere
+Stefano Cecere (VGWB)
 
 **Programming**  
 Michele Pirovano  
@@ -239,13 +253,13 @@ Amina Alaoui (AREF de la région Casablanca-Settat)
 - Techfugees  
 - UNHCR NGO Innovation Award Team  
 
-**A very special thanks to Ubisoft** for their support of this game!
+A very special thanks to **Ubisoft** for their support of this game!
 
 ---
 
 ## Antura 1.0 - EduApp4Syria Edition
 
-**Developed by**
+**Partners**
 
 - [TH Köln / Cologne Game Lab](https://www.colognegamelab.de)
 - [Video Games Without Borders](https://vgwb.org)
@@ -255,6 +269,12 @@ Amina Alaoui (AREF de la région Casablanca-Settat)
 
 **Project Lead and Creative Director**  
 Prof. Dr. Emmanuel Guardiola (TH Köln / Cologne Game Lab)
+
+**Producer and Additional Game Design**  
+Francesco Cavallari
+
+**R&D and Production**  
+Stefano Cecere
 
 **Art Director and Lead Artist**  
 Gaetano Leonardi
@@ -270,14 +290,8 @@ Michele Pirovano
 **Music and Sound Designer**  
 Hamza Chioua
 
-**R&D and Production**  
-Stefano Cecere
-
 **Associate Producer and Additional Game Design**  
 Ziad Feghali
-
-**Producer and Additional Game Design**  
-Francesco Cavallari
 
 ---
 
@@ -514,5 +528,3 @@ Dr. Juho Hamari
 - DOTween (C# library)
 - Arabic Support (C# library)
 - GitHub
-
-The original Arabic project was funded by the Norwegian Ministry of Foreign Affairs as part of EduApp4Syria innovation competition.

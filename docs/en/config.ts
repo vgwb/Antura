@@ -118,18 +118,40 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
 
 function sidebarAbout(): DefaultTheme.SidebarItem[] {
   return [
+    { text: 'About Antura project', link: '/' },
     {
-      text: 'About',
+      text: 'History and Supporters',
       items: [
-        { text: 'About Antura', link: '/' },
+        
         { text: 'History', link: 'history' },
+        { text: 'Supporters & Partners', link: 'supporters' },
+        { text: 'Awards', link: 'awards' },
         { text: 'Erasmus+', link: 'erasmus/' },
+        { text: 'Impact evaluation', link: 'impact' },
+        { text: '❤️ Support us', link: 'support-us' },
+      ],
+    },
+    {
+      text: 'Credits',
+      items: [
         { text: 'Credits', link: 'credits' },
         { text: 'Credits (Assets)', link: 'credits-assets' },
+        { text: 'About this Website', link: 'website' },
+      ],
+    },
+    {
+      text: 'Contact',
+      items: [
+        { text: 'Contact & Community', link: 'contact' }
+      ],
+    },
+    {
+      text: 'License',
+      items: [
         { text: 'License', link: 'license' },
-        { text: 'Contact', link: 'contact' }
-      ]
-    }
+        { text: 'Privacy Policy', link: '../../privacy-policy' },
+      ],
+    },
   ]
 }
 

@@ -10,8 +10,8 @@ We thank them for making their tools and assets available.
 - **[Yarn Spinner](https://yarnspinner.dev/)**  
   Dialogue system for games — MIT License.
 
-- **[DOTween](http://dotween.demigiant.com/)** by Demigiant  
-  Tweening engine for Unity — Free for personal and commercial use.
+- **[DOTween](http://dotween.demigiant.com/)** and **[DemiLib](https://demigiant.com/plugins/demilib/)** by Demigiant  
+  Free for personal and commercial use.
 
 - **[Unity Native Gallery](https://github.com/yasirkula/UnityNativeGallery)** by yasirkula  
   Cross-platform native gallery access — MIT License.
@@ -26,11 +26,10 @@ We thank them for making their tools and assets available.
   Lightweight JSON parser for Unity — MIT License.
 
 - **[Unity Engine](https://unity.com)** (© Unity Technologies)  
-  Game engine used to build Antura — Unity license.
+  Game engine — Unity license.
 
----
 
-## 🏙️ City and Kits
+## 🏙️ Game Assets
 
 **Kenney Game Assets**  
 [kenney.nl](https://www.kenney.nl) — CC0 License
@@ -38,9 +37,7 @@ We thank them for making their tools and assets available.
 **KayKit: City Builder Bits** by Kay Lousberg  
 [kaylousberg.com](https://www.kaylousberg.com) — CC0 License
 
----
-
-## 🐾 Animals
+### 🐾 3D models
 
 [Horse](https://poly.pizza/m/qvTrSG9pZF) by [Quaternius](https://poly.pizza/u/Quaternius)  
 
@@ -73,3 +70,6 @@ We thank them for making their tools and assets available.
 [Lobster](https://poly.pizza/m/7JIU-w5So3a) by Google Poly — [CC-BY](https://creativecommons.org/licenses/by/3.0/)  
 
 [Crab](https://poly.pizza/m/2DgM36qZW2u) by Google Poly — [CC-BY](https://creativecommons.org/licenses/by/3.0/)  
+
+## Photos and Images
+All photos are credited in the [Content pages](../content/index.md)

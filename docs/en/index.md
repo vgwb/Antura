@@ -12,6 +12,9 @@ hero:
     - theme: alt
       text: Blog
       link: https://antura.discourse.group/c/news/5
+    - theme: alt
+      text: ❤️ Support
+      link: /en/about/support-us
   image:
     src: /img/antura_gametitle.jpg
     alt: Learn with Antura

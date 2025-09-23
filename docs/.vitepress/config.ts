@@ -52,7 +52,8 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vgwb/Antura' }
     ],
     footer: {
-      message: '©VGWB | CC BY-NC-SA | <a href="/privacy-policy">Privacy Policy</a>',
+      message: '© 2016–2025 VGWB | CC BY-NC-SA | <a href="/privacy-policy">Privacy Policy</a>',
+      copyright: '<a href="/en/about/support-us">Support Us</a> | <a href="https://github.com/vgwb/Antura">GitHub</a> | <a href="/en/about/website">About this Website</a>',
     },
     search: {
       provider: 'local'
