@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Take Me Home
-parent: Minigames
 nav_order: 0
 ---
 

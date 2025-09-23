@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Audio Files
-parent: HowTo
 nav_order: 0
 ---
 # How to record audio files

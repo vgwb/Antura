@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Shaders
-parent: Modules
 nav_order: 0
 ---
 # Shaders

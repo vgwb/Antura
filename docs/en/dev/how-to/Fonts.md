@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Fonts Atlas
-parent: HowTo
 nav_order: 0
 ---
 We have several fonts used:

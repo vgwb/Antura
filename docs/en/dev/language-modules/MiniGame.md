@@ -1,7 +1,5 @@
 ---
-layout: default
 title: MiniGames Interface
-parent: Modules
 nav_order: 0
 ---
 # Antura MiniGames Interface

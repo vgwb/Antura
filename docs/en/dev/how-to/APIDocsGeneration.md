@@ -1,7 +1,5 @@
 ---
-layout: default
 title: API documentation
-parent: HowTo
 nav_order: 0
 ---
 # Generating the API documentation

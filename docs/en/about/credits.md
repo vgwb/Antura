@@ -57,7 +57,7 @@ Lorenzo Castrovilli
 **World/Level Design**  
 Fabio Cecere  
 
-**Art**
+**Art**  
 Michele Maggiolini (heritage monuments)
 
 **Special thanks**  

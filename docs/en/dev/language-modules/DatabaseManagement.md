@@ -1,7 +1,5 @@
 ---
-layout: default
 title: DB Info
-parent: Modules
 nav_order: 0
 ---
 # Database Info and Management

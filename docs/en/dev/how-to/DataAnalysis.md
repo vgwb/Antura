@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Data Analysis
 parent: Game Design
 nav_order: 3

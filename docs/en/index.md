@@ -58,7 +58,7 @@ features:
 
 > [!IMPORTANT] Game Designers & Developers 🎨  
 > Create a new quest in just **24 hours** using our full library of ready-made assets.  
-> Power it with the **Yarn Spinner scripting engine** for dialogue and narrative control.
+> Powered by the **Yarn Spinner scripting engine** for dialogue and narrative control.
 
 > [!WARNING] Philanthropists & Foundations 🤝  
 > Antura is a **10-year initiative** with a long-term vision.  

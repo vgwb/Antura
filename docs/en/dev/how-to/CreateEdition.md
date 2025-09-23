@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Create Edition
-parent: HowTo
 nav_order: 0
 ---
 # How to create a new edition

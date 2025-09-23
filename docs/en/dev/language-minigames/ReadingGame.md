@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Reading Game
-parent: Minigames
 nav_order: 0
 ---
 # MiniGame: Reading Game

@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Assessment
-parent: Minigames
 nav_order: 0
 ---
 # MiniGame: Assessment

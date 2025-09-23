@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Color Tickle
-parent: Minigames
 nav_order: 0
 ---
 # MiniGame: Color Tickle

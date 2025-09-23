@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Player Profile
-parent: Modules
 nav_order: 0
 ---
 # Player Profile

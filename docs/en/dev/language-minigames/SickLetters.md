@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Sick Letters
-parent: Minigames
 nav_order: 0
 ---
 # MiniGame: Sick Letters

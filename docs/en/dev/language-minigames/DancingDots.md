@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Dancing Dots
-parent: Minigames
 nav_order: 0
 ---
 # MiniGame: Dancing Dots

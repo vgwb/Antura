@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Export from Sheets
-parent: HowTo
 nav_order: 0
 ---
 # How to export data from Google Sheets

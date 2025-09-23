@@ -1,7 +1,5 @@
 ---
-layout: default
 title: DB Schemas
-parent: Modules
 nav_order: 0
 ---
 # Database Schemas

@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Teacher AI
-parent: Modules
 nav_order: 0
 ---
 # Teacher AI System

@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Analytics
-parent: Modules
 nav_order: 0
 ---
 # Antura Analytics

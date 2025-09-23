@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Data Flow
-parent: Modules
 nav_order: 0
 ---
 # Data Flow

@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Collaborator Guide
-parent: HowTo
 nav_order: 0
 ---
 # Collaborator Guidelines

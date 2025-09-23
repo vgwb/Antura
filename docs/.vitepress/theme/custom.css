@@ -20,8 +20,27 @@ a {
   color: #0079b5;
 }
 
+/* Active link: show a nice bottom underline instead of a background */
 .active {
-  background-color: #cce7f5;
+  background: transparent !important;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Limit underline to anchors that are active */
+a.active::after,
+.vp-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 4px;
+  background: #FF9400;
+  border-radius: 3px;
+}
+
+.active a {
   font-weight: bold;
 }
 

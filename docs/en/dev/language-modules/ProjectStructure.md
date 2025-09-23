@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Project Structure
-parent: Modules
 nav_order: 0
 ---
 # Project Structure

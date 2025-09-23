@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Drawings Glyphs (Words Images)
-parent: HowTo
 nav_order: 0
 ---
 # How to create the Drawings font

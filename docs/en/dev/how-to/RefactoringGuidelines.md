@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Refactoring Guidelines
-parent: HowTo
 nav_order: 0
 ---
 # Refactoring Guidelines

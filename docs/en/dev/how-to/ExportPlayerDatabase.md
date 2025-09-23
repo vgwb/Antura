@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Retrieve Player DB
-parent: HowTo
 nav_order: 0
 ---
 # How to retrieve the player database

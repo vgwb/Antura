@@ -1,7 +1,5 @@
 ---
-layout: default
 title: App Flow
-parent: Modules
 nav_order: 0
 ---
 # Application Flow

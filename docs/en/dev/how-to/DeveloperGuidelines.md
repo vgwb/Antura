@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Dev guide
-parent: HowTo
 nav_order: 0
 ---
 # Developer Guidelines and Tips
