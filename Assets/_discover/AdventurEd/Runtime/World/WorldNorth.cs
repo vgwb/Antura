@@ -8,7 +8,8 @@ namespace AdventurEd
     /// </summary>
     public class WorldNorth : MonoBehaviour
     {
-        public enum Mode {
+        public enum Mode
+        {
             AngleFromWorldForward,
             MarkerTransform
         }
@@ -29,14 +30,16 @@ namespace AdventurEd
         {
             get
             {
-                if (_instance == null) _instance = FindObjectOfType<WorldNorth>();
+                if (_instance == null)
+                    _instance = FindFirstObjectByType<WorldNorth>();
                 return _instance;
             }
         }
 
-        void Awake() {
+        void Awake()
+        {
             _instance = this;
-            }
+        }
 
         /// <summary>
         /// Returns a normalized world-space vector on XZ pointing to North.
@@ -44,9 +47,11 @@ namespace AdventurEd
         public Vector3 GetNorthVector()
         {
             Vector3 n;
-            if (mode == Mode.MarkerTransform && northMarker != null){
+            if (mode == Mode.MarkerTransform && northMarker != null)
+            {
                 n = new Vector3(northMarker.forward.x, 0f, northMarker.forward.z);
-            }else
+            }
+            else
             {
                 // Rotate +Z by angle clockwise around Y
                 n = Quaternion.AngleAxis(northAngleDegrees, Vector3.up) * Vector3.forward;
@@ -62,7 +67,8 @@ namespace AdventurEd
         {
             var north = GetNorthVector();
             var dir = new Vector3(worldDir.x, 0f, worldDir.z).normalized;
-            if (dir.sqrMagnitude < 1e-6f) return 0f;
+            if (dir.sqrMagnitude < 1e-6f)
+                return 0f;
             float angle = Vector3.SignedAngle(north, dir, Vector3.up); // + = CCW from north
             // Convert to clockwise bearing 0..360 (0 = North, 90 = East)
             float bearingCW = Mathf.Repeat(360f - angle, 360f);
