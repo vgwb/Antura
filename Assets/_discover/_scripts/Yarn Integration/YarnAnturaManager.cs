@@ -192,6 +192,30 @@ namespace Antura.Discover
         }
 
         // ------------------------------------------------------------
+        // ASSET
+        // ------------------------------------------------------------
+
+        [YarnCommand("asset")]
+        public static void CommandAsset(string assetCode)
+        {
+            //Debug.Log($"ActionManager: ResolveNodeCommandAsset: {assetCode}");
+            if (string.IsNullOrEmpty(assetCode))
+                return;
+            var db = DatabaseProvider.I;
+            //var assetImage = db.Get<ItemData>("assetCode");
+            if (db.TryGet<AssetData>(assetCode, out var assetImage))
+            {
+                UIManager.I.dialogues.ShowPostcard(assetImage.Image);
+            }
+        }
+
+        [YarnCommand("asset_hide")]
+        public static void CommandAssetHide()
+        {
+            UIManager.I.dialogues.HidePostcard();
+        }
+
+        // ------------------------------------------------------------
         // CAMERA
         // ------------------------------------------------------------
 
@@ -244,24 +268,23 @@ namespace Antura.Discover
             UIManager.I.dialogues.HidePostcard();
         }
 
-        [YarnCommand("asset")]
-        public static void CommandAsset(string assetCode)
+        // ------------------------------------------------------------
+        // COOKIES
+        // ------------------------------------------------------------
+
+        /// <summary>
+        /// Usage in Yarn: <<cookies_add 5>>
+        /// </summary>
+        [YarnCommand("cookies_add")]
+        public static void CommandCookiesAdd(int amount)
         {
-            //Debug.Log($"ActionManager: ResolveNodeCommandAsset: {assetCode}");
-            if (string.IsNullOrEmpty(assetCode))
-                return;
-            var db = DatabaseProvider.I;
-            //var assetImage = db.Get<ItemData>("assetCode");
-            if (db.TryGet<AssetData>(assetCode, out var assetImage))
-            {
-                UIManager.I.dialogues.ShowPostcard(assetImage.Image);
-            }
+            QuestManager.I.OnCollectCookie(amount, true);
         }
 
-        [YarnCommand("asset_hide")]
-        public static void CommandAssetHide()
+        [YarnFunction("GetCookies")]
+        public static int FunctionGetCookies()
         {
-            UIManager.I.dialogues.HidePostcard();
+            return QuestManager.I.Inventory.GetCookies();
         }
 
         // ------------------------------------------------------------

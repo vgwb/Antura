@@ -28,7 +28,7 @@ namespace Antura.Discover
 
         [Header("UI Elements")]
         [DeEmptyAlert]
-        public CookiesCounter CookiesCounter;
+        public CookiesDisplay CookiesCounter;
         [DeEmptyAlert]
         public ItemsCounter CoinsCounter;
         [DeEmptyAlert]
@@ -142,7 +142,7 @@ namespace Antura.Discover
             foreach (GameObject go in hideDuringDialogue)
                 go.gameObject.SetActive(true);
         }
-        
+
         void OnActivityPanelToggled(bool toggledOn)
         {
             // Hide touch zones UI when the activity panel is toggled on

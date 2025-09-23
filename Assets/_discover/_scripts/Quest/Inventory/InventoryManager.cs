@@ -24,7 +24,7 @@ namespace Antura.Discover
         public event Action<InventoryItem> OnItemRemoved;
         public event Action<InventoryItem> OnItemUpdated; // quantity changed
         public event Action<InventoryItem> OnSelectionChanged;
-        public event Action<int> OnCookiesChanged;
+        public event Action<int, bool> OnCookiesChanged;
 
         private int total_items;
         private int cookies;
@@ -41,15 +41,15 @@ namespace Antura.Discover
                 cookies = playerProfile != null ? Mathf.Max(0, playerProfile.wallet.cookies) : 0;
             }
             catch { cookies = 0; }
-            OnCookiesChanged?.Invoke(cookies);
+            OnCookiesChanged?.Invoke(cookies, false);
         }
 
-        public void AddCookies(int n)
+        public void AddCookies(int n, bool animate = false)
         {
             if (n == 0)
                 return;
             cookies = Mathf.Max(0, cookies + n);
-            OnCookiesChanged?.Invoke(cookies);
+            OnCookiesChanged?.Invoke(cookies, animate);
         }
 
         public int GetCookies() => cookies;

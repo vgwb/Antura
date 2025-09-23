@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -10,22 +11,25 @@ namespace Antura.Discover
     /// Displays cookies count with a small scale animation when the value changes.
     /// Can animate a pickup icon from a world position to the counter icon.
     /// </summary>
-    public class CookiesCounter : MonoBehaviour
+    public class CookiesDisplay : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] private TextMeshProUGUI label;
         [SerializeField] private RectTransform icon;
-        [SerializeField] private Canvas canvas; // optional; if null, will search in parents
+        [SerializeField] private Canvas canvas;
         [SerializeField] private Sprite defaultCookieSprite;
 
         [Header("Animation")]
+        [SerializeField] private float unitInterval = 0.08f;
         public float punchScale = 0.15f;
         public float punchDuration = 0.3f;
         public float flyDuration = 1f;
         public Ease flyEase = Ease.InOutQuad;
 
+        private Coroutine animCo;
+
         private Tween punchTween;
-        private InventoryManager boundInventory;
+        private InventoryManager inventoryManager;
         private bool initialized;
 
         void Awake()
@@ -38,8 +42,8 @@ namespace Antura.Discover
 
         void OnDisable()
         {
-            if (boundInventory != null)
-                boundInventory.OnCookiesChanged -= OnCookiesChanged;
+            if (inventoryManager != null)
+                inventoryManager.OnCookiesChanged -= OnCookiesChanged;
         }
 
         /// <summary>
@@ -48,20 +52,20 @@ namespace Antura.Discover
         /// </summary>
         public void Initialize(Canvas canvasOverride = null)
         {
-            boundInventory = QuestManager.I.Inventory;
+            inventoryManager = QuestManager.I.Inventory;
             if (canvasOverride != null)
                 canvas = canvasOverride;
 
-            if (boundInventory != null)
+            if (inventoryManager != null)
             {
-                boundInventory.OnCookiesChanged -= OnCookiesChanged;
-                boundInventory.OnCookiesChanged += OnCookiesChanged;
-                SetValue(boundInventory.GetCookies());
+                inventoryManager.OnCookiesChanged -= OnCookiesChanged;
+                inventoryManager.OnCookiesChanged += OnCookiesChanged;
+                SetValue(inventoryManager.GetCookies());
             }
             initialized = true;
         }
 
-        void OnCookiesChanged(int value)
+        void OnCookiesChanged(int value, bool animate)
         {
             SetValue(value);
             PlayPunch();
@@ -79,6 +83,16 @@ namespace Antura.Discover
                 return;
             punchTween?.Kill();
             punchTween = icon.DOPunchScale(Vector3.one * punchScale, punchDuration);
+        }
+
+        private IEnumerator PlayPopSequence(int units)
+        {
+            for (int i = 0; i < units; i++)
+            {
+                PlayPunch();
+                yield return new WaitForSeconds(unitInterval);
+            }
+            animCo = null;
         }
 
         /// <summary>

@@ -154,6 +154,16 @@ group: docs
 // hides the current card
 <<card_hide>>
 ===
+title: DOCS_COOKIES
+position: 552,173
+group: docs
+---
+
+<<cookies_add 5>>
+
+<<if GetCookies() >= 10>>
+<<endif>>
+===
 
 title: DOCS_INVENTORY
 position: 560,348
@@ -330,6 +340,22 @@ and now... #line:04ade19
 Good, isnt' it? #line:04b02ce 
 <<card_hide>>
 GO back to work now. #line:0970ed1 
+
+===
+title: test_cookies
+position: 552,173
+group: cookies
+---
+Do you want 5 cookies?
+-> Yes
+    Here you are! Enjoy!
+    <<cookies_add 5>>
+-> No
+    Ok, no cookies for you!
+
+<<if GetCookies() >= 10>>
+    You have a lot of cookies!
+<<endif>>
 
 ===
 title: test_camera

@@ -294,9 +294,9 @@ namespace Antura.Discover
             AudioManager.I.PlaySound(Sfx.ScaleUp);
         }
 
-        public void OnCollectCookie(int quantity = 1)
+        public void OnCollectCookie(int quantity = 1, bool animate = false)
         {
-            Inventory.AddCookies(quantity);
+            Inventory.AddCookies(quantity, animate);
         }
 
         private void updateCounters()
