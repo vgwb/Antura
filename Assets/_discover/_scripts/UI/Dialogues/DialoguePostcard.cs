@@ -39,6 +39,7 @@ namespace Antura.Discover
         public Sprite CurrSprite { get; private set; }
 
         bool initialized;
+        bool hasEntranceExitAnimations;
         Vector2 defImgSize;
         RectTransform imgRT;
         Button bt;
@@ -94,19 +95,54 @@ namespace Antura.Discover
 
         #region Public Methods
 
+        /// <summary>
+        /// Shows the postcard with an entrance animation,
+        /// mainly to be used with normal dialogue postcards
+        /// </summary>
         public void Show(Sprite sprite, string title = null, ViewMode? customViewMode = null)
+        {
+            DoShow(sprite, title, customViewMode, false);
+        }
+        
+        /// <summary>
+        /// Shows the postcard immediately and without animations
+        /// </summary>
+        public void ShowImmediate(Sprite sprite, string title = null, ViewMode? customViewMode = null)
+        {
+            DoShow(sprite, title, customViewMode, true);
+        }
+
+        /// <summary>
+        /// Hides the postcard with or without animations depending if it was first shown via <see cref="Show"/> or <see cref="ShowImmediate"/>
+        /// </summary>
+        public void Hide()
+        {
+            IsActive = false;
+            CurrSprite = null;
+            showTween.Complete();
+            if (hasEntranceExitAnimations) hideTween.Restart();
+            else hideTween.Complete();
+        }
+
+        #endregion
+
+        #region Methods
+
+        void DoShow(Sprite sprite, string title, ViewMode? customViewMode, bool immediate)
         {
             Init();
             
             IsActive = true;
             img.sprite = sprite;
+            hasEntranceExitAnimations = !immediate;
             if (CurrSprite != sprite)
             {
                 bool hasTitle = !string.IsNullOrEmpty(title);
                 titleContent.gameObject.SetActive(hasTitle);
                 if (hasTitle) tfTitle.text = title;
                 hideTween.Complete();
-                showTween.Restart();
+                if (immediate)showTween.Complete();
+                else showTween.Restart();
                 ViewMode m = customViewMode == null ? viewMode : (ViewMode)customViewMode;
                 switch (m)
                 {
@@ -121,14 +157,6 @@ namespace Antura.Discover
             }
             this.gameObject.SetActive(true);
             CurrSprite = sprite;
-        }
-
-        public void Hide()
-        {
-            IsActive = false;
-            CurrSprite = null;
-            showTween.Complete();
-            hideTween.Restart();
         }
 
         #endregion
