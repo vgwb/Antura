@@ -12,6 +12,7 @@ Here you can learn more about the Antura initiative, our partners, how to get in
 - [Supporters & Partners](./supporters.md)
 - [Awards](./awards.md)
 - [Erasmus+](./erasmus/index.md) - Overview of the EU‑funded Erasmus+ project, partners, goals, and activities.
+- [Open Source](./open-source.md)
 - [Impact evaluation](./impact.md)
 - [Support us](./support-us.md)
 

@@ -22,20 +22,28 @@ hero:
 features:
   - title: "🎮 Learn through play"
     details: "Minigames make reading and language practice fun."
+    link: en/manual/learnlanguage_module
   - title: "🌍 Discover countries and cultures"
     details: "Explore heritage, traditions, and daily life through quests."
+    link: en/manual/discover_introduction
   - title: "🆓 Free and open source"
     details: "100% free, ad-free, and open to community contributions."
+    link: en/about/open-source
   - title: "📚 Open content"
-    details: "All cards, topics, and quests available online."
+    details: "All cards, topics, and quests are Creative Commons and published here"
+    link: en/content
   - title: "🏆 International recognition"
     details: "EduApp4Syria winner and multi-award-winning game."
+    link: en/about/awards
   - title: "🧩 Open quest framework"
     details: "Create and share new quests to expand the game."
+    link: en/dev/quest-design
   - title: "🗣️ Speaks multiple languages"
     details: "Play in 11 languages including Arabic, English, Italian, Polish, and more."
+    link: en/manual/learnlanguage_module#current-learning-modules
   - title: "💻📱 Cross-platform"
     details: "Runs on PC and mobile, no internet required after install."
+    link: en/download
 ---
 
 <YouTubeVideo id="HDM7a1i_kIw" title="Antura Trailer" />

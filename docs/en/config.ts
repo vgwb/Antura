@@ -125,8 +125,9 @@ function sidebarAbout(): DefaultTheme.SidebarItem[] {
         
         { text: 'History', link: 'history' },
         { text: 'Supporters & Partners', link: 'supporters' },
-        { text: 'Awards', link: 'awards' },
+        { text: '🏆 Awards & Recognition', link: 'awards' },
         { text: 'Erasmus+', link: 'erasmus/' },
+        { text: '🌐 Open source', link: 'open-source/' },
         { text: 'Impact evaluation', link: 'impact' },
         { text: '❤️ Support us', link: 'support-us' },
       ],
