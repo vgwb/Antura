@@ -137,7 +137,7 @@ namespace Antura.Discover
 
         void OnCloseDialogue()
         {
-            if (InteractionManager.I.NearbyInteractable == null)
+            if (InteractionManager.I?.NearbyInteractable == null)
                 btAct.gameObject.SetActive(false);
             foreach (GameObject go in hideDuringDialogue)
                 go.gameObject.SetActive(true);
