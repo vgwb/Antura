@@ -112,11 +112,6 @@ namespace Antura.Discover
                 if (QuestManager.I.DebugMode)
                     Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
 
-                if (actionData.Commands == null || actionData.Commands.Count == 0)
-                {
-                    Debug.LogError("No commands found for action: " + actionData.ActionCode);
-                    return;
-                }
                 ResolveCommands(actionData.Commands);
 
             }
