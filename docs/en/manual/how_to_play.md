@@ -93,5 +93,5 @@ For the testing of the ANTURA Erasmus+ project in France and Poland we will focu
 - Discover France and Learn French
 - Discover Poland and Learn Polish
 
-The following sections explain in detail both *Learn Languages** and **Discover** modules.
+The following sections explain in detail both **Learn Languages** and **Discover** modules.
 
