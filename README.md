@@ -33,33 +33,25 @@ This project is an evolution of the original [Antura Edu App 4 Syria](https://gi
 
 ## Collaborate
 Everyone is invited to collaborate to this open source project:
-please check the [collaborator docs](https://antura.org/HowTo/Collaborator.html) and contact us if you want to help or be helped
+please check the [collaborator docs](https://antura.org/) and contact us if you want to help or be helped
 
 ## Requirements
-This repository is a Unity project ([download it here](https://unity.com/download)) and works on mobile (iOS and Android) and Desktop computers
+This repository is a Unity 6.x project ([download it here](https://unity.com/download)) and works on mobile (iOS and Android) and Desktop computers
 
 ## Docs
-all docs are in directory `/docs` and rendered to [antura.org](http://antura.org) by Pages Actions via MkDocs
+all docs are in directory `/docs` and rendered to [antura.org](http://antura.org) by Pages Actions with [VitePress](https://vitepress.dev/)
 
-To render the docs locally:
-- `mkdocs new [dir-name]` - Create a new project.
-- `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
-- `mkdocs -h` - Print help message and exit.
+To render the docs locally see https://vitepress.dev/guide/getting-started
 
-**Install**
 ```bash
-pip3 install mkdocs-material mkdocs-minify-plugin pillow cairosvg mkdocs-table-reader-plugin mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin mkdocs-exclude mkdocs-glightbox
-```
+# preview site
+npm run docs:dev
 
-upgrade:
-```bash
-pip3 install --upgrade mkdocs-material
-```
+# build site (to check final errors)
+npm run docs:build 
 
-check version:
-```bash
-pip3 show mkdocs-material
+# update npm packages
+npm update
 ```
 
 ## Licensing

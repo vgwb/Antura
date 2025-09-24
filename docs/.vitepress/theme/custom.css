@@ -1,15 +1,23 @@
 :root {
   --vp-c-brand-1: #0079b5; /* turquoise */
-  --vp-c-brand-2: #e69200; /* darker turquoise */
+  --vp-c-brand-2: #e69200; /* darker orange -- used for hover also*/
   --vp-c-bg-nav: #0079b5; /* site header background */
-  --vp-c-bg-sidebar: #47f005; /* light #0079b5 for sidebar */
+  --vp-c-orange: #FF9400; /* orange */
+  --vp-c-links: #0079b5;
+}
+
+.dark {
+  --vp-c-brand-1: #87c0dd; /* turquoise */
+  --vp-c-brand-2: #e69200; 
+  --vp-c-bg-nav: #4bc5a5; /* lighter turquoise */
+  --vp-c-links: #85bad4;
 }
 
 /* Style all links: no underline, bold, turquoise */
 a {
   text-decoration: none;
   font-weight: bold;
-  color: #0079b5;
+  color: var(--vp-c-links);
 }
 
 /* Ensure links in content and nav are styled */
@@ -17,12 +25,14 @@ a {
 .vp-nav a {
   text-decoration: none;
   font-weight: bold;
-  color: #0079b5;
+  color: var(--vp-c-links);
 }
 
+/* orange border above h2 headings*/
 .vp-doc h2 {
-  border-top: 2px solid #e69200;
+  border-top: 2px solid var(--vp-c-brand-2);
 }
+
 
 /* Active link: show a nice bottom underline instead of a background */
 .active {
@@ -40,7 +50,7 @@ a.active::after,
   right: 0;
   bottom: -2px;
   height: 4px;
-  background: #FF9400;
+  background: var(--vp-c-orange);
   border-radius: 3px;
 }
 
@@ -50,7 +60,7 @@ a.active::after,
 
 hr {
     height: 6px;
-    background-color: #FF9400 ;
+    background-color: var(--vp-c-orange);
     border-radius: 5px;
 }
 
