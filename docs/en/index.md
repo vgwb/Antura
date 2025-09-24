@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Learn with Antura"
   text: "Play. Discover. Learn."
-  tagline: "The award-winning open source game that turns reading, language, and culture into a fun adventure."
+  tagline: "Award-winning open source game that turns reading, language, and culture into a fun adventure."
   actions:
     - theme: brand
       text: Download
