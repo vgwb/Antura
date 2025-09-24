@@ -682,6 +682,8 @@ namespace Antura.Discover.Audio.Editor
                         at.AddEntry(k, string.Empty);
 
                     EditorUtility.SetDirty(at);
+                    if (at.SharedData != null)
+                        EditorUtility.SetDirty(at.SharedData);
                 }
                 AssetDatabase.SaveAssets();
             }
@@ -842,6 +844,12 @@ namespace Antura.Discover.Audio.Editor
                         var entry = at.GetEntry(key) ?? at.AddEntry(key, guid ?? string.Empty);
                         if (!string.IsNullOrEmpty(guid))
                             entry.Guid = guid;
+
+                        // Mark table and shared data dirty to persist after domain reload
+                        EditorUtility.SetDirty(at);
+                        if (at.SharedData != null)
+                            EditorUtility.SetDirty(at.SharedData);
+
                         // Manifest upsert for existing file path
                         var audioFileName = Path.GetFileName(finalAssetPath);
                         var normText = VoiceoverManifestUtil.NormalizeText(text);
@@ -871,6 +879,9 @@ namespace Antura.Discover.Audio.Editor
                                 var eAssign = at.GetEntry(key) ?? at.AddEntry(key, gmp3 ?? string.Empty);
                                 if (!string.IsNullOrEmpty(gmp3))
                                     eAssign.Guid = gmp3;
+                                EditorUtility.SetDirty(at);
+                                if (at.SharedData != null)
+                                    EditorUtility.SetDirty(at.SharedData);
                             }
                             else
                             {
@@ -891,6 +902,8 @@ namespace Antura.Discover.Audio.Editor
                                 _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                             }
                             EditorUtility.SetDirty(at);
+                            if (at.SharedData != null)
+                                EditorUtility.SetDirty(at.SharedData);
                             continue;
                         }
                     }
@@ -937,6 +950,8 @@ namespace Antura.Discover.Audio.Editor
                     if (!string.IsNullOrEmpty(guidNew))
                         aEntry.Guid = guidNew;
                     EditorUtility.SetDirty(at);
+                    if (at.SharedData != null)
+                        EditorUtility.SetDirty(at.SharedData);
 
                     // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
                     _addressablesSvc.UpdateAddressableForClip(locale, assignPath, quest.Id, isQuestClip: true, keyOrId: key);
@@ -1083,7 +1098,12 @@ namespace Antura.Discover.Audio.Editor
                         {
                             var oggGuid = AssetDatabase.AssetPathToGUID(ogg);
                             if (!string.IsNullOrEmpty(oggGuid))
-                            { entry.Guid = oggGuid; EditorUtility.SetDirty(questAssets); }
+                            {
+                                entry.Guid = oggGuid;
+                                EditorUtility.SetDirty(questAssets);
+                                if (questAssets.SharedData != null)
+                                    EditorUtility.SetDirty(questAssets.SharedData);
+                            }
                             // Also update manifest using derived key
                             var audioFileName = Path.GetFileName(ogg);
                             var keyShort = entry?.SharedEntry?.Key;
@@ -1269,7 +1289,7 @@ namespace Antura.Discover.Audio.Editor
     // ------------------------- Addressables VO Service -------------------------
     internal sealed class AddressablesVoService
     {
-        private const string LocalizationAssetTablesPrefix = "Localization-Assets-Tables-";
+        private const string LocalizationAssetTablesPrefix = "Localization-Assets-";
 
         public void UpdateQuestAddressables(QuestData quest, List<Locale> locales)
         {
@@ -1419,14 +1439,8 @@ namespace Antura.Discover.Audio.Editor
             if (group != null)
                 return group;
 
-            // Try to find any group that matches the naming convention for this locale
-            group = settings.groups.FirstOrDefault(g => g != null && g.Name.EndsWith($"({code})", StringComparison.Ordinal) && g.Name.StartsWith("Localization-Assets-Tables-", StringComparison.Ordinal));
-            if (group != null)
-                return group;
-
-            // Fallback to older prefix used previously (kept for compatibility)
-            string legacy = $"Localization-Assets-{englishName} ({code})";
-            group = settings.FindGroup(legacy);
+            // Try to find any group that matches known naming conventions for this locale
+            group = settings.groups.FirstOrDefault(g => g != null && g.Name.EndsWith($"({code})", StringComparison.Ordinal) && g.Name.StartsWith("Localization-Assets-", StringComparison.Ordinal));
             if (group != null)
                 return group;
 
@@ -1442,17 +1456,13 @@ namespace Antura.Discover.Audio.Editor
         {
             if (string.IsNullOrEmpty(assetPath))
                 return string.Empty;
-            // Look for /_quests/<questId>/ or /quests/<questId>/ segment in the path
+            // Look for /_quests/<questId>/  segment in the path
             var path = assetPath.Replace('\\', '/');
-            var idx = path.IndexOf("/quests/", StringComparison.OrdinalIgnoreCase);
-            if (idx < 0)
-            {
-                idx = path.IndexOf("/_quests/", StringComparison.OrdinalIgnoreCase);
-                if (idx >= 0)
-                    idx++; // remove leading underscore for label consistency
-            }
+            var idx = path.IndexOf("/_quests/", StringComparison.OrdinalIgnoreCase);
             if (idx >= 0)
             {
+                idx++;
+                // remove leading underscore for label consistency
                 var start = idx + "/quests/".Length;
                 int end = path.IndexOf('/', start);
                 if (end > start)

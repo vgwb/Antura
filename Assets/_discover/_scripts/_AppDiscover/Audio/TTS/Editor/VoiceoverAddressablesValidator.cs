@@ -14,7 +14,13 @@ namespace Antura.Discover.Audio.Editor
     public static class VoiceoverAddressablesValidator
     {
         private const string CardsAudioTableName = "Cards audio";
-        private const string LocalizationAssetTablesPrefix = "Localization-Assets-Tables-";
+        // Accept multiple valid group naming patterns used by Unity Localization and legacy variants
+        private static readonly string[] GroupNamePrefixes = new[]
+        {
+            "Localization-Assets-",          // Unity default
+            "Localization-Assets-Tables-",   // Legacy project variant
+            "Localization-Asset-Tables-"     // Legacy project variant
+        };
 
         [MenuItem("Antura/Audio/Voiceover Addressables validator")]
         public static void Validate()
@@ -66,8 +72,7 @@ namespace Antura.Discover.Audio.Editor
                     }
                     if (at == null)
                         continue;
-                    string groupName = GetLocaleGroupName(locale);
-                    var group = settings.FindGroup(groupName);
+                    var validGroupNames = GetValidGroupNames(locale);
                     foreach (var entry in at.Values)
                     {
                         if (entry == null || string.IsNullOrEmpty(entry.Guid))
@@ -81,10 +86,10 @@ namespace Antura.Discover.Audio.Editor
                             continue;
                         }
                         // Group check
-                        if (aep.parentGroup == null || !string.Equals(aep.parentGroup.Name, groupName, StringComparison.Ordinal))
+                        if (aep.parentGroup == null || !validGroupNames.Contains(aep.parentGroup.Name))
                         {
                             totalErrors++;
-                            output.AppendLine($"[Wrong Group] {questId} {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected='{groupName}'");
+                            output.AppendLine($"[Wrong Group] {questId} {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected one of: {string.Join(", ", validGroupNames)}");
                         }
                         // Address check
                         var expected = $"VO/{locale.Identifier.Code}/quest/{questId}/{NormalizeQuestKey(entry.SharedEntry?.Key)}";
@@ -115,8 +120,7 @@ namespace Antura.Discover.Audio.Editor
                 var at = LocalizationSettings.AssetDatabase.GetTable(CardsAudioTableName, locale);
                 if (at == null)
                     continue;
-                string groupName = GetLocaleGroupName(locale);
-                var group = settings.FindGroup(groupName);
+                var validGroupNames = GetValidGroupNames(locale);
                 foreach (var entry in at.Values)
                 {
                     if (entry == null || string.IsNullOrEmpty(entry.Guid))
@@ -129,10 +133,10 @@ namespace Antura.Discover.Audio.Editor
                         output.AppendLine($"[Missing Entry] Cards {locale.Identifier.Code} key={entry.SharedEntry?.Key}");
                         continue;
                     }
-                    if (aep.parentGroup == null || !string.Equals(aep.parentGroup.Name, groupName, StringComparison.Ordinal))
+                    if (aep.parentGroup == null || !validGroupNames.Contains(aep.parentGroup.Name))
                     {
                         totalErrors++;
-                        output.AppendLine($"[Wrong Group] Cards {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected='{groupName}'");
+                        output.AppendLine($"[Wrong Group] Cards {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected one of: {string.Join(", ", validGroupNames)}");
                     }
                     var expected = $"VO/{locale.Identifier.Code}/cards/{NormalizeCardId(entry.SharedEntry?.Key)}";
                     if (!string.Equals(aep.address, expected, StringComparison.Ordinal))
@@ -201,7 +205,7 @@ namespace Antura.Discover.Audio.Editor
                 if (at == null)
                     continue;
 
-                string groupName = GetLocaleGroupName(locale);
+                var validGroupNames = GetValidGroupNames(locale);
                 foreach (var entry in at.Values)
                 {
                     if (entry == null || string.IsNullOrEmpty(entry.Guid))
@@ -210,8 +214,8 @@ namespace Antura.Discover.Audio.Editor
                     totalChecked++;
                     if (aep == null)
                     { totalErrors++; output.AppendLine($"[Missing Entry] {questId} {locale.Identifier.Code} key={entry.SharedEntry?.Key}"); continue; }
-                    if (aep.parentGroup == null || !string.Equals(aep.parentGroup.Name, groupName, StringComparison.Ordinal))
-                    { totalErrors++; output.AppendLine($"[Wrong Group] {questId} {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected='{groupName}'"); }
+                    if (aep.parentGroup == null || !validGroupNames.Contains(aep.parentGroup.Name))
+                    { totalErrors++; output.AppendLine($"[Wrong Group] {questId} {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected one of: {string.Join(", ", validGroupNames)}"); }
                     var expected = $"VO/{locale.Identifier.Code}/quest/{questId}/{NormalizeQuestKey(entry.SharedEntry?.Key)}";
                     if (!string.Equals(aep.address, expected, StringComparison.Ordinal))
                     { totalErrors++; output.AppendLine($"[Wrong Address] {questId} {locale.Identifier.Code} key={entry.SharedEntry?.Key} address='{aep.address}' expected='{expected}'"); }
@@ -253,7 +257,7 @@ namespace Antura.Discover.Audio.Editor
                 catch (Exception ex) { output.AppendLine($"[Error] Cards {locale.Identifier.Code} cannot load AssetTable: {ex.Message}"); continue; }
                 if (at == null)
                     continue;
-                string groupName = GetLocaleGroupName(locale);
+                var validGroupNames = GetValidGroupNames(locale);
                 foreach (var entry in at.Values)
                 {
                     if (entry == null || string.IsNullOrEmpty(entry.Guid))
@@ -262,8 +266,8 @@ namespace Antura.Discover.Audio.Editor
                     totalChecked++;
                     if (aep == null)
                     { totalErrors++; output.AppendLine($"[Missing Entry] Cards {locale.Identifier.Code} key={entry.SharedEntry?.Key}"); continue; }
-                    if (aep.parentGroup == null || !string.Equals(aep.parentGroup.Name, groupName, StringComparison.Ordinal))
-                    { totalErrors++; output.AppendLine($"[Wrong Group] Cards {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected='{groupName}'"); }
+                    if (aep.parentGroup == null || !validGroupNames.Contains(aep.parentGroup.Name))
+                    { totalErrors++; output.AppendLine($"[Wrong Group] Cards {locale.Identifier.Code} key={entry.SharedEntry?.Key} group='{aep.parentGroup?.Name}' expected one of: {string.Join(", ", validGroupNames)}"); }
                     var expected = $"VO/{locale.Identifier.Code}/cards/{NormalizeCardId(entry.SharedEntry?.Key)}";
                     if (!string.Equals(aep.address, expected, StringComparison.Ordinal))
                     { totalErrors++; output.AppendLine($"[Wrong Address] Cards {locale.Identifier.Code} key={entry.SharedEntry?.Key} address='{aep.address}' expected='{expected}'"); }
@@ -281,11 +285,12 @@ namespace Antura.Discover.Audio.Editor
             { Debug.LogWarning($"[VO Validator] Cards: {totalErrors} issues across {totalChecked} entries.\n" + output.ToString()); EditorUtility.DisplayDialog("Voiceover Validator", $"Cards: {totalErrors} issues. See Console.", "OK"); }
         }
 
-        private static string GetLocaleGroupName(Locale locale)
+        private static IEnumerable<string> GetValidGroupNames(Locale locale)
         {
             string code = locale.Identifier.Code;
             string englishName = locale.Identifier.CultureInfo != null ? locale.Identifier.CultureInfo.EnglishName : (locale.name ?? code);
-            return $"{LocalizationAssetTablesPrefix}{englishName} ({code})";
+            foreach (var prefix in GroupNamePrefixes)
+                yield return $"{prefix}{englishName} ({code})";
         }
 
         private static string NormalizeQuestKey(string key)
