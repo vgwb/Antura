@@ -1,16 +1,15 @@
 ---
-title: Install and Setup
+title: Install
 ---
-# Install and Setup
+# Install
 
 The game is compatible with iOS, Android and Windows, so it can be played on smartphones, tablets and PCs.
+Once installed, Internet is NOT required when playing the game.
 
 > [!TIP]
 > We suggest tablets as the easiest device to be used in the classroom.
 
-Once installed, Internet is NOT required when playing the game.
-
-## iOS devices
+## iOS
 
 **Requirements**: Ensure that the devices have the latest version of iOS (minimal iOS 12.0).  
 
@@ -23,7 +22,7 @@ The v3.0 beta version (including also the Discover Culture module and the new Cl
 > [!note]
 > if you encounter any issue downloading or installing the app, please send a message in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
 
-## Android devices
+## Android
 
 **Requirements**: Ensure that the devices use Android 12 o newer (API level v31 or newer) and the they have installed the latest system update.
 
@@ -32,10 +31,10 @@ The official Android version (v2.0 including Learn to Read and Learn a Language 
 The v3.0 beta version (including also the Discover Culture module and the new Classroom mode) will be released soon for Android. 
 
 
-## Windows PC
+## Windows
 The Windows versions can be downloaded from https://github.com/vgwb/Antura/releases
 
 
-## Linux and macOS PC
+## Linux and MacOS
 Since the game is open source and the engine used to create this game is multiplatform, Linux and macOS versions could be built if really necessary.
 Please ask in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5).

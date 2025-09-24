@@ -5,82 +5,49 @@ status: new
 
 # Classroom guide
 
-This guide provides some practical suggestions for teachers who want to use **Learn with Antura** in class, that means:  
+This guide provides some practical suggestions for teachers using **Learn with Antura** in class, including the following steps:  
 
-1. Playing together, in groups, or individually.  
-2. Extending play with **reflection and research activities**.  
-3. Involving parents to strengthen learning at home.  
-4. Providing feedback to help improve and validate quests.  
+1. Preparing a play session.  
+2. Introducing a play session.  
+3. Playing in the classroom.
+4. Post session debrief and activities.
+5. Providing feedback to help improve the game.  
 
-Together, this creates a **loop of play → reflection → feedback → improvement**, ensuring the game is not only fun but also a powerful learning tool.  
+This approach creates a **virtuous loop of play → reflection → feedback → improvement**, ensuring the game is not only fun but also a powerful learning tool.  
 
 ## Preparing a play session
-The **teachers must know the game** at least once: it's better to play all the quests to be played in classroom some days before. 
-It's better to have read all the topics / cards / quest record to help kids in difficulty.
-The post activity can be prepared.
 
-## Play sessions in the classroom
+The **teachers must know the game**: they should play every didactical unit at least once before introducing it in classroom. This is valid for both modules so the didactical unit couls be either a series of language learning minigames or a cultural quest. It would be even better if teachers could take the time to read all the didactical unit content (either letters and words or topics and cards) to be able to help kids in case of need and to prepare in advace a post session activity.
 
-### Introduce the purpose
+## Introducing a play session
 
-Before starting, explain to students:  
+Once in the classroom, before starting to play, teachers should explain to the students what they are going to play and why.   
 
-- _The game will help you learn new words and aspects of culture..._  
-- _You will explore this topic by playing this level of the game..._  
+- _The game will help you learn new words or some aspects of culture..._  
+- _You will explore this topic by playing this quest..._  
 
-### Explain how to play
-It could be useful for the teacher to play the tutorial on a big screen and let all kids see how to play and what they must do.
+> [!Reminder]
+> Remeber to set properly the class in the Teachers Area, to always give the same device to each student (so they have their profile to select) and to select the correct native language for each kid.
 
-### Playing modes  
+## Playing in the classroom
 
-#### 1. Class-wide game exploration
+### Explaining how to play
 
-- Use a **projector or shared screen**.  
-- Teacher plays or invites students to take turns.  
-- Pause at key moments to:  
-    - ask _what would you do next?_  
-    - highlight cultural or linguistic points.  
-- Excellent for **whole-class discussions**.  
-- Tip: start with the **Tutorial** quest together.  
+Ensuring that all kids know how to play is very important, especially in the first play sessions when they have not familiarized with the game yet. 
 
-> [!tip] Example prompt
-> “We’ve found a bakery — what clues tell us it’s important in French culture?”  
+> [!TIP]
+> It would be great if the teacher could play the tutorial on a big screen and let all kids see how to play and what they are supposed to do. If it's not possible, all kids should play the tutorial indivually and the teacher should supervise the session, helping all kids who need guidance.
 
-#### 2. Individual play / independent learning
+### Individual play 
 
-- Students play on their own devices for a fixed time (say 20 minutes).  
-- Activate **Classroom Mode**: disables background music and allows to choose freely the quest to play.  
-- Objective: finish a quest or stop at time limit.  
-- Benefits: self-paced learning, hidden secrets encourage replay.  
+Within the mark of the [ANTURA Erasmus+ project](../about/erasmus/index.md) testing, we will focus on individual play (one kid, one device) but the game could be projected for the whole class (on a big screen) or it could be played in small groups (i.e. in pairs).
 
-> [!tip] Teacher tip
-> Give a micro-goal like “unlock 2 cards and take a screenshot of your Book”.  
+With individual play, students play on "their own" devices for a fixed time (say 20-25 minutes).  
+The objective is to complete a didactical unit, but teachers should stop the session if it reaches the time limit (a playing session should never last more then 30 minutes).
+This way each student can play and learn at his/her own pace and even replay some content to improve the score or to find all hidden bonuses.  
 
-#### 3. Group play / pair learning
-
-- Students play in pairs or small groups.  
-- One controls, others support with ideas or solving puzzles.  
-- Rotate roles regularly.  
-- Benefits: teamwork, communication, peer support.  
-
-Variation: Assign roles (navigator, reader, controller) and swap every 5 minutes.  
-
-**Tips for teachers**
-
-- Before play (2 minutes): preview the quest objective and key vocabulary
-- During play: have a “navigator” read the objective while the “driver” controls; swap roles at checkpoints.  
-- After play (5 minutes): open the Book, pick 1–2 unlocked cards, and map connections on the board (what it relates to and why).  
-- Differentiation: let advanced students hunt for optional tasks/cards while others follow the main path.  
-
-#### 4. Homework play
-
-- Assign a quest to be played at home.  
-- Next session, hold a discussion about what they discovered.  
-
-> [!tip] Home reflection prompt
-> “Tell a family member one new word and where you saw it.”  
-
----
+> [!tip] 
+> Teachers can guide and motivate students by giving them additional sub-goals (i.e. “unlock 2 cards and take a screenshot of your Book”).  
 
 ## Post game and debrief activities
 
