@@ -238,29 +238,6 @@ namespace Antura.Core
 
         #endregion
 
-        public float CurrentTimeScale => fastScale ? 6f : 1f;
-        public bool fastScale = false;
-        void Update()
-        {
-#if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.F))
-                fastScale = !fastScale;
-            Time.timeScale = CurrentTimeScale;
-#endif
-
-            // Exit with Android back button
-            //if (Input.GetKeyDown(KeyCode.Escape)) {
-            //    if (Application.platform == RuntimePlatform.Android && !AppSettings.KioskMode) {
-            //        QuitApplication();
-            //    }
-            //}
-
-            // if (Input.GetKeyDown(KeyCode.T))
-            // {
-            //     Services.Analytics.TestEvent();
-            // }
-        }
-
         public void OnSceneChanged()
         {
             ModalWindowActivated = false;
@@ -270,11 +247,8 @@ namespace Antura.Core
         {
             GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, () =>
             {
-                Debug.Log("Application Quit");
                 Application.Quit();
-            }, () =>
-            {
-            });
+            }, () => { });
         }
 
         public void StartNewPlaySession()
