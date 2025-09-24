@@ -15,14 +15,12 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 
-
 namespace Antura.Discover.Audio.Editor
 {
     public class VoiceoverManagerWindow : EditorWindow
     {
         private const string CardsAudioTableName = "Cards audio";
         private readonly AddressablesVoService _addressablesSvc = new AddressablesVoService();
-
         private static void ApplyVorbisQuality(string assetPath, float quality01)
         {
             if (string.IsNullOrEmpty(assetPath))
@@ -60,7 +58,6 @@ namespace Antura.Discover.Audio.Editor
                     EditorUtility.SetDirty(at.SharedData);
             }
         }
-        // UI state
         private Vector2 _scroll;
 
         // Generation options
@@ -752,12 +749,11 @@ namespace Antura.Discover.Audio.Editor
                         continue; // skip empty localized strings
                     string lineIdShort = StripLinePrefix(key);
                     string nodeTitle = ResolveNodeTitleForKey(lineIdShort, meta.Titles);
-                    // When searching, only process lines whose Yarn node title OR lineId matches the filter
+                    // When searching, only process lines whose Yarn node title matches the filter (include all lines of matched nodes)
                     if (!string.IsNullOrWhiteSpace(_search))
                     {
                         bool matchesTitle = (nodeTitle?.IndexOf(_search, StringComparison.OrdinalIgnoreCase) ?? -1) >= 0;
-                        bool matchesLineId = (!string.IsNullOrEmpty(lineIdShort) && lineIdShort.IndexOf(_search, StringComparison.OrdinalIgnoreCase) >= 0);
-                        if (!matchesTitle && !matchesLineId)
+                        if (!matchesTitle)
                             continue;
                     }
                     // Resolve voice per line based on Yarn actor header when available
@@ -1178,12 +1174,11 @@ namespace Antura.Discover.Audio.Editor
                         continue;
                     string idShort = StripLinePrefix(key);
                     string title = ResolveNodeTitleForKey(idShort, meta.Titles);
-                    // Apply search filter by Yarn node title OR lineId if present
+                    // Apply search filter by Yarn node title only (include all lines of matched nodes)
                     if (!string.IsNullOrWhiteSpace(_search))
                     {
                         bool matchesTitle = (title?.IndexOf(_search, StringComparison.OrdinalIgnoreCase) ?? -1) >= 0;
-                        bool matchesLineId = (!string.IsNullOrEmpty(idShort) && idShort.IndexOf(_search, StringComparison.OrdinalIgnoreCase) >= 0);
-                        if (!matchesTitle && !matchesLineId)
+                        if (!matchesTitle)
                             continue;
                     }
                     // Determine the voice id used in filenames for this line
@@ -1223,7 +1218,6 @@ namespace Antura.Discover.Audio.Editor
     // ------------------------- Addressables VO Service -------------------------
     internal sealed class AddressablesVoService
     {
-        // Unity Localization creates per-locale groups like: "Localization-Assets-Tables-English (en)".
         private const string LocalizationAssetTablesPrefix = "Localization-Assets-Tables-";
 
         public void UpdateQuestAddressables(QuestData quest, List<Locale> locales)
