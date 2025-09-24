@@ -17,7 +17,8 @@ namespace Antura.Discover
         public string DebugAction;
 
         [Tooltip("The starting location of the player, if set, goes here")]
-        public GameObject PlayerSpawnPoint;
+        public PlayerSpawnPoint PlayerSpawnPoint;
+        private GameObject PlayerSpawnPointGO;
 
         public QuestActionData[] QuestActions;
 
@@ -49,6 +50,12 @@ namespace Antura.Discover
         IEnumerator Start()
         {
             PlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            yield return null;
+
+            SetPlayerSpawnPoint(PlayerSpawnPoint?.gameObject);
+            yield return null;
+
+            RespawnPlayer();
 
             Target_AnturaLocation = null;
             if (AnturaDog != null)
@@ -60,7 +67,6 @@ namespace Antura.Discover
                 WinFx.SetActive(false);
             }
 
-            RespawnPlayer();
             yield return null;
 
             if (DebugAction != "")
@@ -76,13 +82,14 @@ namespace Antura.Discover
 
         private void SetPlayerSpawnPoint(GameObject spawnPoint)
         {
-            PlayerSpawnPoint = spawnPoint;
+            PlayerSpawnPointGO = spawnPoint;
         }
         public void RespawnPlayer()
         {
-            if (PlayerSpawnPoint != null)
+            if (PlayerSpawnPointGO != null)
             {
-                PlayerController.SpawnToNewLocation(PlayerSpawnPoint.transform);
+                // Debug.Log("Respawning player to " + PlayerSpawnPointGO.name);
+                PlayerController.SpawnToLocation(PlayerSpawnPointGO.transform);
             }
         }
         public void ResolveQuestAction(string action, QuestNode node = null)

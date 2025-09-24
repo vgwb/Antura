@@ -611,13 +611,14 @@ namespace Antura.Discover
             _isTrackingFall = true;
         }
 
-        public void SpawnToNewLocation(Transform newLocation)
+        public void SpawnToLocation(Transform newLocation)
         {
             SetPosition(newLocation.position, newLocation.rotation);
         }
 
-        public void SetPosition(Vector3 position, Quaternion? rotation = null)
+        private void SetPosition(Vector3 position, Quaternion? rotation = null)
         {
+            Debug.Log("SetPosition player to " + position);
             _controller.enabled = false;
             transform.position = position;
             if (rotation.HasValue)
