@@ -48,7 +48,8 @@ namespace Antura.Core
         /// <summary>
         /// If true, the initial load will be blocking. Used for editor use when not loading from bootstrap
         /// </summary>
-        public bool AddressablesBlockingLoad => Application.isEditor;  // @note: always forced to false when out of the editor, or it hides slowdowns, but true in editor so play is fast
+        public bool AddressablesBlockingLoad => Application.isEditor;
+        // @note: always forced to false when out of the editor, or it hides slowdowns, but true in editor so play is fast
 
         [Header("Verbose")]
         public bool VerboseAntura;

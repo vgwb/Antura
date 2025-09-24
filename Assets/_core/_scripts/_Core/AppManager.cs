@@ -25,6 +25,7 @@ namespace Antura.Core
     /// Core of the application.
     /// Works as a general manager and entry point for all other systems and managers.
     /// </summary>
+    [DefaultExecutionOrder(-900)]
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
         public static bool VERBOSE_INVERSION = false;
@@ -65,6 +66,8 @@ namespace Antura.Core
 
         public bool IsAppSuspended { get; private set; }
         public bool ModalWindowActivated = false;
+        public static event System.Action? LocalizationReady;
+        public bool IsLocalizationReady { get; private set; }
 
 
         #region Initialisation
@@ -83,9 +86,8 @@ namespace Antura.Core
         protected override void Awake()
         {
             GetComponent<AppBootstrap>().InitManagers();
-
-            base.Awake();
             DontDestroyOnLoad(this);
+            base.Awake();
 
             GlobalUI.Init();
         }
@@ -136,11 +138,18 @@ namespace Antura.Core
 
         private IEnumerator InitCO()
         {
-            // // Init localization
-            // yield return LocalizationSettings.InitializationOperation;
+            // Init localization early, but delay one frame
+            // to avoid editor/player hangs on some platforms
+            // when initializing too soon in the lifecycle.
+            yield return null;
+            yield return LocalizationSettings.InitializationOperation;
+            IsLocalizationReady = true;
+            LocalizationReady?.Invoke();
+            yield return null;
 
             AppSettingsManager = new AppSettingsManager();
             AssetManager = new AssetManager();
+
 
             yield return ReloadEdition();
 

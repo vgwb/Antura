@@ -45,6 +45,21 @@ namespace Antura.Language
             yield return LoadLanguage(LanguageUse.Help, AppManager.I.ContentEdition.HelpLanguage);
         }
 
+        private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)
+        {
+            useMapping[use] = language;
+            yield return LoadLanguageData(language);
+        }
+
+        public IEnumerator ReloadNativeLanguage()
+        {
+            Debug.Log("Reloading Native Language: " + AppManager.I.AppSettings.NativeLanguage);
+
+            yield return LoadLanguage(LanguageUse.Native, AppManager.I.AppSettings.NativeLanguage);
+            var iso2 = LanguageUtilities.GetIso2Direct(AppManager.I.AppSettings.NativeLanguage);
+            yield return SetLocalizationLanguage(iso2);
+        }
+
         public IEnumerator LoadAllLanguageData()
         {
             var languagesToLoad = new HashSet<LanguageCode>();
@@ -71,17 +86,17 @@ namespace Antura.Language
             }
         }
 
-        public IEnumerator ReloadNativeLanguage()
-        {
-            yield return LoadLanguage(LanguageUse.Native, AppManager.I.AppSettings.NativeLanguage);
-            var iso2 = LanguageUtilities.GetIso2Direct(AppManager.I.AppSettings.NativeLanguage);
-            yield return SetLocalizationLanguage(iso2);
-        }
+
 
         private IEnumerator SetLocalizationLanguage(string iso2Code)
         {
-            // Ensure the Localization system is initialized
-            yield return LocalizationSettings.InitializationOperation;
+            // Only run if Localization has already been initialized elsewhere;
+            // don't trigger or wait here.
+            var initOp = LocalizationSettings.InitializationOperation;
+            if (!initOp.IsDone)
+            {
+                yield break;
+            }
 
             // Get all available locales
             var locales = LocalizationSettings.AvailableLocales?.Locales;
@@ -106,11 +121,7 @@ namespace Antura.Language
             yield break;
         }
 
-        private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)
-        {
-            useMapping[use] = language;
-            yield return LoadLanguageData(language);
-        }
+
 
         IEnumerator LoadLanguageData(LanguageCode language)
         {
@@ -118,8 +129,8 @@ namespace Antura.Language
                 yield break;
             var languageData = new LanguageData();
 
-            //var stopwatch = new Stopwatch();
-            //stopwatch.Start();
+            // var stopwatch = new Stopwatch();
+            // stopwatch.Start();
             yield return AssetLoader.Load<LangConfig>($"languages/{language}/LangConfig_{language}", r => languageData.config = r, DebugConfig.I.AddressablesBlockingLoad, fromResources: true);
             if (languageData.config == null)
             {
@@ -134,8 +145,8 @@ namespace Antura.Language
             loadedLanguageData[language] = languageData;
 
             languageData.diacriticsComboData = languageData.config.DiacriticsComboData;
-            //stopwatch.Stop();
-            //Debug.LogError(language + "LangConfig: " + stopwatch.ElapsedMilliseconds.ToString());
+            // stopwatch.Stop();
+            // Debug.LogError(language + "LangConfig: " + stopwatch.ElapsedMilliseconds.ToString());
         }
 
         public IEnumerator PreloadLocalizedDataCO()
