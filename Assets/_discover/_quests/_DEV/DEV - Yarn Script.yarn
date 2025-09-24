@@ -158,7 +158,7 @@ title: DOCS_COOKIES
 position: 552,173
 group: docs
 ---
-
+// adds cookies to the player (can be negative)
 <<cookies_add 5>>
 
 <<if GetCookies() >= 10>>
@@ -346,15 +346,15 @@ title: test_cookies
 position: 552,173
 group: cookies
 ---
-Do you want 5 cookies?
--> Yes
-    Here you are! Enjoy!
+Do you want 5 cookies? #line:0eb42ea 
+-> Yes #line:027a7a8 
+    Here you are! Enjoy! #line:0e5578d 
     <<cookies_add 5>>
--> No
-    Ok, no cookies for you!
+-> No #line:0675243 
+    Ok, no cookies for you! #line:0662df0 
 
 <<if GetCookies() >= 10>>
-    You have a lot of cookies!
+    You have a lot of cookies! #line:0d2d1d7 
 <<endif>>
 
 ===
@@ -419,7 +419,7 @@ group: tasks
 color: green
 ---
 <<if HasCompletedTask("open_chest")>>
-    Thanks you... I needed that #line:073d718 
+    Thanks you! I needed that #line:073d718 
 <<else>>
     Reach and open that chest! #line:0c31fab 
     <<area off>>
@@ -480,20 +480,20 @@ title: test_quiz
 position: 1198,872
 group: quiz
 tags: type=quiz
+panel:
 ---
 Calculate 3*2 #line:dev_test_quiz_1 
--> 4 #line:dev_test_quiz_2 
+-> four #line:dev_test_quiz_2 
     <<jump test_quiz_wrong>>
--> 6 #line:dev_test_quiz_3 
+-> six #line:dev_test_quiz_3 
     <<jump test_quiz_correct>>
--> 8 #line:dev_test_quiz_4 
+-> eight #line:dev_test_quiz_4 
     <<jump test_quiz_wrong>>
 ===
 
 title: test_quiz_correct
 position: 1376,810
 group: quiz
-
 ---
 YES! Correct. #line:0eb010e 
 ===
@@ -503,7 +503,7 @@ position: 1379,961
 group: quiz
 
 ---
-GUIDE: No. Do you want to try again? #line:0e2b8d7 
+No. Do you want to try again? #line:0e2b8d7 
 -> Yes #line:08ff2b9 
     <<jump test_quiz>>
 -> No #line:042881c 
@@ -580,15 +580,15 @@ position: 1518,2842
 assetimage: pirates
 ---
 // <<activity activity_memory>>
-Narrator: Hallo #line:08ecb6c 
-Narrator: How are you? #line:00b7839 
+Hallo #line:08ecb6c 
+How are you? #line:00b7839 
 -> Good #line:0991140 
-    Narrator: Good to hear that #line:0b3477e 
+    Good to hear that #line:0b3477e 
 -> Bad #line:08607a4 
-    Narrator: Oh, I am sorry to hear that #line:0e6ecb2 
+    Oh, I am sorry to hear that #line:0e6ecb2 
 -> Neutral #line:05f3ea5 
-    Narrator: I see, I hope it gets better soon #line:0802baf 
-Narrator: What do you want to do with  coins? #line:0bcd506 
+    I see, I hope it gets better soon #line:0802baf 
+What do you want to do with  coins? #line:0bcd506 
 ===
 title: NPCGreeting3
 position: 1245,2842
@@ -596,22 +596,22 @@ tags:
 ---
 
 <<declare $coins = 0>>
-Narrator: What do you want to do with {$coins} coins?  #line:0a1994c 
+What do you want to do with {$coins} coins?  #line:0a1994c 
 -> Open the door #line:0e11bee 
  <<set $doorUnlocked = true>>
- Narrator: The door is open #line:0cac01d 
+ The door is open #line:0cac01d 
 -> Stay at home #line:07f4239 
- Narrator: You stay at home #line:079b16e 
+ You stay at home #line:079b16e 
  <<set $coins = $coins + 10>>
 ===
 title: Chest_01
 position: 1356,3054
 ---
 <<if $doorUnlocked>>
-Narrator: la porta è aperta #line:0e22a89 
-<<jump EntroInCasa>>
+ The door is open #line:0e22a89 
+ <<jump EntroInCasa>>
 <<else>>
-Narrator: la porta è chiusa #line:05086bc 
+ The door is closed #line:05086bc
 <<endif>>
 ===
 
