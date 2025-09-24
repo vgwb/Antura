@@ -26,17 +26,19 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebarManual(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'User Manual', link: '/' ,
+    { text: 'Teacher Manual', link: '/' ,
       items: [
-        { text: 'How to Install and Setup', link: 'install' },
-        { text: 'How to play Learn with Antura', link: 'how_to_play' }
+        { text: 'Introduction', link: 'introduction' },
+        { text: 'Install', link: 'install' },
+        { text: 'Setup', link: 'setup' },
+        { text: 'Classroom Guide', link: 'classroom_guide' },
       ]
     },
     {
       text: 'Learn Languages Modules',
       items: [
         { text: 'Learn Languages overview', link: 'learnlanguage_module' },
-        { text: 'How to play minigames', link: 'learnlanguage_how_to_play' }
+        { text: 'How to play minigames', link: 'learnlanguage_how_to_play' },
       ]
     },
     {
@@ -47,14 +49,8 @@ function sidebarManual(): DefaultTheme.SidebarItem[] {
         { text: 'How to play quests', link: 'discover_how_to_play' }
       ]
     },
-    {
-      text: 'In the Classroom',
-      items: [
-        { text: 'Classroom Guide', link: 'classroom_guide' },
-        { text: 'Feedback and Support', link: 'support' },
-      ]
-    },
     { text: 'FAQ', link: 'faq' },
+    { text: 'Feedback and Support', link: 'support' },
     { text: 'Changelog', link: 'changelog' }
   ]
 }

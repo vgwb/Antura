@@ -4,12 +4,12 @@ title: Discover Introduction
 status: new
 ---
 
-# Discover Europe Introduction
+# Discover Module Introduction
 
 > [!note] How to Play guide
 > This doc exmplains the game features, there is a dedicated page on [How to play](./discover_how_to_play.md)
 
-Discover Europe helps children explore the culture, language, and daily life of different countries through short, replayable quests.
+Discover helps children explore the culture, language, and daily life of different countries through short, replayable quests.
 
 It is designed to support **migrant children**, but can also be used in any school to promote **cultural awareness** and **language learning**.
 

@@ -3,7 +3,7 @@ title: Discover Features
 status: new
 ---
 
-# Discover Europe details
+# Discover Module details
 
 ## Content
 
