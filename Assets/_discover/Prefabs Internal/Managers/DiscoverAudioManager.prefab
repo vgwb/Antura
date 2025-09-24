@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8324307981763974164}
   - component: {fileID: 7211064721588494222}
   m_Layer: 0
-  m_Name: Normal
+  m_Name: Speech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,8 +178,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DiscoverAudioManager
   sfxSource: {fileID: 4497910909060281931}
   sfxVolume: 1
-  cardSource: {fileID: 0}
+  cardSource: {fileID: 7211064721588494222}
   cardVolume: 1
+  voiceOverSource: {fileID: 7951239594481525680}
+  voiceOverVolume: 1
   sfxListAsset: {fileID: 11400000, guid: 538eb3e8867554c5eb5d7010ba831c3f, type: 2}
 --- !u!1 &5354015535354949541
 GameObject:
@@ -321,7 +323,7 @@ GameObject:
   - component: {fileID: 3727780882220288276}
   - component: {fileID: 7951239594481525680}
   m_Layer: 0
-  m_Name: TTS
+  m_Name: VoiceOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
