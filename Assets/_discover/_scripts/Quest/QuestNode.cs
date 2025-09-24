@@ -24,8 +24,8 @@ namespace Antura.Discover
         public int Index;
         public string Content;
         public string ContentNative;
-        public string AudioId;
-        public string AudioIdNative;
+        public AudioClip AudioLearning;
+        public AudioClip AudioNative;
 
         public string Image;
 

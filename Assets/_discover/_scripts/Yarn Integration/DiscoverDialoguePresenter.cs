@@ -201,6 +201,7 @@ namespace Antura.Discover
                 Content = repeatLastLineSeen ? lastSeenLine : "",
                 ContentNative = repeatLastLineSeen ? lastSeenLine : "",
                 AudioLearning = null,
+                AudioNative = null,
                 Image = "",
                 Choices = new List<NodeChoice>()
             };
@@ -227,7 +228,8 @@ namespace Antura.Discover
                     Index = i,
                     Content = (option.Line as LocalizedLineDiscover)?.TextInLearningLang,
                     ContentNative = option.Line.TextWithoutCharacterName.Text,
-                    AudioId = "",
+                    AudioLearning = (option.Line as LocalizedLineDiscover)?.AssetInLearningLang as AudioClip,
+                    AudioNative = (option.Line as LocalizedLineDiscover)?.Asset as AudioClip,
                     Image = TryGetLineTagValue(option.Line.Metadata, "card") ?? string.Empty,
                     Highlight = TryGetLineTagExists(option.Line.Metadata, "highlight"),
                 };

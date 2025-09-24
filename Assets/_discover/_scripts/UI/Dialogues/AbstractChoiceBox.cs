@@ -1,5 +1,6 @@
 ﻿using Antura.Audio;
 using Antura.Core;
+using Antura.Discover.Audio;
 using Antura.Language;
 using Antura.UI;
 using System.Globalization;
@@ -47,7 +48,6 @@ namespace Antura.Discover
 
         public bool IsShowingOrHiding { get { return showTween != null && showTween.IsPlaying(); } }
         public int Index { get; private set; }
-        public string AudioId { get; private set; }
 
         protected NodeChoice currChoice;
         bool useLearningLanguage = true;
@@ -178,7 +178,7 @@ namespace Antura.Discover
         private void Select()
         {
             useLearningLanguage = !useLearningLanguage;
-            DisplayText(useLearningLanguage);
+            DisplayText(useLearningLanguage, true);
 
             if (selected)
                 return;
@@ -192,7 +192,7 @@ namespace Antura.Discover
             OnSelect.Dispatch(this);
         }
 
-        private void DisplayText(bool UseLearningLanguage)
+        private void DisplayText(bool UseLearningLanguage, bool playAudio = false)
         {
 
             LanguageCode spokenLang;
@@ -200,17 +200,21 @@ namespace Antura.Discover
             {
                 textRender.SetText(currChoice.Content, LanguageUse.Learning, Font2Use.UI);
                 spokenLang = AppManager.I.ContentEdition.LearningLanguage;
+
+                if (playAudio && currChoice.AudioLearning != null)
+                {
+                    DiscoverAudioManager.I.Play(currChoice.AudioLearning);
+                }
             }
             else
             {
                 textRender.SetText(currChoice.ContentNative, LanguageUse.Native, Font2Use.Default);
                 spokenLang = AppManager.I.AppSettings.NativeLanguage;
+                if (playAudio && currChoice.AudioNative != null)
+                {
+                    DiscoverAudioManager.I.Play(currChoice.AudioNative);
+                }
             }
-            AudioManager.I.PlayDiscoverDialogue(
-                currChoice.AudioId,
-                QuestManager.I.CurrentQuest.assetsFolder,
-                spokenLang
-            );
         }
 
         void Confirm()
