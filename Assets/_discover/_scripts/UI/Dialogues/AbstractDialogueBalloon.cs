@@ -8,6 +8,7 @@ using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Antura.Discover.Audio;
 
 namespace Antura.Discover
 {
@@ -99,17 +100,25 @@ namespace Antura.Discover
             {
                 textRender.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
                 spokenLang = AppManager.I.ContentEdition.LearningLanguage;
+                if (currNode.AudioLearning != null)
+                {
+                    DiscoverAudioManager.I.Play(currNode.AudioLearning);
+                }
             }
             else
             {
                 textRender.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.Default);
                 spokenLang = AppManager.I.AppSettings.NativeLanguage;
+                if (currNode.AudioNative != null)
+                {
+                    DiscoverAudioManager.I.Play(currNode.AudioNative);
+                }
             }
-            AudioManager.I.PlayDiscoverDialogue(
-                currNode.AudioId,
-                QuestManager.I.CurrentQuest.assetsFolder,
-                spokenLang
-            );
+            // AudioManager.I.PlayDiscoverDialogue(
+            //     currNode.AudioId,
+            //     QuestManager.I.CurrentQuest.assetsFolder,
+            //     spokenLang
+            // );
         }
 
         public void Hide()

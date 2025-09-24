@@ -18,6 +18,10 @@ namespace Antura.Discover.Audio
         [SerializeField] private AudioSource cardSource;
         [Range(0f, 1f)] public float cardVolume = 1f;
 
+        [Header("VO Source")]
+        [SerializeField] private AudioSource voiceOverSource;
+        [Range(0f, 1f)] public float voiceOverVolume = 1f;
+
         public DiscoverSfxData sfxListAsset;
         private struct SfxResolved { public AudioClip clip; public float vol; }
         private Dictionary<DiscoverSfx, SfxResolved> sfxLookup;
@@ -31,14 +35,21 @@ namespace Antura.Discover.Audio
                     sfxSource = gameObject.AddComponent<AudioSource>();
                 sfxSource.playOnAwake = false;
                 sfxSource.loop = false;
-                sfxSource.spatialBlend = 0f; // 2D by default
+                sfxSource.spatialBlend = 0f;
             }
             if (cardSource == null)
             {
                 cardSource = gameObject.AddComponent<AudioSource>();
                 cardSource.playOnAwake = false;
                 cardSource.loop = false;
-                cardSource.spatialBlend = 0f; // 2D by default
+                cardSource.spatialBlend = 0f;
+            }
+            if (voiceOverSource == null)
+            {
+                voiceOverSource = gameObject.AddComponent<AudioSource>();
+                voiceOverSource.playOnAwake = false;
+                voiceOverSource.loop = false;
+                voiceOverSource.spatialBlend = 0f;
             }
             BuildLookup();
         }
@@ -65,6 +76,17 @@ namespace Antura.Discover.Audio
         }
 
         #region play
+
+        public void PlayVO(AudioClip clip)
+        {
+            if (clip == null)
+                return;
+
+            if (voiceOverSource.isPlaying)
+                voiceOverSource.Stop();
+
+            voiceOverSource.PlayOneShot(clip);
+        }
 
         public void Play(AudioClip clip, float volume = 1f)
         {
@@ -112,9 +134,10 @@ namespace Antura.Discover.Audio
 
         public void Stop()
         {
-
             if (cardSource != null)
                 cardSource.Stop();
+            if (voiceOverSource != null)
+                voiceOverSource.Stop();
         }
 
         public void StopAll()
@@ -123,6 +146,8 @@ namespace Antura.Discover.Audio
                 sfxSource.Stop();
             if (cardSource != null)
                 cardSource.Stop();
+            if (voiceOverSource != null)
+                voiceOverSource.Stop();
         }
 
         private void EnsureSfxSource()

@@ -104,6 +104,8 @@ namespace Antura.Discover
             var RawText = line.RawText;
             var TextNative = line.TextWithoutCharacterName;
             var TextLearning = (line as LocalizedLineDiscover)?.TextInLearningLang;
+            var AudioNative = line.Asset as AudioClip;
+            var AudioLearning = (line as LocalizedLineDiscover)?.AssetInLearningLang as AudioClip;
             var metadata = line.Metadata;
 
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
@@ -113,7 +115,8 @@ namespace Antura.Discover
                 Type = type,
                 Content = TextLearning,
                 ContentNative = TextNative.Text,
-                AudioId = null,
+                AudioLearning = AudioLearning,
+                AudioNative = AudioNative,
                 Image = "",
                 Permalink = _currentNodeName
             };
@@ -197,7 +200,7 @@ namespace Antura.Discover
                 Type = NodeType.CHOICE,
                 Content = repeatLastLineSeen ? lastSeenLine : "",
                 ContentNative = repeatLastLineSeen ? lastSeenLine : "",
-                AudioId = null,
+                AudioLearning = null,
                 Image = "",
                 Choices = new List<NodeChoice>()
             };

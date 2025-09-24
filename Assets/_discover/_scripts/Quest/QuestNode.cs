@@ -25,6 +25,8 @@ namespace Antura.Discover
         public string Content;
         public string ContentNative;
         public string AudioId;
+        public string AudioIdNative;
+
         public string Image;
 
         public bool Highlight;
@@ -45,7 +47,9 @@ namespace Antura.Discover
     {
         public NodeType Type;
 
-        public string AudioId;
+        public AudioClip AudioLearning;
+        public AudioClip AudioNative;
+
         public string Permalink;
 
         public string HomerNodeId;
@@ -126,7 +130,7 @@ namespace Antura.Discover
 
             nodeInfo += "Permalink: " + Permalink + "\n";
             nodeInfo += "HomerId: " + HomerNodeId + "\n";
-            nodeInfo += "AudioId: " + AudioId + "\n";
+            nodeInfo += "AudioId: " + AudioLearning + "\n";
             nodeInfo += "Action: " + Action + "\n";
             nodeInfo += "Action Post: " + ActionPost + "\n";
             nodeInfo += "Task: " + Task + "\n";

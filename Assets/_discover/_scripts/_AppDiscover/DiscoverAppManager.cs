@@ -150,7 +150,7 @@ namespace Antura.Discover
         // ------------------------------
         public void InitializeFromLegacyUuid(string legacyUuid, PlayerProfile legacy = null)
         {
-            Debug.Log($"DiscoverAppManager.InitializeFromLegacyUuid: {legacyUuid}");
+            // Debug.Log($"DiscoverAppManager.InitializeFromLegacyUuid: {legacyUuid}");
             var platform = IsMobile() ? "mobile" : "desktop";
             var p = profilesManager.LoadOrCreateByLegacyUuid(legacyUuid, legacy, platform, Application.version);
             profilesManager.SetCurrent(p.profile.id);
@@ -404,7 +404,7 @@ namespace Antura.Discover
         /// Prefers exact match, then first locale whose code starts with the ISO2.
         /// Cached until the ISO2 changes.
         /// </summary>
-        private Locale ResolveLearningLocale()
+        public Locale GetLearningLocale()
         {
             LearningLanguageIso2 = AppManager.I.ContentEdition.LearningLanguageConfig.Iso2;
             var iso2 = LearningLanguageIso2;
@@ -445,7 +445,7 @@ namespace Antura.Discover
         {
             try
             {
-                var locale = ResolveLearningLocale();
+                var locale = GetLearningLocale();
                 if (locale == null)
                     return string.Empty;
 
