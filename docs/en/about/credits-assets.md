@@ -3,8 +3,6 @@
 This project uses and builds upon the work of many creators.  
 We thank them for making their tools and assets available.
 
----
-
 ## 📚 Libraries
 
 - **[Yarn Spinner](https://yarnspinner.dev/)**  
@@ -27,7 +25,6 @@ We thank them for making their tools and assets available.
 
 - **[Unity Engine](https://unity.com)** (© Unity Technologies)  
   Game engine — Unity license.
-
 
 ## 🏙️ Game Assets
 
