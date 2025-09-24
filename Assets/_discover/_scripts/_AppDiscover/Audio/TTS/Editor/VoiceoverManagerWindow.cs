@@ -67,6 +67,9 @@ namespace Antura.Discover.Audio.Editor
         private bool _keepMp3AfterConversion = false;
 
         private const string PrefKeyFfmpegPath = "Antura.Audio.QVM.ffmpegPath";
+        private const string PrefKeyVoiceProfileGuid = "Antura.Audio.QVM.voiceProfileGuid";
+        private const string PrefKeyVoiceCatalogGuid = "Antura.Audio.QVM.voiceCatalogGuid";
+        private const string PrefKeyConvertToOgg = "Antura.Audio.QVM.convertToOgg";
 
         // Run state
         private bool _isRunning = false;
@@ -109,6 +112,31 @@ namespace Antura.Discover.Audio.Editor
             RefreshLocales();
             RefreshCards();
             _ffmpegPath = EditorPrefs.GetString(PrefKeyFfmpegPath, _ffmpegPath);
+            _convertToOgg = EditorPrefs.GetBool(PrefKeyConvertToOgg, _convertToOgg);
+            // Restore saved Voice Profile
+            var vpGuid = EditorPrefs.GetString(PrefKeyVoiceProfileGuid, string.Empty);
+            if (!string.IsNullOrEmpty(vpGuid))
+            {
+                var vpPath = AssetDatabase.GUIDToAssetPath(vpGuid);
+                if (!string.IsNullOrEmpty(vpPath))
+                {
+                    var vp = AssetDatabase.LoadAssetAtPath<VoiceProfileData>(vpPath);
+                    if (vp != null)
+                        _voiceProfile = vp;
+                }
+            }
+            // Restore saved Voice Catalog
+            var vcGuid = EditorPrefs.GetString(PrefKeyVoiceCatalogGuid, string.Empty);
+            if (!string.IsNullOrEmpty(vcGuid))
+            {
+                var vcPath = AssetDatabase.GUIDToAssetPath(vcGuid);
+                if (!string.IsNullOrEmpty(vcPath))
+                {
+                    var vc = AssetDatabase.LoadAssetAtPath<VoiceProfileCatalog>(vcPath);
+                    if (vc != null)
+                        _voiceCatalog = vc;
+                }
+            }
             if (string.IsNullOrEmpty(_ffmpegPath))
             {
                 var p = FFmpegUtils.FindOnPath();
@@ -130,6 +158,29 @@ namespace Antura.Discover.Audio.Editor
         {
             // save ffmpeg path
             EditorPrefs.SetString(PrefKeyFfmpegPath, _ffmpegPath ?? string.Empty);
+            // save Convert to OGG flag
+            EditorPrefs.SetBool(PrefKeyConvertToOgg, _convertToOgg);
+            // save Voice Profile and Catalog GUIDs
+            if (_voiceProfile != null)
+            {
+                var path = AssetDatabase.GetAssetPath(_voiceProfile);
+                var guid = string.IsNullOrEmpty(path) ? string.Empty : AssetDatabase.AssetPathToGUID(path);
+                EditorPrefs.SetString(PrefKeyVoiceProfileGuid, guid ?? string.Empty);
+            }
+            else
+            {
+                EditorPrefs.SetString(PrefKeyVoiceProfileGuid, string.Empty);
+            }
+            if (_voiceCatalog != null)
+            {
+                var path = AssetDatabase.GetAssetPath(_voiceCatalog);
+                var guid = string.IsNullOrEmpty(path) ? string.Empty : AssetDatabase.AssetPathToGUID(path);
+                EditorPrefs.SetString(PrefKeyVoiceCatalogGuid, guid ?? string.Empty);
+            }
+            else
+            {
+                EditorPrefs.SetString(PrefKeyVoiceCatalogGuid, string.Empty);
+            }
         }
 
         private void RefreshQuests()
