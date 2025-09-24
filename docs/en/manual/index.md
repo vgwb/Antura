@@ -1,13 +1,13 @@
 ---
-title: "User Manual"
+title: "Manual"
 ---
-# Learn with Antura User Manual
+# Learn with Antura - Manual
 
 > [!NOTE] For Educators 👩‍🏫  
 > Antura is more than a game: it can be combined with classroom activities, follow-up discussions, and learning materials.  
 > This manual helps you integrate Learn with Antura into your lessons and guide children through both play and discovery.
 
-## Teacher Guide
+## Teacher Manual
 
 - [Introduction](./introduction.md) - introduction to Learn with Antura
 - 📥 [Install](./install.md) — instructions for setting up on mobile or PC.  
@@ -18,7 +18,7 @@ title: "User Manual"
 ## Detailed modules
 
 - 🎮 [Learn Languages](./learnlanguage_module.md) — the minigames that train letters, words, and vocabulary.  
-- 🌍 [Discover Quests](./discover_introduction.md) — explore countries, traditions, and cultural heritage.  
+- 🌍 [Discover Culture](./discover_introduction.md) — explore countries, traditions, and cultural heritage.  
 
 ## For quest creators & developers
 
