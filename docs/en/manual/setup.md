@@ -102,7 +102,7 @@ The game offers a list of books and you can scroll among them sliding the screen
 Each book represents a different curriculum, a collection of content to learn about a specific subject. The game currently supports 2 main types of curriculums:
 
 - **Learn Languages**: an introduction to a foreign language
-- **Discover a Country and its Culture**: to help the integration of migrant kids in the host country
+- **Discover a Country and its Culture**: to help the integration of migrant kids in their host country
 
 > [!note]
 > In Arabic and Persian you can also **Learn to Read** in your mother language, but this literacy curriculum has lots in common with **Learning a Language** so we will focus on the latter in this manual.
