@@ -18,6 +18,7 @@ This approach creates a **virtuous loop of play → reflection → feedback → 
 ## Preparing a play session
 
 The **teachers must know the game**: they should play every didactical unit at least once before introducing it in classroom. This is valid for both modules so the didactical unit couls be either a series of language learning minigames or a cultural quest. It would be even better if teachers could take the time to read all the didactical unit content (either letters and words or topics and cards) to be able to help kids in case of need and to prepare in advace a post session activity.
+Moreover, teachers should check regularly (i.e. once a week) if a new version of the game is available in order to always use the latest version. 
 
 ## Introducing a play session
 
@@ -49,7 +50,7 @@ This way each student can play and learn at his/her own pace and even replay som
 > [!tip] 
 > Teachers can guide and motivate students by giving them additional sub-goals (i.e. “unlock 2 cards and take a screenshot of your Book”).  
 
-## Post game and debrief activities
+## Post session debrief and activities
 
 ### Words
 
@@ -65,10 +66,10 @@ This way each student can play and learn at his/her own pace and even replay som
 > [!tip] world map
 > For homework, let students explore in Home mode and bring one new card to share.  
 
+### Reflection
 
-Reflection after play helps consolidate learning.  
-
-### Reflection questions
+Reflection after play helps consolidate learning. 
+Here's a list of sample questions to stimulate the reflection:  
 
 **Generic**:  
 
@@ -93,9 +94,9 @@ Reflection after play helps consolidate learning.
 
 Quick write (3 minutes): “One thing I learned, one question I still have.”  
 
-## Post game activities
+### Post game activities
 
-**4. Research and Google Maps activity**  
+**Research and Google Maps activity**  
 
 - After play, students research the cultural topic online.  
 - Example: after exploring Paris, they can look up **Notre Dame** or use Google Maps to locate it.  
@@ -103,24 +104,13 @@ Quick write (3 minutes): “One thing I learned, one question I still have.”
 
 Extension task: find one local equivalent (e.g., a bakery or monument in your town).  
 
-**5. Modification activity (game design thinking)**  
+**Modification activity (game design thinking)**  
 
 - Ask students how they would **improve the quest**.  
 - Encourage them to invent new challenges, NPCs, or cultural puzzles.  
 - Great for **creativity** and understanding how games are built.  
 
 Example: “Add a decision where talking to an NPC politely unlocks a new clue.”  
-
-## Play sessions at home (parents involvement)
-
-Parents are encouraged to:  
-
-- Play the game themselves at least once.  
-- Play together with their child for 20 minutes/day.  
-- Repeat sentences in both languages together.  
-- Discuss discoveries in the game.  
-
-Note: **the game can also support parents who do not speak the learning language**, as dialogues are bilingual.  
 
 ## Feedback and validation of quests
 
