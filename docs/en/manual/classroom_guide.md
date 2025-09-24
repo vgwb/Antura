@@ -93,8 +93,6 @@ Reflection after play helps consolidate learning.
 
 Quick write (3 minutes): “One thing I learned, one question I still have.”  
 
----
-
 ## Post game activities
 
 **4. Research and Google Maps activity**  
@@ -123,8 +121,6 @@ Parents are encouraged to:
 - Discuss discoveries in the game.  
 
 Note: **the game can also support parents who do not speak the learning language**, as dialogues are bilingual.  
-
----
 
 ## Feedback and validation of quests
 
