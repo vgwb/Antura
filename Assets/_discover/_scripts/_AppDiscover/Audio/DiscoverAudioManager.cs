@@ -82,10 +82,21 @@ namespace Antura.Discover.Audio
             if (clip == null)
                 return;
 
+            if (voiceOverSource == null)
+            {
+                voiceOverSource = gameObject.AddComponent<AudioSource>();
+                voiceOverSource.playOnAwake = false;
+                voiceOverSource.loop = false;
+                voiceOverSource.spatialBlend = 0f;
+            }
+
+            // Ensure previous VO is stopped before starting the new one
             if (voiceOverSource.isPlaying)
                 voiceOverSource.Stop();
 
-            voiceOverSource.PlayOneShot(clip);
+            voiceOverSource.volume = Mathf.Clamp01(voiceOverVolume);
+            voiceOverSource.clip = clip;
+            voiceOverSource.Play();
         }
 
         public void Play(AudioClip clip, float volume = 1f)
