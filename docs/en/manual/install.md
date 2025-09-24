@@ -34,6 +34,8 @@ The v3.0 beta version (including also the Discover Culture module and the new Cl
 ## Windows
 The Windows versions can be downloaded from https://github.com/vgwb/Antura/releases
 
+Download the ZIP file, uncompress everything in a folder and then launch **Antura.exe**.
+
 
 ## Linux and MacOS
 Since the game is open source and the engine used to create this game is multiplatform, Linux and macOS versions could be built if really necessary.

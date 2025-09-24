@@ -11,7 +11,7 @@ title: "Manual"
 
 - [Introduction](./introduction.md) - introduction to Learn with Antura
 - 📥 [Install](./install.md) — instructions for setting up on mobile or PC.  
-- [Setup](./setup.md) - step by step setup for classroom
+- [Setup](./setup.md) - step by step setup for classroom usage
 - 👩‍🏫 [Classroom Guide](./classroom_guide.md) — practical advice for using with your students.  
 - ❓ [FAQ](./faq.md) — answers to the most common questions.
 

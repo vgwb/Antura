@@ -1,9 +1,9 @@
 ---
-title: Classroom guide
+title: Classroom Guide
 status: new
 ---
 
-# Classroom guide
+# Classroom Guide
 
 This guide provides some practical suggestions for teachers using **Learn with Antura** in class, including the following steps:  
 
@@ -19,6 +19,11 @@ This approach creates a **virtuous loop of play → reflection → feedback → 
 
 The **teachers must know the game**: they should play every didactical unit at least once before introducing it in classroom. This is valid for both modules so the didactical unit couls be either a series of language learning minigames or a cultural quest. It would be even better if teachers could take the time to read all the didactical unit content (either letters and words or topics and cards) to be able to help kids in case of need and to prepare in advace a post session activity.
 Moreover, teachers should check regularly (i.e. once a week) if a new version of the game is available in order to always use the latest version. 
+
+### Planning the sessions
+
+We recommend to alternate the 2 modules (Learn Language and Discover Culture) dedicating a session to the first module and the next session to the second one. 
+
 
 ## Introducing a play session
 
