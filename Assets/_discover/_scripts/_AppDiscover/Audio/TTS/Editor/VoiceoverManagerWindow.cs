@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using AdventurEd.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,20 +7,22 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using AdventurEd.Editor;
-using UnityEditor;
 using Unity.EditorCoroutines.Editor;
+using UnityEditor;
+using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
-using Antura.Discover.Audio;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
+
 
 namespace Antura.Discover.Audio.Editor
 {
     public class VoiceoverManagerWindow : EditorWindow
     {
         private const string CardsAudioTableName = "Cards audio";
+        private readonly AddressablesVoService _addressablesSvc = new AddressablesVoService();
+
         private static void ApplyVorbisQuality(string assetPath, float quality01)
         {
             if (string.IsNullOrEmpty(assetPath))
@@ -88,7 +91,7 @@ namespace Antura.Discover.Audio.Editor
         private bool _overwriteExisting = false;
         private int _createCapIndex = 2; // 0=1, 1=5, 2=All
         private bool _showPreviewCounts = true;
-        private bool _cardsIncludeDescriptions = false; // Cards: generate .desc alongside titles
+        private bool _cardsIncludeDescriptions = false;
 
         private ITtsService _tts = new ElevenLabsTtsService();
 
@@ -128,6 +131,7 @@ namespace Antura.Discover.Audio.Editor
 
         private void OnDisable()
         {
+            // save ffmpeg path
             EditorPrefs.SetString(PrefKeyFfmpegPath, _ffmpegPath ?? string.Empty);
         }
 
@@ -198,7 +202,7 @@ namespace Antura.Discover.Audio.Editor
 
                 // Voice
                 _voiceProfile = (VoiceProfileData)EditorGUILayout.ObjectField("Voice Profile", _voiceProfile, typeof(VoiceProfileData), false);
-                _voiceCatalog = (VoiceProfileCatalog)EditorGUILayout.ObjectField("Voice Catalog (opt)", _voiceCatalog, typeof(VoiceProfileCatalog), false);
+                _voiceCatalog = (VoiceProfileCatalog)EditorGUILayout.ObjectField("Voice Catalog", _voiceCatalog, typeof(VoiceProfileCatalog), false);
                 _selectedActor = (VoiceActors)EditorGUILayout.EnumPopup("Actor", _selectedActor);
                 _secrets = (LocalSecrets)EditorGUILayout.ObjectField("Local Secrets", _secrets, typeof(LocalSecrets), false);
                 if (_secrets != null)
@@ -247,13 +251,20 @@ namespace Antura.Discover.Audio.Editor
                     EditorGUILayout.HelpBox($"Will create now (after cap): {plannedTotal}  —  {plannedStr}.\nEligible (uncapped): {eligibleTotal}  —  {eligibleStr}.", MessageType.Info);
                 }
 
-                // Actions
                 using (new EditorGUILayout.HorizontalScope())
                 {
                     if (GUILayout.Button("Status", GUILayout.Height(24)))
                         RunStatus();
                     if (GUILayout.Button("Clear and Init", GUILayout.Height(24)))
                         RunClearAndInit();
+                    if (GUILayout.Button("Ping Quest", GUILayout.Height(24)))
+                        RunPingQuest();
+                    if (GUILayout.Button("Show Audio Folder", GUILayout.Height(24)))
+                        RunShowQuestAudioFolder();
+                    if (GUILayout.Button("Update Addressables", GUILayout.Height(24)))
+                        RunUpdateAddressablesQuest();
+                    if (GUILayout.Button("Validate Addressables", GUILayout.Height(24)))
+                        RunValidateAddressablesQuest();
                     GUILayout.FlexibleSpace();
                     if (_isRunning)
                     {
@@ -290,6 +301,14 @@ namespace Antura.Discover.Audio.Editor
                 using (new EditorGUILayout.HorizontalScope())
                 {
                     GUILayout.FlexibleSpace();
+                    if (GUILayout.Button("Update Addressables (Cards)", GUILayout.Height(22)))
+                    {
+                        RunUpdateAddressablesCards();
+                    }
+                    if (GUILayout.Button("Validate (Cards)", GUILayout.Height(22)))
+                    {
+                        RunValidateAddressablesCards();
+                    }
                     if (GUILayout.Button("Create card audio (Title + Desc)", GUILayout.Height(22)))
                     {
                         RunCreateCardAudio(filteredCards);
@@ -347,7 +366,6 @@ namespace Antura.Discover.Audio.Editor
 
                 foreach (var locale in locales)
                 {
-                    // Resolve voice for this locale (prefer catalog/provider over fallback)
                     VoiceProfileData voice = null;
                     IVoiceProvider provider = catalog != null ? catalog : VoiceProviderManager.I?.Provider;
                     if (provider == null)
@@ -400,7 +418,6 @@ namespace Antura.Discover.Audio.Editor
                         processed++;
 
                         string ext = convertToOgg ? ".ogg" : ".mp3";
-                        // dot-separated: <card>.<desc?>.<lang>.<ext>
                         string nameCore = kind == "desc" ? ($"{baseName}.desc.{locale.Identifier.Code}") : ($"{baseName}.{locale.Identifier.Code}");
                         string finalAssetPath = CombinePath(cardFolder, nameCore + ext);
                         string mp3TempPath = CombinePath(cardFolder, nameCore + ".mp3");
@@ -440,6 +457,8 @@ namespace Antura.Discover.Audio.Editor
                                     ? (!string.IsNullOrEmpty(card.Description?.TableEntryReference.Key) ? card.Description.TableEntryReference.Key : (card.Id ?? card.name) + ".desc")
                                     : (!string.IsNullOrEmpty(card.Title?.TableEntryReference.Key) ? card.Title.TableEntryReference.Key : (card.Id ?? card.name));
                                 AssignCardAudioToAssetTable(locale, key, finalAssetPath);
+                                // Ensure Addressables entry in official Localization-Assets group with VO/cards address and labels
+                                _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, questIdOrNull: null, isQuestClip: false, keyOrId: (card.Id ?? card.name));
                                 totalCreated++;
                             }
                             continue;
@@ -488,6 +507,8 @@ namespace Antura.Discover.Audio.Editor
                                 ? (!string.IsNullOrEmpty(card.Description?.TableEntryReference.Key) ? card.Description.TableEntryReference.Key : (card.Id ?? card.name) + ".desc")
                                 : (!string.IsNullOrEmpty(card.Title?.TableEntryReference.Key) ? card.Title.TableEntryReference.Key : (card.Id ?? card.name));
                             AssignCardAudioToAssetTable(locale, key, assignPath);
+                            // Ensure Addressables entry in official Localization-Assets group with VO/cards address and labels
+                            _addressablesSvc.UpdateAddressableForClip(locale, assignPath, questIdOrNull: null, isQuestClip: false, keyOrId: (card.Id ?? card.name));
                         }
                     }
                 }
@@ -621,6 +642,46 @@ namespace Antura.Discover.Audio.Editor
             EditorUtility.DisplayDialog("Clear and Init", "Done.", "OK");
         }
 
+        private void RunPingQuest()
+        {
+            var quest = GetSelectedQuest();
+            if (quest == null)
+            { EditorUtility.DisplayDialog("Ping Quest", "Select a quest first.", "OK"); return; }
+            EditorUtility.FocusProjectWindow();
+            Selection.activeObject = quest;
+            EditorGUIUtility.PingObject(quest);
+        }
+
+        private void RunShowQuestAudioFolder()
+        {
+            var quest = GetSelectedQuest();
+            if (quest == null)
+            { EditorUtility.DisplayDialog("Audio Folder", "Select a quest first.", "OK"); return; }
+
+            var locales = GetTargetLocales().ToList();
+            string folder;
+            if (_selectedLocaleIndex > 0 && locales.Count == 1)
+            {
+                folder = GetQuestLangFolder(quest, locales[0]);
+            }
+            else
+            {
+                folder = Path.Combine(LangBundlesRoot, SanitizeFolderName(quest.Id ?? quest.name));
+            }
+            folder = folder.Replace('\\', '/');
+
+            if (!AssetDatabase.IsValidFolder(folder))
+            { EditorUtility.DisplayDialog("Audio Folder", $"Folder not found:\n{folder}", "OK"); return; }
+
+            var obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(folder);
+            if (obj != null)
+            {
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = obj;
+                EditorGUIUtility.PingObject(obj);
+            }
+        }
+
         private void RunCreateAudioFiles()
         {
             var quest = GetSelectedQuest();
@@ -739,6 +800,8 @@ namespace Antura.Discover.Audio.Editor
                         var normText = VoiceoverManifestUtil.NormalizeText(text);
                         var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, localeDefaultVoice?.Id, actorForFile.ToString(), locale.Identifier.Code);
                         VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: localeDefaultVoice?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
+                        // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
+                        _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                         continue;
                     }
 
@@ -777,6 +840,8 @@ namespace Antura.Discover.Audio.Editor
                                 var normText = VoiceoverManifestUtil.NormalizeText(text);
                                 var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
                                 VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
+                                // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
+                                _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                             }
                             EditorUtility.SetDirty(at);
                             continue;
@@ -826,6 +891,9 @@ namespace Antura.Discover.Audio.Editor
                         aEntry.Guid = guidNew;
                     EditorUtility.SetDirty(at);
 
+                    // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
+                    _addressablesSvc.UpdateAddressableForClip(locale, assignPath, quest.Id, isQuestClip: true, keyOrId: key);
+
                     // Log one clickable line per generated file (ping in Project on click)
                     if (createdNow)
                     {
@@ -857,6 +925,62 @@ namespace Antura.Discover.Audio.Editor
             if (quest == null || locales.Count == 0)
             { EditorUtility.DisplayDialog("Convert MP3 → OGG", "Select a quest and at least one locale.", "OK"); return; }
             EditorCoroutineUtility.StartCoroutineOwnerless(ConvertMp3ToOggCoroutine(quest, locales, _ffmpegPath, _keepMp3AfterConversion));
+        }
+
+        private void RunUpdateAddressablesQuest()
+        {
+            var quest = GetSelectedQuest();
+            if (!ValidateBasics(quest, requireVoice: false))
+                return;
+            var locales = GetTargetLocales().ToList();
+            if (locales.Count == 0)
+            { EditorUtility.DisplayDialog("Update Addressables", "No locales configured.", "OK"); return; }
+            try
+            {
+                _addressablesSvc.UpdateQuestAddressables(quest, locales);
+                EditorUtility.DisplayDialog("Update Addressables", "Quest addressables updated.", "OK");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[QVM] Update Addressables failed: {ex.Message}\n{ex}");
+                EditorUtility.DisplayDialog("Update Addressables", "Failed. See Console.", "OK");
+            }
+        }
+
+        private void RunUpdateAddressablesCards()
+        {
+            var locales = GetTargetLocales().ToList();
+            if (locales.Count == 0)
+            { EditorUtility.DisplayDialog("Update Addressables (Cards)", "No locales configured.", "OK"); return; }
+            try
+            {
+                _addressablesSvc.UpdateCardsAddressables(locales);
+                EditorUtility.DisplayDialog("Update Addressables (Cards)", "Cards addressables updated.", "OK");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[QVM] Update Addressables (Cards) failed: {ex.Message}\n{ex}");
+                EditorUtility.DisplayDialog("Update Addressables (Cards)", "Failed. See Console.", "OK");
+            }
+        }
+
+        private void RunValidateAddressablesQuest()
+        {
+            var quest = GetSelectedQuest();
+            if (quest == null)
+            { EditorUtility.DisplayDialog("Validate Addressables", "Select a quest first.", "OK"); return; }
+            var locales = GetTargetLocales().ToList();
+            if (locales.Count == 0)
+            { EditorUtility.DisplayDialog("Validate Addressables", "No locales configured.", "OK"); return; }
+            VoiceoverAddressablesValidator.ValidateQuest(quest, locales);
+        }
+
+        private void RunValidateAddressablesCards()
+        {
+            var locales = GetTargetLocales().ToList();
+            if (locales.Count == 0)
+            { EditorUtility.DisplayDialog("Validate Addressables (Cards)", "No locales configured.", "OK"); return; }
+            VoiceoverAddressablesValidator.ValidateCards(locales);
         }
 
         private IEnumerator ConvertMp3ToOggCoroutine(QuestData quest, List<Locale> locales, string ffmpegPath, bool keepMp3)
@@ -1094,6 +1218,265 @@ namespace Antura.Discover.Audio.Editor
         }
 
 
+    }
+
+    // ------------------------- Addressables VO Service -------------------------
+    internal sealed class AddressablesVoService
+    {
+        // Unity Localization creates per-locale groups like: "Localization-Assets-Tables-English (en)".
+        private const string LocalizationAssetTablesPrefix = "Localization-Assets-Tables-";
+
+        public void UpdateQuestAddressables(QuestData quest, List<Locale> locales)
+        {
+            if (quest == null || locales == null || locales.Count == 0)
+                return;
+            foreach (var locale in locales)
+            {
+                var at = LocalizationSettings.AssetDatabase.GetTable(quest.QuestAssetsTable.TableReference, locale);
+                if (at == null)
+                    continue;
+                var entries = at.Values;
+                int idx = 0;
+                int total = entries.Count;
+                foreach (var e in entries)
+                {
+                    idx++;
+                    if (string.IsNullOrEmpty(e.Guid))
+                        continue;
+                    var path = AssetDatabase.GUIDToAssetPath(e.Guid);
+                    if (string.IsNullOrEmpty(path))
+                        continue;
+                    if (AssetDatabase.GetMainAssetTypeAtPath(path) != typeof(AudioClip))
+                        continue;
+                    EditorUtility.DisplayProgressBar("Update Addressables", $"{quest.Id} — {locale.Identifier.Code} ({idx}/{total})", Mathf.Clamp01((float)idx / Mathf.Max(1, total)));
+                    var sharedKey = e.SharedEntry != null ? e.SharedEntry.Key : null;
+                    UpdateAddressableForClip(locale, path, quest.Id, isQuestClip: true, keyOrId: sharedKey);
+                }
+            }
+            EditorUtility.ClearProgressBar();
+        }
+
+        public void UpdateCardsAddressables(List<Locale> locales)
+        {
+            if (locales == null || locales.Count == 0)
+                return;
+            foreach (var locale in locales)
+            {
+                var at = LocalizationSettings.AssetDatabase.GetTable("Cards audio", locale);
+                if (at == null)
+                    continue;
+                var entries = at.Values;
+                int idx = 0;
+                int total = entries.Count;
+                foreach (var e in entries)
+                {
+                    idx++;
+                    if (string.IsNullOrEmpty(e.Guid))
+                        continue;
+                    var path = AssetDatabase.GUIDToAssetPath(e.Guid);
+                    if (string.IsNullOrEmpty(path))
+                        continue;
+                    if (AssetDatabase.GetMainAssetTypeAtPath(path) != typeof(AudioClip))
+                        continue;
+                    EditorUtility.DisplayProgressBar("Update Addressables (Cards)", $"{locale.Identifier.Code} ({idx}/{total})", Mathf.Clamp01((float)idx / Mathf.Max(1, total)));
+                    var idFromKey = e.SharedEntry != null ? ExtractCardIdFromKey(e.SharedEntry.Key) : null;
+                    UpdateAddressableForClip(locale, path, questIdOrNull: null, isQuestClip: false, keyOrId: idFromKey);
+                }
+            }
+            EditorUtility.ClearProgressBar();
+        }
+
+        public void UpdateAddressableForClip(Locale locale, string assetPath, string questIdOrNull, bool isQuestClip, string keyOrId = null)
+        {
+            if (locale == null || string.IsNullOrEmpty(assetPath))
+                return;
+            var settings = UnityEditor.AddressableAssets.AddressableAssetSettingsDefaultObject.Settings;
+            if (settings == null)
+            {
+                Debug.LogWarning("[QVM] Addressables settings not found. Enable Addressables in the project first.");
+                return;
+            }
+
+            var group = GetOrCreateLocaleAssetsGroup(settings, locale);
+            if (group == null)
+                return;
+
+            var guid = AssetDatabase.AssetPathToGUID(assetPath);
+            if (string.IsNullOrEmpty(guid))
+                return;
+
+            var entry = settings.FindAssetEntry(guid);
+            if (entry == null || entry.parentGroup != group)
+            {
+                entry = settings.CreateOrMoveEntry(guid, group, false, false);
+            }
+
+            // Address format
+            string code = locale.Identifier.Code;
+            string questId = questIdOrNull ?? ExtractQuestIdFromPath(assetPath);
+            // Final segment should be quest line key (as line-<id>) or card id
+            string lastSegment = null;
+            if (!string.IsNullOrEmpty(keyOrId))
+            {
+                lastSegment = isQuestClip ? NormalizeQuestKey(keyOrId) : NormalizeCardId(keyOrId);
+            }
+            if (string.IsNullOrEmpty(lastSegment))
+            {
+                lastSegment = Path.GetFileNameWithoutExtension(assetPath);
+            }
+            string address = isQuestClip && !string.IsNullOrEmpty(questId)
+                ? $"VO/{code}/quest/{questId}/{lastSegment}"
+                : $"VO/{code}/cards/{lastSegment}";
+            if (!string.Equals(entry.address, address, StringComparison.Ordinal))
+            {
+                entry.SetAddress(address, false);
+            }
+
+            // Labels
+            EnsureLabel(settings, $"type:vo");
+            EnsureLabel(settings, $"lang:{code}");
+            EnsureLabel(settings, $"Locale-{code}"); // Required by Unity Localization
+            entry.SetLabel($"type:vo", true, true);
+            entry.SetLabel($"lang:{code}", true, true);
+            entry.SetLabel($"Locale-{code}", true, true);
+            var qid = questId;
+            if (!string.IsNullOrEmpty(qid))
+            {
+                string qLabel = $"quest:{qid}";
+                EnsureLabel(settings, qLabel);
+                entry.SetLabel(qLabel, true, true);
+            }
+
+            EditorUtility.SetDirty(group);
+            EditorUtility.SetDirty(settings);
+        }
+
+        private static void EnsureLabel(AddressableAssetSettings settings, string label)
+        {
+            if (settings == null || string.IsNullOrEmpty(label))
+                return;
+            var labels = settings.GetLabels();
+            if (labels == null || !labels.Contains(label))
+            {
+                settings.AddLabel(label);
+            }
+        }
+
+        private AddressableAssetGroup GetOrCreateLocaleAssetsGroup(AddressableAssetSettings settings, Locale locale)
+        {
+            string code = locale.Identifier.Code;
+            string englishName = locale.Identifier.CultureInfo != null ? locale.Identifier.CultureInfo.EnglishName : (locale.name ?? code);
+            // Preferred name created by Unity Localization
+            string preferred = $"{LocalizationAssetTablesPrefix}{englishName} ({code})";
+
+            // Try preferred exactly
+            var group = settings.FindGroup(preferred);
+            if (group != null)
+                return group;
+
+            // Try to find any group that matches the naming convention for this locale
+            group = settings.groups.FirstOrDefault(g => g != null && g.Name.EndsWith($"({code})", StringComparison.Ordinal) && g.Name.StartsWith("Localization-Assets-Tables-", StringComparison.Ordinal));
+            if (group != null)
+                return group;
+
+            // Fallback to older prefix used previously (kept for compatibility)
+            string legacy = $"Localization-Assets-{englishName} ({code})";
+            group = settings.FindGroup(legacy);
+            if (group != null)
+                return group;
+
+            // As a last resort, create the preferred group to avoid dumping into Shared
+            group = settings.CreateGroup(preferred, false, false, false, null,
+                typeof(UnityEditor.AddressableAssets.Settings.GroupSchemas.BundledAssetGroupSchema),
+                typeof(UnityEditor.AddressableAssets.Settings.GroupSchemas.ContentUpdateGroupSchema));
+            Debug.Log($"[QVM] Created Addressables group '{preferred}'.");
+            return group;
+        }
+
+        private static string ExtractQuestIdFromPath(string assetPath)
+        {
+            if (string.IsNullOrEmpty(assetPath))
+                return string.Empty;
+            // Look for /_quests/<questId>/ or /quests/<questId>/ segment in the path
+            var path = assetPath.Replace('\\', '/');
+            var idx = path.IndexOf("/quests/", StringComparison.OrdinalIgnoreCase);
+            if (idx < 0)
+            {
+                idx = path.IndexOf("/_quests/", StringComparison.OrdinalIgnoreCase);
+                if (idx >= 0)
+                    idx++; // remove leading underscore for label consistency
+            }
+            if (idx >= 0)
+            {
+                var start = idx + "/quests/".Length;
+                int end = path.IndexOf('/', start);
+                if (end > start)
+                {
+                    return path.Substring(start, end - start);
+                }
+            }
+            // Fallback to _lang_bundles/_quests/<questId>/ pattern
+            var marker = "/_lang_bundles/_quests/";
+            idx = path.IndexOf(marker, StringComparison.OrdinalIgnoreCase);
+            if (idx >= 0)
+            {
+                var start = idx + marker.Length;
+                int end = path.IndexOf('/', start);
+                if (end > start)
+                {
+                    return path.Substring(start, end - start);
+                }
+            }
+            return string.Empty;
+        }
+
+        private static string NormalizeQuestKey(string key)
+        {
+            if (string.IsNullOrEmpty(key))
+                return string.Empty;
+            if (key.StartsWith("line:", StringComparison.OrdinalIgnoreCase))
+            {
+                return SafeSegment("line-" + key.Substring("line:".Length));
+            }
+            if (key.StartsWith("line-", StringComparison.OrdinalIgnoreCase))
+            {
+                return SafeSegment(key);
+            }
+            return SafeSegment(key);
+        }
+
+        private static string NormalizeCardId(string keyOrId)
+        {
+            if (string.IsNullOrEmpty(keyOrId))
+                return string.Empty;
+            // strip trailing ".desc" etc.
+            int dot = keyOrId.IndexOf('.');
+            var id = dot > 0 ? keyOrId.Substring(0, dot) : keyOrId;
+            return SafeSegment(id);
+        }
+
+        private static string ExtractCardIdFromKey(string sharedKey)
+        {
+            return NormalizeCardId(sharedKey);
+        }
+
+        private static string SafeSegment(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            var sb = new StringBuilder(s.Length);
+            foreach (var ch in s)
+            {
+                if (char.IsLetterOrDigit(ch) || ch == '-' || ch == '_')
+                    sb.Append(ch);
+                else if (char.IsWhiteSpace(ch) || ch == ':' || ch == '/' || ch == '\\' || ch == '.')
+                    sb.Append('-');
+                else
+                    sb.Append(ch);
+            }
+            var seg = Regex.Replace(sb.ToString(), "-+", "-").Trim('-');
+            return string.IsNullOrEmpty(seg) ? "item" : seg;
+        }
     }
 }
 #endif
