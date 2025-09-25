@@ -32,6 +32,7 @@ position: 0,0
 tags:
 type: panel
 color: red
+actor: NARRATOR
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $CURRENT_PROGRESS = 0>>
@@ -44,6 +45,7 @@ title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
+actor: NARRATOR
 ---
 Great, you found all bridges. #line:0c408c3 
 <<card place_bridge_people>>
@@ -65,6 +67,7 @@ position: 236,184
 color: green
 panel: panel
 tags: proposal
+actor: NARRATOR
 ---
 Draw a bridge in your notebook! #line:0b37e92 
 Do you remember the Pont Alexandre III? #line:06c5bed 
@@ -91,7 +94,8 @@ Keep searching for the photos! #line:00b8877
 
 title: welcome
 position: 269,203
-tags: actor=TUTOR, asset=seine_river_panoramic
+actor:
+tags:  asset=seine_river_panoramic
 ---
 This is the River Seine! #line:0aa0f3a 
 <<card seine_map>>
@@ -102,7 +106,7 @@ Many people live by this river. #line:080744b
 
 title: found_all_photos
 position: 586,-3
-tags: actor=TUTOR
+actor: 
 ---
 Thank you! #line:0a70250 
 Do you know that there are 37 bridges on the Seine? #line:0353a5c 
@@ -111,7 +115,7 @@ Do you know that there are 37 bridges on the Seine? #line:0353a5c
 
 title: task_seine
 position: 567,210
-tags: actor=TUTOR
+actor: 
 ---
 <<task_start seine>>
 I lost 8 photos of the Seine. #line:0d77f5e 
@@ -123,7 +127,7 @@ Then come back to me! #line:09b03cc
 title: sign_train_bridge
 position: -15,-430
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card sign_train_bridge>>
 <<action COLLECT_1>>
@@ -132,7 +136,7 @@ This is a bridge for trains! #line:0a0991d
 
 title: sign_car_bridge
 position: 229,-428
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card sign_car_bridge>>
@@ -143,7 +147,8 @@ This is a bridge for cars! #line:0d79d7d
 
 title: sign_people_bridge
 position: 469,-424
-tags: actor=TUTOR, 
+actor:
+tags:  
 color: yellow
 ---
 <<card sign_people_bridge>>
@@ -153,7 +158,7 @@ This is a bridge for people! #line:0f8a96f
 
 title: boat_people
 position: -1,-255
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card  boat_people>>
@@ -163,7 +168,8 @@ This boat has large windows, so tourists can see the city. It's a 'bateau-mouche
 
 title: boat_house
 position: 721,-429
-tags: actor=TUTOR,
+actor:
+tags: 
 color: yellow
 ---
 <<card boat_house>>
@@ -173,7 +179,8 @@ This boat is a house! People live here! #line:0a627c2
 
 title: boat_goods
 position: 730,-249
-tags: actor=TUTOR, boat_goods
+actor:
+tags:  boat_goods
 color: yellow
 ---
 <<card boat_goods>>
@@ -183,7 +190,7 @@ This boat transports goods. #line:0f13a44
 
 title: look_seine_map
 position: 863,-3
-tags: actor=TUTOR
+actor: 
 ---
 <<card  seine_france_map>>
 Now look at this map of the Seine. #line:0b03341 
@@ -192,7 +199,7 @@ Now look at this map of the Seine. #line:0b03341
 
 title: question_seine_map
 position: 1135,-4
-tags: actor=TUTOR
+actor: 
 ---
 The Seine flows into a sea. Which one? #line:0adc7b7 
 -> "The Mediterranean Sea": #line:04cf904 
@@ -205,7 +212,7 @@ The Seine flows into a sea. Which one? #line:0adc7b7
 
 title: question_correct
 position: 1137,211
-tags: actor=TUTOR
+actor: 
 color: purple
 ---
 Yes! The Seine flows into the English Channel, in northern France. #line:023623a 
@@ -215,7 +222,7 @@ Yes! The Seine flows into the English Channel, in northern France. #line:023623a
 
 title: question_wrong
 position: 1363,-135
-tags: actor=TUTOR
+actor: 
 ---
 Hmm... not really. Look at the map again. #line:01c9d19 
 <<jump question_seine_map>>
@@ -223,7 +230,7 @@ Hmm... not really. Look at the map again. #line:01c9d19
 
 title: npc_train
 position: -274,-128
-tags: actor=MAN
+actor: ADULT_M
 ---
 => I would love to ride a train! #line:01663fa 
 => I love trains! #line:0574872 
@@ -231,7 +238,7 @@ tags: actor=MAN
 
 title: npc_boat
 position: -271,28
-tags: actor=MAN
+actor: ADULT_M
 ---
 => No, I didn't see your dog. #line:0614aef 
 => A dog? There are many dogs here... #line:09f3f7a 
@@ -241,7 +248,8 @@ tags: actor=MAN
 
 title: boat_eiffel
 position: 472,-249
-tags: actor=TUTOR, meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel
+actor:
+tags:  meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel
 color: yellow
 ---
 Look how nice! #line:059f66d 
@@ -250,7 +258,8 @@ Look how nice! #line:059f66d
 
 title: boat_river
 position: 239,-255
-tags: actor=TUTOR, meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river
+actor:
+tags:  meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river
 color: yellow
 ---
 There are many boats. #line:076e2e6 
@@ -259,7 +268,7 @@ There are many boats. #line:076e2e6
 
 title: talk_ile_de_france
 position: -278,-435
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<card ile_de_france>>
 Look: there is an island, Île de la Cité. #line:03e5667 
@@ -268,7 +277,7 @@ It is the historic center of Paris. #line:04b2cf2
 
 title: talk_pont_alexandre
 position: -273,-285
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<card pont_alexandre_iii>>
 This is the Pont Alexandre III, a historic monument. #line:09c706f 
@@ -294,7 +303,7 @@ spawn_group: tourists
 title: spawned_french_woman
 position: -367,1
 color: purple
-actor: WOMAN
+actor: ADULT_F
 spawn_group: residents 
 ---
 => Bonjour! #do_not_translate #line:072a345 
@@ -306,7 +315,7 @@ spawn_group: residents
 title: spawned_french_man
 position: -367,1
 color: purple
-actor: MAN
+actor: ADULT_M
 spawn_group: residents 
 ---
 => Salut! #do_not_translate #line:06aa0c1 
@@ -318,7 +327,7 @@ spawn_group: residents
 title: facts_bridges
 position: 900,600
 color: purple
-actor: TUTOR
+actor: 
 ---
 <<card place_bridge_trains>>
 Bridges can carry fast trains over the water. #line:035a1f6 
@@ -333,7 +342,7 @@ Pont Alexandre III has golden statues. #line:0ba2ad8
 title: facts_river
 position: 1080,600
 color: purple
-actor: TUTOR
+actor: 
 ---
 <<card seine_map_in_paris>>
 The Seine bends through Paris like a ribbon. #line:09ee6d9 
@@ -345,7 +354,7 @@ Rivers bring boats, water, and life to a city. #line:0bdfb18
 title: facts_boats
 position: 1260,600
 color: purple
-actor: TUTOR
+actor: 
 ---
 <<card boat_eiffel_tower>>
 Tourist boats have wide windows to see monuments. #line:0323421 
@@ -357,7 +366,7 @@ Boats can move people, things, or be a home. #line:0b7a149
 title: spawned_bridge_expert
 position: -500,100
 color: purple
-actor: MAN
+actor: ADULT_M
 spawn_group: bridge_expert
 ---
 => A train bridge must be strong. #line:0816b6b 
@@ -368,7 +377,7 @@ spawn_group: bridge_expert
 title: spawned_river_friend
 position: -500,200
 color: purple
-actor: WOMAN
+actor: ADULT_F
 spawn_group: river_friend
 ---
 => The Seine helps boats move through Paris. #line:0ec822e 
@@ -379,7 +388,7 @@ spawn_group: river_friend
 title: spawned_boat_guide
 position: -500,300
 color: purple
-actor: MAN
+actor: ADULT_M
 spawn_group: boat_guide
 ---
 => Tourist boats have big windows. #line:047502b 

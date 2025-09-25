@@ -51,6 +51,7 @@ position: 76,-506
 tags: 
 type: panel
 color: red
+actor: NARRATOR
 ---
 <<set $MAX_PROGRESS = 7>>
 <<declare $ingredients = 0>>
@@ -67,6 +68,7 @@ title: quest_end
 position: 1293,-720
 color: green
 panel: panel_endgame
+actor: NARRATOR
 ---
 The game is complete! Congratulations! #line:0f5c958 
 <<jump quest_proposal>>
@@ -77,6 +79,7 @@ position: 1520,-720
 color: green
 panel: panel
 tags: proposal
+actor: NARRATOR
 ---
 What is your favourite food? #line:01f78ed 
 <<quest_end>>
@@ -85,7 +88,7 @@ What is your favourite food? #line:01f78ed
 title: baker_bonjour
 position: 649,-11
 group: baker
-tags: actor=MAN
+actor: ADULT_M
 ---
 Bonjour! I sell fresh bread. I am a baker. #line:0c6f41f 
 Every day I wake up early to bake. #line:0f6e48a 
@@ -96,7 +99,8 @@ Every day I wake up early to bake. #line:0f6e48a
 title: shop_baker
 position: 405,-9
 group: baker
-tags: actor=MAN_BIG, noRepeatLastLine
+actor: SENIOR_M
+tags:  noRepeatLastLine
 color: blue
 ---
 <<if $baker_completed>>
@@ -115,7 +119,8 @@ Try talking to the other vendors. #line:0b6176e
 title: baker_question
 position: 880,-10
 group: baker
-tags: actor=MAN_BIG, type=Choice
+actor: SENIOR_M
+tags:  type=Choice
 ---
 What do you want to buy? #line:00279c8 
 -> Bread #line:00eab87 
@@ -131,7 +136,7 @@ What do you want to buy? #line:00279c8
 title: baker_pay_activity
 position: 1132,-12
 group: baker
-tags: actor=MAN
+actor: ADULT_M
 color: purple
 ---
 Select enough money to pay. #line:0bbf963 
@@ -141,7 +146,7 @@ Select enough money to pay. #line:0bbf963
 title: baker_payment_done
 position: 1131,145
 group: baker
-tags: actor=MAN, no_translate, noRepeatLastLine
+actor: ADULT_M, no_translate, noRepeatLastLine
 ---
 -> Merci! #line:00da30a 
 -> Au revoir! #line:00cbd60 
@@ -153,7 +158,7 @@ tags: actor=MAN, no_translate, noRepeatLastLine
 title: baker_dontsell
 position: 879,149
 group: baker
-tags: actor=MAN
+actor: ADULT_M
 ---
 Sorry, I don't sell that. #line:0875143 
 ===
@@ -161,7 +166,7 @@ Sorry, I don't sell that. #line:0875143
 title: fisher_payment_done
 position: 2169,551
 group: fisher
-tags: actor=MAN_OLD, do_not_translate, noRepeatLastLine
+actor: SENIOR_M, do_not_translate, noRepeatLastLine
 ---
 -> Au revoir! #line:02e64ff 
 -> Merci! #line:02c23e5 
@@ -173,7 +178,7 @@ tags: actor=MAN_OLD, do_not_translate, noRepeatLastLine
 title: fisher_dontsell
 position: 1925,554
 group: fisher
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 Sorry, I don't sell that. #line:01ea288 
 ===
@@ -181,7 +186,7 @@ Sorry, I don't sell that. #line:01ea288
 title: fisher_question
 position: 1925,391
 group: fisher
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 What do you want to buy? #line:04deddc 
 -> Fish and Crab #line:0e562df 
@@ -198,7 +203,7 @@ title: shop_fisher
 position: 1434,393
 color: blue
 group: fisher
-tags: actor=MAN_OLD, noRepeatLastLine
+actor: SENIOR_M, noRepeatLastLine
 ---
 <<if $fishmonger_completed>>
 You already bought fish from me!  #line:0b3f247 
@@ -216,8 +221,8 @@ Try the next shop. #line:0ed0200
 title: fisher_bonjour
 position: 1689,392
 group: fisher
-tags: actor=MAN_OLD
-actor: OLD_MAN
+actor: SENIOR_M
+actor: SENIOR_M
 ---
 Good morning! I sell fish and crab. I'm a fishmonger. #line:04b4a87 
 All of my items come from the sea! #line:0aa9ce7 
@@ -229,7 +234,8 @@ title: shop_cheesemonger
 position: 403,401
 color: blue
 group: cheesemonger
-tags: actor=WOMAN, do_not_translate, noRepeatLastLine
+actor: ADULT_F
+tags:  do_not_translate, noRepeatLastLine
 ---
 <<if $cheesemonger_completed>>
 You already bought milk from me!  #line:082465a 
@@ -247,8 +253,8 @@ Try talking to the others. #line:026a894
 title: cheesemonger_question
 position: 876,400
 group: cheesemonger
-tags: actor=WOMAN
-actor: WOMAN
+actor: ADULT_F
+actor: ADULT_F
 ---
 What do you want to buy? #line:03009de 
 -> Milk #line:0aa7def 
@@ -264,7 +270,8 @@ What do you want to buy? #line:03009de
 title: cheesemonger_payment_done
 position: 1117,550
 group:cheesemonger
-tags: actor=WOMAN, do_not_translate, noRepeatLastLine
+actor: ADULT_F
+tags:  do_not_translate, noRepeatLastLine
 ---
 -> Bonne journée! #line:0dd3ac3 
 -> Au revoir! #line:02a1238 
@@ -276,7 +283,7 @@ tags: actor=WOMAN, do_not_translate, noRepeatLastLine
 title: cheesemonger_bonjour
 position: 641,403
 group: cheesemonger
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Hi! I sell cheese and milk. I am a cheesemonger. #line:09eb222 
 I use both cow milk and goat milk. #line:02f4bc9 
@@ -287,7 +294,7 @@ I use both cow milk and goat milk. #line:02f4bc9
 title: cheesemonger_dontsell
 position: 875,559
 group:cheesemonger
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Sorry, I don't sell that. #line:058fc6d 
 ===
@@ -295,7 +302,7 @@ Sorry, I don't sell that. #line:058fc6d
 title: greengrocer_dontsell
 position: 870,981
 group: greengrocer
-tags: actor=MAN
+actor: ADULT_M
 ---
 MAN: Sorry, I don't sell that. #line:03b0024 
 ===
@@ -303,7 +310,8 @@ MAN: Sorry, I don't sell that. #line:03b0024
 title: greengrocer_payment_activity
 position: 1105,976
 group: greengrocer
-tags: actor=WOMAN, do_not_translate, noRepeatLastLine
+actor: ADULT_F
+tags:  do_not_translate, noRepeatLastLine
 ---
 -> Bonne journée! #line:0ff9361 
 -> Merci! #line:0741be3 
@@ -315,7 +323,7 @@ tags: actor=WOMAN, do_not_translate, noRepeatLastLine
 title: greengrocer_question
 position: 869,819
 group: greengrocer
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 What do you want to buy? #line:042eb5a 
 -> Fish and Crab #line:0fead1d 
@@ -332,7 +340,8 @@ title: shop_greengrocer
 position: 401,822
 color: blue
 group: greengrocer
-tags: actor=WOMAN, noRepeatLastLine
+actor: ADULT_F
+tags:  noRepeatLastLine
 ---
 <<if $greengrocer_completed>>
 You already bought some fruit from me!  #line:0e767fe 
@@ -350,8 +359,8 @@ Try talking to another vendor. #line:00a927b
 title: greengrocer_bonjour
 position: 634,820
 group: greengrocer
-tags: actor=WOMAN
-actor: WOMAN
+actor: ADULT_F
+actor: ADULT_F
 ---
 Hello! I sell fruits and vegetables. I'm a greengrocer. #line:041ade1 
 My items are always fresh! #line:0969b87 
@@ -362,7 +371,8 @@ My items are always fresh! #line:0969b87
 title: grocer_payment_done
 position: 2168,154
 group: grocer
-tags: actor=WOMAN_OLD, do_not_translate, noRepeatLastLine
+actor: SENIOR_F
+tags:  do_not_translate, noRepeatLastLine
 ---
 -> Au revoir! #line:0ce6f8a 
 -> Merci! #line:0e8ec1b 
@@ -374,7 +384,7 @@ tags: actor=WOMAN_OLD, do_not_translate, noRepeatLastLine
 title: grocer_dontsell
 position: 1918,155
 group: grocer
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 action: OLD_WOMAN
 ---
 Sorry, I don't sell that. #line:0977493 
@@ -383,8 +393,8 @@ Sorry, I don't sell that. #line:0977493
 title: grocer_question
 position: 1919,-5
 group: grocer
-tags: actor=WOMAN_OLD
-actor: OLD_WOMAN
+actor: SENIOR_F
+actor: SENIOR_F
 ---
 What do you want to buy? #line:0c36100 
 -> Tomatoes, Oranges, and Lemons #line:0d6dabd 
@@ -400,7 +410,8 @@ What do you want to buy? #line:0c36100
 title: shop_grocer
 position: 1437,-12
 group: grocer
-tags: actor=WOMAN_OLD, noRepeatLastLine
+actor: SENIOR_F
+tags:  noRepeatLastLine
 color: blue
 ---
 <<if $grocer_completed>>
@@ -419,8 +430,8 @@ Try another shop. #line:0b4ebe1
 title: grocer_bonjour
 position: 1684,-8
 group: grocer
-tags: actor=WOMAN_OLD
-actor: OLD_WOMAN
+actor: SENIOR_F
+actor: SENIOR_F
 ---
 Hello! I sell spices and pantry goods. I am a grocer. #line:0ffbfa4 
 You can use my items for many recipes. #line:0c6a554 
@@ -431,8 +442,9 @@ You can use my items for many recipes. #line:0c6a554
 title: pirate
 position: 1428,-273
 group: pirates
-tags: actor=MAN_BIG
-actor: CRAZY_MAN
+actor: SENIOR_M
+tags: 
+actor: SENIOR_M
 ---
 <<if $pirate_completed>>
 Now go! I have to prepare for my next voyage. #line:04a0605 
@@ -447,7 +459,7 @@ People call us pirates, but we were corsairs — privateers. #line:0f764a6
 title: pirate_activity
 position: 1669,-267
 group: pirates
-tags: actor=MAN
+actor: ADULT_M
 color: purple
 ---
 Complete the image. #line:08396f2 
@@ -457,8 +469,9 @@ Complete the image. #line:08396f2
 title: activity_pirate_done
 position: 1892,-264
 group: pirates
-tags: actor=MAN_BIG
-actor: CRAZY_MAN
+actor: SENIOR_M
+tags: 
+actor: SENIOR_M
 ---
 We worked for the King of France. #line:0af3bba 
 In the past, we took items from the king's enemies, but those days are gone. #line:0b61715 
@@ -486,7 +499,7 @@ tags:
 title: chef_welcome
 position: 674,-579
 group: chef
-tags: actor=MAN
+actor: ADULT_M
 ---
 Bonjour! Welcome to Marseille, on the Mediterranean Sea! #line:02548dd 
 I want to make a special dish for you, a bouillabaisse! #line:0c65de3 
@@ -537,7 +550,7 @@ You got all the ingredients! Go back to the chef. #line:05398f2
 title: chef_ingredients_done
 position: 669,-418
 group: chef
-tags: actor=MAN
+actor: ADULT_M
 ---
 Magnifique! You have everything. #line:0257fc7 
 You were very polite. #line:0112e25 
@@ -570,7 +583,7 @@ Now, let's cook the bouillabaisse! #line:0f0f617
 title: fisher_pay_activity
 position: 2173,388
 group: fisher
-tags: actor=MAN_OLD
+actor: SENIOR_M
 color: purple
 ---
 Select enough money to pay. #line:0995020 
@@ -580,7 +593,7 @@ Select enough money to pay. #line:0995020
 title: cheesemonger_pay_activity
 position: 1116,398
 group:cheesemonger
-tags: actor=WOMAN
+actor: ADULT_F
 color: purple
 ---
 Select enough money to pay. #line:0f44ea7 
@@ -590,7 +603,7 @@ Select enough money to pay. #line:0f44ea7
 title: grocer_pay_activity
 position: 2166,-4
 group: grocer
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 color: purple
 ---
 Select enough money to pay. #line:0c80f9e 
@@ -600,7 +613,7 @@ Select enough money to pay. #line:0c80f9e
 title: greengrocer_pay_activity
 position: 1109,818
 group: greengrocer
-tags: actor=WOMAN
+actor: ADULT_F
 color: purple
 ---
 Select enough money to pay. #line:08fc94e 
@@ -609,7 +622,7 @@ Select enough money to pay. #line:08fc94e
 title: baker_notunderstand
 position: 404,150
 group: baker
-tags: actor=MAN
+actor: ADULT_M
 ---
 Sorry, I don't think I understand... #line:0db5121 
 ===
@@ -617,7 +630,7 @@ Sorry, I don't think I understand... #line:0db5121
 title: cheesemonger_notunderstand
 position: 403,563
 group: cheesemonger
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Sorry, I don't think I understand... #line:01a0ec9 
 ===
@@ -625,7 +638,7 @@ Sorry, I don't think I understand... #line:01a0ec9
 title: grocer_notunderstand
 position: 1437,157
 group: grocer
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 Sorry, I don't think I understand... #line:0a30381 
 ===
@@ -651,7 +664,8 @@ color: orange
 title: item_bread
 position: -421,798
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card food_bread>>
 Bread #line:08e101e 
@@ -660,7 +674,8 @@ Bread #line:08e101e
 title: item_fish
 position: -442,990
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card food_fish>>
 Fish #line:0feed79 
@@ -669,7 +684,8 @@ Fish #line:0feed79
 title: item_crab
 position: -442,990
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card food_crab>>
 Crab   #line:0c81979 
@@ -678,7 +694,7 @@ Crab   #line:0c81979
 title: item_orange
 position: -442,12
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card food_orange>>
 Orange #line:0c0fa04 
@@ -687,7 +703,7 @@ Orange #line:0c0fa04
 title: item_lemon
 position: -446,500
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card food_lemon>>
 Lemon #line:0c6b991 
@@ -696,7 +712,8 @@ Lemon #line:0c6b991
 title: item_tomato
 position: -440,642
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card food_tomato>>
 Tomato #line:0a6782d 
@@ -705,7 +722,8 @@ Tomato #line:0a6782d
 title: item_milk
 position: -453,1161
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card food_milk>>
 Milk #line:0acd781 
@@ -714,7 +732,8 @@ Milk #line:0acd781
 title: item_pepper_salt
 position: -450,171
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card food_pepper_salt>>
 Salt and Pepper #line:07bbcb0 
@@ -723,7 +742,8 @@ Salt and Pepper #line:07bbcb0
 title: item_oil
 position: -456,323
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card food_olive_oil>>
 Olive oil #line:0156410 

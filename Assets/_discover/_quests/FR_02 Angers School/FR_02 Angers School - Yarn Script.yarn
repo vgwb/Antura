@@ -40,6 +40,7 @@ position: 0,0
 type: panel
 tags: 
 color: red
+actor: NARRATOR
 ---
 <<declare $got_backpack = false>>
 <<SetActive Collect_Backpack false>>
@@ -53,6 +54,7 @@ title: quest_end
 position: 2169,385
 color: green
 panel: panel_endgame
+actor: NARRATOR
 ---
 The game is complete! Congratulations! #line:022962d 
 This is our school day #line:038dacc 
@@ -65,6 +67,7 @@ position: 2472,380
 color: green
 panel: panel
 tags: proposal
+actor: NARRATOR
 ---
 Now draw a map of your classroom! #line:09ac4f1 
 <<quest_end>>
@@ -73,7 +76,7 @@ Now draw a map of your classroom! #line:09ac4f1
 
 title: task_find_school_done
 position: 1,145
-tags: actor=TUTOR
+actor: NARRATOR
 ---
 You found your school!  #line:03ed76a 
 ===
@@ -81,14 +84,15 @@ You found your school!  #line:03ed76a
 title: task_find_school_desc
 type: task
 position: 973,-174
+actor: NARRATOR
 ---
 Find your school! #line:0da284c 
 ===
 
 title: school_1
 position: 338,-337
-tags: actor=WOMAN
-actor: WOMAN
+tags:
+actor: ADULT_F
 ---
 Welcome! This is a nursery school for children aged 3 to 5. #line:096b721 
 You are too big for our small chairs. Your school is nearby. #line:07ed07b 
@@ -96,7 +100,7 @@ You are too big for our small chairs. Your school is nearby. #line:07ed07b
 ===
 title: school_2
 position: 340,-156
-tags:
+actor: GUIDE_M
 ---
 <<if $got_backpack>>
     <<jump school_2_talk>>
@@ -107,8 +111,7 @@ tags:
 
 title: school_2_welcome
 position: 724,-284
-tags: actor=GUIDE
-actor: GUIDE
+actor: GUIDE_M
 ---
 Bonjour! Welcome! You found it. This is your elementary school. #line:092b309 
 It looks like you forgot your backpack. #line:0dd7977 
@@ -118,8 +121,7 @@ You need your books for the lesson. #line:044385f
 
 title: school_3
 position: 340,61
-tags: actor=KID_M
-actor: KID_MALE
+actor: KID_M
 ---
 Hi! This is a middle school for ages 11 to 15. #line:06478e9 
 You are almost old enough, but not yet. Keep looking! #line:0df97f8 
@@ -127,8 +129,7 @@ You are almost old enough, but not yet. Keep looking! #line:0df97f8
 
 title: school_4
 position: 341,293
-tags: actor=MAN
-actor: MAN
+actor: ADULT_F
 ---
 Bonjour! This is a high school for ages 16 to 18. #line:04a0e4b 
 Students study for the Baccalauréat exam here before university. #line:027eba1 
@@ -138,8 +139,7 @@ You are too young. Try another school. #line:0630d14
 
 title: school_4_talk_man
 position: 620,290
-tags: actor=MAN_OLD
-actor: OLD_MAN
+actor: SENIOR_M
 ---
 Hello! I found a backpack on my way here. #line:0c3b4fe 
 These books are simpler than the ones my students use, #line:0d3aba1 
@@ -151,8 +151,7 @@ Could it be yours? #line:0f44535
 
 title: school_2_talk
 position: 734,-24
-tags: actor=GUIDE
-actor: GUIDE
+actor: GUIDE_M
 ---
 There it is! Let's go inside and start the lesson. #line:0624437 
 <<action door_open_2>>
@@ -162,7 +161,7 @@ Come in! Your classroom is down the hall. #line:0b91268
 
 title: task_find_classroom
 position: 974,-24
-tags: actor=TUTOR, task
+tags: task
 color: green
 ---
 TASK: Find your classroom. #line:058ddbc 
@@ -178,15 +177,13 @@ Find your class so you can start the lesson.  #line:00e71a9
 
 title: task_class_done
 position: 1207,-20
-tags: actor=TUTOR
 ---
 Yes! You can start the lesson now. #line:093e91d 
 ===
 
 title: classroom_1
 position: 1574,-269
-tags: actor=MAN
-actor: MAN
+actor: ADULT_M
 ---
 This is the CP classroom. #line:08b2774 
 Children start primary school at 6 years old. #line:09bfe7f 
@@ -196,8 +193,7 @@ This is not your class. Try the next door! #line:068e48b
 
 title: classroom_2
 position: 1579,-95
-tags: actor=WOMAN
-actor: WOMAN
+actor: ADULT_F
 ---
 This is CE1, the second year of primary school. #line:08f3ab2 
 This is not your class. Try again! #line:029fd9c 
@@ -206,8 +202,8 @@ This is not your class. Try again! #line:029fd9c
 
 title: classroom_3
 position: 1581,54
-tags: actor=WOMAN
-actor: WOMAN
+actor: ADULT_F
+actor: ADULT_F
 ---
 Hi! This is the CE2 classroom. #line:0bce01a 
 for students who are 8 years old. #line:0b411ce 
@@ -217,8 +213,8 @@ This is not your class, but you are close! #line:0e4aa95
 
 title: classroom_4
 position: 1584,217
-tags: actor=WOMAN_OLD
-actor: OLD_WOMAN
+actor: SENIOR_F
+actor: SENIOR_F
 ---
 Hello! This is CM1, the second-to-last year of primary school. #line:0532330 
 Your class is just over there! #line:00f6294 
@@ -227,9 +223,9 @@ Your class is just over there! #line:00f6294
 
 title: classroom_5
 position: 1585,387
-tags: actor=GUIDE
+actor: GUIDE_F
 color: purple
-actor: GUIDE
+actor: GUIDE_M
 ---
 There you are! Welcome to CM2! #line:02797f8 
 Let's start. #line:0f90123 
@@ -249,7 +245,7 @@ Match each tool to the shape it draws. #line:052d22a
 
 title: activity_match_done
 position: 1838,385
-tags: actor=GUIDE
+actor: GUIDE_F
 color: purple
 ---
 <<if GetActivityResult("match_shapes") > 0>>
@@ -265,7 +261,8 @@ Not quite right. Try again. #line:0a5c8f1
 
 title: task_backpack
 position: 976,-282
-tags: actor=GUIDE, task
+actor: GUIDE_F
+tags:  task
 color: green
 ---
 Find your backpack and then come back. #line:0e3ad75 
@@ -274,7 +271,7 @@ Find your backpack and then come back. #line:0e3ad75
 
 title: task_backpack_done
 position: 1205,-281
-tags: actor=TUTOR
+actor: 
 ---
 Task completed! You can enter the school. #line:063f354  
 <<set $got_backpack = true>>
@@ -289,7 +286,8 @@ Find your backpack so you can go to school.  #line:00faf2f
 
 title: school_canteen
 position: 1830,-269
-tags: actor=WOMAN_OLD, 
+actor: SENIOR_F
+tags:  
 color: yellow
 ---
 Hello! I hope you are registered for the canteen. #line:021132d 
@@ -301,7 +299,7 @@ Enjoy your meal! #line:0671097
 
 title: school_charte
 position: 1830,-98
-tags: actor=TUTOR
+actor: 
 color: yellow
 tags: item
 ---

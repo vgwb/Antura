@@ -94,7 +94,7 @@ title: poland_npc
 position: 472,-1288
 color: blue
 group: poland
-tags: actor=KID_F
+actor: KID_F
 ---
 <<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
     <<jump poland_npc_win>>
@@ -144,7 +144,8 @@ title: item_flag_poland
 position: 1152,-1293
 group: poland
 color: yellow
-tags: actor=TUTOR, asset=flag_poland
+actor:
+tags:  asset=flag_poland
 ---
 <<card flag_poland>>
 Flag of Poland.  #line:07ca581 
@@ -155,7 +156,7 @@ Flag of Poland.  #line:07ca581
 
 title: poland_npc_win
 position: 819,-1478
-tags: actor=KID_F
+actor: KID_F
 color: purple
 ---
 Good job! You did it! #line:0ba3c4c 
@@ -174,7 +175,7 @@ title: germany_npc
 position: 481,-1056
 color: blue
 group: germany
-tags: actor=MAN
+actor: ADULT_M
 ---
 <<if $germany_completed>>
     <<card flag_germany>>
@@ -255,7 +256,7 @@ tags:
 title: task_belarus
 position: 880,-840
 group: belarus
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_belarus>>
@@ -273,7 +274,7 @@ It's red and green, with a pattern on the left!  #line:05c6081
 title: czech_republic_npc
 position: 506,-622
 group: czech_republic
-tags: actor=KID_M
+actor: KID_M
 color: blue
 ---
 <<if $czech_completed>>
@@ -304,7 +305,7 @@ color: blue
 title: task_czech_republic
 position: 843,-617
 group: czech_republic
-tags: actor=KID_M
+actor: KID_M
 ---
 <<if $EASY_MODE == true>>
     <<card flag_czech_republic>>
@@ -322,7 +323,7 @@ It's white and red with a blue triangle. #line:03cb303
 title: lithuania_npc
 position: 508,-395
 group: lithuania
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 color: blue
 ---
 <<if $lithuania_completed>>
@@ -355,7 +356,7 @@ color: blue
 title: task_lithuania
 position: 838,-385
 group: lithuania
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_lithuania>>
@@ -370,7 +371,7 @@ title: item_flag_lithuania
 position: 1119,-372
 group: lithuania
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card flag_lithuania>>
 Flag of Lithuania.  #line:0942331 
@@ -387,7 +388,7 @@ title: ukraine_npc
 position: 532,-164
 group: ukraine
 color: blue
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 <<if $ukraine_completed>>
     <<card flag_ukraine>>
@@ -419,7 +420,7 @@ tags: actor=MAN_OLD
 title: task_ukraine
 position: 881,-165
 group: ukraine
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_ukraine>>
@@ -434,7 +435,7 @@ title: item_flag_ukraine
 position: 1211,-165
 group: ukraine
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card flag_ukraine>>
 Flag of Ukraine.  #line:0805b90 
@@ -450,7 +451,7 @@ Flag of Ukraine.  #line:0805b90
 title: npc_slovakia
 position: 546,76
 group: slovakia
-tags: actor=WOMAN
+actor: ADULT_F
 color: blue
 ---
 <<if $slovakia_completed>>
@@ -481,7 +482,7 @@ color: blue
 title: task_slovakia
 position: 903,83
 group: slovakia
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_slovakia>>
@@ -501,7 +502,8 @@ title: russia
 position: 512,877
 color: blue
 group: russia
-tags: actor=MAN_BIG
+actor: SENIOR_M
+tags: 
 ---
 Hello, I'm Russia. #line:065c41c 
 This is just a tiny part of the big country. #line:0a4bae4 
@@ -514,7 +516,7 @@ title: item_flag_belarus
 position: 1174,-826
 color: yellow
 group: belarus
-tags: actor=TUTOR
+actor: 
 ---
 <<card flag_belarus>>
 Flag of belarus #line:006ce10 
@@ -527,7 +529,7 @@ title: item_flag_germany
 position: 1157,-1052
 group: germany
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card flag_germany>>
 Flag of Germany. #line:05ff51a 
@@ -540,7 +542,7 @@ title: item_flag_czech_republic
 position: 1104,-613
 group: czech_republic
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card flag_czech_republic>>
 Flag of Czech Republic. #line:0fdc68b 
@@ -553,7 +555,7 @@ title: item_flag_slovakia
 position: 1234,86
 group: slovakia
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card flag_slovakia>>
 Flag of slovakia. #line:0768ab7 

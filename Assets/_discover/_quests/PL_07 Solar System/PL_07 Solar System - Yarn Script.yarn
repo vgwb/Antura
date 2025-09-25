@@ -64,7 +64,7 @@
 title: quest_start
 position: 0,0
 group: Intro
-tags: actor=Guide
+actor: NARRATOR
 image: torun_street
 color: red
 type: panel
@@ -85,6 +85,8 @@ title: quest_end
 position: 234,7
 panel: panel_endgame
 color: green
+actor: NARRATOR
+
 ---
 Great work on this quest. #line:0a0a2ce 
 <<card solar_system>>
@@ -98,6 +100,7 @@ position: 236,184
 panel: panel
 color: green
 tags: proposal
+actor: NARRATOR
 ---
 Draw the 8 PLANETS with the SUN in center. #line:064c54e 
 <<quest_end>>
@@ -110,7 +113,7 @@ Draw the 8 PLANETS with the SUN in center. #line:064c54e
 title: COPERNICUS_OUTSIDE
 position: 162,-138
 group: Intro
-tags: actor=Scientist
+actor: SENIOR_M
 ---
 <<action card nicolaus_copernicus_house>>
 Hello! I am NICOLAUS COPERNICUS. #line:0c5050d 
@@ -132,7 +135,7 @@ tags:
 title: AFTER_PLANETS_ORDER
 position: 600,0
 group: SolarSystem
-tags: actor=Copernicus
+actor: SENIOR_M
 ---
 Well done! #line:06ea147 
 Long ago, people put EARTH in the center. #line:0af451b 
@@ -143,7 +146,7 @@ I found the SUN is in the center. #line:0392dfd
 title: INSIDE_MUSEUM
 position: 800,0
 group: Museum
-tags: actor=Guide
+actor: GUIDE_F
 image: museum_hall
 ---
 <<card solar_system>>
@@ -159,7 +162,7 @@ Clean the TELESCOPE. #line:0c22e2c
 title: TELESCOPE_DIRTY
 position: 1000,0
 group: Museum
-tags: actor=Narrator
+actor: NARRATOR
 image: telescope_lens_dirty
 ---
 <<activity cleancanvas telescope_lens_clean tutorial>>
@@ -169,7 +172,7 @@ image: telescope_lens_dirty
 title: telescope_lens_clean_done
 position: 1000,0
 group: Museum
-tags: actor=Narrator
+actor: NARRATOR
 ---
 Great job cleaning the lens!  #line:06ba2c4 
 Now we can see the planets better. #line:0dd17cf 
@@ -179,7 +182,7 @@ Now we can see the planets better. #line:0dd17cf
 title: TELESCOPE_EXPLAIN
 position: 1200,0
 group: Museum
-tags: actor=Copernicus
+actor: SENIOR_M
 ---
 <<card telescope>>
 A TELESCOPE helps us see far. #line:0314ed5 
@@ -192,7 +195,7 @@ A PLANETARIUM shows the sky indoors. #line:0cab30b
 title: TELESCOPE_PARTS
 position: 1400,0
 group: Museum
-tags: actor=Narrator
+actor: NARRATOR
 ---
 <<activity memory telescope_parts tutorial>>
 -> Piano memory #line:0db50a7 
@@ -205,7 +208,7 @@ tags: actor=Narrator
 title: PIANO_INTRO
 position: 1600,0
 group: Museum
-tags: actor=Copernicus
+actor: SENIOR_M
 image: planet_piano_card
 ---
 Music helps memory. #line:08d3111 
@@ -216,7 +219,7 @@ Play the PLANET order tune. #line:0471676
 title: PIANO_PLAY
 position: 1800,0
 group: Museum
-tags: actor=Narrator
+actor: NARRATOR
 ---
 <<activity piano planet_order_song tutorial>>
 -> Find PLANETS #line:013de52 
@@ -228,7 +231,7 @@ tags: actor=Narrator
 title: FIND_PLANETS
 position: 0,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: solar_model_center
 ---
 <<card astronomy>>
@@ -241,7 +244,7 @@ They appear in the model when found. #line:00d6fdf
 title: PLANET_MERCURY
 position: 200,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_mercury
 ---
 <<card mercury>>
@@ -256,7 +259,7 @@ It goes around very fast. #line:03c1c86
 title: PLANET_VENUS
 position: 400,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_venus
 ---
 <<card venus>>
@@ -271,7 +274,7 @@ Thick clouds cover it. #line:0244228
 title: PLANET_EARTH
 position: 600,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_earth
 ---
 <<card earth>>
@@ -287,7 +290,7 @@ It has land, air, and seas. #line:032ae50
 title: PLANET_MARS
 position: 800,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_mars
 ---
 <<card mars>>
@@ -304,7 +307,7 @@ It has big volcanoes. #line:0bc9c83
 title: PLANET_JUPITER
 position: 1000,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_jupiter
 ---
 <<card jupiter>>
@@ -321,7 +324,7 @@ It has a Great Red Spot. #line:094d7dd
 title: PLANET_SATURN
 position: 1200,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_saturn
 ---
 <<card saturn>>
@@ -338,7 +341,7 @@ Many MOONS orbit it. #line:00a70f4
 title: PLANET_URANUS
 position: 1400,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_uranus
 ---
 <<card uranus>>
@@ -354,7 +357,7 @@ It looks blue‑green. #line:01e724d
 title: PLANET_NEPTUNE
 position: 1600,220
 group: SolarSystem
-tags: actor=Guide
+actor: GUIDE_F
 image: planet_neptune
 ---
 <<card neptune>>
@@ -371,7 +374,7 @@ It is deep blue. #line:0584147
 title: ALL_PLANETS_FOUND
 position: 1800,220
 group: SolarSystem
-tags: actor=Copernicus
+actor: SENIOR_M
 image: solar_model_finale
 ---
 You found all 8 PLANETS. #line:0d91787 
@@ -382,7 +385,7 @@ Now rescue ANTURA! #line:0896149
 title: RESCUE_ANTURA_GUIDE
 position: 1726,713
 group: Finale
-tags: actor=Guide
+actor: GUIDE_F
 image: antura_trail
 
 ---
@@ -392,7 +395,7 @@ ANTURA is free! #line:0294715
 title: RESCUE_ANTURA_COP
 position: -21,1066
 group: End
-tags: actor=Copernicus
+actor: SENIOR_M
 image: antura_rescued
 ---
 Thank you for your help. #line:0d7e5be 
@@ -402,7 +405,7 @@ Remember that the SUN is in the center. #line:0b0e4bf
 title: FINAL_QUIZ
 position: 372,1108
 group: End
-tags: actor=Narrator
+actor: NARRATOR
 image: quiz_solar_system
 ---
 Answer the questions. #line:08bea58 
@@ -421,17 +424,17 @@ group: End
 color: red
 ---
 Well done! #line:03529aa 
-
+===
 ///////// NPCs SPAWNED IN THE SCENE //////////
 // these npc are spawn automatically in the scene
 // use these to add random facts. everythime you meet them
 // they will say one of these lines randomly
 
-title: spawned_child #line:0ab69a2 
-position: 900,1400 #line:0d47d3c 
-group: Spawned #line:0d190d0 
-tags: actor=Child #line:00c76ad 
---- #line:06824fe 
+title: spawned_child
+position: 900,1400
+group: Spawned
+actor: KID_M
+---
 => I saw blue NEPTUNE. #line:0db085c 
 => Rings on SATURN shine. #line:0a7ab40 
 ===
@@ -439,7 +442,7 @@ tags: actor=Child #line:00c76ad
 title: spawned_student
 position: 1080,1400
 group: Spawned
-tags: actor=Student
+actor: KID_F
 ---
 => Planets move around SUN. #line:0275852 
 => the MOON is our satellite. #line:07430b2 

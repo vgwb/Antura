@@ -40,6 +40,7 @@ title: quest_start
 position: 0,0
 tags:
 type: panel
+actor: NARRATOR
 ---
 <<set $MAX_PROGRESS = 4>>
 <<set $CURRENT_PROGRESS = 0>>
@@ -51,10 +52,19 @@ type: panel
 Welcome to the music quest! #line:0e2f565 
 ===
 
+title: quest_end
+position: 1040,60
+color: purple
+actor: NARRATOR
+---
+Good job! #line:03e7bc4 
+<<card marseillaise_music zoom>>
+<<quest_end>>
+===
 
 title: band_member
 position: 275,-57
-tags: actor=MAN
+actor: ADULT_M
 ---
 <<if $quest1 == true>>
     <<if $activity1 == false>>
@@ -76,12 +86,13 @@ Find the notes of the script. #line:0c9616b
 
 title: jean_michelle_jarre
 position: 279,122
+actor: ADULT_M
 tags: 
 ---
 <<if $activity2 == true>>
     Great job! #line:0227e33 
     Let's try to play it! #line:0501e94 
-    <<jump win>>
+    <<jump quest_end>>
 <<elseif $quest2 == true >>
     Thank you! The words of the French Hymn are important. #line:025e35b 
     The French National Anthem, "La Marseillaise" rapresents France and its people. #line:0e4484d 
@@ -145,7 +156,7 @@ Well done! You played "La Marseillaise"! #line:0a5f3e1
 
 title: item_marseillaise_1
 position: 520,-120
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card marseillaise_1>>
@@ -165,7 +176,7 @@ It says "De la patrie" #line:0265e2d
 
 title: item_marseillaise_3
 position: 760,-120
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card marseillaise_3>>
@@ -175,7 +186,7 @@ It says "Le jour de la gloire" #line:0d4d50b
 
 title: item_marseillaise_4
 position: 880,-120
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card marseillaise_4>>
@@ -185,7 +196,7 @@ It says "Est arrivé" #line:06d83a3
 
 title: item_note_do
 position: 520,-240
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card note_do>>
@@ -212,7 +223,7 @@ color: yellow
 
 title: item_note_fa
 position: 880,-240
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card note_fa>>
@@ -221,7 +232,7 @@ color: yellow
 
 title: item_note_sol
 position: 1000,-240
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card note_sol>>
@@ -230,7 +241,7 @@ color: yellow
 
 title: item_note_la
 position: 1120,-240
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card note_la>>
@@ -239,7 +250,7 @@ color: yellow
 
 title: item_note_si
 position: 1240,-240
-tags: actor=TUTOR
+actor: 
 color: yellow
 ---
 <<card note_si>>
@@ -249,7 +260,7 @@ color: yellow
 title: facts_notes
 position: 1040,-60
 color: purple
-actor: TUTOR
+actor: ADULT_M
 ---
 <<card musical_score>>
 These are 7 notes: Do Re Mi Fa Sol La Si. #line:057ed8c 
@@ -260,7 +271,7 @@ We use notes to write songs. #line:0d7a884
 title: facts_marseillaise
 position: 1040,60
 color: purple
-actor: TUTOR
+actor: ADULT_M
 ---
 <<card marseillaise_music>>
 The anthem was written in 1792. #line:0edd950 
@@ -276,7 +287,7 @@ Music can unite people. #line:01d4688
 title: secret_ll
 position: 1040,60
 color: purple
-actor: TUTOR
+actor: ADULT_M
 ---
 You found me! #line:0d732f4 
 <<card arc_de_triomphe zoom>>
@@ -286,12 +297,3 @@ I'll reward you with some more cookies! #line:0bb0568
 
 ===
 
-title: win
-position: 1040,60
-color: purple
-actor: TUTOR
----
-Good job! #line:03e7bc4 
-<<card marseillaise_music zoom>>
-<<quest_end >>
-===

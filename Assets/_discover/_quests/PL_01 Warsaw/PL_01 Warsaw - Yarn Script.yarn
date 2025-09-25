@@ -131,7 +131,7 @@ Point to Warsaw on a map of Poland. #line:056b063
 ===
 
 title: GUIDE_INTRO
-tags: actor=Guide
+actor: GUIDE_F
 group: Warsaw
 ---
 <<card warsaw_city_gate>>
@@ -141,7 +141,7 @@ Start with the Mermaid of Warsaw by the river. #line:0303973
 ===
 
 title: MERMAID_SQUARE
-tags: actor=Mermaid
+actor: ADULT_F
 group: Warsaw
 ---
 <<card warsaw_mermaid_plaza>>
@@ -156,7 +156,7 @@ Follow the music. #line:00591a8
 ===
 
 title: CHOPIN_MONUMENT
-tags: actor=Chopin
+actor: ADULT_M
 group: Warsaw
 ---
 <<card warsaw_chopin_monument>>
@@ -171,7 +171,7 @@ Keep going. The Mermaid needs her sword back. #line:0f18f1a
 ===
 
 title: WARS_AND_SAWA
-tags: actor=Wars
+actor: ADULT_M
 group: Warsaw
 ---
 <<card warsaw_wars_statue>>
@@ -181,7 +181,7 @@ Please bring her back. #line:0fac801
 ===
 
 title: SAWA_BY_WISLA
-tags: actor=Sawa
+actor: ADULT_F
 group: Warsaw
 ---
 <<card warsaw_wisla_river>>
@@ -191,7 +191,7 @@ Let’s go back to Wars. #line:071d7d4
 ===
 
 title: WARS_SAWA_LEGEND
-tags: actor=Wars
+actor: ADULT_M
 group: Warsaw
 ---
 <<card warsaw_wars_sawa_back>>
@@ -201,7 +201,7 @@ Find King Sigismund’s column next. #line:023e2de
 ===
 
 title: SIGISMUND_COLUMN
-tags: actor=King_Sigismund
+actor: SENIOR_M
 group: Warsaw
 ---
 <<card warsaw_sigismund_column>>
@@ -215,7 +215,7 @@ Go to the Parliament. The Mermaid’s sword is there. #line:0fe293d
 ===
 
 title: PRESIDENT_PARLIAMENT
-tags: actor=President
+actor: ADULT_M
 group: Warsaw
 ---
 <<card warsaw_sejm>>
@@ -231,7 +231,7 @@ Here is the Mermaid’s sword. Please return it. #line:09a7cf5
 ===
 
 title: MERMAID_RETURN
-tags: actor=Mermaid
+actor: ADULT_F
 group: Warsaw
 ---
 <<card warsaw_mermaid_sword>>
@@ -242,7 +242,7 @@ Please check it. #line:0c28f2d
 ===
 
 title: PALACE_CULTURE_MARIA
-tags: actor=Maria_Curie
+actor: ADULT_F
 group: Warsaw
 ---
 <<card warsaw_palace_culture>>
@@ -256,7 +256,7 @@ I heard noise at the National Stadium. #line:0762923
 ===
 
 title: NATIONAL_STADIUM
-tags: actor=Robert_Lewandowski
+actor: ADULT_M
 group: Warsaw
 ---
 <<card warsaw_national_stadium>>
@@ -270,7 +270,7 @@ Independence Day is on 11 November. #line:09c2e0c
 ===
 
 title: GUIDE_OUTRO
-tags: actor=Guide
+actor: GUIDE_F
 type: panel
 group: Warsaw
 ---
@@ -281,7 +281,7 @@ Keep exploring Poland! #line:0aeb8fb
 ===
 
 title: FINAL_QUIZ
-tags: actor= Narrator
+actor: NARRATOR
 type: quiz
 group: Quiz
 ---
@@ -299,7 +299,7 @@ Well done! #line:08f99a0
 title: FACTS_TRANSPORT
 position: 1200,0
 color: purple
-actor: Guide
+actor: GUIDE_F
 group: Warsaw
 ---
 <<card tram>>
@@ -312,7 +312,7 @@ You can also ride a bike. #line:0a01a9a
 title: FACTS_HISTORY
 position: 1200,120
 color: purple
-actor: Guide
+actor: GUIDE_F
 group: Warsaw
 ---
 <<card warsaw_sigismund_column>>
@@ -324,7 +324,7 @@ May 3 is a special day. #line:0d4bfcd
 title: FACTS_SCIENCE
 position: 1200,240
 color: purple
-actor: Guide
+actor: GUIDE_F
 group: Warsaw
 ---
 <<card maria_skodowskacurie>>
@@ -336,7 +336,7 @@ Copernicus studied the sky. #line:057e76e
 title: FACTS_SYMBOLS
 position: 1200,360
 color: purple
-actor: Guide
+actor: GUIDE_F
 group: Warsaw
 ---
 <<card warsaw_mermaid_plaza>>
@@ -355,7 +355,7 @@ This tall building has museums. #line:034f607
 title: spawned_warsaw_local
 position: -300,50
 color: purple
-actor: WOMAN
+actor: ADULT_F
 spawn_group: warsaw_locals
 ---
 => Warsaw has the Wisła River. #line:004922a 
@@ -367,7 +367,7 @@ spawn_group: warsaw_locals
 title: spawned_warsaw_guide
 position: -300,140
 color: purple
-actor: MAN
+actor: ADULT_M
 spawn_group: warsaw_guides
 ---
 => Chopin wrote piano music. #line:0016e94 

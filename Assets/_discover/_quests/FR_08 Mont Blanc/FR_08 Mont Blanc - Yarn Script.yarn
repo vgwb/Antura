@@ -57,14 +57,17 @@ title: quest_start
 position: 0,0
 type: panel
 color: red
+actor: NARRATOR
 ---
 <<set $COLLECTED_ITEMS = 0>>
+Welcome to the Mont Blanc!
 ===
 
 title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
+actor: NARRATOR
 ---
 You reached Mont Blanc and learned summit facts! #line:0b99e77 
 You placed all three flags. #line:057afc7 
@@ -80,6 +83,7 @@ position: 236,184
 color: green
 panel: panel
 tags: proposal
+actor: NARRATOR
 ---
 Why don't you draw Mont Blanc with the three flags. #line:0232ab7 
 <<quest_end>>
@@ -97,7 +101,7 @@ and put the 3 flags correctly #line:07f2699
 
 title: item_backpack
 position: 1300,0
-tags: actor=TUTOR asset=backpack
+actor: 
 ---
 <<card backpack>>
 This backpack carries food, water and a map. #line:05e80cb 
@@ -106,7 +110,7 @@ It keeps hands free while hiking. #line:06d7fcf
 
 title: item_coat
 position: 1500,0
-tags: actor=TUTOR asset=coat
+actor: 
 ---
 <<card coat>>
 This coat keeps your body warm in wind and snow. #line:0e23f1f 
@@ -115,7 +119,7 @@ Always zip it up high. #line:06fe689
 
 title: item_gloves
 position: 1700,0
-tags: actor=TUTOR asset=gloves
+actor: 
 ---
 <<card gloves>>
 Gloves keep fingers warm and dry. #line:0f2aac7 
@@ -124,7 +128,7 @@ Cold hands make climbing hard. #line:0d01879
 
 title: item_hat
 position: 1900,0
-tags: actor=TUTOR asset=hat
+actor: 
 ---
 <<card hat>>
 A warm hat keeps heat from leaving your head. #line:000fc05 
@@ -133,7 +137,7 @@ Wear it even in bright sun. #line:059d744
 
 title: item_rope
 position: 2100,0
-tags: actor=TUTOR asset=rope
+actor: 
 ---
 <<card rope>>
 The rope helps climbers stay safe on ice and rock. #line:038d1bc 
@@ -142,7 +146,7 @@ Always clip it correctly. #line:0b3d07e
 
 title: item_scarf
 position: 2300,0
-tags: actor=TUTOR asset=scarf
+actor:
 ---
 <<card scarf>>
 A scarf blocks wind on your neck. #line:0afb2dc 
@@ -151,7 +155,7 @@ Tuck it so it will not flap. #line:07cb76f
 
 title: item_sunglasses
 position: 2500,0
-tags: actor=TUTOR asset=sunglasses
+actor: 
 ---
 <<card sunglasses>>
 Snow and ice reflect bright sun. #line:02a2ea9 
@@ -160,22 +164,25 @@ Glasses protect your eyes. #line:088fb7f
 
 title: flag_france
 position: 660,0
-tags:  asset=flag_france
+tags: 
 ---
+<<card flag_france>>
 Find the French flag. #line:0d23529 
 ===
 
 title: flag_italy
 position: 880,0
-tags:  asset=flag_italy
+tags: 
 ---
+<<card flag_italy>>
+
 Find the Italian flag. #line:050fe70 
 ===
 
 title: flag_swiss
 position: 1100,0
-tags:  asset=flag_swiss
 ---
+<<card flag_swiss>>
 Find the Swiss flag. #line:03db010 
 ===
 
@@ -187,7 +194,7 @@ Find the Swiss flag. #line:03db010
 title: spawned_tourist
 position: -367,1
 color: purple
-actor: 
+actor: ADULT_F
 spawn_group: tourists 
 ---
 => I love the mountains! #line:011dc7e 
@@ -204,7 +211,7 @@ spawn_group: tourists
 title: spawned_hiker
 position: -200,60
 color: purple
-actor:
+actor: ADULT_M
 spawn_group: hikers
 ---
 => Hiking here needs good boots. #line:0dbac73 
@@ -220,7 +227,7 @@ spawn_group: hikers
 title: spawned_alps_climber
 position: -200,120
 color: purple
-actor:
+actor: ADULT_F
 spawn_group: alps_climber
 ---
 => The Alps are my playground. #line:0809dce 

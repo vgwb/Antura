@@ -104,7 +104,7 @@ Show it to a friend. #line:0f16df6
 
 title: intro
 position: 305,14
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 Antura is free but hungry. #line:0382fdb 
 <<card torun_town_hall>>
@@ -116,7 +116,7 @@ We will get food and ingredients. #line:0522f6a
 title: market_hub
 position: 604,-19
 group: market
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 <<card butcher>>
 Visit stands and talk to vendors. #line:0c470ae 
@@ -137,7 +137,7 @@ Visit stands and talk to vendors. #line:0c470ae
 title: shop_grocer
 position: 289,235
 group: market
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 I sell CLOVES, CINNAMON, GINGER. I am a grocer. #line:0a66f1e 
 -> Buy cloves (1zł) #line:0eff39a 
@@ -151,7 +151,7 @@ I sell CLOVES, CINNAMON, GINGER. I am a grocer. #line:0a66f1e
 title: shop_beekeeper
 position: 743,220
 group: market
-tags: actor=MAN
+actor: ADULT_M
 ---
 <<card beekeeper>>
 I sell HONEY. I am a beekeeper. #line:001922d 
@@ -162,7 +162,7 @@ I sell HONEY. I am a beekeeper. #line:001922d
 title: shop_dairy
 position: 1048,217
 group: market
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<card dairy_vendor>>
 I sell MILK and BUTTER. I am a dairy vendor. #line:0acb509 
@@ -175,7 +175,7 @@ I sell MILK and BUTTER. I am a dairy vendor. #line:0acb509
 title: shop_eggs
 position: 1285,220
 group: market
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 <<card egg_vendor>>
 I sell EGGS. I am an egg vendor. #line:03de236 
@@ -186,7 +186,7 @@ I sell EGGS. I am an egg vendor. #line:03de236
 title: shop_greengrocer
 position: 1628,203
 group: market
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 I sell FRUITS and VEG. I am a greengrocer. #line:082b55f 
 Today you need SPICES and baking items. #line:0af9f1e 
@@ -197,7 +197,7 @@ Today you need SPICES and baking items. #line:0af9f1e
 title: shop_cook
 position: 1902,240
 group: market
-tags: actor=MAN
+actor: ADULT_M
 ---
 <<card cook>>
 I sell PIEROGI. #line:0d24718 
@@ -210,7 +210,7 @@ Buy PIEROGI and use my KITCHEN. #line:0eda999
 title: pay_cloves
 position: 89,482
 group: pay
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<card currency_zloty>>
 Select coins to pay 1 zł. #line:019a160 
@@ -231,7 +231,7 @@ tags: type=Variables
 title: pay_cinnamon
 position: 504,459
 group: pay
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<card coins>>
 Select coins to pay 1 zł. #line:055af31 
@@ -252,7 +252,7 @@ tags: type=Variables
 title: pay_ginger
 position: 255,626
 group: pay
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 Select coins to pay 1 zł. #line:0172345 
 <<activity ACTIVITY_MONEY_1 add_ginger_done>>
@@ -272,7 +272,7 @@ tags: type=Variables
 title: pay_honey
 position: 751,470
 group: pay
-tags: actor=MAN
+actor: ADULT_M
 ---
 Select coins to pay 1 zł. #line:0c1dcdb 
 <<activity ACTIVITY_MONEY_1 add_honey_done>>
@@ -291,7 +291,7 @@ tags: type=Variables
 title: pay_milk
 position: 946,480
 group: pay
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Select coins to pay 5 zł. #line:04a5053 
 <<activity ACTIVITY_MONEY_5 add_milk_done>>
@@ -311,7 +311,7 @@ tags: type=Variables
 title: pay_butter
 position: 1113,484
 group: pay
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Select coins to pay 5 zł. #line:0bd010e 
 <<activity ACTIVITY_MONEY_5 add_butter_done>>
@@ -331,7 +331,7 @@ tags: type=Variables
 title: pay_eggs
 position: 1325,470
 group: pay
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 Select coins to pay 10 zł. #line:0bdf451 
 <<activity ACTIVITY_MONEY_10 add_eggs_done>>
@@ -351,7 +351,7 @@ tags: type=Variables
 title: pay_flour
 position: 1540,470
 group: pay
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Select coins to pay 2 zł. #line:0aac231 
 <<activity ACTIVITY_MONEY_2 add_flour_done>>
@@ -371,7 +371,7 @@ tags: type=Variables
 title: pay_pierogi
 position: 1885,492
 group: pay
-tags: actor=COOK
+actor: SENIOR_M
 ---
 <<activity ACTIVITY_MONEY_20 pierogi_done>>
 Select coins to pay 20 zł. #line:0dd43a0 
@@ -388,7 +388,7 @@ tags: type=Variables
 title: flour_hint
 position: 1361,-24
 group: market
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 You can buy FLOUR here. #line:077f3e2 
 -> Buy flour (2zł) #line:00c5178 
@@ -398,7 +398,7 @@ You can buy FLOUR here. #line:077f3e2
 title: go_to_kitchen
 position: 787,1346
 group: kitchen
-tags: actor=MAN
+actor: ADULT_M
 ---
 Great! You have all ingredients and PIEROGI. #line:0dda4ac 
 <<card kitchen>>
@@ -420,7 +420,7 @@ Match GINGERBREAD parts in order. #line:0e54683
 title: GINGERBREAD_ORDER_DONE
 position: 1306,1348
 group: kitchen
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 <<card gingerbread>>
 Good job! GINGERBREAD is ready. #line:0f082d6 
@@ -440,7 +440,7 @@ Order steps: FLOUR EGGS CHEESE POTATOES. #line:01a6d63
 title: PIEROGI_ORDER_DONE
 position: 1847,1317
 group: kitchen
-tags: actor=ANTURA
+actor: SPECIAL
 ---
 Thank you! It is a TORUŃ food. #line:07b1ab4 
 I am happy and full now. #line:0f8e153 
@@ -451,7 +451,7 @@ I am happy and full now. #line:0f8e153
 title: assessment_intro
 position: 1887,1626
 group: assessment
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 Time for a quick check. #line:0bad7e0 
 <<jump assessment_vocab>>
@@ -470,7 +470,7 @@ Match words to pictures #line:04fee1b
 title: VOCAB_MATCH_DONE
 position: 2185,1766
 group: assessment
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 Great work! You helped Antura learn words. #line:0cb84a7 
 <<jump quest_end>>
@@ -484,7 +484,7 @@ Great work! You helped Antura learn words. #line:0cb84a7
 title: spawned_child
 position: 2300,1766
 group: Spawned
-tags: actor=Kid
+actor: KID_F
 ---
 => I like sweet GINGERBREAD. #line:087d4b0 
 => Coins jingle in my bag. #line:0090fb8 
@@ -493,7 +493,7 @@ tags: actor=Kid
 title: spawned_vendor
 position: 2300,1840
 group: Spawned
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 => Fresh EGGS and MILK today. #line:039e272 
 => Pierogi sell very fast. #line:07b9a99 
@@ -502,7 +502,7 @@ tags: actor=MAN_OLD
 title: spawned_tourist
 position: 2300,1910
 group: Spawned
-tags: actor=MAN
+actor: ADULT_M
 ---
 => Old HALL looks so tall. #line:041418b 
 => I will taste PIEROGI. #line:068a9a7 

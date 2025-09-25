@@ -41,6 +41,7 @@ position: 0,0
 tags: 
 color: red
 type: panel
+actor: NARRATOR
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
@@ -52,6 +53,7 @@ title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
+actor: NARRATOR
 ---
 Now you know something about Jules Verne  #line:0174104 
 and his books! #line:0a01f9e 
@@ -63,6 +65,7 @@ position: 236,184
 color: green
 panel: panel
 tags: proposal
+actor: NARRATOR
 ---
 Read one of his books! #line:06521b4 
 <<quest_end>>
@@ -70,7 +73,7 @@ Read one of his books! #line:06521b4
 
 title: talk_guide
 position: 337,219
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 
 <<if $COLLECTED_ITEMS == 0>>
@@ -95,7 +98,7 @@ Explore the house and find four of his books! #line:0aac249
 
 title: task_find_books_done
 position: 1043,219
-tags: actor
+actor: NARRATOR
 ---
 You found all the books! #line:0fc503c 
 GO talk to the guide! #line:01b0c19 
@@ -104,21 +107,24 @@ GO talk to the guide! #line:01b0c19
 
 title: verne_painting
 position: 351,-354
-tags: actor=TUTOR, asset=jules_verne_1
+actor:
+tags:  asset=jules_verne_1
 ---
 This is Jules Verne. He was a writer. #line:096a3b3 
 ===
 
 title: verne_house
 position: 638,-360
-tags: actor=TUTOR, asset=jules_verne_house
+actor:
+tags:  asset=jules_verne_house
 ---
 He was born in Nantes in 1828. #line:003b311 
 ===
 
 title: map_nantes
 position: 894,-362
-tags: actor=TUTOR, asset=map_nantes
+actor:
+tags:  asset=map_nantes
 ---
 This is a map of Nantes. #line:09bcaba 
 ===
@@ -136,7 +142,7 @@ tags:
 
 title: won
 position: 796,-106
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<asset jules_verne_2>>
 Great! You met Jules Verne, #line:099cdca 
@@ -147,7 +153,7 @@ the science fiction writer. #line:05a032e
 title: book_80days
 position: 382,873
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<asset book_80days>>
 This book is "Around the World in 80 Days." #line:03131e3
@@ -165,7 +171,7 @@ This is an old train. #line:0732ebc
 title: npc_train
 position: -360,360
 color: purple
-actor: MAN
+actor: ADULT_M
 ---
 => This old train used STEAM to move.  #line:0d10edc 
     <<card book_around_the_world_80_days>>
@@ -205,7 +211,7 @@ color: purple
 title: book_20000legues
 position: 370,670
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<asset book_underthesea>>
 This book is "20,000 Leagues Under the Seas." #line:03536a1 
@@ -214,7 +220,7 @@ This book is "20,000 Leagues Under the Seas." #line:03536a1
 
 title: paint_20000
 position: 695,699
-tags: actor=TUTOR
+actor: 
 ---
 <<asset submarine>>
 This is a submarine. #line:0f298c2 
@@ -237,7 +243,7 @@ color: purple
 
 title: paint_5weeks
 position: 681,490
-tags: actor=TUTOR
+actor: 
 ---
 <<card balloon>>
 This is a hot air balloon. #line:06a7709 
@@ -246,7 +252,7 @@ This is a hot air balloon. #line:06a7709
 title: book_5weeks
 position: 387,480
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card book_5weeksballoon>>
 This book is "Five Weeks in a Balloon." #line:0934a7c 
@@ -304,7 +310,7 @@ spawn_group: kids
 title: spawned_guide_woman
 position: -360,180
 color: purple
-actor: WOMAN
+actor: ADULT_F
 spawn_group: guides 
 ---
 => Around the World in 80 Days shows many places on Earth. #line:0bcc84d 
@@ -320,7 +326,7 @@ spawn_group: guides
 title: spawned_guide_man
 position: -360,270
 color: purple
-actor: MAN
+actor: ADULT_M
 spawn_group: guides 
 ---
 => From Earth to the Moon tells of a huge space cannon. #line:0f07e41 

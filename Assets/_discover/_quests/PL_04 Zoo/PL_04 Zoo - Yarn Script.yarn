@@ -55,7 +55,7 @@ title: quest_start
 type: panel
 position: -952,-145
 group: Intro
-tags: actor=Man, 
+actor: ADULT_M, 
 image: centennial_hall_empty_flag
 color: red
 ---
@@ -93,7 +93,7 @@ Draw your favorite ANIMAL. #line:0809ac5
 title: director_talk
 position: -951,-5
 group: Intro
-tags: actor=Man, type:Panel
+actor: ADULT_M, type:Panel
 image: centennial_hall_empty_flag
 ---
 <<if $talked_animals == true>>
@@ -106,7 +106,7 @@ image: centennial_hall_empty_flag
 title: director_task
 position: -715,-144
 group: Intro
-tags: actor=Man, type:Panel
+actor: ADULT_M, type:Panel
 image: centennial_hall_empty_flag
 color: green
 ---
@@ -136,7 +136,7 @@ Talk to all the animals. Maybe they know where the flag is. #line:010adc5
 title: animal_peacock
 position: 904,637
 group: ZOO
-tags: actor=Peacock
+actor: SPECIAL
 image: zoo_gate
 ---
 I do not need a FLAG. #line:0085a8a 
@@ -146,7 +146,7 @@ My tail is a FLAG! #line:04fff6b
 title: animal_parrot
 position: 1152,640
 group: ZOO
-tags: actor=Parrot
+actor: SPECIAL
 image: zoo_gate
 ---
 Squawk! Red and yellow ran by! #line:0e84545 
@@ -155,7 +155,7 @@ Squawk! Red and yellow ran by! #line:0e84545
 title: animal_fox
 position: 1152,640
 group: ZOO
-tags: actor=Parrot
+actor: SPECIAL
 image: zoo_gate
 ---
 Hehe! I'm not actually from the zoo. #line:03c4553 
@@ -164,7 +164,7 @@ I didn't see a flag anywhere. #line:074fe29
 
 title: item_chest
 position: 1227,1876
-tags: actor=TUTOR
+actor: 
 group: actions
 color: yellow
 ---
@@ -177,7 +177,7 @@ What a nice surprise! #line:03321d5
 title: elephant_talk
 position: 382,-133
 group: ELEPHANT
-tags: actor=Keeper
+actor: SENIOR_M
 image: elephant_keeper
 color: blue
 ---
@@ -196,7 +196,7 @@ color: blue
 title: elephant_activity_done
 position: 611,-133
 group: ELEPHANT
-tags: actor=Keeper
+actor: SENIOR_M
 image: elephant_keeper
 
 ---
@@ -209,7 +209,7 @@ If I took it I would remember! #line:0f124bf
 title: ELEPHANT_SIGN
 position: 387,11
 group: ELEPHANT
-tags: actor=tutor
+actor: 
 image: elephant_sign
 ---
 ELEPHANT. Thick skin. Big EARS. #line:048e8a1 
@@ -219,7 +219,7 @@ Largest land ANIMAL. #line:0b1cca2
 title: ELEPHANT_KID
 position: 612,13
 group: ELEPHANT
-tags: actor=KID
+actor: KID_F
 image: kid_elephant
 ---
 Its EARS are bigger than me! #line:0fc78ad 
@@ -232,7 +232,7 @@ Can it fan me in summer? #line:004abc7
 title: giraffe_talk
 position: 898,-140
 group: GIRAFFE
-tags: actor=Keeper
+actor: SENIOR_M
 image: giraffe_keeper
 color: blue
 ---
@@ -251,7 +251,7 @@ color: blue
 title: giraffe_activity_done
 position: 1127,-143
 group: GIRAFFE
-tags: actor=Keeper
+actor: SENIOR_M
 image: giraffe_keeper
 ---
 <<inventory animal_elephant add>>
@@ -263,7 +263,7 @@ It is too high for me! #line:02d00e2
 title: GIRAFFE_SIGN
 position: 911,12
 group: GIRAFFE
-tags: actor=Sign
+actor: 
 image: giraffe_sign
 ---
 GIRAFFE. Tall. Long NECK. #line:0a8a73f 
@@ -273,7 +273,7 @@ Long EYELASHES. #line:0291317
 title: GIRAFFE_KID
 position: 1134,0
 group: GIRAFFE
-tags: actor=KID
+actor: KID_F
 image: kid_giraffe
 ---
 With a NECK like that! #line:068daeb 
@@ -286,7 +286,7 @@ I could see my house from here. #line:0bee484
 title: lion_talk
 position: 380,252
 group: LION
-tags: actor=Keeper
+actor: SENIOR_M
 image: lion_keeper
 color: blue
 ---
@@ -307,7 +307,7 @@ color: blue
 title: lion_activity_done
 position: 600,252
 group: LION
-tags: actor=Keeper
+actor: SENIOR_M
 image: lion_keeper
 ---
 <<inventory animal_lion add>>
@@ -319,7 +319,7 @@ I like watching it in wind. #line:01b3593
 title: LION_SIGN
 position: 388,400
 group: LION
-tags: actor=Sign
+actor: 
 image: lion_sign
 ---
 LION. PRIDE = family of lions. #line:0ac6cc0 
@@ -329,7 +329,7 @@ Males have MANES. #line:0d2883b
 title: LION_KID
 position: 616,401
 group: LION
-tags: actor=KID
+actor: KID_F
 image: kid_lion
 ---
 What a roar! #line:079f4e0 
@@ -340,7 +340,7 @@ What a roar! #line:079f4e0
 title: monkey_talk
 position: 900,234
 group: MONKEY
-tags: actor=Keeper
+actor: SENIOR_M
 image: monkey_keeper
 color: blue
 ---
@@ -359,7 +359,7 @@ color: blue
 title: monkey_activity_done
 position: 1123,231
 group: MONKEY
-tags: actor=Keeper
+actor: SENIOR_M
 image: monkey_keeper
 
 ---
@@ -372,7 +372,7 @@ It would be fun to climb that pole. #line:0a43c85
 title: MONKEY_SIGN
 position: 897,392
 group: MONKEY
-tags: actor=Sign
+actor: 
 image: monkey_sign
 ---
 CHIMPANZEE. Great CLIMBER. #line:0900219 
@@ -382,7 +382,7 @@ Loves FRUIT. #line:021b299
 title: MONKEY_KID
 position: 1123,394
 group: MONKEY
-tags: actor=KID
+actor: KID_F
 image: kid_monkey
 ---
 He copied my dance! #line:0bf2346 
@@ -394,7 +394,7 @@ Do CHIMPANZEES wink? #line:0eecdf9
 title: penguin_talk
 position: 385,630
 group: PENGUIN
-tags: actor=Keeper
+actor: SENIOR_M
 image: penguin_keeper
 color: blue
 ---
@@ -413,7 +413,7 @@ color: blue
 title: penguin_activity_done
 position: 605,626
 group: PENGUIN
-tags: actor=Keeper
+actor: SENIOR_M
 image: penguin_keeper
 ---
 <<inventory animal_penguin add>>
@@ -425,7 +425,7 @@ I can't fly, remember? #line:08568f5
 title: PENGUIN_SIGN
 position: 388,783
 group: PENGUIN
-tags: actor=Tutor
+actor: 
 image: penguin_sign
 ---
 PENGUIN. Bird. Swimmer. #line:0877d95 
@@ -435,7 +435,7 @@ Lives near OCEANS. #line:0eac350
 title: PENGUIN_KID
 position: 613,777
 group: PENGUIN
-tags: actor=KID
+actor: KID_F
 image: kid_penguin
 ---
 How cute! #line:0ae73f3 
@@ -444,7 +444,7 @@ It looks neat. #line:05ac327
 
 title: task_animals_done
 position: -451,-152
-tags: actor=TUTOR
+actor: 
 ---
 TASK DONE! Go back to the DIRECTOR. #line:0a93d9b 
 <<set $talked_animals = true>>
@@ -453,7 +453,7 @@ TASK DONE! Go back to the DIRECTOR. #line:0a93d9b
 title: director_task_done
 position: -709,89
 group: Intro
-tags: actor=Man
+actor: ADULT_M
 image: centennial_hall_empty_flag
 color: purple
 ---
@@ -466,7 +466,7 @@ Help me put pieces together. #line:08de86f
 title: RECAP_CARDS
 position: -298,252
 group: Icebox
-tags: actor=Narrator
+actor: NARRATOR
 image: zoo_cards
 ---
 Now match the CARDS. #line:0f6f882 
@@ -475,7 +475,7 @@ Now match the CARDS. #line:0f6f882
 
 title: director_activity_done
 position: -681,268
-tags: actor=Narrator
+actor: NARRATOR
 image: zoo_recap
 ---
 All ANIMALS are innocent. #line:0bc2b46 
@@ -489,7 +489,7 @@ Who took the FLAG? #line:0fc0ab7
 title: RETURN_DIRECTOR
 position: -669,472
 group: End
-tags: actor=ZooDirector
+actor: GUIDE_M
 image: centennial_hall_antura_flag
 ---
 Wait, look! #line:0b3d05f 
@@ -503,7 +503,7 @@ ANTURA has the FLAG! #line:0e24973
 title: CEREMONY_END
 position: -428,479
 group: End
-tags: actor=ZooDirector
+actor: GUIDE_M
 image: flag_on_iglica
 ---
 The FLAG is home. #line:0d91701 

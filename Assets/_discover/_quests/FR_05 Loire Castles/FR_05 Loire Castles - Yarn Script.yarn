@@ -91,7 +91,7 @@ Now draw your favourite castle! #line:0f0bba8
 
 title: talk_guide
 position: 220,0
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 <<if $COLLECTED_ITEMS >= 8>>
 <<jump guide_question>>
@@ -102,7 +102,7 @@ Antura ran away and is hiding in a castle! #line:067c028
 
 title: guide_chinon
 position: 440,0
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<card chinon>>
 This is the castle of Chinon. #line:06eaf5c 
@@ -115,7 +115,8 @@ This castle was used for defense. #line:026073b
 
 title: guide_chambord
 position: 660,0
-tags: actor=WOMAN,
+actor: ADULT_F
+tags: 
 ---
 Welcome to Chambord Castle. #line:0a06d3f 
 <<card chambord>>
@@ -127,7 +128,7 @@ balls, plays, and concerts. #line:07d0b04
 
 title: task_find_knights_items
 position: 880,0
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Find all the things a knight wears: #line:0bfad5e 
 <<card obj_helmet>>
@@ -143,7 +144,7 @@ and armor. #line:08b44fc
 
 title: task_find_prince_items
 position: 1100,0
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 Find all the prince's items: #line:0cb22cb 
 <<card obj_hat>>
@@ -159,7 +160,7 @@ and ball mask. #line:0d2be40
 
 title: guide_question
 position: 1320,0
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 Did you find Antura? #line:01003d0 
 -> YES #line:0d9f509 
@@ -170,7 +171,7 @@ Did you find Antura? #line:01003d0
 
 title: guide_done
 position: 1540,0
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<asset map>>
 Did you like the castles? #line:02a8dd7 
@@ -180,7 +181,8 @@ There are 200 castles like this in the Loire Valley! #line:01e6614
 
 title: view_bridge
 position: 1760,0
-tags: actor=WOMAN, asset=bridge
+actor: ADULT_F
+tags:  asset=bridge
 ---
 <<card bridge>>
 A drawbridge is a kind of movable bridge used in castles. #line:0010896 
@@ -188,7 +190,8 @@ A drawbridge is a kind of movable bridge used in castles. #line:0010896
 
 title: view_parapet
 position: 1980,0
-tags: actor=WOMAN, asset=parapet
+actor: ADULT_F
+tags:  asset=parapet
 ---
 <<card parapet>>
 A parapet has gaps used for defense. #line:0aaf4dd 
@@ -196,7 +199,8 @@ A parapet has gaps used for defense. #line:0aaf4dd
 
 title: obg_helmet
 position: 2200,0
-tags: actor=TUTOR, 
+actor:
+tags:  
 ---
 <<card obj_helmet>>
 a helmet #line:0b492f6 
@@ -204,7 +208,8 @@ a helmet #line:0b492f6
 
 title: obj_hat
 position: 2420,0
-tags: actor=TUTOR, asset=obj_hat
+actor:
+tags:  asset=obj_hat
 ---
 <<card obj_hat>>
 a hat #line:0806c77 
@@ -213,7 +218,8 @@ a hat #line:0806c77
 title: obg_sword
 position: 7,500
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<asset obj_sword>>
 <<card obj_sword>>
@@ -223,7 +229,8 @@ sword #line:0733b81
 title: obg_bow
 position: 260,495
 color: yellow
-tags: actor=TUTOR, item
+actor:
+tags:  item
 ---
 <<card obj_bow>>
 a bow and arrows #line:049d6e8 
@@ -232,7 +239,7 @@ a bow and arrows #line:049d6e8
 title: obg_armor
 position: 555,495
 color: yellow
-tags: actor=TUTOR
+actor: 
 ---
 <<card obj_armor>>
 this is an armor #line:01ac543 
@@ -241,7 +248,7 @@ this is an armor #line:01ac543
 title: view_loopholes
 position: 812,518
 color: yellow
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<card loopholes>>
 These are loopholes. They are used to shoot arrows at the enemy. #line:050e177 
@@ -250,7 +257,8 @@ These are loopholes. They are used to shoot arrows at the enemy. #line:050e177
 
 title: obj_musical_intrument
 position: 1760,140
-tags: actor=TUTOR, asset=obj_musical_instruments
+actor:
+tags:  asset=obj_musical_instruments
 ---
 <<card obj_musical_instruments>>
 a musical instrument #line:07f4c19 
@@ -258,7 +266,8 @@ a musical instrument #line:07f4c19
 
 title: obj_shoes
 position: 1980,140
-tags: actor=TUTOR, asset=obj_dance_shoes
+actor:
+tags:  asset=obj_dance_shoes
 ---
 <<card obj_dance_shoes>>
 dance shoes #line:01ee90f 
@@ -266,7 +275,8 @@ dance shoes #line:01ee90f
 
 title: obj_ball_mask
 position: 2200,140
-tags: actor=TUTOR, asset=obj_ball_mask
+actor:
+tags:  asset=obj_ball_mask
 ---
 <<card obj_ball_mask>>
 a ball mask #line:0071a08 
@@ -274,7 +284,8 @@ a ball mask #line:0071a08
 
 title: view_chambord_map
 position: 2420,140
-tags: actor=TUTOR, asset=chambord_map
+actor:
+tags:  asset=chambord_map
 ---
 <<card map>>
 This is a map of the castle. #line:0b62127 
@@ -282,7 +293,8 @@ This is a map of the castle. #line:0b62127
 
 title: view_chambord_room
 position: 0,280
-tags: actor=TUTOR, asset=chambord_room
+actor:
+tags:  asset=chambord_room
 ---
 <<card chambord>>
 What a room! #line:0f99fd5 
@@ -290,7 +302,8 @@ What a room! #line:0f99fd5
 
 title: view_interior
 position: 220,280
-tags: actor=TUTOR, asset=chambord_interior
+actor:
+tags:  asset=chambord_interior
 ---
 <<card chambord>>
 It is very nice! #line:082ac97 

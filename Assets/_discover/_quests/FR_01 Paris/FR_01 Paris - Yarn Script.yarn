@@ -60,6 +60,7 @@ position: -70,-43
 tags:
 type: panel
 color: red
+actor: NARRATOR
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
@@ -77,6 +78,8 @@ title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
+actor: NARRATOR
+
 ---
 Great! I can bake the baguette now. #line:0017917 
 Congratulations! You won the game! Did you like it? #line:0d11596 
@@ -88,6 +91,8 @@ position: 80,307
 color: green
 panel: panel
 tags: proposal
+actor: NARRATOR
+
 ---
 Why don't you draw the Eiffel Tower? #line:002620f 
 <<quest_end>>
@@ -96,7 +101,7 @@ Why don't you draw the Eiffel Tower? #line:002620f
 
 title: talk_tutor
 position: 300,-663
-actor: tutor
+actor:
 color: blue
 ---
 I saw Antura go to the Eiffel Tower. #line:talk_tutor
@@ -109,7 +114,7 @@ Go there now! #line:talk_tutor_3
 title: talk_eiffell_roof
 position: 319,-444
 group: toureiffel
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 <<asset toureiffell>>
 The Eiffel Tower is 300 meters tall. #line:08c1973 
@@ -127,7 +132,7 @@ Go there! #line:083b3bf
 title: talk_eiffell_guide
 position: 584,-443
 group: toureiffel
-actor: guide
+actor: GUIDE_F
 ---
 <<if $TOTAL_COINS > 2>>
     Here is your ticket. #line:04e74ad 
@@ -147,7 +152,7 @@ actor: guide
 title: talk_notre_dame
 position: 327,-203
 group: notredame
-tags: actor=MAN_OLD, asset=notredame
+actor: SENIOR_M
 ---
 I am the mayor of Paris. #line:0cc11fa 
 This is Notre-Dame Cathedral. #line:06f3fa2 
@@ -161,7 +166,7 @@ Come with me to the roof! #line:083dfcc
 title: talk_notre_dame_roof
 position: 638,-205
 group: notredame
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 <<asset notredame_fire>>
 There was a big fire in 2019, but we repaired it. #line:09a0ead 
@@ -183,7 +188,7 @@ Isn't it scary? #line:0b5d057
 title: talk_louvre_external
 position: 320,61
 group: louvre
-actor: OLD_WOMAN
+actor: SENIOR_F
 ---
 <<if $MET_MONALISA>>
     <<card go_bakery>>
@@ -203,7 +208,7 @@ Do you want to go in? #line:0f74ff9
 title: talk_louvre_guide
 position: 749,285
 group: louvre
-tags: actor=WOMAN
+actor: ADULT_F
 color: blue
 ---
 Welcome to the Louvre. What do you want to do? #line:0e6d2a5 
@@ -222,7 +227,7 @@ title: louvre_monalisa
 position: 320,589
 group: louvre
 color: yellow
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<asset monalisa>>
 This is the famous Mona Lisa. #line:louvre_monalisa_1
@@ -236,7 +241,7 @@ title: louvre_liberty
 position: 322,431
 group: louvre
 color: yellow
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<asset liberty_leading>>
 This painting represents freedom. #line:louvre_liberty_1
@@ -248,7 +253,7 @@ title: louvre_venus
 position: 323,272
 group: louvre
 color: yellow
-tags: actor=WOMAN, 
+actor: ADULT_F
 ---
 <<asset venusmilo>>
 This is the Venus de Milo, an ancient Greek statue. #line:053d4fe 
@@ -257,7 +262,7 @@ This is the Venus de Milo, an ancient Greek statue. #line:053d4fe
 
 title: npc_louvre_pyramid
 position: -120,250
-tags: actor=GUIDE
+actor: GUIDE_F
 color: purple
 spawn_group: louvre
 ---
@@ -268,7 +273,7 @@ It was built in the 1980s to welcome more visitors. #line:fr01_pyramid_2
 
 title: npc_code_of_hammurabi
 position: -110,240
-tags: actor=GUIDE
+actor: GUIDE_F
 color: purple
 spawn_group: louvre
 ---
@@ -279,7 +284,7 @@ They were written almost 4,000 years ago. #line:fr01_hammurabi_2
 
 title: npc_coronation_of_napoleon_david
 position: -100,230
-tags: actor=GUIDE
+actor: GUIDE_M
 color: purple
 spawn_group: louvre
 ---
@@ -290,7 +295,7 @@ The artist Jacques-Louis David painted many details. #line:fr01_coronation_2
 
 title: npc_oath_of_the_horatii_david
 position: -90,220
-tags: actor=GUIDE
+actor: GUIDE_M
 color: purple
 spawn_group: louvre
 ---
@@ -301,7 +306,7 @@ It teaches duty and courage from ancient Rome. #line:fr01_horatii_2
 
 title: npc_the_seated_scribe
 position: -80,210
-tags: actor=GUIDE
+actor: GUIDE_F
 color: purple
 spawn_group: louvre
 ---
@@ -312,7 +317,7 @@ His eyes look very real and bright. #line:fr01_scribe_2
 
 title: npc_winged_victory_of_samothrace
 position: -70,200
-tags: actor=GUIDE
+actor: GUIDE_M
 color: purple
 spawn_group: louvre
 ---
@@ -326,7 +331,7 @@ The wind shapes its clothes and wings. #line:fr01_victory_2
 title: talk_cook
 position: 334,976
 group: bakery
-actor: CRAZY_MAN
+actor: SENIOR_M
 ---
 <<if $COLLECTED_ITEMS >= 4>>
     <<jump quest_end>>
@@ -345,7 +350,7 @@ actor: CRAZY_MAN
 title: visit_louvre
 position: 748,580
 group: louvre
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<asset louvre_inside>>
 There are many statues and paintings here. #line:08dc97f 
@@ -356,7 +361,7 @@ There are many statues and paintings here. #line:08dc97f
 title: find_monalisa
 position: 1120,434
 group: louvre
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 
 <<action monalisa>>
@@ -366,7 +371,7 @@ Go find the Mona Lisa! #line:0442392
 title: go_bakery
 position: 605,64
 group: louvre
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
  
 Now look for Antura! It went to the bakery for a baguette! #line:076ef0f 
@@ -377,7 +382,7 @@ title: baguette_salt
 position: 846,1165
 group: bakery
 color: yellow
-tags: actor=MAN_BIG
+actor: SENIOR_M
 ---
 <<action COLLECT_1>>
 <<card baguette_salt>>
@@ -389,7 +394,7 @@ title: baguette_flour
 position: 1080,1165
 group: bakery
 color: yellow
-tags: actor=MAN_BIG
+actor: SENIOR_M
 ---
 <<action COLLECT_2>>
 <<card baguette_flour>>
@@ -401,7 +406,7 @@ title: baguette_water
 position: 581,1166
 group: bakery
 color: yellow
-tags: actor=MAN_BIG
+actor: SENIOR_M
 ---
 <<action COLLECT_3>>
 <<card baguette_water>>
@@ -412,7 +417,7 @@ title: baguette_yeast
 position: 334,1160
 group: bakery
 color: yellow
-tags: actor=MAN_BIG
+actor: SENIOR_M
 ---
 <<action COLLECT_4>>
 <<card baguette_yeast>>
@@ -428,7 +433,7 @@ This is yeast. #line:025865d
 
 title: npc_french_guide
 position: -284,321
-tags: actor=WOMAN
+actor: ADULT_F
 color: purple
 spawn_group: generic
 
@@ -447,7 +452,7 @@ Hello. What do you want to know? #line:0070084
 
 title: spawned_eiffell_tourist
 position: -284,321
-tags: actor=WOMAN
+actor: ADULT_M
 color: purple
 spawn_group: eiffel_tower
 ---
@@ -461,7 +466,7 @@ spawn_group: eiffel_tower
 
 title: spawned_man
 position: -286,162
-tags: actor=MAN
+actor: ADULT_M
 color: purple
 spawn_group: generic
 ---
@@ -480,7 +485,7 @@ Do you have questions? #line:07b94e9
 
 title: spawned_kid_m
 position: -571,-106
-tags: actor=KID_M
+actor: KID_M
 color: purple
 spawn_group: kids
 ---
@@ -489,7 +494,7 @@ spawn_group: kids
 ===
 title: spawned_kid_f
 position: -571,-106
-tags: actor=KID_F
+actor: KID_F
 color: purple
 spawn_group: kids
 ---
@@ -499,7 +504,7 @@ spawn_group: kids
 
 title: npc_louvre_museum
 position: -60,260
-tags: actor=GUIDE
+actor: GUIDE_F
 color: purple
 spawn_group: louvre
 ---
@@ -511,7 +516,7 @@ spawn_group: louvre
 
 title: npc_notredame_base
 position: -40,180
-tags: actor=GUIDE
+actor: GUIDE_M
 color: purple
 spawn_group: notredame
 ---
@@ -522,7 +527,7 @@ spawn_group: notredame
 
 title: npc_notredame_roof
 position: -30,170
-tags: actor=GUIDE
+actor: GUIDE_M
 color: purple
 spawn_group: notredame_roof
 ---
@@ -533,7 +538,7 @@ spawn_group: notredame_roof
 
 title: npc_bakery
 position: -20,160
-tags: actor=MAN_BIG
+actor: SENIOR_M
 color: purple
 spawn_group: bakery
 ---
@@ -541,4 +546,3 @@ spawn_group: bakery
 => A baguette uses flour, water, yeast, and salt. #line:fr01_bakery_2
 => Bakers wake up very early to start making dough. #line:fr01_bakery_3
 ===
-

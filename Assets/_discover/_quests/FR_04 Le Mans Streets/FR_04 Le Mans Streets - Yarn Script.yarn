@@ -39,6 +39,7 @@ position: 349,-460
 tags:
 type: panel
 color: red
+actor: NARRATOR
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
@@ -49,6 +50,7 @@ title: quest_end
 position: 334,976
 color: green
 panel: panel_endgame
+actor: NARRATOR
 ---
 Great job! #line:08cd696 
 You used the signs to stay safe. #line:0298d64 
@@ -61,6 +63,7 @@ position: 236,184
 color: green
 panel: panel
 tags: proposal
+actor: NARRATOR
 ---
 Draw a map of the streets around your home! #line:0acd0a1 
 <<quest_end>>
@@ -68,7 +71,7 @@ Draw a map of the streets around your home! #line:0acd0a1
 
 title: talk_friend_intro
 position: 348,-154
-tags: actor=MAN
+actor: ADULT_M
 ---
 This is the Le Mans car race. #line:02f370e 
 Cars are very fast! #line:07f77f0 
@@ -82,7 +85,7 @@ Time to go home. #line:06e4b9d
 
 title: talk_friend_scooter
 position: 560,-154
-tags: actor=MAN
+actor: ADULT_M
 ---
 The race is over. Go home by train. #line:0b834f8 
 Take my scooter to the station. #line:00f2f65 
@@ -95,7 +98,8 @@ Look at the signs. #line:0b5ee19
 
 title: task_reach_station
 position: 780,-154
-tags: actor=TUTOR, task
+actor:
+tags:  task
 ---
 Get to the train station safely. #line:fr04_task_station
 Stop at red. Go at green. #line:fr04_task_station_2
@@ -103,7 +107,7 @@ Stop at red. Go at green. #line:fr04_task_station_2
 
 title: sign_stop
 position: 3579,-135
-tags: actor=TUTOR
+actor: 
 ---
 This is a STOP sign. #line:09ac224 
 <<card stop_sign>>
@@ -114,14 +118,14 @@ Look both ways. #line:0758dbd
 
 title: restart_level
 position: 1722,142
-tags: actor=TUTOR
+actor: 
 ---
 You did not pay attention. Try again! #line:0eed8ec 
 ===
 
 title: sign_danger
 position: 1739,361
-tags: actor=TUTOR
+actor: 
 ---
 This is a DANGER sign. #line:0a57038 
 <<card danger_sign>>
@@ -131,7 +135,7 @@ Something may be on the road. #line:07915e7
 
 title: street_lights
 position: 429,133
-tags: actor=TUTOR
+actor: 
 ---
 These are traffic lights. #line:0355437 
 <<card traffic_lights>>
@@ -154,7 +158,7 @@ Stop if someone wants to cross. #line:04e20a8
 
 title: danger_signs
 position: 2305,140
-tags: actor=TUTOR
+actor: 
 ---
 They are triangles. #line:08c3073 
 ===
@@ -162,7 +166,7 @@ They are triangles. #line:08c3073
 
 title: bravo
 position: 433,395
-tags: actor=MAN
+actor: ADULT_M
 ---
 => You made it! #line:03b112c 
 => You followed the rules. #line:0662662 
@@ -177,7 +181,7 @@ tags: actor=MAN
 title: spawned_pedestrian
 position: -367,1
 color: purple
-actor: 
+actor: ADULT_F
 spawn_group: pedestrian 
 ---
 => Always look both ways before crossing the street! #line:0d65c60 
@@ -190,7 +194,7 @@ spawn_group: pedestrian
 title: spawned_race_lemans
 position: -250,40
 color: purple
-actor: MAN
+actor: ADULT_M
 spawn_group: race 
 ---
 => The Le Mans race lasts 24 hours! #line:02e7a89 
@@ -202,7 +206,7 @@ spawn_group: race
 title: spawned_kids_walking
 position: -250,120
 color: purple
-actor: 
+actor: KID_F
 spawn_group: kids 
 ---
 => We walk on the sidewalk. #line:0999d95 

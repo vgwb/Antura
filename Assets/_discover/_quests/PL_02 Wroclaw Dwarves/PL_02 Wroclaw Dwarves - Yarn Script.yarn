@@ -119,7 +119,7 @@ Now go up the elevator! #line:0364c03
 title: dwarf_1_origin
 position: 280,0
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 <<card wroclaw_dwarf_statue zoom>>
 Wrocław is the city of dwarfs. You can find them everywhere. #line:007686b 
@@ -135,7 +135,7 @@ Do you want to play with me? #line:0e460fe
 title: dwarf_1_origin_done
 position: 280,0
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Good job! You solved the puzzle. #line:0a87d03 
 Now I come with you. #line:0f49b50 
@@ -149,7 +149,7 @@ Now I come with you. #line:0f49b50
 title: dwarf_2_town_hall
 position: 280,180
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 <<asset wroclaw_old_town_hall>>
 This is the Old Town Hall. City leaders work here. #line:02cbbf0 
@@ -160,7 +160,7 @@ Meetings happen inside. The clock is very old. #line:0ca6131
 title: dwarf_2_town_hall_done
 position: 280,180
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Well done! #line:004110a 
 <<inventory wroclaw_dwarfs add>>
@@ -175,7 +175,7 @@ Well done! #line:004110a
 title: dwarf_3_cathedral
 position: 280,360
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 <<card bishop_dwarf>>
 This is the cathedral. It is a large and important church. #line:00f2132 
@@ -189,7 +189,7 @@ It has tall towers and colorful stained-glass windows. #line:08871e4
 title: info_church
 position: 520,360
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 <<card church>>
 A church is a place where people pray. #line:0b1f4e1
@@ -198,7 +198,7 @@ A church is a place where people pray. #line:0b1f4e1
 title: dwarf_3_quiz
 position: 520,360
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 What do people do in a cathedral? #line:05ea00d 
 -> They shop for food. #line:0c891cc 
@@ -215,7 +215,7 @@ What do people do in a cathedral? #line:05ea00d
 title: dwarf_3_activity
 position: 760,360
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Let's play a game. #line:0c5d8d3 
 <<activity jigsaw_wroclaw_cathedral dwarf_3_activity_done>>
@@ -225,7 +225,7 @@ Let's play a game. #line:0c5d8d3
 title: dwarf_3_activity_done
 position: 760,360
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Great! He is another dwarf. #line:04886ba 
 <<inventory wroclaw_dwarfs add>>
@@ -238,7 +238,7 @@ Great! He is another dwarf. #line:04886ba
 title: dwarf_4_zoo
 position: 280,540
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Visit the Wrocław zoo. It is the biggest in Poland. #line:0198e80 
 It has many animals from around the world. #line:01b020e 
@@ -248,7 +248,7 @@ It has many animals from around the world. #line:01b020e
 title: dwarf_4_activity
 position: 280,540
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Let's play a game. #line:0f921e7 
 <<activity jigsaw_wroclaw_zoo dwarf_4_activity_done>>
@@ -257,7 +257,7 @@ Let's play a game. #line:0f921e7
 title: dwarf_4_activity_done
 position: 280,540
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Great! #line:0c852a7 
 <<inventory wroclaw_dwarfs add>>
@@ -270,7 +270,7 @@ Great! #line:0c852a7
 title: dwarf_5
 position: 280,720
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 The Centennial Hall is huge. You see shows inside. #line:0ebb952 
 The roof looks like a giant dome. #line:0f4189b 
@@ -280,7 +280,7 @@ The roof looks like a giant dome. #line:0f4189b
 title: dwarf_5_activity
 position: 280,720
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Let's play a game. #line:06b4a16 
 <<activity jigsawpuzzle centennial_hall dwarf_5_activity_done>>
@@ -289,7 +289,7 @@ Let's play a game. #line:06b4a16
 title: dwarf_5_activity_done
 position: 280,720
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Great! #line:0abf458 
 <<inventory wroclaw_dwarfs add>>
@@ -304,7 +304,7 @@ Great! #line:0abf458
 title: dwarf_6
 position: 280,900
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Water dances here with music and lights. #line:0daf76d 
 The shows are beautiful on summer nights. #line:006ed40 
@@ -315,7 +315,7 @@ The shows are beautiful on summer nights. #line:006ed40
 title: dwarf_6_activity
 position: 280,900
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Let's play a game. #line:0cdb4f5 
 <<activity jigsaw_multimedia_fountain dwarf_6_activity_done>>
@@ -324,7 +324,7 @@ Let's play a game. #line:0cdb4f5
 title: dwarf_6_activity_done
 position: 280,900
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Great! #line:0818eec 
 <<inventory wroclaw_dwarfs add>>
@@ -337,7 +337,7 @@ Great! #line:0818eec
 title: dwarf_7
 position: 280,1080
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 A giant battle painting goes all around you. #line:0de7f17 
 You stand inside the story. #line:0f8436b 
@@ -350,7 +350,7 @@ You stand inside the story. #line:0f8436b
 title: dwarf_8
 position: 280,1260
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Olga Tokarczuk is a famous writer in Wrocław. #line:0496de5 
 She won the Nobel Prize in Literature. #line:00ae354 
@@ -361,7 +361,7 @@ She won the Nobel Prize in Literature. #line:00ae354
 title: dwarf_9
 position: 560,1260
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 This is the modern plaza near the Sky Tower. #line:096a9ee 
 People meet here to talk and play. #line:0c899a5 
@@ -372,7 +372,7 @@ People meet here to talk and play. #line:0c899a5
 title: dwarf_10
 position: 840,1260
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 The Sky Tower is very tall. #line:0ccd434 
 You can see very far from the top. #line:0170463 
@@ -385,7 +385,7 @@ You can see very far from the top. #line:0170463
 title: elevator_keymaster
 position: 1137,1267
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 I guard the elevator. #line:0dd986c 
 <<if $found < $need>>
@@ -398,7 +398,7 @@ I guard the elevator. #line:0dd986c
 
 title: elevator_up
 position: 611,1818
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 The elevator goes up. Ding! #line:0abe973 
 The view is beautiful. #line:008b500 
@@ -406,7 +406,7 @@ The view is beautiful. #line:008b500
 
 title: npg_rescue_top
 position: 851,1818
-tags: actor=ANTURA
+actor: SPECIAL
 ---
 <<if $top_met>>
 	<<jump assessment_intro>>
@@ -423,7 +423,7 @@ tags: actor=ANTURA
 // Final Assessment
 title: assessment_intro
 position: 851,1618
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 Would you like to answer two short questions? #line:07982da 
 -> Yes #line:012a7d1 
@@ -466,7 +466,7 @@ Wrocław is the ... biggest city in Poland. #line:09d303d
 
 title: assessment_end
 position: 1769,1692
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 Great! You finished the quest! #line:0fc1bad 
 <<jump quest_end>>
@@ -476,7 +476,7 @@ Great! You finished the quest! #line:0fc1bad
 title: dwarf_7_activity_done
 position: 520,1080
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Good job! #line:074a28b 
 <<inventory wroclaw_dwarfs add>>
@@ -488,7 +488,7 @@ Good job! #line:074a28b
 title: dwarf_8_activity_done
 position: 520,1260
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Good job! #line:0ac938a 
 <<inventory wroclaw_dwarfs add>>
@@ -500,7 +500,7 @@ Good job! #line:0ac938a
 title: dwarf_9_activity_done
 position: 800,1260
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Good job! #line:0f70de9 
 <<inventory wroclaw_dwarfs add>>
@@ -512,7 +512,7 @@ Good job! #line:0f70de9
 title: dwarf_10_activity_done
 position: 1080,1260
 group: dwarves
-tags: actor=DWARF
+actor: SPECIAL
 ---
 Good job! #line:054d57b 
 <<inventory wroclaw_dwarfs add>>
@@ -541,7 +541,7 @@ spawn_group: kids
 title: spawned_tourist
 position: -300,180
 color: purple
-actor: WOMAN
+actor: ADULT_F
 spawn_group: tourists 
 ---
 => I got a map to find more dwarves. #line:0738670 
@@ -552,7 +552,7 @@ spawn_group: tourists
 title: spawned_local
 position: -300,310
 color: purple
-actor: MAN
+actor: ADULT_M
 spawn_group: locals 
 ---
 => The market square is busy and bright. #line:052bf17 
@@ -563,7 +563,7 @@ spawn_group: locals
 title: spawned_reader
 position: -300,440
 color: purple
-actor: GIRL
+actor: KID_F
 spawn_group: kids 
 ---
 => I read a book by Olga. #line:0246124 

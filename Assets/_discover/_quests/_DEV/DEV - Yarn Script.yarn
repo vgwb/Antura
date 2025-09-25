@@ -67,7 +67,7 @@ group: docs
 // - KID_F | bright, energetic, quick speech, high pitch
 // - KID_M | playful, curious, lively tone, mid-high pitch
 
-tags: actor=Guide
+actor: NARRATOR
 
 // color us used like this:
 //  - red for important nodes like init and quest end
@@ -115,6 +115,7 @@ group: docs
 title: DOCS_ACTIVITY
 position: 4,346
 group: docs
+actor:
 ---
 // launches an activity and set a node to jump after it
 <<activity id_activity_setting id_node_to_jump_after_activity>>
@@ -183,7 +184,7 @@ group: docs
 title: DOCS_INVENTORY
 position: 560,348
 group: docs
-actor: WOMAN
+actor: ADULT_F
 ---
 // adds the item = card to the inventory (needs to be collectable!)
 <<inventory id_card add>>
@@ -389,8 +390,9 @@ Nice isnt' it? #line:04daace
 ===
 title: test_actions
 position: 1499,1880
-tags: actor=KID_F
+tags:
 group: actions
+actor: KID_F
 ---
 <<action activate_elevator>>
 Action Pre "pre_actions" and action_post "post_actions" #line:0a67b25 
@@ -454,9 +456,10 @@ Well done! You opened the chest.  #line:04e697a
 
 title: item_chest
 position: 1227,1876
-tags: actor=TUTOR
+tags:
 group: actions
 color: yellow
+actor: NARRATOR
 ---
 A good chest! #line:dev_item_chest_1 
 <<action open_chest>>
@@ -660,14 +663,15 @@ I'll give you 100 coins. #line:06427f9
 
 title: test_mood
 position: 1960,3050
-tags: actor=GUIDE, mood=HAPPY
+tags: mood=HAPPY
+actor: GUIDE_F
 ---
 Happy Mood #line:0a6e648 
 ===
 
 title: random_lines
 position: 1246,2402
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 group: random
 ---
 Smart random Line 1 #line:07193d8 
@@ -677,8 +681,8 @@ Smart random Line 3 #line:032e777
 
 title: multiple_lines
 position: 1545,2410
-tags: actor=KID_F
 group: random
+actor: KID_M
 ---
 => This is Hint 1 #line:0423295 
 => This is Hint 2 #line:00d69e5 
@@ -815,7 +819,6 @@ Try again. #line:04681e2
 
 title: activity_piano
 position: 2834,1257
-tags: actor=KID_F
 group: activities
 color: purple
 ---
@@ -825,7 +828,6 @@ Play this PIANO Melody! #line:0e11b77
 
 title: activity_piano_result
 position: 2834,1399
-tags: actor=KID_F
 group: activities
 color: purple
 ---

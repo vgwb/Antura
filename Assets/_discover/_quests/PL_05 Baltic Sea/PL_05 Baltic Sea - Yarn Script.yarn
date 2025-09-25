@@ -127,7 +127,7 @@ Now Go and meet the FISHERMAN #line:0b3a2d8
 title: FISHERMAN_MEET
 position: 960,0
 group: Fisherman
-tags: actor=Fisherman
+actor: SENIOR_M
 ---
 <<card fisherman>>
 Hello. I am a FISHERMAN. #line:00e94a2 
@@ -140,7 +140,7 @@ Let's find AMBER too. #line:0b8e688
 title: AMBER_HINT
 position: 1200,0
 group: Fisherman
-tags: actor=Fisherman
+actor: SENIOR_M
 ---
 <<card amber>>
 AMBER is BALTIC GOLD. #line:0901a09 
@@ -159,7 +159,7 @@ Now let's go to the LIGHTHOUSE. #line:0616f80
 title: LIGHTHOUSE_FACT
 position: 1440,0
 group: Fisherman
-tags: actor=Fisherman
+actor: SENIOR_M
 ---
 <<card ship>>
 A LIGHTHOUSE helps SHIPS. #line:049551f 
@@ -225,7 +225,7 @@ Place the NECKLACE on NEPTUNE. #line:01b559a
 title: NEPTUNE_SPEAK
 position: 720,220
 group: Neptune
-tags: actor=Neptune
+actor: SENIOR_M
 ---
 <<card necklace>>
 A fine NECKLACE! #line:0ca234d 
@@ -236,7 +236,7 @@ I will help you. #line:0a0dddf
 title: AMBER_ROOM_NOTE
 position: 960,220
 group: Neptune
-tags: actor=Neptune
+actor: SENIOR_M
 ---
 AMBER is famous here. #line:05ce5f4 
 <<card amber_room>>
@@ -259,7 +259,7 @@ and watch for SEALS #line:009476a
 title: SEALS_WARNING
 position: 1440,220
 group: Rescue
-tags: actor=Fisherman
+actor: SENIOR_M
 ---
 <<card seal>>
 These are wild SEALS. #line:0c0dc82 
@@ -364,7 +364,7 @@ The LIGHTHOUSE shines again! #line:0d95290
 title: spawned_child
 position: 700,1050
 group: Spawned
-tags: actor=KID
+actor: KID_F
 ---
 => Once I saw a big SHIP. #line:02579c6 
 => Waves splash fast. #line:04fe9c2 
@@ -373,7 +373,7 @@ tags: actor=KID
 title: spawned_tourist
 position: 900,1050
 group: Spawned
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 => Old CRANE lifts heavy loads. #line:0d2afb8 
 => Bright light guides boats. #line:093119f 
@@ -382,7 +382,7 @@ tags: actor=WOMAN
 title: spawned_local
 position: 1100,1050
 group: Spawned
-tags: actor=MAN
+actor: ADULT_M
 ---
 => River meets the SEA here. #line:0edcc57 
 => Port is busy today. #line:04f5d5e 

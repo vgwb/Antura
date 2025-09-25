@@ -52,7 +52,7 @@
 title: quest_start
 position: 0,0
 group: Intro
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: odra_dock
 color: red
 ---
@@ -96,7 +96,7 @@ Show it to a friend. #line:0774214
 title: BRIDGES_INTRO
 position: 300,0
 group: Bridges
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: city_of_bridges
 ---
 <<card bridge>>
@@ -110,7 +110,7 @@ Let’s find three types. #line:04082d6
 title: BRIDGE_FOOT_HINT
 position: 520,-40
 group: Bridges
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: footbridge_view
 ---
 <<card footbridge>>
@@ -124,7 +124,7 @@ Hint: no CARS on it. #line:057b7a9
 title: BRIDGE_TRAIN_HINT
 position: 760,-20
 group: Bridges
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: railway_bridge
 ---
 <<card train_bridge>>
@@ -139,7 +139,7 @@ Hint: look for TRACKS. #line:03bf613
 title: BRIDGE_CAR_HINT
 position: 1000,0
 group: Bridges
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: road_bridge
 ---
 <<card road_bridge>>
@@ -156,7 +156,7 @@ Hint: see CARS crossing. #line:03fcfdf
 title: BOATS_INTRO
 position: 0,260
 group: Boats
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: odra_river_traffic
 ---
 <<card boat>>
@@ -171,7 +171,7 @@ Find a BARGE first. #line:0d21cc3
 title: BOAT_BARGE_HINT
 position: 240,260
 group: Boats
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: barge_photo
 ---
 BARGE is low and flat. #line:028dcdf 
@@ -184,7 +184,7 @@ It carries GOODS. #line:083423e
 title: BOAT_HOUSE_HINT
 position: 480,260
 group: Boats
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: houseboat
 ---
 <<card houseboat>>
@@ -202,7 +202,7 @@ Windows like a small home. #line:0d30896
 title: BOAT_KAYAK_HINT
 position: 600,260
 group: Boats
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: kayak
 ---
 <<card kayak>>
@@ -214,7 +214,7 @@ Move fast on calm water. #line:0e4d09c
 title: BOATS_MATCH
 position: 720,260
 group: Boats
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: odra_couples
 ---
 Match things to jobs. #line:0d62913 
@@ -231,7 +231,7 @@ BOAT -> goods/live. #line:0e16bac
 title: MAP_INTRO
 position: 0,520
 group: Map
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: poland_river_map
 ---
 <<card odra_river_map>>
@@ -266,7 +266,7 @@ Great work, RIVER explorer! #line:012f97c
 title: ENDING_DOCK
 position: 600,520
 group: End
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: odra_sign
 ---
 <<card tumski_bridge>>
@@ -296,7 +296,7 @@ Tap the best choice. #line:0c9b102
 title: order_odra_facts_done
 position: 1200,520
 group: End
-tags: actor=BoatCaptain
+actor: SENIOR_M
 image: quest_complete
 ---
 Great work, RIVER explorer! #line:0117d8b 
@@ -313,7 +313,7 @@ See you on the next trip! #line:045c7d9
 title: spawned_child
 position: 1400,520
 group: Spawned
-tags: actor=Child
+actor: KID_M
 ---
 I like the small KAYAK. #line:0f36b7f 
 Paddle fast on calm water. #line:07ff8c5 
@@ -322,7 +322,7 @@ Paddle fast on calm water. #line:07ff8c5
 title: spawned_tourist
 position: 1400,600
 group: Spawned
-tags: actor=Tourist
+actor: ADULT_F
 ---
 So many BRIDGES in this city. #line:0577d80 
 My photo count is huge. #line:089ea37 
@@ -331,7 +331,7 @@ My photo count is huge. #line:089ea37
 title: spawned_fisher
 position: 1400,680
 group: Spawned
-tags: actor=Fisher
+actor: SENIOR_M
 ---
 Quiet water is good for fish. #line:0207b2a 
 I watch boats glide past. #line:04d0dac 
@@ -340,7 +340,7 @@ I watch boats glide past. #line:04d0dac
 title: spawned_birdwatcher
 position: 1400,760
 group: Spawned
-tags: actor=Birdwatcher
+actor: ADULT_M
 ---
 Birds rest on the old bridge. #line:05d28c9 
 I note them in my book. #line:0b1b835 

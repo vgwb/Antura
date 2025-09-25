@@ -90,7 +90,7 @@ Can you draw your flag now? #line:0c48a14
 
 title: win
 position: 819,-1478
-tags: actor=KID_F
+actor: KID_F
 color: purple
 panel: panel_endgame
 ---
@@ -104,7 +104,7 @@ title: france_npc
 position: 472,-1288
 color: blue
 group: france
-tags: actor=KID_F
+actor: KID_F
 ---
 <<if $COUNTRIES_COMPLETED >= $TOTAL_COUNTRIES>>
     <<jump win>>
@@ -153,7 +153,7 @@ title: item_flag_france
 position: 1152,-1293
 group: france
 color: yellow
-tags: actor=TUTOR, asset=flag_france
+actor: NARRATOR
 ---
 <<card flag_france>>
 Flag of France. #line:01d9617 
@@ -171,7 +171,7 @@ title: germany_npc
 position: 481,-1056
 color: blue
 group: germany
-tags: actor=MAN
+actor: ADULT_M
 ---
 <<if $germany_completed>>
     <<card flag_germany>>
@@ -251,7 +251,7 @@ tags:
 title: task_spain
 position: 880,-840
 group: spain
-tags: actor=WOMAN
+actor: ADULT_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_spain>>
@@ -269,7 +269,7 @@ It is red and yellow like the sun. #line:09635b4
 title: italy_npc
 position: 506,-622
 group: italy
-tags: actor=KID_M
+actor: KID_M
 color: blue
 ---
 <<if $italy_completed>>
@@ -299,7 +299,7 @@ color: blue
 title: task_italy
 position: 843,-617
 group: italy
-tags: actor=KID_M
+actor: KID_M
 ---
 <<if $EASY_MODE == true>>
     <<card flag_italy>>
@@ -317,7 +317,7 @@ It is green, white, and red like a pizza! #line:0cde44c
 title: belgium_npc
 position: 508,-395
 group: belgium
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 color: blue
 ---
 <<if $belgium_completed>>
@@ -350,7 +350,7 @@ color: blue
 title: task_belgium
 position: 838,-385
 group: belgium
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_belgium>>
@@ -365,7 +365,7 @@ title: item_flag_belgium
 position: 1119,-372
 group: belgium
 color: yellow
-tags: actor=TUTOR
+actor: NARRATOR
 ---
 <<card flag_belgium>>
 Flag of Belgium. #line:0b11066 
@@ -382,7 +382,7 @@ title: luxembourg_npc
 position: 532,-164
 group: lux
 color: blue
-tags: actor=MAN_OLD
+actor: SENIOR_M
 ---
 <<if $lux_completed>>
     <<card flag_luxembourg>>
@@ -413,7 +413,7 @@ tags: actor=MAN_OLD
 title: task_lux
 position: 881,-165
 group: lux
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_luxembourg>>
@@ -428,7 +428,7 @@ title: item_flag_lux
 position: 1211,-165
 group: lux
 color: yellow
-tags: actor=TUTOR
+actor: NARRATOR
 ---
 <<card flag_luxembourg>>
 Flag of Luxembourg. #line:05badd7 
@@ -444,7 +444,7 @@ Flag of Luxembourg. #line:05badd7
 title: npc_swiss
 position: 546,76
 group: swiss
-tags: actor=WOMAN
+actor: ADULT_F
 color: blue
 ---
 <<if $swiss_completed>>
@@ -475,7 +475,7 @@ color: blue
 title: task_swiss
 position: 903,83
 group: swiss
-tags: actor=WOMAN_OLD
+actor: SENIOR_F
 ---
 <<if $EASY_MODE == true>>
     <<card flag_switzerland>>
@@ -495,7 +495,7 @@ title: monaco
 position: 556,356
 color: blue
 group: monaco
-tags: actor=MAN_BIG
+actor: ADULT_M
 ---
 Bonjour! I’m from Monaco! #line:0a3f8f6 
 We are small. We have car races and a palace by the sea! #line:0dc315a 
@@ -511,7 +511,7 @@ title: andorra
 position: 559,589
 group: andorra
 color: blue
-tags: actor=GUIDE
+actor: GUIDE_F
 ---
 Hola! I’m from Andorra! #line:071f85c 
 My flag is blue, yellow, and red. #line:02846e8 
@@ -524,7 +524,7 @@ title: item_flag_spain
 position: 1174,-826
 color: yellow
 group: spain
-tags: actor=TUTOR
+actor: NARRATOR
 ---
 <<card  flag_spain>>
 Flag of Spain #line:006ce10 
@@ -537,9 +537,9 @@ title: item_flag_germany
 position: 1157,-1052
 group: germany
 color: yellow
-tags: actor=TUTOR
+actor: NARRATOR
 ---
-<<card  flag_germany>>
+<<card flag_germany>>
 Flag of Germany. #line:05ff51a 
 <<if $CURRENT_ITEM != "flag_germany">>
     <<inventory flag_germany add>>
@@ -550,7 +550,7 @@ title: item_flag_italy
 position: 1104,-613
 group: italy
 color: yellow
-tags: actor=TUTOR
+actor: NARRATOR
 ---
 <<card flag_italy>>
 Flag of Italy. #line:0fdc68b 
@@ -563,7 +563,7 @@ title: item_flag_switzerland
 position: 1234,86
 group: swiss
 color: yellow
-tags: actor=TUTOR
+actor: NARRATOR
 ---
 <<card  flag_switzerland>>
 Flag of Switzerland. #line:0768ab7 
@@ -579,7 +579,7 @@ Flag of Switzerland. #line:0768ab7
 
 title: spawned_npc
 position: -367,1
-actor: 
+actor: KID_M
 spawn_group: all 
 ---
 => In Europe, people speak over 200 languages! #line:04f4280 
