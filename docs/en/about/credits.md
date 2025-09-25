@@ -12,8 +12,7 @@ This project started in 2016 as the original game **Antura and the Letters - Ara
 ## Antura 3.0 – Discover & Classroom Edition
 
 > [!NOTE] Detailed design and content credits  
-> Antura 3.0 includes **in-game native credits** for quests, activities, levels, and didactical content.  
-> See the [Content section](../content/index.md).
+> Antura 3.0 includes **in-game native credits** for quests, activities, levels, and didactical content. See the [Open Content section](../content/index.md).
 
 **Partners**
 
@@ -33,9 +32,9 @@ Francesco Cavallari (VGWB)
 [Stefano Cecere](https://github.com/StefanoCecere/) (VGWB)
 
 **Content input and validation - France**  
-Lucie Durant (ac-nantes)  
-Anne Du-Merle (ac-nantes)  
-Nadja Maillard  (ac-nantes)
+Lucie Durant (AC Nantes)  
+Anne Du-Merle (AC Nantes)  
+Nadja Maillard (AC Nantes)  
 
 **Content input and validation - Poland**  
 Jan Stasieńko  
@@ -61,12 +60,25 @@ Fabio Cecere
 Michele Maggiolini (heritage monuments)
 
 **Special thanks**  
-Secret Lab ([Yarn Spinner](https://www.yarnspinner.dev/))  
-Kenney ([Kenney.nl](https://kenney.nl/))  
-Pietro Polsinelli ([OpenLab](https://open-lab.com/))  
-Matteo Bicocchi ([OpenLab](https://open-lab.com/))  
-Bruno Cecere  
-Antonella Prunecchi  
+
+- Secret Lab ([Yarn Spinner](https://www.yarnspinner.dev/))  
+- Kenney ([Kenney.nl](https://kenney.nl/))  
+- Pietro Polsinelli ([OpenLab](https://open-lab.com/))  
+- Matteo Bicocchi ([OpenLab](https://open-lab.com/))  
+- Antonella Prunecchi  
+- Bruno Cecere  
+- Davide Alex Biasibetti
+- Edoardo Tagliati
+- Elia Folisi
+- Franco Nardeschi
+- Gabriele Strivieri
+- Giulia Lippi Marchetti
+- Iacopo Valente
+- Lorenzo Moschini
+- Massimo Tricoli
+- Matteo Lorenzini
+- Noemi Sossella
+- Tommaso Pistoi
 
 ## Antura 2.0 - Learn Languages Edition
 
