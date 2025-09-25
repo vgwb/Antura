@@ -50,6 +50,7 @@ namespace Antura.Discover
                 if (preset.interactionType != type) continue;
                 return preset;
             }
+            
             // Rollback to default
             foreach (Preset preset in presets)
             {
