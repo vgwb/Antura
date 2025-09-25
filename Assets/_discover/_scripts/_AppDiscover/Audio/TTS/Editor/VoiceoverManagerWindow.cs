@@ -65,11 +65,21 @@ namespace Antura.Discover.Audio.Editor
         private bool _convertToOgg = false;
         private string _ffmpegPath = "ffmpeg";
         private bool _keepMp3AfterConversion = false;
+        private bool _trimSilence = false;
+        private bool _trimHeadAlso = false;
+        private float _trimThresholdDb = -40f;
+        private float _trimTailDurationSec = 0.2f;
+        private float _trimHeadDurationSec = 0.05f;
 
         private const string PrefKeyFfmpegPath = "Antura.Audio.QVM.ffmpegPath";
         private const string PrefKeyVoiceProfileGuid = "Antura.Audio.QVM.voiceProfileGuid";
         private const string PrefKeyVoiceCatalogGuid = "Antura.Audio.QVM.voiceCatalogGuid";
         private const string PrefKeyConvertToOgg = "Antura.Audio.QVM.convertToOgg";
+        private const string PrefKeyTrimSilence = "Antura.Audio.QVM.trimSilence";
+        private const string PrefKeyTrimAlsoHead = "Antura.Audio.QVM.trimAlsoHead";
+        private const string PrefKeyTrimThresholdDb = "Antura.Audio.QVM.trimThresholdDb";
+        private const string PrefKeyTrimTailSec = "Antura.Audio.QVM.trimTailSec";
+        private const string PrefKeyTrimHeadSec = "Antura.Audio.QVM.trimHeadSec";
 
         // Run state
         private bool _isRunning = false;
@@ -95,6 +105,11 @@ namespace Antura.Discover.Audio.Editor
 
         private ITtsService _tts = new ElevenLabsTtsService();
 
+        // Selection helpers
+        private string _selectedLineKey = null; // normalized (e.g., "line:abc123") when search matches a specific line
+        private string _onlyLineKey = null;     // internal limiter for generation
+        private bool _forceRecreateSelected = false; // bypass skip-existing logic for the selected line
+
         private const string LangBundlesRoot = "Assets/_lang_bundles/_quests";
         private const string CardsBundlesRoot = "Assets/_lang_bundles/_cards";
 
@@ -113,6 +128,11 @@ namespace Antura.Discover.Audio.Editor
             RefreshCards();
             _ffmpegPath = EditorPrefs.GetString(PrefKeyFfmpegPath, _ffmpegPath);
             _convertToOgg = EditorPrefs.GetBool(PrefKeyConvertToOgg, _convertToOgg);
+            _trimSilence = EditorPrefs.GetBool(PrefKeyTrimSilence, _trimSilence);
+            _trimHeadAlso = EditorPrefs.GetBool(PrefKeyTrimAlsoHead, _trimHeadAlso);
+            _trimThresholdDb = EditorPrefs.GetFloat(PrefKeyTrimThresholdDb, _trimThresholdDb);
+            _trimTailDurationSec = EditorPrefs.GetFloat(PrefKeyTrimTailSec, _trimTailDurationSec);
+            _trimHeadDurationSec = EditorPrefs.GetFloat(PrefKeyTrimHeadSec, _trimHeadDurationSec);
             // Restore saved Voice Profile
             var vpGuid = EditorPrefs.GetString(PrefKeyVoiceProfileGuid, string.Empty);
             if (!string.IsNullOrEmpty(vpGuid))
@@ -160,6 +180,11 @@ namespace Antura.Discover.Audio.Editor
             EditorPrefs.SetString(PrefKeyFfmpegPath, _ffmpegPath ?? string.Empty);
             // save Convert to OGG flag
             EditorPrefs.SetBool(PrefKeyConvertToOgg, _convertToOgg);
+            EditorPrefs.SetBool(PrefKeyTrimSilence, _trimSilence);
+            EditorPrefs.SetBool(PrefKeyTrimAlsoHead, _trimHeadAlso);
+            EditorPrefs.SetFloat(PrefKeyTrimThresholdDb, _trimThresholdDb);
+            EditorPrefs.SetFloat(PrefKeyTrimTailSec, _trimTailDurationSec);
+            EditorPrefs.SetFloat(PrefKeyTrimHeadSec, _trimHeadDurationSec);
             // save Voice Profile and Catalog GUIDs
             if (_voiceProfile != null)
             {
@@ -235,7 +260,12 @@ namespace Antura.Discover.Audio.Editor
                 // Do NOT filter quests by Search; Search applies only to lines in the selected quest (and to cards list)
                 var filtered = _quests;
 
-                var questNames = filtered.Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id).ToArray();
+                var questNames = filtered.Select(q =>
+                {
+                    var id = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
+                    var title = q.TitleEn;
+                    return string.IsNullOrWhiteSpace(title) ? id : ($"{id} — {title}");
+                }).ToArray();
                 if (questNames.Length == 0)
                 { EditorGUILayout.HelpBox("No quests found.", MessageType.Info); return; }
                 _selectedQuestIndex = Mathf.Clamp(_selectedQuestIndex, 0, questNames.Length - 1);
@@ -248,16 +278,53 @@ namespace Antura.Discover.Audio.Editor
                 localeNames.AddRange(_locales.Select(l => l.Identifier.Code));
                 _selectedLocaleIndex = EditorGUILayout.Popup("Locale", _selectedLocaleIndex, localeNames.ToArray());
 
+                // Attempt to resolve search token as a specific line selection
+                _selectedLineKey = null;
+                if (!string.IsNullOrWhiteSpace(_search) && quest != null)
+                {
+                    var token = _search.Trim();
+                    var lineKey = NormalizeLineKey(token);
+                    var lineIdShort = StripLinePrefix(lineKey);
+                    // Check existence in first target locale (fallback to selected locale)
+                    var firstLocale = GetTargetLocales().FirstOrDefault() ?? LocalizationSettings.SelectedLocale;
+                    try
+                    {
+                        var st = LocalizationSettings.StringDatabase.GetTable(quest.QuestStringsTable.TableReference, firstLocale);
+                        if (st != null && st.GetEntry(lineKey) != null)
+                        {
+                            _selectedLineKey = lineKey;
+                            var meta = YarnLineMapBuilder.BuildMeta(quest);
+                            var nodeTitle = ResolveNodeTitleForKey(lineIdShort, meta.Titles);
+                            using (new EditorGUILayout.HorizontalScope())
+                            {
+                                EditorGUILayout.HelpBox($"Selected line: {lineKey} — node: {nodeTitle}", MessageType.Info);
+                                using (new EditorGUILayout.VerticalScope(GUILayout.Width(140)))
+                                {
+                                    if (GUILayout.Button("Ping Audio", GUILayout.Height(22)))
+                                    {
+                                        TryPingAudioForLine(quest, firstLocale, lineKey);
+                                    }
+                                    if (GUILayout.Button("Create only this", GUILayout.Height(22)))
+                                    {
+                                        RunCreateAudioForSelectedLine(lineKey);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch { }
+                }
+
                 // Voice
-                _voiceProfile = (VoiceProfileData)EditorGUILayout.ObjectField("Voice Profile", _voiceProfile, typeof(VoiceProfileData), false);
                 _voiceCatalog = (VoiceProfileCatalog)EditorGUILayout.ObjectField("Voice Catalog", _voiceCatalog, typeof(VoiceProfileCatalog), false);
+                _voiceProfile = (VoiceProfileData)EditorGUILayout.ObjectField("Voice Profile", _voiceProfile, typeof(VoiceProfileData), false);
                 _selectedActor = (VoiceActors)EditorGUILayout.EnumPopup("Actor", _selectedActor);
-                _secrets = (LocalSecrets)EditorGUILayout.ObjectField("Local Secrets", _secrets, typeof(LocalSecrets), false);
                 EditorGUILayout.HelpBox(
                     "Voice precedence: VoiceProfile > Actor > Yarn per-line > Default.\n" +
                     "If Actor is set to SILENT, audio will not be generated.\n" +
                     "If a Yarn per-line actor is SILENT, that line will be skipped.",
                     MessageType.Info);
+                _secrets = (LocalSecrets)EditorGUILayout.ObjectField("Local Secrets", _secrets, typeof(LocalSecrets), false);
                 if (_secrets != null)
                 {
                     EditorGUILayout.LabelField("API key", MaskApiKey(_secrets.elevenLabsApiKey));
@@ -273,6 +340,20 @@ namespace Antura.Discover.Audio.Editor
                 {
                     _ffmpegPath = EditorGUILayout.TextField("ffmpeg path", _ffmpegPath);
                     _keepMp3AfterConversion = EditorGUILayout.ToggleLeft("Keep MP3 after conversion", _keepMp3AfterConversion);
+                }
+
+                _trimSilence = EditorGUILayout.ToggleLeft("Trim silence (ffmpeg)", _trimSilence);
+                using (new EditorGUI.IndentLevelScope())
+                using (new EditorGUI.DisabledScope(!_trimSilence))
+                {
+                    _trimThresholdDb = EditorGUILayout.Slider("Threshold (dB)", _trimThresholdDb, -90f, 0f);
+                    _trimTailDurationSec = EditorGUILayout.Slider("Tail min duration (s)", _trimTailDurationSec, 0f, 1f);
+                    _trimHeadAlso = EditorGUILayout.ToggleLeft("Also trim leading silence", _trimHeadAlso);
+                    using (new EditorGUI.IndentLevelScope())
+                    using (new EditorGUI.DisabledScope(!_trimHeadAlso))
+                    {
+                        _trimHeadDurationSec = EditorGUILayout.Slider("Head min duration (s)", _trimHeadDurationSec, 0f, 0.5f);
+                    }
                 }
 
                 _showPreviewCounts = EditorGUILayout.ToggleLeft("Show creation preview", _showPreviewCounts);
@@ -329,7 +410,7 @@ namespace Antura.Discover.Audio.Editor
                     }
                     EditorGUILayout.LabelField("Create Count", GUILayout.Width(90));
                     _createCapIndex = EditorGUILayout.Popup(_createCapIndex, new[] { "1", "5", "All" }, GUILayout.Width(70));
-                    if (GUILayout.Button("Create audio files", GUILayout.Height(24)))
+                    if (GUILayout.Button("Create quest audio files", GUILayout.Height(24)))
                         RunCreateAudioFiles();
                 }
 
@@ -340,6 +421,11 @@ namespace Antura.Discover.Audio.Editor
                     {
                         if (GUILayout.Button("Convert MP3 → OGG (selected)", GUILayout.Height(22)))
                             RunConvertMp3ToOgg();
+                    }
+                    using (new EditorGUI.DisabledScope(!_trimSilence))
+                    {
+                        if (GUILayout.Button("Trim Silence (selected)", GUILayout.Height(22)))
+                            RunTrimSilence();
                     }
                 }
 
@@ -362,7 +448,7 @@ namespace Antura.Discover.Audio.Editor
                     {
                         RunValidateAddressablesCards();
                     }
-                    if (GUILayout.Button("Create card audio (Title + Desc)", GUILayout.Height(22)))
+                    if (GUILayout.Button("Create card audio files", GUILayout.Height(22)))
                     {
                         RunCreateCardAudio(filteredCards);
                     }
@@ -411,6 +497,10 @@ namespace Antura.Discover.Audio.Editor
             int totalCreated = 0;
             int totalItems = cards.Count * locales.Count * (_cardsIncludeDescriptions ? 2 : 1); // approx for progress
             int processed = 0;
+            // Track per-locale generation attempts so the cap applies like quest flow (cap per locale, not per card)
+            var attemptsByLocale = new Dictionary<string, int>();
+            foreach (var loc in locales)
+                attemptsByLocale[loc.Identifier.Code] = 0;
             foreach (var card in cards)
             {
                 string baseName = SanitizeFileNamePart(card.Id ?? card.name);
@@ -419,6 +509,11 @@ namespace Antura.Discover.Audio.Editor
 
                 foreach (var locale in locales)
                 {
+                    // If we've reached the cap for this locale, skip further items for it
+                    var locCodeCap = locale.Identifier.Code;
+                    if (maxToCreate != int.MaxValue && attemptsByLocale.TryGetValue(locCodeCap, out var atts) && atts >= maxToCreate)
+                        continue;
+
                     VoiceProfileData voice = null;
                     IVoiceProvider provider = catalog != null ? catalog : VoiceProviderManager.I?.Provider;
                     var forceProfile = fallbackVoice != null;
@@ -469,12 +564,12 @@ namespace Antura.Discover.Audio.Editor
                     if (items.Count == 0)
                         continue; // skip this card/locale if both strings are empty
 
-                    int attempts = 0;
                     foreach (var (kind, text) in items)
                     {
-                        if (attempts >= maxToCreate)
+                        // Check per-locale cap before attempting generation
+                        if (maxToCreate != int.MaxValue && attemptsByLocale[locCodeCap] >= maxToCreate)
                             break;
-                        attempts++;
+                        bool generatedNow = false;
                         processed++;
 
                         string ext = convertToOgg ? ".ogg" : ".mp3";
@@ -549,16 +644,32 @@ namespace Antura.Discover.Audio.Editor
                                     AssetDatabase.ImportAsset(finalAssetPath, ImportAssetOptions.ForceSynchronousImport);
                                     ApplyVorbisQuality(finalAssetPath, 0.7f);
                                     assignPath = finalAssetPath;
+                                    if (_trimSilence)
+                                    {
+                                        if (TryTrimFileWithFfmpeg(ffmpegPath, assignPath, _trimThresholdDb, _trimTailDurationSec, _trimHeadAlso, _trimHeadDurationSec))
+                                        {
+                                            AssetDatabase.ImportAsset(assignPath, ImportAssetOptions.ForceSynchronousImport);
+                                        }
+                                    }
                                     if (!keepMp3)
                                         AssetDatabase.DeleteAsset(mp3TempPath);
                                 }
                             }
                             totalCreated++;
+                            generatedNow = true;
                         }
                         catch (Exception ex)
                         { Debug.LogError($"[QVM] Write/import failed for {finalAssetPath}: {ex.Message}"); continue; }
 
                         // Clickable log
+                        if (_trimSilence)
+                        {
+                            // If we didn't convert, we may still want to trim the MP3
+                            if (assignPath != null && TryTrimFileWithFfmpeg(ffmpegPath, assignPath, _trimThresholdDb, _trimTailDurationSec, _trimHeadAlso, _trimHeadDurationSec))
+                            {
+                                AssetDatabase.ImportAsset(assignPath, ImportAssetOptions.ForceSynchronousImport);
+                            }
+                        }
                         var obj = AssetDatabase.LoadAssetAtPath<AudioClip>(assignPath);
                         if (obj != null)
                             Debug.Log($"[QVM] Created [cards {locale.Identifier.Code}] {Path.GetFileName(assignPath)} ← {assignPath}", obj);
@@ -573,6 +684,14 @@ namespace Antura.Discover.Audio.Editor
                             AssignCardAudioToAssetTable(locale, key, assignPath);
                             // Ensure Addressables entry in official Localization-Assets group with VO/cards address and labels
                             _addressablesSvc.UpdateAddressableForClip(locale, assignPath, questIdOrNull: null, isQuestClip: false, keyOrId: (card.Id ?? card.name));
+                        }
+
+                        // After a successful new generation, count toward the per-locale cap
+                        if (generatedNow)
+                        {
+                            attemptsByLocale[locCodeCap] = attemptsByLocale[locCodeCap] + 1;
+                            if (maxToCreate != int.MaxValue && attemptsByLocale[locCodeCap] >= maxToCreate)
+                                break;
                         }
                     }
                 }
@@ -594,6 +713,10 @@ namespace Antura.Discover.Audio.Editor
             if (locales.Count == 0)
             { EditorUtility.DisplayDialog("Status", "No locales configured in project.", "OK"); return; }
 
+            // Make sure we have the latest view of assets and GUID mappings before checking
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
             var report = new StringBuilder();
             report.AppendLine($"Quest: {quest.Id ?? quest.name}");
             foreach (var locale in locales)
@@ -606,7 +729,13 @@ namespace Antura.Discover.Audio.Editor
                     int assets = at != null ? at.Count : 0;
                     report.AppendLine($"- {locale.Identifier.Code}: strings={strings}, assets={assets}");
 
-                    var stringKeys = new HashSet<string>(st?.Values.Select(e => e.SharedEntry?.Key).Where(k => !string.IsNullOrEmpty(k)) ?? Enumerable.Empty<string>());
+                    IEnumerable<string> keysEnum = st?.Values.Select(e => e.SharedEntry?.Key).Where(k => !string.IsNullOrEmpty(k)) ?? Enumerable.Empty<string>();
+                    if (!string.IsNullOrWhiteSpace(_search))
+                    {
+                        var token = _search.Trim();
+                        keysEnum = keysEnum.Where(k => MatchesLineSearch(k, token));
+                    }
+                    var stringKeys = new HashSet<string>(keysEnum);
                     var assetKeys = new HashSet<string>(at?.Values.Select(e => e.SharedEntry?.Key).Where(k => !string.IsNullOrEmpty(k)) ?? Enumerable.Empty<string>());
 
                     var missingInAssets = stringKeys.Where(k => !assetKeys.Contains(k)).ToList();
@@ -628,17 +757,40 @@ namespace Antura.Discover.Audio.Editor
                             report.AppendLine("    ...");
                     }
 
-                    int assigned = 0;
-                    foreach (var e in at?.Values ?? Enumerable.Empty<AssetTableEntry>())
+                    // Count valid assigned assets and collect empty/invalid ones (to allow re-creation)
+                    int validAssigned = 0;
+                    var emptyOrInvalid = new List<string>();
+                    foreach (var key in stringKeys)
                     {
-                        if (!string.IsNullOrEmpty(e.Guid))
+                        var e = at?.GetEntry(key);
+                        if (e == null || string.IsNullOrEmpty(e.Guid))
                         {
-                            var p = AssetDatabase.GUIDToAssetPath(e.Guid);
-                            if (!string.IsNullOrEmpty(p))
-                                assigned++;
+                            emptyOrInvalid.Add(key);
+                            continue;
                         }
+                        var p = AssetDatabase.GUIDToAssetPath(e.Guid);
+                        if (string.IsNullOrEmpty(p))
+                        {
+                            emptyOrInvalid.Add(key);
+                            continue;
+                        }
+                        var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(p);
+                        if (clip == null || clip.length <= 0f)
+                        {
+                            emptyOrInvalid.Add(key);
+                            continue;
+                        }
+                        validAssigned++;
                     }
-                    report.AppendLine($"  Assigned audio assets: {assigned}/{stringKeys.Count}");
+                    report.AppendLine($"  Valid audio assets: {validAssigned}/{stringKeys.Count}");
+                    if (emptyOrInvalid.Count > 0)
+                    {
+                        report.AppendLine($"  Empty/invalid audio assets: {emptyOrInvalid.Count}");
+                        foreach (var k in emptyOrInvalid.Take(10))
+                            report.AppendLine($"    - {k}");
+                        if (emptyOrInvalid.Count > 10)
+                            report.AppendLine("    ...");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -770,9 +922,7 @@ namespace Antura.Discover.Audio.Editor
             { EditorUtility.DisplayDialog("Quest Voiceover", "Please select a quest.", "OK"); return false; }
             if (quest.QuestStringsTable == null || quest.QuestAssetsTable == null)
             { EditorUtility.DisplayDialog("Quest Voiceover", "Quest must have both QuestStringsTable and QuestAssetsTable assigned.", "OK"); return false; }
-            // VoiceProfile can force a specific voice for all lines/locales; if required, enforce selection
-            if (requireVoice && _voiceProfile == null)
-            { EditorUtility.DisplayDialog("Quest Voiceover", "Please select a VoiceProfile.", "OK"); return false; }
+            // When running generation, ensure secrets are present; VoiceProfile is optional.
             if (requireVoice && (_secrets == null || string.IsNullOrEmpty(_secrets.elevenLabsApiKey)))
             { EditorUtility.DisplayDialog("Quest Voiceover", "Please set the ElevenLabs API key in a LocalSecrets asset.", "OK"); return false; }
             return true;
@@ -797,6 +947,8 @@ namespace Antura.Discover.Audio.Editor
                 // 3) Else use catalog default voice and allow Yarn per-line actor overrides
                 var forceProfile = fallbackVoice != null;
                 var forceActor = actor != VoiceActors.Default;
+                // Prefer an explicit catalog, else use the global provider
+                IVoiceProvider provider = catalog != null ? catalog : VoiceProviderManager.I?.Provider;
 
                 // Base/default voice for this locale
                 VoiceProfileData localeDefaultVoice = null;
@@ -804,10 +956,10 @@ namespace Antura.Discover.Audio.Editor
                 {
                     localeDefaultVoice = fallbackVoice;
                 }
-                else if (catalog != null)
+                else if (provider != null)
                 {
                     var actorForDefault = forceActor ? actor : VoiceActors.Default;
-                    localeDefaultVoice = catalog.GetProfile(locale, actorForDefault);
+                    localeDefaultVoice = provider.GetProfile(locale, actorForDefault);
                 }
                 if (localeDefaultVoice == null)
                 { Debug.LogError($"[QVM] No voice profile for {locale.Identifier.Code}"); continue; }
@@ -815,6 +967,11 @@ namespace Antura.Discover.Audio.Editor
                 { Debug.LogWarning($"[QVM] Missing tables for {quest.Id} / {locale.Identifier.Code}"); continue; }
 
                 var entries = st.Values.Where(e => e != null && e.SharedEntry != null).ToList();
+                if (string.IsNullOrEmpty(_onlyLineKey) && !string.IsNullOrWhiteSpace(_search))
+                {
+                    var token = _search.Trim();
+                    entries = entries.Where(e => e.SharedEntry != null && MatchesLineSearch(e.SharedEntry.Key, token)).ToList();
+                }
                 int total = entries.Count;
                 int processed = 0;
 
@@ -823,6 +980,8 @@ namespace Antura.Discover.Audio.Editor
 
                 foreach (var e in entries)
                 {
+                    if (!string.IsNullOrEmpty(_onlyLineKey) && !string.Equals(e.SharedEntry.Key, _onlyLineKey, StringComparison.Ordinal))
+                        continue;
                     if (attemptsThisLocale >= maxToCreate)
                         break;
 
@@ -833,8 +992,8 @@ namespace Antura.Discover.Audio.Editor
                         continue; // skip empty localized strings
                     string lineIdShort = StripLinePrefix(key);
                     string nodeTitle = ResolveNodeTitleForKey(lineIdShort, meta.Titles);
-                    // When searching, only process lines whose Yarn node title matches the filter (include all lines of matched nodes)
-                    if (!string.IsNullOrWhiteSpace(_search))
+                    // When searching by free text (and not single-line mode), only process lines whose Yarn node title matches the filter
+                    if (string.IsNullOrEmpty(_onlyLineKey) && !string.IsNullOrWhiteSpace(_search))
                     {
                         bool matchesTitle = (nodeTitle?.IndexOf(_search, StringComparison.OrdinalIgnoreCase) ?? -1) >= 0;
                         if (!matchesTitle)
@@ -847,7 +1006,7 @@ namespace Antura.Discover.Audio.Editor
                         // Only allow Yarn actor override when no forced profile/actor
                         if (meta.Actors != null && meta.Actors.TryGetValue(lineIdShort, out var actorOpt) && actorOpt.HasValue)
                         {
-                            var v = catalog != null ? catalog.GetProfile(locale.Identifier.Code, actorOpt.Value) : null;
+                            var v = provider != null ? provider.GetProfile(locale.Identifier.Code, actorOpt.Value) : null;
                             if (v != null)
                                 voiceForLine = v;
                         }
@@ -875,7 +1034,8 @@ namespace Antura.Discover.Audio.Editor
                         yield break;
                     }
 
-                    bool skipExisting = onlyMissing || !overwrite;
+                    bool forceThisLine = !string.IsNullOrEmpty(_onlyLineKey) && string.Equals(key, _onlyLineKey, StringComparison.Ordinal);
+                    bool skipExisting = forceThisLine && _forceRecreateSelected ? false : (onlyMissing || !overwrite);
                     if (skipExisting && File.Exists(finalAssetPath))
                     {
                         var guid = AssetDatabase.AssetPathToGUID(finalAssetPath);
@@ -925,6 +1085,13 @@ namespace Antura.Discover.Audio.Editor
                             {
                                 AssetDatabase.ImportAsset(finalAssetPath, ImportAssetOptions.ForceSynchronousImport);
                                 ApplyVorbisQuality(finalAssetPath, 0.7f);
+                                if (_trimSilence)
+                                {
+                                    if (TryTrimFileWithFfmpeg(ffmpegPath, finalAssetPath, _trimThresholdDb, _trimTailDurationSec, _trimHeadAlso, _trimHeadDurationSec))
+                                    {
+                                        AssetDatabase.ImportAsset(finalAssetPath, ImportAssetOptions.ForceSynchronousImport);
+                                    }
+                                }
                                 var gogg = AssetDatabase.AssetPathToGUID(finalAssetPath);
                                 var eAssign = at.GetEntry(key) ?? at.AddEntry(key, gogg ?? string.Empty);
                                 if (!string.IsNullOrEmpty(gogg))
@@ -979,6 +1146,13 @@ namespace Antura.Discover.Audio.Editor
                                     AssetDatabase.DeleteAsset(mp3TempPath);
                             }
                         }
+                        if (_trimSilence && !string.IsNullOrEmpty(assignPath))
+                        {
+                            if (TryTrimFileWithFfmpeg(ffmpegPath, assignPath, _trimThresholdDb, _trimTailDurationSec, _trimHeadAlso, _trimHeadDurationSec))
+                            {
+                                AssetDatabase.ImportAsset(assignPath, ImportAssetOptions.ForceSynchronousImport);
+                            }
+                        }
                         totalCreated++;
                         createdNow = true;
                     }
@@ -1019,6 +1193,9 @@ namespace Antura.Discover.Audio.Editor
 
             EditorUtility.ClearProgressBar();
             _isRunning = false;
+            // Clear single-line mode flags after finishing
+            _onlyLineKey = null;
+            _forceRecreateSelected = false;
             EditorUtility.DisplayDialog("Create Audio", $"Done. Created {totalCreated} file(s).", "OK");
         }
 
@@ -1029,6 +1206,19 @@ namespace Antura.Discover.Audio.Editor
             if (quest == null || locales.Count == 0)
             { EditorUtility.DisplayDialog("Convert MP3 → OGG", "Select a quest and at least one locale.", "OK"); return; }
             EditorCoroutineUtility.StartCoroutineOwnerless(ConvertMp3ToOggCoroutine(quest, locales, _ffmpegPath, _keepMp3AfterConversion));
+        }
+
+        private void RunTrimSilence()
+        {
+            var quest = GetSelectedQuest();
+            var locales = GetTargetLocales().ToList();
+            if (quest == null || locales.Count == 0)
+            { EditorUtility.DisplayDialog("Trim Silence", "Select a quest and at least one locale.", "OK"); return; }
+            if (!_trimSilence)
+            { EditorUtility.DisplayDialog("Trim Silence", "Enable 'Trim silence' first.", "OK"); return; }
+            _isRunning = true;
+            _cancelRequested = false;
+            EditorCoroutineUtility.StartCoroutineOwnerless(TrimSilenceCoroutine(quest, locales, _ffmpegPath, _trimThresholdDb, _trimTailDurationSec, _trimHeadAlso, _trimHeadDurationSec));
         }
 
         private void RunUpdateAddressablesQuest()
@@ -1121,6 +1311,14 @@ namespace Antura.Discover.Audio.Editor
                     { Debug.LogError($"[QVM] ffmpeg conversion failed: {err} for {mp3}"); continue; }
                     AssetDatabase.ImportAsset(ogg, ImportAssetOptions.ForceSynchronousImport);
                     ApplyVorbisQuality(ogg, 0.7f);
+                    // Optional trimming after conversion
+                    if (_trimSilence)
+                    {
+                        if (TryTrimFileWithFfmpeg(ffmpegPath, ogg, _trimThresholdDb, _trimTailDurationSec, _trimHeadAlso, _trimHeadDurationSec))
+                        {
+                            AssetDatabase.ImportAsset(ogg, ImportAssetOptions.ForceSynchronousImport);
+                        }
+                    }
                     totalConverted++;
 
                     var questAssets = LocalizationSettings.AssetDatabase.GetTable(quest.QuestAssetsTable.TableReference, locale);
@@ -1166,6 +1364,100 @@ namespace Antura.Discover.Audio.Editor
             EditorUtility.ClearProgressBar();
             _isRunning = false;
             EditorUtility.DisplayDialog("Convert MP3 → OGG", $"Done. Converted {totalConverted} file(s).", "OK");
+        }
+
+        private IEnumerator TrimSilenceCoroutine(QuestData quest, List<Locale> locales, string ffmpegPath, float thresholdDb, float tailMinSec, bool trimHead, float headMinSec)
+        {
+            int totalTrimmed = 0;
+            foreach (var locale in locales)
+            {
+                string folder = GetQuestLangFolder(quest, locale);
+                if (!AssetDatabase.IsValidFolder(folder))
+                    continue;
+                string[] clips = Directory.Exists(folder)
+                    ? Directory.GetFiles(folder, "*.*").Where(p => p.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase) || p.EndsWith(".ogg", StringComparison.OrdinalIgnoreCase) || p.EndsWith(".wav", StringComparison.OrdinalIgnoreCase)).ToArray()
+                    : Array.Empty<string>();
+                int idx = 0;
+                int total = clips.Length;
+                foreach (var path in clips)
+                {
+                    idx++;
+                    float denom = Mathf.Max(1f, total);
+                    float progress = idx / denom;
+                    bool canceled = EditorUtility.DisplayCancelableProgressBar("Trim Silence", $"{quest.Id} [{locale.Identifier.Code}] {idx}/{total}: {Path.GetFileName(path)}", Mathf.Clamp01(progress));
+                    if (canceled || _cancelRequested)
+                    {
+                        EditorUtility.ClearProgressBar();
+                        _isRunning = false;
+                        EditorUtility.DisplayDialog("Trim Silence", "Canceled.", "OK");
+                        yield break;
+                    }
+
+                    if (TryTrimFileWithFfmpeg(ffmpegPath, path, thresholdDb, tailMinSec, trimHead, headMinSec))
+                    {
+                        totalTrimmed++;
+                        AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+                    }
+                }
+                AssetDatabase.SaveAssets();
+            }
+            AssetDatabase.Refresh();
+            EditorUtility.ClearProgressBar();
+            _isRunning = false;
+            EditorUtility.DisplayDialog("Trim Silence", $"Done. Trimmed {totalTrimmed} file(s).", "OK");
+        }
+
+        private static bool TryTrimFileWithFfmpeg(string ffmpegPath, string assetPath, float thresholdDb, float tailMinSec, bool trimHead, float headMinSec)
+        {
+            if (string.IsNullOrEmpty(ffmpegPath) || string.IsNullOrEmpty(assetPath))
+                return false;
+            var ext = Path.GetExtension(assetPath).ToLowerInvariant();
+            if (ext != ".mp3" && ext != ".ogg" && ext != ".wav")
+                return false;
+
+            string input = Path.GetFullPath(assetPath);
+            string tmpOut = input + ".trimtmp" + ext;
+
+            string headFilter = trimHead ? $"silenceremove=start_periods=1:start_duration={headMinSec.ToString(System.Globalization.CultureInfo.InvariantCulture)}:start_threshold={thresholdDb}dB" : null;
+            string tailFilter = $"areverse,silenceremove=start_periods=1:start_duration={tailMinSec.ToString(System.Globalization.CultureInfo.InvariantCulture)}:start_threshold={thresholdDb}dB,areverse";
+            string filter = !string.IsNullOrEmpty(headFilter) ? headFilter + "," + tailFilter : tailFilter;
+
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = ffmpegPath,
+                Arguments = $"-y -i \"{input}\" -af \"{filter}\" \"{tmpOut}\"",
+                UseShellExecute = false,
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
+            try
+            {
+                using (var proc = System.Diagnostics.Process.Start(psi))
+                {
+                    proc.WaitForExit();
+                    if (proc.ExitCode == 0 && File.Exists(tmpOut))
+                    {
+                        File.Copy(tmpOut, input, true);
+                        File.Delete(tmpOut);
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"[QVM] ffmpeg trim failed for {assetPath}: {ex.Message}");
+            }
+            finally
+            {
+                if (File.Exists(tmpOut))
+                {
+                    try
+                    { File.Delete(tmpOut); }
+                    catch { }
+                }
+            }
+            return false;
         }
 
         private static string GetQuestLangFolder(QuestData quest, Locale locale)
@@ -1266,6 +1558,53 @@ namespace Antura.Discover.Audio.Editor
             if (tokens.Length < nFromEnd)
                 return string.Empty;
             return tokens[tokens.Length - nFromEnd];
+        }
+
+        private static bool MatchesLineSearch(string key, string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+                return true;
+            if (string.IsNullOrEmpty(key))
+                return false;
+            // Case-insensitive contains; allows searching raw id (e.g., "02846e8") against keys like "line:02846e8".
+            return key.IndexOf(token, StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private static string NormalizeLineKey(string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+                return string.Empty;
+            token = token.Trim();
+            return token.StartsWith("line:", StringComparison.OrdinalIgnoreCase) ? token : ("line:" + token);
+        }
+
+        private void TryPingAudioForLine(QuestData quest, Locale locale, string lineKey)
+        {
+            if (quest == null || locale == null || string.IsNullOrEmpty(lineKey))
+                return;
+            var at = LocalizationSettings.AssetDatabase.GetTable(quest.QuestAssetsTable.TableReference, locale);
+            var entry = at != null ? at.GetEntry(lineKey) : null;
+            if (entry == null || string.IsNullOrEmpty(entry.Guid))
+            { EditorUtility.DisplayDialog("Ping Audio", "No audio assigned to this line.", "OK"); return; }
+            var path = AssetDatabase.GUIDToAssetPath(entry.Guid);
+            var obj = string.IsNullOrEmpty(path) ? null : AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path);
+            if (obj != null)
+            {
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = obj;
+                EditorGUIUtility.PingObject(obj);
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("Ping Audio", "Assigned audio not found on disk.", "OK");
+            }
+        }
+
+        private void RunCreateAudioForSelectedLine(string lineKey)
+        {
+            _onlyLineKey = lineKey;
+            _forceRecreateSelected = true;
+            RunCreateAudioFiles();
         }
 
         private int ComputeEligibleCreateCount(QuestData quest, Locale locale, YarnLineMapBuilder.YarnLineMeta meta, bool onlyMissing, bool convertToOgg, bool overwrite)
