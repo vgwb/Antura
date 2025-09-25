@@ -10,15 +10,15 @@ title: "Manual"
 ## Teacher Manual
 
 - [Introduction](./introduction.md) - introduction to Learn with Antura
-- 📥 [Install](./install.md) — instructions for setting up on mobile or PC.  
+- 📥 [Install](./install.md) - instructions for setting up on mobile or PC.  
 - [Setup](./setup.md) - step by step setup for classroom usage
-- 👩‍🏫 [Classroom Guide](./classroom_guide.md) — practical advice for using with your students.  
-- ❓ [FAQ](./faq.md) — answers to the most common questions.
+- 👩‍🏫 [Classroom Guide](./classroom_guide.md) - practical advice for using with your students.  
+- ❓ [FAQ](./faq.md) - answers to the most common questions.
 
 ## Detailed modules
 
-- 🎮 [Learn Languages](./learnlanguage_module.md) — the minigames that train letters, words, and vocabulary.  
-- 🌍 [Discover Cultures](./discover_introduction.md) — explore countries, traditions, and cultural heritage.  
+- 🎮 [Learn Languages](./learnlanguage_module.md) - the minigames that train letters, words, and vocabulary.  
+- 🌍 [Discover Cultures](./discover_introduction.md) - explore countries, traditions, and cultural heritage.  
 
 ## For quest creators & developers
 

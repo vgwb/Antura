@@ -12,7 +12,6 @@ title: How To
 
 - [Install](./INSTALL.md) how to install and configure the Unity project
 - [Build](./Build.md) how to build the app for mobile devices
-- [Create Edition](./CreateEdition.md)
 
 ## Collaboration & Guidelines
 

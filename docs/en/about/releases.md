@@ -1,10 +1,11 @@
 ---
-title: Changelog
+title: Releases
 ---
-# Antura Changelog
-All notable changes to this project will be documented in this file.
+# Releases
+All notable changes to this project will be documented in this file.  
+Check [github.com/vgwb/Antura/releases](https://github.com/vgwb/Antura/releases) for more developer oriented changelog.
 
-## [3.0.0] - Discover Edition - 2025
+## [3.0.0 beta] - Discover Edition - 2026
 
 ### New Features
 

@@ -122,7 +122,6 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
             { text: 'Shaders', link: 'game-modules/Shaders' },
             { text: 'Player Profile', link: 'game-modules/PlayerProfile' },
             { text: 'Antura & LivingLetters', link: 'game-modules/AnturaLivingLetters' },
-            { text: 'Cat Update', link: 'game-modules/catupdate' },
           ]
         },
         {
@@ -135,12 +134,10 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
             { text: 'Export Player Database', link: 'how-to/ExportPlayerDatabase' },
             // Setup & Build
             { text: 'Install', link: 'how-to/INSTALL' },
-            { text: 'Build', link: 'how-to/Build' },
-            { text: 'Create Edition', link: 'how-to/CreateEdition' },
+            { text: 'Build from sources', link: 'how-to/Build' },
             // Collaboration & Guidelines
             { text: 'Collaborator', link: 'how-to/Collaborator' },
             { text: 'Developer Guidelines', link: 'how-to/DeveloperGuidelines' },
-            { text: 'Refactoring Guidelines', link: 'how-to/RefactoringGuidelines' },
             // Localization & Content
             { text: 'Localization', link: 'how-to/Localization' },
             { text: 'Arabic Language', link: 'how-to/ArabicLanguage' },

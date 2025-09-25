@@ -11,11 +11,11 @@ Like all our projects, it is built with open-source technologies.
 
 ## 🛠️ Built with
 
-- [VitePress](https://vitepress.dev) — static site generator for docs  
-- [Markdown](https://www.markdownguide.org) — simple, readable content format  
-- [GitHub Pages](https://docs.github.com/en/pages) — deployment hosting  
+- [VitePress](https://vitepress.dev) - static site generator for docs  
+- [Markdown](https://www.markdownguide.org) - simple, readable content format  
+- [GitHub Pages](https://docs.github.com/en/pages) - deployment hosting  
 
 ## 📂 Source & contributions
 
 - Repository: [github.com/vgwb/Antura](https://github.com/vgwb/Antura) (docs folder)  
-- Issues and pull requests are welcome — help us improve!  
+- Issues and pull requests are welcome - help us improve!  

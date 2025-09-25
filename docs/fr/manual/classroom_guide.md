@@ -50,7 +50,7 @@ Modes de jeu
 - Astuce: commencez par la quête **Tutoriel**.  
 
 > [!TIP]
-> Exemple de consigne: « Nous avons trouvé une boulangerie — quels indices montrent son importance dans la culture française ? »
+> Exemple de consigne: « Nous avons trouvé une boulangerie - quels indices montrent son importance dans la culture française ? »
 
 **2) Jeu individuel / apprentissage autonome**
 

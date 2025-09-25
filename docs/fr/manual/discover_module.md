@@ -325,7 +325,7 @@ Exemple de débrief (10 min) :
   - traduction intégrée multi‑langues  
   - création collaborative avec des enseignants  
 
-Docs : Conception des quêtes — https://docs.antura.org/manual/quests/
+Docs : Conception des quêtes - https://docs.antura.org/manual/quests/
 
 ### Licences et crédits
 

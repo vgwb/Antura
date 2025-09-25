@@ -333,7 +333,7 @@ Example debrief (10 minutes):
   - built‑in translation in multiple languages  
   - collaborative content creation with teachers  
 
-Docs: Quest Design — https://docs.antura.org/manual/quests/
+Docs: Quest Design - https://docs.antura.org/manual/quests/
 
 ### Licensing and credits
 

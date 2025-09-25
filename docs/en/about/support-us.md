@@ -13,7 +13,7 @@ Your support helps us keep Antura free for all children, expand its content, and
 Even a small contribution helps us cover development, hosting, and content production.  
 👉 [Contact us](/en/about/contact) to donate or become a regular supporter.  
 
-_(We are exploring online donation platforms — stay tuned!)_
+_(We are exploring online donation platforms - stay tuned!)_
 
 ## 💻 Contribute on GitHub
 
@@ -53,4 +53,4 @@ You can help by:
 
 ## 🙏 Thank You
 
-Every contribution — big or small — helps us bring **free education through play** to children worldwide.  
+Every contribution - big or small - helps us bring **free education through play** to children worldwide.  
