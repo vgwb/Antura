@@ -84,9 +84,9 @@ namespace Antura.Discover.Audio.Editor
         private int _selectedQuestIndex = 0;
         private int _selectedLocaleIndex = 0; // 0 = All
         private string _search = string.Empty;
-        private VoiceProfileData _voiceProfile;
-        private VoiceProfileCatalog _voiceCatalog; // Optional per-language/actor
+        private VoiceProfileCatalog _voiceCatalog;
         private VoiceActors _selectedActor = VoiceActors.Default;
+        private VoiceProfileData _voiceProfile;
         private LocalSecrets _secrets;
         private bool _overwriteExisting = false;
         private int _createCapIndex = 2; // 0=1, 1=5, 2=All
@@ -253,6 +253,11 @@ namespace Antura.Discover.Audio.Editor
                 _voiceCatalog = (VoiceProfileCatalog)EditorGUILayout.ObjectField("Voice Catalog", _voiceCatalog, typeof(VoiceProfileCatalog), false);
                 _selectedActor = (VoiceActors)EditorGUILayout.EnumPopup("Actor", _selectedActor);
                 _secrets = (LocalSecrets)EditorGUILayout.ObjectField("Local Secrets", _secrets, typeof(LocalSecrets), false);
+                EditorGUILayout.HelpBox(
+                    "Voice precedence: VoiceProfile > Actor > Yarn per-line > Default.\n" +
+                    "If Actor is set to SILENT, audio will not be generated.\n" +
+                    "If a Yarn per-line actor is SILENT, that line will be skipped.",
+                    MessageType.Info);
                 if (_secrets != null)
                 {
                     EditorGUILayout.LabelField("API key", MaskApiKey(_secrets.elevenLabsApiKey));
@@ -416,6 +421,8 @@ namespace Antura.Discover.Audio.Editor
                 {
                     VoiceProfileData voice = null;
                     IVoiceProvider provider = catalog != null ? catalog : VoiceProviderManager.I?.Provider;
+                    var forceProfile = fallbackVoice != null;
+                    var forceActor = _selectedActor != VoiceActors.Default;
                     if (provider == null)
                     {
                         var guids = AssetDatabase.FindAssets("t:VoiceProfileCatalog");
@@ -426,10 +433,15 @@ namespace Antura.Discover.Audio.Editor
                             provider = cat;
                         }
                     }
-                    if (provider != null)
-                        voice = provider.GetProfile(locale, VoiceActors.Default);
-                    if (voice == null)
+                    if (forceProfile)
+                    {
                         voice = fallbackVoice;
+                    }
+                    else if (provider != null)
+                    {
+                        var actorForDefault = forceActor ? _selectedActor : VoiceActors.Default;
+                        voice = provider.GetProfile(locale, actorForDefault);
+                    }
                     if (voice == null)
                     { Debug.LogError($"[QVM] No voice profile for {locale.Identifier.Code} (cards)"); continue; }
 
@@ -511,6 +523,10 @@ namespace Antura.Discover.Audio.Editor
                             }
                             continue;
                         }
+
+                        // If Actor is explicitly set to SILENT, skip cards rendering
+                        if (_selectedActor == VoiceActors.SILENT)
+                            continue;
 
                         byte[] bytes = null;
                         yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voice, text, b => bytes = b);
@@ -754,6 +770,7 @@ namespace Antura.Discover.Audio.Editor
             { EditorUtility.DisplayDialog("Quest Voiceover", "Please select a quest.", "OK"); return false; }
             if (quest.QuestStringsTable == null || quest.QuestAssetsTable == null)
             { EditorUtility.DisplayDialog("Quest Voiceover", "Quest must have both QuestStringsTable and QuestAssetsTable assigned.", "OK"); return false; }
+            // VoiceProfile can force a specific voice for all lines/locales; if required, enforce selection
             if (requireVoice && _voiceProfile == null)
             { EditorUtility.DisplayDialog("Quest Voiceover", "Please select a VoiceProfile.", "OK"); return false; }
             if (requireVoice && (_secrets == null || string.IsNullOrEmpty(_secrets.elevenLabsApiKey)))
@@ -774,10 +791,24 @@ namespace Antura.Discover.Audio.Editor
                 var st = LocalizationSettings.StringDatabase.GetTable(quest.QuestStringsTable.TableReference, locale);
                 var at = LocalizationSettings.AssetDatabase.GetTable(quest.QuestAssetsTable.TableReference, locale);
 
-                // Default voice for this locale (used when no per-line actor override is available)
-                var localeDefaultVoice = catalog != null ? catalog.GetProfile(locale, actor) : null;
-                if (localeDefaultVoice == null)
+                // Voice selection precedence:
+                // 1) If a VoiceProfile is explicitly assigned (_voiceProfile), always use it
+                // 2) Else if an Actor is explicitly selected (_selectedActor != Default), force that actor's voice
+                // 3) Else use catalog default voice and allow Yarn per-line actor overrides
+                var forceProfile = fallbackVoice != null;
+                var forceActor = actor != VoiceActors.Default;
+
+                // Base/default voice for this locale
+                VoiceProfileData localeDefaultVoice = null;
+                if (forceProfile)
+                {
                     localeDefaultVoice = fallbackVoice;
+                }
+                else if (catalog != null)
+                {
+                    var actorForDefault = forceActor ? actor : VoiceActors.Default;
+                    localeDefaultVoice = catalog.GetProfile(locale, actorForDefault);
+                }
                 if (localeDefaultVoice == null)
                 { Debug.LogError($"[QVM] No voice profile for {locale.Identifier.Code}"); continue; }
                 if (st == null || at == null)
@@ -809,16 +840,23 @@ namespace Antura.Discover.Audio.Editor
                         if (!matchesTitle)
                             continue;
                     }
-                    // Resolve voice per line based on Yarn actor header when available
+                    // Resolve voice per line using the precedence above
                     VoiceProfileData voiceForLine = localeDefaultVoice;
-                    if (meta.Actors != null && meta.Actors.TryGetValue(lineIdShort, out var actorOpt) && actorOpt.HasValue)
+                    if (!forceProfile && !forceActor)
                     {
-                        var v = catalog != null ? catalog.GetProfile(locale.Identifier.Code, actorOpt.Value) : null;
-                        if (v != null)
-                            voiceForLine = v;
+                        // Only allow Yarn actor override when no forced profile/actor
+                        if (meta.Actors != null && meta.Actors.TryGetValue(lineIdShort, out var actorOpt) && actorOpt.HasValue)
+                        {
+                            var v = catalog != null ? catalog.GetProfile(locale.Identifier.Code, actorOpt.Value) : null;
+                            if (v != null)
+                                voiceForLine = v;
+                        }
                     }
-                    VoiceActors actorForFile = _selectedActor;
-                    if (meta.Actors != null && meta.Actors.TryGetValue(lineIdShort, out var aOpt) && aOpt.HasValue)
+                    // Actor metadata stored alongside manifest/hash: forced actor if set, else Yarn actor, else Default
+                    VoiceActors actorForFile = VoiceActors.Default;
+                    if (forceActor)
+                        actorForFile = actor;
+                    else if (meta.Actors != null && meta.Actors.TryGetValue(lineIdShort, out var aOpt) && aOpt.HasValue)
                         actorForFile = aOpt.Value;
                     // Filenames now simplified: questId_lineId (no nodeTitle, no actor)
                     string fileBase = $"{SanitizeFileNamePart(quest.Id)}_{SanitizeFileNamePart(lineIdShort)}";
@@ -853,8 +891,8 @@ namespace Antura.Discover.Audio.Editor
                         // Manifest upsert for existing file path
                         var audioFileName = Path.GetFileName(finalAssetPath);
                         var normText = VoiceoverManifestUtil.NormalizeText(text);
-                        var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, localeDefaultVoice?.Id, actorForFile.ToString(), locale.Identifier.Code);
-                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: localeDefaultVoice?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
+                        var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
+                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
                         // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
                         _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                         continue;
@@ -909,6 +947,10 @@ namespace Antura.Discover.Audio.Editor
                     }
 
                     attemptsThisLocale++;
+
+                    // If actor is SILENT, skip rendering audio for this line
+                    if (actorForFile == VoiceActors.SILENT)
+                        continue;
 
                     byte[] bytes = null;
                     yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voiceForLine, text, b => bytes = b);

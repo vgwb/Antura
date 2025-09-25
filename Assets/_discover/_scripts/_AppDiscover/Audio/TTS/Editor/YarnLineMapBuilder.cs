@@ -40,6 +40,8 @@ namespace Antura.Discover.Audio.Editor
                 VoiceActors? currentActor = null;
                 var rxTitle = new Regex("^\\s*title\\s*:\\s*(.+)$", RegexOptions.IgnoreCase);
                 var rxActor = new Regex("^\\s*actor\\s*:\\s*(.+)$", RegexOptions.IgnoreCase);
+                // Node header tags may contain key/value pairs like "actor=ADULT_F, type=Choice"
+                var rxTags = new Regex("^\\s*tags\\s*:\\s*(.+)$", RegexOptions.IgnoreCase);
                 var rxLine = new Regex(@"#line:([A-Za-z0-9_-]+)");
                 foreach (var rawLine in text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None))
                 {
@@ -57,6 +59,35 @@ namespace Antura.Discover.Audio.Editor
                             currentActor = parsed;
                         else
                             currentActor = null;
+                        continue;
+                    }
+                    var mTags = rxTags.Match(rawLine);
+                    if (mTags.Success)
+                    {
+                        // Only set actor from tags if an explicit actor header wasn't provided for this node
+                        if (currentActor == null)
+                        {
+                            var tagsValue = mTags.Groups[1].Value;
+                            // Split on commas to support multiple tags, e.g., "actor=WOMAN, type=Choice"
+                            var pieces = tagsValue.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                            foreach (var piece in pieces)
+                            {
+                                var kv = piece.Trim();
+                                var eqIdx = kv.IndexOf('=');
+                                if (eqIdx <= 0)
+                                    continue;
+                                var key = kv.Substring(0, eqIdx).Trim();
+                                var value = kv.Substring(eqIdx + 1).Trim();
+                                if (key.Equals("actor", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    if (Enum.TryParse<VoiceActors>(value, ignoreCase: true, out var parsedFromTags))
+                                    {
+                                        currentActor = parsedFromTags;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                         continue;
                     }
                     var mLine = rxLine.Match(rawLine);
