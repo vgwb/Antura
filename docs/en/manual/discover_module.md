@@ -3,7 +3,7 @@ title: Discover Features
 status: new
 ---
 
-# Discover Module details
+# Discover Cultures details
 
 ## Content
 

@@ -18,7 +18,7 @@ title: "Manual"
 ## Detailed modules
 
 - 🎮 [Learn Languages](./learnlanguage_module.md) — the minigames that train letters, words, and vocabulary.  
-- 🌍 [Discover Culture](./discover_introduction.md) — explore countries, traditions, and cultural heritage.  
+- 🌍 [Discover Cultures](./discover_introduction.md) — explore countries, traditions, and cultural heritage.  
 
 ## For quest creators & developers
 

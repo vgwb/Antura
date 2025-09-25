@@ -10,7 +10,7 @@ hero:
       text: Download
       link: /en/download
     - theme: alt
-      text: Blog
+      text: News & Community
       link: https://antura.discourse.group/c/news/5
     - theme: alt
       text: ❤️ Support
@@ -23,7 +23,7 @@ features:
   - title: "🎮 Learn through play"
     details: "Minigames make reading and language practice fun."
     link: en/manual/learnlanguage_module
-  - title: "🌍 Discover countries and cultures"
+  - title: "🌍 Discover cultures and countries"
     details: "Explore heritage, traditions, and daily life through quests."
     link: en/manual/discover_introduction
   - title: "🆓 Free and open source"

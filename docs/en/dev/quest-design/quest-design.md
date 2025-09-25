@@ -70,3 +70,22 @@ The default language is english.
 We'll make all translations and validations.
 And later we'll create all the voice overs.
 
+
+## Script writing
+
+### 🎙️ Voice Actors
+
+| Enum String | Description | Recommended Use |
+| ------------- | --- | --- |
+| **Default**   | Female, neutral, clear diction, mid pitch, minimal emotion.                    | System voice, UI prompts, fallback lines.                      |
+| **Silent**    | No spoken words, but can use non-verbal sounds (sighs, laughs, effort grunts). | Animals, mute NPCs, pantomime puzzles.                         |
+| **Narrator**  | Male, warm, engaging, enthusiastic.                                            | Main storyteller voice for quests, intros, dramatic narration. |
+| **Special**   | FX voice, such as a robot, creature, or animal.                                | Robots, magical beings, non-human characters.                  |
+| **Adult\_F**  | Female adult voice, warm, conversational, adaptable.                           | Parents, teachers, villagers, shopkeepers.                     |
+| **Adult\_M**  | Male adult voice, natural, medium pitch, flexible tone.                        | Guards, mentors, everyday adult NPCs.                          |
+| **Senior\_F** | Elder female, warm, gentle rasp, storyteller cadence.                          | Wise old lady, grandmother, oracle.                            |
+| **Senior\_M** | Elder male, deeper, slower, authoritative but kind.                            | Village elder, grandfather, historian.                         |
+| **Kid\_F**    | Young female, bright, energetic, quick speech, high pitch.                     | Schoolmates, playful side characters.                          |
+| **Kid\_M**    | Young male, playful, curious, lively tone, mid-high pitch.                     | Curious friend, companion, playful NPC.                        |
+
+

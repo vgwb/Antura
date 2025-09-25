@@ -15,12 +15,12 @@ export default defineAdditionalConfig({
 
 function nav(): DefaultTheme.NavItem[] {
   return [
-    { text: 'Manual', link: '/en/manual/', activeMatch: '/en/manual/'},
-    { text: 'Content', link: '/en/content/', activeMatch: '/en/content/' },
-    { text: 'Developer', link: '/en/dev/', activeMatch: '/en/dev/' },
     { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
+    { text: 'Teacher Manual', link: '/en/manual/', activeMatch: '/en/manual/'},
+    { text: 'Open Content', link: '/en/content/', activeMatch: '/en/content/' },
+    { text: 'Developer Docs', link: '/en/dev/', activeMatch: '/en/dev/' },
     { text: 'Download', link: '/en/download'},
-    { text: 'Blog & Forum', link: 'https://antura.discourse.group/c/news/5' }
+    { text: 'News & Community', link: 'https://antura.discourse.group/c/news/5' }
   ]
 }
 
@@ -35,14 +35,14 @@ function sidebarManual(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: 'Learn Languages Modules',
+      text: 'Learn Languages',
       items: [
         { text: 'Learn Languages overview', link: 'learnlanguage_module' },
         { text: 'How to play minigames', link: 'learnlanguage_how_to_play' },
       ]
     },
     {
-      text: 'Discover Modules',
+      text: 'Discover Cultures',
       items: [
         { text: 'Discover overview', link: 'discover_introduction' },
         { text: 'Discover features', link: 'discover_module' },
@@ -61,36 +61,28 @@ function sidebarContent(): DefaultTheme.SidebarItem[] {
       text: 'Content',
       items: [
         { text: 'Overview', link: '/' },
-        { text: 'Quests', link: 'quests/' },
-        { text: 'Topics', link: 'topics/' },
-        { text: 'Cards', link: 'cards/' },
-        { text: 'Words', link: 'words/' },
-        { text: 'Activities', link: 'activities/' },
-        { text: 'Locations', link: 'locations/' }
+        {
+          text: 'Learn Languages',
+          items: [
+            { text: 'Curriculum', link: 'language-curriculum/' },
+            { text: 'Minigames', link: 'language-minigames/' },
+          ]
+        },
+        {
+          text: 'Discover Cultures',
+          items: [
+            { text: 'Quests', link: 'quests/' },
+            { text: 'Topics', link: 'topics/' },
+            { text: 'Cards', link: 'cards/' },
+            { text: 'Words', link: 'words/' },
+            { text: 'Activities', link: 'activities/' },
+            { text: 'Locations', link: 'locations/' }
+          ]
+        },
       ]
     }
   ]
 }
-
-// function autoSidebar(slug: string): DefaultTheme.SidebarItem[] {
-//   // Grab all .md files under this slug using Vite's glob (typed via vite/client)
-//   const modules = import.meta.glob(`/en/dev/${slug}/*.md`, { eager: true }) as Record<string, any>
-
-//   const pages = Object.entries(modules)
-//     .map(([file, mod]) => {
-//       const name = file.split('/').pop()?.replace(/\.md$/, '') || ''
-//       if (!name || name === 'index') return null
-//       const fm = (mod as any)?.frontmatter ?? {}
-//       const text = (fm.title as string) || name.replace(/-/g, ' ')
-//       const order = typeof fm.order === 'number' ? (fm.order as number) : 1e9
-//       const link = `${slug}/${name}/`
-//       return { text, link, order }
-//     })
-//     .filter(Boolean) as { text: string; link: string; order: number }[]
-
-//   pages.sort((a, b) => a.order - b.order || a.text.localeCompare(b.text))
-//   return pages.map(({ text, link }) => ({ text, link }))
-// }
 
 function sidebarDev(): DefaultTheme.SidebarItem[] {
   return [
@@ -98,15 +90,68 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
       text: 'Developer Docs',
       items: [
         { text: 'Overview', link: '/' },
-        { text: 'AdventurED Framework', link: 'adventured-framework/' },
-        // { text: 'How To', collapsed: false, items: autoSidebar('how-to') },
-        // {
-        //   text: 'Language Minigames',
-        //   collapsed: false,
-        //   items: autoSidebar('language-minigames')
-        // },
-        { text: 'Language Modules', link: 'language-modules/' },
-        { text: 'Quest Design', link: 'quest-design/' }
+                {
+          text: 'Discover Quest Design',
+          link: 'quest-design/',
+          collapsed: true,
+          items: [
+            { text: 'Quest Design', link: 'quest-design/quest-design' },
+            { text: 'Quest Development', link: 'quest-design/quest-development' },
+            { text: 'Quest Scripts Guidelines', link: 'quest-design/quest-scripts-guidelines' },
+            { text: 'Commit message semantic', link: 'quest-design/commit-message-semantic' },
+          ]
+        },
+        {
+          text: 'Game Modules',
+          link: 'game-modules/',
+          collapsed: true,
+          items: [
+            { text: 'Project Structure', link: 'game-modules/ProjectStructure' },
+            { text: 'Application Flow', link: 'game-modules/ApplicationFlow' },
+            { text: 'MiniGame', link: 'game-modules/MiniGame' },
+            { text: 'Teacher AI', link: 'game-modules/Teacher' },
+            { text: 'Journey', link: 'game-modules/Journey' },
+            { text: 'Database', link: 'game-modules/Database' },
+            { text: 'Database Schemas', link: 'game-modules/DatabaseSchemas' },
+            { text: 'Database Management', link: 'game-modules/DatabaseManagement' },
+            { text: 'Data Flow', link: 'game-modules/DataFlow' },
+            { text: 'Localization', link: 'game-modules/Localization' },
+            { text: 'Arabic Rendering', link: 'game-modules/ArabicRendering' },
+            { text: 'Logging', link: 'game-modules/Logging' },
+            { text: 'Analytics', link: 'game-modules/Analytics' },
+            { text: 'Shaders', link: 'game-modules/Shaders' },
+            { text: 'Player Profile', link: 'game-modules/PlayerProfile' },
+            { text: 'Antura & LivingLetters', link: 'game-modules/AnturaLivingLetters' },
+            { text: 'Cat Update', link: 'game-modules/catupdate' },
+          ]
+        },
+        {
+          text: 'How to',
+          link: 'how-to/',
+          collapsed: true,
+          items: [
+            // User & Tester
+            { text: 'Debug Shortcuts', link: 'how-to/DebugShortcuts' },
+            { text: 'Export Player Database', link: 'how-to/ExportPlayerDatabase' },
+            // Setup & Build
+            { text: 'Install', link: 'how-to/INSTALL' },
+            { text: 'Build', link: 'how-to/Build' },
+            { text: 'Create Edition', link: 'how-to/CreateEdition' },
+            // Collaboration & Guidelines
+            { text: 'Collaborator', link: 'how-to/Collaborator' },
+            { text: 'Developer Guidelines', link: 'how-to/DeveloperGuidelines' },
+            { text: 'Refactoring Guidelines', link: 'how-to/RefactoringGuidelines' },
+            // Localization & Content
+            { text: 'Localization', link: 'how-to/Localization' },
+            { text: 'Arabic Language', link: 'how-to/ArabicLanguage' },
+            { text: 'Audio Files', link: 'how-to/AudioFiles' },
+            { text: 'Fonts', link: 'how-to/Fonts' },
+            { text: 'Drawings Font', link: 'how-to/DrawingsFont' },
+            // Data & Tools
+            { text: 'Export Google Sheet Data', link: 'how-to/ExportGoogleSheetData' },
+            { text: 'Data Analysis', link: 'how-to/DataAnalysis' },
+          ]
+        },
       ]
     }
   ]
@@ -121,9 +166,9 @@ function sidebarAbout(): DefaultTheme.SidebarItem[] {
         
         { text: 'History', link: 'history' },
         { text: 'Supporters & Partners', link: 'supporters' },
-        { text: '🏆 Awards & Recognition', link: 'awards' },
         { text: 'Impact evaluation', link: 'impact' },
         { text: 'Erasmus+', link: 'erasmus' },
+        { text: '🏆 Awards & Recognition', link: 'awards' },
         { text: '🌐 Open source', link: 'open-source' },
         { text: '❤️ Support us', link: 'support-us' },
       ],

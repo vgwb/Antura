@@ -4,7 +4,7 @@ title: Discover Introduction
 status: new
 ---
 
-# Discover Module Introduction
+# Discover Cultures Introduction
 
 > [!note] How to Play guide
 > This doc exmplains the game features, there is a dedicated page on [How to play](./discover_how_to_play.md)

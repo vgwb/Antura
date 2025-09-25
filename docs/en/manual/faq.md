@@ -5,7 +5,7 @@ title: FAQ
 # FAQ
 
 This page answers common questions from parents and teachers.
-If you have any other question, please 
+If you have any other question, please join our [community](https://antura.discourse.group) 
 
 ## For teachers
 
@@ -33,7 +33,7 @@ Use the quest’s page on the website or the community forum to report what work
 ### Can I contribute or create new quests?
 
 Yes. Discover with Antura is built on an open framework and educators and designers can propose new topics, cards, words, and quest ideas; advanced users can build full quests.
-Check the [Developer guides](../dev/quest-design/index.md)
+Check the [Quets design guides](../dev/quest-design/index.md)
 
 ## For parents
 

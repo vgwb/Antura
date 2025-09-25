@@ -1,10 +1,13 @@
-# Quest Design and Development
+---
+title: Discover Quest Design
+---
+
+# Discover Quest Design
 
 > [!note]
 > This area is Work in Progress
 
-These are the docs for the the gameplay implemented in Antura 3.0.
+We developed a full framework (AdventurED) to degin discover quests.
 
-- [How to Design a Quest](quest-design.md)
-- [How to Develop a quest](./quest-development.md)
-- [Use AI to optimize a script](./ai-writing-quest-dialogue.md)
+- [How to Design a quest](../quest-design/quest-design.md)
+- [How to Develop a quest](../quest-design/quest-development.md)

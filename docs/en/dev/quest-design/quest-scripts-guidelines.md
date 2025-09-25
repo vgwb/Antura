@@ -1,8 +1,8 @@
 ---
-title: Quest Dialogue Writing Guidelines (Ages 6+)
+title: Quest Script Writing Guidelines
 ---
 
-# Quest Dialogue Writing Guidelines (Ages 6+)
+# Quest Script Writing Guidelines
 
 These rules standardize quest Yarn script text for young learners (~6 years old). Apply them BEFORE translating. Keep all technical markers intact.
 
@@ -23,7 +23,6 @@ These rules standardize quest Yarn script text for young learners (~6 years old)
 
 ## 3. Vocabulary & Tone
 - Prefer high-frequency words: help, find, friend, flag, big, small, red, blue
-- Replace advanced verbs: *discover* → *find*, *claim your victory* → *get your prize*
 - Allow ONE cultural greeting per country (Bonjour / Hola / Ciao / Danke / Grüezi / Moien). After first use revert to “Hello”
 - Keep cultural nouns (Rome, Madrid, flamenco) but simplify surrounding sentence
 - Avoid idioms or abstract metaphors
@@ -69,21 +68,15 @@ These rules standardize quest Yarn script text for young learners (~6 years old)
 
 ## 10. Placeholders / Missing Translation Handling
 - English source should **never** include placeholders
-- If a translation later missing: exporter shows English (or `[MISSING TRANSLATION: original]` for non-English builds)
 
 ## 11. Quality Checklist (Pre-Commit)
 - [ ] All `#line:` tags unchanged
 - [ ] Every spoken line has punctuation
-- [ ] No sentence > 12 words (except color list)
+- [ ] No long sentence > 15 words
 - [ ] No double spaces, no stray leading/trailing spaces
 - [ ] Greetings pattern correct
 - [ ] Color descriptions concise & accurate
 - [ ] No new complex vocabulary slipped in
-
-## 12. Optional Change Tags (For Internal Review)
-Add inline comment (removed in final) if needed:
-- `[VOCAB_SIMPLIFY]` rare word replaced
-- `[CULTURE_TRIM]` extra cultural detail removed
 
 ## 13. Examples
 Before:
@@ -118,7 +111,7 @@ These constraints support early readers: predictable syntax, limited working-mem
 ```
 You rewrite child learning game dialogue for 6-year-olds. Keep every #line:HASH tag unchanged at end of its line. Only edit text before the tag. Keep Yarn commands (<< >>) and structure exactly. Rules:
 
-Present simple. 1 idea per sentence. 5–12 words (15 max if color list).
+Present simple. 1 idea per sentence. 5–15 words.
 End every spoken line with . ? or !
 High-frequency words only (help, find, flag, friend, big, small, red, blue). Replace complex words: discover→find, victory→prize.
 One cultural greeting per country (Bonjour/Hola/Ciao/Danke/Grüezi/Moien) then use Hello.
@@ -141,7 +134,3 @@ No new complex vocabulary
 Color facts correct
 Output only the modified script text with original unchanged lines preserved except where simplified.
 ```
-
-
----
-Last updated: 2025-09-07
