@@ -38,6 +38,16 @@ namespace Antura.Discover.Audio.Editor
             importer.SaveAndReimport();
         }
 
+        // Helper to resolve the English locale (exact "en" or first starting with "en")
+        private Locale GetEnglishLocaleCached()
+        {
+            var locales = LocalizationSettings.AvailableLocales.Locales;
+            var exact = locales.FirstOrDefault(l => string.Equals(l.Identifier.Code, "en", StringComparison.OrdinalIgnoreCase));
+            if (exact != null)
+                return exact;
+            return locales.FirstOrDefault(l => l.Identifier.Code.StartsWith("en", StringComparison.OrdinalIgnoreCase));
+        }
+
         private static void AssignCardAudioToAssetTable(Locale locale, string key, string assetPath)
         {
             if (locale == null || string.IsNullOrEmpty(key) || string.IsNullOrEmpty(assetPath))
@@ -967,6 +977,9 @@ namespace Antura.Discover.Audio.Editor
                 { Debug.LogWarning($"[QVM] Missing tables for {quest.Id} / {locale.Identifier.Code}"); continue; }
 
                 var entries = st.Values.Where(e => e != null && e.SharedEntry != null).ToList();
+                // Prepare English baseline once per locale loop
+                var enLocale = GetEnglishLocaleCached();
+                var stEn = enLocale != null ? LocalizationSettings.StringDatabase.GetTable(quest.QuestStringsTable.TableReference, enLocale) : null;
                 if (string.IsNullOrEmpty(_onlyLineKey) && !string.IsNullOrWhiteSpace(_search))
                 {
                     var token = _search.Trim();
@@ -1052,7 +1065,14 @@ namespace Antura.Discover.Audio.Editor
                         var audioFileName = Path.GetFileName(finalAssetPath);
                         var normText = VoiceoverManifestUtil.NormalizeText(text);
                         var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
-                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
+                        string enSource = null;
+                        if (stEn != null)
+                        {
+                            var enEntry = stEn.GetEntry(key);
+                            if (enEntry != null)
+                                enSource = enEntry.LocalizedValue;
+                        }
+                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
                         // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
                         _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                         continue;
@@ -1102,7 +1122,14 @@ namespace Antura.Discover.Audio.Editor
                                 var audioFileName = Path.GetFileName(finalAssetPath);
                                 var normText = VoiceoverManifestUtil.NormalizeText(text);
                                 var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
-                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
+                                string enSource = null;
+                                if (stEn != null)
+                                {
+                                    var enEntry = stEn.GetEntry(key);
+                                    if (enEntry != null)
+                                        enSource = enEntry.LocalizedValue;
+                                }
+                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
                                 // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
                                 _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                             }
@@ -1184,7 +1211,14 @@ namespace Antura.Discover.Audio.Editor
                         var audioFileName = Path.GetFileName(assignPath);
                         var normText = VoiceoverManifestUtil.NormalizeText(text);
                         var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
-                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: Mathf.RoundToInt((obj != null ? obj.length : 0f) * 1000f), voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text);
+                        string enSource = null;
+                        if (stEn != null)
+                        {
+                            var enEntry = stEn.GetEntry(key);
+                            if (enEntry != null)
+                                enSource = enEntry.LocalizedValue;
+                        }
+                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: Mathf.RoundToInt((obj != null ? obj.length : 0f) * 1000f), voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
                     }
                 }
 
@@ -1351,7 +1385,8 @@ namespace Antura.Discover.Audio.Editor
                                 keyShort = keyShort.Substring("line:".Length);
                             if (!string.IsNullOrEmpty(keyShort))
                             {
-                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: keyShort, audioFileName: audioFileName, textHash: null, durationMs: null, voiceProfileId: null, actorId: null, nodeTitle: null, sourceText: null);
+                                // No localized text context here; leave sourceText/sourceEnText null
+                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: keyShort, audioFileName: audioFileName, textHash: null, durationMs: null, voiceProfileId: null, actorId: null, nodeTitle: null, sourceText: null, sourceEnText: null);
                             }
                         }
                     }

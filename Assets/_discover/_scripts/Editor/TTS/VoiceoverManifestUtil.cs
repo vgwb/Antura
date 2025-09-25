@@ -23,6 +23,7 @@ namespace Antura.Discover.Audio.Editor
             public string key;
             public string nodeTitle;
             public string sourceText;
+            public string sourceEnText;
             public string audioFile;
             public string voiceProfile;
             public string actorId;
@@ -46,7 +47,7 @@ namespace Antura.Discover.Audio.Editor
             return Path.Combine(folder, ManifestFileName).Replace('\\', '/');
         }
 
-        public static bool Upsert(string questId, Locale locale, string key, string audioFileName, string textHash, int? durationMs, string voiceProfileId, string actorId, string nodeTitle = null, string sourceText = null)
+        public static bool Upsert(string questId, Locale locale, string key, string audioFileName, string textHash, int? durationMs, string voiceProfileId, string actorId, string nodeTitle = null, string sourceText = null, string sourceEnText = null)
         {
             if (string.IsNullOrEmpty(questId) || locale == null || string.IsNullOrEmpty(key) || string.IsNullOrEmpty(audioFileName))
             { Debug.LogError("[QVM] Manifest upsert: invalid inputs"); return false; }
@@ -101,6 +102,8 @@ namespace Antura.Discover.Audio.Editor
                 line.nodeTitle = nodeTitle;
             if (sourceText != null)
                 line.sourceText = sourceText;
+            if (sourceEnText != null)
+                line.sourceEnText = sourceEnText;
 
             // Update timestamp: prefer audio file last write UTC; fallback to existing; else set to now (UTC)
             try

@@ -4,11 +4,11 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Antura.Discover.EditorUtilities
+namespace Antura.Discover.EditorTools
 {
     public static class QuestSubjectsEditorUtility
     {
-private const int MaxSubjects = 5;
+        private const int MaxSubjects = 5;
 
         [MenuItem("Antura/Discover/Quests/Refresh Subjects (Selected)")]
         public static void RefreshSelected()
