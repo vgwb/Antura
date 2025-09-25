@@ -10,16 +10,16 @@ namespace Antura.Discover
 
     public enum VoiceActors
     {
-        Default = 0,
-        Custom = 1,
-        GUIDE_M = 2,
-        GUIDE_F = 3,
-        MAN = 4,
-        WOMAN = 5,
-        WOMAN_OLD = 6,
-        MAN_OLD = 7,
-        KID_F = 8,
-        KID_M = 9
+        Default = 0, // female, neutral, clear diction, mid pitch, minimal emotion
+        SILENT = 1, // no spoken words, but can use non-verbal sounds
+        NARRATOR = 2, // male, warm, engaging, enthusiastic
+        SPECIAL = 3, // fx voice, like a robot or an animal
+        ADULT_F = 4, // warm, conversational, adaptable
+        ADULT_M = 5, // natural, medium pitch, flexible tone
+        SENIOR_F = 6, // warm, gentle rasp, storyteller cadence
+        SENIOR_M = 7, // deeper, slower, authoritative but kind
+        KID_F = 8, // bright, energetic, quick speech, high pitch
+        KID_M = 9 // playful, curious, lively tone, mid-high pitch
     }
 
 

@@ -36,7 +36,6 @@
 // ACTABLE
 // WORDS: peace
 // </scene_data>
-
 // Country: Italy - Firenze
 // Content: Living document for testing Yarn features
 // and documenting available commands
@@ -54,9 +53,22 @@ title: quest_start
 position: 0,0
 // group is used to organize the nodes in the Graph view in the Editor
 group: docs
+
 // tags are used to add metadata to the node
-// actor is the speacking character, used mostly for voice overs
+// actor is the speaking character, used mostly for voice overs
+// - Default | female, neutral, clear diction, mid pitch, minimal emotion
+// - SILENT | no spoken words, but can use non-verbal sounds
+// - NARRATOR | male, warm, engaging, enthusiastic
+// - SPECIAL | fx voice, like a robot or an animal
+// - ADULT_F | warm, conversational, adaptable
+// - ADULT_M | natural, medium pitch, flexible tone
+// - SENIOR_F | warm, gentle rasp, storyteller cadence
+// - SENIOR_M | deeper, slower, authoritative but kind
+// - KID_F | bright, energetic, quick speech, high pitch
+// - KID_M | playful, curious, lively tone, mid-high pitch
+
 tags: actor=Guide
+
 // color us used like this:
 //  - red for important nodes like init and quest end
 //  - blue for NPCs
@@ -64,7 +76,11 @@ tags: actor=Guide
 //  - green for tasks
 //  - purple for activities
 color: red
-// - type is used to identify special nodes like panel, Quiz
+
+// type is used to identify special nodes like panel, Quiz
+// - panel is fullscreen
+// - panel_endgame is a special panel that shows the endgame screen
+// - quiz shows a quiz with image choiches
 type: panel
 ---
 // these are the common variables
@@ -85,7 +101,7 @@ You can use this quest to test features and commands. #line:0196a6d
 
 //--------------------------------------------
 // DOCS COMMANDS
-// these are the commands available in all  Scripts
+// these are the commands available in all Scripts
 //--------------------------------------------
 
 title: DOCS_ACTIONS
@@ -110,7 +126,6 @@ You played the activity well! #line:0872c3a
 <<else>>
 Try again. #line:099ca47 
 <<endif>>
-
 ===
 
 title: DOCS_AREA
@@ -479,8 +494,8 @@ Want to change Party? #line:048e84e
 title: test_quiz
 position: 1198,872
 group: quiz
-tags: type=quiz
-panel:
+tags:
+type:
 ---
 Calculate 3*2 #line:dev_test_quiz_1 
 -> four #line:dev_test_quiz_2 
@@ -630,7 +645,6 @@ title: EntroInCasa
 position: 1639,3052
 ---
 entro in casa #line:0f92df5 
-
 ===
 
 
@@ -649,7 +663,6 @@ position: 1960,3050
 tags: actor=GUIDE, mood=HAPPY
 ---
 Happy Mood #line:0a6e648 
-
 ===
 
 title: random_lines
@@ -670,7 +683,6 @@ group: random
 => This is Hint 1 #line:0423295 
 => This is Hint 2 #line:00d69e5 
 => Hint 3 #line:08966ba 
-
 ===
 
 title: activity_canvas
@@ -823,6 +835,3 @@ You played the PIANO activity well! #line:0b9f1af
 Try again. #line:04c91cd 
 <<endif>>
 ===
-
-
-
