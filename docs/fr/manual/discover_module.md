@@ -1,341 +1,333 @@
 ---
-title: Discover Features
+title: Fonctionnalités de « Découvrir »
 status: new
 ---
 
-# Discover Europe details
+# Détails du module « Découvrir les cultures »
 
-## Content
+## Contenu
 
-### Words
+### Mots
 
-We start from all the words of the [Learning Language Module](./learnlanguage_module.md).
+On s’appuie sur tous les mots du [module Apprendre une langue](./learnlanguage_module.md).
 
-Words are presented by Living Letters (LL) that speak the words when interacted with and are evidenced in the dialogs. This reinforces language learning in a fun, contextual way.  
+Les mots sont présentés par les Lettres Vivantes (LL), qui prononcent les mots lorsqu’on interagit et apparaissent dans les dialogues. Cela renforce l’apprentissage de manière ludique et contextuelle.  
 
-!!! note "Words database"
-    The current list of [all words in the game](../content/words/index.md)
+> [!note] Base de mots
+> Liste actuelle de [tous les mots du jeu](../content/words/index.md)
 
-### Cards
-At the heart of each quest are Cards, which represent an "atom of knowledge" like facts, people, places, objects, traditions, foods, fauna, and flora.
+### Cartes
+Au cœur de chaque quête se trouvent des Cartes, « atomes de connaissance » : faits, personnes, lieux, objets, traditions, aliments, faune et flore.
 
-Each card:
+Chaque carte :
 
-- has a **title** and a simple **description**
-- has at least one **images** and can have **sounds**
-- is located in space (in a city, for example) and time (allowing country timelines)
-- remain **hidden until discovered** and unlocked in quests
-- is always accessible from the player's Book.
+- a un **titre** et une **description** simple
+- comporte au moins une **image** et peut avoir des **sons**
+- est située dans l’espace (une ville, par ex.) et le temps (chronologies)
+- reste **cachée jusqu’à la découverte** dans les quêtes
+- est toujours accessible depuis le **Livre** du joueur
 
 
-Each card is of one **Type**, like:
+Chaque carte a un **type**, par ex. :
 
-- **Place** (WHERE) - Cities, rivers, mountains, landmarks
-- **Event** (WHEN) - Historical events, holidays, festivals
-- **Person** (WHO) - Historical figures, teachers, friends
-- **Object** (WHAT) - Items to interact with or collect
-- **Concept** (THINK) - Abstract ideas (friendship, safety, peace)
-- **Activity** (DO) - Games, cooking, sports
+- **Lieu** (OÙ) : villes, rivières, montagnes, monuments
+- **Événement** (QUAND) : événements historiques, fêtes, festivals
+- **Personne** (QUI) : personnages historiques, enseignants, amis
+- **Objet** (QUOI) : éléments à collecter/interagir
+- **Concept** (PENSER) : idées abstraites (amitié, sécurité, paix)
+- **Activité** (FAIRE) : jeux, cuisine, sports
 
-and is linked to One or more **Subject**:
+et est liée à une ou plusieurs **disciplines** :
 
-Core subjects:
+Disciplines principales :
 
-- **Art** - making and creating
-- **Culture** - how people live
-- **Geography** - where things are
-- **History**
-- **Literature** - stories and books
-- **Math** - numbers and logic
-- **Science** - how things work
-- **Technology** - applied science
+- **Art** – produire et créer
+- **Culture** – modes de vie
+- **Géographie** – où sont les choses
+- **Histoire**
+- **Littérature** – histoires et livres
+- **Maths** – nombres et logique
+- **Sciences** – comment ça marche
+- **Technologie** – sciences appliquées
 
-Additional subjects:
+Disciplines supplémentaires :
 
-- **Animal**
-- **Food**
-- **Music**
-- **Plant**
-- **Recreation** - leisure & hobbies: dance, crafts, hiking, games
-- **Space**
+- **Animaux**
+- **Alimentation**
+- **Musique**
+- **Plantes**
+- **Loisirs** – danse, bricolage, randonnée, jeux
+- **Espace**
 - **Sport**
-- **Transportation** - cars, planes, boats
-- **Weather**
+- **Transports** – voitures, avions, bateaux
+- **Météo**
 
-Social and practical life:
+Vie sociale et pratique :
 
-- **Civics** - basic government and citizenship
-- **Community** - when people organize and help each other locally
-- **Education** - schools
-- **Environment**  - caring for nature
-- **Family**
-- **Friendship**  - important social concept
-- **Health** - medicine, hospitals
-- **Money** - basic financial literacy
-- **Safety**
-- **Time** - understanding clocks/calendars
+- **Éducation civique**
+- **Communauté**
+- **Éducation**
+- **Environnement**
+- **Famille**
+- **Amitié**
+- **Santé**
+- **Argent**
+- **Sécurité**
+- **Temps**
 
-!!! note "Cards database"
-    The current list of [all cards in the game](../content/cards/index.md)
+> [!note] Base de cartes
+> Liste actuelle de [toutes les cartes du jeu](../content/cards/index.md)
 
-### Topics
-Topics are defined by educators by connecting a set of cards, defining the relationships and forming a **visible knowledge graph**.
+### Sujets
+Les sujets sont définis par les enseignants en reliant des cartes et en formant un **graphe de connaissances** visible.
 
-These graphs are the core of the didactical activities. They are easy to explore and understand: kids can review how cultural elements relate, and quests and activities can run on them.
+Ces graphes sont au cœur des activités didactiques. Faciles à explorer, ils montrent les liens entre éléments culturels et servent de base aux quêtes/activités.
 
-These are the kind of connections currently available in the game:
+Voici les types de liens disponibles dans le jeu :
 
 ```mermaid
 mindmap
-root((Topic))
-    CreatedBy("**Created By**: agent (person/org) who made/discovered/commissioned") 
-    LocatedIn("**Located In**: where it is/was") 
-    IsA("**Is A**: type/category relation (_Baguette is a Bread_)") 
-    PartOf("**Part Of**: whole/part relation (_Crust is part of Baguette_)") 
-    MadeOf(**Made Of**: physical composition) 
-    TimeContext("**Time Context**: period/event/date") 
-    CulturalContext("**Cultural Context**: origin/tradition/symbolism") 
-    Causal("**Causal**: clear cause→effect") 
-    Purpose("**Purpose**: used for…") 
-    Compare("**Compare**: similar/contrast/analogy") 
-    RelatedTo("**Related To**")
+root((Sujet))
+  CreatedBy("**Créé par** : personne/organisation à l’origine") 
+  LocatedIn("**Localisé dans** : où c’est/était") 
+  IsA("**Est un** : relation type/catégorie (_La baguette est un pain_) ") 
+  PartOf("**Fait partie de** : relation tout/partie (_La croûte fait partie de la baguette_) ") 
+  MadeOf(**Composé de** : composition physique) 
+  TimeContext("**Contexte temporel** : période/événement/date") 
+  CulturalContext("**Contexte culturel** : origine/tradition/symbolisme") 
+  Causal("**Causal** : cause→effet") 
+  Purpose("**But** : utilisé pour…") 
+  Compare("**Comparer** : similaire/contraste/analogie") 
+  RelatedTo("**Lié à**")
 ```
 
-!!! note "Topics database"
-    The current list of [all topics in the game](../content/topics/index.md)
+> [!note] Base de sujets
+> Liste actuelle de [tous les sujets du jeu](../content/topics/index.md)
 
-## Quests
+## Quêtes
 
-Quests are short (5–15 minutes) adventures focusing on cultural or educational themes, usually 1–2 **topics**.
+Les quêtes sont de courtes aventures (5–15 min) centrées sur des thèmes culturels/éducatifs, avec 1–2 **sujets**.
 
-Each quest combines:
+Chaque quête combine :
 
-- exploration of authentic places
-- meeting characters
-- solving puzzles and mini-games
-- collecting cultural elements (**Cards**)
+- exploration de lieux authentiques
+- rencontres de personnages
+- énigmes et mini‑jeux
+- collecte d’éléments culturels (**Cartes**)
 
 
-- Two play levels:
-    - The first run exposes essential content only.
-    - Replay enables extra tasks, hidden items, and special card fragments to unlock a final gem.
+- Deux niveaux de jeu :
+  - Première partie : contenu essentiel.  
+  - Rejouer : tâches supplémentaires, objets cachés, fragments de cartes spéciales pour une gemme finale.
 
-### Story and Gameplay
-Each quest is a different story and can have different challenges, like:
+### Histoire et gameplay
+Chaque quête a son histoire et propose des défis variés, par exemple :
 
-- **Hidden Objects**: find items with hints from NPCs/signs
-- **Collection**: gather all items (math reinforcement)
-- **Physical puzzles**: mazes, spatial tasks
-- **Story-driven**: linear narrative quests with narrator
-- **Cultural quizzes**: NPCs asking about discovered items
-- **Mini-games**: crafts, sports, or cultural practices
+- **Objets cachés** : trouver des objets grâce aux indices (PNJ/panneaux)
+- **Collection** : rassembler tous les objets (renforcement mathématique)
+- **Énigmes physiques** : labyrinthes, déplacements spatiaux
+- **Narratif** : quêtes linéaires avec narrateur
+- **Quiz culturels** : PNJ questionnant sur les éléments découverts
+- **Mini‑jeux** : artisanat, sports, pratiques culturelles
 
-### Characters
+### Personnages
 
-**Living Letters (LL)**
-Are the main companions known in the Learning Language modules. They tie words to NPCs.
-They can represent:
+**Lettres Vivantes (LL)**  
+Compagnes principales du module Langue, elles relient des mots aux PNJ. Elles peuvent représenter :
 
-- a letter (small LL)
-- a word with its drawing (normal LL)
-- a card (image or sounds)
+- une lettre (petite LL)
+- un mot et son dessin (LL normale)
+- une carte (image ou son)
 
-**Blocky Characters**
-Humanoid / Minecraft‑like characters.
+**Personnages « blocky »**  
+Humanoïdes façon Minecraft.
 
-**Ambient NPCs**
-Pigeons, cats, dogs, cars, trains, birds (AI‑driven).  
+**PNJ d’ambiance**  
+Pigeons, chats, chiens, voitures, trains, oiseaux (IA).  
 
-### Tasks
-"What do I have to do?" is simplified with Tasks.
-When talking to characters the player is given objectives to accomplish, like
+### Tâches
+« Que dois‑je faire ? » est clarifié par des Tâches. En parlant aux personnages, le joueur reçoit des objectifs à accomplir :
 
-- collect items (collect all ingredients for a recipe)
-- reach a position (climb Mont Blanc or the Eiffel Tower)
-- trigger an action (lower the castle's bridge)
+- collecter des objets (tous les ingrédients d’une recette)
+- atteindre un lieu (gravir le Mont‑Blanc ou la Tour Eiffel)
+- déclencher une action (baisser le pont‑levis du château)
 
-### Progress system
+### Système de progression
 
-- Quests end with 1–3 stars depending on errors.  
-- Bonus/malus events affect progress.  
+- Les quêtes se terminent avec 1–3 étoiles selon les erreurs.  
+- Les événements bonus/malus influent sur la progression.  
 
-### Special Cards
+### Cartes spéciales
 
-Replaying quests may reveal fragments of special cards, leading to the final gem of the quest.
+Rejouer peut révéler des fragments de cartes spéciales, menant à la gemme finale de la quête.  
+Une fois maîtrisée, la répétition donne des cookies mais plus de gemmes.
 
-Once mastered, repeating gives cookies but not gems.
+### Activités
 
-### Activities
+Les activités peuvent être intégrées aux quêtes ou lancées séparément depuis le Livre et portent sur des sujets.
 
-Activities can be embedded in quests or played separately from the Book and deal with topics.
+> [!note]
+> Une nouveauté du framework : demander à une activité de renforcer un sujet, en récupérant automatiquement les cartes à jouer.
 
-!!! note
-    One of the new features of our framework is that these activities can be asked to reinforce a topic, and automatically fetch cards to be played.
+- **Ordre** : remettre dans la séquence
+- **Piano** : répéter mélodies/couleurs
+- **Toile** : nettoyer pour révéler
+- **Argent** : compter pièces et billets
+- **Puzzle** : images culturelles
+- **Mémoire** : paires de cartes
+- **Quiz** : réponses texte/image/mixte
+- **Évaluations finales** : vérifications après quêtes
 
-- **Order**: put elements in sequence
-- **Piano**: repeat melodies/colors
-- **Canvas**: clean to reveal images
-- **Money**: count coins and notes
-- **Jigsaw Puzzle**: cultural images
-- **Memory**: card matching
-- **Quiz**: text, image, or mixed answers
-- **Final Assessments**: formal checks after quests
+Explorer toutes les activités : [Aperçu des activités](../content/activities/index.md).
 
-Explore all activities: [Activities overview](../content/activities/index.md).
+### Langues
+Tous les dialogues sont bilingues : langue maternelle + langue du pays d’accueil (ex. polonais, français), ce qui facilite la compréhension.  
+Par défaut, le jeu parle d’abord la langue d’apprentissage puis la langue maternelle, mais l’enseignant peut inverser si besoin.
 
-### Languages
-All dialogues are bilingual: the child’s native language + the host country’s language (e.g., Polish, French).
-This makes it easier for children to follow the story while learning new words and phrases.
+### Niveaux de difficulté
 
-By default the game speaks the learning language first, then the native language, but a teacher can choose the inverse if it's better for the child.
+Le gameplay et le contenu sont classés en trois niveaux :
 
-### Difficulty levels
-
-All gameplay and content is classified in three difficulty levels:
-
-- Easy
+- Facile
 - Normal
 - Expert
 
-Teachers can adjust difficulty in the Teacher Panel to adapt timing, hints, and challenge density to the learner’s level. Some quests also unlock extra optional tasks on replay for advanced learners.
+Les enseignants ajustent la difficulté dans le Panneau pour adapter temps, aides et densité de défis. Certaines quêtes débloquent des tâches optionnelles au rejouer.
 
-### Locations
-Each quest is located in a specific location (usually a city or a part of a city) selectable in the worl map.
-They are build with two methodologies:
+### Lieux
+Chaque quête se déroule dans un lieu précis (ville/quartier) sélectionnable sur la carte du monde. Deux méthodes de création :
 
-1. **Abstract art**  
-Designers build generic environment using common 3D models. Good for common topics that are not aboslutely linked to a geographic position.
+1. **Art abstrait**  
+Env. génériques avec modèles 3D communs. Adapté aux sujets peu liés à un emplacement.
 
-2. **Realistic maps**  
-The city are build starting from a realisti map (from [OpenStreetMap](https://www.openstreetmap.org)), with defined GPS coordinates and orientation.
-This scenarios are best for real "urban" quests where orientation matters.
+2. **Cartes réalistes**  
+La ville est construite à partir d’une carte réelle ([OpenStreetMap](https://www.openstreetmap.org)), avec coordonnées/orientation. Idéal pour les quêtes urbaines où l’orientation compte.
 
 ## Gameplay
 
-### Earth Menu
+### Menu Terre
 
-Entry point to explore world, countries, and quests.  
-Access to the Book (review knowledge) and the Store (customization).  
+Point d’entrée pour explorer monde, pays et quêtes.  
+Accès au Livre (réviser) et à la Boutique (personnalisation).  
 
-**Dependencies**  
-Quests can require prior quests as knowledge prerequisites.  
+**Dépendances**  
+Certaines quêtes exigent des prérequis.  
 
-### Map and target points
+### Carte et points cibles
 
-- Map button shows your position and the main objective.  
-- A **target** marker points to the next goal; hints appear when objectives change.  
-- Optional tasks and hidden items may appear as extra icons.  
+- Le bouton Carte affiche la position et l’objectif principal.  
+- Un **cibleur** indique le prochain but ; des indices apparaissent lors des changements.  
+- Tâches optionnelles et objets cachés peuvent apparaître en icônes.  
 
-### Interactions and inventory
+### Interactions et inventaire
 
-- Interactions: Talk, Inspect, Collect, Use.  
-- Inventory: up to 5 slots; items auto‑use when needed and disappear after use.  
+- Interactions : Parler, Inspecter, Collecter, Utiliser.  
+- Inventaire : jusqu’à 5 emplacements ; usage auto et disparition après utilisation.  
 
-### Modes (Classroom vs Home)
+### Modes (Classe vs Maison)
 
-- In Classroom Mode the focus on one country/topic and quests freely selectable within it.  
-- Home Mode: all countries selectable and quests are typically unlock sequentially for exploration.  
+- En mode Classe : focus sur un pays/sujet et quêtes libres à l’intérieur.  
+- Mode Maison : tous pays sélectionnables et quêtes débloquées séquentiellement.  
 
-### Accessibility
+### Accessibilité
 
-- Subtitles and icon prompts support early readers and multilingual play.  
-- Classroom mode reduces noise
-- All sentences are spoken in all languages
-- We use and color and shape and sound marks
+- Sous‑titres et icônes aident la lecture et le multilingue.  
+- Le mode Classe réduit le bruit.  
+- Toutes les phrases sont prononcées dans toutes les langues.  
+- Marqueurs de couleur, forme et son.  
 
-### Devices and controls
+### Appareils et commandes
 
-Works with keyboard/mouse and touch. See [How to Play](./discover_how_to_play.md) for controls, map, interactions, and the activities gallery.  
+Clavier/souris et tactile. Voir [Comment jouer](./discover_how_to_play.md) pour commandes, carte, interactions et galerie d’activités.  
 
-## Motivation and rewards
+## Motivation et récompenses
 
-- Knowledge cards = collected evidence of learning.  
-- Gems = unlock advanced quests and some props.  
-- Cookies = customize the character and space.  
-- Stars = motivate to complete and replay.  
-- Achievements = long‑term goals and fun challenges.
+- Cartes de connaissance = preuves d’apprentissage.  
+- Gemmes = déblocage de quêtes avancées et d’objets.  
+- Cookies = personnalisation du personnage et de l’espace.  
+- Étoiles = motivation à compléter et rejouer.  
+- Succès = objectifs long terme et défis ludiques.
 
-### Currencies
+### Monnaies
 
-- Cookies (fish) = found in quests; they regenerate over time.  
-- Knowledge Gems (neurons) = mastery rewards for completing tasks and unlocking cards; represent the **real learning progress**.
-- XP Points = experience accumulated by playing; used for progression.
+- Cookies (poissons) = trouvés dans les quêtes ; se régénèrent avec le temps.  
+- Gemmes de connaissance (neurones) = récompense de maîtrise ; représentent le **progrès réel**.  
+- Points d’XP = expérience gagnée en jouant ; utilisée pour la progression.
 
-### Store / Cat customization
+### Boutique / Personnalisation du chat
 
-- Use cookies to buy skins and props for the cat.  
-- Some props unlock only after achieving certain gems or cards.
+- Utiliser des cookies pour acheter skins et accessoires.  
+- Certains objets se débloquent après certaines gemmes ou cartes.
 
-### Achievements
-Global and local achievements encourage replay and engagement.  
-Examples:
+### Succès
+Succès globaux/locaux qui encouragent la rejouabilité.  
+Exemples :
 
-- Collect all cards
-- Buy cosmetics for the cat
-- Finish all quests
-- Mastery goals (finish with 3 stars everywhere)
-- Fun goals (jump 1000 times, sprint 60s, talk to everyone)
+- Collecter toutes les cartes
+- Acheter des cosmétiques pour le chat
+- Finir toutes les quêtes
+- Objectifs de maîtrise (3 étoiles partout)
+- Objectifs fun (1000 sauts, sprint 60 s, parler à tous)
 
-### Bonus/malus system
-Reinforces **good citizenship and cultural awareness** by rewarding some actions.
+### Système bonus/malus
+Renforce **citoyenneté et conscience culturelle** en récompensant certaines actions.
 
-- Bonus examples: talking to NPCs, respecting traffic lights, collecting rubbish.  
-- Malus examples: crossing on red, damaging property, stepping on flowers.  
+- Exemples bonus : parler aux PNJ, respecter les feux, ramasser les déchets.  
+- Exemples malus : traverser au rouge, abîmer, piétiner les fleurs.  
 
-These actions are logged in the Book as part of reflection on behavior.  
+Ces actions sont consignées dans le Livre pour réfléchir aux comportements.  
 
-## Teacher and parent tools
+## Outils pour enseignants et parents
 
-### Teacher panel
+### Panneau enseignant
 
-- create a class and add players
-- for each player, adjust difficulty, choose language mode, and monitor quests and achievements  
+- créer une classe et ajouter des joueurs
+- pour chaque joueur, ajuster la difficulté, choisir le mode de langue, suivre quêtes et succès  
 
-### The Book
-Reviews all collected knowledge.  
-Shows all discovered and undiscovered cards, gems, and achievements.
-Acts as a review tool for classroom or home learning.
+### Le Livre
+Révision de toutes les connaissances : cartes découvertes/non découvertes, gemmes, succès.  
+Outil de révision en classe et à la maison.
 
-### Website
-Shows topics, cards, and activities covered in a session.  
+### Site web
+Affiche sujets, cartes, activités couverts pendant une séance.  
 
-### Classroom integration
+### Intégration en classe
 
-After a quest, teachers can:  
+Après une quête, les enseignants peuvent :  
 
-- Rebuild the knowledge graph with students.  
-- Extend it with new ideas or student contributions.  
-- Retell the quest in class.  
-- Compare with real‑life resources (maps, books, visits).  
+- Refaire le graphe de connaissances.  
+- L’enrichir avec les idées des élèves.  
+- Raconter la quête en classe.  
+- Comparer avec des ressources réelles (cartes, livres, visites).  
 
-Example debrief (10 minutes):  
+Exemple de débrief (10 min) :  
 
-- Ask: “Which card did you unlock? What does it connect to?”  
-- On the board, draw “Baguette → Bread → French food” and invite students to add related ideas.  
-- Quick pair‑share: each student explains one new word and where it appeared.  
+- « Quelle carte as‑tu débloquée ? À quoi se relie‑t‑elle ? »  
+- Au tableau : « Baguette → Pain → Cuisine française », puis ajouter des idées.  
+- Partage en binômes : expliquer un nouveau mot et où il est apparu.  
 
-### Analytics
+### Analytique
 
-!!! note
-    We care about privacy and anonymity. We collect gameplay data without linking it to personally identifiable information.  
-    Linking students to profiles (if needed) is managed by the teacher according to school policies.
+> [!note]
+> Nous respectons la vie privée et l’anonymat. Les données de jeu sont collectées sans identifiants personnels.  
+> Le lien élève‑profil (si nécessaire) est géré par l’enseignant selon les politiques de l’établissement.
 
-- Logs gameplay events (play time, quest attempts, bonus/malus, card collection).  
-- Data can be exported in a simple format for manual evaluation (JSON) or automatic (xAPI).  
-- In class, teachers see simplified summaries (progress, cards, achievements).  
+- Journal des événements (temps de jeu, essais de quêtes, bonus/malus, cartes).  
+- Export possible en JSON ou xAPI.  
+- En classe, résumés simplifiés (progrès, cartes, succès).  
 
-## Quest design
+## Conception des quêtes
 
 
-- Defined with the open‑source AdventurED framework.  
-- Designed via the DiscoverED web tool:  
-  - visual editor for quest flows (story + tasks + quizzes)  
-  - built‑in translation in multiple languages  
-  - collaborative content creation with teachers  
+- Défini avec le framework open‑source AdventurED.  
+- Conçu via l’outil web DiscoverED :  
+  - éditeur visuel de flux (histoire + tâches + quiz)  
+  - traduction intégrée multi‑langues  
+  - création collaborative avec des enseignants  
 
-Docs: Quest Design — https://docs.antura.org/manual/quests/
+Docs : Conception des quêtes — https://docs.antura.org/manual/quests/
 
-### Licensing and credits
+### Licences et crédits
 
-- Assets are custom‑made or Creative Commons (CC0/CC‑BY).  
-- Credits are tracked for external resources (images, sounds, models).  
+- Ressources sur‑mesure ou Creative Commons (CC0/CC‑BY).  
+- Crédits suivis pour les ressources externes (images, sons, modèles).  

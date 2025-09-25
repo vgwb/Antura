@@ -3,7 +3,7 @@ title: How to play Quests
 status: new
 ---
 
-# How to play Discover quests
+# How to play Discover quests <Badge type="tip" text="new" />
 
 ## Choose a quest
 
@@ -12,8 +12,8 @@ status: new
 - In Classroom mode: your teacher may lock the country and let you choose any quest inside.  
 - In Home mode: quests usually unlock one by one. Replaying improves your score and reveals extra cards.  
 
-!!! Tip
-    If you’re new, start with the tutorial quest in each country.  
+> [!tip] 
+> If you’re new, start with the tutorial quest in each country.  
 
 ## Player controls
 
@@ -32,8 +32,8 @@ status: new
 - Tap objects = interact  
 - Tap and drag on screen = move camera  
 
-!!! info "Classroom tip"
-    Project controls on the board for the first session. Pair students so one reads prompts while the other controls, then swap roles.  
+> [!tip] Classroom tip
+> Project controls on the board for the first session. Pair students so one reads prompts while the other controls, then swap roles.  
 
 ## Map and tasks
 
@@ -41,8 +41,8 @@ status: new
 - Target point: a waypoint marker and guiding beam show where to go next.  
 - Task panel: short text hints appear on screen when the goal changes (e.g., “Talk to the Baker”).  
 
-!!! tip "Classroom tip"
-    Ask students to restate the current objective in their own words before moving.  
+> [!tip] Classroom tip
+> Ask students to restate the current objective in their own words before moving.  
 
 ## Interaction types
 
@@ -53,8 +53,8 @@ status: new
 - Navigate: jump across platforms, avoid hazards, follow safe paths (e.g., cross on green).  
 - Activities: some interactions launch an activity (see below) to practice a card or a skill.  
 
-!!! Note
-    Interact is the same button as Jump when close to an NPC/object.
+ > [!note] 
+ > Interact is the same button as Jump when close to an NPC/object.
 
 ## Inventory and items
 

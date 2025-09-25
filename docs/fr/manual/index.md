@@ -1,30 +1,27 @@
 ---
-title: "Antura's Manual"
+title: "Manuel"
 ---
-# Antura's Manual
 
-> [!note]
-> We are rewriting here the [previous Google Doc version](https://docs.google.com/document/d/1Yk8cvbJIE2IKIKsVDs7eHWq_nueZ-O6HCGTl9xVusJk/edit?usp=sharing)
+# Learn with Antura — Manuel
 
-This manual is for:
+> [!NOTE] Pour les enseignants 👩‍🏫  
+> Antura est plus qu’un jeu : il peut être combiné avec des activités en classe, des discussions et des supports pédagogiques.  
+> Ce manuel vous aide à intégrer Learn with Antura dans vos cours et à accompagner les enfants dans le jeu et la découverte.
 
-- **Teachers** who want to use Antura in the classroom
-- **Parents** who want to know more about this game
-- **Designers** who want to create new quests
-- **Philanthropists** who want to support innovetive open source educational projects
+## Manuel de l’enseignant
 
-## Sections
+- [Introduction](./introduction.md) — présentation de Learn with Antura
+- 📥 [Installation](./install.md) — mise en place sur mobile ou PC  
+- [Configuration](./setup.md) — étapes pas à pas pour la classe
+- 👩‍🏫 [Guide de classe](./classroom_guide.md) — conseils pratiques pour l’utilisation avec vos élèves  
+- ❓ [FAQ](./faq.md) — réponses aux questions fréquentes
 
-- [How to Install and Setup](./install.md)
-- [Learn Languages](./learnlanguage_module.md)
-- [Discover Europe introduction](./discover_introduction.md)
-- [Discover Europe](./discover_module.md)
-- [How to play Discover quests](./discover_how_to_play.md)
-- [Classroom Guide](./classroom_guide.md)
-- [Feedback and Support](./support.md)
-- [FAQ](./faq.md)
-- [Changelog](./changelog.md)
+## Modules détaillés
 
-## Quest creators & developers
-We have a custom section of this website dedicated to developers.  
-Start here: [How to create a new Quest](../dev/quest-design/index.md)
+- 🎮 [Apprendre les langues](./learnlanguage_module.md) — mini‑jeux pour entraîner lettres, mots et vocabulaire  
+- 🌍 [Découvrir les cultures](./discover_introduction.md) — explorer pays, traditions et patrimoine culturel  
+
+## Pour les créateurs de quêtes & développeurs
+
+Antura est conçu comme un cadre ouvert. Pour créer de nouvelles quêtes, activités ou contribuer au code :  
+👉 Commencez ici : [Créer une nouvelle quête](/en/dev/quest-design/)

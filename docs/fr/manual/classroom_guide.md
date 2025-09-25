@@ -1,107 +1,80 @@
 ---
-title: Classroom guide
+title: Guide de classe
 status: new
 ---
 
-# Classroom guide
+# Guide de classe
 
-This guide provides some practical suggestions for teachers who want to use **Learn with Antura** in class, that means:  
+This guide provides some practical suggestions for teachers using **Learn with Antura** in class, including the following steps:  
 
-1. Playing together, in groups, or individually.  
-2. Extending play with **reflection and research activities**.  
-3. Involving parents to strengthen learning at home.  
-4. Providing feedback to help improve and validate quests.  
+1. Preparing a play session.  
+2. Introducing a play session.  
+3. Playing in the classroom.
+4. Post session debrief and activities.
+5. Providing feedback to help improve the game.  
 
-Together, this creates a **loop of play → reflection → feedback → improvement**, ensuring the game is not only fun but also a powerful learning tool.  
+This approach creates a **virtuous loop of play → reflection → feedback → improvement**, ensuring the game is not only fun but also a powerful learning tool.  
 
 ## Preparing a play session
-The **teachers must know the game** at least once: it's better to play all the quests to be played in classroom some days before. 
-It's better to have read all the topics / cards / quest record to help kids in difficulty.
-The post activity can be prepared.
 
-## Play sessions in the classroom
+The **teachers must know the game**: they should play every didactical unit at least once before introducing it in classroom. This is valid for both modules so the didactical unit couls be either a series of language learning minigames or a cultural quest. It would be even better if teachers could take the time to read all the didactical unit content (either letters and words or topics and cards) to be able to help kids in case of need and to prepare in advace a post session activity.
+Moreover, teachers should check regularly (i.e. once a week) if a new version of the game is available in order to always use the latest version. 
 
-### Introduce the purpose
+### Planning the sessions
 
-Before starting, explain to students:  
+We recommend to alternate the 2 modules (Learn Language and Discover Culture) dedicating a session to the first module and the next session to the second one. 
 
-- _The game will help you learn new words and aspects of culture..._  
-- _You will explore this topic by playing this level of the game..._  
 
-### Explain how to play
-It could be useful for the teacher to play the tutorial on a big screen and let all kids see how to play and what they must do.
+## Introducing a play session
 
-### Playing modes  
+Once in the classroom, before starting to play, teachers should explain to the students what they are going to play and why.   
 
-#### 1. Class-wide game exploration
+- _The game will help you learn new words or some aspects of culture..._  
+- _You will explore this topic by playing this quest..._  
 
-- Use a **projector or shared screen**.  
-- Teacher plays or invites students to take turns.  
-- Pause at key moments to:  
-    - ask _what would you do next?_  
-    - highlight cultural or linguistic points.  
-- Excellent for **whole-class discussions**.  
-- Tip: start with the **Tutorial** quest together.  
+> [!Reminder]
+> Remeber to set properly the class in the Teachers Area, to always give the same device to each student (so they have their profile to select) and to select the correct native language for each kid.
 
-!!! tip "Example prompt"
-    “We’ve found a bakery — what clues tell us it’s important in French culture?”  
+## Playing in the classroom
 
-#### 2. Individual play / independent learning
+### Explaining how to play
 
-- Students play on their own devices for a fixed time (say 20 minutes).  
-- Activate **Classroom Mode**: disables background music and allows to choose freely the quest to play.  
-- Objective: finish a quest or stop at time limit.  
-- Benefits: self-paced learning, hidden secrets encourage replay.  
+Ensuring that all kids know how to play is very important, especially in the first play sessions when they have not familiarized with the game yet. 
 
-!!! tip "Teacher tip"
-    Give a micro-goal like “unlock 2 cards and take a screenshot of your Book”.  
+> [!TIP]
+> It would be great if the teacher could play the tutorial on a big screen and let all kids see how to play and what they are supposed to do. If it's not possible, all kids should play the tutorial indivually and the teacher should supervise the session, helping all kids who need guidance.
 
-#### 3. Group play / pair learning
+### Individual play 
 
-- Students play in pairs or small groups.  
-- One controls, others support with ideas or solving puzzles.  
-- Rotate roles regularly.  
-- Benefits: teamwork, communication, peer support.  
+Within the mark of the [ANTURA Erasmus+ project](../about/erasmus/index.md) testing, we will focus on individual play (one kid, one device) but the game could be projected for the whole class (on a big screen) or it could be played in small groups (i.e. in pairs).
 
-Variation: Assign roles (navigator, reader, controller) and swap every 5 minutes.  
+With individual play, students play on "their own" devices for a fixed time (say 20-25 minutes).  
+The objective is to complete a didactical unit, but teachers should stop the session if it reaches the time limit (a playing session should never last more then 30 minutes).
+This way each student can play and learn at his/her own pace and even replay some content to improve the score or to find all hidden bonuses.  
 
-**Tips for teachers**
+> [!tip] 
+> Teachers can guide and motivate students by giving them additional sub-goals (i.e. “unlock 2 cards and take a screenshot of your Book”).  
 
-- Before play (2 minutes): preview the quest objective and key vocabulary
-- During play: have a “navigator” read the objective while the “driver” controls; swap roles at checkpoints.  
-- After play (5 minutes): open the Book, pick 1–2 unlocked cards, and map connections on the board (what it relates to and why).  
-- Differentiation: let advanced students hunt for optional tasks/cards while others follow the main path.  
-
-#### 4. Homework play
-
-- Assign a quest to be played at home.  
-- Next session, hold a discussion about what they discovered.  
-
-!!! tip "Home reflection prompt"
-    “Tell a family member one new word and where you saw it.”  
-
----
-
-## Post game and debrief activities
+## Post session debrief and activities
 
 ### Words
 
-!!! note "Pronunciation activity"
-    Students repeat after a Living Letter, then use the word in a sentence related to the quest.  
+> [!tip] Pronunciation activity
+> Students repeat after a Living Letter, then use the word in a sentence related to the quest.  
 
-!!! note "Explain a card"
-    After play, ask learners to open the Book and explain one card to a peer.  
+> [!tip] Explain a card
+> After play, ask learners to open the Book and explain one card to a peer.  
 
-!!! note "Bonus Malus"
-    Citizenship link: Discuss how in‑game choices mirror respectful behavior in real life.  
+> [!tip] Bonus Malus
+> Citizenship link: Discuss how in‑game choices mirror respectful behavior in real life.  
 
-!!! note "world map"
-    For homework, let students explore in Home mode and bring one new card to share.  
+> [!tip] world map
+> For homework, let students explore in Home mode and bring one new card to share.  
 
+### Reflection
 
-Reflection after play helps consolidate learning.  
-
-### Reflection questions
+Reflection after play helps consolidate learning. 
+Here's a list of sample questions to stimulate the reflection:  
 
 **Generic**:  
 
@@ -126,11 +99,9 @@ Reflection after play helps consolidate learning.
 
 Quick write (3 minutes): “One thing I learned, one question I still have.”  
 
----
+### Post game activities
 
-## Post game activities
-
-**4. Research and Google Maps activity**  
+**Research and Google Maps activity**  
 
 - After play, students research the cultural topic online.  
 - Example: after exploring Paris, they can look up **Notre Dame** or use Google Maps to locate it.  
@@ -138,26 +109,13 @@ Quick write (3 minutes): “One thing I learned, one question I still have.”
 
 Extension task: find one local equivalent (e.g., a bakery or monument in your town).  
 
-**5. Modification activity (game design thinking)**  
+**Modification activity (game design thinking)**  
 
 - Ask students how they would **improve the quest**.  
 - Encourage them to invent new challenges, NPCs, or cultural puzzles.  
 - Great for **creativity** and understanding how games are built.  
 
 Example: “Add a decision where talking to an NPC politely unlocks a new clue.”  
-
-## Play sessions at home (parents involvement)
-
-Parents are encouraged to:  
-
-- Play the game themselves at least once.  
-- Play together with their child for 20 minutes/day.  
-- Repeat sentences in both languages together.  
-- Discuss discoveries in the game.  
-
-Note: **the game can also support parents who do not speak the learning language**, as dialogues are bilingual.  
-
----
 
 ## Feedback and validation of quests
 

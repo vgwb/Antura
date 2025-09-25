@@ -1,90 +1,90 @@
 ---
-title: Discover Introduction
-#subtitle: Let's get into the new Antura 3.0 modules
+title: Introduction à Découvrir
+#subtitle: Découvrons les nouveaux modules d’Antura 3.0
 status: new
 ---
 
-# Discover Europe Introduction
+# Introduction à « Découvrir les cultures »
 
-!!! note "How to Play guide"
-    This doc exmplains the game features, there is a dedicated page on [How to play](./discover_how_to_play.md)
+> [!note] Guide « Comment jouer »
+> Ce document présente les fonctionnalités du jeu. Voir aussi la page dédiée [Comment jouer](./discover_how_to_play.md).
 
-Discover Europe helps children explore the culture, language, and daily life of different countries through short, replayable quests.
+Le module Découvrir aide les enfants à explorer la culture, la langue et la vie quotidienne de différents pays au travers de quêtes courtes et rejouables.
 
-It is designed to support **migrant children**, but can also be used in any school to promote **cultural awareness** and **language learning**.
+Il est conçu pour soutenir les **enfants migrants**, mais peut être utilisé dans toute école pour promouvoir la **conscience culturelle** et l’**apprentissage des langues**.
 
-- **Where to use it**: in class or at home
-- **For whom**: children aged 6–12
-- **Values**: simple, safe, accessible
+- **Où l’utiliser** : en classe ou à la maison
+- **Pour qui** : enfants de 6 à 12 ans
+- **Valeurs** : simple, sûr, accessible
 
-Here is a short introduction to the game, followed by a detailed description of each feature.
+Voici une courte introduction, suivie d’une description détaillée des fonctionnalités.
 
-## The game in 2 minutes
+## Le jeu en 2 minutes
 
-- Children play as a **Cat character** in colorful 3D worlds.
-- They take on **Quests** (5–15 minutes each), which are short adventures focusing on cultural or educational themes.
-- Each quest combines:
-    - exploration of authentic places
-    - meeting characters
-    - solving puzzles and mini-games
-    - collecting cultural elements (**Knowledge Cards**)
+- Les enfants jouent un **personnage Chat** dans des mondes 3D colorés.
+- Ils entreprennent des **Quêtes** (5–15 min) centrées sur des thèmes culturels/éducatifs.
+- Chaque quête combine :
+    - exploration de lieux authentiques
+    - rencontre de personnages
+    - énigmes et mini‑jeux
+    - collecte d’éléments culturels (**Cartes de connaissance**)
 
-### Language support
+### Support linguistique
 
-- All dialogues are bilingual: **the child’s native language** + **the host country’s language** (e.g., Polish, French).
-- This makes it easier for children to follow the story while learning new words and phrases.
+- Tous les dialogues sont bilingues : **langue maternelle** + **langue du pays d’accueil** (ex. polonais, français).
+- Cela facilite la compréhension tout en apprenant de nouveaux mots et expressions.
 
-### Learning through play
+### Apprendre en jouant
 
-Discover teaches in two ways:
+Deux approches complémentaires :
 
-1. **Indirect learning**: children absorb culture and language while exploring and playing.
-2. **Direct learning**: short questions and quizzes reinforce knowledge before advancing.
+1. **Apprentissage indirect** : on absorbe culture et langue en explorant et en jouant.  
+2. **Apprentissage direct** : courtes questions et quiz pour renforcer avant d’avancer.
 
-Topics include history, food, traditions, geography, daily life, and more.
+Les sujets incluent histoire, alimentation, traditions, géographie, vie quotidienne, etc.
 
-### Knowledge cards & Book
+### Cartes de connaissance & Livre
 
-- **Cards**: represent facts, people, objects, traditions, or places.
-- Children **collect them in quests** and can review them anytime in the **Book**.
-- Cards are linked into a **Knowledge Graph** that shows how cultural elements connect (e.g., baguette → bread → French cuisine).
+- **Cartes** : faits, personnes, objets, traditions, lieux.
+- On les **collecte dans les quêtes** et on les revoit dans le **Livre**.
+- Les cartes sont reliées en **graphe de connaissances** (ex. baguette → pain → cuisine française).
 
-### Motivation & Progress
+### Motivation & progression
 
-- **Gems** = mastery of tasks (real learning progress).
-- **Cookies** = fun currency for customizing the cat.
-- **Stars** = performance rating of each quest.
-- **Achievements** = long-term goals (e.g., “collect all cards in France”).
+- **Gemmes** = maîtrise des tâches (progrès réel).  
+- **Cookies** = monnaie ludique pour personnaliser le chat.  
+- **Étoiles** = performance sur chaque quête.  
+- **Succès** = objectifs long terme (ex. « collecter toutes les cartes en France »).  
 
-### Teacher & parent tools
+### Outils enseignants/parents
 
-- **Teacher Panel**: adjust difficulty, choose language mode, monitor quests and progress.
-- **Automatic Website**: shows topics, cards, and activities completed, aligning gameplay with the **curriculum** and making progress **transparent** for teachers and parents.
+- **Panneau Enseignant** : réglage de la difficulté, choix du mode de langue, suivi des quêtes et progrès.  
+- **Site automatique** : affiche sujets, cartes et activités, aligne le jeu avec le **programme** et rend les progrès **visibles**.
 
-### Skills developed
+### Compétences développées
 
-While playing, kids train:
+En jouant, on entraîne :
 
-- memory and recall
-- logical reasoning
-- spatial orientation
-- language comprehension and production
-- cultural awareness and citizenship
+- mémoire et rappel
+- raisonnement logique
+- orientation spatiale
+- compréhension et production langagières
+- conscience culturelle et citoyenneté
 
-### Classroom Integration
+### Intégration en classe
 
-After playing, teachers can:
+Après le jeu, les enseignants peuvent :
 
-- rebuild the knowledge graph with students
-- extend it with new ideas
-- retell the quest together
-- compare with real-life resources (maps, books, visits)
+- reconstruire le graphe de connaissances
+- l’enrichir d’idées nouvelles
+- raconter la quête ensemble
+- comparer avec des ressources réelles (cartes, livres, visites)
 
-### Value
+### Valeur
 
-Discover with Antura:
+Découvrir avec Antura :
 
-- helps children **feel at home in a new country**
-- builds **cultural awareness** and **empathy**
-- supports **language learning** in a safe and playful way
-- gives teachers and parents **full visibility** on learning outcomes
+- aide les enfants à **se sentir chez eux dans un nouveau pays**
+- développe **conscience culturelle** et **empathie**
+- soutient **l’apprentissage des langues** de façon sûre et ludique
+- offre **une visibilité claire** des apprentissages aux adultes

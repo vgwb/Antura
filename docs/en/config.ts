@@ -16,17 +16,18 @@ export default defineAdditionalConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
-    { text: 'Teacher Manual', link: '/en/manual/', activeMatch: '/en/manual/'},
+    { text: 'Manual', link: '/en/manual/', activeMatch: '/en/manual/' },
     { text: 'Open Content', link: '/en/content/', activeMatch: '/en/content/' },
     { text: 'Developer Docs', link: '/en/dev/', activeMatch: '/en/dev/' },
-    { text: 'Download', link: '/en/download'},
+    { text: 'Download', link: '/en/download' },
     { text: 'News & Community', link: 'https://antura.discourse.group/c/news/5' }
   ]
 }
 
 function sidebarManual(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'Teacher Manual', link: '/' ,
+    {
+      text: 'Teacher Manual', link: '/',
       items: [
         { text: 'Introduction', link: 'introduction' },
         { text: 'Install', link: 'install' },
@@ -90,7 +91,7 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
       text: 'Developer Docs',
       items: [
         { text: 'Overview', link: '/' },
-                {
+        {
           text: 'Discover Quest Design',
           link: 'quest-design/',
           collapsed: true,
@@ -163,7 +164,7 @@ function sidebarAbout(): DefaultTheme.SidebarItem[] {
     {
       text: 'History and Supporters',
       items: [
-        
+
         { text: 'History', link: 'history' },
         { text: 'Supporters & Partners', link: 'supporters' },
         { text: 'Impact evaluation', link: 'impact' },

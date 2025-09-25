@@ -4,11 +4,11 @@ title: Changelog
 # Antura Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.0.0] - Discover Europe - 2025
+## [3.0.0] - Discover Edition - 2025
 
 ### New Features
 
-- Discover Europe Module
+- Discover Module
 - French and Poland initial quests
 - Classroom mode
 - the Cat model

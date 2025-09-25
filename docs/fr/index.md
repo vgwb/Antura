@@ -1,44 +1,68 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "Learn with Antura"
-  text: "an open source videogame"
-  tagline: My great project tagline
+  text: "Jouer. Découvrir. Apprendre."
+  tagline: "Primé jeu open source qui transforme la lecture, la langue et la culture en une aventure amusante."
   actions:
     - theme: brand
-      text: Download
-      link: /en/manual/
+      text: Télécharger
+      link: /en/download
     - theme: alt
-      text: Forum
-      link: https://antura.discourse.group
+      text: News & Community
+      link: https://antura.discourse.group/c/news/5
+    - theme: alt
+      text: ❤️ Soutenir
+      link: /en/about/support-us
   image:
-    src: ../../assets/img/antura_gametitle.jpg
-    alt: VitePress
+    src: /img/antura_gametitle.jpg
+    alt: Learn with Antura
+
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: "🎮 Apprendre en jouant"
+    details: "Les mini-jeux rendent la lecture et la pratique de la langue amusantes."
+    link: fr/manual/learnlanguage_module
+  - title: "🌍 Découvrir les cultures et les pays"
+    details: "Explorez le patrimoine, les traditions et la vie quotidienne à travers des quêtes."
+    link: fr/manual/discover_introduction
+  - title: "🆓 Gratuit et open source"
+    details: "100% gratuit, sans publicité, et ouvert aux contributions de la communauté."
+    link: en/about/open-source
+  - title: "📚 Contenu ouvert"
+    details: "Toutes les cartes, les sujets et les quêtes sont sous Creative Commons et publiés ici."
+    link: fr/content
+  - title: "🏆 Reconnaissance internationale"
+    details: "Lauréat d’EduApp4Syria et multi-récompensé."
+    link: en/about/awards
+  - title: "🧩 Cadre de quêtes ouvert"
+    details: "Créez et partagez de nouvelles quêtes pour étendre le jeu."
+    link: en/dev/quest-design
+  - title: "🗣️ Parle plusieurs langues"
+    details: "Jouez en 11 langues dont l’arabe, l’anglais, l’italien, le polonais, et plus encore."
+    link: fr/manual/learnlanguage_module#current-learning-modules
+  - title: "💻📱 Multiplateforme"
+    details: "Fonctionne sur PC et mobile, pas d’internet requis après l’installation."
+    link: en/download
 ---
 
-![antura_gametitle](../assets/img/antura_gametitle.jpg)
+# Learn with Antura
 
-> Learn to read and discover new languages with this award-winning free game!
-> It has been developed to help children that are not able to attend school, mainly from Syria, Afghanistan and Ukraine, but any child can play and learn easily with Antura.
+<YouTubeVideo id="HDM7a1i_kIw" title="Bande-annonce d’Antura" />
 
-This documentation website is dedicated to Teachers, Designers and Developers who want to work with Antura. It is maintained by the Antura Core Team directly inside the project repository.
+> [!NOTE] Éducateurs et Enseignants 👩‍🏫  
+> Accédez aux activités post‑jeu, utilisez le **Mode Classe**, et suivez le **Guide de l’enseignant**.  
+> Antura propose un **contenu didactique** riche, conçu pour l’école.
 
-## Video
+> [!TIP] Parents & Familles 👨‍👩‍👧  
+> Jouez ensemble à la maison, **suivez les progrès de votre enfant**, et explorez l’ensemble du contenu du jeu.  
+> Sûr, gratuit, et amusant pour tous les enfants.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HDM7a1i_kIw?si=M-E6xnKNRxrh1Wkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+> [!IMPORTANT] Game designers & développeurs 🎨  
+> Créez une nouvelle quête en **24 heures** grâce à notre bibliothèque complète de ressources prêtes à l’emploi.  
+> Propulsé par **Yarn Spinner** pour le dialogue et le contrôle narratif.
 
-## Download
-
-[![download applestore](../assets/img/download_appstore.png)](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
-
-[![download googleplay](../assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
+> [!WARNING] Philanthropes & Fondations 🤝  
+> Learn with Antura est une **initiative sur 10 ans** avec une vision à long terme.  
+> Soutenez‑nous pour continuer à développer des **jeux éducatifs gratuits pour tous les enfants**.
 

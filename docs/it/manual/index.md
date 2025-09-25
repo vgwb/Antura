@@ -1,30 +1,26 @@
 ---
-title: "Antura's Manual"
+title: "Manual"
 ---
-# Antura's Manual
+# Learn with Antura - Manual
 
-!!! note
-    We are rewriting here the [previous Google Doc version](https://docs.google.com/document/d/1Yk8cvbJIE2IKIKsVDs7eHWq_nueZ-O6HCGTl9xVusJk/edit?usp=sharing)
+> [!NOTE] For Educators 👩‍🏫  
+> Antura is more than a game: it can be combined with classroom activities, follow-up discussions, and learning materials.  
+> This manual helps you integrate Learn with Antura into your lessons and guide children through both play and discovery.
 
-This manual is for:
+## Teacher Manual
 
-- **Teachers** who want to use Antura in the classroom
-- **Parents** who want to know more about this game
-- **Designers** who want to create new quests
-- **Philanthropists** who want to support innovetive open source educational projects
+- [Introduction](./introduction.md) - introduction to Learn with Antura
+- 📥 [Install](./install.md) — instructions for setting up on mobile or PC.  
+- [Setup](./setup.md) - step by step setup for classroom usage
+- 👩‍🏫 [Classroom Guide](./classroom_guide.md) — practical advice for using with your students.  
+- ❓ [FAQ](./faq.md) — answers to the most common questions.
 
-## Sections
+## Detailed modules
 
-- [How to Install and Setup](./install.md)
-- [Learn Languages](./learnlanguage_module.md)
-- [Discover Europe introduction](./discover_introduction.md)
-- [Discover Europe](./discover_module.md)
-- [How to play Discover quests](./discover_how_to_play.md)
-- [Classroom Guide](./classroom_guide.md)
-- [Feedback and Support](./support.md)
-- [FAQ](./faq.md)
-- [Changelog](./changelog.md)
+- 🎮 [Learn Languages](./learnlanguage_module.md) — the minigames that train letters, words, and vocabulary.  
+- 🌍 [Discover Cultures](./discover_introduction.md) — explore countries, traditions, and cultural heritage.  
 
-## Quest creators & developers
-We have a custom section of this website dedicated to developers.  
-Start here: [How to create a new Quest](../dev/quest-design/index.md)
+## For quest creators & developers
+
+Antura is built as an open framework. If you want to design new quests, activities, or contribute to the code:  
+👉 Start here: [How to create a new Quest](../dev/quest-design/index.md)

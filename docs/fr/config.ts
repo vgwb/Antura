@@ -1,62 +1,133 @@
 import { defineAdditionalConfig, type DefaultTheme } from 'vitepress'
 
 export default defineAdditionalConfig({
-    description: 'Antura French.',
+  themeConfig: {
+    nav: nav(),
 
-    themeConfig: {
-        nav: nav(),
+    docFooter: {
+      prev: 'Page précédente',
+      next: 'Page suivante'
+    },
 
-        sidebar: {
-            '/fr/manual/': { base: '/fr/manual/', items: sidebarManual() },
-            '/fr/content/': { base: '/fr/content/', items: sidebarContent() },
-        },
-    }
+    outline: {
+      label: 'Sur cette page'
+    },
+
+    sidebar: {
+      '/fr/manual/': { base: '/fr/manual/', items: sidebarManual() },
+      '/fr/content/': { base: '/fr/content/', items: sidebarContent() },
+      '/fr/about/': { base: '/fr/about/', items: sidebarAbout() }
+    },
+  }
 })
 
 function nav(): DefaultTheme.NavItem[] {
-    return [
-        { text: 'Manuel', link: '/fr/manual/', activeMatch: '/fr/manual/' },
-        { text: 'Contenu', link: '/fr/content/', activeMatch: '/fr/content/' },
-        { text: 'Développeur', link: '/en/dev/', activeMatch: '/en/dev/' },
-        { text: 'À propos', link: '/en/about/', activeMatch: '/en/about/' },
-        { text: 'Forum', link: 'https://antura.discourse.group' },
-    ]
+  return [
+    { text: 'À propos', link: '/fr/about/', activeMatch: '/fr/about/' },
+    { text: 'Manuel', link: '/fr/manual/', activeMatch: '/fr/manual/' },
+    { text: 'Contenu', link: '/fr/content/', activeMatch: '/fr/content/' },
+    { text: 'Developer Docs', link: '/en/dev/', activeMatch: '/en/dev/' },
+    { text: 'Télécharger', link: '/fr/download' },
+    { text: 'News & Community', link: 'https://antura.discourse.group/c/news/5' },
+  ]
 }
 
 function sidebarManual(): DefaultTheme.SidebarItem[] {
-    return [
-        { text: 'Introduction', link: '/' },
-        { text: 'Installation et configuration', link: '/install' },
-        { text: 'Apprendre les langues', link: '/learnlanguage_module' },
-        {
-            text: 'Découvrir l\'Europe',
-            items: [
-                { text: 'Introduction', link: '/discover_introduction' },
-                { text: 'Fonctionnalités', link: '/discover_module' },
-                { text: 'Comment jouer aux quêtes', link: '/discover_how_to_play' },
-            ]
-        },
-        { text: 'Guide de classe', link: '/classroom_guide' },
-        { text: 'Feedback and Support', link: '/support' },
-        { text: 'FAQ', link: '/faq' },
-        { text: 'Changelog', link: '/changelog' },
-    ]
+  return [
+    {
+      text: 'Teacher Manual', link: '/',
+      items: [
+        { text: 'Introduction', link: 'introduction' },
+        { text: 'Installation', link: 'install' },
+        { text: 'Setup', link: 'setup' },
+        { text: 'Classroom Guide', link: 'classroom_guide' },
+      ]
+    },
+    {
+      text: 'Apprendre les langues',
+      items: [
+        { text: 'Learn Languages overview', link: 'learnlanguage_module' },
+        { text: 'How to play minigames', link: 'learnlanguage_how_to_play' },
+      ]
+    },
+    {
+      text: 'Discover Cultures',
+      items: [
+        { text: 'Discover overview', link: 'discover_introduction' },
+        { text: 'Fonctionnalités', link: 'discover_module' },
+        { text: 'Comment jouer aux quêtes', link: 'discover_how_to_play' }
+      ]
+    },
+    { text: 'FAQ', link: 'faq' },
+    { text: 'Feedback and Support', link: 'support' },
+    { text: 'Changelog', link: 'changelog' }
+  ]
 }
 
 function sidebarContent(): DefaultTheme.SidebarItem[] {
-    return [
+  return [
+    {
+      text: 'Contenu',
+      items: [
+        { text: 'Overview', link: '/' },
         {
-            text: 'Contenu',
-            items: [
-                { text: 'Aperçu', link: '/' },
-                { text: 'Quêtes', link: '/quests/' },
-                { text: 'Sujets', link: '/topics/' },
-                { text: 'Cartes', link: '/cards/' },
-                { text: 'Mots', link: '/words/' },
-                { text: 'Activités', link: '/activities/' },
-                { text: 'Lieux', link: '/locations/' }
-            ]
-        }
-    ]
+          text: 'Learn Languages',
+          items: [
+            { text: 'Curriculum', link: 'language-curriculum/' },
+            { text: 'Minigames', link: 'language-minigames/' },
+          ]
+        },
+        {
+          text: 'Discover Cultures',
+          items: [{ text: 'Aperçu', link: '/' },
+          { text: 'Quêtes', link: 'quests/' },
+          { text: 'Sujets', link: 'topics/' },
+          { text: 'Cartes', link: 'cards/' },
+          { text: 'Mots', link: 'words/' },
+          { text: 'Activités', link: 'activities/' },
+          { text: 'Lieux', link: 'locations/' }
+          ]
+        },
+      ]
+    }
+  ]
 }
 
+function sidebarAbout(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'À propos du projet Antura', link: '/' },
+    {
+      text: 'Histoire et soutiens',
+      items: [
+        { text: 'Histoire', link: 'history' },
+        { text: 'Soutiens & Partenaires', link: 'supporters' },
+        { text: 'Évaluation d’impact', link: 'impact' },
+        { text: 'Erasmus+', link: 'erasmus' },
+        { text: '🏆 Prix & Reconnaissances', link: 'awards' },
+        { text: '🌐 Open source', link: 'open-source' },
+        { text: '❤️ Nous soutenir', link: 'support-us' },
+      ],
+    },
+    {
+      text: 'Crédits',
+      items: [
+        { text: 'Crédits', link: 'credits' },
+        { text: 'Crédits (Assets)', link: 'credits-assets' },
+        { text: 'À propos du site', link: 'website' },
+      ],
+    },
+    {
+      text: 'Contact',
+      items: [
+        { text: 'Contact & Communauté', link: 'contact' }
+      ],
+    },
+    {
+      text: 'Licence',
+      items: [
+        { text: 'Licence', link: 'license' },
+        { text: 'Politique de confidentialité', link: '../../privacy-policy' },
+      ],
+    },
+  ]
+}
