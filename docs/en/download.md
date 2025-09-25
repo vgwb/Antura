@@ -1,6 +1,6 @@
-# Download & Install Antura
+# Download & Install
 
-Antura is **free and open source**. You can play it on **mobile** or **PC** — no ads, no subscriptions.
+_Learn with Antura_ is **free and open source**. You can play it on **any devices**.
 
 ## 📱 iOS (iPhone & iPad)
 
@@ -13,12 +13,12 @@ Antura is **free and open source**. You can play it on **mobile** or **PC** — 
 
 [![Get it on Google Play](/assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
 
-- Requires **Android 6 (API 23)** or later  
+- Requires **Android 12 (API 31)** or later  
 - Works on most modern phones and tablets  
 
 ## 💻 Windows
 
-A new **PC version** of Antura is under development, designed especially for classroom use.  
+The **PC version** in under development.
 👉 Try the latest [Windows beta build](/en/manual/install.md)
 
 - Runs on **Windows 10/11**  
@@ -26,12 +26,11 @@ A new **PC version** of Antura is under development, designed especially for cla
 
 ## 💻 macOS / Linux
 
-Antura can be built for macOS and Linux by anyone in the community, since it’s developed with Unity.  
-Official builds are not yet available, but we’re open to supporting them in the future.  
+Antura can be built for macOS and Linux by anyone in the community, since it’s developed with Unity. Official builds are not yet available, but we’re open to supporting them in the future.  
 
 > [!TIP] Contribute builds  
 > If you compile Antura for macOS or Linux, consider sharing your build with the community forum so others can benefit!
-> 👉 See [How to build Antura from source](./dev/how-to/build/) for details.
+> 👉 See [How to build Antura from source](./dev/how-to/Build.md) for details.
 
 ## 🚀 Beta Test
 
