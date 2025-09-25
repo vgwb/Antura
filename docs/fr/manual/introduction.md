@@ -3,19 +3,19 @@ title: Introduction
 ---
 
 # Introduction
-Learn with Antura is an award-winning open source game that turns reading, language, and culture into a fun adventure.
-Designed specifically for migrant children, Antura can be installed on the family phone for autonomous learning or it can be used in the classroom (mainly on tablets and PCs) to help their integration a new country. Within the mark of the [ANTURA Erasmus+ project](../about/erasmus/index.md), this manual we will focus on the latter: how to test the game in the classroom, both in France and Poland, and how to provide feedback about it.
+Learn with Antura est un jeu open source primé qui transforme la lecture, la langue et la culture en une aventure ludique.  
+Pensé pour les enfants migrants, Antura peut s’installer sur le téléphone familial pour un apprentissage autonome ou s’utiliser en classe (surtout sur tablettes et PC) pour faciliter l’intégration dans un nouveau pays. Dans le cadre du projet [ANTURA Erasmus+](../about/erasmus/index.md), ce manuel se concentre sur cet usage en classe (France et Pologne) et sur la manière de donner un retour.
 
-## Two Modules
-The game currently supports two main learning modules, each one with a specific learning goal and an unique approach:
+## Deux modules
+Le jeu comprend actuellement deux grands modules, chacun avec un objectif pédagogique et une approche spécifiques :
 
-### Learn a Language
-An introduction to a foreign language (mainly alphabet and vocabulary) playing a wide collection of minigames, progressing in a journey through 6 different worlds.
+### Apprendre une langue
+Introduction à une langue étrangère (alphabet, vocabulaire) via une large collection de minijeux, au cours d’un voyage à travers 6 mondes.
 
-### Discover a Country and its Culture
-Designed to help the integration of migrant kids in their host country, it offers a collection of Roblox-like quests. Children must complete a series of tasks, moving around and interacting in a 3D environment while learning about key concepts of the local culture.
+### Découvrir un pays et sa culture
+Conçu pour aider l’intégration dans le pays d’accueil, ce module propose des quêtes « à la Roblox ». Les enfants se déplacent et interagissent en 3D pour accomplir des tâches tout en apprenant des notions clés de la culture locale.
 
-As much as possible, the content of the each modules can reinforce the learning in the other one (i.e. you learn the name of the animals as part of the vocabulary and then you visit the zoo in 3D as part of a cultural quest).
+Autant que possible, les contenus se renforcent mutuellement : on apprend le nom des animaux dans le vocabulaire, puis on visite le zoo en 3D dans une quête culturelle.
 
 
 

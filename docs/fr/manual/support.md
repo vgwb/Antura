@@ -1,27 +1,27 @@
 ---
-title: Feedback and Support
+title: Retours et support
 ---
 
-# Feedback and support
+# Retours et support
 
-## Suggestions for improvement
+## Suggestions d’amélioration
 
-We welcome feedback and ideas from parents, teachers, and students.
+Nous accueillons volontiers les retours et idées des parents, enseignants et élèves.
 
-- Report problems and difficulties
-- Propose new topics, cards, or classroom activities.
-- Suggest usability improvements for controls, camera, or menus.
-- Share what worked well in your classroom and what could be clearer.
+- Signaler problèmes et difficultés
+- Proposer de nouveaux sujets, cartes, activités de classe
+- Suggérer des améliorations d’ergonomie (commandes, caméra, menus)
+- Partager ce qui a bien marché en classe et ce qui pourrait être clarifié
 
-Join our community: <https://antura.discourse.group>
+Rejoignez notre communauté : <https://antura.discourse.group>
 
-## Report a problem
+## Signaler un problème
 
-Each quest has a dedicated area in our community forum where you can share feedback, bugs, and ideas. Please check the corresponding link from [quest pages](../content/quests/index.md)
+Chaque quête possède une zone dédiée sur le forum pour vos retours, bugs et idées. Consultez le lien correspondant depuis les [pages de quêtes](../content/quests/index.md)
 
-**What to include:**
+**À inclure :**
 
-- Your device/OS (e.g., PC latptop with Windows 11, iPad with iPadOS version 15), and the game version/build date
-- Clear steps to reproduce the issue
-- Expected result vs. actual result
-- Screenshots or a short video, if possible
+- Appareil/OS (ex. PC Windows 11, iPad iPadOS 15) et version/date du build
+- Étapes claires pour reproduire le problème
+- Résultat attendu vs. résultat constaté
+- Captures ou courte vidéo, si possible

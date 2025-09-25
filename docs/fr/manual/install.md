@@ -1,42 +1,45 @@
 ---
-title: Install
+title: Installation et configuration
 ---
-# Install
+Installation et configuration
+=============================
 
-The game is compatible with iOS, Android and Windows, so it can be played on smartphones, tablets and PCs.
-Once installed, Internet is NOT required when playing the game.
+Le jeu est compatible avec les appareils iOS, Android et les PC Windows.
 
 > [!TIP]
-> We suggest tablets as the easiest device to be used in the classroom.
+> Nous recommandons les tablettes pour un usage en classe: faciles à partager et à manipuler.
 
-## iOS
+Une fois installé, Internet n’est PAS nécessaire pour jouer.
 
-**Requirements**: Ensure that the devices have the latest version of iOS (minimal iOS 12.0).  
+Appareils iOS
+-------------
 
-The official iOS version (v2.0 including Learn to Read and Learn a Language modules) is here: [Apple Store](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
+Exigences: iOS 12.0 minimum.
 
-The v3.0 beta version (including also the Discover Culture module and the new Classroom mode) is here: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)  
-(Testflight is a service to test iOS applications that are still in development: open the above link from the device you want to install to. Once installed from Testflight, you can use Antura as any other app)
+Version officielle iOS: [Apple Store](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
 
+Version bêta 3.0: [TestFlight](https://testflight.apple.com/join/Qm77iXFA)  
+(Ouvrez ce lien depuis l’appareil sur lequel vous voulez installer l’app. TestFlight est un service d’Apple pour tester des applications en cours de développement.)
 
-> [!note]
-> if you encounter any issue downloading or installing the app, please send a message in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
+> [!NOTE]
+> Si vous ne parvenez pas à télécharger l’app, laissez un message dans la communauté: https://antura.discourse.group/c/antura/5
 
-## Android
+Appareils Android
+-----------------
 
-**Requirements**: Ensure that the devices use Android 12 o newer (API level v31 or newer) and the they have installed the latest system update.
+Exigences: Android 12 (API 31) minimum.
 
-The official Android version (v2.0 including Learn to Read and Learn a Language modules) is here: [Google Play](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
+Version officielle Android: [Google Play](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
 
-The v3.0 beta version (including also the Discover Culture module and the new Classroom mode) will be released soon for Android. 
+La disponibilité de la version bêta 3.0 Android sera annoncée sur le forum de la communauté.
 
+PC Windows
+----------
 
-## Windows
-The Windows versions can be downloaded from https://github.com/vgwb/Antura/releases
+La version Windows peut être téléchargée ici: https://github.com/vgwb/Antura/releases
 
-Download the ZIP file, uncompress everything in a folder and then launch **Antura.exe**.
+Linux et macOS
+--------------
 
-
-## Linux and MacOS
-Since the game is open source and the engine used to create this game is multiplatform, Linux and macOS versions could be built if really necessary.
-Please ask in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5).
+Comme le jeu est open source et que le moteur est multiplateforme, des versions Linux et macOS peuvent être produites si nécessaire.
+N’hésitez pas à nous contacter.

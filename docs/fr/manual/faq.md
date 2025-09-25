@@ -4,69 +4,69 @@ title: FAQ
 
 # FAQ
 
-This page answers common questions from parents and teachers.
-If you have any other question, please join our [community](https://antura.discourse.group) 
+Cette page répond aux questions fréquentes des parents et des enseignants.  
+Pour toute autre question, rejoignez notre [communauté](https://antura.discourse.group).
 
-## For teachers
+## Pour les enseignants
 
-### How do I use it in the classroom?
+### Comment l’utiliser en classe ?
 
-Use Classroom Mode for low‑noise sessions focused on one country/topic. Run a short quest (5–15 minutes), then do a quick debrief: rebuild the knowledge graph, compare with real‑world resources, or have students explain a card to a partner.  
-Check the dedicated [classroom page](./classroom_guide.md).
+Utilisez le mode Classe pour des séances calmes centrées sur un pays/sujet. Faites une courte quête (5–15 min), puis un bref débrief : reconstruire le graphe de connaissances, comparer avec des ressources réelles, ou faire expliquer une carte à un pair.  
+Voir le [guide de classe](./classroom_guide.md).
 
-### How do I track learning and progress?
+### Comment suivre les apprentissages et le progrès ?
 
-The Book shows collected cards and achievements. A teacher-facing summary highlights progress and key events (e.g., bonus/malus). Each quest also has a page summarizing topics, cards, and activities to support lesson planning.
+Le Livre montre les cartes collectées et les succès. Un résumé met en évidence le progrès et les événements clés (ex. bonus/malus). Chaque quête a aussi une page qui résume sujets, cartes et activités pour appuyer la préparation.
 
-### How long is a typical session?
+### Combien de temps dure une séance typique ?
 
-One quest (5–15 minutes) plus a 5–10 minute discussion or extension activity.
+Une quête (5–15 min) plus 5–10 min de discussion/activité de prolongement.
 
-### Can it align with my curriculum?
+### Est‑ce aligné avec mon programme ?
 
-Yes. Topics, cards, and activities are transparent and easy to map to learning goals. You can select quests that fit your unit and use the Book to review knowledge.
+Oui. Sujets, cartes et activités sont transparents et mappables aux objectifs. Choisissez des quêtes adaptées à votre séquence et utilisez le Livre pour réviser.
 
-### How do I give feedback or validate a quest?
+### Comment donner un retour ou valider une quête ?
 
-Use the quest’s page on the website or the community forum to report what worked, what didn’t, and suggestions for improvement. Classroom feedback helps validate content and adjust difficulty.
+Utilisez la page de la quête ou le forum pour indiquer ce qui a fonctionné ou non, et proposer des améliorations. Le retour en classe aide à valider le contenu et ajuster la difficulté.
 
-### Can I contribute or create new quests?
+### Puis‑je contribuer ou créer de nouvelles quêtes ?
 
-Yes. Discover with Antura is built on an open framework and educators and designers can propose new topics, cards, words, and quest ideas; advanced users can build full quests.
-Check the [Quets design guides](../dev/quest-design/index.md)
+Oui. Découvrir avec Antura repose sur un framework ouvert. Enseignants et designers peuvent proposer des sujets, cartes, mots et idées de quêtes ; les utilisateurs avancés peuvent construire des quêtes complètes.  
+Voir le [guide de conception de quêtes](/en/dev/quest-design/).
 
-## For parents
+## Pour les parents
 
-### Is this game free?
+### Le jeu est‑il gratuit ?
 
-Yes. It’s free and open source. Anyone can view the code and suggest improvements. We also provide an open framework so others can create new content.
+Oui. Il est gratuit et open source. Chacun peut consulter le code et proposer des améliorations. Un framework ouvert permet aussi de créer du contenu.
 
-### Does it have ads or in‑app purchases?
+### Y a‑t‑il des publicités ou achats intégrés ?
 
-No. There are no advertisements or in‑app purchases.
+Non. Pas de publicités ni d’achats intégrés.
 
-### Do we need an internet connection to play?
+### Faut‑il Internet pour jouer ?
 
-No. Once downloaded and installed, the game can be played offline.
+Non. Une fois téléchargé et installé, le jeu fonctionne hors ligne.
 
-### What ages is it for?
+### Pour quels âges ?
 
-Recommended for ages 6–12. Younger or older learners can still enjoy it with guidance.
+Recommandé de 6 à 12 ans. Plus jeunes/plus âgés peuvent en profiter avec accompagnement.
 
-### How long should my child play?
+### Combien de temps mon enfant doit‑il jouer ?
 
-One quest takes about 5–15 minutes. Short, focused sessions work best; you can always replay quests to discover hidden content.
+Une quête dure 5–15 min. Des sessions courtes et ciblées sont idéales ; on peut rejouer pour découvrir du contenu caché.
 
-### Is my child’s data safe?
+### Les données de mon enfant sont‑elles en sécurité ?
 
-By default, the game focuses on learning summaries (progress, cards, achievements) rather than personal data. If you export data for research or school reporting, follow your school’s privacy policies.
+Par défaut, le jeu se concentre sur des résumés d’apprentissage (progrès, cartes, succès), sans données personnelles. En cas d’export, suivez la politique de l’établissement.
 
-### What devices does it run on? Can we play offline?
+### Sur quels appareils ? Peut‑on jouer hors ligne ?
 
-PC/Mac and tablets are supported. Offline play works after installation.
+PC/Mac et tablettes sont pris en charge. Le mode hors ligne fonctionne après installation.
 
-### How can I support learning at home?
+### Comment soutenir l’apprentissage à la maison ?
 
-- Play together for 15–20 minutes and talk about what you discover.
-- Ask your child to open the Book and explain one card in their own words.
-- Encourage repeating new words aloud and using them in short sentences.
+- Jouer ensemble 15–20 min et discuter des découvertes.
+- Demander d’ouvrir le Livre et d’expliquer une carte avec ses mots.
+- Encourager la répétition à voix haute et l’usage dans de courtes phrases.
