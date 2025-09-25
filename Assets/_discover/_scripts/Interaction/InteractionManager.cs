@@ -243,17 +243,18 @@ namespace Antura.Discover
             }
             if (NearbyInteractable != prev)
             {
-                if (prev != null)
-                    UIManager.I.dialogues.HideSignal(prev, true);
-                if (NearbyInteractable != null && HasValidNearbyInteractable)
-                    UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
+                if (prev != null) UIManager.I.dialogues.HideSignal(prev, true);
+                if (NearbyInteractable != null && HasValidNearbyInteractable) UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
+                DiscoverNotifier.Game.OnNearbyInteractableChanged.Dispatch(NearbyInteractable);
             }
         }
 
         void SetNearbyInteractableTo(Interactable interactable)
         {
+            Interactable prev = NearbyInteractable;
             NearbyInteractable = interactable;
             UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
+            if (NearbyInteractable != prev) DiscoverNotifier.Game.OnNearbyInteractableChanged.Dispatch(NearbyInteractable);
         }
 
         #endregion

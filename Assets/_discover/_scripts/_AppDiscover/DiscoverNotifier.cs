@@ -20,6 +20,8 @@ namespace Antura.Discover
             public static readonly ActionEvent<QuestNode> OnCloseDialogueBalloon = new("DialoguesUI.OnCloseDialogueBalloon");
             /// <summary>When an Interactable collider OnTriggerEnter is entered by the player</summary>
             public static readonly ActionEvent<Interactable> OnInteractableEnteredByPlayer = new("DiscoverNotifier.Game.OnInteractableEnteredByPlayer");
+            /// <summary>When the detected nearby interactable changes</summary>
+            public static readonly ActionEvent<Interactable> OnNearbyInteractableChanged = new("DiscoverNotifier.Game.OnNearbyInteractableChanged");
             /// <summary>When an Interactable collider OnTriggerEnter is exited by the player</summary>
             public static readonly ActionEvent<Interactable> OnInteractableExitedByPlayer = new("DiscoverNotifier.Game.OnInteractableExitedByPlayer");
             /// <summary>When the action button is pressed</summary>
