@@ -94,9 +94,8 @@ function sidebarContent(): DefaultTheme.SidebarItem[] {
 
 function sidebarAbout(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'À propos du projet Antura', link: '/' },
     {
-      text: 'Histoire et soutiens',
+      text: 'À propos du projet Antura', link: '/',
       items: [
         { text: 'Histoire', link: 'history' },
         { text: 'Soutiens & Partenaires', link: 'supporters' },

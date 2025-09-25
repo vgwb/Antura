@@ -159,11 +159,9 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
 
 function sidebarAbout(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'About Antura project', link: '/' },
     {
-      text: 'History and Supporters',
+      text: 'About Antura project', link: '/' ,
       items: [
-
         { text: 'History', link: 'history' },
         { text: 'Supporters & Partners', link: 'supporters' },
         { text: 'Impact evaluation', link: 'impact' },
