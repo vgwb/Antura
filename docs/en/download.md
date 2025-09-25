@@ -39,7 +39,7 @@ You can already **join the beta test** and help us improve:
 ## 📖 Changelog & Updates
 
 Want to know what’s new?  
-Check the [Changelog](./manual/changelog.md) for the latest updates, improvements, and bug fixes.  
+Check the [Changelog](./about/releases.md) for the latest updates, improvements, and bug fixes.  
 
 ## 💻 Source Code on GitHub
 
@@ -51,5 +51,5 @@ The repository contains the Unity project, documentation, and assets. Contributi
 
 ## ❓ Need Help?
 
-See the [Classroom Guide](/en/manual/classroom_guide) for teachers,  
+See the [Classroom Guide](./manual/classroom_guide) for teachers,  
 or ask questions in the [Antura Forum](https://antura.discourse.group).

@@ -24,22 +24,22 @@ features:
     details: "I minigiochi rendono divertente la lettura e la pratica della lingua."
     link: it/manual/learnlanguage_module
   - title: "🌍 Scopri culture e paesi"
-    details: "Esplora patrimonio, tradizioni e vita quotidiana attraverso le quest."
+    details: "Esplora cultura, tradizioni e vita quotidiana attraverso quest didattiche."
     link: it/manual/discover_introduction
   - title: "🆓 Gratis e open source"
     details: "100% gratuito, senza pubblicità e aperto ai contributi della community."
     link: it/about/open-source
-  - title: "📚 Contenuti aperti"
-    details: "Carte, argomenti e quest sono Creative Commons e pubblicati qui."
+  - title: "📚 Open Content"
+    details: "Argomenti e quest sono Creative Commons e pubblicati in questo sito."
     link: it/content
   - title: "🏆 Riconoscimenti internazionali"
     details: "Vincitore di EduApp4Syria e di numerosi premi."
     link: it/about/awards
-  - title: "🧩 Framework di quest aperto"
+  - title: "🧩 Framework di sviluppo aperto"
     details: "Crea e condividi nuove quest per espandere il gioco."
     link: en/dev/quest-design
-  - title: "🗣️ Parla molte lingue"
-    details: "Gioca in 11 lingue tra cui arabo, inglese, italiano, polacco e altre."
+  - title: "🗣️ Multilingua"
+    details: "Gioca in 11 lingue tra cui arabo, inglese, italiano, polacco."
     link: it/manual/learnlanguage_module#current-learning-modules
   - title: "💻📱 Multipiattaforma"
     details: "Funziona su PC e mobile, senza internet dopo l’installazione."
@@ -56,11 +56,11 @@ features:
 
 > [!TIP] Genitori & Famiglie 👨‍👩‍👧  
 > Giocate insieme a casa, **monitorate i progressi**, ed esplorate tutti i contenuti del gioco.  
-> Sicuro, gratuito e divertente per ogni bambino.
+> Sicuro, gratuito e divertente per tutti.
 
 > [!IMPORTANT] Game designer & sviluppatori 🎨  
 > Crea una nuova quest in **24 ore** usando la nostra libreria di asset pronti all’uso.  
-> Basato su **Yarn Spinner** per dialoghi e controllo narrativo.
+> Usa un sistema avanzato di scripting per dialoghi e storie interattive.
 
 > [!WARNING] Filantropi & Fondazioni 🤝  
 > Learn with Antura è un’**iniziativa decennale** con una visione di lungo periodo.  

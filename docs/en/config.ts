@@ -52,7 +52,6 @@ function sidebarManual(): DefaultTheme.SidebarItem[] {
     },
     { text: 'FAQ', link: 'faq' },
     { text: 'Feedback and Support', link: 'support' },
-    { text: 'Changelog', link: 'changelog' }
   ]
 }
 
@@ -169,6 +168,7 @@ function sidebarAbout(): DefaultTheme.SidebarItem[] {
         { text: 'Supporters & Partners', link: 'supporters' },
         { text: 'Impact evaluation', link: 'impact' },
         { text: 'Erasmus+', link: 'erasmus' },
+        { text: 'Releases', link: 'releases' },
         { text: '🏆 Awards & Recognition', link: 'awards' },
         { text: '🌐 Open source', link: 'open-source' },
         { text: '❤️ Support us', link: 'support-us' },
