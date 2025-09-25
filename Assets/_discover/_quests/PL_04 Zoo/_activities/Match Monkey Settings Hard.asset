@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522986d1bf14a4377939400a4b220bb6, type: 3}
+  m_Name: Match Monkey Settings Hard
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.MatchSettingsData
+  Id: match_monkey_settings_hard
+  ActivityCode: 2
+  Difficulty: 4
+  MinRounds: 1
+  MaxRounds: 1
+  HasTimer: 1
+  TimerSeconds: 25
+  PointsFail: -1
+  PointsEasy: 1
+  PointsNormal: 2
+  PointsExpert: 3
+  MainTopic: {fileID: 0}
+  SelectionMode: 0
+  GroupsData:
+  - Question: {fileID: 11400000, guid: 817209769f700c5429d1ea98cfd135bc, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: 0a8f77ef7ef02614ea96c395eeb8a30a, type: 2}
+  - Question: {fileID: 11400000, guid: 9ccc9cc7536e14955b0124a566e2d5a3, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: 9f88ea112e511704ea13ffe844685ffb, type: 2}
+  - Question: {fileID: 11400000, guid: f6603f033691f86468077c63402bee03, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: feedf41eba7e45940b890de55a653278, type: 2}
+  - Question: {fileID: 11400000, guid: 0da048f4d46544f44a47b795905233c3, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: 934ac780ad0e1e74ebc88ec97d88303d, type: 2}

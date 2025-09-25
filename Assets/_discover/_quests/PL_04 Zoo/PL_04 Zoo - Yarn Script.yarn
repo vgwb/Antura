@@ -65,6 +65,7 @@ color: red
 <<declare $lion_completed = false>>
 <<declare $monkey_completed = false>>
 <<declare $penguin_completed = false>>
+<<declare $found_chest_cookies = false>>
 Welcome to WROCŁAW ZOO. #line:0fe55d1 
 There are many ANIMALS here! #line:005dd46 
 ===
@@ -168,8 +169,14 @@ actor:
 group: actions
 color: yellow
 ---
-What a nice surprise! #line:03321d5 
-<<action open_chest>>
+<<if $found_chest_cookies>>
+    It's empty now. #line:0810771 
+<<else>>
+    <<action open_chest>>
+    <<set $found_chest_cookies = true>>
+    You found some cookies! #line:03321d5 
+    <<cookies_add 5>>
+<<endif>>
 ===
 
 // PART 1 – ELEPHANT
@@ -181,9 +188,10 @@ actor: SENIOR_M
 image: elephant_keeper
 color: blue
 ---
-<<if $elephant_completed>>
-    A FLAG? I do not have it. #line:03879f8 
-    If I took it I would remember! #line:0103606 
+<<if GetActivityResult("jigsaw_zoo_settings") > 0>>
+    Your memory is good!
+    Want to try again?
+    <<activity memory_elephant_settings_hard elephant_activity_done>>
 <<else>>
     I am the biggest land ANIMAL. #line:027b51f 
     <<card animal_elephant zoom>>
@@ -236,9 +244,10 @@ actor: SENIOR_M
 image: giraffe_keeper
 color: blue
 ---
-<<if $giraffe_completed>>
-    I did not take the FLAG. #line:05d1f0a 
-    It is too high for me! #line:04947e6 
+<<if GetActivityResult("canvas_giraffe_settings") > 0>>
+    Isn't it cool?
+    Want to see try again?
+    <<activity canvas_giraffe_settings_hard giraffe_activity_done>>
 <<else>>
     I am the tallest ANIMAL. #line:0d5c607 
     <<card animal_giraffe zoom>>
@@ -290,9 +299,10 @@ actor: SENIOR_M
 image: lion_keeper
 color: blue
 ---
-<<if $lion_completed>>
-    You must find the FLAG! #line:0b1109f 
-    I like watching it in wind. #line:095bf3c 
+<<if GetActivityResult("order_lion_settings") > 0>>
+    Hey, try again.
+    I'll make it harder.
+    <<activity order_lion_settings_hard lion_activity_done>>
 <<else>>
     I am a LION from AFRICA. #line:07f2e15 
     <<card  animal_lion zoom>>
@@ -344,9 +354,10 @@ actor: SENIOR_M
 image: monkey_keeper
 color: blue
 ---
-<<if $monkey_completed>>
-    I did not take the FLAG. #line:092a68e 
-    It would be fun to climb that pole. #line:097810d 
+<<if GetActivityResult("match_monkey_settings") > 0>>
+    Oh, you're good!
+    Be quick!
+    <<activity match_monkey_settings_hard monkey_activity_done>>
 <<else>>
     I am a CHIMPANZEE. I climb TREES. #line:0867233 
     <<card animal_chimpanzee zoom>>
@@ -398,9 +409,10 @@ actor: SENIOR_M
 image: penguin_keeper
 color: blue
 ---
-<<if $penguin_completed>>
-    No, I did not take the FLAG. #line:0b71fae 
-    I can't fly, remember? #line:03e6fc7 
+<<if GetActivityResult("jigsaw_penguin_settings") > 0>>
+    Nice!
+    Can you do it again?
+    <<activity jigsaw_penguin_settings_hard penguin_activity_done>>
 <<else>>
     I am a PENGUIN, a strange BIRD. #line:08c70e8 
     <<card animal_penguin zoom>>
