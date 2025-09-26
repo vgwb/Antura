@@ -103,9 +103,10 @@ actor: SENIOR_M
 tags:  noRepeatLastLine
 color: blue
 ---
-<<if $baker_completed>>
-You already bought bread from me!  #line:023d379 
-Try talking to the other vendors. #line:0b6176e 
+<<if GetActivityResult("money_baker") > 0>>
+    You already bought bread from me!  #line:023d379 
+    Do you want to play again? #line:042cec8 
+    <<activity hard_money_baker hard_payment_done>>
 <<else>>
 -> Bonjour! #line:09460ce 
     <<jump baker_bonjour>>
@@ -148,11 +149,11 @@ position: 1131,145
 group: baker
 actor: ADULT_M, no_translate, noRepeatLastLine
 ---
+Here you go. #line:0567082 
 -> Merci! #line:00da30a 
 -> Au revoir! #line:00cbd60 
 -> Bonne journée! #line:00cd1cf 
 <<SetActive Collect_Baker>>
-<<set $baker_completed = true>>
 ===
 
 title: baker_dontsell
@@ -168,11 +169,11 @@ position: 2169,551
 group: fisher
 actor: SENIOR_M, do_not_translate, noRepeatLastLine
 ---
+Here you go. #line:08733ac 
 -> Au revoir! #line:02e64ff 
 -> Merci! #line:02c23e5 
 -> Bonne journée! #line:080d945 
 <<SetActive Collect_Fisherman>>
-<<set $fishmonger_completed = true>>
 ===
 
 title: fisher_dontsell
@@ -205,9 +206,10 @@ color: blue
 group: fisher
 actor: SENIOR_M, noRepeatLastLine
 ---
-<<if $fishmonger_completed>>
-You already bought fish from me!  #line:0b3f247 
-Try the next shop. #line:0ed0200 
+<<if GetActivityResult("money_fishmonger") > 0>>
+    You already bought fish from me! #line:044d973 
+    Do you want to play again? #line:0fcca94 
+    <<activity hard_money_fishmonger hard_payment_done>>
 <<else>>
 -> Lycée! #line:0d65316 
     <<jump talk_dont_understand>>
@@ -237,9 +239,10 @@ group: cheesemonger
 actor: ADULT_F
 tags:  do_not_translate, noRepeatLastLine
 ---
-<<if $cheesemonger_completed>>
-You already bought milk from me!  #line:082465a 
-Try talking to the others. #line:026a894 
+<<if GetActivityResult("money_cheesemonger") > 0>>
+    You already bought milk from me! #line:090b5cc 
+    Do you want to play again? #line:0432de2 
+    <<activity hard_money_cheesemonger hard_payment_done>>
 <<else>>
 -> Merci! #line:0693ba6 
     <<jump talk_dont_understand>>
@@ -273,11 +276,11 @@ group:cheesemonger
 actor: ADULT_F
 tags:  do_not_translate, noRepeatLastLine
 ---
+Here you go. #line:07d1671 
 -> Bonne journée! #line:0dd3ac3 
 -> Au revoir! #line:02a1238 
 -> Merci! #line:0273de1 
 <<SetActive Collect_Cheesemonger>>
-<<set $cheesemonger_completed = true>>
 ===
 
 title: cheesemonger_bonjour
@@ -313,11 +316,11 @@ group: greengrocer
 actor: ADULT_F
 tags:  do_not_translate, noRepeatLastLine
 ---
+Here you go. #line:019edd0 
 -> Bonne journée! #line:0ff9361 
 -> Merci! #line:0741be3 
 -> Au revoir! #line:023f352 
 <<SetActive Collect_Greengrocer>>
-<<set $greengrocer_completed = true>>
 ===
 
 title: greengrocer_question
@@ -337,16 +340,18 @@ What do you want to buy? #line:042eb5a
 ===
 
 title: shop_greengrocer
-position: 401,822
+position: 401,820
 color: blue
 group: greengrocer
 actor: ADULT_F
 tags:  noRepeatLastLine
 ---
-<<if $greengrocer_completed>>
-You already bought some fruit from me!  #line:0e767fe 
-Try talking to another vendor. #line:00a927b 
+<<if GetActivityResult("money_greengrocer") > 0>>
+    You already bought fruit from me! #line:0755f3c 
+    Do you want to play again? #line:0bbe1ea 
+    <<activity hard_money_greengrocer hard_payment_done>>
 <<else>>
+    hello #line:00ee67d 
 -> Merci! #line:0a43c28 
     <<detour talk_dont_understand>>
 -> Train! #line:02af86a 
@@ -374,11 +379,11 @@ group: grocer
 actor: SENIOR_F
 tags:  do_not_translate, noRepeatLastLine
 ---
+Here you go. #line:050a906 
 -> Au revoir! #line:0ce6f8a 
 -> Merci! #line:0e8ec1b 
 -> Bonne journée! #line:062029a 
 <<SetActive Collect_Grocer>>
-<<set $grocer_completed = true>>
 ===
 
 title: grocer_dontsell
@@ -408,15 +413,16 @@ What do you want to buy? #line:0c36100
 ===
 
 title: shop_grocer
-position: 1437,-12
+position: 1439,-12
 group: grocer
 actor: SENIOR_F
 tags:  noRepeatLastLine
 color: blue
 ---
-<<if $grocer_completed>>
-You already bought from me!  #line:004d2b1 
-Try another shop. #line:0b4ebe1 
+<<if GetActivityResult("money_grocer") > 0>>
+    You already bought from me! #line:0348f3c 
+    Do you want to play again? #line:0e4aeb6 
+    <<activity hard_money_grocer hard_payment_done>>
 <<else>>
 -> Merci! #line:0dd992c 
     <<jump talk_dont_understand>>
@@ -659,6 +665,14 @@ tags: detour
 color: orange
 ---
 => Sorry, I don't sell that. #line:08700b0 
+===
+
+title: hard_payment_done
+position: 1878,824
+tags: detour
+color: orange
+---
+Try talking to the other vendors too. #line:06ae965 
 ===
 
 title: item_bread

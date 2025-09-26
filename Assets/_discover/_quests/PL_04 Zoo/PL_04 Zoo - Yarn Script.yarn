@@ -189,8 +189,8 @@ image: elephant_keeper
 color: blue
 ---
 <<if GetActivityResult("jigsaw_zoo_settings") > 0>>
-    Your memory is good!
-    Want to try again?
+    Your memory is good! #line:092cdc9 
+    Want to try again? #line:09523fa 
     <<activity memory_elephant_settings_hard elephant_activity_done>>
 <<else>>
     I am the biggest land ANIMAL. #line:027b51f 
@@ -245,8 +245,8 @@ image: giraffe_keeper
 color: blue
 ---
 <<if GetActivityResult("canvas_giraffe_settings") > 0>>
-    Isn't it cool?
-    Want to see try again?
+    Isn't it cool? #line:04d057e 
+    Want to see try again? #line:04f37fa 
     <<activity canvas_giraffe_settings_hard giraffe_activity_done>>
 <<else>>
     I am the tallest ANIMAL. #line:0d5c607 
@@ -300,8 +300,8 @@ image: lion_keeper
 color: blue
 ---
 <<if GetActivityResult("order_lion_settings") > 0>>
-    Hey, try again.
-    I'll make it harder.
+    Hey, try again. #line:0e53f7d 
+    I'll make it harder. #line:080d627 
     <<activity order_lion_settings_hard lion_activity_done>>
 <<else>>
     I am a LION from AFRICA. #line:07f2e15 
@@ -355,8 +355,8 @@ image: monkey_keeper
 color: blue
 ---
 <<if GetActivityResult("match_monkey_settings") > 0>>
-    Oh, you're good!
-    Be quick!
+    Oh, you're good! #line:092486d 
+    Be quick! #line:0c33d20 
     <<activity match_monkey_settings_hard monkey_activity_done>>
 <<else>>
     I am a CHIMPANZEE. I climb TREES. #line:0867233 
@@ -410,8 +410,8 @@ image: penguin_keeper
 color: blue
 ---
 <<if GetActivityResult("jigsaw_penguin_settings") > 0>>
-    Nice!
-    Can you do it again?
+    Nice! #line:0cd794c 
+    Can you do it again? #line:084fedc 
     <<activity jigsaw_penguin_settings_hard penguin_activity_done>>
 <<else>>
     I am a PENGUIN, a strange BIRD. #line:08c70e8 
