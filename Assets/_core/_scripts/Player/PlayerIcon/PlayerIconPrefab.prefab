@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 222438600294664906}
   - component: {fileID: 114477846920768362}
   m_Layer: 5
-  m_Name: Endgame Hat
+  m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1126,16 +1126,16 @@ RectTransform:
   m_GameObject: {fileID: 8376822305416076035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6818125, y: 0.6818125, z: 0.6818125}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 224002033110665956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14166667, y: 0.6916667}
-  m_AnchorMax: {x: 0.80833334, y: 1}
-  m_AnchoredPosition: {x: -43, y: 3}
-  m_SizeDelta: {x: -1.0999985, y: 41.9}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -20, y: 20}
+  m_SizeDelta: {x: 56, y: 56}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &4682617492487870483
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c3a2274e5549b4342ad226261c674496, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3c43f1121237411f8e4cad209b7d667, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
