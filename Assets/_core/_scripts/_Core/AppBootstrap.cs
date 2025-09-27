@@ -1,6 +1,4 @@
-using Antura.Audio;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Antura.Core
 {
@@ -8,22 +6,12 @@ namespace Antura.Core
     /// Takes care of generating managers before the AppManger is awoken.
     /// Tied to the AppManager.
     /// </summary>
-    public class AppBootstrap : MonoBehaviour
+    public static class AppBootstrap
     {
-        public GameObject AudioManager;
-        public GameObject EventsManager;
-
-        public void InitManagers()
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        public static void Execute()
         {
-            if (FindFirstObjectByType(typeof(AudioManager)) == null)
-            {
-                Instantiate(AudioManager);
-            }
-
-            if (FindFirstObjectByType(typeof(EventSystem)) == null)
-            {
-                Instantiate(EventsManager);
-            }
+            Object.DontDestroyOnLoad(Object.Instantiate(Resources.Load("Systems")));
         }
     }
 }

@@ -2,7 +2,6 @@ using Antura.Audio;
 using Antura.Book;
 using Antura.Core.Services;
 using Antura.Database;
-using Antura.Helpers;
 using Antura.Keeper;
 using Antura.Language;
 using Antura.Minigames;
@@ -16,8 +15,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 
 namespace Antura.Core
 {
@@ -85,7 +82,6 @@ namespace Antura.Core
 
         protected override void Awake()
         {
-            GetComponent<AppBootstrap>().InitManagers();
             DontDestroyOnLoad(this);
             base.Awake();
 
@@ -138,18 +134,9 @@ namespace Antura.Core
 
         private IEnumerator InitCO()
         {
-            // Init localization early, but delay one frame
-            // to avoid editor/player hangs on some platforms
-            // when initializing too soon in the lifecycle.
-            yield return null;
-            yield return LocalizationSettings.InitializationOperation;
-            IsLocalizationReady = true;
-            LocalizationReady?.Invoke();
-            yield return null;
-
+            // Managers
             AppSettingsManager = new AppSettingsManager();
             AssetManager = new AssetManager();
-
 
             yield return ReloadEdition();
 

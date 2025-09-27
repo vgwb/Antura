@@ -86,8 +86,6 @@ namespace Antura.Language
             }
         }
 
-
-
         private IEnumerator SetLocalizationLanguage(string iso2Code)
         {
             // Only run if Localization has already been initialized elsewhere;
@@ -120,8 +118,6 @@ namespace Antura.Language
             }
             yield break;
         }
-
-
 
         IEnumerator LoadLanguageData(LanguageCode language)
         {

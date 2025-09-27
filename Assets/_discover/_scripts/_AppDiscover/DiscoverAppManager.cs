@@ -21,7 +21,7 @@ namespace Antura.Discover
         public string topic;
         public int attempts;
         public int correct;
-        public Dictionary<string, int> wrongItems; // optional/sparse
+        public Dictionary<string, int> wrongItems;
     }
 
     public struct QuestEnd
@@ -39,7 +39,6 @@ namespace Antura.Discover
 
         [SerializeField]
         private DiscoverDataManager dataManager;
-
         public string LearningLanguageIso2 = "fr";
 
         // Cached learning locale & localized strings (table:entry:locale -> value)
@@ -49,15 +48,10 @@ namespace Antura.Discover
 
         [SerializeField]
         private EconomySettings economySettings;
-
         private const string storageSubdir = "discover_profiles";
-
         private DiscoverProfileManager profilesManager;
-
         public DiscoverPlayerProfile CurrentProfile { get; private set; }
-
         public DiscoverDataManager Data => dataManager;
-
         private ProfileService profileService;
         private ProfileService ProfileSvc
         {
