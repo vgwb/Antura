@@ -23,6 +23,8 @@ namespace Antura.Discover
         public DialogueRunner Runner => runner;
         public DiscoverLineProvider LineProvider => lineProvider;
 
+        public AnturaYarnVariables Variables { get; private set; }
+
         private void Awake()
         {
             if (I != null && I != this)
@@ -52,6 +54,8 @@ namespace Antura.Discover
             {
                 runner.onNodeStart.AddListener(nodeName => { OnNodeStarted?.Invoke(nodeName); presenter?.SetCurrentNodeName(nodeName); });
                 runner.onDialogueComplete.AddListener(() => OnDialogueComplete?.Invoke());
+                Variables = runner.VariableStorage as AnturaYarnVariables;
+
 
                 //Hook Commands into Yarn
 

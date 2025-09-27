@@ -193,10 +193,7 @@ namespace Antura.Discover
 
         private void PushCurrentItemToYarn()
         {
-            var storage = YarnAnturaManager.I?.Runner?.VariableStorage;
-            if (storage == null)
-                return;
-            storage.SetValue("$CURRENT_ITEM", CurrentItem != null ? CurrentItem.Code : "");
+            YarnAnturaManager.I.Variables.CURRENT_ITEM = CurrentItem != null ? CurrentItem.Code : string.Empty;
         }
     }
 }

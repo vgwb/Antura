@@ -80,8 +80,9 @@ namespace Antura.Discover
             yarnManager?.Setup();
 
             // Initialize inventory target from Yarn variables if present
-            int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
-            Inventory.Init(questItemsTarget);
+            // int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
+
+            // Inventory.Init(questItemsTarget);
             // Initialize and register tasks for this quest
             if (QuestTasks != null)
             {
@@ -150,6 +151,22 @@ namespace Antura.Discover
 
         public void QuestStart()
         {
+            var yarnManager = YarnAnturaManager.I;
+            if (yarnManager != null)
+            {
+                YarnAnturaManager.I.Variables.IS_DESKTOP = AppConfig.IsDesktopPlatform();
+                bool easyMode = false;
+                var profile = DiscoverAppManager.I != null ? DiscoverAppManager.I.CurrentProfile : null;
+                if (profile?.profile != null)
+                {
+                    easyMode = profile.profile.easyMode;
+                }
+                YarnAnturaManager.I.Variables.EASY_MODE = easyMode;
+
+                var currentItemCode = Inventory?.CurrentItem != null ? Inventory.CurrentItem.Code : string.Empty;
+                YarnAnturaManager.I.Variables.CURRENT_ITEM = currentItemCode ?? string.Empty;
+            }
+
             if (DebugMode && DebugConfig.DebugNode != null)
             {
                 StartDialogue(DebugConfig.DebugNode);
@@ -269,7 +286,7 @@ namespace Antura.Discover
             {
                 Debug.Log("Collect item " + itemCode);
                 collected_items++;
-                SetIntVar("$COLLECTED_ITEMS", collected_items);
+                YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
                 UpateItemsCounter();
             }
         }
@@ -280,7 +297,7 @@ namespace Antura.Discover
             {
                 Debug.Log("Remove item " + itemCode);
                 collected_items--;
-                SetIntVar("$COLLECTED_ITEMS", collected_items);
+                YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
                 UpateItemsCounter();
             }
         }
@@ -288,7 +305,7 @@ namespace Antura.Discover
         public void OnCollectItem(string tag)
         {
             collected_items++;
-            SetIntVar("$COLLECTED_ITEMS", collected_items);
+            YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
             // route to task manager per-task logic
             TaskManager?.OnCollectItemTag(tag);
             AudioManager.I.PlaySound(Sfx.ScaleUp);
@@ -312,25 +329,25 @@ namespace Antura.Discover
 
         public void UpateItemsCounter()
         {
-            int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
-            if (questItemsTarget > 0)
-            {
-                UIManager.I.TaskDisplay.gameObject.SetActive(true);
-                UIManager.I.TaskDisplay.SetTargetItems(questItemsTarget);
-                UIManager.I.TaskDisplay.SetTotItemsCollected(collected_items);
-            }
+            // int questItemsTarget = YarnAnturaManager.I.Variables.QUEST_ITEMS;
+            // if (questItemsTarget > 0)
+            // {
+            //     UIManager.I.TaskDisplay.gameObject.SetActive(true);
+            //     UIManager.I.TaskDisplay.SetTargetItems(questItemsTarget);
+            //     UIManager.I.TaskDisplay.SetTotItemsCollected(collected_items);
+            // }
         }
 
         public void UpateCoinsCounter()
         {
-            total_coins = GetIntVar("$TOTAL_COINS", total_coins);
+            total_coins = YarnAnturaManager.I.Variables.TOTAL_COINS;
             UIManager.I.CoinsCounter.SetValue(total_coins);
         }
 
         public void OnCollectCoin()
         {
             total_coins++;
-            SetIntVar("$TOTAL_COINS", total_coins);
+            YarnAnturaManager.I.Variables.TOTAL_COINS = total_coins;
             UIManager.I.CoinsCounter.IncreaseByOne();
             Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
         }
@@ -358,23 +375,6 @@ namespace Antura.Discover
                 OnNodeEnd(_lastYarnNode);
                 _lastYarnNode = null;
             }
-        }
-
-        // Helpers for Yarn variable access
-        private int GetIntVar(string name, int fallback)
-        {
-            var storage = YarnAnturaManager.I?.Runner?.VariableStorage;
-            if (storage != null && storage.TryGetValue<float>(name, out var num))
-                return Mathf.RoundToInt(num);
-            return fallback;
-        }
-
-        private void SetIntVar(string name, int value)
-        {
-            var storage = YarnAnturaManager.I?.Runner?.VariableStorage;
-            if (storage == null)
-                return;
-            storage.SetValue(name, value);
         }
 
         #region Debug
