@@ -240,7 +240,7 @@ namespace Antura.Discover
                     countryIso2 = "",
                     classroom = legacy?.Classroom ?? 0,
                     easyMode = legacy?.EasyMode ?? false,
-                    talkToPlayerStyle = TalkToPlayerMode.LearningThenNative,
+                    talkToPlayerMode = TalkToPlayerMode.LearningThenNative,
                     godMode = SafeGetGodMode(legacy),
                     playerIcon = MapLegacyPlayerIcon(legacy)
                 },
