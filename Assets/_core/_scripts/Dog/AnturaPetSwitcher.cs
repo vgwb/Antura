@@ -89,18 +89,6 @@ namespace Antura.Dog
             currentPetTr.localRotation = Quaternion.identity;
         }
 
-        public void Update()
-        {
-#if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                if (UseForcedPetType)
-                    return;
-                SwitchPet(alsoLoadInScene: true);
-            }
-#endif
-        }
-
         public void SwitchPet(bool alsoLoadInScene)
         {
             if (AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog)
@@ -141,7 +129,7 @@ namespace Antura.Dog
         }
         private void PlayerProfileManager_OnProfileChanged()
         {
-            LoadPet(AppManager.I.Player.PetData.SelectedPet);
+            // LoadPet(AppManager.I.Player.PetData.SelectedPet);
         }
 
     }
