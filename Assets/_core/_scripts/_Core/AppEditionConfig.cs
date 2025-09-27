@@ -33,13 +33,13 @@ namespace Antura.Core
         /// Version of the application. Displayed in the Home scene.
         /// Major.Minor.Patch.Build
         /// </summary>
-        [Tooltip("The version of the application. (Major.Minor.Patch.Build)")]
-        public string AppVersion = "0.0.0.0";
+        [Tooltip("The version of the application (Year.Month.Absolute Build)")]
+        public string AppVersion = "0.0.0";
 
         public string GetAppVersionString()
         {
             var VersionArray = AppVersion.Split('.');
-            string v = string.Format("{0}.{1}.{2} ({3})", VersionArray[0], VersionArray[1], VersionArray[2], VersionArray[3]);
+            string v = string.Format("{0}.{1} ({2})", VersionArray[0], VersionArray[1], VersionArray[2]);
             return v;
         }
 
@@ -120,21 +120,6 @@ namespace Antura.Core
                 return;
 
             config.LoadedAppEdition = this;
-            // if (ChangePlayerSettings)
-            // {
-            //     PlayerSettings.productName = ProductName;
-            //     PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Standalone, Desktop_BundleIdentifier);
-            //     PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
-            //     PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
-            //     PlayerSettings.bundleVersion = BundleVersion;
-            //     PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
-            //     PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
-            //     PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
-            //     for (int i = 0; i < SplashLogos.Length; i++)
-            //     {
-            //         PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
-            //     }
-            // }
             var learningConfigsToUse = new List<ContentConfig>();
 
             foreach (var edition in ContentConfigs)
@@ -233,7 +218,6 @@ namespace Antura.Core
         }
 
 #endif
-
 
     }
 }
