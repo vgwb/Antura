@@ -54,10 +54,9 @@ namespace Antura.UI
         readonly List<string> classroomIDs = new() { noClassroomId, "A", "B", "C", "D", "E", "F" };
         State state = State.Unset;
         bool isOpen;
-        int currClassroomIndex;
+        int currClassroomIndex = 0;
         bool isValidClassroom;
         bool backButtonWasOn;
-        bool isCreatingDemoProfile;
         List<PlayerProfilePreview> allProfiles;
         readonly Dictionary<int, List<PlayerProfilePreview>> profilesByClassroomIndex = new();
         Coroutine coCreateProfile;
@@ -108,7 +107,7 @@ namespace Antura.UI
         public void OpenSelectClassroomPopup(bool showCloseButton = true)
         {
             var popup_title = LocalizationManager.GetNewLocalized("profile.chooseclasse");
-            GlobalPopups.OpenSelector(popup_title, classroomIDs, OpenClass, showCloseButton, 0);
+            GlobalPopups.OpenSelector(popup_title, classroomIDs, OpenClass, showCloseButton, currClassroomIndex);
         }
 
         public void OpenClass(int classroomIndex)
@@ -217,37 +216,48 @@ namespace Antura.UI
             this.gameObject.SetActive(false);
         }
 
-        // Demo player also means teacher
-        void CreateProfile(bool isDemoPlayer)
+        void CreateProfile(bool createTeacher)
         {
-            isCreatingDemoProfile = isDemoPlayer;
-            this.RestartCoroutine(ref coCreateProfile, CO_CreateProfile(isDemoPlayer));
+            this.RestartCoroutine(ref coCreateProfile, CO_CreateProfile(createTeacher));
         }
 
-        IEnumerator CO_CreateProfile(bool isDemoPlayer)
+        IEnumerator CO_CreateProfile(bool createTeacher)
         {
-            if (isDemoPlayer)
-            {
-                if (AppManager.I.PlayerProfileManager.IsDemoUserExisting())
-                    GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
-                else
-                {
-                    createProfileBgBlocker.gameObject.SetActive(true);
-                    yield return null;
-                    yield return StartCoroutine(CreateDemoPlayer());
-                    OnPlayerCreationComplete();
-                }
-            }
-            else
-            {
-                createProfileBgBlocker.gameObject.SetActive(true);
-                yield return null;
-                AppManager.I.NavigationManager.GoToSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation), LoadSceneMode.Additive, true);
-                PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
-                PlayerCreationScene.OnCreationComplete.Subscribe(OnPlayerCreationComplete);
-            }
+            createProfileBgBlocker.gameObject.SetActive(true);
+            yield return null;
+            yield return StartCoroutine(CreateClassroomPlayer(createTeacher));
+            OnTeacherCreationComplete();
+
+            // if (createTeacher)
+            // {
+            //     yield return null;
+            //     yield return StartCoroutine(CreateClassroomPlayer());
+            //     OnTeacherCreationComplete();
+            // }
+            // else
+            // {
+            //     yield return null;
+            //     AppManager.I.NavigationManager.GoToSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation), LoadSceneMode.Additive, true);
+            //     PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
+            //     PlayerCreationScene.OnCreationComplete.Subscribe(OnPlayerCreationComplete);
+            // }
 
             coCreateProfile = null;
+        }
+
+        void OnTeacherCreationComplete()
+        {
+            createProfileBgBlocker.SetActive(false);
+            OpenClass(currClassroomIndex);
+        }
+
+        void OnPlayerCreationComplete()
+        {
+            SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
+            createProfileBgBlocker.SetActive(false);
+            // here we must unlock it
+
+            OpenClass(currClassroomIndex);
         }
 
         void DeleteProfile(string profileUuid)
@@ -263,6 +273,7 @@ namespace Antura.UI
 
         void OnProfileClicked(PlayerProfilePreview profile)
         {
+
             SwitchState(State.ProfileDetail, profile);
         }
 
@@ -281,36 +292,31 @@ namespace Antura.UI
             GlobalPopups.OpenTextInput("Edit profile name", profile.PlayerName, detailPanel.AssignNewProfileName);
         }
 
-        void OnPlayerCreationComplete()
-        {
-            if (!isCreatingDemoProfile)
-            {
-                // Normal player creation
-                SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
-            }
-            createProfileBgBlocker.SetActive(false);
-            OpenClass(currClassroomIndex);
-        }
 
         #endregion
 
         #region Demo User Helpers
 
-        // This is never updated so it's useless. Leaving it here only for safety because it refers to old Antura code
-        static bool testAlmostAtEnd = false;
-
-        IEnumerator CreateDemoPlayer()
+        IEnumerator CreateClassroomPlayer(bool createTeacher = true)
         {
-            //Debug.Log("creating DEMO USER ");
             yield return null;
             ActivateWaitingScreen(true);
             yield return null;
-            string demoUserUiid = AppManager.I.PlayerProfileManager.CreatePlayerProfile(0, true, 1, PlayerGender.M, PlayerTint.Purple, Color.yellow, Color.red, Color.magenta, 4,
-                        AppManager.I.AppEdition.editionID,
-                        AppManager.I.ContentEdition.ContentID,
-                        AppManager.I.AppEdition.AppVersion,
-                        true);
-            // SelectedPlayerId = demoUserUiid;
+            if (createTeacher)
+            {
+                AppManager.I.PlayerProfileManager.CreatePlayerProfile(
+                    currClassroomIndex, true, 1,
+                    PlayerGender.M, PlayerTint.Purple, Color.yellow, Color.red, Color.magenta, 4,
+                            AppManager.I.AppEdition.editionID,
+                            AppManager.I.ContentEdition.ContentID,
+                            AppManager.I.AppEdition.AppVersion,
+                            true);
+                // SelectedPlayerId = demoUserUiid;
+            }
+            else
+            {
+                // we are updating a student. so we are already in the player and just unlock everything
+            }
 
             // Populate with complete data
             // Find all content editions with the current native language
@@ -325,8 +331,6 @@ namespace Antura.UI
                 yield return AppManager.I.ReloadEdition();
 
                 JourneyPosition maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
-                if (testAlmostAtEnd)
-                    maxJourneyPos = new JourneyPosition(6, 13, 100); // Never TRUE
                 yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
 
                 AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);
@@ -334,13 +338,11 @@ namespace Antura.UI
             }
             AppManager.I.Player.AddBones(500);
 
-            if (!testAlmostAtEnd) // Always FALSE
-            {
-                AppManager.I.Player.SetFinalShown(isInitialising: true);
-                AppManager.I.Player.HasFinishedTheGame = true;
-                AppManager.I.Player.HasFinishedTheGameWithAllStars = true;
-                AppManager.I.Player.HasMaxStarsInCurrentPlaySessions = true;
-            }
+            AppManager.I.Player.SetFinalShown(isInitialising: true);
+            AppManager.I.Player.HasFinishedTheGame = true;
+            AppManager.I.Player.HasFinishedTheGameWithAllStars = true;
+            AppManager.I.Player.HasMaxStarsInCurrentPlaySessions = true;
+
             AppManager.I.FirstContactManager.ForceToFinishedSequence();
             AppManager.I.FirstContactManager.ForceAllCompleted();
             AppManager.I.RewardSystemManager.UnlockAllPacks();
@@ -361,17 +363,11 @@ namespace Antura.UI
             LogAI logAi = AppManager.I.Teacher.logAI;
 
             // Add some mood data
-            Debug.Log("Start adding mood scores");
+            //Debug.Log("Start adding mood scores");
             yield return null;
-            /*int nMoodData = 15; // @note: not needed
-            for (int i = 0; i < nMoodData; i++)
-            {
-                logAi.LogMood(0, Random.Range(AppConfig.MinMoodValue, AppConfig.MaxMoodValue + 1));
-            }
-            yield return null;*/
 
             // Add scores for all play sessions
-            Debug.Log("Start adding PS scores");
+            // Debug.Log("Start adding PS scores");
             yield return null;
             List<LogPlaySessionScoreParams> logPlaySessionScoreParamsList = new List<LogPlaySessionScoreParams>();
             IEnumerable<JourneyPosition> allJPs = AppManager.I.JourneyHelper.GetAllJourneyPositionsUpTo(targetPosition);
@@ -381,13 +377,13 @@ namespace Antura.UI
                 {
                     int score = useBestScores ? AppConfig.MaxMiniGameScore : UnityEngine.Random.Range(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore);
                     logPlaySessionScoreParamsList.Add(new LogPlaySessionScoreParams(jp, score, 12f));
-                    Debug.Log("Add play session score for " + jp.Id);
+                    // Debug.Log("Add play session score for " + jp.Id);
                 }
             }
             logAi.LogPlaySessionScores(0, logPlaySessionScoreParamsList, true);
 
             // Add scores for all minigames
-            Debug.Log("Start adding MiniGame scores");
+            // Debug.Log("Start adding MiniGame scores");
             yield return null;
             List<LogMiniGameScoreParams> logMiniGameScoreParamses = new List<LogMiniGameScoreParams>();
             List<MiniGameInfo> allMiniGameInfo = AppManager.I.ScoreHelper.GetAllMiniGameInfo();
@@ -403,38 +399,6 @@ namespace Antura.UI
             logAi.LogMiniGameScores(0, logMiniGameScoreParamses, true);
             yield return null;
 
-            // Add scores for some learning data (words/letters/phrases)
-            /*var maxPlaySession = AppManager.I.Player.MaxJourneyPosition.ToString();
-            var allWordInfo = AppManager.I.Teacher.ScoreHelper.GetAllWordInfo();
-            for (int i = 0; i < allWordInfo.Count; i++)
-            {
-                if (Random.value < 0.3f)
-                {
-                    var resultsList = new List<Teacher.LogAI.LearnResultParameters>();
-                    var newResult = new Teacher.LogAI.LearnResultParameters();
-                    newResult.elementId = allWordInfo[i].data.Id;
-                    newResult.table = DbTables.Words;
-                    newResult.nCorrect = Random.Range(1,5);
-                    newResult.nWrong = Random.Range(1, 5);
-                    resultsList.Add(newResult);
-                    logAi.LogLearn(fakeAppSession, maxPlaySession, MiniGameCode.Assessment_LetterForm, resultsList);
-                }
-            }
-            var allLetterInfo = AppManager.I.Teacher.ScoreHelper.GetAllLetterInfo();
-            for (int i = 0; i < allLetterInfo.Count; i++)
-            {
-                if (Random.value < 0.3f)
-                {
-                    var resultsList = new List<Teacher.LogAI.LearnResultParameters>();
-                    var newResult = new Teacher.LogAI.LearnResultParameters();
-                    newResult.elementId = allLetterInfo[i].data.Id;
-                    newResult.table = DbTables.Letters;
-                    newResult.nCorrect = Random.Range(1, 5);
-                    newResult.nWrong = Random.Range(1, 5);
-                    resultsList.Add(newResult);
-                    logAi.LogLearn(fakeAppSession, maxPlaySession, MiniGameCode.Assessment_LetterForm, resultsList);
-                }
-            }*/
         }
 
         #endregion

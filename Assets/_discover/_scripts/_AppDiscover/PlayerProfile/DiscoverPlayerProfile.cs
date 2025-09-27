@@ -50,13 +50,12 @@ namespace Antura.Discover
         public string id;
         public string uuid;
         public string displayName;
-        public string locale;       // e.g., "it"
-        public string countryIso2;  // e.g., "PL"
+        public string locale;       // Iso2, "it"
+        public string countryIso2;  // Iso2, "PL"
         public int classroom;       // 0 => none
         public bool easyMode;
-        public TalkToPlayerMode talkToPlayerStyle = TalkToPlayerMode.LearningThenNative;
-
-        // new
+        public DifficultyLevel difficulty = DifficultyLevel.Normal;
+        public TalkToPlayerMode talkToPlayerMode = TalkToPlayerMode.LearningThenNative;
         public bool godMode = false;
 
         // new — store INTs; colors serialized as RGBA

@@ -36,7 +36,7 @@ namespace Antura.Profile
         public string PlayerName;
         public int Classroom;
         public bool EasyMode = false;
-        public TalkToPlayerMode TalkToPlayerStyle;
+        public TalkToPlayerMode TalkToPlayerStyle = TalkToPlayerMode.LearningThenNative;
         public LanguageCode NativeLanguage;
         public int AvatarId;
         public PlayerGender Gender;
@@ -694,8 +694,6 @@ namespace Antura.Profile
 
             Quests = _data.GetAdditionalData().Quests;
 
-            // DEPRECATED - SetCurrentJourneyPosition(_data.GetCurrentJourneyPosition(), false);
-            // DEPRECATED - SetMaxJourneyPosition(_data.GetMaxJourneyPosition(), false);
             // Antura customization save only customization data
             jsonAnturaCustomizationData = _data.CurrentAnturaCustomization;
 

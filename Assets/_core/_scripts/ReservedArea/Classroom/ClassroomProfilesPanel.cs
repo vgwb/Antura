@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using Antura.Core;
 using Antura.Profile;
-using Antura.Scenes;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Antura.UI
@@ -41,8 +39,8 @@ namespace Antura.UI
 
         void Awake()
         {
-            rt = this.GetComponent<RectTransform>();
-            LayoutGroup[] layoutGroups = this.GetComponentsInChildren<LayoutGroup>(true);
+            rt = GetComponent<RectTransform>();
+            LayoutGroup[] layoutGroups = GetComponentsInChildren<LayoutGroup>(true);
             layoutGroupsRTs = new RectTransform[layoutGroups.Length];
             for (int i = 0; i < layoutGroups.Length; i++)
                 layoutGroupsRTs[i] = layoutGroups[i].GetComponent<RectTransform>();
@@ -63,12 +61,12 @@ namespace Antura.UI
         {
             if (doOpen)
             {
-                this.gameObject.SetActive(true);
+                gameObject.SetActive(true);
                 scrollRect.verticalNormalizedPosition = 1;
             }
             else
             {
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
 

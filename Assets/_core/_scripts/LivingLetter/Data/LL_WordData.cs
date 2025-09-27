@@ -6,7 +6,7 @@ using Antura.Language;
 namespace Antura.LivingLetters
 {
     /// <summary>
-    /// View of a PhraseData shown as text on a LivingLetter.
+    /// View of a WordData shown as text on a LivingLetter.
     /// </summary>
     // TODO refactor: rename to better indicate that this is a view
     public class LL_WordData : ILivingLetterData

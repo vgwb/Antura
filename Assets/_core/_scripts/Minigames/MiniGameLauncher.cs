@@ -57,15 +57,15 @@ namespace Antura.Minigames
                 AppManager.I.NavigationManager.InitNewPlaySession(true, miniGameData);
             }
 
-            if (DebugConfig.I.DebugLogEnabled)
-            {
-                if (BotTester.I.Config.BotEnabled)
-                {
-                    BotTester.I.BotLog("StartGame " + gameCode.ToString());
-                }
-                Debug.Log("StartGame " + gameCode.ToString());
-                Debug.Log(launchConfig);
-            }
+            // if (DebugConfig.I.DebugLogEnabled)
+            // {
+            //     if (BotTester.I.Config.BotEnabled)
+            //     {
+            //         BotTester.I.BotLog("StartGame " + gameCode.ToString());
+            //     }
+            //     Debug.Log("StartGame " + gameCode.ToString());
+            //     Debug.Log(launchConfig);
+            // }
 
             // Assign the configuration for the given minigame
             var minigameSession = DateTime.Now.Ticks.ToString();

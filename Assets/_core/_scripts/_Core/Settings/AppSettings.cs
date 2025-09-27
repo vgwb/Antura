@@ -22,6 +22,7 @@ namespace Antura.Core
 
         // 0 is off, 1,2,3,4,5 is on with the class selected
         public int ClassRoomMode = 0;
+        public bool isClassroomMode() { return ClassRoomMode > 0; }
 
         // not used anymore.. but could be useful in the future
         public bool HighQualityGfx = false;

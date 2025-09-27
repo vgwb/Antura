@@ -122,7 +122,8 @@ namespace Antura.Rewards
             foreach (var anturaPetType in (AnturaPetType[])Enum.GetValues(typeof(AnturaPetType)))
             {
                 var item = GetRewardPacks(anturaPetType).FirstOrDefault(p => p.UniqueId == uniqueId);
-               if (item != null) return item;
+                if (item != null)
+                    return item;
             }
             return null;
         }
@@ -154,7 +155,8 @@ namespace Antura.Rewards
         {
             foreach (var p in GetRewardPacks(AppManager.I.Player.PetData.SelectedPet))
             {
-                if (p.BaseId == baseId && p.ColorId == colorId) return p;
+                if (p.BaseId == baseId && p.ColorId == colorId)
+                    return p;
             }
             return null;
         }
@@ -305,7 +307,8 @@ namespace Antura.Rewards
             {
                 foreach (var petType in petRewardPacksDict.Keys)
                 {
-                    if (petType == AnturaPetType.Dog) continue;
+                    if (petType == AnturaPetType.Dog)
+                        continue;
 
                     // @note: may slow down a lot if the SharedID is not available
                     var rewards = petRewardPacksDict[petType];
@@ -313,7 +316,8 @@ namespace Antura.Rewards
                     {
                         foreach (var pack in rewards[baseType])
                         {
-                            if (pack.RewardBase.SharedID.IsNullOrEmpty()) continue;
+                            if (pack.RewardBase.SharedID.IsNullOrEmpty())
+                                continue;
                             var bases = GetRewardBasesOfType(baseType, AnturaPetType.Dog);
                             var originalBase = bases.FirstOrDefault(b => string.Equals(b.SharedID, pack.RewardBase.SharedID, StringComparison.OrdinalIgnoreCase));
                             if (originalBase != null)
@@ -709,7 +713,7 @@ namespace Antura.Rewards
 
                     var lockedBases = GetLockedRewardBasesOfBaseType(baseType);
 
-                    Debug.Log("locked bases count: " + lockedBases.Count);
+                    // Debug.Log("locked bases count: " + lockedBases.Count);
 
                     if (allowedCategories != null)
                     {
@@ -865,7 +869,8 @@ namespace Antura.Rewards
             foreach (var rewardBase in rewardBases)
             {
                 bool isToBeShown = IsRewardBaseUnlocked(rewardBase, currentAnturaCustomizations.PetType);
-                if (AnturaSpaceUI.REWARDS_CAN_BE_BOUGHT) isToBeShown = true;
+                if (AnturaSpaceUI.REWARDS_CAN_BE_BOUGHT)
+                    isToBeShown = true;
                 // Debug.Log("Reward prop base "  + rewardBase.ID + " to be shown? " + isToBeShown);
 
                 if (isToBeShown)
@@ -894,8 +899,9 @@ namespace Antura.Rewards
                         if (returnList[i] != null && i < _parentsTransForModels.Count)
                         {
                             var targetParentTr = _parentsTransForModels[i];
-                            if (AnturaSpaceUI.MERGE_REMOVE_INTO_PROPS) targetParentTr = _parentsTransForModels[i + 1];
-                            ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, targetParentTr, checkExisting:true);
+                            if (AnturaSpaceUI.MERGE_REMOVE_INTO_PROPS)
+                                targetParentTr = _parentsTransForModels[i + 1];
+                            ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, targetParentTr, checkExisting: true);
                         }
                     }
                     break;
@@ -1019,7 +1025,7 @@ namespace Antura.Rewards
         /// <returns></returns>
         public float GetAnturaRotationAngleViewForRewardCategory(string _categoryId, AnturaPetType _petType)
         {
-            var id  = Enum.Parse<AnturaSpaceCategory>(_categoryId);
+            var id = Enum.Parse<AnturaSpaceCategory>(_categoryId);
 
             switch (_petType)
             {

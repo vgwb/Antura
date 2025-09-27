@@ -12,7 +12,7 @@ namespace Antura.Core
 
         protected virtual void Start()
         {
-            if (AppManager.I.AppSettings.ClassRoomMode > 0)
+            if (AppManager.I.AppSettings.isClassroomMode())
                 return;
             if (SceneMusic != Music.DontChange)
             {

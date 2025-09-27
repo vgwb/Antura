@@ -6,7 +6,6 @@ using Antura.ReservedArea;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Antura.Scenes
 {
