@@ -88,14 +88,6 @@ namespace Antura.Language
 
         private IEnumerator SetLocalizationLanguage(string iso2Code)
         {
-            // Only run if Localization has already been initialized elsewhere;
-            // don't trigger or wait here.
-            var initOp = LocalizationSettings.InitializationOperation;
-            if (!initOp.IsDone)
-            {
-                yield break;
-            }
-
             // Get all available locales
             var locales = LocalizationSettings.AvailableLocales?.Locales;
             if (locales == null || locales.Count == 0)
