@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-2634193180012359552
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ambient
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 5f0f0e0d2bbc94d6782dda346e899151
+  m_Children: []
+  m_Volume: c947af0437226472f946aeea8d062cc7
+  m_Pitch: 3f8aa9ab70e914ed492b258d293a848b
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 1536375417785493954}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -23,6 +42,7 @@ AudioMixerController:
     - 1749fb60884fe4f4aacc391e4191546e
     - 8155f0937158b42da881076bf9bc0af3
     - 4cfa49c61b80544408fa66d4db43e0ee
+    - 5f0f0e0d2bbc94d6782dda346e899151
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500003}
@@ -37,9 +57,10 @@ AudioMixerGroupController:
   m_GroupID: bcb18973da84d4677a04aa657a35eeaf
   m_Children:
   - {fileID: 24356758}
+  - {fileID: -2634193180012359552}
   - {fileID: 24348940}
-  - {fileID: 24316638}
   - {fileID: 24331624}
+  - {fileID: 24316638}
   m_Volume: e660e5bca7d9f4b228ebf12206274851
   m_Pitch: 46df4eb584580450faad6a70ee1d0f67
   m_Send: 00000000000000000000000000000000
@@ -55,7 +76,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Voice Keeper
+  m_Name: Voice Dialogue
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 8155f0937158b42da881076bf9bc0af3
   m_Children: []
@@ -64,7 +85,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24414586}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 5
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -74,7 +95,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Voice Vocabulary
+  m_Name: Voice System
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 4cfa49c61b80544408fa66d4db43e0ee
   m_Children: []
@@ -83,7 +104,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24432406}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 5
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -211,3 +232,17 @@ AudioMixerSnapshotController:
     e660e5bca7d9f4b228ebf12206274851: 0
     bf451c9d5f874414192023e4e9622503: -16
   m_TransitionOverrides: {}
+--- !u!244 &1536375417785493954
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5dd03e7022dae45e0a133469076ab340
+  m_EffectName: Attenuation
+  m_MixLevel: c56302afee68c4f96b51a05ec0b8076a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

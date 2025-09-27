@@ -203,7 +203,7 @@ namespace Antura.Discover
 
                 if (playAudio && currChoice.AudioLearning != null)
                 {
-                    DiscoverAudioManager.I.Play(currChoice.AudioLearning);
+                    DiscoverAudioManager.I.PlayDialogue(currChoice.AudioLearning);
                 }
             }
             else
@@ -212,7 +212,7 @@ namespace Antura.Discover
                 spokenLang = AppManager.I.AppSettings.NativeLanguage;
                 if (playAudio && currChoice.AudioNative != null)
                 {
-                    DiscoverAudioManager.I.Play(currChoice.AudioNative);
+                    DiscoverAudioManager.I.PlayDialogue(currChoice.AudioNative);
                 }
             }
         }
