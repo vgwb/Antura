@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 11431742}
   - component: {fileID: 11441512}
   - component: {fileID: 6236256098620379855}
+  - component: {fileID: 6322557503736322940}
   m_Layer: 0
   m_Name: AppManager
   m_TagString: Untagged
@@ -51,7 +52,6 @@ MonoBehaviour:
   NavigationManager: {fileID: 0}
   ModalWindowActivated: 0
   Loaded: 0
-  fastScale: 0
 --- !u!114 &11441512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +78,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e30de835aec43a19f0b6f8268da773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiscoverAppManager
+  dataManager: {fileID: 0}
+  LearningLanguageIso2: fr
   economySettings: {fileID: 0}
+--- !u!114 &6322557503736322940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820775b2be3f94a82a2748837727bcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DiscoverDataManager
+  cardsAudioTable:
+    m_TableReference:
+      m_TableCollectionName: GUID:b6470551c0e6b45b788d5f9ad8340bc1
 --- !u!1001 &581128520453629939
 PrefabInstance:
   m_ObjectHideFlags: 0

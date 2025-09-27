@@ -33,8 +33,12 @@ namespace Antura.Discover
         public List<ActivityEnd> activities;
     }
 
+    [RequireComponent(typeof(DiscoverDataManager))]
     public class DiscoverAppManager : SingletonMonoBehaviour<DiscoverAppManager>
     {
+
+        [SerializeField]
+        private DiscoverDataManager dataManager;
 
         public string LearningLanguageIso2 = "fr";
 
@@ -51,6 +55,8 @@ namespace Antura.Discover
         private DiscoverProfileManager profilesManager;
 
         public DiscoverPlayerProfile CurrentProfile { get; private set; }
+
+        public DiscoverDataManager Data => dataManager;
 
         private ProfileService profileService;
         private ProfileService ProfileSvc
@@ -85,6 +91,11 @@ namespace Antura.Discover
 
         protected override void Init()
         {
+            if (dataManager == null)
+                dataManager = GetComponent<DiscoverDataManager>();
+            if (dataManager != null)
+                dataManager.Initialize(this);
+
             DontDestroyOnLoad(this);
             profilesManager = new DiscoverProfileManager(storageSubdir);
             PlayerProfileManager.OnProfileChanged += OldProfilePlayerChanged;
@@ -181,8 +192,22 @@ namespace Antura.Discover
 
         public CardData GetCardById(string cardId)
         {
-            DatabaseProvider.TryGet<CardData>(cardId, out var c);
-            return c;
+            return dataManager != null ? dataManager.GetCard(cardId) : null;
+        }
+
+        public TopicData GetTopicById(string topicId)
+        {
+            return dataManager != null ? dataManager.GetTopic(topicId) : null;
+        }
+
+        public BonusMalusData GetBonusMalusById(string id)
+        {
+            return dataManager != null ? dataManager.GetBonusMalus(id) : null;
+        }
+
+        public QuestData GetQuestById(string questId)
+        {
+            return dataManager != null ? dataManager.GetQuest(questId) : null;
         }
 
         // =========================================================
