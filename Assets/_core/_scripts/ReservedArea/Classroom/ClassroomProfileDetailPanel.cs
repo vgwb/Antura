@@ -74,7 +74,7 @@ namespace Antura.UI
                     // Debug.Log($"Setting Easy Mode to {btEasyMode.isOn} for profile {currProfile.Uuid}");
                     currProfile.EasyMode = !btEasyMode.isOn;
                     ClassroomHelper.SaveProfile(currProfile);
-                    playerIcon.Init(currProfile);
+                    RefreshProfileInfo();
                 });
 
             btChangeLangMode.onClick.AddListener(() => OpenSelectTalkMode());
@@ -104,10 +104,8 @@ namespace Antura.UI
 
             currProfile = profile;
             ClassroomProfileDetail profileDetail = new ClassroomProfileDetail(profile);
-
             playerIcon.Init(profileDetail.PlayerPreviewData);
             RefreshProfileInfo();
-            tfUserInfo.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
 
             btEasyMode.Toggle(currProfile.EasyMode, false);
 
@@ -153,6 +151,8 @@ namespace Antura.UI
             var talkToPlayerModeStrings = new List<string>();
             foreach (TalkToPlayerMode mode in Enum.GetValues(typeof(TalkToPlayerMode)))
             {
+                if (mode == TalkToPlayerMode.Default)
+                    continue;
                 string localizedString = LocalizationManager.GetNewLocalized($"profile.TalkToPlayerMode.{(int)mode}");
                 talkToPlayerModeStrings.Add(localizedString);
             }
@@ -185,6 +185,13 @@ namespace Antura.UI
         {
             tfName.text = currProfile.PlayerName.IsNullOrEmpty() ? "- - -" : currProfile.PlayerName;
             playerIcon.Init(currProfile);
+            string info = "";
+            info += "TalkMode: " + LocalizationManager.GetNewLocalized($"profile.TalkToPlayerMode.{(int)currProfile.TalkToPlayerStyle}");
+            info += "\nEasyMode: " + (currProfile.EasyMode ? "EASY" : "NORMAL");
+            tfUserInfo.text = info;
+
+            //            tfUserInfo.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
+
         }
 
         #endregion
