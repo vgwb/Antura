@@ -277,6 +277,17 @@ title: test_dialog
 position: 0,0
 group: dialog
 ---
+<<if $EASY_MODE >>
+    You are in EASY MODE!
+<<else>>    
+    You are in NORMAL MODE!
+<<endif>>
+<<if $IS_DESKTOP >>
+    You are on DESKTOP!
+<<else>>
+    You are on MOBILE!
+<<endif>>
+
 <<card food_baguette>>
 WELCOME #line:0c6f99f 
 <<card food_baguette zoom>>

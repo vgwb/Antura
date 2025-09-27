@@ -1,13 +1,14 @@
-using AdventurEd;
 using Antura.Core;
 using Antura.Audio;
 using Antura.Discover.Activities;
 using Antura.Utilities;
+using AdventurEd;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
 using Yarn.Unity;
 using System;
+using System.Collections;
 
 namespace Antura.Discover
 {
@@ -18,7 +19,6 @@ namespace Antura.Discover
         public DialogueReference DebugNode = new();
 
         [Header("Override player settings")]
-        public DifficultyLevel DifficultyLevel = DifficultyLevel.Default;
         public TalkToPlayerMode TalkToPlayerMode = TalkToPlayerMode.Default;
         public LanguageCode NativeLanguage;
         public LanguageCode LearningLanguage;
@@ -26,7 +26,6 @@ namespace Antura.Discover
 
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
-
         public QuestData CurrentQuest;
         public bool DebugMode;
         private bool _debugQuestApplied;
@@ -151,21 +150,11 @@ namespace Antura.Discover
 
         public void QuestStart()
         {
-            var yarnManager = YarnAnturaManager.I;
-            if (yarnManager != null)
-            {
-                YarnAnturaManager.I.Variables.IS_DESKTOP = AppConfig.IsDesktopPlatform();
-                bool easyMode = false;
-                var profile = DiscoverAppManager.I != null ? DiscoverAppManager.I.CurrentProfile : null;
-                if (profile?.profile != null)
-                {
-                    easyMode = profile.profile.easyMode;
-                }
-                YarnAnturaManager.I.Variables.EASY_MODE = easyMode;
+            YarnAnturaManager.I.Variables.IS_DESKTOP = AppConfig.IsDesktopPlatform();
+            YarnAnturaManager.I.Variables.EASY_MODE = DiscoverAppManager.I.CurrentProfile.profile.easyMode;
 
-                var currentItemCode = Inventory?.CurrentItem != null ? Inventory.CurrentItem.Code : string.Empty;
-                YarnAnturaManager.I.Variables.CURRENT_ITEM = currentItemCode ?? string.Empty;
-            }
+            var currentItemCode = Inventory?.CurrentItem != null ? Inventory.CurrentItem.Code : string.Empty;
+            YarnAnturaManager.I.Variables.CURRENT_ITEM = currentItemCode ?? string.Empty;
 
             if (DebugMode && DebugConfig.DebugNode != null)
             {

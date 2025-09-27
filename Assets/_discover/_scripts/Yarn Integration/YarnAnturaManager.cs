@@ -1,4 +1,5 @@
 using Antura.Discover.Activities;
+using Antura.Utilities;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -6,10 +7,8 @@ using Yarn.Unity;
 
 namespace Antura.Discover
 {
-    public class YarnAnturaManager : MonoBehaviour
+    public class YarnAnturaManager : SingletonMonoBehaviour<YarnAnturaManager>
     {
-        public static YarnAnturaManager I { get; private set; }
-
         [Header("Yarn References")]
         [SerializeField] private DialogueRunner runner;
         [SerializeField] private DiscoverDialoguePresenter presenter;
@@ -25,37 +24,24 @@ namespace Antura.Discover
 
         public AnturaYarnVariables Variables { get; private set; }
 
-        private void Awake()
-        {
-            if (I != null && I != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            I = this;
-        }
-
         private void OnValidate()
         {
             if (!runner)
             {
                 runner = FindFirstObjectByType<DialogueRunner>(FindObjectsInactive.Include);
-
             }
             if (!presenter)
             {
                 presenter = FindFirstObjectByType<DiscoverDialoguePresenter>(FindObjectsInactive.Include);
             }
         }
-
-        private void Start()
+        protected override void Init()
         {
             if (runner != null)
             {
                 runner.onNodeStart.AddListener(nodeName => { OnNodeStarted?.Invoke(nodeName); presenter?.SetCurrentNodeName(nodeName); });
                 runner.onDialogueComplete.AddListener(() => OnDialogueComplete?.Invoke());
                 Variables = runner.VariableStorage as AnturaYarnVariables;
-
 
                 //Hook Commands into Yarn
 

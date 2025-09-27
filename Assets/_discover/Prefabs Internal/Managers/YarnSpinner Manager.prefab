@@ -1318,7 +1318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6331729519416918913}
   - component: {fileID: 1455500555130453134}
-  - component: {fileID: 4000104025218669392}
+  - component: {fileID: 7734837768760366841}
   - component: {fileID: 8522797973968515688}
   m_Layer: 0
   m_Name: YarnSpinner Manager
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yarnProject: {fileID: 0}
-  variableStorage: {fileID: 4000104025218669392}
+  variableStorage: {fileID: 7734837768760366841}
   lineProvider: {fileID: 8522797973968515688}
   saliencyStrategy: 0
   dialoguePresenters:
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   onUnhandledCommand:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4000104025218669392
+--- !u!114 &7734837768760366841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1391,10 +1391,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9179233844371905304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610c541718d694070a21327d1ae62e75, type: 3}
+  m_Script: {fileID: 11500000, guid: 35073e2568d5b42718e939ff17896300, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  showDebug: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AnturaYarnVariables
+  showDebug: 0
   debugTextView: {fileID: 0}
 --- !u!114 &8522797973968515688
 MonoBehaviour:
