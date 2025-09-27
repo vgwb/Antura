@@ -240,7 +240,7 @@ namespace Antura.Discover
                     countryIso2 = "",
                     classroom = legacy?.Classroom ?? 0,
                     easyMode = legacy?.EasyMode ?? false,
-                    talkToPlayerStyle = SafeMapTalkStyle(legacy),
+                    talkToPlayerStyle = TalkToPlayerMode.LearningThenNative,
                     godMode = SafeGetGodMode(legacy),
                     playerIcon = MapLegacyPlayerIcon(legacy)
                 },
@@ -298,26 +298,6 @@ namespace Antura.Discover
         }
 
         // ----------------- helpers -----------------
-
-        private static TalkToPlayerMode SafeMapTalkStyle(Antura.Profile.PlayerProfile legacy)
-        {
-            if (legacy == null)
-                return TalkToPlayerMode.LearningThenNative;
-            try
-            {
-                // If legacy enum underlying value matches, this works:
-                var val = Convert.ToInt32(legacy.TalkToPlayerStyle);
-                if (Enum.IsDefined(typeof(TalkToPlayerMode), val))
-                    return (TalkToPlayerMode)val;
-
-                // Fallback by name
-                var name = legacy.TalkToPlayerStyle.ToString();
-                if (Enum.TryParse(name, out TalkToPlayerMode parsed))
-                    return parsed;
-            }
-            catch { }
-            return TalkToPlayerMode.LearningThenNative;
-        }
 
         private static bool SafeGetGodMode(Antura.Profile.PlayerProfile legacy)
         {

@@ -77,7 +77,7 @@ namespace Antura.UI
                     playerIcon.Init(currProfile);
                 });
 
-            btChangeLangMode.onClick.AddListener(() => OpenSelectLangMode());
+            btChangeLangMode.onClick.AddListener(() => OpenSelectTalkMode());
 
         }
 
@@ -147,9 +147,9 @@ namespace Antura.UI
             RefreshProfileInfo();
         }
 
-        public void OpenSelectLangMode(bool showCloseButton = true)
+        public void OpenSelectTalkMode(bool showCloseButton = true)
         {
-            var popup_title = LocalizationManager.GetNewLocalized("profile.chooseclasse");
+            var popup_title = LocalizationManager.GetNewLocalized("profile.chooseTalkMode");
             var talkToPlayerModeStrings = new List<string>();
             foreach (TalkToPlayerMode mode in Enum.GetValues(typeof(TalkToPlayerMode)))
             {

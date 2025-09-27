@@ -27,7 +27,8 @@ namespace Antura.Discover
         public List<IdentifiedData> AllData = new List<IdentifiedData>();
 
         // Runtime index
-        [NonSerialized] private Dictionary<Type, Dictionary<string, IdentifiedData>> _index;
+        [NonSerialized]
+        private Dictionary<Type, Dictionary<string, IdentifiedData>> _index;
 
         void OnEnable() => BuildIndex();
 

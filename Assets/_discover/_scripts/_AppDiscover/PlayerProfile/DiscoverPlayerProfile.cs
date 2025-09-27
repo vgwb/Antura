@@ -54,7 +54,7 @@ namespace Antura.Discover
         public string countryIso2;  // e.g., "PL"
         public int classroom;       // 0 => none
         public bool easyMode;
-        public TalkToPlayerMode talkToPlayerStyle;
+        public TalkToPlayerMode talkToPlayerStyle = TalkToPlayerMode.LearningThenNative;
 
         // new
         public bool godMode = false;

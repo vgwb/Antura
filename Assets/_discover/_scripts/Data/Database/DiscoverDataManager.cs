@@ -30,13 +30,12 @@ namespace Antura.Discover
         {
             base.Awake();
             DontDestroyOnLoad(gameObject);
-            EnsureCardAudioService();
         }
 
         internal void Initialize(DiscoverAppManager app)
         {
             _app = app;
-            EnsureCardAudioService();
+            // EnsureCardAudioService();
         }
 
         void EnsureCardAudioService()
@@ -52,14 +51,6 @@ namespace Antura.Discover
                     _cardAudioService = new LocalizedCardAudioService(tableRef);
                 }
             }
-        }
-
-        /// <summary>
-        /// Override the internal card audio resolver
-        /// </summary>
-        public void SetCardAudioService(ICardAudioService service)
-        {
-            _cardAudioService = service;
         }
 
         /// <summary>
