@@ -27,7 +27,7 @@ namespace Antura.Discover
 
         void Start()
         {
-            //            Debug.Log("EarthManager START");
+            // Debug.Log("EarthManager START");
             if (AppManager.I.ContentEdition.ContentID == LearningContentID.Discover_Poland)
             {
                 SelectCountry(Countries.Poland);
@@ -43,7 +43,7 @@ namespace Antura.Discover
             Debug.Log($"Selecting country: {selectedCountry}");
             CountryButton.SetSelectedCountry(selectedCountry);
 
-            UIQuestMenuManager.I.ShowCountry(selectedCountry);
+            UIDiscoverHome.I.ShowCountry(selectedCountry);
         }
 
     }

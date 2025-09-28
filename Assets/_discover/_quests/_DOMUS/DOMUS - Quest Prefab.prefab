@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7852336736997035817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080677326222247679}
+  - component: {fileID: 7606278301219145096}
+  - component: {fileID: 6252049910574395314}
+  m_Layer: 0
+  m_Name: DOMUS - Quest Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1080677326222247679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852336736997035817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 2656233378856516853}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7606278301219145096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852336736997035817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dda0d24446e742d3ab44adabb52736d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentQuest: {fileID: 11400000, guid: d5f47b531931a40fcad9ff12d993099d, type: 2}
+  DebugMode: 0
+  DebugConfig:
+    DebugNode:
+      project: {fileID: 7545569452688597077, guid: d30f135d87f3f4f18a7299d2428144ec,
+        type: 3}
+      nodeName: quest_start
+    TalkToPlayerMode: 0
+    NativeLanguage:
+      code: en
+    LearningLanguage:
+      code: en
+  ActivityConfigs: []
+  QuestTasks: []
+--- !u!114 &6252049910574395314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852336736997035817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3dfba2faef74182a5d832dca3f8f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugAction: 
+  PlayerSpawnPoint: {fileID: 1881497078542524771}
+  QuestActions:
+  - ActionCode: init
+    Commands: []
+  WinFx: {fileID: 0}
+  AnturaDog: {fileID: 0}
+--- !u!1001 &1294282044007875574
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1080677326222247679}
+    m_Modifications:
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.914
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 38.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110454010404413059, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Player Spawn Point '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 02c441c47a029418f9fe519bcfc24380, type: 3}
+--- !u!114 &1881497078542524771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 858601168500679317, guid: 02c441c47a029418f9fe519bcfc24380,
+    type: 3}
+  m_PrefabInstance: {fileID: 1294282044007875574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
+--- !u!4 &2656233378856516853 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
+    type: 3}
+  m_PrefabInstance: {fileID: 1294282044007875574}
+  m_PrefabAsset: {fileID: 0}

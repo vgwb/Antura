@@ -115,7 +115,7 @@ namespace Antura.Discover.UI
 
         public void SelectQuest(QuestData questData)
         {
-            UIQuestMenuManager.I.SelectQuest(questData);
+            UIDiscoverHome.I.SelectQuest(questData);
         }
 
         private void emptyContainer(GameObject container)
