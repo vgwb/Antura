@@ -1,3 +1,6 @@
+---
+title: Privacy policy
+---
 # Privacy policy
 
 Cologne Game Lab (“CGL”), is committed to protecting the user’s privacy and personal data. Personal data is collected and used strictly within the legal limits of applicable data protection law. With this privacy policy, we inform the user of the personal data we collect when they use the app Antura and the Letters and what purpose we use it for.

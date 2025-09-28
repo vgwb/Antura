@@ -341,6 +341,7 @@ namespace Antura.UI
 
                 AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);
                 AppManager.I.Player.ForcePreviousJourneyPosition(maxJourneyPos);
+                AppManager.I.Player.SetCurrentJourneyPosition(1, 1, 1, true);
             }
             AppManager.I.Player.AddBones(500);
 
