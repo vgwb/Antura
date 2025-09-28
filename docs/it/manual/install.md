@@ -1,42 +1,39 @@
 ---
-title: Install
+titolo: Installa Beta
 ---
-# Install
-
-The game is compatible with iOS, Android and Windows, so it can be played on smartphones, tablets and PCs.
-Once installed, Internet is NOT required when playing the game.
-
-> [!TIP]
-> We suggest tablets as the easiest device to be used in the classroom.
-
-## iOS
-
-**Requirements**: Ensure that the devices have the latest version of iOS (minimal iOS 12.0).  
-
-The official iOS version (v2.0 including Learn to Read and Learn a Language modules) is here: [Apple Store](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
-
-The v3.0 beta version (including also the Discover Culture module and the new Classroom mode) is here: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)  
-(Testflight is a service to test iOS applications that are still in development: open the above link from the device you want to install to. Once installed from Testflight, you can use Antura as any other app)
-
+<script setup>
+import WindowsDownloadLink from '../../snippets/download_link.md'
+</script>
+# Installa Beta
 
 > [!note]
-> if you encounter any issue downloading or installing the app, please send a message in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
+> Da questa pagina è possibile scaricare la nuova versione v3.0 di Learn with 
+Antura. Se stai cercando l'attuale versione v2.0 (compresi i moduli Learn to Read e Learn a Language), consulta la [pagina di download](../download.md)
+
+Il gioco è compatibile con iOS, Android e Windows, quindi può essere utilizzato su smartphone, tablet e PC. **Una volta installato, NON è necessaria una connessione Internet per giocare.**
+
+> [!tip]
+> **Consigliamo i tablet** come dispositivi più facili da utilizzare in classe.
+
+## iOS
+**Requisiti**: iOS 13
+  
+👉 Apri questo link **dal tuo dispositivo iOS**: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)
+
+(Testflight è un servizio per testare le applicazioni iOS ancora in fase di sviluppo: apri il link sopra indicato dal dispositivo su cui desideri installare l'app. Una volta installata da Testflight, puoi utilizzare Antura come qualsiasi altra app)
+
+> [!note]
+> se riscontri problemi durante il download o l'installazione dell'app, invia un messaggio nel forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
 
 ## Android
-
-**Requirements**: Ensure that the devices use Android 12 o newer (API level v31 or newer) and the they have installed the latest system update.
-
-The official Android version (v2.0 including Learn to Read and Learn a Language modules) is here: [Google Play](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
-
-The v3.0 beta version (including also the Discover Culture module and the new Classroom mode) will be released soon for Android. 
-
+La versione beta v3.0 sarà presto disponibile per Android.
 
 ## Windows
-The Windows versions can be downloaded from https://github.com/vgwb/Antura/releases
+**Requisiti**: Windows 10/11
+L'ultima versione di Windows può essere scaricata da qui:
+<WindowsDownloadLink />
+Scarica il file ZIP, decomprimi tutto in una cartella e poi avvia **Antura.exe**.
 
-Download the ZIP file, uncompress everything in a folder and then launch **Antura.exe**.
-
-
-## Linux and MacOS
-Since the game is open source and the engine used to create this game is multiplatform, Linux and macOS versions could be built if really necessary.
-Please ask in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5).
+## Linux e MacOS
+Poiché il gioco è open source e il motore utilizzato per crearlo è multipiattaforma, è possibile creare versioni per Linux e macOS se davvero necessario.
+Chiedete nel forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5).

@@ -1,6 +1,9 @@
 ---
 title: Install Beta
 ---
+<script setup>
+import WindowsDownloadLink from '../../snippets/download_link.md'
+</script>
 # Install Beta
 
 > [!note]
@@ -30,9 +33,9 @@ The v3.0 beta version will be released soon for Android.
 
 **Requirements**: Windows 10/11  
 
-The latst Windows build can be downloaded from here:
+The latest Windows build can be downloaded from here:
 
-👉 [Download Window beta](https://cloud.unity.com/public-share/build-automation/share?shareId=7l28Nq-KPix9pyK2C7IsLav4CH1xo6W7PDsbow1O4nw)
+<WindowsDownloadLink />
 
 Download the ZIP file, uncompress everything in a folder and then launch **Antura.exe**.
 
