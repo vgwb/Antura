@@ -85,16 +85,14 @@ namespace Antura.Discover
 
         #region Public Methods
 
-        public void ShowStartPanel(QuestNode node)
+        public void ShowStartPanel(QuestNode node, bool useLearningLanguage)
         {
-            UseLearningLanguage = !node.Native;
-            startEndPanel.Show(node, UseLearningLanguage, true, 0);
+            startEndPanel.Show(node, useLearningLanguage, true, 0);
         }
 
-        public void ShowEndPanel(QuestNode node, int totStarsAchieved)
+        public void ShowEndPanel(QuestNode node, bool useLearningLanguage, int totStarsAchieved)
         {
-            UseLearningLanguage = !node.Native;
-            startEndPanel.Show(node, UseLearningLanguage, false, totStarsAchieved);
+            startEndPanel.Show(node, useLearningLanguage, false, totStarsAchieved);
         }
 
         public void ShowSignalFor(Interactable interactable)
@@ -147,7 +145,7 @@ namespace Antura.Discover
 
         public void StartDialogue(QuestNode node)
         {
-            ShowDialogueFor(node);
+            //ShowDialogueFor(node);
         }
 
         public void CloseDialogue(int choiceIndex = 0)
@@ -180,71 +178,28 @@ namespace Antura.Discover
 
         #region Methods
 
-        void ShowDialogueFor(QuestNode node)
-        {
-            currChoiceIndex = 0;
-            gotoNextWhenPostcardFocusViewCloses = false;
-            CoroutineRunner.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
-        }
-
-        IEnumerator CO_ShowDialogueFor(QuestNode node)
-        {
-            Debug.Log("IS THIS DEPRECATED??");
-            IsOpen = true;
-            currNode = node;
-            currBalloon = narratorBalloon; // Can be changed by switch below
-            while (InteractionManager.I.IsUsingFocusView)
-                yield return null;
-
-            Sprite image;
-            UseLearningLanguage = !node.Native;
-            switch (node.Type)
-            {
-                case NodeType.TEXT:
-                    CurrDialogueType = DialogueType.Text;
-                    currBalloon.Show(node, UseLearningLanguage);
-                    image = node.GetImage();
-                    if (image != null)
-                        postcard.Show(image);
-                    else
-                        postcard.Hide();
-                    break;
-                case NodeType.PANEL:
-                    currBalloon = startEndPanel;
-                    CurrDialogueType = DialogueType.Text;
-                    ShowStartPanel(node);
-                    break;
-                case NodeType.CHOICE:
-                case NodeType.QUIZ:
-                    CurrDialogueType = DialogueType.Choice;
-                    if (!string.IsNullOrEmpty(node.Content))
-                        currBalloon.Show(node, UseLearningLanguage);
-                    image = node.GetImage();
-                    if (image != null)
-                        postcard.Show(image);
-                    else
-                        postcard.Hide();
-                    yield return new WaitForSeconds(0.3f);
-                    choices.Show(node.Choices, UseLearningLanguage);
-                    break;
-                default:
-                    IsOpen = false;
-                    CurrDialogueType = DialogueType.None;
-                    Debug.LogError($"DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type ({node.Type})");
-                    break;
-            }
-            coShowDialogue = null;
-        }
-
         public void ShowDialogueLine(QuestNode node)
         {
-            Debug.Log("DialoguesUI.ShowDialogueLine " + node.Content + " / " + node.ContentNative);
+            //Debug.Log("DialoguesUI.ShowDialogueLine " + node.Content + " / " + node.ContentNative);
 
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon;
 
-            UseLearningLanguage = !node.Native;
+            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
+            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningLanguageOnly)
+            {
+                UseLearningLanguage = true;
+            }
+            else
+            {
+                UseLearningLanguage = false;
+            }
+            if (node.Native)
+            {
+                UseLearningLanguage = false;
+            }
+
             switch (node.Type)
             {
                 case NodeType.TEXT:
@@ -259,24 +214,18 @@ namespace Antura.Discover
                 case NodeType.PANEL:
                     currBalloon = startEndPanel;
                     CurrDialogueType = DialogueType.Text;
-                    ShowStartPanel(node);
+                    ShowStartPanel(node, UseLearningLanguage);
                     break;
                 case NodeType.PANEL_ENDGAME:
                     currBalloon = startEndPanel;
                     CurrDialogueType = DialogueType.Text;
-                    ShowEndPanel(node, QuestManager.I.Progress.GetCurrentStarsAchieved());
+                    ShowEndPanel(node, UseLearningLanguage, QuestManager.I.Progress.GetCurrentStarsAchieved());
                     break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
                         currBalloon.Show(node, UseLearningLanguage);
-                    // image = node.GetImage();
-                    // if (image != null)
-                    //     postcard.Show(image);
-                    // else
-                    //     postcard.Hide();
-                    //yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices, UseLearningLanguage);
                     break;
                 default:
@@ -363,8 +312,12 @@ namespace Antura.Discover
 
         void OnBalloonClicked()
         {
-            // Debug.Log("OnBalloonClicked");
-            UseLearningLanguage = !UseLearningLanguage;
+            // Debug.Log("OnBalloonClicked with " + UseLearningLanguage);
+            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
+            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
+            {
+                UseLearningLanguage = !UseLearningLanguage;
+            }
             currBalloon.DisplayText(UseLearningLanguage);
         }
 

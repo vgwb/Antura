@@ -191,21 +191,12 @@ namespace Antura.Discover
 
             if (DialogueNode != null && DialogueNode.nodeName != "")
             {
-                // node = DialogueNode.GetNode();
-                // if (node == null)
-                // {
-                //     Debug.LogError($"Interactable: Execute - Node {DialogueNode.NodeName} not found in project {DialogueNode.Project.name}");
-                //     return null;
-                // }
-                // Debug.Log($"Interactable: Execute - Node: {DialogueNode.NodeName}");
                 QuestManager.I.StartDialogue(DialogueNode.nodeName);
             }
-
-            if (NodePermalink != "")
+            else if (NodePermalink != "")
             {
                 Debug.Log($"Interactable: Execute - NodePermalink: {NodePermalink}");
                 QuestManager.I.StartDialogue(NodePermalink);
-
             }
 
             if (QuestAction != "")

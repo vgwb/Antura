@@ -171,23 +171,22 @@ namespace Antura.Discover
                 QuestNode questNode = interacted.Execute();
                 // Notify task manager for Interact-type tasks
                 QuestManager.I?.TaskManager?.OnInteractableUsed(interacted);
-                if (questNode != null)
-                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, interacted));
+                // if (questNode != null)
+                //     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, interacted));
             }
         }
 
-        public void DisplayNode(QuestNode node)
-        {
-            if (node == null)
-            {
-                Debug.LogError("QuestNode is NULL, shouldn't happen");
-                return;
-            }
+        // public void DisplayNode(QuestNode node)
+        // {
+        //     if (node == null)
+        //     {
+        //         Debug.LogError("QuestNode is NULL, shouldn't happen");
+        //         return;
+        //     }
 
-            DiscoverNotifier.Game.OnStartDialogue.Dispatch();
-            UIManager.I.dialogues.StartDialogue(node);
-
-        }
+        //     DiscoverNotifier.Game.OnStartDialogue.Dispatch();
+        //     UIManager.I.dialogues.StartDialogue(node);
+        // }
 
         IEnumerator CO_StartDialogue(QuestNode questNode, Interactable interactable)
         {
@@ -243,8 +242,10 @@ namespace Antura.Discover
             }
             if (NearbyInteractable != prev)
             {
-                if (prev != null) UIManager.I.dialogues.HideSignal(prev, true);
-                if (NearbyInteractable != null && HasValidNearbyInteractable) UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
+                if (prev != null)
+                    UIManager.I.dialogues.HideSignal(prev, true);
+                if (NearbyInteractable != null && HasValidNearbyInteractable)
+                    UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
                 DiscoverNotifier.Game.OnNearbyInteractableChanged.Dispatch(NearbyInteractable);
             }
         }
@@ -254,7 +255,8 @@ namespace Antura.Discover
             Interactable prev = NearbyInteractable;
             NearbyInteractable = interactable;
             UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
-            if (NearbyInteractable != prev) DiscoverNotifier.Game.OnNearbyInteractableChanged.Dispatch(NearbyInteractable);
+            if (NearbyInteractable != prev)
+                DiscoverNotifier.Game.OnNearbyInteractableChanged.Dispatch(NearbyInteractable);
         }
 
         #endregion

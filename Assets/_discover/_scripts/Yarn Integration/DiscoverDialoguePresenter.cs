@@ -11,8 +11,7 @@ namespace Antura.Discover
     {
         public YarnAnturaManager Manager { get; set; }
 
-        private string lastSeenLine;
-        private string lastSeenLineNative;
+        private QuestNode previousQuestNode;
         private bool _hasPendingOptions;
         public bool HasPendingOptions => _hasPendingOptions;
 
@@ -121,7 +120,7 @@ namespace Antura.Discover
                 Permalink = _currentNodeName
             };
 
-            // Parse node header tags first (eg: type=quiz) from Yarn header "tags"
+            // Parse node header tags first  from Yarn header "tags"
             var headerTags = GetHeaderTagsTokens(_currentNodeName);
             if (headerTags != null && headerTags.Length > 0)
             {
@@ -133,8 +132,10 @@ namespace Antura.Discover
 
             UIManager.I.dialogues.ShowDialogueLine(questNode);
             Manager?.EmitQuestNode(questNode);
-            lastSeenLine = TextLearning;
-            lastSeenLineNative = TextNative.Text;
+
+            // Store last seen node for potential repeat in choices
+            previousQuestNode = questNode;
+
             var continueButton = true;
             if (continueButton)
             {
@@ -184,24 +185,24 @@ namespace Antura.Discover
             //var image = line.Metadata[0];
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
 
-            // Parse node header tags first (eg: type=quiz) from Yarn header "tags"
+            // Parse node header tags first  from Yarn header "tags"
             var headerTags = GetHeaderTagsTokens(_currentNodeName);
 
             // if we have a noRepeatLastLine tag, we don't repeat the last line
             var repeatLastLineSeen = true;
             if (headerTags != null && headerTags.Contains("noRepeatLastLine"))
             {
-                Debug.Log("noRepeatLastLine TAG FOUND");
+                // Debug.Log("noRepeatLastLine TAG FOUND");
                 repeatLastLineSeen = false;
             }
 
             var qn = new QuestNode
             {
                 Type = NodeType.CHOICE,
-                Content = repeatLastLineSeen ? lastSeenLine : "",
-                ContentNative = repeatLastLineSeen ? lastSeenLine : "",
-                AudioLearning = null,
-                AudioNative = null,
+                Content = repeatLastLineSeen ? previousQuestNode.Content : "",
+                ContentNative = repeatLastLineSeen ? previousQuestNode.ContentNative : "",
+                AudioLearning = repeatLastLineSeen ? previousQuestNode.AudioLearning : null,
+                AudioNative = repeatLastLineSeen ? previousQuestNode.AudioNative : null,
                 Image = "",
                 Choices = new List<NodeChoice>()
             };

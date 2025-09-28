@@ -31,6 +31,8 @@ namespace Antura.Discover
         [DeEmptyAlert]
         [SerializeField] Button btContinue;
 
+        [DeEmptyAlert]
+        [SerializeField] GameObject iconTranslate;
         #endregion
 
         public bool IsOpen { get; private set; }
@@ -60,10 +62,10 @@ namespace Antura.Discover
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E) && bt.IsInteractable() && !UIManager.I.dialogues.IsPostcardOpen && InteractionManager.I.LastActionFrame != Time.frameCount)
-            {
-                OnBalloonClicked.Dispatch();
-            }
+            // if (Input.GetKeyDown(KeyCode.E) && bt.IsInteractable() && !UIManager.I.dialogues.IsPostcardOpen && InteractionManager.I.LastActionFrame != Time.frameCount)
+            // {
+            //     OnBalloonClicked.Dispatch();
+            // }
         }
 
         #endregion
@@ -86,6 +88,12 @@ namespace Antura.Discover
             else
                 btContinue.gameObject.SetActive(false);
 
+            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
+            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
+            { iconTranslate.SetActive(true); }
+            else
+            { iconTranslate.SetActive(false); }
+
             DisplayText(UseLearningLanguage);
 
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
@@ -95,11 +103,9 @@ namespace Antura.Discover
         public void DisplayText(bool UseLearningLanguage)
         {
             // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
-            LanguageCode spokenLang;
             if (UseLearningLanguage)
             {
                 textRender.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
-                spokenLang = AppManager.I.ContentEdition.LearningLanguage;
                 if (currNode.AudioLearning != null)
                 {
                     DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning);
@@ -108,17 +114,11 @@ namespace Antura.Discover
             else
             {
                 textRender.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.Default);
-                spokenLang = AppManager.I.AppSettings.NativeLanguage;
                 if (currNode.AudioNative != null)
                 {
                     DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative);
                 }
             }
-            // AudioManager.I.PlayDiscoverDialogue(
-            //     currNode.AudioId,
-            //     QuestManager.I.CurrentQuest.assetsFolder,
-            //     spokenLang
-            // );
         }
 
         public void Hide()

@@ -45,6 +45,7 @@ namespace Antura.Discover
         private int total_coins = 0;
         private int collected_items = 0;
 
+        public TalkToPlayerMode TalkToPlayerMode { get; private set; }
 
         protected override void Init()
         {
@@ -55,21 +56,6 @@ namespace Antura.Discover
 
         void Start()
         {
-            total_coins = 0;
-
-            if (DebugMode)
-            {
-                if (DebugConfig.LearningLanguage != "")
-                {
-
-                }
-                if (DebugConfig.NativeLanguage != "")
-                {
-                    // DiscoverAppManager.I.CurrentProfile.
-                    // AppManager.I..SetNativeLanguage(DebugConfig.NativeLanguageCode);
-                }
-
-            }
 
             var yarnManager = YarnAnturaManager.I;
             if (yarnManager == null)
@@ -150,6 +136,19 @@ namespace Antura.Discover
 
         public void QuestStart()
         {
+            TalkToPlayerMode = DiscoverAppManager.I.CurrentProfile.profile.talkToPlayerMode;
+            if (DebugMode)
+            {
+                if (DebugConfig.TalkToPlayerMode != TalkToPlayerMode.Default)
+                    TalkToPlayerMode = DebugConfig.TalkToPlayerMode;
+                // if (DebugConfig.LearningLanguage != "")
+                // if (DebugConfig.NativeLanguage != "")
+                // {
+                //     // DiscoverAppManager.I.CurrentProfile.
+                //     // AppManager.I..SetNativeLanguage(DebugConfig.NativeLanguageCode);
+                // }
+            }
+
             YarnAnturaManager.I.Variables.IS_DESKTOP = AppConfig.IsDesktopPlatform();
             YarnAnturaManager.I.Variables.EASY_MODE = DiscoverAppManager.I.CurrentProfile.profile.easyMode;
 

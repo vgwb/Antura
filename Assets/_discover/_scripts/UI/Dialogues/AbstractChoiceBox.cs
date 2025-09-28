@@ -119,7 +119,13 @@ namespace Antura.Discover
             currChoice = choiceNode;
             confirmedForThisRound = false;
             confirmTween.Rewind();
-            string text = currChoice.Content;
+
+            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
+            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
+            { icoTranslation.gameObject.SetActive(true); }
+            else
+            { icoTranslation.gameObject.SetActive(false); }
+
             DisplayText(doUseLearningLanguage);
             showTween.Restart();
         }
@@ -177,7 +183,6 @@ namespace Antura.Discover
 
         private void Select()
         {
-            useLearningLanguage = !useLearningLanguage;
             DisplayText(useLearningLanguage, true);
 
             if (selected)
@@ -195,12 +200,9 @@ namespace Antura.Discover
         private void DisplayText(bool UseLearningLanguage, bool playAudio = false)
         {
 
-            LanguageCode spokenLang;
             if (UseLearningLanguage)
             {
                 textRender.SetText(currChoice.Content, LanguageUse.Learning, Font2Use.UI);
-                spokenLang = AppManager.I.ContentEdition.LearningLanguage;
-
                 if (playAudio && currChoice.AudioLearning != null)
                 {
                     DiscoverAudioManager.I.PlayDialogue(currChoice.AudioLearning);
@@ -209,7 +211,6 @@ namespace Antura.Discover
             else
             {
                 textRender.SetText(currChoice.ContentNative, LanguageUse.Native, Font2Use.Default);
-                spokenLang = AppManager.I.AppSettings.NativeLanguage;
                 if (playAudio && currChoice.AudioNative != null)
                 {
                     DiscoverAudioManager.I.PlayDialogue(currChoice.AudioNative);
