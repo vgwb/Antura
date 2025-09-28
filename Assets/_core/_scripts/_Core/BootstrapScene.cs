@@ -38,8 +38,16 @@ namespace Antura.Scenes
 
         private IEnumerator StartCO()
         {
-            while (!AppManager.I.Loaded)
+            while (AppManager.I == null)
                 yield return null;
+
+            var app = AppManager.I;
+            while (app != null && !app.Loaded)
+            {
+                yield return null;
+                if (AppManager.I != app)
+                    app = AppManager.I;
+            }
             if (AutoLauncher.enabled)
                 yield break;
 
