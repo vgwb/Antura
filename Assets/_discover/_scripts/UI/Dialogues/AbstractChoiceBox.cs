@@ -120,8 +120,7 @@ namespace Antura.Discover
             confirmedForThisRound = false;
             confirmTween.Rewind();
 
-            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
-            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
+            if (QuestManager.I.HasTranslation)
             { icoTranslation.gameObject.SetActive(true); }
             else
             { icoTranslation.gameObject.SetActive(false); }

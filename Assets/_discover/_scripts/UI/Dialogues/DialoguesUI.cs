@@ -163,9 +163,14 @@ namespace Antura.Discover
             CurrDialogueType = DialogueType.None;
         }
 
-        public void ShowPostcard(Sprite sprite, string title = null, bool zoom = false, DialoguePostcard.ViewMode? customViewMode = null)
+        public void ShowPostcard(CardData card, bool zoom = false, bool silent = false)
         {
-            postcard.Show(sprite, title, zoom);
+            postcard.Show(card, zoom, silent);
+        }
+
+        public void ShowPostcard(AssetData assetData, bool zoom = false)
+        {
+            postcard.Show(assetData, zoom);
         }
 
         public void HidePostcard()
@@ -250,7 +255,7 @@ namespace Antura.Discover
                 // Close postcard zoom and move onward
                 if (postcard.IsMagnified)
                 {
-                    postcard.CloseMagnification();
+                    postcard.CloseZoomView();
                     yield return new WaitForSeconds(0.15f);
                 }
             }
@@ -259,7 +264,7 @@ namespace Antura.Discover
                 if (currNode.ImageAutoOpen && postcard.IsActive && !postcard.CurrSpriteWasMagnifiedOnce)
                 {
                     // Zoom into postcard and wait for next action
-                    postcard.Magnify();
+                    postcard.OpenZoomView();
                     gotoNextWhenPostcardFocusViewCloses = true;
                     yield break;
                 }
@@ -298,7 +303,7 @@ namespace Antura.Discover
             // if (postcard.IsMagnified && !gotoNextWhenPostcardFocusViewCloses)
             if (postcard.IsMagnified)
             {
-                postcard.CloseMagnification();
+                postcard.CloseZoomView();
             }
             else if (CurrDialogueType == DialogueType.Text && (!InteractionManager.I.IsUsingFocusView || this.gameObject.activeSelf))
             {

@@ -35,7 +35,7 @@ namespace Antura.Discover
         internal void Initialize(DiscoverAppManager app)
         {
             _app = app;
-            // EnsureCardAudioService();
+            EnsureCardAudioService();
         }
 
         void EnsureCardAudioService()
@@ -45,11 +45,7 @@ namespace Antura.Discover
 
             if (cardsAudioTable != null)
             {
-                var tableRef = cardsAudioTable.TableReference;
-                if (!string.IsNullOrEmpty(tableRef.TableCollectionName))
-                {
-                    _cardAudioService = new LocalizedCardAudioService(tableRef);
-                }
+                _cardAudioService = new LocalizedCardAudioService(cardsAudioTable.TableReference);
             }
         }
 
@@ -191,52 +187,16 @@ namespace Antura.Discover
         }
 
         /// <summary>
-        /// Fetch the localized card title clip for the given route.
+        /// Fetch the localized card title clip for the given languageToUse.
         /// </summary>
-        public Task<AudioClip> GetCardTitleClipAsync(CardData card, CardAudioRoute route, CancellationToken ct = default)
-            => _cardAudioService?.GetTitleClipAsync(card, route, ct) ?? Task.FromResult<AudioClip>(null);
+        public Task<AudioClip> GetCardTitleClipAsync(CardData card, CardAudioLanguage languageToUse, CancellationToken ct = default)
+            => _cardAudioService?.GetTitleClipAsync(card, languageToUse, ct) ?? Task.FromResult<AudioClip>(null);
 
         /// <summary>
-        /// Fetch the localized card description clip for the given route.
+        /// Fetch the localized card description clip for the given languageToUse.
         /// </summary>
-        public Task<AudioClip> GetCardDescriptionClipAsync(CardData card, CardAudioRoute route, CancellationToken ct = default)
-            => _cardAudioService?.GetDescriptionClipAsync(card, route, ct) ?? Task.FromResult<AudioClip>(null);
-
-        /// <summary>
-        /// Play a card title clip through the <see cref="DiscoverAudioManager"/>.
-        /// </summary>
-        public async Task<bool> PlayCardTitleAsync(CardData card, CardAudioRoute route, float volume = 1f, CancellationToken ct = default)
-        {
-            var clip = await GetCardTitleClipAsync(card, route, ct).ConfigureAwait(false);
-            if (ct.IsCancellationRequested || clip == null)
-                return false;
-            var audio = DiscoverAudioManager.I;
-            if (audio == null)
-            {
-                Debug.LogWarning("[DiscoverDataManager] DiscoverAudioManager not available when playing card title.");
-                return false;
-            }
-            audio.Play(clip, volume);
-            return true;
-        }
-
-        /// <summary>
-        /// Play a card description clip through the <see cref="DiscoverAudioManager"/>.
-        /// </summary>
-        public async Task<bool> PlayCardDescriptionAsync(CardData card, CardAudioRoute route, float volume = 1f, CancellationToken ct = default)
-        {
-            var clip = await GetCardDescriptionClipAsync(card, route, ct).ConfigureAwait(false);
-            if (ct.IsCancellationRequested || clip == null)
-                return false;
-            var audio = DiscoverAudioManager.I;
-            if (audio == null)
-            {
-                Debug.LogWarning("[DiscoverDataManager] DiscoverAudioManager not available when playing card description.");
-                return false;
-            }
-            audio.Play(clip, volume);
-            return true;
-        }
+        public Task<AudioClip> GetCardDescriptionClipAsync(CardData card, CardAudioLanguage languageToUse, CancellationToken ct = default)
+            => _cardAudioService?.GetDescriptionClipAsync(card, languageToUse, ct) ?? Task.FromResult<AudioClip>(null);
 
         Locale GetLearningLocale()
         {

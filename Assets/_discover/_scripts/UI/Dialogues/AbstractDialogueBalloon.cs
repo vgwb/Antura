@@ -88,8 +88,7 @@ namespace Antura.Discover
             else
                 btContinue.gameObject.SetActive(false);
 
-            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
-            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
+            if (QuestManager.I.HasTranslation)
             { iconTranslate.SetActive(true); }
             else
             { iconTranslate.SetActive(false); }

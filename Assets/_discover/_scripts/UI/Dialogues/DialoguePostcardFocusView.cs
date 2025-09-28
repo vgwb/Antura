@@ -1,8 +1,9 @@
 ﻿using Antura.UI;
+using Antura.Discover.Audio;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,9 +26,18 @@ namespace Antura.Discover
         [DeEmptyAlert]
         [SerializeField] Image img;
         [DeEmptyAlert]
+        [SerializeField] GameObject infoPanel;
+        [DeEmptyAlert]
         [SerializeField] TextRender tfTitle;
+        [DeEmptyAlert]
+        [SerializeField] TextRender tfDescription;
+        [DeEmptyAlert]
+        [SerializeField] protected Button btTranslate;
 
         #endregion
+
+        private CardData currCardData;
+        private bool usingLearningLanguage;
 
         public bool IsOpen { get; private set; }
 
@@ -52,6 +62,7 @@ namespace Antura.Discover
             bt = this.GetComponent<Button>();
 
             bt.onClick.AddListener(OnClicked.Dispatch);
+            btTranslate.onClick.AddListener(ToggleTranslation);
 
             const float tweenDuration = 0.6f;
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
@@ -62,21 +73,26 @@ namespace Antura.Discover
         void OnDestroy()
         {
             showTween.Kill();
+            btTranslate.onClick.RemoveListener(ToggleTranslation);
         }
 
         #endregion
 
         #region Public Methods
 
-        public void Show(Sprite sprite, string title = null)
+        public void Show(Sprite sprite, CardData cardData = null)
         {
+            currCardData = cardData;
             Init();
-            
+
             IsOpen = true;
             img.sprite = sprite;
-            bool hasTitle = !string.IsNullOrEmpty(title);
-            tfTitle.gameObject.SetActive(hasTitle);
-            if (hasTitle) tfTitle.text = title;
+            bool hasTitle = cardData != null;
+            infoPanel.SetActive(hasTitle);
+            if (hasTitle)
+            {
+                DisplayText(QuestManager.I.LearningLangFirst);
+            }
             imgRT.offsetMin = new Vector2(imgRT.offsetMin.x, hasTitle ? titleBottomOffset : 0);
             showTween.timeScale = 1;
             showTween.Restart();
@@ -86,7 +102,7 @@ namespace Antura.Discover
         public void Hide(bool immediate = false)
         {
             Init();
-            
+
             IsOpen = false;
             if (immediate)
             {
@@ -97,6 +113,38 @@ namespace Antura.Discover
                 showTween.timeScale = 2;
                 showTween.PlayBackwards();
             }
+        }
+
+        private void ToggleTranslation()
+        {
+            if (QuestManager.I.HasTranslation)
+            {
+                usingLearningLanguage = !usingLearningLanguage;
+            }
+            DisplayText(usingLearningLanguage);
+        }
+
+        private void DisplayText(bool useLearningLanguage)
+        {
+            usingLearningLanguage = useLearningLanguage;
+            if (usingLearningLanguage)
+            {
+                tfTitle.text = DiscoverDataManager.I.GetCardTitle(currCardData);
+                tfDescription.text = DiscoverDataManager.I.GetCardDescription(currCardData);
+                PlayAudioTitle(currCardData, usingLearningLanguage);
+            }
+            else
+            {
+                tfTitle.text = currCardData.Title.GetLocalizedString();
+                tfDescription.text = currCardData.Description.GetLocalizedString();
+                PlayAudioTitle(currCardData, usingLearningLanguage);
+            }
+        }
+
+        private async void PlayAudioTitle(CardData cardData, bool useLearningLanguage)
+        {
+            var clip = await DiscoverDataManager.I.GetCardTitleClipAsync(cardData, useLearningLanguage ? CardAudioLanguage.Learning : CardAudioLanguage.Native);
+            DiscoverAudioManager.I.PlayDialogue(clip);
         }
 
         #endregion

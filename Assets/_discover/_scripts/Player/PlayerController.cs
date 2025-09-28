@@ -618,7 +618,7 @@ namespace Antura.Discover
 
         private void SetPosition(Vector3 position, Quaternion? rotation = null)
         {
-            Debug.Log("SetPosition player to " + position);
+            // Debug.Log("SetPosition player to " + position);
             _controller.enabled = false;
             transform.position = position;
             if (rotation.HasValue)

@@ -46,6 +46,8 @@ namespace Antura.Discover
         private int collected_items = 0;
 
         public TalkToPlayerMode TalkToPlayerMode { get; private set; }
+        public bool HasTranslation => TalkToPlayerMode == TalkToPlayerMode.LearningThenNative || TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning;
+        public bool LearningLangFirst => TalkToPlayerMode == TalkToPlayerMode.LearningLanguageOnly || TalkToPlayerMode == TalkToPlayerMode.LearningThenNative;
 
         protected override void Init()
         {

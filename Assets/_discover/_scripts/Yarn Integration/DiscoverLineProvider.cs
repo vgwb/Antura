@@ -179,7 +179,7 @@ namespace Antura.Discover
                 assetLearning = await YarnTask.WaitForAsyncOperation(loadOpLearning, cancellationToken);
             }
 
-            Debug.Log($"[DiscoverLineProvider] Fetched line {line.ID} (shadowing {shadowLineID ?? "none"}), text: {text}, asset: {(asset != null ? asset.name : "none")}, asset: {(assetLearning != null ? assetLearning.name : "none")}");
+            // Debug.Log($"[DiscoverLineProvider] Fetched line {line.ID} (shadowing {shadowLineID ?? "none"}), text: {text}, asset: {(asset != null ? asset.name : "none")}, asset: {(assetLearning != null ? assetLearning.name : "none")}");
 
             return new LocalizedLineDiscover
             {

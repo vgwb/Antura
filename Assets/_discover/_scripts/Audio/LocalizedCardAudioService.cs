@@ -21,15 +21,16 @@ namespace Antura.Discover.Audio
             _cardsAudioTableRef = cardsAudioTableRef;
         }
 
-        public async Task<AudioClip> GetTitleClipAsync(CardData card, CardAudioRoute route, CancellationToken ct = default)
+        public async Task<AudioClip> GetTitleClipAsync(CardData card, CardAudioLanguage route, CancellationToken ct = default)
         {
+            // Debug.Log($"[LocalizedCardAudioService] GetTitleClipAsync for card '{card?.Id}' route '{route}'");
             if (card == null)
                 return null;
             var key = GetCardTitleKey(card);
             return await GetAudioFromCardsTableAsync(key, route, ct);
         }
 
-        public async Task<AudioClip> GetDescriptionClipAsync(CardData card, CardAudioRoute route, CancellationToken ct = default)
+        public async Task<AudioClip> GetDescriptionClipAsync(CardData card, CardAudioLanguage route, CancellationToken ct = default)
         {
             if (card == null)
                 return null;
@@ -49,20 +50,22 @@ namespace Antura.Discover.Audio
             return card.Id + "_DESC";
         }
 
-        async Task<AudioClip> GetAudioFromCardsTableAsync(string entryKey, CardAudioRoute route, CancellationToken ct)
+        async Task<AudioClip> GetAudioFromCardsTableAsync(string entryKey, CardAudioLanguage route, CancellationToken ct)
         {
             if (string.IsNullOrEmpty(entryKey))
                 return null;
 
             // Determine target locale.
-            Locale locale = route == CardAudioRoute.Learning
+            Locale locale = route == CardAudioLanguage.Learning
                 ? DiscoverAppManager.I?.GetLearningLocale()
                 : null; // null uses active SelectedLocale as per GetLocalizedAssetAsync API
 
             // Use the same pattern as DiscoverLineProvider to fetch localized assets.
+            // Debug.Log($"[LocalizedCardAudioService] Loading audio for key '{entryKey}' in locale '{locale?.Identifier.Code ?? "native"}' from table '{_cardsAudioTableRef.TableCollectionName}'");
             var loadOp = LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<UnityEngine.Object>(_cardsAudioTableRef, entryKey, locale, FallbackBehavior.UseFallback);
-            var obj = await Yarn.Unity.YarnTask.WaitForAsyncOperation(loadOp, ct);
-            return obj as AudioClip;
+            var asset = await Yarn.Unity.YarnTask.WaitForAsyncOperation(loadOp, ct);
+
+            return asset as AudioClip;
         }
     }
 }

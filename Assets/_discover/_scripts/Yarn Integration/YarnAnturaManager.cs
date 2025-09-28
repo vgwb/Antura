@@ -186,16 +186,19 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("asset")]
-        public static void CommandAsset(string assetCode)
+        public static void CommandAsset(string assetId, string zoom = "")
         {
-            //Debug.Log($"ActionManager: ResolveNodeCommandAsset: {assetCode}");
-            if (string.IsNullOrEmpty(assetCode))
+            if (string.IsNullOrEmpty(assetId))
                 return;
-            var db = DatabaseProvider.I;
-            //var assetImage = db.Get<ItemData>("assetCode");
-            if (db.TryGet<AssetData>(assetCode, out var assetImage))
+
+            if (DatabaseProvider.TryGet<AssetData>(assetId, out var assetData))
             {
-                UIManager.I.dialogues.ShowPostcard(assetImage.Image);
+                bool openZoomed = zoom.ToLower() == "zoom";
+                UIManager.I.dialogues.ShowPostcard(assetData, openZoomed);
+            }
+            else
+            {
+                Debug.LogWarning($"CommandAsset: asset not found for id {assetId}");
             }
         }
 
@@ -239,17 +242,22 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("card")]
-        public static void CommandCard(string cardId, string zoom = "")
+        public static void CommandCard(string cardId, string param1 = "", string param2 = "")
         {
             if (string.IsNullOrEmpty(cardId))
                 return;
-            // Debug.Log($"ActionManager: ResolveNodeCommandCard: {cardId}");
-            DatabaseProvider.TryGet<CardData>(cardId, out var c);
-            CardData card = c;
 
-            bool openZoomed = (zoom.ToLower() == "zoom");
-            UIManager.I.dialogues.ShowPostcard(card.ImageAsset.Image, card.Title.GetLocalizedString(), openZoomed);
-            DiscoverAppManager.I.RecordCardInteraction(card, true);
+            if (DatabaseProvider.TryGet<CardData>(cardId, out var cardData))
+            {
+                bool openZoomed = param1.ToLower() == "zoom" || param2.ToLower() == "zoom";
+                bool silent = param1.ToLower() == "silent" || param2.ToLower() == "silent";
+                UIManager.I.dialogues.ShowPostcard(cardData, openZoomed, silent);
+                DiscoverAppManager.I.RecordCardInteraction(cardData, true);
+            }
+            else
+            {
+                Debug.LogWarning($"CommandCard: card not found for id {cardId}");
+            }
         }
 
         [YarnCommand("card_hide")]

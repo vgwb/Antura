@@ -11,16 +11,16 @@ namespace Antura.Discover.Audio
     public interface ICardAudioService
     {
         /// <summary>Fetch the localized Title AudioClip for the given card, or null if not found.</summary>
-        Task<AudioClip> GetTitleClipAsync(CardData card, CardAudioRoute route, CancellationToken ct = default);
+        Task<AudioClip> GetTitleClipAsync(CardData card, CardAudioLanguage route, CancellationToken ct = default);
 
         /// <summary>Fetch the localized Description AudioClip for the given card, or null if not found.</summary>
-        Task<AudioClip> GetDescriptionClipAsync(CardData card, CardAudioRoute route, CancellationToken ct = default);
+        Task<AudioClip> GetDescriptionClipAsync(CardData card, CardAudioLanguage route, CancellationToken ct = default);
     }
 
     /// <summary>
     /// Which language route to use when resolving card audio.
     /// </summary>
-    public enum CardAudioRoute
+    public enum CardAudioLanguage
     {
         Learning,
         Native
