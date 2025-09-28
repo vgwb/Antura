@@ -37,12 +37,12 @@ namespace Antura.Discover.UI
 
         public void OnSelectQuest()
         {
-            UIQuestMenuManager.I.SelectQuest(questData);
+            UIDiscoverHome.I.SelectQuest(questData);
         }
 
         public void OnOpenQuest()
         {
-            UIQuestMenuManager.I.OpenQuest(questData);
+            UIDiscoverHome.I.OpenQuest(questData);
         }
 
         void SetStars(int totStars)

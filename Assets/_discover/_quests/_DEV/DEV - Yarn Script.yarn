@@ -96,9 +96,27 @@ type: panel
 <<declare $doorUnlocked = false>>
 
 Welcome to the DEV quest! #line:0973921 
+<<card food_baguette>>
 You can use this quest to test features and commands. #line:0196a6d 
+<<asset backpack>>
 // shadow line example
-You played the activity well! #shadow:0872c3a
+You played the activity well!
+===
+
+title: DOCS_GLOBAL_VARIABLE
+position: -200,179
+group: docs
+---
+<<if $EASY_MODE >>
+    You are in EASY MODE!
+<<else>>    
+    You are in NORMAL MODE!
+<<endif>>
+<<if $IS_DESKTOP >>
+    You are on DESKTOP!
+<<else>>
+    You are on MOBILE!
+<<endif>>
 ===
 
 //--------------------------------------------
@@ -167,8 +185,14 @@ group: docs
 ---
 // uses the card Id to show a card
 <<card food_baguette>>
-// if set set zoom as second paramenter, shows the card in zoom mode
+// if accepts 2 additional parameters
+// zoom - shows the card in zoom mode
+// silent - shows the card without title / audio
+<<card food_baguette zoom silent>>
+// obviously can set just one of them
+<<card food_baguette silent>>
 <<card food_baguette zoom>>
+
 // hides the current card
 <<card_hide>>
 ===
@@ -277,17 +301,6 @@ title: test_dialog
 position: 0,0
 group: dialog
 ---
-<<if $EASY_MODE >>
-    You are in EASY MODE!
-<<else>>    
-    You are in NORMAL MODE!
-<<endif>>
-<<if $IS_DESKTOP >>
-    You are on DESKTOP!
-<<else>>
-    You are on MOBILE!
-<<endif>>
-
 <<card food_baguette>>
 WELCOME #line:0c6f99f 
 <<card food_baguette zoom>>

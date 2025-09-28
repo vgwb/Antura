@@ -30,7 +30,7 @@ namespace Antura.Discover
 
         private void OnClicked()
         {
-            //            Debug.Log($"LocationPin clicked: {Location?.Name}");
+            // Debug.Log($"LocationPin clicked: {Location?.Name}");
             // Deselect all other pins, then select this one
             var allPins = FindObjectsByType<LocationPin>(FindObjectsSortMode.None);
             for (int i = 0; i < allPins.Length; i++)
@@ -64,7 +64,7 @@ namespace Antura.Discover
                 Debug.LogWarning($"LocationPin on {name}: LocationId not set.");
                 return;
             }
-            UIQuestMenuManager.I.ShowLocation(Location);
+            UIDiscoverHome.I.ShowLocation(Location);
         }
     }
 }

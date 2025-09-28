@@ -86,7 +86,7 @@ namespace Antura.Discover.UI
 
         public void Play()
         {
-            UIQuestMenuManager.I.OpenQuest(currentQuestData);
+            UIDiscoverHome.I.OpenQuest(currentQuestData);
         }
 
         public void OpenManual()
