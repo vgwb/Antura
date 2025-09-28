@@ -315,7 +315,13 @@ namespace Antura.UI
             }
             else
             {
-                // we are updating a student. so we are already in the player and just unlock everything
+                AppManager.I.PlayerProfileManager.CreatePlayerProfile(
+                    currClassroomIndex, true, 7,
+                    PlayerGender.M, PlayerTint.None, Color.yellow, Color.red, Color.white, 4,
+                            AppManager.I.AppEdition.editionID,
+                            AppManager.I.ContentEdition.ContentID,
+                            AppManager.I.AppEdition.AppVersion,
+                            false);
             }
 
             // Populate with complete data
