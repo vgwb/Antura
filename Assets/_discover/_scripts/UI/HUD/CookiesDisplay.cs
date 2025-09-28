@@ -67,6 +67,9 @@ namespace Antura.Discover
 
         void OnCookiesChanged(int value, bool animate)
         {
+            if (!initialized)
+                Initialize();
+
             SetValue(value);
             PlayPunch();
         }

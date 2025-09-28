@@ -72,11 +72,8 @@ namespace Antura.Discover
 
         private BuiltInMarkupReplacer builtInReplacer = new BuiltInMarkupReplacer();
 
-        // Warn once if no asset table is assigned to avoid noisy logs
-        private bool _warnedMissingAssetTable = false;
         // Warn once per key when an asset lookup returns null in non-editor players
         private readonly HashSet<string> _assetNullWarnedKeys = new HashSet<string>();
-
 
         public void SetStringTable(LocalizedStringTable table)
         {

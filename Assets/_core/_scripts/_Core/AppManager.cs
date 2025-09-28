@@ -63,9 +63,6 @@ namespace Antura.Core
 
         public bool IsAppSuspended { get; private set; }
         public bool ModalWindowActivated = false;
-        public static event System.Action? LocalizationReady;
-        public bool IsLocalizationReady { get; private set; }
-
 
         #region Initialisation
 
