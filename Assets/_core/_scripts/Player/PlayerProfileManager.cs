@@ -260,7 +260,7 @@ namespace Antura.Profile
             PlayerProfile returnProfile = new PlayerProfile();
             // Data
             returnProfile.Uuid = System.Guid.NewGuid().ToString();
-            returnProfile.PlayerName = isDemoUser ? "teacher" : "player";
+            returnProfile.PlayerName = isDemoUser ? "teacher" : "student";
             returnProfile.Classroom = classroom;
             if (isNewAvatar)
                 avatarID += NEW_AVATAR_ID_START;
