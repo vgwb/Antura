@@ -727,6 +727,7 @@ namespace Antura.Profile
                 Uuid = this.Uuid,
                 PlayerName = this.PlayerName,
                 Classroom = this.Classroom,
+                TalkToPlayerStyle = this.TalkToPlayerStyle,
                 AvatarId = this.AvatarId,
                 Gender = this.Gender,
                 Tint = this.Tint,
