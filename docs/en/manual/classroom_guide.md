@@ -24,7 +24,6 @@ Moreover, teachers should check regularly (i.e. once a week) if a new version of
 
 We recommend to alternate the 2 modules (Learn Language and Discover Culture) dedicating a session to the first module and the next session to the second one. 
 
-
 ## Introducing a play session
 
 Once in the classroom, before starting to play, teachers should explain to the students what they are going to play and why.   
@@ -57,7 +56,11 @@ This way each student can play and learn at his/her own pace and even replay som
 
 ## Post session debrief and activities
 
-### Words
+To reinforce the learning outcome, we recommend the following interactions after the end of a play session.
+
+### Vocabulary
+
+Recap and practice with the words learned during the session.
 
 > [!tip] Pronunciation activity
 > Students repeat after a Living Letter, then use the word in a sentence related to the quest.  
@@ -65,15 +68,9 @@ This way each student can play and learn at his/her own pace and even replay som
 > [!tip] Explain a card
 > After play, ask learners to open the Book and explain one card to a peer.  
 
-> [!tip] Bonus Malus
-> Citizenship link: Discuss how in‑game choices mirror respectful behavior in real life.  
-
-> [!tip] world map
-> For homework, let students explore in Home mode and bring one new card to share.  
-
 ### Reflection
 
-Reflection after play helps consolidate learning. 
+Reflecting after play helps consolidate learning. 
 Here's a list of sample questions to stimulate the reflection:  
 
 **Generic**:  
@@ -99,7 +96,7 @@ Here's a list of sample questions to stimulate the reflection:
 
 Quick write (3 minutes): “One thing I learned, one question I still have.”  
 
-### Post game activities
+### Post session activities
 
 **Research and Google Maps activity**  
 
@@ -117,14 +114,14 @@ Extension task: find one local equivalent (e.g., a bakery or monument in your to
 
 Example: “Add a decision where talking to an NPC politely unlocks a new clue.”  
 
-## Feedback and validation of quests
+## Feedback about cultural quests
 
-Teacher and parent feedback is essential to improve quests.  
+Teachers feedback is essential to improve the game content.  
 Check the [Support page](./support.md) also.  
 
-### How to give feedback
+### How to give feedback 
 
-- Each quest has a **dedicated page on the website** with content summaries.  
+- Each cultural quest has a **dedicated page on the website** with content summaries.  
 - Teachers can leave comments and suggestions in the **forum**.  
 - Feedback may include:  
   - Accuracy of cultural content  

@@ -5,7 +5,7 @@ title: Learn Languages
 
 ![Alt text](../../assets/img/screenshot/docs_antura_home.jpg)
 
-Learn with Antura is a game for the introduction to different languages (ENglish, French, Polish, Spanish, Arabics...) as a second language, aimed at children between 5 and 9 years old; equivalent to the contents of **PreA1** according to the **Common European Framework of Reference for Languages**.  
+Learn with Antura is a game for the introduction to different languages (English, French, Polish, Spanish, German...) as a second language, aimed at children between 5 and 9 years old; equivalent to the contents of **PreA1** according to the **Common European Framework of Reference for Languages**.  
 
 Throughout the game, children learn the entire  alphabet, more than 250 words and a series of phrases and expressions. words and a series of simple phrases and expressions in a playful way.
 
