@@ -57,7 +57,6 @@ position: 1040,60
 color: purple
 actor: NARRATOR
 ---
-Good job! #line:03e7bc4 
 <<card marseillaise_music zoom>>
 <<quest_end>>
 ===
@@ -69,11 +68,14 @@ actor: ADULT_M
 <<if $quest1 == true>>
     <<if $activity1 == false>>
     Thank you for helping us! #line:09fc7ad 
-    Can you put it together? #line:0515a95 
-    <<set $activity1 = true>>
+    Can you put it together? #line:0515a95
     <<activity order_Musical_notes>>
     <<elseif $activity1 ==true >>
     We're gonna play soon! #line:0ef876c 
+    Do you wanna try to order them again?
+    -> Yes
+    <<activity order_Musical_notes band_member>>
+    -> No
     <<endif>>
 <<else>>
 Hello! We're part of a band. We're musicians. #line:09a50f8 
@@ -91,7 +93,7 @@ tags:
 ---
 <<if $activity2 == true>>
     Great job! #line:0227e33 
-    Let's try to play it! #line:0501e94 
+    //Let's try to play it! #line:0501e94 
     <<jump quest_end>>
 <<elseif $quest2 == true >>
     Thank you! The words of the French Hymn are important. #line:025e35b 
@@ -100,7 +102,8 @@ tags:
     <<set $activity2 = true>>
     <<activity  order_marseillese_audio marseillese_played>>
 <<elseif $activity1 ==true >>
-    Hello I'm Jean Michelle Jarre. #line:02f7c8b 
+<<card jean_michelle_jarre>>
+    Hello I'm Jean Michelle Jarre. #line:02f7c8b
     I'm a french composer, and I'm helping the band play "La Marseillaise". #line:0bd77b7 
     Find the words of the anthem. #line:0e7033c 
     They've been scattered around by Antura. #line:0dc84d4 
@@ -122,9 +125,8 @@ title : win_quest1
 position: 1
 ---
 <<set $quest1 = true>>
+<<set $activity1 = true>>
 Good job! Now go back to speak with the band manager. #line:0064edf 
-<<target band_member>>
-<<task_end find_the_script_parts>>
 
 
 ===
@@ -140,13 +142,11 @@ Now go talk with Jean! #line:0a28908
 // TESTING
 title: npc_robot
 ---
-now play Jigsaw #line:09d7993 
-<<activity jigsaw_marseillese marseillese_played>>
+Hello!
 ===
 title: npc_ll
 ---
-now play this song #line:00f2510 
-<<activity order_marseillese_audio marseillese_played>>
+Good morning!
 ===
 
 title: marseillese_played
