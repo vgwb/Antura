@@ -50,14 +50,15 @@ Once selected the first class, you’ll notice that the class is empty,
 
 ![EmptyClass](../../assets/img/screenshot/setup/EmptyClass.jpg)
 
-Press “Create New Profile” to add a student to this class, then follow the instructions on screen.
-This is the student profile, so it would be great if he/she could help you create it. 
+Press “Create New Profile” to add a student to this class.
+> [!note]
+> Please ignore "Create New Teacher" button. It's going to be removed.
 
 ![ClassProfileCreation](../../assets/img/screenshot/setup/ClassProfileCreation.jpg)
 
 ## Editing Students Profiles Names
 
-Once the profile is complete, it will appear in the class, but without a name. 
+Once the profile is complete, it will appear in the class, but a standard name "STUDENT". 
 
 ![ClassWithProfile](../../assets/img/screenshot/setup/ClassWithProfile.jpg)
 
@@ -77,11 +78,10 @@ You can also enable “EASY MODE” (to reduce the difficulty of the game for th
 
 The available options are:  
 
-- **Don’t Talk**: no voiceover is played and the student has to read everything in the learning language (i.e. French or Polish)
-- **Learning Language Only**: the game uses only the learning language (i.e. French or Polish)
-- **Native then Learning**: the game uses first the native language and then repeats in the learning language
-- **Learning then Native**: the game uses first the learning language and then repeats in the native language
 - **Native Only**: the game uses only the native language
+- **Learning Language Only**: the game uses only the learning language (i.e. French or Polish)
+- **Learning then Native**: the game uses first the learning language and then repeats in the native language
+- **Native then Learning**: the game uses first the native language and then repeats in the learning language
 
 > [!IMPORTANT NOTE]
 > All profiles are only saved locally in the device in which they have been created, so each student must always use the same device in order to use his/her own profile. Most likely, on each device you will need to create one single profile __per class__ because the device will always be used by the same student when you are in that class!
