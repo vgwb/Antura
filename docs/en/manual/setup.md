@@ -16,6 +16,9 @@ Currently a dozen native languages are supported.
 
 Then you follow the instructions to create your first profile.
 
+> [!note]
+> If the following screen does not appear it's a bug, please close the app and restart it. After restartig the app, the bug should not happen anymore.
+
 ![FirstProfileCreation](../../assets/img/screenshot/setup/FirstProfileCreation.jpg)
 
 You are asked about your native language only the first time you start the game, but you can always change it by pressing the language button on the top-right corner.
