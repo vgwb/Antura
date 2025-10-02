@@ -136,11 +136,11 @@ Monde 1: Alphabet
 
 Groupes de lettres:
 
-1. A, E, C, R, S, T  
-2. O, D, L, M, N  
-3. I, F, G, H, W  
-4. U, B, K, P, V  
-5. Y, J, Q, X, Z  
+1. E,I,O,S,T,L 
+2. A,R,N,U,C
+3. P,M,D,V,G
+4. F,B,H,Q,X
+5. Y,J,K,Z,W
 
 Séquence type (3 unités):
 
