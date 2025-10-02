@@ -146,11 +146,11 @@ Każdy świat zawiera od 15 do 20 jednostek dydaktycznych, z których każda ma 
 
 Istnieje 5 grup liter:
 
-1. A, E, C, R, S, T
-2. O, D, L, M, N
-3. I, F, G, H, W
-4. U, B, K, P, V
-5. Y, J, Q, X, Z
+1. A, I, K, N, O, S, W
+2. C, D, E, Ę, M, R, Z
+3. F, J, K, P, U, Y
+4. Ą, Ć, Ń, Ó, Ś, Ź, Ż
+5. B, G, H, L, Ł, T 
 
 Dla każdej grupy liter gracz powtórzy te same kroki pedagogiczne i ćwiczenia, zorganizowane w następującej kolejności trzech jednostek dydaktycznych:
 
