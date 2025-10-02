@@ -57,8 +57,6 @@ Press “Create New Profile” to add a student to this class.
 > [!note]
 > Please ignore "Create New Teacher" button. It's going to be removed.
 
-![ClassProfileCreation](../../assets/img/screenshot/setup/FirstProfileCreation.jpg)
-
 ## Edit Profile Name
 
 Once the profile is complete, it will appear in the class, but a standard name "STUDENT".  

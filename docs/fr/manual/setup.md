@@ -1,120 +1,115 @@
 ---
-title: Setup
+title: Configuration
 ---
 
-# Setup
+# Configuration
 
 > [!note]
-> The game is identical on all platforms so the following instructions are valid for any device you use to play.
+> Le jeu est identique sur toutes les plateformes, les instructions suivantes sont donc valables pour tous les appareils que vous utilisez pour jouer.
 
-## First Steps
+## Premiers pas
+Lorsque vous lancez le jeu, la première chose qui vous est demandée est votre langue maternelle.
+Une douzaine de langues maternelles sont actuellement prises en charge.
 
-When launching the game the first thing you are asked is your native language. 
-Currently a dozen native languages are supported.
+![Sélection de la langue](../../assets/img/screenshot/setup/LanguageSelection.jpg)
 
-![LanguageSelection](../../assets/img/screenshot/setup/LanguageSelection.jpg)
-
-Then you follow the instructions to create your first profile.
+Suivez ensuite les instructions pour créer votre premier profil.
 
 > [!note]
-> If the following screen does not appear it's a bug, please close the app and restart it. After restartig the app, the bug should not happen anymore.
+> Si l'écran suivant n'apparaît pas, il s'agit d'un bug. Veuillez fermer l'application et la redémarrer. Après le redémarrage de l'application, le bug ne devrait plus se produire.
 
 ![FirstProfileCreation](../../assets/img/screenshot/setup/FirstProfileCreation.jpg)
 
-You are asked about your native language only the first time you start the game, but you can always change it by pressing the language button on the top-right corner.
+Votre langue maternelle ne vous est demandée que lors du premier démarrage du jeu, mais vous pouvez toujours la modifier en appuyant sur le bouton de langue situé dans le coin supérieur droit.
 
 ![FirstHome](../../assets/img/screenshot/setup/FirstHome.jpg)
 
 > [!note]
-> Antura can be used by educators in the classroom or by families for the autonomous learning at home (or wherever they are). But, since we are currently testing several new features in France and Poland within the mark of the ANTURA Erasmus+ project, the following section focuses on educators using the game in their classrooms.
+> Antura peut être utilisé par les enseignants en classe ou par les familles pour l'apprentissage autonome à la maison (ou ailleurs). Cependant, comme nous testons actuellement plusieurs nouvelles fonctionnalités en France et en Pologne dans le cadre du projet ANTURA Erasmus+, la section suivante se concentre sur les enseignants qui utilisent le jeu dans leurs classes.
 
-## Teachers Area
+## Espace enseignants
 
-If your students are divided in groups/classes, the first thing you should do is to select the class.
-Press the button in the bottom-left corner, then follow the instructions to access the Teachers Area.
+Si vos élèves sont répartis en groupes/classes, la première chose à faire est de sélectionner la classe.
+Appuyez sur le bouton dans le coin inférieur gauche, puis suivez les instructions pour accéder à l'espace enseignants.
 
 ![ParentalControl](../../assets/img/screenshot/setup/ParentalControl.jpg)
 
-## Class Selection
+## Sélection de la classe
 
-Once in the Teachers Area, you can "Change Class": the different classes are defined by a letter (A, B, C...) or a number (1, 2, 3...). 
+Une fois dans l'espace enseignants, vous pouvez « changer de classe » : les différentes classes sont définies par une lettre (A, B, C...) ou un chiffre (1, 2, 3...).
 
 ![TeachersArea](../../assets/img/screenshot/setup/TeachersArea.jpg)
 
 ![ClassSelection](../../assets/img/screenshot/setup/ClassSelection.jpg)
 
 > [!note]
-> By default the game starts in class "-" that means "no classroom", but for the proper usage in the classroom better you always have a selected class.
-Please, assign a unique letter or number to each one of your groups/classes and note it down, because you will need to select it every time you use Antura with a specific group/class.
+> Par défaut, le jeu commence dans la classe « - », ce qui signifie « aucune classe », mais pour une utilisation correcte en classe, il est préférable de toujours sélectionner une classe.
+Veuillez attribuer une lettre ou un chiffre unique à chacun de vos groupes/classes et le noter, car vous devrez le sélectionner chaque fois que vous utiliserez Antura avec un groupe/une classe spécifique.
 
-## Create Student Profiles
+## Créer des profils d'élèves
 
-Once selected the first class, you’ll notice that the class is empty, 
+Une fois la première classe sélectionnée, vous remarquerez que la classe est vide, 
 
 ![EmptyClass](../../assets/img/screenshot/setup/EmptyClass.jpg)
 
-Press “Create New Profile” to add a student to this class.
+Appuyez sur « Créer un nouveau profil » pour ajouter un élève à cette classe.
+
 > [!note]
-> Please ignore "Create New Teacher" button. It's going to be removed.
+> Veuillez ignorer le bouton « Créer un nouvel enseignant ». Il va être supprimé.
 
-![ClassProfileCreation](../../assets/img/screenshot/setup/FirstProfileCreation.jpg)
+## Modifier le nom du profil
 
-## Edit Profile Name
-
-Once the profile is complete, it will appear in the class, but a standard name "STUDENT".  
-
+Une fois le profil complet, il apparaîtra dans la classe, mais sous le nom standard « STUDENT ».
+  
 ![ClassWithProfile](../../assets/img/screenshot/setup/ClassWithProfile.jpg)
 
-You can now select the profile (pressing its icon or its name)...
+Vous pouvez maintenant sélectionner le profil (en appuyant sur son icône ou son nom)...
 
 ![ProfileSelected](../../assets/img/screenshot/setup/ProfileSelected.jpg)
 
-… and then define its name by pressing “Edit Name”.
+... puis définir son nom en appuyant sur « Modifier le nom ».
 
-![ProfileName](../../assets/img/screenshot/setup/ProfileName.jpg)
+![Nom du profil](../../assets/img/screenshot/setup/ProfileName.jpg)
 
-## Edit Profile Settings
+## Modifier les paramètres du profil
 
-You can also enable “EASY MODE” (to reduce the difficulty of the game for this specific student) and select the “TALK MODE” (meaning which languages should the game use for this specific student).
+Vous pouvez également activer le « MODE FACILE » (pour réduire la difficulté du jeu pour cet élève en particulier) et sélectionner le « MODE CONVERSATION » (qui détermine les langues que le jeu doit utiliser pour cet élève en particulier).
 
 ![TalkMode](../../assets/img/screenshot/setup/TalkMode.jpg)
 
-The available options are:  
+Les options disponibles sont les suivantes :
+- **Native Only** : le jeu utilise uniquement la langue maternelle
+- **Learning Language Only** : le jeu utilise uniquement la langue d'apprentissage (c'est-à-dire le français ou le polonais)
+- **Langue d'apprentissage puis langue maternelle** : le jeu utilise d'abord la langue d'apprentissage, puis répète dans la langue maternelle
+- **Langue maternelle puis langue d'apprentissage** : le jeu utilise d'abord la langue maternelle, puis répète dans la langue d'apprentissage
 
-- **Native Only**: the game uses only the native language
-- **Learning Language Only**: the game uses only the learning language (i.e. French or Polish)
-- **Learning then Native**: the game uses first the learning language and then repeats in the native language
-- **Native then Learning**: the game uses first the native language and then repeats in the learning language
+> [!REMARQUE IMPORTANTE]
+> Tous les profils sont uniquement enregistrés localement sur l'appareil sur lequel ils ont été créés. Chaque élève doit donc toujours utiliser le même appareil afin de pouvoir utiliser son propre profil. Il est fort probable que vous deviez créer un seul profil __par classe__ sur chaque appareil, car celui-ci sera toujours utilisé par le même élève lorsque vous serez dans cette classe !
 
-> [!IMPORTANT NOTE]
-> All profiles are only saved locally in the device in which they have been created, so each student must always use the same device in order to use his/her own profile. Most likely, on each device you will need to create one single profile __per class__ because the device will always be used by the same student when you are in that class!
+## Se préparer à jouer
 
-## Getting Ready to Play
+Une fois que vous avez terminé de créer et de modifier le profil de votre classe, vous pouvez revenir au menu principal en appuyant sur la flèche de retour à gauche et sur le bouton X en haut à droite de l'écran.
 
-Once you have finished creating and editing the profile for your class, you can go back to the main menu by pressing the back arrow on the left and the X button on the top-right corner of the screen.
+![Retour à l'accueil](../../assets/img/screenshot/setup/BackHome.jpg)
 
-![BackHome](../../assets/img/screenshot/setup/BackHome.jpg)
+> [!Rappel]
+> Avant de laisser un élève jouer, vous devez définir sa langue maternelle en appuyant sur le bouton situé dans le coin supérieur droit.
 
-> [!Reminder]
-> Before letting a student play, you should set his/her native language by pressing the button in the top-right corner.
+## Sélectionner ce qu'il faut apprendre
 
-## Select What to Learn
-
-Press the Play button below the active profile to select what you want to learn.
-The game offers a list of books and you can scroll among them sliding the screen right or left.
-Each book represents a different curriculum, a collection of content to learn about a specific subject. The game currently supports 2 main types of curriculums:
-
-- **Learn Languages**: an introduction to a foreign language
-- **Discover a Country and its Culture**: to help the integration of migrant kids in their host country
+Appuyez sur le bouton Jouer situé sous le profil actif pour sélectionner ce que vous souhaitez apprendre.
+Le jeu propose une liste de livres que vous pouvez faire défiler en glissant l'écran vers la droite ou vers la gauche.
+Chaque livre représente un programme différent, un ensemble de contenus à apprendre sur un sujet spécifique. Le jeu prend actuellement en charge deux types principaux de programmes :
+- **Apprendre les langues** : une introduction à une langue étrangère
+- **Découvrir un pays et sa culture** : pour aider à l'intégration des enfants migrants dans leur pays d'accueil
 
 > [!note]
-> In Arabic and Persian you can also **Learn to Read** in your mother language, but this literacy curriculum has lots in common with **Learning a Language** so we will focus on the latter in this manual.
+> En arabe et en persan, vous pouvez également **apprendre à lire** dans votre langue maternelle, mais ce programme d'alphabétisation a beaucoup en commun avec **l'apprentissage d'une langue**, nous nous concentrerons donc sur ce dernier dans ce manuel.
 
 ![BookSelection](../../assets/img/screenshot/setup/BookSelection.jpg)
 
-For the testing of the ANTURA Erasmus+ project in France and Poland we will focus on 4 books:
+Pour les tests du projet ANTURA Erasmus+ en France et en Pologne, nous nous concentrerons sur 4 livres :
+- Découvrir la France et apprendre le français
+- Découvrir la Pologne et apprendre le polonais
 
-- Discover France and Learn French
-- Discover Poland and Learn Polish
-
-The following sections explain in detail both [Learn Languages](./learnlanguage_module.md) and [Discover Culture](./discover_introduction.md) modules, apart from presenting a guide of [How to use them in the Classroom](./classroom_guide.md)
+Les sections suivantes expliquent en détail les modules [Apprendre les langues](./learnlanguage_module.md) et [Découvrir la culture](./discover_introduction.md), en plus de présenter un guide sur [Comment les utiliser en classe](./classroom_guide.md)
