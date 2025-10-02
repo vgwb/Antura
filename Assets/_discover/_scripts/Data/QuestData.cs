@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
 using Yarn.Unity;
 using UnityEngine.Serialization;
+using UnityEngine.ResourceManagement.AsyncOperations;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Antura.Discover
 {
@@ -43,6 +48,45 @@ namespace Antura.Discover
         public List<CardData> Cards;
         public List<WordData> Words;
 
+        public AssetReferenceGameObject QuestPrefabReference => questPrefab;
+        public bool HasQuestPrefabReference => questPrefab != null && questPrefab.RuntimeKeyIsValid();
+
+        public GameObject GetQuestPrefab(bool forceReload = false)
+        {
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+                return GetQuestPrefabEditorAsset();
+#endif
+
+            if (!forceReload && cachedQuestPrefab != null)
+                return cachedQuestPrefab;
+
+            if (!forceReload && legacyQuestPrefab != null)
+            {
+                cachedQuestPrefab = legacyQuestPrefab;
+                return cachedQuestPrefab;
+            }
+
+            if (!HasQuestPrefabReference)
+                return null;
+
+            if (forceReload || !questPrefabHandle.IsValid())
+                questPrefabHandle = questPrefab.LoadAssetAsync<GameObject>();
+
+            cachedQuestPrefab = questPrefabHandle.WaitForCompletion();
+            return cachedQuestPrefab;
+        }
+
+        public void ReleaseQuestPrefab()
+        {
+            if (questPrefabHandle.IsValid())
+            {
+                Addressables.Release(questPrefabHandle);
+                questPrefabHandle = default;
+            }
+            cachedQuestPrefab = null;
+        }
+
         [Tooltip("Target age range for this quest.")]
         public AgeRange targetAge = AgeRange.Ages6to10;
 
@@ -77,8 +121,10 @@ namespace Antura.Discover
         public List<AuthorCredit> Credits;
 
         [Header("WorldSetup")]
-        public GameObject QuestPrefab;
-        public WorldController WorldControllerPrefab;
+        [SerializeField] private AssetReferenceGameObject questPrefab;
+        [SerializeField, HideInInspector, FormerlySerializedAs("QuestPrefab")] private GameObject legacyQuestPrefab;
+        [System.NonSerialized] private GameObject cachedQuestPrefab;
+        [System.NonSerialized] private AsyncOperationHandle<GameObject> questPrefabHandle;
 
         [Tooltip("Optionan override for the world setup")]
         public WorldSetupData WorldSetup;
@@ -235,6 +281,31 @@ namespace Antura.Discover
             var lines = list?.Select(sc => $"- {sc.Subject}: {sc.Count}") ?? Enumerable.Empty<string>();
             var body = lines.Any() ? string.Join("\n", lines) : "(none)";
             Debug.Log($"[QuestData] {name} subjects (desc):\n" + body, this);
+        }
+
+        public GameObject GetQuestPrefabEditorAsset()
+        {
+            if (questPrefab != null && questPrefab.editorAsset != null)
+                return questPrefab.editorAsset as GameObject;
+            return legacyQuestPrefab;
+        }
+
+        private void OnValidate()
+        {
+            if (legacyQuestPrefab != null && !HasQuestPrefabReference)
+            {
+                questPrefab = CreateQuestPrefabReference(legacyQuestPrefab);
+                legacyQuestPrefab = null;
+            }
+        }
+
+        private static AssetReferenceGameObject CreateQuestPrefabReference(GameObject prefab)
+        {
+            if (prefab == null)
+                return new AssetReferenceGameObject(string.Empty);
+            var path = AssetDatabase.GetAssetPath(prefab);
+            var guid = AssetDatabase.AssetPathToGUID(path);
+            return new AssetReferenceGameObject(guid);
         }
 #endif
 

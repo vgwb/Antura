@@ -425,13 +425,13 @@ namespace Antura.Discover.EditorTools
 
         private static void OpenQuestPrefab(QuestData q)
         {
-            if (q == null || q.QuestPrefab == null)
+            var go = q != null ? q.GetQuestPrefabEditorAsset() : null;
+            if (go == null)
             {
                 EditorUtility.DisplayDialog("Open Prefab", "No QuestPrefab assigned on this Quest.", "OK");
                 return;
             }
 
-            var go = q.QuestPrefab;
             string path = null;
             try
             { path = AssetDatabase.GetAssetPath(go); }
@@ -727,12 +727,12 @@ namespace Antura.Discover.EditorTools
         private static HashSet<string> GetQuestTaskCodes(QuestData q)
         {
             var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            if (q == null || q.QuestPrefab == null)
+            var root = q != null ? q.GetQuestPrefabEditorAsset() : null;
+            if (root == null)
                 return result;
 
             try
             {
-                var root = q.QuestPrefab;
                 var comps = root.GetComponentsInChildren<Component>(true);
                 foreach (var comp in comps)
                 {
@@ -778,11 +778,12 @@ namespace Antura.Discover.EditorTools
         private static HashSet<string> GetQuestActivityCodes(QuestData q)
         {
             var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            if (q == null || q.QuestPrefab == null)
+            var root = q != null ? q.GetQuestPrefabEditorAsset() : null;
+            if (root == null)
                 return result;
             try
             {
-                var comps = q.QuestPrefab.GetComponentsInChildren<Component>(true);
+                var comps = root.GetComponentsInChildren<Component>(true);
                 foreach (var comp in comps)
                 {
                     if (comp == null)
@@ -826,11 +827,12 @@ namespace Antura.Discover.EditorTools
         private static HashSet<string> GetQuestActionCodes(QuestData q)
         {
             var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            if (q == null || q.QuestPrefab == null)
+            var root = q != null ? q.GetQuestPrefabEditorAsset() : null;
+            if (root == null)
                 return result;
             try
             {
-                var comps = q.QuestPrefab.GetComponentsInChildren<Component>(true);
+                var comps = root.GetComponentsInChildren<Component>(true);
                 foreach (var comp in comps)
                 {
                     if (comp == null)

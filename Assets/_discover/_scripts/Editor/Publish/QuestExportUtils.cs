@@ -158,7 +158,7 @@ namespace Antura.Discover.Editor
             sb.AppendLine("## Activities");
             try
             {
-                var prefab = q != null ? q.QuestPrefab : null;
+                var prefab = q != null ? q.GetQuestPrefabEditorAsset() : null;
                 var qmType = FindTypeByName("QuestManager");
                 if (prefab != null && qmType != null)
                 {
