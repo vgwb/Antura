@@ -215,8 +215,8 @@ namespace Antura.Discover
                 bool dirty = false;
 
                 // Type vs references
-                bool hasImg = a.Image != null;
-                bool hasAud = a.Audio != null;
+                bool hasImg = a.HasImageAsset;
+                bool hasAud = a.HasAudioAsset;
 
                 if (hasImg && hasAud)
                 {

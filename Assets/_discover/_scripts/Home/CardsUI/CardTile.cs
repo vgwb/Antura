@@ -47,7 +47,7 @@ namespace Antura.Discover.UI
 
             if (image)
             {
-                image.sprite = card.ImageAsset.Image;
+                image.sprite = card.ImageAsset.GetImage();
                 if (imageCoverFit)
                     ApplyCoverFit(image.sprite);
             }
@@ -57,7 +57,7 @@ namespace Antura.Discover.UI
             if (lockOverlay)
                 lockOverlay.enabled = isLocked;
             if (soundIcon)
-                soundIcon.enabled = card.AudioAsset != null && card.AudioAsset.Audio != null;
+                soundIcon.enabled = card.AudioAsset != null && card.AudioAsset.GetAudio() != null;
 
             if (greyscaleMaterial != null && image != null)
                 image.material = isLocked ? greyscaleMaterial : null;

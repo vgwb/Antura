@@ -10,7 +10,7 @@ namespace Antura.Discover.UI
     public class QuestCardsUI : MonoBehaviour
     {
         [Header("Refs")]
-        public Transform gridParent;             // parent with Grid/Vertical Layout
+        public Transform gridParent;
         public CardTile tilePrefab;
         public CardDetailsPanel detailsPanel;
         [Tooltip("Master database of all cards (assign the CardDatabase asset)")]
@@ -57,7 +57,7 @@ namespace Antura.Discover.UI
         private void OnTileClicked(CardData def)
         {
             var manager = DiscoverAppManager.I;
-            Antura.Discover.CardState st = null;
+            CardState st = null;
             if (manager != null && manager.CurrentProfile != null && manager.CurrentProfile.cards != null)
             {
                 manager.CurrentProfile.cards.TryGetValue(def.Id, out st);

@@ -26,7 +26,6 @@ namespace Antura.Discover
         [Tooltip("Drop all IdentifiedData here. The Editor 'Rebuild' can auto-populate this.")]
         public List<IdentifiedData> AllData = new List<IdentifiedData>();
 
-        // Runtime index
         [NonSerialized]
         private Dictionary<Type, Dictionary<string, IdentifiedData>> _index;
 
