@@ -1,5 +1,5 @@
 ---
-tytuł: Zainstaluj wersję beta
+title: Zainstaluj wersję beta
 ---
 
 <script setup>
@@ -7,7 +7,7 @@ import WindowsDownloadLink from '../../snippets/download_link.md'
 </script>
 
 # Zainstaluj wersję beta
-> [!uwaga]
+> [!note]
 > Z tej strony można pobrać nową wersję Learn with Antura v3.0. Jeśli szukasz aktualnej wersji v2.0 (w tym modułów Learn to Read i Learn a Language), przejdź do [strony pobierania](../download.md)
 
 Gra jest kompatybilna z systemami iOS, Android i Windows, więc można w nią grać na smartfonach, tabletach i komputerach. **Po zainstalowaniu gra nie wymaga połączenia z Internetem.**
@@ -21,7 +21,8 @@ Gra jest kompatybilna z systemami iOS, Android i Windows, więc można w nią gr
 👉 Otwórz ten link **na swoim urządzeniu z systemem iOS**: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)
 
 (Testflight to usługa służąca do testowania aplikacji na iOS, które są jeszcze w fazie rozwoju: otwórz powyższy link na urządzeniu, na którym chcesz zainstalować aplikację. Po zainstalowaniu z Testflight możesz korzystać z Antury jak z każdej innej aplikacji)
-> [!uwaga]
+
+> [!note]
 > jeśli napotkasz jakiekolwiek problemy podczas pobierania lub instalowania aplikacji, wyślij wiadomość na forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
 
 ## Android

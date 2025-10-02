@@ -1,6 +1,6 @@
 ---
-tytuł: Wprowadzenie do Discover
-#podtytuł: Zapoznajmy się z nowymi modułami Antura 3.0
+title: Wprowadzenie do Discover
+#podtitle: Zapoznajmy się z nowymi modułami Antura 3.0
 status: nowy
 ---
 

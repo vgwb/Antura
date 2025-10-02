@@ -1,5 +1,5 @@
 ---
-tytuł: Wprowadzenie
+title: Wprowadzenie
 ---
 
 # Wprowadzenie

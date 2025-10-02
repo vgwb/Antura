@@ -1,5 +1,5 @@
 ---
-tytuł: Nauka języków
+title: Nauka języków
 ---
 # Naucz się języków
 

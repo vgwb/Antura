@@ -36,29 +36,29 @@ function sidebarManual(): DefaultTheme.SidebarItem[] {
   return [
     { text: 'Teacher Manual', link: '/' ,
       items: [
-        { text: 'Introduction', link: 'introduction' },
-        { text: 'Install', link: 'install' },
-        { text: 'Setup', link: 'setup' },
-        { text: 'Classroom Guide', link: 'classroom_guide' },
+        { text: 'Wprowadzenie', link: 'introduction' },
+        { text: 'Instalacja', link: 'install' },
+        { text: 'Konfiguracja', link: 'setup' },
+        { text: 'Przewodnik dla nauczyciela', link: 'classroom_guide' },
       ]
     },
     {
-      text: 'Learn Languages',
+      text: 'Szczegółowe moduły',
       items: [
-        { text: 'Learn Languages overview', link: 'learnlanguage_module' },
-        { text: 'How to play minigames', link: 'learnlanguage_how_to_play' },
+        { text: 'Nauka języków', link: 'learnlanguage_module' },
+        { text: 'Jak grać w Naukę języka', link: 'learnlanguage_how_to_play' },
       ]
     },
     {
       text: 'Discover Cultures',
       items: [
-        { text: 'Discover overview', link: 'discover_introduction' },
-        { text: 'Discover features', link: 'discover_module' },
-        { text: 'How to play quests', link: 'discover_how_to_play' }
+        { text: 'Odkrywaj kultury', link: 'discover_introduction' },
+        { text: 'Odkrywaj kultury szczegóły', link: 'discover_module' },
+        { text: 'Jak grać Odkrywaj zadania', link: 'discover_how_to_play' }
       ]
     },
     { text: 'FAQ', link: 'faq' },
-    { text: 'Feedback and Support', link: 'support' },
+    { text: 'Opinie i wsparcie', link: 'support' },
   ]
 }
 

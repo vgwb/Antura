@@ -1,5 +1,5 @@
 ---
-tytuł: FAQ
+title: FAQ
 ---
 
 # Często zadawane pytania

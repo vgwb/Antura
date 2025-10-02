@@ -1,5 +1,5 @@
 ---
-tytuł: Odkrywaj funkcje
+title: Odkrywaj funkcje
 status: nowy
 ---
 

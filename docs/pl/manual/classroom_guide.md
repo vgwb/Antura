@@ -1,5 +1,5 @@
 ---
-tytuł: Przewodnik dla nauczycieli
+title: Przewodnik dla nauczycieli
 status: nowy
 ---
 

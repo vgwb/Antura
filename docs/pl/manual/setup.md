@@ -1,5 +1,5 @@
 ---
-tytuł: Konfiguracja
+title: Konfiguracja
 ---
 
 # Konfiguracja
@@ -53,7 +53,7 @@ Naciśnij „Utwórz nowy profil”, aby dodać ucznia do tej klasy.
 
 > [!uwaga]
 > Proszę zignorować przycisk „Utwórz nowego nauczyciela”. Zostanie on usunięty.
-![ClassProfileCreation](../../assets/img/screenshot/setup/ClassProfileCreation.jpg)
+![ClassProfileCreation](../../assets/img/screenshot/setup/FirstProfileCreation.jpg)
 
 ## Edytowanie nazw profili uczniów
 Po utworzeniu profilu pojawi się on w klasie, ale pod standardową nazwą „UCZEŃ”.

@@ -1,5 +1,5 @@
 ---
-tytuł: Jak grać w zadania
+title: Jak grać w zadania
 status: nowe
 ---
 # Jak grać Odkrywaj zadania <Badge type="tip" text=„new” />

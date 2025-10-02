@@ -1,5 +1,5 @@
 ---
-tytuł: „Instrukcja obsługi”
+title: „Instrukcja obsługi”
 ---
 # Ucz się z Anturą – Podręcznik
 

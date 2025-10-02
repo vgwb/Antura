@@ -1,5 +1,5 @@
 ---
-tytuł: Nauka języka – jak grać
+title: Nauka języka – jak grać
 status: nowy
 ---
 

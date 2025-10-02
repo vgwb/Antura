@@ -47,7 +47,7 @@ Once in the Teachers Area, you can "Change Class": the different classes are def
 > By default the game starts in class "-" that means "no classroom", but for the proper usage in the classroom better you always have a selected class.
 Please, assign a unique letter or number to each one of your groups/classes and note it down, because you will need to select it every time you use Antura with a specific group/class.
 
-## Creating Students Profiles
+## Create Student Profiles
 
 Once selected the first class, you’ll notice that the class is empty, 
 
@@ -57,11 +57,11 @@ Press “Create New Profile” to add a student to this class.
 > [!note]
 > Please ignore "Create New Teacher" button. It's going to be removed.
 
-![ClassProfileCreation](../../assets/img/screenshot/setup/ClassProfileCreation.jpg)
+![ClassProfileCreation](../../assets/img/screenshot/setup/FirstProfileCreation.jpg)
 
-## Editing Students Profiles Names
+## Edit Profile Name
 
-Once the profile is complete, it will appear in the class, but a standard name "STUDENT". 
+Once the profile is complete, it will appear in the class, but a standard name "STUDENT".  
 
 ![ClassWithProfile](../../assets/img/screenshot/setup/ClassWithProfile.jpg)
 
@@ -73,7 +73,7 @@ You can now select the profile (pressing its icon or its name)...
 
 ![ProfileName](../../assets/img/screenshot/setup/ProfileName.jpg)
 
-## Editing Students Profiles Settings
+## Edit Profile Settings
 
 You can also enable “EASY MODE” (to reduce the difficulty of the game for this specific student) and select the “TALK MODE” (meaning which languages should the game use for this specific student).
 
@@ -98,7 +98,7 @@ Once you have finished creating and editing the profile for your class, you can 
 > [!Reminder]
 > Before letting a student play, you should set his/her native language by pressing the button in the top-right corner.
 
-## Selecting What to Learn
+## Select What to Learn
 
 Press the Play button below the active profile to select what you want to learn.
 The game offers a list of books and you can scroll among them sliding the screen right or left.
