@@ -1,26 +1,26 @@
 ---
-title: "Manual"
+tytuł: „Instrukcja obsługi”
 ---
-# Learn with Antura - Manual
+# Ucz się z Anturą – Podręcznik
 
-> [!NOTE] For Educators 👩‍🏫  
-> Antura is more than a game: it can be combined with classroom activities, follow-up discussions, and learning materials.  
-> This manual helps you integrate Learn with Antura into your lessons and guide children through both play and discovery.
+&gt; [!UWAGA] Dla nauczycieli 👩‍🏫  
+&gt; Antura to coś więcej niż gra: można ją połączyć z zajęciami w klasie, dyskusjami uzupełniającymi i materiałami edukacyjnymi.  
+&gt; Niniejszy podręcznik pomoże Ci włączyć program „Ucz się z Anturą” do swoich lekcji i poprowadzić dzieci przez zabawę i odkrywanie.
 
-## Teacher Manual
+## Podręcznik dla nauczycieli
 
-- [Introduction](./introduction.md) - introduction to Learn with Antura
-- 📥 [Install](./install.md) - instructions for setting up on mobile or PC.  
-- [Setup](./setup.md) - step by step setup for classroom usage
-- 👩‍🏫 [Classroom Guide](./classroom_guide.md) - practical advice for using with your students.  
-- ❓ [FAQ](./faq.md) - answers to the most common questions.
+- [Wprowadzenie](./introduction.md) – wprowadzenie do Learn with Antura
+- 📥 [Instalacja](./install.md) - instrukcje dotyczące konfiguracji na urządzeniu mobilnym lub komputerze.  
+- [Konfiguracja](./setup.md) – konfiguracja krok po kroku do użytku w klasie
+- 👩‍🏫 [Przewodnik dla nauczycieli](./classroom_guide.md) – praktyczne porady dotyczące korzystania z programu wraz z uczniami.  
+- ❓ [FAQ](./faq.md) – odpowiedzi na najczęściej zadawane pytania.
 
-## Detailed modules
+## Szczegółowe moduły
 
-- 🎮 [Learn Languages](./learnlanguage_module.md) - the minigames that train letters, words, and vocabulary.  
-- 🌍 [Discover Cultures](./discover_introduction.md) - explore countries, traditions, and cultural heritage.  
+- 🎮 [Nauka języków](./learnlanguage_module.md) – minigry, które uczą liter, słów i słownictwa.  
+- 🌍 [Odkrywaj kultury](./discover_introduction.md) – poznaj kraje, tradycje i dziedzictwo kulturowe.  
 
-## For quest creators & developers
+## Dla twórców zadań i programistów
 
-Antura is built as an open framework. If you want to design new quests, activities, or contribute to the code:  
-👉 Start here: [How to create a new Quest](../dev/quest-design/index.md)
+Antura została stworzona jako otwarta platforma. Jeśli chcesz projektować nowe zadania, aktywności lub wnieść swój wkład w kod:  
+👉 Zacznij tutaj: [Jak stworzyć nową misję](../dev/quest-design/index.md)

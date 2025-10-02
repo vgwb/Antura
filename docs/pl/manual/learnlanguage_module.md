@@ -1,150 +1,150 @@
 ---
-title: Learn Languages
+tytuł: Nauka języków
 ---
-# Learn Languages
+# Naucz się języków
 
-![Alt text](../../assets/img/screenshot/docs_antura_home.jpg)
+![Tekst alternatywny](../../assets/img/screenshot/docs_antura_home.jpg)
 
-Learn with Antura is a game for the introduction to different languages (ENglish, French, Polish, Spanish, Arabics...) as a second language, aimed at children between 5 and 9 years old; equivalent to the contents of **PreA1** according to the **Common European Framework of Reference for Languages**.  
+Learn with Antura to gra służąca do nauki różnych języków (angielskiego, francuskiego, polskiego, hiszpańskiego, niemieckiego...) jako drugiego języka, przeznaczona dla dzieci w wieku od 5 do 9 lat; odpowiada poziomowi **PreA1** zgodnie z **Europejskim systemem opisu kształcenia językowego**.  
 
-Throughout the game, children learn the entire  alphabet, more than 250 words and a series of phrases and expressions. words and a series of simple phrases and expressions in a playful way.
+W trakcie gry dzieci w zabawny sposób uczą się całego  alfabetu, ponad 250 słów oraz szeregu zwrotów i wyrażeń.
 
-The game is organized in 6 different worlds each world includes between 15 and 20 didactic 20 didactic units, each one with a specific pedagogical specific pedagogical objective that is learned learning thanks to a series of mini-games and a final and concludes with a final test to reinforce the learning process.
+Gra składa się z 6 różnych światów, z których każdy zawiera od 15 do 20 jednostek dydaktycznych, z których każda ma określony cel pedagogiczny, który jest realizowany dzięki serii minigier i kończy się testem końcowym, który ma na celu utrwalenie procesu uczenia się.
 
-To pass the different mini-games words, images and sounds so that the learning process sounds so that the learning process and the learning process and progress in the game go hand in hand.
+Aby przejść różne minigry, słowa, obrazy i dźwięki, tak aby proces uczenia się przebiegał płynnie, a postępy w grze szły w parze z procesem uczenia się.
 
-## Current Learning Modules
+## Aktualne moduły edukacyjne
 
-### Learning a new Language
+### Nauka nowego języka
 
-- Learn English
-- Learn French
-- Learn German
-- Learn Hungarian
-- Learn Italian
-- Learn Polish
-- Learn Romanian
-- Learn Spanish
+- Nauka języka angielskiego
+- Naucz się francuskiego
+- Nauka niemieckiego
+- Naucz się węgierskiego
+- Naucz się włoskiego
+- Naucz się polskiego
+- Naucz się rumuńskiego
+- Naucz się hiszpańskiego
 
-### Learning to read your own language
+### Nauka czytania w swoim własnym języku
 
-- Learn To Read Arabic
-- Learn To Read Persian Dari
-- Learn To Read Pashto (in progress)
-- Learn To Read Ukrainian (in progress)
+- Naucz się czytać po arabsku
+- Naucz się czytać w języku perskim dari
+- Naucz się czytać w języku paszto (w trakcie realizacji)
+- Naucz się czytać po ukraińsku (w trakcie realizacji)
 
-### Supported native languages
-(the language used to speak to the player)
+### Obsługiwane języki ojczyste
+(język używany do komunikacji z graczem)
 
-- Arabic
-- English
-- French
-- German
-- Hungarian
-- Italian
-- Pashto (in progress)
-- Persian Dari
-- Polish
-- Romanian
-- Russian
-- Spanish
-- Ukrainian
+- arabski
+- angielski
+- francuski
+- niemiecki
+- Węgierski
+- włoski
+- paszto (w przygotowaniu)
+- Perski dari
+- Polski
+- rumuński
+- Rosyjski
+- Hiszpański
+- Ukraiński
 
-## Objectives
+## Cele
 
-![book](../../assets/img/screenshot/docs_antura_book.jpg)
+![książka](../../assets/img/screenshot/docs_antura_book.jpg)
 
-Learn with Antura aims to introduce to the language without the need to have had previous contact with it; this can take place in both academic and informal contexts, serving as a teaching support tool and a playful approach to learning English as a second language.
+Learn with Antura ma na celu wprowadzenie do języka bez konieczności wcześniejszego kontaktu z nim; może to odbywać się zarówno w kontekście akademickim, jak i nieformalnym, służąc jako narzędzie wspomagające nauczanie i zabawowe podejście do nauki języka angielskiego jako drugiego języka.
 
-Our main objective will be to familiarize children with basic English vocabulary and with the sonority of English at a level equivalent to PreA1; all this with great attention to the speaking part, which becomes a constant element throughout the game.
+Naszym głównym celem będzie zapoznanie dzieci z podstawowym słownictwem angielskim i brzmieniem języka angielskiego na poziomie odpowiadającym PreA1; wszystko to z dużym naciskiem na część mówioną, która staje się stałym elementem całej gry.
 
-The vocabulary chosen consists of more than 250 words organized in thematic groups as well as various expressions and phrases that will serve to introduce syntactic and grammatical questions that, although they are outside the explicit contents, appear in a transversal way with the objective of educating the ear.
+Wybrane słownictwo składa się z ponad 250 słów uporządkowanych w grupy tematyczne, a także różnych wyrażeń i zwrotów, które posłużą do wprowadzenia zagadnień syntaktycznych i gramatycznych, które choć wykraczają poza wyraźną treść, pojawiają się w sposób przekrojowy w celu wykształcenia słuchu.
 
-For the selection of this vocabulary we have taken into account the use of close and everyday objects together with the phonetic component so that we have all the phonemes represented in it.
+Przy wyborze tego słownictwa wzięliśmy pod uwagę użycie przedmiotów bliskich i codziennych wraz z komponentem fonetycznym, tak aby wszystkie fonemy były w nim reprezentowane.
 
-## Methodology
+## Metodologia
 
-Learn with Antura bases its **pedagogical model on meaningful learning** through a playful learning environment reinforced by a reward system. It complements learning models based on the communicative approach and oral communication with game systems that favor **Stealth Learning**, a method that allows children to focus on the game and the challenges it entails, without really having to make an effort to learn or memorize concepts.
+Learn with Antura opiera swój **model pedagogiczny na znaczącej nauce** poprzez zabawowe środowisko edukacyjne wzmocnione systemem nagród. Uzupełnia modele nauczania oparte na podejściu komunikacyjnym i komunikacji ustnej systemami gier sprzyjającymi **uczeniu się w ukryciu**, metodą, która pozwala dzieciom skupić się na grze i związanych z nią wyzwaniach, bez konieczności podejmowania wysiłku, aby nauczyć się lub zapamiętać pojęcia.
 
-The game introduces new concepts without any theoretical explanation, it simply proposes a challenge and guides the player through the first steps so that he/she can then advance on his/her own, creating his/her own mental model of knowledge. Each time the player interacts with a letter or a word, the game pronounces it in the correct way, reinforcing the learning process.
+Gra wprowadza nowe pojęcia bez żadnych teoretycznych wyjaśnień, po prostu proponuje wyzwanie i prowadzi gracza przez pierwsze kroki, aby mógł on następnie samodzielnie posuwać się naprzód, tworząc własny mentalny model wiedzy. Za każdym razem, gdy gracz wchodzi w interakcję z literą lub słowem, gra wymawia je w prawidłowy sposób, wzmacniając proces uczenia się.
 
-The content has been organized around the learning of words through pictograms, locutions and their written forms so that they are related in a triangular way giving rise to inferences and deductions that serve to grasp the proposed vocabulary through its use in the various game mechanics.
+Treść została zorganizowana wokół nauki słów poprzez piktogramy, wyrażenia i ich formy pisemne, tak aby były one powiązane w trójkątny sposób, dając początek wnioskom i dedukcjom, które służą zrozumieniu proponowanego słownictwa poprzez jego wykorzystanie w różnych mechanizmach gry.
 
-Priority is given to the listening process, the association of sound and pictogram and the sonority of all clickable elements to reinforce at all times the phonetic issues and familiarization with the English sonority.
+Priorytetem jest proces słuchania, kojarzenie dźwięku i piktogramu oraz brzmienie wszystkich elementów, które można kliknąć, aby w każdym momencie wzmacniać kwestie fonetyczne i oswajanie się z brzmieniem języka angielskiego.
 
-In addition, the game offers rewards in the form of cookies that can be used to purchase aesthetic accessories to add to Antura's character, who will be our companion in our adventures throughout the game. This way we add an additional motivation to complete the different levels properly and to use the application frequently.
+Ponadto gra oferuje nagrody w postaci ciasteczek, które można wykorzystać do zakupu dodatków estetycznych dla postaci Antury, która będzie nam towarzyszyć w naszych przygodach w trakcie gry. W ten sposób dodajemy dodatkową motywację do prawidłowego ukończenia różnych poziomów i częstego korzystania z aplikacji.
 
-## Pedagogical path
+## Ścieżka pedagogiczna
 
-![path](../../assets/img/screenshot/docs_antura_flow.jpg)
+![ścieżka](../../assets/img/screenshot/docs_antura_flow.jpg)
 
-The game is composed of 6 different worlds that we will go through playing the different didactic units and tests. Each of the worlds includes several groups of words, in each one we will work with around 50 words organized in groups of between 8 and 12.
+Gra składa się z 6 różnych światów, przez które będziemy przechodzić, grając w różne jednostki dydaktyczne i testy. Każdy ze światów zawiera kilka grup słów, w każdej z nich będziemy pracować z około 50 słowami zorganizowanymi w grupy od 8 do 12.
 
-Each group of words will be introduced through blocks of mini-games in a progressive way, first presenting games with the objective of making us discover the words and then later challenging us to recognize the words previously presented. At the end of each 2 or 3 groups of words there will be a series of mini-games dedicated to familiarize us with their use in sentences. At the end of each group of mini-games, there are settlement phases with specific tests to review the contents before advancing.
+Każda grupa słów będzie wprowadzana stopniowo poprzez bloki minigier, najpierw prezentując gry, których celem jest odkrycie słów, a następnie rzucając nam wyzwanie rozpoznania wcześniej przedstawionych słów. Na końcu każdej z 2 lub 3 grup słów znajduje się seria minigier poświęconych zapoznaniu się z ich użyciem w zdaniach. Na końcu każdej grupy minigier znajdują się fazy podsumowujące z konkretnymi testami, które pozwalają powtórzyć treść przed przejściem dalej.
 
-We start with an introductory world where you will become familiar with English phonetics through the alphabet and where we will see the first vocabulary words that will be added transversely to the rest of the worlds. The different worlds are as follows:
+Zaczynamy od świata wprowadzającego, w którym zapoznasz się z fonetyką języka angielskiego poprzez alfabet i gdzie zobaczymy pierwsze słowa, które zostaną dodane poprzecznie do pozostałych światów. Różne światy są następujące:
 
-1. Alphabet
-2. Nature and animals
-3. Home, objects and clothes
-4. City and family
-5. Body parts and food
-6. Calendar, Colors and Numbers
+1. Alfabet
+2. Przyroda i zwierzęta
+3. Dom, przedmioty i ubrania
+4. Miasto i rodzina
+5. Części ciała i jedzenie
+6. Kalendarz, kolory i liczby
 
-## Development
+## Rozwój
 
-This is the flowchart of the entire application with the transitions between the different sections of the application:
+Poniżej przedstawiono schemat blokowy całej aplikacji wraz z przejściami między różnymi sekcjami aplikacji:
 
 ![flow](../../assets/img/screenshot/docs_antura_flow2.jpg)
 
 ### Start
-The first screen of the game offers the possibility to create a new profile or to continue playing with a previously created profile. Also from this section you can access the options (e.g. to turn on or off the background music) and the section reserved for the teacher.
+Pierwszy ekran gry oferuje możliwość utworzenia nowego profilu lub kontynuowania gry przy użyciu wcześniej utworzonego profilu. Również z tej sekcji można uzyskać dostęp do opcji (np. włączenia lub wyłączenia muzyki w tle) oraz sekcji zarezerwowanej dla nauczyciela.
 
-### Profile creation
+### Tworzenie profilu
 
-![profile](../../assets/img/screenshot/docs_antura_profile.jpg)
+![profil](../../assets/img/screenshot/docs_antura_profile.jpg)
 
-The game allows you to create custom profiles with different faces, colors for the skin, hair and background of your avatar. For the creation of teacher profiles we will have to access the Teacher Section.
+Gra umożliwia tworzenie niestandardowych profili z różnymi twarzami, kolorami skóry, włosów i tła awatara. Aby utworzyć profile nauczycieli, należy przejść do sekcji dla nauczycieli.
 
-### Gifts for Antura
-As soon as you create a profile you will receive the first gift to customize Antura. You will receive more gifts every time you finish a didactic unit, after completing each settlement phase. In total there are more than 90 gifts in the game, each one customizable with 16 color combinations.
+### Prezenty dla Antury
+Po utworzeniu profilu otrzymasz pierwszy prezent, który pozwoli Ci spersonalizować Anturę. Kolejne prezenty będziesz otrzymywać po ukończeniu każdej jednostki dydaktycznej, po zakończeniu każdej fazy osadnictwa. W grze dostępnych jest łącznie ponad 90 prezentów, z których każdy można spersonalizować za pomocą 16 kombinacji kolorów.
 
-### Antura Space
+### Przestrzeń Antury
 
-![space](../../assets/img/screenshot/docs_antura_space.jpg)
+![przestrzeń](../../assets/img/screenshot/docs_antura_space.jpg)
 
-In this section the player can customize Antura with the gifts he has received and can also use the bone-shaped cookies that he will earn by advancing in the game.
+W tej sekcji gracz może dostosować Anturę za pomocą otrzymanych prezentów, a także wykorzystać ciasteczka w kształcie kości, które zdobędzie w miarę postępów w grze.
 
-The cookies can be thrown to Antura or can be spent to buy decorations for her room. In addition, with the cookies the player can take pictures of Antura in her room. The photos are automatically stored in the device's photo gallery.
+Ciasteczka można rzucać do Antury lub wykorzystać do zakupu dekoracji do jej pokoju. Ponadto za pomocą ciasteczek gracz może robić zdjęcia Antury w jej pokoju. Zdjęcia są automatycznie zapisywane w galerii zdjęć urządzenia.
 
-### The map
-Learning the English language is represented by a journey through 6 worlds, each with a different environment: mountains, islands, prairie, desert, forest and city.
+### Mapa
+Nauka języka angielskiego jest przedstawiona jako podróż przez 6 światów, z których każdy ma inne środowisko: góry, wyspy, preria, pustynia, las i miasto.
 
-The journey is divided into many steps and each time the player successfully completes a game session (mini-game sequence or quiz) he advances to the next step. This does not prevent him to go back and play again a previous session, either to review the didactic contents or to get the highest score (3 stars). The map not only allows you to visualize very explicitly the progress along the journey, it also allows you to access other key sections such as Antura's room and the dictionary.
+Podróż podzielona jest na wiele etapów i za każdym razem, gdy gracz pomyślnie ukończy sesję gry (sekwencję minigier lub quiz), przechodzi do następnego etapu. Nie przeszkadza mu to jednak wrócić i ponownie zagrać w poprzednią sesję, aby powtórzyć treści dydaktyczne lub uzyskać najwyższy wynik (3 gwiazdki). Mapa nie tylko pozwala bardzo wyraźnie wizualizować postępy w podróży, ale także umożliwia dostęp do innych kluczowych sekcji, takich jak pokój Antury i słownik.
 
-## Statistics and dictionary
-This section allows the player to check his main statistics and consult the dictionary. The dictionary includes all the selected words and an alphabet that shows the different phonemes associated with each spelling. In addition, all the mini-games can be launched directly from this section, to practice with them.
+## Statystyki i słownik
+Ta sekcja pozwala graczowi sprawdzić swoje główne statystyki i skorzystać ze słownika. Słownik zawiera wszystkie wybrane słowa oraz alfabet pokazujący różne fonemy związane z każdą pisownią. Ponadto wszystkie mini-gry można uruchomić bezpośrednio z tej sekcji, aby poćwiczyć z nimi.
 
-## Mood
-When a player launches the game and starts playing with an existing profile, the first section presented to him/her is this one; it will appear the first time the game is started each day. We are in a moment of reflection on their mood thanks to a simple question: "How are you feeling today?" It is answered simply by touching one of the 5 emoticons that appear on the screen.
+## Nastrój
+Kiedy gracz uruchamia grę i zaczyna grać przy użyciu istniejącego profilu, pierwszą sekcją, którą widzi, jest ta sekcja; pojawia się ona przy pierwszym uruchomieniu gry każdego dnia. Dzięki prostemu pytaniu „Jak się dzisiaj czujesz?” gracz ma chwilę na zastanowienie się nad swoim nastrojem. Odpowiedź udziela się po prostu, dotykając jednej z 5 emotikonów wyświetlanych na ekranie.
 
-## Daily prizes
-Every day the player will **receive cookies just for launching the game** and answering the question about his/her mood. The number of cookies increases each time the player plays again the next day, motivating a daily use of the game.
+## Codzienne nagrody
+Każdego dnia gracz **otrzymuje ciasteczka za samo uruchomienie gry** i odpowiedź na pytanie dotyczące jego nastroju. Liczba ciasteczek rośnie z każdym kolejnym dniem, w którym gracz ponownie uruchamia grę, motywując go do codziennego korzystania z niej.
 
-## Teacher Panel
-This section is protected by a question (so children cannot access it on their own) and will offer all the functionalities exclusively for teachers:
-Possibility to create a Teacher profile to freely access all the contents of the game. Possibility to consult the progress of the profile as an external observer.
+## Panel nauczyciela
+Ta sekcja jest chroniona hasłem (aby dzieci nie miały do niej samodzielnego dostępu) i oferuje wszystkie funkcje przeznaczone wyłącznie dla nauczycieli:
+Możliwość utworzenia profilu nauczyciela, aby uzyskać swobodny dostęp do wszystkich treści gry. Możliwość sprawdzenia postępów profilu jako zewnętrzny obserwator.
 
-CODE TO ACCESS THE TEACHER PROFILE: press the green button 5 times and then press the red button once. When entering with the teacher profile we will start at the end of the game, right at the end of the last didactic unit of the last world; this way we will be able to move around the map without restrictions and access all the didactic units.
+KOD DOSTĘPU DO PROFILU NAUCZYCIELA: naciśnij 5 razy zielony przycisk, a następnie 1 raz czerwony przycisk. Po zalogowaniu się na profil nauczyciela rozpoczniemy grę od końca, czyli od ostatniej jednostki dydaktycznej ostatniego świata; w ten sposób będziemy mogli poruszać się po mapie bez ograniczeń i uzyskać dostęp do wszystkich jednostek dydaktycznych.
 
-## Educational units
-Each world includes between 15 and 20 teaching units, each with a specific pedagogical objective. Each unit consists of a series of mini-games and concludes with a final test to consolidate learning. The didactic units will be marked on the map by threaded markers, the settlement phases by pencils and the units dedicated to experimenting with phrases by mailboxes.
+## Jednostki edukacyjne
+Każdy świat zawiera od 15 do 20 jednostek dydaktycznych, z których każda ma określony cel pedagogiczny. Każda jednostka składa się z serii minigier i kończy się testem końcowym, który ma na celu utrwalenie wiedzy. Jednostki dydaktyczne będą oznaczone na mapie znacznikami z nitką, fazy osadnictwa ołówkami, a jednostki poświęcone eksperymentowaniu z frazami skrzynkami pocztowymi.
 
-## Vocabulary Content
+## Zawartość słownictwa
 
-### World 1: Alphabet
+### Świat 1: Alfabet
 
-There are 5 letter groups:
+Istnieje 5 grup liter:
 
 1. A, E, C, R, S, T
 2. O, D, L, M, N
@@ -152,101 +152,101 @@ There are 5 letter groups:
 4. U, B, K, P, V
 5. Y, J, Q, X, Z
 
-For each group of letters the playr will repeat the same pedagogucal steps and activities, oerganized i nthe following sequence of 3 didactical units:
+Dla każdej grupy liter gracz powtórzy te same kroki pedagogiczne i ćwiczenia, zorganizowane w następującej kolejności trzech jednostek dydaktycznych:
 
-**1. Discover Letters and their name**
+**1. Odkrywanie liter i ich nazw**
 
 - ColorTickle_LetterName
-- ThrowBalls_LetterName
-- FastCrowd_LetterName
-- Assessment_LetterName (test)
+- Rzucaj piłkami_Nazwa litery
+- FastCrowd_Nazwa_litery
+- Ocena_Nazwa_Litery (test)
 
-**2. Recognize letters by its name**
+**2. Rozpoznawanie liter po nazwie**
 
 - Song_Alphabet
 - Egg_LetterName
 - HideSeek_LetterName
-- Assessment_LetterName (test)
+- Ocena_Nazwa_Litery (test)
 
-**3. Discover words using known letters**
+**3. Odkrywaj słowa przy użyciu znanych liter**
 
 - FastCrowd_BuildWord
-- ThrowBalls_BuildWord
+- Rzucaj piłkami_Buduj słowa
 - Egg_BuildWord
-- Assessment_OrderLettersOfWord (test)
+- Ocena_Kolejność liter w słowie (test)
 
 
-### Discover vocabulary
-Each world from 2 to 6 wil work with about 50 words organized in several subgroup of 10 words each. For each group will be repeated the same pedagogycal steps and the same activities, organized like in the following sequences of 4 didactical units:
+### Odkrywanie słownictwa
+Każdy świat od 2 do 6 będzie obejmował około 50 słów podzielonych na kilka podgrup po 10 słów każda. Dla każdej grupy powtórzone zostaną te same etapy pedagogiczne i te same ćwiczenia, zorganizowane w następujących sekwencjach 4 jednostek dydaktycznych:
 
-1. Discover and recognize words by their image and sound
+1. Odkrywanie i rozpoznawanie słów na podstawie ich obrazu i brzmienia
     - ColorTickle_Image
     - ThrowBalls_Image
     - FastCrowd_Image
-    - Balloons_Image
+    - Balony_Obraz
     - Egg_Image
     - HideSeek_Image
-    - Assessment_MatchWordToImage (test)
-2. Discover words by its lettering, sounds and drawings
-    - ThrowBalls_BuildWord
-    - FastCrowd_BuildWord
-    - Egg_BuildWord
-    - MixedLetters_BuildWord
-    - Assessment_MatchWordToImage (test)
-3. Recognize words by it's lettering, sounds and drawing
-    - ThrowBalls_Word
-    - FastCrowd_Word
-    - Balloons_Word
-    - Assessment_SelectPronouncedWord (test)
-4. Get used to short sentences using the learned words
+    - Ocena_Dopasuj_słowo_do_obrazka (test)
+2. Odkrywaj słowa na podstawie ich pisowni, brzmienia i rysunków
+    - Rzucaj piłkami_Twórz słowa
+    - FastCrowd_Budowanie_słowa
+    - Egg_Budowanie_słowa
+    - Mieszane litery_Budowanie słów
+    - Ocena_Dopasuj_słowo_do_obrazka (test)
+3. Rozpoznawanie słów na podstawie liter, dźwięków i rysunków
+    - Rzucanie piłkami_Słowo
+    - Szybka_grupa_słowa
+    - Balony_Słowo
+    - Ocena_Wybierz_wymawiane_słowo (test)
+4. Przyzwyczaj się do krótkich zdań zawierających nauczone słowa
     - Song_Word
     - ReadingGame_Phrase
-    - MissingLetter_Phrase
-    - Assessment_QuestionAndReply (test)
+    - Brakująca_litera_fraza
+    - Ocena_PytanieIOdpowiedź (test)
 
-### World 2: Animals and Nature
+### Świat 2: Zwierzęta i przyroda
 
-**Nature**  
-BEACH, BREEZE, CLOUD, DESERT, FIRE, FLOWER, FOREST, HILL, ISLAND, MOON, MOUNTAIN, PLANT, RAIN, RIVER, SEA, SKY, SNOW, STAR, STONE, SUN, TREE, VOLCANO
+**Przyroda**  
+PLAŻA, BRYZA, CHMURA, PUSTYNIA, OGNIE, KWIAT, LAS, WZGÓRZE, WYSPY, KSIĘŻYC, GÓRY, ROŚLINY, DESZCZ, RZEKA, MORZE, NIEBO, ŚNIEG, GWIAZDA, KAMIEŃ, SŁOŃCE, DRZEWO, WULKAN
 
-**Animals**  
-BEAR, BEE, BIRD, CAMEL, CAT, CHICKEN, COW, CROCODILE, DOG, DUCK, ELEPHANT, FOX, FROG, GOAT, HORSE, LION, LIZARD, MONKEY, OCTOPUS, PARROT, PENGUIN, PIG, RAT, SNAKE, SQUIRREL, TIGER, TURTLE, WHALE
+**Zwierzęta**  
+NIEDŹWIEDŹ, PSZCZOŁA, PTAK, WIELBŁĄD, KOT, KURCZAK, KROWA, KROKODYL, PIES, KACZKA, SŁOŃ, LIS, ŻABA, KOZA, KONIE, LW, JASZCZURKA, MAŁPA, OŚMIORNICA, PAPUGA, PINGWIN, ŚWINIA, SZCZUR, WĄŻ, WIEWIÓRKA, TYGRYS, ŻÓŁW, WIELORYB
 
-### World 3: Home, Objects, Cloths
+### Świat 3: Dom, przedmioty, ubrania
 
-**Home**  
-BED, BEDROOM, CHAIR, CLOSET, COMPUTER, COUCH, CUP, DISH, DOOR, FLOOR, FORK, FRIDGE, KITCHEN, KNIFE, LAMP, MIRROR, OVEN, ROOF, SHOWER, SINK, SOAP, SPOON, STAIRS, STOVE, TABLE, TELEVISION, TOILET, TOWEL, WINDOW
+**Dom**  
+ŁÓŻKO, SYPIALNIA, KRZESŁO, SZAFA, KOMPUTER, KANAPA, FILIŻANKA, TALERZ, DRZWI, PODŁOGA, WIDELEC, LODÓWKA, KUCHNIA, NÓŻ, LAMPKA, LUSTRO, PIEC, DACH, PRYSZNIC, ZLEW, MYDŁO, ŁYŻKA, SCHODY, KUCHENKA, STÓŁ, TELEWIZOR, TOALETA, RĘCZNIK, OKNO
 
-**Objects and Clothes**  
-BALL, BOOK, BOX, COAT, DOLL, GLOVES, GLUE, HAT, JACKET, NEEDLE, PAPER, PENCIL, SCARF, SCISSORS, SHIRT, SHOES, SKIRT, SOCKS, TEST, TOY, TROUSERS
+**Przedmioty i ubrania**  
+PIŁKA, KSIĄŻKA, PUDEŁKO, PŁASZCZ, LALKA, RĘKAWICZKI, KLEJ, CZAPKA, KURTKA, IGŁA, PAPIER, OŁÓWEK, SZALIK, NOŻYCZKI, KOSZULA, BUTY, SPÓDNICA, SKARPETKI, TEST, ZABAWKA, SPODNIE
 
-### World 4: City, Family
+### Świat 4: Miasto, rodzina
 
-**City**  
-AIRPORT, BANK, BICYCLE, BUS, CAR, CASTLE, CHURCH, CITY, CLASSROOM, FIELD, GARDEN, HOSPITAL, HOUSE, LIBRARY, MARKET, MOTORBIKE, MUSEUM, PARK, PHARMACY, PLANE, PLAYGROUND, RESTAURANT, PORT, ROAD, SCHOOL, SHOP, STATION, STREET, THEATRE, TOWN, TRAIN, TRUCK, Z, ## Fami, AUNT, BOY, BROTHER, DAUGHTER, FATHER, GIRL, GRANDDAUGHTER, GRANDFATHER, GRANDMOTHER, GRANDSON, MAN, MOTHER, PET, SISTER, SON, UNCLE, WOMAN
+**Miasto**  
+LOTNISKO, BANK, ROWER, AUTOBUS, SAMOCHÓD, ZAMEK, KOŚCIÓŁ, MIASTO, SALA LEKCYJNA, POLE, OGRÓD, SZPITAL, DOM, BIBLIOTEKA, TARG, MOTOCYKL, MUZEUM, PARK, APTEKA, SAMOLOT, PLAC ZABAW, RESTAURACJA, PORT, DROGA, SZKOŁA, SKLEP, STACJA, ULICA, TEATR, MIASTO, POCIĄG, CIĘŻARÓWKA, Z, ## Rodzina, CIOTKA, CHŁOPIEC, BRAT, CÓRKA, OJCIEC, DZIEWCZYNKA, WNUCZKA, DZIADEK, BABCIA, WNUK, MĘŻCZYZNA, MATKA, ZWIERZĘ DOMOWE, SIOSTRA, SYN, WUJEK, KOBIETA
 
-### World 5: Food, Body
+### Świat 5: Jedzenie, ciało
 
-**Food**  
-APPLE, APRICOT, BANANA, BREAD, CAKE, CARROT, CHEESE, CHERRY, CHICKPEA, COFFEE, CUCUMBER, FOOD, GARLIC, GRAPES, JUICE, MEAT, OIL, ONION, PEAR, PEPPER, POTATO, RICE, SALT, SUGAR, TEA, TOMATO, WATER, WATERMELON, YOGHURT
+**Jedzenie**  
+JABŁKO, MARSZCZYNKA, BANAN, CHLEB, CIASTO, MARCHEWKA, SER, WIŚNIA, CIECIERZYCA, KAWA, OGÓREK, ŻYWNOŚĆ, CZOSNEK, WINOGRONA, SOK, MIĘSO, OLEJ, CEBULA, GRUSZKA, PIEPRZ, ZIEMNIAK, RYŻ, SÓL, CUKIER, HERBATA, POMIDOR, WODA, ARBUZ, JOGURT
 
-**Body**  
-ARM, BACK, BELLY, BRAIN, CHEST, EAR, EYE, FACE, FINGER, FOOT, HAIR, HAND, HEAD, LEG, LIPS, MOUTH, NAIL, NOSE, TEAR, TONGUE, TOOTH
+**Ciało**  
+RĘKA, PLECY, BRZUCH, MÓZG, KLATKA PIERSIOWA, UCHO, OKO, TWARZ, PALEC, STOPA, WŁOSY, DŁOŃ, GŁOWA, NOGA, USTA, USTA, PAZNOKCIE, NOS, ŁZA, JĘZYK, ZĄB
 
-### World 6: Calendar, Colors, Numbers
+### Świat 6: Kalendarz, kolory, liczby
 
-**Colors**  
-BLACK, BLUE, BROWN, GREEN, GREY, ORANGE, PINK, PURPLE, RED, WHITE, YELLOW
+**Kolory**  
+CZARNY, NIEBIESKI, BRĄZOWY, ZIELONY, SZARY, POMARAŃCZOWY, RÓŻOWY, FIOLETOWY, CZERWONY, BIAŁY, ŻÓŁTY
 
-**Days & Seasons**  
-MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY, SPRING, SUMMER, AUTUMN, WINTER
+**Dni i pory roku**  
+PONiedziałek, WTOREK, ŚRODA, CZWARTEK, PIĄTEK, SOBOTA, NIEDZIELA, WIOSNA, LATO, JESIEŃ, ZIMA
 
-**Numbers**  
-ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE, THIRTEEN, FOURTEEN, FIFTEEN, SIXTEEN, SEVENTEEN, EIGHTEEN, NINETEEN, TWENTY
+**Liczby**  
+ZERO, JEDEN, DWIE, TRZY, CZTERY, PIĘĆ, SZEŚĆ, SIEDEM, OSIEM, DZIEWIĘĆ, DZIESIĘĆ, JEDENAST, DWANAŚCIE, TRZYNAŚCIE, CZTERNAŚCIE, PIĘTNAŚCIE, SZESNAŚCIE, SIEDEMNAŚCIE, OSIEMNAŚCIE, DZIEWIĘTNAŚCIE, DWADZIEŚCIA
 
-**Months**  
-JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+**Miesiące**  
+STYCZEŃ, LUTY, MARZEC, KWIECIEŃ, MAJ, CZERWIEC, LIPIEC, SIERPIEŃ, WRZESIEŃ, PAŹDZIERNIK, LISTOPAD, GRUDZIEŃ
 
-![content 1](../../assets/img/screenshot/docs_antura_content_1.jpg)
-![content 2](../../assets/img/screenshot/docs_antura_book2.jpg)
-![book](../../assets/img/screenshot/docs_antura_book2.jpg)
+![treść 1](../../assets/img/screenshot/docs_antura_content_1.jpg)
+![treść 2](../../assets/img/screenshot/docs_antura_book2.jpg)
+![książka](../../assets/img/screenshot/docs_antura_book2.jpg)

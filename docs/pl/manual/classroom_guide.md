@@ -1,146 +1,143 @@
 ---
-title: Classroom Guide
-status: new
+tytuł: Przewodnik dla nauczycieli
+status: nowy
 ---
 
-# Classroom Guide
+# Przewodnik dla nauczycieli
 
-This guide provides some practical suggestions for teachers using **Learn with Antura** in class, including the following steps:  
+Niniejszy przewodnik zawiera praktyczne wskazówki dla nauczycieli korzystających z programu **Learn with Antura** podczas zajęć, w tym następujące kroki:  
 
-1. Preparing a play session.  
-2. Introducing a play session.  
-3. Playing in the classroom.
-4. Post session debrief and activities.
-5. Providing feedback to help improve the game.  
+1. Przygotowanie sesji zabawy.  
+2. Przedstawienie sesji zabawy.  
+3. Zabawa w klasie.
+4. Podsumowanie i działania po sesji.
+5. Przekazywanie informacji zwrotnych w celu ulepszenia gry.  
 
-This approach creates a **virtuous loop of play → reflection → feedback → improvement**, ensuring the game is not only fun but also a powerful learning tool.  
+Takie podejście tworzy **pozytywny cykl zabawa → refleksja → opinie → ulepszenia**, dzięki czemu gra jest nie tylko zabawą, ale także potężnym narzędziem edukacyjnym.  
 
-## Preparing a play session
+## Przygotowanie sesji gry
 
-The **teachers must know the game**: they should play every didactical unit at least once before introducing it in classroom. This is valid for both modules so the didactical unit couls be either a series of language learning minigames or a cultural quest. It would be even better if teachers could take the time to read all the didactical unit content (either letters and words or topics and cards) to be able to help kids in case of need and to prepare in advace a post session activity.
-Moreover, teachers should check regularly (i.e. once a week) if a new version of the game is available in order to always use the latest version. 
+**Nauczyciele muszą znać grę**: powinni zagrać w każdą jednostkę dydaktyczną co najmniej raz przed wprowadzeniem jej do klasy. Dotyczy to obu modułów, więc jednostka dydaktyczna może być serią minigier językowych lub zadaniem kulturowym. Byłoby jeszcze lepiej, gdyby nauczyciele poświęcili czas na przeczytanie całej treści jednostki dydaktycznej (zarówno liter i słów, jak i tematów i kart), aby w razie potrzeby móc pomóc dzieciom i przygotować z wyprzedzeniem zajęcia po zakończeniu sesji.
+Ponadto nauczyciele powinni regularnie (np. raz w tygodniu) sprawdzać, czy dostępna jest nowa wersja gry, aby zawsze korzystać z najnowszej wersji. 
 
-### Planning the sessions
+### Planowanie sesji
 
-We recommend to alternate the 2 modules (Learn Language and Discover Culture) dedicating a session to the first module and the next session to the second one. 
+Zalecamy naprzemienne stosowanie dwóch modułów (nauka języka i odkrywanie kultury), poświęcając jedną sesję pierwszemu modułowi, a następną sesję drugiemu modułowi. 
 
+## Wprowadzenie sesji zabawowej
 
-## Introducing a play session
+Po wejściu do klasy, przed rozpoczęciem zabawy, nauczyciele powinni wyjaśnić uczniom, w co będą się bawić i dlaczego.   
 
-Once in the classroom, before starting to play, teachers should explain to the students what they are going to play and why.   
+- _Gra pomoże wam nauczyć się nowych słów lub poznać niektóre aspekty kultury..._  
+- _Zagłębicie się w ten temat, grając w tę grę..._  
 
-- _The game will help you learn new words or some aspects of culture..._  
-- _You will explore this topic by playing this quest..._  
+&gt; [!Przypomnienie]
+&gt; Pamiętaj, aby odpowiednio ustawić klasę w Strefie Nauczyciela, zawsze przydzielać każdemu uczniowi to samo urządzenie (aby mieli swój profil do wyboru) oraz wybrać właściwy język ojczysty dla każdego dziecka.
 
-> [!Reminder]
-> Remeber to set properly the class in the Teachers Area, to always give the same device to each student (so they have their profile to select) and to select the correct native language for each kid.
+## Zabawa w klasie
 
-## Playing in the classroom
+### Wyjaśnienie zasad gry
 
-### Explaining how to play
+Bardzo ważne jest, aby wszystkie dzieci wiedziały, jak grać, zwłaszcza podczas pierwszych sesji, kiedy nie są jeszcze zaznajomione z grą. 
 
-Ensuring that all kids know how to play is very important, especially in the first play sessions when they have not familiarized with the game yet. 
+&gt; [!TIP]
+&gt; Byłoby wspaniale, gdyby nauczyciel mógł odtworzyć samouczek na dużym ekranie i pokazać wszystkim dzieciom, jak grać i co mają robić. Jeśli nie jest to możliwe, wszystkie dzieci powinny przejść samouczek indywidualnie, a nauczyciel powinien nadzorować sesję, pomagając wszystkim dzieciom, które potrzebują wskazówek.
 
-> [!TIP]
-> It would be great if the teacher could play the tutorial on a big screen and let all kids see how to play and what they are supposed to do. If it's not possible, all kids should play the tutorial indivually and the teacher should supervise the session, helping all kids who need guidance.
+### Gra indywidualna 
 
-### Individual play 
+W ramach testów projektu [ANTURA Erasmus+](../about/erasmus/index.md) skupimy się na grze indywidualnej (jedno dziecko, jedno urządzenie), ale gra może być wyświetlana dla całej klasy (na dużym ekranie) lub rozgrywana w małych grupach (np. w parach).
 
-Within the mark of the [ANTURA Erasmus+ project](../about/erasmus/index.md) testing, we will focus on individual play (one kid, one device) but the game could be projected for the whole class (on a big screen) or it could be played in small groups (i.e. in pairs).
+W przypadku gry indywidualnej uczniowie grają na „własnych” urządzeniach przez określony czas (powiedzmy 20–25 minut).  
+Celem jest ukończenie jednostki dydaktycznej, ale nauczyciele powinni przerwać sesję, jeśli osiągnie ona limit czasowy (sesja gry nie powinna trwać dłużej niż 30 minut).
+W ten sposób każdy uczeń może grać i uczyć się we własnym tempie, a nawet powtórzyć niektóre treści, aby poprawić wynik lub znaleźć wszystkie ukryte bonusy.  
 
-With individual play, students play on "their own" devices for a fixed time (say 20-25 minutes).  
-The objective is to complete a didactical unit, but teachers should stop the session if it reaches the time limit (a playing session should never last more then 30 minutes).
-This way each student can play and learn at his/her own pace and even replay some content to improve the score or to find all hidden bonuses.  
+&gt; [!tip] 
+&gt; Nauczyciele mogą kierować i motywować uczniów, wyznaczając im dodatkowe cele pośrednie (np. „odblokuj 2 karty i zrób zrzut ekranu swojej książki”).  
 
-> [!tip] 
-> Teachers can guide and motivate students by giving them additional sub-goals (i.e. “unlock 2 cards and take a screenshot of your Book”).  
+## Podsumowanie i działania po sesji
 
-## Post session debrief and activities
+Aby utrwalić efekty nauki, zalecamy następujące interakcje po zakończeniu sesji zabawy.
 
-### Words
+### Słownictwo
 
-> [!tip] Pronunciation activity
-> Students repeat after a Living Letter, then use the word in a sentence related to the quest.  
+Powtórz i przećwicz słowa nauczone podczas sesji.
 
-> [!tip] Explain a card
-> After play, ask learners to open the Book and explain one card to a peer.  
+&gt; [!tip] Ćwiczenie wymowy
+&gt; Uczniowie powtarzają za Living Letter, a następnie używają słowa w zdaniu związanym z zadaniem.  
 
-> [!tip] Bonus Malus
-> Citizenship link: Discuss how in‑game choices mirror respectful behavior in real life.  
+&gt; [!tip] Wyjaśnij kartę
+&gt; Po zakończeniu zabawy poproś uczniów, aby otworzyli książkę i wyjaśnili jedną kartę kolegom.  
 
-> [!tip] world map
-> For homework, let students explore in Home mode and bring one new card to share.  
+### Refleksja
 
-### Reflection
+Refleksja po zabawie pomaga utrwalić naukę. 
+Oto lista przykładowych pytań, które mogą pomóc w refleksji:  
 
-Reflection after play helps consolidate learning. 
-Here's a list of sample questions to stimulate the reflection:  
+**Ogólne**:  
 
-**Generic**:  
+- Jakich nowych słów lub zwrotów się nauczyłeś?  
+- Co było najtrudniejsze?  
+- W jaki sposób gra pomogła Ci zrozumieć tę kulturę?  
 
-- What new words or phrases did you learn?  
-- What was the most challenging part?  
-- How did the game help you understand this culture?  
+**Konkretne przykłady**:  
 
-**Specific examples**:  
+- Czym jest _Notre Dame de Paris_?  
+- Jak powstaje _bagietka_?  
 
-- What is _Notre Dame de Paris_?  
-- How is a _Baguette_ made?  
+**Dyskusja grupowa**  
 
-**Group discussion**  
+- Poproś uczniów, aby podzielili się swoimi ulubionymi momentami.  
+- Połącz odkrycia z gry z tematami programu nauczania lub osobistymi doświadczeniami.  
 
-- Invite students to share favorite moments.  
-- Connect in-game discoveries to curriculum topics or personal experiences.  
+**Refleksja i prowadzenie dziennika**  
 
-**Reflection and journaling**  
+- Zachęcaj uczniów do prowadzenia **dziennika gry** (krótkie notatki lub rysunki).  
+- Promuje metapoznanie: uczniowie krytycznie myślą o tym, czego się nauczyli.  
 
-- Encourage students to keep a **Game Journal** (short notes or drawings).  
-- Promotes metacognition: they think critically about what they learned.  
+Szybkie pisanie (3 minuty): „Jedna rzecz, której się nauczyłem, jedno pytanie, które nadal mam”.  
 
-Quick write (3 minutes): “One thing I learned, one question I still have.”  
+### Działania po sesji
 
-### Post game activities
+**Badania i aktywność w Google Maps**  
 
-**Research and Google Maps activity**  
+- Po zakończeniu zabawy uczniowie szukają informacji na temat kultury w Internecie.  
+- Przykład: po zwiedzaniu Paryża mogą wyszukać **Notre Dame** lub użyć Google Maps, aby zlokalizować tę budowlę.  
+- Rozszerza grę o **odkrywanie świata rzeczywistego**.  
 
-- After play, students research the cultural topic online.  
-- Example: after exploring Paris, they can look up **Notre Dame** or use Google Maps to locate it.  
-- Extends the game into **real-world discovery**.  
+Zadanie dodatkowe: znajdź jeden lokalny odpowiednik (np. piekarnię lub pomnik w swoim mieście).  
 
-Extension task: find one local equivalent (e.g., a bakery or monument in your town).  
+**Zadanie modyfikacyjne (projektowanie gier)**  
 
-**Modification activity (game design thinking)**  
+- Zapytaj uczniów, w jaki sposób **ulepszyliby zadanie**.  
+- Zachęć ich do wymyślania nowych wyzwań, postaci niezależnych lub zagadek kulturowych.  
+- Świetne ćwiczenie dla **kreatywności** i zrozumienia, jak powstają gry.  
 
-- Ask students how they would **improve the quest**.  
-- Encourage them to invent new challenges, NPCs, or cultural puzzles.  
-- Great for **creativity** and understanding how games are built.  
+Przykład: „Dodaj decyzję, w której uprzejma rozmowa z NPC odblokowuje nową wskazówkę”.  
 
-Example: “Add a decision where talking to an NPC politely unlocks a new clue.”  
+## Opinie na temat zadań kulturowych
 
-## Feedback and validation of quests
+Opinie nauczycieli są niezbędne do ulepszania zawartości gry.  
+Sprawdź również [stronę pomocy technicznej](./support.md).  
 
-Teacher and parent feedback is essential to improve quests.  
-Check the [Support page](./support.md) also.  
+### Jak przekazać opinię 
 
-### How to give feedback
+- Każde zadanie kulturowe ma **własną stronę w witrynie internetowej** z podsumowaniem treści.  
+- Nauczyciele mogą zostawiać komentarze i sugestie na **forum**.  
+- Informacje zwrotne mogą obejmować:  
+  - Dokładność treści kulturowych  
+  - Odpowiedniość poziomu języka  
+  - sugestie dotyczące nowych działań lub ulepszeń  
+  - Obserwacje dotyczące reakcji uczniów  
 
-- Each quest has a **dedicated page on the website** with content summaries.  
-- Teachers can leave comments and suggestions in the **forum**.  
-- Feedback may include:  
-  - Accuracy of cultural content  
-  - Appropriateness of language level  
-  - Suggestions for new activities or improvements  
-  - Observations from student reactions  
+### Walidacja zadania w klasie
 
-### Quest validation in classroom
+- Podczas korzystania z zadania z uczniami nauczyciele są proszeni o **przekazanie informacji zwrotnej**:  
+  - Czy uczniowie zrozumieli treść zadania?  
+  - Które elementy sprawdziły się najlepiej?  
+  - Które zadania były zbyt łatwe lub zbyt trudne?  
+  - Czy zadanie było zgodne z programem nauczania?  
 
-- When using a quest with students, teachers are invited to **report back**:  
-  - Did students understand the content?  
-  - Which parts worked best?  
-  - Which challenges were too easy or too difficult?  
-  - Did the quest align with the curriculum?  
+### Wkład i współpraca
 
-### Contribution and collaboration
-
-- Even without technical skills, teachers can suggest **topics, cards, and words** that are valuable for their classroom
-- Teachers who wish to contribute more deeply can join the [Antura community](https://antura.discourse.group/) to co-design or adapt quests... or even propose new ones!  
+- Nawet bez umiejętności technicznych nauczyciele mogą sugerować **tematy, karty i słowa**, które są cenne dla ich klasy
+- Nauczyciele, którzy chcą wnieść większy wkład, mogą dołączyć do [społeczności Antura](https://antura.discourse.group/), aby wspólnie projektować lub dostosowywać zadania... a nawet proponować nowe!  
