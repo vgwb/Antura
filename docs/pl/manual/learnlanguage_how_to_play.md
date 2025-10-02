@@ -1,45 +1,38 @@
 ---
-title: Learn Language - how to play
-status: new
+tytuł: Nauka języka – jak grać
+status: nowy
 ---
 
-# How to play Learn Language <Badge type="tip" text="new" />
+# Jak grać w Naukę języka <Badge type="tip" text=”new” />
 
+## Dostępne minigry językowe
 
-## Available Language MiniGames
+> [!UWAGA] Minigry językowe
+> Pełna lista znajduje się [tutaj](../content/language-minigames/index.md)
 
-> [!NOTE] Language Minigames
-> The full list is [here](../content/language-minigames/index.md)
+### Litery
+- [ColorTickle](../content/language-minigames/ColorTickle.md) – Pokoloruj kształty liter, aby ćwiczyć precyzję rysowania i formy liter.
+- [DancingDots](../content/language-minigames/DancingDots.md) – Umieść kropki/znaki diakrytyczne, aby nauczyć się akcentów i pozycji kropek na literach.
+- [Egg](../content/language-minigames/Egg.md) – kojarz kształty liter z ich wymową, wykluwając jajka. Gra ma również różne warianty sekwencji.
+- [HideAndSeek](../content/language-minigames/HideAndSeek.md) – znajdź docelową literę wśród elementów rozpraszających uwagę, które się chowają i pozostają w bezruchu.
+- [Maze](../content/language-minigames/Maze.md) – Śledź litery, aby nauczyć się ich kształtu i prawidłowego kierunku pisania na torze z limitem czasowym.
+- [SickLetters](../content/language-minigames/SickLetters.md) – Usuń nieprawidłowe kropki/znaki diakrytyczne, aby nauczyć się prawidłowego położenia; uzupełnia grę Dancing Dots.
+- [TakeMeHome](../content/language-minigames/TakeMeHome.md) – Rozpoznaj miejsce artykulacji, dopasowując litery do pozycji ust.
+- [ThrowBalls](../content/language-minigames/ThrowBalls.md) – Rozróżnij docelową literę spośród innych, wykonując precyzyjne rzuty. Posiada wariant słowny.
 
+### Słowa
+- [Balloons](../content/language-minigames/Balloons.md) – Ćwicz pisownię i rozpoznawanie słów, przebijając odpowiedni balon. Posiada również warianty literowe/liczbowe.
+- [FastCrowd](../content/language-minigames/FastCrowd.md) – Rozbudowuj słownictwo, pisownię i wizualne rozpoznawanie słów, szybko łapiąc cele.
+- [MakeFriends](../content/language-minigames/MakeFriends.md) – Rozpoznaj wspólny dźwięk litery w słowach, aby „zaprzyjaźnić się” między LL.
+- [MissingLetter](../content/language-minigames/MissingLetter.md) – Uzupełnij słowa/formularze, wybierając brakującą literę.
+- [MixedLetters](../content/language-minigames/MixedLetters.md) – ćwicz pisownię i orientację liter, zmieniając ich kolejność i obracając je.
+- [Tobogan](../content/language-minigames/Tobogan.md) – rozpoznaj litery w słowach i odróżniaj je od elementów rozpraszających uwagę, aby zbudować wieżę.
 
-### Letters
+### Obrazy
+- [Skaner](../content/language-minigames/Scanner.md) – Ćwicz czytanie i kojarzenie słów z obrazami za pomocą skanera, który można przeciągać.
 
-- [ColorTickle](../content/language-minigames/ColorTickle.md) - Color inside letter shapes to practice tracing precision and letter forms.
-- [DancingDots](../content/language-minigames/DancingDots.md) - Place dots/diacritics to learn accent and dot positions on letters.
-- [Egg](../content/language-minigames/Egg.md) - Associate letter shapes with their pronunciation by hatching eggs. Also has sequence variations.
-- [HideAndSeek](../content/language-minigames/HideAndSeek.md) - Find the target letter among distractors as they hide and idle.
-- [Maze](../content/language-minigames/Maze.md) - Trace letters to learn shape and correct stroke direction on a timed track.
-- [SickLetters](../content/language-minigames/SickLetters.md) - Remove wrong dots/diacritics to learn correct positions; complements Dancing Dots.
-- [TakeMeHome](../content/language-minigames/TakeMeHome.md) - Identify the place of articulation by mapping letters to mouth positions.
-- [ThrowBalls](../content/language-minigames/ThrowBalls.md) - Differentiate a target letter among others using precise throws. Has a word variation.
+### Zdania
+- [ReadingGame](../content/language-minigames/ReadingGame.md) – Ćwicz płynność czytania; czytaj z okienkiem i odpowiadaj na pytania sprawdzające zrozumienie.
 
-### Words
-
-- [Balloons](../content/language-minigames/Balloons.md) - Practice spelling and word recognition by popping the right balloon. Also has letter/counting variations.
-- [FastCrowd](../content/language-minigames/FastCrowd.md) - Build vocabulary, spelling, and visual word recognition by catching targets fast.
-- [MakeFriends](../content/language-minigames/MakeFriends.md) - Recognize a common letter sound in words to “make friends” between LLs.
-- [MissingLetter](../content/language-minigames/MissingLetter.md) - Complete words/forms by selecting the missing letter.
-- [MixedLetters](../content/language-minigames/MixedLetters.md) - Practice spelling and letter orientation by reordering and rotating letters.
-- [Tobogan](../content/language-minigames/Tobogan.md) - Identify letters within words and differentiate among distractors to build a tower.
-
-### Images
-
-- [Scanner](../content/language-minigames/Scanner.md) - Train reading and word–image association with a draggable scanner.
-
-### Sentences
-
-- [ReadingGame](../content/language-minigames/ReadingGame.md) - Train reading fluency; read with a window and answer comprehension.
-
-### Assessments
-
-- [Assessments](../content/language-minigames/Assessments.md) - End-of-block checks reinforcing mastery; letter/phoneme/word matching tasks.
+### Oceny
+- [Assessments](../content/language-minigames/Assessments.md) – Sprawdziany na koniec bloku utrwalające opanowanie materiału; zadania polegające na dopasowywaniu liter/fonemów/słów.

@@ -1,121 +1,107 @@
 ---
-title: How to play Quests
-status: new
+tytuł: Jak grać w zadania
+status: nowe
 ---
+# Jak grać Odkrywaj zadania <Badge type="tip" text=„new” />
 
-# How to play Discover quests <Badge type="tip" text="new" />
+## Wybierz zadanie
+- Zacznij od menu Ziemia i wybierz kraj lub lokalizację (zazwyczaj miasto).
+- Wybierz zadanie, aby zobaczyć jego tytuł, krótki opis i treść.
+  
+- W trybie Classroom: nauczyciel może zablokować kraj i pozwolić ci wybrać dowolną misję w jego obrębie.  
+- W trybie Home: misje są zazwyczaj odblokowywane jedna po drugiej. Powtórne granie poprawia twój wynik i odkrywa dodatkowe karty.  
 
-## Choose a quest
+> [!tip]
+> Jeśli jesteś nowy, zacznij od misji samouczka w każdym kraju.  
 
-- Start from the Earth menu and select a country or a Location Pin (generally a town).  
-- Pick a quest to see its title, a short description and its content.  
-- In Classroom mode: your teacher may lock the country and let you choose any quest inside.  
-- In Home mode: quests usually unlock one by one. Replaying improves your score and reveals extra cards.  
+## Sterowanie graczem
+**PC / Komputer stacjonarny**
+  
+- Klawisze ASDW = poruszanie się (przytrzymaj 2 sekundy, aby biec)
+- SPACE = skok / interakcja / przejście do kolejnych dialogów
+- SHIFT = bieg (tajne, ponieważ nie jest to obowiązkowe)
+- Mysz + prawy przycisk = poruszanie kamerą
+- Lewy przycisk myszy = interakcja
 
-> [!tip] 
-> If you’re new, start with the tutorial quest in each country.  
+**Dotyk**
+- Lewy palec = poruszanie się (przytrzymaj 2 sekundy, aby biec)
+  
+- Przycisk = skok / interakcja
+- Dotknij obiektów = interakcja
+- Dotknij i przeciągnij na ekranie = przesuń kamerę
+> [!tip] Wskazówka dla nauczycieli
+> Zaplanuj sterowanie na tablicy podczas pierwszej sesji. Połącz uczniów w pary, tak aby jeden czytał wskazówki, a drugi sterował, a następnie zamieńcie role.
 
-## Player controls
+## Mapa i zadania
+- Przycisk mapy: otwiera prostą mapę z Twoją aktualną pozycją i głównym celem.
+  
+- Punkt docelowy: znacznik punktu orientacyjnego i promień prowadzący wskazują, dokąd należy się udać.
+- Panel zadań: krótkie podpowiedzi tekstowe pojawiają się na ekranie, gdy zmienia się cel (np. „Porozmawiaj z piekarzem”).
 
-**PC / Desktop**  
+> [!tip] Wskazówka dla nauczycieli
+> Poproś uczniów, aby przed przejściem do kolejnego zadania sformułowali aktualny cel własnymi słowami.
 
-- ASDW keys = move (hold 2 seconds to run)  
-- SPACE = jump / interact / advance dialogues  
-- SHIFT = run (secret, since it's not mandatory)  
-- Mouse + right button = move camera  
-- Mouse left button = interact  
+## Rodzaje interakcji
+- **Rozmowa**: podejdź do postaci i naciśnij przycisk interakcji, aby rozpocząć krótką rozmowę.
+- **Spojrzenie**: spójrz na znaki, plakaty lub przedmioty, aby odblokować karty wiedzy w Księdze.
+- **Zbieranie**: podnoś przedmioty, które trafiają do ekwipunku (automatycznie używane w razie potrzeby).
+- **Użycie**: naciśnij przyciski, dźwignie lub przełączniki podłogowe, aby otworzyć drzwi lub uruchomić zdarzenia.
+- **Poruszanie się**: skacz po platformach, unikaj zagrożeń, podążaj bezpiecznymi ścieżkami (np. przechodź na zielonym świetle).
+- **Działania**: niektóre interakcje uruchamiają działanie (patrz poniżej) pozwalające przećwiczyć kartę lub umiejętność.
+> [!uwaga]
+> Przycisk „Interakcja” jest taki sam jak przycisk „Skok”, gdy znajdujesz się blisko postaci niezależnej/przedmiotu.
 
-**Touch**  
+## Ekwipunek i przedmioty
+- Do 5 szybkich slotów; przedmioty znikają po wykorzystaniu do wykonania zadania.
 
-- Left finger = move (hold 2 seconds to run)  
-- Button = jump / interact  
-- Tap objects = interact  
-- Tap and drag on screen = move camera  
+## Postępy i nagrody
+- **Gwiazdy**: ogólny wynik zadania (3 = idealny).
+- **Karty wiedzy**: odblokowywane poprzez eksplorację, rozmowy, czytanie znaków i wykonywanie zadań.
+- **Klejnoty**: waluta mistrzostwa zdobywana poprzez wykonywanie zadań i specjalnych kart.
+  
+- **Ciasteczka**: waluta służąca do kupowania kosmetycznych rekwizytów.
+- **Osiągnięcia**: kamienie milowe, takie jak „Ukończ 3 zadania” lub „Zbierz 20 kart”.
+- **Bonus/Malus**: dobre działania (rozmowa z NPC, sprzątanie) vs. ryzykowne działania (przechodzenie na czerwonym świetle, deptanie kwiatów).
+  
+## Działania w ramach zadań
+Podczas zadań pojawiają się szybkie gry treningowe. Szczegóły dotyczące poszczególnych działań znajdują się tutaj: [Przegląd działań](../content/activities/index.md).
 
-> [!tip] Classroom tip
-> Project controls on the board for the first session. Pair students so one reads prompts while the other controls, then swap roles.  
+### [Płótno](../content/activities/index.md#CleanCanvas)  
+odkrywaj obraz, omijając przeszkody.
+![Zadanie z płótnem](../../assets/img/content/activities/activity_CleanCanvas.jpg)
 
-## Map and tasks
-
-- Map button: opens a simple map with your current position and main objective.  
-- Target point: a waypoint marker and guiding beam show where to go next.  
-- Task panel: short text hints appear on screen when the goal changes (e.g., “Talk to the Baker”).  
-
-> [!tip] Classroom tip
-> Ask students to restate the current objective in their own words before moving.  
-
-## Interaction types
-
-- **Talk**: approach an character and press interact to start a short dialogue.
-- **Look**: look at signs, posters, or objects to unlock knowledge cards in the Book.  
-- **Collect**: pick up items that go into the inventory (auto‑use when needed).  
-- **Use**: press buttons, levers, or floor switches to open doors or trigger events.  
-- Navigate: jump across platforms, avoid hazards, follow safe paths (e.g., cross on green).  
-- Activities: some interactions launch an activity (see below) to practice a card or a skill.  
-
- > [!note] 
- > Interact is the same button as Jump when close to an NPC/object.
-
-## Inventory and items
-
-- Up to 5 quick slots; items disappear when used for their task.  
-
-## Progress and rewards
-
-- **Stars**: overall quest score (3 = perfect).  
-- **Knowledge cards**: unlocked by exploring, talking, reading signs, and finishing tasks.  
-- **Gems**: mastery currency earned by completing quests and special cards.  
-- **Cookies**: fun currency used to buy cosmetic props.  
-- **Achievements**: milestones like “Finish 3 quests” or “Collect 20 cards.”  
-- **Bonus/Malus**: good actions (talking to NPCs, cleaning) vs. risky actions (crossing on red, trampling flowers).  
-
-## Activities inside quests
-
-Quick practice games appear during quests. Details of each activity are here: [Activities overview](../content/activities/index.md).  
-
-### [Canvas](../content/activities/index.md#CleanCanvas)  
-reveal the image while avoiding obstacles.
-
-![Canvas activity](../../assets/img/content/activities/activity_CleanCanvas.jpg)  
-
-### [Jigsaw Puzzle](../content/activities/index.md#JigsawPuzzle)
-rebuild the full picture from pieces.  
-
-![Jigsaw activity](../../assets/img/content/activities/activity_JigsawPuzzle.jpg)  
+### [Puzzle](../content/activities/index.md#JigsawPuzzle)
+złożyć pełny obraz z kawałków. 
+![Zajęcie Jigsaw](../../assets/img/content/activities/activity_JigsawPuzzle.jpg)
 
 ### [Match](../content/activities/index.md#Match)
-pair items that belong together.  
-
-![Match activity](../../assets/img/content/activities/activity_Match.jpg)  
-
+Połącz elementy, które do siebie pasują.
+![Zajęcie Match](../../assets/img/content/activities/activity_Match.jpg)
+  
 ### [Memory](../content/activities/index.md#Memory)
-find matching pairs from memory.  
-
-![Memory activity](../../assets/img/content/activities/activity_Memory.jpg)  
-
+znajdź pasujące pary z pamięci.
+![Memory activity](../../assets/img/content/activities/activity_Memory.jpg)
+  
 ### [Count the Money](../content/activities/index.md#MoneyCount)
-pick coins/notes to reach the target sum.  
+wybierz monety/banknoty, aby osiągnąć docelową sumę.
+![Money activity](../../assets/img/content/activities/activity_MoneyCount.jpg)
+  
+### [Kolejność](../content/activities/index.md#Order)
+Ułóż kroki w prawidłowej kolejności.
+![Zajęcia z kolejnością](../../assets/img/content/activities/activity_Order.jpg)
 
-![Money activity](../../assets/img/content/activities/activity_MoneyCount.jpg)  
+### [Fortepian](../content/activities/index.md#Piano)
+Powtórz sekwencje kolorów / dźwięków / nut. 
+![Aktywność Piano](../../assets/img/content/activities/activity_Piano.jpg)
 
-### [Order](../content/activities/index.md#Order)
-arrange steps in the correct sequence.  
+## Dostępność i tryby
+- Tryb klasowy zmniejsza hałas i pozwala skupić się na jednym kraju.
+- Napisy i podpowiedzi ikonowe pomagają początkującym czytelnikom i w kontekstach wielojęzycznych.
+  
+- Krótkie sesje (5–15 minut) pomagają utrzymać uwagę i umożliwiają szybkie podsumowanie.
 
-![Order activity](../../assets/img/content/activities/activity_Order.jpg)  
-
-### [Piano](../content/activities/index.md#Piano)
-repeat sequences of colors / sound / notes.  
-
-![Piano activity](../../assets/img/content/activities/activity_Piano.jpg)  
-
-## Accessibility and modes
-
-- Classroom mode reduces noise and keeps focus on one country.  
-- Subtitles and icon prompts support early readers and multilingual contexts.  
-- Short sessions (5–15 minutes) help maintain attention and enable quick debriefs.  
-
-## Customization (TBD)
-
-- Use cookies to buy hats, backpacks, and small props for your Cat avatar.  
-- Some items unlock after certain gem levels or achievements.  
-- More details and previews coming soon (the Player Space isn't already finished)  
+## Personalizacja (do ustalenia)
+- Użyj plików cookie, aby kupić czapki, plecaki i małe rekwizyty dla swojej awatarki kota.
+- Niektóre przedmioty odblokowują się po osiągnięciu określonego poziomu klejnotów lub osiągnięć.
+- Więcej szczegółów i podgląd wkrótce (przestrzeń gracza nie jest jeszcze gotowa)
+  

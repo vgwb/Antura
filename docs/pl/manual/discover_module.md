@@ -1,89 +1,81 @@
 ---
-title: Discover Features
-status: new
+tytuł: Odkrywaj funkcje
+status: nowy
 ---
 
-# Discover Cultures details
+# Odkrywaj kultury szczegóły
 
-## Content
+## Treść
 
-### Words
+### Słowa
+Zaczynamy od wszystkich słów z [modułu nauki języka](./learnlanguage_module.md).
 
-We start from all the words of the [Learning Language Module](./learnlanguage_module.md).
+Słowa są przedstawiane przez Living Letters (LL), które wypowiadają słowa podczas interakcji i są widoczne w dialogach. W ten sposób nauka języka jest wzmacniana w zabawny, kontekstowy sposób.
+  
+> [!note] Baza danych słów
+> Aktualna lista [wszystkich słów w grze](../content/words/index.md)
 
-Words are presented by Living Letters (LL) that speak the words when interacted with and are evidenced in the dialogs. This reinforces language learning in a fun, contextual way.  
+### Karty
+Sercem każdej misji są karty, które reprezentują „atom wiedzy”, taki jak fakty, osoby, miejsca, przedmioty, tradycje, potrawy, fauna i flora.
 
-> [!note] Words database
-> The current list of [all words in the game](../content/words/index.md)
+Każda karta:
+- ma **tytuł** i prosty **opis**
+- ma co najmniej jeden **obraz** i może mieć **dźwięki**
+- znajduje się w przestrzeni (na przykład w mieście) i czasie (umożliwiając tworzenie osi czasu krajów)
+- pozostaje **ukryta do momentu odkrycia** i odblokowania w zadaniach
+- jest zawsze dostępna z Księgi gracza.
 
-### Cards
-At the heart of each quest are Cards, which represent an "atom of knowledge" like facts, people, places, objects, traditions, foods, fauna, and flora.
+Każda karta ma jeden **typ**, na przykład:
+- **Miejsce** (GDZIE) - Miasta, rzeki, góry, zabytki
+- **Wydarzenie** (KIEDY) - Wydarzenia historyczne, święta, festiwale
+- **Osoba** (KTO) - Postacie historyczne, nauczyciele, przyjaciele
+- **Obiekt** (CO) - Przedmioty, z którymi można wchodzić w interakcję lub które można zbierać
+- **Pojęcie** (MYŚL) - Abstrakcyjne idee (przyjaźń, bezpieczeństwo, pokój)
+- **Aktywność** (CO ROBIĆ) - gry, gotowanie, sport
 
-Each card:
+i jest powiązana z jednym lub kilkoma **przedmiotami**.
 
-- has a **title** and a simple **description**
-- has at least one **images** and can have **sounds**
-- is located in space (in a city, for example) and time (allowing country timelines)
-- remain **hidden until discovered** and unlocked in quests
-- is always accessible from the player's Book.
+Przedmioty podstawowe:
+- **Sztuka** - tworzenie i kreowanie
+- **Kultura** - jak żyją ludzie
+- **Geografia** - gdzie się coś znajduje
+- **Historia**
+- **Literatura** – opowiadania i książki
+- **Matematyka** – liczby i logika
+- **Nauki ścisłe** – jak działają różne rzeczy
+- **Technologia** – nauki stosowane
 
-
-Each card is of one **Type**, like:
-
-- **Place** (WHERE) - Cities, rivers, mountains, landmarks
-- **Event** (WHEN) - Historical events, holidays, festivals
-- **Person** (WHO) - Historical figures, teachers, friends
-- **Object** (WHAT) - Items to interact with or collect
-- **Concept** (THINK) - Abstract ideas (friendship, safety, peace)
-- **Activity** (DO) - Games, cooking, sports
-
-and is linked to One or more **Subject**:
-
-Core subjects:
-
-- **Art** - making and creating
-- **Culture** - how people live
-- **Geography** - where things are
-- **History**
-- **Literature** - stories and books
-- **Math** - numbers and logic
-- **Science** - how things work
-- **Technology** - applied science
-
-Additional subjects:
-
-- **Animal**
-- **Food**
-- **Music**
-- **Plant**
-- **Recreation** - leisure & hobbies: dance, crafts, hiking, games
-- **Space**
+Przedmioty dodatkowe:
+- **Zwierzęta**
+- **Żywność**
+- **Muzyka**
+- **Rośliny**
+- **Rekreacja** – czas wolny i hobby: taniec, rękodzieło, wędrówki, gry
+- **Kosmos**
 - **Sport**
-- **Transportation** - cars, planes, boats
-- **Weather**
+- **Transport** - samochody, samoloty, łodzie
+- **Pogoda**
 
-Social and practical life:
+Życie społeczne i praktyczne:
+- **Wiedza o społeczeństwie** - podstawowe informacje o rządzie i obywatelstwie
+- **Społeczność** - kiedy ludzie organizują się i pomagają sobie nawzajem na poziomie lokalnym
+- **Edukacja** - szkoły
+- **Środowisko**  - troska o przyrodę
+- **Rodzina**
+- **Przyjaźń**  - ważna koncepcja społeczna
+- **Zdrowie** - medycyna, szpitale
+- **Pieniądze** - podstawowa wiedza finansowa
+- **Bezpieczeństwo**
+- **Czas** - zrozumienie zegarów/kalendarzy
 
-- **Civics** - basic government and citizenship
-- **Community** - when people organize and help each other locally
-- **Education** - schools
-- **Environment**  - caring for nature
-- **Family**
-- **Friendship**  - important social concept
-- **Health** - medicine, hospitals
-- **Money** - basic financial literacy
-- **Safety**
-- **Time** - understanding clocks/calendars
+> [!note] Baza danych kart
+> Aktualna lista [wszystkich kart w grze](../content/cards/index.md)
 
-> [!note] Cards database
-> The current list of [all cards in the game](../content/cards/index.md)
+### Tematy
+Tematy są definiowane przez nauczycieli poprzez połączenie zestawu kart, zdefiniowanie relacji i utworzenie **widocznego grafu wiedzy**.
 
-### Topics
-Topics are defined by educators by connecting a set of cards, defining the relationships and forming a **visible knowledge graph**.
-
-These graphs are the core of the didactical activities. They are easy to explore and understand: kids can review how cultural elements relate, and quests and activities can run on them.
-
-These are the kind of connections currently available in the game:
+Grafy te stanowią podstawę działań dydaktycznych. Są łatwe do zbadania i zrozumienia: dzieci mogą przeanalizować powiązania między elementami kultury, a także wykonywać zadania i działania oparte na tych grafach.
+Oto rodzaje powiązań dostępnych obecnie w grze:
 
 ```mermaid
 mindmap
@@ -101,241 +93,201 @@ root((Topic))
     RelatedTo("**Related To**")
 ```
 
-> [!note] Topics database
-> The current list of [all topics in the game](../content/topics/index.md)
+> [!note] Baza danych tematów
+> Aktualna lista [wszystkich tematów w grze](../content/topics/index.md)
+
+## Zadania
+Zadania to krótkie (5–15 minut) przygody skupiające się na tematach kulturowych lub edukacyjnych, zazwyczaj 1–2 **tematy**.
+
+Każde zadanie łączy:
+- odkrywanie autentycznych miejsc
+- spotkania z postaciami
+- rozwiązywanie zagadek i minigier
+- zbieranie elementów kulturowych (**kart**)
+
+- Dwa poziomy gry:
+    - Pierwsza rozgrywka ujawnia tylko podstawową zawartość.
+    - Powtórka umożliwia odblokowanie dodatkowych zadań, ukrytych przedmiotów i specjalnych fragmentów kart, aby odblokować ostateczny klejnot.
+
+### Fabuła i rozgrywka
+Każda misja ma inną fabułę i może zawierać różne wyzwania, takie jak:
+- **Ukryte przedmioty**: znajdź przedmioty dzięki wskazówkom od postaci niezależnych/znaków
+- **Kolekcja**: zbierz wszystkie przedmioty (wzmocnienie matematyki)
+- **Zagadki fizyczne**: labirynty, zadania przestrzenne
+- **Fabularne**: liniowe zadania narracyjne z narratorem
+- **Quizy kulturowe**: postacie niezależne pytają o odkryte przedmioty
+- **Mini-gry**: rzemiosło, sport lub praktyki kulturowe
+
+### Postacie
+**Żywe litery (LL)**
+Są głównymi towarzyszami znanymi z modułów nauki języka. Łączą słowa z postaciami niezależnymi.
+Mogą reprezentować:
+- literę (mała LL)
+- słowo z rysunkiem (normalna LL)
+- kartę (obraz lub dźwięki)
+**Postacie blokowe**
+Postacie humanoidalne / podobne do postaci z gry Minecraft.
+**NPC otoczenia**
+Gołębie, koty, psy, samochody, pociągi, ptaki (sterowane przez AI).
+
+### Zadania
+„Co mam zrobić?” jest uproszczone dzięki zadaniom.
+Podczas rozmowy z postaciami gracz otrzymuje cele do osiągnięcia, takie jak
+- zebranie przedmiotów (zebranie wszystkich składników do przepisu)
+- dotarcie do określonej pozycji (wspiąć się na Mont Blanc lub Wieżę Eiffla)
+- wywołać akcję (opuszczenie mostu zamkowego)
+
+### System postępów
+- Zadania kończą się 1–3 gwiazdkami w zależności od błędów.
+- Wydarzenia bonusowe/malusowe wpływają na postępy.
+
+### Karty specjalne
+Powtórne granie zadań może ujawnić fragmenty kart specjalnych, prowadząc do ostatecznego klejnotu zadania.
+Po opanowaniu, powtarzanie daje ciasteczka, ale nie klejnoty.
+
+### Aktywności
+Aktywności mogą być osadzone w zadaniach lub rozgrywane oddzielnie od Księgi i dotyczyć różnych tematów.
+> [!uwaga]
+> Jedną z nowych funkcji naszego frameworka jest to, że aktywności te mogą być wykorzystywane do utrwalenia danego tematu i automatycznego pobierania kart do rozegrania.
+- **Kolejność**: ułożenie elementów w sekwencji
+- **Fortepian**: powtarzanie melodii/kolorów
+- **Płótno**: czyszczenie w celu odsłonięcia obrazów
+- **Pieniądze**: liczenie monet i banknotów
+- **Puzzle**: obrazy kulturowe
+- **Pamięć**: dopasowywanie kart
+- **Quiz**: odpowiedzi tekstowe, obrazkowe lub mieszane
+- **Oceny końcowe**: formalne sprawdziany po zadaniach
+Poznaj wszystkie działania: [Przegląd działań](../content/activities/index.md).
+
+### Języki
+Wszystkie dialogi są dwujęzyczne: język ojczysty dziecka + język kraju goszczącego (np. polski, francuski).
+Ułatwia to dzieciom śledzenie historii podczas nauki nowych słów i zwrotów.
+Domyślnie gra najpierw mówi w języku nauki, a następnie w języku ojczystym, ale nauczyciel może wybrać odwrotną kolejność, jeśli jest to lepsze dla dziecka.
+
+### Poziomy trudności
+Wszystkie elementy gry i treści są podzielone na trzy poziomy trudności:
+- Łatwy
+- Normalny
+- Ekspert
+Nauczyciele mogą dostosować poziom trudności w panelu nauczyciela, aby dostosować czas, podpowiedzi i gęstość wyzwań do poziomu ucznia. Niektóre zadania odblokowują również dodatkowe opcjonalne zadania podczas ponownego odtwarzania dla zaawansowanych uczniów.
+
+### Lokalizacje
+Każde zadanie znajduje się w określonej lokalizacji (zwykle mieście lub części miasta), którą można wybrać na mapie świata.
+Są one tworzone przy użyciu dwóch metodologii:
+1. **Sztuka abstrakcyjna**
+Projektanci tworzą ogólne środowisko przy użyciu popularnych modeli 3D. Dobrze sprawdza się w przypadku popularnych tematów, które nie są ściśle powiązane z położeniem geograficznym.
+2. **Realistyczne mapy**
+Miasto jest tworzone na podstawie realistycznej mapy (z [OpenStreetMap](https://www.openstreetmap.org)), z określonymi współrzędnymi GPS i orientacją.
+Scenariusze te najlepiej sprawdzają się w prawdziwych „miejskich” zadaniach, w których orientacja ma znaczenie.
+
+## Rozgrywka
+
+### Menu Ziemia
+Punkt wejścia do eksploracji świata, krajów i zadań.
+Dostęp do Księgi (przegląd wiedzy) i Sklepu (personalizacja).
+**Zależności**
+Zadania mogą wymagać wcześniejszych zadań jako wiedzy wstępnej.
+
+### Mapa i punkty docelowe
+- Przycisk mapy pokazuje Twoją pozycję i główny cel.
+- Znacznik **celu** wskazuje następny cel; podpowiedzi pojawiają się, gdy zmieniają się cele.
+- Opcjonalne zadania i ukryte przedmioty mogą pojawiać się jako dodatkowe ikony.
+
+### Interakcje i ekwipunek
+- Interakcje: rozmowa, sprawdzanie, zbieranie, używanie.
+- Ekwipunek: do 5 miejsc; przedmioty są używane automatycznie w razie potrzeby i znikają po użyciu.
+  
+### Tryby (klasa vs dom)
+- W trybie klasy skupiamy się na jednym kraju/temacie i zadaniach, które można dowolnie wybierać w jego ramach.
+- Tryb domowy: wszystkie kraje są dostępne do wyboru, a zadania są zazwyczaj odblokowywane sekwencyjnie w celu eksploracji.
+
+### Dostępność
+- Napisy i podpowiedzi ikonowe wspierają początkujących czytelników i wielojęzyczną rozgrywkę.
+- Tryb klasy zmniejsza hałas
+- Wszystkie zdania są wypowiadane we wszystkich językach
+- Używamy znaków kolorystycznych, kształtowych i dźwiękowych
+
+### Urządzenia i sterowanie
+Działa z klawiaturą/myszą i ekranem dotykowym. Zobacz [Jak grać](./discover_how_to_play.md), aby zapoznać się ze sterowaniem, mapą, interakcjami i galerią działań.
+
+## Motywacja i nagrody
+- Karty wiedzy = zebrane dowody nauki.
+  
+- Klejnoty = odblokowują zaawansowane zadania i niektóre rekwizyty.
+- Ciasteczka = dostosowują postać i przestrzeń.
+- Gwiazdki = motywują do ukończenia i ponownego grania.
+- Osiągnięcia = długoterminowe cele i zabawne wyzwania.
+
+### Waluty
+- Ciasteczka (rybki) = można je znaleźć w zadaniach; z czasem się odnawiają.
+  
+- Klejnoty wiedzy (neurony) = nagrody za opanowanie zadań i odblokowanie kart; reprezentują **rzeczywisty postęp w nauce**.
+- Punkty XP = doświadczenie zgromadzone podczas gry; wykorzystywane do postępów.
+
+### Sklep / Personalizacja kota
+- Użyj ciasteczek, aby kupić skórki i rekwizyty dla kota.
+- Niektóre rekwizyty odblokowują się dopiero po zdobyciu określonych klejnotów lub kart.
+
+### Osiągnięcia
+Globalne i lokalne osiągnięcia zachęcają do ponownego grania i angażowania się.
+Przykłady:
+- Zbierz wszystkie karty
+- Kup kosmetyki dla kota
+- Ukończ wszystkie zadania
+- Cele mistrzostwa (ukończ wszystkie zadania z 3 gwiazdkami)
+- Zabawne cele (skocz 1000 razy, biegnij sprintem przez 60 sekund, porozmawiaj ze wszystkimi)
+
+### System bonusów/malusów
+Wzmacnia **dobre obywatelstwo i świadomość kulturową** poprzez nagradzanie niektórych działań.
+- Przykłady bonusów: rozmowa z postaciami niezależnymi, przestrzeganie sygnalizacji świetlnej, zbieranie śmieci.
+- Przykłady malusów: przechodzenie na czerwonym świetle, niszczenie mienia, deptanie kwiatów.
+Działania te są rejestrowane w Księdze jako część refleksji nad zachowaniem.
+
+## Narzędzia dla nauczycieli i rodziców
+
+### Panel nauczyciela
+- tworzenie klasy i dodawanie graczy
+- dla każdego gracza dostosowywanie poziomu trudności, wybór języka oraz monitorowanie zadań i osiągnięć
+
+### Księga
+Przegląd wszystkich zgromadzonych informacji.
+Wyświetlanie wszystkich odkrytych i nieodkrytych kart, klejnotów i osiągnięć.
+Narzędzie do powtórki materiału w klasie lub w domu.
+
+### Strona internetowa
+Wyświetlanie tematów, kart i ćwiczeń omówionych podczas sesji.
+  
+### Integracja z zajęciami
+Po zakończeniu zadania nauczyciele mogą:
+- Odbudować wykres wiedzy wraz z uczniami.
+- Rozszerzyć go o nowe pomysły lub wkład uczniów.
+- Opowiedzieć o zadaniu w klasie.
+- Porównać z rzeczywistymi zasobami (mapy, książki, wizyty).
+
+Przykładowe podsumowanie (10 minut):
+- Zapytaj: „Którą kartę odblokowaliście? Z czym się wiąże?”.  
+- Narysuj na tablicy „Baguette → Chleb → Francuska żywność” i poproś uczniów, aby dodali powiązane pomysły.
+- Szybka wymiana w parach: każdy uczeń wyjaśnia jedno nowe słowo i miejsce, w którym się pojawiło.  
+
+### Analityka
+> [!uwaga]
+> Dbamy o prywatność i anonimowość. Gromadzimy dane dotyczące rozgrywki bez łączenia ich z danymi osobowymi.
+> Łączenie uczniów z profilami (w razie potrzeby) jest zarządzane przez nauczyciela zgodnie z polityką szkoły.
+
+- Rejestruje wydarzenia związane z rozgrywką (czas gry, próby wykonania zadań, bonusy/malusy, kolekcja kart).
+- Dane można eksportować w prostym formacie do ręcznej oceny (JSON) lub automatycznej (xAPI).  
+- Podczas zajęć nauczyciele widzą uproszczone podsumowania (postępy, karty, osiągnięcia).  
+
+## Projektowanie zadań
+- Definiowane za pomocą otwartej platformy AdventurED.
+- Projektowane za pomocą narzędzia internetowego DiscoverED:
+- wizualny edytor przebiegu zadań (fabuła + zadania + quizy)
+- wbudowane tłumaczenie na wiele języków
+- wspólne tworzenie treści z nauczycielami
+Dokumentacja: Projektowanie zadań - https://docs.antura.org/manual/quests/
+
+### Licencjonowanie i podziękowania
+- Zasoby są tworzone na zamówienie lub na licencji Creative Commons (CC0/CC‑BY).
+- Podziękowania są śledzone w przypadku zasobów zewnętrznych (obrazy, dźwięki, modele).
+  
 
-## Quests
-
-Quests are short (5–15 minutes) adventures focusing on cultural or educational themes, usually 1–2 **topics**.
-
-Each quest combines:
-
-- exploration of authentic places
-- meeting characters
-- solving puzzles and mini-games
-- collecting cultural elements (**Cards**)
-
-
-- Two play levels:
-    - The first run exposes essential content only.
-    - Replay enables extra tasks, hidden items, and special card fragments to unlock a final gem.
-
-### Story and Gameplay
-Each quest is a different story and can have different challenges, like:
-
-- **Hidden Objects**: find items with hints from NPCs/signs
-- **Collection**: gather all items (math reinforcement)
-- **Physical puzzles**: mazes, spatial tasks
-- **Story-driven**: linear narrative quests with narrator
-- **Cultural quizzes**: NPCs asking about discovered items
-- **Mini-games**: crafts, sports, or cultural practices
-
-### Characters
-
-**Living Letters (LL)**
-Are the main companions known in the Learning Language modules. They tie words to NPCs.
-They can represent:
-
-- a letter (small LL)
-- a word with its drawing (normal LL)
-- a card (image or sounds)
-
-**Blocky Characters**
-Humanoid / Minecraft‑like characters.
-
-**Ambient NPCs**
-Pigeons, cats, dogs, cars, trains, birds (AI‑driven).  
-
-### Tasks
-"What do I have to do?" is simplified with Tasks.
-When talking to characters the player is given objectives to accomplish, like
-
-- collect items (collect all ingredients for a recipe)
-- reach a position (climb Mont Blanc or the Eiffel Tower)
-- trigger an action (lower the castle's bridge)
-
-### Progress system
-
-- Quests end with 1–3 stars depending on errors.  
-- Bonus/malus events affect progress.  
-
-### Special Cards
-
-Replaying quests may reveal fragments of special cards, leading to the final gem of the quest.
-
-Once mastered, repeating gives cookies but not gems.
-
-### Activities
-
-Activities can be embedded in quests or played separately from the Book and deal with topics.
-
-> [!note]
-> One of the new features of our framework is that these activities can be asked to reinforce a topic, and automatically fetch cards to be played.
-
-- **Order**: put elements in sequence
-- **Piano**: repeat melodies/colors
-- **Canvas**: clean to reveal images
-- **Money**: count coins and notes
-- **Jigsaw Puzzle**: cultural images
-- **Memory**: card matching
-- **Quiz**: text, image, or mixed answers
-- **Final Assessments**: formal checks after quests
-
-Explore all activities: [Activities overview](../content/activities/index.md).
-
-### Languages
-All dialogues are bilingual: the child’s native language + the host country’s language (e.g., Polish, French).
-This makes it easier for children to follow the story while learning new words and phrases.
-
-By default the game speaks the learning language first, then the native language, but a teacher can choose the inverse if it's better for the child.
-
-### Difficulty levels
-
-All gameplay and content is classified in three difficulty levels:
-
-- Easy
-- Normal
-- Expert
-
-Teachers can adjust difficulty in the Teacher Panel to adapt timing, hints, and challenge density to the learner’s level. Some quests also unlock extra optional tasks on replay for advanced learners.
-
-### Locations
-Each quest is located in a specific location (usually a city or a part of a city) selectable in the worl map.
-They are build with two methodologies:
-
-1. **Abstract art**  
-Designers build generic environment using common 3D models. Good for common topics that are not aboslutely linked to a geographic position.
-
-2. **Realistic maps**  
-The city are build starting from a realisti map (from [OpenStreetMap](https://www.openstreetmap.org)), with defined GPS coordinates and orientation.
-This scenarios are best for real "urban" quests where orientation matters.
-
-## Gameplay
-
-### Earth Menu
-
-Entry point to explore world, countries, and quests.  
-Access to the Book (review knowledge) and the Store (customization).  
-
-**Dependencies**  
-Quests can require prior quests as knowledge prerequisites.  
-
-### Map and target points
-
-- Map button shows your position and the main objective.  
-- A **target** marker points to the next goal; hints appear when objectives change.  
-- Optional tasks and hidden items may appear as extra icons.  
-
-### Interactions and inventory
-
-- Interactions: Talk, Inspect, Collect, Use.  
-- Inventory: up to 5 slots; items auto‑use when needed and disappear after use.  
-
-### Modes (Classroom vs Home)
-
-- In Classroom Mode the focus on one country/topic and quests freely selectable within it.  
-- Home Mode: all countries selectable and quests are typically unlock sequentially for exploration.  
-
-### Accessibility
-
-- Subtitles and icon prompts support early readers and multilingual play.  
-- Classroom mode reduces noise
-- All sentences are spoken in all languages
-- We use and color and shape and sound marks
-
-### Devices and controls
-
-Works with keyboard/mouse and touch. See [How to Play](./discover_how_to_play.md) for controls, map, interactions, and the activities gallery.  
-
-## Motivation and rewards
-
-- Knowledge cards = collected evidence of learning.  
-- Gems = unlock advanced quests and some props.  
-- Cookies = customize the character and space.  
-- Stars = motivate to complete and replay.  
-- Achievements = long‑term goals and fun challenges.
-
-### Currencies
-
-- Cookies (fish) = found in quests; they regenerate over time.  
-- Knowledge Gems (neurons) = mastery rewards for completing tasks and unlocking cards; represent the **real learning progress**.
-- XP Points = experience accumulated by playing; used for progression.
-
-### Store / Cat customization
-
-- Use cookies to buy skins and props for the cat.  
-- Some props unlock only after achieving certain gems or cards.
-
-### Achievements
-Global and local achievements encourage replay and engagement.  
-Examples:
-
-- Collect all cards
-- Buy cosmetics for the cat
-- Finish all quests
-- Mastery goals (finish with 3 stars everywhere)
-- Fun goals (jump 1000 times, sprint 60s, talk to everyone)
-
-### Bonus/malus system
-Reinforces **good citizenship and cultural awareness** by rewarding some actions.
-
-- Bonus examples: talking to NPCs, respecting traffic lights, collecting rubbish.  
-- Malus examples: crossing on red, damaging property, stepping on flowers.  
-
-These actions are logged in the Book as part of reflection on behavior.  
-
-## Teacher and parent tools
-
-### Teacher panel
-
-- create a class and add players
-- for each player, adjust difficulty, choose language mode, and monitor quests and achievements  
-
-### The Book
-Reviews all collected knowledge.  
-Shows all discovered and undiscovered cards, gems, and achievements.
-Acts as a review tool for classroom or home learning.
-
-### Website
-Shows topics, cards, and activities covered in a session.  
-
-### Classroom integration
-
-After a quest, teachers can:  
-
-- Rebuild the knowledge graph with students.  
-- Extend it with new ideas or student contributions.  
-- Retell the quest in class.  
-- Compare with real‑life resources (maps, books, visits).  
-
-Example debrief (10 minutes):  
-
-- Ask: “Which card did you unlock? What does it connect to?”  
-- On the board, draw “Baguette → Bread → French food” and invite students to add related ideas.  
-- Quick pair‑share: each student explains one new word and where it appeared.  
-
-### Analytics
-
-> [!note]
-> We care about privacy and anonymity. We collect gameplay data without linking it to personally identifiable information.  
-> Linking students to profiles (if needed) is managed by the teacher according to school policies.
-
-- Logs gameplay events (play time, quest attempts, bonus/malus, card collection).  
-- Data can be exported in a simple format for manual evaluation (JSON) or automatic (xAPI).  
-- In class, teachers see simplified summaries (progress, cards, achievements).  
-
-## Quest design
-
-
-- Defined with the open‑source AdventurED framework.  
-- Designed via the DiscoverED web tool:  
-  - visual editor for quest flows (story + tasks + quizzes)  
-  - built‑in translation in multiple languages  
-  - collaborative content creation with teachers  
-
-Docs: Quest Design - https://docs.antura.org/manual/quests/
-
-### Licensing and credits
-
-- Assets are custom‑made or Creative Commons (CC0/CC‑BY).  
-- Credits are tracked for external resources (images, sounds, models).  

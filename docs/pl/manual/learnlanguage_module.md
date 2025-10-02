@@ -248,5 +248,6 @@ ZERO, JEDEN, DWIE, TRZY, CZTERY, PIĘĆ, SZEŚĆ, SIEDEM, OSIEM, DZIEWIĘĆ, DZI
 STYCZEŃ, LUTY, MARZEC, KWIECIEŃ, MAJ, CZERWIEC, LIPIEC, SIERPIEŃ, WRZESIEŃ, PAŹDZIERNIK, LISTOPAD, GRUDZIEŃ
 
 ![treść 1](../../assets/img/screenshot/docs_antura_content_1.jpg)
-![treść 2](../../assets/img/screenshot/docs_antura_book2.jpg)
-![książka](../../assets/img/screenshot/docs_antura_book2.jpg)
+![treść 2](../../assets/img/screenshot/docs_antura_content_2.jpg)
+![książka 1](../../assets/img/screenshot/docs_antura_book.jpg)
+![książka 2](../../assets/img/screenshot/docs_antura_book2.jpg)

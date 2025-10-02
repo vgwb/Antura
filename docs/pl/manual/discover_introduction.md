@@ -1,90 +1,77 @@
 ---
-title: Discover Introduction
-#subtitle: Let's get into the new Antura 3.0 modules
-status: new
+tytuł: Wprowadzenie do Discover
+#podtytuł: Zapoznajmy się z nowymi modułami Antura 3.0
+status: nowy
 ---
 
-# Discover Cultures Introduction
+# Wprowadzenie do Discover Cultures
+> [!uwaga] Instrukcja gry
+> Niniejszy dokument wyjaśnia funkcje gry. Istnieje specjalna strona poświęcona [zasadom gry](./discover_how_to_play.md)
 
-> [!note] How to Play guide
-> This doc exmplains the game features, there is a dedicated page on [How to play](./discover_how_to_play.md)
+Discover pomaga dzieciom poznawać kulturę, język i życie codzienne różnych krajów poprzez krótkie, powtarzalne zadania.
 
-Discover helps children explore the culture, language, and daily life of different countries through short, replayable quests.
+Zostało zaprojektowane z myślą o **dzieciach migrantów**, ale może być również wykorzystywane w każdej szkole w celu promowania **świadomości kulturowej** i **nauki języków**.
 
-It is designed to support **migrant children**, but can also be used in any school to promote **cultural awareness** and **language learning**.
+- **Gdzie można z niego korzystać**: w klasie lub w domu
+- **Dla kogo**: dzieci w wieku 6–12 lat
+- **Wartości**: prosta, bezpieczna, dostępna
 
-- **Where to use it**: in class or at home
-- **For whom**: children aged 6–12
-- **Values**: simple, safe, accessible
+Oto krótkie wprowadzenie do gry, a następnie szczegółowy opis każdej funkcji.
 
-Here is a short introduction to the game, followed by a detailed description of each feature.
+## Gra w 2 minuty
+- Dzieci wcielają się w **postać kota** w kolorowych światach 3D.
+- Podejmują się **zadań** (trwających od 5 do 15 minut), które są krótkimi przygodami skupiającymi się na tematach kulturowych lub edukacyjnych.
+- Każda misja łączy w sobie:
+    - odkrywanie autentycznych miejsc
+    - spotkania z postaciami
+    - rozwiązywanie zagadek i mini-gier
+    - zbieranie elementów kulturowych (**kart wiedzy**)
 
-## The game in 2 minutes
+### Wsparcie językowe
+- Wszystkie dialogi są dwujęzyczne: **język ojczysty dziecka** + **język kraju gospodarza** (np. polski, francuski).
+- Ułatwia to dzieciom śledzenie fabuły podczas nauki nowych słów i zwrotów.
 
-- Children play as a **Cat character** in colorful 3D worlds.
-- They take on **Quests** (5–15 minutes each), which are short adventures focusing on cultural or educational themes.
-- Each quest combines:
-    - exploration of authentic places
-    - meeting characters
-    - solving puzzles and mini-games
-    - collecting cultural elements (**Knowledge Cards**)
+### Nauka poprzez zabawę
+Discover uczy na dwa sposoby:
+1. **Nauka pośrednia**: dzieci przyswajają kulturę i język podczas odkrywania i zabawy.
+2. **Nauka bezpośrednia**: krótkie pytania i quizy utrwalają wiedzę przed przejściem dalej.
 
-### Language support
+Tematy obejmują historię, jedzenie, tradycje, geografię, życie codzienne i wiele innych.
 
-- All dialogues are bilingual: **the child’s native language** + **the host country’s language** (e.g., Polish, French).
-- This makes it easier for children to follow the story while learning new words and phrases.
+### Karty wiedzy i książka
+- **Karty**: przedstawiają fakty, osoby, przedmioty, tradycje lub miejsca.
+- Dzieci **zbierają je podczas zadań** i mogą je przeglądać w dowolnym momencie w **książce**.
+- Karty są połączone w **wykres wiedzy**, który pokazuje powiązania między elementami kultury (np. bagietka → chleb → kuchnia francuska).
 
-### Learning through play
+### Motywacja i postępy
+- **Klejnoty** = opanowanie zadań (rzeczywisty postęp w nauce).
+- **Ciasteczka** = zabawna waluta służąca do personalizacji kota.
+- **Gwiazdki** = ocena wyników każdego zadania.
+- **Osiągnięcia** = długoterminowe cele (np. „zbierz wszystkie karty we Francji”).
 
-Discover teaches in two ways:
+### Narzędzia dla nauczycieli i rodziców
+- **Panel nauczyciela**: dostosuj poziom trudności, wybierz tryb językowy, monitoruj zadania i postępy.
+- **Automatyczna strona internetowa**: pokazuje tematy, karty i ukończone zadania, dostosowując rozgrywkę do **programu nauczania** i zapewniając **przejrzystość** postępów dla nauczycieli i rodziców.
 
-1. **Indirect learning**: children absorb culture and language while exploring and playing.
-2. **Direct learning**: short questions and quizzes reinforce knowledge before advancing.
+### Rozwijane umiejętności
+Podczas zabawy dzieci ćwiczą:
+- pamięć i przypominanie sobie
+- logiczne rozumowanie
+- orientację przestrzenną
+- rozumienie i tworzenie języka
+- świadomość kulturową i obywatelską
 
-Topics include history, food, traditions, geography, daily life, and more.
+### Integracja z zajęciami szkolnymi
+Po zakończeniu zabawy nauczyciele mogą:
+- odbudować wykres wiedzy wraz z uczniami
+- rozszerzyć go o nowe pomysły
+- wspólnie opowiedzieć o zadaniu
+- porównać z rzeczywistymi zasobami (mapy, książki, wizyty)
 
-### Knowledge cards & Book
+### Wartość
+Odkrywaj z Anturą:
+- pomaga dzieciom **poczuć się jak w domu w nowym kraju**
+- buduje **świadomość kulturową** i **empatię**
+- wspiera **naukę języków** w bezpieczny i zabawowy sposób
+- zapewnia nauczycielom i rodzicom **pełną widoczność** wyników nauki
 
-- **Cards**: represent facts, people, objects, traditions, or places.
-- Children **collect them in quests** and can review them anytime in the **Book**.
-- Cards are linked into a **Knowledge Graph** that shows how cultural elements connect (e.g., baguette → bread → French cuisine).
-
-### Motivation & Progress
-
-- **Gems** = mastery of tasks (real learning progress).
-- **Cookies** = fun currency for customizing the cat.
-- **Stars** = performance rating of each quest.
-- **Achievements** = long-term goals (e.g., “collect all cards in France”).
-
-### Teacher & parent tools
-
-- **Teacher Panel**: adjust difficulty, choose language mode, monitor quests and progress.
-- **Automatic Website**: shows topics, cards, and activities completed, aligning gameplay with the **curriculum** and making progress **transparent** for teachers and parents.
-
-### Skills developed
-
-While playing, kids train:
-
-- memory and recall
-- logical reasoning
-- spatial orientation
-- language comprehension and production
-- cultural awareness and citizenship
-
-### Classroom Integration
-
-After playing, teachers can:
-
-- rebuild the knowledge graph with students
-- extend it with new ideas
-- retell the quest together
-- compare with real-life resources (maps, books, visits)
-
-### Value
-
-Discover with Antura:
-
-- helps children **feel at home in a new country**
-- builds **cultural awareness** and **empathy**
-- supports **language learning** in a safe and playful way
-- gives teachers and parents **full visibility** on learning outcomes

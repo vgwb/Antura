@@ -248,5 +248,6 @@ ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE,
 JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
 
 ![content 1](../../assets/img/screenshot/docs_antura_content_1.jpg)
-![content 2](../../assets/img/screenshot/docs_antura_book2.jpg)
-![book](../../assets/img/screenshot/docs_antura_book2.jpg)
+![content 2](../../assets/img/screenshot/docs_antura_content_2.jpg)
+![book 1](../../assets/img/screenshot/docs_antura_book.jpg)
+![book 2](../../assets/img/screenshot/docs_antura_book2.jpg)

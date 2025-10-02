@@ -4,10 +4,11 @@ title: Install Beta
 <script setup>
 import WindowsDownloadLink from '../../snippets/download_link.md'
 </script>
+
 # Install Beta
 
 > [!note]
-> From this page you can download the new v3.0 version of Learn with Antura. If you are looking for the current v2.0 release (including Learn to Read and Learn a Language modules), please see the [Downaload page](../download.md)
+> From this page you can download the new v3.0 version of Learn with Antura. If you are looking for the current v2.0 release (including Learn to Read and Learn a Language modules), please see the [Download page](../download.md)
 
 The game is compatible with iOS, Android and Windows, so it can be played on smartphones, tablets and PCs. **Once installed, internet is NOT required when playing the game.**
 

@@ -37,9 +37,9 @@ Each card is of one **Type**, like:
 - **Concept** (THINK) - Abstract ideas (friendship, safety, peace)
 - **Activity** (DO) - Games, cooking, sports
 
-and is linked to One or more **Subject**:
+and is linked to One or more **Subject**.
 
-Core subjects:
+Core Subject:
 
 - **Art** - making and creating
 - **Culture** - how people live
@@ -114,8 +114,6 @@ Each quest combines:
 - meeting characters
 - solving puzzles and mini-games
 - collecting cultural elements (**Cards**)
-
-
 - Two play levels:
     - The first run exposes essential content only.
     - Replay enables extra tasks, hidden items, and special card fragments to unlock a final gem.

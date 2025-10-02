@@ -50,8 +50,8 @@ status: new
 - **Look**: look at signs, posters, or objects to unlock knowledge cards in the Book.  
 - **Collect**: pick up items that go into the inventory (auto‑use when needed).  
 - **Use**: press buttons, levers, or floor switches to open doors or trigger events.  
-- Navigate: jump across platforms, avoid hazards, follow safe paths (e.g., cross on green).  
-- Activities: some interactions launch an activity (see below) to practice a card or a skill.  
+- **Navigate**: jump across platforms, avoid hazards, follow safe paths (e.g., cross on green).  
+- **Activities**: some interactions launch an activity (see below) to practice a card or a skill.  
 
  > [!note] 
  > Interact is the same button as Jump when close to an NPC/object.
