@@ -1,8 +1,8 @@
 ---
-title: Apprendre les langues
+title: Introduction à l'apprentissage des langues
 ---
-Apprendre les langues
-=====================
+
+# Introduction à l'apprentissage des langues
 
 ![Accueil](../../assets/img/screenshot/docs_antura_home.jpg)
 

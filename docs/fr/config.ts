@@ -39,21 +39,21 @@ function sidebarManual(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Introduction', link: 'introduction' },
         { text: 'Installation', link: 'install' },
-        { text: 'Setup', link: 'setup' },
-        { text: 'Classroom Guide', link: 'classroom_guide' },
+        { text: 'Configuration', link: 'setup' },
+        { text: 'Guide pédagogique', link: 'classroom_guide' },
       ]
     },
     {
       text: 'Apprendre les langues',
       items: [
-        { text: 'Learn Languages overview', link: 'learnlanguage_module' },
-        { text: 'How to play minigames', link: 'learnlanguage_how_to_play' },
+        { text: 'Introduction', link: 'learnlanguage_module' },
+        { text: 'Comment jouer', link: 'learnlanguage_how_to_play' },
       ]
     },
     {
-      text: 'Discover Cultures',
+      text: 'Découvrir les cultures',
       items: [
-        { text: 'Discover overview', link: 'discover_introduction' },
+        { text: 'Introduction', link: 'discover_introduction' },
         { text: 'Fonctionnalités', link: 'discover_module' },
         { text: 'Comment jouer aux quêtes', link: 'discover_how_to_play' }
       ]
