@@ -245,8 +245,8 @@ image: giraffe_keeper
 color: blue
 ---
 <<if GetActivityResult("canvas_giraffe_settings") > 0>>
-    Isn't it cool? #line:04d057e 
-    Want to see try again? #line:04f37fa 
+    Cool, right? #line:04d057e 
+    Want to try again? #line:04f37fa 
     <<activity canvas_giraffe_settings_hard giraffe_activity_done>>
 <<else>>
     I am the tallest ANIMAL. #line:0d5c607 
