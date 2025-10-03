@@ -720,17 +720,37 @@ position: 1359,1253
 group: activities
 color: purple
 ---
-Activity CANVAS!  #line:0532f99 
-<<activity canvas_beach_settings activity_canvas_result>>
+<<if GetActivityResult("canvas_beach_settings") > 0>>
+    You already completed canvas 1!
+<<endif>>
+Do you want to play Activity CANVAS?  #line:0532f99 
+-> Yes #highlight
+    <<activity canvas_beach_settings activity_canvas_result>>
+-> No
+
 ===
 
+title: activity_canvas2
+position: 1359,1253
+group: activities
+color: purple
+---
+<<if GetActivityResult("canvas_beach2_settings") > 0>>
+    You already completed canvas 2!
+<<endif>>
+Do you want to play Activity CANVAS 2?
+-> Yes #highlight
+    <<activity canvas_beach2_settings activity_canvas2>>
+-> No
+
+===
 title: activity_canvas_result
 position: 1358,1395
 group: activities
 color: purple
 ---
-<<if GetActivityResult("activity_canvas") > 0>>
-You played CANVAS activity well! #line:04fd2ce 
+<<if GetActivityResult("") > 0>>
+You played  well! #line:04fd2ce 
 <<else>>
 Try again. #line:0797e1e 
 <<endif>>
@@ -750,7 +770,7 @@ position: 1618,1397
 group: activities
 color: purple
 ---
-<<if GetActivityResult("activity_jigsaw") > 0>>
+<<if GetActivityResult("jigsaw_toureiffel_settings") > 0>>
 You played JIGSAW PUZZLE activity well! #line:041075b 
 <<else>>
 Try again. #line:0921ca5 
@@ -762,6 +782,9 @@ position: 1888,1254
 group: activities
 color: purple
 ---
+<<if GetActivityResult("memory_baguette_settings") > 0>>
+You played MEMORY activity well!
+<<endif>>
 Activity MEMORY!  #line:0727144 
 <<activity memory_baguette_settings activity_memory_result>>
 ===
@@ -771,7 +794,7 @@ position: 1885,1400
 group: activities
 color: purple
 ---
-<<if GetActivityResult("activity_memory") > 0>>
+<<if GetActivityResult("memory_baguette_settings") > 0>>
 You played MEMORY activity well! #line:03121d7 
 <<else>>
 Try again. #line:0d146ef 
@@ -792,7 +815,7 @@ position: 2113,1403
 group: activities
 color: purple
 ---
-<<if GetActivityResult("activity_match") > 0>>
+<<if GetActivityResult("match_zoo_1_settings") > 0>>
 You played MATCH activity well! #line:0426701 
 <<else>>
 Try again. #line:07643ad 
@@ -813,7 +836,7 @@ position: 2359,1407
 group: activities
 color: purple
 ---
-<<if GetActivityResult("activity_money") > 0>>
+<<if GetActivityResult("money_level_1_settings") > 0>>
 You played MONEY activity well! #line:0a63bb1 
 <<else>>
 Try again. #line:02b103d 
@@ -834,7 +857,7 @@ position: 2592,1398
 group: activities
 color: purple
 ---
-<<if GetActivityResult("activity_order") > 0>>
+<<if GetActivityResult("order_baguetterecipe_settings") > 0>>
 You played ORDER activity well! #line:05527db 
 <<else>>
 Try again. #line:04681e2 
@@ -857,7 +880,7 @@ position: 2834,1399
 group: activities
 color: purple
 ---
-<<if GetActivityResult("activity_piano") > 0>>
+<<if GetActivityResult("piano_framartino_settings") > 0>>
 You played the PIANO activity well! #line:0b9f1af 
 <<else>>
 Try again. #line:04c91cd 

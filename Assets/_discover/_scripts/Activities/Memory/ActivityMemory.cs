@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Discover.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,6 @@ namespace Antura.Discover.Activities
 
         [Tooltip("Common sprite used for the back of all cards.")]
         public Sprite commonBack;
-        public Button validateButton;
 
         [Header("Difficulty & Grid")]
         public Difficulty difficulty = Difficulty.Easy;
@@ -51,12 +51,25 @@ namespace Antura.Discover.Activities
 
         public override void InitActivity()
         {
+            if (Settings != null)
+                difficulty = Settings.Difficulty;
+
             BuildBoard();
-            difficulty = Settings.Difficulty;
             if (difficulty == Difficulty.Tutorial)
                 StartCoroutine(TutorialIdleHints());
             else if (difficulty == Difficulty.Easy)
                 StartCoroutine(EasyPeriodicShakes());
+        }
+
+        private void OnWin()
+        {
+            Debug.Log("🏆 Memory: all pairs found!");
+            EnableValidateButton(true);
+        }
+
+        public override bool DoValidate()
+        {
+            return true;
         }
 
         protected override void Update()
@@ -109,6 +122,9 @@ namespace Antura.Discover.Activities
             grid.constraintCount = cols;
             grid.childAlignment = TextAnchor.MiddleCenter;
 
+            var autoSize = CalculateAutoCellSize(rows, cols);
+            grid.cellSize = autoSize;
+
             // Pick unique faces from CardData
             var selectedFaces = PickUniqueFaces(totalPairs);
             var pool = new List<(int id, Sprite face)>();
@@ -127,6 +143,9 @@ namespace Antura.Discover.Activities
                 card.Init(this, entry.id, entry.face, commonBack);
                 cards.Add(card);
             }
+
+            if (gridParent != null)
+                LayoutRebuilder.ForceRebuildLayoutImmediate(gridParent);
         }
 
         /// <summary>
@@ -165,7 +184,7 @@ namespace Antura.Discover.Activities
             if (data == null)
                 return null;
             if (data.ImageAsset != null)
-                return data.ImageAsset.Image;
+                return data.ImageAsset.GetImage();
             return null;
         }
 
@@ -179,7 +198,7 @@ namespace Antura.Discover.Activities
             lastActionTime = Time.unscaledTime;
 
             card.RevealUp();
-            PlaySfx(flipSfx);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityClick);
 
             if (first == null)
             { first = card; return; }
@@ -201,7 +220,7 @@ namespace Antura.Discover.Activities
             {
                 first.Lock();
                 second.Lock();
-                PlaySfx(matchSfx);
+                DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityGoodMove);
                 matchedPairs++;
                 if (matchedPairs >= totalPairs)
                     OnWin();
@@ -211,7 +230,7 @@ namespace Antura.Discover.Activities
             else
             {
                 // mismatch: flip both back down and play SFX, keep input locked during flip
-                PlaySfx(mismatchSfx);
+                DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityBadMove);
                 float wait = 1f;
                 yield return new WaitForSecondsRealtime(wait);
                 first.HideDown();
@@ -224,19 +243,6 @@ namespace Antura.Discover.Activities
             resolving = false;
         }
 
-        /// <summary>
-        /// Called when all pairs are matched.
-        /// </summary>
-        private void OnWin()
-        {
-            Debug.Log("🏆 Memory: all pairs found!");
-            validateButton.interactable = true;
-        }
-
-        public override bool DoValidate()
-        {
-            return true;
-        }
 
         /// <summary>
         /// Tutorial mode: wiggle one correct pair after X seconds of inactivity.
@@ -326,12 +332,38 @@ namespace Antura.Discover.Activities
             }
         }
 
-        private void PlaySfx(AudioClip clip)
+        private Vector2 CalculateAutoCellSize(int rows, int cols)
         {
-            if (!clip)
-                return;
-            if (audioSource)
-                audioSource.PlayOneShot(clip);
+            if (gridParent == null || rows <= 0 || cols <= 0)
+                return cellSize;
+
+            var rect = gridParent.rect;
+            if (rect.height <= 0f || rect.width <= 0f)
+                return cellSize;
+
+            var padding = grid != null ? grid.padding : new RectOffset();
+            var spacingVec = grid != null ? grid.spacing : spacing;
+
+            float availableHeight = rect.height - padding.vertical - spacingVec.y * Mathf.Max(0, rows - 1);
+            float availableWidth = rect.width - padding.horizontal - spacingVec.x * Mathf.Max(0, cols - 1);
+            if (availableHeight <= 0f || availableWidth <= 0f)
+                return cellSize;
+
+            float aspect = cellSize.y > 0.01f ? cellSize.x / cellSize.y : 1f;
+            float targetHeight = availableHeight / rows;
+            float targetWidth = targetHeight * aspect;
+
+            float maxWidth = availableWidth / cols;
+            if (targetWidth > maxWidth)
+            {
+                targetWidth = maxWidth;
+                targetHeight = aspect > 0f ? targetWidth / aspect : targetHeight;
+            }
+
+            targetWidth = Mathf.Max(10f, targetWidth);
+            targetHeight = Mathf.Max(10f, targetHeight);
+
+            return new Vector2(targetWidth, targetHeight);
         }
     }
 }

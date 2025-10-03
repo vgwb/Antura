@@ -10,6 +10,11 @@ namespace Antura.Discover.Audio
         ActivityClick = 10,
         ActivityDrop = 11,
         ActivityHint = 12,
+        ActivityGoodMove = 13,
+        ActivityBadMove = 14,
+        FlipCard = 15,
+        ActivityAttach = 16,
+        ActivityDetach = 17,
 
         ActivitySuccess = 20,
         ActivityFail = 21

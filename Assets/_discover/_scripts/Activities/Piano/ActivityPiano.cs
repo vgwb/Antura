@@ -22,7 +22,6 @@ namespace Antura.Discover.Activities
         public PianoKeyboard keyboard;
         public Button playButton;
         public Button stopButton;
-        public TextMeshProUGUI statusLabel;
 
         public Color tutorialFlash = new Color(1f, 0.95f, 0.3f, 1f);
 
@@ -47,6 +46,17 @@ namespace Antura.Discover.Activities
             WireUI();
             ApplyDifficultyVisuals();
             BuildTargetNotes();
+        }
+
+        private void Win()
+        {
+            Debug.Log("🏆 Memory: all pairs found!");
+            EnableValidateButton(true);
+        }
+
+        public override bool DoValidate()
+        {
+            return true;
         }
 
         protected override void Update()
@@ -92,16 +102,14 @@ namespace Antura.Discover.Activities
             currentRoutine = null;
             acceptingInput = false;
             inputIndex = 0;
-            if (statusLabel)
-                statusLabel.text = "Ready";
+            DisplayFeedback("Ready");
         }
 
         private IEnumerator PlaySequenceThenAwait()
         {
             acceptingInput = false;
             inputIndex = 0;
-            if (statusLabel)
-                statusLabel.text = "Listening...";
+            DisplayFeedback("Listening...");
 
             if (Settings == null)
                 yield break;
@@ -139,8 +147,7 @@ namespace Antura.Discover.Activities
                 }
             }
 
-            if (statusLabel)
-                statusLabel.text = "Your turn!";
+            DisplayFeedback("Your turn!");
             acceptingInput = true;
         }
 
@@ -159,15 +166,14 @@ namespace Antura.Discover.Activities
                 inputIndex++;
                 if (inputIndex >= targetNotes.Count)
                 {
-                    if (statusLabel)
-                        statusLabel.text = "Correct!";
+                    DisplayFeedback("Correct!");
                     acceptingInput = false;
+                    Win();
                 }
             }
             else
             {
-                if (statusLabel)
-                    statusLabel.text = "Wrong, try again!";
+                DisplayFeedback("Wrong, try again!");
                 inputIndex = 0;
             }
         }

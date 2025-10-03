@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Antura.Discover.Audio;
 
 namespace Antura.Discover.Activities
 {
@@ -59,7 +60,6 @@ namespace Antura.Discover.Activities
             System.Func<Transform> poolGetter,
             System.Action<int> onLift,
             System.Action onReturn,
-            System.Action<AudioClip> onPlay,
             System.Action<CardData, DraggableTile> onHint = null,
             object owner = null)
         {
@@ -76,7 +76,7 @@ namespace Antura.Discover.Activities
             getPoolParent = poolGetter;
             onLiftedFromSlot = onLift;
             onReturnedToPool = onReturn;
-            onPlayItemSound = onPlay;
+            // onPlayItemSound = onPlay;
             onFlashCorrectSlot = onHint;
         }
 
@@ -103,6 +103,8 @@ namespace Antura.Discover.Activities
 
             canvasGroup.blocksRaycasts = false;
             transform.SetParent(activityTranform);
+
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityClick);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -127,6 +129,7 @@ namespace Antura.Discover.Activities
                     var pool = getPoolParent != null ? getPoolParent() : null;
                     if (pool != null)
                         MoveToPool(pool);
+                    DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityDrop);
                     onReturnedToPool?.Invoke();
                 }
             }

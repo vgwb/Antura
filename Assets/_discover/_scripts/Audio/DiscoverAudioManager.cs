@@ -184,7 +184,7 @@ namespace Antura.Discover.Audio
         }
         #endregion
 
-        public void Play(DiscoverSfx id, float volume = 1f)
+        public void PlaySfx(DiscoverSfx id, float volume = 1f)
         {
             if (id == DiscoverSfx.None)
                 return;

@@ -1,8 +1,8 @@
+using Antura.Discover.Audio;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using TMPro;
 
 namespace Antura.Discover.Activities
 {
@@ -19,9 +19,6 @@ namespace Antura.Discover.Activities
         [Header("Drop Areas")]
         [Tooltip("If true, the script will create a full-board drop area behind all items. If false, you can place your own drop areas manually (MatchPoolDropArea or MatchDropSlot with IsPoolArea).")]
         public bool AutoCreateBoardDropArea = false;
-
-        public AudioSource audioSource;
-        public AudioClip dropSound;
 
         private DraggableTile[] placed;
         private readonly List<QuestionItem> questionItems = new();
@@ -172,7 +169,6 @@ namespace Antura.Discover.Activities
                     poolGetter: () => BoardArea,
                     onLift: NotifyTileLiftedFromSlot,
                     onReturn: NotifyTileReturnedToPool,
-                    onPlay: PlayItemSound,
                     onHint: null,
                     owner: this);
                 // Ensure CanvasGroup exists for proper drag raycast toggling
@@ -257,9 +253,7 @@ namespace Antura.Discover.Activities
             ParentAndPositionTileUnderQuestion(tile, slotIndex);
             // Highlight will be handled in UpdateSlotHighlights based on difficulty
 
-            // SFX
-            if (audioSource && dropSound)
-                audioSource.PlayOneShot(dropSound);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityDrop);
 
             // Pulse
             Pulse(tile.transform, 1.06f, 0.08f);
@@ -347,6 +341,7 @@ namespace Antura.Discover.Activities
             if (ai != null)
                 ai.AttachedTo = null;
 
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityDrop);
             UpdateValidateState();
             UpdateSlotHighlights();
         }
@@ -439,6 +434,7 @@ namespace Antura.Discover.Activities
             {
                 tile.MoveToPool(BoardArea);
             }
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityDrop);
             UpdateValidateState();
             UpdateSlotHighlights();
         }
@@ -505,6 +501,14 @@ namespace Antura.Discover.Activities
 
             // partial credit through base GetRoundScore01()
             _lastScore = placed.Length > 0 ? (float)correct / placed.Length : 0f;
+            if (placed.Length > 0 && correct == placed.Length)
+            {
+                DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
+            }
+            else if (placed.Length > 0)
+            {
+                DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityBadMove);
+            }
             return correct == placed.Length;
         }
 
@@ -517,16 +521,6 @@ namespace Antura.Discover.Activities
             {
                 Debug.Log("you failed", this);
             }
-        }
-
-        public void PlayItemSound(AudioClip clip)
-        {
-            if (!clip)
-                return;
-            if (audioSource)
-                audioSource.PlayOneShot(clip);
-            else
-                AudioSource.PlayClipAtPoint(clip, Camera.main ? Camera.main.transform.position : Vector3.zero);
         }
 
         // Helpers
@@ -604,7 +598,7 @@ namespace Antura.Discover.Activities
             rt.pivot = new Vector2(0.5f, 0.5f);
         }
 
-        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+        private static Sprite ResolveSprite(CardData data)
         {
             if (data == null)
                 return null;

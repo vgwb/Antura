@@ -12,9 +12,9 @@ namespace Antura.Core
     public class LocalizationManager
     {
 
-        public static string GetNewLocalized(string id)
+        public static string GetNewLocalized(string id, string table = "Common")
         {
-            var str = new LocalizedString("Common", id);
+            var str = new LocalizedString(table, id);
             return str.GetLocalizedString();
         }
 

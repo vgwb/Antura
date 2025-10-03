@@ -8,6 +8,7 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using System;
 using DG.Tweening;
+using Antura.Core;
 
 namespace Antura.Discover.Activities
 {
@@ -29,15 +30,6 @@ namespace Antura.Discover.Activities
 
         [SerializeField] GameObject HelpPanel;
 
-        [Tooltip("Optional permalink of the Node with the mission")]
-        public LocalizedString Description;
-
-        [Tooltip("Optional permalink of the Node when success")]
-        public LocalizedString SuccessMessage;
-
-        [Tooltip("Optional permalink of the Node when fail")]
-        public LocalizedString FailMessage;
-
         [Header("Rounds & Scoring")]
         [Tooltip("Target rounds to play for this activity. Defaults to Settings.MinRounds if available.")]
         [SerializeField] private int roundsTarget = 1;
@@ -53,13 +45,20 @@ namespace Antura.Discover.Activities
         private int currentRound = 0;
         private float roundStartTime;
         private bool validateEnabled;
-        private bool descriptionShown;
         private int startingRoundsTarget; // keep original target to decide replay prompt
                                           // Final close/notify state
         private bool _closeNotified;
         private bool _hasPendingClose;
         private int _pendingScoreOut;
         private int _pendingDurationSec;
+        private string pendingActivityLabel = string.Empty;
+        private string pendingTopicLabel = string.Empty;
+        private bool hasPendingLabels;
+        [Header("Overlay Sorting")]
+        [SerializeField] private bool enforceOverlaySorting = true;
+        [SerializeField] private string overlaySortingLayerName = "UI";
+        [SerializeField] private int overlaySortingOrder = 10;
+        private Canvas overlayRootCanvas;
 
         public enum ActivityPlayState { Idle, Playing, Paused, Finished, Exiting }
         private ActivityPlayState state = ActivityPlayState.Idle;
@@ -95,17 +94,13 @@ namespace Antura.Discover.Activities
             ResetActivity();
             SetupRoundsFromSettings();
             startingRoundsTarget = roundsTarget;
-            if (!descriptionShown && Description != null)
-            {
-                ShowMessage(Description);
-                descriptionShown = true;
-            }
             // Show panel with settings-derived timer
             InitActivity();
             ShowPanel(HasTimer, TimerSeconds);
             BeginRound();
 
             _coOpenFresh = null;
+            Canvas.ForceUpdateCanvases();
         }
 
         /// <summary>
@@ -119,7 +114,6 @@ namespace Antura.Discover.Activities
             currentRound = 0;
             roundStartTime = 0f;
             validateEnabled = false;
-            descriptionShown = false;
             _closeNotified = false;
             _hasPendingClose = false;
             _pendingScoreOut = 0;
@@ -168,6 +162,9 @@ namespace Antura.Discover.Activities
             { GlobalUI.PauseMenu.OnPauseToggled.Subscribe(OnGlobalPauseToggled); }
             catch { }
             overlay.Timer.OnTimerElapsed.Subscribe(OnTimerElapsed);
+            EnsureOverlaySorting();
+            ApplyPendingLabels();
+            DisplayFeedback(string.Empty);
         }
 
         protected virtual void Update()
@@ -176,29 +173,40 @@ namespace Antura.Discover.Activities
                 return;
             if (state != ActivityPlayState.Playing)
                 return;
-            // Debug: 1=fail (<0), 2=quit (=0), 3=success (>0)
+
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                Debug.Log("Debug shortcut: Force Exit");
+                ExitWithoutPoints();
+                return;
+            }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Debug.Log("Force Exit Fail");
-                // Force close as fail
-                SetRoundsTarget(currentRound);
-                EndRound(false, 0f, false);
+                Debug.Log("Debug shortcut: fail round");
+                ForceEndRound(false);
+                return;
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                Debug.Log("Force Exit 0 points");
-                // Quit with 0 points
-                ExitWithoutPoints();
+                Debug.Log("Debug shortcut: succeed round");
+                ForceEndRound(true);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                Debug.Log("Force Exit Success");
-                // Force close as success
+                Debug.Log("Debug shortcut: activity success");
                 SetRoundsTarget(currentRound);
                 EndRound(true, 1f, false);
             }
         }
 
+        private void ForceEndRound(bool success)
+        {
+            int prevTarget = roundsTarget;
+            SetRoundsTarget(currentRound);
+            float score01 = success ? Mathf.Clamp01(GetRoundScore01()) : 0f;
+            EndRound(success, score01, false);
+            roundsTarget = prevTarget;
+        }
 
         #region Public Methods
 
@@ -277,54 +285,6 @@ namespace Antura.Discover.Activities
         }
 
         /// <summary>
-        /// Allow user to exit the activity with zero points. Shows a confirmation before exiting.
-        /// </summary>
-        public void ExitWithoutPoints()
-        {
-            if (state == ActivityPlayState.Finished || state == ActivityPlayState.Exiting)
-                return;
-
-            state = ActivityPlayState.Exiting;
-            // Pause timer while prompting
-            if (HasTimer)
-                PauseTimer();
-            RequestExitConfirmation(
-                onYes: () =>
-                {
-                    // Finish immediately with 0 points, mark as fail for flow messaging
-                    float elapsed = Time.realtimeSinceStartup - roundStartTime;
-                    OnActivityFinished(false, 0, elapsed, false);
-                    // queue close notify (quit => score 0)
-                    _pendingScoreOut = 0;
-                    _pendingDurationSec = Mathf.RoundToInt(elapsed);
-                    _hasPendingClose = true;
-                    ShowEndMessage(false);
-                    try
-                    { PauseTimer(); }
-                    catch { }
-                    HidePanel();
-                    state = ActivityPlayState.Finished;
-                },
-                onNo: () =>
-                {
-                    // Resume if was playing
-                    if (HasTimer)
-                        ResumeTimer();
-                    state = ActivityPlayState.Playing;
-                }
-            );
-        }
-
-        /// <summary>
-        /// Override to show a confirmation UI before exiting. Default immediately confirms.
-        /// </summary>
-        protected virtual void RequestExitConfirmation(Action onYes, Action onNo)
-        {
-            // Common prompt using existing GlobalUI prompt system
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, onYes, onNo, LanguageUse.Native);
-        }
-
-        /// <summary>
         /// Ends the round, computes points, records profile data, and progresses rounds or closes the panel.
         /// </summary>
         protected void EndRound(bool success, float score01, bool dueToTimeout)
@@ -344,14 +304,46 @@ namespace Antura.Discover.Activities
                 points = s != null ? s.PointsFail : 0;
             }
 
+            StartCoroutine(HandleRoundResolutionCO(success, points, elapsed, dueToTimeout));
+        }
+
+        private IEnumerator HandleRoundResolutionCO(bool success, int points, float elapsed, bool dueToTimeout)
+        {
+            bool decisionMade = false;
+            bool retrySelected = false;
+
+            TryShowResultPrompt(success,
+                onContinue: () =>
+                {
+                    decisionMade = true;
+                    retrySelected = false;
+                },
+                onRetry: () =>
+                {
+                    decisionMade = true;
+                    retrySelected = true;
+                });
+
+            if (!decisionMade)
+            {
+                yield return new WaitUntil(() => decisionMade);
+            }
+
+            if (retrySelected)
+            {
+                OpenFresh();
+                yield break;
+            }
+
+            CommitRoundResult(success, points, elapsed, dueToTimeout);
+        }
+
+        private void CommitRoundResult(bool success, int points, float elapsed, bool dueToTimeout)
+        {
             try
             { QuestManager.I.AddProgressPoints(points); }
             catch { }
 
-            // Show result banner briefly if present
-            TryShowResultBanner(success);
-
-            // Decide next
             if (currentRound < Mathf.Max(1, roundsTarget))
             {
                 StartCoroutine(ProceedNextRoundCO(success, points, elapsed, dueToTimeout));
@@ -373,20 +365,23 @@ namespace Antura.Discover.Activities
         {
             yield return new WaitForSecondsRealtime(0.85f);
             OnActivityFinished(success, points, elapsed, dueToTimeout);
-            ShowEndMessage(success);
             PauseTimer();
 
             // If finished before reaching MaxRounds, offer a replay prompt
             var s = GetSettings();
-            bool canReplay = (s != null && startingRoundsTarget < s.MaxRounds);
+            bool canReplay = s != null && startingRoundsTarget < s.MaxRounds;
             if (canReplay)
             {
                 bool userChoseReplay = false;
                 bool decided = false;
-                RequestReplayConfirmation(
-                    onYes: () => { userChoseReplay = true; decided = true; },
-                    onNo: () => { userChoseReplay = false; decided = true; }
+
+                overlay.ShowResultPrompt(
+                    message: LocalizationManager.GetNewLocalized("result.exit", "Activities"),
+                    color: Color.white,
+                    onContinue: () => { userChoseReplay = false; decided = true; },
+                    onRetry: () => { userChoseReplay = true; decided = true; }
                 );
+
                 while (!decided)
                     yield return null;
 
@@ -409,19 +404,57 @@ namespace Antura.Discover.Activities
             state = ActivityPlayState.Finished;
         }
 
-        private void TryShowResultBanner(bool success)
+        /// <summary>
+        /// Allow user to exit the activity with zero points.
+        /// </summary>
+        public void ExitWithoutPoints()
         {
-            try
-            {
-                var ov = overlay;
-                if (ov != null)
+            if (state == ActivityPlayState.Finished || state == ActivityPlayState.Exiting)
+                return;
+
+            state = ActivityPlayState.Exiting;
+            if (HasTimer)
+                PauseTimer();
+            overlay.ShowResultPrompt(
+                message: LocalizationManager.GetNewLocalized("result.exit", "Activities"),
+                color: Color.white,
+                onContinue: () =>
                 {
-                    var color = success ? new Color(0.1f, 0.7f, 0.2f) : new Color(0.85f, 0.25f, 0.25f);
-                    var text = success ? "Success" : "Try again";
-                    StartCoroutine(ov.ShowResultBanner(text, color, 0.6f));
+                    // Finish immediately with 0 points, mark as fail for flow messaging
+                    float elapsed = Time.realtimeSinceStartup - roundStartTime;
+                    OnActivityFinished(false, 0, elapsed, false);
+                    // queue close notify (quit => score 0)
+                    _pendingScoreOut = 0;
+                    _pendingDurationSec = Mathf.RoundToInt(elapsed);
+                    _hasPendingClose = true;
+                    //ShowEndMessage(false);
+                    try
+                    { PauseTimer(); }
+                    catch { }
+                    HidePanel();
+                    state = ActivityPlayState.Finished;
+                },
+                onRetry: () =>
+                {
+                    // Resume if was playing
+                    if (HasTimer)
+                        ResumeTimer();
+                    state = ActivityPlayState.Playing;
                 }
-            }
-            catch { }
+            );
+        }
+
+        private void TryShowResultPrompt(bool success, Action onContinue, Action onRetry)
+        {
+            var color = success ? new Color(1f, 1f, 1f) : new Color(0.85f, 0.25f, 0.25f);
+            var LabelString = success ? "result.success" : "result.fail";
+
+            overlay.ShowResultPrompt(
+                message: LocalizationManager.GetNewLocalized(LabelString, "Activities"),
+                color: color,
+                onContinue: () => onContinue?.Invoke(),
+                onRetry: () => onRetry?.Invoke()
+            );
         }
 
         // Simple pulse helper usable by derived classes
@@ -505,43 +538,7 @@ namespace Antura.Discover.Activities
             }
         }
 
-        protected virtual void ShowMessage(LocalizedString message)
-        {
-            if (message == null)
-                return;
-            try
-            {
-                var handle = message.GetLocalizedStringAsync();
-                handle.Completed += op =>
-                {
-                    if (op.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
-                    {
-                        var txt = op.Result;
-                        if (!string.IsNullOrEmpty(txt))
-                            Debug.Log($"[Activity] {txt}", this);
-                    }
-                };
-            }
-            catch { }
-        }
-        private void ShowEndMessage(bool success)
-        {
-            if (success)
-                ShowMessage(SuccessMessage);
-            else
-                ShowMessage(FailMessage);
-        }
-
         #endregion
-        /// <summary>
-        /// Ask the user if they want to replay with more rounds when there are still rounds available (< MaxRounds).
-        /// Default uses the same GlobalUI prompt system.
-        /// </summary>
-        protected virtual void RequestReplayConfirmation(Action onYes, Action onNo)
-        {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, onYes, onNo, LanguageUse.Native);
-        }
-
 
         protected virtual void OnDestroy()
         {
@@ -560,6 +557,7 @@ namespace Antura.Discover.Activities
             currHasTimer = pHasTimer;
             this.gameObject.SetActive(true);
             EnableValidateButton(false);
+            EnsureOverlaySorting();
             overlay.SetTimer(pHasTimer, pTimerSeconds);
             DiscoverNotifier.Game.OnActivityPanelToggled.Dispatch(true);
         }
@@ -585,7 +583,9 @@ namespace Antura.Discover.Activities
             }
             try
             {
-                ActivityManager.I?.OnActivityClosed(ActivityCode, _pendingScoreOut, _pendingDurationSec);
+                var settingsId = _configuredSettings != null ? _configuredSettings.Id : string.Empty;
+                var key = !string.IsNullOrEmpty(settingsId) ? settingsId : ActivityCode;
+                ActivityManager.I?.OnActivityClosed(key, _pendingScoreOut, _pendingDurationSec);
             }
             catch { }
             _closeNotified = true;
@@ -595,7 +595,14 @@ namespace Antura.Discover.Activities
         public void EnableValidateButton(bool enable)
         {
             InitOverlayUI();
+            overlay.BtValidate.gameObject.SetActive(enable);
             overlay.BtValidate.interactable = enable;
+        }
+
+        public void DisplayFeedback(string message)
+        {
+            InitOverlayUI();
+            overlay.SetFeedback(message);
         }
 
         public void PauseTimer()
@@ -618,6 +625,53 @@ namespace Antura.Discover.Activities
                 PauseTimer();
             else
                 ResumeTimer();
+        }
+
+        public void SetActivityLabels(string activityName, string topic)
+        {
+            pendingActivityLabel = activityName ?? string.Empty;
+            pendingTopicLabel = topic ?? string.Empty;
+            hasPendingLabels = true;
+            if (overlay != null)
+            {
+                overlay.SetActivityLabels(pendingActivityLabel, pendingTopicLabel);
+            }
+        }
+
+        private void ApplyPendingLabels()
+        {
+            if (!hasPendingLabels || overlay == null)
+                return;
+
+            overlay.SetActivityLabels(pendingActivityLabel, pendingTopicLabel);
+        }
+
+        private void EnsureOverlaySorting()
+        {
+            if (!enforceOverlaySorting)
+                return;
+
+            if (overlayRootCanvas == null)
+            {
+                var canvas = GetComponentInParent<Canvas>(true);
+                if (canvas != null)
+                    overlayRootCanvas = canvas.rootCanvas != null ? canvas.rootCanvas : canvas;
+            }
+
+            if (overlayRootCanvas == null)
+                return;
+
+            overlayRootCanvas.overrideSorting = true;
+            overlayRootCanvas.sortingOrder = overlaySortingOrder;
+
+            if (!string.IsNullOrEmpty(overlaySortingLayerName))
+            {
+                try
+                {
+                    overlayRootCanvas.sortingLayerName = overlaySortingLayerName;
+                }
+                catch { }
+            }
         }
     }
 }

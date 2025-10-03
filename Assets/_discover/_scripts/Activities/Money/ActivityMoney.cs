@@ -1,3 +1,4 @@
+using Antura.Discover.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -18,21 +19,12 @@ namespace Antura.Discover.Activities
         public Transform matParent;
         [SerializeField] private RectTransform dragLayer;                 // optional overlay for drags
 
-        public TextMeshProUGUI targetText;
         public TextMeshProUGUI currentText;
-        public TextMeshProUGUI timerText;
         public RectTransform hintListParent;        // vertical layout of hint rows
         public GameObject hintRowPrefab;            // shows denomination sprite + value text
 
         [Header("Prefabs")]
         public GameObject moneyTokenPrefab;         // contains: Image + TMP + MoneyItemView + DraggableMoney
-
-        [Header("Audio")]
-        public AudioSource sfxSource;
-        public AudioClip sfxPlace;
-        public AudioClip sfxRemove;
-        public AudioClip sfxWin;
-        public AudioClip sfxError;
 
         [Header("Feedback")]
         public RectTransform shakeTarget;           // e.g., the mat or the whole board
@@ -102,8 +94,7 @@ namespace Antura.Discover.Activities
                 ? Settings.FixedTargetAmount
                 : BuildSolvableTarget(all, 2, 4);
 
-            if (targetText)
-                targetText.text = $"{Settings.MoneySet.CurrencySymbol} {data.TargetAmount:0.00}";
+            base.DisplayFeedback($"{Settings.MoneySet.CurrencySymbol} {data.TargetAmount:0.00}");
 
             // 3) Build a rich tray ensuring solvability with many tokens
             var baseCombo = lastComboForTarget; // from BuildSolvableTarget
@@ -182,7 +173,7 @@ namespace Antura.Discover.Activities
             data.CurrentAmount += item.Value;
             placed.Add(drag);
             UpdateCurrentAmount(data.CurrentAmount);
-            Play(sfxPlace);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityAttach);
         }
 
         public void OnItemRemoved(MoneySet.MoneyItem item, DraggableMoney drag)
@@ -190,7 +181,7 @@ namespace Antura.Discover.Activities
             data.CurrentAmount -= item.Value;
             placed.Remove(drag);
             UpdateCurrentAmount(data.CurrentAmount);
-            Play(sfxRemove);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityDetach);
         }
 
         private void UpdateCurrentAmount(float amount)
@@ -221,7 +212,7 @@ namespace Antura.Discover.Activities
 
         private IEnumerator ShakeAndError()
         {
-            Play(sfxError);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityBadMove);
             if (shakeTarget == null)
                 yield break;
 
@@ -239,7 +230,7 @@ namespace Antura.Discover.Activities
 
         private void Win()
         {
-            Play(sfxWin);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivitySuccess);
             // TODO: fire event to AchievementsManager / progression
             Debug.Log("[CountMoney] WIN");
             // Lock input if you want:
@@ -259,13 +250,10 @@ namespace Antura.Discover.Activities
 
         private void Lose()
         {
-            Play(sfxError);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityFail);
             Debug.Log("[CountMoney] LOSE (time)");
-
-
             ended = true;
             EndRound(false, 0f, true);
-
         }
 
         private void Skip()
@@ -278,12 +266,6 @@ namespace Antura.Discover.Activities
                 ended = true;
                 EndRound(false, 0f, false);
             }
-        }
-
-        private void Play(AudioClip clip)
-        {
-            if (sfxSource && clip)
-                sfxSource.PlayOneShot(clip);
         }
 
         // ---------- Hints ----------

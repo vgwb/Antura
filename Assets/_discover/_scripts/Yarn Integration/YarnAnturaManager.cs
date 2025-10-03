@@ -162,10 +162,8 @@ namespace Antura.Discover
         }
 
         [YarnFunction("GetActivityResult")]
-        public static int FunctionGetActivityResult(string activitySettingsCode)
+        public static int FunctionGetActivityResult(string activitySettingsCode = "")
         {
-            if (QuestManager.I == null || string.IsNullOrEmpty(activitySettingsCode))
-                return 0;
             return ActivityManager.I?.GetResult(activitySettingsCode) ?? 0;
         }
 

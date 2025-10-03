@@ -178,7 +178,7 @@ namespace Antura.Discover.Activities
             // Pulse feedback
             Pulse(tile.transform, 1.06f, 0.08f);
 
-            DiscoverAudioManager.I.Play(DiscoverSfx.ActivityDrop);
+            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityDrop);
 
 
             UpdateValidateState();
@@ -296,14 +296,14 @@ namespace Antura.Discover.Activities
             if (wrongIndices.Count == 0)
             {
                 Debug.Log("✅ Correct order!");
-                DiscoverAudioManager.I.Play(DiscoverSfx.ActivitySuccess);
+                DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivitySuccess);
 
                 return true;
             }
             else
             {
                 StartCoroutine(ShakeWrongTiles(wrongIndices));
-                DiscoverAudioManager.I.Play(DiscoverSfx.ActivityFail);
+                DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityFail);
 
                 return false;
             }

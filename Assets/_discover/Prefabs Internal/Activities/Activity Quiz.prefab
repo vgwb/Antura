@@ -53,46 +53,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e311b0e95914353a5d9881a0844be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActivityData: {fileID: 0}
   ActivityCode: 
   HelpPanel: {fileID: 0}
-  Description:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  SuccessMessage:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  FailMessage:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
   roundsTarget: 1
   masterTimeThreshold: 0
-  deprecatedEnableDebugHotkeys: 1
+  _configuredSettings: {fileID: 0}
   Settings: {fileID: 0}
   ActivityDifficulty: 0
   QuestionLabel: {fileID: 0}
   AnswersContainer: {fileID: 0}
   ValidateButton: {fileID: 0}
-  references:
-    version: 2
-    RefIds: []
 --- !u!223 &1531497810808432190
 Canvas:
   m_ObjectHideFlags: 0
@@ -114,7 +85,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5867357004236378626
 MonoBehaviour:
@@ -131,7 +102,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 2560, y: 1440}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

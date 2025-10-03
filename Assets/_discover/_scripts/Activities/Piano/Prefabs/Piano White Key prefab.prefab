@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 400}
+  m_SizeDelta: {x: 90, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083850321912643055
 MonoBehaviour:
@@ -55,26 +55,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteName: 0
   octave: 0
-  baseSemitoneClips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  keyboard: {fileID: 0}
   audioSource: {fileID: 0}
   baseOctave: 4
-  extraPitch: 0
   label: {fileID: 8830544643970156688}
   background: {fileID: 1889771817902351638}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 1, g: 0.95, b: 0.3, a: 1}
+  pressFlashSeconds: 0.2
 --- !u!114 &2802209452041537309
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using DG.Tweening;
+using Antura.Discover.Audio;
 
 namespace Antura.Discover.Activities
 {
@@ -19,7 +19,7 @@ namespace Antura.Discover.Activities
 
         private CanvasGroup cg;
         private JigsawSlot parentSlot;
-        public JigsawSlot PreviousSlot { get; private set; }   // NEW
+        public JigsawSlot PreviousSlot { get; private set; }
         private Vector3 dragOffset;
 
         private void Awake()
@@ -33,12 +33,14 @@ namespace Antura.Discover.Activities
             cg.blocksRaycasts = false;
             transform.SetParent(dragLayer ? dragLayer : RectTransform.parent);
 
-            PreviousSlot = parentSlot;         // remember where it was
+            PreviousSlot = parentSlot;
             if (parentSlot != null)
             {
                 parentSlot.currentPiece = null;
                 parentSlot = null;
             }
+
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityClick);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -66,6 +68,7 @@ namespace Antura.Discover.Activities
             var ab = manager as ActivityBase;
             if (ab != null)
                 ab.Pulse(transform);
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityDrop);
         }
 
         public void ReturnToPool()
@@ -73,17 +76,19 @@ namespace Antura.Discover.Activities
             RectTransform.SetParent(poolParent, false);
             RectTransform.anchoredPosition = originalLocalPos;
             parentSlot = null;
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityDrop);
         }
 
-        public void ReturnToPoolScatter(Vector2 scatterPos)   // NEW
+        public void ReturnToPoolScatter(Vector2 scatterPos)
         {
             RectTransform.SetParent(poolParent, false);
             RectTransform.anchoredPosition = scatterPos;
             originalLocalPos = scatterPos;
             parentSlot = null;
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityDrop);
         }
 
-        public void DetachFromSlot()  // NEW
+        public void DetachFromSlot()
         {
             if (parentSlot != null)
             {

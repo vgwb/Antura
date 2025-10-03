@@ -1,17 +1,17 @@
 ﻿using Demigiant.DemiTools;
 using Demigiant.DemiTools.DeUnityExtended;
-using System.Collections;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 using TMPro;
 using DG.DeInspektor.Attributes;
-using DG.Tweening;
+using Antura.UI;
 
 namespace Antura.Discover.Activities
 {
     public class ActivityOverlay : MonoBehaviour
     {
-        #region Serialized
-
         [Header("References")]
         [DeEmptyAlert]
         [SerializeField] ActivityTimer timer;
@@ -22,26 +22,47 @@ namespace Antura.Discover.Activities
         [DeEmptyAlert]
         [SerializeField] DeUIButton btValidate;
 
-        [Header("Optional Result Banner")]
-        [SerializeField] CanvasGroup resultBanner;
-        [SerializeField] TextMeshProUGUI resultLabel;
+        [SerializeField] TextRender labelActivity;
+        [SerializeField] TextRender labelTopic;
 
-        #endregion
+        [SerializeField] GameObject feedbackBox;
+        [SerializeField] TMP_Text feedbackText;
+
+        [Header("Result Prompt")]
+        [SerializeField] GameObject resultPromptRoot;
+        [SerializeField] TMP_Text resultPromptLabel;
+        [SerializeField] Button resultContinueButton;
+        [SerializeField] Button resultRetryButton;
 
         public ActivityTimer Timer => timer;
         public DeUIButton BtClose => btClose;
         public DeUIButton BtHelp => btHelp;
         public DeUIButton BtValidate => btValidate;
-        public CanvasGroup ResultBanner => resultBanner;
-        public TextMeshProUGUI ResultLabel => resultLabel;
 
-        #region Public Methods
+        Action onContinueCallback;
+        Action onRetryCallback;
+        UnityAction continueHandler;
+        UnityAction retryHandler;
 
-        /// <summary>
-        /// Set the timer with custom options
-        /// </summary>
+        public void SetFeedback(string message)
+        {
+            feedbackBox.SetActive(!string.IsNullOrEmpty(message));
+            feedbackText.SetText(message ?? string.Empty);
+        }
+
+        public void SetActivityLabels(string activityName, string topic = "")
+        {
+            if (labelActivity != null)
+                labelActivity.SetText(activityName ?? string.Empty);
+            if (labelTopic != null)
+                labelTopic.SetText(topic ?? string.Empty);
+        }
+
         public void SetTimer(bool hasTimer, int seconds)
         {
+            if (timer == null)
+                return;
+
             timer.gameObject.SetActive(hasTimer);
             if (hasTimer)
                 timer.RestartTimer(seconds);
@@ -49,32 +70,64 @@ namespace Antura.Discover.Activities
                 timer.CancelTimer();
         }
 
-        /// <summary>
-        /// Shows a simple result banner for a brief time
-        /// </summary>
-        public IEnumerator ShowResultBanner(string text, Color color, float duration = 1f)
+        public void ShowResultPrompt(string message, Color color, Action onContinue, Action onRetry)
         {
-            if (resultBanner == null || resultLabel == null)
+            if (resultPromptRoot == null)
             {
-                yield return new WaitForSecondsRealtime(duration);
-                yield break;
+                onContinue?.Invoke();
+                return;
             }
-            resultLabel.text = text ?? string.Empty;
-            resultLabel.color = color;
-            resultBanner.gameObject.SetActive(true);
-            resultBanner.alpha = 0f;
 
-            // Fade in, wait, fade out
-            resultBanner.DOKill();
-            var seq = DOTween.Sequence()
-                .Append(resultBanner.DOFade(1f, 0.2f).SetUpdate(true))
-                .AppendInterval(duration)
-                .Append(resultBanner.DOFade(0f, 0.25f).SetUpdate(true))
-                .OnComplete(() => resultBanner.gameObject.SetActive(false));
-            seq.SetUpdate(true);
-            yield return new WaitForSecondsRealtime(0.2f + duration + 0.25f);
+            ClearPromptListeners();
+
+            resultPromptLabel.text = message ?? string.Empty;
+            //resultPromptLabel.color = color;
+
+            onContinueCallback = onContinue;
+            onRetryCallback = onRetry;
+
+            if (resultContinueButton != null)
+            {
+                continueHandler = () => HandlePromptSelection(onContinueCallback);
+                resultContinueButton.onClick.AddListener(continueHandler);
+            }
+            if (resultRetryButton != null)
+            {
+                retryHandler = () => HandlePromptSelection(onRetryCallback);
+                resultRetryButton.onClick.AddListener(retryHandler);
+            }
+
+            resultPromptRoot.SetActive(true);
         }
 
-        #endregion
+        public void HideResultPrompt()
+        {
+            if (resultPromptRoot != null)
+                resultPromptRoot.SetActive(false);
+            ClearPromptListeners();
+        }
+
+        void HandlePromptSelection(Action callback)
+        {
+            HideResultPrompt();
+            callback?.Invoke();
+        }
+
+        void ClearPromptListeners()
+        {
+            if (resultContinueButton != null && continueHandler != null)
+            {
+                resultContinueButton.onClick.RemoveListener(continueHandler);
+                continueHandler = null;
+            }
+            if (resultRetryButton != null && retryHandler != null)
+            {
+                resultRetryButton.onClick.RemoveListener(retryHandler);
+                retryHandler = null;
+            }
+
+            onContinueCallback = null;
+            onRetryCallback = null;
+        }
     }
 }

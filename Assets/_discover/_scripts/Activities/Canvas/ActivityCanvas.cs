@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Antura.Audio;
 using TMPro;
 using DG.Tweening;
 using System.Collections.Generic;
+using Antura.Discover.Audio;
 
 namespace Antura.Discover.Activities
 {
@@ -26,7 +26,6 @@ namespace Antura.Discover.Activities
         [Header("References")]
         public RawImage BackgroundImageUI;
         public RawImage CoverImageUI;
-        public TextMeshProUGUI ProgressLabel;
         [Tooltip("Optional parent for treasure icons (defaults to BackgroundImageUI)")]
         public RectTransform TreasuresLayer;
 
@@ -47,6 +46,8 @@ namespace Antura.Discover.Activities
         private int clearedPixels;
         private bool completed;
         private bool treasuresSpawned;
+        private float lastScratchSfxTime;
+        [SerializeField, Range(0.05f, 0.5f)] private float scratchSfxInterval = 0.18f;
 
         private RectTransform coverRect;
         private Camera uiCamera;   // if using Screen Space - Camera; left null for Overlay
@@ -244,14 +245,15 @@ namespace Antura.Discover.Activities
                 coverTex.Apply(false);
                 UpdateProgressUI();
                 RevealTreasuresUnderArea(cx, cy, r);
+                TryPlayScratchSfx();
             }
         }
 
         private void UpdateProgressUI()
         {
             float pct = Mathf.Clamp01((float)clearedPixels / totalMaskPixels) * 100f;
-            if (ProgressLabel)
-                ProgressLabel.text = $"{pct:0}%";
+
+            DisplayFeedback($"{pct:0}%");
 
             if (!completed && pct >= completionThreshold)
             {
@@ -263,17 +265,23 @@ namespace Antura.Discover.Activities
         private void OnCanvasCleared()
         {
             Debug.Log("DONE");
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
+            EnableValidateButton(true);
             // Auto-reveal any remaining uncollected treasures visually
             foreach (var t in treasures)
             {
                 if (!t.collected && t.rt != null)
                 {
-                    var img = t.rt.GetComponent<UnityEngine.UI.Image>();
+                    var img = t.rt.GetComponent<Image>();
                     if (img)
                         img.DOFade(1f, 0.3f).SetUpdate(true);
                 }
             }
+        }
 
+        public override bool DoValidate()
+        {
+            return true;
         }
 
         #region Bugs
@@ -359,7 +367,7 @@ namespace Antura.Discover.Activities
             // Treat as immediate fail
             if (!completed)
             {
-                AudioManager.I?.PlaySound(Sfx.Lose);
+                DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityFail);
                 EndRound(false, 0f, false);
             }
         }
@@ -386,14 +394,14 @@ namespace Antura.Discover.Activities
                 if (card == null || card.ItemIcon == null || card.ItemIcon.Icon == null)
                     continue;
 
-                var go = new GameObject($"Treasure_{card.Id}", typeof(RectTransform), typeof(UnityEngine.UI.Image), typeof(UnityEngine.UI.Button));
+                var go = new GameObject($"Treasure_{card.Id}", typeof(RectTransform), typeof(Image), typeof(Button));
                 var rt = go.GetComponent<RectTransform>();
                 rt.SetParent(parent, false);
                 rt.sizeDelta = new Vector2(80, 80);
                 rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
                 rt.pivot = new Vector2(0.5f, 0.5f);
 
-                var img = go.GetComponent<UnityEngine.UI.Image>();
+                var img = go.GetComponent<Image>();
                 img.sprite = card.ItemIcon.Icon;
                 img.color = new Color(1, 1, 1, 0); // start hidden under cover
                 img.raycastTarget = true;
@@ -414,7 +422,7 @@ namespace Antura.Discover.Activities
                 placed.Add(rect);
                 rt.anchoredPosition = pos;
 
-                var btn = go.GetComponent<UnityEngine.UI.Button>();
+                var btn = go.GetComponent<Button>();
                 btn.onClick.AddListener(() => OnTreasureClicked(card, rt));
 
                 treasures.Add((card, rt, false));
@@ -452,7 +460,7 @@ namespace Antura.Discover.Activities
                 Vector2 pos = t.rt.anchoredPosition;
                 if ((pos - center).sqrMagnitude <= radLocal * radLocal)
                 {
-                    var img = t.rt.GetComponent<UnityEngine.UI.Image>();
+                    var img = t.rt.GetComponent<Image>();
                     if (img && img.color.a < 1f)
                         img.DOFade(1f, 0.2f).SetUpdate(true);
                 }
@@ -472,13 +480,24 @@ namespace Antura.Discover.Activities
             }
 
             // Feedback
-            AudioManager.I?.PlaySound(Sfx.Win);
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityGoodMove);
             rt.DOKill();
             rt.DOPunchScale(Vector3.one * 0.2f, 0.25f, 6, 0.9f).SetUpdate(true);
+        }
 
-            // TODO: hook into AchievementsManager to mark unlocked if desired
-            // var ach = FindObjectOfType<AchievementsManager>();
-            // if (ach != null) ach.MarkFound(card);
+        private void TryPlayScratchSfx()
+        {
+            if (scratchSfxInterval <= 0f)
+            {
+                DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityHint);
+                return;
+            }
+
+            if (Time.unscaledTime - lastScratchSfxTime >= scratchSfxInterval)
+            {
+                DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityHint);
+                lastScratchSfxTime = Time.unscaledTime;
+            }
         }
 
         #endregion

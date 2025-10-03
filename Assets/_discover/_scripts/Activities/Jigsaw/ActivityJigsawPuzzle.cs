@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Discover.Audio;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 namespace Antura.Discover.Activities
 {
@@ -322,6 +322,7 @@ namespace Antura.Discover.Activities
             SetValidateEnabled(canValidate);
         }
 
+
         private bool AllSlotsFilled()
         {
             foreach (var slot in slots)
@@ -348,6 +349,7 @@ namespace Antura.Discover.Activities
             if (wrong.Count == 0)
             {
                 Debug.Log("Jigsaw: success.");
+                DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
                 return true;
             }
 
@@ -357,6 +359,7 @@ namespace Antura.Discover.Activities
 
         private IEnumerator ShakePieces(List<JigsawPiece> targets)
         {
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityBadMove);
             float duration = 0.35f;
             float strength = 10f;
             Dictionary<RectTransform, Vector3> original = new Dictionary<RectTransform, Vector3>();
@@ -427,8 +430,6 @@ namespace Antura.Discover.Activities
             underRT.anchoredPosition = mid;
 
             tutorialUnderlayImage.preserveAspect = false;
-
-            // Ensure correct sprite & alpha already set in BuildPuzzle; no need to recreate here
         }
     }
 }
