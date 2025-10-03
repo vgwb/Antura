@@ -287,7 +287,7 @@ namespace Antura.Discover
             {
                 Debug.Log("Remove item " + itemCode);
                 collected_items--;
-                YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
+                //YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
                 UpateItemsCounter();
             }
         }
@@ -295,7 +295,7 @@ namespace Antura.Discover
         public void OnCollectItem(string tag)
         {
             collected_items++;
-            YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
+            //YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
             // route to task manager per-task logic
             TaskManager?.OnCollectItemTag(tag);
             AudioManager.I.PlaySound(Sfx.ScaleUp);
