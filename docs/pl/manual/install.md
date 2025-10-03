@@ -36,6 +36,14 @@ Najnowszą wersję dla systemu Windows można pobrać tutaj:
 
 Pobierz plik ZIP, rozpakuj całą zawartość do folderu, a następnie uruchom plik **Antura.exe**.
 
+Program Windows Defender może wykryć nową aplikację i wyświetlić następujące ostrzeżenie:
+
+![Install_Windows_Warning](../../assets/img/screenshot/setup/install_windows_01.jpg)
+
+W takim przypadku naciśnij „Więcej informacji”, a następnie „Uruchom mimo to”.
+
+![Install_Windows_RunAnyway](../../assets/img/screenshot/setup/install_windows_02.jpg)
+
 ## Linux i MacOS
 Ponieważ gra jest open source, a silnik użyty do jej stworzenia jest wieloplatformowy, w razie potrzeby można stworzyć wersje dla systemów Linux i macOS.
 Prosimy o zgłaszanie zapotrzebowania na forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5).

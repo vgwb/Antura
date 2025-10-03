@@ -41,6 +41,14 @@ La dernière version Windows peut être téléchargée ici :
 
 Téléchargez le fichier ZIP, décompressez-le dans un dossier puis lancez **Antura.exe**.
 
+Windows Defender peut détecter la nouvelle application et afficher l'avertissement suivant :
+
+![Install_Windows_Warning](../../assets/img/screenshot/setup/install_windows_01.jpg)
+
+Si cela se produit, cliquez sur « Plus d'informations », puis sur « Exécuter quand même ».
+
+![Install_Windows_RunAnyway](../../assets/img/screenshot/setup/install_windows_02.jpg)
+
 ## Linux et macOS
 
 Comme le jeu est open source et que le moteur utilisé est multiplateforme, des versions Linux et macOS peuvent être compilées si nécessaire.  
