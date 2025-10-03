@@ -66,12 +66,11 @@ namespace Antura.Discover
 
         void Update()
         {
-            var state = DiscoverGameManager.I.State;
-            if (state == GameplayState.Play3D)
+            if (DiscoverGameManager.I.State == GameplayState.Play3D)
             {
                 UpdateWorld();
             }
-            else if (state == GameplayState.Dialogue)
+            else if (DiscoverGameManager.I.State == GameplayState.Dialogue)
             {
                 UpdateDialogue();
             }

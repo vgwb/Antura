@@ -1,4 +1,5 @@
 using Antura.Audio;
+using KinematicCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,8 @@ namespace Antura.Discover
     }
 
     [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(KinematicCharacterMotor))]
+    [RequireComponent(typeof(DiscoverCharacterMotorAdapter))]
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
@@ -54,6 +57,10 @@ namespace Antura.Discover
 
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
+
+        [Header("Character Motor")]
+        [Tooltip("Use the Kinematic Character Controller instead of the legacy CharacterController for movement")]
+        public bool useKinematicCharacterController = true;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -104,6 +111,19 @@ namespace Antura.Discover
         [HideInInspector]
         public AnimationCurve slopeSpeedCurve = AnimationCurve.Linear(0f, 1f, 45f, 1.2f); // Deprecated - kept hidden for backward serialization safety
 
+        [Header("Movement FX")]
+        [Tooltip("Trail shown while the cat is running on the ground.")]
+        public TrailRenderer runTrail;
+
+        [Tooltip("Particle burst played when sprinting starts while grounded.")]
+        public ParticleSystem sprintStartFx;
+
+        [Tooltip("Minimum horizontal speed required to show the run trail.")]
+        [Min(0f)] public float runTrailMinSpeed = 2.5f;
+
+        [Tooltip("Seconds of sustained running before the trail appears.")]
+        [Min(0f)] public float runTrailActivationDelay = 2f;
+
         [Header("Simplified Slope Movement Tuning")]
         [Tooltip("Max fractional speed reduction at the slope limit when moving uphill (0 = none, 0.3 = up to 30% slower at limit)")]
         [Range(0f, 0.6f)] public float uphillMaxSlowdown = 0.15f;
@@ -132,11 +152,11 @@ namespace Antura.Discover
         public bool IsOnSlope => isOnSlope;
         public bool IsMoving => _speed > 0.1f || _slideVelocity.magnitude > 0.1f;
         public bool IsJumping => _hasJumped && !isGrounded;
-        public bool IsSliding => !disableSlopeMovement && isOnSlope && _slopeAngle > _controller.slopeLimit;
+        public bool IsSliding => !disableSlopeMovement && isOnSlope && _slopeAngle > GetSlopeLimit();
         public bool IsAutoSprinting => _isAutoSprinting;
         public Vector2 CurrentMoveInput => _input?.move ?? Vector2.zero;
         public float CurrentSpeed => _speed;
-        public Vector3 Velocity => new Vector3(_moveVelocity.x + _slideVelocity.x, _verticalVelocity, _moveVelocity.z + _slideVelocity.z);
+        public Vector3 Velocity => _usingMotor ? (_motor != null ? _motor.Velocity : Vector3.zero) : new Vector3(_moveVelocity.x + _slideVelocity.x, _verticalVelocity, _moveVelocity.z + _slideVelocity.z);
         public float WalkingTime => _walkingTime;
 
         public bool IsSitting => _isSitting;
@@ -154,6 +174,8 @@ namespace Antura.Discover
         // Auto-run
         private float _walkingTime = 0f;
         private bool _isAutoSprinting = false;
+        private bool _wasSprinting;
+        private float _runTrailTimer;
 
         // Idle behavior
         private float _idleTime = 0f;
@@ -176,10 +198,31 @@ namespace Antura.Discover
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
 
+        // Kinematic character controller
+        private KinematicCharacterMotor _motor;
+        private DiscoverCharacterMotorAdapter _motorAdapter;
+        private bool _usingMotor;
+        private bool _motorJumpHeld;
+
         // Slope detection
         private RaycastHit _slopeHit;
         private Vector3 _slopeNormal;
         private float _slopeAngle;
+
+        private float GetSlopeLimit()
+        {
+            if (_usingMotor && _motor != null)
+            {
+                return _motor.MaxStableSlopeAngle;
+            }
+
+            if (_controller != null)
+            {
+                return _controller.slopeLimit;
+            }
+
+            return 45f;
+        }
 
         private void Awake()
         {
@@ -194,6 +237,57 @@ namespace Antura.Discover
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
             _playerInput = GetComponent<PlayerInput>();
+
+            _motor = GetComponent<KinematicCharacterMotor>();
+            _motorAdapter = GetComponent<DiscoverCharacterMotorAdapter>();
+            _usingMotor = useKinematicCharacterController && _motor != null && _motorAdapter != null;
+
+            if (_usingMotor)
+            {
+                if (_controller != null)
+                {
+                    _controller.enabled = false;
+                    _motor.SetCapsuleDimensions(_controller.radius, _controller.height, _controller.center.y);
+                    _motor.MaxStableSlopeAngle = _controller.slopeLimit;
+                }
+                else
+                {
+                    _motor.MaxStableSlopeAngle = GetSlopeLimit();
+                }
+
+                float gravityMagnitude = Mathf.Abs(Gravity);
+                Gravity = gravityMagnitude > 0.01f ? -gravityMagnitude : -9.81f;
+                _motor.StableGroundLayers = GroundLayers;
+                _motorAdapter.Gravity = Gravity;
+                _motorAdapter.DefaultMaxStableMoveSpeed = WalkSpeed;
+                _motorAdapter.DefaultMaxAirMoveSpeed = RunSpeed;
+                _motorAdapter.AirAccelerationSpeed = Mathf.Max(1f, SpeedChangeRate);
+                _motorAdapter.StableMovementSharpness = Mathf.Max(1f, SpeedChangeRate);
+                _motorAdapter.JumpUpSpeed = Mathf.Sqrt(Mathf.Max(JumpHeight, 0.01f) * 2f * Mathf.Abs(Gravity));
+                _motorAdapter.JumpScalableForwardSpeed = RunSpeed;
+                if (_controller != null)
+                {
+                    _motorAdapter.CrouchedCapsuleHeight = Mathf.Max(0.5f, _controller.height * 0.5f);
+                }
+
+                if (_motorAdapter.MeshRoot == null && animationController != null)
+                {
+                    _motorAdapter.MeshRoot = animationController.transform;
+                }
+            }
+
+            if (runTrail != null)
+            {
+                runTrail.emitting = false;
+                runTrail.Clear();
+            }
+
+            _runTrailTimer = 0f;
+
+            if (sprintStartFx != null)
+            {
+                sprintStartFx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            }
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
@@ -213,6 +307,37 @@ namespace Antura.Discover
         private void GroundedCheck()
         {
             _wasGrounded = isGrounded;
+
+            if (_usingMotor && _motor != null)
+            {
+                var grounding = _motor.GroundingStatus;
+                isGrounded = grounding.IsStableOnGround;
+
+                _slopeNormal = grounding.FoundAnyGround ? grounding.GroundNormal : Vector3.up;
+                _slopeAngle = grounding.FoundAnyGround ? Vector3.Angle(_slopeNormal, Vector3.up) : 0f;
+                isOnSlope = grounding.FoundAnyGround && _slopeAngle > 5f && _slopeAngle < 85f;
+
+                if (grounding.GroundCollider != null)
+                {
+                    _landedOnObject = grounding.GroundCollider.gameObject;
+                }
+
+                if (isGrounded && !_wasGrounded)
+                {
+                    OnLanded();
+                }
+                else if (!isGrounded && _wasGrounded)
+                {
+                    OnStartFalling();
+                }
+
+                if (transform.position.y < -30)
+                {
+                    ActionManager.I.RespawnPlayer();
+                }
+
+                return;
+            }
 
             // Sphere cast for ground detection - more reliable than CheckSphere
             Vector3 spherePosition = transform.position + (Vector3.up * GroundedRadius);
@@ -307,32 +432,36 @@ namespace Antura.Discover
 
             // Set target speed based on movement state
             float targetSpeed = 0f;
+            float inputMagnitude = Mathf.Clamp01(_input.move.magnitude);
 
             if (_input.move != Vector2.zero)
             {
+                float baseSpeed;
+
                 if (isSprinting)
                 {
-                    targetSpeed = RunSpeed;
+                    baseSpeed = RunSpeed;
                 }
                 else
                 {
-                    targetSpeed = WalkSpeed;
+                    baseSpeed = WalkSpeed;
 
                     // Gradual acceleration to sprint during auto-sprint transition
                     if (_walkingTime > 0 && _walkingTime < TimeToAutoRun)
                     {
                         float sprintProgress = _walkingTime / TimeToAutoRun;
-                        targetSpeed = Mathf.Lerp(WalkSpeed, RunSpeed * 0.8f, sprintProgress * sprintProgress);
+                        baseSpeed = Mathf.Lerp(WalkSpeed, RunSpeed * 0.8f, sprintProgress * sprintProgress);
                     }
                 }
 
-                targetSpeed *= _input.move.magnitude;
+                float magnitudeFactor = _input.analogMovement ? inputMagnitude : 1f;
+                targetSpeed = baseSpeed * magnitudeFactor;
             }
 
             // Current horizontal speed
             float currentHorizontalSpeed = new Vector3(_moveVelocity.x, 0.0f, _moveVelocity.z).magnitude;
             float speedOffset = 0.1f;
-            float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+            float accelerationMagnitude = _input.analogMovement ? Mathf.Max(inputMagnitude, 0.1f) : 1f;
 
             // Use different acceleration rates for sprint
             float currentSpeedChangeRate = isSprinting && _walkingTime > TimeToAutoRun ?
@@ -342,8 +471,8 @@ namespace Antura.Discover
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
                 currentHorizontalSpeed > targetSpeed + speedOffset)
             {
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                    Time.deltaTime * currentSpeedChangeRate);
+                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed,
+                    Time.deltaTime * currentSpeedChangeRate * accelerationMagnitude);
                 _speed = Mathf.Round(_speed * 1000f) / 1000f;
             }
             else
@@ -360,82 +489,92 @@ namespace Antura.Discover
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-                    RotationSmoothTime);
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if (!_usingMotor)
+                {
+                    float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
+                        RotationSmoothTime);
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                }
             }
 
             // Calculate movement direction
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-            // Handle slope movement
-            if (!disableSlopeMovement && isGrounded && isOnSlope)
+            if (_usingMotor)
             {
-                // Check if on a steep slope that should cause sliding
-                if (_slopeAngle > _controller.slopeLimit)
-                {
-                    // Calculate slide direction (down the slope)
-                    Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, _slopeNormal).normalized;
-
-                    // Accelerate slide velocity up to max speed (faster sliding with steeper angles)
-                    float angleMultiplier = (_slopeAngle - _controller.slopeLimit) / (90f - _controller.slopeLimit);
-                    float targetSlideSpeed = Mathf.Lerp(slideSpeed, maxSlideSpeed, angleMultiplier);
-
-                    _slideVelocity = Vector3.Lerp(_slideVelocity, slideDirection * targetSlideSpeed,
-                        Time.deltaTime * slideAcceleration);
-
-                    // Allow limited control while sliding
-                    if (allowSlopeControl && _input.move != Vector2.zero)
-                    {
-                        // Project input onto slope plane for some control
-                        Vector3 slopeMovement = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
-                        _moveVelocity = slopeMovement * _speed * slopeControlAmount;
-                    }
-                    else
-                    {
-                        _moveVelocity = Vector3.zero;
-                    }
-
-                    // Reset sprint timer while sliding
-                    _walkingTime = 0f;
-                    _isAutoSprinting = false;
-                }
-                else
-                {
-                    // Walkable slope movement (simplified): project movement onto slope plane
-                    Vector3 slopeDir = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
-
-                    // Determine if moving uphill (positive vertical component) or downhill (negative)
-                    bool movingUphill = slopeDir.y > 0.01f;
-                    bool movingDownhill = slopeDir.y < -0.01f;
-
-                    // Normalized angle factor (0 at flat, 1 at slope limit)
-                    float angleFactor = Mathf.Clamp01(_slopeAngle / Mathf.Max(1f, _controller.slopeLimit));
-                    float speedMultiplier = 1f;
-                    if (movingUphill)
-                    {
-                        speedMultiplier -= uphillMaxSlowdown * angleFactor; // up to X% slower near limit
-                    }
-                    else if (movingDownhill)
-                    {
-                        speedMultiplier += downhillMaxBoost * angleFactor; // small boost downhill
-                    }
-
-                    _moveVelocity = slopeDir * _speed * speedMultiplier;
-
-                    // Kill residual slide velocity quickly on walkable slopes
-                    _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 6f);
-                }
+                UpdateMotorMovement(targetSpeed);
             }
             else
             {
-                // Normal movement (flat ground or in air)
-                _moveVelocity = targetDirection * _speed;
-
-                // Gradually reduce slide velocity when not on slope
-                if (!isOnSlope || disableSlopeMovement)
+                // Handle slope movement
+                if (!disableSlopeMovement && isGrounded && isOnSlope)
                 {
-                    _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 3f);
+                    // Check if on a steep slope that should cause sliding
+                    if (_slopeAngle > _controller.slopeLimit)
+                    {
+                        // Calculate slide direction (down the slope)
+                        Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, _slopeNormal).normalized;
+
+                        // Accelerate slide velocity up to max speed (faster sliding with steeper angles)
+                        float angleMultiplier = (_slopeAngle - _controller.slopeLimit) / (90f - _controller.slopeLimit);
+                        float targetSlideSpeed = Mathf.Lerp(slideSpeed, maxSlideSpeed, angleMultiplier);
+
+                        _slideVelocity = Vector3.Lerp(_slideVelocity, slideDirection * targetSlideSpeed,
+                            Time.deltaTime * slideAcceleration);
+
+                        // Allow limited control while sliding
+                        if (allowSlopeControl && _input.move != Vector2.zero)
+                        {
+                            // Project input onto slope plane for some control
+                            Vector3 slopeMovement = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
+                            _moveVelocity = slopeMovement * _speed * slopeControlAmount;
+                        }
+                        else
+                        {
+                            _moveVelocity = Vector3.zero;
+                        }
+
+                        // Reset sprint timer while sliding
+                        _walkingTime = 0f;
+                        _isAutoSprinting = false;
+                    }
+                    else
+                    {
+                        // Walkable slope movement (simplified): project movement onto slope plane
+                        Vector3 slopeDir = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
+
+                        // Determine if moving uphill (positive vertical component) or downhill (negative)
+                        bool movingUphill = slopeDir.y > 0.01f;
+                        bool movingDownhill = slopeDir.y < -0.01f;
+
+                        // Normalized angle factor (0 at flat, 1 at slope limit)
+                        float angleFactor = Mathf.Clamp01(_slopeAngle / Mathf.Max(1f, _controller.slopeLimit));
+                        float speedMultiplier = 1f;
+                        if (movingUphill)
+                        {
+                            speedMultiplier -= uphillMaxSlowdown * angleFactor; // up to X% slower near limit
+                        }
+                        else if (movingDownhill)
+                        {
+                            speedMultiplier += downhillMaxBoost * angleFactor; // small boost downhill
+                        }
+
+                        _moveVelocity = slopeDir * _speed * speedMultiplier;
+
+                        // Kill residual slide velocity quickly on walkable slopes
+                        _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 6f);
+                    }
+                }
+                else
+                {
+                    // Normal movement (flat ground or in air)
+                    _moveVelocity = targetDirection * _speed;
+
+                    // Gradually reduce slide velocity when not on slope
+                    if (!isOnSlope || disableSlopeMovement)
+                    {
+                        _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 3f);
+                    }
                 }
             }
 
@@ -468,10 +607,126 @@ namespace Antura.Discover
 
             if (targetSpeed > 0)
                 DiscoverNotifier.Game.OnPlayerMoved.Dispatch();
+
+            UpdateMovementEffects(isSprinting);
+        }
+
+        private void UpdateMotorMovement(float targetSpeed)
+        {
+            if (_motorAdapter == null || _motor == null)
+            {
+                return;
+            }
+
+            bool jumpDown = false;
+            if (_input.jump)
+            {
+                if (!_motorJumpHeld)
+                {
+                    jumpDown = true;
+                }
+                _motorJumpHeld = true;
+            }
+            else
+            {
+                _motorJumpHeld = false;
+            }
+
+            Quaternion cameraRotation = _mainCamera != null ? _mainCamera.transform.rotation : Quaternion.identity;
+            DiscoverCharacterInputs motorInputs = new DiscoverCharacterInputs
+            {
+                MoveAxisForward = _input.move.y,
+                MoveAxisRight = _input.move.x,
+                CameraRotation = cameraRotation,
+                JumpDown = jumpDown,
+                JumpHeld = _motorJumpHeld,
+                CrouchDown = false,
+                CrouchUp = false,
+            };
+
+            _motorAdapter.ApplyCharacterInputs(motorInputs, targetSpeed);
+
+            Vector3 motorVelocity = _motor.Velocity;
+            _moveVelocity = new Vector3(motorVelocity.x, 0f, motorVelocity.z);
+            _verticalVelocity = motorVelocity.y;
+
+            if (!disableSlopeMovement && isOnSlope)
+            {
+                Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, _slopeNormal).normalized;
+                _slideVelocity = Vector3.Project(motorVelocity, slideDirection);
+            }
+            else
+            {
+                _slideVelocity = Vector3.zero;
+            }
+
+            if (_motorAdapter.JumpedThisFrame)
+            {
+                OnMotorJumped();
+            }
+
+            if (IsSliding)
+            {
+                _walkingTime = 0f;
+                _isAutoSprinting = false;
+            }
+        }
+
+        private void UpdateMovementEffects(bool isSprinting)
+        {
+            bool grounded = isGrounded;
+
+            if (runTrail != null)
+            {
+                bool meetsSpeed = grounded && _speed >= runTrailMinSpeed;
+                if (meetsSpeed)
+                {
+                    _runTrailTimer += Time.deltaTime;
+                    bool shouldEmitTrail = _runTrailTimer >= runTrailActivationDelay;
+                    if (runTrail.emitting != shouldEmitTrail)
+                    {
+                        runTrail.emitting = shouldEmitTrail;
+                        if (!shouldEmitTrail)
+                        {
+                            runTrail.Clear();
+                        }
+                    }
+                }
+                else
+                {
+                    _runTrailTimer = 0f;
+                    if (runTrail.emitting)
+                    {
+                        runTrail.emitting = false;
+                        runTrail.Clear();
+                    }
+                }
+            }
+
+            if (sprintStartFx != null)
+            {
+                bool sprintingNow = grounded && isSprinting;
+                if (sprintingNow && !_wasSprinting)
+                {
+                    sprintStartFx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                    sprintStartFx.Play();
+                }
+                _wasSprinting = sprintingNow;
+            }
+            else
+            {
+                _wasSprinting = grounded && isSprinting;
+            }
         }
 
         private void JumpAndGravity()
         {
+            if (_usingMotor)
+            {
+                UpdateMotorAirState();
+                return;
+            }
+
             if (isGrounded)
             {
                 // Reset fall timeout
@@ -538,8 +793,67 @@ namespace Antura.Discover
             }
         }
 
+        private void UpdateMotorAirState()
+        {
+            if (_motor != null)
+            {
+                _verticalVelocity = _motor.Velocity.y;
+            }
+
+            if (isGrounded)
+            {
+                _fallTimeoutDelta = FallTimeout;
+                if (_jumpTimeoutDelta > 0.0f)
+                {
+                    _jumpTimeoutDelta -= Time.deltaTime;
+                }
+                else
+                {
+                    _jumpTimeoutDelta = 0.0f;
+                }
+            }
+            else
+            {
+                _jumpTimeoutDelta = JumpTimeout;
+                if (_fallTimeoutDelta > 0.0f)
+                {
+                    _fallTimeoutDelta -= Time.deltaTime;
+                }
+
+                _input.jump = false;
+                _motorJumpHeld = false;
+                animationController.animator.speed = 2f;
+            }
+        }
+
+        private void OnMotorJumped()
+        {
+            if (!_usingMotor)
+            {
+                return;
+            }
+
+            if (_isSitting || _isSleeping)
+            {
+                _isSitting = false;
+                _isSleeping = false;
+                _idleTime = 0f;
+            }
+
+            _hasJumped = true;
+            _jumpTimeoutDelta = JumpTimeout;
+            animationController.OnJumpStart();
+            AudioManager.I.PlaySound(Sfx.CatMeow);
+            PartyManager.I.TriggerPartyJump(0.0f, 0.08f, includeLeader: false);
+        }
+
         private void ApplyMovement()
         {
+            if (_usingMotor)
+            {
+                return;
+            }
+
             // Combine all movement components
             Vector3 horizontalMovement = _moveVelocity + _slideVelocity;
             Vector3 motion = horizontalMovement + Vector3.up * _verticalVelocity;
@@ -618,14 +932,25 @@ namespace Antura.Discover
 
         private void SetPosition(Vector3 position, Quaternion? rotation = null)
         {
-            // Debug.Log("SetPosition player to " + position);
-            _controller.enabled = false;
-            transform.position = position;
-            if (rotation.HasValue)
+            Quaternion targetRotation = rotation ?? transform.rotation;
+
+            if (_usingMotor && _motorAdapter != null)
             {
-                transform.rotation = rotation.Value;
+                _motorAdapter.TeleportTo(position, targetRotation);
+                transform.SetPositionAndRotation(position, targetRotation);
             }
-            _controller.enabled = true;
+            else if (_controller != null)
+            {
+                bool wasEnabled = _controller.enabled;
+                _controller.enabled = false;
+                transform.position = position;
+                transform.rotation = targetRotation;
+                _controller.enabled = wasEnabled;
+            }
+            else
+            {
+                transform.SetPositionAndRotation(position, targetRotation);
+            }
 
             // Reset velocities and states
             _verticalVelocity = 0f;
@@ -648,7 +973,18 @@ namespace Antura.Discover
             if (isGrounded)
             {
                 float height = customHeight ?? JumpHeight;
-                _verticalVelocity = Mathf.Sqrt(height * -2f * Gravity);
+                if (_usingMotor && _motorAdapter != null)
+                {
+                    float gravityMagnitude = Mathf.Abs(_motorAdapter.Gravity);
+                    float jumpVelocity = Mathf.Sqrt(Mathf.Max(height, 0.01f) * 2f * Mathf.Max(gravityMagnitude, 0.01f));
+                    _motorAdapter.ForceUnground();
+                    _motorAdapter.AddVelocity(transform.up * jumpVelocity);
+                }
+                else
+                {
+                    _verticalVelocity = Mathf.Sqrt(height * -2f * Gravity);
+                }
+
                 _hasJumped = true;
                 animationController.OnJumpStart();
             }

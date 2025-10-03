@@ -49,12 +49,12 @@ namespace Antura.Debugging
             new DebugCommand("Reload current scene", CommandCondition.OnPress, KeyCode.F5, on => {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }),
-            new DebugCommand("Set timeScale to 10x (while pressed)", CommandCondition.WhilePressed, KeyCode.W, KeyModifier.Shift, on => {
-                Time.timeScale = on ? 10 : 1;
-            }),
-            new DebugCommand("Set timeScale to 0.2x (while pressed)", CommandCondition.WhilePressed, KeyCode.S, KeyModifier.Shift, on => {
-                Time.timeScale = on ? 0.2f : 1;
-            }),
+            // new DebugCommand("Set timeScale to 10x (while pressed)", CommandCondition.WhilePressed, KeyCode.W, KeyModifier.Shift, on => {
+            //     Time.timeScale = on ? 10 : 1;
+            // }),
+            // new DebugCommand("Set timeScale to 0.2x (while pressed)", CommandCondition.WhilePressed, KeyCode.S, KeyModifier.Shift, on => {
+            //     Time.timeScale = on ? 0.2f : 1;
+            // }),
             new DebugCommand("Open reserved area bypassing the parental gate", CommandCondition.OnPress, KeyCode.R, KeyModifier.Shift, on => {
                 AppManager.I.NavigationManager.GoToReservedArea();;
             }),

@@ -291,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.548286
+      value: -21.548292
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -301,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.275185
+      value: 42.27565
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -2932,10 +2932,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 907466000}
+    - target: {fileID: 6081593529203726121, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6602364865099919777, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       propertyPath: m_text
       value: Hot-Air Balloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224313941697761238, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7244542403571702360, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
@@ -2945,17 +2955,22 @@ PrefabInstance:
     - target: {fileID: 7606278301219145096, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       propertyPath: DebugMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7606278301219145096, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       propertyPath: DebugConfig.DebugNode.nodeName
-      value: activity_piano
+      value: DOCS_GLOBAL_VARIABLE
       objectReference: {fileID: 0}
     - target: {fileID: 7852336736997035817, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       propertyPath: m_Name
       value: DEV - Quest Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158583914972028119, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3512,11 +3527,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6937420662406837792, guid: 6a0574282a943714496a03b9b43cefb9,
-        type: 3}
-      propertyPath: m_UIInputModule
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7101564007038771914, guid: 6a0574282a943714496a03b9b43cefb9,
         type: 3}
       propertyPath: m_LocalPosition.x
