@@ -15,10 +15,7 @@ namespace Antura.Discover
 
         public bool AutoCollect = true; // Automatically collect the item when the player collides with it
         public CollectableType Type;
-
         public string ItemTag; // Used to identify the item in the inventory
-
-        public InventoryItem ItemData; // Used to store item data for inventory
 
         [Header("Effects")]
         public GameObject particleEffectPrefab;
@@ -28,6 +25,9 @@ namespace Antura.Discover
         public float rotationSpeed = 100f; // Rotation speed in degrees per second
         public float bobbingAmount = 0.1f; // Amplitude of bobbing motion
         public float bobbingSpeed = 1f; // Speed of bobbing motion
+
+
+        public InventoryItem ItemData; // Used to store item data for inventory
 
         private Vector3 startPosition;
         private float timer;
@@ -83,8 +83,6 @@ namespace Antura.Discover
                 gameObject.SetActive(false); // Disable the item instead of destroying it
             }
 
-
         }
-
     }
 }

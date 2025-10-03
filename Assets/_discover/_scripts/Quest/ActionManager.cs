@@ -112,15 +112,11 @@ namespace Antura.Discover
                 var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
                 if (actionData == null)
                 {
-                    Debug.LogError("Action not found: " + action);
+                    Debug.LogWarning("Action not found: " + action);
                     return;
                 }
 
-                if (QuestManager.I.DebugMode)
-                    Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
-
                 ResolveCommands(actionData.Commands);
-
             }
         }
 

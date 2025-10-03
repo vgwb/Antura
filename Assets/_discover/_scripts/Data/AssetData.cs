@@ -62,7 +62,6 @@ namespace Antura.Discover
         public bool HasAudioAsset => HasAudioReference || legacyAudio != null;
         public bool HasModelAsset => HasModelReference || legacyModel != null;
 
-        [System.Obsolete("Legacy property. Prefer GetImage() for clarity.")]
         public Sprite Image
         {
             get => GetImage();
@@ -79,7 +78,6 @@ namespace Antura.Discover
 #endif
         }
 
-        [System.Obsolete("Legacy property. Prefer GetAudio().")]
         public AudioClip Audio
         {
             get => GetAudio();
@@ -96,7 +94,6 @@ namespace Antura.Discover
 #endif
         }
 
-        [System.Obsolete("Legacy property. Prefer GetModel().")]
         public GameObject Model3D
         {
             get => GetModel();
