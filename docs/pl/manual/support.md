@@ -29,7 +29,7 @@ W przypadku wystąpienia błędu gra zapisuje plik dziennika, który możemy odc
 
 ### Dziennik gracza
 
-1. Naciśnij klawisze **Win + R** na klawiaturze, aby otworzyć okno „Run...”.
+1. Naciśnij klawisze **Win + R** na klawiaturze, aby otworzyć okno „Uruchom…”.
 2. Wklej poniższy tekst i naciśnij **Enter**:
 
 ```shell
