@@ -79,10 +79,10 @@ namespace Antura.Discover.UI
             ListTitleText.text = location.Country.ToString() + " - " + location.Name.GetLocalizedString();
         }
 
-        public void ShowCountry(Countries country)
+        public void ShowCountry(Countries country, bool forceReload = false)
         {
             Debug.Log($"UIQuestMenuManager: ShowCountry called with {country}");
-            if (country != currentCountry)
+            if (forceReload || country != currentCountry)
             {
                 LoadCountry(country);
 

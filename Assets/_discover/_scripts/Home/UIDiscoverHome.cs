@@ -44,9 +44,9 @@ namespace Antura.Discover
             btDiscoArcade.onClick.RemoveListener(OpenDiscoArcade);
         }
 
-        public void ShowCountry(Countries country)
+        public void ShowCountry(Countries country, bool forceReload = false)
         {
-            QuestListPanel.ShowCountry(country);
+            QuestListPanel.ShowCountry(country, forceReload);
         }
 
         public void ShowLocation(LocationData location)

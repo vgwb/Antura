@@ -13,6 +13,7 @@ namespace Antura.Discover
         private SpriteRenderer _sprite;
         private static readonly List<CountryButton> _all = new List<CountryButton>();
         private const float OtherAlpha = 0.25f;
+        private const float DisabledAlpha = 0.08f;
 
         void OnEnable()
         {
@@ -20,6 +21,11 @@ namespace Antura.Discover
                 _all.Add(this);
             if (_sprite == null)
                 _sprite = GetComponentInChildren<SpriteRenderer>();
+
+            if (EarthManager.I != null)
+            {
+                SetSelectedCountry(EarthManager.I.CurrentCountry);
+            }
         }
 
         void OnDisable()
@@ -87,7 +93,16 @@ namespace Antura.Discover
         private void OnCountryClicked()
         {
             //  Debug.Log($"Country {country.CountryId} clicked.");
-            EarthManager.I.SelectCountry(country.CountryId);
+            if (EarthManager.I != null)
+            {
+                if (!EarthManager.I.IsCountryAllowed(country.CountryId))
+                {
+                    Debug.Log($"CountryButton: selection of {country.CountryId} blocked due to classroom restrictions.", this);
+                    return;
+                }
+
+                EarthManager.I.SelectCountry(country.CountryId);
+            }
         }
 
         private void SetAlpha(float a)
@@ -106,7 +121,16 @@ namespace Antura.Discover
             {
                 if (cb == null)
                     continue;
-                float a = (cb.country != null && cb.country.CountryId == selected) ? 1f : OtherAlpha;
+                bool allowed = EarthManager.I == null || cb.country == null || EarthManager.I.IsCountryAllowed(cb.country.CountryId);
+                float a;
+                if (!allowed)
+                {
+                    a = DisabledAlpha;
+                }
+                else
+                {
+                    a = (cb.country != null && cb.country.CountryId == selected) ? 1f : OtherAlpha;
+                }
                 cb.SetAlpha(a);
             }
         }
