@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace KinematicCharacterController
@@ -26,18 +24,18 @@ namespace KinematicCharacterController
         /// </summary>
         public static void EnsureCreation()
         {
-            if (_instance == null)
-            {
-                GameObject systemGameObject = new GameObject("KinematicCharacterSystem");
-                _instance = systemGameObject.AddComponent<KinematicCharacterSystem>();
+            if (_instance != null)
+                return;
 
-                systemGameObject.hideFlags = HideFlags.NotEditable;
-                _instance.hideFlags = HideFlags.NotEditable;
+            var systemGameObject = new GameObject("KinematicCharacterSystem");
+            _instance = systemGameObject.AddComponent<KinematicCharacterSystem>();
 
-                Settings = ScriptableObject.CreateInstance<KCCSettings>();
+            systemGameObject.hideFlags = HideFlags.NotEditable;
+            _instance.hideFlags = HideFlags.NotEditable;
 
-                GameObject.DontDestroyOnLoad(systemGameObject);
-            }
+            Settings = ScriptableObject.CreateInstance<KCCSettings>();
+
+            DontDestroyOnLoad(systemGameObject);
         }
 
         /// <summary>
@@ -112,7 +110,7 @@ namespace KinematicCharacterController
         // This is to prevent duplicating the singleton gameobject on script recompiles
         private void OnDisable()
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         private void Awake()
@@ -122,21 +120,21 @@ namespace KinematicCharacterController
 
         private void FixedUpdate()
         {
-            if (Settings.AutoSimulation)
+            if (!Settings.AutoSimulation)
+                return;
+
+            float deltaTime = Time.deltaTime;
+
+            if (Settings.Interpolate)
             {
-                float deltaTime = Time.deltaTime;
+                PreSimulationInterpolationUpdate();
+            }
 
-                if (Settings.Interpolate)
-                {
-                    PreSimulationInterpolationUpdate(deltaTime);
-                }
+            Simulate(deltaTime, CharacterMotors, PhysicsMovers);
 
-                Simulate(deltaTime, CharacterMotors, PhysicsMovers);
-
-                if (Settings.Interpolate)
-                {
-                    PostSimulationInterpolationUpdate(deltaTime);
-                }
+            if (Settings.Interpolate)
+            {
+                PostSimulationInterpolationUpdate(deltaTime);
             }
         }
 
@@ -151,23 +149,19 @@ namespace KinematicCharacterController
         /// <summary>
         /// Remembers the point to interpolate from for KinematicCharacterMotors and PhysicsMovers
         /// </summary>
-        public static void PreSimulationInterpolationUpdate(float deltaTime)
+        private static void PreSimulationInterpolationUpdate()
         {
             // Save pre-simulation poses and place transform at transient pose
-            for (int i = 0; i < CharacterMotors.Count; i++)
+            foreach (KinematicCharacterMotor motor in CharacterMotors)
             {
-                KinematicCharacterMotor motor = CharacterMotors[i];
-
                 motor.InitialTickPosition = motor.TransientPosition;
                 motor.InitialTickRotation = motor.TransientRotation;
 
                 motor.Transform.SetPositionAndRotation(motor.TransientPosition, motor.TransientRotation);
             }
 
-            for (int i = 0; i < PhysicsMovers.Count; i++)
+            foreach (PhysicsMover mover in PhysicsMovers)
             {
-                PhysicsMover mover = PhysicsMovers[i];
-
                 mover.InitialTickPosition = mover.TransientPosition;
                 mover.InitialTickRotation = mover.TransientRotation;
 
@@ -182,76 +176,65 @@ namespace KinematicCharacterController
         /// </summary>
         public static void Simulate(float deltaTime, List<KinematicCharacterMotor> motors, List<PhysicsMover> movers)
         {
-            int characterMotorsCount = motors.Count;
-            int physicsMoversCount = movers.Count;
-
-#pragma warning disable 0162
             // Update PhysicsMover velocities
-            for (int i = 0; i < physicsMoversCount; i++)
+            foreach (PhysicsMover mover in movers)
             {
-                movers[i].VelocityUpdate(deltaTime);
+                mover.VelocityUpdate(deltaTime);
             }
 
             // Character controller update phase 1
-            for (int i = 0; i < characterMotorsCount; i++)
+            foreach (KinematicCharacterMotor motor in motors)
             {
-                motors[i].UpdatePhase1(deltaTime);
+                motor.UpdatePhase1(deltaTime);
             }
 
             // Simulate PhysicsMover displacement
-            for (int i = 0; i < physicsMoversCount; i++)
+            foreach (PhysicsMover mover in movers)
             {
-                PhysicsMover mover = movers[i];
-
                 mover.Transform.SetPositionAndRotation(mover.TransientPosition, mover.TransientRotation);
                 mover.Rigidbody.position = mover.TransientPosition;
                 mover.Rigidbody.rotation = mover.TransientRotation;
             }
 
             // Character controller update phase 2 and move
-            for (int i = 0; i < characterMotorsCount; i++)
+            foreach (KinematicCharacterMotor motor in motors)
             {
-                KinematicCharacterMotor motor = motors[i];
-
                 motor.UpdatePhase2(deltaTime);
 
                 motor.Transform.SetPositionAndRotation(motor.TransientPosition, motor.TransientRotation);
             }
-#pragma warning restore 0162
         }
 
         /// <summary>
         /// Initiates the interpolation for KinematicCharacterMotors and PhysicsMovers
         /// </summary>
-        public static void PostSimulationInterpolationUpdate(float deltaTime)
+        private static void PostSimulationInterpolationUpdate(float deltaTime)
         {
             _lastCustomInterpolationStartTime = Time.time;
             _lastCustomInterpolationDeltaTime = deltaTime;
 
             // Return interpolated roots to their initial poses
-            for (int i = 0; i < CharacterMotors.Count; i++)
+            foreach (KinematicCharacterMotor motor in CharacterMotors)
             {
-                KinematicCharacterMotor motor = CharacterMotors[i];
-
                 motor.Transform.SetPositionAndRotation(motor.InitialTickPosition, motor.InitialTickRotation);
             }
 
-            for (int i = 0; i < PhysicsMovers.Count; i++)
+            foreach (PhysicsMover mover in PhysicsMovers)
             {
-                PhysicsMover mover = PhysicsMovers[i];
-
                 if (mover.MoveWithPhysics)
                 {
+                    Physics.SyncTransforms();
                     mover.Rigidbody.position = mover.InitialTickPosition;
                     mover.Rigidbody.rotation = mover.InitialTickRotation;
+                    Physics.SyncTransforms();
 
                     mover.Rigidbody.MovePosition(mover.TransientPosition);
                     mover.Rigidbody.MoveRotation(mover.TransientRotation);
                 }
                 else
                 {
-                    mover.Rigidbody.position = (mover.TransientPosition);
-                    mover.Rigidbody.rotation = (mover.TransientRotation);
+                    mover.Rigidbody.position = mover.TransientPosition;
+                    mover.Rigidbody.rotation = mover.TransientRotation;
                 }
             }
         }
@@ -264,20 +247,16 @@ namespace KinematicCharacterController
             float interpolationFactor = Mathf.Clamp01((Time.time - _lastCustomInterpolationStartTime) / _lastCustomInterpolationDeltaTime);
 
             // Handle characters interpolation
-            for (int i = 0; i < CharacterMotors.Count; i++)
+            foreach (KinematicCharacterMotor motor in CharacterMotors)
             {
-                KinematicCharacterMotor motor = CharacterMotors[i];
-
                 motor.Transform.SetPositionAndRotation(
                     Vector3.Lerp(motor.InitialTickPosition, motor.TransientPosition, interpolationFactor),
                     Quaternion.Slerp(motor.InitialTickRotation, motor.TransientRotation, interpolationFactor));
             }
 
             // Handle PhysicsMovers interpolation
-            for (int i = 0; i < PhysicsMovers.Count; i++)
+            foreach (PhysicsMover mover in PhysicsMovers)
             {
-                PhysicsMover mover = PhysicsMovers[i];
-                
                 mover.Transform.SetPositionAndRotation(
                     Vector3.Lerp(mover.InitialTickPosition, mover.TransientPosition, interpolationFactor),
                     Quaternion.Slerp(mover.InitialTickRotation, mover.TransientRotation, interpolationFactor));

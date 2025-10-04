@@ -58,7 +58,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8e57eb045f958449991c84c0271b951b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,7 +80,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 30
+  m_Time: 21
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -111,7 +111,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6981132, g: 0.3630641, b: 0, a: 1}
+      key0: {r: 1, g: 0, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -142,7 +142,7 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 4
+    textureMode: 1
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
@@ -5172,6 +5172,7 @@ MonoBehaviour:
   sprintStartFx: {fileID: 7081778684383864190}
   runTrailMinSpeed: 2.5
   runTrailActivationDelay: 2
+  snapToSpawnOnStart: 1
   respawnTravelDuration: 4
   respawnArcHeight: 12
   respawnProgressCurve:
@@ -5211,8 +5212,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.061854735
     - serializedVersion: 3
-      time: 0.2015331
-      value: 1.01418
+      time: 0.28521228
+      value: 1.0093391
       inSlope: 0.1619001
       outSlope: 0.1619001
       tangentMode: 0
@@ -5302,6 +5303,7 @@ MonoBehaviour:
   RigidbodyInteractionType: 1
   SimulatedCharacterMass: 1
   PreserveAttachedRigidbodyMomentum: 1
+  RigidbodySlipVelocity: 5
   HasPlanarConstraint: 0
   PlanarConstraintAxis: {x: 0, y: 0, z: 1}
   MaxMovementIterations: 5

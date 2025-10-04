@@ -11,6 +11,8 @@ We thank them for making their tools and assets available.
 - **[DOTween](http://dotween.demigiant.com/)** and **[DemiLib](https://demigiant.com/plugins/demilib/)** by Demigiant  
   Free for personal and commercial use.
 
+- **[KinematicCharacterController](https://github.com/Janooba/KinematicCharacterController)** by Philippe St-Amand (original creator), Gawidev (refactor/maintenance), Janooba (refactor/maintenance)
+
 - **[Unity Native Gallery](https://github.com/yasirkula/UnityNativeGallery)** by yasirkula  
   Cross-platform native gallery access - MIT License.
 

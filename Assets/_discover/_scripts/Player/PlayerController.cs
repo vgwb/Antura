@@ -497,10 +497,6 @@ namespace Antura.Discover
                     if (runTrail.emitting != shouldEmitTrail)
                     {
                         runTrail.emitting = shouldEmitTrail;
-                        if (!shouldEmitTrail)
-                        {
-                            runTrail.Clear();
-                        }
                     }
                 }
                 else
@@ -509,7 +505,6 @@ namespace Antura.Discover
                     if (runTrail.emitting)
                     {
                         runTrail.emitting = false;
-                        runTrail.Clear();
                     }
                 }
             }

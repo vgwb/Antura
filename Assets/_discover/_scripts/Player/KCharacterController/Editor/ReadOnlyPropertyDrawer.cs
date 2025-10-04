@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+
+using UnityEngine;
 using UnityEditor;
 
 namespace KinematicCharacterController
 {
-    [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
+    [CustomPropertyDrawer(typeof(ReadOnlyKCCAttribute))]
     public class ReadOnlyPropertyDrawer : PropertyDrawer
     {
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
@@ -19,3 +21,5 @@ namespace KinematicCharacterController
         }
     }
 }
+
+#endif

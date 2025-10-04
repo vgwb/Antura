@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace KinematicCharacterController
@@ -9,7 +7,7 @@ namespace KinematicCharacterController
     /// Represents the entire state of a PhysicsMover that is pertinent for simulation.
     /// Use this to save state or revert to past state
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public struct PhysicsMoverState
     {
         public Vector3 Position;
@@ -28,7 +26,7 @@ namespace KinematicCharacterController
         /// <summary>
         /// The mover's Rigidbody
         /// </summary>
-        [ReadOnly]
+        [ReadOnlyKCC]
         public Rigidbody Rigidbody;
 
         /// <summary>
@@ -97,7 +95,6 @@ namespace KinematicCharacterController
         public Quaternion InitialSimulationRotation { get; private set; }
 
         private Vector3 _internalTransientPosition;
-
         /// <summary>
         /// The mover's rotation (always up-to-date during the character update phase)
         /// </summary>
@@ -219,12 +216,13 @@ namespace KinematicCharacterController
         /// </summary>
         public PhysicsMoverState GetState()
         {
-            PhysicsMoverState state = new PhysicsMoverState();
-
-            state.Position = TransientPosition;
-            state.Rotation = TransientRotation;
-            state.Velocity = Velocity;
-            state.AngularVelocity = AngularVelocity;
+            PhysicsMoverState state = new PhysicsMoverState
+            {
+                Position = TransientPosition,
+                Rotation = TransientRotation,
+                Velocity = Velocity,
+                AngularVelocity = AngularVelocity
+            };
 
             return state;
         }
