@@ -69,11 +69,14 @@ namespace Antura.Discover
         public float FallTimeout = 0.15f;
 
         [Header("Movement FX")]
-        [Tooltip("Trail shown while the cat is running on the ground.")]
-        public TrailRenderer runTrail;
+        [Tooltip("Particle burst played when landing on the ground after a jump or fall.")]
+        public ParticleSystem landedStartFx;
 
         [Tooltip("Particle burst played when sprinting starts while grounded.")]
         public ParticleSystem sprintStartFx;
+
+        [Tooltip("Trail shown while the cat is running on the ground.")]
+        public TrailRenderer runTrail;
 
         [Tooltip("Minimum horizontal speed required to show the run trail.")]
         [Min(0f)] public float runTrailMinSpeed = 2.5f;
@@ -130,6 +133,7 @@ namespace Antura.Discover
         public bool IsSitting => _isSitting;
         public bool IsSleeping => _isSleeping;
         public float IdleTime => _idleTime;
+        private const float LandingSoundCooldown = 0.25f;
         // player
         private float _speed;
         private float _targetRotation = 0.0f;
@@ -152,6 +156,7 @@ namespace Antura.Discover
         private float _fallStartHeight = 0f;
         private bool _isTrackingFall = false;
         private GameObject _landedOnObject = null;
+        private float _lastLandingSoundTime = -10f;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -599,7 +604,18 @@ namespace Antura.Discover
             }
 
             // Sound
-            AudioManager.I.PlaySound(Sfx.BushRustlingIn);
+            bool shouldPlayLandingAudio = !IsSliding && Time.time - _lastLandingSoundTime >= LandingSoundCooldown;
+            if (shouldPlayLandingAudio)
+            {
+                AudioManager.I.PlaySound(Sfx.BushRustlingIn);
+                _lastLandingSoundTime = Time.time;
+            }
+
+            if (landedStartFx != null && IsMoving && !IsSliding)
+            {
+                landedStartFx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                landedStartFx.Play();
+            }
 
             // Reset vertical velocity
             _verticalVelocity = -2f;
@@ -731,7 +747,7 @@ namespace Antura.Discover
                 case PlayerState.Falling:
                     break;
                 case PlayerState.Sliding:
-                    Debug.Log("Started sliding down slope!");
+                    // Debug.Log("Started sliding down slope!");
                     break;
                 case PlayerState.Running:
                     if (_isAutoSprinting && fromState == PlayerState.Walking)
