@@ -99,7 +99,6 @@ namespace Antura.Debugging
             {
                 if (AppManager.I.RootConfig.LoadedAppEdition.OpenBugReportOnHiddenButton)
                 {
-                    FindFirstObjectByType<UserReportingScript>().CreateUserReport();
                     clickCounter = 0;
                 }
                 else
@@ -451,17 +450,5 @@ namespace Antura.Debugging
         }
 
         #endregion
-
-        public void OpenReportPanel()
-        {
-            StartCoroutine(DoCreateUserReport());
-        }
-
-        private IEnumerator DoCreateUserReport()
-        {
-            Close();
-            yield return new WaitForEndOfFrame();
-            FindFirstObjectByType<UserReportingScript>().CreateUserReport();
-        }
     }
 }
