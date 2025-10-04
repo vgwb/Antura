@@ -36,24 +36,24 @@ When something goes wrong, the game writes a log file we can read to diagnose th
 2. Paste this and press **Enter**:
 
 ```shell
-%USERPROFILE%\AppData\LocalLow
+%USERPROFILE%\AppData\LocalLow\VGWB\Antura
 ```
 
-3. Open the folder named `VGWB`, then `Antura`
-4. You should see a file called `Player.log` (and sometimes `Player-prev.log`).
-5. Right-click → Send to → Compressed (zipped) folder.
-6. Email us the .zip.
+3. You should see a file called `Player.log` (and sometimes `Player-prev.log`).
+4. Right-click → Send to → Compressed (zipped) folder.
+5. Email us the .zip.
 
 
 If you don’t see the “AppData” folder: in File Explorer click View → Show → Hidden items.
 
 ### Crash log
-If the game crashed and a “Crashes” folder exists, send the newest crash folder too:
+If the game crashed, please check if the “Crashes” folder exists at the folowing path and send the newest crash folder too:
 
-- Path:
+1. Press **Win + R** on your keyboard to open “Run…”.
+2. Paste this and press **Enter**:
 
 ```shell
-%LOCALAPPDATA%\Temp\VGWB\Antura\Crashes
+%LOCALAPPDATA%\Temp\VGWB\Antura
 ```
-
-- Zip the most recent subfolder (it contains error.log, crash.dmp, etc.)
+3. Check if there is folder called "Crashes"
+4. if it exists, please Zip and send us the most recent subfolder (it contains error.log, crash.dmp, etc.)
