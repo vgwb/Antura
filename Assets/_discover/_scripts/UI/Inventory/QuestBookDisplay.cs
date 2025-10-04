@@ -1,14 +1,18 @@
+using Antura.Discover.UI;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.DeInspektor.Attributes;
-using Antura.Discover.UI;
+using UnityEngine.UI;
 
 namespace Antura.Discover
 {
     public class QuestBookDisplay : MonoBehaviour
     {
         public QuestCardsUI CardsUI;
-        private bool isOpen = false;
+
+        [Header("References")]
+        public Button btClose;
+
+        private bool isOpen;
 
         void Start()
         {
@@ -17,20 +21,23 @@ namespace Antura.Discover
 
         public void Init()
         {
-            CloseBook();
+            btClose.onClick.AddListener(ClosePanel);
         }
 
-        public void OnToggleBook()
+        void OnDestroy()
         {
-            isOpen = !isOpen;
-            if (isOpen)
-                OpenBook();
-            else
-                CloseBook();
+            btClose.onClick.RemoveListener(ClosePanel);
+        }
+
+        private void ClosePanel()
+        {
+            CloseBook();
         }
 
         public void OpenBook()
         {
+            if (isOpen)
+                return;
             isOpen = true;
             CardsUI.Init(QuestManager.I.CurrentQuest);
             gameObject.SetActive(true);
@@ -41,7 +48,5 @@ namespace Antura.Discover
             isOpen = false;
             gameObject.SetActive(false);
         }
-
-
     }
 }

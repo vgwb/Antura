@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Antura.Discover.UI
 {
@@ -9,7 +10,7 @@ namespace Antura.Discover.UI
     /// </summary>
     public class QuestCardsUI : MonoBehaviour
     {
-        [Header("Refs")]
+        [Header("References")]
         public Transform gridParent;
         public CardTile tilePrefab;
         public CardDetailsPanel detailsPanel;
@@ -31,7 +32,6 @@ namespace Antura.Discover.UI
                 return;
             }
 
-
             // Spawn grid
             ClearGrid();
             foreach (var def in questData.Cards)
@@ -51,8 +51,8 @@ namespace Antura.Discover.UI
                 detailsPanel.SetOwner(this);
                 detailsPanel.SetNavData(GetCardDefs(), GetState);
             }
-        }
 
+        }
 
         private void OnTileClicked(CardData def)
         {
@@ -128,7 +128,7 @@ namespace Antura.Discover.UI
                 return tile.State;
 
             var manager = DiscoverAppManager.I;
-            Antura.Discover.CardState st = null;
+            CardState st = null;
             if (manager != null && manager.CurrentProfile != null && manager.CurrentProfile.cards != null)
             {
                 manager.CurrentProfile.cards.TryGetValue(def.Id, out st);

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2577526479364398589}
   - component: {fileID: 908152834397385874}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Energy Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,6 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Player.Teleporter
   TeleportTo: {fileID: 0}
+  Activated: 1
+  TimeToRecharge: 5
+  EnergyWall: {fileID: 2077958733125215589}
 --- !u!65 &5003547708999523836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,8 +178,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 1.3629532, y: 1.5916829, z: 0.25956154}
+  m_Center: {x: -0.012840271, y: 0.79584146, z: 0.0020933151}
 --- !u!1001 &4757408973074326090
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
-    public enum DiscoverOrientationMethod
+    public enum PlayerOrientationMethod
     {
         TowardsCamera,
         TowardsMovement,
@@ -34,7 +34,7 @@ namespace Antura.Discover
         [Header("Stable Movement")]
         public float StableMovementSharpness = 15f;
         public float OrientationSharpness = 10f;
-        public DiscoverOrientationMethod OrientationMethod = DiscoverOrientationMethod.TowardsMovement;
+        public PlayerOrientationMethod OrientationMethod = PlayerOrientationMethod.TowardsMovement;
         public float DefaultMaxStableMoveSpeed = 4f;
 
         [Header("Air Movement")]
@@ -159,10 +159,10 @@ namespace Antura.Discover
 
             switch (OrientationMethod)
             {
-                case DiscoverOrientationMethod.TowardsCamera:
+                case PlayerOrientationMethod.TowardsCamera:
                     _lookInputVector = cameraPlanarDirection;
                     break;
-                case DiscoverOrientationMethod.TowardsMovement:
+                case PlayerOrientationMethod.TowardsMovement:
                     if (_moveInputVector.sqrMagnitude > 0.0001f)
                     {
                         _lookInputVector = _moveInputVector.normalized;

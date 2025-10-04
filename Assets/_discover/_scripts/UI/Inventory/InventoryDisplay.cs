@@ -1,11 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.DeInspektor.Attributes;
 
 namespace Antura.Discover
 {
     public class InventoryDisplay : MonoBehaviour
     {
+        [Header("References")]
+        public Button btOpenBook;
+
         public QuestBookDisplay QuestBookDisplay;
         public GameObject ItemsContainer;
         public GameObject ItemPrefab;
@@ -14,9 +18,13 @@ namespace Antura.Discover
         private InventoryItem CurrentItemData;
         private readonly Dictionary<string, GameObject> itemViews = new Dictionary<string, GameObject>();
 
+        void Awake()
+        {
+            btOpenBook.onClick.AddListener(OnClickBookIcon);
+        }
+
         void Start()
         {
-            QuestBookDisplay.Init();
             // clean container
             foreach (Transform child in ItemsContainer.transform)
             {
@@ -38,11 +46,15 @@ namespace Antura.Discover
             }
         }
 
-        public void OnClickBookIcon()
+        void OnDestroy()
         {
-            QuestBookDisplay.OnToggleBook();
+            btOpenBook.onClick.RemoveListener(OnClickBookIcon);
         }
 
+        public void OnClickBookIcon()
+        {
+            QuestBookDisplay.OpenBook();
+        }
         public void AddItem(InventoryItem itemData)
         {
             if (Items.Count >= MaxItems)
