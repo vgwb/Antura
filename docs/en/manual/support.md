@@ -25,3 +25,35 @@ Each quest has a dedicated area in our community forum where you can share feedb
 - Clear steps to reproduce the issue
 - Expected result vs. actual result
 - Screenshots or a short video, if possible
+
+## Send us the Player Log (Windows)
+
+When something goes wrong, the game writes a log file we can read to diagnose the issue.
+
+### Player Log
+
+1. Press **Win + R** on your keyboard to open “Run…”.
+2. Paste this and press **Enter**:
+
+```shell
+%USERPROFILE%\AppData\LocalLow
+```
+
+3. Open the folder named `VGWB`, then `Antura`
+4. You should see a file called `Player.log` (and sometimes `Player-prev.log`).
+5. Right-click → Send to → Compressed (zipped) folder.
+6. Email us the .zip.
+
+
+If you don’t see the “AppData” folder: in File Explorer click View → Show → Hidden items.
+
+### Crash log
+If the game crashed and a “Crashes” folder exists, send the newest crash folder too:
+
+- Path:
+
+```shell
+%LOCALAPPDATA%\Temp\VGWB\Antura\Crashes
+```
+
+- Zip the most recent subfolder (it contains error.log, crash.dmp, etc.)
