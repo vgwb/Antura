@@ -131,20 +131,14 @@ namespace Antura.Discover
             {
                 tfTitle.text = DiscoverDataManager.I.GetCardTitle(currCardData);
                 tfDescription.text = DiscoverDataManager.I.GetCardDescription(currCardData);
-                PlayAudioTitle(currCardData, usingLearningLanguage);
+                DiscoverDataManager.I.PlayCardTitle(currCardData, usingLearningLanguage);
             }
             else
             {
                 tfTitle.text = currCardData.Title.GetLocalizedString();
                 tfDescription.text = currCardData.Description.GetLocalizedString();
-                PlayAudioTitle(currCardData, usingLearningLanguage);
+                DiscoverDataManager.I.PlayCardTitle(currCardData, usingLearningLanguage);
             }
-        }
-
-        private async void PlayAudioTitle(CardData cardData, bool useLearningLanguage)
-        {
-            var clip = await DiscoverDataManager.I.GetCardTitleClipAsync(cardData, useLearningLanguage ? CardAudioLanguage.Learning : CardAudioLanguage.Native);
-            DiscoverAudioManager.I.PlayDialogue(clip);
         }
 
         #endregion
