@@ -38,11 +38,11 @@ Pobierz plik ZIP, rozpakuj całą zawartość do folderu, a następnie uruchom p
 
 Program Windows Defender może wykryć nową aplikację i wyświetlić następujące ostrzeżenie:
 
-![Install_Windows_Warning](../../assets/img/screenshot/setup/install_windows_01.jpg)
+![Install_Windows_Warning](../../assets/img/screenshot/setup/Install_Windows_01.jpg)
 
 W takim przypadku naciśnij „Więcej informacji”, a następnie „Uruchom mimo to”.
 
-![Install_Windows_RunAnyway](../../assets/img/screenshot/setup/install_windows_02.jpg)
+![Install_Windows_RunAnyway](../../assets/img/screenshot/setup/Install_Windows_02.jpg)
 
 ## Linux i MacOS
 Ponieważ gra jest open source, a silnik użyty do jej stworzenia jest wieloplatformowy, w razie potrzeby można stworzyć wersje dla systemów Linux i macOS.

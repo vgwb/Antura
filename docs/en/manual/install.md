@@ -42,11 +42,11 @@ Download the ZIP file, uncompress everything in a folder and then launch **Antur
 
 Windows Defender may detect the new app and prompt you with the following warning:
 
-![Install_Windows_Warning](../../assets/img/screenshot/setup/install_windows_01.jpg)
+![Install_Windows_Warning](../../assets/img/screenshot/setup/Install_Windows_01.jpg)
 
 If it happens, press "More info" and then "Run anyway"
 
-![Install_Windows_RunAnyway](../../assets/img/screenshot/setup/install_windows_02.jpg)
+![Install_Windows_RunAnyway](../../assets/img/screenshot/setup/Install_Windows_02.jpg)
 
 ## Linux and MacOS
 Since the game is open source and the engine used to create this game is multiplatform, Linux and macOS versions could be built if really necessary.
