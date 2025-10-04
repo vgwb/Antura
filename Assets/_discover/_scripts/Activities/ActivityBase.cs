@@ -271,8 +271,6 @@ namespace Antura.Discover.Activities
         /// </summary>
         protected virtual ActivitySettingsAbstract GetSettings() => _configuredSettings;
 
-
-
         /// <summary>
         /// Call at the start of each round to initialize timers and UI.
         /// </summary>

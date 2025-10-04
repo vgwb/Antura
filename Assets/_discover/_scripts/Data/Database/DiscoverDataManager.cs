@@ -186,6 +186,12 @@ namespace Antura.Discover
             }
         }
 
+        public async void PlayCardTitle(CardData cardData, bool useLearningLanguage)
+        {
+            var clip = await GetCardTitleClipAsync(cardData, useLearningLanguage ? CardAudioLanguage.Learning : CardAudioLanguage.Native);
+            DiscoverAudioManager.I.PlayDialogue(clip);
+        }
+
         /// <summary>
         /// Fetch the localized card title clip for the given languageToUse.
         /// </summary>

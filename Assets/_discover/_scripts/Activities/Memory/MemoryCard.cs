@@ -20,16 +20,18 @@ namespace Antura.Discover.Activities
         public float flipDuration = 0.18f;
         public AnimationCurve flipCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
+        public CardData cardData;
         private ActivityMemory manager;
         private RectTransform rt;
         private bool flipping;
 
-        public void Init(ActivityMemory mgr, int id, Sprite face, Sprite back)
+        public void Init(ActivityMemory _mgr, CardData _cardData, int _id, Sprite _face, Sprite _back)
         {
-            manager = mgr;
-            pairId = id;
-            faceImage.sprite = face;
-            backImage.sprite = back;
+            manager = _mgr;
+            cardData = _cardData;
+            pairId = _id;
+            faceImage.sprite = _face;
+            backImage.sprite = _back;
             SetFaceUp(false, instant: true);
             IsLocked = false;
             rt = GetComponent<RectTransform>();

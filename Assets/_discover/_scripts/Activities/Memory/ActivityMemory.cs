@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Discover;
 using Antura.Discover.Audio;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,11 @@ namespace Antura.Discover.Activities
 {
     public class ActivityMemory : ActivityBase
     {
+        [Header("Debug")]
+        public bool debugMode = false;
+        [Tooltip("If in debug mode, use these settings instead of the regular ones.")]
+        public MemorySettingData DebugSettings;
+
         [Header("Activity Memory Settings")]
         public MemorySettingData Settings;
 
@@ -29,12 +35,6 @@ namespace Antura.Discover.Activities
         [Tooltip("In easy mode, shake 1-2 random pairs every X seconds.")]
         public float easyShakeInterval = 6f;
 
-        [Header("SFX (optional)")]
-        public AudioSource audioSource;
-        public AudioClip flipSfx;
-        public AudioClip matchSfx;
-        public AudioClip mismatchSfx;
-
         private GridLayoutGroup grid;
         private readonly List<MemoryCard> cards = new();
         private MemoryCard first, second;
@@ -43,16 +43,53 @@ namespace Antura.Discover.Activities
         private int totalPairs;
         private float lastActionTime;
 
+        private readonly struct GridConfig
+        {
+            public GridConfig(int rows, int cols)
+            {
+                Rows = rows;
+                Cols = cols;
+                PairCount = (rows * cols) / 2;
+            }
+
+            public int Rows { get; }
+            public int Cols { get; }
+            public int PairCount { get; }
+        }
+
+        private static readonly GridConfig[] DifficultyLayouts =
+        {
+            new GridConfig(2, 2), // Tutorial
+            new GridConfig(2, 4), // Easy
+            new GridConfig(3, 4), // Normal
+            new GridConfig(3, 6)  // Hard / default
+        };
+
         void Awake()
         {
             if (gridParent != null)
                 grid = gridParent.GetComponent<GridLayoutGroup>();
         }
 
+        protected override ActivitySettingsAbstract GetSettings() => Settings;
+
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            if (DebugSettings != null && debugMode)
+            {
+                base.ConfigureSettings(settings);
+                Settings = DebugSettings;
+                return;
+            }
+
+            base.ConfigureSettings(settings);
+            if (settings is MemorySettingData csd)
+                Settings = csd;
+        }
+
         public override void InitActivity()
         {
-            if (Settings != null)
-                difficulty = Settings.Difficulty;
+            difficulty = Settings.Difficulty;
 
             BuildBoard();
             if (difficulty == Difficulty.Tutorial)
@@ -77,13 +114,6 @@ namespace Antura.Discover.Activities
             base.Update();
         }
 
-        public override void ConfigureSettings(ActivitySettingsAbstract settings)
-        {
-            base.ConfigureSettings(settings);
-            if (settings is MemorySettingData csd)
-                Settings = csd;
-        }
-
         /// <summary>
         /// Builds the board using CardData only.
         /// </summary>
@@ -101,20 +131,123 @@ namespace Antura.Discover.Activities
             first = second = null;
             lastActionTime = Time.unscaledTime;
 
-            // Set grid size based on difficulty (avoid switch-expression to satisfy analyzers)
-            int rows, cols;
-            if (difficulty == Difficulty.Tutorial)
-            { rows = 2; cols = 2; }
-            else if (difficulty == Difficulty.Easy)
-            { rows = 2; cols = 4; }
-            else if (difficulty == Difficulty.Normal)
-            { rows = 3; cols = 4; }
-            else
-            { rows = 3; cols = 6; }
-            int totalCards = rows * cols;
-            totalPairs = totalCards / 2;
+            var usableCards = BuildUsableCardPool();
+            if (usableCards.Count == 0)
+            {
+                Debug.LogError("Memory: CardsData has no entries with a valid image asset");
+                return;
+            }
 
-            // Configure GridLayoutGroup
+            if (!TrySelectLayout(usableCards.Count, out GridConfig layout))
+            {
+                Debug.LogError($"Memory: not enough cards to build even the smallest grid (requires >=2, have {usableCards.Count})");
+                return;
+            }
+
+            int rows = layout.Rows;
+            int cols = layout.Cols;
+            totalPairs = layout.PairCount;
+            int totalCards = totalPairs * 2;
+
+            ConfigureGrid(rows, cols);
+
+            var selectedCards = PickCardsForPairs(usableCards, totalPairs);
+            var pool = new List<(int id, CardData data, Sprite face)>(totalCards);
+            for (int i = 0; i < selectedCards.Count; i++)
+            {
+                var entry = selectedCards[i];
+                pool.Add((i, entry.card, entry.sprite));
+                pool.Add((i, entry.card, entry.sprite));
+            }
+            Shuffle(pool);
+
+            foreach (var entry in pool)
+            {
+                var go = Instantiate(cardPrefab, gridParent);
+                var card = go.GetComponent<MemoryCard>();
+                card.Init(this, entry.data, entry.id, entry.face, commonBack);
+                cards.Add(card);
+            }
+
+            if (gridParent != null)
+                LayoutRebuilder.ForceRebuildLayoutImmediate(gridParent);
+        }
+
+        private List<(CardData card, Sprite sprite)> BuildUsableCardPool()
+        {
+            var pool = new List<(CardData, Sprite)>();
+            var cd = Settings.CardsData;
+            if (cd == null)
+            {
+                return pool;
+            }
+
+            foreach (var data in cd)
+            {
+                if (data == null)
+                {
+                    continue;
+                }
+
+                Sprite sprite = ResolveSprite(data);
+                if (sprite == null)
+                {
+                    continue;
+                }
+
+                pool.Add((data, sprite));
+            }
+
+            Shuffle(pool);
+            return pool;
+        }
+
+        private bool TrySelectLayout(int availablePairs, out GridConfig layout)
+        {
+            layout = default;
+
+            int targetIndex = GetLayoutIndexForDifficulty(difficulty);
+            int cappedIndex = Mathf.Clamp(targetIndex, 0, DifficultyLayouts.Length - 1);
+            for (int i = cappedIndex; i >= 0; i--)
+            {
+                var candidate = DifficultyLayouts[i];
+                if (candidate.PairCount <= availablePairs)
+                {
+                    layout = candidate;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private int GetLayoutIndexForDifficulty(Difficulty diff)
+        {
+            switch (diff)
+            {
+                case Difficulty.Tutorial:
+                    return 0;
+                case Difficulty.Easy:
+                    return 1;
+                case Difficulty.Normal:
+                    return 2;
+                default:
+                    return 3;
+            }
+        }
+
+        private List<(CardData card, Sprite sprite)> PickCardsForPairs(List<(CardData card, Sprite sprite)> source, int pairCount)
+        {
+            return new List<(CardData, Sprite)>(source.GetRange(0, pairCount));
+        }
+
+        private void ConfigureGrid(int rows, int cols)
+        {
+            if (grid == null)
+            {
+                return;
+            }
+
             grid.cellSize = cellSize;
             grid.spacing = spacing;
             grid.startAxis = GridLayoutGroup.Axis.Horizontal;
@@ -124,68 +257,16 @@ namespace Antura.Discover.Activities
 
             var autoSize = CalculateAutoCellSize(rows, cols);
             grid.cellSize = autoSize;
-
-            // Pick unique faces from CardData
-            var selectedFaces = PickUniqueFaces(totalPairs);
-            var pool = new List<(int id, Sprite face)>();
-            for (int i = 0; i < selectedFaces.Count; i++)
-            {
-                pool.Add((i, selectedFaces[i]));
-                pool.Add((i, selectedFaces[i]));
-            }
-            Shuffle(pool);
-
-            // Instantiate cards
-            foreach (var entry in pool)
-            {
-                var go = Instantiate(cardPrefab, gridParent);
-                var card = go.GetComponent<MemoryCard>();
-                card.Init(this, entry.id, entry.face, commonBack);
-                cards.Add(card);
-            }
-
-            if (gridParent != null)
-                LayoutRebuilder.ForceRebuildLayoutImmediate(gridParent);
         }
 
-        /// <summary>
-        /// Picks a number of unique card faces from CardsData.
-        /// Loops if there are not enough unique items.
-        /// </summary>
-        private List<Sprite> PickUniqueFaces(int count)
+        private static Sprite ResolveSprite(CardData data)
         {
-            var result = new List<Sprite>(count);
-            var cd = Settings.CardsData;
-            if (cd == null || cd.Count == 0)
+            if (data?.ImageAsset == null)
             {
-                Debug.LogError("Memory: no CardsData provided");
-                return result;
-            }
-
-            var bag = new List<Sprite>(cd.Count);
-            foreach (var data in cd)
-            {
-                if (data == null)
-                    continue;
-                var sprite = ResolveSprite(data);
-                if (sprite != null)
-                    bag.Add(sprite);
-            }
-
-            Shuffle(bag);
-            for (int i = 0; i < count; i++)
-                result.Add(bag[i % bag.Count]);
-
-            return result;
-        }
-
-        private static Sprite ResolveSprite(Antura.Discover.CardData data)
-        {
-            if (data == null)
                 return null;
-            if (data.ImageAsset != null)
-                return data.ImageAsset.GetImage();
-            return null;
+            }
+
+            return data.ImageAsset.GetImage();
         }
 
         /// <summary>
@@ -222,8 +303,16 @@ namespace Antura.Discover.Activities
                 second.Lock();
                 DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityGoodMove);
                 matchedPairs++;
+
+                var cardData = first.cardData;
+                if (cardData != null)
+                {
+                    DiscoverDataManager.I.PlayCardTitle(cardData, true);
+                }
+
                 if (matchedPairs >= totalPairs)
                     OnWin();
+
                 // brief settle delay
                 yield return new WaitForSecondsRealtime(0.05f);
             }
