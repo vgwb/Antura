@@ -9,10 +9,8 @@ namespace Antura.Discover.Activities
 {
     public class ActivityMemory : ActivityBase
     {
-        [Header("Debug")]
-        public bool debugMode = false;
-        [Tooltip("If in debug mode, use these settings instead of the regular ones.")]
-        public MemorySettingData DebugSettings;
+        [Header("State")]
+        public Difficulty difficulty = Difficulty.Default;
 
         [Header("Activity Memory Settings")]
         public MemorySettingData Settings;
@@ -23,7 +21,6 @@ namespace Antura.Discover.Activities
         public Sprite commonBack;
 
         [Header("Difficulty & Grid")]
-        public Difficulty difficulty = Difficulty.Easy;
         public RectTransform gridParent;
         public GameObject cardPrefab;
         public Vector2 cellSize = new Vector2(180, 220);
@@ -75,13 +72,6 @@ namespace Antura.Discover.Activities
 
         public override void ConfigureSettings(ActivitySettingsAbstract settings)
         {
-            if (DebugSettings != null && debugMode)
-            {
-                base.ConfigureSettings(settings);
-                Settings = DebugSettings;
-                return;
-            }
-
             base.ConfigureSettings(settings);
             if (settings is MemorySettingData csd)
                 Settings = csd;
@@ -90,6 +80,8 @@ namespace Antura.Discover.Activities
         public override void InitActivity()
         {
             difficulty = Settings.Difficulty;
+
+            Debug.Log($"Memory: InitActivity() with difficulty {difficulty}");
 
             BuildBoard();
             if (difficulty == Difficulty.Tutorial)

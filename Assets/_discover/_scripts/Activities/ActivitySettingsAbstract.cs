@@ -16,7 +16,7 @@ namespace Antura.Discover.Activities
         public ActivityCode ActivityCode;
 
         [Header("Duration")]
-        public Difficulty Difficulty = Difficulty.Normal;
+        public Difficulty Difficulty = Difficulty.Default;
         public int MinRounds = 1;
         public int MaxRounds = 3;
 
