@@ -137,21 +137,23 @@ position: 4,346
 group: docs
 actor:
 ---
-// launches an activity and set a node to jump after it
-<<activity id_activity_setting id_node_to_jump_after_activity>>
+// launches an activity and set a yarn node to jump when completed
+<<activity activity_setting_id return_node>>
 
 // a third optional parameter can set the difficulty
-<<activity id_activity_setting id_node_to_jump_after_activity tutorial>>
-<<activity id_activity_setting id_node_to_jump_after_activity easy>>
-<<activity id_activity_setting id_node_to_jump_after_activity normal>>
-<<activity id_activity_setting id_node_to_jump_after_activity expert>>
+<<activity activity_setting_id return_node tutorial>>
+<<activity activity_setting_id return_node easy>>
+<<activity activity_setting_id return_node normal>>
+<<activity activity_setting_id return_node expert>>
 
-// to get the result of that activity
+// to get the result of a specific activity
 // (0 = failed, >= 1 = completed)
 <<if GetActivityResult("id_activity_setting") > 0>>
 You played the activity well! #line:0872c3a 
-<<else>>
-Try again. #line:099ca47 
+<<endif>>
+
+// this returns the result of the activity played
+<<if GetActivityResult("") > 0>>
 <<endif>>
 ===
 
