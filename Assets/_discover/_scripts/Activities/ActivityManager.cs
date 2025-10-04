@@ -22,7 +22,7 @@ namespace Antura.Discover.Activities
         private string _currentSettingsCode;
         private readonly Dictionary<string, int> _lastResultsBySettings = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
-        public bool Launch(string settingsCode, string nodeReturn = "")
+        public bool Launch(string settingsCode, string nodeReturn = "", string difficulty = "")
         {
             Debug.Log($"ActivityManager.Launch: {settingsCode} -> {nodeReturn}");
             _lastResultScore = 0;
@@ -43,6 +43,21 @@ namespace Antura.Discover.Activities
             {
                 Debug.LogWarning($"ActivityManager.Launch: config not found for '{settingsCode}'");
                 return false;
+            }
+
+            if (difficulty != "")
+            {
+                var overrideDifficulty = Difficulty.Default;
+                if (string.Equals(difficulty, "tutorial", StringComparison.OrdinalIgnoreCase))
+                    overrideDifficulty = Difficulty.Tutorial;
+                if (string.Equals(difficulty, "easy", StringComparison.OrdinalIgnoreCase))
+                    overrideDifficulty = Difficulty.Easy;
+                else if (string.Equals(difficulty, "normal", StringComparison.OrdinalIgnoreCase))
+                    overrideDifficulty = Difficulty.Normal;
+                else if (string.Equals(difficulty, "expert", StringComparison.OrdinalIgnoreCase))
+                    overrideDifficulty = Difficulty.Expert;
+
+                activityConfig.ActivitySettings.Difficulty = overrideDifficulty;
             }
 
             return Launch(activityConfig.ActivitySettings, nodeReturn);

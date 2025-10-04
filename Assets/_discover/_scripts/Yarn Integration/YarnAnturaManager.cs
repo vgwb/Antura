@@ -153,12 +153,12 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("activity")]
-        public static void CommandActivity(string activitySettingsCode, string nodeReturn = "")
+        public static void CommandActivity(string activitySettingsCode, string nodeReturn = "", string difficulty = "")
         {
             //Debug.Log($"Yarn: activity {activityCode} -> {nodeReturn}");
             if (string.IsNullOrEmpty(activitySettingsCode))
                 return;
-            ActivityManager.I?.Launch(activitySettingsCode, nodeReturn);
+            ActivityManager.I?.Launch(activitySettingsCode, nodeReturn, difficulty);
         }
 
         [YarnFunction("GetActivityResult")]
