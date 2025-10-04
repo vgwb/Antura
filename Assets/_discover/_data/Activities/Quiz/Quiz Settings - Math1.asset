@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7af6468ec5ed443382ad4a264476e3b, type: 3}
-  m_Name: Jigsaw TourEiffel Settings test
+  m_Script: {fileID: 11500000, guid: 3fa4dd948fc94478e8cd6245a882f9b3, type: 3}
+  m_Name: Quiz Settings - Math1
   m_EditorClassIdentifier: 
-  Id: jigsaw_toureiffel_settings_test
-  ActivityCode: 5
+  Id: quiz_math1_settings
+  ActivityCode: 3
   Difficulty: 3
   MinRounds: 1
   MaxRounds: 3
@@ -23,6 +23,12 @@ MonoBehaviour:
   PointsEasy: 1
   PointsNormal: 2
   PointsExpert: 3
-  PuzzleCard: {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
-  HorizontalPieces: 0
-  VerticalPieces: 0
+  Question: Quanto fa 1+2?
+  Answers:
+  - Item: {fileID: 0}
+    IsCorrect: 0
+  - Item: {fileID: 0}
+    IsCorrect: 0
+  - Item: {fileID: 0}
+    IsCorrect: 1
+  Shuffle: 1
