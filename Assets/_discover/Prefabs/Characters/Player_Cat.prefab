@@ -58,7 +58,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e57eb045f958449991c84c0271b951b, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5103,7 +5103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7101564007038771914}
   - component: {fileID: 3417226552754281088}
-  - component: {fileID: 1064013541824964877}
   - component: {fileID: 5651115876431617115}
   - component: {fileID: 7398194241637803817}
   - component: {fileID: 3744103283373756085}
@@ -5166,29 +5165,21 @@ MonoBehaviour:
   RunAcceleration: 2
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
-  useKinematicCharacterController: 1
   JumpHeight: 1.2
   JumpTimeout: 0.1
-  Gravity: -15
   FallTimeout: 1
-  GroundedOffset: -0.14
-  GroundedRadius: 0.28
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 129
-  disableSlopeMovement: 1
-  slideSpeed: 5
-  slideAcceleration: 10
-  maxSlideSpeed: 12
-  slopeForceDown: 5
-  allowSlopeControl: 1
-  slopeControlAmount: 0.3
-  slopeSpeedCurve:
+  runTrail: {fileID: 1309634873698616617}
+  sprintStartFx: {fileID: 7081778684383864190}
+  runTrailMinSpeed: 2.5
+  runTrailActivationDelay: 2
+  respawnTravelDuration: 4
+  respawnArcHeight: 12
+  respawnProgressCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -11.625
-      value: 1.1214294
+      time: 0
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5196,10 +5187,10 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 45
-      value: 1.2
-      inSlope: 0.0044444455
-      outSlope: 0.0044444455
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -5207,46 +5198,45 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  runTrail: {fileID: 1309634873698616617}
-  sprintStartFx: {fileID: 7081778684383864190}
-  runTrailMinSpeed: 2.5
-  runTrailActivationDelay: 2
-  enableLedgeHandling: 1
-  maxStableLedgeDistance: 0.05
-  maxVelocityForLedgeSnap: 0
-  uphillMaxSlowdown: 0.213
-  downhillMaxBoost: 0.08
+  respawnHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.7656114
+      outSlope: 3.7656114
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.061854735
+    - serializedVersion: 3
+      time: 0.2015331
+      value: 1.01418
+      inSlope: 0.1619001
+      outSlope: 0.1619001
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.7322515
+      outWeight: 0.43757173
+    - serializedVersion: 3
+      time: 1.0041788
+      value: 0.0023806263
+      inSlope: -2.204266
+      outSlope: -2.204266
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10249806
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   minFallHeight: 4
   fallDamageMultiplier: 10
   destructibleLayers:
     serializedVersion: 2
     m_Bits: 1
   animationController: {fileID: 448008798303200391}
---- !u!143 &1064013541824964877
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502568018897201893}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Height: 0.6
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.05
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &5651115876431617115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5301,7 +5291,7 @@ MonoBehaviour:
     m_Bits: 129
   DiscreteCollisionEvents: 0
   StepHandling: 1
-  MaxStepHeight: 0.25
+  MaxStepHeight: 0.3
   AllowSteppingWithoutStableGrounding: 1
   MinRequiredStepDepth: 0
   LedgeAndDenivelationHandling: 1

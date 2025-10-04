@@ -20,6 +20,8 @@ namespace Antura.Discover
         public PlayerSpawnPoint PlayerSpawnPoint;
         private GameObject PlayerSpawnPointGO;
 
+        public Transform CurrentPlayerSpawnTransform => PlayerSpawnPointGO != null ? PlayerSpawnPointGO.transform : null;
+
         public QuestActionData[] QuestActions;
 
 
@@ -39,6 +41,7 @@ namespace Antura.Discover
             if (I == null)
             {
                 I = this;
+                PlayerSpawnPointGO = PlayerSpawnPoint != null ? PlayerSpawnPoint.gameObject : null;
             }
             else
             {

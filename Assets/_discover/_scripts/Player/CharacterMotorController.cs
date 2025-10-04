@@ -29,7 +29,7 @@ namespace Antura.Discover
     [DisallowMultipleComponent]
     [DefaultExecutionOrder(-90)]
     [RequireComponent(typeof(KinematicCharacterMotor))]
-    public class DiscoverCharacterMotorAdapter : MonoBehaviour, ICharacterController
+    public class CharacterMotorController : MonoBehaviour, ICharacterController
     {
         [Header("Stable Movement")]
         public float StableMovementSharpness = 15f;

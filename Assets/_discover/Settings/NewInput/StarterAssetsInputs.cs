@@ -20,13 +20,48 @@ namespace Antura.Discover
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
 
+        private bool _inputsEnabled = true;
+
+        public bool InputsEnabled => _inputsEnabled;
+
+        public void SetInputsEnabled(bool enabled)
+        {
+            if (_inputsEnabled == enabled)
+            {
+                return;
+            }
+
+            _inputsEnabled = enabled;
+
+            if (!enabled)
+            {
+                move = Vector2.zero;
+                look = Vector2.zero;
+                jump = false;
+                sprint = false;
+                act = false;
+                map = false;
+            }
+        }
+
         public void OnMove(InputValue value)
         {
+            if (!_inputsEnabled)
+            {
+                MoveInput(Vector2.zero);
+                return;
+            }
+
             MoveInput(value.Get<Vector2>());
         }
 
         public void OnLook(InputValue value)
         {
+            if (!_inputsEnabled)
+            {
+                return;
+            }
+
             if (cursorInputForLook)
             {
                 LookInput(value.Get<Vector2>());
@@ -35,21 +70,43 @@ namespace Antura.Discover
 
         public void OnJump(InputValue value)
         {
+            if (!_inputsEnabled)
+            {
+                JumpInput(false);
+                return;
+            }
+
             JumpInput(value.isPressed);
         }
 
         public void OnSprint(InputValue value)
         {
+            if (!_inputsEnabled)
+            {
+                SprintInput(false);
+                return;
+            }
+
             SprintInput(value.isPressed);
         }
 
         public void OnAct(InputValue value)
         {
+            if (!_inputsEnabled)
+            {
+                return;
+            }
+
             ActInput();
         }
 
         public void OnMap(InputValue value)
         {
+            if (!_inputsEnabled)
+            {
+                return;
+            }
+
             MapInput(value.isPressed);
         }
 
@@ -60,12 +117,12 @@ namespace Antura.Discover
 
         public void MoveInput(Vector2 newMoveDirection)
         {
-            move = newMoveDirection;
+            move = _inputsEnabled ? newMoveDirection : Vector2.zero;
         }
 
         public void LookInput(Vector2 newLookDirection)
         {
-            look = newLookDirection;
+            look = _inputsEnabled ? newLookDirection : Vector2.zero;
         }
 
         public void JumpInput(bool newJumpState)
