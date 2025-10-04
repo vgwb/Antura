@@ -595,6 +595,7 @@ namespace Antura.Discover.Activities
             InitOverlayUI();
             overlay.BtValidate.gameObject.SetActive(enable);
             overlay.BtValidate.interactable = enable;
+            overlay.BtValidate.gameObject.GetComponent<ActivityValidateBtn>().SetState(enable);
         }
 
         public void DisplayFeedback(string message)

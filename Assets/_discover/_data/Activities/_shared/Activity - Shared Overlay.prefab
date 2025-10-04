@@ -522,6 +522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7370052106270025086}
+  - component: {fileID: 4907101443485107607}
   - component: {fileID: 2387368293523539010}
   - component: {fileID: 3487584306404971477}
   - component: {fileID: 8639554761993889186}
@@ -552,6 +553,20 @@ RectTransform:
   m_AnchoredPosition: {x: -40, y: 60}
   m_SizeDelta: {x: 220, y: 220}
   m_Pivot: {x: 1, y: 0}
+--- !u!114 &4907101443485107607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103963903450079535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a474b727aea4d12b0f02710719459f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.ActivityValidateBtn
+  button: {fileID: 8639554761993889186}
+  img: {fileID: 8301787687628887369}
 --- !u!222 &2387368293523539010
 CanvasRenderer:
   m_ObjectHideFlags: 0
