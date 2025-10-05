@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
+using UnityEditor.Localization;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -234,7 +235,11 @@ namespace Antura.Discover.Audio.Editor
         private void RefreshLocales()
         {
             _locales.Clear();
+#if UNITY_EDITOR
+            var list = LocalizationEditorSettings.GetLocales();
+#else
             var list = LocalizationSettings.AvailableLocales?.Locales;
+#endif
             if (list != null)
                 _locales.AddRange(list);
             _locales.Sort((a, b) => string.Compare(a.Identifier.Code, b.Identifier.Code, StringComparison.OrdinalIgnoreCase));
