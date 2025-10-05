@@ -125,6 +125,8 @@ namespace Antura.Discover
         {
             if (card == null)
                 return;
+            if (card.ImageAsset == null)
+                return;
 
             currCardData = card;
             DoShow(card.ImageAsset.Image, silent, magnified, null, false);

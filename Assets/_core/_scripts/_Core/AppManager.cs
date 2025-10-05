@@ -83,6 +83,8 @@ namespace Antura.Core
             base.Awake();
 
             GlobalUI.Init();
+            Debug.Log(">> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString());
+
         }
 
         /// <summary>
@@ -95,8 +97,6 @@ namespace Antura.Core
                 return;
             }
             alreadySetup = true;
-
-            Debug.Log(">> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString());
 
             if (DebugConfig.I.AddressablesBlockingLoad)
             {

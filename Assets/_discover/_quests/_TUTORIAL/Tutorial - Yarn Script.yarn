@@ -48,7 +48,7 @@ Go and talk to next tutor! #line:0eb85aa
 
 
 title: tutor_camera
-position: 826,140
+position: 750,140
 tags: 
 ---
 <<if $IS_DESKTOP>>
@@ -57,6 +57,7 @@ tags:
     <<asset tutorial_camera>>
     Use your right finger to move the camera. #line:0aa47cb 
 <<endif>>
+<<action area_large>>
 ===
 
 
@@ -86,7 +87,7 @@ tags: asset=tutorial_move
 ===
 
 title: tutor_5_run
-position: 826,0
+position: 750,0
 tags:  
 ---
 <<asset tutorial_run>>
@@ -130,12 +131,11 @@ Try to push this ball. #line:02253ae
 ===
 
 title: tutor_10_follow
-position: 229,339
+position: 217,199
 tags: 
 ---
 <<asset tutorial_follow>>
 If you get lost, follow this icon. #line:06c117d 
-<<action area_tutorial>>
 ===
 
 
@@ -144,11 +144,11 @@ position: 227,519
 tags: 
 ---
 Let me see if you learned: climb the stairs and get that coin! #line:0fe9efe 
-<<action AREA_TUTORIAL>>
+<<action area_all>>
 ===
 
 title: tutor_teleport
-position: 540,339
+position: 484,197
 tags: 
 ---
 <<card antura_portal>>
@@ -156,7 +156,7 @@ Use the portals to travel fast! #line:0f753b5
 ===
 
 title: tutor_killzone
-position: 540,519
+position: 296,1094
 tags: 
 ---
 <<card antura_danger>>
@@ -164,7 +164,7 @@ Pay attention to not fall into the water! #line:0e9b5a9
 ===
 
 title: tutor_livingletter
-position: 540,519
+position: 838,1002
 tags: 
 ---
 <<card antura_livingletter>>
@@ -172,7 +172,7 @@ These are Living Letters. Talk to them to learn new words! #line:06e500f
 ===
 
 title: tutor_blocky_character
-position: 540,519
+position: 526,995
 tags: 
 ---
 <<card antura_blocky_character>>
@@ -180,7 +180,7 @@ These people are our friends. Talk to them to learn more about the world! #line:
 ===
 
 title: tutor_card
-position: 540,519
+position: 206,375
 tags: 
 ---
 <<card antura_card>>
@@ -188,7 +188,7 @@ This is a CARD. It has knowledge and powers. Collect them all! #line:0ac4c18
 ===
 
 title: tutor_cat
-position: 540,519
+position: 521,351
 tags: 
 ---
 <<card antura_cat>>
@@ -197,7 +197,7 @@ Yes. That is you! If you play all the game, you can change your look! #line:0eb1
 
 
 title: tutor_antura
-position: 540,519
+position: 258,652
 tags: 
 ---
 <<card antura>>
@@ -205,7 +205,7 @@ This is our friend Antura. He will help you in your adventure! #line:015cdc5
 ===
 
 title: tutor_inventory
-position: 540,519
+position: 278,936
 tags: 
 ---
 <<card antura_inventory>>
@@ -213,7 +213,7 @@ This is your inventory. Click on an object to use it. #line:02a6cfa
 ===
 
 title: tutor_progress
-position: 540,519
+position: 527,672
 tags: 
 ---
 <<card antura_progress>>
@@ -221,7 +221,7 @@ This is the game progress. Play well and get 3 stars! #line:0b606b8
 ===
 
 title: tutor_tasks
-position: 540,519
+position: 223,759
 tags: 
 ---
 <<card antura_tasks>>
@@ -229,7 +229,7 @@ This panel tells you what you have to do. #line:012d967
 ===
 
 title: tutor_target
-position: 540,519
+position: 516,840
 tags: 
 ---
 <<card antura_target>>
@@ -360,16 +360,25 @@ Are you ready to play the game? #line:02fea28
     Ask your teacher to help you. #line:0c6bc14 
 ===
 
+title: ll_skyscraper
+position: 828,619
+actor: ADULT_F
+---
+It's wonderful to see the city from up here!
+I would like to travel all around the world!
+===
+
 title: npc_secrets
-position: 540,165
+position: 828,809
 actor: SENIOR_M
 ---
 I heard there are secrets in this level... #line:0b8d755 
 And a portal to travel on that skyscraper! #line:032af93 
+<<jump global_init>>
 ===
 
 title: npc_hallo
-position: 540,165
+position: 750,-202
 actor: KID_F
 ---
 => Hallo! #line:022bd3f
@@ -378,11 +387,19 @@ actor: KID_F
 ===
 
 title: npc_kid
-position: 540,165
+position: 828,412
 actor: KID_M
 ---
 => Cookies are hidden all around! Find them! #line:0c8d2fa 
 => I love to use the portals to travel! #line:0fb6855 
 => Talk to everyone you meet! #line:0812c45 
 => Explore the world! #line:041d845 
+===
+
+title: npc_arcade
+position: 750,-202
+actor: KID_F
+---
+=> I love videogames!
+=> Do you want to play with me?
 ===
