@@ -176,7 +176,7 @@ position: 540,519
 tags: 
 ---
 <<card antura_blocky_character>>
-These are our friends. Talk to them to learn more about the world! #line:0be283b 
+These people are our friends. Talk to them to learn more about the world! #line:0be283b 
 ===
 
 title: tutor_card
@@ -184,7 +184,7 @@ position: 540,519
 tags: 
 ---
 <<card antura_card>>
-This is a Card. It has knowledge and powers. Collect them all! #line:0ac4c18 
+This is a CARD. It has knowledge and powers. Collect them all! #line:0ac4c18 
 ===
 
 title: tutor_cat
@@ -201,17 +201,180 @@ position: 540,519
 tags: 
 ---
 <<card antura>>
-This is Antura, your friend! He will help you in your adventure! #line:015cdc5 
+This is our friend Antura. He will help you in your adventure! #line:015cdc5 
+===
+
+title: tutor_inventory
+position: 540,519
+tags: 
+---
+<<card antura_inventory>>
+This is your inventory. Click on an object to use it. #line:02a6cfa 
+===
+
+title: tutor_progress
+position: 540,519
+tags: 
+---
+<<card antura_progress>>
+This is the game progress. Play well and get 3 stars! #line:0b606b8 
+===
+
+title: tutor_tasks
+position: 540,519
+tags: 
+---
+<<card antura_tasks>>
+This panel tells you what you have to do. #line:012d967 
+===
+
+title: tutor_target
+position: 540,519
+tags: 
+---
+<<card antura_target>>
+This symbol shows you where to go. #line:0864faf 
+===
+
+
+title: activity_canvas
+position: 1359,1253
+group: activities
+color: purple
+---
+Let's play Activity CANVAS #line:07041b3 
+You have to clean all the screen without touching Antura! #line:0c80adc 
+<<activity canvas_beach_settings activity_canvas_result>>
+
+===
+title: activity_canvas_result
+position: 1358,1395
+group: activities
+color: purple
+---
+It's nice to clean, isn't it? #line:059323a 
+===
+
+title: activity_jigsaw
+position: 1619,1253
+group: activities
+color: purple
+---
+Let's play Activity JIGSAW PUZZLE! #line:0fe648a 
+Complete the image. #line:0bc50ca 
+<<activity jigsaw_toureiffel_settings activity_jigsaw_result>>
+===
+
+title: activity_jigsaw_result
+position: 1618,1397
+group: activities
+color: purple
+---
+I love puzzles! #line:0fc42d8 
+===
+
+title: activity_memory
+position: 1888,1254
+group: activities
+color: purple
+---
+Let's play Activity MEMORY! #line:05e100e 
+Find the pairs of cards. #line:0ef88ae 
+<<activity memory_baguette_settings activity_memory_result expert>>
+===
+
+title: activity_memory_result
+position: 1885,1400
+group: activities
+color: purple
+---
+It's good to exercise our memory! #line:00e6a04 
+===
+
+title: activity_match
+position: 2117,1253
+group: activities
+color: purple
+---
+Let's play Activity MATCH! #line:07c8447 
+Match the similar cards. #line:02aec90 
+<<activity match_zoo_1_settings activity_match_result>>
+===
+
+title: activity_match_result
+position: 2113,1403
+group: activities
+color: purple
+---
+Nice matching! #line:0f0ee2e 
+===
+
+title: activity_money
+position: 2353,1255
+group: activities
+color: purple
+---
+Let's play Activity COUNT THE MONEY! #line:06b295f 
+You have to give the correct amount of coins. #line:0f00e5d 
+<<activity money_level_1_settings activity_money_result>>
+===
+
+title: activity_money_result
+position: 2359,1407
+group: activities
+color: purple
+---
+It's important to learn how to use money! #line:06136c1 
+===
+
+title: activity_order
+position: 2601,1256
+group: activities
+color: purple
+---
+Let's play Activity ORDER! #line:015a3ea 
+Put the items in the correct order. #line:0ed152d 
+<<activity order_baguetterecipe_settings activity_order_result>>
+===
+
+title: activity_order_result
+position: 2592,1398
+group: activities
+color: purple
+---
+Good activity. #line:0838f7f 
+===
+
+title: tutor_end
+position: 2592,1398
+group: 
+color: purple
+---
+This is the end of the tutorial. #line:0dfdfc5 
+Are you ready to play the game? #line:02fea28 
+-> Yes #line:0b66e60 
+    Great. See you soon in the game! #line:07498c0 
+    There is much more to discover in Antura. #line:0ed06b6 
+-> No #line:01d5126 
+    You can replay the tutorial anytime you want. #line:06f9065 
+    Ask your teacher to help you. #line:0c6bc14 
+===
+
+title: npc_secrets
+position: 540,165
+actor: SENIOR_M
+---
+I heard there are secrets in this level... #line:0b8d755 
+And a portal to travel on that skyscraper! #line:032af93 
 ===
 
 title: npc_hallo
 position: 540,165
 actor: KID_F
 ---
-=> Ciao! #line:0c47c13 #do_not_translate
-=> Hallo! #line:022bd3f #do_not_translate
-=> Salut! #line:00ad419 #do_not_translate
-=> чао #line:0591baf #do_not_translate
+=> Hallo! #line:022bd3f
+=> have you seen Antura? #line:00ad419
+=> I lost my cookie! #line:0a94666 
 ===
 
 title: npc_kid
@@ -221,5 +384,5 @@ actor: KID_M
 => Cookies are hidden all around! Find them! #line:0c8d2fa 
 => I love to use the portals to travel! #line:0fb6855 
 => Talk to everyone you meet! #line:0812c45 
-=> Explore the world!  #line:041d845 
+=> Explore the world! #line:041d845 
 ===
