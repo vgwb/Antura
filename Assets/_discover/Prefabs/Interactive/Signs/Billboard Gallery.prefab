@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7798796904755674209
 Transform:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1775625445735999796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 5248746382503178840}
   - component: {fileID: 5002909209426785743}
   - component: {fileID: 3970012676992426316}
+  - component: {fileID: 4278319559478767620}
   m_Layer: 0
   m_Name: Billboard Gallery
   m_TagString: Untagged
@@ -448,10 +449,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de04c0ae763004d61905a8978daeb471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.BillboardImage
-  Source: 0
+  Source: 3
   Topic: {fileID: 0}
   Card: {fileID: 0}
-  Asset: {fileID: 11400000, guid: 740d26ab028154c54af41fe9e96d9124, type: 2}
+  Asset: {fileID: 11400000, guid: 1300f1ee5d375430bad9754305b662b1, type: 2}
   DirectSprite: {fileID: 0}
   GalleryAssets: []
   GallerySprites: []
@@ -459,20 +460,34 @@ MonoBehaviour:
   TextureProperty: _MainTex
   TintProperty: _Tint
   Tint: {r: 1, g: 1, b: 1, a: 1}
-  Fit: 1
+  Fit: 2
   XAnchor: 1
   YAnchor: 1
   OverridePanelAspect: 0
   PanelTransform: {fileID: 2269147133567892815}
-  EnableGallery: 1
+  EnableGallery: 0
   GalleryInterval: 4
   FadeDuration: 0.8
-  FadeToBlack: 1
+  FadeToBlack: 0
   IncludePreviewImage: 0
   ShuffleGallery: 0
+  PanelTitle: {fileID: 2691613907470610163}
   TitleText: {fileID: 8975250573548358907}
   TitleFormat: '{0}'
   HideTitleWhenNoCard: 1
+--- !u!114 &4278319559478767620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895148919588598420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6db7edc04c4f3e8853a276ceb9949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Utilities.PlatformVisibility
+  PlatformType: 2
 --- !u!1 &6363236684876905168
 GameObject:
   m_ObjectHideFlags: 0

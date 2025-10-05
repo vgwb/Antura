@@ -77,6 +77,7 @@ namespace Antura.Discover
         public bool ShuffleGallery = false;
 
         [Header("Card Title (CardData / TopicData)")]
+        public GameObject PanelTitle;
         public TMP_Text TitleText;
         [Tooltip("Optional string.Format pattern for the title (e.g., '{0}').")] public string TitleFormat = "{0}";
         [Tooltip("Hide the title object if there's no card to show a title for.")] public bool HideTitleWhenNoCard = true;
@@ -635,15 +636,20 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(title))
             {
                 if (HideTitleWhenNoCard)
+                {
+                    PanelTitle.SetActive(false);
                     TitleText.gameObject.SetActive(false);
+                }
                 else
                 {
+                    PanelTitle.SetActive(true);
                     TitleText.gameObject.SetActive(true);
                     TitleText.text = string.Empty;
                 }
             }
             else
             {
+                PanelTitle.SetActive(true);
                 TitleText.gameObject.SetActive(true);
                 TitleText.text = string.IsNullOrEmpty(TitleFormat) ? title : string.Format(TitleFormat, title);
             }

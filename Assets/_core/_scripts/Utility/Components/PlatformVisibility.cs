@@ -5,63 +5,36 @@ namespace Antura.Utilities
 {
     public class PlatformVisibility : MonoBehaviour
     {
-        public enum ConditionSettingEnum
+        public enum Platform
         {
-            none = 0,
-            ShowDonate = 1,
-            ShowTeacherGuide = 2
+            Mobile,
+            Android,
+            Desktop
         }
 
-        public ConditionSettingEnum ConditionSetting;
-        public bool MobileOnly;
-        public bool AndroidOnly;
-        public bool DesktopOnly;
-
-        public AppEditionID editionIDOnly;
+        [Header("Visible ONLY on this platform:")]
+        public Platform PlatformType;
 
         void OnEnable()
         {
-            if (ConditionSetting != ConditionSettingEnum.none)
+
+            bool visible = false;
+
+            if (PlatformType == Platform.Mobile && AppConfig.IsMobilePlatform())
             {
-                switch (ConditionSetting)
-                {
-                    case ConditionSettingEnum.ShowDonate:
-                        gameObject.SetActive(AppManager.I.AppEdition.ShowDonate);
-                        break;
-                    case ConditionSettingEnum.ShowTeacherGuide:
-                        gameObject.SetActive(AppManager.I.AppEdition.ShowTeacherGuide);
-                        break;
-                }
-
+                visible = true;
             }
-            else
+            if (PlatformType == Platform.Android && Application.platform == RuntimePlatform.Android)
             {
-                bool visible = false;
-
-                if (MobileOnly && AppConfig.IsMobilePlatform())
-                {
-                    visible = true;
-                }
-                if (AndroidOnly && Application.platform == RuntimePlatform.Android)
-                {
-                    visible = true;
-                }
-                if (DesktopOnly && AppConfig.IsDesktopPlatform())
-                {
-                    visible = true;
-                }
-
-                if (editionIDOnly == AppEditionID.LearnEnglish_Ceibal && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal)
-                {
-                    visible = true;
-                }
-                if (editionIDOnly == AppEditionID.LearnEnglish && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish)
-                {
-                    visible = true;
-                }
-
-                gameObject.SetActive(visible);
+                visible = true;
             }
+            if (PlatformType == Platform.Desktop && AppConfig.IsDesktopPlatform())
+            {
+                visible = true;
+            }
+
+            gameObject.SetActive(visible);
         }
+
     }
 }

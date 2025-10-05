@@ -118,6 +118,8 @@ namespace Antura.Core
         {
             return Application.platform == RuntimePlatform.WebGLPlayer ||
                     Application.platform == RuntimePlatform.WindowsPlayer ||
+                    Application.platform == RuntimePlatform.WindowsEditor ||
+                    Application.platform == RuntimePlatform.OSXEditor ||
                     Application.platform == RuntimePlatform.OSXPlayer ||
                     Application.platform == RuntimePlatform.LinuxPlayer;
         }
