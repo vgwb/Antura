@@ -30,6 +30,9 @@ You are asked about your native language only the first time you start the game,
 
 ## Teachers Area
 
+> [!tip] SHORTCUT
+> on PC you can bypass the filter to enter the Teachers Area by pressing `SHIFT + R` keys.
+
 If your students are divided in groups/classes, the first thing you should do is to select the class.
 Press the button in the bottom-left corner, then follow the instructions to access the Teachers Area.
 
