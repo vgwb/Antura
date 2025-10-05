@@ -18,7 +18,7 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "AssetData", menuName = "Antura/Discover Data/Asset")]
     public class AssetData : IdentifiedData
     {
-        public Status Status = Status.Draft;
+        public Status Status = Status.Development;
         public AssetType Type = AssetType.Image;
         public Countries Country = Countries.International;
 

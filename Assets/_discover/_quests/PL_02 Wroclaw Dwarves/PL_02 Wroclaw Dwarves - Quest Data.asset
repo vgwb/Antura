@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 2
   Version: 100
-  Status: 2
+  Status: 1
   TitleEn: Dwarves (Wroclaw)
   Title:
     m_TableReference:
@@ -81,6 +81,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 20
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 
   cookies: 0
@@ -121,9 +122,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 5194222687263700055, guid: 7f906e47d9a374461b59d2e508e060df,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: 7f906e47d9a374461b59d2e508e060df
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: PL_02
   scene: discover pl_02 wroklaw dwarves

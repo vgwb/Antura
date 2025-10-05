@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 3
   Version: 100
-  Status: 2
+  Status: 1
   TitleEn: Odra River (Wroclaw)
   Title:
     m_TableReference:
@@ -65,6 +65,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 20
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 
   cookies: 0
@@ -105,10 +106,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 7290969113808123406, guid: 5738f085ad6f446d2a53ce60158d5e91,
-    type: 3}
-  WorldControllerPrefab: {fileID: 1319505447478607664, guid: 448d6f7ae7baa4518b5b67f36bb854bb,
-    type: 3}
+  questPrefab:
+    m_AssetGUID: 5738f085ad6f446d2a53ce60158d5e91
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: PL_03
   scene: discover pl_03 wroklaw river

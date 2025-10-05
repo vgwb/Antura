@@ -241,7 +241,7 @@ namespace Antura.Discover
                     classroom = legacy?.Classroom ?? 0,
                     easyMode = legacy?.EasyMode ?? false,
                     talkToPlayerMode = TalkToPlayerMode.LearningThenNative,
-                    godMode = SafeGetGodMode(legacy),
+                    godMode = legacy?.IsDemoUser ?? false,
                     playerIcon = MapLegacyPlayerIcon(legacy)
                 },
 
@@ -298,15 +298,6 @@ namespace Antura.Discover
         }
 
         // ----------------- helpers -----------------
-
-        private static bool SafeGetGodMode(Antura.Profile.PlayerProfile legacy)
-        {
-            try
-            {
-                return (bool)(legacy?.GetType().GetProperty("IsDemoUser")?.GetValue(legacy) ?? false);
-            }
-            catch { return false; }
-        }
 
         private static DiscoverPlayerIcon MapLegacyPlayerIcon(Antura.Profile.PlayerProfile legacy)
         {

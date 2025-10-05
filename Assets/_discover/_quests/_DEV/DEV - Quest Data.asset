@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: DEV
   Version: 100
-  Status: 0
+  Status: 1
   TitleEn: DEV
   Title:
     m_TableReference:
@@ -63,6 +63,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 1
   Duration: 10
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 0100000004000000
   cookies: 0
@@ -79,9 +80,13 @@ MonoBehaviour:
     Design: 1
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 7852336736997035817, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: cbbdddcdfdeb146409e3de6fafb3ae38
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: DEV
   scene: discover _dev

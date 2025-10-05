@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 7
   Version: 100
-  Status: 2
+  Status: 1
   TitleEn: Solar System (Torun)
   Title:
     m_TableReference:
@@ -41,7 +41,7 @@ MonoBehaviour:
     m_LocalVariables: []
   Country: 3
   Location: {fileID: 11400000, guid: 71b008dc93ebd4bb494fcbae2e105b4b, type: 2}
-  Thumbnail: {fileID: 0}
+  Thumbnail: {fileID: 11400000, guid: 44d42b63be8f446ae85ec729f211d71d, type: 2}
   Subjects:
   - Subject: 4
     Count: 18
@@ -80,6 +80,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 10
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 
   cookies: 0
@@ -102,9 +103,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 4842159426435640053, guid: 8cc25d1548a8d4aa091b14ba83ed82d5,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: 8cc25d1548a8d4aa091b14ba83ed82d5
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: PL_07
   scene: discover pl_07 solar_system

@@ -41,7 +41,7 @@ MonoBehaviour:
     m_LocalVariables: []
   Country: 0
   Location: {fileID: 11400000, guid: 76f589b459ec04b0d80dc6c820ec3dbe, type: 2}
-  Thumbnail: {fileID: 0}
+  Thumbnail: {fileID: 11400000, guid: e784fb6ead4ed40e69e1a0ee2cca49ef, type: 2}
   Subjects: []
   Subject: 0
   Topics: []
@@ -50,6 +50,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 0
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 0100000004000000
   cookies: 0
@@ -66,9 +67,13 @@ MonoBehaviour:
     Design: 1
     Development: 1
     Validation: 1
-  QuestPrefab: {fileID: 7852336736997035817, guid: 12492fc341d5d4d4b853359ba878c285,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: 12492fc341d5d4d4b853359ba878c285
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: DEV
   scene: discover_domus

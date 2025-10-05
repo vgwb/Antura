@@ -325,7 +325,7 @@ namespace Antura.Discover.Editor
             {
                 var assetPath = AssetDatabase.GUIDToAssetPath(guid);
                 var q = AssetDatabase.LoadAssetAtPath<QuestData>(assetPath);
-                if (q != null && q.Status != Status.Standby && q.Status != Status.Draft)
+                if (q != null && q.Status != Status.Standby && q.Status != Status.Development)
                     quests.Add(q);
             }
 
@@ -407,7 +407,7 @@ namespace Antura.Discover.Editor
             {
                 var assetPath = AssetDatabase.GUIDToAssetPath(guid);
                 var q = AssetDatabase.LoadAssetAtPath<QuestData>(assetPath);
-                if (q != null && q.Status != Status.Standby && q.Status != Status.Draft)
+                if (q != null && q.Status != Status.Standby && q.Status != Status.Development)
                     quests.Add(q);
             }
 

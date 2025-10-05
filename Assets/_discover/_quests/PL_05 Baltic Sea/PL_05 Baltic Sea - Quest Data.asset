@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 5
   Version: 100
-  Status: 2
+  Status: 1
   TitleEn: "The Amber Necklace of Gda\u0144sk"
   Title:
     m_TableReference:
@@ -72,6 +72,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 10
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 
   cookies: 0
@@ -112,9 +113,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 4550446330867767471, guid: 633839e3b33fc47279c3ffcb6865a122,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: 633839e3b33fc47279c3ffcb6865a122
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: PL_05
   scene: discover pl_05 baltic sea

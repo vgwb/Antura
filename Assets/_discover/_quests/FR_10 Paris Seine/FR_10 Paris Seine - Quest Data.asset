@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 10
   Version: 100
-  Status: 2
+  Status: 1
   TitleEn: Seine (Paris)
   Title:
     m_TableReference:
@@ -64,6 +64,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 10
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 
   cookies: 0
@@ -92,9 +93,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 4836856928656916913, guid: 2a08247f2dd7b4899b9f02243f73b15f,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: 2a08247f2dd7b4899b9f02243f73b15f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: FR_10
   scene: discover fr_10 paris_sein

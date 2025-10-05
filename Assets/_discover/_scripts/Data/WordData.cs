@@ -11,7 +11,7 @@ namespace Antura.Discover
     public class WordData : IdentifiedData
     {
         public bool Active;
-        public Status DevStatus = Status.Draft;
+        public Status DevStatus = Status.Development;
         public LocalizedString TextLocalized;
 
         [Tooltip("English text, used for sorting and fallback.")]

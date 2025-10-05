@@ -28,7 +28,7 @@ namespace Antura.Discover.Editor
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
                 var a = AssetDatabase.LoadAssetAtPath<ActivityData>(path);
-                if (a != null && a.Status != Status.Standby && a.Status != Status.Draft)
+                if (a != null && a.Status != Status.Standby && a.Status != Status.Development)
                     acts.Add(a);
             }
 

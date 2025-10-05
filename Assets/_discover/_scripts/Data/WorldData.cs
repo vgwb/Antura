@@ -7,7 +7,7 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "WorldData", menuName = "Antura/Discover/World Data")]
     public class WorldData : IdentifiedData
     {
-        public Status Status = Status.Draft;
+        public Status Status = Status.Development;
         public string Title;
         public string Description;
         public Countries Country;

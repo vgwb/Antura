@@ -60,6 +60,9 @@ namespace Antura.Discover.UI
 
         private void addQuestMenuItem(QuestData questData)
         {
+            if (questData.Status == Status.Archived || questData.Status == Status.Standby) // IGNORE
+                return;
+
             btnGO = Instantiate(MenuItemPrefab);
             btnGO.transform.SetParent(Container.transform, false);
             btnGO.GetComponent<QuestMenuItem>().Init(questData);

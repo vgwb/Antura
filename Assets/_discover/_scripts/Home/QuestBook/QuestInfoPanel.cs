@@ -45,9 +45,12 @@ namespace Antura.Discover.UI
             if (questData.Location != null)
                 Description.text += "Location: " + questData.Location.Name.GetLocalizedString() + "\n";
 
-            Description.text += "Subjects: " + questData.SubjectsListText + "\n";
+            if (questData.SubjectsListText != null && questData.SubjectsListText != "")
+                Description.text += "Subjects: " + questData.SubjectsListText + "\n";
 
-            Description.text += "Difficulty: " + questData.Difficulty + "\n";
+            Description.text += "Status: " + questData.Status.ToString() + "\n";
+
+            //Description.text += "Difficulty: " + questData.Difficulty + "\n";
 
             if (questData.Duration > 0)
                 Description.text += "Duration: " + questData.Duration + " min" + "\n";

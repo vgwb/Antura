@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 4
   Version: 100
-  Status: 2
+  Status: 0
   TitleEn: Road Safety (Les Mans)
   Title:
     m_TableReference:
@@ -59,6 +59,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 20
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 
   cookies: 0
@@ -87,9 +88,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 4017108264321078535, guid: c0a5080a240524edb80d098715b2bb52,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: c0a5080a240524edb80d098715b2bb52
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: FR_04
   scene: discover fr_04 lemans

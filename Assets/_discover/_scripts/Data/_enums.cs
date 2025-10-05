@@ -129,9 +129,9 @@ namespace Antura.Discover
     public enum Status
     {
         Standby = 0, // we don't know yet if it'll go intothe game
-        Draft = 1, // just started, incomplete
-        NeedsReview = 2, // someone has to review it
-        Production = 3, // ready for production!
+        Development = 1, // just started, incomplete
+        NeedsReview = 2, // published but someone has to review it
+        Production = 3, // in production
         Validated = 10, // by the teachers, after testing
         Archived = -10, // not used anymore
     }

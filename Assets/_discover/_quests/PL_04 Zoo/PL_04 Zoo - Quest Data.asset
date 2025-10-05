@@ -41,7 +41,7 @@ MonoBehaviour:
     m_LocalVariables: []
   Country: 3
   Location: {fileID: 11400000, guid: e8331505f2195492b9e1828f3ee87c8b, type: 2}
-  Thumbnail: {fileID: 0}
+  Thumbnail: {fileID: 11400000, guid: 9bd478ee766194216a349c19cbd4ecb5, type: 2}
   Subjects: []
   Subject: 40
   Topics:
@@ -77,6 +77,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 20
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 05000000
   cookies: 0
@@ -117,9 +118,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 2691809237515479876, guid: f4029d0eca7b344e99053fc00b1b223f,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: f4029d0eca7b344e99053fc00b1b223f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: PL_04
   scene: discover pl_04 zoo

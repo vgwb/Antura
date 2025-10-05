@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: T
   Version: 100
-  Status: 2
+  Status: 3
   TitleEn: Tutorial
   Title:
     m_TableReference:
@@ -44,12 +44,14 @@ MonoBehaviour:
   Thumbnail: {fileID: 11400000, guid: 30044f388207449809ce42932c37980a, type: 2}
   Subjects: []
   Subject: 39
-  Topics: []
+  Topics:
+  - {fileID: 11400000, guid: 63831d209459d4b0c9867d0a5681b69b, type: 2}
   Cards: []
   Words: []
   targetAge: 2
   Difficulty: 1
   Duration: 10
+  ProgressPoints: 30
   Dependencies: []
   Gameplay: 
   cookies: 0
@@ -72,9 +74,13 @@ MonoBehaviour:
     Design: 1
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 4017108264321078535, guid: aec059f64328e48b6a52efffc7aadf91,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: aec059f64328e48b6a52efffc7aadf91
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: TUTORIAL
   scene: discover _tutorial

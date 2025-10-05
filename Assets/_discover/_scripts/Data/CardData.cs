@@ -10,7 +10,7 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover Data/Card Data")]
     public class CardData : IdentifiedData
     {
-        public Status Status = Status.Draft;
+        public Status Status = Status.Development;
 
         [Tooltip("What role does this card play in the game?")]
         public CardType Type;

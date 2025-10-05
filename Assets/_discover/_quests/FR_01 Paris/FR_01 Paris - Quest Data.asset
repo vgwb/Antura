@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 1
   Version: 100
-  Status: 2
+  Status: 1
   TitleEn: Paris
   Title:
     m_TableReference:
@@ -88,6 +88,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 20
+  ProgressPoints: 0
   Dependencies:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   Gameplay: 020000000100000000000000
@@ -123,9 +124,13 @@ MonoBehaviour:
     Design: 1
     Development: 0
     Validation: 0
-  QuestPrefab: {fileID: 4836856928656916913, guid: 9263f703ee58a4c05b541889a7a875e1,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: 9263f703ee58a4c05b541889a7a875e1
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: FR_01
   scene: discover fr_01 paris

@@ -24,20 +24,35 @@ namespace Antura.Discover.UI
             canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
 
             questData = _questData;
-            SelectBtn.interactable = questData.Status != Status.Standby;
+
+            bool isEditor = Application.isEditor && DiscoverAppManager.I.CurrentProfile.profile.godMode;
+            bool locked = questData.Status == Status.Standby ||
+                          (!isEditor && questData.Status == Status.Development);
+
+            SelectBtn.interactable = !locked;
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
-            Lock.SetActive(questData.Status == Status.Standby);
+
+            Lock.SetActive(locked);
+
             Code.text = _questData.IdDisplay;
             // Debug.Log("QuestMenuItem Init: " + _questData.Code);
             Title.text = _questData.Title.GetLocalizedString();
-            if (_questData.Location != null)
+
+            if (isEditor)
             {
-                Location.text = _questData.Location.Name.GetLocalizedString();
+                Location.text = _questData.Status.ToString() + " - " + _questData.Id;
             }
             else
             {
                 Location.text = "";
             }
+
+            if (_questData.Location != null)
+            {
+                Location.text += _questData.Location.Name.GetLocalizedString();
+
+            }
+
             SetStars(questData.GetBestStars());
         }
 
