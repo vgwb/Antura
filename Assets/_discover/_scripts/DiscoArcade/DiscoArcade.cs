@@ -1,131 +1,440 @@
-using Antura.UI;
+using Antura.Discover.Activities;
 using Antura.Discover.UI;
+using Antura.UI;
 using Antura.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 namespace Antura.Discover
 {
     /// <summary>
-    /// Displays all cards with dropdown filters for Country and Category (TextMeshPro).
-    /// Click a tile to open the details panel.
+    /// DiscoArcade show topics and let you play withthem
     /// </summary>
     public class DiscoArcade : SingletonMonoBehaviour<DiscoArcade>
     {
-        [Header("Refs")]
-        public Button BtnClose;
-        public Transform gridParent;             // parent with Grid/Vertical Layout
-        public CardTile tilePrefab;
-        public CardDetailsPanel detailsPanel;
-        [Tooltip("Master database of all cards (assign the CardDatabase asset)")]
-        public CardDatabaseData Database;
+        [Header("Columns")]
+        [SerializeField] private DiscoArcadeFilterPanel filterPanel;
+        [SerializeField] private TopicListPanel topicListView;
+        [SerializeField] private TopicDetailsPanel topicDetailsPanel;
+        [SerializeField] private ActivityListPanel activityListPanel;
 
-        private readonly List<CardTile> spawned = new();
+        [Header("Shared UI")]
+        [SerializeField] private Button btnClose;
+        [SerializeField] private CardDetailsPanel cardDetailsPanel;
+
+        private readonly List<TopicData> filteredTopics = new();
+        private List<TopicData> allTopics = new();
+        private List<ActivityData> allActivities = new();
+        private List<ActivitySettingsAbstract> allActivitySettings = new();
+        private readonly Dictionary<ActivityCode, ActivitySettingsAbstract> activityTemplates = new();
+
+        private TopicData currentTopic;
+        private bool initialized;
 
         protected override void Init()
         {
-            BtnClose.onClick.AddListener(CloseDiscoArcade);
+            if (btnClose != null)
+            {
+                btnClose.onClick.AddListener(CloseDiscoArcade);
+            }
+
+            if (topicListView != null)
+            {
+                topicListView.SelectionRequested += HandleTopicSelectedFromList;
+            }
+
+            if (topicDetailsPanel != null)
+            {
+                topicDetailsPanel.CardSelected += HandleTopicCardSelected;
+            }
+
+            if (activityListPanel != null)
+            {
+                activityListPanel.PlayRequested += HandlePlayActivity;
+                activityListPanel.SettingsRequested += HandleLaunchSettings;
+            }
+
+            if (filterPanel != null)
+            {
+                filterPanel.FiltersChanged += HandleFiltersChanged;
+            }
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
-            BtnClose.onClick.RemoveListener(CloseDiscoArcade);
-        }
+            if (btnClose != null)
+            {
+                btnClose.onClick.RemoveListener(CloseDiscoArcade);
+            }
 
-        void CloseDiscoArcade()
-        {
-            gameObject.SetActive(false);
-            GlobalUI.ShowPauseMenu(true);
+            if (topicListView != null)
+            {
+                topicListView.SelectionRequested -= HandleTopicSelectedFromList;
+            }
+
+            if (topicDetailsPanel != null)
+            {
+                topicDetailsPanel.CardSelected -= HandleTopicCardSelected;
+            }
+
+            if (activityListPanel != null)
+            {
+                activityListPanel.PlayRequested -= HandlePlayActivity;
+                activityListPanel.SettingsRequested -= HandleLaunchSettings;
+            }
+
+            if (filterPanel != null)
+            {
+                filterPanel.FiltersChanged -= HandleFiltersChanged;
+            }
         }
 
         public void Open()
         {
+            EnsureInitialized();
             GlobalUI.ShowPauseMenu(false);
             gameObject.SetActive(true);
-            Refresh();
+            ApplyTopicFilter();
+            filterPanel?.FocusSearchField();
         }
 
-        void Start()
+        private void EnsureInitialized()
         {
-            Refresh();
+            if (initialized)
+                return;
+
+            initialized = true;
+
+            LoadDatabaseSnapshot();
+
+            filterPanel?.Initialize(allTopics);
+
+            ApplyTopicFilter();
         }
 
-        public void OnFilterChanged()
+        private void LoadDatabaseSnapshot()
         {
-            Refresh();
-        }
-
-        private void Refresh()
-        {
-            var manager = DiscoverAppManager.I;
-
-            // Collect cards according to filters
-            var cards = new List<CardData>();
-            IEnumerable<CardData> all;
-            if (Database.ById != null && Database.ById.Count > 0)
+            var data = DiscoverDataManager.I;
+            if (data == null)
             {
-                all = Database.ById.Values;
+                Debug.LogWarning("DiscoArcade: DiscoverDataManager not available yet.");
+                allTopics = new List<TopicData>();
+                allActivities = new List<ActivityData>();
+                allActivitySettings = new List<ActivitySettingsAbstract>();
+                return;
             }
-            else if (Database.Collections != null)
+
+            allTopics = data.Database.All<TopicData>().Where(t => t != null).OrderBy(t => t.Name).ToList();
+            allActivities = data.Database.All<ActivityData>().Where(a => a != null).OrderBy(GetActivityDisplayName).ToList();
+            allActivitySettings = data.Database.All<ActivitySettingsAbstract>().Where(s => s != null).ToList();
+
+            activityTemplates.Clear();
+            foreach (var settings in allActivitySettings)
             {
-                var list = new List<CardData>();
-                foreach (var col in Database.Collections)
+                if (settings == null)
+                    continue;
+
+                if (!activityTemplates.ContainsKey(settings.ActivityCode))
                 {
-                    if (col == null || col.Cards == null)
-                        continue;
-                    list.AddRange(col.Cards);
+                    activityTemplates[settings.ActivityCode] = settings;
                 }
-                all = list;
+            }
+        }
+
+        private string GetActivityDisplayName(ActivityData activity)
+        {
+            if (activity == null)
+                return string.Empty;
+
+            if (activity.Name != null && !activity.Name.IsEmpty)
+            {
+                try
+                {
+                    var value = activity.Name.GetLocalizedString();
+                    if (!string.IsNullOrEmpty(value))
+                        return value;
+                }
+                catch { }
+            }
+
+            return activity.name;
+        }
+
+        private void CloseDiscoArcade()
+        {
+            GlobalUI.ShowPauseMenu(true);
+            gameObject.SetActive(false);
+        }
+
+        private void ApplyTopicFilter()
+        {
+            filteredTopics.Clear();
+
+            if (allTopics == null || allTopics.Count == 0)
+            {
+                UpdateTopicList();
+                return;
+            }
+
+            var filterState = filterPanel != null ? filterPanel.CurrentState : default;
+
+            foreach (var topic in allTopics)
+            {
+                if (topic == null)
+                    continue;
+
+                if (TopicMatchesFilters(topic, filterState))
+                {
+                    filteredTopics.Add(topic);
+                }
+            }
+
+            if (filteredTopics.Count == 0 && allTopics.Count > 0)
+            {
+                filteredTopics.AddRange(allTopics);
+            }
+
+            UpdateTopicList();
+            AutoSelectTopic();
+        }
+
+        private void UpdateTopicList()
+        {
+            if (topicListView == null)
+                return;
+
+            topicListView.SetTopics(filteredTopics, currentTopic);
+        }
+
+        private bool TopicMatchesFilters(TopicData topic, DiscoArcadeFilterPanel.FilterState filters)
+        {
+            if (!MatchesCountry(topic, filters.SelectedCountries))
+                return false;
+
+            if (!MatchesSubject(topic, filters.SelectedSubject))
+                return false;
+
+            if (!MatchesSearch(topic, filters.SearchText))
+                return false;
+
+            return true;
+        }
+
+        private static bool MatchesCountry(TopicData topic, IReadOnlyList<Countries> countries)
+        {
+            if (countries == null || countries.Count == 0)
+                return true;
+
+            for (int i = 0; i < countries.Count; i++)
+            {
+                if (countries[i] == topic.Country)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private static bool MatchesSubject(TopicData topic, Subject? subject)
+        {
+            if (!subject.HasValue)
+                return true;
+
+            if (topic.Subjects != null && topic.Subjects.Contains(subject.Value))
+                return true;
+
+            var cards = topic.GetAllCards();
+            foreach (var card in cards)
+            {
+                if (card?.Subjects != null && card.Subjects.Contains(subject.Value))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private static bool MatchesSearch(TopicData topic, string search)
+        {
+            if (string.IsNullOrWhiteSpace(search))
+                return true;
+
+            var query = search.Trim();
+
+            if (MatchesString(topic.Name, query))
+                return true;
+
+            if (MatchesString(topic.Description, query))
+                return true;
+
+            var cards = topic.GetAllCards();
+            foreach (var card in cards)
+            {
+                if (card == null)
+                    continue;
+
+                if (MatchesString(card.TitleEn, query))
+                    return true;
+
+                if (MatchesString(card.DescriptionEn, query))
+                    return true;
+
+                if (card.Title != null)
+                {
+                    try
+                    {
+                        var localized = card.Title.GetLocalizedString();
+                        if (MatchesString(localized, query))
+                            return true;
+                    }
+                    catch { }
+                }
+
+                if (card.Description != null)
+                {
+                    try
+                    {
+                        var localized = card.Description.GetLocalizedString();
+                        if (MatchesString(localized, query))
+                            return true;
+                    }
+                    catch { }
+                }
+            }
+
+            return false;
+        }
+
+        private static bool MatchesString(string value, string query)
+        {
+            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(query))
+                return false;
+
+            return value.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private void HandleFiltersChanged(DiscoArcadeFilterPanel.FilterState state)
+        {
+            ApplyTopicFilter();
+        }
+
+        private void AutoSelectTopic()
+        {
+            if (filteredTopics.Count == 0)
+            {
+                SelectTopic(null);
+                return;
+            }
+
+            if (currentTopic != null && filteredTopics.Contains(currentTopic))
+            {
+                SelectTopic(currentTopic);
+                return;
+            }
+
+            SelectTopic(filteredTopics[0]);
+        }
+
+        private void HandleTopicSelectedFromList(TopicData topic)
+        {
+            SelectTopic(topic);
+        }
+
+        private void SelectTopic(TopicData topic)
+        {
+            currentTopic = topic;
+
+            if (topicDetailsPanel != null)
+            {
+                topicDetailsPanel.Show(topic);
+            }
+
+            if (activityListPanel != null)
+            {
+                var factory = topic != null ? new Func<ActivityData, ActivitySettingsAbstract>(CreateRuntimeSettingsForActivity) : null;
+                activityListPanel.ShowActivities(topic, allActivities, allActivitySettings, factory);
+            }
+
+            if (topicListView != null)
+            {
+                topicListView.Highlight(topic);
+            }
+        }
+
+        private ActivitySettingsAbstract CreateRuntimeSettingsForActivity(ActivityData activity)
+        {
+            if (activity == null || currentTopic == null)
+                return null;
+
+            ActivitySettingsAbstract prototype = null;
+            if (!activityTemplates.TryGetValue(activity.Code, out prototype))
+            {
+                prototype = allActivitySettings.FirstOrDefault(s => s.ActivityCode == activity.Code);
+            }
+
+            ActivitySettingsAbstract instance;
+            if (prototype != null)
+            {
+                instance = Instantiate(prototype);
             }
             else
             {
-                all = Array.Empty<CardData>();
+                instance = ScriptableObject.CreateInstance<RuntimeActivitySettings>();
+                ((RuntimeActivitySettings)instance).InitializeDefaults(activity.Code);
             }
 
-            // Spawn grid
-            ClearGrid();
-            foreach (var def in cards)
-            {
-                var tile = Instantiate(tilePrefab, gridParent);
-                spawned.Add(tile);
-                Antura.Discover.CardState state = null;
-                if (manager != null && manager.CurrentProfile != null && manager.CurrentProfile.cards != null)
-                {
-                    manager.CurrentProfile.cards.TryGetValue(def.Id, out state);
-                }
-                tile.Init(def, state, OnTileClicked);
-            }
+            instance.hideFlags = HideFlags.HideAndDontSave;
+            instance.MainTopic = currentTopic;
+            instance.SelectionMode = SelectionMode.RandomFromTopic;
+            instance.ActivityCode = activity.Code;
+            instance.Id = IdentifiedData.PrefixOnce("runtime", IdentifiedData.SanitizeId($"{activity.Code}_{currentTopic.Id}"));
+            instance.name = instance.Id;
+            return instance;
         }
 
-
-        private void OnTileClicked(CardData def)
+        private void HandleTopicCardSelected(CardData card)
         {
+            if (card == null || cardDetailsPanel == null)
+                return;
+
+            CardState state = null;
             var manager = DiscoverAppManager.I;
-            Antura.Discover.CardState st = null;
             if (manager != null && manager.CurrentProfile != null && manager.CurrentProfile.cards != null)
             {
-                manager.CurrentProfile.cards.TryGetValue(def.Id, out st);
+                manager.CurrentProfile.cards.TryGetValue(card.Id, out state);
             }
-            if (detailsPanel != null)
-                detailsPanel.Show(def, st);
+
+            cardDetailsPanel.Show(card, state);
         }
 
-        private void ClearGrid()
+        private void HandlePlayActivity(ActivityData activity)
         {
-            for (int i = 0; i < spawned.Count; i++)
+            var settings = CreateRuntimeSettingsForActivity(activity);
+            if (settings == null)
             {
-                if (spawned[i] != null)
-                    Destroy(spawned[i].gameObject);
+                Debug.LogWarning("DiscoArcade: could not create runtime settings for activity.");
+                return;
             }
-            spawned.Clear();
-            if (gridParent != null)
+
+            ActivityManager.I?.Launch(settings, string.Empty);
+        }
+
+        private void HandleLaunchSettings(ActivitySettingsAbstract settings)
+        {
+            if (settings == null)
+                return;
+
+            var clone = Instantiate(settings);
+            clone.hideFlags = HideFlags.HideAndDontSave;
+            clone.MainTopic = currentTopic ?? settings.MainTopic;
+            clone.ActivityCode = settings.ActivityCode;
+            if (!string.IsNullOrEmpty(settings.Id))
             {
-                for (int i = gridParent.childCount - 1; i >= 0; i--)
-                    Destroy(gridParent.GetChild(i).gameObject);
+                clone.Id = settings.Id;
             }
+
+            ActivityManager.I?.Launch(clone, string.Empty);
         }
     }
 }
