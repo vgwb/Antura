@@ -31,7 +31,13 @@ namespace Antura.Discover.UI
             // Debug.Log("QuestMenuItem Init: " + _questData.Code);
             Title.text = _questData.Title.GetLocalizedString();
             if (_questData.Location != null)
+            {
                 Location.text = _questData.Location.Name.GetLocalizedString();
+            }
+            else
+            {
+                Location.text = "";
+            }
             SetStars(questData.GetBestStars());
         }
 
