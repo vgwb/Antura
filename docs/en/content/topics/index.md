@@ -5,7 +5,7 @@ hide:
 
 # Topics
 
-Total found: **34**
+Total found: **35**
 
 > [!note] NOTE: connections type can be:
 > **Created By** (agent (person/org) who made/discovered/commissioned)  
@@ -22,6 +22,29 @@ Total found: **34**
 
 
 ## International
+
+### Antura's world {#antura-world}
+- Importance: Medium  
+- Target Age: Ages6to10
+- Core card:
+    - **[Antura](../cards/index.md#antura)**
+
+- Connected cards:
+    - **[Cookies](../cards/index.md#antura_cookies)** (RelatedTo)
+
+    - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+
+    - **[Card](../cards/index.md#antura_card)** (RelatedTo)
+
+    - **[Cat](../cards/index.md#antura_cat)** (RelatedTo)
+
+    - **[Living Letter](../cards/index.md#antura_livingletter)** (RelatedTo)
+
+    - **[Blocky](../cards/index.md#antura_blocky_character)** (RelatedTo)
+
+- Quests: [Tutorial (tutorial)](../quests/quest/tutorial.md)
+
+---
 
 ### Elementary Math {#elementary-maths}
 - Description: Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.  
@@ -277,37 +300,37 @@ Credits:
 
     ![preview piano](../../../assets/img/content/cards/piano.jpg){ width="200" }
 
-    - **[A note](../cards/index.md#note_la)** (RelatedTo)
+    - **[A](../cards/index.md#note_la)** (RelatedTo)
     A musical note.
 
     ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
 
-    - **[F note](../cards/index.md#note_fa)** (RelatedTo)
+    - **[F](../cards/index.md#note_fa)** (RelatedTo)
     A musical note.
 
     ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
 
-    - **[B note](../cards/index.md#note_si)** (RelatedTo)
+    - **[B](../cards/index.md#note_si)** (RelatedTo)
     A musical note.
 
     ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
 
-    - **[G note](../cards/index.md#note_sol)** (RelatedTo)
+    - **[G](../cards/index.md#note_sol)** (RelatedTo)
     A musical note.
 
     ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
 
-    - **[C note](../cards/index.md#note_do)** (RelatedTo)
+    - **[C](../cards/index.md#note_do)** (RelatedTo)
     A musical note.
 
     ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ width="200" }
 
-    - **[E note](../cards/index.md#note_mi)** (RelatedTo)
+    - **[E](../cards/index.md#note_mi)** (RelatedTo)
     A musical note.
 
     ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
 
-    - **[D note](../cards/index.md#note_re)** (RelatedTo)
+    - **[D](../cards/index.md#note_re)** (RelatedTo)
     A musical note.
 
     ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
@@ -419,7 +442,6 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
-- Quests: [Move around in a city in safety (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -538,7 +560,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [DEV (dev)](../quests/quest/dev.md), [Paris! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 

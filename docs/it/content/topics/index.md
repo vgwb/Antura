@@ -5,7 +5,7 @@ hide:
 
 # Topics
 
-Total found: **34**
+Total found: **35**
 
 > [!note] NOTE: connections type can be:
 > **Created By** (agent (person/org) who made/discovered/commissioned)  
@@ -23,13 +23,36 @@ Total found: **34**
 
 ## International
 
+### Antura's world {#antura-world}
+- Importance: Medium  
+- Target Age: Ages6to10
+- Core card:
+    - **[Antura](../cards/index.md#antura)**
+
+- Connected cards:
+    - **[Cookies](../cards/index.md#antura_cookies)** (RelatedTo)
+
+    - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+
+    - **[Card](../cards/index.md#antura_card)** (RelatedTo)
+
+    - **[Cat](../cards/index.md#antura_cat)** (RelatedTo)
+
+    - **[Living Letter](../cards/index.md#antura_livingletter)** (RelatedTo)
+
+    - **[Blocky](../cards/index.md#antura_blocky_character)** (RelatedTo)
+
+- Quests: [Tutorial (tutorial)](../quests/quest/tutorial.md)
+
+---
+
 ### Elementary Math {#elementary-maths}
 - Description: Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.  
 - Importance: Medium  
 - Subjects: Math  
 - Target Age: Ages6to10
 - Core card:
-    - **[Eleementary Maths](../cards/index.md#elementary_maths)**
+    - **[Matematica elementare](../cards/index.md#elementary_maths)**
     Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
 - Connected cards:
@@ -159,7 +182,7 @@ Credits:
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
+    - **[Bandiera della Repubblica Ceca](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
@@ -297,7 +320,7 @@ Credits:
 
     ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
 
-    - **[Nota Do](../cards/index.md#note_do)** (RelatedTo)
+    - **[Do](../cards/index.md#note_do)** (RelatedTo)
     Una nota musicale.
 
     ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ width="200" }
@@ -419,7 +442,6 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
-- Quests: [Muoversi in città in sicurezza (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -463,8 +485,8 @@ Credits:
 - Subjects: Animal  
 - Target Age: Ages6to10
 - Core card:
-    - **[Zoo Animals](../cards/index.md#zoo_animals)**
-    Auto-created card for topic 'Zoo Animals'.
+    - **[Animali dello zoo](../cards/index.md#zoo_animals)**
+    Scheda creata automaticamente per l'argomento 'Animali dello zoo'.
 
 - Connected cards:
     - **[Giraffa](../cards/index.md#animal_giraffe)** (RelatedTo)
@@ -538,7 +560,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [DEV (dev)](../quests/quest/dev.md), [Parigi! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -742,8 +764,8 @@ Credits:
 - Subjects: Education  
 - Target Age: Ages6to10
 - Core card:
-    - **[French Schools](../cards/index.md#french_schools)**
-    In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
+    - **[Scuole francesi](../cards/index.md#french_schools)**
+    In Francia, la scuola si articola in quattro fasi principali: maternelle (scuola materna), école élémentaire (scuola elementare), collège (scuola media) e lycée (scuola superiore). Al termine del lycée, molti studenti sostengono un importante esame chiamato baccalauréat (‘le bac’).
 
 - Connected cards:
     - **[École Maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
@@ -789,29 +811,29 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Jules Verne](../cards/index.md#jules_verne)**
-    A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
+    - **[Giulio Verne](../cards/index.md#jules_verne)**
+    Uno scrittore francese che immaginava avventure incredibili prima che fossero possibili! Scrisse di sottomarini, razzi e viaggi intorno al mondo.
 
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
-    - **[Around the World in Eighty Days](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
+    - **[Il giro del mondo in ottanta giorni](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
     An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
-    - **[From the Earth to the Moon](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
+    - **[Dalla Terra alla Luna](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
+    Un libro di Jules Verne che parla di un viaggio sulla Luna a bordo di un enorme cannone! Fu scritto prima che esistessero i veri razzi.
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
-    - **[20000 Leagues Under the Sea](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
+    - **[20000 leghe sotto i mari](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
     A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Hot-Air Balloon](../cards/index.md#hot_air_balloon)** (RelatedTo)
-    A balloon that flies using hot air. The first one flew in France.
+    - **[Mongolfiera](../cards/index.md#hot_air_balloon)** (RelatedTo)
+    Un pallone che vola ad aria calda. Il primo esemplare volò in Francia.
 
     ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
 
@@ -877,8 +899,8 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Market traders](../cards/index.md#market_traders)**
-    People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
+    - **[Commercianti di mercato](../cards/index.md#market_traders)**
+    Persone che vendono cibo e altri beni di consumo alle bancarelle del mercato, come pescivendoli, formaggiai e fruttivendoli. Pesano, confezionano e annunciano i prezzi del giorno.
 
 - Connected cards:
     - **[casaro](../cards/index.md#person_cheesemonger)** (RelatedTo)
@@ -1122,7 +1144,7 @@ Credits:
     ![preview eggs](../../../assets/img/content/cards/eggs.jpg){ width="200" }
 
     - **[Zenzero](../cards/index.md#ginger)** (RelatedTo)
-    Radice piccante utilizzata in cucina e per preparare biscotti.
+    Radice piccante utilizzata in cucina e per la preparazione di biscotti.
 
     ![preview ginger](../../../assets/img/content/cards/ginger.jpg){ width="200" }
 
@@ -1208,7 +1230,7 @@ Credits:
     ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
 
     - **[Ponte ferroviario](../cards/index.md#train_bridge)** (RelatedTo)
-    Un ponte con binari per treni.
+    Un ponte con binari per i treni.
 
     ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ width="200" }
 
@@ -1229,8 +1251,8 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Pierogi Recipe](../cards/index.md#pierogi_recipe)**
-    Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
+    - **[Ricetta dei pierogi](../cards/index.md#pierogi_recipe)**
+    Preparare un impasto morbido, farcirlo con purè di patate e formaggio contadino, sigillare, far bollire finché non vengono a galla, quindi soffriggere in padella con burro e cipolle.
 
 - Connected cards:
     - **[Pierogi polacchi](../cards/index.md#pierogi)** (RelatedTo)
@@ -1297,7 +1319,7 @@ Credits:
 
     ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
+    - **[Bandiera della Repubblica Ceca](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }

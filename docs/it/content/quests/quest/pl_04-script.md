@@ -19,7 +19,7 @@ hide:
 <span class="yarn-header-dim">// </span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Man, </span>
+<span class="yarn-header-dim">actor: ADULT_M, </span>
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
@@ -29,6 +29,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $lion_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $monkey_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $penguin_completed = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $found_chest_cookies = false&gt;&gt;</span>
 <span class="yarn-line">Benvenuti allo ZOO DI WROCŁAW.</span> <span class="yarn-meta">#line:0fe55d1 </span>
 <span class="yarn-line">Ci sono molti ANIMALI qui!</span> <span class="yarn-meta">#line:005dd46 </span>
 
@@ -77,7 +78,7 @@ hide:
 <div class="yarn-node" data-title="director_talk">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Man, type:Panel</span>
+<span class="yarn-header-dim">actor: ADULT_M, type:Panel</span>
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $talked_animals == true&gt;&gt;</span>
@@ -97,7 +98,7 @@ hide:
 <div class="yarn-node" data-title="director_task">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Man, type:Panel</span>
+<span class="yarn-header-dim">actor: ADULT_M, type:Panel</span>
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
@@ -140,7 +141,7 @@ hide:
 <span class="yarn-header-dim">// ENTRANCE – AMBIENCE</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: ZOO</span>
-<span class="yarn-header-dim">tags: actor=Peacock</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">image: zoo_gate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Non ho bisogno di una BANDIERA.</span> <span class="yarn-meta">#line:0085a8a </span>
@@ -157,7 +158,7 @@ hide:
 <div class="yarn-node" data-title="animal_parrot">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: ZOO</span>
-<span class="yarn-header-dim">tags: actor=Parrot</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">image: zoo_gate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Squawk! Rosso e giallo corrono via!</span> <span class="yarn-meta">#line:0e84545 </span>
@@ -173,7 +174,7 @@ hide:
 <div class="yarn-node" data-title="animal_fox">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: ZOO</span>
-<span class="yarn-header-dim">tags: actor=Parrot</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">image: zoo_gate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">[MISSING TRANSLATION: Hehe! I'm not actually from the zoo.]</span> <span class="yarn-meta">#line:03c4553 </span>
@@ -189,12 +190,18 @@ hide:
 
 <div class="yarn-node" data-title="item_chest">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">group: actions</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: What a nice surprise!]</span> <span class="yarn-meta">#line:03321d5 </span>
-<span class="yarn-cmd">&lt;&lt;action open_chest&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $found_chest_cookies&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     It's empty now.]</span> <span class="yarn-meta">#line:0810771 </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $found_chest_cookies = true&gt;&gt;</span>
+<span class="yarn-line">    [MISSING TRANSLATION:     You found some cookies!]</span> <span class="yarn-meta">#line:03321d5 </span>
+    <span class="yarn-cmd">&lt;&lt;cookies_add 5&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -208,13 +215,14 @@ hide:
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">// PART 1 – ELEPHANT</span>
 <span class="yarn-header-dim">group: ELEPHANT</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: elephant_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $elephant_completed&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     A FLAG? I do not have it.]</span> <span class="yarn-meta">#line:03879f8 </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     If I took it I would remember!]</span> <span class="yarn-meta">#line:0103606 </span>
+&lt;&lt;if GetActivityResult("jigsaw_zoo_settings") &gt; 0&gt;&gt;
+<span class="yarn-line">    [MISSING TRANSLATION:     Your memory is good!]</span> <span class="yarn-meta">#line:092cdc9 </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Want to try again?]</span> <span class="yarn-meta">#line:09523fa </span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings_hard elephant_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Sono il più grande ANIMALE terrestre.</span> <span class="yarn-meta">#line:027b51f </span>
     <span class="yarn-cmd">&lt;&lt;card animal_elephant zoom&gt;&gt;</span>
@@ -234,7 +242,7 @@ hide:
 <div class="yarn-node" data-title="elephant_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: ELEPHANT</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: elephant_keeper</span>
 
 <span class="yarn-header-dim">---</span>
@@ -254,7 +262,7 @@ hide:
 <div class="yarn-node" data-title="ELEPHANT_SIGN">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: ELEPHANT</span>
-<span class="yarn-header-dim">tags: actor=tutor</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: elephant_sign</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">ELEFANTE. Pelle spessa. ORECCHIE grandi.</span> <span class="yarn-meta">#line:048e8a1 </span>
@@ -271,7 +279,7 @@ hide:
 <div class="yarn-node" data-title="ELEPHANT_KID">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: ELEPHANT</span>
-<span class="yarn-header-dim">tags: actor=KID</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">image: kid_elephant</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Le sue ORECCHIE sono più grandi di me!</span> <span class="yarn-meta">#line:0fc78ad </span>
@@ -290,13 +298,14 @@ hide:
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">// PART 2 – GIRAFFE</span>
 <span class="yarn-header-dim">group: GIRAFFE</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: giraffe_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $giraffe_completed&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     I did not take the FLAG.]</span> <span class="yarn-meta">#line:05d1f0a </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     It is too high for me!]</span> <span class="yarn-meta">#line:04947e6 </span>
+&lt;&lt;if GetActivityResult("canvas_giraffe_settings") &gt; 0&gt;&gt;
+<span class="yarn-line">    [MISSING TRANSLATION:     Cool, right?]</span> <span class="yarn-meta">#line:04d057e </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Want to try again?]</span> <span class="yarn-meta">#line:04f37fa </span>
+    <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings_hard giraffe_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Sono l'ANIMALE più alto.</span> <span class="yarn-meta">#line:0d5c607 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_giraffe zoom&gt;&gt;</span>
@@ -316,7 +325,7 @@ hide:
 <div class="yarn-node" data-title="giraffe_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: GIRAFFE</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: giraffe_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_elephant add&gt;&gt;</span>
@@ -335,7 +344,7 @@ hide:
 <div class="yarn-node" data-title="GIRAFFE_SIGN">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: GIRAFFE</span>
-<span class="yarn-header-dim">tags: actor=Sign</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: giraffe_sign</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">GIRAFFA. Alta. Collo lungo.</span> <span class="yarn-meta">#line:0a8a73f </span>
@@ -352,7 +361,7 @@ hide:
 <div class="yarn-node" data-title="GIRAFFE_KID">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: GIRAFFE</span>
-<span class="yarn-header-dim">tags: actor=KID</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">image: kid_giraffe</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Con un COLLO così!</span> <span class="yarn-meta">#line:068daeb </span>
@@ -371,13 +380,14 @@ hide:
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">// PART 3 – LION</span>
 <span class="yarn-header-dim">group: LION</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $lion_completed&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     You must find the FLAG!]</span> <span class="yarn-meta">#line:0b1109f </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     I like watching it in wind.]</span> <span class="yarn-meta">#line:095bf3c </span>
+&lt;&lt;if GetActivityResult("order_lion_settings") &gt; 0&gt;&gt;
+<span class="yarn-line">    [MISSING TRANSLATION:     Hey, try again.]</span> <span class="yarn-meta">#line:0e53f7d </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     I'll make it harder.]</span> <span class="yarn-meta">#line:080d627 </span>
+    <span class="yarn-cmd">&lt;&lt;activity order_lion_settings_hard lion_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Sono un LEONE in AFRICA.</span> <span class="yarn-meta">#line:07f2e15 </span>
     <span class="yarn-cmd">&lt;&lt;card  animal_lion zoom&gt;&gt;</span>
@@ -399,7 +409,7 @@ hide:
 <div class="yarn-node" data-title="lion_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: LION</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_lion add&gt;&gt;</span>
@@ -418,7 +428,7 @@ hide:
 <div class="yarn-node" data-title="LION_SIGN">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: LION</span>
-<span class="yarn-header-dim">tags: actor=Sign</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: lion_sign</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">LEONE. ORGOGLIO = famiglia di leoni.</span> <span class="yarn-meta">#line:0ac6cc0 </span>
@@ -435,7 +445,7 @@ hide:
 <div class="yarn-node" data-title="LION_KID">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: LION</span>
-<span class="yarn-header-dim">tags: actor=KID</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">image: kid_lion</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Che boato!</span> <span class="yarn-meta">#line:079f4e0 </span>
@@ -452,13 +462,14 @@ hide:
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">// PART 4 – MONKEY</span>
 <span class="yarn-header-dim">group: MONKEY</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: monkey_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $monkey_completed&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     I did not take the FLAG.]</span> <span class="yarn-meta">#line:092a68e </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     It would be fun to climb that pole.]</span> <span class="yarn-meta">#line:097810d </span>
+&lt;&lt;if GetActivityResult("match_monkey_settings") &gt; 0&gt;&gt;
+<span class="yarn-line">    [MISSING TRANSLATION:     Oh, you're good!]</span> <span class="yarn-meta">#line:092486d </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Be quick!]</span> <span class="yarn-meta">#line:0c33d20 </span>
+    <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings_hard monkey_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Sono una SCIMMIA. Mi arrampico sugli ALBERI.</span> <span class="yarn-meta">#line:0867233 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee zoom&gt;&gt;</span>
@@ -478,7 +489,7 @@ hide:
 <div class="yarn-node" data-title="monkey_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: MONKEY</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: monkey_keeper</span>
 
 <span class="yarn-header-dim">---</span>
@@ -498,7 +509,7 @@ hide:
 <div class="yarn-node" data-title="MONKEY_SIGN">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: MONKEY</span>
-<span class="yarn-header-dim">tags: actor=Sign</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: monkey_sign</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">SCIMMIA. Grande ARRAMPICATORE.</span> <span class="yarn-meta">#line:0900219 </span>
@@ -515,7 +526,7 @@ hide:
 <div class="yarn-node" data-title="MONKEY_KID">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: MONKEY</span>
-<span class="yarn-header-dim">tags: actor=KID</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">image: kid_monkey</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ha copiato la mia danza!</span> <span class="yarn-meta">#line:0bf2346 </span>
@@ -533,13 +544,14 @@ hide:
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">// PART 5 – PENGUIN</span>
 <span class="yarn-header-dim">group: PENGUIN</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $penguin_completed&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     No, I did not take the FLAG.]</span> <span class="yarn-meta">#line:0b71fae </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     I can't fly, remember?]</span> <span class="yarn-meta">#line:03e6fc7 </span>
+&lt;&lt;if GetActivityResult("jigsaw_penguin_settings") &gt; 0&gt;&gt;
+<span class="yarn-line">    [MISSING TRANSLATION:     Nice!]</span> <span class="yarn-meta">#line:0cd794c </span>
+<span class="yarn-line">    [MISSING TRANSLATION:     Can you do it again?]</span> <span class="yarn-meta">#line:084fedc </span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings_hard penguin_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Sono un PINGUINO, uno strano UCCELLO.</span> <span class="yarn-meta">#line:08c70e8 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_penguin zoom&gt;&gt;</span>
@@ -559,7 +571,7 @@ hide:
 <div class="yarn-node" data-title="penguin_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: PENGUIN</span>
-<span class="yarn-header-dim">tags: actor=Keeper</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;inventory animal_penguin add&gt;&gt;</span>
@@ -578,7 +590,7 @@ hide:
 <div class="yarn-node" data-title="PENGUIN_SIGN">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: PENGUIN</span>
-<span class="yarn-header-dim">tags: actor=Tutor</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: penguin_sign</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">PINGUINO. Uccello. Nuotatore.</span> <span class="yarn-meta">#line:0877d95 </span>
@@ -595,7 +607,7 @@ hide:
 <div class="yarn-node" data-title="PENGUIN_KID">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: PENGUIN</span>
-<span class="yarn-header-dim">tags: actor=KID</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">image: kid_penguin</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Che carino!</span> <span class="yarn-meta">#line:0ae73f3 </span>
@@ -611,7 +623,7 @@ hide:
 
 <div class="yarn-node" data-title="task_animals_done">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">COMPITO COMPIUTO! Torna dal REGISTA.</span> <span class="yarn-meta">#line:0a93d9b </span>
 <span class="yarn-cmd">&lt;&lt;set $talked_animals = true&gt;&gt;</span>
@@ -627,7 +639,7 @@ hide:
 <div class="yarn-node" data-title="director_task_done">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Man</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
@@ -647,7 +659,7 @@ hide:
 <div class="yarn-node" data-title="RECAP_CARDS">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Icebox</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">image: zoo_cards</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ora abbina le CARTE.</span> <span class="yarn-meta">#line:0f6f882 </span>
@@ -663,7 +675,7 @@ hide:
 
 <div class="yarn-node" data-title="director_activity_done">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">image: zoo_recap</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Tutti gli ANIMALI sono innocenti.</span> <span class="yarn-meta">#line:0bc2b46 </span>
@@ -683,7 +695,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// TWIST – FLAG RETURN</span>
 <span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=ZooDirector</span>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">image: centennial_hall_antura_flag</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Aspetta, guarda!</span> <span class="yarn-meta">#line:0b3d05f </span>
@@ -703,7 +715,7 @@ hide:
 <div class="yarn-node" data-title="CEREMONY_END">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=ZooDirector</span>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">image: flag_on_iglica</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La FLAG è casa.</span> <span class="yarn-meta">#line:0d91701 </span>

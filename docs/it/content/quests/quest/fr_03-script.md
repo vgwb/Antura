@@ -26,6 +26,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">type: panel</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
@@ -44,6 +45,7 @@ hide:
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ora sai qualcosa su Jules Verne</span> <span class="yarn-meta">#line:0174104 </span>
 <span class="yarn-line">e i suoi libri!</span> <span class="yarn-meta">#line:0a01f9e </span>
@@ -62,6 +64,7 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Leggete uno dei suoi libri!</span> <span class="yarn-meta">#line:06521b4 </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
@@ -76,7 +79,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_guide">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 
 <span class="yarn-cmd">&lt;&lt;if $COLLECTED_ITEMS == 0&gt;&gt;</span>
@@ -114,7 +117,7 @@ hide:
 
 <div class="yarn-node" data-title="task_find_books_done">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hai trovato tutti i libri!</span> <span class="yarn-meta">#line:0fc503c </span>
 <span class="yarn-line">VAI a parlare con la guida!</span> <span class="yarn-meta">#line:01b0c19 </span>
@@ -129,7 +132,8 @@ hide:
 
 <div class="yarn-node" data-title="verne_painting">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=jules_verne_1</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=jules_verne_1</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Questo è Jules Verne. Era uno scrittore.</span> <span class="yarn-meta">#line:096a3b3 </span>
 
@@ -143,7 +147,8 @@ hide:
 
 <div class="yarn-node" data-title="verne_house">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=jules_verne_house</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=jules_verne_house</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Nacque a Nantes nel 1828.</span> <span class="yarn-meta">#line:003b311 </span>
 
@@ -157,7 +162,8 @@ hide:
 
 <div class="yarn-node" data-title="map_nantes">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=map_nantes</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=map_nantes</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Questa è una mappa di Nantes.</span> <span class="yarn-meta">#line:09bcaba </span>
 
@@ -189,7 +195,7 @@ hide:
 
 <div class="yarn-node" data-title="won">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset jules_verne_2&gt;&gt;</span>
 <span class="yarn-line">Fantastico! Hai incontrato Jules Verne,</span> <span class="yarn-meta">#line:099cdca </span>
@@ -207,7 +213,7 @@ hide:
 <div class="yarn-node" data-title="book_80days">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset book_80days&gt;&gt;</span>
 <span class="yarn-line">Questo libro è "Il giro del mondo in 80 giorni".</span> <span class="yarn-meta">#line:03131e3</span>
@@ -240,7 +246,7 @@ hide:
 <div class="yarn-node" data-title="npc_train">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Questo vecchio treno utilizzava il VAPORE per muoversi.</span> <span class="yarn-meta">#line:0d10edc </span>
     <span class="yarn-cmd">&lt;&lt;card book_around_the_world_80_days&gt;&gt;</span>
@@ -305,7 +311,7 @@ hide:
 <div class="yarn-node" data-title="book_20000legues">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset book_underthesea&gt;&gt;</span>
 <span class="yarn-line">Questo libro è "20.000 leghe sotto i mari".</span> <span class="yarn-meta">#line:03536a1 </span>
@@ -321,7 +327,7 @@ hide:
 
 <div class="yarn-node" data-title="paint_20000">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset submarine&gt;&gt;</span>
 <span class="yarn-line">Questo è un sottomarino.</span> <span class="yarn-meta">#line:0f298c2 </span>
@@ -354,7 +360,7 @@ hide:
 
 <div class="yarn-node" data-title="paint_5weeks">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card balloon&gt;&gt;</span>
 <span class="yarn-line">Questa è una mongolfiera.</span> <span class="yarn-meta">#line:06a7709 </span>
@@ -370,7 +376,7 @@ hide:
 <div class="yarn-node" data-title="book_5weeks">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card book_5weeksballoon&gt;&gt;</span>
 <span class="yarn-line">Questo libro si intitola "Cinque settimane in mongolfiera".</span> <span class="yarn-meta">#line:0934a7c </span>
@@ -454,7 +460,7 @@ hide:
 <div class="yarn-node" data-title="spawned_guide_woman">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: guides </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Il giro del mondo in 80 giorni mostra molti luoghi della Terra.</span> <span class="yarn-meta">#line:0bcc84d </span>
@@ -477,7 +483,7 @@ hide:
 <div class="yarn-node" data-title="spawned_guide_man">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: guides </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dalla Terra alla Luna racconta di un enorme cannone spaziale.</span> <span class="yarn-meta">#line:0f07e41 </span>

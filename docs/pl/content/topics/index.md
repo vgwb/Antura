@@ -5,7 +5,7 @@ hide:
 
 # Topics
 
-Total found: **34**
+Total found: **35**
 
 > [!note] NOTE: connections type can be:
 > **Created By** (agent (person/org) who made/discovered/commissioned)  
@@ -23,13 +23,36 @@ Total found: **34**
 
 ## International
 
+### Antura's world {#antura-world}
+- Importance: Medium  
+- Target Age: Ages6to10
+- Core card:
+    - **[Antura](../cards/index.md#antura)**
+
+- Connected cards:
+    - **[Cookies](../cards/index.md#antura_cookies)** (RelatedTo)
+
+    - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+
+    - **[Card](../cards/index.md#antura_card)** (RelatedTo)
+
+    - **[Cat](../cards/index.md#antura_cat)** (RelatedTo)
+
+    - **[Living Letter](../cards/index.md#antura_livingletter)** (RelatedTo)
+
+    - **[Blocky](../cards/index.md#antura_blocky_character)** (RelatedTo)
+
+- Quests: [Samouczek (tutorial)](../quests/quest/tutorial.md)
+
+---
+
 ### Elementary Math {#elementary-maths}
 - Description: Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.  
 - Importance: Medium  
 - Subjects: Math  
 - Target Age: Ages6to10
 - Core card:
-    - **[Eleementary Maths](../cards/index.md#elementary_maths)**
+    - **[Matematyka podstawowa](../cards/index.md#elementary_maths)**
     Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
 - Connected cards:
@@ -159,7 +182,7 @@ Credits:
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
+    - **[Flaga Republiki Czeskiej](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
@@ -199,7 +222,7 @@ Credits:
     ![preview hiking](../../../assets/img/content/cards/hiking.jpg){ width="200" }
 
     - **[Wspinaczka](../cards/index.md#climbing)** (RelatedTo)
-    Wchodzenie na skały lub lód przy użyciu specjalnego sprzętu.
+    Wspinaczka po skałach lub lodzie przy użyciu specjalnego sprzętu.
 
     ![preview climbing](../../../assets/img/content/cards/climbing.jpg){ width="200" }
 
@@ -419,7 +442,6 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
-- Quests: [Poruszaj się bezpiecznie po mieście (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -463,8 +485,8 @@ Credits:
 - Subjects: Animal  
 - Target Age: Ages6to10
 - Core card:
-    - **[Zoo Animals](../cards/index.md#zoo_animals)**
-    Auto-created card for topic 'Zoo Animals'.
+    - **[Zwierzęta z zoo](../cards/index.md#zoo_animals)**
+    Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 
 - Connected cards:
     - **[Żyrafa](../cards/index.md#animal_giraffe)** (RelatedTo)
@@ -538,7 +560,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [DEV (dev)](../quests/quest/dev.md), [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -742,8 +764,8 @@ Credits:
 - Subjects: Education  
 - Target Age: Ages6to10
 - Core card:
-    - **[French Schools](../cards/index.md#french_schools)**
-    In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
+    - **[Szkoły francuskie](../cards/index.md#french_schools)**
+    We Francji nauka w szkole przebiega w czterech głównych etapach: maternelle (zabawa i nauka dla małych dzieci), école élémentaire (czytanie, pisanie, matematyka), collège (szkoła średnia) i lycée (szkoła średnia). Na koniec lycée wielu uczniów zdaje ważny egzamin baccalauréat („le bac”).
 
 - Connected cards:
     - **[Szkoła Maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
@@ -789,29 +811,29 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Jules Verne](../cards/index.md#jules_verne)**
-    A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
+    - **[Juliusz Verne](../cards/index.md#jules_verne)**
+    Francuski pisarz, który wyobrażał sobie niesamowite przygody, zanim stały się możliwe! Pisał o okrętach podwodnych, rakietach i podróżach po świecie.
 
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
-    - **[Around the World in Eighty Days](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
+    - **[Dookoła świata w osiemdziesiąt dni](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
     An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
-    - **[From the Earth to the Moon](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
+    - **[Z Ziemi na Księżyc](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
+    Książka Juliusza Verne'a o podróży na Księżyc w wielkiej armacie! Została napisana, zanim jeszcze istniały prawdziwe rakiety.
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
-    - **[20000 Leagues Under the Sea](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
+    - **[20 000 mil podmorskiej żeglugi](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
     A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Hot-Air Balloon](../cards/index.md#hot_air_balloon)** (RelatedTo)
-    A balloon that flies using hot air. The first one flew in France.
+    - **[Balon na ogrzane powietrze](../cards/index.md#hot_air_balloon)** (RelatedTo)
+    Balon latający na gorące powietrze. Pierwszy taki balon poleciał we Francji.
 
     ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
 
@@ -877,8 +899,8 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Market traders](../cards/index.md#market_traders)**
-    People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
+    - **[Traderzy rynkowi](../cards/index.md#market_traders)**
+    Ludzie sprzedający żywność i towary na straganach targowych – jak sprzedawcy ryb, serów i owoców. Ważą, pakują i wykrzykują dzisiejsze ceny.
 
 - Connected cards:
     - **[Kupiec handlujący serem](../cards/index.md#person_cheesemonger)** (RelatedTo)
@@ -1149,7 +1171,7 @@ Credits:
 
     ![preview amber](../../../assets/img/content/cards/amber.jpg){ width="200" }
 
-    - **[Pokój Bursztynowy](../cards/index.md#amber_room)** (RelatedTo)
+    - **[Bursztynowy Pokój](../cards/index.md#amber_room)** (RelatedTo)
     Słynny pokój z bursztynu o tajemniczej historii.
 
     ![preview amber_room](../../../assets/img/content/cards/amber_room.jpg){ width="200" }
@@ -1229,8 +1251,8 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Pierogi Recipe](../cards/index.md#pierogi_recipe)**
-    Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
+    - **[Przepis na pierogi](../cards/index.md#pierogi_recipe)**
+    Wyrób miękkie ciasto, nałóż na nie puree ziemniaczane i serek wiejski, zamknij i gotuj, aż ciasto wypłynie na powierzchnię – następnie smaż na patelni z cebulą na maśle.
 
 - Connected cards:
     - **[Polskie pierogi](../cards/index.md#pierogi)** (RelatedTo)
@@ -1297,7 +1319,7 @@ Credits:
 
     ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
+    - **[Flaga Republiki Czeskiej](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
@@ -1438,12 +1460,12 @@ Credits:
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
 
     - **[Krasnolud Klucznik](../cards/index.md#keymaster_dwarf)** (RelatedTo)
-    Posąg krasnoluda pilnującego windy z dużym kluczem.
+    Posąg krasnala pilnującego windy z dużym kluczem.
 
     ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ width="200" }
 
     - **[Polskie krasnale (wrocławskie krasnale)](../cards/index.md#polish_dwarf)** (RelatedTo)
-    Małe figurki krasnali kryją się we Wrocławiu. Ich odnalezienie to fajna gra miejska.
+    Małe figurki krasnali kryją się we Wrocławiu. Ich znalezienie to fajna gra miejska.
 
     ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ width="200" }
 

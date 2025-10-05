@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **364**
+Total found: **376**
 
 ## International
 
@@ -37,6 +37,70 @@ Une haute chaîne de montagnes en Europe.
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### Animaux du zoo {#zoo_animals}
+Carte créée automatiquement pour le thème « Animaux du zoo ».
+
+- Type: None
+- Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
+
+---
+
+### antura {#antura}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_blocky_character {#antura_blocky_character}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_card {#antura_card}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_cat {#antura_cat}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_cookies {#antura_cookies}
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_danger {#antura_danger}
+- Type: Concept
+- Country: International
+
+---
+
+### antura_livingletter {#antura_livingletter}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_portal {#antura_portal}
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
 
 ---
 
@@ -148,7 +212,7 @@ Un document spécial qui vous permet de visiter la célèbre haute tour de Paris
 ### Biélorussie {#country_belarus}
 ![preview country_belarus](../../../assets/img/content/cards/country_belarus.jpg){ loading=lazy }
 
-Un pays d'Europe. La capitale est Minsk.
+Un pays d'Europe. Sa capitale est Minsk.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -201,7 +265,7 @@ Une personne qui fait du pain, des gâteaux et des pâtisseries.
 ### Boussole {#math_compass}
 ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
 
-Un outil qui permet de dessiner des cercles parfaits. Il possède deux branches, comme des ciseaux.
+Un outil qui permet de tracer des cercles parfaits. Il possède deux branches, comme des ciseaux.
 
 - Type: Object
 - Subjects: Math
@@ -293,7 +357,7 @@ Un outil en forme de triangle utilisé pour dessiner des lignes droites et des a
 ### Cartable {#school_bag}
 ![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
 
-Un sac que les élèves utilisent pour transporter leurs livres, crayons et devoirs à l'école.
+Un sac que les élèves utilisent pour transporter leurs livres, leurs crayons et leurs devoirs à l'école.
 
 - Type: Object
 - Subjects: Science
@@ -374,7 +438,7 @@ Un bonnet chaud pour votre tête.
 
 ---
 
-### Chimpanzee {#animal_chimpanzee}
+### Chimpanzé {#animal_chimpanzee}
 ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
 
 No translation found for 'animal_chimpanzee.desc' in Cards
@@ -450,6 +514,16 @@ Une épice forte utilisée pour ajouter de la saveur aux aliments.
 - Country: International
 - Image credit: CC_BY_SA | Friedrich Haag | [source](https://commons.wikimedia.org/wiki/File:Gewuerze_004_2024_08_10.jpg)
 - Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Commerçants du marché {#market_traders}
+Ceux qui vendent des produits alimentaires et autres marchandises sur les étals des marchés, comme les poissonniers, les fromagers et les marchands de fruits. Ils pèsent, emballent et annoncent les prix du jour.
+
+- Type: Person
+- Subjects: Money, Community
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
 
 ---
 
@@ -625,6 +699,22 @@ Un drapeau à rayures blanches, bleues et rouges. Il représente la Russie.
 
 ---
 
+### Drapeau de la République tchèque {#flag_czech_republic}
+![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
+
+The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
+
+- Rationale: Central European countries help kids understand the region around Poland
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1920
+- Country: International
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC0
+- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md), [Les voisins de la Pologne (pl_00)](../quests/quest/pl_00.md)
+
+---
+
 ### Drapeau de la Slovaquie {#flag_slovakia}
 ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ loading=lazy }
 
@@ -684,15 +774,6 @@ L'eau est essentielle à toute vie
 
 ---
 
-### Eleementary Maths {#elementary_maths}
-Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
-
-- Type: None
-- Country: International
-- Topics: [Elementary Math](../topics/index.md#elementary-maths)
-
----
-
 ### Escalade {#climbing}
 ![preview climbing](../../../assets/img/content/cards/climbing.jpg){ loading=lazy }
 
@@ -734,50 +815,10 @@ Un outil chauffant utilisé pour lisser et aplatir les vêtements froissés. Att
 
 ---
 
-### Flag of Czech Republic {#flag_czech_republic}
-![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
-
-The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
-
-- Rationale: Central European countries help kids understand the region around Poland
-- Type: Concept
-- Subjects: Geography, Culture
-- Year: 1920
-- Country: International
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Poland Countries](../topics/index.md#poland_countries_around)
-- Image credit: CC0
-- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md), [Les voisins de la Pologne (pl_00)](../quests/quest/pl_00.md)
-
----
-
-### food_apple {#food_apple}
-![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
-
-No translation found for 'food_apple.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### food_banana {#food_banana}
-![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
-
-No translation found for 'food_banana.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Football (soccer) {#football_soccer}
 ![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
 
-Un jeu d'équipe joué avec un ballon que vous frappez.
+Un jeu d’équipe joué avec un ballon que vous frappez.
 
 - Type: Object
 - Subjects: Sport, Recreation, Community
@@ -810,16 +851,6 @@ Un tissu chaud que vous portez autour du cou.
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Colored_silk_scarf_from_India_01.jpg)
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### French Schools {#french_schools}
-In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
-
-- Type: Concept
-- Subjects: Education, Civics, Culture
-- Country: International
-- Topics: [French School](../topics/index.md#frenchschool)
 
 ---
 
@@ -868,7 +899,7 @@ Des couvertures chaudes pour vos mains.
 ### Gingembre {#ginger}
 ![preview ginger](../../../assets/img/content/cards/ginger.jpg){ loading=lazy }
 
-Une racine épicée utilisée en cuisine et dans les biscuits.
+Une racine épicée utilisée en cuisine et en biscuits.
 
 - Type: Object
 - Subjects: Food, Plant
@@ -907,6 +938,18 @@ Eau gelée qui peut être très glissante.
 
 ---
 
+### glace_arctique {#ice_arctic}
+![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
+
+#VALUE!
+
+- Type: Place
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
 ### Glacier {#glacier}
 ![preview glacier](../../../assets/img/content/cards/glacier.jpg){ loading=lazy }
 
@@ -937,7 +980,7 @@ Une personne qui aide les gens à grimper en toute sécurité.
 ### hangar à bateaux {#boat_house}
 ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ loading=lazy }
 
-Une maison flottant sur l'eau comme un bateau. On peut vivre dans des cabanes-bateaux !
+Une maison flottant sur l'eau comme un bateau. On peut vivre dans des maisons-bateaux !
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -960,14 +1003,14 @@ Une huile spéciale à base d'olives. On l'utilise pour cuisiner des plats savou
 
 ---
 
-### ice_arctic {#ice_arctic}
-![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
+### Jeune lion mâle {#animal_lion_young_male}
+![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
 
-No translation found for 'ice_arctic.desc' in Cards
+No translation found for 'animal_lion_young_male.desc' in Cards
 
-- Type: Place
+- Type: Object
 - Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -1000,7 +1043,7 @@ La capitale de l'Ukraine.
 ### L'épée de la sirène {#mermaids_sword}
 ![preview mermaids_sword](../../../assets/img/content/cards/mermaids_sword.jpg){ loading=lazy }
 
-L'épée de la sirène qui doit être rendue.
+L’épée de la sirène qui doit être rendue.
 
 - Type: Object
 - Subjects: Culture, History
@@ -1077,7 +1120,7 @@ Un grand félin surnommé le roi des animaux. Il vit en groupes appelés troupes
 
 ---
 
-### Lion Cub {#animal_lion_cub}
+### Lionceau {#animal_lion_cub}
 ![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
 
 No translation found for 'animal_lion_cub.desc' in Cards
@@ -1210,16 +1253,6 @@ Un scientifique qui a remporté deux prix Nobel.
 
 ---
 
-### Market traders {#market_traders}
-People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
-
-- Type: Person
-- Subjects: Money, Community
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-
----
-
 ### Marmotte {#marmot}
 ![preview marmot](../../../assets/img/content/cards/marmot.jpg){ loading=lazy }
 
@@ -1230,6 +1263,15 @@ Un animal de montagne à fourrure qui siffle.
 - Country: International
 - Image credit: CC_BY_SA | Photography captured by Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:071_Wild_marmot_at_Grand_Muveran_Nature_Reserve_Photo_by_Giles_Laurent.jpg)
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### Mathématiques élémentaires {#elementary_maths}
+Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
+
+- Type: None
+- Country: International
+- Topics: [Elementary Math](../topics/index.md#elementary-maths)
 
 ---
 
@@ -1263,7 +1305,7 @@ Une liste des aliments autorisés à la cantine. Elle vous aide à choisir vos r
 ### mer Baltique {#baltic_sea}
 ![preview baltic_sea](../../../assets/img/content/cards/baltic_sea.jpg){ loading=lazy }
 
-Une grande mer du nord de l'Europe, où se rencontrent la Pologne, l'Allemagne et d'autres pays. Elle possède de magnifiques plages et est célèbre pour ses trésors d'ambre !
+Une vaste mer d'Europe du Nord, où se rencontrent la Pologne, l'Allemagne et d'autres pays. Elle possède de magnifiques plages et est réputée pour ses trésors d'ambre !
 
 - Rationale: The Baltic Sea teaches kids about marine geography and Poland's coastal access
 - Type: Place
@@ -1377,6 +1419,30 @@ Eau gelée qui tombe par temps froid.
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Psy guy | [source](https://commons.wikimedia.org/wiki/File:Snow_Scene_at_Shipka_Pass_1.JPG)
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### nourriture_banane {#food_banana}
+![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
+
+#VALUE!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### nourriture_pomme {#food_apple}
+![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
+
+No translation found for 'food_apple.desc' in Cards
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1514,22 +1580,22 @@ Monnaie polonaise (złoty) représentée sous forme de pièces de monnaie.
 
 ---
 
-### plant_apple {#plant_apple}
-![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
+### plante_acacia {#tree_wattle}
+![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
 
-No translation found for 'plant_apple.desc' in Cards
+#VALUE!
 
 - Type: Object
 - Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Acacia_sp._(51489535138).jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
-### plant_banana {#plant_banana}
+### plante_banane {#plant_banana}
 ![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
 
-No translation found for 'plant_banana.desc' in Cards
+#VALUE!
 
 - Type: Object
 - Country: International
@@ -1538,10 +1604,10 @@ No translation found for 'plant_banana.desc' in Cards
 
 ---
 
-### plant_orange {#plant_orange}
+### plante_orange {#plant_orange}
 ![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
 
-No translation found for 'plant_orange.desc' in Cards
+#VALUE!
 
 - Type: Object
 - Country: International
@@ -1550,14 +1616,14 @@ No translation found for 'plant_orange.desc' in Cards
 
 ---
 
-### plant_wattle {#tree_wattle}
-![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
+### plante_pomme {#plant_apple}
+![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
 
-No translation found for 'tree_wattle.desc' in Cards
+#VALUE!
 
 - Type: Object
 - Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Acacia_sp._(51489535138).jpg)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -1684,7 +1750,7 @@ Le dirigeant choisi pour diriger le pays. Les citoyens votent aux élections.
 ### Randonnée {#hiking}
 ![preview hiking](../../../assets/img/content/cards/hiking.jpg){ loading=lazy }
 
-Promenade sur des sentiers en pleine nature.
+Promenade sur les sentiers en pleine nature.
 
 - Type: Concept
 - Subjects: Recreation, Sport, Environment
@@ -1698,7 +1764,7 @@ Promenade sur des sentiers en pleine nature.
 ### Robert Lewandowski {#robert_lewandowski}
 ![preview robert_lewandowski](../../../assets/img/content/cards/robert_lewandowski.jpg){ loading=lazy }
 
-Un célèbre joueur de football polonais.
+Un célèbre footballeur polonais.
 
 - Type: Person
 - Subjects: Sport, Culture
@@ -1711,7 +1777,7 @@ Un célèbre joueur de football polonais.
 ### Russie {#country_russia}
 ![preview country_russia](../../../assets/img/content/cards/country_russia.jpg){ loading=lazy }
 
-Un pays d'Europe. La capitale est Moscou.
+Un pays d'Europe. Sa capitale est Moscou.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1856,7 +1922,7 @@ Un stade moderne pour les matchs de football et les concerts.
 
 ---
 
-### Statue des Guerres et de Sawa {#wars_and_sawa_statue}
+### Statue des guerres et de Sawa {#wars_and_sawa_statue}
 ![preview wars_and_sawa_statue](../../../assets/img/content/cards/wars_and_sawa_statue.jpg){ loading=lazy }
 
 Une statue représentant la légende de la ville sur les guerres et Sawa.
@@ -1949,7 +2015,7 @@ Une forme à trois côtés droits et trois coins. Les triangles ressemblent à d
 ### Ukraine {#country_ukraine}
 ![preview country_ukraine](../../../assets/img/content/cards/country_ukraine.jpg){ loading=lazy }
 
-Un pays d'Europe. La capitale est Kyiv.
+Un pays d'Europe. Sa capitale est Kyiv.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1961,7 +2027,7 @@ Un pays d'Europe. La capitale est Kyiv.
 ### Un bateau pour les gens {#boat_people}
 ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ loading=lazy }
 
-Un bateau qui transporte des personnes d'un endroit à un autre à travers l'eau.
+Un bateau qui transporte des personnes d’un endroit à un autre à travers l’eau.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -2073,24 +2139,13 @@ Un véhicule à deux roues sur lequel on pédale.
 
 ---
 
-### Young Lion Male {#animal_lion_young_male}
-![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
+### écoles françaises {#french_schools}
+En France, l'école se déroule en quatre grandes étapes : la maternelle (apprentissage ludique pour les petits), l'école élémentaire (lecture, écriture, mathématiques), le collège et le lycée. À la fin du lycée, de nombreux élèves passent un examen important, le baccalauréat.
 
-No translation found for 'animal_lion_young_male.desc' in Cards
-
-- Type: Object
+- Type: Concept
+- Subjects: Education, Civics, Culture
 - Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Zoo Animals {#zoo_animals}
-Auto-created card for topic 'Zoo Animals'.
-
-- Type: None
-- Country: International
-- Topics: [Zoo Animals](../topics/index.md#zoo)
+- Topics: [French School](../topics/index.md#frenchschool)
 
 ---
 
@@ -2127,7 +2182,7 @@ Une personne qui vend de nombreux types d’aliments et de boissons.
 ### Île-de-France {#ile_de_france}
 ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ loading=lazy }
 
-Région de France où se trouve la capitale Paris. De nombreuses personnes y vivent !
+Région de France où se trouve Paris, la capitale. De nombreuses personnes y vivent !
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -2152,7 +2207,7 @@ Nourriture provenant de poulets utilisée pour la cuisson et la pâtisserie.
 
 ## France
 
-### 20000 Leagues Under the Sea {#book_20000_leagues_under_the_sea}
+### 20 000 lieues sous les mers {#book_20000_leagues_under_the_sea}
 ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
 A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
@@ -2179,7 +2234,7 @@ Une course automobile qui dure 24 heures. Les équipes roulent jour et nuit.
 
 ---
 
-### Allons les enfants {#marseillaise_1}
+### Allons enfants {#marseillaise_1}
 ![preview marseillaise_1](../../../assets/img/content/cards/marseillaise_1.jpg){ loading=lazy }
 
 Les premiers mots de la première ligne de l’hymne.
@@ -2203,6 +2258,18 @@ Une arme qui tire des flèches.
 - Subjects: History, Technology
 - Country: France
 - Image credit: CC0 | Harold Dean Carsey (1886-1947) | [source](https://commons.wikimedia.org/wiki/File:Clara_Bow,_grayscale.jpg)
+
+---
+
+### Arc de Triomphe {#arc_de_triomphe}
+![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
+
+No translation found for 'arc_de_triomphe.desc' in Cards
+
+- Type: Place
+- Country: France
+- Image credit: CC0
+- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2231,25 +2298,10 @@ Vêtement de protection en métal pour chevalier.
 
 ---
 
-### Around the World in Eighty Days {#book_around_the_world_80_days}
-![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
-
-An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
-
-- Type: Object
-- Subjects: Literature
-- Year: 1873
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Ascenseurs de la Tour Eiffel {#eiffel_tower_elevators}
 ![preview eiffel_tower_elevators](../../../assets/img/content/cards/eiffel_tower_elevators.jpg){ loading=lazy }
 
-Ascenseurs qui emmènent les visiteurs jusqu'à la tour de fer.
+Ascenseurs qui emmènent les visiteurs en haut de la tour de fer.
 
 - Type: Object
 - Subjects: Technology, Transportation
@@ -2271,7 +2323,7 @@ Un pain long et croustillant, l'aliment le plus célèbre en France. Les França
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md), [DEV (dev)](../quests/quest/dev.md)
 
 ---
 
@@ -2308,7 +2360,7 @@ Une soupe de poisson typique de Marseille, dans le sud de la France. Elle est co
 ### Carte de la Seine {#seine_map}
 ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ loading=lazy }
 
-Une image qui montre la Seine et où elle coule à travers le pays.
+Une image qui montre la Seine et où elle coule à travers le territoire.
 
 - Type: Object
 - Subjects: Geography, Environment
@@ -2346,7 +2398,7 @@ Un chapeau en métal qui protège la tête.
 ### Casque (sécurité routière) {#helmet_street_safety}
 ![preview helmet_street_safety](../../../assets/img/content/cards/helmet_street_safety.jpg){ loading=lazy }
 
-Un casque de sécurité pour protéger votre tête lorsque vous roulez.
+Un casque pour protéger votre tête lorsque vous roulez.
 
 - Type: Object
 - Subjects: Safety, Health, Education
@@ -2359,7 +2411,7 @@ Un casque de sécurité pour protéger votre tête lorsque vous roulez.
 ### Catapulte {#catapult}
 ![preview catapult](../../../assets/img/content/cards/catapult.jpg){ loading=lazy }
 
-Une machine qui lance des pierres au loin.
+Une machine qui lance des pierres loin.
 
 - Type: Object
 - Subjects: Technology, History
@@ -2371,7 +2423,7 @@ Une machine qui lance des pierres au loin.
 ### Cathédrale {#cathedral}
 ![preview cathedral](../../../assets/img/content/cards/cathedral.jpg){ loading=lazy }
 
-Une église très grande et importante dans une ville.
+Une très grande et importante église dans une ville.
 
 - Type: Place
 - Subjects: Culture, History, Education
@@ -2393,7 +2445,7 @@ Une chambre élégante avec un grand lit à baldaquin.
 
 ---
 
-### chapeau à plumes {#feathered_hat}
+### Chapeau à plumes {#feathered_hat}
 ![preview feathered_hat](../../../assets/img/content/cards/feathered_hat.jpg){ loading=lazy }
 
 Un beau chapeau avec une plume pour le style.
@@ -2447,7 +2499,7 @@ Un grand palais avec de nombreuses fenêtres et jardins.
 ### Château de Chinon {#castle_chinon}
 ![preview castle_chinon](../../../assets/img/content/cards/castle_chinon.jpg){ loading=lazy }
 
-Le château de Chinon est une puissante forteresse de pierre perchée sur une colline surplombant la Loire. Jadis, des rois y séjournèrent, et Jeanne d'Arc vint y rencontrer le futur roi de France.
+Le château de Chinon est une puissante forteresse de pierre perchée sur une colline surplombant la Loire. Jadis, des rois y séjournèrent et Jeanne d'Arc vint y rencontrer le futur roi de France.
 
 - Type: Place
 - Subjects: History
@@ -2466,6 +2518,20 @@ Une solide forteresse en pierre utilisée pour la défense.
 - Subjects: History, Geography, Culture
 - Country: France
 - Image credit: CC_BY_SA | Benjamin Smith | [source](https://commons.wikimedia.org/wiki/File:Chinon_-_Château_vu_depuis_la_plage.jpg)
+
+---
+
+### Cinq semaines en ballon {#book_five_weeks_in_a_balloon}
+![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
+
+A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
+
+- Type: Object
+- Subjects: Literature
+- Year: 1863
+- Country: France
+- Image credit: CC0
+- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2536,6 +2602,21 @@ Paroles de la première ligne de l’hymne.
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
+
+---
+
+### De la Terre à la Lune {#book_from_earth_to_moon}
+![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
+
+Un livre de Jules Verne sur la Lune dans un grand canon ! Il a été écrit avant l'existence des vraies fusées.
+
+- Type: Object
+- Subjects: Literature, Space, Science
+- Year: 1865
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2639,7 +2720,7 @@ Fenêtres étroites pour tirer des flèches en toute sécurité.
 ### Façade du château (fenêtres) {#castle_facade_windows}
 ![preview castle_facade_windows](../../../assets/img/content/cards/castle_facade_windows.jpg){ loading=lazy }
 
-Un mur avant avec de nombreuses grandes fenêtres pour la lumière et les vues.
+Un mur avant avec de nombreuses grandes fenêtres pour la lumière et la vue.
 
 - Type: Concept
 - Subjects: Culture, Technology
@@ -2661,20 +2742,6 @@ Des lampadaires qui vous indiquent quand vous devez vous ARRÊTER ou PARTIR.
 
 ---
 
-### Five Weeks in a Balloon {#book_five_weeks_in_a_balloon}
-![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
-
-A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
-
-- Type: Object
-- Subjects: Literature
-- Year: 1863
-- Country: France
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Flèches {#arrows}
 ![preview arrows](../../../assets/img/content/cards/arrows.jpg){ loading=lazy }
 
@@ -2690,7 +2757,7 @@ Des bâtons pointus tirés d'un arc.
 ### France {#country_france}
 ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ loading=lazy }
 
-Un pays d'Europe. La capitale est Paris.
+Un pays d'Europe. Sa capitale est Paris.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -2707,21 +2774,6 @@ This photograph was taken by Medium69 (William Crochot) and released under the l
 
 
 Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source RAW. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract. | [source](https://commons.wikimedia.org/wiki/File:Homme_statue_-_214.jpg)
-
----
-
-### From the Earth to the Moon {#book_from_earth_to_moon}
-![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
-
-A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
-
-- Type: Object
-- Subjects: Literature, Space, Science
-- Year: 1865
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2777,24 +2829,10 @@ Une lourde porte qui s'abaisse pour bloquer la porte.
 
 ---
 
-### Hot-Air Balloon {#hot_air_balloon}
-![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ loading=lazy }
-
-A balloon that flies using hot air. The first one flew in France.
-
-- Type: Object
-- Subjects: Transportation
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Incendie de Notre-Dame {#notre_dame_de_paris_fire}
 ![preview notre_dame_de_paris_fire](../../../assets/img/content/cards/notre_dame_de_paris_fire.jpg){ loading=lazy }
 
-En 2019, un important incendie a endommagé la magnifique cathédrale Notre-Dame de Paris. De nombreuses personnes ont œuvré ensemble pour sauver cet important édifice.
+En 2019, un important incendie a endommagé la magnifique cathédrale Notre-Dame de Paris. De nombreuses personnes se sont mobilisées pour sauver cet important édifice.
 
 - Rationale: This event teaches kids about protecting cultural heritage and community cooperation
 - Type: Concept
@@ -2822,7 +2860,7 @@ Jardins décoratifs pour promenades et fêtes.
 ### Jean Michel Jarre {#jean_michel_jarre}
 ![preview jean_michel_jarre](../../../assets/img/content/cards/jean_michel_jarre.jpg){ loading=lazy }
 
-A French musician famous for electronic music
+Un musicien français célèbre pour la musique électronique
 
 - Type: Person
 - Subjects: Music, Culture, Technology
@@ -2835,7 +2873,7 @@ A French musician famous for electronic music
 ### Jules Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
-A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
+Un écrivain français qui a imaginé des aventures extraordinaires avant même qu'elles ne soient possibles ! Il a écrit sur les sous-marins, les fusées et les voyages autour du monde.
 
 - Rationale: Jules Verne shows kids how imagination and science can work together
 - Type: Person
@@ -2932,6 +2970,34 @@ Une ancienne statue égyptienne d'une personne en train d'écrire.
 
 ---
 
+### Le serment des Horaces (David) {#oath_of_the_horatii_david}
+![preview oath_of_the_horatii_david](../../../assets/img/content/cards/oath_of_the_horatii_david.jpg){ loading=lazy }
+
+Un tableau représentant trois frères faisant une promesse courageuse.
+
+- Type: Object
+- Subjects: Art, History
+- Country: France
+- Image credit: CC0 | Jacques-Louis David | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David,_Le_Serment_des_Horaces.jpg)
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### Le tour du monde en quatre-vingts jours {#book_around_the_world_80_days}
+![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
+
+An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
+
+- Type: Object
+- Subjects: Literature
+- Year: 1873
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
 ### Loire {#loire_river}
 ![preview loire_river](../../../assets/img/content/cards/loire_river.jpg){ loading=lazy }
 
@@ -2997,10 +3063,24 @@ Une note de musique.
 
 ---
 
+### Montgolfière {#hot_air_balloon}
+![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ loading=lazy }
+
+Un ballon volant à l'air chaud. Le premier à voler en France.
+
+- Type: Object
+- Subjects: Transportation
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
 ### Notre-Dame de Paris {#notre_dame_de_paris}
 ![preview notre_dame_de_paris](../../../assets/img/content/cards/notre_dame_de_paris.jpg){ loading=lazy }
 
-Une magnifique cathédrale de Paris. Ses vitraux colorés racontent des histoires.
+Une magnifique cathédrale parisienne. Ses vitraux colorés racontent des histoires.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -3184,7 +3264,7 @@ Une époque dans les années 1790 où la France a changé de gouvernement.
 ### Salle de bal {#ballroom}
 ![preview ballroom](../../../assets/img/content/cards/ballroom.jpg){ loading=lazy }
 
-Une grande salle pour la danse et la musique.
+Une grande salle pour danser et écouter de la musique.
 
 - Type: Place
 - Subjects: Culture, History
@@ -3216,19 +3296,6 @@ Un fleuve de 777 kilomètres de long dans le nord de la France
 - Country: France
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
-### Serment des Horaces (David) {#oath_of_the_horatii_david}
-![preview oath_of_the_horatii_david](../../../assets/img/content/cards/oath_of_the_horatii_david.jpg){ loading=lazy }
-
-Un tableau de trois frères faisant une promesse courageuse.
-
-- Type: Object
-- Subjects: Art, History
-- Country: France
-- Image credit: CC0 | Jacques-Louis David | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David,_Le_Serment_des_Horaces.jpg)
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3300,7 +3367,7 @@ Une note de musique.
 
 ---
 
-### Vallée de la Loire {#loire_valley}
+### Val de Loire {#loire_valley}
 ![preview loire_valley](../../../assets/img/content/cards/loire_valley.jpg){ loading=lazy }
 
 Une région française célèbre avec de nombreux châteaux.
@@ -3435,7 +3502,7 @@ Une longue lame utilisée par les chevaliers.
 ### Ambre {#amber}
 ![preview amber](../../../assets/img/content/cards/amber.jpg){ loading=lazy }
 
-Résine d'arbre fossile brillante appelée « Or de la Baltique ».
+Résine d'arbre fossile brillante appelée « Baltic Gold ».
 
 - Type: Object
 - Subjects: History, Culture, Science
@@ -3456,6 +3523,33 @@ Un magnifique édifice gothique sur la place principale. Il possède une horloge
 - Country: Poland
 - Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/7/70/Wroclaw-Rathaus.jpg)
 - Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### animal_elephant_adult {#animal_elephant_adult}
+![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### animal_elephant_baby {#animal_elephant_baby}
+![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### animal_elephant_young {#animal_elephant_young}
+![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
 
 ---
 
@@ -3510,6 +3604,32 @@ Un grand bateau qui transporte des personnes ou des marchandises.
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
 - Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Carte de l'Oder {#odra_river_map}
+![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
+
+Une carte simple qui montre la rivière Odra en Pologne et la façon dont elle coule vers la mer Baltique
+
+- Type: None
+- Subjects: Geography
+- Country: Poland
+- Image credit: CC0
+- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Carte de Wroklaw {#wroklaw_map}
+![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
+
+Une carte simple de Wrocław montrant la rivière Odra avec ses îles et ses nombreux ponts
+
+- Type: None
+- Subjects: Geography
+- Country: Poland
+- Image credit: CC0
+- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md), [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3697,7 +3817,7 @@ De l'eau qui danse avec de la musique et des lumières colorées.
 ### Frédéric Chopin {#fryderyk_chopin}
 ![preview fryderyk_chopin](../../../assets/img/content/cards/fryderyk_chopin.jpg){ loading=lazy }
 
-Célèbre compositeur polonais pour piano, il a composé une musique magnifique qui évoque la danse ou les histoires. Sa musique rend les gens heureux ou tristes.
+Célèbre compositeur polonais pour le piano, il a composé une musique magnifique qui évoque la danse ou les histoires. Sa musique rend les gens heureux ou tristes.
 
 - Rationale: Chopin introduces kids to classical music and shows how music can express emotions
 - Type: Person
@@ -3849,7 +3969,7 @@ Une célèbre fontaine de Gdańsk avec la statue du dieu de la mer.
 ### la Vistule {#vistula_river}
 ![preview vistula_river](../../../assets/img/content/cards/vistula_river.jpg){ loading=lazy }
 
-Le plus long fleuve de Pologne ; il se jette dans la mer Baltique.
+Le plus long fleuve de Pologne ; il coule vers la mer Baltique.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -3902,19 +4022,6 @@ Un morceau de verre ou de plastique transparent qui courbe la lumière.
 
 ---
 
-### Leonardo da Vinci Primary School {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
-
-- Type: None
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Louveteau {#cub}
 ![preview cub](../../../assets/img/content/cards/cub.jpg){ loading=lazy }
 
@@ -3954,19 +4061,6 @@ C'est aujourd'hui un musée où vous pourrez en apprendre davantage sur sa vie e
 
 ---
 
-### Map of Wroklaw {#wroklaw_map}
-![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
-
-A simple map of Wrocław showing the Odra River with its islands and many bridges
-
-- Type: None
-- Subjects: Geography
-- Country: Poland
-- Image credit: CC0
-- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md), [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
-
----
-
 ### Maria Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
@@ -3999,7 +4093,7 @@ La planète rouge avec de la poussière et de grands volcans.
 ### Maître des clés nain {#keymaster_dwarf}
 ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
 
-Une statue naine gardant l'ascenseur avec une grosse clé.
+Une statue de nain gardant l'ascenseur avec une grosse clé.
 
 - Type: Object
 - Subjects: Culture
@@ -4052,7 +4146,7 @@ La monnaie polonaise s'appelle le złoty. Les pièces et les billets arborent de
 
 ---
 
-### Monument Chopin {#chopin_monument}
+### Monument à Chopin {#chopin_monument}
 ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
 
 Une grande statue du parc Łazienki de Varsovie est dédiée à Frédéric Chopin. C'est également le lieu de concerts de piano en plein air très populaires en été. (L'arbre sous lequel il est assis est un saule polonais typique.)
@@ -4111,7 +4205,7 @@ De petites statues de nains se cachent un peu partout à Wrocław. Les trouver e
 ### Nains de Wrocław {#wroclaw_dwarfs}
 ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ loading=lazy }
 
-De minuscules statues à travers la ville qui aiment jouer des tours.
+De petites statues à travers la ville qui aiment jouer des tours.
 
 - Type: Concept
 - Subjects: Culture, Community, History
@@ -4177,19 +4271,6 @@ La petite lentille à travers laquelle vous regardez sur un télescope.
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY | SvonHalenbach | [source](https://commons.wikimedia.org/wiki/File:Newtonianscope-eyepiece-detail.JPG)
 - Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
-
----
-
-### Odra river map {#odra_river_map}
-![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
-
-A simple map that shows the Odra River in Poland and the way it flows to the Baltic Sea
-
-- Type: None
-- Subjects: Geography
-- Country: Poland
-- Image credit: CC0
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4302,13 +4383,16 @@ Raviolis farcis de pommes de terre, de fromage ou de fruits. C'est un plat polon
 
 ---
 
-### Pierogi Recipe {#pierogi_recipe}
-Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
+### Place de la Sky Tower {#sky_tower_plaza}
+![preview sky_tower_plaza](../../../assets/img/content/cards/sky_tower_plaza.jpg){ loading=lazy }
 
-- Type: Object
-- Subjects: Food
+Une place moderne où les gens se rencontrent près de la tour.
+
+- Type: Place
+- Subjects: Geography, Community, Recreation
 - Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
+- Image credit: CC_BY_SA | JamesYoung8167 | [source](https://commons.wikimedia.org/wiki/File:Xiamen_Shimao_Straits_Tower_2016-02-09.jpg)
+- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4345,7 +4429,7 @@ Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://common
 ### Pont {#bridge}
 ![preview bridge](../../../assets/img/content/cards/bridge.jpg){ loading=lazy }
 
-Une structure qui permet aux personnes ou aux véhicules de traverser l’eau.
+Une structure qui permet aux personnes ou aux véhicules de traverser l'eau.
 
 - Type: Concept
 - Subjects: Technology, Transportation
@@ -4467,6 +4551,16 @@ Une personne qui attrape du poisson en mer.
 
 ---
 
+### Recette de Pierogi {#pierogi_recipe}
+Préparez une pâte molle, remplissez-la de purée de pommes de terre et de fromage fermier, fermez-la, faites-la bouillir jusqu'à ce qu'elle flotte, puis faites-la revenir à la poêle dans du beurre avec des oignons.
+
+- Type: Object
+- Subjects: Food
+- Country: Poland
+- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
+
+---
+
 ### Rivière Motława {#motawa_river}
 ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ loading=lazy }
 
@@ -4498,7 +4592,7 @@ Un grand fleuve de l'ouest de la Pologne. Il facilite la navigation et le commer
 ### Salle du Centenaire {#wroclaw_centennial_hall}
 ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ loading=lazy }
 
-Le Centennial Hall est un immense bâtiment qui ressemble à une grande tente avec un toit. Il est très haut. À l'intérieur, vous pouvez assister à différents spectacles, écouter des concerts ou regarder des matchs.
+Le Centennial Hall est un immense bâtiment ressemblant à une grande tente avec un toit. Il est très haut. À l'intérieur, vous pouvez assister à différents spectacles, écouter des concerts ou regarder des matchs.
 
 - Type: Place
 - Subjects: Culture, Recreation
@@ -4538,7 +4632,7 @@ Un tableau avec des faits simples pour vous aider à apprendre.
 ### Sirène de Varsovie {#mermaid_of_warsaw}
 ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ loading=lazy }
 
-Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bouclier. Sa statue est visible au bord de la rivière.
+Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bouclier. Vous pouvez admirer sa statue au bord de la rivière.
 
 - Type: Object
 - Subjects: Culture, History
@@ -4546,19 +4640,6 @@ Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bo
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | Grzegorz Polak, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Syrenka_Warszawska.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Sky Tower Plaza {#sky_tower_plaza}
-![preview sky_tower_plaza](../../../assets/img/content/cards/sky_tower_plaza.jpg){ loading=lazy }
-
-Une place moderne où les gens se rencontrent près de la tour.
-
-- Type: Place
-- Subjects: Geography, Community, Recreation
-- Country: Poland
-- Image credit: CC_BY_SA | JamesYoung8167 | [source](https://commons.wikimedia.org/wiki/File:Xiamen_Shimao_Straits_Tower_2016-02-09.jpg)
-- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4662,7 +4743,7 @@ Une planète très chaude recouverte de nuages ​​épais.
 ### Wroclaw : Cathédrale {#wroclaw_cathedral}
 ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
 
-Une grande et importante église où l'on prie. On peut monter dans la tour pour admirer la vue.
+Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
 
 - Type: Place
 - Subjects: History, Culture
@@ -4675,7 +4756,7 @@ Une grande et importante église où l'on prie. On peut monter dans la tour pour
 ### Wroclaw : Sky Tower {#wroclaw_sky_tower}
 ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ loading=lazy }
 
-L'un des plus hauts bâtiments de Pologne. Il abrite des boutiques et un point de vue.
+L'un des plus hauts bâtiments de Pologne. Il abrite des boutiques et un belvédère.
 
 - Type: Place
 - Subjects: Geography, Community, Culture
@@ -4713,6 +4794,19 @@ Un grand zoo à Wrocław avec de nombreux animaux à découvrir.
 
 ---
 
+### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+C'est un lieu convivial où les enfants apprennent, créent et explorent guidés par la curiosité, l'art et la science.
+
+- Type: None
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Écosystème {#ecosystem}
 ![preview ecosystem](../../../assets/img/content/cards/ecosystem.jpg){ loading=lazy }
 
@@ -4742,7 +4836,7 @@ Une grande sculpture en métal à côté du Centennial Hall.
 ### Évêque Nain {#bishop_dwarf}
 ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
 
-Une statue naine qui pose une question d'église.
+Une statue de nain qui pose une question d'église.
 
 - Type: Object
 - Subjects: Culture, History
@@ -4757,7 +4851,7 @@ Une statue naine qui pose une question d'église.
 ### Allemagne
 ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ loading=lazy }
 
-Un pays d'Europe. La capitale est Berlin.
+Un pays d'Europe. Sa capitale est Berlin.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -4834,7 +4928,7 @@ Le drapeau italien comporte trois bandes verticales : verte, blanche et rouge. 
 ### Italie
 ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ loading=lazy }
 
-Un pays d'Europe. La capitale est Rome.
+Un pays d'Europe dont la capitale est Rome.
 
 - Type: Place
 - Subjects: Geography, Culture

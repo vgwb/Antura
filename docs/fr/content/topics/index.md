@@ -5,7 +5,7 @@ hide:
 
 # Topics
 
-Total found: **34**
+Total found: **35**
 
 > [!note] NOTE: connections type can be:
 > **Created By** (agent (person/org) who made/discovered/commissioned)  
@@ -23,13 +23,36 @@ Total found: **34**
 
 ## International
 
+### Antura's world {#antura-world}
+- Importance: Medium  
+- Target Age: Ages6to10
+- Core card:
+    - **[Antura](../cards/index.md#antura)**
+
+- Connected cards:
+    - **[Cookies](../cards/index.md#antura_cookies)** (RelatedTo)
+
+    - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+
+    - **[Card](../cards/index.md#antura_card)** (RelatedTo)
+
+    - **[Cat](../cards/index.md#antura_cat)** (RelatedTo)
+
+    - **[Living Letter](../cards/index.md#antura_livingletter)** (RelatedTo)
+
+    - **[Blocky](../cards/index.md#antura_blocky_character)** (RelatedTo)
+
+- Quests: [Tutoriel (tutorial)](../quests/quest/tutorial.md)
+
+---
+
 ### Elementary Math {#elementary-maths}
 - Description: Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.  
 - Importance: Medium  
 - Subjects: Math  
 - Target Age: Ages6to10
 - Core card:
-    - **[Eleementary Maths](../cards/index.md#elementary_maths)**
+    - **[Mathématiques élémentaires](../cards/index.md#elementary_maths)**
     Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
 - Connected cards:
@@ -44,7 +67,7 @@ Total found: **34**
     ![preview fr_figure_triangle](../../../assets/img/content/cards/fr_figure_triangle.jpg){ width="200" }
 
     - **[Boussole](../cards/index.md#math_compass)** (Purpose)
-    Un outil qui permet de dessiner des cercles parfaits. Il possède deux branches, comme des ciseaux.
+    Un outil qui permet de tracer des cercles parfaits. Il possède deux branches, comme des ciseaux.
 
     ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ width="200" }
 
@@ -159,7 +182,7 @@ Credits:
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
+    - **[Drapeau de la République tchèque](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
@@ -194,7 +217,7 @@ Credits:
     ![preview mountain_guide](../../../assets/img/content/cards/mountain_guide.jpg){ width="200" }
 
     - **[Randonnée](../cards/index.md#hiking)** (RelatedTo)
-    Promenade sur des sentiers en pleine nature.
+    Promenade sur les sentiers en pleine nature.
 
     ![preview hiking](../../../assets/img/content/cards/hiking.jpg){ width="200" }
 
@@ -395,7 +418,7 @@ Credits:
 
 - Connected cards:
     - **[Casque (sécurité routière)](../cards/index.md#helmet_street_safety)** (RelatedTo)
-    Un casque de sécurité pour protéger votre tête lorsque vous roulez.
+    Un casque pour protéger votre tête lorsque vous roulez.
 
     ![preview helmet_street_safety](../../../assets/img/content/cards/helmet_street_safety.jpg){ width="200" }
 
@@ -419,7 +442,6 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
-- Quests: [Se déplacer en ville en toute sécurité (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -463,8 +485,8 @@ Credits:
 - Subjects: Animal  
 - Target Age: Ages6to10
 - Core card:
-    - **[Zoo Animals](../cards/index.md#zoo_animals)**
-    Auto-created card for topic 'Zoo Animals'.
+    - **[Animaux du zoo](../cards/index.md#zoo_animals)**
+    Carte créée automatiquement pour le thème « Animaux du zoo ».
 
 - Connected cards:
     - **[Girafe](../cards/index.md#animal_giraffe)** (RelatedTo)
@@ -538,7 +560,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [DEV (dev)](../quests/quest/dev.md), [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -609,7 +631,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[France](../cards/index.md#country_france)**
-    Un pays d'Europe. La capitale est Paris.
+    Un pays d'Europe. Sa capitale est Paris.
 
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
@@ -625,7 +647,7 @@ Credits:
     ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ width="200" }
 
     - **[Italie](../cards/index.md#country_italy)** (RelatedTo)
-    Un pays d'Europe. La capitale est Rome.
+    Un pays d'Europe dont la capitale est Rome.
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
@@ -660,7 +682,7 @@ Credits:
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
     - **[Allemagne](../cards/index.md#country_germany)** (RelatedTo)
-    Un pays d'Europe. La capitale est Berlin.
+    Un pays d'Europe. Sa capitale est Berlin.
 
     ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ width="200" }
 
@@ -718,7 +740,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[France](../cards/index.md#country_france)**
-    Un pays d'Europe. La capitale est Paris.
+    Un pays d'Europe. Sa capitale est Paris.
 
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
@@ -742,8 +764,8 @@ Credits:
 - Subjects: Education  
 - Target Age: Ages6to10
 - Core card:
-    - **[French Schools](../cards/index.md#french_schools)**
-    In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
+    - **[écoles françaises](../cards/index.md#french_schools)**
+    En France, l'école se déroule en quatre grandes étapes : la maternelle (apprentissage ludique pour les petits), l'école élémentaire (lecture, écriture, mathématiques), le collège et le lycée. À la fin du lycée, de nombreux élèves passent un examen important, le baccalauréat.
 
 - Connected cards:
     - **[École maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
@@ -790,28 +812,28 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Jules Verne](../cards/index.md#jules_verne)**
-    A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
+    Un écrivain français qui a imaginé des aventures extraordinaires avant même qu'elles ne soient possibles ! Il a écrit sur les sous-marins, les fusées et les voyages autour du monde.
 
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
-    - **[Around the World in Eighty Days](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
+    - **[Le tour du monde en quatre-vingts jours](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
     An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
-    - **[From the Earth to the Moon](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
+    - **[De la Terre à la Lune](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
+    Un livre de Jules Verne sur la Lune dans un grand canon ! Il a été écrit avant l'existence des vraies fusées.
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
-    - **[20000 Leagues Under the Sea](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
+    - **[20 000 lieues sous les mers](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
     A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Hot-Air Balloon](../cards/index.md#hot_air_balloon)** (RelatedTo)
-    A balloon that flies using hot air. The first one flew in France.
+    - **[Montgolfière](../cards/index.md#hot_air_balloon)** (RelatedTo)
+    Un ballon volant à l'air chaud. Le premier à voler en France.
 
     ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
 
@@ -877,8 +899,8 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Market traders](../cards/index.md#market_traders)**
-    People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
+    - **[Commerçants du marché](../cards/index.md#market_traders)**
+    Ceux qui vendent des produits alimentaires et autres marchandises sur les étals des marchés, comme les poissonniers, les fromagers et les marchands de fruits. Ils pèsent, emballent et annoncent les prix du jour.
 
 - Connected cards:
     - **[Fromager](../cards/index.md#person_cheesemonger)** (RelatedTo)
@@ -930,7 +952,7 @@ Credits:
 
     ![preview marseillaise_3](../../../assets/img/content/cards/marseillaise_3.jpg){ width="200" }
 
-    - **[Allons les enfants](../cards/index.md#marseillaise_1)** (RelatedTo)
+    - **[Allons enfants](../cards/index.md#marseillaise_1)** (RelatedTo)
     Les premiers mots de la première ligne de l’hymne.
 
     ![preview marseillaise_1](../../../assets/img/content/cards/marseillaise_1.jpg){ width="200" }
@@ -1004,7 +1026,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Notre-Dame de Paris](../cards/index.md#notre_dame_de_paris)**
-    Une magnifique cathédrale de Paris. Ses vitraux colorés racontent des histoires.
+    Une magnifique cathédrale parisienne. Ses vitraux colorés racontent des histoires.
 
     ![preview notre_dame_de_paris](../../../assets/img/content/cards/notre_dame_de_paris.jpg){ width="200" }
 
@@ -1015,12 +1037,12 @@ Credits:
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
     - **[Incendie de Notre-Dame](../cards/index.md#notre_dame_de_paris_fire)** (TimeContext)
-    En 2019, un important incendie a endommagé la magnifique cathédrale Notre-Dame de Paris. De nombreuses personnes ont œuvré ensemble pour sauver cet important édifice.
+    En 2019, un important incendie a endommagé la magnifique cathédrale Notre-Dame de Paris. De nombreuses personnes se sont mobilisées pour sauver cet important édifice.
 
     ![preview notre_dame_de_paris_fire](../../../assets/img/content/cards/notre_dame_de_paris_fire.jpg){ width="200" }
 
     - **[Île-de-France](../cards/index.md#ile_de_france)** (LocatedIn)
-    Région de France où se trouve la capitale Paris. De nombreuses personnes y vivent !
+    Région de France où se trouve Paris, la capitale. De nombreuses personnes y vivent !
 
     ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
 
@@ -1083,7 +1105,7 @@ Credits:
     ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ width="200" }
 
     - **[mer Baltique](../cards/index.md#baltic_sea)** (RelatedTo)
-    Une grande mer du nord de l'Europe, où se rencontrent la Pologne, l'Allemagne et d'autres pays. Elle possède de magnifiques plages et est célèbre pour ses trésors d'ambre !
+    Une vaste mer d'Europe du Nord, où se rencontrent la Pologne, l'Allemagne et d'autres pays. Elle possède de magnifiques plages et est réputée pour ses trésors d'ambre !
 
     ![preview baltic_sea](../../../assets/img/content/cards/baltic_sea.jpg){ width="200" }
 
@@ -1122,7 +1144,7 @@ Credits:
     ![preview eggs](../../../assets/img/content/cards/eggs.jpg){ width="200" }
 
     - **[Gingembre](../cards/index.md#ginger)** (RelatedTo)
-    Une racine épicée utilisée en cuisine et dans les biscuits.
+    Une racine épicée utilisée en cuisine et en biscuits.
 
     ![preview ginger](../../../assets/img/content/cards/ginger.jpg){ width="200" }
 
@@ -1145,7 +1167,7 @@ Credits:
 
 - Connected cards:
     - **[Ambre](../cards/index.md#amber)** (RelatedTo)
-    Résine d'arbre fossile brillante appelée « Or de la Baltique ».
+    Résine d'arbre fossile brillante appelée « Baltic Gold ».
 
     ![preview amber](../../../assets/img/content/cards/amber.jpg){ width="200" }
 
@@ -1229,8 +1251,8 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Pierogi Recipe](../cards/index.md#pierogi_recipe)**
-    Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
+    - **[Recette de Pierogi](../cards/index.md#pierogi_recipe)**
+    Préparez une pâte molle, remplissez-la de purée de pommes de terre et de fromage fermier, fermez-la, faites-la bouillir jusqu'à ce qu'elle flotte, puis faites-la revenir à la poêle dans du beurre avec des oignons.
 
 - Connected cards:
     - **[Pierogi polonais](../cards/index.md#pierogi)** (RelatedTo)
@@ -1278,7 +1300,7 @@ Credits:
     ![preview country_lithuania](../../../assets/img/content/cards/country_lithuania.jpg){ width="200" }
 
     - **[Biélorussie](../cards/index.md#country_belarus)** (RelatedTo)
-    Un pays d'Europe. La capitale est Minsk.
+    Un pays d'Europe. Sa capitale est Minsk.
 
     ![preview country_belarus](../../../assets/img/content/cards/country_belarus.jpg){ width="200" }
 
@@ -1297,7 +1319,7 @@ Credits:
 
     ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ width="200" }
 
-    - **[Flag of Czech Republic](../cards/index.md#flag_czech_republic)** (CulturalContext)
+    - **[Drapeau de la République tchèque](../cards/index.md#flag_czech_republic)** (CulturalContext)
     The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
@@ -1318,12 +1340,12 @@ Credits:
     ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
     - **[Allemagne](../cards/index.md#country_germany)** (RelatedTo)
-    Un pays d'Europe. La capitale est Berlin.
+    Un pays d'Europe. Sa capitale est Berlin.
 
     ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ width="200" }
 
     - **[Russie](../cards/index.md#country_russia)** (RelatedTo)
-    Un pays d'Europe. La capitale est Moscou.
+    Un pays d'Europe. Sa capitale est Moscou.
 
     ![preview country_russia](../../../assets/img/content/cards/country_russia.jpg){ width="200" }
 
@@ -1358,14 +1380,14 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Monument Chopin](../cards/index.md#chopin_monument)**
+    - **[Monument à Chopin](../cards/index.md#chopin_monument)**
     Une grande statue du parc Łazienki de Varsovie est dédiée à Frédéric Chopin. C'est également le lieu de concerts de piano en plein air très populaires en été. (L'arbre sous lequel il est assis est un saule polonais typique.)
 
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }
 
 - Connected cards:
     - **[Sirène de Varsovie](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
-    Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bouclier. Sa statue est visible au bord de la rivière.
+    Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bouclier. Vous pouvez admirer sa statue au bord de la rivière.
 
     ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ width="200" }
 
@@ -1375,7 +1397,7 @@ Credits:
     ![preview wars_and_sawa](../../../assets/img/content/cards/wars_and_sawa.jpg){ width="200" }
 
     - **[Frédéric Chopin](../cards/index.md#fryderyk_chopin)** (RelatedTo)
-    Célèbre compositeur polonais pour piano, il a composé une musique magnifique qui évoque la danse ou les histoires. Sa musique rend les gens heureux ou tristes.
+    Célèbre compositeur polonais pour le piano, il a composé une musique magnifique qui évoque la danse ou les histoires. Sa musique rend les gens heureux ou tristes.
 
     ![preview fryderyk_chopin](../../../assets/img/content/cards/fryderyk_chopin.jpg){ width="200" }
 
@@ -1416,7 +1438,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Nains de Wrocław](../cards/index.md#wroclaw_dwarfs)**
-    De minuscules statues à travers la ville qui aiment jouer des tours.
+    De petites statues à travers la ville qui aiment jouer des tours.
 
     ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
 
@@ -1427,7 +1449,7 @@ Credits:
     ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ width="200" }
 
     - **[Évêque Nain](../cards/index.md#bishop_dwarf)** (RelatedTo)
-    Une statue naine qui pose une question d'église.
+    Une statue de nain qui pose une question d'église.
 
     ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ width="200" }
 
@@ -1437,7 +1459,7 @@ Credits:
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
 
     - **[Maître des clés nain](../cards/index.md#keymaster_dwarf)** (RelatedTo)
-    Une statue naine gardant l'ascenseur avec une grosse clé.
+    Une statue de nain gardant l'ascenseur avec une grosse clé.
 
     ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ width="200" }
 

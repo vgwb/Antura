@@ -10,7 +10,7 @@ hide:
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
 
 Version: 1.00  
-Status: NeedsReview  
+Status: Production  
 Location: International
 
 Let's learn how to play Antura Discover!
@@ -19,18 +19,29 @@ Let's learn how to play Antura Discover!
 Subjects: 
 
 
+## Topics
+### [Antura's world](../../topics/index.md#antura-world)
+
+  - **[antura](../../cards/index.md#antura)**  
+  - **[antura_cookies](../../cards/index.md#antura_cookies)**  
+  - **[antura_portal](../../cards/index.md#antura_portal)**  
+  - **[antura_card](../../cards/index.md#antura_card)**  
+  - **[antura_cat](../../cards/index.md#antura_cat)**  
+  - **[antura_livingletter](../../cards/index.md#antura_livingletter)**  
+  - **[antura_blocky_character](../../cards/index.md#antura_blocky_character)**  
+
 ## Quest Script
 
-(Script not public)
+[See the full script here](./tutorial-script.md)
 
 ---
 
 ## Words
 ## Activities
-- (none)
+- [JigsawPuzzle](../../activities/index.md#JigsawPuzzle)
 
 ## Tasks
-- (none)
+- [Collect] talk_everybody
 ## Gameplay
 - Difficulty: Tutorial
 - Duration (min): 10

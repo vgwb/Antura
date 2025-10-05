@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **364**
+Total found: **376**
 
 ## International
 
@@ -24,6 +24,61 @@ A tall mountain range in Europe.
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
 - Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### antura {#antura}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_blocky_character {#antura_blocky_character}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_card {#antura_card}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_cat {#antura_cat}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_cookies {#antura_cookies}
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_danger {#antura_danger}
+- Type: Concept
+- Country: International
+
+---
+
+### antura_livingletter {#antura_livingletter}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_portal {#antura_portal}
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
 
 ---
 
@@ -2179,7 +2234,7 @@ A car race that lasts 24 hours. Teams drive day and night.
 
 ---
 
-### A note {#note_la}
+### A {#note_la}
 ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ loading=lazy }
 
 A musical note.
@@ -2203,6 +2258,18 @@ The first words of the anthem’s first line.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
+- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
+
+---
+
+### Arc De Triomphe {#arc_de_triomphe}
+![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
+
+No translation found for 'arc_de_triomphe.desc' in Cards
+
+- Type: Place
+- Country: France
+- Image credit: CC0
 - Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
@@ -2246,7 +2313,7 @@ Sharp sticks shot from a bow.
 
 ---
 
-### B note {#note_si}
+### B {#note_si}
 ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
 
 A musical note.
@@ -2323,7 +2390,7 @@ A weapon that shoots arrows.
 
 ---
 
-### C note {#note_do}
+### C {#note_do}
 ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
 
 A musical note.
@@ -2496,7 +2563,7 @@ A special way of writing where all the letters in a word are connected. In Franc
 
 ---
 
-### D note {#note_re}
+### D {#note_re}
 ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
 
 A musical note.
@@ -2548,7 +2615,7 @@ A bridge that lifts to protect a castle entrance.
 
 ---
 
-### E note {#note_mi}
+### E {#note_mi}
 ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ loading=lazy }
 
 A musical note.
@@ -2604,7 +2671,7 @@ Words from the anthem’s first line.
 
 ---
 
-### F note {#note_fa}
+### F {#note_fa}
 ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ loading=lazy }
 
 A musical note.
@@ -2735,7 +2802,7 @@ A long, crispy bread that is the most famous food in France. French people buy f
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Paris! (fr_01)](../quests/quest/fr_01.md), [DEV (dev)](../quests/quest/dev.md)
 
 ---
 
@@ -2782,7 +2849,7 @@ A book by Jules Verne about going to the Moon in a big cannon! It was written be
 
 ---
 
-### G note {#note_sol}
+### G {#note_sol}
 ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
 
 A musical note.
@@ -3485,6 +3552,33 @@ A dwarf statue that loves the zoo and animals.
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### animal_elephant_adult {#animal_elephant_adult}
+![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### animal_elephant_baby {#animal_elephant_baby}
+![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### animal_elephant_young {#animal_elephant_young}
+![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
 
 ---
 

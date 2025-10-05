@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **364**
+Total found: **376**
 
 ## International
 
@@ -24,6 +24,61 @@ Wysokie pasmo górskie w Europie.
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### antura {#antura}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_blocky_character {#antura_blocky_character}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_card {#antura_card}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_cat {#antura_cat}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_cookies {#antura_cookies}
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_danger {#antura_danger}
+- Type: Concept
+- Country: International
+
+---
+
+### antura_livingletter {#antura_livingletter}
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+
+---
+
+### antura_portal {#antura_portal}
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
 
 ---
 
@@ -179,18 +234,6 @@ Stolica Belgii.
 
 ---
 
-### Chimpanzee {#animal_chimpanzee}
-![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
-
-No translation found for 'animal_chimpanzee.desc' in Cards
-
-- Type: None
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### CHLEB {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
@@ -249,7 +292,7 @@ Kraj w Europie. Stolicą jest Praga.
 ### Dom na łodzi {#boat_house}
 ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ loading=lazy }
 
-Dom, który unosi się na wodzie jak łódź. Ludzie mogą mieszkać w domkach-łódkach!
+Dom, który unosi się na wodzie jak łódź. Ludzie mogą mieszkać w domkach na łodziach!
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -281,31 +324,6 @@ Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i sm
 - Country: International
 - Image credit: CC_BY_SA | Patryk Matyjaszczyk | [source](https://commons.wikimedia.org/wiki/File:Narodowe_Święto_Niepodległości_2012_01.JPG)
 - Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Eleementary Maths {#elementary_maths}
-Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
-
-- Type: None
-- Country: International
-- Topics: [Elementary Math](../topics/index.md#elementary-maths)
-
----
-
-### Flag of Czech Republic {#flag_czech_republic}
-![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
-
-The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
-
-- Rationale: Central European countries help kids understand the region around Poland
-- Type: Concept
-- Subjects: Geography, Culture
-- Year: 1920
-- Country: International
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Poland Countries](../topics/index.md#poland_countries_around)
-- Image credit: CC0
-- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -373,6 +391,22 @@ Flaga Luksemburga ma poziome pasy w kolorze czerwonym, białym i jasnoniebieskim
 
 ---
 
+### Flaga Republiki Czeskiej {#flag_czech_republic}
+![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
+
+The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
+
+- Rationale: Central European countries help kids understand the region around Poland
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1920
+- Country: International
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Poland Countries](../topics/index.md#poland_countries_around)
+- Image credit: CC0
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
+
+---
+
 ### Flaga Rosji {#flag_russia}
 ![preview flag_russia](../../../assets/img/content/cards/flag_russia.jpg){ loading=lazy }
 
@@ -431,30 +465,6 @@ Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Repr
 
 ---
 
-### food_apple {#food_apple}
-![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
-
-No translation found for 'food_apple.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### food_banana {#food_banana}
-![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
-
-No translation found for 'food_banana.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Forma do pierników {#gingerbread_mold}
 ![preview gingerbread_mold](../../../assets/img/content/cards/gingerbread_mold.jpg){ loading=lazy }
 
@@ -479,16 +489,6 @@ Duży obraz z informacjami, który wisi na ścianach klas we francuskich szkoła
 - Country: International
 - Image credit: CC0
 - Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
-
----
-
-### French Schools {#french_schools}
-In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
-
-- Type: Concept
-- Subjects: Education, Civics, Culture
-- Country: International
-- Topics: [French School](../topics/index.md#frenchschool)
 
 ---
 
@@ -519,18 +519,6 @@ Filary ziemi
 
 ---
 
-### ice_arctic {#ice_arctic}
-![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
-
-No translation found for 'ice_arctic.desc' in Cards
-
-- Type: Place
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Ile-de-France {#ile_de_france}
 ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ loading=lazy }
 
@@ -556,6 +544,30 @@ Pokarm z kurczaków, używany do pieczenia i gotowania.
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC_BY_SA | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Eggs_in_basket_2020_G1.jpg)
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### jedzenie_banan {#food_banana}
+![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
+
+#VALUE!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### jedzenie_jabłko {#food_apple}
+![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
+
+No translation found for 'food_apple.desc' in Cards
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -818,18 +830,6 @@ Proste narzędzie do pomiaru długości przedmiotów. Linijki mają cyfry i lini
 
 ---
 
-### Lion Cub {#animal_lion_cub}
-![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
-
-No translation found for 'animal_lion_cub.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lion_cub_in_Masai_Mara_National_Park.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Litwa {#country_lithuania}
 ![preview country_lithuania](../../../assets/img/content/cards/country_lithuania.jpg){ loading=lazy }
 
@@ -869,6 +869,18 @@ Państwo w Europie. Stolicą jest miasto Luksemburg.
 
 ---
 
+### Lwiątko {#animal_lion_cub}
+![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
+
+No translation found for 'animal_lion_cub.desc' in Cards
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lion_cub_in_Masai_Mara_National_Park.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
 ### Lód {#ice}
 ![preview ice](../../../assets/img/content/cards/ice.jpg){ loading=lazy }
 
@@ -880,6 +892,18 @@ Zamarznięta woda, która może być bardzo śliska.
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Andreas Tille | [source](https://commons.wikimedia.org/wiki/File:IceBlockNearJoekullsarlon.jpg)
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### lód_arktyczny {#ice_arctic}
+![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
+
+#VALUE!
+
+- Type: Place
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -926,16 +950,6 @@ Naukowiec, który zdobył dwie Nagrody Nobla.
 
 ---
 
-### Market traders {#market_traders}
-People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
-
-- Type: Person
-- Subjects: Money, Community
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-
----
-
 ### Masło {#butter}
 ![preview butter](../../../assets/img/content/cards/butter.jpg){ loading=lazy }
 
@@ -947,6 +961,15 @@ People who sell food and goods at market stalls—like fishmongers, cheesemonger
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC0 | Antoine Vollon | [source](https://commons.wikimedia.org/wiki/File:Antoine_Vollon_-_Mound_of_Butter_-_National_Gallery_of_Art.jpg)
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Matematyka podstawowa {#elementary_maths}
+Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
+
+- Type: None
+- Country: International
+- Topics: [Elementary Math](../topics/index.md#elementary-maths)
 
 ---
 
@@ -1175,6 +1198,18 @@ Biały proszek z pszenicy, używany do wypieku chleba.
 
 ---
 
+### Młody samiec lwa {#animal_lion_young_male}
+![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
+
+No translation found for 'animal_lion_young_male.desc' in Cards
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
 ### Narciarstwo {#skiing}
 ![preview skiing](../../../assets/img/content/cards/skiing.jpg){ loading=lazy }
 
@@ -1339,46 +1374,10 @@ Gra zespołowa, w którą gra się piłką, którą się kopie.
 
 ---
 
-### plant_apple {#plant_apple}
-![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
-
-No translation found for 'plant_apple.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### plant_banana {#plant_banana}
-![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
-
-No translation found for 'plant_banana.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### plant_orange {#plant_orange}
-![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
-
-No translation found for 'plant_orange.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### plant_wattle {#tree_wattle}
 ![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
 
-No translation found for 'tree_wattle.desc' in Cards
+#VALUE!
 
 - Type: Object
 - Country: International
@@ -1611,6 +1610,42 @@ Dwukołowy pojazd, który napędza się pedałami.
 
 ---
 
+### roślina_banan {#plant_banana}
+![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
+
+#VALUE!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### roślina_jabłko {#plant_apple}
+![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
+
+#VALUE!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### roślina_pomarańczowa {#plant_orange}
+![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
+
+#VALUE!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
 ### RYBA {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
@@ -1668,7 +1703,7 @@ Ciepłe okrycia na dłonie.
 ### Samochód {#car}
 ![preview car](../../../assets/img/content/cards/car.jpg){ loading=lazy }
 
-Mały pojazd do jazdy po drogach.
+Mały pojazd przeznaczony do jazdy po drogach.
 
 - Type: Object
 - Subjects: Transportation
@@ -1772,6 +1807,16 @@ Sam szczyt góry.
 
 ---
 
+### Szkoły francuskie {#french_schools}
+We Francji nauka w szkole przebiega w czterech głównych etapach: maternelle (zabawa i nauka dla małych dzieci), école élémentaire (czytanie, pisanie, matematyka), collège (szkoła średnia) i lycée (szkoła średnia). Na koniec lycée wielu uczniów zdaje ważny egzamin baccalauréat („le bac”).
+
+- Type: Concept
+- Subjects: Education, Civics, Culture
+- Country: International
+- Topics: [French School](../topics/index.md#frenchschool)
+
+---
+
 ### Szwajcaria {#country_switzerland}
 ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ loading=lazy }
 
@@ -1782,6 +1827,18 @@ Kraj w Europie. Stolicą jest Berno. Szwajcaria słynie z gór i sera.
 - Country: International
 - Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg)
+
+---
+
+### Szympans {#animal_chimpanzee}
+![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
+
+No translation found for 'animal_chimpanzee.desc' in Cards
+
+- Type: None
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1850,6 +1907,16 @@ Torba, w której uczniowie noszą do szkoły książki, ołówki i prace domowe.
 - Country: International
 - Image credit: CC0
 - Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
+
+---
+
+### Traderzy rynkowi {#market_traders}
+Ludzie sprzedający żywność i towary na straganach targowych – jak sprzedawcy ryb, serów i owoców. Ważą, pakują i wykrzykują dzisiejsze ceny.
+
+- Type: Person
+- Subjects: Money, Community
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
 
 ---
 
@@ -1974,7 +2041,7 @@ Woda jest niezbędna do życia
 ### Wspinaczka {#climbing}
 ![preview climbing](../../../assets/img/content/cards/climbing.jpg){ loading=lazy }
 
-Wchodzenie na skały lub lód przy użyciu specjalnego sprzętu.
+Wspinaczka po skałach lub lodzie przy użyciu specjalnego sprzętu.
 
 - Type: Concept
 - Subjects: Sport, Safety, Recreation
@@ -1997,18 +2064,6 @@ Osoba sprzedająca różnego rodzaju żywność i napoje.
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
 - Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Young Lion Male {#animal_lion_young_male}
-![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
-
-No translation found for 'animal_lion_young_male.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -2051,8 +2106,8 @@ Czerwony znak oznaczający, że musisz zatrzymać pojazd.
 
 ---
 
-### Zoo Animals {#zoo_animals}
-Auto-created card for topic 'Zoo Animals'.
+### Zwierzęta z zoo {#zoo_animals}
+Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 
 - Type: None
 - Country: International
@@ -2152,7 +2207,7 @@ Bardzo wysokie zwierzę z długą szyją. Żyrafy są wyższe niż drzewa! Zjada
 
 ## France
 
-### 20000 Leagues Under the Sea {#book_20000_leagues_under_the_sea}
+### 20 000 mil podmorskiej żeglugi {#book_20000_leagues_under_the_sea}
 ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
 A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
@@ -2194,21 +2249,6 @@ Pierwsze słowa pierwszego wersu hymnu.
 
 ---
 
-### Around the World in Eighty Days {#book_around_the_world_80_days}
-![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
-
-An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
-
-- Type: Object
-- Subjects: Literature
-- Year: 1873
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Bagietka francuska {#food_baguette}
 ![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ loading=lazy }
 
@@ -2221,7 +2261,21 @@ Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie 
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md), [DEV (dev)](../quests/quest/dev.md)
+
+---
+
+### Balon na ogrzane powietrze {#hot_air_balloon}
+![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ loading=lazy }
+
+Balon latający na gorące powietrze. Pierwszy taki balon poleciał we Francji.
+
+- Type: Object
+- Subjects: Transportation
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2320,6 +2374,21 @@ Słynny francuski region z wieloma zamkami.
 
 ---
 
+### Dookoła świata w osiemdziesiąt dni {#book_around_the_world_80_days}
+![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
+
+An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
+
+- Type: Object
+- Subjects: Literature
+- Year: 1873
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
+
+---
+
 ### Dworzec kolejowy Le Mans {#le_mans_train_station}
 ![preview le_mans_train_station](../../../assets/img/content/cards/le_mans_train_station.jpg){ loading=lazy }
 
@@ -2384,20 +2453,6 @@ Nuta muzyczna.
 - Subjects: Culture, Technology
 - Country: France
 - Image credit: CC_BY_SA | Scotch Mist | [source](https://commons.wikimedia.org/wiki/File:Brzeg_Castle_03.jpg)
-
----
-
-### Five Weeks in a Balloon {#book_five_weeks_in_a_balloon}
-![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
-
-A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
-
-- Type: Object
-- Subjects: Literature
-- Year: 1863
-- Country: France
-- Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2484,21 +2539,6 @@ Odważni żeglarze, którzy żeglowali po morzach dla króla Francji. Nazywano i
 
 ---
 
-### From the Earth to the Moon {#book_from_earth_to_moon}
-![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
-
-A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
-
-- Type: Object
-- Subjects: Literature, Space, Science
-- Year: 1865
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Gargulec {#gargoyle}
 ![preview gargoyle](../../../assets/img/content/cards/gargoyle.jpg){ loading=lazy }
 
@@ -2527,24 +2567,10 @@ Człowiek, który zbudował Wieżę Eiffla! Był inżynierem, który uwielbiał 
 
 ---
 
-### Hot-Air Balloon {#hot_air_balloon}
-![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ loading=lazy }
-
-A balloon that flies using hot air. The first one flew in France.
-
-- Type: Object
-- Subjects: Transportation
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Jean Michel Jarre {#jean_michel_jarre}
 ![preview jean_michel_jarre](../../../assets/img/content/cards/jean_michel_jarre.jpg){ loading=lazy }
 
-A French musician famous for electronic music
+Francuski muzyk znany z muzyki elektronicznej
 
 - Type: Person
 - Subjects: Music, Culture, Technology
@@ -2554,10 +2580,10 @@ A French musician famous for electronic music
 
 ---
 
-### Jules Verne {#jules_verne}
+### Juliusz Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
-A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
+Francuski pisarz, który wyobrażał sobie niesamowite przygody, zanim stały się możliwe! Pisał o okrętach podwodnych, rakietach i podróżach po świecie.
 
 - Rationale: Jules Verne shows kids how imagination and science can work together
 - Type: Person
@@ -3012,6 +3038,20 @@ Specjalny sposób pisania, w którym wszystkie litery w słowie są połączone.
 
 ---
 
+### Pięć tygodni w balonie {#book_five_weeks_in_a_balloon}
+![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
+
+A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
+
+- Type: Object
+- Subjects: Literature
+- Year: 1863
+- Country: France
+- Image credit: CC0
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
+
+---
+
 ### Pożar Notre-Dame {#notre_dame_de_paris_fire}
 ![preview notre_dame_de_paris_fire](../../../assets/img/content/cards/notre_dame_de_paris_fire.jpg){ loading=lazy }
 
@@ -3341,6 +3381,21 @@ Wielka światowa wystawa, na której pokazano Wieżę Eiffla.
 
 ---
 
+### Z Ziemi na Księżyc {#book_from_earth_to_moon}
+![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
+
+Książka Juliusza Verne'a o podróży na Księżyc w wielkiej armacie! Została napisana, zanim jeszcze istniały prawdziwe rakiety.
+
+- Type: Object
+- Subjects: Literature, Space, Science
+- Year: 1865
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
+
+---
+
 ### Zamek Chambord {#chateau_de_chambord}
 ![preview chateau_de_chambord](../../../assets/img/content/cards/chateau_de_chambord.jpg){ loading=lazy }
 
@@ -3356,7 +3411,7 @@ Wspaniały pałac z wieloma oknami i ogrodami.
 ### Zamek Chinon {#castle_chinon}
 ![preview castle_chinon](../../../assets/img/content/cards/castle_chinon.jpg){ loading=lazy }
 
-Zamek Chinon to potężna kamienna twierdza na wzgórzu nad rzeką w Dolinie Loary. Dawno temu przebywali tu królowie, a Joanna d'Arc przybyła tu, aby spotkać się z przyszłym królem Francji.
+Zamek Chinon to potężna kamienna twierdza na wzgórzu nad rzeką w Dolinie Loary. Dawno temu zatrzymywali się tu królowie, a Joanna d'Arc przybyła tu, aby spotkać się z przyszłym królem Francji.
 
 - Type: Place
 - Subjects: History
@@ -3403,6 +3458,18 @@ Białe pasy tam, gdzie ludzie przechodzą przez ulicę.
 
 ---
 
+### Łuk Triumfalny {#arc_de_triomphe}
+![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
+
+No translation found for 'arc_de_triomphe.desc' in Cards
+
+- Type: Place
+- Country: France
+- Image credit: CC0
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
+
+---
+
 ### Łódź podwodna (Nautilus) {#submarine_nautilus}
 ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ loading=lazy }
 
@@ -3431,6 +3498,33 @@ Ogromne muzeum pełne sztuki. To tu mieszka Mona Lisa.
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ## Poland
+
+### animal_elephant_adult {#animal_elephant_adult}
+![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### animal_elephant_baby {#animal_elephant_baby}
+![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### animal_elephant_young {#animal_elephant_young}
+![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
 
 ### Astronomia {#astronomy}
 ![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
@@ -3483,6 +3577,20 @@ Błyszcząca skamieniała żywica drzewna zwana „Bałtyckim Złotem”.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Fuerte_Amber,_Amber,_India,_2009-12-04,_DD_0019.jpg)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Bursztynowy Pokój {#amber_room}
+![preview amber_room](../../../assets/img/content/cards/amber_room.jpg){ loading=lazy }
+
+Słynny pokój z bursztynu o tajemniczej historii.
+
+- Type: Concept
+- Subjects: History, Culture
+- Country: Poland
+- Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
+- Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
 - Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
@@ -3738,7 +3846,7 @@ Malutkie figurki w całym mieście, które uwielbiają płatać figle.
 ### Krasnolud Klucznik {#keymaster_dwarf}
 ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
 
-Posąg krasnoluda pilnującego windy z dużym kluczem.
+Posąg krasnala pilnującego windy z dużym kluczem.
 
 - Type: Object
 - Subjects: Culture
@@ -3792,23 +3900,23 @@ Zabytkowa latarnia morska, która pomaga statkom znaleźć port.
 
 ---
 
-### Leonardo da Vinci Primary School {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+### Mapa rzeki Odry {#odra_river_map}
+![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
 
-It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
+Prosta mapa przedstawiająca rzekę Odrę w Polsce i jej ujście do Morza Bałtyckiego
 
 - Type: None
-- Subjects: Education
+- Subjects: Geography
 - Country: Poland
 - Image credit: CC0
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
-### Map of Wroklaw {#wroklaw_map}
+### Mapa Wrocławia {#wroklaw_map}
 ![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
 
-A simple map of Wrocław showing the Odra River with its islands and many bridges
+Prosta mapa Wrocławia przedstawiająca rzekę Odrę z wyspami i wieloma mostami
 
 - Type: None
 - Subjects: Geography
@@ -3821,7 +3929,7 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 ### Maria Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
-Genialna polska naukowiec, która odkryła radioaktywność. Była pierwszą kobietą, która otrzymała Nagrodę Nobla i to dwukrotnie!
+Genialna polska naukowiec, która odkryła promieniotwórczość. Była pierwszą kobietą, która otrzymała Nagrodę Nobla i to dwukrotnie!
 
 - Rationale: Maria Curie inspires kids (especially girls) to pursue science and shows Polish contributions to science
 - Type: Person
@@ -4083,19 +4191,6 @@ Przezroczysta szyba lub plastik, która załamuje światło.
 
 ---
 
-### Odra river map {#odra_river_map}
-![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
-
-A simple map that shows the Odra River in Poland and the way it flows to the Baltic Sea
-
-- Type: None
-- Subjects: Geography
-- Country: Poland
-- Image credit: CC0
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
-
----
-
 ### Ogród Zoologiczny we Wrocławiu {#wroclaw_zoo}
 ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ loading=lazy }
 
@@ -4204,16 +4299,6 @@ tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtow
 
 ---
 
-### Pierogi Recipe {#pierogi_recipe}
-Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
-
-- Type: Object
-- Subjects: Food
-- Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
-
----
-
 ### Planetarium {#planetarium}
 ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ loading=lazy }
 
@@ -4244,24 +4329,10 @@ Tablica z prostymi faktami, które pomogą Ci się uczyć.
 
 ---
 
-### Pokój Bursztynowy {#amber_room}
-![preview amber_room](../../../assets/img/content/cards/amber_room.jpg){ loading=lazy }
-
-Słynny pokój z bursztynu o tajemniczej historii.
-
-- Type: Concept
-- Subjects: History, Culture
-- Country: Poland
-- Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
-- Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
-
----
-
 ### Polskie krasnale (wrocławskie krasnale) {#polish_dwarf}
 ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ loading=lazy }
 
-Małe figurki krasnali kryją się we Wrocławiu. Ich odnalezienie to fajna gra miejska.
+Małe figurki krasnali kryją się we Wrocławiu. Ich znalezienie to fajna gra miejska.
 
 - Type: Concept
 - Subjects: Community, Culture
@@ -4314,6 +4385,16 @@ Miejsce, w którym statki załadowują się i rozładowują.
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
 - Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Przepis na pierogi {#pierogi_recipe}
+Wyrób miękkie ciasto, nałóż na nie puree ziemniaczane i serek wiejski, zamknij i gotuj, aż ciasto wypłynie na powierzchnię – następnie smaż na patelni z cebulą na maśle.
+
+- Type: Object
+- Subjects: Food
+- Country: Poland
+- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
 
 ---
 
@@ -4505,6 +4586,19 @@ Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg można zoba
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | Grzegorz Polak, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Syrenka_Warszawska.jpg)
 - Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Szkoła Podstawowa Leonarda da Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+To przyjazne miejsce, w którym dzieci uczą się, tworzą i odkrywają, kierując się ciekawością, sztuką i nauką.
+
+- Type: None
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
