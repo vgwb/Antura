@@ -7,7 +7,7 @@ namespace Antura.Discover
     /// <summary>
     /// Basic information about a country
     /// </summary>
-    [CreateAssetMenu(fileName = "CountryData", menuName = "Antura/Discover/Country Data", order = 0)]
+    [CreateAssetMenu(fileName = "CountryData", menuName = "Antura/Discover/Country Data")]
     public class CountryData : ScriptableObject
     {
         public Countries CountryId;

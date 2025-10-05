@@ -19,7 +19,7 @@ namespace Antura.Discover
 
     // This is the "Knowledge Molecule" of the Discover module.
     // It contains a core card and a set of connected cards, each with a connection type and strength.
-    [CreateAssetMenu(fileName = "TopicData", menuName = "Antura/Discover/Topic Data")]
+    [CreateAssetMenu(fileName = "TopicData", menuName = "Antura/Discover Data/Topic Data")]
     public class TopicData : IdentifiedData
     {
         [Header("Topic")]

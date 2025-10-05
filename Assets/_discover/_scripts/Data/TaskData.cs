@@ -25,7 +25,7 @@ namespace Antura.Discover
         Performance = 3
     }
 
-    [CreateAssetMenu(fileName = "TaskData", menuName = "Antura/Discover/Task")]
+    [CreateAssetMenu(fileName = "TaskData", menuName = "Antura/Discover Data/Task")]
     public class TaskData : IdentifiedData
     {
         [Header("Identity")]

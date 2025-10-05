@@ -21,7 +21,7 @@ namespace Antura.Discover
         Dino = 10,
     }
 
-    [CreateAssetMenu(fileName = "ActivityData", menuName = "Antura/Discover/Activity")]
+    [CreateAssetMenu(fileName = "ActivityData", menuName = "Antura/Discover/Activity Data")]
     public class ActivityData : IdentifiedData
     {
         [Tooltip("Development status of this Activity")]

@@ -14,7 +14,7 @@ namespace Antura.Discover
         public bool Validation;
     }
 
-    [CreateAssetMenu(fileName = "AuthorData", menuName = "Antura/Discover/Author", order = 1)]
+    [CreateAssetMenu(fileName = "AuthorData", menuName = "Antura/Discover/Author")]
     public class AuthorData : ScriptableObject
     {
         public string Name;

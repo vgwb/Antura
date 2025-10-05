@@ -15,7 +15,7 @@ using UnityEditor;
 
 namespace Antura.Discover
 {
-    [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover/Quest Data")]
+    [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover Data/Quest Data")]
     public class QuestData : IdentifiedData
     {
         public YarnProject YarnProject;

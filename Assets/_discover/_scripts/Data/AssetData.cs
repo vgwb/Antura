@@ -15,7 +15,7 @@ using UnityEditor.AddressableAssets.Settings.GroupSchemas;
 
 namespace Antura.Discover
 {
-    [CreateAssetMenu(fileName = "AssetData", menuName = "Antura/Discover/Asset", order = 1)]
+    [CreateAssetMenu(fileName = "AssetData", menuName = "Antura/Discover Data/Asset")]
     public class AssetData : IdentifiedData
     {
         public Status Status = Status.Draft;

@@ -7,7 +7,7 @@ using UnityEngine.Localization;
 
 namespace Antura.Discover
 {
-    [CreateAssetMenu(fileName = "WordData", menuName = "Antura/Discover/Word Data")]
+    [CreateAssetMenu(fileName = "WordData", menuName = "Antura/Discover Data/Word Data")]
     public class WordData : IdentifiedData
     {
         public bool Active;

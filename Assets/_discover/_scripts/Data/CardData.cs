@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 namespace Antura.Discover
 {
     // This is the "Knowledge Atom" of the Discover module.
-    [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
+    [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover Data/Card Data")]
     public class CardData : IdentifiedData
     {
         public Status Status = Status.Draft;

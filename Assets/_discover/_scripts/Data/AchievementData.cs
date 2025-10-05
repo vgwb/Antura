@@ -11,7 +11,7 @@ namespace Antura.Discover
         QuestSpecific = 2,
     }
 
-    [CreateAssetMenu(fileName = "AchievementData", menuName = "Antura/Discover/Achievement", order = 1)]
+    [CreateAssetMenu(fileName = "AchievementData", menuName = "Antura/Discover/Achievement")]
     public class AchievementData : IdentifiedData
     {
         [Header("Content")]
