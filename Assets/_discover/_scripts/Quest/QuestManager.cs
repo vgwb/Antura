@@ -102,8 +102,9 @@ namespace Antura.Discover
             ApplyInteractableDebugLabels(DebugMode);
 
             // TODO, maybe in taskmanager
-            UIManager.I.ProgressDisplay.Setup(30);
+            UIManager.I.ProgressDisplay.Setup(CurrentQuest.ProgressPoints > 0 ? CurrentQuest.ProgressPoints : TaskManager.GetMaxPoints());
         }
+
         void OnEnable()
         {
             // setup World

@@ -14,12 +14,18 @@ namespace Antura.Discover
         #region Serialized
 
         [Header("References")]
+
         [DeEmptyAlert]
-        [SerializeField] RectTransform progressBar;
+        [SerializeField]
+        RectTransform progressBar;
+
         [DeEmptyAlert]
-        [SerializeField] Image progressFill;
+        [SerializeField]
+        Image progressFill;
+
         [DeEmptyAlert]
-        [SerializeField] ProgressStar[] stars;
+        [SerializeField]
+        ProgressStar[] stars;
 
         #endregion
 
@@ -89,7 +95,19 @@ namespace Antura.Discover
 
             CurrScore = 0;
             maxScore = pMaxScore;
-            float barH = progressBar.sizeDelta.y;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(progressBar);
+
+            float barH = progressBar.rect.height;
+            if (barH <= 0f)
+            {
+                barH = progressBar.sizeDelta.y;
+            }
+
+            if (Mathf.Approximately(barH, 0f))
+            {
+                Debug.LogWarning("ProgressDisplay.Show: progress bar height is zero; stars cannot be positioned correctly.");
+            }
+
             for (int i = 0; i < stars.Length; i++)
             {
                 ProgressStar star = stars[i];
@@ -131,7 +149,7 @@ namespace Antura.Discover
 
         void Refresh()
         {
-            progressFill.fillAmount = (float)CurrScore / maxScore;
+            progressFill.fillAmount = maxScore > 0 ? (float)CurrScore / maxScore : 0f;
             for (int i = 0; i < stars.Length; i++)
             {
                 if (stars[i].MinRequiredScore <= CurrScore)

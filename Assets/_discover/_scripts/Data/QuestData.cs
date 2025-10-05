@@ -5,7 +5,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Localization;
-using UnityEngine.Localization.Tables;
 using Yarn.Unity;
 using UnityEngine.Serialization;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -93,6 +92,9 @@ namespace Antura.Discover
         public Difficulty Difficulty;
         [Tooltip("In minutes.. approximately how long it takes to complete the quest.")]
         public int Duration;
+
+        [Tooltip("Progress points given when completed. If 0 then it is calculated automatically")]
+        public int ProgressPoints;
 
         [Tooltip("Does this quest require any other quest to be completed first?")]
         public List<QuestData> Dependencies;

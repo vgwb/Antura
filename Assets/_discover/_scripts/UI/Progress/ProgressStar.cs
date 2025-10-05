@@ -11,10 +11,12 @@ namespace Antura.Discover
         #region Serialized
 
         [DeEmptyAlert]
-        [SerializeField] UnityEngine.UI.Image star;
+        [SerializeField]
+        UnityEngine.UI.Image star;
 
         [DeEmptyAlert]
-        [SerializeField] GameObject line;
+        [SerializeField]
+        GameObject line;
 
         #endregion
 
@@ -56,12 +58,12 @@ namespace Antura.Discover
             Achieved = achieve;
             if (Achieved)
             {
-                line.SetActive(true);
+                // line.SetActive(true);
                 achievedTween.Restart();
             }
             else
             {
-                line.SetActive(false);
+                // line.SetActive(false);
                 achievedTween.Rewind();
             }
         }

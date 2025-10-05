@@ -18,6 +18,9 @@ namespace Antura.Discover
         private readonly Dictionary<string, TaskState> _statesByCode = new Dictionary<string, TaskState>();
         private string _currentTaskCode;
 
+        private int maxPoints = 0;
+        public int GetMaxPoints() { return maxPoints; }
+
         public string CurrentTaskCode => _currentTaskCode;
 
         public QuestTaskManager(QuestManager quest)
@@ -46,6 +49,7 @@ namespace Antura.Discover
                     Completed = false,
                     NodeReturn = string.Empty
                 };
+                maxPoints += t.GetSuccessPoints();
             }
         }
 
