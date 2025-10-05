@@ -22,12 +22,6 @@ namespace Antura.Core
     [CreateAssetMenu(menuName = "Antura/Core/Config App Edition")]
     public class AppEditionConfig : ScriptableObject
     {
-        [Header("Edition")]
-        public AppEditionID editionID;
-        public ContentConfig[] ContentConfigs;
-        public LanguageCode[] SupportedNativeLanguages;
-        public bool HasMultipleContentEditions => ContentConfigs != null && ContentConfigs.Length > 1;
-
         [Header("Settings - Application")]
         /// <summary>
         /// Version of the application. Displayed in the Home scene.
@@ -54,6 +48,12 @@ namespace Antura.Core
 
         [Tooltip("Try to set the native language to the device language, otherwise use the default NativeLanguage")]
         public bool DetectSystemLanguage;
+
+        [Header("Edition")]
+        public AppEditionID editionID;
+        public ContentConfig[] ContentConfigs;
+        public LanguageCode[] SupportedNativeLanguages;
+        public bool HasMultipleContentEditions => ContentConfigs != null && ContentConfigs.Length > 1;
 
         [Header("Settings - Reserved Area")]
 

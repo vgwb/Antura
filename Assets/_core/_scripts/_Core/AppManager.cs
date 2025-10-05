@@ -96,6 +96,8 @@ namespace Antura.Core
             }
             alreadySetup = true;
 
+            Debug.Log(">> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString());
+
             if (DebugConfig.I.AddressablesBlockingLoad)
             {
                 BlockingCoroutine(InitCO());
