@@ -3282,6 +3282,7 @@ GameObject:
   - component: {fileID: 2481718725661046561}
   - component: {fileID: 8547021828688972590}
   - component: {fileID: 1612372093727254834}
+  - component: {fileID: 3817835096485539280}
   m_Layer: 5
   m_Name: Debug Vars
   m_TagString: Untagged
@@ -3306,7 +3307,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 10, y: 10}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8547021828688972590
 CanvasRenderer:
@@ -3408,6 +3409,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3817835096485539280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650488358927638315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6db7edc04c4f3e8853a276ceb9949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Utilities.PlatformVisibility
+  EditorOnly: 1
+  PlatformType: 0
 --- !u!1 &8022359169616476423
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,11 +5240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6db7edc04c4f3e8853a276ceb9949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConditionSetting: 0
-  MobileOnly: 1
-  AndroidOnly: 0
-  DesktopOnly: 0
-  editionIDOnly: 0
+  EditorOnly: 0
+  PlatformType: 0
 --- !u!1 &2292878175192583044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8803517679608742270, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,

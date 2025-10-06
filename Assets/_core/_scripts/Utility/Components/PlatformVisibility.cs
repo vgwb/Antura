@@ -5,11 +5,13 @@ namespace Antura.Utilities
 {
     public class PlatformVisibility : MonoBehaviour
     {
+        public bool EditorOnly;
         public enum Platform
         {
-            Mobile,
-            Android,
-            Desktop
+            All = 0,
+            Mobile = 1,
+            Android = 2,
+            Desktop = 3
         }
 
         [Header("Visible ONLY on this platform:")]
@@ -19,6 +21,11 @@ namespace Antura.Utilities
         {
 
             bool visible = false;
+
+            if (EditorOnly && Application.isEditor)
+            {
+                visible = true;
+            }
 
             if (PlatformType == Platform.Mobile && AppConfig.IsMobilePlatform())
             {
