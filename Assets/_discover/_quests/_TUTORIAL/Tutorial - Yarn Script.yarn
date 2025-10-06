@@ -22,7 +22,14 @@ type: panel
 actor: NARRATOR
 ---
 Welcome to the Tutorial! #line:021793f 
-Here we learn how to play. #line:0588c17 
+Here we learn how to play. #line:0588c17
+<<if $IS_DESKTOP>>
+    <<asset keys_wasd zoom>>
+    Use the keys WASD to walk. #line:037d71d 
+<<else>>
+    <<asset tutorial_move zoom>>
+    Use your left finger to walk #line:0e55bc4 
+<<endif>>
 ===
 
 
@@ -36,12 +43,6 @@ Touch this text to hear it in your language. #line:03dbfa7 #native
 Use this button to advance the dialog. #line:0f4f069 
 <<asset tutorial_image>>
 Use this button to view the photo #line:0784704 
-<<if $IS_DESKTOP>>
-    Use the keys WASD to walk. #line:037d71d 
-<<else>>
-    <<asset tutorial_move>>
-    Use your left finger to walk #line:0e55bc4 
-<<endif>>
 Go and talk to next tutor! #line:0eb85aa 
 <<action area_medium>>
 ===
@@ -116,7 +117,7 @@ title: tutor_8_interact
 position: 1046,0
 tags: 
 ---
-<<asset  tutorial_actions>>
+<<asset tutorial_actions>>
 Explore all objects that have this icon. #line:0139142 
 ===
 
@@ -134,7 +135,8 @@ title: tutor_10_follow
 position: 217,199
 tags: 
 ---
-<<asset tutorial_follow>>
+<<card antura_target>>
+<<target target_11>>
 If you get lost, follow this icon. #line:06c117d 
 ===
 
@@ -144,6 +146,8 @@ position: 227,519
 tags: 
 ---
 <<action area_all>>
+<<target off>>
+<<camera_focus camera_coin>>
 Let me see if you learned: climb the stairs and get that coin! #line:0fe9efe 
 ===
 
@@ -236,6 +240,32 @@ tags:
 This symbol shows you where to go. #line:0864faf 
 ===
 
+title: activity_memory
+position: 1888,1254
+group: activities
+color: purple
+---
+Let's play Activity MEMORY! #line:05e100e 
+Find the pairs of cards. #line:0ef88ae 
+<<activity memory_tutorial activity_memory_result tutorial>>
+===
+
+title: activity_memory_result
+position: 1885,1400
+group: activities
+color: purple
+---
+It's good to exercise our memory! #line:00e6a04 
+Do you want to play again? #line:0c78a9e 
+-> Easy #line:0cd0316 
+    <<activity memory_tutorial activity_memory_result easy>>
+-> Normal #line:07cbfdd 
+    <<activity memory_tutorial activity_memory_result normal>>
+-> Expert #line:0e3251c 
+    <<activity memory_tutorial activity_memory_result expert>>
+-> No #highlight #line:010515b 
+===
+
 
 title: activity_canvas
 position: 1359,1253
@@ -244,7 +274,7 @@ color: purple
 ---
 Let's play Activity CANVAS #line:07041b3 
 You have to clean all the screen without touching Antura! #line:0c80adc 
-<<activity canvas_tutorial activity_canvas_result>>
+<<activity canvas_tutorial activity_canvas_result tutorial>>
 
 ===
 title: activity_canvas_result
@@ -252,7 +282,15 @@ position: 1358,1395
 group: activities
 color: purple
 ---
-It's nice to clean, isn't it? #line:059323a 
+It's nice to clean, isn't it? #line:059323a
+Do you want to play again? #line:0cb9ba3 
+-> Easy #line:04f5fb1 
+    <<activity canvas_tutorial activity_canvas_result easy>>
+-> Normal #line:02fef35 
+    <<activity canvas_tutorial activity_canvas_result normal>>
+-> Expert #line:02eec35 
+    <<activity canvas_tutorial activity_canvas_result expert>>
+-> No #highlight #line:0e863cb 
 ===
 
 title: activity_jigsaw
@@ -262,7 +300,7 @@ color: purple
 ---
 Let's play Activity JIGSAW PUZZLE! #line:0fe648a 
 Complete the image. #line:0bc50ca 
-<<activity jigsaw_tutorial activity_jigsaw_result>>
+<<activity jigsaw_tutorial activity_jigsaw_result tutorial>>
 ===
 
 title: activity_jigsaw_result
@@ -271,24 +309,14 @@ group: activities
 color: purple
 ---
 I love puzzles! #line:0fc42d8 
-===
-
-title: activity_memory
-position: 1888,1254
-group: activities
-color: purple
----
-Let's play Activity MEMORY! #line:05e100e 
-Find the pairs of cards. #line:0ef88ae 
-<<activity memory_tutorial activity_memory_result expert>>
-===
-
-title: activity_memory_result
-position: 1885,1400
-group: activities
-color: purple
----
-It's good to exercise our memory! #line:00e6a04 
+Do you want to play again? #line:0c4ff24 
+-> Easy #line:0954fe5 
+    <<activity jigsaw_tutorial activity_jigsaw_result easy>>
+-> Normal #line:000c3d6 
+    <<activity jigsaw_tutorial activity_jigsaw_result normal>>
+-> Expert #line:059ec4a 
+    <<activity jigsaw_tutorial activity_jigsaw_result expert>>
+-> No #highlight #line:0532802 
 ===
 
 title: activity_match
@@ -298,7 +326,7 @@ color: purple
 ---
 Let's play Activity MATCH! #line:07c8447 
 Match the similar cards. #line:02aec90 
-<<activity match_tutorial activity_match_result>>
+<<activity match_tutorial activity_match_result tutorial>>
 ===
 
 title: activity_match_result
@@ -306,7 +334,15 @@ position: 2113,1403
 group: activities
 color: purple
 ---
-Nice matching! #line:0f0ee2e 
+Nice matching! #line:0f0ee2e
+Do you want to play again? #line:004c965 
+-> Easy #line:01edc32 
+    <<activity match_tutorial activity_match_result easy>>
+-> Normal #line:07dd1f5 
+    <<activity match_tutorial activity_match_result normal>>
+-> Expert #line:03da90e 
+    <<activity match_tutorial activity_match_result expert>>
+-> No #highlight #line:0f413e8 
 ===
 
 title: activity_money
@@ -316,7 +352,7 @@ color: purple
 ---
 Let's play Activity COUNT THE MONEY! #line:06b295f 
 You have to give the correct amount of coins. #line:0f00e5d 
-<<activity money_tutorial activity_money_result>>
+<<activity money_tutorial activity_money_result tutorial>>
 ===
 
 title: activity_money_result
@@ -324,7 +360,15 @@ position: 2359,1407
 group: activities
 color: purple
 ---
-It's important to learn how to use money! #line:06136c1 
+It's important to learn how to use money! #line:06136c1
+Do you want to play again? #line:0f807bd 
+-> Easy #line:084b4a8 
+    <<activity money_tutorial activity_money_result easy>>
+-> Normal #line:00f0e0f 
+    <<activity money_tutorial activity_money_result normal>>
+-> Expert #line:0a78802 
+    <<activity money_tutorial activity_money_result expert>>
+-> No #highlight #line:02c75c6 
 ===
 
 title: activity_order
@@ -338,11 +382,19 @@ Put the items in the correct order. #line:0ed152d
 ===
 
 title: activity_order_result
-position: 2592,1398
+position: 2592,1392
 group: activities
 color: purple
 ---
 Good activity. #line:0838f7f 
+Do you want to play again? #line:06bb133 
+-> Easy #line:04c0d23 
+    <<activity order_tutorial activity_order_result easy>>
+-> Normal #line:0758cd7 
+    <<activity order_tutorial activity_order_result normal>>
+-> Expert #line:0879058 
+    <<activity order_tutorial activity_order_result expert>>
+-> No #highlight #line:0ea4d7e 
 ===
 
 title: tutor_end
@@ -350,8 +402,9 @@ position: 2592,1398
 group: 
 color: purple
 ---
-This is the end of the tutorial. #line:0dfdfc5 
-Are you ready to play the game? #line:02fea28 
+This is the end of the basic tutorial. #line:0dfdfc5 
+You can now explore the area and talk to everybody #line:02fea28 
+Are you ready to play? #line:0ac17d0 
 -> Yes #line:0b66e60 
     Great. See you soon in the game! #line:07498c0 
     There is much more to discover in Antura. #line:0ed06b6 
@@ -364,8 +417,8 @@ title: ll_skyscraper
 position: 828,619
 actor: ADULT_F
 ---
-It's wonderful to see the city from up here!
-I would like to travel all around the world!
+It's wonderful to see the city from up here! #line:0969b2f 
+I would like to travel all around the world! #line:060db75 
 ===
 
 title: npc_secrets
@@ -400,6 +453,6 @@ title: npc_arcade
 position: 750,-202
 actor: KID_F
 ---
-=> I love videogames!
-=> Do you want to play with me?
+=> I love videogames! #line:0479595 
+=> Do you want to play with me? #line:0d3fdc7 
 ===

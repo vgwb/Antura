@@ -1,11 +1,14 @@
 #nullable enable
+using Antura.Discover;
 using System;
 using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Metadata;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
 using Yarn;
 using Yarn.Markup;
 using Yarn.Unity;
@@ -18,7 +21,7 @@ namespace Antura.Discover
     /// <summary>
     /// Contains Yarn Spinner related metadata for Unity string table entries.
     /// </summary>
-    public class LineMetadata : UnityEngine.Localization.Metadata.IMetadata
+    public class LineMetadata : IMetadata
     {
         /// <summary>
         /// The name of the Yarn node that this line came from.

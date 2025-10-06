@@ -111,9 +111,6 @@ namespace Antura.Discover.Activities
         /// </summary>
         public void BuildBoard()
         {
-            if (Settings == null || Settings.CardsData == null || Settings.CardsData.Count == 0)
-            { Debug.LogError("Memory: missing CardsData"); return; }
-
             // Clear previous grid
             foreach (Transform c in gridParent)
                 Destroy(c.gameObject);
