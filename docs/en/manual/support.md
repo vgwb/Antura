@@ -55,5 +55,10 @@ If the game crashed, please check if the “Crashes” folder exists at the folo
 ```shell
 %LOCALAPPDATA%\Temp\VGWB\Antura
 ```
+
 3. Check if there is folder called "Crashes"
 4. if it exists, please Zip and send us the most recent subfolder (it contains error.log, crash.dmp, etc.)
+
+### macOS
+
+`⌘ + Shift + G` and then `~/Library/Logs/VGWB/Antura/`

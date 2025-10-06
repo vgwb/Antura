@@ -102,7 +102,7 @@ namespace Antura.Discover
 
         private void Start()
         {
-            if (AppManager.I.PlayerProfileManager.CurrentPlayer != null)
+            if (AppManager.I.PlayerProfileManager?.CurrentPlayer != null)
             {
                 InitializeFromLegacyUuid(AppManager.I.PlayerProfileManager.CurrentPlayer.Uuid,
                                          AppManager.I.PlayerProfileManager.CurrentPlayer);
