@@ -34,7 +34,7 @@ namespace Antura.Discover.UI
 
             // Spawn grid
             ClearGrid();
-            foreach (var def in questData.Cards)
+            foreach (var def in questData.GetAllCards())
             {
                 var tile = Instantiate(tilePrefab, gridParent);
                 spawned.Add(tile);
