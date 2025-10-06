@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Antura.Discover;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -26,7 +27,8 @@ namespace Antura.Discover.Activities
         {
             // Default underlay alpha
             underlayAlpha = 0.2f;
-            image = ResolveTexture(PuzzleCard);
+            var card = SelectPuzzleCard();
+            image = ResolveTexture(card) ?? ResolveFallbackTexture(card);
             difficulty = Difficulty;
 
             int baseSize = 4;
@@ -58,6 +60,87 @@ namespace Antura.Discover.Activities
 
             cols = HorizontalPieces > 0 ? HorizontalPieces : baseSize;
             rows = VerticalPieces > 0 ? VerticalPieces : baseSize;
+        }
+
+        private CardData SelectPuzzleCard()
+        {
+            switch (SelectionMode)
+            {
+                case SelectionMode.ManualSet:
+                    return PuzzleCard;
+                case SelectionMode.RandomFromTopic:
+                    var random = ResolveRandomTopicCard();
+                    if (random != null)
+                        return random;
+                    break;
+            }
+
+            if (PuzzleCard != null)
+                return PuzzleCard;
+
+            return MainTopic?.CoreCard;
+        }
+
+        private CardData ResolveRandomTopicCard()
+        {
+            if (MainTopic == null)
+                return null;
+
+            List<CardData> cards = MainTopic.GetAllCards();
+            if (cards == null || cards.Count == 0)
+                return null;
+
+            // Prefer cards that actually have textures available.
+            var textured = new List<CardData>();
+            for (int i = 0; i < cards.Count; i++)
+            {
+                var card = cards[i];
+                if (card == null)
+                    continue;
+                if (HasTexture(card))
+                    textured.Add(card);
+            }
+
+            var source = textured.Count > 0 ? textured : cards;
+            if (source.Count == 0)
+                return null;
+
+            int idx = Random.Range(0, source.Count);
+            return source[idx];
+        }
+
+        private static bool HasTexture(CardData card)
+        {
+            if (card == null)
+                return false;
+            return card.ImageAsset != null && card.ImageAsset.Image != null && card.ImageAsset.Image.texture != null;
+        }
+
+        private Texture2D ResolveFallbackTexture(CardData card)
+        {
+            // If the primary card had no texture, try fallback order: manual override -> topic cards -> null.
+            if (card != PuzzleCard && PuzzleCard != null)
+            {
+                var tex = ResolveTexture(PuzzleCard);
+                if (tex != null)
+                    return tex;
+            }
+
+            if (MainTopic != null)
+            {
+                var cards = MainTopic.GetAllCards();
+                if (cards != null)
+                {
+                    for (int i = 0; i < cards.Count; i++)
+                    {
+                        var tex = ResolveTexture(cards[i]);
+                        if (tex != null)
+                            return tex;
+                    }
+                }
+            }
+
+            return null;
         }
 
         private static Texture2D ResolveTexture(CardData data)

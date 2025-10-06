@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7af6468ec5ed443382ad4a264476e3b, type: 3}
-  m_Name: Jigsaw Tutorial
+  m_Script: {fileID: 11500000, guid: 7789ac026656849e1b81b19306e853a6, type: 3}
+  m_Name: Money tutorial
   m_EditorClassIdentifier: 
-  Id: jigsaw_tutorial
-  ActivityCode: 5
+  Id: money_tutorial
+  ActivityCode: 7
   Difficulty: 3
   MinRounds: 1
   MaxRounds: 1
@@ -23,8 +23,14 @@ MonoBehaviour:
   PointsEasy: 1
   PointsNormal: 2
   PointsExpert: 3
-  MainTopic: {fileID: 11400000, guid: 63831d209459d4b0c9867d0a5681b69b, type: 2}
-  SelectionMode: 1
-  PuzzleCard: {fileID: 0}
-  HorizontalPieces: 0
-  VerticalPieces: 0
+  MainTopic: {fileID: 0}
+  SelectionMode: 0
+  MoneySet: {fileID: 11400000, guid: fc313f7b930d245ef8a2e6821f6e4395, type: 2}
+  UseFixedTarget: 0
+  FixedTargetAmount: 0
+  RangeMin: 5
+  RangeMax: 20
+  MaxDifficulty: 5
+  CopiesPerBaseItem: 3
+  ExtraCopiesSmallest: 6
+  MaxTrayTokens: 12

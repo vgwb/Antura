@@ -17,6 +17,63 @@ namespace Antura.Discover.Activities
         [Header("--- Activity Memory Settings")]
         public List<CardData> CardsData = new List<CardData>();
 
+        /// <summary>
+        /// Resolves the candidate card pool based on the current selection mode.
+        /// </summary>
+        public List<CardData> ResolveCardPool()
+        {
+            var pool = new List<CardData>();
+
+            switch (SelectionMode)
+            {
+                case SelectionMode.ManualSet:
+                    AppendUnique(CardsData, pool);
+                    break;
+                case SelectionMode.RandomFromTopic:
+                    AppendUnique(GetTopicCards(), pool);
+                    break;
+            }
+
+            if (pool.Count == 0)
+            {
+                AppendUnique(CardsData, pool);
+                AppendUnique(GetTopicCards(), pool);
+            }
+
+            return pool;
+        }
+
+        private List<CardData> GetTopicCards()
+        {
+            if (MainTopic == null)
+                return null;
+            try
+            {
+                return MainTopic.GetAllCards();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static void AppendUnique(List<CardData> source, List<CardData> destination)
+        {
+            if (source == null)
+                return;
+
+            for (int i = 0; i < source.Count; i++)
+            {
+                var card = source[i];
+                if (card == null)
+                    continue;
+                if (!destination.Contains(card))
+                    destination.Add(card);
+            }
+        }
+
+
+
 #if UNITY_EDITOR
         [ContextMenu("Fetch Cards From MainTopic")]
         private void FetchCardsFromMainTopic()

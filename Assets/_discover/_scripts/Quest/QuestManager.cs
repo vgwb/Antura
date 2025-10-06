@@ -331,14 +331,14 @@ namespace Antura.Discover
 
         public void UpateCoinsCounter()
         {
-            total_coins = YarnAnturaManager.I.Variables.TOTAL_COINS;
+            //total_coins = YarnAnturaManager.I.Variables.TOTAL_COINS;
             UIManager.I.CoinsCounter.SetValue(total_coins);
         }
 
         public void OnCollectCoin()
         {
             total_coins++;
-            YarnAnturaManager.I.Variables.TOTAL_COINS = total_coins;
+            //YarnAnturaManager.I.Variables.TOTAL_COINS = total_coins;
             UIManager.I.CoinsCounter.IncreaseByOne();
             Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
         }

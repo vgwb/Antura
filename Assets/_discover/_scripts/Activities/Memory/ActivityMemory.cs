@@ -168,14 +168,22 @@ namespace Antura.Discover.Activities
         private List<(CardData card, Sprite sprite)> BuildUsableCardPool()
         {
             var pool = new List<(CardData, Sprite)>();
-            var cd = Settings.CardsData;
-            if (cd == null)
+            if (Settings == null)
             {
                 return pool;
             }
 
-            foreach (var data in cd)
+            var candidates = Settings.ResolveCardPool();
+            if (candidates == null || candidates.Count == 0)
             {
+                return pool;
+            }
+
+            Shuffle(candidates);
+
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                var data = candidates[i];
                 if (data == null)
                 {
                     continue;
