@@ -21,8 +21,10 @@ namespace Antura.Discover
         public bool cursorInputForLook = true;
 
         private bool _inputsEnabled = true;
+        private bool _movementInputEnabled = true;
 
         public bool InputsEnabled => _inputsEnabled;
+        public bool MovementInputEnabled => _movementInputEnabled && _inputsEnabled;
 
         public void SetInputsEnabled(bool enabled)
         {
@@ -44,9 +46,27 @@ namespace Antura.Discover
             }
         }
 
+        public void SetMovementInputEnabled(bool enabled)
+        {
+            if (_movementInputEnabled == enabled)
+            {
+                return;
+            }
+
+            _movementInputEnabled = enabled;
+
+            if (!enabled)
+            {
+                move = Vector2.zero;
+                look = Vector2.zero;
+                sprint = false;
+                jump = false;
+            }
+        }
+
         public void OnMove(InputValue value)
         {
-            if (!_inputsEnabled)
+            if (!_inputsEnabled || !_movementInputEnabled)
             {
                 MoveInput(Vector2.zero);
                 return;
@@ -57,7 +77,7 @@ namespace Antura.Discover
 
         public void OnLook(InputValue value)
         {
-            if (!_inputsEnabled)
+            if (!_inputsEnabled || !_movementInputEnabled)
             {
                 return;
             }
@@ -70,7 +90,7 @@ namespace Antura.Discover
 
         public void OnJump(InputValue value)
         {
-            if (!_inputsEnabled)
+            if (!_inputsEnabled || !_movementInputEnabled)
             {
                 JumpInput(false);
                 return;
@@ -81,7 +101,7 @@ namespace Antura.Discover
 
         public void OnSprint(InputValue value)
         {
-            if (!_inputsEnabled)
+            if (!_inputsEnabled || !_movementInputEnabled)
             {
                 SprintInput(false);
                 return;
@@ -117,16 +137,22 @@ namespace Antura.Discover
 
         public void MoveInput(Vector2 newMoveDirection)
         {
-            move = _inputsEnabled ? newMoveDirection : Vector2.zero;
+            move = (_inputsEnabled && _movementInputEnabled) ? newMoveDirection : Vector2.zero;
         }
 
         public void LookInput(Vector2 newLookDirection)
         {
-            look = _inputsEnabled ? newLookDirection : Vector2.zero;
+            look = (_inputsEnabled && _movementInputEnabled) ? newLookDirection : Vector2.zero;
         }
 
         public void JumpInput(bool newJumpState)
         {
+            if (!_movementInputEnabled)
+            {
+                jump = false;
+                return;
+            }
+
             if (DiscoverGameManager.I.State != GameplayState.Play3D || InteractionManager.I.HasValidNearbyInteractable)
                 return;
             jump = newJumpState;
@@ -134,7 +160,7 @@ namespace Antura.Discover
 
         public void SprintInput(bool newSprintState)
         {
-            sprint = newSprintState;
+            sprint = (_inputsEnabled && _movementInputEnabled) && newSprintState;
         }
 
         public void ActInput()

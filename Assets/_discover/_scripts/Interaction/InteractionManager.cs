@@ -187,36 +187,47 @@ namespace Antura.Discover
         //     UIManager.I.dialogues.StartDialogue(node);
         // }
 
-        IEnumerator CO_StartDialogue(QuestNode questNode, Interactable interactable)
+        public void StartDialogue(Interactable interactable)
         {
+            player?.SetMovementLock(true);
+
             DiscoverGameManager.I.ChangeState(GameplayState.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
-            if (NearbyInteractable.IsLL)
-                NearbyInteractable.LL.LookAt(player.transform);
+            Interactable activeInteractable = interactable != null ? interactable : NearbyInteractable;
 
-            if (NearbyInteractable.FocusCameraOnInteract)
+            if (activeInteractable != null)
             {
-                CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-                CameraManager.I.SetDialogueModeTarget(NearbyInteractable.LookAtTransform);
-            }
-            UIManager.I.dialogues.HideSignal(interactable, false);
+                if (activeInteractable.IsLL && player != null)
+                {
+                    activeInteractable.LL.LookAt(player.transform);
+                }
 
-            if (questNode == null)
-            {
-                Debug.LogError("QuestNode is NULL, shouldn't happen");
+                if (activeInteractable.FocusCameraOnInteract)
+                {
+                    CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
+                    CameraManager.I.SetDialogueModeTarget(activeInteractable.LookAtTransform);
+                }
+
+                UIManager.I.dialogues.HideSignal(activeInteractable, false);
             }
-            else
-            {
-                yield return new WaitForSeconds(0.5f);
-                UIManager.I.dialogues.StartDialogue(questNode);
-            }
-            coStartDialogue = null;
+
+            // if (questNode == null)
+            // {
+            //     Debug.LogError("QuestNode is NULL, shouldn't happen");
+            // }
+            // else
+            // {
+            //     yield return new WaitForSeconds(0.5f);
+            //     UIManager.I.dialogues.StartDialogue(questNode);
+            // }
+            // coStartDialogue = null;
         }
 
         void ExitDialogue()
         {
             DiscoverGameManager.I.ChangeState(GameplayState.Play3D);
+            player?.SetMovementLock(false);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
             if (HasValidNearbyInteractable)
                 UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);

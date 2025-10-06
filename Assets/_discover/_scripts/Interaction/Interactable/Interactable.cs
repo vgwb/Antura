@@ -191,6 +191,7 @@ namespace Antura.Discover
 
             if (DialogueNode != null && DialogueNode.nodeName != "")
             {
+                InteractionManager.I.StartDialogue(this);
                 QuestManager.I.StartDialogue(DialogueNode.nodeName);
             }
             else if (NodePermalink != "")

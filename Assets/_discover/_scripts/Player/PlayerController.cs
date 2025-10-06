@@ -181,6 +181,10 @@ namespace Antura.Discover
         private Vector3 _slopeNormal;
         private float _slopeAngle;
 
+        private bool _movementLocked;
+        private Vector3 _frozenPosition;
+        private Quaternion _frozenRotation;
+
         private float GetSlopeLimit()
         {
             return _character.Motor.MaxStableSlopeAngle;
@@ -238,6 +242,7 @@ namespace Antura.Discover
 
         private void Update()
         {
+            MaintainFrozenTransform();
             GroundedCheck();
             Move();
             JumpAndGravity();
@@ -283,6 +288,11 @@ namespace Antura.Discover
                 _speed = 0f;
                 _moveVelocity = Vector3.zero;
                 _slideVelocity = Vector3.zero;
+                return;
+            }
+
+            if (_movementLocked)
+            {
                 return;
             }
 
@@ -871,6 +881,110 @@ namespace Antura.Discover
             BeginTeleportToSpawn();
         }
 
+        public void SetMovementLock(bool locked)
+        {
+            if (_movementLocked == locked)
+            {
+                return;
+            }
+
+            if (_input == null)
+            {
+                _input = GetComponent<StarterAssetsInputs>();
+            }
+
+            _movementLocked = locked;
+            _input?.SetMovementInputEnabled(!locked);
+
+            if (locked)
+            {
+                _frozenPosition = transform.position;
+                _frozenRotation = transform.rotation;
+                ResetMovementState();
+            }
+            else
+            {
+                _frozenPosition = Vector3.zero;
+                _frozenRotation = Quaternion.identity;
+                _idleTime = 0f;
+                _isSitting = false;
+                _isSleeping = false;
+            }
+        }
+
+
+        private void ResetMovementState()
+        {
+            _speed = 0f;
+            _moveVelocity = Vector3.zero;
+            _slideVelocity = Vector3.zero;
+            _verticalVelocity = 0f;
+            _walkingTime = 0f;
+            _isAutoSprinting = false;
+            _motorJumpHeld = false;
+            _runTrailTimer = 0f;
+            _hasJumped = false;
+
+            if (_input != null)
+            {
+                _input.move = Vector2.zero;
+                _input.look = Vector2.zero;
+                _input.sprint = false;
+                _input.jump = false;
+            }
+
+            if (CameraManager.I != null)
+            {
+                InputManager.SetCurrMovementVector(Vector3.zero);
+            }
+
+            if (_character?.Motor != null)
+            {
+                _character.Motor.BaseVelocity = Vector3.zero;
+                _character.TeleportTo(transform.position, transform.rotation);
+            }
+
+            if (runTrail != null)
+            {
+                if (runTrail.emitting)
+                {
+                    runTrail.emitting = false;
+                }
+                runTrail.Clear();
+            }
+
+            if (sprintStartFx != null)
+            {
+                sprintStartFx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            }
+
+            if (animationController != null)
+            {
+                animationController.State = CatAnimationStates.idle;
+                animationController.WalkingSpeed = 0f;
+            }
+        }
+
+        private void MaintainFrozenTransform()
+        {
+            if (!_movementLocked || _character == null || _isTeleporting)
+            {
+                return;
+            }
+
+            Vector3 targetPosition = _frozenPosition;
+            Quaternion targetRotation = _frozenRotation;
+
+            if (targetRotation == Quaternion.identity && targetPosition == Vector3.zero)
+            {
+                targetPosition = transform.position;
+                targetRotation = transform.rotation;
+            }
+
+            _character.TeleportTo(targetPosition, targetRotation);
+            _character.Motor.BaseVelocity = Vector3.zero;
+        }
+
         private void BeginTeleportToSpawn()
         {
             if (_isTeleporting || !isActiveAndEnabled)
@@ -898,26 +1012,7 @@ namespace Antura.Discover
         private IEnumerator CoTeleportToSpawn(Transform target)
         {
             _isTeleporting = true;
-            _input.SetInputsEnabled(false);
-            _speed = 0f;
-            _moveVelocity = Vector3.zero;
-            _slideVelocity = Vector3.zero;
-            _walkingTime = 0f;
-            _isAutoSprinting = false;
-            _motorJumpHeld = false;
-            _runTrailTimer = 0f;
-            _hasJumped = false;
-
-            if (runTrail != null)
-            {
-                runTrail.emitting = false;
-                runTrail.Clear();
-            }
-
-            if (sprintStartFx != null)
-            {
-                sprintStartFx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            }
+            SetMovementLock(true);
 
             Vector3 startPosition = transform.position;
             Quaternion startRotation = transform.rotation;
@@ -950,13 +1045,16 @@ namespace Antura.Discover
             _character.ForceUnground();
 
             _isTeleporting = false;
-            _input.SetInputsEnabled(true);
+            SetMovementLock(false);
             _teleportRoutine = null;
 
             _idleTime = 0f;
             _isSitting = false;
             _isSleeping = false;
-            animationController.State = CatAnimationStates.idle;
+            if (animationController != null)
+            {
+                animationController.State = CatAnimationStates.idle;
+            }
         }
 
         private void OnDisable()
@@ -976,7 +1074,7 @@ namespace Antura.Discover
             if (_isTeleporting)
             {
                 _isTeleporting = false;
-                _input?.SetInputsEnabled(true);
+                SetMovementLock(false);
             }
         }
 

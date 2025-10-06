@@ -40,6 +40,11 @@ namespace Antura.Utilities
                 visible = true;
             }
 
+            if (PlatformType == Platform.All)
+            {
+                visible = true;
+            }
+
             gameObject.SetActive(visible);
         }
 
