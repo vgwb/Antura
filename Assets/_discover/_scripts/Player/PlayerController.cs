@@ -1,5 +1,6 @@
 using System.Collections;
 using Antura.Audio;
+using Antura.Discover.Audio;
 using KinematicCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -1006,6 +1007,7 @@ namespace Antura.Discover
                 StopCoroutine(_teleportRoutine);
             }
 
+            AudioManager.I.PlaySound(Sfx.CameraMovement);
             _teleportRoutine = StartCoroutine(CoTeleportToSpawn(target));
         }
 
