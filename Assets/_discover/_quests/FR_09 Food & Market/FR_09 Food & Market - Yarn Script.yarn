@@ -147,7 +147,8 @@ Select enough money to pay. #line:0bbf963
 title: baker_payment_done
 position: 1131,145
 group: baker
-actor: ADULT_M, no_translate, noRepeatLastLine
+tags: no_translate, noRepeatLastLine
+actor: ADULT_M
 ---
 Here you go. #line:0567082 
 -> Merci! #line:00da30a 
@@ -167,7 +168,8 @@ Sorry, I don't sell that. #line:0875143
 title: fisher_payment_done
 position: 2169,551
 group: fisher
-actor: SENIOR_M, do_not_translate, noRepeatLastLine
+tags: do_not_translate, noRepeatLastLine
+actor: SENIOR_M
 ---
 Here you go. #line:08733ac 
 -> Au revoir! #line:02e64ff 
@@ -204,7 +206,8 @@ title: shop_fisher
 position: 1434,393
 color: blue
 group: fisher
-actor: SENIOR_M, noRepeatLastLine
+tags: noRepeatLastLine
+actor: SENIOR_M
 ---
 <<if GetActivityResult("money_fishmonger") > 0>>
     You already bought fish from me! #line:044d973 
@@ -256,7 +259,6 @@ tags:  do_not_translate, noRepeatLastLine
 title: cheesemonger_question
 position: 876,400
 group: cheesemonger
-actor: ADULT_F
 actor: ADULT_F
 ---
 What do you want to buy? #line:03009de 
@@ -365,7 +367,6 @@ title: greengrocer_bonjour
 position: 634,820
 group: greengrocer
 actor: ADULT_F
-actor: ADULT_F
 ---
 Hello! I sell fruits and vegetables. I'm a greengrocer. #line:041ade1 
 My items are always fresh! #line:0969b87 
@@ -398,7 +399,6 @@ Sorry, I don't sell that. #line:0977493
 title: grocer_question
 position: 1919,-5
 group: grocer
-actor: SENIOR_F
 actor: SENIOR_F
 ---
 What do you want to buy? #line:0c36100 
@@ -437,7 +437,6 @@ title: grocer_bonjour
 position: 1684,-8
 group: grocer
 actor: SENIOR_F
-actor: SENIOR_F
 ---
 Hello! I sell spices and pantry goods. I am a grocer. #line:0ffbfa4 
 You can use my items for many recipes. #line:0c6a554 
@@ -450,7 +449,6 @@ position: 1428,-273
 group: pirates
 actor: SENIOR_M
 tags: 
-actor: SENIOR_M
 ---
 <<if $pirate_completed>>
 Now go! I have to prepare for my next voyage. #line:04a0605 
@@ -477,7 +475,6 @@ position: 1892,-264
 group: pirates
 actor: SENIOR_M
 tags: 
-actor: SENIOR_M
 ---
 We worked for the King of France. #line:0af3bba 
 In the past, we took items from the king's enemies, but those days are gone. #line:0b61715 
@@ -708,7 +705,6 @@ Crab   #line:0c81979
 title: item_orange
 position: -442,12
 color: yellow
-actor: 
 ---
 <<card food_orange>>
 Orange #line:0c0fa04 
@@ -726,7 +722,6 @@ Lemon #line:0c6b991
 title: item_tomato
 position: -440,642
 color: yellow
-actor:
 tags:  item
 ---
 <<card food_tomato>>
@@ -736,7 +731,6 @@ Tomato #line:0a6782d
 title: item_milk
 position: -453,1161
 color: yellow
-actor:
 tags:  item
 ---
 <<card food_milk>>
@@ -756,7 +750,6 @@ Salt and Pepper #line:07bbcb0
 title: item_oil
 position: -456,323
 color: yellow
-actor:
 tags:  item
 ---
 <<card food_olive_oil>>
