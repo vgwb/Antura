@@ -184,6 +184,12 @@ namespace Antura.Discover
         {
             DisplayText(useLearningLanguage, true);
 
+            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
+                        || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
+            {
+                useLearningLanguage = !useLearningLanguage;
+            }
+
             if (selected)
                 return;
 
