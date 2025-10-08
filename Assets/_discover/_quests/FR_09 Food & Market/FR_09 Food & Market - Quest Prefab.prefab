@@ -3476,37 +3476,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &3926107782573591488
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6074734776477998568}
-  m_Layer: 8
-  m_Name: Player Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6074734776477998568
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3926107782573591488}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.8849728, z: -0, w: 0.4656427}
-  m_LocalPosition: {x: 11.49, y: 5.29, z: -3.74}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 4538151350184613858}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3971986870922378276
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,7 +4257,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 6074734776477998568}
   - {fileID: 8475492737366511058}
   - {fileID: 3838607042082924957}
   - {fileID: 6535464571455180493}
@@ -4344,7 +4312,6 @@ MonoBehaviour:
     DebugNode:
       project: {fileID: 0}
       nodeName: 
-    DifficultyLevel: 0
     TalkToPlayerMode: 0
     NativeLanguage:
       code: en
@@ -4352,29 +4319,17 @@ MonoBehaviour:
       code: en
   ActivityConfigs:
   - ActivitySettings: {fileID: 11400000, guid: fdccd35acc5b05a479444ce970b11001, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 6b980d9806f1b47c693e9aa42fe51788, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 278dedc7327e74d84b5147e0f1f3d19d, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 834df828a528fa14ab285d25ed237f86, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: fea4b04faf684ab4d8f2abb7ebbdb3ac, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 41f2eede8fb965a48a5f2c69c9396eb9, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 73204ef835f649b45b23ed0401a7e81d, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 79ae38a8bc4d61845913934bcc548f7e, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: aab98199228381d45bce0f56c5a1f9cc, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 5c1deeb38fd862441a76eba6f3517b6b, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 69c76e806d2c01b4fb441bda512abd1f, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: c9bff4b2e5c2b8f4f9c4dc9d0d0b79d0, type: 2}
-    ActivityGO: {fileID: 0}
   QuestTasks:
   - Code: COLLECT_THE_INGREDIENTS
     Type: 1
@@ -4402,26 +4357,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugAction: 
-  PlayerSpawnPoint: {fileID: 0}
+  PlayerSpawnPoint: {fileID: 5430850827681206340}
   QuestActions:
   - ActionCode: INIT
     Commands:
     - Command: 2
       mainObject: {fileID: 1131031238760985020}
-      Parameter: 
-      Bypass: 0
-      unityAction:
-        m_PersistentCalls:
-          m_Calls: []
-    - Command: 3
-      mainObject: {fileID: 4474422697355515469}
-      Parameter: 
-      Bypass: 0
-      unityAction:
-        m_PersistentCalls:
-          m_Calls: []
-    - Command: 11
-      mainObject: {fileID: 3151867883820794381}
       Parameter: 
       Bypass: 0
       unityAction:
@@ -8774,6 +8715,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4538151350184613858}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -8868,7 +8819,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Cheesemonger
+      value: casaro
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10572,6 +10523,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4538151350184613858}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -10666,7 +10627,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Fishmonger
+      value: Pescivendolo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10821,6 +10782,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02c441c47a029418f9fe519bcfc24380, type: 3}
+--- !u!114 &5430850827681206340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 858601168500679317, guid: 02c441c47a029418f9fe519bcfc24380,
+    type: 3}
+  m_PrefabInstance: {fileID: 4662385854514524881}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
 --- !u!4 &8475492737366511058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
@@ -10835,6 +10808,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4538151350184613858}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -10929,7 +10912,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Grocer
+      value: Droghiere
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11415,6 +11398,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4538151350184613858}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -11509,7 +11502,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Greengrocer
+      value: Fruttivendolo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11622,7 +11615,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3672
+      value: 3702
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -15743,6 +15736,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4538151350184613858}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -15837,7 +15840,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Baker
+      value: Panettiere
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
