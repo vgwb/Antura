@@ -67,15 +67,17 @@ actor: ADULT_M
 ---
 <<if $quest1 == true>>
     <<if $activity1 == false>>
-    Thank you for helping us! #line:09fc7ad 
-    Can you put it together? #line:0515a95
-    <<activity order_Musical_notes>>
+        Thank you for helping us! #line:09fc7ad
+        <<card musical_score notes>>
+        Can you put it together? #line:0515a95
+        <<set $activity1 = true>>
+        <<activity order_Musical_notes>>
     <<elseif $activity1 ==true >>
-    We're gonna play soon! #line:0ef876c 
-    Do you wanna try to order them again?
-    -> Yes
-    <<activity order_Musical_notes band_member>>
-    -> No
+        We're gonna play soon! #line:0ef876c 
+        Do you wanna try to order them again? #line:08ae1b5 
+        -> Yes #line:0a1e74f 
+        <<activity order_Musical_notes band_member>>
+        -> No #line:05d9168 
     <<endif>>
 <<else>>
 Hello! We're part of a band. We're musicians. #line:09a50f8 
@@ -125,7 +127,21 @@ title : win_quest1
 position: 1
 ---
 <<set $quest1 = true>>
-<<set $activity1 = true>>
+You found the musical notes! #line:0c3d5b7 
+Do, the first one. #line:090aa20 
+<<card note_do zoom>>
+Re, the second one. #line:01ef658 
+<<card note_re zoom>>
+Mi, the third one. #line:0c78966 
+<<card note_mi zoom>>
+Fa, the fourth one. #line:0c185a1 
+<<card note_fa zoom>>
+Sol, the fifth one. #line:0338a81 
+<<card note_sol zoom>>
+La, the sixth one. #line:0809b07 
+<<card note_la zoom>>
+Si, the last one and the highest note. #line:04a7724 
+<<card note_si zoom>>
 Good job! Now go back to speak with the band manager. #line:0064edf 
 
 
@@ -134,6 +150,15 @@ title : win_quest2
 position: 1
 ---
 <<set $quest2 = true>>
+These are the words of la Marseillaise! #line:08ea860 
+The first part. #line:0f8bb5a 
+<<card  marseillaise_1 zoom>>
+The second part. #line:0f1831e 
+<<card  marseillaise_2 zoom>>
+The third part. #line:018f56a 
+<<card  marseillaise_3 zoom>>
+The last part. #line:050d937 
+<<card  marseillaise_4 zoom>>
 Now go talk with Jean! #line:0a28908 
 <<target Jean_MJ>>
 <<task_end find_the_words>>
@@ -142,11 +167,11 @@ Now go talk with Jean! #line:0a28908
 // TESTING
 title: npc_robot
 ---
-Hello!
+Hello! #line:0b8b684 
 ===
 title: npc_ll
 ---
-Good morning!
+Good morning! #line:0913236 
 ===
 
 title: marseillese_played

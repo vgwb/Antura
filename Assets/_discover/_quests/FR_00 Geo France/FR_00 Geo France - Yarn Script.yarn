@@ -351,7 +351,7 @@ color: blue
         <<task_end FIND_BELGIUM_FLAG >>
         <<set $belgium_completed = true>>
         <<action lux_active>>
-        <<camera_focus camera_NPC_LX>>
+        <<camera_focus camera_NPC_LU>>
         <<set $belgium_met = true>>
         <<jump task_lux>>
     <<else >>
@@ -448,7 +448,7 @@ actor: SENIOR_F
 <<endif>>
 Find the Luxembourg flag. #line:0ed3698 
 It is red, white, and light blue. #line:018e4cf 
-<<camera_focus camera_Flag_LX>>
+<<camera_focus camera_Flag_LU>>
 <<task_start FIND_LUX_FLAG task_lux>>
 ===
 
