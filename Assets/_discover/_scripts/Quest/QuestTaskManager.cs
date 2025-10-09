@@ -175,6 +175,13 @@ namespace Antura.Discover
             }
         }
 
+        public void OnInteractCard(CardData card)
+        {
+            if (string.IsNullOrEmpty(card.CustomTag))
+                return;
+            OnCollectItemTag(card.CustomTag);
+        }
+
         public int GetCollectedCount(string taskCode)
         {
             return _statesByCode.TryGetValue(taskCode, out var st) ? st.Collected : 0;

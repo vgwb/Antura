@@ -234,6 +234,11 @@ namespace Antura.Discover
             CurrentTask = null;
         }
 
+        public void OnInteractCard(CardData card)
+        {
+            TaskManager.OnInteractCard(card);
+        }
+
         public void AddProgressPoints(int points)
         {
             Progress.AddProgressPoints(points);

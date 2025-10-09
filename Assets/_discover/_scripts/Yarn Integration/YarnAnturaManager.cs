@@ -250,6 +250,7 @@ namespace Antura.Discover
                 bool openZoomed = param1.ToLower() == "zoom" || param2.ToLower() == "zoom";
                 bool silent = param1.ToLower() == "silent" || param2.ToLower() == "silent";
                 UIManager.I.dialogues.ShowPostcard(cardData, openZoomed, silent);
+                QuestManager.I.OnInteractCard(cardData);
                 DiscoverAppManager.I.RecordCardInteraction(cardData, true);
             }
             else
