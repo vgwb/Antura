@@ -1299,11 +1299,8 @@ MonoBehaviour:
       code: en
   ActivityConfigs:
   - ActivitySettings: {fileID: 11400000, guid: bf9d387ec8688df4497da9d67c58f0bf, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: eaeedd21e06b645549bd8a058fcad6f4, type: 2}
-    ActivityGO: {fileID: 0}
   - ActivitySettings: {fileID: 11400000, guid: 65999543fb84447009153af445b9c9cc, type: 2}
-    ActivityGO: {fileID: 0}
   QuestTasks:
   - Code: find_the_script_parts
     Type: 1
@@ -1524,6 +1521,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528941027292368195}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -1634,6 +1641,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528941027292368195}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -1744,6 +1761,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528941027292368195}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -2560,6 +2587,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1298079686901001471}
+    - targetCorrespondingSourceObject: {fileID: 8892944988978247050, guid: 45ba83bb683fc4aa5a811f6aa3fdead0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4933315420608922234}
   m_SourcePrefab: {fileID: 100100000, guid: 45ba83bb683fc4aa5a811f6aa3fdead0, type: 3}
 --- !u!1 &5892771602139197246 stripped
 GameObject:
@@ -2609,6 +2640,26 @@ BoxCollider:
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1298079686901001471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5892771602139197246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
+  AutoCollect: 1
+  Type: 3
+  ItemTag: 
+  particleEffectPrefab: {fileID: 0}
+  enableRotation: 1
+  rotationSpeed: 100
+  bobbingAmount: 0.1
+  bobbingSpeed: 1
+--- !u!114 &4933315420608922234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2776,6 +2827,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528941027292368195}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -3742,6 +3803,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528941027292368195}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -3998,6 +4069,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1357556514044826229}
+    - targetCorrespondingSourceObject: {fileID: 8892944988978247050, guid: 45ba83bb683fc4aa5a811f6aa3fdead0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6323827001949626514}
   m_SourcePrefab: {fileID: 100100000, guid: 45ba83bb683fc4aa5a811f6aa3fdead0, type: 3}
 --- !u!4 &4310703963163998355 stripped
 Transform:
@@ -4033,6 +4108,26 @@ BoxCollider:
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1357556514044826229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582526974369162474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
+  AutoCollect: 1
+  Type: 3
+  ItemTag: Notes
+  particleEffectPrefab: {fileID: 0}
+  enableRotation: 1
+  rotationSpeed: 100
+  bobbingAmount: 0.1
+  bobbingSpeed: 1
+--- !u!114 &6323827001949626514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4134,6 +4229,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528941027292368195}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
@@ -4471,6 +4576,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528941027292368195}
     m_Modifications:
+    - target: {fileID: 2691613907470610163, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346525206390276157, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_Name
