@@ -85,6 +85,8 @@ namespace Antura.Discover
 
         protected override void Init()
         {
+            Debug.Log("<color=#d8249c>########### DiscoverAppManager Init</color>");
+
             if (dataManager == null)
                 dataManager = GetComponent<DiscoverDataManager>();
             if (dataManager != null)
@@ -155,7 +157,6 @@ namespace Antura.Discover
         // ------------------------------
         public void InitializeFromLegacyUuid(string legacyUuid, PlayerProfile legacy = null)
         {
-            // Debug.Log($"DiscoverAppManager.InitializeFromLegacyUuid: {legacyUuid}");
             var platform = IsMobile() ? "mobile" : "desktop";
             var p = profilesManager.LoadOrCreateByLegacyUuid(legacyUuid, legacy, platform, Application.version);
             profilesManager.SetCurrent(p.profile.id);

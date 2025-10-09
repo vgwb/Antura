@@ -79,11 +79,15 @@ namespace Antura.Core
 
         protected override void Awake()
         {
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
             base.Awake();
-
             GlobalUI.Init();
-            Debug.Log(">> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString());
+            if (I != this)
+            {
+                return;
+            }
+
+            Debug.Log("<color=#ff249c>>> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString() + "</color>");
 
         }
 
@@ -97,6 +101,8 @@ namespace Antura.Core
                 return;
             }
             alreadySetup = true;
+
+            Debug.Log("<color=#FF9900>##### AppManager Init</color>");
 
             if (DebugConfig.I.AddressablesBlockingLoad)
             {

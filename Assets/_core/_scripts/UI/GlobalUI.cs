@@ -36,7 +36,7 @@ namespace Antura.UI
         {
             if (I != null)
             { return; }
-
+            Debug.Log("<color=#ffaa88>GlobalUI: Init()</color>");
             I = Instantiate(Resources.Load<GlobalUI>(ResourceId));
             I.gameObject.name = "[GlobalUI]";
         }

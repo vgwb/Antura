@@ -63,6 +63,11 @@ namespace Antura.Discover
 
         private void Start()
         {
+            // var legacyProfile = AppManager.I.PlayerProfileManager.CurrentPlayer;
+            // Discover.DiscoverAppManager.I.InitializeFromLegacyUuid(legacyProfile.Uuid, legacyProfile);
+
+            Debug.Log("START Player name:" + DiscoverAppManager.I.CurrentProfile.profile.displayName + " / " + DiscoverAppManager.I.CurrentProfile.profile.talkToPlayerMode);
+
             if (allowedCountries.Count == 0)
             {
                 RefreshAccessRules();
