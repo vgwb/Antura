@@ -2,7 +2,6 @@
 using Antura.Core;
 using Antura.Language;
 using Antura.UI;
-using Antura.Discover.Interaction;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;

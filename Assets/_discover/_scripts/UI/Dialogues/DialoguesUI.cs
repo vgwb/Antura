@@ -250,25 +250,25 @@ namespace Antura.Discover
         IEnumerator CO_Next(int choiceIndex)
         {
             currChoiceIndex = choiceIndex;
-            if (gotoNextWhenPostcardFocusViewCloses)
-            {
-                // Close postcard zoom and move onward
-                if (postcard.IsMagnified)
-                {
-                    postcard.CloseZoomView();
-                    yield return new WaitForSeconds(0.15f);
-                }
-            }
-            else
-            {
-                if (currNode.ImageAutoOpen && postcard.IsActive && !postcard.CurrSpriteWasMagnifiedOnce)
-                {
-                    // Zoom into postcard and wait for next action
-                    postcard.OpenZoomView();
-                    gotoNextWhenPostcardFocusViewCloses = true;
-                    yield break;
-                }
-            }
+            // if (gotoNextWhenPostcardFocusViewCloses)
+            // {
+            //     // Close postcard zoom and move onward
+            //     if (postcard.IsMagnified)
+            //     {
+            //         postcard.CloseZoomView();
+            //         yield return new WaitForSeconds(0.15f);
+            //     }
+            // }
+            // else
+            // {
+            //     if (currNode.ImageAutoOpen && postcard.IsActive && !postcard.CurrSpriteWasMagnifiedOnce)
+            //     {
+            //         // Zoom into postcard and wait for next action
+            //         postcard.OpenZoomView();
+            //         gotoNextWhenPostcardFocusViewCloses = true;
+            //         yield break;
+            //     }
+            // }
 
             if (currBalloon != null && currBalloon.IsOpen)
                 currBalloon.Hide();
