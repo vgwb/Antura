@@ -100,7 +100,7 @@ hide:
 
 <div class="yarn-node" data-title="intro">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Antura jest wolna, ale głodna.</span> <span class="yarn-meta">#line:0382fdb </span>
 <span class="yarn-cmd">&lt;&lt;card torun_town_hall&gt;&gt;</span>
@@ -119,7 +119,7 @@ hide:
 <div class="yarn-node" data-title="market_hub">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card butcher&gt;&gt;</span>
 <span class="yarn-line">Odwiedź stoiska i porozmawiaj ze sprzedawcami.</span> <span class="yarn-meta">#line:0c470ae </span>
@@ -147,7 +147,7 @@ hide:
 <div class="yarn-node" data-title="shop_grocer">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Sprzedaję GOŹDZIKI, CYNAMON, IMBIR. Jestem sprzedawcą spożywczym.</span> <span class="yarn-meta">#line:0a66f1e </span>
 <span class="yarn-line">Kup goździki (1zł)</span> <span class="yarn-meta">#line:0eff39a </span>
@@ -168,7 +168,7 @@ hide:
 <div class="yarn-node" data-title="shop_beekeeper">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card beekeeper&gt;&gt;</span>
 <span class="yarn-line">Sprzedaję MIÓD. Jestem pszczelarzem.</span> <span class="yarn-meta">#line:001922d </span>
@@ -186,7 +186,7 @@ hide:
 <div class="yarn-node" data-title="shop_dairy">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card dairy_vendor&gt;&gt;</span>
 <span class="yarn-line">Sprzedaję MLEKO i MASŁO. Jestem sprzedawcą nabiału.</span> <span class="yarn-meta">#line:0acb509 </span>
@@ -206,7 +206,7 @@ hide:
 <div class="yarn-node" data-title="shop_eggs">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card egg_vendor&gt;&gt;</span>
 <span class="yarn-line">Sprzedaję JAJKA. Jestem sprzedawcą jajek.</span> <span class="yarn-meta">#line:03de236 </span>
@@ -224,7 +224,7 @@ hide:
 <div class="yarn-node" data-title="shop_greengrocer">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Sprzedaję OWOCE i WARZYWA. Jestem warzywniakiem.</span> <span class="yarn-meta">#line:082b55f </span>
 <span class="yarn-line">Dzisiaj będziesz potrzebować PRZYPRAW i produktów do pieczenia.</span> <span class="yarn-meta">#line:0af9f1e </span>
@@ -242,7 +242,7 @@ hide:
 <div class="yarn-node" data-title="shop_cook">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card cook&gt;&gt;</span>
 <span class="yarn-line">Sprzedaję PIEROGI.</span> <span class="yarn-meta">#line:0d24718 </span>
@@ -262,7 +262,7 @@ hide:
 <div class="yarn-node" data-title="pay_cloves">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Wybierz monety, którymi zapłacisz 1 zł.</span> <span class="yarn-meta">#line:019a160 </span>
@@ -297,7 +297,7 @@ hide:
 <div class="yarn-node" data-title="pay_cinnamon">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card coins&gt;&gt;</span>
 <span class="yarn-line">Wybierz monety, którymi zapłacisz 1 zł.</span> <span class="yarn-meta">#line:055af31 </span>
@@ -332,7 +332,7 @@ hide:
 <div class="yarn-node" data-title="pay_ginger">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wybierz monety, którymi zapłacisz 1 zł.</span> <span class="yarn-meta">#line:0172345 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_ginger_done&gt;&gt;</span>
@@ -366,7 +366,7 @@ hide:
 <div class="yarn-node" data-title="pay_honey">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wybierz monety, którymi zapłacisz 1 zł.</span> <span class="yarn-meta">#line:0c1dcdb </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_honey_done&gt;&gt;</span>
@@ -399,7 +399,7 @@ hide:
 <div class="yarn-node" data-title="pay_milk">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wybierz monety, aby zapłacić 5 zł.</span> <span class="yarn-meta">#line:04a5053 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_5 add_milk_done&gt;&gt;</span>
@@ -433,7 +433,7 @@ hide:
 <div class="yarn-node" data-title="pay_butter">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wybierz monety, aby zapłacić 5 zł.</span> <span class="yarn-meta">#line:0bd010e </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_5 add_butter_done&gt;&gt;</span>
@@ -467,7 +467,7 @@ hide:
 <div class="yarn-node" data-title="pay_eggs">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wybierz monety, aby zapłacić 10 zł.</span> <span class="yarn-meta">#line:0bdf451 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_10 add_eggs_done&gt;&gt;</span>
@@ -501,7 +501,7 @@ hide:
 <div class="yarn-node" data-title="pay_flour">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Wybierz monety, aby zapłacić 2 zł.</span> <span class="yarn-meta">#line:0aac231 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_2 add_flour_done&gt;&gt;</span>
@@ -535,7 +535,7 @@ hide:
 <div class="yarn-node" data-title="pay_pierogi">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">tags: actor=COOK</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_20 pierogi_done&gt;&gt;</span>
 <span class="yarn-line">Wybierz monety, aby zapłacić 20 zł.</span> <span class="yarn-meta">#line:0dd43a0 </span>
@@ -566,7 +566,7 @@ hide:
 <div class="yarn-node" data-title="flour_hint">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">MĄKĘ możesz kupić tutaj.</span> <span class="yarn-meta">#line:077f3e2 </span>
 <span class="yarn-line">Kup mąkę (2zł)</span> <span class="yarn-meta">#line:00c5178 </span>
@@ -583,7 +583,7 @@ hide:
 <div class="yarn-node" data-title="go_to_kitchen">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: kitchen</span>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetnie! Masz wszystkie składniki i PIEROGI.</span> <span class="yarn-meta">#line:0dda4ac </span>
 <span class="yarn-cmd">&lt;&lt;card kitchen&gt;&gt;</span>
@@ -619,7 +619,7 @@ hide:
 <div class="yarn-node" data-title="GINGERBREAD_ORDER_DONE">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: kitchen</span>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread&gt;&gt;</span>
 <span class="yarn-line">Dobra robota! PIERNIK jest gotowy.</span> <span class="yarn-meta">#line:0f082d6 </span>
@@ -653,7 +653,7 @@ hide:
 <div class="yarn-node" data-title="PIEROGI_ORDER_DONE">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: kitchen</span>
-<span class="yarn-header-dim">tags: actor=ANTURA</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dziękuję! To jest toruńskie jedzenie.</span> <span class="yarn-meta">#line:07b1ab4 </span>
 <span class="yarn-line">Teraz jestem szczęśliwy i pełny.</span> <span class="yarn-meta">#line:0f8e153 </span>
@@ -671,7 +671,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// Assessment</span>
 <span class="yarn-header-dim">group: assessment</span>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Czas na szybką kontrolę.</span> <span class="yarn-meta">#line:0bad7e0 </span>
 <span class="yarn-cmd">&lt;&lt;jump assessment_vocab&gt;&gt;</span>
@@ -703,7 +703,7 @@ hide:
 <div class="yarn-node" data-title="VOCAB_MATCH_DONE">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: assessment</span>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetna robota! Pomogłeś Anturze nauczyć się słów.</span> <span class="yarn-meta">#line:0cb84a7 </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
@@ -723,7 +723,7 @@ hide:
 <span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
 <span class="yarn-header-dim">// they will say one of these lines randomly</span>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=Kid</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Lubię słodkie PIERNIKI.</span> <span class="yarn-meta">#line:087d4b0 </span>
 <span class="yarn-line">Monety brzęczą w mojej torbie.</span> <span class="yarn-meta">#line:0090fb8 </span>
@@ -739,7 +739,7 @@ hide:
 <div class="yarn-node" data-title="spawned_vendor">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świeże JAJA i MLEKO dzisiaj.</span> <span class="yarn-meta">#line:039e272 </span>
 <span class="yarn-line">Pierogi sprzedają się bardzo szybko.</span> <span class="yarn-meta">#line:07b9a99 </span>
@@ -755,7 +755,7 @@ hide:
 <div class="yarn-node" data-title="spawned_tourist">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Stary HALL wygląda tak wysoko.</span> <span class="yarn-meta">#line:041418b </span>
 <span class="yarn-line">Spróbuję PIEROGÓW.</span> <span class="yarn-meta">#line:068a9a7 </span>

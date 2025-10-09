@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **376**
+Total found: **383**
 
 ## International
 
@@ -41,66 +41,26 @@ Un'alta catena montuosa in Europa.
 ---
 
 ### Animali dello zoo {#zoo_animals}
+![preview zoo_animals](../../../assets/img/content/cards/zoo_animals.jpg){ loading=lazy }
+
 Scheda creata automaticamente per l'argomento 'Animali dello zoo'.
 
 - Type: None
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
+- Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 
 ---
 
-### antura {#antura}
+### Antura {#antura}
+![preview antura](../../../assets/img/content/cards/antura.jpg){ loading=lazy }
+
+Il personaggio principale di questo videogioco
+
 - Type: Concept
 - Country: International
 - Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_blocky_character {#antura_blocky_character}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_card {#antura_card}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_cat {#antura_cat}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_cookies {#antura_cookies}
-- Type: Object
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_danger {#antura_danger}
-- Type: Concept
-- Country: International
-
----
-
-### antura_livingletter {#antura_livingletter}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_portal {#antura_portal}
-- Type: Object
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
@@ -128,6 +88,18 @@ Un frutto rotondo e arancione, dal sapore dolce e succoso. Le arance sono ricche
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
 - Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### Arancio {#plant_orange}
+![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
+
+Un albero verde brillante con arance rotonde e succose. Profuma di fresco e dolce come il sole!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
+- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -182,6 +154,18 @@ Un veicolo di grandi dimensioni che trasporta molte persone.
 - Country: International
 - Image credit: CC_BY_SA | Xosema | [source](https://commons.wikimedia.org/wiki/File:Setra_S6_-_Empresa_Mosquera_-_02.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Banana {#food_banana}
+![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
+
+Morbide, gialle e facili da sbucciare. Un pieno di energia per la tua giornata!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
+- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -266,7 +250,7 @@ La bandiera presenta strisce orizzontali gialle, verdi e rosse. La Lituania è u
 ### Bandiera della Repubblica Ceca {#flag_czech_republic}
 ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
 
-The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
+La bandiera è a strisce bianche e rosse con un triangolo blu. La Repubblica Ceca è famosa per il suo splendido Castello di Praga e per la produzione di cristalli.
 
 - Rationale: Central European countries help kids understand the region around Poland
 - Type: Concept
@@ -426,6 +410,31 @@ Una carta speciale che ti consente di visitare la famosa torre alta di Parigi, i
 
 ---
 
+### Biscotti {#antura_cookies}
+![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ loading=lazy }
+
+Fantastiche ricompense che puoi collezionare giocando! Usale per ottenere nuovi oggetti e sorprese.
+
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
+### Blocchi {#antura_blocky_character}
+![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ loading=lazy }
+
+Queste persone divertenti vivono in questo mondo.
+Parlate con loro... hanno storie da raccontare!
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
 ### Bob {#bobsled}
 ![preview bobsled](../../../assets/img/content/cards/bobsled.jpg){ loading=lazy }
 
@@ -571,6 +580,18 @@ Una giacca calda per il clima freddo.
 
 ---
 
+### Carte {#antura_cards}
+![preview antura_cards](../../../assets/img/content/cards/antura_cards.jpg){ loading=lazy }
+
+Ogni carta ha qualcosa di speciale da imparare. Trovale tutte e leggile!
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
 ### Cartella {#school_bag}
 ![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
 
@@ -635,30 +656,6 @@ Una spezia forte usata per insaporire i cibi.
 - Country: International
 - Image credit: CC_BY_SA | Friedrich Haag | [source](https://commons.wikimedia.org/wiki/File:Gewuerze_004_2024_08_10.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### cibo_banana {#food_banana}
-![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
-
-#VALUE!
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
-- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### cibo_mela {#food_apple}
-![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
-
-No translation found for 'food_apple.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
-- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -740,7 +737,7 @@ Una storica costituzione polacca celebrata il 3 maggio.
 ### Cucciolo di leone {#animal_lion_cub}
 ![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
 
-No translation found for 'animal_lion_cub.desc' in Cards
+Un piccolo leone dalla pelliccia morbida e dalle zampe grandi. Trascorre le sue giornate giocando e ruggisce dolcemente.
 
 - Type: Object
 - Country: International
@@ -860,6 +857,18 @@ Una persona che vende frutta e verdura fresca.
 
 ---
 
+### Gatto {#antura_cat}
+![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ loading=lazy }
+
+La migliore amica e compagna di viaggio di Antura. Curiosa, intelligente e sempre pronta ad aiutare!
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
 ### Ghiacciaio {#glacier}
 ![preview glacier](../../../assets/img/content/cards/glacier.jpg){ loading=lazy }
 
@@ -887,10 +896,10 @@ Acqua ghiacciata che può essere molto scivolosa.
 
 ---
 
-### ghiaccio_artico {#ice_arctic}
+### ghiaccio artico {#ice_arctic}
 ![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
 
-#VALUE!
+Freddo, bianco e lucido come il vetro. Patria di foche, orsi e avventure!
 
 - Type: Place
 - Country: International
@@ -915,7 +924,7 @@ Festa nazionale l'11 novembre.
 ### Giovane leone maschio {#animal_lion_young_male}
 ![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
 
-No translation found for 'animal_lion_young_male.desc' in Cards
+Cresce forte con una corta criniera. Impara a cacciare e a proteggere il suo branco.
 
 - Type: Object
 - Country: International
@@ -1058,6 +1067,18 @@ Un grosso felino chiamato il re degli animali. Vive in gruppi chiamati branchi.
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0
 - Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Lettera vivente {#antura_livingletter}
+![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ loading=lazy }
+
+Una lettera amichevole che ama parlare e giocare! Parla con loro per imparare nuove parole
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
@@ -1226,7 +1247,7 @@ Un animale di montagna peloso che fischia.
 ---
 
 ### Matematica elementare {#elementary_maths}
-Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
+Numeri e forme per la vita di tutti i giorni: contare, addizionare e sottrarre, frazioni semplici, misurare, leggere l'ora e usare il denaro.
 
 - Type: None
 - Country: International
@@ -1244,6 +1265,18 @@ Inno nazionale polacco.
 - Country: International
 - Image credit: CC0 | Józef Wybicki (1747–1822) | [source](https://commons.wikimedia.org/wiki/File:Mazurek_Dąbrowskiego_manuscript.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Mela {#food_apple}
+![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
+
+Rosso, rotondo e croccante al morso. Un frutto gustoso che ti mantiene forte!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
+- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1392,6 +1425,61 @@ Acqua ghiacciata che cade quando fa freddo.
 
 ---
 
+### Numero 0 {#number_0}
+![preview number_0](../../../assets/img/content/cards/number_0.jpg){ loading=lazy }
+
+Il numero che non conta niente, ma è comunque importante! Viene prima di tutti gli altri.
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Numero 1 {#number_1}
+![preview number_1](../../../assets/img/content/cards/number_1.jpg){ loading=lazy }
+
+Il primo numero! Significa solo una cosa.
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Numero 2 {#number_2}
+![preview number_2](../../../assets/img/content/cards/number_2.jpg){ loading=lazy }
+
+Un paio, come due occhi o due scarpe. Ama avere un amico!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Numero 3 {#number_3}
+![preview number_3](../../../assets/img/content/cards/number_3.jpg){ loading=lazy }
+
+Tre significa un gruppo, come un treppiede o un triciclo!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Numero 4 {#number_4}
+![preview number_4](../../../assets/img/content/cards/number_4.jpg){ loading=lazy }
+
+Il quattro rende le cose stabili, come le gambe del tavolo. È forte ed equilibrato!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
 ### Obiettivo {#goal}
 ![preview goal](../../../assets/img/content/cards/goal.jpg){ loading=lazy }
 
@@ -1528,6 +1616,18 @@ Piccoli ponti per i pedoni. Ti proteggono dal traffico.
 
 ---
 
+### Pericolo {#antura_malus}
+![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ loading=lazy }
+
+Qualcosa che non dovresti fare! Fai attenzione e stai al sicuro.
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
 ### PESCARE {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
@@ -1556,10 +1656,10 @@ Persona che vende pesce fresco e frutti di mare.
 
 ---
 
-### pianta_acacia {#tree_wattle}
+### Pianta di acacia {#tree_wattle}
 ![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
 
-#VALUE!
+Una pianta ricoperta di minuscoli fiori dorati. Illumina la terra con il suo bagliore giallo!
 
 - Type: Object
 - Country: International
@@ -1568,22 +1668,10 @@ Persona che vende pesce fresco e frutti di mare.
 
 ---
 
-### pianta_arancione {#plant_orange}
-![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
-
-#VALUE!
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
-- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### pianta_banana {#plant_banana}
+### Pianta di banana {#plant_banana}
 ![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
 
-#VALUE!
+Una pianta alta con foglie giganti e banane gialle. I suoi frutti crescono in grappoli pendenti!
 
 - Type: Object
 - Country: International
@@ -1592,10 +1680,10 @@ Persona che vende pesce fresco e frutti di mare.
 
 ---
 
-### pianta_mela {#plant_apple}
+### Pianta di mele {#plant_apple}
 ![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
 
-#VALUE!
+Un albero con fiori rosa e frutti rossi e gustosi. Ama il sole e ci regala mele croccanti!
 
 - Type: Object
 - Country: International
@@ -1696,6 +1784,18 @@ Un ponte speciale costruito in modo sufficientemente robusto da consentire ai tr
 - Topics: [Seine Bridges](../topics/index.md#seine_bridges)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### Portale {#antura_portal}
+![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ loading=lazy }
+
+Una porta magica che ti porta in nuovi luoghi. Entra e scopri dove ti porta!
+
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
@@ -1867,14 +1967,13 @@ Un animale intelligente che sa arrampicarsi e giocare. Alcune scimmie vivono in 
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0
-- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
 ### Scimpanzé {#animal_chimpanzee}
 ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
 
-No translation found for 'animal_chimpanzee.desc' in Cards
+Intelligente e giocoso, ama arrampicarsi sugli alberi. Usa bastoni e pietre come piccoli utensili!
 
 - Type: None
 - Country: International
@@ -1926,6 +2025,17 @@ Regole che garantiscono la sicurezza di tutti sulla strada.
 - Subjects: Transportation, Civics, Health
 - Country: International
 - Topics: [Stree safety](../topics/index.md#street-safety)
+
+---
+
+### Simbolo del bersaglio {#antura_target}
+![preview antura_target](../../../assets/img/content/cards/antura_target.jpg){ loading=lazy }
+
+Se vedi questo, vai lì. Potrebbe essere qualcosa di importante!
+
+- Type: Concept
+- Country: International
+- Image credit: CC0
 
 ---
 
@@ -2165,6 +2275,18 @@ La capitale della Lituania.
 
 ---
 
+### Volpe {#animal_fox}
+![preview animal_fox](../../../assets/img/content/cards/animal_fox.jpg){ loading=lazy }
+
+Un predatore intelligente che vive nei boschi. Ha una coda morbida che lo tiene al caldo.
+
+- Type: None
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Renard_roux_en_for%C3%AAt.jpg)
+- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
 ### Zaino {#backpack}
 ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
 
@@ -2210,7 +2332,7 @@ Una regione della Francia dove si trova la capitale Parigi. Qui vivono moltissim
 ### 20000 leghe sotto i mari {#book_20000_leagues_under_the_sea}
 ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
-A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
+Un libro di Jules Verne sulle avventure subacquee a bordo di un sottomarino chiamato Nautilus. Incontrerete creature marine giganti!
 
 - Type: Object
 - Subjects: Literature
@@ -2264,7 +2386,7 @@ Un'arma che scocca frecce.
 ### Arco di Trionfo {#arc_de_triomphe}
 ![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
 
-No translation found for 'arc_de_triomphe.desc' in Cards
+Un grande arco a Parigi, costruito in onore degli eroi. Lo si può vedere splendere alla fine di un lungo viale!
 
 - Type: Place
 - Country: France
@@ -2592,7 +2714,7 @@ Un edificio speciale dove le persone si incontrano per pregare e cantare.
 ### Cinque settimane in mongolfiera {#book_five_weeks_in_a_balloon}
 ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
 
-A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
+Un libro di Jules Verne sul volo attraverso l'Africa in mongolfiera. È pieno di avventure e scoperte!
 
 - Type: Object
 - Subjects: Literature
@@ -2847,7 +2969,7 @@ L'uomo che costruì la Torre Eiffel! Era un ingegnere che amava costruire in fer
 ### Il giro del mondo in ottanta giorni {#book_around_the_world_80_days}
 ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
-An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
+Un libro emozionante di Jules Verne che racconta come viaggiare velocemente intorno al mondo utilizzando treni, navi e mongolfiere!
 
 - Type: Object
 - Subjects: Literature
@@ -3513,33 +3635,6 @@ Resina fossile lucida di albero chiamata "oro baltico".
 
 ---
 
-### animal_elephant_adult {#animal_elephant_adult}
-![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
-### animal_elephant_baby {#animal_elephant_baby}
-![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
-### animal_elephant_young {#animal_elephant_young}
-![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
 ### Astronomia {#astronomy}
 ![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
 
@@ -3758,6 +3853,17 @@ Un cucciolo di leone.
 
 ---
 
+### Cucciolo di elefante {#animal_elephant_baby}
+![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
+
+Piccolo e giocoso, agita la sua piccola proboscide. Ama stare vicino alla mamma.
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
 ### Danzica {#gdansk}
 ![preview gdansk](../../../assets/img/content/cards/gdansk.jpg){ loading=lazy }
 
@@ -3796,6 +3902,17 @@ Gli esseri viventi e la loro casa nella natura, che lavorano insieme.
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Elefante adulto {#animal_elephant_adult}
+![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
+
+Grande e forte, con lunghe zanne e un suono sonoro di tromba. Si prende cura della mandria e guida la strada.
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
 
 ---
 
@@ -3951,6 +4068,17 @@ Un uccello marino che vive vicino alla costa.
 
 ---
 
+### Giovane elefante {#animal_elephant_young}
+![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
+
+Curioso e apprendente, segue gli adulti. Si esercita ogni giorno usando la proboscide!
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
 ### Giove {#jupiter}
 ![preview jupiter](../../../assets/img/content/cards/jupiter.jpg){ loading=lazy }
 
@@ -3965,7 +4093,7 @@ Il pianeta più grande, famoso per la Grande Macchia Rossa.
 
 ---
 
-### guardiano dello zoo {#zoo_keeper}
+### Guardiano dello zoo {#zoo_keeper}
 ![preview zoo_keeper](../../../assets/img/content/cards/zoo_keeper.jpg){ loading=lazy }
 
 Una persona che si prende cura degli animali allo zoo.
@@ -4594,12 +4722,15 @@ Una rete usata per catturare i pesci.
 ---
 
 ### Ricetta dei pierogi {#pierogi_recipe}
+![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ loading=lazy }
+
 Preparare un impasto morbido, farcirlo con purè di patate e formaggio contadino, sigillare, far bollire finché non vengono a galla, quindi soffriggere in padella con burro e cipolle.
 
 - Type: Object
 - Subjects: Food
 - Country: Poland
 - Topics: [Pierogi Recipe](../topics/index.md#pierogi)
+- Image credit: CC0
 
 ---
 

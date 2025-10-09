@@ -191,13 +191,13 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("order_schools_settings") &gt; 0&gt;&gt;
-<span class="yarn-line">    [MISSING TRANSLATION:     Now go find your school!]</span> <span class="yarn-meta">#line:0b22d07 </span>
+<span class="yarn-line">    Maintenant, va trouver ton école !</span> <span class="yarn-meta">#line:0b22d07 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Bonjour ! J'ai trouvé un sac à dos en venant ici.</span> <span class="yarn-meta">#line:0c3b4fe </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     These books are simpler than the ones my students use.]</span> <span class="yarn-meta">#line:04da48b </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Maybe it's yours?]</span> <span class="yarn-meta">#line:0ce9646 </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     But first, you have to earn it!]</span> <span class="yarn-meta">#line:094eace </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     What is the order of the schools?]</span> <span class="yarn-meta">#line:092fccb </span>
+<span class="yarn-line">    Ces livres sont plus simples que ceux que mes élèves utilisent.</span> <span class="yarn-meta">#line:04da48b </span>
+<span class="yarn-line">    C'est peut-être le tien ?</span> <span class="yarn-meta">#line:0ce9646 </span>
+<span class="yarn-line">    Mais d’abord, il faut le gagner !</span> <span class="yarn-meta">#line:094eace </span>
+<span class="yarn-line">    Quel est l'ordre des écoles ?</span> <span class="yarn-meta">#line:092fccb </span>
     <span class="yarn-cmd">&lt;&lt;activity order_schools_settings schools_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -214,11 +214,11 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("order_schools_settings") &gt; 0&gt;&gt;
-<span class="yarn-line">    [MISSING TRANSLATION:     Good job!]</span> <span class="yarn-meta">#line:07e8390 </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Here you go.]</span> <span class="yarn-meta">#line:078fff9 </span>
+<span class="yarn-line">    Bon travail!</span> <span class="yarn-meta">#line:07e8390 </span>
+<span class="yarn-line">    Voici.</span> <span class="yarn-meta">#line:078fff9 </span>
     <span class="yarn-cmd">&lt;&lt;SetActive Collect_Backpack&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetActivityResult("order_schools_settings") == 0&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Sorry! Try again.]</span> <span class="yarn-meta">#line:0e1ff90 </span>
+<span class="yarn-line">    Désolé ! Réessayez.</span> <span class="yarn-meta">#line:0e1ff90 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -421,6 +421,8 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Trouvez votre sac à dos et revenez ensuite.</span> <span class="yarn-meta">#line:0e3ad75 </span>
+<span class="yarn-line">Peut-être que quelqu'un l'a,</span> <span class="yarn-meta">#line:0b43290 </span>
+<span class="yarn-line">Essayez de demander autour de vous.</span> <span class="yarn-meta">#line:0c282e5 </span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_BACKPACK task_backpack_done&gt;&gt;</span>
 
 </code>

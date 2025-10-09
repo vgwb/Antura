@@ -107,7 +107,7 @@ hide:
 
 <div class="yarn-node" data-title="GUIDE_INTRO">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_city_gate&gt;&gt;</span>
@@ -125,7 +125,7 @@ hide:
 
 <div class="yarn-node" data-title="MERMAID_SQUARE">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Mermaid</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_mermaid_plaza&gt;&gt;</span>
@@ -148,7 +148,7 @@ hide:
 
 <div class="yarn-node" data-title="CHOPIN_MONUMENT">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Chopin</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_chopin_monument&gt;&gt;</span>
@@ -171,7 +171,7 @@ hide:
 
 <div class="yarn-node" data-title="WARS_AND_SAWA">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Wars</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_wars_statue&gt;&gt;</span>
@@ -189,7 +189,7 @@ hide:
 
 <div class="yarn-node" data-title="SAWA_BY_WISLA">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Sawa</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_wisla_river&gt;&gt;</span>
@@ -207,7 +207,7 @@ hide:
 
 <div class="yarn-node" data-title="WARS_SAWA_LEGEND">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Wars</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_wars_sawa_back&gt;&gt;</span>
@@ -225,7 +225,7 @@ hide:
 
 <div class="yarn-node" data-title="SIGISMUND_COLUMN">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=King_Sigismund</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_sigismund_column&gt;&gt;</span>
@@ -247,7 +247,7 @@ hide:
 
 <div class="yarn-node" data-title="PRESIDENT_PARLIAMENT">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=President</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_sejm&gt;&gt;</span>
@@ -271,7 +271,7 @@ hide:
 
 <div class="yarn-node" data-title="MERMAID_RETURN">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Mermaid</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_mermaid_sword&gt;&gt;</span>
@@ -290,7 +290,7 @@ hide:
 
 <div class="yarn-node" data-title="PALACE_CULTURE_MARIA">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Maria_Curie</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_palace_culture&gt;&gt;</span>
@@ -312,7 +312,7 @@ hide:
 
 <div class="yarn-node" data-title="NATIONAL_STADIUM">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Robert_Lewandowski</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_national_stadium&gt;&gt;</span>
@@ -334,7 +334,7 @@ hide:
 
 <div class="yarn-node" data-title="GUIDE_OUTRO">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
@@ -353,7 +353,7 @@ hide:
 
 <div class="yarn-node" data-title="FINAL_QUIZ">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor= Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">type: quiz</span>
 <span class="yarn-header-dim">group: Quiz</span>
 <span class="yarn-header-dim">---</span>
@@ -377,7 +377,7 @@ hide:
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">// FACT NODES</span>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card tram&gt;&gt;</span>
@@ -397,7 +397,7 @@ hide:
 <div class="yarn-node" data-title="FACTS_HISTORY">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_sigismund_column&gt;&gt;</span>
@@ -416,7 +416,7 @@ hide:
 <div class="yarn-node" data-title="FACTS_SCIENCE">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
@@ -435,7 +435,7 @@ hide:
 <div class="yarn-node" data-title="FACTS_SYMBOLS">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_mermaid_plaza&gt;&gt;</span>
@@ -460,7 +460,7 @@ hide:
 <span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
 <span class="yarn-header-dim">// they will say one of these lines randomly</span>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: warsaw_locals</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Warszawa ma rzekę Wisłę.</span> <span class="yarn-meta">#line:004922a </span>
@@ -479,7 +479,7 @@ hide:
 <div class="yarn-node" data-title="spawned_warsaw_guide">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: warsaw_guides</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Chopin pisał muzykę fortepianową.</span> <span class="yarn-meta">#line:0016e94 </span>

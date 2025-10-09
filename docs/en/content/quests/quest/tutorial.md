@@ -22,13 +22,23 @@ Subjects:
 ## Topics
 ### [Antura's world](../../topics/index.md#antura-world)
 
-  - **[antura](../../cards/index.md#antura)**  
-  - **[antura_cookies](../../cards/index.md#antura_cookies)**  
-  - **[antura_portal](../../cards/index.md#antura_portal)**  
-  - **[antura_card](../../cards/index.md#antura_card)**  
-  - **[antura_cat](../../cards/index.md#antura_cat)**  
-  - **[antura_livingletter](../../cards/index.md#antura_livingletter)**  
-  - **[antura_blocky_character](../../cards/index.md#antura_blocky_character)**  
+  - **[Antura](../../cards/index.md#antura)**  
+    The main character of this videogame  
+  - **[Cookies](../../cards/index.md#antura_cookies)**  
+    Sweet rewards you can collect while playing! Use them to get new items and surprises.  
+  - **[Portal](../../cards/index.md#antura_portal)**  
+    A magic door that takes you to new places. Step in and see where it leads!  
+  - **[Cards](../../cards/index.md#antura_cards)**  
+    Each card has something special to learn. Find them all and read them!  
+  - **[Cat](../../cards/index.md#antura_cat)**  
+    Antura’s best friend and travel buddy. Curious, clever, and always ready to help!  
+  - **[Living Letter](../../cards/index.md#antura_livingletter)**  
+    A friendly letter that loves to talk and play! Talk to them to learn new words  
+  - **[Blocky](../../cards/index.md#antura_blocky_character)**  
+    These funny people live in this world.
+Talk to them all...  they have stories to tell!  
+  - **[Danger](../../cards/index.md#antura_malus)**  
+    Something you should not do! Be careful and stay safe.  
 
 ## Quest Script
 
@@ -38,7 +48,12 @@ Subjects:
 
 ## Words
 ## Activities
+- [CleanCanvas](../../activities/index.md#CleanCanvas)
 - [JigsawPuzzle](../../activities/index.md#JigsawPuzzle)
+- [Match](../../activities/index.md#Match)
+- [Memory](../../activities/index.md#Memory)
+- [MoneyCount](../../activities/index.md#MoneyCount)
+- [Order](../../activities/index.md#Order)
 
 ## Tasks
 - [Collect] talk_everybody

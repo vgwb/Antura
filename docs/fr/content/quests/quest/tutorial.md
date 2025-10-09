@@ -22,13 +22,23 @@ Subjects:
 ## Topics
 ### [Antura's world](../../topics/index.md#antura-world)
 
-  - **[antura](../../cards/index.md#antura)**  
-  - **[antura_cookies](../../cards/index.md#antura_cookies)**  
-  - **[antura_portal](../../cards/index.md#antura_portal)**  
-  - **[antura_card](../../cards/index.md#antura_card)**  
-  - **[antura_cat](../../cards/index.md#antura_cat)**  
-  - **[antura_livingletter](../../cards/index.md#antura_livingletter)**  
-  - **[antura_blocky_character](../../cards/index.md#antura_blocky_character)**  
+  - **[Antura](../../cards/index.md#antura)**  
+    Le personnage principal de ce jeu vidéo  
+  - **[Cookies](../../cards/index.md#antura_cookies)**  
+    De superbes récompenses à collectionner en jouant ! Utilisez-les pour obtenir de nouveaux objets et des surprises.  
+  - **[Portail](../../cards/index.md#antura_portal)**  
+    Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez où elle vous mène !  
+  - **[Cartes](../../cards/index.md#antura_cards)**  
+    Chaque carte a quelque chose de spécial à apprendre. Trouvez-les toutes et lisez-les !  
+  - **[Chat](../../cards/index.md#antura_cat)**  
+    Le meilleur ami et compagnon de voyage d'Antura. Curieux, intelligent et toujours prêt à aider !  
+  - **[Lettre vivante](../../cards/index.md#antura_livingletter)**  
+    Une lettre sympathique qui aime parler et jouer ! Parlez-lui pour apprendre de nouveaux mots.  
+  - **[En blocs](../../cards/index.md#antura_blocky_character)**  
+    Ces drôles de personnages vivent dans ce monde.
+Parlez-leur à tous… ils ont des histoires à raconter !  
+  - **[Danger](../../cards/index.md#antura_malus)**  
+    À éviter absolument ! Soyez prudents et protégez-vous.  
 
 ## Quest Script
 
@@ -38,7 +48,12 @@ Subjects:
 
 ## Words
 ## Activities
+- [CleanCanvas](../../activities/index.md#CleanCanvas)
 - [JigsawPuzzle](../../activities/index.md#JigsawPuzzle)
+- [Match](../../activities/index.md#Match)
+- [Memory](../../activities/index.md#Memory)
+- [MoneyCount](../../activities/index.md#MoneyCount)
+- [Order](../../activities/index.md#Order)
 
 ## Tasks
 - [Collect] talk_everybody

@@ -142,7 +142,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// PART 2 – MEET THE FISHERMAN &amp; AMBER</span>
 <span class="yarn-header-dim">group: Fisherman</span>
-<span class="yarn-header-dim">tags: actor=Fisherman</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card fisherman&gt;&gt;</span>
 <span class="yarn-line">Cześć. Jestem RYBAKIEM.</span> <span class="yarn-meta">#line:00e94a2 </span>
@@ -163,7 +163,7 @@ hide:
 <div class="yarn-node" data-title="AMBER_HINT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Fisherman</span>
-<span class="yarn-header-dim">tags: actor=Fisherman</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card amber&gt;&gt;</span>
 <span class="yarn-line">BURSZTYN JEST ZŁOTEM BAŁTYCKIM.</span> <span class="yarn-meta">#line:0901a09 </span>
@@ -197,7 +197,7 @@ hide:
 <div class="yarn-node" data-title="LIGHTHOUSE_FACT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Fisherman</span>
-<span class="yarn-header-dim">tags: actor=Fisherman</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card ship&gt;&gt;</span>
 <span class="yarn-line">LATARNIA MORSKA pomaga STATKOM.</span> <span class="yarn-meta">#line:049551f </span>
@@ -302,7 +302,7 @@ hide:
 <div class="yarn-node" data-title="NEPTUNE_SPEAK">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Neptune</span>
-<span class="yarn-header-dim">tags: actor=Neptune</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card necklace&gt;&gt;</span>
 <span class="yarn-line">Piękny NASZYJNIK!</span> <span class="yarn-meta">#line:0ca234d </span>
@@ -321,7 +321,7 @@ hide:
 <div class="yarn-node" data-title="AMBER_ROOM_NOTE">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Neptune</span>
-<span class="yarn-header-dim">tags: actor=Neptune</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">AMBER jest tutaj sławny.</span> <span class="yarn-meta">#line:05ce5f4 </span>
 <span class="yarn-cmd">&lt;&lt;card amber_room&gt;&gt;</span>
@@ -358,7 +358,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// PART 5 – SEALS &amp; ANTURA</span>
 <span class="yarn-header-dim">group: Rescue</span>
-<span class="yarn-header-dim">tags: actor=Fisherman</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seal&gt;&gt;</span>
 <span class="yarn-line">To są dzikie FOKi.</span> <span class="yarn-meta">#line:0c0dc82 </span>
@@ -525,7 +525,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// Spawned NPC flavor</span>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=KID</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Kiedyś widziałem duży STATEK.</span> <span class="yarn-meta">#line:02579c6 </span>
 <span class="yarn-line">Fale rozpryskują się szybko.</span> <span class="yarn-meta">#line:04fe9c2 </span>
@@ -541,7 +541,7 @@ hide:
 <div class="yarn-node" data-title="spawned_tourist">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Stary ŻURAW podnosi ciężkie ładunki.</span> <span class="yarn-meta">#line:0d2afb8 </span>
 <span class="yarn-line">Jasne światło prowadzi łodzie.</span> <span class="yarn-meta">#line:093119f </span>
@@ -557,7 +557,7 @@ hide:
 <div class="yarn-node" data-title="spawned_local">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Tutaj rzeka spotyka się z morzem.</span> <span class="yarn-meta">#line:0edcc57 </span>
 <span class="yarn-line">Dzisiaj w porcie jest duży ruch.</span> <span class="yarn-meta">#line:04f5d5e </span>

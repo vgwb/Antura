@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **376**
+Total found: **383**
 
 ## International
 
@@ -27,58 +27,51 @@ A tall mountain range in Europe.
 
 ---
 
-### antura {#antura}
+### Antura {#antura}
+![preview antura](../../../assets/img/content/cards/antura.jpg){ loading=lazy }
+
+The main character of this videogame
+
 - Type: Concept
 - Country: International
 - Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
-### antura_blocky_character {#antura_blocky_character}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
+### Apple {#food_apple}
+![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
 
----
+Red, round, and crunchy to bite. A tasty fruit that keeps you strong!
 
-### antura_card {#antura_card}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_cat {#antura_cat}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_cookies {#antura_cookies}
 - Type: Object
 - Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
-### antura_danger {#antura_danger}
-- Type: Concept
-- Country: International
+### Apple plant {#plant_apple}
+![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
 
----
+A tree with pink flowers and red, tasty fruits. It loves the sun and gives us crunchy apples!
 
-### antura_livingletter {#antura_livingletter}
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-
----
-
-### antura_portal {#antura_portal}
 - Type: Object
 - Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Arctic ice {#ice_arctic}
+![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
+
+Cold, white, and shiny like glass. Home to seals, bears, and adventure!
+
+- Type: Place
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -135,6 +128,30 @@ A big sea in northern Europe where Poland, Germany, and other countries meet. It
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC0
 - Quests: [The Amber Necklace of Gdańsk (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Banana {#food_banana}
+![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
+
+Soft, yellow, and easy to peel. Full of energy for your day!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Banana plant {#plant_banana}
+![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
+
+A tall plant with giant leaves and yellow bananas. Its fruit grows in bunches that hang down!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -199,6 +216,19 @@ A two‑wheeled vehicle you pedal.
 - Country: International
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
 - Quests: [Discover Warszawa (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Blocky {#antura_blocky_character}
+![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ loading=lazy }
+
+These funny people live in this world.
+Talk to them all...  they have stories to tell!
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
@@ -384,6 +414,18 @@ A small vehicle for roads.
 
 ---
 
+### Cards {#antura_cards}
+![preview antura_cards](../../../assets/img/content/cards/antura_cards.jpg){ loading=lazy }
+
+Each card has something special to learn. Find them all and read them!
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
 ### Castle Bridge {#place_castle_bridge}
 ![preview place_castle_bridge](../../../assets/img/content/cards/place_castle_bridge.jpg){ loading=lazy }
 
@@ -392,6 +434,18 @@ A bridge near a castle. Castles are big, strong buildings where kings and queens
 - Type: Place
 - Subjects: Culture, Community
 - Country: International
+- Image credit: CC0
+
+---
+
+### Cat {#antura_cat}
+![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ loading=lazy }
+
+Antura’s best friend and travel buddy. Curious, clever, and always ready to help!
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
 - Image credit: CC0
 
 ---
@@ -413,7 +467,7 @@ A person who sells many types of cheese.
 ### Chimpanzee {#animal_chimpanzee}
 ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
 
-No translation found for 'animal_chimpanzee.desc' in Cards
+Smart and playful, it loves to climb trees. It uses sticks and stones like little tools!
 
 - Type: None
 - Country: International
@@ -557,6 +611,18 @@ A person who prepares food.
 
 ---
 
+### Cookies {#antura_cookies}
+![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ loading=lazy }
+
+Sweet rewards you can collect while playing! Use them to get new items and surprises.
+
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
 ### Crab {#food_crab}
 ![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ loading=lazy }
 
@@ -608,6 +674,18 @@ A person who sells milk, butter, and cheese.
 - Country: International
 - Image credit: CC_BY_SA | Something Original (talk) | [source](https://commons.wikimedia.org/wiki/File:Pennsylvania_State_University_Food_Science_Building_and_Berkey_Creamery_May_15,_2010.jpg)
 - Quests: [Gingerbread & food market (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Danger {#antura_malus}
+![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ loading=lazy }
+
+Something you should not do! Be careful and stay safe.
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
@@ -912,30 +990,6 @@ White powder made from wheat that is used to make bread.
 
 ---
 
-### food_apple {#food_apple}
-![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
-
-No translation found for 'food_apple.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### food_banana {#food_banana}
-![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
-
-No translation found for 'food_banana.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Football (Soccer) {#football_soccer}
 ![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
 
@@ -960,6 +1014,18 @@ Small bridges for people walking. They keep you safe from traffic.
 - Topics: [Seine Bridges](../topics/index.md#seine_bridges)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### Fox {#animal_fox}
+![preview animal_fox](../../../assets/img/content/cards/animal_fox.jpg){ loading=lazy }
+
+A smart predator that lives in the woods. They have a soft tail to keep them warm.
+
+- Type: None
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Renard_roux_en_for%C3%AAt.jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1152,18 +1218,6 @@ Frozen water that can be very slippery.
 
 ---
 
-### ice_arctic {#ice_arctic}
-![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
-
-No translation found for 'ice_arctic.desc' in Cards
-
-- Type: Place
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Helicopter_View_(3978020016).jpg)
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Ile-de-France {#ile_de_france}
 ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ loading=lazy }
 
@@ -1315,7 +1369,7 @@ A big cat called the king of animals. It lives in groups called prides.
 ### Lion Cub {#animal_lion_cub}
 ![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
 
-No translation found for 'animal_lion_cub.desc' in Cards
+A small lion with soft fur and big paws. It spends its days playing and roaring softly.
 
 - Type: Object
 - Country: International
@@ -1334,6 +1388,18 @@ A country in Europe. Capital is Vilnius.
 - Country: International
 - Topics: [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Vilnius_Modern_Skyline_At_Dusk,_Lithuania_-_Diliff.jpg)
+
+---
+
+### Living Letter {#antura_livingletter}
+![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ loading=lazy }
+
+A friendly letter that loves to talk and play! Talk to them to learn new words
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
@@ -1473,7 +1539,6 @@ A smart animal that can climb and play. Some monkeys live in big families.
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1556,6 +1621,61 @@ A monument to the astronomer Nicolaus Copernicus.
 
 ---
 
+### Number 0 {#number_0}
+![preview number_0](../../../assets/img/content/cards/number_0.jpg){ loading=lazy }
+
+The number for nothing, but still important! It comes before all the others.
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Number 1 {#number_1}
+![preview number_1](../../../assets/img/content/cards/number_1.jpg){ loading=lazy }
+
+The very first number! It means just one thing.
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Number 2 {#number_2}
+![preview number_2](../../../assets/img/content/cards/number_2.jpg){ loading=lazy }
+
+A pair, like two eyes or two shoes. It loves to have a friend!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Number 3 {#number_3}
+![preview number_3](../../../assets/img/content/cards/number_3.jpg){ loading=lazy }
+
+Three means a group. like a tripod or tricycle!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Number 4 {#number_4}
+![preview number_4](../../../assets/img/content/cards/number_4.jpg){ loading=lazy }
+
+Four makes things steady, like table legs. It’s strong and balanced!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
 ### Olive oil {#food_olive_oil}
 ![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ loading=lazy }
 
@@ -1581,6 +1701,18 @@ A round, orange fruit that tastes sweet and juicy. Oranges have lots of vitamin 
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
 - Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### Orange plant {#plant_orange}
+![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
+
+A shiny green tree with round, juicy oranges. It smells fresh and sweet like sunshine!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1639,54 +1771,6 @@ Spices that make food taste better. Salt is white and pepper is black with tiny 
 
 ---
 
-### plant_apple {#plant_apple}
-![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
-
-No translation found for 'plant_apple.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### plant_banana {#plant_banana}
-![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
-
-No translation found for 'plant_banana.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### plant_orange {#plant_orange}
-![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
-
-No translation found for 'plant_orange.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### plant_wattle {#tree_wattle}
-![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
-
-No translation found for 'tree_wattle.desc' in Cards
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Acacia_sp._(51489535138).jpg)
-- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Poland {#country_poland}
 ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ loading=lazy }
 
@@ -1710,6 +1794,18 @@ Where laws are made: the Sejm and the Senate.
 - Country: International
 - Image credit: CC0
 - Quests: [Discover Warszawa (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Portal {#antura_portal}
+![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ loading=lazy }
+
+A magic door that takes you to new places. Step in and see where it leads!
+
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
 
 ---
 
@@ -2030,6 +2126,17 @@ A country in Europe. Capital is Bern. Switzerland is famous for mountains and ch
 
 ---
 
+### Target Symbol {#antura_target}
+![preview antura_target](../../../assets/img/content/cards/antura_target.jpg){ loading=lazy }
+
+If you see this, go to it. it might be something important!
+
+- Type: Concept
+- Country: International
+- Image credit: CC0
+
+---
+
 ### Tomato {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
@@ -2146,6 +2253,18 @@ Water is essential for all life
 
 ---
 
+### Wattle plant {#tree_wattle}
+![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
+
+A plant covered in tiny golden flowers. It brightens the land with its yellow glow!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Acacia_sp._(51489535138).jpg)
+- Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
 ### Wind {#wind}
 ![preview wind](../../../assets/img/content/cards/wind.jpg){ loading=lazy }
 
@@ -2176,7 +2295,7 @@ Yeast is like magic powder that makes bread soft and tasty!
 ### Young Lion Male {#animal_lion_young_male}
 ![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
 
-No translation found for 'animal_lion_young_male.desc' in Cards
+Growing strong with a short mane. He learns to hunt and protect his pride.
 
 - Type: Object
 - Country: International
@@ -2186,11 +2305,14 @@ No translation found for 'animal_lion_young_male.desc' in Cards
 ---
 
 ### Zoo Animals {#zoo_animals}
-Auto-created card for topic 'Zoo Animals'.
+![preview zoo_animals](../../../assets/img/content/cards/zoo_animals.jpg){ loading=lazy }
+
+Animals from around the world live here. Come meet them, watch, and learn their stories!
 
 - Type: None
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
+- Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 
 ---
 
@@ -2265,7 +2387,7 @@ The first words of the anthem’s first line.
 ### Arc De Triomphe {#arc_de_triomphe}
 ![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
 
-No translation found for 'arc_de_triomphe.desc' in Cards
+A grand arch in Paris, built to honor heroes. You can see it shining at the end of a long avenue!
 
 - Type: Place
 - Country: France
@@ -3499,6 +3621,17 @@ School for little kids aged 3 to 5. You learn by playing and exploring.
 
 ## Poland
 
+### Adult elephant {#animal_elephant_adult}
+![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
+
+Big and strong, with long tusks and a loud trumpet. It cares for the herd and leads the way.
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
 ### Amber {#amber}
 ![preview amber](../../../assets/img/content/cards/amber.jpg){ loading=lazy }
 
@@ -3555,33 +3688,6 @@ A dwarf statue that loves the zoo and animals.
 
 ---
 
-### animal_elephant_adult {#animal_elephant_adult}
-![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
-### animal_elephant_baby {#animal_elephant_baby}
-![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
-### animal_elephant_young {#animal_elephant_young}
-![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
 ### Astronomy {#astronomy}
 ![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
 
@@ -3593,6 +3699,17 @@ The science of studying the Sun, Moon, stars, and planets.
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
 - Quests: [Copernicus and the Solar System (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Baby elephant {#animal_elephant_baby}
+![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
+
+Small and playful, it waves its tiny trunk. It loves to stay close to its mom.
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
 
 ---
 
@@ -4273,12 +4390,15 @@ A colorful bird with a big tail of feathers.
 ---
 
 ### Pierogi Recipe {#pierogi_recipe}
+![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ loading=lazy }
+
 Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
 
 - Type: Object
 - Subjects: Food
 - Country: Poland
 - Topics: [Pierogi Recipe](../topics/index.md#pierogi)
+- Image credit: CC0
 
 ---
 
@@ -4790,6 +4910,17 @@ A big zoo in Wrocław with many animals to learn about.
 - Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Young elephant {#animal_elephant_young}
+![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
+
+Curious and learning, it follows the adults. It practices using its trunk every day!
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
 
 ---
 

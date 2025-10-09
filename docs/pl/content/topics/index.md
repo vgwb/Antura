@@ -28,19 +28,50 @@ Total found: **35**
 - Target Age: Ages6to10
 - Core card:
     - **[Antura](../cards/index.md#antura)**
+    Główny bohater tej gry wideo
+
+    ![preview antura](../../../assets/img/content/cards/antura.jpg){ width="200" }
 
 - Connected cards:
-    - **[Cookies](../cards/index.md#antura_cookies)** (RelatedTo)
+    - **[Ciastka](../cards/index.md#antura_cookies)** (RelatedTo)
+    Słodkie nagrody, które możesz zbierać podczas gry! Wykorzystaj je, aby zdobyć nowe przedmioty i niespodzianki.
+
+    ![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ width="200" }
 
     - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+    Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
 
-    - **[Card](../cards/index.md#antura_card)** (RelatedTo)
+    ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 
-    - **[Cat](../cards/index.md#antura_cat)** (RelatedTo)
+    - **[Karty](../cards/index.md#antura_cards)** (RelatedTo)
+    Każda karta skrywa coś wyjątkowego. Znajdź je wszystkie i przeczytaj!
 
-    - **[Living Letter](../cards/index.md#antura_livingletter)** (RelatedTo)
+    ![preview antura_cards](../../../assets/img/content/cards/antura_cards.jpg){ width="200" }
 
-    - **[Blocky](../cards/index.md#antura_blocky_character)** (RelatedTo)
+    - **[Kot](../cards/index.md#antura_cat)** (RelatedTo)
+    Najlepszy przyjaciel i towarzysz podróży Antury. Ciekawy, sprytny i zawsze gotowy do pomocy!
+
+    ![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ width="200" }
+
+    - **[Żywy List](../cards/index.md#antura_livingletter)** (RelatedTo)
+    Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby nauczyć się nowych słów.
+
+    ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
+
+    - **[Blokowy](../cards/index.md#antura_blocky_character)** (RelatedTo)
+    Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... mają historie do opowiedzenia!
+
+    ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
+
+    - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+    Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+
+    ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
+
+    - **[Niebezpieczeństwo](../cards/index.md#antura_malus)** (RelatedTo)
+    Czegoś takiego nie powinieneś robić! Zachowaj ostrożność i bądź bezpieczny.
+
+    ![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ width="200" }
 
 - Quests: [Samouczek (tutorial)](../quests/quest/tutorial.md)
 
@@ -53,7 +84,7 @@ Total found: **35**
 - Target Age: Ages6to10
 - Core card:
     - **[Matematyka podstawowa](../cards/index.md#elementary_maths)**
-    Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
+    Liczby i kształty do codziennego użytku: liczenie, dodawanie i odejmowanie, proste ułamki, mierzenie, określanie czasu i korzystanie z pieniędzy.
 
 - Connected cards:
     - **[Linia](../cards/index.md#fr_figure_line)** (PartOf)
@@ -183,7 +214,7 @@ Credits:
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
     - **[Flaga Republiki Czeskiej](../cards/index.md#flag_czech_republic)** (CulturalContext)
-    The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
+    Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z pięknego Zamku Praskiego i kryształowego szkła.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
 
@@ -487,6 +518,8 @@ Credits:
 - Core card:
     - **[Zwierzęta z zoo](../cards/index.md#zoo_animals)**
     Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
+
+    ![preview zoo_animals](../../../assets/img/content/cards/zoo_animals.jpg){ width="200" }
 
 - Connected cards:
     - **[Żyrafa](../cards/index.md#animal_giraffe)** (RelatedTo)
@@ -818,7 +851,7 @@ Credits:
 
 - Connected cards:
     - **[Dookoła świata w osiemdziesiąt dni](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
-    An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
+    Ekscytująca książka Juliusza Verne'a o bardzo szybkiej podróży dookoła całego świata pociągami, statkami i balonami na ogrzane powietrze!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
@@ -828,7 +861,7 @@ Credits:
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
     - **[20 000 mil podmorskiej żeglugi](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
-    A book by Jules Verne about underwater adventures in a submarine called the Nautilus. You meet giant sea creatures!
+    Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Spotykasz gigantyczne morskie stworzenia!
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
@@ -1254,6 +1287,8 @@ Credits:
     - **[Przepis na pierogi](../cards/index.md#pierogi_recipe)**
     Wyrób miękkie ciasto, nałóż na nie puree ziemniaczane i serek wiejski, zamknij i gotuj, aż ciasto wypłynie na powierzchnię – następnie smaż na patelni z cebulą na maśle.
 
+    ![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ width="200" }
+
 - Connected cards:
     - **[Polskie pierogi](../cards/index.md#pierogi)** (RelatedTo)
     Pierogi z nadzieniem ziemniaczanym, serowym lub owocowym. To słynne polskie danie.
@@ -1320,7 +1355,7 @@ Credits:
     ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ width="200" }
 
     - **[Flaga Republiki Czeskiej](../cards/index.md#flag_czech_republic)** (CulturalContext)
-    The flag has white and red stripes with a blue triangle. The Czech Republic is famous for beautiful Prague castle and crystal glass.
+    Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z pięknego Zamku Praskiego i kryształowego szkła.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
 

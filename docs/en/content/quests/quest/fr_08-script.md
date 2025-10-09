@@ -32,8 +32,10 @@ hide:
 <span class="yarn-header-dim">// Words used:Europe, flags, France, Italy, Switzerland, Alps, altitude, summit, glacier, avalanche, marmot, crampons, rope, weather, safety</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
+Welcome to the Mont Blanc!
 
 </code>
 </pre>
@@ -47,6 +49,7 @@ hide:
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">You reached Mont Blanc and learned summit facts!</span> <span class="yarn-meta">#line:0b99e77 </span>
 <span class="yarn-line">You placed all three flags.</span> <span class="yarn-meta">#line:057afc7 </span>
@@ -69,6 +72,7 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Why don't you draw Mont Blanc with the three flags.</span> <span class="yarn-meta">#line:0232ab7 </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
@@ -99,7 +103,7 @@ hide:
 
 <div class="yarn-node" data-title="item_backpack">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR asset=backpack</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card backpack&gt;&gt;</span>
 <span class="yarn-line">This backpack carries food, water and a map.</span> <span class="yarn-meta">#line:05e80cb </span>
@@ -115,7 +119,7 @@ hide:
 
 <div class="yarn-node" data-title="item_coat">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR asset=coat</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card coat&gt;&gt;</span>
 <span class="yarn-line">This coat keeps your body warm in wind and snow.</span> <span class="yarn-meta">#line:0e23f1f </span>
@@ -131,7 +135,7 @@ hide:
 
 <div class="yarn-node" data-title="item_gloves">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR asset=gloves</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gloves&gt;&gt;</span>
 <span class="yarn-line">Gloves keep fingers warm and dry.</span> <span class="yarn-meta">#line:0f2aac7 </span>
@@ -147,7 +151,7 @@ hide:
 
 <div class="yarn-node" data-title="item_hat">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR asset=hat</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card hat&gt;&gt;</span>
 <span class="yarn-line">A warm hat keeps heat from leaving your head.</span> <span class="yarn-meta">#line:000fc05 </span>
@@ -163,7 +167,7 @@ hide:
 
 <div class="yarn-node" data-title="item_rope">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR asset=rope</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card rope&gt;&gt;</span>
 <span class="yarn-line">The rope helps climbers stay safe on ice and rock.</span> <span class="yarn-meta">#line:038d1bc </span>
@@ -179,7 +183,7 @@ hide:
 
 <div class="yarn-node" data-title="item_scarf">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR asset=scarf</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card scarf&gt;&gt;</span>
 <span class="yarn-line">A scarf blocks wind on your neck.</span> <span class="yarn-meta">#line:0afb2dc </span>
@@ -195,7 +199,7 @@ hide:
 
 <div class="yarn-node" data-title="item_sunglasses">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR asset=sunglasses</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card sunglasses&gt;&gt;</span>
 <span class="yarn-line">Snow and ice reflect bright sun.</span> <span class="yarn-meta">#line:02a2ea9 </span>
@@ -211,8 +215,9 @@ hide:
 
 <div class="yarn-node" data-title="flag_france">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags:  asset=flag_france</span>
+<span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
 <span class="yarn-line">Find the French flag.</span> <span class="yarn-meta">#line:0d23529 </span>
 
 </code>
@@ -225,8 +230,10 @@ hide:
 
 <div class="yarn-node" data-title="flag_italy">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags:  asset=flag_italy</span>
+<span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
+
 <span class="yarn-line">Find the Italian flag.</span> <span class="yarn-meta">#line:050fe70 </span>
 
 </code>
@@ -239,8 +246,8 @@ hide:
 
 <div class="yarn-node" data-title="flag_swiss">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags:  asset=flag_swiss</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card flag_swiss&gt;&gt;</span>
 <span class="yarn-line">Find the Swiss flag.</span> <span class="yarn-meta">#line:03db010 </span>
 
 </code>
@@ -258,7 +265,7 @@ hide:
 <span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
 <span class="yarn-header-dim">// they will say one of these lines randomly</span>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I love the mountains!</span> <span class="yarn-meta">#line:011dc7e </span>
@@ -281,7 +288,7 @@ hide:
 <div class="yarn-node" data-title="spawned_hiker">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: hikers</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hiking here needs good boots.</span> <span class="yarn-meta">#line:0dbac73 </span>
@@ -304,7 +311,7 @@ hide:
 <div class="yarn-node" data-title="spawned_alps_climber">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: alps_climber</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The Alps are my playground.</span> <span class="yarn-meta">#line:0809dce </span>

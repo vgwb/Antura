@@ -421,6 +421,8 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find your backpack and then come back.</span> <span class="yarn-meta">#line:0e3ad75 </span>
+<span class="yarn-line">Maybe someone has it,</span> <span class="yarn-meta">#line:0b43290 </span>
+<span class="yarn-line">Try asking around.</span> <span class="yarn-meta">#line:0c282e5 </span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_BACKPACK task_backpack_done&gt;&gt;</span>
 
 </code>

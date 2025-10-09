@@ -103,7 +103,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_guide">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 8&gt;&gt;
 <span class="yarn-cmd">&lt;&lt;jump guide_question&gt;&gt;</span>
@@ -121,7 +121,7 @@ hide:
 
 <div class="yarn-node" data-title="guide_chinon">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card chinon&gt;&gt;</span>
 <span class="yarn-line">Questo è il castello di Chinon.</span> <span class="yarn-meta">#line:06eaf5c </span>
@@ -141,7 +141,8 @@ hide:
 
 <div class="yarn-node" data-title="guide_chambord">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN,</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Benvenuti al castello di Chambord.</span> <span class="yarn-meta">#line:0a06d3f </span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
@@ -160,7 +161,7 @@ hide:
 
 <div class="yarn-node" data-title="task_find_knights_items">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Scopri tutto ciò che indossa un cavaliere:</span> <span class="yarn-meta">#line:0bfad5e </span>
 <span class="yarn-cmd">&lt;&lt;card obj_helmet&gt;&gt;</span>
@@ -183,7 +184,7 @@ hide:
 
 <div class="yarn-node" data-title="task_find_prince_items">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Trova tutti gli oggetti del principe:</span> <span class="yarn-meta">#line:0cb22cb </span>
 <span class="yarn-cmd">&lt;&lt;card obj_hat&gt;&gt;</span>
@@ -206,7 +207,7 @@ hide:
 
 <div class="yarn-node" data-title="guide_question">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hai trovato Antura?</span> <span class="yarn-meta">#line:01003d0 </span>
 <span class="yarn-line">SÌ</span> <span class="yarn-meta">#line:0d9f509 </span>
@@ -224,7 +225,7 @@ hide:
 
 <div class="yarn-node" data-title="guide_done">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset map&gt;&gt;</span>
 <span class="yarn-line">Ti sono piaciuti i castelli?</span> <span class="yarn-meta">#line:02a8dd7 </span>
@@ -241,7 +242,8 @@ hide:
 
 <div class="yarn-node" data-title="view_bridge">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN, asset=bridge</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">tags:  asset=bridge</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card bridge&gt;&gt;</span>
 <span class="yarn-line">Un ponte levatoio è un tipo di ponte mobile utilizzato nei castelli.</span> <span class="yarn-meta">#line:0010896 </span>
@@ -256,7 +258,8 @@ hide:
 
 <div class="yarn-node" data-title="view_parapet">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN, asset=parapet</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">tags:  asset=parapet</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card parapet&gt;&gt;</span>
 <span class="yarn-line">Un parapetto presenta delle fessure utilizzate a scopo difensivo.</span> <span class="yarn-meta">#line:0aaf4dd </span>
@@ -271,7 +274,8 @@ hide:
 
 <div class="yarn-node" data-title="obg_helmet">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_helmet&gt;&gt;</span>
 <span class="yarn-line">un casco</span> <span class="yarn-meta">#line:0b492f6 </span>
@@ -286,7 +290,8 @@ hide:
 
 <div class="yarn-node" data-title="obj_hat">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_hat</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=obj_hat</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_hat&gt;&gt;</span>
 <span class="yarn-line">un cappello</span> <span class="yarn-meta">#line:0806c77 </span>
@@ -302,7 +307,8 @@ hide:
 <div class="yarn-node" data-title="obg_sword">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset obj_sword&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card obj_sword&gt;&gt;</span>
@@ -319,7 +325,8 @@ hide:
 <div class="yarn-node" data-title="obg_bow">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_bow&gt;&gt;</span>
 <span class="yarn-line">un arco e delle frecce</span> <span class="yarn-meta">#line:049d6e8 </span>
@@ -335,7 +342,7 @@ hide:
 <div class="yarn-node" data-title="obg_armor">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_armor&gt;&gt;</span>
 <span class="yarn-line">questa è un'armatura</span> <span class="yarn-meta">#line:01ac543 </span>
@@ -351,7 +358,7 @@ hide:
 <div class="yarn-node" data-title="view_loopholes">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card loopholes&gt;&gt;</span>
 <span class="yarn-line">Sono delle scappatoie. Servono per scoccare frecce al nemico.</span> <span class="yarn-meta">#line:050e177 </span>
@@ -366,7 +373,8 @@ hide:
 
 <div class="yarn-node" data-title="obj_musical_intrument">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_musical_instruments</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=obj_musical_instruments</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_musical_instruments&gt;&gt;</span>
 <span class="yarn-line">uno strumento musicale</span> <span class="yarn-meta">#line:07f4c19 </span>
@@ -381,7 +389,8 @@ hide:
 
 <div class="yarn-node" data-title="obj_shoes">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_dance_shoes</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=obj_dance_shoes</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_dance_shoes&gt;&gt;</span>
 <span class="yarn-line">scarpe da ballo</span> <span class="yarn-meta">#line:01ee90f </span>
@@ -396,7 +405,8 @@ hide:
 
 <div class="yarn-node" data-title="obj_ball_mask">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=obj_ball_mask</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=obj_ball_mask</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card obj_ball_mask&gt;&gt;</span>
 <span class="yarn-line">una maschera da palla</span> <span class="yarn-meta">#line:0071a08 </span>
@@ -411,7 +421,8 @@ hide:
 
 <div class="yarn-node" data-title="view_chambord_map">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=chambord_map</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=chambord_map</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
 <span class="yarn-line">Questa è una mappa del castello.</span> <span class="yarn-meta">#line:0b62127 </span>
@@ -426,7 +437,8 @@ hide:
 
 <div class="yarn-node" data-title="view_chambord_room">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=chambord_room</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=chambord_room</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
 <span class="yarn-line">Che stanza!</span> <span class="yarn-meta">#line:0f99fd5 </span>
@@ -441,7 +453,8 @@ hide:
 
 <div class="yarn-node" data-title="view_interior">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=chambord_interior</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=chambord_interior</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
 <span class="yarn-line">È molto bello!</span> <span class="yarn-meta">#line:082ac97 </span>

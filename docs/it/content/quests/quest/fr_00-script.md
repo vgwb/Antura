@@ -417,7 +417,7 @@ hide:
         <span class="yarn-cmd">&lt;&lt;task_end FIND_BELGIUM_FLAG &gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $belgium_completed = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;action lux_active&gt;&gt;</span>
-        <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_LX&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_LU&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $belgium_met = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_lux&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else &gt;&gt;</span>
@@ -540,7 +540,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Trova la bandiera del Lussemburgo.</span> <span class="yarn-meta">#line:0ed3698 </span>
 <span class="yarn-line">È rosso, bianco e azzurro.</span> <span class="yarn-meta">#line:018e4cf </span>
-<span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_LX&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_LU&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_LUX_FLAG task_lux&gt;&gt;</span>
 
 </code>

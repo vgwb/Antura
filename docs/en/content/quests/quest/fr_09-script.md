@@ -30,7 +30,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $greengrocer_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $grocer_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $pirate_completed = false&gt;&gt;</span>
-<span class="yarn-line">Welcome to Côte d'Azur! It's a sunny day on the coast.</span> <span class="yarn-meta">#line:078e646 </span>
+<span class="yarn-line">Welcome to Côte d'Azur! It's a sunny day on the coast.</span> <span class="yarn-meta">#line:078e646</span>
+<span class="yarn-cmd">&lt;&lt;target target_chef&gt;&gt;</span> 
 
 </code>
 </pre>
@@ -165,7 +166,8 @@ hide:
 <div class="yarn-node" data-title="baker_payment_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">actor: ADULT_M, no_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">tags: no_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Here you go.</span> <span class="yarn-meta">#line:0567082 </span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:00da30a </span>
@@ -199,7 +201,8 @@ hide:
 <div class="yarn-node" data-title="fisher_payment_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">actor: SENIOR_M, do_not_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">tags: do_not_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Here you go.</span> <span class="yarn-meta">#line:08733ac </span>
 <span class="yarn-line">Au revoir!</span> <span class="yarn-meta">#line:02e64ff </span>
@@ -257,7 +260,8 @@ hide:
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">actor: SENIOR_M, noRepeatLastLine</span>
+<span class="yarn-header-dim">tags: noRepeatLastLine</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_fishmonger") &gt; 0&gt;&gt;
 <span class="yarn-line">    You already bought fish from me!</span> <span class="yarn-meta">#line:044d973 </span>
@@ -330,7 +334,6 @@ hide:
 <div class="yarn-node" data-title="cheesemonger_question">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: cheesemonger</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy?</span> <span class="yarn-meta">#line:03009de </span>
@@ -495,7 +498,6 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: greengrocer</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I sell fruits and vegetables. I'm a greengrocer.</span> <span class="yarn-meta">#line:041ade1 </span>
 <span class="yarn-line">My items are always fresh!</span> <span class="yarn-meta">#line:0969b87 </span>
@@ -550,7 +552,6 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: grocer</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
-<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy?</span> <span class="yarn-meta">#line:0c36100 </span>
 <span class="yarn-line">Tomatoes, Oranges, and Lemons</span> <span class="yarn-meta">#line:0d6dabd </span>
@@ -602,7 +603,6 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: grocer</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
-<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I sell spices and pantry goods. I am a grocer.</span> <span class="yarn-meta">#line:0ffbfa4 </span>
 <span class="yarn-line">You can use my items for many recipes.</span> <span class="yarn-meta">#line:0c6a554 </span>
@@ -622,7 +622,6 @@ hide:
 <span class="yarn-header-dim">group: pirates</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">tags: </span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $pirate_completed&gt;&gt;</span>
 <span class="yarn-line">Now go! I have to prepare for my next voyage.</span> <span class="yarn-meta">#line:04a0605 </span>
@@ -663,7 +662,6 @@ hide:
 <span class="yarn-header-dim">group: pirates</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">tags: </span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">We worked for the King of France.</span> <span class="yarn-meta">#line:0af3bba </span>
 <span class="yarn-line">In the past, we took items from the king's enemies, but those days are gone.</span> <span class="yarn-meta">#line:0b61715 </span>
@@ -1050,7 +1048,6 @@ hide:
 <div class="yarn-node" data-title="item_orange">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_orange&gt;&gt;</span>
 <span class="yarn-line">Orange</span> <span class="yarn-meta">#line:0c0fa04 </span>
@@ -1082,7 +1079,6 @@ hide:
 <div class="yarn-node" data-title="item_tomato">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_tomato&gt;&gt;</span>
@@ -1099,7 +1095,6 @@ hide:
 <div class="yarn-node" data-title="item_milk">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_milk&gt;&gt;</span>
@@ -1133,7 +1128,6 @@ hide:
 <div class="yarn-node" data-title="item_oil">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_olive_oil&gt;&gt;</span>

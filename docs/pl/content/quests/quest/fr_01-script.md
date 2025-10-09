@@ -20,6 +20,7 @@ hide:
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
@@ -44,6 +45,7 @@ hide:
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">ŚWIETNIE! Teraz mogę upiec bagietkę. I...</span> <span class="yarn-meta">#line:0017917 </span>
 <span class="yarn-line">GRATULACJE! Wygrałeś grę! Podobała Ci się?</span> <span class="yarn-meta">#line:0d11596 </span>
@@ -62,6 +64,8 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
+
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dlaczego nie narysujesz Wieży Eiffla?</span> <span class="yarn-meta">#line:002620f </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
@@ -76,7 +80,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_tutor">
 <pre class="yarn-code" style="--node-color:blue"><code>
-<span class="yarn-header-dim">actor: tutor</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Widziałem, jak Antura udał się na Wieżę Eiffla.</span> <span class="yarn-meta">#line:talk_tutor</span>
@@ -95,7 +99,7 @@ hide:
 <div class="yarn-node" data-title="talk_eiffell_roof">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: toureiffel</span>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset toureiffell&gt;&gt;</span>
 <span class="yarn-line">Wieża Eiffla ma 300 metrów wysokości.</span> <span class="yarn-meta">#line:08c1973 </span>
@@ -119,7 +123,7 @@ hide:
 <div class="yarn-node" data-title="talk_eiffell_guide">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: toureiffel</span>
-<span class="yarn-header-dim">actor: guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $TOTAL_COINS &gt; 2&gt;&gt;
 <span class="yarn-line">    Oto twój bilet.</span> <span class="yarn-meta">#line:04e74ad </span>
@@ -146,7 +150,7 @@ hide:
 <div class="yarn-node" data-title="talk_notre_dame">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: notredame</span>
-<span class="yarn-header-dim">tags: actor=MAN_OLD, asset=notredame</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Jestem merem Paryża.</span> <span class="yarn-meta">#line:0cc11fa </span>
 <span class="yarn-line">To jest katedra Notre-Dame.</span> <span class="yarn-meta">#line:06f3fa2 </span>
@@ -167,7 +171,7 @@ hide:
 <div class="yarn-node" data-title="talk_notre_dame_roof">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: notredame</span>
-<span class="yarn-header-dim">tags: actor=MAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset notredame_fire&gt;&gt;</span>
 <span class="yarn-line">W 2019 roku wybuchł duży pożar, ale udało się go naprawić.</span> <span class="yarn-meta">#line:09a0ead </span>
@@ -201,7 +205,7 @@ hide:
 <div class="yarn-node" data-title="talk_louvre_external">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">actor: OLD_WOMAN</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $MET_MONALISA&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card go_bakery&gt;&gt;</span>
@@ -227,7 +231,7 @@ hide:
 <div class="yarn-node" data-title="talk_louvre_guide">
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Witamy w Luwrze. Co chcesz zrobić?</span> <span class="yarn-meta">#line:0e6d2a5 </span>
@@ -253,7 +257,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset monalisa&gt;&gt;</span>
 <span class="yarn-line">To jest słynna Mona Lisa.</span> <span class="yarn-meta">#line:louvre_monalisa_1</span>
@@ -274,7 +278,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset liberty_leading&gt;&gt;</span>
 <span class="yarn-line">Ten obraz przedstawia wolność.</span> <span class="yarn-meta">#line:louvre_liberty_1</span>
@@ -293,7 +297,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">group: louvre</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=WOMAN, </span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset venusmilo&gt;&gt;</span>
 <span class="yarn-line">Wenus z Milo, starożytna grecka rzeźba marmurowa.</span> <span class="yarn-meta">#line:053d4fe </span>
@@ -308,7 +312,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_louvre_pyramid">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: louvre</span>
 <span class="yarn-header-dim">---</span>
@@ -326,7 +330,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_code_of_hammurabi">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: louvre</span>
 <span class="yarn-header-dim">---</span>
@@ -344,7 +348,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_coronation_of_napoleon_david">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: louvre</span>
 <span class="yarn-header-dim">---</span>
@@ -362,7 +366,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_oath_of_the_horatii_david">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: louvre</span>
 <span class="yarn-header-dim">---</span>
@@ -380,7 +384,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_the_seated_scribe">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: louvre</span>
 <span class="yarn-header-dim">---</span>
@@ -398,7 +402,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_winged_victory_of_samothrace">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: louvre</span>
 <span class="yarn-header-dim">---</span>
@@ -417,7 +421,7 @@ hide:
 <div class="yarn-node" data-title="talk_cook">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: bakery</span>
-<span class="yarn-header-dim">actor: CRAZY_MAN</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 4&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
@@ -443,7 +447,7 @@ hide:
 <div class="yarn-node" data-title="visit_louvre">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset louvre_inside&gt;&gt;</span>
 <span class="yarn-line">Można tu znaleźć wiele rzeźb i obrazów.</span> <span class="yarn-meta">#line:08dc97f </span>
@@ -460,7 +464,7 @@ hide:
 <div class="yarn-node" data-title="find_monalisa">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 
 <span class="yarn-cmd">&lt;&lt;action monalisa&gt;&gt;</span>
@@ -477,7 +481,7 @@ hide:
 <div class="yarn-node" data-title="go_bakery">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">tags: actor=WOMAN_OLD</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
  
 <span class="yarn-line">A teraz szukajcie Antury! Poszła do piekarni po bagietkę!</span> <span class="yarn-meta">#line:076ef0f </span>
@@ -495,7 +499,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_salt&gt;&gt;</span>
@@ -513,7 +517,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_2&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_flour&gt;&gt;</span>
@@ -531,7 +535,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_water&gt;&gt;</span>
@@ -549,7 +553,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">group: bakery</span>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card baguette_yeast&gt;&gt;</span>
@@ -569,7 +573,7 @@ hide:
 <span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
 <span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
 <span class="yarn-header-dim">// they will say one of these lines randomly</span>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: generic</span>
 
@@ -595,7 +599,7 @@ hide:
 
 <div class="yarn-node" data-title="spawned_eiffell_tourist">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: eiffel_tower</span>
 <span class="yarn-header-dim">---</span>
@@ -616,7 +620,7 @@ hide:
 
 <div class="yarn-node" data-title="spawned_man">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: generic</span>
 <span class="yarn-header-dim">---</span>
@@ -642,7 +646,7 @@ hide:
 
 <div class="yarn-node" data-title="spawned_kid_m">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=KID_M</span>
+<span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: kids</span>
 <span class="yarn-header-dim">---</span>
@@ -659,7 +663,7 @@ hide:
 
 <div class="yarn-node" data-title="spawned_kid_f">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=KID_F</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: kids</span>
 <span class="yarn-header-dim">---</span>
@@ -676,7 +680,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_louvre_museum">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: louvre</span>
 <span class="yarn-header-dim">---</span>
@@ -695,7 +699,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_notredame_base">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: notredame</span>
 <span class="yarn-header-dim">---</span>
@@ -713,7 +717,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_notredame_roof">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: notredame_roof</span>
 <span class="yarn-header-dim">---</span>
@@ -731,7 +735,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_bakery">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=MAN_BIG</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: bakery</span>
 <span class="yarn-header-dim">---</span>

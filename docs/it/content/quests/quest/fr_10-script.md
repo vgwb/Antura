@@ -20,6 +20,7 @@ hide:
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
@@ -39,6 +40,7 @@ hide:
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ottimo, hai trovato tutti i ponti.</span> <span class="yarn-meta">#line:0c408c3 </span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
@@ -67,6 +69,7 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Disegna un ponte sul tuo quaderno!</span> <span class="yarn-meta">#line:0b37e92 </span>
 <span class="yarn-line">Vi ricordate il Ponte Alessandro III?</span> <span class="yarn-meta">#line:06c5bed </span>
@@ -107,7 +110,8 @@ hide:
 
 <div class="yarn-node" data-title="welcome">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=seine_river_panoramic</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=seine_river_panoramic</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Questa è la Senna!</span> <span class="yarn-meta">#line:0aa0f3a </span>
 <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
@@ -125,7 +129,7 @@ hide:
 
 <div class="yarn-node" data-title="found_all_photos">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Grazie!</span> <span class="yarn-meta">#line:0a70250 </span>
 <span class="yarn-line">Sapevi che ci sono 37 ponti sulla Senna?</span> <span class="yarn-meta">#line:0353a5c </span>
@@ -141,7 +145,7 @@ hide:
 
 <div class="yarn-node" data-title="task_seine">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;task_start seine&gt;&gt;</span>
 <span class="yarn-line">Ho perso 8 foto della Senna.</span> <span class="yarn-meta">#line:0d77f5e </span>
@@ -159,7 +163,7 @@ hide:
 <div class="yarn-node" data-title="sign_train_bridge">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card sign_train_bridge&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
@@ -175,7 +179,7 @@ hide:
 
 <div class="yarn-node" data-title="sign_car_bridge">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card sign_car_bridge&gt;&gt;</span>
@@ -192,7 +196,8 @@ hide:
 
 <div class="yarn-node" data-title="sign_people_bridge">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card sign_people_bridge&gt;&gt;</span>
@@ -209,7 +214,7 @@ hide:
 
 <div class="yarn-node" data-title="boat_people">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  boat_people&gt;&gt;</span>
@@ -226,7 +231,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_house">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR,</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_house&gt;&gt;</span>
@@ -243,7 +249,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_goods">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, boat_goods</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  boat_goods</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_goods&gt;&gt;</span>
@@ -260,7 +267,7 @@ hide:
 
 <div class="yarn-node" data-title="look_seine_map">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  seine_france_map&gt;&gt;</span>
 <span class="yarn-line">Ora guarda questa mappa della Senna.</span> <span class="yarn-meta">#line:0b03341 </span>
@@ -276,7 +283,7 @@ hide:
 
 <div class="yarn-node" data-title="question_seine_map">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La Senna sfocia in un mare. Quale?</span> <span class="yarn-meta">#line:0adc7b7 </span>
 <span class="yarn-line">"Il Mar Mediterraneo":</span> <span class="yarn-meta">#line:04cf904 </span>
@@ -296,7 +303,7 @@ hide:
 
 <div class="yarn-node" data-title="question_correct">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Sì! La Senna sfocia nella Manica, nel nord della Francia.</span> <span class="yarn-meta">#line:023623a </span>
@@ -313,7 +320,7 @@ hide:
 
 <div class="yarn-node" data-title="question_wrong">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Mmm... non proprio. Guarda di nuovo la mappa.</span> <span class="yarn-meta">#line:01c9d19 </span>
 <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
@@ -328,7 +335,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_train">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Mi piacerebbe molto viaggiare in treno!</span> <span class="yarn-meta">#line:01663fa </span>
 <span class="yarn-line">Adoro i treni!</span> <span class="yarn-meta">#line:0574872 </span>
@@ -343,7 +350,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_boat">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">No, non ho visto il tuo cane.</span> <span class="yarn-meta">#line:0614aef </span>
 <span class="yarn-line">Un cane? Ci sono molti cani qui...</span> <span class="yarn-meta">#line:09f3f7a </span>
@@ -359,7 +366,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_eiffel">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Guarda che bello!</span> <span class="yarn-meta">#line:059f66d </span>
@@ -375,7 +383,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_river">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ci sono molte barche.</span> <span class="yarn-meta">#line:076e2e6 </span>
@@ -391,7 +400,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_ile_de_france">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card ile_de_france&gt;&gt;</span>
 <span class="yarn-line">Guarda: c'è un'isola, l'Île de la Cité.</span> <span class="yarn-meta">#line:03e5667 </span>
@@ -407,7 +416,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_pont_alexandre">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card pont_alexandre_iii&gt;&gt;</span>
 <span class="yarn-line">Questo è il Ponte Alessandro III, un monumento storico.</span> <span class="yarn-meta">#line:09c706f </span>
@@ -446,7 +455,7 @@ hide:
 <div class="yarn-node" data-title="spawned_french_woman">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: residents </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Buongiorno!</span> <span class="yarn-meta">#line:072a345 </span>
@@ -465,7 +474,7 @@ hide:
 <div class="yarn-node" data-title="spawned_french_man">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: residents </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Saluti!</span> <span class="yarn-meta">#line:06aa0c1 </span>
@@ -484,7 +493,7 @@ hide:
 <div class="yarn-node" data-title="facts_bridges">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_trains&gt;&gt;</span>
 <span class="yarn-line">I ponti possono trasportare treni veloci sull'acqua.</span> <span class="yarn-meta">#line:035a1f6 </span>
@@ -506,7 +515,7 @@ hide:
 <div class="yarn-node" data-title="facts_river">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seine_map_in_paris&gt;&gt;</span>
 <span class="yarn-line">La Senna attraversa Parigi come un nastro.</span> <span class="yarn-meta">#line:09ee6d9 </span>
@@ -525,7 +534,7 @@ hide:
 <div class="yarn-node" data-title="facts_boats">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_eiffel_tower&gt;&gt;</span>
 <span class="yarn-line">Le imbarcazioni turistiche sono dotate di ampie finestre per ammirare i monumenti.</span> <span class="yarn-meta">#line:0323421 </span>
@@ -544,7 +553,7 @@ hide:
 <div class="yarn-node" data-title="spawned_bridge_expert">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: bridge_expert</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Un ponte ferroviario deve essere robusto.</span> <span class="yarn-meta">#line:0816b6b </span>
@@ -562,7 +571,7 @@ hide:
 <div class="yarn-node" data-title="spawned_river_friend">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: river_friend</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La Senna facilita la circolazione delle imbarcazioni attraverso Parigi.</span> <span class="yarn-meta">#line:0ec822e </span>
@@ -580,7 +589,7 @@ hide:
 <div class="yarn-node" data-title="spawned_boat_guide">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: boat_guide</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Le imbarcazioni turistiche hanno grandi finestre.</span> <span class="yarn-meta">#line:047502b </span>

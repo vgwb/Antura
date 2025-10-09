@@ -20,6 +20,7 @@ hide:
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
@@ -39,6 +40,7 @@ hide:
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Super, vous avez trouvé tous les ponts.</span> <span class="yarn-meta">#line:0c408c3 </span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
@@ -49,7 +51,7 @@ hide:
 <span class="yarn-line">Nous avons regardé la carte pour voir où coule la Seine.</span> <span class="yarn-meta">#line:0ca298e </span>
 <span class="yarn-line">La Seine se jette dans la Manche.</span> <span class="yarn-meta">#line:0c693da </span>
 <span class="yarn-cmd">&lt;&lt;card pont_alexandre_iii&gt;&gt;</span>
-<span class="yarn-line">Le Pont Alexandre III est un pont célèbre avec des statues dorées.</span> <span class="yarn-meta">#line:091d35c </span>
+<span class="yarn-line">Le pont Alexandre III est un pont célèbre avec des statues dorées.</span> <span class="yarn-meta">#line:091d35c </span>
 <span class="yarn-cmd">&lt;&lt;card boat_eiffel_tower&gt;&gt;</span>
 <span class="yarn-line">Paris se développe autour de la Seine. Les fleuves font vivre les villes.</span> <span class="yarn-meta">#line:08cc02a </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
@@ -67,10 +69,11 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dessine un pont dans ton carnet !</span> <span class="yarn-meta">#line:0b37e92 </span>
-<span class="yarn-line">Vous souvenez-vous du Pont Alexandre III ?</span> <span class="yarn-meta">#line:06c5bed </span>
-<span class="yarn-line">Pouvez-vous dessiner trois types de ponts ? Un train, une voiture, des personnes.</span> <span class="yarn-meta">#line:0d44b60 </span>
+<span class="yarn-line">Vous vous souvenez du Pont Alexandre III ?</span> <span class="yarn-meta">#line:06c5bed </span>
+<span class="yarn-line">Peux-tu dessiner trois types de ponts ? Un train, une voiture, des personnes.</span> <span class="yarn-meta">#line:0d44b60 </span>
 <span class="yarn-line">Colorie la rivière en bleu et ajoute un petit bateau.</span> <span class="yarn-meta">#line:04f7aaa </span>
 <span class="yarn-line">Racontez à un ami un fait sur la Seine.</span> <span class="yarn-meta">#line:0062ddd </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
@@ -107,7 +110,8 @@ hide:
 
 <div class="yarn-node" data-title="welcome">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, asset=seine_river_panoramic</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  asset=seine_river_panoramic</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">C'est la Seine !</span> <span class="yarn-meta">#line:0aa0f3a </span>
 <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
@@ -125,10 +129,10 @@ hide:
 
 <div class="yarn-node" data-title="found_all_photos">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0a70250 </span>
-<span class="yarn-line">Savez-vous qu’il y a 37 ponts sur la Seine ?</span> <span class="yarn-meta">#line:0353a5c </span>
+<span class="yarn-line">Savez-vous qu'il y a 37 ponts sur la Seine ?</span> <span class="yarn-meta">#line:0353a5c </span>
 <span class="yarn-cmd">&lt;&lt;jump look_seine_map&gt;&gt;</span>
 
 </code>
@@ -141,7 +145,7 @@ hide:
 
 <div class="yarn-node" data-title="task_seine">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;task_start seine&gt;&gt;</span>
 <span class="yarn-line">J'ai perdu 8 photos de la Seine.</span> <span class="yarn-meta">#line:0d77f5e </span>
@@ -159,7 +163,7 @@ hide:
 <div class="yarn-node" data-title="sign_train_bridge">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card sign_train_bridge&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
@@ -175,7 +179,7 @@ hide:
 
 <div class="yarn-node" data-title="sign_car_bridge">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card sign_car_bridge&gt;&gt;</span>
@@ -192,7 +196,8 @@ hide:
 
 <div class="yarn-node" data-title="sign_people_bridge">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card sign_people_bridge&gt;&gt;</span>
@@ -209,7 +214,7 @@ hide:
 
 <div class="yarn-node" data-title="boat_people">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  boat_people&gt;&gt;</span>
@@ -226,7 +231,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_house">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR,</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_house&gt;&gt;</span>
@@ -243,7 +249,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_goods">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, boat_goods</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  boat_goods</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_goods&gt;&gt;</span>
@@ -260,7 +267,7 @@ hide:
 
 <div class="yarn-node" data-title="look_seine_map">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card  seine_france_map&gt;&gt;</span>
 <span class="yarn-line">Regardez maintenant cette carte de la Seine.</span> <span class="yarn-meta">#line:0b03341 </span>
@@ -276,7 +283,7 @@ hide:
 
 <div class="yarn-node" data-title="question_seine_map">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La Seine se jette dans une mer. Laquelle ?</span> <span class="yarn-meta">#line:0adc7b7 </span>
 <span class="yarn-line">« La mer Méditerranée » :</span> <span class="yarn-meta">#line:04cf904 </span>
@@ -296,7 +303,7 @@ hide:
 
 <div class="yarn-node" data-title="question_correct">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Oui ! La Seine se jette dans la Manche, dans le nord de la France.</span> <span class="yarn-meta">#line:023623a </span>
@@ -313,7 +320,7 @@ hide:
 
 <div class="yarn-node" data-title="question_wrong">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hmm… pas vraiment. Regarde la carte.</span> <span class="yarn-meta">#line:01c9d19 </span>
 <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
@@ -328,7 +335,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_train">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">J'adorerais prendre le train !</span> <span class="yarn-meta">#line:01663fa </span>
 <span class="yarn-line">J'adore les trains !</span> <span class="yarn-meta">#line:0574872 </span>
@@ -343,7 +350,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_boat">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Non, je n'ai pas vu ton chien.</span> <span class="yarn-meta">#line:0614aef </span>
 <span class="yarn-line">Un chien ? Il y en a beaucoup ici...</span> <span class="yarn-meta">#line:09f3f7a </span>
@@ -359,7 +366,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_eiffel">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Regarde comme c'est joli !</span> <span class="yarn-meta">#line:059f66d </span>
@@ -375,7 +383,8 @@ hide:
 
 <div class="yarn-node" data-title="boat_river">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">tags: actor=TUTOR, meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">tags:  meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Il y a beaucoup de bateaux.</span> <span class="yarn-meta">#line:076e2e6 </span>
@@ -391,7 +400,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_ile_de_france">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card ile_de_france&gt;&gt;</span>
 <span class="yarn-line">Regardez : il y a une île, l'Île de la Cité.</span> <span class="yarn-meta">#line:03e5667 </span>
@@ -407,7 +416,7 @@ hide:
 
 <div class="yarn-node" data-title="talk_pont_alexandre">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card pont_alexandre_iii&gt;&gt;</span>
 <span class="yarn-line">Il s'agit du Pont Alexandre III, monument historique.</span> <span class="yarn-meta">#line:09c706f </span>
@@ -430,7 +439,7 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">J'adore Paris !</span> <span class="yarn-meta">#line:0d7db60 </span>
+<span class="yarn-line">J'adore Paris!</span> <span class="yarn-meta">#line:0d7db60 </span>
 <span class="yarn-line">La Seine est tellement romantique !</span> <span class="yarn-meta">#line:001b48b </span>
 <span class="yarn-line">Je veux voir la Tour Eiffel !</span> <span class="yarn-meta">#line:0be0725 </span>
 <span class="yarn-line">J'aimerais dormir sur un bateau sur la Seine !</span> <span class="yarn-meta">#line:09039ee </span>
@@ -446,12 +455,12 @@ hide:
 <div class="yarn-node" data-title="spawned_french_woman">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: residents </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour!</span> <span class="yarn-meta">#line:072a345 </span>
-<span class="yarn-line">J'adore Paris !</span> <span class="yarn-meta">#line:0f2e0aa </span>
-<span class="yarn-line">La Seine est magnifique !</span> <span class="yarn-meta">#line:0f0f558 </span>
+<span class="yarn-line">J'adore Paris!</span> <span class="yarn-meta">#line:0f2e0aa </span>
+<span class="yarn-line">La Seine est magnifique!</span> <span class="yarn-meta">#line:0f0f558 </span>
 <span class="yarn-line">Il y a beaucoup de ponts à Paris !</span> <span class="yarn-meta">#line:038b8f6 </span>
 
 </code>
@@ -465,13 +474,13 @@ hide:
 <div class="yarn-node" data-title="spawned_french_man">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: residents </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Salut!</span> <span class="yarn-meta">#line:06aa0c1 </span>
 <span class="yarn-line">J'aime bien faire du vélo le long de la Seine !</span> <span class="yarn-meta">#line:0494564 </span>
 <span class="yarn-line">Paris est la plus belle ville du monde !</span> <span class="yarn-meta">#line:0d94ea8 </span>
-<span class="yarn-line">La Seine est très longue !</span> <span class="yarn-meta">#line:0395113 </span>
+<span class="yarn-line">La Seine est très longue!</span> <span class="yarn-meta">#line:0395113 </span>
 
 </code>
 </pre>
@@ -484,10 +493,10 @@ hide:
 <div class="yarn-node" data-title="facts_bridges">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_trains&gt;&gt;</span>
-<span class="yarn-line">Les ponts peuvent permettre aux trains rapides de traverser l’eau.</span> <span class="yarn-meta">#line:035a1f6 </span>
+<span class="yarn-line">Les ponts permettent aux trains rapides de traverser l'eau.</span> <span class="yarn-meta">#line:035a1f6 </span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_cars&gt;&gt;</span>
 <span class="yarn-line">Certains ponts sont très fréquentés par les voitures et les bus.</span> <span class="yarn-meta">#line:0723c02 </span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
@@ -506,12 +515,12 @@ hide:
 <div class="yarn-node" data-title="facts_river">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seine_map_in_paris&gt;&gt;</span>
 <span class="yarn-line">La Seine serpente à travers Paris comme un ruban.</span> <span class="yarn-meta">#line:09ee6d9 </span>
 <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
-<span class="yarn-line">Le fleuve commence loin et se termine dans la Manche.</span> <span class="yarn-meta">#line:074efa5 </span>
+<span class="yarn-line">La rivière commence loin et se termine dans la Manche.</span> <span class="yarn-meta">#line:074efa5 </span>
 <span class="yarn-line">Les rivières apportent des bateaux, de l’eau et de la vie à une ville.</span> <span class="yarn-meta">#line:0bdfb18 </span>
 
 </code>
@@ -525,12 +534,12 @@ hide:
 <div class="yarn-node" data-title="facts_boats">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: TUTOR</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_eiffel_tower&gt;&gt;</span>
 <span class="yarn-line">Les bateaux touristiques disposent de larges fenêtres permettant de voir les monuments.</span> <span class="yarn-meta">#line:0323421 </span>
 <span class="yarn-cmd">&lt;&lt;card boat_river&gt;&gt;</span>
-<span class="yarn-line">Certains bateaux naviguent tranquillement.</span> <span class="yarn-meta">#line:09a6062 </span>
+<span class="yarn-line">Certains bateaux avancent tranquillement.</span> <span class="yarn-meta">#line:09a6062 </span>
 <span class="yarn-line">Les bateaux peuvent déplacer des personnes, des choses ou être une maison.</span> <span class="yarn-meta">#line:0b7a149 </span>
 
 </code>
@@ -544,7 +553,7 @@ hide:
 <div class="yarn-node" data-title="spawned_bridge_expert">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: bridge_expert</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Un pont ferroviaire doit être solide.</span> <span class="yarn-meta">#line:0816b6b </span>
@@ -562,10 +571,10 @@ hide:
 <div class="yarn-node" data-title="spawned_river_friend">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: river_friend</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">La Seine permet aux bateaux de circuler dans Paris.</span> <span class="yarn-meta">#line:0ec822e </span>
+<span class="yarn-line">La Seine facilite la circulation des bateaux dans Paris.</span> <span class="yarn-meta">#line:0ec822e </span>
 <span class="yarn-line">Les cartes montrent comment la rivière se courbe.</span> <span class="yarn-meta">#line:06d2470 </span>
 <span class="yarn-line">L'eau de la rivière coule vers la mer.</span> <span class="yarn-meta">#line:0d1724c </span>
 
@@ -580,7 +589,7 @@ hide:
 <div class="yarn-node" data-title="spawned_boat_guide">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: boat_guide</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Les bateaux touristiques ont de grandes fenêtres.</span> <span class="yarn-meta">#line:047502b </span>

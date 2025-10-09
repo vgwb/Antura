@@ -125,7 +125,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 1) The origin of dwarves</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_dwarf_statue zoom&gt;&gt;</span>
 <span class="yarn-line">Wrocław is the city of dwarfs. You can find them everywhere.</span> <span class="yarn-meta">#line:007686b </span>
@@ -148,7 +148,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_1_origin_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good job! You solved the puzzle.</span> <span class="yarn-meta">#line:0a87d03 </span>
 <span class="yarn-line">Now I come with you.</span> <span class="yarn-meta">#line:0f49b50 </span>
@@ -169,7 +169,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 2) Old Town Hall</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset wroclaw_old_town_hall&gt;&gt;</span>
 <span class="yarn-line">This is the Old Town Hall. City leaders work here.</span> <span class="yarn-meta">#line:02cbbf0 </span>
@@ -187,7 +187,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_2_town_hall_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Well done!</span> <span class="yarn-meta">#line:004110a </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -207,7 +207,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 3) Cathedral with quiz</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card bishop_dwarf&gt;&gt;</span>
 <span class="yarn-line">This is the cathedral. It is a large and important church.</span> <span class="yarn-meta">#line:00f2132 </span>
@@ -229,7 +229,7 @@ hide:
 <div class="yarn-node" data-title="info_church">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card church&gt;&gt;</span>
 <span class="yarn-line">A church is a place where people pray.</span> <span class="yarn-meta">#line:0b1f4e1</span>
@@ -245,7 +245,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_3_quiz">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do people do in a cathedral?</span> <span class="yarn-meta">#line:05ea00d </span>
 <span class="yarn-line">They shop for food.</span> <span class="yarn-meta">#line:0c891cc </span>
@@ -269,7 +269,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_3_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Let's play a game.</span> <span class="yarn-meta">#line:0c5d8d3 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_wroclaw_cathedral dwarf_3_activity_done&gt;&gt;</span>
@@ -286,7 +286,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_3_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great! He is another dwarf.</span> <span class="yarn-meta">#line:04886ba </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -306,7 +306,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 4) ZOO</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Visit the Wrocław zoo. It is the biggest in Poland.</span> <span class="yarn-meta">#line:0198e80 </span>
 <span class="yarn-line">It has many animals from around the world.</span> <span class="yarn-meta">#line:01b020e </span>
@@ -323,7 +323,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_4_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Let's play a game.</span> <span class="yarn-meta">#line:0f921e7 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_wroclaw_zoo dwarf_4_activity_done&gt;&gt;</span>
@@ -339,7 +339,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_4_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great!</span> <span class="yarn-meta">#line:0c852a7 </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -359,7 +359,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 5) Centennial Hall</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The Centennial Hall is huge. You see shows inside.</span> <span class="yarn-meta">#line:0ebb952 </span>
 <span class="yarn-line">The roof looks like a giant dome.</span> <span class="yarn-meta">#line:0f4189b </span>
@@ -376,7 +376,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_5_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Let's play a game.</span> <span class="yarn-meta">#line:06b4a16 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle centennial_hall dwarf_5_activity_done&gt;&gt;</span>
@@ -392,7 +392,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_5_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great!</span> <span class="yarn-meta">#line:0abf458 </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -412,7 +412,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 6) Multimedia Fountain</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Water dances here with music and lights.</span> <span class="yarn-meta">#line:0daf76d </span>
 <span class="yarn-line">The shows are beautiful on summer nights.</span> <span class="yarn-meta">#line:006ed40 </span>
@@ -429,7 +429,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_6_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Let's play a game.</span> <span class="yarn-meta">#line:0cdb4f5 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_multimedia_fountain dwarf_6_activity_done&gt;&gt;</span>
@@ -446,7 +446,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_6_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great!</span> <span class="yarn-meta">#line:0818eec </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -466,7 +466,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 7) Panorama Racławicka</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">A giant battle painting goes all around you.</span> <span class="yarn-meta">#line:0de7f17 </span>
 <span class="yarn-line">You stand inside the story.</span> <span class="yarn-meta">#line:0f8436b </span>
@@ -484,7 +484,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 8) Olga Tokarczuk</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Olga Tokarczuk is a famous writer in Wrocław.</span> <span class="yarn-meta">#line:0496de5 </span>
 <span class="yarn-line">She won the Nobel Prize in Literature.</span> <span class="yarn-meta">#line:00ae354 </span>
@@ -502,7 +502,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 9) Sky Tower Plaza Dwarf</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is the modern plaza near the Sky Tower.</span> <span class="yarn-meta">#line:096a9ee </span>
 <span class="yarn-line">People meet here to talk and play.</span> <span class="yarn-meta">#line:0c899a5 </span>
@@ -520,7 +520,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 9) Sky Tower Dwarf</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The Sky Tower is very tall.</span> <span class="yarn-meta">#line:0ccd434 </span>
 <span class="yarn-line">You can see very far from the top.</span> <span class="yarn-meta">#line:0170463 </span>
@@ -538,7 +538,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// Keymaster at the elevator</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I guard the elevator.</span> <span class="yarn-meta">#line:0dd986c </span>
 &lt;&lt;if $found &lt; $need&gt;&gt;
@@ -558,7 +558,7 @@ hide:
 
 <div class="yarn-node" data-title="elevator_up">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The elevator goes up. Ding!</span> <span class="yarn-meta">#line:0abe973 </span>
 <span class="yarn-line">The view is beautiful.</span> <span class="yarn-meta">#line:008b500 </span>
@@ -573,7 +573,7 @@ hide:
 
 <div class="yarn-node" data-title="npg_rescue_top">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=ANTURA</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $top_met&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_intro&gt;&gt;</span>
@@ -597,7 +597,7 @@ hide:
 <div class="yarn-node" data-title="assessment_intro">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// Final Assessment</span>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Would you like to answer two short questions?</span> <span class="yarn-meta">#line:07982da </span>
 <span class="yarn-line">Yes</span> <span class="yarn-meta">#line:012a7d1 </span>
@@ -661,7 +661,7 @@ hide:
 
 <div class="yarn-node" data-title="assessment_end">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: actor=GUIDE</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great! You finished the quest!</span> <span class="yarn-meta">#line:0fc1bad </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
@@ -678,7 +678,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// Added completion nodes for dwarves 7-10</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good job!</span> <span class="yarn-meta">#line:074a28b </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -697,7 +697,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_8_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good job!</span> <span class="yarn-meta">#line:0ac938a </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -716,7 +716,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_9_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good job!</span> <span class="yarn-meta">#line:0f70de9 </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -735,7 +735,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_10_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">tags: actor=DWARF</span>
+<span class="yarn-header-dim">actor: SPECIAL</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good job!</span> <span class="yarn-meta">#line:054d57b </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -776,7 +776,7 @@ hide:
 <div class="yarn-node" data-title="spawned_tourist">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: WOMAN</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I got a map to find more dwarves.</span> <span class="yarn-meta">#line:0738670 </span>
@@ -794,7 +794,7 @@ hide:
 <div class="yarn-node" data-title="spawned_local">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: MAN</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: locals </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The market square is busy and bright.</span> <span class="yarn-meta">#line:052bf17 </span>
@@ -812,7 +812,7 @@ hide:
 <div class="yarn-node" data-title="spawned_reader">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">actor: GIRL</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">spawn_group: kids </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I read a book by Olga.</span> <span class="yarn-meta">#line:0246124 </span>

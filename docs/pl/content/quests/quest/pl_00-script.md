@@ -217,8 +217,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_BR&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_belarus&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:0e48014 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's yellow black and red, select it and talk to me again.]</span> <span class="yarn-meta">#line:0d78194 </span>
+<span class="yarn-line">        Masz moją flagę w swoim ekwipunku!</span> <span class="yarn-meta">#line:0e48014 </span>
+<span class="yarn-line">        Jest żółto-czarno-czerwony, wybierz go i porozmawiaj ze mną ponownie.</span> <span class="yarn-meta">#line:0d78194 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    MĘŻCZYZNA: Nasza flaga ma poziome pasy w kolorze czarnym, czerwonym i żółtym.</span> <span class="yarn-meta">#line:0cd7024 </span>
@@ -285,9 +285,9 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_CZ&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:079c8f0 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red and green, with a pattern on the left.]</span> <span class="yarn-meta">#line:0e78a13 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         Select it and bring it to me.]</span> <span class="yarn-meta">#line:0b57b74 </span>
+<span class="yarn-line">        Masz moją flagę w swoim ekwipunku!</span> <span class="yarn-meta">#line:079c8f0 </span>
+<span class="yarn-line">        Jest w kolorze czerwonym i zielonym, ze wzorem po lewej stronie.</span> <span class="yarn-meta">#line:0e78a13 </span>
+<span class="yarn-line">        Wybierz i przynieś mi.</span> <span class="yarn-meta">#line:0b57b74 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">        Moja flaga jest czerwona i zielona z czerwonym wzorem po lewej stronie.</span> <span class="yarn-meta">#line:0653fae </span>
@@ -353,8 +353,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_LI&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:0278e65 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red, blue and white! Select it and talk to me again.]</span> <span class="yarn-meta">#line:07f7a61 </span>
+<span class="yarn-line">        Masz moją flagę w swoim ekwipunku!</span> <span class="yarn-meta">#line:0278e65 </span>
+<span class="yarn-line">        Jest czerwony, niebieski i biały! Wybierz go i porozmawiaj ze mną ponownie.</span> <span class="yarn-meta">#line:07f7a61 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    Moja flaga jest inna! Jest biało-czerwona z niebieskim trójkątem.</span> <span class="yarn-meta">#line:0000741 </span>
@@ -422,8 +422,8 @@ hide:
             <span class="yarn-cmd">&lt;&lt;set $lithuania_met = true&gt;&gt;</span>
             <span class="yarn-cmd">&lt;&lt;jump task_ukraine&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:0036d67 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red, yellow and green. Select it and talk to me again.]</span> <span class="yarn-meta">#line:078ab98 </span>
+<span class="yarn-line">        Masz moją flagę w swoim ekwipunku!</span> <span class="yarn-meta">#line:0036d67 </span>
+<span class="yarn-line">        Jest czerwony, żółty i zielony. Wybierz go i porozmawiaj ze mną ponownie.</span> <span class="yarn-meta">#line:078ab98 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    Pamiętajcie, moja flaga jest czerwona, zielona i żółta.</span> <span class="yarn-meta">#line:00af906 </span>
@@ -510,8 +510,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_SL&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory.]</span> <span class="yarn-meta">#line:0a4b7da </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's yellow and blue, select it and talk to me again!]</span> <span class="yarn-meta">#line:089138a </span>
+<span class="yarn-line">        Masz moją flagę w swoim ekwipunku.</span> <span class="yarn-meta">#line:0a4b7da </span>
+<span class="yarn-line">        Jest żółty i niebieski, wybierz go i porozmawiaj ze mną ponownie!</span> <span class="yarn-meta">#line:089138a </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    Nie! Nasza flaga jest niebiesko-żółta.</span> <span class="yarn-meta">#line:0a94866 </span>
@@ -596,9 +596,9 @@ hide:
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $slovakia_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:095b95b </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red, white and blue with a coat of arms.]</span> <span class="yarn-meta">#line:0b0fa74 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         Select it and then talk to me again!]</span> <span class="yarn-meta">#line:0a051db </span>
+<span class="yarn-line">        Masz moją flagę w swoim ekwipunku!</span> <span class="yarn-meta">#line:095b95b </span>
+<span class="yarn-line">        Jest w kolorze czerwonym, białym i niebieskim, z herbem.</span> <span class="yarn-meta">#line:0b0fa74 </span>
+<span class="yarn-line">        Wybierz tę opcję i porozmawiaj ze mną ponownie!</span> <span class="yarn-meta">#line:0a051db </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">        Nasza flaga jest biała, czerwona i niebieska, z herbem.</span> <span class="yarn-meta">#line:0af30a1 </span>

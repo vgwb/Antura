@@ -28,19 +28,51 @@ Total found: **35**
 - Target Age: Ages6to10
 - Core card:
     - **[Antura](../cards/index.md#antura)**
+    The main character of this videogame
+
+    ![preview antura](../../../assets/img/content/cards/antura.jpg){ width="200" }
 
 - Connected cards:
     - **[Cookies](../cards/index.md#antura_cookies)** (RelatedTo)
+    Sweet rewards you can collect while playing! Use them to get new items and surprises.
+
+    ![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ width="200" }
 
     - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+    A magic door that takes you to new places. Step in and see where it leads!
 
-    - **[Card](../cards/index.md#antura_card)** (RelatedTo)
+    ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
+
+    - **[Cards](../cards/index.md#antura_cards)** (RelatedTo)
+    Each card has something special to learn. Find them all and read them!
+
+    ![preview antura_cards](../../../assets/img/content/cards/antura_cards.jpg){ width="200" }
 
     - **[Cat](../cards/index.md#antura_cat)** (RelatedTo)
+    Antura’s best friend and travel buddy. Curious, clever, and always ready to help!
+
+    ![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ width="200" }
 
     - **[Living Letter](../cards/index.md#antura_livingletter)** (RelatedTo)
+    A friendly letter that loves to talk and play! Talk to them to learn new words
+
+    ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
 
     - **[Blocky](../cards/index.md#antura_blocky_character)** (RelatedTo)
+    These funny people live in this world.
+Talk to them all...  they have stories to tell!
+
+    ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
+
+    - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
+    A magic door that takes you to new places. Step in and see where it leads!
+
+    ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
+
+    - **[Danger](../cards/index.md#antura_malus)** (RelatedTo)
+    Something you should not do! Be careful and stay safe.
+
+    ![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ width="200" }
 
 - Quests: [Tutorial (tutorial)](../quests/quest/tutorial.md)
 
@@ -486,7 +518,9 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Zoo Animals](../cards/index.md#zoo_animals)**
-    Auto-created card for topic 'Zoo Animals'.
+    Animals from around the world live here. Come meet them, watch, and learn their stories!
+
+    ![preview zoo_animals](../../../assets/img/content/cards/zoo_animals.jpg){ width="200" }
 
 - Connected cards:
     - **[Giraffe](../cards/index.md#animal_giraffe)** (RelatedTo)
@@ -1253,6 +1287,8 @@ Credits:
 - Core card:
     - **[Pierogi Recipe](../cards/index.md#pierogi_recipe)**
     Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
+
+    ![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ width="200" }
 
 - Connected cards:
     - **[Polish Pierogi](../cards/index.md#pierogi)** (RelatedTo)

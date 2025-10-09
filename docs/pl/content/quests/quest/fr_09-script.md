@@ -30,7 +30,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $greengrocer_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $grocer_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $pirate_completed = false&gt;&gt;</span>
-<span class="yarn-line">Witamy na Lazurowym Wybrzeżu! Na wybrzeżu jest słoneczny dzień.</span> <span class="yarn-meta">#line:078e646 </span>
+<span class="yarn-line">Witamy na Lazurowym Wybrzeżu! Na wybrzeżu jest słoneczny dzień.</span> <span class="yarn-meta">#line:078e646</span>
+<span class="yarn-cmd">&lt;&lt;target target_chef&gt;&gt;</span> 
 
 </code>
 </pre>
@@ -102,7 +103,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_baker") &gt; 0&gt;&gt;
 <span class="yarn-line">    Już kupiłeś ode mnie chleb!</span> <span class="yarn-meta">#line:023d379 </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Do you want to play again?]</span> <span class="yarn-meta">#line:042cec8 </span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:042cec8 </span>
     <span class="yarn-cmd">&lt;&lt;activity hard_money_baker hard_payment_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Dzień dobry!</span> <span class="yarn-meta">#line:09460ce </span>
@@ -165,9 +166,10 @@ hide:
 <div class="yarn-node" data-title="baker_payment_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">actor: ADULT_M, no_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">tags: no_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Here you go.]</span> <span class="yarn-meta">#line:0567082 </span>
+<span class="yarn-line">Proszę bardzo.</span> <span class="yarn-meta">#line:0567082 </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:00da30a </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:00cbd60 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:00cd1cf </span>
@@ -199,9 +201,10 @@ hide:
 <div class="yarn-node" data-title="fisher_payment_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">actor: SENIOR_M, do_not_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">tags: do_not_translate, noRepeatLastLine</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Here you go.]</span> <span class="yarn-meta">#line:08733ac </span>
+<span class="yarn-line">Proszę bardzo.</span> <span class="yarn-meta">#line:08733ac </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:02e64ff </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:02c23e5 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:080d945 </span>
@@ -257,11 +260,12 @@ hide:
 <pre class="yarn-code" style="--node-color:blue"><code>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">actor: SENIOR_M, noRepeatLastLine</span>
+<span class="yarn-header-dim">tags: noRepeatLastLine</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_fishmonger") &gt; 0&gt;&gt;
-<span class="yarn-line">    [MISSING TRANSLATION:     You already bought fish from me!]</span> <span class="yarn-meta">#line:044d973 </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Do you want to play again?]</span> <span class="yarn-meta">#line:0fcca94 </span>
+<span class="yarn-line">    Już kupiłeś ode mnie rybę!</span> <span class="yarn-meta">#line:044d973 </span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:0fcca94 </span>
     <span class="yarn-cmd">&lt;&lt;activity hard_money_fishmonger hard_payment_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Liceum!</span> <span class="yarn-meta">#line:0d65316 </span>
@@ -307,8 +311,8 @@ hide:
 <span class="yarn-header-dim">tags:  do_not_translate, noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_cheesemonger") &gt; 0&gt;&gt;
-<span class="yarn-line">    [MISSING TRANSLATION:     You already bought milk from me!]</span> <span class="yarn-meta">#line:090b5cc </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Do you want to play again?]</span> <span class="yarn-meta">#line:0432de2 </span>
+<span class="yarn-line">    Już kupiłeś ode mnie mleko!</span> <span class="yarn-meta">#line:090b5cc </span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:0432de2 </span>
     <span class="yarn-cmd">&lt;&lt;activity hard_money_cheesemonger hard_payment_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0693ba6 </span>
@@ -330,7 +334,6 @@ hide:
 <div class="yarn-node" data-title="cheesemonger_question">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: cheesemonger</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co chcesz kupić?</span> <span class="yarn-meta">#line:03009de </span>
@@ -357,7 +360,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags:  do_not_translate, noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Here you go.]</span> <span class="yarn-meta">#line:07d1671 </span>
+<span class="yarn-line">Proszę bardzo.</span> <span class="yarn-meta">#line:07d1671 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:0dd3ac3 </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:02a1238 </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0273de1 </span>
@@ -425,7 +428,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags:  do_not_translate, noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Here you go.]</span> <span class="yarn-meta">#line:019edd0 </span>
+<span class="yarn-line">Proszę bardzo.</span> <span class="yarn-meta">#line:019edd0 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:0ff9361 </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0741be3 </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:023f352 </span>
@@ -470,11 +473,11 @@ hide:
 <span class="yarn-header-dim">tags:  noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_greengrocer") &gt; 0&gt;&gt;
-<span class="yarn-line">    [MISSING TRANSLATION:     You already bought fruit from me!]</span> <span class="yarn-meta">#line:0755f3c </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Do you want to play again?]</span> <span class="yarn-meta">#line:0bbe1ea </span>
+<span class="yarn-line">    Już kupiłeś ode mnie owoce!</span> <span class="yarn-meta">#line:0755f3c </span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:0bbe1ea </span>
     <span class="yarn-cmd">&lt;&lt;activity hard_money_greengrocer hard_payment_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     hello]</span> <span class="yarn-meta">#line:00ee67d </span>
+<span class="yarn-line">    Witam</span> <span class="yarn-meta">#line:00ee67d </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0a43c28 </span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
 <span class="yarn-line">Pociąg!</span> <span class="yarn-meta">#line:02af86a </span>
@@ -494,7 +497,6 @@ hide:
 <div class="yarn-node" data-title="greengrocer_bonjour">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: greengrocer</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Cześć! Sprzedaję owoce i warzywa. Jestem warzywniakiem.</span> <span class="yarn-meta">#line:041ade1 </span>
@@ -516,7 +518,7 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">tags:  do_not_translate, noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Here you go.]</span> <span class="yarn-meta">#line:050a906 </span>
+<span class="yarn-line">Proszę bardzo.</span> <span class="yarn-meta">#line:050a906 </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:0ce6f8a </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0e8ec1b </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:062029a </span>
@@ -550,7 +552,6 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: grocer</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
-<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co chcesz kupić?</span> <span class="yarn-meta">#line:0c36100 </span>
 <span class="yarn-line">Pomidory, pomarańcze i cytryny</span> <span class="yarn-meta">#line:0d6dabd </span>
@@ -578,8 +579,8 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_grocer") &gt; 0&gt;&gt;
-<span class="yarn-line">    [MISSING TRANSLATION:     You already bought from me!]</span> <span class="yarn-meta">#line:0348f3c </span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Do you want to play again?]</span> <span class="yarn-meta">#line:0e4aeb6 </span>
+<span class="yarn-line">    Już u mnie kupiłeś!</span> <span class="yarn-meta">#line:0348f3c </span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:0e4aeb6 </span>
     <span class="yarn-cmd">&lt;&lt;activity hard_money_grocer hard_payment_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0dd992c </span>
@@ -602,7 +603,6 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: grocer</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
-<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Cześć! Sprzedaję przyprawy i produkty spożywcze. Jestem sklepem spożywczym.</span> <span class="yarn-meta">#line:0ffbfa4 </span>
 <span class="yarn-line">Moje produkty możesz wykorzystać w wielu przepisach.</span> <span class="yarn-meta">#line:0c6a554 </span>
@@ -622,7 +622,6 @@ hide:
 <span class="yarn-header-dim">group: pirates</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">tags: </span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $pirate_completed&gt;&gt;</span>
 <span class="yarn-line">A teraz ruszaj! Muszę przygotować się do następnej podróży.</span> <span class="yarn-meta">#line:04a0605 </span>
@@ -663,7 +662,6 @@ hide:
 <span class="yarn-header-dim">group: pirates</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">tags: </span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Pracowaliśmy dla króla Francji.</span> <span class="yarn-meta">#line:0af3bba </span>
 <span class="yarn-line">W przeszłości kradliśmy przedmioty wrogom króla, ale te dni już minęły.</span> <span class="yarn-meta">#line:0b61715 </span>
@@ -986,7 +984,7 @@ hide:
 <span class="yarn-header-dim">tags: detour</span>
 <span class="yarn-header-dim">color: orange</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: Try talking to the other vendors too.]</span> <span class="yarn-meta">#line:06ae965 </span>
+<span class="yarn-line">Spróbuj porozmawiać również z innymi sprzedawcami.</span> <span class="yarn-meta">#line:06ae965 </span>
 
 </code>
 </pre>
@@ -1050,7 +1048,6 @@ hide:
 <div class="yarn-node" data-title="item_orange">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_orange&gt;&gt;</span>
 <span class="yarn-line">Pomarańczowy</span> <span class="yarn-meta">#line:0c0fa04 </span>
@@ -1082,7 +1079,6 @@ hide:
 <div class="yarn-node" data-title="item_tomato">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_tomato&gt;&gt;</span>
@@ -1099,7 +1095,6 @@ hide:
 <div class="yarn-node" data-title="item_milk">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_milk&gt;&gt;</span>
@@ -1133,7 +1128,6 @@ hide:
 <div class="yarn-node" data-title="item_oil">
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:  item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_olive_oil&gt;&gt;</span>

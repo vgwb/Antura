@@ -41,7 +41,7 @@ hide:
 <span class="yarn-header-dim">// - memory telescope_parts (match telescope components)</span>
 <span class="yarn-header-dim">// - jigsawpuzzle planet_mercury through planet_neptune (8 individual planet jigsaws)</span>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">image: torun_street</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">type: panel</span>
@@ -68,6 +68,8 @@ hide:
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">panel: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
+
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Excellent travail sur cette quête.</span> <span class="yarn-meta">#line:0a0a2ce </span>
 <span class="yarn-cmd">&lt;&lt;card solar_system&gt;&gt;</span>
@@ -88,6 +90,7 @@ hide:
 <span class="yarn-header-dim">panel: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dessinez les 8 PLANÈTES avec le SOLEIL au centre.</span> <span class="yarn-meta">#line:064c54e </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
@@ -104,7 +107,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// LEt'S MEET COPERNICUS</span>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=Scientist</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;action card nicolaus_copernicus_house&gt;&gt;</span>
 <span class="yarn-line">Bonjour ! Je suis Nicolas Copernic.</span> <span class="yarn-meta">#line:0c5050d </span>
@@ -139,7 +142,7 @@ hide:
 <div class="yarn-node" data-title="AFTER_PLANETS_ORDER">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Copernicus</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bien joué!</span> <span class="yarn-meta">#line:06ea147 </span>
 <span class="yarn-line">Il y a longtemps, les gens mettaient la TERRE au centre.</span> <span class="yarn-meta">#line:0af451b </span>
@@ -157,7 +160,7 @@ hide:
 <div class="yarn-node" data-title="INSIDE_MUSEUM">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Museum</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: museum_hall</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card solar_system&gt;&gt;</span>
@@ -179,7 +182,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// ACTIVITY – CLEAN THE TELESCOPE LENS</span>
 <span class="yarn-header-dim">group: Museum</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">image: telescope_lens_dirty</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas telescope_lens_clean tutorial&gt;&gt;</span>
@@ -195,7 +198,7 @@ hide:
 <div class="yarn-node" data-title="telescope_lens_clean_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Museum</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Excellent travail de nettoyage de l'objectif !</span> <span class="yarn-meta">#line:06ba2c4 </span>
 <span class="yarn-line">Maintenant, nous pouvons mieux voir les planètes.</span> <span class="yarn-meta">#line:0dd17cf </span>
@@ -211,7 +214,7 @@ hide:
 <div class="yarn-node" data-title="TELESCOPE_EXPLAIN">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Museum</span>
-<span class="yarn-header-dim">tags: actor=Copernicus</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card telescope&gt;&gt;</span>
 <span class="yarn-line">Un TÉLESCOPE nous aide à voir loin.</span> <span class="yarn-meta">#line:0314ed5 </span>
@@ -231,7 +234,7 @@ hide:
 <div class="yarn-node" data-title="TELESCOPE_PARTS">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Museum</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity memory telescope_parts tutorial&gt;&gt;</span>
 <span class="yarn-line">Mémoire de piano</span> <span class="yarn-meta">#line:0db50a7 </span>
@@ -252,7 +255,7 @@ hide:
 <div class="yarn-node" data-title="PIANO_INTRO">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Museum</span>
-<span class="yarn-header-dim">tags: actor=Copernicus</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: planet_piano_card</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La musique aide la mémoire.</span> <span class="yarn-meta">#line:08d3111 </span>
@@ -271,7 +274,7 @@ hide:
 <div class="yarn-node" data-title="PIANO_PLAY">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Museum</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity piano planet_order_song tutorial&gt;&gt;</span>
 <span class="yarn-line">Trouver des PLANÈTES</span> <span class="yarn-meta">#line:013de52 </span>
@@ -291,7 +294,7 @@ hide:
 <div class="yarn-node" data-title="FIND_PLANETS">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: solar_model_center</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card astronomy&gt;&gt;</span>
@@ -312,7 +315,7 @@ hide:
 <div class="yarn-node" data-title="PLANET_MERCURY">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_mercury</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card mercury&gt;&gt;</span>
@@ -335,7 +338,7 @@ hide:
 <div class="yarn-node" data-title="PLANET_VENUS">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_venus</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card venus&gt;&gt;</span>
@@ -358,7 +361,7 @@ hide:
 <div class="yarn-node" data-title="PLANET_EARTH">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_earth</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card earth&gt;&gt;</span>
@@ -382,7 +385,7 @@ hide:
 <div class="yarn-node" data-title="PLANET_MARS">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_mars</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card mars&gt;&gt;</span>
@@ -404,7 +407,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// JUPITER</span>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_jupiter</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card jupiter&gt;&gt;</span>
@@ -429,7 +432,7 @@ hide:
 <div class="yarn-node" data-title="PLANET_SATURN">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_saturn</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card saturn&gt;&gt;</span>
@@ -454,7 +457,7 @@ hide:
 <div class="yarn-node" data-title="PLANET_URANUS">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_uranus</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card uranus&gt;&gt;</span>
@@ -478,7 +481,7 @@ hide:
 <div class="yarn-node" data-title="PLANET_NEPTUNE">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: planet_neptune</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card neptune&gt;&gt;</span>
@@ -503,7 +506,7 @@ hide:
 <div class="yarn-node" data-title="ALL_PLANETS_FOUND">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: SolarSystem</span>
-<span class="yarn-header-dim">tags: actor=Copernicus</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: solar_model_finale</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Vous avez trouvé les 8 PLANÈTES.</span> <span class="yarn-meta">#line:0d91787 </span>
@@ -521,7 +524,7 @@ hide:
 <div class="yarn-node" data-title="RESCUE_ANTURA_GUIDE">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Finale</span>
-<span class="yarn-header-dim">tags: actor=Guide</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">image: antura_trail</span>
 
 <span class="yarn-header-dim">---</span>
@@ -539,7 +542,7 @@ hide:
 <div class="yarn-node" data-title="RESCUE_ANTURA_COP">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Copernicus</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: antura_rescued</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Merci pour votre aide.</span> <span class="yarn-meta">#line:0d7e5be </span>
@@ -556,7 +559,7 @@ hide:
 <div class="yarn-node" data-title="FINAL_QUIZ">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=Narrator</span>
+<span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">image: quiz_solar_system</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Répondez aux questions.</span> <span class="yarn-meta">#line:08bea58 </span>
@@ -584,16 +587,23 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bien joué!</span> <span class="yarn-meta">#line:03529aa </span>
 
-<span class="yarn-comment">///////// NPCs SPAWNED IN THE SCENE //////////</span>
-<span class="yarn-comment">// these npc are spawn automatically in the scene</span>
-<span class="yarn-comment">// use these to add random facts. everythime you meet them</span>
-<span class="yarn-comment">// they will say one of these lines randomly</span>
+</code>
+</pre>
+</div>
 
-<span class="yarn-line">titre : enfant engendré</span> <span class="yarn-meta">#line:0ab69a2 </span>
-<span class="yarn-line">position : 900,1400</span> <span class="yarn-meta">#line:0d47d3c </span>
-<span class="yarn-line">groupe : engendré</span> <span class="yarn-meta">#line:0d190d0 </span>
-<span class="yarn-line">tags : acteur=Enfant</span> <span class="yarn-meta">#line:00c76ad </span>
-<span class="yarn-line">---</span> <span class="yarn-meta">#line:06824fe </span>
+<a id="ys-node-spawned-child"></a>
+
+## spawned_child
+
+<div class="yarn-node" data-title="spawned_child">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
+<span class="yarn-header-dim">group: Spawned</span>
+<span class="yarn-header-dim">actor: KID_M</span>
+<span class="yarn-header-dim">---</span>
 <span class="yarn-line">J'ai vu NEPTUNE bleu.</span> <span class="yarn-meta">#line:0db085c </span>
 <span class="yarn-line">Les anneaux de SATURNE brillent.</span> <span class="yarn-meta">#line:0a7ab40 </span>
 
@@ -608,7 +618,7 @@ hide:
 <div class="yarn-node" data-title="spawned_student">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=Student</span>
+<span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Les planètes se déplacent autour du SOLEIL.</span> <span class="yarn-meta">#line:0275852 </span>
 <span class="yarn-line">la LUNE est notre satellite.</span> <span class="yarn-meta">#line:07430b2 </span>

@@ -30,7 +30,7 @@ hide:
 <span class="yarn-header-dim">// Words used: Odra, river, bridge, island , water, Wrocław, navigation, ecosystem</span>
 <span class="yarn-header-dim">// INTRO – DOCK</span>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: odra_dock</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
@@ -94,7 +94,7 @@ hide:
 <span class="yarn-header-dim">// PART 1 – CITY OF BRIDGES</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: Bridges</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: city_of_bridges</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card bridge&gt;&gt;</span>
@@ -115,7 +115,7 @@ hide:
 <div class="yarn-node" data-title="BRIDGE_FOOT_HINT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Bridges</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: footbridge_view</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card footbridge&gt;&gt;</span>
@@ -136,7 +136,7 @@ hide:
 <div class="yarn-node" data-title="BRIDGE_TRAIN_HINT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Bridges</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: railway_bridge</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card train_bridge&gt;&gt;</span>
@@ -158,7 +158,7 @@ hide:
 <div class="yarn-node" data-title="BRIDGE_CAR_HINT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Bridges</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: road_bridge</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card road_bridge&gt;&gt;</span>
@@ -181,7 +181,7 @@ hide:
 <span class="yarn-header-dim">// PART 2 – RIVER BOATS</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: odra_river_traffic</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat&gt;&gt;</span>
@@ -203,7 +203,7 @@ hide:
 <div class="yarn-node" data-title="BOAT_BARGE_HINT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: barge_photo</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">BARGE è basso e piatto.</span> <span class="yarn-meta">#line:028dcdf </span>
@@ -223,7 +223,7 @@ hide:
 <div class="yarn-node" data-title="BOAT_HOUSE_HINT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: houseboat</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card houseboat&gt;&gt;</span>
@@ -248,7 +248,7 @@ hide:
 <div class="yarn-node" data-title="BOAT_KAYAK_HINT">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: kayak</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card kayak&gt;&gt;</span>
@@ -267,7 +267,7 @@ hide:
 <div class="yarn-node" data-title="BOATS_MATCH">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: odra_couples</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Abbina le cose ai lavori.</span> <span class="yarn-meta">#line:0d62913 </span>
@@ -290,7 +290,7 @@ hide:
 <span class="yarn-header-dim">// PART 3 – BIG MAP</span>
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">group: Map</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: poland_river_map</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span>
@@ -346,7 +346,7 @@ hide:
 <div class="yarn-node" data-title="ENDING_DOCK">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: odra_sign</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card tumski_bridge&gt;&gt;</span>
@@ -389,7 +389,7 @@ hide:
 <div class="yarn-node" data-title="order_odra_facts_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: actor=BoatCaptain</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: quest_complete</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ottimo lavoro, esploratore del FIUME!</span> <span class="yarn-meta">#line:0117d8b </span>
@@ -411,7 +411,7 @@ hide:
 <span class="yarn-header-dim">// these npc are spawned automatically in the scene</span>
 <span class="yarn-header-dim">// each time you meet them they say one random line</span>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=Child</span>
+<span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Mi piace il KAYAK piccolo.</span> <span class="yarn-meta">#line:0f36b7f </span>
 <span class="yarn-line">Pagaia velocemente in acque calme.</span> <span class="yarn-meta">#line:07ff8c5 </span>
@@ -427,7 +427,7 @@ hide:
 <div class="yarn-node" data-title="spawned_tourist">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=Tourist</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ci sono così tanti PONTI in questa città.</span> <span class="yarn-meta">#line:0577d80 </span>
 <span class="yarn-line">Il numero delle mie foto è enorme.</span> <span class="yarn-meta">#line:089ea37 </span>
@@ -443,7 +443,7 @@ hide:
 <div class="yarn-node" data-title="spawned_fisher">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=Fisher</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">L'acqua calma fa bene ai pesci.</span> <span class="yarn-meta">#line:0207b2a </span>
 <span class="yarn-line">Guardo le barche che scivolano via.</span> <span class="yarn-meta">#line:04d0dac </span>
@@ -459,7 +459,7 @@ hide:
 <div class="yarn-node" data-title="spawned_birdwatcher">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">tags: actor=Birdwatcher</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Gli uccelli riposano sul vecchio ponte.</span> <span class="yarn-meta">#line:05d28c9 </span>
 <span class="yarn-line">Li annoto nel mio libro.</span> <span class="yarn-meta">#line:0b1b835 </span>

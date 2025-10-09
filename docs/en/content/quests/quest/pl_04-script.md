@@ -32,6 +32,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $found_chest_cookies = false&gt;&gt;</span>
 <span class="yarn-line">Welcome to WROCŁAW ZOO.</span> <span class="yarn-meta">#line:0fe55d1 </span>
 <span class="yarn-line">There are many ANIMALS here!</span> <span class="yarn-meta">#line:005dd46 </span>
+<span class="yarn-cmd">&lt;&lt;target target_director&gt;&gt;</span>
 
 </code>
 </pre>
@@ -78,10 +79,9 @@ hide:
 <div class="yarn-node" data-title="director_talk">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">actor: ADULT_M, type:Panel</span>
-<span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $talked_animals == true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task&gt;&gt;</span>
@@ -98,16 +98,18 @@ hide:
 <div class="yarn-node" data-title="director_task">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">actor: ADULT_M, type:Panel</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">image: centennial_hall_empty_flag</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 <span class="yarn-line">Oh no!</span> <span class="yarn-meta">#line:0c71176 </span>
 <span class="yarn-cmd">&lt;&lt;camera_focus Flagpole&gt;&gt;</span>
 <span class="yarn-line">The FLAG is missing!</span> <span class="yarn-meta">#line:09c6bf7 </span>
+<span class="yarn-cmd">&lt;&lt;card iglica&gt;&gt;</span>
+<span class="yarn-line">It was on the IGLICA at CENTENNIAL HALL,</span> <span class="yarn-meta">#line:02f35e4 </span>
+<span class="yarn-line">which is a famous symbol of our city.</span> <span class="yarn-meta">#line:0335bf7 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">It was on the IGLICA at CENTENNIAL HALL.</span> <span class="yarn-meta">#line:02f35e4 </span>
-<span class="yarn-cmd">&lt;&lt;card iglica zoom&gt;&gt;</span>
 <span class="yarn-line">Please help me find it!</span> <span class="yarn-meta">#line:0fd5d1a </span>
 <span class="yarn-line">Talk to the ANIMALS. Maybe one of them has it.</span> <span class="yarn-meta">#line:012b933 </span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
@@ -178,6 +180,7 @@ hide:
 <span class="yarn-header-dim">image: zoo_gate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hehe! I'm not actually from the zoo.</span> <span class="yarn-meta">#line:03c4553 </span>
+<span class="yarn-cmd">&lt;&lt;card animal_fox zoom&gt;&gt;</span>
 <span class="yarn-line">I didn't see a flag anywhere.</span> <span class="yarn-meta">#line:074fe29 </span>
 
 </code>
@@ -250,6 +253,9 @@ hide:
 <span class="yarn-line">A FLAG? I do not have it.</span> <span class="yarn-meta">#line:0b79d01 </span>
 <span class="yarn-line">If I took it I would remember!</span> <span class="yarn-meta">#line:0f124bf </span>
 <span class="yarn-cmd">&lt;&lt;set $elephant_completed = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -265,8 +271,9 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: elephant_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">ELEPHANT. Thick skin. Big EARS.</span> <span class="yarn-meta">#line:048e8a1 </span>
-<span class="yarn-line">Largest land ANIMAL.</span> <span class="yarn-meta">#line:0b1cca2 </span>
+<span class="yarn-cmd">&lt;&lt;card animal_elephant&gt;&gt;</span>
+<span class="yarn-line">Elephants have thick skin and big ears.</span> <span class="yarn-meta">#line:06c3bba </span>
+<span class="yarn-line">They are the largest land animals.</span> <span class="yarn-meta">#line:0bc4ca4 </span>
 
 </code>
 </pre>
@@ -332,6 +339,9 @@ hide:
 <span class="yarn-line">I did not take the FLAG.</span> <span class="yarn-meta">#line:0877d6f </span>
 <span class="yarn-line">It is too high for me!</span> <span class="yarn-meta">#line:02d00e2 </span>
 <span class="yarn-cmd">&lt;&lt;set $giraffe_completed = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -347,8 +357,9 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: giraffe_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">GIRAFFE. Tall. Long NECK.</span> <span class="yarn-meta">#line:0a8a73f </span>
-<span class="yarn-line">Long EYELASHES.</span> <span class="yarn-meta">#line:0291317 </span>
+<span class="yarn-cmd">&lt;&lt;card animal_giraffe&gt;&gt;</span>
+<span class="yarn-line">Giraffes are the tallest animals.</span> <span class="yarn-meta">#line:03b36c0 </span>
+<span class="yarn-line">They have long necks to eat leaves from tall trees.</span> <span class="yarn-meta">#line:0d9d52f </span>
 
 </code>
 </pre>
@@ -416,6 +427,9 @@ hide:
 <span class="yarn-line">You must find the FLAG!</span> <span class="yarn-meta">#line:05da6d7 </span>
 <span class="yarn-line">I like watching it in wind.</span> <span class="yarn-meta">#line:01b3593 </span>
 <span class="yarn-cmd">&lt;&lt;set $lion_completed = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -431,8 +445,11 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: lion_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">LION. PRIDE = family of lions.</span> <span class="yarn-meta">#line:0ac6cc0 </span>
-<span class="yarn-line">Males have MANES.</span> <span class="yarn-meta">#line:0d2883b </span>
+<span class="yarn-cmd">&lt;&lt;card animal_lion&gt;&gt;</span>
+<span class="yarn-line">Lions live in family groups.</span> <span class="yarn-meta">#line:091881b </span>
+<span class="yarn-line">Adult males have manes.</span> <span class="yarn-meta">#line:02b4a06 </span>
+<span class="yarn-cmd">&lt;&lt;card animal_lion_cub&gt;&gt;</span>
+<span class="yarn-line">But young cubs don't.</span> <span class="yarn-meta">#line:0d378cc </span>
 
 </code>
 </pre>
@@ -497,6 +514,9 @@ hide:
 <span class="yarn-line">I did not take the FLAG.</span> <span class="yarn-meta">#line:0c53945 </span>
 <span class="yarn-line">It would be fun to climb that pole.</span> <span class="yarn-meta">#line:0a43c85</span>
 <span class="yarn-cmd">&lt;&lt;set $monkey_completed = true&gt;&gt;</span> 
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -512,8 +532,12 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: monkey_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">CHIMPANZEE. Great CLIMBER.</span> <span class="yarn-meta">#line:0900219 </span>
-<span class="yarn-line">Loves FRUIT.</span> <span class="yarn-meta">#line:021b299 </span>
+<span class="yarn-cmd">&lt;&lt;card animal_chimpanzee&gt;&gt;</span>
+<span class="yarn-line">Chimpanzees are great climbers.</span> <span class="yarn-meta">#line:01d80fc </span>
+<span class="yarn-cmd">&lt;&lt;card food_apple&gt;&gt;</span>
+<span class="yarn-line">They eat lots of different fruits.</span> <span class="yarn-meta">#line:0883b4b </span>
+<span class="yarn-cmd">&lt;&lt;card plant_apple&gt;&gt;</span>
+<span class="yarn-line">Every fruit comes from a different tree.</span> <span class="yarn-meta">#line:0cda3c2 </span>
 
 </code>
 </pre>
@@ -578,6 +602,9 @@ hide:
 <span class="yarn-line">No, I did not take the FLAG.</span> <span class="yarn-meta">#line:078190f </span>
 <span class="yarn-line">I can't fly, remember?</span> <span class="yarn-meta">#line:08568f5 </span>
 <span class="yarn-cmd">&lt;&lt;set $penguin_completed = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -593,8 +620,10 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">image: penguin_sign</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">PENGUIN. Bird. Swimmer.</span> <span class="yarn-meta">#line:0877d95 </span>
-<span class="yarn-line">Lives near OCEANS.</span> <span class="yarn-meta">#line:0eac350 </span>
+<span class="yarn-cmd">&lt;&lt;card animal_penguin&gt;&gt;</span>
+<span class="yarn-line">Penguins are birds that can swim.</span> <span class="yarn-meta">#line:0920adc </span>
+<span class="yarn-cmd">&lt;&lt;card ice_arctic&gt;&gt;</span>
+<span class="yarn-line">They live near oceans and ice.</span> <span class="yarn-meta">#line:0baa8d0 </span>
 
 </code>
 </pre>
@@ -625,7 +654,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TASK DONE! Go back to the DIRECTOR.</span> <span class="yarn-meta">#line:0a93d9b </span>
+<span class="yarn-line">TASK DONE! Go back to the ZOO DIRECTOR.</span> <span class="yarn-meta">#line:0a93d9b </span>
+<span class="yarn-cmd">&lt;&lt;target target_director&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $talked_animals = true&gt;&gt;</span>
 
 </code>
@@ -645,7 +675,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good. You talked to all ANIMALS.</span> <span class="yarn-meta">#line:032811f </span>
 <span class="yarn-line">Now let's review facts.</span> <span class="yarn-meta">#line:0364f30 </span>
-<span class="yarn-line">Help me put pieces together.</span> <span class="yarn-meta">#line:08de86f </span>
+<span class="yarn-line">Help me put the pieces together.</span> <span class="yarn-meta">#line:0bc6238 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_zoo_settings director_activity_done&gt;&gt;</span>
 
 </code>
@@ -718,8 +748,8 @@ hide:
 <span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">image: flag_on_iglica</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">The FLAG is home.</span> <span class="yarn-meta">#line:0d91701 </span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_flag&gt;&gt;</span>
+<span class="yarn-line">The FLAG is home.</span> <span class="yarn-meta">#line:0d91701 </span>
 <span class="yarn-line">Thank you, helper.</span> <span class="yarn-meta">#line:08c71db </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 

@@ -217,8 +217,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_BR&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_belarus&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:0e48014 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's yellow black and red, select it and talk to me again.]</span> <span class="yarn-meta">#line:0d78194 </span>
+<span class="yarn-line">        Hai la mia bandiera nel tuo inventario!</span> <span class="yarn-meta">#line:0e48014 </span>
+<span class="yarn-line">        È giallo, nero e rosso, selezionalo e parlami di nuovo.</span> <span class="yarn-meta">#line:0d78194 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    UOMO: La nostra bandiera ha strisce orizzontali nere, rosse e gialle.</span> <span class="yarn-meta">#line:0cd7024 </span>
@@ -285,9 +285,9 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_CZ&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:079c8f0 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red and green, with a pattern on the left.]</span> <span class="yarn-meta">#line:0e78a13 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         Select it and bring it to me.]</span> <span class="yarn-meta">#line:0b57b74 </span>
+<span class="yarn-line">        Hai la mia bandiera nel tuo inventario!</span> <span class="yarn-meta">#line:079c8f0 </span>
+<span class="yarn-line">        È rosso e verde, con un motivo sulla sinistra.</span> <span class="yarn-meta">#line:0e78a13 </span>
+<span class="yarn-line">        Selezionalo e portamelo.</span> <span class="yarn-meta">#line:0b57b74 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">        La mia bandiera è rossa e verde con un motivo rosso sulla sinistra.</span> <span class="yarn-meta">#line:0653fae </span>
@@ -353,8 +353,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_LI&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_lithuania&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:0278e65 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red, blue and white! Select it and talk to me again.]</span> <span class="yarn-meta">#line:07f7a61 </span>
+<span class="yarn-line">        Hai la mia bandiera nel tuo inventario!</span> <span class="yarn-meta">#line:0278e65 </span>
+<span class="yarn-line">        È rosso, blu e bianco! Selezionalo e parlami di nuovo.</span> <span class="yarn-meta">#line:07f7a61 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    La mia bandiera è diversa! È bianca e rossa con un triangolo blu.</span> <span class="yarn-meta">#line:0000741 </span>
@@ -422,8 +422,8 @@ hide:
             <span class="yarn-cmd">&lt;&lt;set $lithuania_met = true&gt;&gt;</span>
             <span class="yarn-cmd">&lt;&lt;jump task_ukraine&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:0036d67 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red, yellow and green. Select it and talk to me again.]</span> <span class="yarn-meta">#line:078ab98 </span>
+<span class="yarn-line">        Hai la mia bandiera nel tuo inventario!</span> <span class="yarn-meta">#line:0036d67 </span>
+<span class="yarn-line">        È rosso, giallo e verde. Selezionalo e parlami di nuovo.</span> <span class="yarn-meta">#line:078ab98 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    Ricordate, la mia bandiera è rossa, verde e gialla.</span> <span class="yarn-meta">#line:00af906 </span>
@@ -510,8 +510,8 @@ hide:
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_SL&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory.]</span> <span class="yarn-meta">#line:0a4b7da </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's yellow and blue, select it and talk to me again!]</span> <span class="yarn-meta">#line:089138a </span>
+<span class="yarn-line">        Hai la mia bandiera nel tuo inventario.</span> <span class="yarn-meta">#line:0a4b7da </span>
+<span class="yarn-line">        È giallo e blu, selezionalo e parlami di nuovo!</span> <span class="yarn-meta">#line:089138a </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    No! La nostra bandiera è blu e gialla.</span> <span class="yarn-meta">#line:0a94866 </span>
@@ -596,9 +596,9 @@ hide:
         <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;set $slovakia_completed = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:095b95b </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         It's red, white and blue with a coat of arms.]</span> <span class="yarn-meta">#line:0b0fa74 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         Select it and then talk to me again!]</span> <span class="yarn-meta">#line:0a051db </span>
+<span class="yarn-line">        Hai la mia bandiera nel tuo inventario!</span> <span class="yarn-meta">#line:095b95b </span>
+<span class="yarn-line">        È rosso, bianco e blu con uno stemma.</span> <span class="yarn-meta">#line:0b0fa74 </span>
+<span class="yarn-line">        Selezionalo e poi parlami di nuovo!</span> <span class="yarn-meta">#line:0a051db </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">        La nostra bandiera è bianca, rossa e blu con uno stemma.</span> <span class="yarn-meta">#line:0af30a1 </span>
