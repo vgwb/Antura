@@ -61,7 +61,8 @@ actor: NARRATOR
 <<declare $greengrocer_completed = false>>
 <<declare $grocer_completed = false>>
 <<declare $pirate_completed = false>>
-Welcome to Côte d'Azur! It's a sunny day on the coast. #line:078e646 
+Welcome to Côte d'Azur! It's a sunny day on the coast. #line:078e646
+<<target target_chef>> 
 ===
 
 title: quest_end

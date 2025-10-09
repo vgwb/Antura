@@ -116,7 +116,8 @@ Oh no! #line:0c71176
 <<camera_focus Flagpole>>
 The FLAG is missing! #line:09c6bf7 
 <<card iglica>>
-It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
+It was on the IGLICA at CENTENNIAL HALL, #line:02f35e4 
+which is a famous symbol of our city. #line:0335bf7 
 <<camera_reset>>
 Please help me find it! #line:0fd5d1a 
 Talk to the ANIMALS. Maybe one of them has it. #line:012b933 
@@ -160,7 +161,9 @@ group: ZOO
 actor: SPECIAL
 image: zoo_gate
 ---
+<<card animal_lion_female>>
 Hehe! I'm not actually from the zoo. #line:03c4553 
+<<card animal_fox>>
 I didn't see a flag anywhere. #line:074fe29 
 ===
 
@@ -224,8 +227,9 @@ group: ELEPHANT
 actor: 
 image: elephant_sign
 ---
-ELEPHANT. Thick skin. Big EARS. #line:048e8a1 
-Largest land ANIMAL. #line:0b1cca2 
+<<card animal_elephant>>
+Elephants have thick skin and big ears. #line:06c3bba 
+They are the largest land animals.  #line:0bc4ca4 
 ===
 
 title: ELEPHANT_KID
@@ -282,8 +286,9 @@ group: GIRAFFE
 actor: 
 image: giraffe_sign
 ---
-GIRAFFE. Tall. Long NECK. #line:0a8a73f 
-Long EYELASHES. #line:0291317 
+<<card animal_giraffe>>
+Giraffes are the tallest animals. #line:03b36c0 
+They have long necks to eat leaves from tall trees. #line:0d9d52f 
 ===
 
 title: GIRAFFE_KID
@@ -342,8 +347,11 @@ group: LION
 actor: 
 image: lion_sign
 ---
-LION. PRIDE = family of lions. #line:0ac6cc0 
-Males have MANES. #line:0d2883b 
+<<card animal_lion>>
+Lions live in family groups. #line:091881b 
+Adult males have manes. #line:02b4a06 
+<<card animal_lion_cub>>
+But young cubs don't. #line:0d378cc 
 ===
 
 title: LION_KID
@@ -399,8 +407,12 @@ group: MONKEY
 actor: 
 image: monkey_sign
 ---
-CHIMPANZEE. Great CLIMBER. #line:0900219 
-Loves FRUIT. #line:021b299 
+<<card animal_chimpanzee>>
+Chimpanzees are great climbers. #line:01d80fc 
+<<card food_apple>>
+They eat lots of different fruits. #line:0883b4b 
+<<card plant_apple>>
+Every fruit comes from a different tree. #line:0cda3c2 
 ===
 
 title: MONKEY_KID
@@ -456,8 +468,10 @@ group: PENGUIN
 actor: 
 image: penguin_sign
 ---
-PENGUIN. Bird. Swimmer. #line:0877d95 
-Lives near OCEANS. #line:0eac350 
+<<card animal_penguin>>
+Penguins are birds that can swim. #line:0920adc 
+<<card ice_arctic>>
+They live near oceans and ice. #line:0baa8d0 
 ===
 
 title: PENGUIN_KID
@@ -488,7 +502,7 @@ color: purple
 ---
 Good. You talked to all ANIMALS. #line:032811f 
 Now let's review facts. #line:0364f30 
-Help me put pieces together. #line:08de86f 
+Help me put the pieces together. #line:0bc6238 
 <<activity jigsaw_zoo_settings director_activity_done>>
 ===
 
@@ -535,8 +549,8 @@ group: End
 actor: GUIDE_M
 image: flag_on_iglica
 ---
-The FLAG is home. #line:0d91701 
 <<card wroclaw_flag>>
+The FLAG is home. #line:0d91701 
 Thank you, helper. #line:08c71db 
 <<jump quest_end>>
 ===

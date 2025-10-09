@@ -10,35 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: animal_elephant_young
+  m_Name: animal_fox
   m_EditorClassIdentifier: 
-  Id: animal_elephant_young
+  Id: animal_fox
   Status: 1
   Type: 0
   Subjects: 
-  TitleEn: Young elephant
-  DescriptionEn: Curious and learning, it follows the adults. It practices using
-    its trunk every day!
+  TitleEn: Fox
+  DescriptionEn: A smart predator that lives in the woods. They have a soft tail
+    to keep them warm.
   Title:
     m_TableReference:
-      m_TableCollectionName: Cards
+      m_TableCollectionName: GUID:83cedfbe63a854be2a71d77763f2eb90
     m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: animal_elephant_young
+      m_KeyId: 55754361921633
+      m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: Cards
+      m_TableCollectionName: 
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: animal_elephant_young.desc
+      m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Year: 0
-  Country: 3
+  Country: 0
   Location: {fileID: 0}
   WikipediaUrl: 
   Importance: 30
@@ -46,13 +46,14 @@ MonoBehaviour:
   CoreOfTopic: {fileID: 0}
   IsInTopics: 0
   MasteryPointsToUnlock: 1
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 78797fe20886d427691e70700034bbcc, type: 2}
   Words: []
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: 2f73a45916f5bab4988091e1cb8d6ab0, type: 2}
+  ImageAsset: {fileID: 11400000, guid: 077caab924857f942a9201ffd4516cc1, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
@@ -65,12 +66,12 @@ MonoBehaviour:
   Credits: []
   Rationale: 
   Notes: 
-  LastReviewed: 2025-10-06
+  LastReviewed: 2025-10-09
   NeedsLocalizationUpdate: 1
   QuestOwner: 
-  _lastTitleEn: Young elephant
-  _lastDescriptionEn: Curious and learning, it follows the adults. It practices using
-    its trunk every day!
+  _lastTitleEn: Fox
+  _lastDescriptionEn: A smart predator that lives in the woods. They have a soft
+    tail to keep them warm.
   references:
     version: 2
     RefIds: []
