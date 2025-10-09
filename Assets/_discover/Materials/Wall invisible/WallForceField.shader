@@ -56,7 +56,9 @@ Shader "Custom/WallForceField"
             a = saturate(a);
 
             // Color & emission
-            float emissive = (_Emission * (0.5 + 0.5 * sin(_Time.y * 3.0))) + fres * 2.0;
+            // Apply pulsing only when the player is close enough
+            float distanceMask = step(d, _Radius * 2.0);
+            float emissive = (_Emission * (0.5 + 0.5 * sin(_Time.y * 3.0)) * distanceMask) + fres * 2.0;
             fixed3 col = _BaseColor.rgb * (1.0 + noise.r * 0.25);
 
             o.Albedo = col;
