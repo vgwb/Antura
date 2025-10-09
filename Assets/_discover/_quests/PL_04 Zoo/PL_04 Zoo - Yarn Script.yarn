@@ -68,6 +68,7 @@ color: red
 <<declare $found_chest_cookies = false>>
 Welcome to WROCŁAW ZOO. #line:0fe55d1 
 There are many ANIMALS here! #line:005dd46 
+<<target target_director>>
 ===
 
 title: quest_end
@@ -94,10 +95,9 @@ Draw your favorite ANIMAL. #line:0809ac5
 title: director_talk
 position: -951,-5
 group: Intro
-actor: ADULT_M, type:Panel
-image: centennial_hall_empty_flag
+actor: ADULT_M
 ---
-<<if $talked_animals == true>>
+<<if HasCompletedTask("TASK_ANIMALS")>>
     <<jump director_task_done>>
 <<else>>
     <<jump director_task>>
@@ -107,16 +107,17 @@ image: centennial_hall_empty_flag
 title: director_task
 position: -715,-144
 group: Intro
-actor: ADULT_M, type:Panel
+actor: ADULT_M
 image: centennial_hall_empty_flag
 color: green
 ---
-Oh no!  #line:0c71176 
+<<target off>>
+Oh no! #line:0c71176 
 <<camera_focus Flagpole>>
 The FLAG is missing! #line:09c6bf7 
-<<camera_reset>>
+<<card iglica>>
 It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
-<<card iglica zoom>>
+<<camera_reset>>
 Please help me find it! #line:0fd5d1a 
 Talk to the ANIMALS. Maybe one of them has it. #line:012b933 
 <<task_start TASK_ANIMALS task_animals_done>>
@@ -212,6 +213,9 @@ image: elephant_keeper
 A FLAG? I do not have it. #line:0b79d01 
 If I took it I would remember! #line:0f124bf 
 <<set $elephant_completed = true>>
+<<if HasCompletedTask("TASK_ANIMALS")>>
+    <<jump task_animals_done>>
+<<endif>>
 ===
 
 title: ELEPHANT_SIGN
@@ -267,6 +271,9 @@ image: giraffe_keeper
 I did not take the FLAG. #line:0877d6f 
 It is too high for me! #line:02d00e2 
 <<set $giraffe_completed = true>>
+<<if HasCompletedTask("TASK_ANIMALS")>>
+    <<jump task_animals_done>>
+<<endif>>
 ===
 
 title: GIRAFFE_SIGN
@@ -324,6 +331,9 @@ image: lion_keeper
 You must find the FLAG! #line:05da6d7 
 I like watching it in wind. #line:01b3593 
 <<set $lion_completed = true>>
+<<if HasCompletedTask("TASK_ANIMALS")>>
+    <<jump task_animals_done>>
+<<endif>>
 ===
 
 title: LION_SIGN
@@ -378,6 +388,9 @@ image: monkey_keeper
 I did not take the FLAG. #line:0c53945 
 It would be fun to climb that pole. #line:0a43c85
 <<set $monkey_completed = true>> 
+<<if HasCompletedTask("TASK_ANIMALS")>>
+    <<jump task_animals_done>>
+<<endif>>
 ===
 
 title: MONKEY_SIGN
@@ -432,6 +445,9 @@ image: penguin_keeper
 No, I did not take the FLAG. #line:078190f 
 I can't fly, remember? #line:08568f5 
 <<set $penguin_completed = true>>
+<<if HasCompletedTask("TASK_ANIMALS")>>
+    <<jump task_animals_done>>
+<<endif>>
 ===
 
 title: PENGUIN_SIGN
@@ -459,6 +475,7 @@ position: -451,-152
 actor: 
 ---
 TASK DONE! Go back to the DIRECTOR. #line:0a93d9b 
+<<target target_director>>
 <<set $talked_animals = true>>
 ===
 
