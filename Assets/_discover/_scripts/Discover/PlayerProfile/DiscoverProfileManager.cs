@@ -129,10 +129,15 @@ namespace Antura.Discover
             var header = index.profiles.Find(h => string.Equals(h.uuid, legacyUuid, StringComparison.OrdinalIgnoreCase));
             if (header != null)
             {
-                var existing = LoadById(header.id);
-                if (existing != null)
-                    return existing;
-
+                var existingProfile = LoadById(header.id);
+                if (existingProfile != null)
+                {
+                    existingProfile.profile.displayName = legacy?.PlayerName ?? existingProfile.profile.displayName;
+                    existingProfile.profile.classroom = legacy?.Classroom ?? existingProfile.profile.classroom;
+                    existingProfile.profile.easyMode = legacy?.EasyMode ?? existingProfile.profile.easyMode;
+                    existingProfile.profile.talkToPlayerMode = legacy?.TalkToPlayerStyle ?? TalkToPlayerMode.LearningThenNative;
+                    return existingProfile;
+                }
                 // Header exists but file is missing/corrupt: recreate with the same id.
                 var recreated = CreateNew(legacyUuid, header.displayName, platform, appVersion ?? Application.version, index);
                 recreated.profile.id = header.id;
@@ -240,7 +245,7 @@ namespace Antura.Discover
                     countryIso2 = "",
                     classroom = legacy?.Classroom ?? 0,
                     easyMode = legacy?.EasyMode ?? false,
-                    talkToPlayerMode = TalkToPlayerMode.LearningThenNative,
+                    talkToPlayerMode = legacy?.TalkToPlayerStyle ?? TalkToPlayerMode.LearningThenNative,
                     godMode = legacy?.IsDemoUser ?? false,
                     playerIcon = MapLegacyPlayerIcon(legacy)
                 },

@@ -115,8 +115,13 @@ namespace Antura.UI
             AudioManager.I.PlaySound(SfxSelectProfile);
             LLInStage.GetComponent<HomeSceneLetter>().ChangeLetter();
             Setup();
+            // load profil in DiscoverAppManager
+            if (Discover.DiscoverAppManager.I != null)
+            {
+                var legacyProfile = AppManager.I.PlayerProfileManager.CurrentPlayer;
+                Discover.DiscoverAppManager.I.InitializeFromLegacyUuid(playerIconData.Uuid, legacyProfile);
+            }
         }
-
         #endregion
 
         #region Methods
@@ -236,6 +241,7 @@ namespace Antura.UI
             int index = Array.IndexOf(playerIcons, playerIcon);
             PlayerProfilePreview playerIconData = profiles[index];
             SelectProfile(playerIconData);
+            // Debug.Log("Selected profile with TalkToPlayerStyle " + playerIconData.TalkToPlayerStyle);
         }
 
         #endregion

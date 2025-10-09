@@ -163,7 +163,7 @@ namespace Antura.UI
 
         private void SelectLangMode(int talkModeIndex)
         {
-            TalkToPlayerMode selectedMode = (TalkToPlayerMode)talkModeIndex;
+            TalkToPlayerMode selectedMode = (TalkToPlayerMode)(talkModeIndex + 1); // +1 to skip Default
             currProfile.TalkToPlayerStyle = selectedMode;
             ClassroomHelper.SaveProfile(currProfile);
             RefreshProfileInfo();
