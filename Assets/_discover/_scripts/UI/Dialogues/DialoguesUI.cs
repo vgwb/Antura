@@ -43,7 +43,7 @@ namespace Antura.Discover
 
         int currChoiceIndex;
         bool gotoNextWhenPostcardFocusViewCloses;
-        bool UseLearningLanguage = true;
+        bool learningLanguageFirst = true;
         QuestNode currNode;
         DialogueSignal previewSignalPrefab;
         readonly Dictionary<Interactable, DialogueSignal> previewSignalByInteractable = new();
@@ -191,25 +191,25 @@ namespace Antura.Discover
             currNode = node;
             currBalloon = narratorBalloon;
 
-            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
-            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningLanguageOnly)
+            if (QuestManager.I.LearningLangFirst)
             {
-                UseLearningLanguage = true;
+                learningLanguageFirst = true;
             }
             else
             {
-                UseLearningLanguage = false;
+                learningLanguageFirst = false;
             }
             if (node.Native)
             {
-                UseLearningLanguage = false;
+                learningLanguageFirst = false;
             }
+            Debug.Log("###### UseLearningLanguage: " + learningLanguageFirst);
 
             switch (node.Type)
             {
                 case NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
-                    currBalloon.Show(node, UseLearningLanguage);
+                    currBalloon.Show(node, learningLanguageFirst);
                     // image = node.GetImage();
                     // if (image != null)
                     //     postcard.Show(image);
@@ -219,19 +219,19 @@ namespace Antura.Discover
                 case NodeType.PANEL:
                     currBalloon = startEndPanel;
                     CurrDialogueType = DialogueType.Text;
-                    ShowStartPanel(node, UseLearningLanguage);
+                    ShowStartPanel(node, learningLanguageFirst);
                     break;
                 case NodeType.PANEL_ENDGAME:
                     currBalloon = startEndPanel;
                     CurrDialogueType = DialogueType.Text;
-                    ShowEndPanel(node, UseLearningLanguage, QuestManager.I.Progress.GetCurrentStarsAchieved());
+                    ShowEndPanel(node, learningLanguageFirst, QuestManager.I.Progress.GetCurrentStarsAchieved());
                     break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
-                        currBalloon.Show(node, UseLearningLanguage);
-                    choices.Show(node.Choices, UseLearningLanguage);
+                        currBalloon.Show(node, learningLanguageFirst);
+                    choices.Show(node.Choices, learningLanguageFirst);
                     break;
                 default:
                     IsOpen = false;
@@ -321,9 +321,9 @@ namespace Antura.Discover
             if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
             || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
             {
-                UseLearningLanguage = !UseLearningLanguage;
+                learningLanguageFirst = !learningLanguageFirst;
             }
-            currBalloon.DisplayText(UseLearningLanguage);
+            currBalloon.DisplayText(learningLanguageFirst);
         }
 
         void OnBalloonContinueClicked()

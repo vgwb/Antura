@@ -115,6 +115,7 @@ namespace Antura.Discover
 
         public void Show(NodeChoice choiceNode, bool doUseLearningLanguage)
         {
+            useLearningLanguage = doUseLearningLanguage;
             btMain.colors = choiceNode.Highlight ? exitChoiceColors : defMainColorBlock;
             currChoice = choiceNode;
             confirmedForThisRound = false;
@@ -125,7 +126,7 @@ namespace Antura.Discover
             else
             { icoTranslation.gameObject.SetActive(false); }
 
-            DisplayText(doUseLearningLanguage);
+            DisplayText(useLearningLanguage);
             showTween.Restart();
         }
 
@@ -135,7 +136,6 @@ namespace Antura.Discover
             hoverTween.PlayBackwards();
             confirmHoverTween.PlayBackwards();
             showTween.PlayBackwards();
-            useLearningLanguage = true;
         }
 
         public void Deselect(float timeScale = 2)
@@ -187,6 +187,7 @@ namespace Antura.Discover
             if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
                         || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
             {
+                Debug.Log("Switching language");
                 useLearningLanguage = !useLearningLanguage;
             }
 
