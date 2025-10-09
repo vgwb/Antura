@@ -23,12 +23,13 @@ namespace Antura.Discover.Audio.Editor
         private class ElevenLabsTTSRequest
         {
             public string text;
+            public string language_code; // ISO 639-1
             public string model_id;
             public ElevenLabsVoiceSettings voice_settings;
             public string output_format;
         }
 
-        public IEnumerator SynthesizeMp3Coroutine(string apiKey, VoiceProfileData profile, string text, Action<byte[]> onDone)
+        public IEnumerator SynthesizeMp3Coroutine(string apiKey, VoiceProfileData profile, string text, string languageCode, Action<byte[]> onDone)
         {
             onDone ??= _ => { };
             if (string.IsNullOrWhiteSpace(text))
@@ -47,6 +48,7 @@ namespace Antura.Discover.Audio.Editor
             {
                 text = text,
                 model_id = modelId,
+                language_code = languageCode,
                 voice_settings = new ElevenLabsVoiceSettings
                 {
                     stability = profile != null ? profile.Stability : 0.5f,

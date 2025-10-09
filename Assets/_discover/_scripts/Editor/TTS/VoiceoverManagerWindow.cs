@@ -639,7 +639,8 @@ namespace Antura.Discover.Audio.Editor
                             continue;
 
                         byte[] bytes = null;
-                        yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voice, text, b => bytes = b);
+                        string languageCode = locale.Identifier.Code;
+                        yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voice, text, languageCode, b => bytes = b);
                         if (bytes == null || bytes.Length == 0)
                         { Debug.LogError($"[QVM] TTS failed for card {card.Id ?? card.name} ({locale.Identifier.Code}) {kind}"); continue; }
 
@@ -1152,7 +1153,8 @@ namespace Antura.Discover.Audio.Editor
                         continue;
 
                     byte[] bytes = null;
-                    yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voiceForLine, text, b => bytes = b);
+                    string languageCode = locale.Identifier.Code;
+                    yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voiceForLine, text, languageCode, b => bytes = b);
                     if (bytes == null || bytes.Length == 0)
                     { Debug.LogError($"[QVM] TTS failed for key {key} in {quest.Id} ({locale.Identifier.Code})"); continue; }
 
