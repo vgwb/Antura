@@ -455,6 +455,7 @@ tags:
 Now go! I have to prepare for my next voyage. #line:04a0605 
 <<else>>
 Ahoy! Welcome aboard. #line:04ee922 
+<<card pirates>>
 We come from Saint-Malo and sailed the seas to get here. #line:056c70d 
 People call us pirates, but we were corsairs — privateers. #line:0f764a6 
 <<jump pirate_activity>>
@@ -794,11 +795,11 @@ actor:
 spawn_group: tourists 
 ---
 => One euro is 100 cents. #line:0e6c526 
-<<card currency_euro>>
+    <<card currency_euro>>
 => Polite words plus correct coins: perfect! #line:07a5934 
-<<card currency_euro>>
+    <<card currency_euro>>
 => Euros have different sizes for each value. #line:021819a 
-<<card currency_euro>>
+    <<card currency_euro>>
 ===
 
 title: spawned_recipe
@@ -808,13 +809,17 @@ actor:
 spawn_group: buyers 
 ---
 => Bouillabaisse mixes many fish. #line:0b6981c 
-<<card bouillabaisse>>
+    <<card bouillabaisse>>
+    <<jump byebye>>
 => Fresh tomato adds flavor. #line:0477851 
-<<card food_tomato>>
+    <<card food_tomato>>
+    <<jump byebye>>
 => Olive oil adds flavor. #line:060644d 
-<<card food_olive_oil>>
+    <<card food_olive_oil>>
+    <<jump byebye>>
 => Bread is great for dipping soup. #line:04e69ac 
-<<card food_bread>>
+    <<card food_bread>>
+    <<jump byebye>>
 ===
 
 title: spawned_jobs
@@ -823,12 +828,22 @@ color: purple
 actor: 
 spawn_group: buyers 
 ---
-=> A baker bakes bread. #line:0606dc5 
-<<card person_baker>>
-=> A fishmonger sells fish and crab. #line:0ca5a9b 
-<<card person_fishmonger>>
-=> A cheesemonger sells cheese and milk. #line:0b5b1c5 
-<<card person_cheesemonger>>
-=> A greengrocer sells fruits and veggies. #line:03b9a2e 
-<<card person_greengrocer>>
+=> A baker bakes bread. #line:0606dc5 #card:person_baker
+    <<card person_baker>>
+    <<jump byebye>>
+=> A fishmonger sells fish and crab. #line:0ca5a9b #card:person_fishmonger
+    <<card person_fishmonger>>
+    <<jump byebye>>
+=> A cheesemonger sells cheese and milk. #line:0b5b1c5 #card:person_cheesemonger
+    <<card person_cheesemonger>>
+    <<jump byebye>>
+=> A greengrocer sells fruits and veggies. #line:03b9a2e #card:person_greengrocer
+    <<card person_greengrocer>>
+    <<jump byebye>>
+===
+
+title: byebye
+---
+=> Bye!
+=> Au revoir!
 ===

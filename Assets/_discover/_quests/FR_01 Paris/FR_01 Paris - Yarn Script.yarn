@@ -56,7 +56,7 @@
 // </scene_data>
 
 title: quest_start
-position: -70,-43
+position: -793,-190
 tags:
 type: panel
 color: red
@@ -70,8 +70,8 @@ actor: NARRATOR
 <<declare $MET_MONALISA = false>>
 
 Welcome to Paris! #line:start 
-Go talk to the tutor! #line:start_2
 <<target tutor>>
+Go talk to the tutor! #line:start_2
 ===
 
 title: quest_end
@@ -80,6 +80,7 @@ color: green
 panel: panel_endgame
 actor: NARRATOR
 ---
+
 Great! I can bake the baguette now. #line:0017917 
 Congratulations! You won the game! Did you like it? #line:0d11596 
 <<jump post_quest_activity>>
@@ -103,10 +104,12 @@ position: 300,-663
 actor:
 color: blue
 ---
+<<target off>>
 I saw Antura go to the Eiffel Tower. #line:talk_tutor
 <<camera_focus tour_eiffell>>
 Follow the light or use the map! #line:talk_tutor_2 
 Go there now! #line:talk_tutor_3 
+<<target eiffell>>
 ===
 
 
@@ -133,7 +136,8 @@ position: 584,-443
 group: toureiffel
 actor: GUIDE_F
 ---
-<<if $TOTAL_COINS > 2>>
+<<target off>>
+<<if GetTotalCoins() > 2>>
     Here is your ticket. #line:04e74ad 
     <<asset tour_eiffell_ticket>>
     <<set $TOTAL_COINS = $TOTAL_COINS-3>>
@@ -141,7 +145,7 @@ actor: GUIDE_F
     <<asset tour_eiffell_map>>
     I saw Antura going up to the top of the tower. #line:089abda 
     Take the elevator! #line:0585a5e 
-<<elseif $TOTAL_COINS > 0>> 
+<<elseif GetTotalCoins() > 0>> 
     Collect all the coins! #line:04d966b 
 <<else>>
     The ticket costs 3 coins. #line:069cbb3 

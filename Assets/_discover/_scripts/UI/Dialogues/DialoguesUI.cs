@@ -211,8 +211,11 @@ namespace Antura.Discover
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node, learningLanguageFirst);
                     // image = node.GetImage();
-                    // if (image != null)
-                    //     postcard.Show(image);
+                    if (node.Image != null)
+                    {
+                        DatabaseProvider.TryGet<CardData>(node.Image, out var cardData);
+                        postcard.Show(cardData);
+                    }
                     // else
                     //     postcard.Hide();
                     break;

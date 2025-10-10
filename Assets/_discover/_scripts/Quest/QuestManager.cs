@@ -43,6 +43,7 @@ namespace Antura.Discover
 
         private GameObject currentNPC;
         private int total_coins = 0;
+        public int TotalCoins => total_coins;
         private int collected_items = 0;
 
         public TalkToPlayerMode TalkToPlayerMode { get; private set; }
@@ -337,14 +338,14 @@ namespace Antura.Discover
 
         public void UpateCoinsCounter()
         {
-            //total_coins = YarnAnturaManager.I.Variables.TOTAL_COINS;
+            // YarnAnturaManager.I.Variables.TOTAL_COINS = total_coins;
             UIManager.I.CoinsCounter.SetValue(total_coins);
         }
 
         public void OnCollectCoin()
         {
             total_coins++;
-            //YarnAnturaManager.I.Variables.TOTAL_COINS = total_coins;
+            // YarnAnturaManager.I.Variables.TOTAL_COINS = total_coins;
             UIManager.I.CoinsCounter.IncreaseByOne();
             Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
         }

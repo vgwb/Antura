@@ -124,6 +124,13 @@ namespace Antura.Discover
         // YARN COMMANDS
         // ------------------------------------------------------------
 
+
+        [YarnFunction("GetTotalCoins")]
+        public static int FunctionGetTotalCoins()
+        {
+            return QuestManager.I.TotalCoins;
+        }
+
         [YarnCommand("custom_wait")]
         public static IEnumerator CustomWait()
         {

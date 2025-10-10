@@ -116,7 +116,7 @@ namespace Antura.Discover
                 ContentNative = TextNative.Text,
                 AudioLearning = AudioLearning,
                 AudioNative = AudioNative,
-                Image = "",
+                Image = TryGetLineTagValue(metadata, "card") ?? string.Empty,
                 Permalink = _currentNodeName
             };
 
