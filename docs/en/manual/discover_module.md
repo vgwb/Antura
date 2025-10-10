@@ -17,6 +17,11 @@ Words are presented by Living Letters (LL) that speak the words when interacted 
 > The current list of [all words in the game](../content/words/index.md)
 
 ### Cards
+
+![words](../../assets/img/screenshot/discover/editor_cards.jpg)
+
+![words](../../assets/img/screenshot/discover/quest_cards.jpg)
+
 At the heart of each quest are Cards, which represent an "atom of knowledge" like facts, people, places, objects, traditions, foods, fauna, and flora.
 
 Each card:
@@ -79,6 +84,10 @@ Social and practical life:
 > The current list of [all cards in the game](../content/cards/index.md)
 
 ### Topics
+
+![words](../../assets/img/screenshot/discover/editor_topics.jpg)
+
+
 Topics are defined by educators by connecting a set of cards, defining the relationships and forming a **visible knowledge graph**.
 
 These graphs are the core of the didactical activities. They are easy to explore and understand: kids can review how cultural elements relate, and quests and activities can run on them.
@@ -106,6 +115,18 @@ root((Topic))
 
 ## Quests
 
+![words](../../assets/img/screenshot/discover/quest_intro.jpg)
+
+![words](../../assets/img/screenshot/discover/quest_intro_1.jpg)
+
+![words](../../assets/img/screenshot/discover/quest_intro_1b.jpg)
+
+![words](../../assets/img/screenshot/discover/quest_intro_2.jpg)
+
+![words](../../assets/img/screenshot/discover/quest_intro_3.jpg)
+
+![words](../../assets/img/screenshot/discover/quest_intro_4.jpg)
+
 Quests are short (5–15 minutes) adventures focusing on cultural or educational themes, usually 1–2 **topics**.
 
 Each quest combines:
@@ -129,6 +150,10 @@ Each quest is a different story and can have different challenges, like:
 - **Mini-games**: crafts, sports, or cultural practices
 
 ### Characters
+
+![words](../../assets/img/screenshot/discover/characters.jpg)
+
+![words](../../assets/img/screenshot/discover/ll_drawings.jpg)
 
 **Living Letters (LL)**
 Are the main companions known in the Learning Language modules. They tie words to NPCs.
@@ -210,7 +235,15 @@ This scenarios are best for real "urban" quests where orientation matters.
 
 ## Gameplay
 
+![words](../../assets/img/screenshot/discover/module_selection.jpg)
+
 ### Earth Menu
+
+![words](../../assets/img/screenshot/discover/earth.jpg)
+
+![words](../../assets/img/screenshot/discover/earth_menu.jpg)
+
+![words](../../assets/img/screenshot/discover/earth_menu_lang.jpg)
 
 Entry point to explore world, countries, and quests.  
 Access to the Book (review knowledge) and the Store (customization).  
@@ -220,11 +253,29 @@ Quests can require prior quests as knowledge prerequisites.
 
 ### Map and target points
 
+![words](../../assets/img/screenshot/discover/map_1.jpg)
+
+![words](../../assets/img/screenshot/discover/map_2.jpg)
+
+
 - Map button shows your position and the main objective.  
 - A **target** marker points to the next goal; hints appear when objectives change.  
 - Optional tasks and hidden items may appear as extra icons.  
 
 ### Interactions and inventory
+
+![words](../../assets/img/screenshot/discover/gameplay_paris.jpg)
+
+![words](../../assets/img/screenshot/discover/gameplay_tutorial.jpg)
+
+![words](../../assets/img/screenshot/discover/gameplay_louvre_2.jpg)
+
+![words](../../assets/img/screenshot/discover/gameplay_louvre.jpg)
+
+
+![words](../../assets/img/screenshot/discover/gameplay_physics.jpg)
+
+![words](../../assets/img/screenshot/discover/gameplay_quiz.jpg)
 
 - Interactions: Talk, Inspect, Collect, Use.  
 - Inventory: up to 5 slots; items auto‑use when needed and disappear after use.  
@@ -323,6 +374,10 @@ Example debrief (10 minutes):
 - In class, teachers see simplified summaries (progress, cards, achievements).  
 
 ## Quest design
+
+![words](../../assets/img/screenshot/discover/editor_prefab_preview.jpg
+
+![words](../../assets/img/screenshot/discover/editor_prefab_library.jpg)
 
 
 - Defined with the open‑source AdventurED framework.  
