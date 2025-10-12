@@ -107,7 +107,7 @@ namespace Antura.Discover
             var AudioLearning = (line as LocalizedLineDiscover)?.AssetInLearningLang as AudioClip;
             var metadata = line.Metadata;
 
-            Debug.Log(metadata != null ? "LINE METADATA:" + string.Join(", ", metadata.ToArray()) : "no-metadata");
+            // Debug.Log(metadata != null ? "LINE METADATA:" + string.Join(", ", metadata.ToArray()) : "no-metadata");
 
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
 

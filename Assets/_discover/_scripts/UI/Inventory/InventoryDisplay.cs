@@ -33,7 +33,7 @@ namespace Antura.Discover
             // Subscribe to inventory events
             if (QuestManager.I != null && QuestManager.I.Inventory != null)
             {
-                Debug.Log("InventoryDisplay: Subscribing to inventory events.");
+                // Debug.Log("InventoryDisplay: Subscribing to inventory events.");
                 var inv = QuestManager.I.Inventory;
                 inv.OnItemAdded += HandleItemAdded;
                 inv.OnItemRemoved += HandleItemRemoved;
@@ -128,7 +128,7 @@ namespace Antura.Discover
 
         private void HandleItemAdded(InventoryItem item)
         {
-            Debug.Log($"InventoryDisplay: HandleItemAdded {item?.Code}");
+            // Debug.Log($"InventoryDisplay: HandleItemAdded {item?.Code}");
             if (item == null)
                 return;
             if (!Items.Contains(item))

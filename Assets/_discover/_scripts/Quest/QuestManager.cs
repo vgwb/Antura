@@ -141,7 +141,7 @@ namespace Antura.Discover
         public void QuestStart()
         {
             TalkToPlayerMode = DiscoverAppManager.I.CurrentProfile.profile.talkToPlayerMode;
-            Debug.Log("QuestStart with TalkToPlayerMode: " + TalkToPlayerMode);
+            // Debug.Log("QuestStart with TalkToPlayerMode: " + TalkToPlayerMode);
             if (DebugMode)
             {
                 if (DebugConfig.TalkToPlayerMode != TalkToPlayerMode.Default)

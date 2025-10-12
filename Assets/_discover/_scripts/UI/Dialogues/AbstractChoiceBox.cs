@@ -187,7 +187,7 @@ namespace Antura.Discover
             if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
                         || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
             {
-                Debug.Log("Switching language");
+                // Debug.Log("Switching language");
                 useLearningLanguage = !useLearningLanguage;
             }
 

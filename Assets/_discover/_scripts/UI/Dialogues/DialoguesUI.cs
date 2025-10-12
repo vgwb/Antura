@@ -203,7 +203,7 @@ namespace Antura.Discover
             {
                 learningLanguageFirst = false;
             }
-            Debug.Log("###### UseLearningLanguage: " + learningLanguageFirst);
+            // Debug.Log("###### UseLearningLanguage: " + learningLanguageFirst);
 
             switch (node.Type)
             {
