@@ -107,6 +107,8 @@ namespace Antura.Discover
             var AudioLearning = (line as LocalizedLineDiscover)?.AssetInLearningLang as AudioClip;
             var metadata = line.Metadata;
 
+            Debug.Log(metadata != null ? "LINE METADATA:" + string.Join(", ", metadata.ToArray()) : "no-metadata");
+
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
 
             var questNode = new QuestNode
@@ -116,7 +118,7 @@ namespace Antura.Discover
                 ContentNative = TextNative.Text,
                 AudioLearning = AudioLearning,
                 AudioNative = AudioNative,
-                Image = TryGetLineTagValue(metadata, "card") ?? string.Empty,
+                Image = GetLineTagValue(metadata, "card") ?? string.Empty,
                 Permalink = _currentNodeName
             };
 
@@ -188,8 +190,11 @@ namespace Antura.Discover
             // Parse node header tags first  from Yarn header "tags"
             var headerTags = GetHeaderTagsTokens(_currentNodeName);
 
+            // Debug.Log(headerTags != null ? "LINE HEADERTAGS:" + string.Join(", ", headerTags.ToArray()) : "no-headerTags");
+
             // if we have a noRepeatLastLine tag, we don't repeat the last line
-            var repeatLastLineSeen = true;
+            // obviously if we don't have a previous line, we can't repeat it
+            var repeatLastLineSeen = previousQuestNode != null;
             if (headerTags != null && headerTags.Contains("noRepeatLastLine"))
             {
                 // Debug.Log("noRepeatLastLine TAG FOUND");
@@ -231,8 +236,8 @@ namespace Antura.Discover
                     ContentNative = option.Line.TextWithoutCharacterName.Text,
                     AudioLearning = (option.Line as LocalizedLineDiscover)?.AssetInLearningLang as AudioClip,
                     AudioNative = (option.Line as LocalizedLineDiscover)?.Asset as AudioClip,
-                    Image = TryGetLineTagValue(option.Line.Metadata, "card") ?? string.Empty,
-                    Highlight = TryGetLineTagExists(option.Line.Metadata, "highlight"),
+                    Image = GetLineTagValue(option.Line.Metadata, "card") ?? string.Empty,
+                    Highlight = GetLineTagExists(option.Line.Metadata, "highlight"),
                 };
                 qn.Choices.Add(newChoice);
             }
@@ -257,7 +262,7 @@ namespace Antura.Discover
         /// <summary>
         /// Extract a tag value from line metadata. Supports formats like "card:my_id" or "card=my_id".
         /// </summary>
-        private string TryGetLineTagValue(string[] metadata, string tagname)
+        private string GetLineTagValue(string[] metadata, string tagname)
         {
             if (metadata == null || metadata.Length == 0)
                 return null;
@@ -280,7 +285,7 @@ namespace Antura.Discover
         /// <summary>
         /// Extract if a tag exists in line metadata.
         /// </summary>
-        private bool TryGetLineTagExists(string[] metadata, string tagname)
+        private bool GetLineTagExists(string[] metadata, string tagname)
         {
             if (metadata == null || metadata.Length == 0)
                 return false;
@@ -328,10 +333,9 @@ namespace Antura.Discover
         {
             try
             {
-                var d = Manager?.Runner?.Dialogue;
-                if (d == null || string.IsNullOrEmpty(nodeName))
+                if (string.IsNullOrEmpty(nodeName))
                     return null;
-                var tags = d.GetHeaderValue(nodeName, "tags");
+                var tags = Manager.Runner.Dialogue.GetHeaderValue(nodeName, "tags");
                 if (string.IsNullOrEmpty(tags))
                     return null;
                 return tags.Split(' ');

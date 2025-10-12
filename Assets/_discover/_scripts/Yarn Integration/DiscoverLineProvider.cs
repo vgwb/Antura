@@ -121,7 +121,7 @@ namespace Antura.Discover
             var entry = await YarnTask.WaitForAsyncOperation(getStringOp, cancellationToken);
 
             // Attempt to fetch metadata tags for this line from the string table
-            var metadata = entry.Entry?.SharedEntry.Metadata.GetMetadata<LineMetadata>();
+            var metadata = entry.Entry?.SharedEntry.Metadata.GetMetadata<Yarn.Unity.UnityLocalization.LineMetadata>();
 
             // Get the text from the entry
             var text = entry.Entry?.LocalizedValue

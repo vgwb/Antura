@@ -100,7 +100,7 @@ Welcome to the DEV quest! #line:0973921
 You can use this quest to test features and commands. #line:0196a6d 
 <<asset backpack>>
 // shadow line example
-You played the activity well!
+You played the activity well! #line:0597e46 
 ===
 
 title: DOCS_GLOBAL_VARIABLE
@@ -108,14 +108,14 @@ position: -200,179
 group: docs
 ---
 <<if $EASY_MODE >>
-    You are in EASY MODE!
+    You are in EASY MODE! #line:006edd6 
 <<else>>    
-    You are in NORMAL MODE!
+    You are in NORMAL MODE! #line:02f8aaa 
 <<endif>>
 <<if $IS_DESKTOP >>
-    You are on DESKTOP!
+    You are on DESKTOP! #line:0afe11a 
 <<else>>
-    You are on MOBILE!
+    You are on MOBILE! #line:0245038 
 <<endif>>
 ===
 
@@ -308,12 +308,9 @@ group: docs
 title: test_dialog
 position: 0,0
 group: dialog
+tags: noRepeatLastLine
 ---
-<<card food_baguette>>
-WELCOME #line:0c6f99f 
-<<card food_baguette zoom>>
-Second Line #line:06a2e0a 
-Third line. what do you want? #line:0d95cfd 
+the fishs is still here #line:08da0cf #pollo #native
 -> Butter! #line:05edb53 
     <<card butter>>
     Good butter #line:090e4bd 
@@ -326,7 +323,6 @@ Third line. what do you want? #line:0d95cfd
 And this is fish #line:099d213 
 <<card food_fish>>
 <<card food_fish zoom>>
-the fishs is still here  #line:08da0cf 
 We like it! #line:04d8ba8 
 => First Line v1 #line:04a8afc 
 => First Line v2 #line:08cbb53 
@@ -729,12 +725,12 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("canvas_beach_settings") > 0>>
-    You already completed canvas 1!
+    You already completed canvas 1! #line:00dc701 
 <<endif>>
 Do you want to play Activity CANVAS?  #line:0532f99 
--> Yes #highlight
+-> Yes #highlight #line:0103ffa 
     <<activity canvas_beach_settings activity_canvas_result>>
--> No
+-> No #line:08a0b03 
 
 ===
 
@@ -744,12 +740,12 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("canvas_beach2_settings") > 0>>
-    You already completed canvas 2!
+    You already completed canvas 2! #line:006bcc5 
 <<endif>>
-Do you want to play Activity CANVAS 2?
--> Yes #highlight
+Do you want to play Activity CANVAS 2? #line:0fbe532 
+-> Yes #highlight #line:03b9f38 
     <<activity canvas_beach2_settings activity_canvas2>>
--> No
+-> No #line:09e165e 
 
 ===
 title: activity_canvas_result
@@ -791,7 +787,7 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("memory_baguette_settings") > 0>>
-You played MEMORY activity well!
+You played MEMORY activity well! #line:0940d53 
 <<endif>>
 Activity MEMORY! #line:0727144
 <<activity memory_baguette_settings activity_memory_result expert>>
