@@ -128,7 +128,7 @@ namespace Antura.Discover.Activities
         /// <summary>
         /// Hook for derived classes to reset their own state.
         /// </summary>
-        protected virtual void OnResetActivity() { }
+        public virtual void OnResetActivity() { }
 
         public virtual void InitActivity()
         {

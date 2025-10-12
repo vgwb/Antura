@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityJigsawPuzzle : ActivityBase
+    public class ActivityJigsawPuzzle : ActivityBase, IActivity
     {
         [Header("Jigsaw Puzzle Settings")]
         public JigsawPuzzleSettingsData Settings;

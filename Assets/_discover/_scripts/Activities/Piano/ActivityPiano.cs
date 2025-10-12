@@ -9,7 +9,7 @@ public enum PianoPlayMode { Freeplay, Repeat }
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityPiano : ActivityBase
+    public class ActivityPiano : ActivityBase, IActivity
     {
         [Header("Activity Piano Settings")]
         public PianoSettingsData Settings;

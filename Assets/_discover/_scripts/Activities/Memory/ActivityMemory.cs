@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityMemory : ActivityBase
+    public class ActivityMemory : ActivityBase, IActivity
     {
         [Header("State")]
         public Difficulty difficulty = Difficulty.Default;

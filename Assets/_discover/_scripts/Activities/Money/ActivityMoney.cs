@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityMoney : ActivityBase
+    public class ActivityMoney : ActivityBase, IActivity
     {
         [Header("Activity Money Settings")]
         public MoneySettingsData Settings;

@@ -10,7 +10,7 @@ using DG.Tweening;
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityOrder : ActivityBase
+    public class ActivityOrder : ActivityBase, IActivity
     {
         [Header("Activity Order Settings")]
         public OrderSettingsData Settings;

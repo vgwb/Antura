@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityMatch : ActivityBase
+    public class ActivityMatch : ActivityBase, IActivity
     {
         [Header("Match Settings")]
         public MatchSettingsData Settings;

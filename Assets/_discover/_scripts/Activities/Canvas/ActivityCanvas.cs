@@ -7,7 +7,7 @@ using Antura.Discover.Audio;
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityCanvas : ActivityBase
+    public class ActivityCanvas : ActivityBase, IActivity
     {
         [Header("Activity Canvas Settings")]
         public CanvasSettingsData Settings;
@@ -86,7 +86,7 @@ namespace Antura.Discover.Activities
             _didInit = true;
         }
 
-        protected override void OnResetActivity()
+        public override void OnResetActivity()
         {
             // Destroy textures and runtime objects from previous runs
             if (coverTex != null)
@@ -141,6 +141,11 @@ namespace Antura.Discover.Activities
             UpdateProgressUI();
 
             SpawnBugs();
+        }
+
+        public override bool DoValidate()
+        {
+            return true;
         }
 
         private void CreateCoverTexture()
@@ -277,11 +282,6 @@ namespace Antura.Discover.Activities
                         img.DOFade(1f, 0.3f).SetUpdate(true);
                 }
             }
-        }
-
-        public override bool DoValidate()
-        {
-            return true;
         }
 
         #region Bugs

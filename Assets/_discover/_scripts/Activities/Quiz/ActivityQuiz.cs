@@ -8,7 +8,7 @@ using TMPro;
 
 namespace Antura.Discover.Activities
 {
-    public class ActivityQuiz : ActivityBase
+    public class ActivityQuiz : ActivityBase, IActivity
     {
         [Header("Activity Quiz Settings")]
         public QuizSettingsData Settings;
