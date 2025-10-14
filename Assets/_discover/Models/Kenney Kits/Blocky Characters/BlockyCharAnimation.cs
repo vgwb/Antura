@@ -116,7 +116,7 @@ namespace Antura.Animation
         {
             PlaySelectedAnimation(selectedAnimation);
         }
-
+#if UNITY_EDITOR
         // Optional: If you want to adjust it live in the editor during play mode
         // and see immediate changes, you can use OnValidate or Update.
         // OnValidate is called when the script is loaded or a value is changed in the Inspector.
@@ -163,5 +163,6 @@ namespace Antura.Animation
                 }
             }
         }
+#endif
     }
 }
