@@ -21,7 +21,7 @@ namespace Antura.Discover
         [DeEmptyAlert]
         [SerializeField] ChoicesLayout textChoicesLayout;
         [DeEmptyAlert]
-        [SerializeField] ChoicesLayout imageChoicesLayout;
+        [SerializeField] ChoicesLayout textAndImageChoicesLayout;
 
         #endregion
 
@@ -75,7 +75,16 @@ namespace Antura.Discover
         {
             IsOpen = IsOpening = true;
             IsHiding = false;
-            currLayout = textChoicesLayout; // TODO > use correct layout when we have a system to distinguish it
+            // Determine if the choices contain images
+            bool withImages = false;
+            foreach (NodeChoice choiceElement in choiceElements)
+            {
+                if (string.IsNullOrEmpty(choiceElement.Image)) continue;
+                withImages = true;
+                break;
+            }
+            //
+            currLayout = withImages ? textAndImageChoicesLayout : textChoicesLayout;
             currLayout.Show(choiceElements, isQuiz, UseLearningLanguage);
             while (currLayout.IsShowingOrHidingElements)
                 yield return null;

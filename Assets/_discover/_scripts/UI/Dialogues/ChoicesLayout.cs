@@ -13,7 +13,7 @@ namespace Antura.Discover
         {
             Unset,
             Text,
-            Image
+            TextAndImage
         }
 
         #region EVENTS
@@ -32,8 +32,8 @@ namespace Antura.Discover
 
         public bool Interactable
         {
-            get { return allButtons[0].interactable; }
-            set { SetInteractable(value); }
+            get => allButtons[0].interactable;
+            set => SetInteractable(value);
         }
         public bool IsShowingOrHidingElements
         {
