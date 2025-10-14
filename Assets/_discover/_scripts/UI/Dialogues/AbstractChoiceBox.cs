@@ -113,9 +113,10 @@ namespace Antura.Discover
             btConfirm.interactable = interactable;
         }
 
-        public void Show(NodeChoice choiceNode, bool doUseLearningLanguage)
+        public void Show(NodeChoice choiceNode, bool isQuiz, bool doUseLearningLanguage)
         {
             useLearningLanguage = doUseLearningLanguage;
+            numbox.gameObject.SetActive(isQuiz);
             btMain.colors = choiceNode.Highlight ? exitChoiceColors : defMainColorBlock;
             currChoice = choiceNode;
             confirmedForThisRound = false;

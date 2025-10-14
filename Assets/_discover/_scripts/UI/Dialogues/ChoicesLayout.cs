@@ -76,13 +76,13 @@ namespace Antura.Discover
 
         #region Public Methods
 
-        public void Show(List<NodeChoice> choiceElements, bool UseLearningLanguage)
+        public void Show(List<NodeChoice> choiceElements, bool isQuiz, bool UseLearningLanguage)
         {
             this.gameObject.SetActive(true);
-            this.RestartCoroutine(ref coShow, CO_Show(choiceElements, UseLearningLanguage));
+            this.RestartCoroutine(ref coShow, CO_Show(choiceElements, isQuiz, UseLearningLanguage));
         }
 
-        IEnumerator CO_Show(List<NodeChoice> choiceElements, bool UseLearningLanguage)
+        IEnumerator CO_Show(List<NodeChoice> choiceElements, bool isQuiz, bool UseLearningLanguage)
         {
             SetInteractable(false);
             int totChoices = choiceElements.Count;
@@ -93,7 +93,7 @@ namespace Antura.Discover
                 else
                 {
                     choiceBoxes[i].gameObject.SetActive(true);
-                    choiceBoxes[i].Show(choiceElements[i], UseLearningLanguage);
+                    choiceBoxes[i].Show(choiceElements[i], isQuiz, UseLearningLanguage);
                     yield return new WaitForSeconds(i * 0.15f);
                 }
             }

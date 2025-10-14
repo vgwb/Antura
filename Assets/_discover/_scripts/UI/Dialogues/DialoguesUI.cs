@@ -234,7 +234,7 @@ namespace Antura.Discover
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
                         currBalloon.Show(node, learningLanguageFirst);
-                    choices.Show(node.Choices, learningLanguageFirst);
+                    choices.Show(node.Choices, node.Type == NodeType.QUIZ, learningLanguageFirst);
                     break;
                 default:
                     IsOpen = false;
