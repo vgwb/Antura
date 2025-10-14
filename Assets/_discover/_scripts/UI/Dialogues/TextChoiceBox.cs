@@ -15,6 +15,8 @@ namespace Antura.Discover
 
         #endregion
 
+        protected override BoxType boxType => BoxType.Text;
+
         #region Methods
 
         protected override Sequence CreateShowTween()

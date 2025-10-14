@@ -88,6 +88,7 @@ namespace Antura.Discover
                 break;
             }
             //
+            withImages = true; // DEBUG
             currLayout = withImages ? textAndImageChoicesLayout : textChoicesLayout;
             currLayout.Show(choiceElements, isQuiz, UseLearningLanguage);
             while (currLayout.IsShowingOrHidingElements)

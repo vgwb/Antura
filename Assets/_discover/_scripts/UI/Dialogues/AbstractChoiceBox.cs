@@ -15,6 +15,12 @@ namespace Antura.Discover
 {
     public abstract class AbstractChoiceBox : MonoBehaviour
     {
+        protected enum BoxType
+        {
+            Text,
+            TextAndImage
+        }
+        
         #region EVENTS
 
         public readonly ActionEvent<AbstractChoiceBox> OnSelect = new("ChoiceBox.OnSelect");
@@ -49,6 +55,8 @@ namespace Antura.Discover
         public bool IsShowingOrHiding { get { return showTween != null && showTween.IsPlaying(); } }
         public int Index { get; private set; }
 
+        protected virtual BoxType boxType { get; }
+        
         protected NodeChoice currChoice;
         bool useLearningLanguage = true;
         bool selected;
@@ -79,7 +87,7 @@ namespace Antura.Discover
             confirmHoverTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Join(confirmArrow.DOAnchorPosX(10, 0.25f).SetRelative())
                 .Join(confirmArrow.DOScale(1.25f, 0.25f))
-                .Join(confirmBg.DOLocalRotate(new Vector3(0, 0, 11.67f), 0.25f).SetEase(Ease.OutBack));
+                .Join(confirmBg.DOLocalRotate(new Vector3(0, 0, boxType == BoxType.Text ? 11.67f : -8), 0.25f).SetEase(Ease.OutBack));
             confirmTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Join(this.transform.DOScale(Vector3.one * 1.25f, 0.3f).SetEase(Ease.OutBack));
 
@@ -113,7 +121,7 @@ namespace Antura.Discover
             btConfirm.interactable = interactable;
         }
 
-        public void Show(NodeChoice choiceNode, bool isQuiz, bool doUseLearningLanguage)
+        public virtual void Show(NodeChoice choiceNode, bool isQuiz, bool doUseLearningLanguage)
         {
             useLearningLanguage = doUseLearningLanguage;
             numbox.gameObject.SetActive(isQuiz);
