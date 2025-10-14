@@ -495,6 +495,8 @@ MonoBehaviour:
   navigatorMarker: {fileID: 8306524567034084689}
   navigator: {fileID: 2645204051142898228}
   touchZones: {fileID: 2292878175192583044}
+  activateOnAwake:
+  - {fileID: 3052084630190973621}
   hideDuringDialogue:
   - {fileID: 7494069112133982043}
   - {fileID: 1294620189610968048}
@@ -4053,6 +4055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogues UI
       objectReference: {fileID: 0}
+    - target: {fileID: 920751708367691485, guid: 85dd0ad971a111741abfd83c5ea58afa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2641912910732204322, guid: 85dd0ad971a111741abfd83c5ea58afa,
         type: 3}
       propertyPath: signal
@@ -4166,6 +4173,12 @@ PrefabInstance:
 --- !u!224 &36551741574112588 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2746597215535569188, guid: 85dd0ad971a111741abfd83c5ea58afa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2782103068012018792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3052084630190973621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 920751708367691485, guid: 85dd0ad971a111741abfd83c5ea58afa,
     type: 3}
   m_PrefabInstance: {fileID: 2782103068012018792}
   m_PrefabAsset: {fileID: 0}

@@ -23,6 +23,8 @@ namespace Antura.Discover
         [SerializeField] Navigator navigator;
         [DeEmptyAlert]
         [SerializeField] GameObject touchZones;
+        [DeEmptyAlert, Tooltip("Objects to activate when this component awakes")]
+        [SerializeField] GameObject[] activateOnAwake;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
 
@@ -65,6 +67,11 @@ namespace Antura.Discover
             btAct.gameObject.SetActive(false);
             navigatorMarker.gameObject.SetActive(true);
             navigator.gameObject.SetActive(true);
+
+            foreach (GameObject go in activateOnAwake)
+            {
+                go.SetActive(true);
+            }
         }
 
         void Start()

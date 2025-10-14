@@ -122,10 +122,7 @@ namespace Antura.Discover
             confirmedForThisRound = false;
             confirmTween.Rewind();
 
-            if (QuestManager.I.HasTranslation)
-            { icoTranslation.gameObject.SetActive(true); }
-            else
-            { icoTranslation.gameObject.SetActive(false); }
+            icoTranslation.gameObject.SetActive(QuestManager.I.HasTranslation);
 
             DisplayText(useLearningLanguage);
             showTween.Restart();

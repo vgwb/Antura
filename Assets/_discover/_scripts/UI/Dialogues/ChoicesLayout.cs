@@ -55,7 +55,7 @@ namespace Antura.Discover
 
         void Awake()
         {
-            choiceBoxes = this.GetComponentsInChildren<AbstractChoiceBox>();
+            choiceBoxes = this.GetComponentsInChildren<AbstractChoiceBox>(true);
             allButtons = this.GetComponentsInChildren<Button>();
             for (int i = 0; i < choiceBoxes.Length; i++)
             {

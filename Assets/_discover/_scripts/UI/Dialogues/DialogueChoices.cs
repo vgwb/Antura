@@ -40,7 +40,10 @@ namespace Antura.Discover
         {
             allLayouts = this.GetComponentsInChildren<ChoicesLayout>(true);
             foreach (ChoicesLayout layout in allLayouts)
+            {
+                layout.gameObject.SetActive(true);
                 layout.OnChoiceConfirmed.Subscribe(OnLayoutChoiceConfirmed);
+            }
         }
 
         void Start()
@@ -68,6 +71,7 @@ namespace Antura.Discover
         public void Show(List<NodeChoice> choiceElements, bool isQuiz, bool UseLearningLanguage)
         {
             this.gameObject.SetActive(true);
+            DeactivateAllLayouts();
             this.RestartCoroutine(ref coShow, CO_Show(choiceElements, isQuiz, UseLearningLanguage));
         }
 
@@ -109,12 +113,18 @@ namespace Antura.Discover
 
         #endregion
 
-        #region Public Methods
+        #region Methods
 
         void SetInteractable(bool interactable)
         {
             foreach (ChoicesLayout layout in allLayouts)
                 layout.Interactable = interactable;
+        }
+
+        void DeactivateAllLayouts()
+        {
+            foreach (ChoicesLayout layout in allLayouts)
+                layout.gameObject.SetActive(false);
         }
 
         #endregion
