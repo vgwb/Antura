@@ -35,6 +35,10 @@ namespace Antura.Discover
         {
             if (Image != null)
             {
+                DatabaseProvider.TryGet<CardData>(Image, out var cardData);
+                if (cardData != null)
+                    return cardData.ImageAsset.Image;
+
                 //return Resources.Load<Sprite>("Discover_Photos/" + QuestManager.I.CurrentQuest.assetsFolder + "/" + Image + "_" + Index);
                 //return Resources.Load<Sprite>("Discover/TUTORIAL/quiz_" + Index);
                 return null;

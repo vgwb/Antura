@@ -83,12 +83,12 @@ namespace Antura.Discover
             bool withImages = false;
             foreach (NodeChoice choiceElement in choiceElements)
             {
-                if (string.IsNullOrEmpty(choiceElement.Image)) continue;
+                if (string.IsNullOrEmpty(choiceElement.Image))
+                    continue;
                 withImages = true;
                 break;
             }
-            //
-            withImages = true; // DEBUG
+            // withImages = true; // DEBUG
             currLayout = withImages ? textAndImageChoicesLayout : textChoicesLayout;
             currLayout.Show(choiceElements, isQuiz, UseLearningLanguage);
             while (currLayout.IsShowingOrHidingElements)

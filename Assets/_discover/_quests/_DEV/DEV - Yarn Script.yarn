@@ -532,11 +532,11 @@ tags:
 type: quiz
 ---
 Calculate 3*2 #line:dev_test_quiz_1 
--> four #line:dev_test_quiz_2 
+-> four #line:dev_test_quiz_2 #card:number_4
     <<jump test_quiz_wrong>>
--> six #line:dev_test_quiz_3 
+-> six #line:dev_test_quiz_3 #card:bouillabaisse
     <<jump test_quiz_correct>>
--> eight #line:dev_test_quiz_4 
+-> eight #line:dev_test_quiz_4 #card:food_bread
     <<jump test_quiz_wrong>>
 ===
 
