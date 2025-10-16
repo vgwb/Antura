@@ -132,6 +132,13 @@ namespace Antura.Discover
             // Parse inline tags/metadata (can refine/override)
             ApplyTagsToQuestNode(questNode, line.Metadata);
 
+            var taskCode = GetLineTagValue(line.Metadata, "task");
+            if (taskCode != null)
+            {
+                Debug.Log($"Found task tag {taskCode} in line {lineId}");
+                QuestManager.I.TaskManager.SetTaskDescription(taskCode, questNode);
+            }
+
             UIManager.I.dialogues.ShowDialogueLine(questNode);
             Manager?.EmitQuestNode(questNode);
 

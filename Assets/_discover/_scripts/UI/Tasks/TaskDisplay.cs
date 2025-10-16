@@ -1,3 +1,5 @@
+using Antura.Discover.Audio;
+using Antura.Language;
 using Antura.UI;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
@@ -14,9 +16,12 @@ namespace Antura.Discover
         [SerializeField] TaskCounter counter;
         [DeEmptyAlert]
         [SerializeField] TextRender tfDescription;
-        
+
+        QuestNode currNode;
+        bool usedLearningLanguage = true;
+
         #endregion
-        
+
         public bool IsOpen { get; private set; }
 
         string taskFullDescription; // Not truncated after the first \r
@@ -27,7 +32,8 @@ namespace Antura.Discover
 
         void Init()
         {
-            if (initialized) return;
+            if (initialized)
+                return;
 
             initialized = true;
 
@@ -37,17 +43,19 @@ namespace Antura.Discover
             showTween = ((RectTransform)this.transform).DOAnchorPosY(180, 0.35f).From().SetAutoKill(false).Pause()
                 .SetEase(Ease.OutQuart)
                 .OnRewind(() => this.gameObject.SetActive(false));
-            
+
             counter.gameObject.SetActive(true);
             counter.Hide();
-            
-            if (!wasActive) this.gameObject.SetActive(false);
+
+            if (!wasActive)
+                this.gameObject.SetActive(false);
         }
 
         void Awake()
         {
             Init();
-            if (!IsOpen) this.gameObject.SetActive(false);
+            if (!IsOpen)
+                this.gameObject.SetActive(false);
         }
 
         void OnDestroy()
@@ -62,28 +70,31 @@ namespace Antura.Discover
         /// <summary>
         /// Pass 0-or-less to targetItems to disable the counter
         /// </summary>
-        public void Show(string taskDescription, int targetItemsToCollect)
+        public void Show(QuestNode infoNode, int targetItemsToCollect)
         {
-            if (IsOpen) return;
+            if (IsOpen)
+                return;
 
             Init();
             IsOpen = true;
-
-            Debug.Log($"Show task (to collect: {targetItemsToCollect}) : \"{taskDescription}\"");
-            taskFullDescription = taskDescription;
-            tfDescription.text = TruncateDescription(taskFullDescription);
+            usedLearningLanguage = true;
+            currNode = infoNode;
+            Debug.Log($"Show task (to collect: {targetItemsToCollect})");
+            DisplayText(true);
             counter.Setup(0, targetItemsToCollect);
             showTween.PlayForward();
-            this.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
+
 
         public void Hide()
         {
-            if (!IsOpen) return;
+            if (!IsOpen)
+                return;
 
             Init();
             IsOpen = false;
-            
+
             showTween.PlayBackwards();
         }
 
@@ -91,7 +102,7 @@ namespace Antura.Discover
         {
             counter.SetTargetItemsTo(value);
         }
-        
+
         public void SetTotItemsCollected(int value)
         {
             counter.SetTotItemsCollectedTo(value);
@@ -99,11 +110,31 @@ namespace Antura.Discover
 
         public void OnClick()
         {
-            // This method can be used to handle click events on the ObjectiveDisplay.
-            // For example, it could open a detailed view of the objectives or show a tooltip.
-            Debug.Log("ObjectiveDisplay OnClick called");
+            usedLearningLanguage = !usedLearningLanguage;
+            DisplayText(usedLearningLanguage);
         }
-        
+
+        public void DisplayText(bool UseLearningLanguage)
+        {
+            // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
+            if (UseLearningLanguage)
+            {
+                tfDescription.text = TruncateDescription(currNode.Content);
+                if (currNode.AudioLearning != null)
+                {
+                    DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning);
+                }
+            }
+            else
+            {
+                tfDescription.text = TruncateDescription(currNode.ContentNative);
+                if (currNode.AudioNative != null)
+                {
+                    DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative);
+                }
+            }
+        }
+
         #endregion
 
         #region Methods

@@ -362,7 +362,7 @@ namespace Antura.Discover
         [YarnCommand("task_start")]
         public static void CommandTaskStart(string taskCode, string nodeReturn)
         {
-            Debug.Log($"ActionManager: ResolveNodeCommandTaskStart: {taskCode}");
+            //Debug.Log($"ActionManager: ResolveNodeCommandTaskStart: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
             QuestManager.I?.TaskManager?.StartTask(taskCode, nodeReturn);
@@ -371,7 +371,7 @@ namespace Antura.Discover
         [YarnCommand("task_end")]
         public static void CommandTaskEnd(string taskCode)
         {
-            Debug.Log($"ActionManager: ResolveNodeCommandTaskEnd: {taskCode}");
+            //Debug.Log($"ActionManager: ResolveNodeCommandTaskEnd: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
             QuestManager.I?.TaskManager.EndTask(taskCode, true);

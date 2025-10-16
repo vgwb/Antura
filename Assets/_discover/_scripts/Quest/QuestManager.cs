@@ -35,8 +35,6 @@ namespace Antura.Discover
 
         public QuestTask[] QuestTasks;
 
-        private QuestTask CurrentTask;
-
         public InventoryManager Inventory;
         public ProgressManager Progress;
         public QuestTaskManager TaskManager;
@@ -54,7 +52,7 @@ namespace Antura.Discover
         {
             Inventory = new InventoryManager();
             Progress = new ProgressManager();
-            TaskManager = new QuestTaskManager(this);
+            TaskManager = new QuestTaskManager();
         }
 
         void Start()
@@ -189,51 +187,6 @@ namespace Antura.Discover
             YarnAnturaManager.I?.StartDialogue(nodeName);
         }
 
-        public void TaskStart(string taskCode)
-        {
-            if (string.IsNullOrEmpty(taskCode))
-                return;
-            // Prefer lookup via TaskManager registration
-            if (TaskManager.TryGetTask(taskCode, out var tmTask) && tmTask != null)
-            {
-                CurrentTask = tmTask;
-                CurrentTask.Activate();
-                return;
-            }
-            // Fallback: search in locally-serialized tasks
-            var list = QuestTasks;
-            if (list == null)
-                return;
-            foreach (var t in list)
-            {
-                if (t != null && t.Code == taskCode)
-                {
-                    CurrentTask = t;
-                    CurrentTask.Activate();
-                    return;
-                }
-            }
-        }
-
-        public void TaskSuccess(string taskCode = "")
-        {
-            if (CurrentTask == null)
-                return;
-
-            if (taskCode != "" && CurrentTask.Code != taskCode)
-            {
-                Debug.LogError($"TaskSuccess called with taskCode {taskCode}, but current task is {CurrentTask.Code}");
-                return;
-            }
-
-            UIManager.I.TaskDisplay.Hide();
-            Progress.AddProgressPoints(CurrentTask.GetSuccessPoints());
-
-            if (!string.IsNullOrEmpty(CurrentTask.NodeSuccess))
-                YarnAnturaManager.I?.StartDialogue(CurrentTask.NodeSuccess);
-
-            CurrentTask = null;
-        }
 
         public void OnInteractCard(CardData card)
         {
@@ -243,17 +196,6 @@ namespace Antura.Discover
         public void AddProgressPoints(int points)
         {
             Progress.AddProgressPoints(points);
-        }
-
-        public void TaskFail(string taskCode = "")
-        {
-            if (CurrentTask != null)
-            {
-                UIManager.I.TaskDisplay.Hide();
-                if (!string.IsNullOrEmpty(CurrentTask.NodeFail))
-                    YarnAnturaManager.I?.StartDialogue(CurrentTask.NodeFail);
-                CurrentTask = null;
-            }
         }
 
         // public void ActivityStart(GameObject activityObject)
@@ -282,7 +224,7 @@ namespace Antura.Discover
         {
             if (Inventory.CollectItem(itemCode))
             {
-                Debug.Log("Collect item " + itemCode);
+                //Debug.Log("Collect item " + itemCode);
                 collected_items++;
                 YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
                 UpateItemsCounter();

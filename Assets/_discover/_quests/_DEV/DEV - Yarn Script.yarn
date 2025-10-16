@@ -445,9 +445,20 @@ color: green
 <<elseif GetCollectedItem("collect_apples") > 0 >>
     I need more apples! #line:dev_task_collect_apples_3
 <<else>>
-    Collect 4 apples! #line:dev_task_collect_apples_1 
-    <<task_start collect_apples task_collect_apples_done>>
+    <<jump task_collect_apples_info>>
 <<endif>>
+===
+
+title: task_collect_apples_info
+position: 1232,2135
+tags:
+group: tasks
+color: green
+type: task
+---
+Collect 4 apples! #line:dev_task_collect_apples_1 #task:collect_apples
+This is the description of this task. #line:063c743 
+<<task_start collect_apples task_collect_apples_done>>
 ===
 
 title: task_collect_apples_done

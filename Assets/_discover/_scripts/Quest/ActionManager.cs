@@ -243,13 +243,13 @@ namespace Antura.Discover
                         command.mainObject.GetComponent<ActableAbstract>().Trigger();
                         break;
                     case CommandType.TaskStart:
-                        QuestManager.I.TaskStart(command.Parameter);
+                        QuestManager.I.TaskManager.TaskStart(command.Parameter);
                         break;
                     case CommandType.TaskSuccess:
-                        QuestManager.I.TaskSuccess(command.Parameter);
+                        QuestManager.I.TaskManager.TaskSuccess(command.Parameter);
                         break;
                     case CommandType.TaskFail:
-                        QuestManager.I.TaskFail(command.Parameter);
+                        QuestManager.I.TaskManager.TaskFail(command.Parameter);
                         break;
                     case CommandType.UnityAction:
                         if (command.unityAction != null)

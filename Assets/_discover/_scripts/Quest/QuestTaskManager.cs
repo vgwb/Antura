@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,51 +6,42 @@ namespace Antura.Discover
 {
     public class QuestTaskManager
     {
-        public class TaskState
-        {
-            public string Code;
-            public int Collected;
-            public bool Completed;
-            public string NodeReturn; // optional node to return to on completion
-        }
+        private readonly List<QuestTask> registeredTasks = new List<QuestTask>();
+        public QuestTask CurrentTask { get; private set; }
 
-        private readonly QuestManager _quest;
-        private readonly Dictionary<string, QuestTask> _tasksByCode = new Dictionary<string, QuestTask>();
-        private readonly Dictionary<string, TaskState> _statesByCode = new Dictionary<string, TaskState>();
-        private string _currentTaskCode;
+        private int tasksMaxPoints = 0;
+        public int GetMaxPoints() { return tasksMaxPoints; }
 
-        private int maxPoints = 0;
-        public int GetMaxPoints() { return maxPoints; }
-
-        public string CurrentTaskCode => _currentTaskCode;
-
-        public QuestTaskManager(QuestManager quest)
-        {
-            _quest = quest;
-        }
+        public string CurrentTaskCode => CurrentTask != null ? CurrentTask.Code : string.Empty;
 
         public void RegisterTasks(IEnumerable<QuestTask> tasks)
         {
-            _tasksByCode.Clear();
-            _statesByCode.Clear();
-            _currentTaskCode = null;
+            registeredTasks.Clear();
+            CurrentTask = null;
+            tasksMaxPoints = 0;
 
             if (tasks == null)
                 return;
 
-            foreach (var t in tasks)
+            foreach (var task in tasks)
             {
-                if (t == null || string.IsNullOrEmpty(t.Code))
+                if (task == null || string.IsNullOrEmpty(task.Code))
                     continue;
-                _tasksByCode[t.Code] = t;
-                _statesByCode[t.Code] = new TaskState
-                {
-                    Code = t.Code,
-                    Collected = 0,
-                    Completed = false,
-                    NodeReturn = string.Empty
-                };
-                maxPoints += t.GetSuccessPoints();
+                task.ResetRuntimeState();
+                registeredTasks.Add(task);
+                tasksMaxPoints += task.GetSuccessPoints();
+            }
+        }
+
+        public void SetTaskDescription(string taskCode, QuestNode questNode)
+        {
+            if (string.IsNullOrEmpty(taskCode))
+                return;
+
+            // Set description from the quest node text
+            if (TryGetTask(taskCode, out var task) && task != null)
+            {
+                task.InfoNode = questNode;
             }
         }
 
@@ -58,22 +50,19 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(taskCode))
                 return false;
 
-            if (!_tasksByCode.TryGetValue(taskCode, out var task))
+            if (!TryGetTask(taskCode, out var task) || task == null)
             {
                 Debug.LogWarning($"QuestTaskManager.StartTask: task not found '{taskCode}'.");
                 return false;
             }
 
-            if (!string.IsNullOrEmpty(_currentTaskCode) && _currentTaskCode != taskCode)
+            if (CurrentTask != null && CurrentTask != task)
             {
-                Debug.LogWarning($"QuestTaskManager: replacing active task '{_currentTaskCode}' with '{taskCode}'.");
+                Debug.LogWarning($"QuestTaskManager: replacing active task '{CurrentTask.Code}' with '{taskCode}'.");
             }
 
-            _currentTaskCode = taskCode;
-            var state = _statesByCode[taskCode];
-            state.Collected = 0;
-            state.Completed = false;
-            state.NodeReturn = nodeReturn ?? string.Empty;
+            CurrentTask = task;
+            task.Begin(nodeReturn);
 
             // Activate task content; QuestTask.Activate handles showing TaskDisplay appropriately
             task.Activate();
@@ -90,34 +79,32 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(taskCode))
                 return false;
 
-            if (!_tasksByCode.TryGetValue(taskCode, out var task))
-                return false;
-
-            if (!_statesByCode.TryGetValue(taskCode, out var state))
+            if (!TryGetTask(taskCode, out var task) || task == null)
                 return false;
 
             if (success)
             {
-                state.Completed = true;
+                task.MarkCompleted();
                 // Award points via QuestManager Progress
-                _quest.Progress.AddProgressPoints(task.GetSuccessPoints());
+                QuestManager.I.Progress.AddProgressPoints(task.GetSuccessPoints());
             }
 
             UIManager.I.TaskDisplay.Hide();
 
-            if (_currentTaskCode == taskCode)
-                _currentTaskCode = null;
+            if (CurrentTask == task)
+                CurrentTask = null;
+
+            task.ClearReturnNode();
 
             return true;
         }
 
         public void OnCollectItemTag(string tag)
         {
-            if (string.IsNullOrEmpty(_currentTaskCode))
+            if (CurrentTask == null)
                 return;
 
-            if (!_tasksByCode.TryGetValue(_currentTaskCode, out var task))
-                return;
+            var task = CurrentTask;
 
             if (task.Type != TaskType.Collect)
                 return;
@@ -125,14 +112,13 @@ namespace Antura.Discover
             if (!string.IsNullOrEmpty(task.ItemTag) && !string.Equals(task.ItemTag, tag))
                 return;
 
-            var state = _statesByCode[_currentTaskCode];
-            state.Collected++;
-            UIManager.I.TaskDisplay.SetTotItemsCollected(state.Collected);
+            task.IncrementCollected();
+            UIManager.I.TaskDisplay.SetTotItemsCollected(task.Collected);
 
-            if (task.ItemCount > 0 && state.Collected >= task.ItemCount)
+            if (task.ItemCount > 0 && task.Collected >= task.ItemCount)
             {
-                var code = _currentTaskCode;
-                var nodeReturn = state.NodeReturn;
+                var code = task.Code;
+                var nodeReturn = task.PendingReturnNode;
                 EndTask(code, true);
                 if (!string.IsNullOrEmpty(nodeReturn))
                 {
@@ -141,8 +127,95 @@ namespace Antura.Discover
             }
         }
 
-        public void OnReachTarget(string taskCode) => EndTask(taskCode, true);
-        public void OnInteract(string taskCode) => EndTask(taskCode, true);
+
+        public void TaskStart(string taskCode)
+        {
+            if (string.IsNullOrEmpty(taskCode))
+                return;
+            if (TryGetTask(taskCode, out var tmTask) && tmTask != null)
+            {
+                CurrentTask = tmTask;
+                tmTask.Begin(string.Empty);
+                CurrentTask.Activate();
+                return;
+            }
+            // Fallback: search in locally-serialized tasks
+            var list = QuestManager.I.QuestTasks;
+            foreach (var t in list)
+            {
+                if (t != null && t.Code == taskCode)
+                {
+                    CurrentTask = t;
+                    t.Begin(string.Empty);
+                    CurrentTask.Activate();
+                    return;
+                }
+            }
+        }
+
+        public void TaskSuccess(string taskCode = "")
+        {
+            if (CurrentTask == null)
+                return;
+
+            if (taskCode != "" && CurrentTask.Code != taskCode)
+            {
+                Debug.LogError($"TaskSuccess called with taskCode {taskCode}, but current task is {CurrentTask.Code}");
+                return;
+            }
+
+            UIManager.I.TaskDisplay.Hide();
+            CurrentTask.MarkCompleted();
+            CurrentTask.ClearReturnNode();
+            QuestManager.I.Progress.AddProgressPoints(CurrentTask.GetSuccessPoints());
+
+            if (!string.IsNullOrEmpty(CurrentTask.NodeSuccess))
+                YarnAnturaManager.I?.StartDialogue(CurrentTask.NodeSuccess);
+
+            CurrentTask = null;
+        }
+
+        public void TaskFail(string taskCode = "")
+        {
+            if (CurrentTask != null)
+            {
+                UIManager.I.TaskDisplay.Hide();
+                CurrentTask.ClearReturnNode();
+                if (!string.IsNullOrEmpty(CurrentTask.NodeFail))
+                    YarnAnturaManager.I?.StartDialogue(CurrentTask.NodeFail);
+                CurrentTask = null;
+            }
+        }
+
+        public void OnReachTarget(string taskCode)
+        {
+            if (string.IsNullOrEmpty(taskCode))
+                return;
+
+            string nodeReturn = null;
+            if (TryGetTask(taskCode, out var task) && task != null)
+                nodeReturn = task.PendingReturnNode;
+
+            if (EndTask(taskCode, true) && !string.IsNullOrEmpty(nodeReturn))
+            {
+                YarnAnturaManager.I?.StartDialogue(nodeReturn);
+            }
+        }
+
+        public void OnInteract(string taskCode)
+        {
+            if (string.IsNullOrEmpty(taskCode))
+                return;
+
+            string nodeReturn = null;
+            if (TryGetTask(taskCode, out var task) && task != null)
+                nodeReturn = task.PendingReturnNode;
+
+            if (EndTask(taskCode, true) && !string.IsNullOrEmpty(nodeReturn))
+            {
+                YarnAnturaManager.I?.StartDialogue(nodeReturn);
+            }
+        }
 
         /// <summary>
         /// Call when an Interactable has been used by the player. Completes the current Interact task if it targets this object.
@@ -151,9 +224,8 @@ namespace Antura.Discover
         {
             if (interacted == null)
                 return;
-            if (string.IsNullOrEmpty(_currentTaskCode))
-                return;
-            if (!_tasksByCode.TryGetValue(_currentTaskCode, out var task))
+            var task = CurrentTask;
+            if (task == null)
                 return;
             if (task.Type != TaskType.Interact)
                 return;
@@ -166,8 +238,8 @@ namespace Antura.Discover
                 return;
 
             // Capture nodeReturn, end task, then jump if provided
-            var nodeReturn = _statesByCode.TryGetValue(_currentTaskCode, out var st) ? st.NodeReturn : string.Empty;
-            var code = _currentTaskCode;
+            var nodeReturn = task.PendingReturnNode;
+            var code = task.Code;
             EndTask(code, true);
             if (!string.IsNullOrEmpty(nodeReturn))
             {
@@ -184,17 +256,60 @@ namespace Antura.Discover
 
         public int GetCollectedCount(string taskCode)
         {
-            return _statesByCode.TryGetValue(taskCode, out var st) ? st.Collected : 0;
+            return TryGetTask(taskCode, out var task) && task != null ? task.Collected : 0;
         }
 
         public bool IsTaskCompleted(string taskCode)
         {
-            return _statesByCode.TryGetValue(taskCode, out var st) && st.Completed;
+            return TryGetTask(taskCode, out var task) && task != null && task.Completed;
         }
 
         public bool TryGetTask(string code, out QuestTask task)
         {
-            return _tasksByCode.TryGetValue(code, out task);
+            task = null;
+            if (string.IsNullOrEmpty(code))
+                return false;
+
+            for (int i = 0; i < registeredTasks.Count; i++)
+            {
+                var candidate = registeredTasks[i];
+                if (candidate != null && string.Equals(candidate.Code, code, StringComparison.OrdinalIgnoreCase))
+                {
+                    task = candidate;
+                    return true;
+                }
+            }
+
+            var questTasks = QuestManager.I != null ? QuestManager.I.QuestTasks : null;
+            if (questTasks != null)
+            {
+                for (int i = 0; i < questTasks.Length; i++)
+                {
+                    var candidate = questTasks[i];
+                    if (candidate != null && string.Equals(candidate.Code, code, StringComparison.OrdinalIgnoreCase))
+                    {
+                        task = candidate;
+                        bool alreadyRegistered = false;
+                        for (int j = 0; j < registeredTasks.Count; j++)
+                        {
+                            var existing = registeredTasks[j];
+                            if (existing != null && string.Equals(existing.Code, candidate.Code, StringComparison.OrdinalIgnoreCase))
+                            {
+                                registeredTasks[j] = candidate;
+                                alreadyRegistered = true;
+                                break;
+                            }
+                        }
+                        if (!alreadyRegistered)
+                        {
+                            registeredTasks.Add(candidate);
+                        }
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }

@@ -521,6 +521,7 @@ color: green
 tags: task
 ---
 Please go to the market and buy them for me. #line:06602c6 
+<<detour task_ingredients_desc>>
 <<task_start COLLECT_THE_INGREDIENTS task_ingredients_done>>
 Remember your manners! #line:02819db 
 Say "Bonjour" to greet someone, #line:04c9d69 
@@ -531,7 +532,7 @@ title: task_ingredients_desc
 type: task
 position: 926,-742
 ---
-Collect all the ingredients for the recipe. #line:00849bb 
+Collect all the ingredients for the recipe. #line:00849bb #task:COLLECT_THE_INGREDIENTS
 They are: bread, fish, orange, lemon, tomato, milk, pepper and salt, oil. #line:03fbee1 
 ===
 

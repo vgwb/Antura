@@ -42,8 +42,15 @@ namespace Antura.Discover
         public GameObject TargetPoint;
         [Tooltip("Optional area to activate.")]
         public GameObject Area;
+        public QuestNode InfoNode;
+        public int Collected { get; private set; }
 
-        private int itemsCollected = 0;
+        public bool Completed { get; private set; }
+
+        [NonSerialized]
+        private string pendingReturnNode = string.Empty;
+        public string PendingReturnNode => pendingReturnNode;
+
 
         public void Setup()
         {
@@ -58,6 +65,8 @@ namespace Antura.Discover
                 ItemCount = ItemsContainer.transform.childCount;
                 Debug.LogWarning($"QuestTask {Code} ItemCount was not set, using {ItemCount} from ItemsContainer");
             }
+
+            ResetRuntimeState();
         }
 
         public void Activate()
@@ -74,7 +83,7 @@ namespace Antura.Discover
                         interactable.SetActivated(true);
                     }
                 }
-                UIManager.I.TaskDisplay.Show(Code, 0);
+                UIManager.I.TaskDisplay.Show(InfoNode, 0);
                 if (TargetPoint != null)
                 {
                     ActionManager.I.Target(TargetPoint.transform);
@@ -86,9 +95,39 @@ namespace Antura.Discover
                 {
                     ItemsContainer.SetActive(true);
                 }
-                UIManager.I.TaskDisplay.Show(Code, ItemCount);
+                UIManager.I.TaskDisplay.Show(InfoNode, ItemCount);
             }
 
+        }
+
+
+        public void ResetRuntimeState()
+        {
+            Collected = 0;
+            Completed = false;
+            pendingReturnNode = string.Empty;
+        }
+
+        public void Begin(string nodeReturn)
+        {
+            Collected = 0;
+            Completed = false;
+            pendingReturnNode = nodeReturn ?? string.Empty;
+        }
+
+        public void IncrementCollected()
+        {
+            Collected++;
+        }
+
+        public void MarkCompleted()
+        {
+            Completed = true;
+        }
+
+        public void ClearReturnNode()
+        {
+            pendingReturnNode = string.Empty;
         }
 
 
