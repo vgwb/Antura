@@ -60,7 +60,7 @@ namespace Antura.Discover
                 .Join(tf.transform.DOScale(1 / textScale, duration).SetEase(Ease.OutBack))
                 .Join(btConfirm.GetComponent<RectTransform>().DOAnchorPosY(-150, duration).From(true).SetEase(Ease.OutBack))
                 .Join(numbox.DOAnchorPos(new Vector2(30, 32), duration).SetRelative().SetEase(Ease.OutBack))
-                .Join(icoTranslation.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-100, -32), duration).SetRelative().SetEase(Ease.OutBack));
+                .Join(icoTranslation.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-9, -8), duration).SetRelative().SetEase(Ease.OutBack));
         }
 
         public override void Show(NodeChoice choiceNode, bool isQuiz, bool doUseLearningLanguage)
