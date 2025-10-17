@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 namespace Antura.Core
 {
@@ -79,17 +80,22 @@ namespace Antura.Core
 
         protected override void Awake()
         {
-            DontDestroyOnLoad(gameObject);
             base.Awake();
-            GlobalUI.Init();
             if (I != this)
-            {
                 return;
-            }
 
             Debug.Log("<color=#ff249c>>> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString() + "</color>");
 
+            DontDestroyOnLoad(gameObject);
+            GlobalUI.Init();
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
+
+        void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
 
         /// <summary>
         /// first Init, from Awake()
@@ -252,6 +258,11 @@ namespace Antura.Core
                 Services.Notifications.DeleteAllLocalNotifications();
             }
             Services.Analytics.TrackPlayerSession(Player.Age, Player.Gender);
+        }
+        
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            GlobalUI.Init();
         }
 
         #region App Pause Suspend/Resume

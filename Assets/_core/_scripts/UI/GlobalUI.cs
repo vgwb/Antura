@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace Antura.UI
 {
@@ -34,8 +35,8 @@ namespace Antura.UI
 
         public static void Init()
         {
-            if (I != null)
-            { return; }
+            if (I != null) return;
+            
             Debug.Log("<color=#ffaa88>GlobalUI: Init()</color>");
             I = Instantiate(Resources.Load<GlobalUI>(ResourceId));
             I.gameObject.name = "[GlobalUI]";
