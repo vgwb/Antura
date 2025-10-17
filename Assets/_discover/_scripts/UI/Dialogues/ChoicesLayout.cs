@@ -60,6 +60,7 @@ namespace Antura.Discover
             for (int i = 0; i < choiceBoxes.Length; i++)
             {
                 choiceBoxes[i].SetIndex(i);
+                choiceBoxes[i].gameObject.SetActive(true);
                 choiceBoxes[i].OnSelect.Subscribe(OnChoiceBoxSelected);
                 choiceBoxes[i].OnConfirm.Subscribe(OnChoiceBoxConfirmed);
             }
@@ -86,6 +87,15 @@ namespace Antura.Discover
         {
             SetInteractable(false);
             int totChoices = choiceElements.Count;
+            float offsetX = 0;
+            if (Type == ChoicesType.TextAndImage)
+            {
+                offsetX = totChoices == 4
+                    ? 0
+                    : totChoices == 3
+                        ? choiceBoxes[0].DefSize.x * 0.5f
+                        : choiceBoxes[0].DefSize.x;
+            }
             for (int i = 0; i < choiceBoxes.Length; i++)
             {
                 if (i >= totChoices)
@@ -93,6 +103,7 @@ namespace Antura.Discover
                 else
                 {
                     choiceBoxes[i].gameObject.SetActive(true);
+                    choiceBoxes[i].RT.anchoredPosition = new Vector2(choiceBoxes[i].DefPosition.x + offsetX, choiceBoxes[i].DefPosition.y);
                     choiceBoxes[i].Show(choiceElements[i], isQuiz, UseLearningLanguage);
                     yield return new WaitForSeconds(i * 0.15f);
                 }

@@ -54,8 +54,11 @@ namespace Antura.Discover
 
         public bool IsShowingOrHiding { get { return showTween != null && showTween.IsPlaying(); } }
         public int Index { get; private set; }
+        public RectTransform RT { get; private set; }
 
         protected virtual BoxType boxType { get; }
+        public Vector2 DefPosition { get; private set; }
+        public Vector2 DefSize { get; private set; }
         
         protected NodeChoice currChoice;
         bool useLearningLanguage = true;
@@ -68,6 +71,9 @@ namespace Antura.Discover
 
         void Awake()
         {
+            RT = (RectTransform)this.transform;
+            DefPosition = RT.anchoredPosition;
+            DefSize = RT.sizeDelta;
             defMainColorBlock = btMain.colors;
 
             showTween = CreateShowTween().SetAutoKill(false).Pause();
