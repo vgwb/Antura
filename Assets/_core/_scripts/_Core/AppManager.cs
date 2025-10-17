@@ -87,8 +87,8 @@ namespace Antura.Core
             Debug.Log("<color=#ff249c>>> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString() + "</color>");
 
             DontDestroyOnLoad(gameObject);
-            GlobalUI.Init();
             SceneManager.sceneLoaded += OnSceneLoaded;
+            InitScene();
         }
 
         void OnDestroy()
@@ -119,6 +119,12 @@ namespace Antura.Core
                 StartCoroutine(InitCO());
             }
 
+        }
+
+        // Init called on startup and every time a new scene is loaded
+        void InitScene()
+        {
+            GlobalUI.Init();
         }
 
         private void BlockingCoroutine(IEnumerator c)
@@ -235,6 +241,11 @@ namespace Antura.Core
         }
 
         #endregion
+        
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            InitScene();
+        }
 
         public void OnSceneChanged()
         {
@@ -260,11 +271,6 @@ namespace Antura.Core
             Services.Analytics.TrackPlayerSession(Player.Age, Player.Gender);
         }
         
-        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            GlobalUI.Init();
-        }
-
         #region App Pause Suspend/Resume
 #if UNITY_ANDROID
         void OnApplicationFocus(bool focus)
