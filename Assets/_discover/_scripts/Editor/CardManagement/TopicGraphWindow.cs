@@ -9,9 +9,8 @@ namespace Antura.Discover.Editor
     public class TopicGraphWindow : EditorWindow
     {
         private TopicCollectionData knowledgeCollection;
-        private Vector2 scrollPos;                 // sidebar scroll
-        private Vector2 graphScroll;               // graph scroll (content space)
-        private Vector2 graphOffset = Vector2.zero; // legacy pan
+        private Vector2 scrollPos;
+        private Vector2 graphScroll;
         private float zoomLevel = 1.0f;
         private bool isDragging = false;
         private Vector2 lastMousePos;
@@ -42,7 +41,7 @@ namespace Antura.Discover.Editor
         private GUIStyle selectedStyle;
         private Dictionary<Importance, Color> priorityColors;
 
-        [MenuItem("Antura/Discover/Topic Graph", priority = 150)]
+        [MenuItem("Antura/Topic/Topic Graph")]
         public static void ShowWindow()
         {
             GetWindow<TopicGraphWindow>("Topic Graph");

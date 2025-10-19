@@ -8,7 +8,7 @@ namespace Antura.Discover.EditorTools
 {
     public static class AchievementsValidator
     {
-        [MenuItem("Antura/Discover/Utility/Achievements Validate Database", priority = 300)]
+        [MenuItem("Antura/Utility/Discover/Achievements Validate Database", priority = 300)]
         public static void ValidateDatabase()
         {
             var db = Selection.activeObject as CardDatabaseData;

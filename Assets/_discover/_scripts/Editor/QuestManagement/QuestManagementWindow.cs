@@ -18,7 +18,7 @@ namespace Antura.Discover.EditorTools
         private Vector2 _scroll;
         private string _search = string.Empty;
         private List<QuestData> _quests = new List<QuestData>();
-        private int _selectedQuestIndex = 0; // Direct index into _quests (single quest mode)
+        private int _selectedQuestIndex = 0;
         private List<CardData> _allCards = new List<CardData>();
         private List<AssetData> _allAssets = new List<AssetData>();
         private List<TopicData> _allTopics = new List<TopicData>();
@@ -41,7 +41,7 @@ namespace Antura.Discover.EditorTools
             public string QuestId;
         }
 
-        [MenuItem("Antura/Quest Management", priority = 21)]
+        [MenuItem("Antura/Quest/Quest Management", priority = 21)]
         public static void ShowWindow()
         {
             var wnd = GetWindow<QuestManagementWindow>(false, "Quest Management", true);

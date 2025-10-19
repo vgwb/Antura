@@ -13,7 +13,7 @@ namespace Antura.Discover
         private bool _verbose = true;
         private bool _dryRun = false;
 
-        [MenuItem("Antura/Discover/Data Health", priority = 151)]
+        [MenuItem("Antura/Database/Data Health", priority = 151)]
         public static void Open() => GetWindow<DataHealthWindow>("Data Health");
 
         void OnGUI()

@@ -12,7 +12,7 @@ namespace Antura.Discover.Editor
     /// Editor window to manage Topics: export/import JSON for external editing.
     public class TopicManagementWindow : EditorWindow
     {
-        [MenuItem("Antura/Topic Management", priority = 23)]
+        [MenuItem("Antura/Topic/Topic Management", priority = 23)]
         public static void Open()
         {
             // Open as a regular, dockable window (utility=false)

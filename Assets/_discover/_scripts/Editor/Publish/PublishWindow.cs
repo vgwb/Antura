@@ -17,7 +17,7 @@ namespace Antura.Discover.Editor
         private Countries filterCountry = Countries.International;
         private bool filterByCountry = false;
 
-        [MenuItem("Antura/Publish Website & Export", priority = 160)]
+        [MenuItem("Antura/Publish Website & Export", priority = 10)]
         public static void Open()
         {
             GetWindow<PublishWindow>(title: "Publish Website & Export").Show();

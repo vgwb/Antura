@@ -20,7 +20,7 @@ namespace Antura.Discover.Editor
         private string legacyUuidInput = "";
         private string displayNameInput = "";
 
-        [MenuItem("Antura/Discover/Player Profiles", priority = 150)]
+        [MenuItem("Antura/Player Profiles (Discover)", priority = 150)]
         public static void Open()
         {
             var win = GetWindow<DiscoverProfilesWindow>("Discover Profiles");

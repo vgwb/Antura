@@ -10,7 +10,7 @@ namespace Antura.Discover.EditorTools
     {
         private const int MaxSubjects = 5;
 
-        [MenuItem("Antura/Discover/Quests/Refresh Subjects (Selected)")]
+        [MenuItem("Antura/Quest/Refresh Subjects (Selected)", priority = 23)]
         public static void RefreshSelected()
         {
             var quests = Selection.objects.OfType<QuestData>().ToList();
@@ -41,7 +41,7 @@ namespace Antura.Discover.EditorTools
             Debug.Log($"Refreshed Subjects for {updated} quest(s).");
         }
 
-        [MenuItem("Antura/Discover/Quests/Refresh Subjects (All)")]
+        [MenuItem("Antura/Quest/Refresh Subjects (All)", priority = 23)]
         public static void RefreshAll()
         {
             var guids = AssetDatabase.FindAssets("t:QuestData");

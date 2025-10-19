@@ -11,7 +11,7 @@ namespace Antura.Discover
     {
         private static readonly string[] ImageExtensions = { ".png", ".jpg", ".jpeg" };
 
-        [MenuItem("Antura/Discover/Utility/Link Sprites to AssetData (Scan & Fix)", priority = 200)]
+        [MenuItem("Antura/Utility/Discover/Link Sprites to AssetData (Scan & Fix)", priority = 200)]
         public static void LinkAll()
         {
             ProcessFolders(EnumerateTargetFolders(), SearchOption.TopDirectoryOnly);

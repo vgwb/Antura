@@ -53,7 +53,7 @@ namespace Antura.Discover.EditorTools
         private const float ColTextW = 220f;
         private const float ColStringsW = 180f;
 
-        [MenuItem("Antura/Quests/Script Management")]
+        [MenuItem("Antura/Quest/Script Management", priority = 22)]
         public static void ShowWindow()
         {
             var w = GetWindow<ScriptManagementWindow>(false, "Script Management", true);
@@ -1443,7 +1443,7 @@ namespace Antura.Discover.EditorTools
         }
 
         // -------------- Manifest staleness detection --------------
-        // Use the shared manifest entry DTO defined in VoiceoverManifestUtil (via a partial exposure trick)
+        // Use the shared manifest entry DTO defined in VoiceoverManifestUtil
         private class VoiceoverManifestUtil_ManifestEntry
         {
             public string key;

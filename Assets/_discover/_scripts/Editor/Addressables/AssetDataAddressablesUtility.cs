@@ -11,7 +11,7 @@ namespace Antura.Discover.Editor
     /// </summary>
     public static class AssetDataAddressablesUtility
     {
-        [MenuItem("Tools/Discover/Addressables/Repair AssetData Addressables", priority = 200)]
+        [MenuItem("Antura/Addressables/Repair AssetData Addressables", priority = 200)]
         private static void RepairAll()
         {
             var guids = AssetDatabase.FindAssets("t:AssetData");
