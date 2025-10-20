@@ -140,6 +140,16 @@ namespace Antura.Discover
             currCardData = null;
             DoShow(asset.Image, true, magnified, null, false);
         }
+        
+        /// <summary>
+        /// Shows the postcard immediately and without animations,
+        /// with options for title, magnification and view mode
+        /// </summary>
+        public void Show(Sprite sprite, string title = null, bool magnified = false, ViewMode? customViewMode = null)
+        {
+            currCardData = null;
+            DoShow(sprite, true, magnified, customViewMode, true);
+        }
 
         /// <summary>
         /// Shows the postcard immediately and without animations,
@@ -177,6 +187,17 @@ namespace Antura.Discover
 
             CurrSpriteWasMagnifiedOnce = true;
             focusView.Show(CurrSprite, currCardData);
+        }
+        
+        /// <summary>
+        /// Shows the fullscreen zoomed in version of the postcard
+        /// </summary>
+        public void OpenZoomView(Sprite sprite, CardData cardData)
+        {
+            Init();
+
+            CurrSpriteWasMagnifiedOnce = true;
+            focusView.Show(sprite, cardData);
         }
 
         /// <summary>

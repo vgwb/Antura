@@ -89,10 +89,9 @@ namespace Antura.Discover
             img.sprite = sprite;
             bool hasTitle = cardData != null;
             infoPanel.SetActive(hasTitle);
-            if (hasTitle)
-            {
-                DisplayText(QuestManager.I.LearningLangFirst);
-            }
+            tfTitle.gameObject.SetActive(hasTitle);
+            tfDescription.gameObject.SetActive(hasTitle);
+            if (hasTitle) DisplayText(QuestManager.I.LearningLangFirst);
             imgRT.offsetMin = new Vector2(imgRT.offsetMin.x, hasTitle ? titleBottomOffset : 0);
             showTween.timeScale = 1;
             showTween.Restart();

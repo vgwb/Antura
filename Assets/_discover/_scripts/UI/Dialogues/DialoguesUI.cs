@@ -172,6 +172,11 @@ namespace Antura.Discover
         {
             postcard.Show(assetData, zoom);
         }
+        
+        public void ShowPostcard(Sprite sprite)
+        {
+            postcard.OpenZoomView(sprite, null);
+        }
 
         public void HidePostcard()
         {

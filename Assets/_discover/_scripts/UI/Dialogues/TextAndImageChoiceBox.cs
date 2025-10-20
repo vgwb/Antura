@@ -10,17 +10,40 @@ namespace Antura.Discover
     {
         #region Serialized
 
+        [Header("Extra Properties - Specific")]
+        [SerializeField] bool zoomImageOnClick = false;
+        
         [Header("References - Specific")]
         [DeEmptyAlert]
         [SerializeField] TMP_Text tf;
         [DeEmptyAlert]
         [SerializeField] Image img;
         [DeEmptyAlert]
+        [SerializeField] Button btImg;
+        [DeEmptyAlert]
         [SerializeField] RectTransform textContainer, imgContainer, imgBg, imgBox;
 
         #endregion
         
         protected override BoxType boxType => BoxType.TextAndImage;
+
+        #region Unity
+
+        void Start()
+        {
+            if (zoomImageOnClick)
+            {
+                btImg.onClick.AddListener(() => {
+                    UIManager.I.dialogues.ShowPostcard(img.sprite);
+                });
+            }
+            else
+            {
+                Destroy(btImg.gameObject);
+            }
+        }
+
+        #endregion
 
         #region Methods
 
