@@ -47,7 +47,7 @@ namespace Antura.Discover.UI
 
             if (image)
             {
-                Debug.Log("Setting image for " + card.Id);
+                // Debug.Log("Setting image for " + card.Id);
                 image.sprite = card.ImageAsset.GetImage();
                 if (imageCoverFit)
                     ApplyCoverFit(image.sprite);

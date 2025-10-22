@@ -48,7 +48,7 @@ namespace Antura.Discover.UI
             if (questData.SubjectsListText != null && questData.SubjectsListText != "")
                 Description.text += "Subjects: " + questData.SubjectsListText + "\n";
 
-            Description.text += "Status: " + questData.Status.ToString() + "\n";
+            // Description.text += "Status: " + questData.Status.ToString() + "\n";
 
             //Description.text += "Difficulty: " + questData.Difficulty + "\n";
 

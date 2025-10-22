@@ -84,8 +84,6 @@ namespace Antura.Core
             if (I != this)
                 return;
 
-            Debug.Log("<color=#ff249c>>> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString() + "</color>");
-
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
             InitScene();
@@ -108,7 +106,8 @@ namespace Antura.Core
             }
             alreadySetup = true;
 
-            Debug.Log("<color=#FF9900>##### AppManager Init</color>");
+            Debug.Log("<color=#ff249c>>> WELCOME to LEARN WITH ANTURA - v" + AppEdition?.GetAppVersionString() + "</color>");
+            // Debug.Log("<color=#FF9900>##### AppManager Init</color>");
 
             if (DebugConfig.I.AddressablesBlockingLoad)
             {
@@ -241,7 +240,7 @@ namespace Antura.Core
         }
 
         #endregion
-        
+
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             InitScene();
@@ -270,7 +269,7 @@ namespace Antura.Core
             }
             Services.Analytics.TrackPlayerSession(Player.Age, Player.Gender);
         }
-        
+
         #region App Pause Suspend/Resume
 #if UNITY_ANDROID
         void OnApplicationFocus(bool focus)
