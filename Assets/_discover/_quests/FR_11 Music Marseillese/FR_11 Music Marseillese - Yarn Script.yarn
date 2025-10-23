@@ -45,10 +45,10 @@ actor: NARRATOR
 <<set $MAX_PROGRESS = 4>>
 <<set $CURRENT_PROGRESS = 0>>
 <<set $TOTAL_COINS = 0>>
-<<declare $quest1 = false>>
-<<declare $activity1 = false>>
-<<declare $quest2 = false>>
-<<declare $activity2 = false>>
+<<declare $quest1_done = false>>
+<<declare $activity1_done = false>>
+<<declare $quest2_done = false>>
+<<declare $activity2_done = false>>
 Welcome to the music quest! #line:0e2f565 
 ===
 
@@ -65,14 +65,14 @@ title: band_member
 position: 275,-57
 actor: ADULT_M
 ---
-<<if $quest1 == true>>
-    <<if $activity1 == false>>
+<<if $quest1_done == true>>
+    <<if $activity1_done == false>>
         Thank you for helping us! #line:09fc7ad
         <<card musical_score notes>>
         Can you put it together? #line:0515a95
-        <<set $activity1 = true>>
+        <<set $activity1_done = true>>
         <<activity order_Musical_notes>>
-    <<elseif $activity1 ==true >>
+    <<elseif $activity1_done ==true >>
         We're gonna play soon! #line:0ef876c 
         Do you wanna try to order them again? #line:08ae1b5 
         -> Yes #line:0a1e74f 
@@ -83,9 +83,24 @@ actor: ADULT_M
 Hello! We're part of a band. We're musicians. #line:09a50f8 
 We wanted to play the French Anthem, but we cannot! #line:0a9df26 
 Antura has mixed up the musical script. #line:0f0ccdf 
-Find the notes of the script. #line:0c9616b 
+Find the notes of the script. #line:0c9616b #task:find_the_script_parts
 <<task_start find_the_script_parts win_quest1>>
 <<endif>>
+===
+
+title: win_quest1
+position: 1
+---
+<<set $quest1_done = true>>
+You found the musical notes! #line:0c3d5b7 
+Do, the first one. #line:090aa20 #card:note_do
+Re, the second one. #line:01ef658 #card:note_re
+Mi, the third one. #line:0c78966 #card:note_mi
+Fa, the fourth one. #line:0c185a1 #card:note_fa
+Sol, the fifth one. #line:0338a81 #card:note_sol
+La, the sixth one. #line:0809b07 #card:note_la
+Si, the last one and the highest note. #line:04a7724 #card:note_si
+Good job! Now speak with the band manager. #line:0064edf 
 ===
 
 title: jean_michelle_jarre
@@ -93,17 +108,16 @@ position: 279,122
 actor: ADULT_M
 tags: 
 ---
-<<if $activity2 == true>>
+<<if $activity2_done == true>>
     Great job! #line:0227e33 
-    //Let's try to play it! #line:0501e94 
     <<jump quest_end>>
-<<elseif $quest2 == true >>
-    <<set $activity2 = true>>
+<<elseif $quest2_done == true >>
+    <<set $activity2_done = true>>
     Thank you! The words of the French Hymn are important. #line:025e35b 
     The French National Anthem, "La Marseillaise" rapresents France and its people. #line:0e4484d 
     Can you put the words in order? #line:07e4ff1 
     <<activity  order_marseillese_audio marseillese_played>>
-<<elseif $activity1 == true >>
+<<elseif $activity1_done == true >>
     Hello I'm Jean Michelle Jarre. #line:02f7c8b
     I'm a french composer, and I'm helping the band play "La Marseillaise". #line:0bd77b7 
     Find the words of the anthem. #line:0e7033c 
@@ -122,33 +136,11 @@ Now let's try to play the song! #line:0cef358
 <<activity play_piano>>
 ===
 
-title : win_quest1
-position: 1
----
-<<set $quest1 = true>>
-You found the musical notes! #line:0c3d5b7 
-Do, the first one. #line:090aa20 
-<<card note_do zoom>>
-Re, the second one. #line:01ef658 
-<<card note_re zoom>>
-Mi, the third one. #line:0c78966 
-<<card note_mi zoom>>
-Fa, the fourth one. #line:0c185a1 
-<<card note_fa zoom>>
-Sol, the fifth one. #line:0338a81 
-<<card note_sol zoom>>
-La, the sixth one. #line:0809b07 
-<<card note_la zoom>>
-Si, the last one and the highest note. #line:04a7724 
-<<card note_si zoom>>
-Good job! Now go back to speak with the band manager. #line:0064edf 
 
-
-===
 title : win_quest2
 position: 1
 ---
-<<set $quest2 = true>>
+<<set $quest2_done = true>>
 These are the words of la Marseillaise! #line:08ea860 
 The first part. #line:0f8bb5a 
 <<card  marseillaise_1 zoom>>

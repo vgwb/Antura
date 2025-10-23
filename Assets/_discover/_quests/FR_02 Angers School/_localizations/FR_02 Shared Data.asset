@@ -466,7 +466,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: quest_start
-        tags: []
+        tags:
+        - task:TASK_SCHOOL
     - rid: 6508225951601787174
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -536,7 +537,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: task_find_classroom
-        tags: []
+        tags:
+        - task:TASK_CLASSROOM
     - rid: 6508225951601787191
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -641,7 +643,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: task_backpack
-        tags: []
+        tags:
+        - task:TASK_BACKPACK
     - rid: 6508225951601787215
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:

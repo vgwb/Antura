@@ -104,6 +104,16 @@ Many people live by this river. #line:080744b
 <<jump task_seine>>
 ===
 
+title: task_seine
+position: 567,210
+actor: 
+---
+I lost 8 photos of the Seine. #line:0d77f5e #task:seine
+Can you find them all? #line:05727a9 
+Then come back to me! #line:09b03cc 
+<<task_start seine found_all_photos>>
+===
+
 title: found_all_photos
 position: 586,-3
 actor: 
@@ -111,16 +121,6 @@ actor:
 Thank you! #line:0a70250 
 Do you know that there are 37 bridges on the Seine? #line:0353a5c 
 <<jump look_seine_map>>
-===
-
-title: task_seine
-position: 567,210
-actor: 
----
-<<task_start seine>>
-I lost 8 photos of the Seine. #line:0d77f5e 
-Can you find them all? #line:05727a9 
-Then come back to me! #line:09b03cc 
 ===
 
 

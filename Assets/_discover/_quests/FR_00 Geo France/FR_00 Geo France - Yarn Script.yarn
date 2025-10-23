@@ -125,7 +125,7 @@ actor: KID_F
         <<camera_focus camera_NPC_GE>>
         <<action area_bigger>>
         <<jump task_germany  >>
-        <<endif>>
+    <<endif>>
 <<elseif $CURRENT_ITEM != "">>
     That’s not my flag. Mine is blue, white, and red. #line:04e0432 
 <<else>>
@@ -146,7 +146,7 @@ tags: task
 <<if $EASY_MODE == true>>
     <<asset flag_france>>
 <<endif>>
-Find the French flag. #line:0e35434 
+Find the French flag. #line:0e35434 #task:FIND_FRENCH_FLAG
 <<camera_focus camera_Flag_FR>>
 <<task_start FIND_FRENCH_FLAG task_france>>
 ===
@@ -214,7 +214,7 @@ tags: task
 <<if $EASY_MODE == true>>
     <<card flag_germany>>
 <<endif>>
-Find the German flag and bring it back. #line:029ee72 
+Find the German flag and bring it back. #line:029ee72 #task:FIND_GERMAN_FLAG
 It has stripes: black, red, yellow. #line:0f95ef2 
 <camera_focus camera_Flag_GE>> #line:0b35bca 
 <<task_start FIND_GERMAN_FLAG task_germany>>
@@ -232,7 +232,7 @@ tags:
 ---
 <<if $spain_completed>>
     <<card flag_spain>>
-    Thank you for helping me!  #line:0a5c214 
+    Thank you for helping me! #line:0a5c214 
     Barcelona and Madrid are big cities in Spain. #line:09cf6c9 
 <<elseif has_item("flag_spain")>>
     <<if $CURRENT_ITEM == "flag_spain">>
@@ -249,7 +249,7 @@ tags:
     <<else>>
         You have my flag in your inventory! #line:0c7aab5 
         It's the red and yellow one, select it! #line:05049ea 
-        <<endif>>
+    <<endif>>
 <<elseif $CURRENT_ITEM != "">>
     Not mine! Our flag is red and yellow. #line:0db05da 
     <<jump task_spain>>
@@ -269,7 +269,7 @@ actor: ADULT_F
 <<if $EASY_MODE == true>>
     <<card flag_spain>>
 <<endif>>
-Find the Spanish flag. #line:091cc7c 
+Find the Spanish flag. #line:091cc7c #task:FIND_SPANISH_FLAG
 It is red and yellow like the sun. #line:09635b4
 <<camera_focus camera_Flag_SP>>
 <<task_start FIND_SPANISH_FLAG task_spain>>
@@ -322,7 +322,7 @@ actor: KID_M
 <<if $EASY_MODE == true>>
     <<card flag_italy>>
 <<endif>>
-Find the Italian flag. #line:0ed29f1 
+Find the Italian flag. #line:0ed29f1 #task:FIND_ITALIAN_FLAG
 It is green, white, and red like a pizza! #line:0cde44c 
 <<camera_focus camera_Flag_Italy>>
 <<task_start FIND_ITALIAN_FLAG task_italy>>
@@ -355,7 +355,7 @@ color: blue
         <<set $belgium_met = true>>
         <<jump task_lux>>
     <<else >>
-        You have my flag in your inventory!  #line:0326f38 
+        You have my flag in your inventory! #line:0326f38 
         Select it to give it to me by clicking on it. #line:049b7a1 
     <<endif>>
 <<elseif $CURRENT_ITEM != "">>
@@ -378,7 +378,7 @@ actor: SENIOR_F
 <<if $EASY_MODE == true>>
     <<card flag_belgium>>
 <<endif>>
-Find the Belgian flag. #line:0f08126 
+Find the Belgian flag. #line:0f08126 #task:FIND_BELGIUM_FLAG
 It's black, yellow, and red with vertical stripes. #line:079ecca 
 <<camera_focus camera_Flag_BE>>
 <<task_start FIND_BELGIUM_FLAG task_belgium>>
@@ -446,7 +446,7 @@ actor: SENIOR_F
 <<if $EASY_MODE == true>>
     <<card flag_luxembourg>>
 <<endif>>
-Find the Luxembourg flag. #line:0ed3698 
+Find the Luxembourg flag. #line:0ed3698 #task:FIND_LUX_FLAG
 It is red, white, and light blue. #line:018e4cf 
 <<camera_focus camera_Flag_LU>>
 <<task_start FIND_LUX_FLAG task_lux>>
@@ -513,7 +513,7 @@ actor: SENIOR_F
 <<if $EASY_MODE == true>>
     <<card flag_switzerland>>
 <<endif>>
-Find the Swiss flag. #line:0ec7096 
+Find the Swiss flag. #line:0ec7096 #task:FIND_SWISS_FLAG
 It is red with a big white cross like a first aid kit. #line:07cc57e 
 <<camera_focus camera_Flag_SW>>
 <<task_start FIND_SWISS_FLAG npc_swiss>>
@@ -549,7 +549,6 @@ actor: GUIDE_F
 Hola! I’m from Andorra! #line:071f85c 
 My flag is blue, yellow, and red. #line:02846e8 
 <<asset flag_andorra>>
-
 ===
 
 
@@ -559,7 +558,7 @@ color: yellow
 group: spain
 actor: NARRATOR
 ---
-<<card  flag_spain>>
+<<card flag_spain>>
 Flag of Spain #line:006ce10 
 <<if $CURRENT_ITEM != "flag_spain">>
     <<inventory flag_spain add>>
@@ -598,7 +597,7 @@ group: swiss
 color: yellow
 actor: NARRATOR
 ---
-<<card  flag_switzerland>>
+<<card flag_switzerland>>
 Flag of Switzerland. #line:0768ab7 
 <<if $CURRENT_ITEM != "flag_switzerland">>
     <<inventory flag_switzerland add>>
@@ -619,4 +618,3 @@ spawn_group: all
 => You can visit many of these countries without a passport! #line:08d624d 
 => France is the biggest country in the European Union. #line:0ab3dd9 
 ===
-

@@ -86,6 +86,112 @@ What is your favourite food? #line:01f78ed
 <<quest_end>>
 ===
 
+
+title: chef
+position: 403,-505
+group: chef
+color: blue
+tags: 
+---
+<<if GetCollectedItem("COLLECT_THE_INGREDIENTS") == 9>>
+    <<jump chef_ingredients_done>>
+<<elseif GetCollectedItem("COLLECT_THE_INGREDIENTS") > 0 >>
+    <<jump chef_not_enough>>
+<<else>>
+    <<jump chef_welcome>>
+<<endif>>
+===
+
+title: chef_welcome
+position: 674,-579
+group: chef
+actor: ADULT_M
+---
+Bonjour! Welcome to Marseille, on the Mediterranean Sea! #line:02548dd 
+I want to make a special dish for you, a bouillabaisse! #line:0c65de3 
+<<card bouillabaisse zoom>>
+But I need some ingredients. #line:0623733 
+<<jump task_ingredients>>
+===
+
+
+title: task_ingredients
+position: 927,-581
+group: chef
+color: green
+tags: task
+---
+Please go to the market and buy them for me. #line:06602c6 
+<<detour task_ingredients_desc>>
+<<task_start COLLECT_THE_INGREDIENTS task_ingredients_done>>
+Remember your manners! #line:02819db 
+Say "Bonjour" to greet someone, #line:04c9d69 
+and "Merci" to thank them. #line:022fd8f 
+===
+
+title: task_ingredients_desc
+type: task
+position: 926,-742
+---
+Collect all the ingredients for the recipe. #line:00849bb #task:COLLECT_THE_INGREDIENTS
+bread #card:food_bread
+fish #card:food_fish
+orange #card:food_orange
+lemon #card:food_lemon
+tomato #card:food_tomatobread
+milk #card:food_milk
+pepper and salt #card:food_pepper_salt
+oil #card:food_olive_oil
+===
+
+title: chef_not_enough
+position: 404,-274
+group: chef
+tags: task
+---
+I need more ingredients! #line:0c5c6ac 
+Make sure you talk to everyone in the market. #line:0060c01 
+===
+
+title: task_ingredients_done
+position: 671,-268
+group: chef
+---
+You got all the ingredients! Go back to the chef. #line:05398f2 
+===
+
+
+title: chef_ingredients_done
+position: 669,-418
+group: chef
+actor: ADULT_M
+---
+Magnifique! You have everything. #line:0257fc7 
+You were very polite. #line:0112e25 
+Now, let's prepare our feast! #line:0051174 
+<<jump activity_match_ingredients>>
+===
+
+title: activity_match_ingredients
+position: 928,-418
+group: chef
+tags: activity
+color: purple
+---
+Match each item to the right seller. #line:0a6e106 
+<<activity match_ingredients activity_match_done>>
+===
+
+
+title: activity_match_done
+position: 926,-273
+group: chef
+---
+Well done! You matched all the items. #line:01648b2 
+Now, let's cook the bouillabaisse! #line:0f0f617 
+<<jump quest_end>>
+===
+
 title: baker_bonjour
 position: 649,-11
 group: baker
@@ -484,106 +590,6 @@ You should pay for what you need  #line:0209784
 so the shops can stay open! #line:02c49d0 
 <<set $pirate_completed = true>>
 ===
-
-
-title: chef
-position: 403,-505
-group: chef
-color: blue
-tags: 
----
-<<if GetCollectedItem("COLLECT_THE_INGREDIENTS") == 9>>
-    <<jump chef_ingredients_done>>
-<<elseif GetCollectedItem("COLLECT_THE_INGREDIENTS") > 0 >>
-    <<jump chef_not_enough>>
-<<else>>
-    <<jump chef_welcome>>
-<<endif>>
-===
-
-title: chef_welcome
-position: 674,-579
-group: chef
-actor: ADULT_M
----
-Bonjour! Welcome to Marseille, on the Mediterranean Sea! #line:02548dd 
-I want to make a special dish for you, a bouillabaisse! #line:0c65de3 
-<<card bouillabaisse zoom>>
-But I need some ingredients. #line:0623733 
-<<jump task_ingredients>>
-===
-
-
-title: task_ingredients
-position: 927,-581
-group: chef
-color: green
-tags: task
----
-Please go to the market and buy them for me. #line:06602c6 
-<<detour task_ingredients_desc>>
-<<task_start COLLECT_THE_INGREDIENTS task_ingredients_done>>
-Remember your manners! #line:02819db 
-Say "Bonjour" to greet someone, #line:04c9d69 
-and "Merci" to thank them. #line:022fd8f 
-===
-
-title: task_ingredients_desc
-type: task
-position: 926,-742
----
-Collect all the ingredients for the recipe. #line:00849bb #task:COLLECT_THE_INGREDIENTS
-They are: bread, fish, orange, lemon, tomato, milk, pepper and salt, oil. #line:03fbee1 
-===
-
-title: chef_not_enough
-position: 404,-274
-group: chef
-tags: task
----
-I need more ingredients! #line:0c5c6ac 
-Make sure you talk to everyone in the market. #line:0060c01 
-===
-
-title: task_ingredients_done
-position: 671,-268
-group: chef
----
-You got all the ingredients! Go back to the chef. #line:05398f2 
-===
-
-
-title: chef_ingredients_done
-position: 669,-418
-group: chef
-actor: ADULT_M
----
-Magnifique! You have everything. #line:0257fc7 
-You were very polite. #line:0112e25 
-Now, let's prepare our feast! #line:0051174 
-<<jump activity_match_ingredients>>
-===
-
-title: activity_match_ingredients
-position: 928,-418
-group: chef
-tags: activity
-color: purple
----
-Match each item to the right seller. #line:0a6e106 
-<<activity match_ingredients activity_match_done>>
-===
-
-
-title: activity_match_done
-position: 926,-273
-group: chef
----
-Well done! You matched all the items. #line:01648b2 
-Now, let's cook the bouillabaisse! #line:0f0f617 
-<<jump quest_end>>
-===
-
 
 
 title: fisher_pay_activity

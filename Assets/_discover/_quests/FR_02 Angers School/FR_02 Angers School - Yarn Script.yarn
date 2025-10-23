@@ -46,7 +46,7 @@ actor: NARRATOR
 <<SetActive Collect_Backpack false>>
 Welcome to Angers! It is the first day of school! #line:014887e 
 You are 10 years old and in the last year of primary school. #line:063e8e0 
-Find your school and your classroom! #line:0f65a1b 
+Find your school and your classroom! #line:0f65a1b #task:TASK_SCHOOL
 <<task_start TASK_SCHOOL task_find_school_done>>
 ===
 
@@ -182,7 +182,7 @@ position: 974,-24
 tags: task
 color: green
 ---
-TASK: Find your classroom. #line:058ddbc 
+Find your classroom. #line:058ddbc #task:TASK_CLASSROOM
 <<task_start TASK_CLASSROOM task_class_done>>
 ===
 
@@ -283,7 +283,7 @@ actor: GUIDE_F
 tags:  task
 color: green
 ---
-Find your backpack and then come back. #line:0e3ad75 
+Find your backpack and then come back. #line:0e3ad75 #task:TASK_BACKPACK
 Maybe someone has it, #line:0b43290 
 Try asking around. #line:0c282e5 
 <<task_start TASK_BACKPACK task_backpack_done>>
