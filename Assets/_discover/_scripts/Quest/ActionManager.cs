@@ -147,23 +147,33 @@ namespace Antura.Discover
 
         }
 
-        public void ResolveTargetCommand(string targetCode)
+        public void ResolveTargetCommand(string actableCode)
         {
-            targetCode = targetCode.ToLower();
+            actableCode = actableCode.ToLower();
 
-            if (targetCode == "off")
+            if (actableCode == "off")
             {
                 TargetOff();
                 return;
             }
 
-            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == targetCode);
-            if (actionData == null)
+            var actable = FindActableInChildren(actableCode);
+            if (actable != null)
             {
-                Debug.LogError("Action not found: " + targetCode);
-                return;
+                Target(actable.transform);
             }
-            ResolveCommands(actionData.Commands);
+            else
+            {
+                Debug.LogWarning($"Actable '{actableCode}' not found under ActionManager hierarchy.");
+            }
+
+            // var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == targetCode);
+            // if (actionData == null)
+            // {
+            //     Debug.LogError("Action not found: " + targetCode);
+            //     return;
+            // }
+            // ResolveCommands(actionData.Commands);
 
         }
 

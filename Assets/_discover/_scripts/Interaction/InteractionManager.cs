@@ -118,14 +118,29 @@ namespace Antura.Discover
             UIManager.I.gameObject.SetActive(true);
         }
 
+
+        private Transform currentTarget;
         /// <summary>
-        /// Activates the world icon for the light beam
+        /// Activates the world icon for a target Transform
         /// </summary>
         /// <param name="activate">TRUE to activate, FALSE otherwise</param>
         /// <param name="target">Required only if activating, the target to follow</param>
         public void ActivateWorldTargetIcon(bool activate, Transform target = null)
         {
-            UIManager.I.ActivateWorldTargetMarker(activate, target);
+            if (activate)
+                currentTarget = target;
+            else
+                currentTarget = null;
+
+            UIManager.I.ActivateWorldTargetMarker(activate, currentTarget);
+        }
+
+        public void CheckDeactivateTarget(Transform target)
+        {
+            if (currentTarget == target)
+            {
+                ActivateWorldTargetIcon(false);
+            }
         }
 
         /// <summary>
@@ -167,6 +182,8 @@ namespace Antura.Discover
             if (HasValidNearbyInteractable)
             {
                 var interacted = NearbyInteractable;
+                CheckDeactivateTarget(interacted.transform);
+
                 QuestNode questNode = interacted.Execute();
                 // Notify task manager for Interact-type tasks
                 QuestManager.I?.TaskManager?.OnInteractableUsed(interacted);
@@ -253,9 +270,13 @@ namespace Antura.Discover
             if (NearbyInteractable != prev)
             {
                 if (prev != null)
+                {
                     UIManager.I.dialogues.HideSignal(prev, true);
+                }
                 if (NearbyInteractable != null && HasValidNearbyInteractable)
+                {
                     UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
+                }
                 DiscoverNotifier.Game.OnNearbyInteractableChanged.Dispatch(NearbyInteractable);
             }
         }
