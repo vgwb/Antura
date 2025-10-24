@@ -66,7 +66,7 @@ Let’s meet kids from nearby countries. #line:08a09de
 
 title: quest_end
 position: 220,0
-panel: panel_endgame
+type: panel_endgame
 color: green
 ---
 The quest is complete. #line:0432689 
@@ -75,7 +75,7 @@ The quest is complete. #line:0432689
 
 title: post_quest_activity
 position: 220,160
-panel: panel
+type: panel
 color: green
 tags: proposal
 ---
@@ -92,7 +92,7 @@ title: win
 position: 819,-1478
 actor: KID_F
 color: purple
-panel: panel_endgame
+type: panel_endgame
 ---
 Good job! You did it! #line:0ba3c4c 
 <<card concept_europe_map>>
@@ -143,12 +143,20 @@ position: 834,-1290
 group: france
 tags: task
 ---
-<<if $EASY_MODE == true>>
-    <<asset flag_france>>
-<<endif>>
+<<asset flag_france>>
 Find the French flag. #line:0e35434 #task:FIND_FRENCH_FLAG
+<<target Flag_France>>
 <<camera_focus camera_Flag_FR>>
-<<task_start FIND_FRENCH_FLAG task_france>>
+<<task_start FIND_FRENCH_FLAG task_france_done>>
+===
+
+title: task_france_done
+position: 834,-1390
+group: france
+tags: 
+---
+<<target NPC_France>>
+Great! You found the French flag. Go back to the French kid!
 ===
 
 title: item_flag_france
@@ -211,9 +219,7 @@ position: 832,-1058
 group: germany
 tags: task
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_germany>>
-<<endif>>
+<<card flag_germany>>
 Find the German flag and bring it back. #line:029ee72 #task:FIND_GERMAN_FLAG
 It has stripes: black, red, yellow. #line:0f95ef2 
 <camera_focus camera_Flag_GE>> #line:0b35bca 
@@ -266,9 +272,7 @@ position: 880,-840
 group: spain
 actor: ADULT_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_spain>>
-<<endif>>
+<<card flag_spain>>
 Find the Spanish flag. #line:091cc7c #task:FIND_SPANISH_FLAG
 It is red and yellow like the sun. #line:09635b4
 <<camera_focus camera_Flag_SP>>
@@ -319,9 +323,7 @@ position: 843,-617
 group: italy
 actor: KID_M
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_italy>>
-<<endif>>
+<<card flag_italy>>
 Find the Italian flag. #line:0ed29f1 #task:FIND_ITALIAN_FLAG
 It is green, white, and red like a pizza! #line:0cde44c 
 <<camera_focus camera_Flag_Italy>>
@@ -375,9 +377,7 @@ position: 838,-385
 group: belgium
 actor: SENIOR_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_belgium>>
-<<endif>>
+<<card flag_belgium>>
 Find the Belgian flag. #line:0f08126 #task:FIND_BELGIUM_FLAG
 It's black, yellow, and red with vertical stripes. #line:079ecca 
 <<camera_focus camera_Flag_BE>>
@@ -443,9 +443,7 @@ position: 881,-165
 group: lux
 actor: SENIOR_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_luxembourg>>
-<<endif>>
+<<card flag_luxembourg>>
 Find the Luxembourg flag. #line:0ed3698 #task:FIND_LUX_FLAG
 It is red, white, and light blue. #line:018e4cf 
 <<camera_focus camera_Flag_LU>>
@@ -510,9 +508,7 @@ position: 903,83
 group: swiss
 actor: SENIOR_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_switzerland>>
-<<endif>>
+<<card flag_switzerland>>
 Find the Swiss flag. #line:0ec7096 #task:FIND_SWISS_FLAG
 It is red with a big white cross like a first aid kit. #line:07cc57e 
 <<camera_focus camera_Flag_SW>>
