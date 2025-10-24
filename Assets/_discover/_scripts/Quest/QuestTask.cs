@@ -19,6 +19,9 @@ namespace Antura.Discover
         [Tooltip("Total or per item is collect Task")]
         public int ProgressPoints;
 
+        [Tooltip("The line with the title")]
+        public string LineTitle;
+
         [Tooltip("Optional permalink of the Node with the mission")]
         public string NodeDescription;
 

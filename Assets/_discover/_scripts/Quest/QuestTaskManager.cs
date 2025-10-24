@@ -56,11 +56,6 @@ namespace Antura.Discover
                 return false;
             }
 
-            if (CurrentTask != null && CurrentTask != task)
-            {
-                Debug.LogWarning($"QuestTaskManager: replacing active task '{CurrentTask.Code}' with '{taskCode}'.");
-            }
-
             CurrentTask = task;
             task.Begin(nodeReturn);
 
