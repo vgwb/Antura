@@ -122,66 +122,6 @@ namespace Antura.Discover
             }
         }
 
-
-        public void TaskStart(string taskCode)
-        {
-            if (string.IsNullOrEmpty(taskCode))
-                return;
-            if (TryGetTask(taskCode, out var tmTask) && tmTask != null)
-            {
-                CurrentTask = tmTask;
-                tmTask.Begin(string.Empty);
-                CurrentTask.Activate();
-                return;
-            }
-            // Fallback: search in locally-serialized tasks
-            var list = QuestManager.I.QuestTasks;
-            foreach (var t in list)
-            {
-                if (t != null && t.Code == taskCode)
-                {
-                    CurrentTask = t;
-                    t.Begin(string.Empty);
-                    CurrentTask.Activate();
-                    return;
-                }
-            }
-        }
-
-        public void TaskSuccess(string taskCode = "")
-        {
-            if (CurrentTask == null)
-                return;
-
-            if (taskCode != "" && CurrentTask.Code != taskCode)
-            {
-                Debug.LogError($"TaskSuccess called with taskCode {taskCode}, but current task is {CurrentTask.Code}");
-                return;
-            }
-
-            UIManager.I.TaskDisplay.Hide();
-            CurrentTask.MarkCompleted();
-            CurrentTask.ClearReturnNode();
-            QuestManager.I.Progress.AddProgressPoints(CurrentTask.GetSuccessPoints());
-
-            if (!string.IsNullOrEmpty(CurrentTask.NodeSuccess))
-                YarnAnturaManager.I?.StartDialogue(CurrentTask.NodeSuccess);
-
-            CurrentTask = null;
-        }
-
-        public void TaskFail(string taskCode = "")
-        {
-            if (CurrentTask != null)
-            {
-                UIManager.I.TaskDisplay.Hide();
-                CurrentTask.ClearReturnNode();
-                if (!string.IsNullOrEmpty(CurrentTask.NodeFail))
-                    YarnAnturaManager.I?.StartDialogue(CurrentTask.NodeFail);
-                CurrentTask = null;
-            }
-        }
-
         public void OnReachTarget(string taskCode)
         {
             if (string.IsNullOrEmpty(taskCode))
