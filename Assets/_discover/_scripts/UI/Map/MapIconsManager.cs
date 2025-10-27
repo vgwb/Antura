@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Antura.Discover
 {

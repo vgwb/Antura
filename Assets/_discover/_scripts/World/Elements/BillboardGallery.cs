@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Localization;
 
 #if UNITY_EDITOR
 using UnityEditor;

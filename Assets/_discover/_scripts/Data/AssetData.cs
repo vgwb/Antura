@@ -41,7 +41,7 @@ namespace Antura.Discover
 
         [Header("License Information")]
         public LicenseType License = LicenseType.CC0;
-        public string Copyright; // e.g., "Stefano Cecere, 2025"
+        public string Copyright; // e.g., "Name Surname, 2025"
         public string SourceUrl; // Original source link
 
         [TextArea]
