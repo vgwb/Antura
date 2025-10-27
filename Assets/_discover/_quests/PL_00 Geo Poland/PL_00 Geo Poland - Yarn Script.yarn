@@ -82,7 +82,7 @@ color: green
 type: panel
 tags: proposal
 ---
-Why don't you draw you flag, now? #line:01f830b 
+Why don't you draw your flag, now? #line:01f830b 
 <<quest_end>>
 ===
 
@@ -131,9 +131,7 @@ position: 834,-1290
 group: poland
 tags: task
 ---
-<<if $EASY_MODE == true>>
-  <<card flag_poland>>
-<<endif>>
+<<card flag_poland>>
 Find the polish flag. It's white and red. #line:09e3b54 #task:FIND_polish_FLAG
 <<camera_focus camera_Flag_PL>>
 <<task_start FIND_polish_FLAG task_poland>>
@@ -212,14 +210,26 @@ position: 832,-1058
 group: germany
 tags: task
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_germany>>
-<<endif>>
+<<card flag_germany>>
 Find the German flag and bring it to the German person. #line:029ee72 #task:FIND_GERMAN_FLAG
 It has horizontal stripes of black, red, and yellow. #line:0f95ef2 
 <<camera_focus camera_Flag_GE>>
 <<task_start FIND_GERMAN_FLAG task_germany>>
 ===
+
+title: item_flag_germany
+position: 1157,-1052
+group: germany
+color: yellow
+actor: 
+---
+<<card flag_germany>>
+Flag of Germany. #line:05ff51a 
+<<if $CURRENT_ITEM != "flag_germany">>
+    <<inventory flag_germany add>>
+<<endif>>
+===
+
 
 //--------------------------------------------
 // belarus
@@ -268,12 +278,24 @@ position: 880,-840
 group: belarus
 actor: ADULT_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_belarus>>
-<<endif>>
+<<card flag_belarus>>
 Find the belarusian flag. It's red and green, with a pattern on the left! #line:0c00afe #task:FIND_belarusian_FLAG
 <<camera_focus camera_Flag_BR>>
 <<task_start FIND_belarusian_FLAG task_belarus>>
+===
+
+
+title: item_flag_belarus
+position: 1174,-826
+color: yellow
+group: belarus
+actor: 
+---
+<<card flag_belarus>>
+Flag of belarus #line:006ce10 
+<<if $CURRENT_ITEM != "flag_belarus">>
+    <<inventory flag_belarus add>>
+<<endif>>
 ===
 
 //--------------------------------------------
@@ -321,13 +343,25 @@ position: 843,-617
 group: czech_republic
 actor: KID_M
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_czech_republic>>
-<<endif>>
+<<card flag_czech_republic>>
 Find the Czech flag. It's white and red with a blue triangle. #line:0ff23aa #task:FIND_czech_republic_FLAG
 <<camera_focus camera_Flag_CZ>>
 <<task_start FIND_czech_republic_FLAG task_czech_republic>>
 ===
+
+title: item_flag_czech_republic
+position: 1104,-613
+group: czech_republic
+color: yellow
+actor: 
+---
+<<card flag_czech_republic>>
+Flag of Czech Republic. #line:0fdc68b 
+<<if $CURRENT_ITEM != "flag_czech_republic">>
+    <<inventory flag_czech_republic add>>
+<<endif>>
+===
+
 
 //--------------------------------------------
 // lithuania
@@ -376,9 +410,7 @@ position: 838,-385
 group: lithuania
 actor: SENIOR_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_lithuania>>
-<<endif>>
+<<card flag_lithuania>>
 Find the Lithuanian flag. It's red, green and yellow. #line:0b88326 #task:FIND_lithuania_FLAG
 <<camera_focus camera_Flag_LI>>
 <<task_start FIND_lithuania_FLAG task_lithuania>>
@@ -444,9 +476,7 @@ position: 881,-165
 group: ukraine
 actor: SENIOR_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_ukraine>>
-<<endif>>
+<<card flag_ukraine>>
 Find the flag of Ukraine. It is blue and yellow. #line:07c148b #task:FIND_ukraine_FLAG
 <<camera_focus camera_Flag_UK>>
 <<task_start FIND_ukraine_FLAG task_ukraine>>
@@ -511,13 +541,24 @@ position: 903,83
 group: slovakia
 actor: SENIOR_F
 ---
-<<if $EASY_MODE == true>>
-    <<card flag_slovakia>>
-<<endif>>
+<<card flag_slovakia>>
 Find the Slovakian flag. #line:04b6692 #task:FIND_slovakia_FLAG
 It's white, red and blue with the coat of arms. #line:0866ee1 
 <<camera_focus camera_NPC_SL>>
 <<task_start FIND_slovakia_FLAG npc_slovakia>>
+===
+
+title: item_flag_slovakia
+position: 1234,86
+group: slovakia
+color: yellow
+actor: 
+---
+<<card flag_slovakia>>
+Flag of slovakia. #line:0768ab7 
+<<if $CURRENT_ITEM != "flag_slovakia">>
+    <<inventory flag_slovakia add>>
+<<endif>>
 ===
 
 
@@ -539,54 +580,5 @@ This is just a tiny part of the big country. #line:0a4bae4
 
 
 
-title: item_flag_belarus
-position: 1174,-826
-color: yellow
-group: belarus
-actor: 
----
-<<card flag_belarus>>
-Flag of belarus #line:006ce10 
-<<if $CURRENT_ITEM != "flag_belarus">>
-    <<inventory flag_belarus add>>
-<<endif>>
-===
 
-title: item_flag_germany
-position: 1157,-1052
-group: germany
-color: yellow
-actor: 
----
-<<card flag_germany>>
-Flag of Germany. #line:05ff51a 
-<<if $CURRENT_ITEM != "flag_germany">>
-    <<inventory flag_germany add>>
-<<endif>>
-===
 
-title: item_flag_czech_republic
-position: 1104,-613
-group: czech_republic
-color: yellow
-actor: 
----
-<<card flag_czech_republic>>
-Flag of Czech Republic. #line:0fdc68b 
-<<if $CURRENT_ITEM != "flag_czech_republic">>
-    <<inventory flag_czech_republic add>>
-<<endif>>
-===
-
-title: item_flag_slovakia
-position: 1234,86
-group: slovakia
-color: yellow
-actor: 
----
-<<card flag_slovakia>>
-Flag of slovakia. #line:0768ab7 
-<<if $CURRENT_ITEM != "flag_slovakia">>
-    <<inventory flag_slovakia add>>
-<<endif>>
-===

@@ -129,11 +129,11 @@ actor: KID_F
 <<elseif $CURRENT_ITEM != "">>
     That’s not my flag. Mine is blue, white, and red. #line:04e0432 
 <<else>>
+    <<set $france_met = true>>
     Hello! I’m from France! #line:06dfdd6 
     Antura mixed up all the flags! #line:0a20eed 
     My flag is blue, white, and red. #line:0868737 
     Can you help me? #line:0a9f34e 
-    <<set $france_met = true>>
     <<jump task_france>>
 <<endif>>
 ===
@@ -155,6 +155,8 @@ position: 834,-1390
 group: france
 tags: 
 ---
+<<card flag_france>>
+<<inventory flag_france add>>
 <<target NPC_France>>
 Great! You found the French flag. Go back to the French kid!
 ===
@@ -167,9 +169,7 @@ actor: NARRATOR
 ---
 <<card flag_france>>
 Flag of France. #line:01d9617 
-<<if $CURRENT_ITEM != "flag_france">>
-    <<inventory flag_france add>>
-<<endif>>
+<<inventory flag_france add>>
 ===
 
 //--------------------------------------------
