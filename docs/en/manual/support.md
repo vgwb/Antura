@@ -47,7 +47,7 @@ When something goes wrong, the game writes a log file we can read to diagnose th
 If you don’t see the “AppData” folder: in File Explorer click View → Show → Hidden items.
 
 ### Crash log
-If the game crashed, please check if the “Crashes” folder exists at the folowing path and send the newest crash folder too:
+If the game crashed, please check if the “Crashes” folder exists at the following path and send the newest crash folder too:
 
 1. Press **Win + R** on your keyboard to open “Run…”.
 2. Paste this and press **Enter**:

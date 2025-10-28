@@ -339,7 +339,7 @@ see [Antura and Living Letters doc](AnturaLivingLetters.md)
 Environment graphics, like trees, are selected in the scene in order to match the current world of the MiniGame (there are 6 worlds).
 To do so, you must use the following auto-switching component: **AutoWorldPrefab**.
 
-- Create an empy game object
+- Create an empty game object
 - Add the "**AutoWorldPrefab**" component on it
 - Select the **Prefab Set**, using the inspector
 - In the **assets** tab you will find a list of possible assets, e.g.
@@ -359,7 +359,7 @@ Another requisite of each MiniGame scene is that the camera that will render you
 
 - **AutoWorldCameraColor**, that will change the camera background color and the fog color in CameraFog, according to the current world
 
-The AutoWorldCameraColor, as in AutoWorldPrefab, needs that a field is configured by inspector. The name of the field is **Backgroung Color Set**, and currently you will find just an asset called "**CameraColors**" to be selected.
+The AutoWorldCameraColor, as in AutoWorldPrefab, needs that a field is configured by inspector. The name of the field is **Background Color Set**, and currently you will find just an asset called "**CameraColors**" to be selected.
 
 ## Refactoring Notes
 variations are not actually enforced by the codebase, but it would be a good idea to make all games use them, as currently the core app reasons in terms of 'MiniGameCode', but a MiniGame is actually identified by the 'game scene' and the 'variation'

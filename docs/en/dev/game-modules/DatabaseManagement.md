@@ -10,7 +10,7 @@ Here is a description of the Antura Database and proposal for the web applicatio
 
 Antura app stores all the data in two datasets:
 A **static** set of tables with all the vocabularies and game settings (like the journey data, letters, words)... These data should not change and is fixed for all players.
-A **dynamic** set of tables, storing all the player’s performances and informations. These tables are stored in a SQLite database.
+A **dynamic** set of tables, storing all the player’s performances and information. These tables are stored in a SQLite database.
 When a player starts player, a UUID (Universal Unique Identifier) and a new SQLite database are created. This UUID is the key to identify the player. The SQLite file itself is named Antura_Player_UUID value (like `Antura_Player_e7e8d59a-b148-48b0-a848-4fa6fb4116cb.sqlite3` )
 (Going into the Reserved Area of the app, selecting a player we can see its UUID.)
 

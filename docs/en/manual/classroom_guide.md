@@ -17,7 +17,7 @@ This approach creates a **virtuous loop of play → reflection → feedback → 
 
 ## Preparing a play session
 
-The **teachers must know the game**: they should play every didactical unit at least once before introducing it in classroom. This is valid for both modules so the didactical unit couls be either a series of language learning minigames or a cultural quest. It would be even better if teachers could take the time to read all the didactical unit content (either letters and words or topics and cards) to be able to help kids in case of need and to prepare in advace a post session activity.
+The **teachers must know the game**: they should play every didactical unit at least once before introducing it in classroom. This is valid for both modules so the didactical unit could be either a series of language learning minigames or a cultural quest. It would be even better if teachers could take the time to read all the didactical unit content (either letters and words or topics and cards) to be able to help kids in case of need and to prepare in advance a post session activity.
 Moreover, teachers should check regularly (i.e. once a week) if a new version of the game is available in order to always use the latest version. 
 
 ### Planning the sessions
@@ -26,13 +26,13 @@ We recommend to alternate the 2 modules (Learn Language and Discover Culture) de
 
 ## Introducing a play session
 
-Once in the classroom, before starting to play, teachers should explain to the students what they are going to play and why.   
+Once in the classroom, before starting to play, teachers should explain to the students what they are going to play and why.
 
 - _The game will help you learn new words or some aspects of culture..._  
 - _You will explore this topic by playing this quest..._  
 
 > [!Reminder]
-> Remeber to set properly the class in the Teachers Area, to always give the same device to each student (so they have their profile to select) and to select the correct native language for each kid.
+> Remember to set properly the class in the Teachers Area, to always give the same device to each student (so they have their profile to select) and to select the correct native language for each kid.
 
 ## Playing in the classroom
 
@@ -41,7 +41,7 @@ Once in the classroom, before starting to play, teachers should explain to the s
 Ensuring that all kids know how to play is very important, especially in the first play sessions when they have not familiarized with the game yet. 
 
 > [!TIP]
-> It would be great if the teacher could play the tutorial on a big screen and let all kids see how to play and what they are supposed to do. If it's not possible, all kids should play the tutorial indivually and the teacher should supervise the session, helping all kids who need guidance.
+> It would be great if the teacher could play the tutorial on a big screen and let all kids see how to play and what they are supposed to do. If it's not possible, all kids should play the tutorial individually and the teacher should supervise the session, helping all kids who need guidance.
 
 ### Individual play 
 

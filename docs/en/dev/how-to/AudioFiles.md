@@ -7,7 +7,7 @@ nav_order: 0
 ## Format
 All voice audio (dialogs, words, etc), should be **MONO**, **44.1KHz** files and should be well **trimmed** at beginning (at zero crossing!)
 
-Level shoudl be normalized with a peak reference at -6db
+Level should be normalized with a peak reference at -6db
 
 In the Unity project they are saved in **MP3** format, with middle quality VBR (Variable Bit Rate).
 

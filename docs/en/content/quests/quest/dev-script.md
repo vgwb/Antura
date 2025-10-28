@@ -23,7 +23,7 @@ hide:
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">// INIT</span>
 <span class="yarn-header-dim">// every quest starts with an INIT node</span>
-<span class="yarn-header-dim">// to inizialize existing variables and declare new ones</span>
+<span class="yarn-header-dim">// to initialize existing variables and declare new ones</span>
 <span class="yarn-header-dim">// title of a node must be unique to this quest</span>
 <span class="yarn-header-dim">// create a new node for anything that must be referenced multiple times</span>
 <span class="yarn-header-dim">// that makes understanding of the flow easier</span>
@@ -182,7 +182,7 @@ You played the activity well!
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: docs</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-comment">// insted of a card, uses a direct Asset Id</span>
+<span class="yarn-comment">// instead of a card, uses a direct Asset Id</span>
 <span class="yarn-cmd">&lt;&lt;asset id_asset&gt;&gt;</span> 
 <span class="yarn-comment">// hides the current image</span>
 <span class="yarn-cmd">&lt;&lt;asset_hide&gt;&gt;</span>

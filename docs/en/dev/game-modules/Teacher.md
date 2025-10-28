@@ -51,7 +51,7 @@ In general, the Teacher can be configured by the Expert through two main mechani
 
 ## Difficulty Selection Engine
 
-Minigames can be configured to be more or less difficult (i.e. challanging) for the player.
+Minigames can be configured to be more or less difficult (i.e. challenging) for the player.
 This *Engine* is in charge of selecting what difficulty to use for a given MiniGame session.
 Difficulty is defined as a float value in the range [0,1], easiest to hardest.
 
@@ -175,7 +175,7 @@ A procedure is needed to match what the teacher deems necessary for the current 
 
 This is accomplished through two methods:
 
-- A journey progression / MiniGame matching is provided to the teacher through the database's PlaySessionData ntries. This is used by the teacher to select MiniGames for a given playsession and make sure that a MiniGame can support at least some of the dictionary content for the learning objectives.
+- A journey progression / MiniGame matching is provided to the teacher through the database's PlaySessionData entries. This is used by the teacher to select MiniGames for a given playsession and make sure that a MiniGame can support at least some of the dictionary content for the learning objectives.
 - Whenever a specific MiniGame is selected, the Teacher is configured to generate vocabulary data that can be supported by the MiniGame. This is handled by the **Question Builders**
 
 ## Question Builders
@@ -244,13 +244,13 @@ A **QuestionBuilderParameters** defines additional common parameters and include
 
 Whenever a MiniGame is launched, the Teacher retrieves its `IQuestionBuilder` through `SetupBuilder()`, then generates a `List<QuestionPacks>` through `CreateAllQuestionPacks()` method.
 
-`CreateAllQuestionPacks()` is implemented differently for each Question Builder, but in general it just generatas a sequential list of packs through multiple calls to `CreateSingleQuestionPackData()`.
+`CreateAllQuestionPacks()` is implemented differently for each Question Builder, but in general it just generates a sequential list of packs through multiple calls to `CreateSingleQuestionPackData()`.
 
 `CreateSingleQuestionPackData()` defines the actual logic for generating the Question Pack and is thus the core of the Question Builder. This method ends with a call to `QuestionPackData.Create(question, correctAnswers, wrongAnswers)` which creates the final pack from different sets of `IConvertibleToLivingLetterData` instances, which define the dictionary data that should be used and for what roles. For the current system, this can be either a **LetterData**, a **WordData**, or a **PhraseData**.
 
 The **Question Builder** will thus generate the question, the correct answers, and the wrong answers using calls to `WordSelectionAI.SelectData()` and by specifying what data it wants to use through the method's arguments:
 - `System.Func<List<T>> builderSelectionFunction` is a delegate that defines what data to work from based on the question builder logic. For example, for the `RandomLettersQuestionBuilder` this is all the available letters given the current letter filters. This is usually performed through the `WordHelper` class methods, which help in retrieving dictionary data from the database based on specific rules.
-- `SelectionParameters selectionParams` is an internal structure that defines parameters for filtering and selecting learning data based on the MiniGame requirements. This is built from the `QuestionBuilderPamaters` instance defined above.
+- `SelectionParameters selectionParams` is an internal structure that defines parameters for filtering and selecting learning data based on the MiniGame requirements. This is built from the `QuestionBuilderParameters` instance defined above.
 
 ## Refactoring Notes
 
