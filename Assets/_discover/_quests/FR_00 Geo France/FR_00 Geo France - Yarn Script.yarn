@@ -56,7 +56,7 @@ type: panel
 <<declare $belgium_completed = false>>
 <<declare $spain_met = false>>
 <<declare $spain_completed = false>>
-<<action area_small>>
+<<area area_france>>
 
 Welcome to France! #line:046db1f 
 We are in Europe. #line:08a8ce8 
@@ -123,7 +123,7 @@ actor: KID_F
         <<set $france_met = true>>
         <<action germany_active>>
         <<camera_focus camera_NPC_GE>>
-        <<action area_bigger>>
+        <<area area_europe>>
         <<jump task_germany  >>
     <<endif>>
 <<elseif $CURRENT_ITEM != "">>
