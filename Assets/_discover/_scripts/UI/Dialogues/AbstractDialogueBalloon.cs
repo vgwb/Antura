@@ -32,6 +32,10 @@ namespace Antura.Discover
 
         [DeEmptyAlert]
         [SerializeField] GameObject iconTranslate;
+
+        float continueHintDelay = 3f;
+        float continueHintScaleMultiplier = 1.12f;
+        float continueHintPulseDuration = 0.16f;
         #endregion
 
         public bool IsOpen { get; private set; }
@@ -39,12 +43,15 @@ namespace Antura.Discover
         protected bool SpeechCycle = false;
         protected QuestNode currNode;
         protected Tween showTween;
+        Sequence continueHintTween;
+        Vector3 continueDefaultScale;
 
         #region Unity
 
         void Start()
         {
             CreateShowTween();
+            CreateContinueHintTween();
 
             SetInteractable(false);
             this.gameObject.SetActive(false);
@@ -57,6 +64,7 @@ namespace Antura.Discover
         void OnDestroy()
         {
             showTween.Kill();
+            continueHintTween?.Kill();
         }
 
         void Update()
@@ -83,9 +91,15 @@ namespace Antura.Discover
             showTween.Restart();
             this.gameObject.SetActive(true);
             if (currNode.IsDialogueNode() || currNode.IsPanel())
+            {
                 btContinue.gameObject.SetActive(true);
+                RestartContinueHint();
+            }
             else
+            {
                 btContinue.gameObject.SetActive(false);
+                StopContinueHint();
+            }
 
             if (QuestManager.I.HasTranslation)
             { iconTranslate.SetActive(true); }
@@ -131,6 +145,7 @@ namespace Antura.Discover
             showTween.PlayBackwards();
             DiscoverNotifier.Game.OnCloseDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeEnd(currNode);
+            StopContinueHint();
         }
 
         #endregion
@@ -142,6 +157,55 @@ namespace Antura.Discover
         protected void SetInteractable(bool interactable)
         {
             bt.interactable = btContinue.interactable = interactable;
+        }
+
+        void CreateContinueHintTween()
+        {
+            if (btContinue == null)
+                return;
+
+            var target = btContinue.transform;
+            continueDefaultScale = target.localScale;
+
+            continueHintTween = DOTween.Sequence()
+                .SetAutoKill(false)
+                .Pause()
+                .SetUpdate(true);
+
+            continueHintTween.AppendInterval(Mathf.Max(0f, continueHintDelay));
+            AppendPulse(continueHintTween, target);
+            continueHintTween.AppendInterval(Mathf.Max(0f, continueHintDelay));
+            continueHintTween.SetLoops(-1, LoopType.Restart);
+        }
+
+        void AppendPulse(Sequence sequence, Transform target)
+        {
+            float duration = Mathf.Max(0.01f, continueHintPulseDuration);
+            float mult = Mathf.Max(continueHintScaleMultiplier, 1f);
+
+            sequence.Append(target.DOScale(continueDefaultScale * mult, duration).SetEase(Ease.OutQuad));
+            sequence.Append(target.DOScale(continueDefaultScale, duration).SetEase(Ease.InQuad));
+            sequence.Append(target.DOScale(continueDefaultScale * mult, duration).SetEase(Ease.OutQuad));
+            sequence.Append(target.DOScale(continueDefaultScale, duration).SetEase(Ease.InQuad));
+        }
+
+        void RestartContinueHint()
+        {
+            if (continueHintTween == null)
+                return;
+
+            btContinue.transform.localScale = continueDefaultScale;
+            continueHintTween.Restart();
+        }
+
+        void StopContinueHint()
+        {
+            if (continueHintTween == null)
+                return;
+
+            continueHintTween.Rewind();
+            continueHintTween.Pause();
+            btContinue.transform.localScale = continueDefaultScale;
         }
 
         #endregion
