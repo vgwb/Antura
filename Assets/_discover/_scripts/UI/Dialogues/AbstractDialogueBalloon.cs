@@ -106,13 +106,13 @@ namespace Antura.Discover
             else
             { iconTranslate.SetActive(false); }
 
-            DisplayText(UseLearningLanguage);
+            DisplayText(UseLearningLanguage, automaticTranslation: QuestManager.I.HasTranslation);
 
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeStart(currNode);
         }
 
-        public void DisplayText(bool UseLearningLanguage)
+        public void DisplayText(bool UseLearningLanguage, bool automaticTranslation = false)
         {
             // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
             if (UseLearningLanguage)
@@ -120,7 +120,14 @@ namespace Antura.Discover
                 textRender.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
                 if (currNode.AudioLearning != null)
                 {
-                    DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning);
+                    if (automaticTranslation)
+                    {
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning, () => DisplayeTextCallback(UseLearningLanguage));
+                    }
+                    else
+                    {
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning);
+                    }
                 }
             }
             else
@@ -128,9 +135,22 @@ namespace Antura.Discover
                 textRender.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.Default);
                 if (currNode.AudioNative != null)
                 {
-                    DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative);
+                    if (automaticTranslation)
+                    {
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative, () => DisplayeTextCallback(UseLearningLanguage));
+                    }
+                    else
+                    {
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative);
+                    }
+
                 }
             }
+        }
+
+        public void DisplayeTextCallback(bool UseLearningLanguage)
+        {
+            DisplayText(!UseLearningLanguage, false);
         }
 
         public void Hide()

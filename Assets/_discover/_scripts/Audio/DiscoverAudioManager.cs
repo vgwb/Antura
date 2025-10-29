@@ -31,6 +31,7 @@ namespace Antura.Discover.Audio
         [Header("Dialogue Source")]
         [SerializeField] private AudioSource dialogueVoiceSource;
         [Range(0f, 1f)] public float dialogueVolume = 1f;
+        private Coroutine dialogueRoutine;
 
         [Header("Ambient Source")]
         [SerializeField] private AudioSource ambientSource;
@@ -98,17 +99,27 @@ namespace Antura.Discover.Audio
 
         #region play
 
-        public void PlayDialogue(AudioClip clip)
+        public void PlayDialogue(AudioClip clip, Action onComplete = null)
         {
             if (clip == null)
                 return;
 
             if (dialogueVoiceSource.isPlaying)
                 dialogueVoiceSource.Stop();
+            if (dialogueRoutine != null)
+            {
+                StopCoroutine(dialogueRoutine);
+                dialogueRoutine = null;
+            }
 
             dialogueVoiceSource.volume = Mathf.Clamp01(dialogueVolume);
             dialogueVoiceSource.clip = clip;
             dialogueVoiceSource.Play();
+
+            if (onComplete != null)
+            {
+                dialogueRoutine = StartCoroutine(WaitDialogueCompleteCO(clip, onComplete));
+            }
         }
 
         public void PlayAmbient(AudioClip clip, float volume = 1f, bool loop = true, float fadeDuration = 0.5f)
@@ -218,7 +229,15 @@ namespace Antura.Discover.Audio
             if (systemVoiceSource != null)
                 systemVoiceSource.Stop();
             if (dialogueVoiceSource != null)
+            {
                 dialogueVoiceSource.Stop();
+                dialogueVoiceSource.clip = null;
+                if (dialogueRoutine != null)
+                {
+                    StopCoroutine(dialogueRoutine);
+                    dialogueRoutine = null;
+                }
+            }
             if (ambientSource != null)
             {
                 ambientSource.Stop();
@@ -243,7 +262,15 @@ namespace Antura.Discover.Audio
             if (systemVoiceSource != null)
                 systemVoiceSource.Stop();
             if (dialogueVoiceSource != null)
+            {
                 dialogueVoiceSource.Stop();
+                dialogueVoiceSource.clip = null;
+                if (dialogueRoutine != null)
+                {
+                    StopCoroutine(dialogueRoutine);
+                    dialogueRoutine = null;
+                }
+            }
             if (ambientSource != null)
             {
                 ambientSource.Stop();
@@ -282,6 +309,28 @@ namespace Antura.Discover.Audio
             src.Stop();
             src.clip = null;
             src.outputAudioMixerGroup = originalGroup;
+        }
+
+        private IEnumerator WaitDialogueCompleteCO(AudioClip clip, Action onComplete)
+        {
+            if (dialogueVoiceSource == null)
+            {
+                dialogueRoutine = null;
+                yield break;
+            }
+
+            // Wait until playback stops or the source is reassigned.
+            var observedClip = clip;
+            while (dialogueVoiceSource != null && dialogueVoiceSource.isPlaying && dialogueVoiceSource.clip == observedClip)
+            {
+                yield return null;
+            }
+
+            dialogueRoutine = null;
+            try
+            { onComplete(); }
+            catch (Exception ex)
+            { Debug.LogException(ex, this); }
         }
 
         private void PlayResolvedSfx(SfxResolved res, float volume)

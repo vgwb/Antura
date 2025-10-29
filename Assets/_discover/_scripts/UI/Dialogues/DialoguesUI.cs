@@ -172,7 +172,7 @@ namespace Antura.Discover
         {
             postcard.Show(assetData, zoom);
         }
-        
+
         public void ShowPostcard(Sprite sprite)
         {
             postcard.OpenZoomView(sprite, null);
@@ -326,8 +326,7 @@ namespace Antura.Discover
         void OnBalloonClicked()
         {
             // Debug.Log("OnBalloonClicked with " + UseLearningLanguage);
-            if (QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.LearningThenNative
-            || QuestManager.I.TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning)
+            if (QuestManager.I.HasTranslation)
             {
                 learningLanguageFirst = !learningLanguageFirst;
             }
