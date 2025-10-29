@@ -1,13 +1,16 @@
 ﻿using Antura.Audio;
 using Antura.Core;
+using Antura.Discover.Audio;
 using Antura.Language;
 using Antura.UI;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Antura.Discover.Audio;
 
 namespace Antura.Discover
 {
@@ -36,6 +39,8 @@ namespace Antura.Discover
         float continueHintDelay = 3f;
         float continueHintScaleMultiplier = 1.12f;
         float continueHintPulseDuration = 0.16f;
+        float lettersPerSecond = 20;
+        private Tween textTween;
         #endregion
 
         public bool IsOpen { get; private set; }
@@ -114,15 +119,17 @@ namespace Antura.Discover
 
         public void DisplayText(bool UseLearningLanguage, bool automaticTranslation = false)
         {
+            var textLength = 0;
             // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
             if (UseLearningLanguage)
             {
+                textLength = currNode.Content.Length;
                 textRender.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
                 if (currNode.AudioLearning != null)
                 {
                     if (automaticTranslation)
                     {
-                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning, () => DisplayeTextCallback(UseLearningLanguage));
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning, () => OnEndSpeaking(UseLearningLanguage));
                     }
                     else
                     {
@@ -132,12 +139,13 @@ namespace Antura.Discover
             }
             else
             {
+                textLength = currNode.ContentNative.Length;
                 textRender.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.Default);
                 if (currNode.AudioNative != null)
                 {
                     if (automaticTranslation)
                     {
-                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative, () => DisplayeTextCallback(UseLearningLanguage));
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative, () => OnEndSpeaking(UseLearningLanguage));
                     }
                     else
                     {
@@ -146,11 +154,24 @@ namespace Antura.Discover
 
                 }
             }
+            //Debug.Log("DisplayText() " + learningText.Length + " fillPeriod " + fillPeriod);
+
+            StartCoroutine(DisplayTextCoroutine(textLength / lettersPerSecond));
         }
 
-        public void DisplayeTextCallback(bool UseLearningLanguage)
+        public void OnEndSpeaking(bool UseLearningLanguage)
         {
             DisplayText(!UseLearningLanguage, false);
+        }
+
+        IEnumerator DisplayTextCoroutine(float fillPeriod)
+        {
+            yield return null; // Wait 1 frame otherwise TMP doesn't update characterCount
+
+            var tmpro = textRender.GetComponent<TextMeshProUGUI>();
+            tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
+            textTween = DOTween.To(() => tmpro.maxVisibleCharacters, x => tmpro.maxVisibleCharacters = x, 0, fillPeriod)
+                               .From().SetUpdate(true).SetEase(Ease.Linear);
         }
 
         public void Hide()
