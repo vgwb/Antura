@@ -70,7 +70,10 @@ We thank them for making their tools and assets available.
 
 [Crab](https://poly.pizza/m/2DgM36qZW2u) by Google Poly - [CC-BY](https://creativecommons.org/licenses/by/3.0/)  
 
-[Electronic Game](https://poly.pizza/m/QIJoiNqjrk) by burunduk [CC-BY] (https://creativecommons.org/licenses/by/3.0/) 
+[Electronic Game](https://poly.pizza/m/QIJoiNqjrk) by burunduk [CC-BY] (https://creativecommons.org/licenses/by/3.0/)
+
+### Sound fx
+Nature Sound fx [pixabay](https://pixabay.com/sound-effects/quiet-bird-noise-park-with-light-ambience-31901/)
 
 ## Photos and Images
 All photos are credited in the [Content pages](../content/index.md)
