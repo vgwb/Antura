@@ -22,12 +22,11 @@ type: panel
 actor: NARRATOR
 ---
 Welcome to the Tutorial! #line:021793f 
-Here we learn how to play. #line:0588c17
 <<if $IS_DESKTOP>>
-    <<asset keys_wasd zoom>>
+    <<asset keys_wasd>>
     Use the keys WASD to walk. #line:037d71d 
 <<else>>
-    <<asset tutorial_move zoom>>
+    <<asset tutorial_move>>
     Use your left finger to walk #line:0e55bc4 
 <<endif>>
 <<area area_init>>
@@ -40,7 +39,7 @@ title: talk_tutor_1
 position: 238,-2
 actor:
 ---
-Touch this text to hear it in your language. #line:03dbfa7 #native
+Touch this text to hear it again. #line:03dbfa7 #native
 // <<asset tutorial_goon>>
 // Use this button to advance the dialog. #line:0f4f069 
 //<<asset tutorial_image>>
@@ -79,14 +78,13 @@ title: tutor_4_jump
 position: 511,-4
 tags: asset=tutorial_move
 ---
+ <<asset tutorial_jump>>
 <<if $IS_DESKTOP>>
-    Press SPACE key to jump #line:07940cf 
+    Press SPACE key or this button to jump #line:07940cf
 <<else>>
-    <<asset tutorial_jump>>
     Use this button to jump #line:0b9c1fa 
 <<endif>>
 <<area area_large>>
-
 ===
 
 title: tutor_6_cookies
@@ -129,8 +127,8 @@ position: 217,199
 tags: 
 ---
 <<card antura_target>>
-<<target target_11>>
-If you get lost, follow this icon. #line:06c117d 
+<<target tutor_10>>
+This icon tells where to go. #line:06c117d 
 ===
 
 
@@ -138,10 +136,35 @@ title: tutor_11_mission
 position: 227,519
 tags: 
 ---
-<<area area_all>>
 <<target off>>
 <<camera_focus camera_coin>>
-Let me see if you learned: climb the stairs and get that coin! #line:0fe9efe 
+Let me see if you learned #line:0fe9efe
+Climb the stairs and get that coin! #task:get_coin
+<<task_start get_coin task_get_coin_done>>
+===
+
+title: task_get_coin_done
+position: 227,719
+---
+Great! You got the coin!
+<<action appear_tutor_end>>
+===
+
+title: tutor_end
+position: 2592,1398
+group: 
+color: purple
+---
+<<area area_all>>
+This is the end of the basic tutorial. #line:0dfdfc5 
+You can now explore the area and talk to everybody #line:02fea28 
+Are you ready to play? #line:0ac17d0 
+-> Yes #line:0b66e60 
+    Great. See you soon in the game! #line:07498c0 
+    There is much more to discover in Antura. #line:0ed06b6 
+-> No #line:01d5126 
+    You can replay the tutorial anytime you want. #line:06f9065 
+    Ask your teacher to help you. #line:0c6bc14 
 ===
 
 title: tutor_teleport
@@ -390,21 +413,6 @@ Do you want to play again? #shadow:0c78a9e
 -> No #highlight #shadow:010515b 
 ===
 
-title: tutor_end
-position: 2592,1398
-group: 
-color: purple
----
-This is the end of the basic tutorial. #line:0dfdfc5 
-You can now explore the area and talk to everybody #line:02fea28 
-Are you ready to play? #line:0ac17d0 
--> Yes #line:0b66e60 
-    Great. See you soon in the game! #line:07498c0 
-    There is much more to discover in Antura. #line:0ed06b6 
--> No #line:01d5126 
-    You can replay the tutorial anytime you want. #line:06f9065 
-    Ask your teacher to help you. #line:0c6bc14 
-===
 
 title: ll_skyscraper
 position: 828,619
