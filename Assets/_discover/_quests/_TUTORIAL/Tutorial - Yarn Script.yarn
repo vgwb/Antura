@@ -139,14 +139,15 @@ tags:
 <<target off>>
 <<camera_focus camera_coin>>
 Let me see if you learned #line:0fe9efe
-Climb the stairs and get that coin! #task:get_coin
-<<task_start get_coin task_get_coin_done>>
+<<target chest_end>>
+Climb the stairs and open that chest #task:open_chest #line:07b2183 
+<<task_start open_chest task_open_chest_done>>
 ===
 
-title: task_get_coin_done
+title: task_open_chest_done
 position: 227,719
 ---
-Great! You got the coin!
+Great! You opened the chest! #line:0c30eb1 
 <<action appear_tutor_end>>
 ===
 
