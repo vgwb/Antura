@@ -157,7 +157,7 @@ namespace Antura.UI
                 talkToPlayerModeStrings.Add(localizedString);
             }
 
-            GlobalPopups.OpenSelector(popup_title, talkToPlayerModeStrings, SelectLangMode, showCloseButton, (int)currProfile.TalkToPlayerStyle);
+            GlobalPopups.OpenSelector(popup_title, talkToPlayerModeStrings, SelectLangMode, showCloseButton, (int)currProfile.TalkToPlayerStyle - 1);
             RefreshProfileInfo();
         }
 
