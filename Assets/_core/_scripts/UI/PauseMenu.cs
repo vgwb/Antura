@@ -20,7 +20,7 @@ namespace Antura.UI
         public ActionEvent<bool> OnPauseToggled = new("PauseMenu.OnPauseToggle");
 
         #endregion
-        
+
         public static PauseMenu I;
 
         [Header("Buttons")]
@@ -113,9 +113,12 @@ namespace Antura.UI
             openMenuTween.Kill();
             logoBobTween.Kill();
             BtPause.Bt.onClick.RemoveAllListeners();
-            foreach (MenuButton bt in menuBts)
+            if (menuBts != null)
             {
-                bt.Bt.onClick.RemoveAllListeners();
+                foreach (MenuButton bt in menuBts)
+                {
+                    bt.Bt.onClick.RemoveAllListeners();
+                }
             }
         }
 
@@ -161,7 +164,7 @@ namespace Antura.UI
                 openMenuTween.PlayBackwards();
                 AudioManager.I.PlaySound(Sfx.UIPauseOut);
             }
-            
+
             OnPauseToggled.Dispatch(_open);
         }
 
