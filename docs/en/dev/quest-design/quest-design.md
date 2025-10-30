@@ -38,7 +38,7 @@ that has all the dynamic elements of this quest
 Is added to the Level GO.
 
 **Interactables**
-this is the main component to add to and interative object.
+this is the main component to add to and interactive object.
 it can triggers Homer Nodes or Unity Actions
 
 ## Assets

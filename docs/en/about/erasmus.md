@@ -3,7 +3,7 @@
 ![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
 
 > [!note]
-> more informations about Antura and Erasmus+ are here: [https://anturainschools.blogspot.com](https://anturainschools.blogspot.com)
+> more information about Antura and Erasmus+ is given here: [https://anturainschools.blogspot.com](https://anturainschools.blogspot.com)
 
 ## Project Overview
 

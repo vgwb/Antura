@@ -223,14 +223,14 @@ All gameplay and content is classified in three difficulty levels:
 Teachers can adjust difficulty in the Teacher Panel to adapt timing, hints, and challenge density to the learner’s level. Some quests also unlock extra optional tasks on replay for advanced learners.
 
 ### Locations
-Each quest is located in a specific location (usually a city or a part of a city) selectable in the worl map.
+Each quest is located in a specific location (usually a city or a part of a city) selectable in the world map.
 They are build with two methodologies:
 
 1. **Abstract art**  
-Designers build generic environment using common 3D models. Good for common topics that are not aboslutely linked to a geographic position.
+Designers build generic environment using common 3D models. Good for common topics that are not absolutely linked to a geographic position.
 
 2. **Realistic maps**  
-The city are build starting from a realisti map (from [OpenStreetMap](https://www.openstreetmap.org)), with defined GPS coordinates and orientation.
+The city are build starting from a realistic map (from [OpenStreetMap](https://www.openstreetmap.org)), with defined GPS coordinates and orientation.
 This scenarios are best for real "urban" quests where orientation matters.
 
 ## Gameplay

@@ -37,7 +37,7 @@ Most core code will be in a subsystem.
 Specific subsystem code is inside a **Antura.SUBSYSTEM** namespace, where SUBSYSTEM is the subsystem's name.
 What follows is a list of subsystems with their namespaces:
 
-- **Antura.Core** for the core managers and data of the appllication.
+- **Antura.Core** for the core managers and data of the application.
 - **Antura.AnturaSpace** for code related to the Antura Space scene.
 - **Antura.PlayerBook** for code related to the Player Book scene.
 - **Antura.GamesSelector** handles the Games Selector scene.

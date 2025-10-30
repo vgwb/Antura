@@ -13,7 +13,7 @@ nav_order: 2
 ## Letters that Don’t Connect
 
 - The long vowels “alif” and “waaw” (أ - و) and the 4 consonants “daal” “dhaal” “raa” “zaay” (د - ذ - ر - ز) are non-connected letters
-- Non-connected means having only 2 forms/shapes: initial & seperate (same shape), medial & final (same shape)
+- Non-connected means having only 2 forms/shapes: initial & separate (same shape), medial & final (same shape)
 
 ## Moon & Sun Consonants
 

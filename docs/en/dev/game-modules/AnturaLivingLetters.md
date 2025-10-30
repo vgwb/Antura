@@ -116,7 +116,7 @@ Then, you can drive the animations using the following interface.
 ```C#
 bool Crouching; // the LL is crouching
 bool Falling; // the LL is falling*
-bool Horraying; // continous horray
+bool Horraying; // continuous horray
 ```
 
 You can switch state by using the following method:

@@ -52,7 +52,7 @@ As a first phase, the MiniGame gathers measurements whenever it detects that a p
 This is achieved through a call to **OnGameplaySkillAction(PlaySkill _ability, float _score)** by the MiniGame code.
 This will create a **PlayResultParameters** instance.
 
-The MiniGame is responsible fo deciding what skill the action belongs to (thorugh the PlaySkill enumerator) and what value to assign to the action.
+The MiniGame is responsible fo deciding what skill the action belongs to (through the PlaySkill enumerator) and what value to assign to the action.
 **Note that values on skill measurements of different MiniGames have no relation to each other and should only be used to compare different sessions of the same MiniGame**
 
 **PlayResultParameters** instances are buffered by the MinigameLogManager during play.
@@ -90,7 +90,7 @@ The LogAI will then retrieved the **MiniGameLearnRules** for that specific MiniG
 The **MiniGameLearnRules** define how to convert the correct/wrong measurements to a summary **[-1,1]** *grade* value that can be later used to compare the current performance to other play sessions for the same MiniGame or of other MiniGames.
 
 **MiniGameLearnRules** can be parametrized through its fields based on the MiniGame's nature:
-- **VoteLogic voteLogic** defines the underlying logic for how to interpet the number of correct and wrong results to determine the outcome of a single MiniGame related to a specific data content.
+- **VoteLogic voteLogic** defines the underlying logic for how to interpret the number of correct and wrong results to determine the outcome of a single MiniGame related to a specific data content.
 - **float logicParameter** parameterizes the vote logic. For example, in case of VoteLogic.Threshold, this is the threshold value.
 - **float minigameVoteSkewOffset** is used to offset all grade values if a MiniGame is found to not correctly represent the correct outcome.
 - **float minigameImportanceWeight** is multiplied to the final grade to give more or less importance to the MiniGame as a learning tool.

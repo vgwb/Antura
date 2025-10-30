@@ -109,7 +109,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif $quest2 == true &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $activity2 = true&gt;&gt;</span>
 <span class="yarn-line">    Thank you! The words of the French Hymn are important.</span> <span class="yarn-meta">#line:025e35b </span>
-<span class="yarn-line">    The French National Anthem, "La Marseillaise" rapresents France and its people.</span> <span class="yarn-meta">#line:0e4484d </span>
+<span class="yarn-line">    The French National Anthem, "La Marseillaise" represents France and its people.</span> <span class="yarn-meta">#line:0e4484d </span>
 <span class="yarn-line">    Can you put the words in order?</span> <span class="yarn-meta">#line:07e4ff1 </span>
     <span class="yarn-cmd">&lt;&lt;activity  order_marseillese_audio marseillese_played&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $activity1 == true &gt;&gt;</span>

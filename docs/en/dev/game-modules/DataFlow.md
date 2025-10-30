@@ -48,7 +48,7 @@ LivingLetters are animated characters that can display a piece of vocabulary dat
 
 The LivingLetters can display vocabulary data in several ways, depending on the type of data to display.
 By assigning a **LL_XXXData** to a **LetterObjectView**, the corresponding data is displayed on the Living Letter.
-The display method is set by converting a given vocabulary data instance into a correpsonding **LL_XXXData** instance.
+The display method is set by converting a given vocabulary data instance into a corresponding **LL_XXXData** instance.
 
 - `LL_LetterData` displays a Db.LetterData in text form (a single letter)
 - `LL_WordData` displays a Db.WordData in text form
