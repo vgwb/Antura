@@ -173,7 +173,8 @@ namespace Antura.Discover
             {
                 if (ShowIconAlways)
                     InteractionManager.I.ShowPreviewSignalFor(this, true);
-                DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
+                if (IsPlayerWithinInteractionRange())
+                    DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
             }
             else
             {
@@ -185,9 +186,8 @@ namespace Antura.Discover
         /// <summary>
         /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate
         /// </summary>
-        public QuestNode Execute()
+        public void Execute()
         {
-            QuestNode node = null;
 
             if (DialogueNode != null && DialogueNode.nodeName != "")
             {
@@ -212,7 +212,7 @@ namespace Antura.Discover
 
             if (disableAfterAction)
                 this.RestartCoroutine(ref coDisableAfterAction, CO_DisableAfterAction());
-            return node;
+
         }
 
         #endregion
@@ -226,6 +226,26 @@ namespace Antura.Discover
             IsInteractable = false;
             InteractionManager.I.ShowPreviewSignalFor(this, false);
             OnTriggerExitPlayer();
+        }
+
+        bool IsPlayerWithinInteractionRange()
+        {
+            if (InteractionManager.I == null || InteractionManager.I.player == null)
+                return false;
+
+            var playerPos = InteractionManager.I.player.transform.position;
+            var colliders = GetComponentsInChildren<Collider>(true);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                var col = colliders[i];
+                if (col == null || !col.enabled || !col.isTrigger)
+                    continue;
+
+                var closest = col.ClosestPoint(playerPos);
+                if ((closest - playerPos).sqrMagnitude <= 0.0001f)
+                    return true;
+            }
+            return false;
         }
 
         #endregion

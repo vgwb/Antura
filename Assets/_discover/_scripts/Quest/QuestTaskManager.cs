@@ -167,10 +167,10 @@ namespace Antura.Discover
             if (task.InteractGO == null)
                 return;
 
-            var target = task.InteractGO;
-            bool matches = interacted.gameObject == target || interacted.transform.IsChildOf(target.transform) || target.transform.IsChildOf(interacted.transform);
-            if (!matches)
+            if (task.InteractGO != interacted.gameObject)
                 return;
+
+            Debug.Log($"HELP QuestTaskManager: Interact task '{task.Code}' completed by using interactable '{interacted.gameObject.name}'.");
 
             // Capture nodeReturn, end task, then jump if provided
             var nodeReturn = task.PendingReturnNode;

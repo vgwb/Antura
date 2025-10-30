@@ -177,14 +177,14 @@ namespace Antura.Discover
             if (DiscoverGameManager.I.State != GameplayState.Play3D)
                 return;
 
-            // Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable);
+            Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable + " nearby interactable:" + (NearbyInteractable != null ? NearbyInteractable.name : "null"));
 
             if (HasValidNearbyInteractable)
             {
                 var interacted = NearbyInteractable;
                 CheckDeactivateTarget(interacted.transform);
 
-                QuestNode questNode = interacted.Execute();
+                interacted.Execute();
                 // Notify task manager for Interact-type tasks
                 QuestManager.I?.TaskManager?.OnInteractableUsed(interacted);
                 // if (questNode != null)

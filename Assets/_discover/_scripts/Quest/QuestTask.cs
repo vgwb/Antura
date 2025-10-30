@@ -1,9 +1,11 @@
+using DG.DeInspektor.Attributes;
+using Yarn;
+using Yarn.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.DeInspektor.Attributes;
-using System;
 
 namespace Antura.Discover
 {
@@ -19,17 +21,11 @@ namespace Antura.Discover
         [Tooltip("Total or per item is collect Task")]
         public int ProgressPoints;
 
-        [Tooltip("The line with the title")]
-        public string LineTitle;
-
-        [Tooltip("Optional permalink of the Node with the mission")]
-        public string NodeDescription;
+        [Tooltip("Dialogue node to start")]
+        [SerializeField] DialogueReference TaskNode = new();
 
         [Tooltip("Optional permalink of the Node activated if success task")]
         public string NodeSuccess;
-
-        [Tooltip("Optional permalink of the Node activated if fail task")]
-        public string NodeFail;
 
         [DeConditional("Type", (int)TaskType.Collect)]
         public GameObject ItemsContainer;
@@ -38,13 +34,9 @@ namespace Antura.Discover
         [Tooltip("If Collect, what tag to count?")]
         public string ItemTag;
 
-        [Tooltip("Optional timer for the task, in seconds")]
-        public int TimerSeconds = 0;
-
         [Tooltip("Optional target to activate.")]
         public GameObject TargetPoint;
-        [Tooltip("Optional area to activate.")]
-        public GameObject Area;
+
         public QuestNode InfoNode;
         public int Collected { get; private set; }
 
