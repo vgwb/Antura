@@ -177,7 +177,7 @@ namespace Antura.Discover
             if (DiscoverGameManager.I.State != GameplayState.Play3D)
                 return;
 
-            Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable + " nearby interactable:" + (NearbyInteractable != null ? NearbyInteractable.name : "null"));
+            // Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable + " nearby interactable:" + (NearbyInteractable != null ? NearbyInteractable.name : "null"));
 
             if (HasValidNearbyInteractable)
             {
