@@ -35,8 +35,8 @@ namespace Antura.Discover.Activities
         public override void ConfigureSettings(ActivitySettingsAbstract settings)
         {
             base.ConfigureSettings(settings);
-            if (settings is OrderSettingsData csd)
-                Settings = csd;
+            if (settings is OrderSettingsData orderSettings)
+                Settings = orderSettings;
         }
         protected override ActivitySettingsAbstract GetSettings() => Settings;
 
@@ -72,13 +72,13 @@ namespace Antura.Discover.Activities
             var shuffled = new List<CardData>(dataItems);
             Shuffle(shuffled);
 
-            foreach (var it in shuffled)
+            foreach (var cardItem in shuffled)
             {
-                var go = Instantiate(tilePrefab, tilesPoolParent);
-                go.name = it.name;
+                var tileGameObject = Instantiate(tilePrefab, tilesPoolParent);
+                tileGameObject.name = cardItem.name;
 
-                var tile = go.GetComponent<DraggableTile>();
-                tile.Init(this, it, this.transform);
+                var tile = tileGameObject.GetComponent<DraggableTile>();
+                tile.Init(this, cardItem, this.transform);
             }
 
             UpdateSlotHighlights();
@@ -104,16 +104,16 @@ namespace Antura.Discover.Activities
                 // Optional: ghost image in Tutorial difficulty
                 if (showGhostsInTutorial && (ActivityDifficulty == Difficulty.Tutorial))
                 {
-                    var img = slotGO.GetComponentInChildren<Image>();
-                    if (img != null && i < correctOrder.Length)
+                    var ghostImage = slotGO.GetComponentInChildren<Image>();
+                    if (ghostImage != null && i < correctOrder.Length)
                     {
                         var sprite = ResolveSprite(correctOrder[i]);
                         if (sprite != null)
                         {
-                            img.sprite = sprite;
-                            var c = img.color;
-                            c.a = 0.25f;
-                            img.color = c;
+                            ghostImage.sprite = sprite;
+                            var color = ghostImage.color;
+                            color.a = 0.25f;
+                            ghostImage.color = color;
                         }
                     }
                 }
@@ -125,11 +125,11 @@ namespace Antura.Discover.Activities
             var result = new List<CardData>();
             if (Settings.ItemsData != null && Settings.ItemsData.Count > 0)
             {
-                foreach (var cd in Settings.ItemsData)
+                foreach (var cardData in Settings.ItemsData)
                 {
-                    if (cd == null)
+                    if (cardData == null)
                         continue;
-                    result.Add(cd);
+                    result.Add(cardData);
                 }
             }
             else
@@ -320,11 +320,11 @@ namespace Antura.Discover.Activities
         private IEnumerator ShakeWrongTiles(List<int> indices)
         {
             float duration = 0.25f;
-            foreach (var idx in indices)
+            foreach (var index in indices)
             {
-                var rt = slots[idx].Rect;
-                rt.DOKill();
-                rt.DOPunchAnchorPos(new Vector2(18f, 0f), duration, vibrato: 12, elasticity: 0.6f).SetUpdate(true);
+                var rectTransform = slots[index].Rect;
+                rectTransform.DOKill();
+                rectTransform.DOPunchAnchorPos(new Vector2(18f, 0f), duration, vibrato: 12, elasticity: 0.6f).SetUpdate(true);
             }
             yield return new WaitForSecondsRealtime(duration);
         }
@@ -362,15 +362,15 @@ namespace Antura.Discover.Activities
             Vector3 targetPos = slotView.transform.position;
 
             float duration = 0.4f;
-            float t = 0f;
+            float elapsedTime = 0f;
 
-            while (t < duration)
+            while (elapsedTime < duration)
             {
-                t += Time.unscaledDeltaTime;
-                float p = t / duration;
-                float height = Mathf.Sin(p * Mathf.PI) * 20f;
-                Vector3 pos = Vector3.Lerp(startPos, targetPos, p) + Vector3.up * height;
-                tile.transform.position = pos;
+                elapsedTime += Time.unscaledDeltaTime;
+                float progress = elapsedTime / duration;
+                float height = Mathf.Sin(progress * Mathf.PI) * 20f;
+                Vector3 position = Vector3.Lerp(startPos, targetPos, progress) + Vector3.up * height;
+                tile.transform.position = position;
                 yield return null;
             }
 
