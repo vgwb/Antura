@@ -226,6 +226,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotate: 0
+  iconVisual: {fileID: 0}
+  minCameraHeight: 35
+  maxCameraHeight: 200
+  minScaleMultiplier: 0.45
+  maxScaleMultiplier: 1.35
+  scaleLerpSpeed: 8
+  rotationSpeed: 10
 --- !u!1 &404210107888843196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2357,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotate: 1
+  iconVisual: {fileID: 0}
+  minCameraHeight: 35
+  maxCameraHeight: 200
+  minScaleMultiplier: 0.45
+  maxScaleMultiplier: 1.35
+  scaleLerpSpeed: 8
+  rotationSpeed: 10
 --- !u!1 &5103666697015650727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5095,6 +5109,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9168589735945033429}
     m_Modifications:
+    - target: {fileID: 471708847503911376, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1457108736632224731, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
         type: 3}
       propertyPath: m_IsActive
@@ -5232,8 +5251,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4982258784966141769, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 206.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982258784966141769, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 203.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982258784966141769, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -119
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982258784966141769, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 299
+      value: 227
       objectReference: {fileID: 0}
     - target: {fileID: 8361770633040054537, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
         type: 3}

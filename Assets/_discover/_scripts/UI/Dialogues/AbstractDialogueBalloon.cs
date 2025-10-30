@@ -36,8 +36,8 @@ namespace Antura.Discover
         [DeEmptyAlert]
         [SerializeField] GameObject iconTranslate;
 
-        float continueHintDelay = 3f;
-        float continueHintScaleMultiplier = 1.12f;
+        float continueHintDelay = 2f;
+        float continueHintScaleMultiplier = 1.20f;
         float continueHintPulseDuration = 0.16f;
         float lettersPerSecond = 20;
         private Tween textTween;
