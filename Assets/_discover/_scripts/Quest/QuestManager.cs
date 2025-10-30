@@ -17,6 +17,7 @@ namespace Antura.Discover
     {
         [Tooltip("Dialogue node to start")]
         public DialogueReference DebugNode = new();
+        public GameObject DebugSpawnPoint;
 
         [Header("Override player settings")]
         public TalkToPlayerMode TalkToPlayerMode = TalkToPlayerMode.Default;

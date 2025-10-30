@@ -55,7 +55,14 @@ namespace Antura.Discover
             PlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             yield return null;
 
-            SetPlayerSpawnPoint(PlayerSpawnPoint?.gameObject);
+            if (QuestManager.I.DebugMode && QuestManager.I.DebugConfig.DebugSpawnPoint != null)
+            {
+                SetPlayerSpawnPoint(QuestManager.I.DebugConfig.DebugSpawnPoint);
+            }
+            else
+            {
+                SetPlayerSpawnPoint(PlayerSpawnPoint?.gameObject);
+            }
             yield return null;
 
             RespawnPlayer();
