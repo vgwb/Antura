@@ -77,7 +77,7 @@ hide:
 <span class="yarn-line">You can use this quest to test features and commands.</span> <span class="yarn-meta">#line:0196a6d </span>
 <span class="yarn-cmd">&lt;&lt;asset backpack&gt;&gt;</span>
 <span class="yarn-comment">// shadow line example</span>
-You played the activity well!
+<span class="yarn-line">You played the activity well!</span> <span class="yarn-meta">#line:0597e46 </span>
 
 </code>
 </pre>
@@ -92,14 +92,14 @@ You played the activity well!
 <span class="yarn-header-dim">group: docs</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE &gt;&gt;</span>
-        You are in EASY MODE!
+<span class="yarn-line">    You are in EASY MODE!</span> <span class="yarn-meta">#line:006edd6 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>    
-        You are in NORMAL MODE!
+<span class="yarn-line">    You are in NORMAL MODE!</span> <span class="yarn-meta">#line:02f8aaa </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP &gt;&gt;</span>
-        You are on DESKTOP!
+<span class="yarn-line">    You are on DESKTOP!</span> <span class="yarn-meta">#line:0afe11a </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-        You are on MOBILE!
+<span class="yarn-line">    You are on MOBILE!</span> <span class="yarn-meta">#line:0245038 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -297,6 +297,7 @@ You played the activity well!
 <span class="yarn-header-dim">group: docs</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-comment">// starts a task</span>
+You can add the decription with #task:id_task_configuration
 <span class="yarn-cmd">&lt;&lt;task_start id_task_configuration&gt;&gt;</span>
 <span class="yarn-comment">// end a task... if you say nothing, its a success</span>
 <span class="yarn-cmd">&lt;&lt;task_end id_task_configuration&gt;&gt;</span>
@@ -390,12 +391,10 @@ You played the activity well!
 <div class="yarn-node" data-title="test_dialog">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dialog</span>
+<span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card food_baguette&gt;&gt;</span>
-<span class="yarn-line">WELCOME</span> <span class="yarn-meta">#line:0c6f99f </span>
-<span class="yarn-cmd">&lt;&lt;card food_baguette zoom&gt;&gt;</span>
-<span class="yarn-line">Second Line</span> <span class="yarn-meta">#line:06a2e0a </span>
-<span class="yarn-line">Third line. what do you want?</span> <span class="yarn-meta">#line:0d95cfd </span>
+Enter the house #shadow:0f92df5
+<span class="yarn-line">the fish is still here</span> <span class="yarn-meta">#line:08da0cf #customtag #native</span>
 <span class="yarn-line">Butter!</span> <span class="yarn-meta">#line:05edb53 </span>
     <span class="yarn-cmd">&lt;&lt;card butter&gt;&gt;</span>
 <span class="yarn-line">    Good butter</span> <span class="yarn-meta">#line:090e4bd </span>
@@ -408,7 +407,6 @@ You played the activity well!
 <span class="yarn-line">And this is fish</span> <span class="yarn-meta">#line:099d213 </span>
 <span class="yarn-cmd">&lt;&lt;card food_fish&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card food_fish zoom&gt;&gt;</span>
-<span class="yarn-line">the fishs is still here</span> <span class="yarn-meta">#line:08da0cf </span>
 <span class="yarn-line">We like it!</span> <span class="yarn-meta">#line:04d8ba8 </span>
 <span class="yarn-line">First Line v1</span> <span class="yarn-meta">#line:04a8afc </span>
 <span class="yarn-line">First Line v2</span> <span class="yarn-meta">#line:08cbb53 </span>
@@ -600,9 +598,27 @@ You played the activity well!
 &lt;&lt;elseif GetCollectedItem("collect_apples") &gt; 0 &gt;&gt;
 <span class="yarn-line">    I need more apples!</span> <span class="yarn-meta">#line:dev_task_collect_apples_3</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Collect 4 apples!</span> <span class="yarn-meta">#line:dev_task_collect_apples_1 </span>
-    <span class="yarn-cmd">&lt;&lt;task_start collect_apples task_collect_apples_done&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_collect_apples_info&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-collect-apples-info"></a>
+
+## task_collect_apples_info
+
+<div class="yarn-node" data-title="task_collect_apples_info">
+<pre class="yarn-code" style="--node-color:green"><code>
+<span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">group: tasks</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Collect 4 apples!</span> <span class="yarn-meta">#line:dev_task_collect_apples_1 #task:collect_apples</span>
+<span class="yarn-line">This is the description of this task.</span> <span class="yarn-meta">#line:063c743 </span>
+<span class="yarn-cmd">&lt;&lt;task_start collect_apples task_collect_apples_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -731,14 +747,16 @@ You played the activity well!
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: quiz</span>
 <span class="yarn-header-dim">tags:</span>
-<span class="yarn-header-dim">type:</span>
+<span class="yarn-header-dim">type: quiz</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Calculate 3*2</span> <span class="yarn-meta">#line:dev_test_quiz_1 </span>
-<span class="yarn-line">four</span> <span class="yarn-meta">#line:dev_test_quiz_2 </span>
+<span class="yarn-line">Calculate 3*2</span> <span class="yarn-meta">#line:dev_test_quiz_1 #card:fr_figure_triangle</span>
+<span class="yarn-line">four</span> <span class="yarn-meta">#line:dev_test_quiz_2 #card:number_4</span>
     <span class="yarn-cmd">&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
-<span class="yarn-line">six</span> <span class="yarn-meta">#line:dev_test_quiz_3 </span>
+<span class="yarn-line">six</span> <span class="yarn-meta">#line:dev_test_quiz_3 #card:bouillabaisse</span>
     <span class="yarn-cmd">&lt;&lt;jump test_quiz_correct&gt;&gt;</span>
-<span class="yarn-line">eight</span> <span class="yarn-meta">#line:dev_test_quiz_4 </span>
+<span class="yarn-line">eight</span> <span class="yarn-meta">#line:dev_test_quiz_4 #card:food_bread</span>
+    <span class="yarn-cmd">&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
+<span class="yarn-line">ten</span> <span class="yarn-meta">#line:03cdf2b #card:food_olive_oil </span>
     <span class="yarn-cmd">&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
 
 </code>
@@ -966,7 +984,7 @@ You played the activity well!
 <div class="yarn-node" data-title="EntroInCasa">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">entro in casa</span> <span class="yarn-meta">#line:0f92df5 </span>
+<span class="yarn-line">Enter the house</span> <span class="yarn-meta">#line:0f92df5 </span>
 
 </code>
 </pre>
@@ -1048,12 +1066,12 @@ You played the activity well!
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("canvas_beach_settings") &gt; 0&gt;&gt;
-        You already completed canvas 1!
+<span class="yarn-line">    You already completed canvas 1!</span> <span class="yarn-meta">#line:00dc701 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Do you want to play Activity CANVAS?</span> <span class="yarn-meta">#line:0532f99 </span>
--&gt; Yes #highlight
+<span class="yarn-line">Yes</span> <span class="yarn-meta">#line:0103ffa </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_beach_settings activity_canvas_result&gt;&gt;</span>
--&gt; No
+<span class="yarn-line">No</span> <span class="yarn-meta">#line:08a0b03 </span>
 
 
 </code>
@@ -1070,12 +1088,12 @@ You played the activity well!
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("canvas_beach2_settings") &gt; 0&gt;&gt;
-        You already completed canvas 2!
+<span class="yarn-line">    You already completed canvas 2!</span> <span class="yarn-meta">#line:006bcc5 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-Do you want to play Activity CANVAS 2?
--&gt; Yes #highlight
+<span class="yarn-line">Do you want to play Activity CANVAS 2?</span> <span class="yarn-meta">#line:0fbe532 </span>
+<span class="yarn-line">Yes</span> <span class="yarn-meta">#line:03b9f38 </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_beach2_settings activity_canvas2&gt;&gt;</span>
--&gt; No
+<span class="yarn-line">No</span> <span class="yarn-meta">#line:09e165e </span>
 
 
 </code>
@@ -1146,7 +1164,7 @@ Do you want to play Activity CANVAS 2?
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("memory_baguette_settings") &gt; 0&gt;&gt;
-You played MEMORY activity well!
+<span class="yarn-line">You played MEMORY activity well!</span> <span class="yarn-meta">#line:0940d53 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Activity MEMORY!</span> <span class="yarn-meta">#line:0727144</span>
 <span class="yarn-cmd">&lt;&lt;activity memory_baguette_settings activity_memory_result expert&gt;&gt;</span>

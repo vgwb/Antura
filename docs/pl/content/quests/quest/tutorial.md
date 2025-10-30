@@ -56,6 +56,7 @@ Subjects:
 
 ## Tasks
 - [Collect] talk_everybody
+- [Interact] open_chest
 ## Gameplay
 - Difficulty: Tutorial
 - Duration (min): 10

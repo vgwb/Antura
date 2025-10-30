@@ -1442,12 +1442,15 @@ A scientist who won two Nobel Prizes.
 ---
 
 ### Market traders {#market_traders}
+![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
+
 People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
 
 - Type: Person
 - Subjects: Money, Community
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
 
 ---
 

@@ -57,6 +57,7 @@ Talk to them all...  they have stories to tell!
 
 ## Tasks
 - [Collect] talk_everybody
+- [Interact] open_chest
 ## Gameplay
 - Difficulty: Tutorial
 - Duration (min): 10

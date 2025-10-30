@@ -37,12 +37,12 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $belgium_completed = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $spain_met = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $spain_completed = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;action area_small&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;area area_france&gt;&gt;</span>
 
 <span class="yarn-line">Bienvenue en France !</span> <span class="yarn-meta">#line:046db1f </span>
 <span class="yarn-line">Nous sommes en Europe.</span> <span class="yarn-meta">#line:08a8ce8 </span>
 <span class="yarn-line">Rencontrons des enfants des pays voisins.</span> <span class="yarn-meta">#line:08a09de </span>
-
+<span class="yarn-cmd">&lt;&lt;target NPC_France&gt;&gt;</span>
 
 </code>
 </pre>
@@ -54,7 +54,7 @@ hide:
 
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La quête est terminée.</span> <span class="yarn-meta">#line:0432689 </span>
@@ -70,7 +70,7 @@ hide:
 
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
@@ -92,7 +92,7 @@ hide:
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bravo ! Vous avez réussi !</span> <span class="yarn-meta">#line:0ba3c4c </span>
 <span class="yarn-cmd">&lt;&lt;card concept_europe_map&gt;&gt;</span>
@@ -130,17 +130,17 @@ hide:
         <span class="yarn-cmd">&lt;&lt;set $france_met = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;action germany_active&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_NPC_GE&gt;&gt;</span>
-        <span class="yarn-cmd">&lt;&lt;action area_bigger&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;area area_europe&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump task_germany  &gt;&gt;</span>
-        <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    Ce n'est pas mon drapeau. Le mien est bleu, blanc et rouge.</span> <span class="yarn-meta">#line:04e0432 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $france_met = true&gt;&gt;</span>
 <span class="yarn-line">    Bonjour ! Je viens de France !</span> <span class="yarn-meta">#line:06dfdd6 </span>
 <span class="yarn-line">    Antura a mélangé tous les drapeaux !</span> <span class="yarn-meta">#line:0a20eed </span>
 <span class="yarn-line">    Mon drapeau est bleu, blanc et rouge.</span> <span class="yarn-meta">#line:0868737 </span>
 <span class="yarn-line">    Pouvez-vous m'aider?</span> <span class="yarn-meta">#line:0a9f34e </span>
-    <span class="yarn-cmd">&lt;&lt;set $france_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump task_france&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -157,12 +157,29 @@ hide:
 <span class="yarn-header-dim">group: france</span>
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;asset flag_france&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Trouvez le drapeau français.</span> <span class="yarn-meta">#line:0e35434 </span>
+<span class="yarn-cmd">&lt;&lt;asset flag_france&gt;&gt;</span>
+<span class="yarn-line">Trouvez le drapeau français.</span> <span class="yarn-meta">#line:0e35434 #task:FIND_FRENCH_FLAG</span>
+<span class="yarn-cmd">&lt;&lt;target Flag_France&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_FR&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;task_start FIND_FRENCH_FLAG task_france&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start FIND_FRENCH_FLAG task_france_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-france-done"></a>
+
+## task_france_done
+
+<div class="yarn-node" data-title="task_france_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: france</span>
+<span class="yarn-header-dim">tags: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target NPC_France&gt;&gt;</span>
+[MISSING TRANSLATION: Great! You found the French flag. Go back to the French kid!]
 
 </code>
 </pre>
@@ -180,9 +197,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
 <span class="yarn-line">Drapeau de la France.</span> <span class="yarn-meta">#line:01d9617 </span>
-<span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_france"&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
 
 </code>
 </pre>
@@ -244,10 +259,8 @@ hide:
 <span class="yarn-header-dim">group: germany</span>
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Trouvez le drapeau allemand et ramenez-le.</span> <span class="yarn-meta">#line:029ee72 </span>
+<span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
+<span class="yarn-line">Trouvez le drapeau allemand et ramenez-le.</span> <span class="yarn-meta">#line:029ee72 #task:FIND_GERMAN_FLAG</span>
 <span class="yarn-line">Il a des rayures : noires, rouges, jaunes.</span> <span class="yarn-meta">#line:0f95ef2 </span>
 <span class="yarn-line">[MISSING TRANSLATION: &lt;camera_focus camera_Flag_GE&gt;&gt;]</span> <span class="yarn-meta">#line:0b35bca </span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_GERMAN_FLAG task_germany&gt;&gt;</span>
@@ -288,7 +301,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">        [MISSING TRANSLATION:         You have my flag in your inventory!]</span> <span class="yarn-meta">#line:0c7aab5 </span>
 <span class="yarn-line">        [MISSING TRANSLATION:         It's the red and yellow one, select it!]</span> <span class="yarn-meta">#line:05049ea </span>
-        <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $CURRENT_ITEM != ""&gt;&gt;</span>
 <span class="yarn-line">    Ce n'est pas le mien ! Notre drapeau est rouge et jaune.</span> <span class="yarn-meta">#line:0db05da </span>
     <span class="yarn-cmd">&lt;&lt;jump task_spain&gt;&gt;</span>
@@ -313,10 +326,8 @@ hide:
 <span class="yarn-header-dim">group: spain</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card flag_spain&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Trouvez le drapeau espagnol.</span> <span class="yarn-meta">#line:091cc7c </span>
+<span class="yarn-cmd">&lt;&lt;card flag_spain&gt;&gt;</span>
+<span class="yarn-line">Trouvez le drapeau espagnol.</span> <span class="yarn-meta">#line:091cc7c #task:FIND_SPANISH_FLAG</span>
 <span class="yarn-line">Il est rouge et jaune comme le soleil.</span> <span class="yarn-meta">#line:09635b4</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_SP&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_SPANISH_FLAG task_spain&gt;&gt;</span>
@@ -379,10 +390,8 @@ hide:
 <span class="yarn-header-dim">group: italy</span>
 <span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Trouvez le drapeau italien.</span> <span class="yarn-meta">#line:0ed29f1 </span>
+<span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
+<span class="yarn-line">Trouvez le drapeau italien.</span> <span class="yarn-meta">#line:0ed29f1 #task:FIND_ITALIAN_FLAG</span>
 <span class="yarn-line">C'est vert, blanc et rouge comme une pizza !</span> <span class="yarn-meta">#line:0cde44c </span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_Italy&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_ITALIAN_FLAG task_italy&gt;&gt;</span>
@@ -448,10 +457,8 @@ hide:
 <span class="yarn-header-dim">group: belgium</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Trouvez le drapeau belge.</span> <span class="yarn-meta">#line:0f08126 </span>
+<span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
+<span class="yarn-line">Trouvez le drapeau belge.</span> <span class="yarn-meta">#line:0f08126 #task:FIND_BELGIUM_FLAG</span>
 <span class="yarn-line">Il est noir, jaune et rouge avec des rayures verticales.</span> <span class="yarn-meta">#line:079ecca </span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_BE&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_BELGIUM_FLAG task_belgium&gt;&gt;</span>
@@ -535,10 +542,8 @@ hide:
 <span class="yarn-header-dim">group: lux</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card flag_luxembourg&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Trouvez le drapeau luxembourgeois.</span> <span class="yarn-meta">#line:0ed3698 </span>
+<span class="yarn-cmd">&lt;&lt;card flag_luxembourg&gt;&gt;</span>
+<span class="yarn-line">Trouvez le drapeau luxembourgeois.</span> <span class="yarn-meta">#line:0ed3698 #task:FIND_LUX_FLAG</span>
 <span class="yarn-line">Il est rouge, blanc et bleu clair.</span> <span class="yarn-meta">#line:018e4cf </span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_LU&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_LUX_FLAG task_lux&gt;&gt;</span>
@@ -621,10 +626,8 @@ hide:
 <span class="yarn-header-dim">group: swiss</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $EASY_MODE == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card flag_switzerland&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Trouvez le drapeau suisse.</span> <span class="yarn-meta">#line:0ec7096 </span>
+<span class="yarn-cmd">&lt;&lt;card flag_switzerland&gt;&gt;</span>
+<span class="yarn-line">Trouvez le drapeau suisse.</span> <span class="yarn-meta">#line:0ec7096 #task:FIND_SWISS_FLAG</span>
 <span class="yarn-line">Il est rouge avec une grande croix blanche comme une trousse de premiers secours.</span> <span class="yarn-meta">#line:07cc57e </span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_Flag_SW&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_SWISS_FLAG npc_swiss&gt;&gt;</span>
@@ -672,7 +675,6 @@ hide:
 <span class="yarn-line">Mon drapeau est bleu, jaune et rouge.</span> <span class="yarn-meta">#line:02846e8 </span>
 <span class="yarn-cmd">&lt;&lt;asset flag_andorra&gt;&gt;</span>
 
-
 </code>
 </pre>
 </div>
@@ -687,7 +689,7 @@ hide:
 <span class="yarn-header-dim">group: spain</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card  flag_spain&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card flag_spain&gt;&gt;</span>
 <span class="yarn-line">Drapeau de l'Espagne</span> <span class="yarn-meta">#line:006ce10 </span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_spain"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_spain add&gt;&gt;</span>
@@ -747,7 +749,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card  flag_switzerland&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card flag_switzerland&gt;&gt;</span>
 <span class="yarn-line">Drapeau de la Suisse.</span> <span class="yarn-meta">#line:0768ab7 </span>
 <span class="yarn-cmd">&lt;&lt;if $CURRENT_ITEM != "flag_switzerland"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_switzerland add&gt;&gt;</span>

@@ -935,6 +935,8 @@ Credits:
     - **[Traderzy rynkowi](../cards/index.md#market_traders)**
     Ludzie sprzedający żywność i towary na straganach targowych – jak sprzedawcy ryb, serów i owoców. Ważą, pakują i wykrzykują dzisiejsze ceny.
 
+    ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
+
 - Connected cards:
     - **[Kupiec handlujący serem](../cards/index.md#person_cheesemonger)** (RelatedTo)
     Osoba sprzedająca wiele rodzajów sera.

@@ -30,8 +30,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $MET_MONALISA = false&gt;&gt;</span>
 
 <span class="yarn-line">Bienvenue à Paris !</span> <span class="yarn-meta">#line:start </span>
-<span class="yarn-line">Va parler au tuteur !</span> <span class="yarn-meta">#line:start_2</span>
 <span class="yarn-cmd">&lt;&lt;target tutor&gt;&gt;</span>
+<span class="yarn-line">Va parler au tuteur !</span> <span class="yarn-meta">#line:start_2</span>
 
 </code>
 </pre>
@@ -44,9 +44,10 @@ hide:
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
+
 <span class="yarn-line">Super ! Je peux maintenant faire cuire la baguette. Et…</span> <span class="yarn-meta">#line:0017917 </span>
 <span class="yarn-line">FÉLICITATIONS ! Vous avez gagné ! Vous avez aimé ?</span> <span class="yarn-meta">#line:0d11596 </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
@@ -62,7 +63,7 @@ hide:
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 
@@ -83,10 +84,12 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 <span class="yarn-line">J'ai vu Antura aller à la Tour Eiffel.</span> <span class="yarn-meta">#line:talk_tutor</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus tour_eiffell&gt;&gt;</span>
 <span class="yarn-line">Suivez la lumière ou utilisez la carte !</span> <span class="yarn-meta">#line:talk_tutor_2 </span>
 <span class="yarn-line">Allez-y maintenant !</span> <span class="yarn-meta">#line:talk_tutor_3 </span>
+<span class="yarn-cmd">&lt;&lt;target eiffell&gt;&gt;</span>
 
 </code>
 </pre>
@@ -125,7 +128,8 @@ hide:
 <span class="yarn-header-dim">group: toureiffel</span>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if $TOTAL_COINS &gt; 2&gt;&gt;
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+&lt;&lt;if GetTotalCoins() &gt; 2&gt;&gt;
 <span class="yarn-line">    Voici votre billet.</span> <span class="yarn-meta">#line:04e74ad </span>
     <span class="yarn-cmd">&lt;&lt;asset tour_eiffell_ticket&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = $TOTAL_COINS-3&gt;&gt;</span>
@@ -133,7 +137,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;asset tour_eiffell_map&gt;&gt;</span>
 <span class="yarn-line">    J'ai vu Antura monter au sommet de la tour.</span> <span class="yarn-meta">#line:089abda </span>
 <span class="yarn-line">    Prenez l'ascenseur !</span> <span class="yarn-meta">#line:0585a5e </span>
-&lt;&lt;elseif $TOTAL_COINS &gt; 0&gt;&gt; 
+&lt;&lt;elseif GetTotalCoins() &gt; 0&gt;&gt; 
 <span class="yarn-line">    Collectez toutes les pièces !</span> <span class="yarn-meta">#line:04d966b </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Le billet pour la Tour Eiffel coûte 3 pièces.</span> <span class="yarn-meta">#line:069cbb3 </span>

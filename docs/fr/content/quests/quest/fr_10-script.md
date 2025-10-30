@@ -39,7 +39,7 @@ hide:
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Super, vous avez trouvé tous les ponts.</span> <span class="yarn-meta">#line:0c408c3 </span>
@@ -67,7 +67,7 @@ hide:
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
@@ -123,6 +123,23 @@ hide:
 </pre>
 </div>
 
+<a id="ys-node-task-seine"></a>
+
+## task_seine
+
+<div class="yarn-node" data-title="task_seine">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">J'ai perdu 8 photos de la Seine.</span> <span class="yarn-meta">#line:0d77f5e #task:seine</span>
+<span class="yarn-line">Pouvez-vous tous les trouver ?</span> <span class="yarn-meta">#line:05727a9 </span>
+<span class="yarn-line">Alors reviens vers moi !</span> <span class="yarn-meta">#line:09b03cc </span>
+<span class="yarn-cmd">&lt;&lt;task_start seine found_all_photos&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
 <a id="ys-node-found-all-photos"></a>
 
 ## found_all_photos
@@ -134,23 +151,6 @@ hide:
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0a70250 </span>
 <span class="yarn-line">Savez-vous qu'il y a 37 ponts sur la Seine ?</span> <span class="yarn-meta">#line:0353a5c </span>
 <span class="yarn-cmd">&lt;&lt;jump look_seine_map&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-task-seine"></a>
-
-## task_seine
-
-<div class="yarn-node" data-title="task_seine">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: </span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;task_start seine&gt;&gt;</span>
-<span class="yarn-line">J'ai perdu 8 photos de la Seine.</span> <span class="yarn-meta">#line:0d77f5e </span>
-<span class="yarn-line">Pouvez-vous tous les trouver ?</span> <span class="yarn-meta">#line:05727a9 </span>
-<span class="yarn-line">Alors reviens vers moi !</span> <span class="yarn-meta">#line:09b03cc </span>
 
 </code>
 </pre>

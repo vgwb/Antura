@@ -526,12 +526,15 @@ Une épice forte utilisée pour ajouter de la saveur aux aliments.
 ---
 
 ### Commerçants du marché {#market_traders}
+![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
+
 Ceux qui vendent des produits alimentaires et autres marchandises sur les étals des marchés, comme les poissonniers, les fromagers et les marchands de fruits. Ils pèsent, emballent et annoncent les prix du jour.
 
 - Type: Person
 - Subjects: Money, Community
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
 
 ---
 

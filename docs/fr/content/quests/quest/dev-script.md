@@ -23,7 +23,7 @@ hide:
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">// INIT</span>
 <span class="yarn-header-dim">// every quest starts with an INIT node</span>
-<span class="yarn-header-dim">// to inizialize existing variables and declare new ones</span>
+<span class="yarn-header-dim">// to initialize existing variables and declare new ones</span>
 <span class="yarn-header-dim">// title of a node must be unique to this quest</span>
 <span class="yarn-header-dim">// create a new node for anything that must be referenced multiple times</span>
 <span class="yarn-header-dim">// that makes understanding of the flow easier</span>
@@ -77,7 +77,7 @@ hide:
 <span class="yarn-line">Vous pouvez utiliser cette quête pour tester des fonctionnalités et des commandes.</span> <span class="yarn-meta">#line:0196a6d </span>
 <span class="yarn-cmd">&lt;&lt;asset backpack&gt;&gt;</span>
 <span class="yarn-comment">// shadow line example</span>
-[MISSING TRANSLATION: You played the activity well!]
+<span class="yarn-line">[MISSING TRANSLATION: You played the activity well!]</span> <span class="yarn-meta">#line:0597e46 </span>
 
 </code>
 </pre>
@@ -92,14 +92,14 @@ hide:
 <span class="yarn-header-dim">group: docs</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $EASY_MODE &gt;&gt;</span>
-    [MISSING TRANSLATION:     You are in EASY MODE!]
+<span class="yarn-line">    [MISSING TRANSLATION:     You are in EASY MODE!]</span> <span class="yarn-meta">#line:006edd6 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>    
-    [MISSING TRANSLATION:     You are in NORMAL MODE!]
+<span class="yarn-line">    [MISSING TRANSLATION:     You are in NORMAL MODE!]</span> <span class="yarn-meta">#line:02f8aaa </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP &gt;&gt;</span>
-    [MISSING TRANSLATION:     You are on DESKTOP!]
+<span class="yarn-line">    [MISSING TRANSLATION:     You are on DESKTOP!]</span> <span class="yarn-meta">#line:0afe11a </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    [MISSING TRANSLATION:     You are on MOBILE!]
+<span class="yarn-line">    [MISSING TRANSLATION:     You are on MOBILE!]</span> <span class="yarn-meta">#line:0245038 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -182,7 +182,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: docs</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-comment">// insted of a card, uses a direct Asset Id</span>
+<span class="yarn-comment">// instead of a card, uses a direct Asset Id</span>
 <span class="yarn-cmd">&lt;&lt;asset id_asset&gt;&gt;</span> 
 <span class="yarn-comment">// hides the current image</span>
 <span class="yarn-cmd">&lt;&lt;asset_hide&gt;&gt;</span>
@@ -297,6 +297,7 @@ hide:
 <span class="yarn-header-dim">group: docs</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-comment">// starts a task</span>
+[MISSING TRANSLATION: You can add the decription with #task:id_task_configuration]
 <span class="yarn-cmd">&lt;&lt;task_start id_task_configuration&gt;&gt;</span>
 <span class="yarn-comment">// end a task... if you say nothing, its a success</span>
 <span class="yarn-cmd">&lt;&lt;task_end id_task_configuration&gt;&gt;</span>
@@ -390,12 +391,10 @@ hide:
 <div class="yarn-node" data-title="test_dialog">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dialog</span>
+<span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card food_baguette&gt;&gt;</span>
-<span class="yarn-line">ACCUEILLIR</span> <span class="yarn-meta">#line:0c6f99f </span>
-<span class="yarn-cmd">&lt;&lt;card food_baguette zoom&gt;&gt;</span>
-<span class="yarn-line">Deuxième ligne</span> <span class="yarn-meta">#line:06a2e0a </span>
-<span class="yarn-line">Troisième ligne. Que veux-tu ?</span> <span class="yarn-meta">#line:0d95cfd </span>
+[MISSING TRANSLATION: Enter the house #shadow:0f92df5]
+<span class="yarn-line">le poisson est toujours là</span> <span class="yarn-meta">#line:08da0cf #customtag #native</span>
 <span class="yarn-line">Beurre!</span> <span class="yarn-meta">#line:05edb53 </span>
     <span class="yarn-cmd">&lt;&lt;card butter&gt;&gt;</span>
 <span class="yarn-line">    Du bon beurre</span> <span class="yarn-meta">#line:090e4bd </span>
@@ -408,7 +407,6 @@ hide:
 <span class="yarn-line">Et c'est du poisson</span> <span class="yarn-meta">#line:099d213 </span>
 <span class="yarn-cmd">&lt;&lt;card food_fish&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card food_fish zoom&gt;&gt;</span>
-<span class="yarn-line">le poisson est toujours là</span> <span class="yarn-meta">#line:08da0cf </span>
 <span class="yarn-line">On aime ça !</span> <span class="yarn-meta">#line:04d8ba8 </span>
 <span class="yarn-line">Première ligne v1</span> <span class="yarn-meta">#line:04a8afc </span>
 <span class="yarn-line">Première ligne v2</span> <span class="yarn-meta">#line:08cbb53 </span>
@@ -600,9 +598,27 @@ hide:
 &lt;&lt;elseif GetCollectedItem("collect_apples") &gt; 0 &gt;&gt;
 <span class="yarn-line">    J'ai besoin de plus de pommes !</span> <span class="yarn-meta">#line:dev_task_collect_apples_3</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Récupérez 4 pommes !</span> <span class="yarn-meta">#line:dev_task_collect_apples_1 </span>
-    <span class="yarn-cmd">&lt;&lt;task_start collect_apples task_collect_apples_done&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_collect_apples_info&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-collect-apples-info"></a>
+
+## task_collect_apples_info
+
+<div class="yarn-node" data-title="task_collect_apples_info">
+<pre class="yarn-code" style="--node-color:green"><code>
+<span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">group: tasks</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Récupérez 4 pommes !</span> <span class="yarn-meta">#line:dev_task_collect_apples_1 #task:collect_apples</span>
+<span class="yarn-line">[MISSING TRANSLATION: This is the description of this task.]</span> <span class="yarn-meta">#line:063c743 </span>
+<span class="yarn-cmd">&lt;&lt;task_start collect_apples task_collect_apples_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -731,14 +747,16 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: quiz</span>
 <span class="yarn-header-dim">tags:</span>
-<span class="yarn-header-dim">type:</span>
+<span class="yarn-header-dim">type: quiz</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Calculer 3*2</span> <span class="yarn-meta">#line:dev_test_quiz_1 </span>
-<span class="yarn-line">quatre</span> <span class="yarn-meta">#line:dev_test_quiz_2 </span>
+<span class="yarn-line">Calculer 3*2</span> <span class="yarn-meta">#line:dev_test_quiz_1 #card:fr_figure_triangle</span>
+<span class="yarn-line">quatre</span> <span class="yarn-meta">#line:dev_test_quiz_2 #card:number_4</span>
     <span class="yarn-cmd">&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
-<span class="yarn-line">six</span> <span class="yarn-meta">#line:dev_test_quiz_3 </span>
+<span class="yarn-line">six</span> <span class="yarn-meta">#line:dev_test_quiz_3 #card:bouillabaisse</span>
     <span class="yarn-cmd">&lt;&lt;jump test_quiz_correct&gt;&gt;</span>
-<span class="yarn-line">huit</span> <span class="yarn-meta">#line:dev_test_quiz_4 </span>
+<span class="yarn-line">huit</span> <span class="yarn-meta">#line:dev_test_quiz_4 #card:food_bread</span>
+    <span class="yarn-cmd">&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; ten]</span> <span class="yarn-meta">#line:03cdf2b #card:food_olive_oil </span>
     <span class="yarn-cmd">&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
 
 </code>
@@ -1048,12 +1066,12 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("canvas_beach_settings") &gt; 0&gt;&gt;
-    [MISSING TRANSLATION:     You already completed canvas 1!]
+<span class="yarn-line">    [MISSING TRANSLATION:     You already completed canvas 1!]</span> <span class="yarn-meta">#line:00dc701 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Activité CANVAS!</span> <span class="yarn-meta">#line:0532f99 </span>
-[MISSING TRANSLATION: -&gt; Yes #highlight]
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Yes #highlight]</span> <span class="yarn-meta">#line:0103ffa </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_beach_settings activity_canvas_result&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No]
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; No]</span> <span class="yarn-meta">#line:08a0b03 </span>
 
 
 </code>
@@ -1070,12 +1088,12 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("canvas_beach2_settings") &gt; 0&gt;&gt;
-    [MISSING TRANSLATION:     You already completed canvas 2!]
+<span class="yarn-line">    [MISSING TRANSLATION:     You already completed canvas 2!]</span> <span class="yarn-meta">#line:006bcc5 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-[MISSING TRANSLATION: Do you want to play Activity CANVAS 2?]
-[MISSING TRANSLATION: -&gt; Yes #highlight]
+<span class="yarn-line">[MISSING TRANSLATION: Do you want to play Activity CANVAS 2?]</span> <span class="yarn-meta">#line:0fbe532 </span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Yes #highlight]</span> <span class="yarn-meta">#line:03b9f38 </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_beach2_settings activity_canvas2&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No]
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; No]</span> <span class="yarn-meta">#line:09e165e </span>
 
 
 </code>
@@ -1146,7 +1164,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("memory_baguette_settings") &gt; 0&gt;&gt;
-[MISSING TRANSLATION: You played MEMORY activity well!]
+<span class="yarn-line">[MISSING TRANSLATION: You played MEMORY activity well!]</span> <span class="yarn-meta">#line:0940d53 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Activité MÉMOIRE !</span> <span class="yarn-meta">#line:0727144</span>
 <span class="yarn-cmd">&lt;&lt;activity memory_baguette_settings activity_memory_result expert&gt;&gt;</span>

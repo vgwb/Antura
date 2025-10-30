@@ -936,6 +936,8 @@ Credits:
     - **[Market traders](../cards/index.md#market_traders)**
     People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
 
+    ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
+
 - Connected cards:
     - **[Cheesemonger](../cards/index.md#person_cheesemonger)** (RelatedTo)
     A person who sells many types of cheese.

@@ -61,7 +61,7 @@ hide:
 
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetna robota w MARKET.</span> <span class="yarn-meta">#line:073978d </span>
@@ -79,7 +79,7 @@ hide:
 
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>

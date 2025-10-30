@@ -44,7 +44,7 @@ hide:
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Gra ukończona! Gratulacje!</span> <span class="yarn-meta">#line:0f5c958 </span>
@@ -61,12 +61,177 @@ hide:
 <div class="yarn-node" data-title="quest_proposal">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Jakie jest twoje ulubione jedzenie?</span> <span class="yarn-meta">#line:01f78ed </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chef"></a>
+
+## chef
+
+<div class="yarn-node" data-title="chef">
+<pre class="yarn-code" style="--node-color:blue"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">color: blue</span>
+<span class="yarn-header-dim">tags: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if GetCollectedItem("COLLECT_THE_INGREDIENTS") == 9&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump chef_ingredients_done&gt;&gt;</span>
+&lt;&lt;elseif GetCollectedItem("COLLECT_THE_INGREDIENTS") &gt; 0 &gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;jump chef_not_enough&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump chef_welcome&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chef-welcome"></a>
+
+## chef_welcome
+
+<div class="yarn-node" data-title="chef_welcome">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Bonjour! Witamy w Marsylii nad Morzem Śródziemnym!</span> <span class="yarn-meta">#line:02548dd </span>
+<span class="yarn-line">Chcę przygotować dla Ciebie specjalne danie: zupę rybną bouillabaisse!</span> <span class="yarn-meta">#line:0c65de3 </span>
+<span class="yarn-cmd">&lt;&lt;card bouillabaisse zoom&gt;&gt;</span>
+<span class="yarn-line">Ale potrzebuję kilku składników.</span> <span class="yarn-meta">#line:0623733 </span>
+<span class="yarn-cmd">&lt;&lt;jump task_ingredients&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-ingredients"></a>
+
+## task_ingredients
+
+<div class="yarn-node" data-title="task_ingredients">
+<pre class="yarn-code" style="--node-color:green"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">tags: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Proszę, idź na rynek i kup je dla mnie.</span> <span class="yarn-meta">#line:06602c6 </span>
+<span class="yarn-cmd">&lt;&lt;detour task_ingredients_desc&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start COLLECT_THE_INGREDIENTS task_ingredients_done&gt;&gt;</span>
+<span class="yarn-line">Pamiętaj o manierach!</span> <span class="yarn-meta">#line:02819db </span>
+<span class="yarn-line">Powiedz „Bonjour”, aby powitać kogoś,</span> <span class="yarn-meta">#line:04c9d69 </span>
+<span class="yarn-line">i "Merci" jako podziękowanie.</span> <span class="yarn-meta">#line:022fd8f </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-ingredients-desc"></a>
+
+## task_ingredients_desc
+
+<div class="yarn-node" data-title="task_ingredients_desc">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Zbierz wszystkie składniki potrzebne do przepisu.</span> <span class="yarn-meta">#line:00849bb #task:COLLECT_THE_INGREDIENTS</span>
+[MISSING TRANSLATION: bread #card:food_bread]
+[MISSING TRANSLATION: fish #card:food_fish]
+[MISSING TRANSLATION: orange #card:food_orange]
+[MISSING TRANSLATION: lemon #card:food_lemon]
+[MISSING TRANSLATION: tomato #card:food_tomatobread]
+[MISSING TRANSLATION: milk #card:food_milk]
+[MISSING TRANSLATION: pepper and salt #card:food_pepper_salt]
+[MISSING TRANSLATION: oil #card:food_olive_oil]
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chef-not-enough"></a>
+
+## chef_not_enough
+
+<div class="yarn-node" data-title="chef_not_enough">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">tags: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Potrzebuję więcej składników!</span> <span class="yarn-meta">#line:0c5c6ac </span>
+<span class="yarn-line">Upewnij się, że porozmawiasz ze wszystkimi osobami na rynku.</span> <span class="yarn-meta">#line:0060c01 </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-ingredients-done"></a>
+
+## task_ingredients_done
+
+<div class="yarn-node" data-title="task_ingredients_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Masz wszystkie składniki! Wróć do szefa kuchni.</span> <span class="yarn-meta">#line:05398f2 </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chef-ingredients-done"></a>
+
+## chef_ingredients_done
+
+<div class="yarn-node" data-title="chef_ingredients_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Wspaniale! Masz wszystko.</span> <span class="yarn-meta">#line:0257fc7 </span>
+<span class="yarn-line">Byłeś bardzo uprzejmy.</span> <span class="yarn-meta">#line:0112e25 </span>
+<span class="yarn-line">Przygotujmy teraz naszą ucztę!</span> <span class="yarn-meta">#line:0051174 </span>
+<span class="yarn-cmd">&lt;&lt;jump activity_match_ingredients&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-match-ingredients"></a>
+
+## activity_match_ingredients
+
+<div class="yarn-node" data-title="activity_match_ingredients">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">tags: activity</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Dopasuj każdy przedmiot do właściwego sprzedawcy.</span> <span class="yarn-meta">#line:0a6e106 </span>
+<span class="yarn-cmd">&lt;&lt;activity match_ingredients activity_match_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-match-done"></a>
+
+## activity_match_done
+
+<div class="yarn-node" data-title="activity_match_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: chef</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Gratulacje! Udało Ci się dopasować wszystkie elementy.</span> <span class="yarn-meta">#line:01648b2 </span>
+<span class="yarn-line">Teraz czas na ugotowanie zupy rybnej!</span> <span class="yarn-meta">#line:0f0f617 </span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>
 </pre>
@@ -627,6 +792,7 @@ hide:
 <span class="yarn-line">A teraz ruszaj! Muszę przygotować się do następnej podróży.</span> <span class="yarn-meta">#line:04a0605 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Ahoj! Witamy na pokładzie.</span> <span class="yarn-meta">#line:04ee922 </span>
+<span class="yarn-cmd">&lt;&lt;card pirates&gt;&gt;</span>
 <span class="yarn-line">Pochodzimy z Saint-Malo i przepłynęliśmy całe morza, żeby tu dotrzeć.</span> <span class="yarn-meta">#line:056c70d </span>
 <span class="yarn-line">Ludzie nazywają nas piratami, ale byliśmy korsarzami.</span> <span class="yarn-meta">#line:0f764a6 </span>
 <span class="yarn-cmd">&lt;&lt;jump pirate_activity&gt;&gt;</span>
@@ -668,163 +834,6 @@ hide:
 <span class="yarn-line">Powinieneś zapłacić za to, czego potrzebujesz</span> <span class="yarn-meta">#line:0209784 </span>
 <span class="yarn-line">Powinieneś zapłacić za to, czego potrzebujesz, aby sklepy mogły pozostać otwarte!</span> <span class="yarn-meta">#line:02c49d0 </span>
 <span class="yarn-cmd">&lt;&lt;set $pirate_completed = true&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-chef"></a>
-
-## chef
-
-<div class="yarn-node" data-title="chef">
-<pre class="yarn-code" style="--node-color:blue"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">color: blue</span>
-<span class="yarn-header-dim">tags: </span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if GetCollectedItem("COLLECT_THE_INGREDIENTS") == 9&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;jump chef_ingredients_done&gt;&gt;</span>
-&lt;&lt;elseif GetCollectedItem("COLLECT_THE_INGREDIENTS") &gt; 0 &gt;&gt;
-    <span class="yarn-cmd">&lt;&lt;jump chef_not_enough&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;jump chef_welcome&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-chef-welcome"></a>
-
-## chef_welcome
-
-<div class="yarn-node" data-title="chef_welcome">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bonjour! Witamy w Marsylii nad Morzem Śródziemnym!</span> <span class="yarn-meta">#line:02548dd </span>
-<span class="yarn-line">Chcę przygotować dla Ciebie specjalne danie: zupę rybną bouillabaisse!</span> <span class="yarn-meta">#line:0c65de3 </span>
-<span class="yarn-cmd">&lt;&lt;card bouillabaisse zoom&gt;&gt;</span>
-<span class="yarn-line">Ale potrzebuję kilku składników.</span> <span class="yarn-meta">#line:0623733 </span>
-<span class="yarn-cmd">&lt;&lt;jump task_ingredients&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-task-ingredients"></a>
-
-## task_ingredients
-
-<div class="yarn-node" data-title="task_ingredients">
-<pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">tags: task</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Proszę, idź na rynek i kup je dla mnie.</span> <span class="yarn-meta">#line:06602c6 </span>
-<span class="yarn-cmd">&lt;&lt;task_start COLLECT_THE_INGREDIENTS task_ingredients_done&gt;&gt;</span>
-<span class="yarn-line">Pamiętaj o manierach!</span> <span class="yarn-meta">#line:02819db </span>
-<span class="yarn-line">Powiedz „Bonjour”, aby powitać kogoś,</span> <span class="yarn-meta">#line:04c9d69 </span>
-<span class="yarn-line">i "Merci" jako podziękowanie.</span> <span class="yarn-meta">#line:022fd8f </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-task-ingredients-desc"></a>
-
-## task_ingredients_desc
-
-<div class="yarn-node" data-title="task_ingredients_desc">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">type: task</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Zbierz wszystkie składniki potrzebne do przepisu.</span> <span class="yarn-meta">#line:00849bb </span>
-<span class="yarn-line">Są to: chleb, ryba, pomarańcza, cytryna, pomidor, mleko, pieprz i sól, olej.</span> <span class="yarn-meta">#line:03fbee1 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-chef-not-enough"></a>
-
-## chef_not_enough
-
-<div class="yarn-node" data-title="chef_not_enough">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">tags: task</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Potrzebuję więcej składników!</span> <span class="yarn-meta">#line:0c5c6ac </span>
-<span class="yarn-line">Upewnij się, że porozmawiasz ze wszystkimi osobami na rynku.</span> <span class="yarn-meta">#line:0060c01 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-task-ingredients-done"></a>
-
-## task_ingredients_done
-
-<div class="yarn-node" data-title="task_ingredients_done">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Masz wszystkie składniki! Wróć do szefa kuchni.</span> <span class="yarn-meta">#line:05398f2 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-chef-ingredients-done"></a>
-
-## chef_ingredients_done
-
-<div class="yarn-node" data-title="chef_ingredients_done">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Wspaniale! Masz wszystko.</span> <span class="yarn-meta">#line:0257fc7 </span>
-<span class="yarn-line">Byłeś bardzo uprzejmy.</span> <span class="yarn-meta">#line:0112e25 </span>
-<span class="yarn-line">Przygotujmy teraz naszą ucztę!</span> <span class="yarn-meta">#line:0051174 </span>
-<span class="yarn-cmd">&lt;&lt;jump activity_match_ingredients&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-activity-match-ingredients"></a>
-
-## activity_match_ingredients
-
-<div class="yarn-node" data-title="activity_match_ingredients">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">tags: activity</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dopasuj każdy przedmiot do właściwego sprzedawcy.</span> <span class="yarn-meta">#line:0a6e106 </span>
-<span class="yarn-cmd">&lt;&lt;activity match_ingredients activity_match_done&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-activity-match-done"></a>
-
-## activity_match_done
-
-<div class="yarn-node" data-title="activity_match_done">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Gratulacje! Udało Ci się dopasować wszystkie elementy.</span> <span class="yarn-meta">#line:01648b2 </span>
-<span class="yarn-line">Teraz czas na ugotowanie zupy rybnej!</span> <span class="yarn-meta">#line:0f0f617 </span>
-<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1190,12 +1199,9 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jedno euro to 100 centów.</span> <span class="yarn-meta">#line:0e6c526 </span>
-<span class="yarn-cmd">&lt;&lt;card currency_euro&gt;&gt;</span>
-<span class="yarn-line">Uprzejme słowa i odpowiednie monety: idealnie!</span> <span class="yarn-meta">#line:07a5934 </span>
-<span class="yarn-cmd">&lt;&lt;card currency_euro&gt;&gt;</span>
-<span class="yarn-line">Każda waluta euro ma inną wielkość.</span> <span class="yarn-meta">#line:021819a </span>
-<span class="yarn-cmd">&lt;&lt;card currency_euro&gt;&gt;</span>
+<span class="yarn-line">Jedno euro to 100 centów.</span> <span class="yarn-meta">#line:0e6c526 #card:currency_euro</span>
+<span class="yarn-line">Uprzejme słowa i odpowiednie monety: idealnie!</span> <span class="yarn-meta">#line:07a5934 #card:currency_euro</span>
+<span class="yarn-line">Każda waluta euro ma inną wielkość.</span> <span class="yarn-meta">#line:021819a #card:currency_euro</span>
 
 </code>
 </pre>
@@ -1211,14 +1217,10 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: buyers </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bouillabaisse to zupa rybna łącząca wiele gatunków ryb.</span> <span class="yarn-meta">#line:0b6981c </span>
-<span class="yarn-cmd">&lt;&lt;card bouillabaisse&gt;&gt;</span>
-<span class="yarn-line">Świeży pomidor dodaje smaku.</span> <span class="yarn-meta">#line:0477851 </span>
-<span class="yarn-cmd">&lt;&lt;card food_tomato&gt;&gt;</span>
-<span class="yarn-line">Oliwa z oliwek dodaje smaku.</span> <span class="yarn-meta">#line:060644d </span>
-<span class="yarn-cmd">&lt;&lt;card food_olive_oil&gt;&gt;</span>
-<span class="yarn-line">Chleb świetnie nadaje się do maczania zup.</span> <span class="yarn-meta">#line:04e69ac </span>
-<span class="yarn-cmd">&lt;&lt;card food_bread&gt;&gt;</span>
+<span class="yarn-line">Bouillabaisse to zupa rybna łącząca wiele gatunków ryb.</span> <span class="yarn-meta">#line:0b6981c #card:bouillabaisse</span>
+<span class="yarn-line">Świeży pomidor dodaje smaku.</span> <span class="yarn-meta">#line:0477851 #card:food_tomato</span>
+<span class="yarn-line">Oliwa z oliwek dodaje smaku.</span> <span class="yarn-meta">#line:060644d #card:food_olive_oil    </span>
+<span class="yarn-line">Chleb świetnie nadaje się do maczania zup.</span> <span class="yarn-meta">#line:04e69ac #card:food_bread</span>
 
 </code>
 </pre>
@@ -1234,14 +1236,10 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: buyers </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Piekarz piecze chleb.</span> <span class="yarn-meta">#line:0606dc5 </span>
-<span class="yarn-cmd">&lt;&lt;card person_baker&gt;&gt;</span>
-<span class="yarn-line">Sprzedawca ryb sprzedaje ryby i kraby.</span> <span class="yarn-meta">#line:0ca5a9b </span>
-<span class="yarn-cmd">&lt;&lt;card person_fishmonger&gt;&gt;</span>
-<span class="yarn-line">Sprzedawca sera sprzedaje ser i mleko.</span> <span class="yarn-meta">#line:0b5b1c5 </span>
-<span class="yarn-cmd">&lt;&lt;card person_cheesemonger&gt;&gt;</span>
-<span class="yarn-line">Sprzedawca warzyw i owoców sprzedaje warzywa.</span> <span class="yarn-meta">#line:03b9a2e </span>
-<span class="yarn-cmd">&lt;&lt;card person_greengrocer&gt;&gt;</span>
+<span class="yarn-line">Piekarz piecze chleb.</span> <span class="yarn-meta">#line:0606dc5 #card:person_baker</span>
+<span class="yarn-line">Sprzedawca ryb sprzedaje ryby i kraby.</span> <span class="yarn-meta">#line:0ca5a9b #card:person_fishmonger</span>
+<span class="yarn-line">Sprzedawca sera sprzedaje ser i mleko.</span> <span class="yarn-meta">#line:0b5b1c5 #card:person_cheesemonger</span>
+<span class="yarn-line">Sprzedawca warzyw i owoców sprzedaje warzywa.</span> <span class="yarn-meta">#line:03b9a2e #card:person_greengrocer</span>
 
 </code>
 </pre>

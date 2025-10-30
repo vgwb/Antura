@@ -22,14 +22,15 @@ hide:
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Witamy w samouczku!</span> <span class="yarn-meta">#line:021793f </span>
-<span class="yarn-line">Tutaj uczymy się grać.</span> <span class="yarn-meta">#line:0588c17</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;asset keys_wasd zoom&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;asset keys_wasd&gt;&gt;</span>
 <span class="yarn-line">    Do chodzenia używaj klawiszy WASD.</span> <span class="yarn-meta">#line:037d71d </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;asset tutorial_move zoom&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;asset tutorial_move&gt;&gt;</span>
 <span class="yarn-line">    Używaj lewego palca do chodzenia</span> <span class="yarn-meta">#line:0e55bc4 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target tutor_1&gt;&gt;</span>
 
 </code>
 </pre>
@@ -43,13 +44,15 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dotknij tego tekstu, aby usłyszeć go w swoim języku.</span> <span class="yarn-meta">#line:03dbfa7 #native</span>
-<span class="yarn-cmd">&lt;&lt;asset tutorial_goon&gt;&gt;</span>
-<span class="yarn-line">Użyj tego przycisku, aby kontynuować dialog.</span> <span class="yarn-meta">#line:0f4f069 </span>
-<span class="yarn-cmd">&lt;&lt;asset tutorial_image&gt;&gt;</span>
-<span class="yarn-line">Użyj tego przycisku, aby wyświetlić zdjęcie</span> <span class="yarn-meta">#line:0784704 </span>
+<span class="yarn-line">Dotknij tego tekstu, aby usłyszeć go ponownie.</span> <span class="yarn-meta">#line:03dbfa7 #native</span>
+<span class="yarn-comment">// &lt;&lt;asset tutorial_goon&gt;&gt;</span>
+<span class="yarn-comment">// Use this button to advance the dialog.</span> <span class="yarn-meta">#line:0f4f069 </span>
+
+<span class="yarn-comment">//&lt;&lt;asset tutorial_image&gt;&gt;</span>
+<span class="yarn-comment">//Use this button to view the photo</span> <span class="yarn-meta">#line:0784704 </span>
+
 <span class="yarn-line">Idź i porozmawiaj z następnym korepetytorem!</span> <span class="yarn-meta">#line:0eb85aa </span>
-<span class="yarn-cmd">&lt;&lt;action area_medium&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;area area_medium&gt;&gt;</span>
 
 </code>
 </pre>
@@ -64,12 +67,12 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
-<span class="yarn-line">    Naciśnij prawy przycisk myszy, aby przesunąć kamerę.</span> <span class="yarn-meta">#line:0e633a2 </span>
+<span class="yarn-line">    Naciśnij przycisk myszy, aby przesunąć kamerę.</span> <span class="yarn-meta">#line:0e633a2 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset tutorial_camera&gt;&gt;</span>
 <span class="yarn-line">    Użyj prawego palca, aby przesuwać kamerę.</span> <span class="yarn-meta">#line:0aa47cb </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;action area_large&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;area area_large&gt;&gt;</span>
 
 </code>
 </pre>
@@ -101,14 +104,13 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: asset=tutorial_move</span>
 <span class="yarn-header-dim">---</span>
+ <span class="yarn-cmd">&lt;&lt;asset tutorial_jump&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
-<span class="yarn-line">    Naciśnij klawisz SPACJA, aby skoczyć</span> <span class="yarn-meta">#line:07940cf </span>
+<span class="yarn-line">    Naciśnij klawisz SPACJA lub ten przycisk, aby przejść</span> <span class="yarn-meta">#line:07940cf</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;asset tutorial_jump&gt;&gt;</span>
 <span class="yarn-line">    Użyj tego przycisku, aby przejść</span> <span class="yarn-meta">#line:0b9c1fa </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;action area_intro_large&gt;&gt;</span>
-
+<span class="yarn-cmd">&lt;&lt;area area_large&gt;&gt;</span>
 
 </code>
 </pre>
@@ -183,8 +185,8 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_target&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target target_11&gt;&gt;</span>
-<span class="yarn-line">Jeśli się zgubisz, podążaj za tą ikoną.</span> <span class="yarn-meta">#line:06c117d </span>
+<span class="yarn-cmd">&lt;&lt;target tutor_10&gt;&gt;</span>
+<span class="yarn-line">Ta ikona wskazuje dokąd się udać.</span> <span class="yarn-meta">#line:06c117d </span>
 
 </code>
 </pre>
@@ -198,10 +200,50 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;action area_all&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_coin&gt;&gt;</span>
-<span class="yarn-line">Zobaczmy, czy się nauczyłeś: wejdź po schodach i zdobądź tę monetę!</span> <span class="yarn-meta">#line:0fe9efe </span>
+<span class="yarn-line">Zobaczę, czy się nauczyłeś</span> <span class="yarn-meta">#line:0fe9efe</span>
+<span class="yarn-cmd">&lt;&lt;target chest_end&gt;&gt;</span>
+<span class="yarn-line">Wejdź po schodach i otwórz skrzynię</span> <span class="yarn-meta">#line:07b2183 </span>
+<span class="yarn-cmd">&lt;&lt;task_start open_chest task_open_chest_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-open-chest-done"></a>
+
+## task_open_chest_done
+
+<div class="yarn-node" data-title="task_open_chest_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Świetnie! Otworzyłeś skrzynię!</span> <span class="yarn-meta">#line:0c30eb1 </span>
+<span class="yarn-cmd">&lt;&lt;action appear_tutor_end&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-tutor-end"></a>
+
+## tutor_end
+
+<div class="yarn-node" data-title="tutor_end">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">group: </span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
+<span class="yarn-line">To koniec podstawowego samouczka.</span> <span class="yarn-meta">#line:0dfdfc5 </span>
+<span class="yarn-line">Teraz możesz eksplorować okolicę i rozmawiać ze wszystkimi</span> <span class="yarn-meta">#line:02fea28 </span>
+<span class="yarn-line">Jesteś gotowy do gry?</span> <span class="yarn-meta">#line:0ac17d0 </span>
+<span class="yarn-line">Tak</span> <span class="yarn-meta">#line:0b66e60 </span>
+<span class="yarn-line">    Świetnie. Do zobaczenia wkrótce w grze!</span> <span class="yarn-meta">#line:07498c0 </span>
+<span class="yarn-line">    W Anturze jest o wiele więcej do odkrycia.</span> <span class="yarn-meta">#line:0ed06b6 </span>
+<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:01d5126 </span>
+<span class="yarn-line">    Możesz odtworzyć samouczek w dowolnym momencie.</span> <span class="yarn-meta">#line:06f9065 </span>
+<span class="yarn-line">    Poproś swojego nauczyciela o pomoc.</span> <span class="yarn-meta">#line:0c6bc14 </span>
 
 </code>
 </pre>
@@ -440,14 +482,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Przyjemnie jest sprzątać, prawda?</span> <span class="yarn-meta">#line:059323a</span>
-<span class="yarn-line">Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:0cb9ba3 </span>
-<span class="yarn-line">Łatwy</span> <span class="yarn-meta">#line:04f5fb1 </span>
+[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
+[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result easy&gt;&gt;</span>
-<span class="yarn-line">Normalna</span> <span class="yarn-meta">#line:02fef35 </span>
+[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result normal&gt;&gt;</span>
-<span class="yarn-line">Ekspert</span> <span class="yarn-meta">#line:02eec35 </span>
+[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result expert&gt;&gt;</span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:0e863cb </span>
+[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
 
 </code>
 </pre>
@@ -480,14 +522,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Uwielbiam łamigłówki!</span> <span class="yarn-meta">#line:0fc42d8 </span>
-<span class="yarn-line">Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:0c4ff24 </span>
-<span class="yarn-line">Łatwy</span> <span class="yarn-meta">#line:0954fe5 </span>
+[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
+[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result easy&gt;&gt;</span>
-<span class="yarn-line">Normalna</span> <span class="yarn-meta">#line:000c3d6 </span>
+[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result normal&gt;&gt;</span>
-<span class="yarn-line">Ekspert</span> <span class="yarn-meta">#line:059ec4a </span>
+[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result expert&gt;&gt;</span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:0532802 </span>
+[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
 
 </code>
 </pre>
@@ -520,14 +562,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ładne dopasowanie!</span> <span class="yarn-meta">#line:0f0ee2e</span>
-<span class="yarn-line">Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:004c965 </span>
-<span class="yarn-line">Łatwy</span> <span class="yarn-meta">#line:01edc32 </span>
+[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
+[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result easy&gt;&gt;</span>
-<span class="yarn-line">Normalna</span> <span class="yarn-meta">#line:07dd1f5 </span>
+[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result normal&gt;&gt;</span>
-<span class="yarn-line">Ekspert</span> <span class="yarn-meta">#line:03da90e </span>
+[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result expert&gt;&gt;</span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:0f413e8 </span>
+[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
 
 </code>
 </pre>
@@ -560,14 +602,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ważne jest, aby nauczyć się korzystać z pieniędzy!</span> <span class="yarn-meta">#line:06136c1</span>
-<span class="yarn-line">Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:0f807bd </span>
-<span class="yarn-line">Łatwy</span> <span class="yarn-meta">#line:084b4a8 </span>
+[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
+[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result easy&gt;&gt;</span>
-<span class="yarn-line">Normalna</span> <span class="yarn-meta">#line:00f0e0f </span>
+[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result normal&gt;&gt;</span>
-<span class="yarn-line">Ekspert</span> <span class="yarn-meta">#line:0a78802 </span>
+[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result expert&gt;&gt;</span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:02c75c6 </span>
+[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
 
 </code>
 </pre>
@@ -600,37 +642,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobra aktywność.</span> <span class="yarn-meta">#line:0838f7f </span>
-<span class="yarn-line">Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:06bb133 </span>
-<span class="yarn-line">Łatwy</span> <span class="yarn-meta">#line:04c0d23 </span>
+[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
+[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result easy&gt;&gt;</span>
-<span class="yarn-line">Normalna</span> <span class="yarn-meta">#line:0758cd7 </span>
+[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result normal&gt;&gt;</span>
-<span class="yarn-line">Ekspert</span> <span class="yarn-meta">#line:0879058 </span>
+[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result expert&gt;&gt;</span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:0ea4d7e </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-tutor-end"></a>
-
-## tutor_end
-
-<div class="yarn-node" data-title="tutor_end">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">group: </span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">To koniec poradnika.</span> <span class="yarn-meta">#line:0dfdfc5 </span>
-<span class="yarn-line">Czy jesteś gotowy, aby zagrać w grę?</span> <span class="yarn-meta">#line:02fea28 </span>
-<span class="yarn-line">Jesteś gotowy do gry?</span> <span class="yarn-meta">#line:0ac17d0 </span>
-<span class="yarn-line">Tak</span> <span class="yarn-meta">#line:0b66e60 </span>
-<span class="yarn-line">    Świetnie. Do zobaczenia wkrótce w grze!</span> <span class="yarn-meta">#line:07498c0 </span>
-<span class="yarn-line">    W Anturze jest o wiele więcej do odkrycia.</span> <span class="yarn-meta">#line:0ed06b6 </span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:01d5126 </span>
-<span class="yarn-line">    Możesz odtworzyć samouczek w dowolnym momencie.</span> <span class="yarn-meta">#line:06f9065 </span>
-<span class="yarn-line">    Poproś swojego nauczyciela o pomoc.</span> <span class="yarn-meta">#line:0c6bc14 </span>
+[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
 
 </code>
 </pre>

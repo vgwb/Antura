@@ -66,7 +66,7 @@ hide:
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Vous avez exploré deux châteaux : le puissant Chinon et le luxueux Chambord !</span> <span class="yarn-meta">#line:0a8f25d </span>
 <span class="yarn-line">Vous avez comparé la défense et la vie du parti royal.</span> <span class="yarn-meta">#line:05802fa </span>
@@ -87,7 +87,7 @@ hide:
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dessine maintenant ton château préféré !</span> <span class="yarn-meta">#line:0f0bba8 </span>

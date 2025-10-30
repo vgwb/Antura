@@ -2017,12 +2017,15 @@ Torba, w której uczniowie noszą do szkoły książki, ołówki i prace domowe.
 ---
 
 ### Traderzy rynkowi {#market_traders}
+![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
+
 Ludzie sprzedający żywność i towary na straganach targowych – jak sprzedawcy ryb, serów i owoców. Ważą, pakują i wykrzykują dzisiejsze ceny.
 
 - Type: Person
 - Subjects: Money, Community
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
 
 ---
 

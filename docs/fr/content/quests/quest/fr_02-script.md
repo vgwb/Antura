@@ -26,7 +26,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Backpack false&gt;&gt;</span>
 <span class="yarn-line">Bienvenue à Angers ! C'est le premier jour d'école !</span> <span class="yarn-meta">#line:014887e </span>
 <span class="yarn-line">Vous avez 10 ans et vous êtes en dernière année d’école primaire.</span> <span class="yarn-meta">#line:063e8e0 </span>
-<span class="yarn-line">Trouvez votre école et votre classe !</span> <span class="yarn-meta">#line:0f65a1b </span>
+<span class="yarn-line">Trouvez votre école et votre classe !</span> <span class="yarn-meta">#line:0f65a1b #task:TASK_SCHOOL</span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_SCHOOL task_find_school_done&gt;&gt;</span>
 
 </code>
@@ -40,7 +40,7 @@ hide:
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Le jeu est terminé ! Félicitations !</span> <span class="yarn-meta">#line:022962d </span>
@@ -59,7 +59,7 @@ hide:
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">color: green</span>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
@@ -251,7 +251,7 @@ hide:
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">TÂCHE : Trouvez votre salle de classe.</span> <span class="yarn-meta">#line:058ddbc </span>
+<span class="yarn-line">TÂCHE : Trouvez votre salle de classe.</span> <span class="yarn-meta">#line:058ddbc #task:TASK_CLASSROOM</span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_CLASSROOM task_class_done&gt;&gt;</span>
 
 </code>
@@ -420,7 +420,7 @@ hide:
 <span class="yarn-header-dim">tags:  task</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Trouvez votre sac à dos et revenez ensuite.</span> <span class="yarn-meta">#line:0e3ad75 </span>
+<span class="yarn-line">Trouvez votre sac à dos et revenez ensuite.</span> <span class="yarn-meta">#line:0e3ad75 #task:TASK_BACKPACK</span>
 <span class="yarn-line">Peut-être que quelqu'un l'a,</span> <span class="yarn-meta">#line:0b43290 </span>
 <span class="yarn-line">Essayez de demander autour de vous.</span> <span class="yarn-meta">#line:0c282e5 </span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_BACKPACK task_backpack_done&gt;&gt;</span>

@@ -32,10 +32,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $quest1 = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $activity1 = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $quest2 = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $activity2 = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $quest1_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $activity1_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $quest2_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $activity2_done = false&gt;&gt;</span>
 <span class="yarn-line">Benvenuti alla ricerca della musica!</span> <span class="yarn-meta">#line:0e2f565 </span>
 
 </code>
@@ -66,14 +66,14 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $quest1 == true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;if $activity1 == false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $quest1_done == true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;if $activity1_done == false&gt;&gt;</span>
 <span class="yarn-line">        Grazie per averci aiutato!</span> <span class="yarn-meta">#line:09fc7ad</span>
         <span class="yarn-cmd">&lt;&lt;card musical_score notes&gt;&gt;</span>
 <span class="yarn-line">        Riesci a metterlo insieme?</span> <span class="yarn-meta">#line:0515a95</span>
-        <span class="yarn-cmd">&lt;&lt;set $activity1 = true&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;set $activity1_done = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;activity order_Musical_notes&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;elseif $activity1 ==true &gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;elseif $activity1_done ==true &gt;&gt;</span>
 <span class="yarn-line">        [MISSING TRANSLATION:         We're gonna play soon!]</span> <span class="yarn-meta">#line:0ef876c </span>
 <span class="yarn-line">        [MISSING TRANSLATION:         Do you wanna try to order them again?]</span> <span class="yarn-meta">#line:08ae1b5 </span>
 <span class="yarn-line">        [MISSING TRANSLATION:         -&gt; Yes]</span> <span class="yarn-meta">#line:0a1e74f </span>
@@ -84,9 +84,31 @@ hide:
 <span class="yarn-line">Ciao! Siamo una band. Siamo musicisti.</span> <span class="yarn-meta">#line:09a50f8 </span>
 <span class="yarn-line">Volevamo suonare l'inno francese, ma non possiamo!</span> <span class="yarn-meta">#line:0a9df26 </span>
 <span class="yarn-line">Antura ha confuso la sceneggiatura musicale.</span> <span class="yarn-meta">#line:0f0ccdf </span>
-<span class="yarn-line">Trova le note della sceneggiatura.</span> <span class="yarn-meta">#line:0c9616b </span>
+<span class="yarn-line">Trova le note della sceneggiatura.</span> <span class="yarn-meta">#line:0c9616b #task:find_the_script_parts</span>
 <span class="yarn-cmd">&lt;&lt;task_start find_the_script_parts win_quest1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-win-quest1"></a>
+
+## win_quest1
+
+<div class="yarn-node" data-title="win_quest1">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;set $quest1_done = true&gt;&gt;</span>
+<span class="yarn-line">[MISSING TRANSLATION: You found the musical notes!]</span> <span class="yarn-meta">#line:0c3d5b7 </span>
+<span class="yarn-line">[MISSING TRANSLATION: Do, the first one.]</span> <span class="yarn-meta">#line:090aa20 #card:note_do</span>
+<span class="yarn-line">[MISSING TRANSLATION: Re, the second one.]</span> <span class="yarn-meta">#line:01ef658 #card:note_re</span>
+<span class="yarn-line">[MISSING TRANSLATION: Mi, the third one.]</span> <span class="yarn-meta">#line:0c78966 #card:note_mi</span>
+<span class="yarn-line">[MISSING TRANSLATION: Fa, the fourth one.]</span> <span class="yarn-meta">#line:0c185a1 #card:note_fa</span>
+<span class="yarn-line">[MISSING TRANSLATION: Sol, the fifth one.]</span> <span class="yarn-meta">#line:0338a81 #card:note_sol</span>
+<span class="yarn-line">[MISSING TRANSLATION: La, the sixth one.]</span> <span class="yarn-meta">#line:0809b07 #card:note_la</span>
+<span class="yarn-line">[MISSING TRANSLATION: Si, the last one and the highest note.]</span> <span class="yarn-meta">#line:04a7724 #card:note_si</span>
+<span class="yarn-line">[MISSING TRANSLATION: Good job! Now speak with the band manager.]</span> <span class="yarn-meta">#line:0064edf </span>
 
 </code>
 </pre>
@@ -101,18 +123,16 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $activity2 == true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $activity2_done == true&gt;&gt;</span>
 <span class="yarn-line">    [MISSING TRANSLATION:     Great job!]</span> <span class="yarn-meta">#line:0227e33 </span>
-<span class="yarn-comment">    //Let's try to play it!</span> <span class="yarn-meta">#line:0501e94 </span>
-
     <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;elseif $quest2 == true &gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $activity2 = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $quest2_done == true &gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $activity2_done = true&gt;&gt;</span>
 <span class="yarn-line">    Grazie! Le parole dell'inno francese sono importanti.</span> <span class="yarn-meta">#line:025e35b </span>
 <span class="yarn-line">    L'inno nazionale francese, "La Marsigliese", rappresenta la Francia e il suo popolo.</span> <span class="yarn-meta">#line:0e4484d </span>
 <span class="yarn-line">    Riesci a mettere in ordine le parole?</span> <span class="yarn-meta">#line:07e4ff1 </span>
     <span class="yarn-cmd">&lt;&lt;activity  order_marseillese_audio marseillese_played&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;elseif $activity1 == true &gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $activity1_done == true &gt;&gt;</span>
 <span class="yarn-line">    Ciao, sono Jean Michelle Jarre.</span> <span class="yarn-meta">#line:02f7c8b</span>
 <span class="yarn-line">    Sono un compositore francese e aiuto la band a suonare "La Marsigliese".</span> <span class="yarn-meta">#line:0bd77b7 </span>
 <span class="yarn-line">    Trova le parole dell'inno.</span> <span class="yarn-meta">#line:0e7033c </span>
@@ -143,37 +163,9 @@ hide:
 
 <div class="yarn-node">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">title : win_quest1</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $quest1 = true&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: You found the musical notes!]</span> <span class="yarn-meta">#line:0c3d5b7 </span>
-<span class="yarn-line">[MISSING TRANSLATION: Do, the first one.]</span> <span class="yarn-meta">#line:090aa20 </span>
-<span class="yarn-cmd">&lt;&lt;card note_do zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Re, the second one.]</span> <span class="yarn-meta">#line:01ef658 </span>
-<span class="yarn-cmd">&lt;&lt;card note_re zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Mi, the third one.]</span> <span class="yarn-meta">#line:0c78966 </span>
-<span class="yarn-cmd">&lt;&lt;card note_mi zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Fa, the fourth one.]</span> <span class="yarn-meta">#line:0c185a1 </span>
-<span class="yarn-cmd">&lt;&lt;card note_fa zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Sol, the fifth one.]</span> <span class="yarn-meta">#line:0338a81 </span>
-<span class="yarn-cmd">&lt;&lt;card note_sol zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: La, the sixth one.]</span> <span class="yarn-meta">#line:0809b07 </span>
-<span class="yarn-cmd">&lt;&lt;card note_la zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Si, the last one and the highest note.]</span> <span class="yarn-meta">#line:04a7724 </span>
-<span class="yarn-cmd">&lt;&lt;card note_si zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Good job! Now go back to speak with the band manager.]</span> <span class="yarn-meta">#line:0064edf </span>
-
-
-
-</code>
-</pre>
-</div>
-
-<div class="yarn-node">
-<pre class="yarn-code"><code>
 <span class="yarn-header-dim">title : win_quest2</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $quest2 = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $quest2_done = true&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: These are the words of la Marseillaise!]</span> <span class="yarn-meta">#line:08ea860 </span>
 <span class="yarn-line">[MISSING TRANSLATION: The first part.]</span> <span class="yarn-meta">#line:0f8bb5a </span>
 <span class="yarn-cmd">&lt;&lt;card  marseillaise_1 zoom&gt;&gt;</span>

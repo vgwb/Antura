@@ -936,6 +936,8 @@ Credits:
     - **[Commercianti di mercato](../cards/index.md#market_traders)**
     Persone che vendono cibo e altri beni di consumo alle bancarelle del mercato, come pescivendoli, formaggiai e fruttivendoli. Pesano, confezionano e annunciano i prezzi del giorno.
 
+    ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
+
 - Connected cards:
     - **[casaro](../cards/index.md#person_cheesemonger)** (RelatedTo)
     Una persona che vende molti tipi di formaggio.

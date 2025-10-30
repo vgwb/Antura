@@ -55,7 +55,7 @@ hide:
 
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Cette quête est terminée.</span> <span class="yarn-meta">#line:04eb3f4 </span>
@@ -71,7 +71,7 @@ hide:
 
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
@@ -93,7 +93,7 @@ hide:
 <span class="yarn-line">Oh non ! Antura est coincée au sommet de la Sky Tower.</span> <span class="yarn-meta">#line:0a18e6c </span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_sky_tower zoom&gt;&gt;</span>
 <span class="yarn-line">Les nains ont verrouillé l'ascenseur.</span> <span class="yarn-meta">#line:08bcfba </span>
-<span class="yarn-line">Trouvez 10 nains autour de Wrocław. Ils nous aideront.</span> <span class="yarn-meta">#line:07471d4 </span>
+<span class="yarn-line">Trouvez 10 nains autour de Wrocław. Ils nous aideront.</span> <span class="yarn-meta">#line:07471d4 #task:FIND_DWARVES</span>
 <span class="yarn-cmd">&lt;&lt;card wroklaw_map zoom&gt;&gt;</span>
 <span class="yarn-line">Explorez la ville. Parlez à chaque nain que vous rencontrez.</span> <span class="yarn-meta">#line:09148d9 </span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_DWARVES task_dwarves_done&gt;&gt;</span>

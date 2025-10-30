@@ -44,7 +44,7 @@ hide:
 
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This quest is complete.</span> <span class="yarn-meta">#line:0bcc257 </span>
@@ -61,7 +61,7 @@ hide:
 
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
@@ -110,24 +110,9 @@ hide:
 <span class="yarn-line">It was on the IGLICA at CENTENNIAL HALL,</span> <span class="yarn-meta">#line:02f35e4 </span>
 <span class="yarn-line">which is a famous symbol of our city.</span> <span class="yarn-meta">#line:0335bf7 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">Please help me find it!</span> <span class="yarn-meta">#line:0fd5d1a </span>
+<span class="yarn-line">Find the FLAG!</span> <span class="yarn-meta">#line:0da284c #task:TASK_ANIMALS</span>
 <span class="yarn-line">Talk to the ANIMALS. Maybe one of them has it.</span> <span class="yarn-meta">#line:012b933 </span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-task-animals-desc"></a>
-
-## task_animals_desc
-
-<div class="yarn-node" data-title="task_animals_desc">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">type: task</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Find the FLAG!</span> <span class="yarn-meta">#line:0da284c </span>
-<span class="yarn-line">Talk to all the animals. Maybe they know where the flag is.</span> <span class="yarn-meta">#line:010adc5 </span>
 
 </code>
 </pre>

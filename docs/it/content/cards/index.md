@@ -685,12 +685,15 @@ Un'alta colonna in onore di Re Sigismondo nella Piazza del Castello.
 ---
 
 ### Commercianti di mercato {#market_traders}
+![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
+
 Persone che vendono cibo e altri beni di consumo alle bancarelle del mercato, come pescivendoli, formaggiai e fruttivendoli. Pesano, confezionano e annunciano i prezzi del giorno.
 
 - Type: Person
 - Subjects: Money, Community
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
 
 ---
 

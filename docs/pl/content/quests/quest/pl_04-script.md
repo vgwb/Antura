@@ -44,7 +44,7 @@ hide:
 
 <div class="yarn-node" data-title="quest_end">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel_endgame</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">To zadanie zostało ukończone.</span> <span class="yarn-meta">#line:0bcc257 </span>
@@ -61,7 +61,7 @@ hide:
 
 <div class="yarn-node" data-title="post_quest_activity">
 <pre class="yarn-code" style="--node-color:green"><code>
-<span class="yarn-header-dim">panel: panel</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
@@ -110,24 +110,9 @@ hide:
 <span class="yarn-line">Miało to miejsce na IGLICA w CENTENNIAL HALL.</span> <span class="yarn-meta">#line:02f35e4 </span>
 <span class="yarn-line">[MISSING TRANSLATION: which is a famous symbol of our city.]</span> <span class="yarn-meta">#line:0335bf7 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">Proszę pomóż mi to znaleźć!</span> <span class="yarn-meta">#line:0fd5d1a </span>
+<span class="yarn-line">Znajdź FLAGĘ!</span> <span class="yarn-meta">#line:0da284c #task:TASK_ANIMALS</span>
 <span class="yarn-line">Porozmawiaj ze ZWIERZĘTAMI. Jedno może je mieć.</span> <span class="yarn-meta">#line:012b933 </span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-task-animals-desc"></a>
-
-## task_animals_desc
-
-<div class="yarn-node" data-title="task_animals_desc">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">type: task</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Znajdź FLAGĘ!</span> <span class="yarn-meta">#line:0da284c </span>
-<span class="yarn-line">Porozmawiaj ze wszystkimi zwierzętami. Może wiedzą, gdzie jest flaga.</span> <span class="yarn-meta">#line:010adc5 </span>
 
 </code>
 </pre>

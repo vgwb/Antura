@@ -936,6 +936,8 @@ Credits:
     - **[Commerçants du marché](../cards/index.md#market_traders)**
     Ceux qui vendent des produits alimentaires et autres marchandises sur les étals des marchés, comme les poissonniers, les fromagers et les marchands de fruits. Ils pèsent, emballent et annoncent les prix du jour.
 
+    ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
+
 - Connected cards:
     - **[Fromager](../cards/index.md#person_cheesemonger)** (RelatedTo)
     Une personne qui vend de nombreux types de fromages.
