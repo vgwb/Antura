@@ -5,6 +5,7 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "WeatherProfile", menuName = "Antura/World/Weather Profile")]
     public class WeatherProfileData : ScriptableObject
     {
+        public bool MoveSun = false;
         public Material Skybox;
         public Color AmbientColor = Color.white;
         public bool Fog = true;

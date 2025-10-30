@@ -7,6 +7,7 @@ namespace Antura.Discover
     [Serializable]
     public class TimeProfile
     {
+        public bool EnableTime = false;
         [Range(0, 24)] public float Hour = 10f;
         [Tooltip("0 = static; 1 = 1 world hour per real minute.")]
         public float HoursPerRealMinute = 0f;

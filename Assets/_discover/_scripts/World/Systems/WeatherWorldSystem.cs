@@ -90,15 +90,7 @@ namespace Antura.Discover
         {
             if (_time != null)
                 return _time;
-            var wm = WorldManager.I;
-            var time = wm != null ? wm.Get<TimeWorldSystem>() : null;
-            if (time == null)
-            {
-                // Fallback: find in scene (include inactive)
-                var all = Resources.FindObjectsOfTypeAll<TimeWorldSystem>();
-                if (all != null && all.Length > 0)
-                    time = all[0];
-            }
+            var time = WorldManager.I.Get<TimeWorldSystem>();
             _time = time;
             return _time;
         }
@@ -106,7 +98,7 @@ namespace Antura.Discover
         public void UpdateSunForHour(float hour)
         {
             //            Debug.Log("UpdateSunForHour " + hour);
-            if (!Sun)
+            if (!Sun || !Profile.MoveSun)
                 return;
 
             // Wrap hour
