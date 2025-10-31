@@ -35,7 +35,7 @@ Welcome to the Tutorial! #line:021793f
 
 
 
-title: talk_tutor_1
+title: tutor_touchtext
 position: 238,-2
 actor:
 ---
@@ -74,7 +74,7 @@ Use this button to talk or interact #line:0c14f65
 <<endif>>
 ===
 
-title: tutor_4_jump
+title: tutor_jump
 position: 511,-4
 tags: asset=tutorial_move
 ---
@@ -87,7 +87,7 @@ tags: asset=tutorial_move
 <<area area_large>>
 ===
 
-title: tutor_6_cookies
+title: tutor_cookies
 position: 1486,0
 tags: 
 ---
@@ -95,7 +95,7 @@ tags:
 Take all cookies you find. They can be useful #line:0f50a6e 
 ===
 
-title: tutor_7_map
+title: tutor_map
 position: 1266,0
 tags: 
 ---
@@ -104,7 +104,7 @@ This button opens the map! #line:01777e4
 ===
 
 
-title: tutor_8_interact
+title: tutor_interact
 position: 1046,0
 tags: 
 ---
@@ -112,9 +112,19 @@ tags:
 Explore all objects that have this icon. #line:0139142 
 ===
 
+title: door_locked
+position: 1046,0
+tags: 
+---
+<<if has_item("key_gold")>>
+    The key opens the door
+    <<trigger open_door>>
+<<else>>
+    The door is locked
+<<endif>>
+===
 
-
-title: tutor_9_pushball
+title: tutor_pushball
 position: 1706,0
 tags: 
 ---
@@ -122,7 +132,7 @@ tags:
 Try to push this ball. #line:02253ae 
 ===
 
-title: tutor_10_follow
+title: tutor_follow
 position: 217,199
 tags: 
 ---
@@ -132,7 +142,7 @@ This icon tells where to go. #line:06c117d
 ===
 
 
-title: tutor_11_mission
+title: tutor_mission
 position: 227,519
 tags: 
 ---
@@ -149,6 +159,7 @@ position: 227,719
 ---
 Great! You opened the chest! #line:0c30eb1 
 <<action appear_tutor_end>>
+<<trigger tutor_end>>
 ===
 
 title: tutor_end
