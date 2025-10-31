@@ -227,8 +227,8 @@ namespace Antura.Discover
             {
                 //Debug.Log("Collect item " + itemCode);
                 collected_items++;
-                YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
-                UpateItemsCounter();
+                // YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
+                // UpateItemsCounter();
             }
         }
 

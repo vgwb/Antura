@@ -1,3 +1,4 @@
+using DG.DeInspektor.Attributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,5 @@ namespace Antura.Discover
         }
 
         public abstract void OnTrigger();
-
     }
 }

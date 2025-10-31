@@ -1,7 +1,9 @@
+using DG.DeInspektor.Attributes;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+
 namespace Antura.Discover.Interaction
 {
     public class RotateBy : ActableAbstract
@@ -51,6 +53,12 @@ namespace Antura.Discover.Interaction
 
             // Apply the rotation to the GameObject
             ObjectToRotate.transform.DOLocalRotate(angle * axisVector, 1f, RotateMode.Fast);
+        }
+
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        void TestTrigger()
+        {
+            Trigger();
         }
     }
 }

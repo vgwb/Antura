@@ -10,7 +10,8 @@ namespace Antura.Discover
         {
             cookie = 1,
             coin = 2,
-            item = 3
+            item = 3,
+            card = 4
         }
 
         public bool AutoCollect = true; // Automatically collect the item when the player collides with it
@@ -80,6 +81,12 @@ namespace Antura.Discover
             if (Type == CollectableType.item)
             {
                 QuestManager.I.OnCollectItem(ItemTag);
+                gameObject.SetActive(false); // Disable the item instead of destroying it
+            }
+
+            if (Type == CollectableType.card)
+            {
+                QuestManager.I.OnCollectItemCode(ItemTag);
                 gameObject.SetActive(false); // Disable the item instead of destroying it
             }
 

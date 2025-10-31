@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoCollect: 1
   Type: 3
   ItemTag: apple
   particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
     type: 3}
+  enableRotation: 1
   rotationSpeed: 100
   bobbingAmount: 0.1
   bobbingSpeed: 1
@@ -72,8 +74,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6, y: 0.73225266, z: 0.6}
-  m_Center: {x: 0, y: 0.36612633, z: 0}
+  m_Size: {x: 0.6, y: 0.6, z: 0.6}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1001 &8592914139986527588
 PrefabInstance:
   m_ObjectHideFlags: 0

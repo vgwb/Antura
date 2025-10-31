@@ -53,6 +53,8 @@ namespace Antura.Discover
         [SerializeField] string QuestAction;
         [Tooltip("Executes these commands")]
         [SerializeField] List<CommandData> Commands;
+        [Tooltip("Also trigger children interactables")]
+        [SerializeField] bool triggerChildren;
 
         [Header("References")]
         public FaceToPlayer FaceToPlayerComp;
@@ -209,6 +211,18 @@ namespace Antura.Discover
             if (Commands != null && Commands.Count > 0)
             {
                 ActionManager.I.ResolveCommands(Commands);
+            }
+
+            if (triggerChildren)
+            {
+                var childInteractables = this.GetComponentsInChildren<ActableAbstract>(true);
+                foreach (var child in childInteractables)
+                {
+                    if (child != this)
+                    {
+                        child.Trigger();
+                    }
+                }
             }
 
             if (disableAfterAction)
