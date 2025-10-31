@@ -110,6 +110,7 @@ tags:
 ---
 <<asset tutorial_actions>>
 Explore all objects that have this icon. #line:0139142 
+Find the key and open that door! #line:083e584 
 ===
 
 title: door_locked
@@ -117,10 +118,11 @@ position: 1046,0
 tags: 
 ---
 <<if has_item("key_gold")>>
-    The key opens the door
+    The key opens the door #line:0164ace 
+    <<action deactivate_lock>>
     <<trigger open_door>>
 <<else>>
-    The door is locked
+    The door is locked #line:08766fc 
 <<endif>>
 ===
 

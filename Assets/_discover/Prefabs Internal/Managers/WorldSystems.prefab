@@ -4848,6 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.TimeWorldSystem
   DefaultProfile:
+    EnableTime: 0
     Hour: 10
     HoursPerRealMinute: 0
   CurrentHour: 10
@@ -4864,14 +4865,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07edebad9ba294735b57decaf7515d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WeatherWorldSystem
-  Profile: {fileID: 0}
+  Profile: {fileID: 11400000, guid: 255d9f107063c41eb98d465df7343e28, type: 2}
   Sun: {fileID: 4372650274487644538}
   SunriseHour: 6
   SunsetHour: 18
   NightElevationDeg: -10
   NoonElevationDeg: 60
   AzimuthAtMidnightDeg: 0
-  ControlIntensity: 1
+  ControlIntensity: 0
   NightIntensity: 0
   DayIntensity: 1
   RainSystem: {fileID: 2145544306845759167, guid: 9483f71acb66e4a238c43f546dc9f795,
