@@ -72,7 +72,7 @@
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 496,
-      "updatedAt": "2025-10-06T13:20:10Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "55316150df7397c377163e2c0e0545abf5ceeb6bb78e4f6fdcd302e7084f89d5"
     },
     {
@@ -89,7 +89,7 @@
     },
     {
       "key": "0139142",
-      "nodeTitle": "tutor_8_interact",
+      "nodeTitle": "tutor_interact",
       "sourceText": "Explora todos los objetos que tengan este icono.",
       "sourceEnText": "Explore all objects that have this icon.",
       "audioFile": "tutorial_0139142.ogg",
@@ -124,8 +124,20 @@
       "textHash": "be3833e4b695ce27e058b11998a9eb1af8b70ef8d35915768cfbd9b607485f96"
     },
     {
+      "key": "0164ace",
+      "nodeTitle": "door_locked",
+      "sourceText": "La llave abre la puerta",
+      "sourceEnText": "The key opens the door",
+      "audioFile": "tutorial_0164ace.ogg",
+      "voiceProfile": "ninoska",
+      "actorId": "NARRATOR",
+      "durationMs": 1802,
+      "updatedAt": "2025-10-31T14:24:51Z",
+      "textHash": "833bbdf75650011746a3266de069a506026ff9c309c7e2a9bbaa26a389515f24"
+    },
+    {
       "key": "01777e4",
-      "nodeTitle": "tutor_7_map",
+      "nodeTitle": "tutor_map",
       "sourceText": "¡Este botón abre el mapa!",
       "sourceEnText": "This button opens the map!",
       "audioFile": "tutorial_01777e4.ogg",
@@ -173,7 +185,7 @@
     },
     {
       "key": "02253ae",
-      "nodeTitle": "tutor_9_pushball",
+      "nodeTitle": "tutor_pushball",
       "sourceText": "Intenta empujar esta pelota.",
       "sourceEnText": "Try to push this ball.",
       "audioFile": "tutorial_02253ae.ogg",
@@ -246,14 +258,14 @@
     {
       "key": "02fea28",
       "nodeTitle": "tutor_end",
-      "sourceText": "¿Estás listo para jugar el juego?",
+      "sourceText": "Ahora puedes explorar la zona y hablar con todos.",
       "sourceEnText": "You can now explore the area and talk to everybody",
       "audioFile": "tutorial_02fea28.ogg",
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 2090,
       "updatedAt": "2025-10-06T06:55:40Z",
-      "textHash": "59d9d020bb063248c0027761b13da6dfae1654faf3027451eebd0def0f52f128"
+      "textHash": "8f448f111b5067a8726f7da4e702c72c1b085404375c8b38f31603518edb1e05"
     },
     {
       "key": "02fef35",
@@ -305,15 +317,15 @@
     },
     {
       "key": "03dbfa7",
-      "nodeTitle": "talk_tutor_1",
-      "sourceText": "Toca este texto para escucharlo en tu idioma.",
-      "sourceEnText": "Touch this text to hear it in your language.",
+      "nodeTitle": "tutor_touchtext",
+      "sourceText": "Toca este texto para volver a escucharlo.",
+      "sourceEnText": "Touch this text to hear it again.",
       "audioFile": "tutorial_03dbfa7.ogg",
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 3004,
       "updatedAt": "2025-09-24T09:00:36Z",
-      "textHash": "31d9e75ddd31783fdaeb4bf8286301ab46a3ccce71214c9a13b8162eb7381085"
+      "textHash": "fed57cd448955e4f8cd52b428d23404e6bb19111f614d2fb3a5a87fed9fad845"
     },
     {
       "key": "041d845",
@@ -336,7 +348,7 @@
       "voiceProfile": "ninoska",
       "actorId": "KID_F",
       "durationMs": 1985,
-      "updatedAt": "2025-10-06T13:20:20Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "c1614e1d6c15dc34fb2a022f8833c7465774258b19b5526216ec841e42060db6"
     },
     {
@@ -443,7 +455,7 @@
       "voiceProfile": "ninoska",
       "actorId": "ADULT_F",
       "durationMs": 2325,
-      "updatedAt": "2025-10-06T13:20:18Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "2cd1c18a8b65dacefd226594054a4a7e1d20f369129391aac2cb700a5cde862a"
     },
     {
@@ -484,15 +496,15 @@
     },
     {
       "key": "06c117d",
-      "nodeTitle": "tutor_10_follow",
-      "sourceText": "Si te pierdes sigue este icono.",
-      "sourceEnText": "If you get lost, follow this icon.",
+      "nodeTitle": "tutor_follow",
+      "sourceText": "Este icono indica adónde ir.",
+      "sourceEnText": "This icon tells where to go.",
       "audioFile": "tutorial_06c117d.ogg",
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 2168,
       "updatedAt": "2025-09-24T09:00:36Z",
-      "textHash": "0266ffe5d4c70e56543629405ca18be8fbf215854feae3e8fac11f08c2e050fc"
+      "textHash": "1fff9ba274281d16f2e57b8b0aa554135c2cd49d3cebe72528a7be4b28f00ea5"
     },
     {
       "key": "06e500f",
@@ -556,7 +568,7 @@
     },
     {
       "key": "0784704",
-      "nodeTitle": "talk_tutor_1",
+      "nodeTitle": "tutor_touchtext",
       "sourceText": "Utilice este botón para ver la foto",
       "sourceEnText": "Use this button to view the photo",
       "audioFile": "tutorial_0784704.ogg",
@@ -568,15 +580,27 @@
     },
     {
       "key": "07940cf",
-      "nodeTitle": "tutor_4_jump",
-      "sourceText": "Presione la tecla ESPACIADORA para saltar",
-      "sourceEnText": "Press SPACE key to jump",
+      "nodeTitle": "tutor_jump",
+      "sourceText": "Pulsa la tecla ESPACIO o este botón para saltar",
+      "sourceEnText": "Press SPACE key or this button to jump",
       "audioFile": "tutorial_07940cf.ogg",
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 3605,
       "updatedAt": "2025-09-24T09:00:36Z",
-      "textHash": "d2d3ae3d64f85f7573ffdb6cf8914f9c1cdde7bebd6434efd615f8bf74a85688"
+      "textHash": "23cbd9b7f3f2776ebcae15fed1278bf7dca7246330545b14a0aaae24e644fd0d"
+    },
+    {
+      "key": "07b2183",
+      "nodeTitle": "tutor_mission",
+      "sourceText": "Sube las escaleras y abre ese cofre.",
+      "sourceEnText": "Climb the stairs and open that chest",
+      "audioFile": "tutorial_07b2183.ogg",
+      "voiceProfile": "ninoska",
+      "actorId": "NARRATOR",
+      "durationMs": 3004,
+      "updatedAt": "2025-10-31T14:24:45Z",
+      "textHash": "2a3d408e8855726c02fe5f58f0e5145701ab4da3b2bf988dc26d44565d2f5359"
     },
     {
       "key": "07c8447",
@@ -599,7 +623,7 @@
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 836,
-      "updatedAt": "2025-10-06T13:20:13Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "e9e57d6076a13c197650c4122b60c06bc0d59535becfb6439af4003ae168ac70"
     },
     {
@@ -639,6 +663,18 @@
       "textHash": "1e9749ac6caa9c9abcacc4981b8de339597ab2721d3a0911a1278501a7aa0c86"
     },
     {
+      "key": "083e584",
+      "nodeTitle": "tutor_interact",
+      "sourceText": "¡Encuentra la llave y abre la puerta!",
+      "sourceEnText": "Find the key and open the door!",
+      "audioFile": "tutorial_083e584.ogg",
+      "voiceProfile": "ninoska",
+      "actorId": "NARRATOR",
+      "durationMs": 2273,
+      "updatedAt": "2025-10-31T14:24:49Z",
+      "textHash": "23a0f05a400eb61c9664160b8a2c27a9394a2fd1480c9e50fcbe91741d2ad802"
+    },
+    {
       "key": "084b4a8",
       "nodeTitle": "activity_money_result",
       "sourceText": "Fácil",
@@ -661,6 +697,18 @@
       "durationMs": 2220,
       "updatedAt": "2025-10-06T06:55:40Z",
       "textHash": "86b0ac7bb758da8623f5c848ccefb30b89d0992a347ffcae9d70b51297d352bb"
+    },
+    {
+      "key": "08766fc",
+      "nodeTitle": "door_locked",
+      "sourceText": "La puerta está cerrada con llave.",
+      "sourceEnText": "The door is locked",
+      "audioFile": "tutorial_08766fc.ogg",
+      "voiceProfile": "ninoska",
+      "actorId": "NARRATOR",
+      "durationMs": 2090,
+      "updatedAt": "2025-10-31T14:24:53Z",
+      "textHash": "8d2c0b0ac83aee079c11ffd2380a6ba2e189d3179e1bc54f3023bfd7efd65238"
     },
     {
       "key": "0879058",
@@ -707,7 +755,7 @@
       "voiceProfile": "ninoska",
       "actorId": "ADULT_F",
       "durationMs": 2743,
-      "updatedAt": "2025-10-06T13:20:16Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "2cf05523468da59fa0fdd3367ea862070ece1409a89bd74ae12e33b9857861cd"
     },
     {
@@ -755,7 +803,7 @@
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 1620,
-      "updatedAt": "2025-10-06T13:21:07Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "3f7e833501831d909c79189c3f884341ef496a34fb580458b2add580405e29bd"
     },
     {
@@ -808,7 +856,7 @@
     },
     {
       "key": "0b9c1fa",
-      "nodeTitle": "tutor_4_jump",
+      "nodeTitle": "tutor_jump",
       "sourceText": "Utilice este botón para saltar",
       "sourceEnText": "Use this button to jump",
       "audioFile": "tutorial_0b9c1fa.ogg",
@@ -867,6 +915,18 @@
       "textHash": "395a31a429b0d2fa4765e23c14e18d62cbf4f04a4de7e09bc8313cb9f9cdb758"
     },
     {
+      "key": "0c30eb1",
+      "nodeTitle": "task_open_chest_done",
+      "sourceText": "¡Genial! ¡Abriste el cofre!",
+      "sourceEnText": "Great! You opened the chest!",
+      "audioFile": "tutorial_0c30eb1.ogg",
+      "voiceProfile": "ninoska",
+      "actorId": "NARRATOR",
+      "durationMs": 2926,
+      "updatedAt": "2025-10-31T14:24:43Z",
+      "textHash": "e7ce88b096020d716415061de4284a80b65aadd9f72d1fff7e7bed3775370b50"
+    },
+    {
       "key": "0c47c13",
       "nodeTitle": "npc_hallo",
       "sourceText": "¡Ciao!",
@@ -910,7 +970,7 @@
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 1567,
-      "updatedAt": "2025-10-06T13:20:08Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "9bc3d54565ab50c8c147bb53df8abea770da2113829bc708f161686758598767"
     },
     {
@@ -958,7 +1018,7 @@
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 836,
-      "updatedAt": "2025-10-06T13:20:12Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "9ce6ecccfb340c817658653922d50c42dce2ce2aa67026668f26df61be8f2240"
     },
     {
@@ -970,20 +1030,20 @@
       "voiceProfile": "ninoska",
       "actorId": "KID_F",
       "durationMs": 1515,
-      "updatedAt": "2025-10-06T13:20:22Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "857177a31b91aece5e1318a3eeffeaaa789efb4ec1744c35612fad33bc80cc2f"
     },
     {
       "key": "0dfdfc5",
       "nodeTitle": "tutor_end",
-      "sourceText": "Este es el final del tutorial.",
+      "sourceText": "Este es el final del tutorial básico.",
       "sourceEnText": "This is the end of the basic tutorial.",
       "audioFile": "tutorial_0dfdfc5.ogg",
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 1907,
       "updatedAt": "2025-10-06T06:55:40Z",
-      "textHash": "b12dbfdd480e9484257e36229a3ba431df9836281d348a69d1bc2103976dea4b"
+      "textHash": "aad2f59461d6cac0f9c8fe41064be231a55c476f8533c59bb3e2f85ecae51305"
     },
     {
       "key": "0e3251c",
@@ -994,7 +1054,7 @@
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 967,
-      "updatedAt": "2025-10-06T13:20:15Z",
+      "updatedAt": "2025-10-06T21:08:03Z",
       "textHash": "ab67830af26528d71a63e38f61bc0a4609361a6a4fc7cd0fab55cbf8c2db0f88"
     },
     {
@@ -1012,14 +1072,14 @@
     {
       "key": "0e633a2",
       "nodeTitle": "tutor_camera",
-      "sourceText": "Presione el botón derecho del mouse para mover la cámara.",
-      "sourceEnText": "Press right mouse button to move the camera.",
+      "sourceText": "Pulse el botón del ratón para mover la cámara.",
+      "sourceEnText": "Press mouse button to move the camera.",
       "audioFile": "tutorial_0e633a2.ogg",
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 3344,
       "updatedAt": "2025-09-24T09:00:36Z",
-      "textHash": "3afacfcd2d15c4e57ec90d2ca54dae4a92fd55e0b1a8aecd495bed3caf1c38ca"
+      "textHash": "e98344c797a3aefe504781bd577e330633dcc7667ef87dad6a924a42c99db8a6"
     },
     {
       "key": "0e863cb",
@@ -1071,7 +1131,7 @@
     },
     {
       "key": "0eb85aa",
-      "nodeTitle": "talk_tutor_1",
+      "nodeTitle": "tutor_touchtext",
       "sourceText": "¡Ve y habla con el próximo tutor!",
       "sourceEnText": "Go and talk to next tutor!",
       "audioFile": "tutorial_0eb85aa.ogg",
@@ -1155,7 +1215,7 @@
     },
     {
       "key": "0f4f069",
-      "nodeTitle": "talk_tutor_1",
+      "nodeTitle": "tutor_touchtext",
       "sourceText": "Utilice este botón para avanzar el diálogo.",
       "sourceEnText": "Use this button to advance the dialog.",
       "audioFile": "tutorial_0f4f069.ogg",
@@ -1167,7 +1227,7 @@
     },
     {
       "key": "0f50a6e",
-      "nodeTitle": "tutor_6_cookies",
+      "nodeTitle": "tutor_cookies",
       "sourceText": "Coge todas las galletas que encuentres. Pueden ser útiles.",
       "sourceEnText": "Take all cookies you find. They can be useful",
       "audioFile": "tutorial_0f50a6e.ogg",
@@ -1239,15 +1299,15 @@
     },
     {
       "key": "0fe9efe",
-      "nodeTitle": "tutor_11_mission",
-      "sourceText": "A ver si aprendiste: ¡sube las escaleras y coge esa moneda!",
-      "sourceEnText": "Let me see if you learned: climb the stairs and get that coin!",
+      "nodeTitle": "tutor_mission",
+      "sourceText": "A ver si has aprendido.",
+      "sourceEnText": "Let me see if you learned",
       "audioFile": "tutorial_0fe9efe.ogg",
       "voiceProfile": "ninoska",
       "actorId": "NARRATOR",
       "durationMs": 4023,
       "updatedAt": "2025-09-24T09:00:36Z",
-      "textHash": "61b84f0f5f7c58e2d4f51fc7732de58e8c118f8a4633706c9d4928b15073b984"
+      "textHash": "7d625f1f498bea6d54b6d30edcfd48b9ab7ca2d2efa52faa09a8711011c16517"
     },
     {
       "key": "28803b70",
@@ -1272,6 +1332,18 @@
       "durationMs": 2952,
       "updatedAt": "2025-10-06T13:20:01Z",
       "textHash": "2458e011d0712e23d1480e5bd7412a2e03570d94b3dde414ee0ba6b1af3096bf"
+    },
+    {
+      "key": "6f920212",
+      "nodeTitle": "node",
+      "sourceText": "La llave abre la puerta",
+      "sourceEnText": "The key opens the door",
+      "audioFile": "tutorial_6f920212.ogg",
+      "voiceProfile": "ninoska",
+      "actorId": "Default",
+      "durationMs": 1802,
+      "updatedAt": "2025-10-31T14:24:47Z",
+      "textHash": "fe6dde6bfc60c32f08a8209c9a155a9bdb424caddb28493f925f808591741119"
     },
     {
       "key": "74954f19",
