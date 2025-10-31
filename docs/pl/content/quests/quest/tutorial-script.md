@@ -36,11 +36,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-talk-tutor-1"></a>
+<a id="ys-node-tutor-touchtext"></a>
 
-## talk_tutor_1
+## tutor_touchtext
 
-<div class="yarn-node" data-title="talk_tutor_1">
+<div class="yarn-node" data-title="tutor_touchtext">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
@@ -67,6 +67,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;asset tutorial_camera_mouse&gt;&gt;</span>
 <span class="yarn-line">    Naciśnij przycisk myszy, aby przesunąć kamerę.</span> <span class="yarn-meta">#line:0e633a2 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset tutorial_camera&gt;&gt;</span>
@@ -96,11 +97,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-tutor-4-jump"></a>
+<a id="ys-node-tutor-jump"></a>
 
-## tutor_4_jump
+## tutor_jump
 
-<div class="yarn-node" data-title="tutor_4_jump">
+<div class="yarn-node" data-title="tutor_jump">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: asset=tutorial_move</span>
 <span class="yarn-header-dim">---</span>
@@ -116,11 +117,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-tutor-6-cookies"></a>
+<a id="ys-node-tutor-cookies"></a>
 
-## tutor_6_cookies
+## tutor_cookies
 
-<div class="yarn-node" data-title="tutor_6_cookies">
+<div class="yarn-node" data-title="tutor_cookies">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
@@ -131,11 +132,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-tutor-7-map"></a>
+<a id="ys-node-tutor-map"></a>
 
-## tutor_7_map
+## tutor_map
 
-<div class="yarn-node" data-title="tutor_7_map">
+<div class="yarn-node" data-title="tutor_map">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
@@ -146,26 +147,48 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-tutor-8-interact"></a>
+<a id="ys-node-tutor-interact"></a>
 
-## tutor_8_interact
+## tutor_interact
 
-<div class="yarn-node" data-title="tutor_8_interact">
+<div class="yarn-node" data-title="tutor_interact">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset tutorial_actions&gt;&gt;</span>
 <span class="yarn-line">Przeglądaj wszystkie obiekty oznaczone tą ikoną.</span> <span class="yarn-meta">#line:0139142 </span>
+<span class="yarn-line">Znajdź klucz i otwórz drzwi!</span> <span class="yarn-meta">#line:083e584 </span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-tutor-9-pushball"></a>
+<a id="ys-node-door-locked"></a>
 
-## tutor_9_pushball
+## door_locked
 
-<div class="yarn-node" data-title="tutor_9_pushball">
+<div class="yarn-node" data-title="door_locked">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if has_item("key_gold")&gt;&gt;</span>
+<span class="yarn-line">    Klucz otwiera drzwi</span> <span class="yarn-meta">#line:0164ace </span>
+    <span class="yarn-cmd">&lt;&lt;action deactivate_lock&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;trigger open_door&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Drzwi są zamknięte</span> <span class="yarn-meta">#line:08766fc </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-tutor-pushball"></a>
+
+## tutor_pushball
+
+<div class="yarn-node" data-title="tutor_pushball">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
@@ -176,11 +199,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-tutor-10-follow"></a>
+<a id="ys-node-tutor-follow"></a>
 
-## tutor_10_follow
+## tutor_follow
 
-<div class="yarn-node" data-title="tutor_10_follow">
+<div class="yarn-node" data-title="tutor_follow">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
@@ -192,11 +215,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-tutor-11-mission"></a>
+<a id="ys-node-tutor-mission"></a>
 
-## tutor_11_mission
+## tutor_mission
 
-<div class="yarn-node" data-title="tutor_11_mission">
+<div class="yarn-node" data-title="tutor_mission">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
@@ -220,6 +243,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetnie! Otworzyłeś skrzynię!</span> <span class="yarn-meta">#line:0c30eb1 </span>
 <span class="yarn-cmd">&lt;&lt;action appear_tutor_end&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;trigger tutor_end&gt;&gt;</span>
 
 </code>
 </pre>
