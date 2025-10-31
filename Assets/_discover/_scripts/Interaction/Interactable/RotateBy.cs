@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 namespace Antura.Discover.Interaction
 {
-    public class RotateBy : MonoBehaviour
+    public class RotateBy : ActableAbstract
     {
         public GameObject ObjectToRotate;
 
@@ -35,7 +35,7 @@ namespace Antura.Discover.Interaction
 
             OpenJustOnce = true;
         }
-        public void Trigger()
+        public override void OnTrigger()
         {
             if (!OpenJustOnce || (OpenJustOnce && !isOpen))
                 ToggleRotationAngle();

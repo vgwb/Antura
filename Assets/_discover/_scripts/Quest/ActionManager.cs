@@ -184,6 +184,33 @@ namespace Antura.Discover
 
         }
 
+        public void ResolveTriggerCommand(string actableCode)
+        {
+            actableCode = actableCode.ToLower();
+
+            var actable = FindActableInChildren(actableCode);
+            if (actable != null)
+            {
+                Trigger(actable);
+            }
+            else
+            {
+                Debug.LogWarning($"Actable '{actableCode}' not found.");
+            }
+        }
+
+        private void Trigger(GameObject actableGO)
+        {
+            var actable = actableGO.GetComponent<ActableAbstract>();
+            if (actable != null)
+                Trigger(actable);
+        }
+
+        private void Trigger(ActableAbstract actable)
+        {
+            actable.Trigger();
+        }
+
         public void CommandSetActive(string name, bool active)
         {
             // Debug.LogWarning($"CommandSetActive '{name}' set to {active}.");
@@ -257,7 +284,7 @@ namespace Antura.Discover
                         TargetOff();
                         break;
                     case CommandType.Trigger:
-                        command.mainObject.GetComponent<ActableAbstract>().Trigger();
+                        Trigger(command.mainObject);
                         break;
                     case CommandType.TaskStart:
                         QuestManager.I.TaskManager.StartTask(command.Parameter);

@@ -110,6 +110,7 @@ namespace Antura.Discover
         // from ActableAbstract
         public override void OnTrigger()
         {
+            Execute();
         }
 
         public void OnTriggerEnter(Collider other)

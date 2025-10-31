@@ -348,11 +348,23 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("target")]
-        public static void CommandTarget(string targetCode)
+        public static void CommandTarget(string actableCode)
         {
-            if (string.IsNullOrEmpty(targetCode))
+            if (string.IsNullOrEmpty(actableCode))
                 return;
-            ActionManager.I.ResolveTargetCommand(targetCode);
+            ActionManager.I.ResolveTargetCommand(actableCode);
+        }
+
+        // ------------------------------------------------------------
+        // TRIGGER
+        // ------------------------------------------------------------
+
+        [YarnCommand("trigger")]
+        public static void CommandTrigger(string actableCode)
+        {
+            if (string.IsNullOrEmpty(actableCode))
+                return;
+            ActionManager.I.ResolveTriggerCommand(actableCode);
         }
 
         // ------------------------------------------------------------

@@ -61,6 +61,11 @@ namespace Antura.Discover.Interaction
             }
         }
 
+        public override void OnTrigger()
+        {
+            Play();
+        }
+
         void Update()
         {
             // Scale effect
@@ -93,11 +98,6 @@ namespace Antura.Discover.Interaction
                     IsActivated = false;
                 }
             }
-        }
-
-        public override void OnTrigger()
-        {
-            Play();
         }
 
         private void Play()

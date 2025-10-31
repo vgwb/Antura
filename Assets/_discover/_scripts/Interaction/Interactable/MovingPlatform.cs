@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 namespace Antura.Discover
 {
-    public class MovingPlatform : MonoBehaviour
+    public class MovingPlatform : ActableAbstract
     {
         public enum Axis { X, Y, Z }
         public enum MovementType { Axis, TargetPoint }
@@ -139,5 +139,11 @@ namespace Antura.Discover
         {
             IsActivated = status;
         }
+
+        public override void OnTrigger()
+        {
+            Activate(!IsActivated);
+        }
+
     }
 }

@@ -6,7 +6,7 @@ namespace Antura.Discover
 {
     public enum RotationAxis { X, Y, Z }
 
-    public class RotatingPlatform : MonoBehaviour
+    public class RotatingPlatform : ActableAbstract
     {
         public bool IsActivated = true;
         [Tooltip("Speed in degrees per second")]
@@ -117,6 +117,11 @@ namespace Antura.Discover
         public void Activate(bool status)
         {
             IsActivated = status;
+        }
+
+        public override void OnTrigger()
+        {
+            Activate(!IsActivated);
         }
     }
 }
