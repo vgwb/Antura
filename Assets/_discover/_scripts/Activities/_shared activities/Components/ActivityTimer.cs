@@ -23,13 +23,13 @@ namespace Antura.Discover.Activities
         [DeEmptyAlert]
         [SerializeField] Image bar;
         [DeEmptyAlert]
-        [SerializeField] TMP_Text tfTime;
+        [SerializeField] TMP_Text timeTextField;
         [SerializeField] Gradient timerGradient;
 
         #endregion
 
         readonly Stopwatch watch = new Stopwatch();
-        Coroutine coTimer;
+        Coroutine timerCoroutine;
 
         #region Unity
 
@@ -46,7 +46,7 @@ namespace Antura.Discover.Activities
         {
             bar.fillAmount = 0;
             watch.Restart();
-            this.RestartCoroutine(ref coTimer, CO_Timer(fromSeconds));
+            this.RestartCoroutine(ref timerCoroutine, CO_Timer(fromSeconds));
         }
 
         public void PauseTimer()
@@ -62,7 +62,7 @@ namespace Antura.Discover.Activities
         public void CancelTimer()
         {
             watch.Stop();
-            this.CancelCoroutine(ref coTimer);
+            this.CancelCoroutine(ref timerCoroutine);
         }
 
         #endregion
@@ -71,12 +71,12 @@ namespace Antura.Discover.Activities
 
         IEnumerator CO_Timer(int seconds)
         {
-            int ms = seconds * 1000;
-            while (watch.ElapsedMilliseconds < ms)
+            int milliseconds = seconds * 1000;
+            while (watch.ElapsedMilliseconds < milliseconds)
             {
-                bar.fillAmount = watch.ElapsedMilliseconds / (float)ms;
+                bar.fillAmount = watch.ElapsedMilliseconds / (float)milliseconds;
                 bar.color = timerGradient.Evaluate(bar.fillAmount);
-                UpdateText(Mathf.CeilToInt((ms - watch.ElapsedMilliseconds) * 0.001f));
+                UpdateText(Mathf.CeilToInt((milliseconds - watch.ElapsedMilliseconds) * 0.001f));
                 yield return null;
             }
 
@@ -89,7 +89,7 @@ namespace Antura.Discover.Activities
 
         void UpdateText(int currSeconds)
         {
-            tfTime.text = TimeSpan.FromSeconds(currSeconds).ToString(@"mm\:ss");
+            timeTextField.text = TimeSpan.FromSeconds(currSeconds).ToString(@"mm\:ss");
         }
 
         #endregion
