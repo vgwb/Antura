@@ -14,7 +14,7 @@ namespace Antura.Discover.Activities
         public int OriginalParentSlotIndex { get; set; } = -1;
         public RectTransform Rect => rectTransform;
 
-        private object manager;
+        private object activityManager;
         private System.Action<int> onLiftedFromSlot;
         private System.Action onReturnedToPool;
         private System.Action<AudioClip> onPlayItemSound;
@@ -24,7 +24,7 @@ namespace Antura.Discover.Activities
         private RectTransform rectTransform;
         private Transform originalParent;
 
-        private Transform activityTranform;
+        private Transform activityTransform;
         private Vector3 originalPosition;
         private bool dragging;
 
@@ -32,9 +32,9 @@ namespace Antura.Discover.Activities
         public float soundCooldown = 0.5f;
         private float lastSoundTime = -999f;
 
-        public void Init(ActivityOrder mgr, CardData data, Transform activityRoot)
+        public void Init(ActivityOrder activityOrder, CardData data, Transform activityRoot)
         {
-            manager = mgr;
+            activityManager = activityOrder;
             CardData = data;
             if (Label != null)
                 Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
@@ -45,14 +45,14 @@ namespace Antura.Discover.Activities
 
             // Set initial position
             rectTransform.anchoredPosition = Vector2.zero;
-            activityTranform = activityRoot;
+            activityTransform = activityRoot;
 
             // Bind callbacks for ActivityOrder
-            onLiftedFromSlot = mgr.NotifyTileLiftedFromSlot;
-            onReturnedToPool = mgr.NotifyTileReturnedToPool;
-            onPlayItemSound = mgr.PlayItemSound;
-            onFlashCorrectSlot = (ci, dt) => mgr.FlashCorrectSlot(ci, dt);
-            getPoolParent = () => mgr.tilesPoolParent;
+            onLiftedFromSlot = activityOrder.NotifyTileLiftedFromSlot;
+            onReturnedToPool = activityOrder.NotifyTileReturnedToPool;
+            onPlayItemSound = activityOrder.PlayItemSound;
+            onFlashCorrectSlot = (cardInfo, draggableTile) => activityOrder.FlashCorrectSlot(cardInfo, draggableTile);
+            getPoolParent = () => activityOrder.tilesPoolParent;
         }
 
         // Generic initializer for other activities (e.g., match)
@@ -63,7 +63,7 @@ namespace Antura.Discover.Activities
             System.Action<CardData, DraggableTile> onHint = null,
             object owner = null)
         {
-            manager = owner;
+            activityManager = owner;
             CardData = data;
             if (Label != null)
                 Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
@@ -71,7 +71,7 @@ namespace Antura.Discover.Activities
             if (sprite != null)
                 TileImage.sprite = sprite;
             rectTransform.anchoredPosition = Vector2.zero;
-            activityTranform = activityRoot;
+            activityTransform = activityRoot;
 
             getPoolParent = poolGetter;
             onLiftedFromSlot = onLift;
@@ -102,7 +102,7 @@ namespace Antura.Discover.Activities
             }
 
             canvasGroup.blocksRaycasts = false;
-            transform.SetParent(activityTranform);
+            transform.SetParent(activityTransform);
 
             DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityClick);
         }
@@ -118,7 +118,7 @@ namespace Antura.Discover.Activities
             dragging = false;
 
             // If it wasn't reparented by a DropSlot, it's still under the temp activity root
-            if (transform.parent == activityTranform)
+            if (transform.parent == activityTransform)
             {
                 if (OriginalParentSlotIndex >= 0)
                 {

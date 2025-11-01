@@ -37,8 +37,8 @@ namespace Antura.Discover.Activities
         public override void ConfigureSettings(ActivitySettingsAbstract settings)
         {
             base.ConfigureSettings(settings);
-            if (settings is MatchSettingsData csd)
-                Settings = csd;
+            if (settings is MatchSettingsData matchSettings)
+                Settings = matchSettings;
         }
 
         protected override ActivitySettingsAbstract GetSettings() => Settings;
@@ -62,18 +62,18 @@ namespace Antura.Discover.Activities
 
             if (Settings != null && Settings.GroupsData != null && Settings.GroupsData.Count > 0)
             {
-                foreach (var g in Settings.GroupsData)
+                foreach (var group in Settings.GroupsData)
                 {
-                    if (g == null || g.Question == null || g.Answers == null)
+                    if (group == null || group.Question == null || group.Answers == null)
                         continue;
-                    var question = g.Question;
+                    var question = group.Question;
                     // 1:1 mode: use only the first non-null answer, warn if more
-                    var firstAnswer = g.Answers.Find(a => a != null);
+                    var firstAnswer = group.Answers.Find(answer => answer != null);
                     if (firstAnswer != null)
                     {
                         pairs.Add((question, firstAnswer));
-                        if (g.Answers.Count > 1)
-                            Debug.LogWarning($"[ActivityMatch] 1:1 mode: Group with Question '{question?.Id}' has {g.Answers.Count} answers; using only the first.");
+                        if (group.Answers.Count > 1)
+                            Debug.LogWarning($"[ActivityMatch] 1:1 mode: Group with Question '{question?.Id}' has {group.Answers.Count} answers; using only the first.");
                     }
                 }
             }
@@ -87,13 +87,13 @@ namespace Antura.Discover.Activities
             for (int i = 0; i < pairs.Count; i++)
             {
                 var pair = pairs[i];
-                var slotGO = Instantiate(questionItemPrefab, BoardArea);
-                var slotRT = slotGO.transform as RectTransform;
-                if (slotRT != null)
+                var slotGameObject = Instantiate(questionItemPrefab, BoardArea);
+                var slotRectTransform = slotGameObject.transform as RectTransform;
+                if (slotRectTransform != null)
                 {
-                    slotRT.anchorMin = new Vector2(0.5f, 0.5f);
-                    slotRT.anchorMax = new Vector2(0.5f, 0.5f);
-                    slotRT.pivot = new Vector2(0.5f, 0.5f);
+                    slotRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+                    slotRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+                    slotRectTransform.pivot = new Vector2(0.5f, 0.5f);
                 }
                 // Prefer localized title, fallback to TitleEn or asset name
                 string questionTitle = null;
@@ -102,69 +102,69 @@ namespace Antura.Discover.Activities
                 catch { }
                 if (string.IsNullOrWhiteSpace(questionTitle))
                     questionTitle = !string.IsNullOrEmpty(pair.Question.TitleEn) ? pair.Question.TitleEn : pair.Question.name;
-                slotGO.name = $"QuestionSlot_{i}_{questionTitle}";
+                slotGameObject.name = $"QuestionSlot_{i}_{questionTitle}";
 
                 // Initialize via QuestionItem to encapsulate visuals and overlay
-                var qItem = slotGO.GetComponent<QuestionItem>();
-                if (qItem == null)
-                    qItem = slotGO.AddComponent<QuestionItem>();
+                var questionItem = slotGameObject.GetComponent<QuestionItem>();
+                if (questionItem == null)
+                    questionItem = slotGameObject.AddComponent<QuestionItem>();
                 var sprite = ResolveSprite(pair.Question);
-                qItem.Init(questionTitle, sprite, i, this, pair.Question, pair.Answer?.Id);
+                questionItem.Init(questionTitle, sprite, i, this, pair.Question, pair.Answer?.Id);
 
                 // Track structures: use the DropSlot created by QuestionItem, or ensure one exists
-                var drop = qItem.DropSlot != null ? qItem.DropSlot : slotGO.GetComponentInChildren<MatchDropSlot>(includeInactive: true);
-                if (drop == null)
+                var dropSlot = questionItem.DropSlot != null ? questionItem.DropSlot : slotGameObject.GetComponentInChildren<MatchDropSlot>(includeInactive: true);
+                if (dropSlot == null)
                 {
-                    var dropGO = new GameObject("DropOverlay", typeof(RectTransform));
-                    dropGO.transform.SetParent(slotGO.transform, false);
-                    drop = dropGO.AddComponent<MatchDropSlot>();
+                    var dropGameObject = new GameObject("DropOverlay", typeof(RectTransform));
+                    dropGameObject.transform.SetParent(slotGameObject.transform, false);
+                    dropSlot = dropGameObject.AddComponent<MatchDropSlot>();
                 }
-                drop.manager = this;
-                drop.slotIndex = i;
-                drop.Owner = qItem;
+                dropSlot.manager = this;
+                dropSlot.slotIndex = i;
+                dropSlot.Owner = questionItem;
                 // tracked through questionItems
-                questionItems.Add(qItem);
-                qItem.ExpectedAnswerId = pair.Answer.Id;
+                questionItems.Add(questionItem);
+                questionItem.ExpectedAnswerId = pair.Answer.Id;
             }
             // Manually distribute question slots horizontally on the upper part
-            var rootRT = BoardArea as RectTransform;
-            if (rootRT != null)
+            var rootRectTransform = BoardArea as RectTransform;
+            if (rootRectTransform != null)
             {
-                float w = rootRT.rect.width;
-                float h = rootRT.rect.height;
-                int n = questionItems.Count;
-                for (int i = 0; i < n; i++)
+                float width = rootRectTransform.rect.width;
+                float height = rootRectTransform.rect.height;
+                int count = questionItems.Count;
+                for (int i = 0; i < count; i++)
                 {
-                    var qi = questionItems[i];
-                    var rt = qi ? qi.transform as RectTransform : null;
-                    if (rt != null)
+                    var questionItem = questionItems[i];
+                    var rectTransform = questionItem ? questionItem.transform as RectTransform : null;
+                    if (rectTransform != null)
                     {
-                        float t = (n == 1) ? 0.5f : (float)i / (n - 1);
-                        float halfCW = rt.rect.width * 0.5f;
-                        float halfCH = rt.rect.height * 0.5f;
-                        float padX = Mathf.Max(halfCW, 24f); // keep fully inside + a tiny margin
-                        float padYTop = Mathf.Max(halfCH, 24f);
-                        float x = Mathf.Lerp(-w * 0.5f + padX, w * 0.5f - padX, t);
-                        float y = h * 0.25f; // upper band center
-                        rt.anchoredPosition = new Vector2(x, y);
+                        float interpolationFactor = (count == 1) ? 0.5f : (float)i / (count - 1);
+                        float halfChildWidth = rectTransform.rect.width * 0.5f;
+                        float halfChildHeight = rectTransform.rect.height * 0.5f;
+                        float paddingX = Mathf.Max(halfChildWidth, 24f); // keep fully inside + a tiny margin
+                        float paddingYTop = Mathf.Max(halfChildHeight, 24f);
+                        float xPosition = Mathf.Lerp(-width * 0.5f + paddingX, width * 0.5f - paddingX, interpolationFactor);
+                        float yPosition = height * 0.25f; // upper band center
+                        rectTransform.anchoredPosition = new Vector2(xPosition, yPosition);
                     }
                 }
             }
 
             // Spawn answers tiles shuffled
             var answerList = new List<CardData>();
-            foreach (var p in pairs)
-                answerList.Add(p.Answer);
+            foreach (var pair in pairs)
+                answerList.Add(pair.Answer);
             Shuffle(answerList);
             // Build answers under the same board container
             var spawnedTiles = new List<DraggableTile>();
-            foreach (var it in answerList)
+            foreach (var cardData in answerList)
             {
-                var go = Instantiate(answerItemPrefab, BoardArea);
-                go.name = it.name;
-                var tile = go.GetComponent<DraggableTile>();
+                var answerGameObject = Instantiate(answerItemPrefab, BoardArea);
+                answerGameObject.name = cardData.name;
+                var tile = answerGameObject.GetComponent<DraggableTile>();
                 tile.InitGeneric(
-                    it,
+                    cardData,
                     this.transform,
                     poolGetter: () => BoardArea,
                     onLift: NotifyTileLiftedFromSlot,
@@ -172,46 +172,46 @@ namespace Antura.Discover.Activities
                     onHint: null,
                     owner: this);
                 // Ensure CanvasGroup exists for proper drag raycast toggling
-                if (go.GetComponent<CanvasGroup>() == null)
-                    go.AddComponent<CanvasGroup>();
+                if (answerGameObject.GetComponent<CanvasGroup>() == null)
+                    answerGameObject.AddComponent<CanvasGroup>();
                 // Ensure AnswerItem tracker exists
-                var answerItem = go.GetComponent<AnswerItem>();
+                var answerItem = answerGameObject.GetComponent<AnswerItem>();
                 if (answerItem == null)
-                    answerItem = go.AddComponent<AnswerItem>();
+                    answerItem = answerGameObject.AddComponent<AnswerItem>();
                 answerItem.AttachedTo = null;
-                answerItem.Data = it;
+                answerItem.Data = cardData;
                 // Clamp tile during drag within the board area
-                var clamp = go.GetComponent<AnswerTileClamp>();
+                var clamp = answerGameObject.GetComponent<AnswerTileClamp>();
                 if (clamp == null)
-                    clamp = go.AddComponent<AnswerTileClamp>();
+                    clamp = answerGameObject.AddComponent<AnswerTileClamp>();
                 clamp.manager = this;
-                if (go.transform is RectTransform art)
+                if (answerGameObject.transform is RectTransform answerRectTransform)
                 {
-                    art.anchorMin = new Vector2(0.5f, 0.5f);
-                    art.anchorMax = new Vector2(0.5f, 0.5f);
-                    art.pivot = new Vector2(0.5f, 0.5f);
+                    answerRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+                    answerRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+                    answerRectTransform.pivot = new Vector2(0.5f, 0.5f);
                 }
                 spawnedTiles.Add(tile);
             }
 
             // Distribute answers on the bottom part and memorize their home positions
-            if (rootRT != null)
+            if (rootRectTransform != null)
             {
-                float w = rootRT.rect.width;
-                float h = rootRT.rect.height;
-                int nA = spawnedTiles.Count;
-                for (int i = 0; i < nA; i++)
+                float width = rootRectTransform.rect.width;
+                float height = rootRectTransform.rect.height;
+                int answerCount = spawnedTiles.Count;
+                for (int i = 0; i < answerCount; i++)
                 {
                     var tile = spawnedTiles[i];
-                    if (tile.transform is RectTransform rt)
+                    if (tile.transform is RectTransform rectTransform)
                     {
-                        float t = (nA == 1) ? 0.5f : (float)i / (nA - 1);
-                        float x = Mathf.Lerp(-w * 0.45f, w * 0.45f, t);
-                        float y = -h * 0.25f; // lower band
-                        var pos = new Vector2(x, y);
-                        rt.anchoredPosition = pos;
-                        poolAnchoredPos[tile] = pos;
-                        poolSiblingIndex[tile] = rt.GetSiblingIndex();
+                        float interpolationFactor = (answerCount == 1) ? 0.5f : (float)i / (answerCount - 1);
+                        float xPosition = Mathf.Lerp(-width * 0.45f, width * 0.45f, interpolationFactor);
+                        float yPosition = -height * 0.25f; // lower band
+                        var position = new Vector2(xPosition, yPosition);
+                        rectTransform.anchoredPosition = position;
+                        poolAnchoredPos[tile] = position;
+                        poolSiblingIndex[tile] = rectTransform.GetSiblingIndex();
                     }
                 }
             }
@@ -266,21 +266,21 @@ namespace Antura.Discover.Activities
         {
             var parentForAnswer = questionItems[slotIndex] ? questionItems[slotIndex].transform : BoardArea.GetChild(slotIndex);
             tile.MoveToSlot(parentForAnswer, slotIndex);
-            if (tile.transform is RectTransform rt)
+            if (tile.transform is RectTransform tileRectTransform)
             {
-                var qrt = questionItems[slotIndex] ? questionItems[slotIndex].transform as RectTransform : null;
-                float h = qrt != null ? qrt.rect.height : 100f;
+                var questionRectTransform = questionItems[slotIndex] ? questionItems[slotIndex].transform as RectTransform : null;
+                float questionHeight = questionRectTransform != null ? questionRectTransform.rect.height : 100f;
                 float spacing = 12f + 60f; // extra to avoid label overlap
-                rt.anchorMin = new Vector2(0.5f, 1f);
-                rt.anchorMax = new Vector2(0.5f, 1f);
-                rt.pivot = new Vector2(0.5f, 1f);
-                rt.anchoredPosition = new Vector2(0f, -(h + spacing));
-                rt.SetAsLastSibling();
+                tileRectTransform.anchorMin = new Vector2(0.5f, 1f);
+                tileRectTransform.anchorMax = new Vector2(0.5f, 1f);
+                tileRectTransform.pivot = new Vector2(0.5f, 1f);
+                tileRectTransform.anchoredPosition = new Vector2(0f, -(questionHeight + spacing));
+                tileRectTransform.SetAsLastSibling();
             }
             // Track attachment on the tile
-            var ai = tile.GetComponent<AnswerItem>();
-            if (ai != null)
-                ai.AttachedTo = parentForAnswer;
+            var answerItem = tile.GetComponent<AnswerItem>();
+            if (answerItem != null)
+                answerItem.AttachedTo = parentForAnswer;
         }
 
         public void NotifyTileLiftedFromSlot(int slotIndex)
@@ -321,15 +321,15 @@ namespace Antura.Discover.Activities
             }
 
             // Reparent to board and place at drop position (anchored)
-            if (tile.transform is RectTransform rt && BoardArea is RectTransform poolRT)
+            if (tile.transform is RectTransform tileRectTransform && BoardArea is RectTransform poolRectTransform)
             {
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(poolRT, eventData.position, eventData.pressEventCamera, out var local);
-                rt.SetParent(BoardArea, worldPositionStays: false);
-                SetCenterAnchors(rt);
-                rt.anchoredPosition = ClampAnchoredToParent(poolRT, rt, local);
-                rt.SetAsLastSibling();
-                poolAnchoredPos[tile] = rt.anchoredPosition;
-                poolSiblingIndex[tile] = rt.GetSiblingIndex();
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(poolRectTransform, eventData.position, eventData.pressEventCamera, out var localPosition);
+                tileRectTransform.SetParent(BoardArea, worldPositionStays: false);
+                SetCenterAnchors(tileRectTransform);
+                tileRectTransform.anchoredPosition = ClampAnchoredToParent(poolRectTransform, tileRectTransform, localPosition);
+                tileRectTransform.SetAsLastSibling();
+                poolAnchoredPos[tile] = tileRectTransform.anchoredPosition;
+                poolSiblingIndex[tile] = tileRectTransform.GetSiblingIndex();
             }
             else
             {
@@ -337,9 +337,9 @@ namespace Antura.Discover.Activities
             }
 
             // Clear tile attachment tracking
-            var ai = tile.GetComponent<AnswerItem>();
-            if (ai != null)
-                ai.AttachedTo = null;
+            var answerItem = tile.GetComponent<AnswerItem>();
+            if (answerItem != null)
+                answerItem.AttachedTo = null;
 
             DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivityDrop);
             UpdateValidateState();
@@ -348,20 +348,20 @@ namespace Antura.Discover.Activities
 
         private void EnsureBoardDropArea()
         {
-            if (BoardArea is not RectTransform rootRT)
+            if (BoardArea is not RectTransform rootRectTransform)
                 return;
             const string areaName = "BoardDropArea";
-            var t = BoardArea.Find(areaName);
+            var existingTransform = BoardArea.Find(areaName);
             RectTransform area;
-            if (t == null)
+            if (existingTransform == null)
             {
-                var go = new GameObject(areaName, typeof(RectTransform));
-                area = go.GetComponent<RectTransform>();
+                var areaGameObject = new GameObject(areaName, typeof(RectTransform));
+                area = areaGameObject.GetComponent<RectTransform>();
                 area.SetParent(BoardArea, false);
             }
             else
             {
-                area = t as RectTransform;
+                area = existingTransform as RectTransform;
             }
             area.anchorMin = new Vector2(0f, 0f);
             area.anchorMax = new Vector2(1f, 1f);
@@ -369,16 +369,16 @@ namespace Antura.Discover.Activities
             area.offsetMax = Vector2.zero;
             area.pivot = new Vector2(0.5f, 0.5f);
 
-            var drop = area.GetComponent<MatchDropSlot>();
-            if (drop == null)
-                drop = area.gameObject.AddComponent<MatchDropSlot>();
-            var g = area.GetComponent<Image>();
-            if (g == null)
-                g = area.gameObject.AddComponent<Image>();
-            g.color = new Color(1, 1, 1, 0f);
-            g.raycastTarget = true;
-            drop.manager = this;
-            drop.IsPoolArea = true;
+            var dropSlot = area.GetComponent<MatchDropSlot>();
+            if (dropSlot == null)
+                dropSlot = area.gameObject.AddComponent<MatchDropSlot>();
+            var image = area.GetComponent<Image>();
+            if (image == null)
+                image = area.gameObject.AddComponent<Image>();
+            image.color = new Color(1, 1, 1, 0f);
+            image.raycastTarget = true;
+            dropSlot.manager = this;
+            dropSlot.IsPoolArea = true;
             // Make sure this area stays behind other children to not block drag start
             area.SetAsFirstSibling();
         }
@@ -388,17 +388,17 @@ namespace Antura.Discover.Activities
                 return;
             // Wire MatchPoolDropArea
             var poolAreas = BoardArea.GetComponentsInChildren<MatchPoolDropArea>(includeInactive: true);
-            foreach (var pa in poolAreas)
+            foreach (var poolArea in poolAreas)
             {
-                if (pa != null)
-                    pa.manager = this;
+                if (poolArea != null)
+                    poolArea.manager = this;
             }
             // Also wire any MatchDropSlot configured as pool areas
             var dropSlots = BoardArea.GetComponentsInChildren<MatchDropSlot>(includeInactive: true);
-            foreach (var ds in dropSlots)
+            foreach (var dropSlot in dropSlots)
             {
-                if (ds != null && ds.IsPoolArea)
-                    ds.manager = this;
+                if (dropSlot != null && dropSlot.IsPoolArea)
+                    dropSlot.manager = this;
             }
         }
 
@@ -416,19 +416,19 @@ namespace Antura.Discover.Activities
                         questionItems[i]?.SetHighlight(null);
                 }
             }
-            if (tile.transform is RectTransform rt)
+            if (tile.transform is RectTransform tileRectTransform)
             {
                 // Preserve world position while changing parent and anchors
-                var world = rt.position;
-                rt.SetParent(BoardArea, worldPositionStays: true);
-                SetCenterAnchors(rt);
-                if (BoardArea is RectTransform prt)
+                var worldPosition = tileRectTransform.position;
+                tileRectTransform.SetParent(BoardArea, worldPositionStays: true);
+                SetCenterAnchors(tileRectTransform);
+                if (BoardArea is RectTransform parentRectTransform)
                 {
-                    var local = (Vector2)prt.InverseTransformPoint(world);
-                    rt.anchoredPosition = ClampAnchoredToParent(prt, rt, local);
+                    var localPosition = (Vector2)parentRectTransform.InverseTransformPoint(worldPosition);
+                    tileRectTransform.anchoredPosition = ClampAnchoredToParent(parentRectTransform, tileRectTransform, localPosition);
                 }
-                poolAnchoredPos[tile] = rt.anchoredPosition;
-                poolSiblingIndex[tile] = rt.GetSiblingIndex();
+                poolAnchoredPos[tile] = tileRectTransform.anchoredPosition;
+                poolSiblingIndex[tile] = tileRectTransform.GetSiblingIndex();
             }
             else
             {
@@ -462,13 +462,13 @@ namespace Antura.Discover.Activities
 
             for (int i = 0; i < questionItems.Count; i++)
             {
-                var t = i < placed.Length ? placed[i] : null;
-                if (t == null)
+                var placedTile = i < placed.Length ? placed[i] : null;
+                if (placedTile == null)
                 { questionItems[i]?.SetHighlight(null); continue; }
                 var expected = questionItems[i] != null ? questionItems[i].ExpectedAnswerId : null;
-                if (!string.IsNullOrEmpty(expected) && t.CardData != null)
+                if (!string.IsNullOrEmpty(expected) && placedTile.CardData != null)
                 {
-                    bool isCorrect = t.CardData.Id == expected;
+                    bool isCorrect = placedTile.CardData.Id == expected;
                     questionItems[i]?.SetHighlight(isCorrect);
                 }
                 else
@@ -491,11 +491,11 @@ namespace Antura.Discover.Activities
             int correct = 0;
             for (int i = 0; i < placed.Length; i++)
             {
-                var t = placed[i];
-                if (t == null)
+                var placedTile = placed[i];
+                if (placedTile == null)
                     continue;
                 var expected = questionItems[i] != null ? questionItems[i].ExpectedAnswerId : null;
-                if (t.CardData != null && !string.IsNullOrEmpty(expected) && t.CardData.Id == expected)
+                if (placedTile.CardData != null && !string.IsNullOrEmpty(expected) && placedTile.CardData.Id == expected)
                     correct++;
             }
 
@@ -528,31 +528,31 @@ namespace Antura.Discover.Activities
         {
             if (tile == null)
                 return;
-            if (tile.transform is not RectTransform rt)
+            if (tile.transform is not RectTransform rectTransform)
             {
                 tile.MoveToPool(BoardArea);
                 return;
             }
             // Determine original pool position and sibling order
-            poolAnchoredPos.TryGetValue(tile, out var target);
-            poolSiblingIndex.TryGetValue(tile, out var sibIdx);
+            poolAnchoredPos.TryGetValue(tile, out var targetPosition);
+            poolSiblingIndex.TryGetValue(tile, out var siblingIndex);
 
             // Move under pool while keeping world position, restore order
-            rt.SetParent(BoardArea, worldPositionStays: true);
-            if (sibIdx >= 0)
-                rt.SetSiblingIndex(sibIdx);
+            rectTransform.SetParent(BoardArea, worldPositionStays: true);
+            if (siblingIndex >= 0)
+                rectTransform.SetSiblingIndex(siblingIndex);
 
             // Small upward bump then tween to memorized pool position
-            var seq = DOTween.Sequence();
-            var startPos = rt.anchoredPosition;
-            seq.Append(rt.DOAnchorPos(startPos + new Vector2(0, 40f), 0.12f).SetEase(Ease.OutQuad));
-            seq.Append(rt.DOAnchorPos(target, 0.18f).SetEase(Ease.OutCubic));
-            seq.OnComplete(() =>
+            var sequence = DOTween.Sequence();
+            var startPosition = rectTransform.anchoredPosition;
+            sequence.Append(rectTransform.DOAnchorPos(startPosition + new Vector2(0, 40f), 0.12f).SetEase(Ease.OutQuad));
+            sequence.Append(rectTransform.DOAnchorPos(targetPosition, 0.18f).SetEase(Ease.OutCubic));
+            sequence.OnComplete(() =>
             {
                 tile.MoveToPool(BoardArea);
-                var ai2 = tile.GetComponent<AnswerItem>();
-                if (ai2 != null)
-                    ai2.AttachedTo = null;
+                var answerItem = tile.GetComponent<AnswerItem>();
+                if (answerItem != null)
+                    answerItem.AttachedTo = null;
             });
         }
 
