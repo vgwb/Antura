@@ -372,7 +372,7 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("task_start")]
-        public static void CommandTaskStart(string taskCode, string nodeReturn)
+        public static void CommandTaskStart(string taskCode, string nodeReturn = "")
         {
             //Debug.Log($"ActionManager: ResolveNodeCommandTaskStart: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
