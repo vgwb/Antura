@@ -1237,7 +1237,8 @@ namespace Antura.Discover.Audio.Editor
             // Clear single-line mode flags after finishing
             _onlyLineKey = null;
             _forceRecreateSelected = false;
-            EditorUtility.DisplayDialog("Create Audio", $"Done. Created {totalCreated} file(s).", "OK");
+            Debug.Log($"Create Audio - Done. Created {totalCreated} file(s).");
+            //EditorUtility.DisplayDialog("Create Audio", $"Done. Created {totalCreated} file(s).", "OK");
         }
 
         private void RunConvertMp3ToOgg()
