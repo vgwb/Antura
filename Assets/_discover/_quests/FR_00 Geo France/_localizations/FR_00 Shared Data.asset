@@ -430,21 +430,6 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226082763702669
-  - m_Id: 9999935318515712
-    m_Key: line:0ffc06f
-    m_Metadata:
-      m_Items:
-      - rid: 6508226560240648553
-  - m_Id: 9999935318515713
-    m_Key: line:07be3df
-    m_Metadata:
-      m_Items:
-      - rid: 6508226560240648554
-  - m_Id: 9999935318515714
-    m_Key: line:0b35bca
-    m_Metadata:
-      m_Items:
-      - rid: 6508226560240648555
   - m_Id: 9999935318515715
     m_Key: line:0c7aab5
     m_Metadata:
@@ -495,11 +480,46 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226560240648565
-  - m_Id: 19334177605279744
-    m_Key: line:c8dbf8d9
+  - m_Id: 22909729641586688
+    m_Key: line:ddf66589
     m_Metadata:
       m_Items:
-      - rid: 8167807345947836618
+      - rid: 2714114842307068117
+  - m_Id: 22909729641586689
+    m_Key: line:5eebffae
+    m_Metadata:
+      m_Items:
+      - rid: 2714114842307068118
+  - m_Id: 22909729641586690
+    m_Key: line:762878bb
+    m_Metadata:
+      m_Items:
+      - rid: 2714114842307068119
+  - m_Id: 22909729641586691
+    m_Key: line:5cc9f226
+    m_Metadata:
+      m_Items:
+      - rid: 2714114842307068120
+  - m_Id: 22909729641586692
+    m_Key: line:6f64ab74
+    m_Metadata:
+      m_Items:
+      - rid: 2714114842307068121
+  - m_Id: 22909729641586693
+    m_Key: line:53d3e607
+    m_Metadata:
+      m_Items:
+      - rid: 2714114842307068122
+  - m_Id: 22909729641586694
+    m_Key: line:2a31dd97
+    m_Metadata:
+      m_Items:
+      - rid: 2714114842307068123
+  - m_Id: 22909729641586695
+    m_Key: line:48d50b5f
+    m_Metadata:
+      m_Items:
+      - rid: 2714114842307068124
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -507,6 +527,46 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 2714114842307068117
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: france_npc
+        tags: []
+    - rid: 2714114842307068118
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_france_done
+        tags: []
+    - rid: 2714114842307068119
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_germany_done
+        tags: []
+    - rid: 2714114842307068120
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_spain_done
+        tags: []
+    - rid: 2714114842307068121
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_italy_done
+        tags: []
+    - rid: 2714114842307068122
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_belgium_done
+        tags: []
+    - rid: 2714114842307068123
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_lux_done
+        tags: []
+    - rid: 2714114842307068124
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_swiss_done
+        tags: []
     - rid: 6508225951601787254
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
@@ -526,7 +586,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: france_npc
-        tags: []
+        tags:
+        - task:talk_npc_german
     - rid: 6508225951601787760
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -545,7 +606,7 @@ MonoBehaviour:
     - rid: 6508225951601787763
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: france_npc
+        nodeName: task_france
         tags: []
     - rid: 6508225951601787764
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -582,7 +643,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: germany_npc
-        tags: []
+        tags:
+        - task:talk_npc_spain
     - rid: 6508225951601787771
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -628,7 +690,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spain_npc
-        tags: []
+        tags:
+        - task:talk_npc_italy
     - rid: 6508225951601787780
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -669,7 +732,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: italy_npc
-        tags: []
+        tags:
+        - task:talk_npc_belgium
     - rid: 6508225951601787788
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -888,17 +952,20 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: belgium_npc
-        tags: []
+        tags:
+        - task:talk_npc_luxembourg
     - rid: 6508226014524998148
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: luxembourg_npc
-        tags: []
+        tags:
+        - task:talk_npc_swiss
     - rid: 6508226014524998149
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: npc_swiss
-        tags: []
+        tags:
+        - task:talk_npc_french_final
     - rid: 6508226082763702663
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -933,21 +1000,6 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_npc
-        tags: []
-    - rid: 6508226560240648553
-      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
-      data:
-        nodeName: germany_npc
-        tags: []
-    - rid: 6508226560240648554
-      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
-      data:
-        nodeName: germany_npc
-        tags: []
-    - rid: 6508226560240648555
-      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
-      data:
-        nodeName: task_germany
         tags: []
     - rid: 6508226560240648556
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -998,9 +1050,4 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: npc_swiss
-        tags: []
-    - rid: 8167807345947836618
-      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
-      data:
-        nodeName: task_france_done
         tags: []
