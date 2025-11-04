@@ -111,16 +111,16 @@ namespace Antura.Discover
         public void OnClick()
         {
             usedLearningLanguage = !usedLearningLanguage;
-            DisplayText(usedLearningLanguage);
+            DisplayText(usedLearningLanguage, true);
         }
 
-        public void DisplayText(bool UseLearningLanguage)
+        public void DisplayText(bool UseLearningLanguage, bool speak = false)
         {
             // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
             if (UseLearningLanguage)
             {
                 tfDescription.text = TruncateDescription(currNode.Content);
-                if (currNode.AudioLearning != null)
+                if (speak && currNode.AudioLearning != null)
                 {
                     DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning);
                 }
@@ -128,7 +128,7 @@ namespace Antura.Discover
             else
             {
                 tfDescription.text = TruncateDescription(currNode.ContentNative);
-                if (currNode.AudioNative != null)
+                if (speak && currNode.AudioNative != null)
                 {
                     DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative);
                 }
