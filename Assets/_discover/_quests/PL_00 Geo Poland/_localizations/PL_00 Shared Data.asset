@@ -505,6 +505,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 2714114862730182857
+  - m_Id: 23160272834256896
+    m_Key: line:2454c92c
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182864
+  - m_Id: 23160272842645504
+    m_Key: line:a804a6b0
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182865
+  - m_Id: 23180475349590016
+    m_Key: line:0acd0d63
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182866
+  - m_Id: 23186218937212928
+    m_Key: line:1af44d15
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182867
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -532,6 +552,26 @@ MonoBehaviour:
       data:
         nodeName: spawned_npc
         tags: []
+    - rid: 2714114862730182864
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: poland_npc
+        tags: []
+    - rid: 2714114862730182865
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_poland_done
+        tags: []
+    - rid: 2714114862730182866
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_germany_done
+        tags: []
+    - rid: 2714114862730182867
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_belarus_done
+        tags: []
     - rid: 6508225951601787389
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
@@ -540,7 +580,7 @@ MonoBehaviour:
     - rid: 6508225964736512340
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: poland_npc_win
+        nodeName: win
         tags: []
     - rid: 6508225964736512341
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -612,7 +652,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: germany_npc
-        tags: []
+        tags:
+        - task:talk_npc_belarus
     - rid: 6508225964736512355
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -658,7 +699,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: belarus_npc
-        tags: []
+        tags:
+        - task:talk_npc_czech
     - rid: 6508225964736512364
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -699,7 +741,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: czech_republic_npc
-        tags: []
+        tags:
+        - task:talk_npc_lithuania
     - rid: 6508225964736512372
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -720,7 +763,7 @@ MonoBehaviour:
       data:
         nodeName: task_czech_republic
         tags:
-        - task:FIND_czech_republic_FLAG
+        - task:find_flag_czech
     - rid: 6508225964736512376
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -907,7 +950,7 @@ MonoBehaviour:
     - rid: 6508226014524998151
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: poland_npc_win
+        nodeName: win
         tags: []
     - rid: 6508226014524998152
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
