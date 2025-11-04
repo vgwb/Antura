@@ -485,6 +485,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6508226560240648579
+  - m_Id: 23155981255958528
+    m_Key: line:39191920
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182656
+  - m_Id: 23157876712267776
+    m_Key: line:04f4280
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182855
+  - m_Id: 23157876716462080
+    m_Key: line:08d624d
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182856
+  - m_Id: 23157876716462081
+    m_Key: line:0ab3dd9
+    m_Metadata:
+      m_Items:
+      - rid: 2714114862730182857
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -492,6 +512,26 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 2714114862730182656
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_poland_done
+        tags: []
+    - rid: 2714114862730182855
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: spawned_npc
+        tags: []
+    - rid: 2714114862730182856
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: spawned_npc
+        tags: []
+    - rid: 2714114862730182857
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: spawned_npc
+        tags: []
     - rid: 6508225951601787389
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
@@ -542,7 +582,7 @@ MonoBehaviour:
       data:
         nodeName: task_poland
         tags:
-        - task:FIND_polish_FLAG
+        - task:find_flag_poland
     - rid: 6508225964736512349
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -837,12 +877,12 @@ MonoBehaviour:
     - rid: 6508225964736512406
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: russia
+        nodeName: npc_russia
         tags: []
     - rid: 6508225964736512407
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: russia
+        nodeName: npc_russia
         tags: []
     - rid: 6508225964736512408
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
