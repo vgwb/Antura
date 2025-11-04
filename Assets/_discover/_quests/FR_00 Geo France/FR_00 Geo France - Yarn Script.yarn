@@ -92,7 +92,7 @@ title: win
 position: 819,-1478
 actor: KID_F
 color: purple
-type: panel_endgame
+type:
 ---
 <<task_end talk_npc_french_final>>
 Good job! You did it! #line:0ba3c4c 
@@ -145,7 +145,7 @@ group: france
 tags: task
 ---
 <<asset flag_france>>
-Find the French flag. #line:0e35434 #task:FIND_FRENCH_FLAG
+Find the french flag. #line:0e35434 #task:FIND_FRENCH_FLAG
 It's blue, white, and red. #line:0868737 
 <<target Flag_France>>
 <<task_start FIND_FRENCH_FLAG task_france_done>>
@@ -209,7 +209,7 @@ actor: ADULT_M
     We're famous for castles, forests, and trains! #line:04dc97a 
     <<jump task_germany>>
 <<else>>
-    Our flag has stripes: black, red, yellow. #line:0cd7024
+    Our flag has stripes black, red, yellow. #line:0cd7024
 <<endif>>
 ===
 
