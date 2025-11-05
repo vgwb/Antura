@@ -84,7 +84,7 @@ namespace Antura.Discover
 
         #region Public Methods
 
-        public void Show(QuestNode node, bool UseLearningLanguage)
+        public void Show(QuestNode node, bool UseLearningLanguage, bool doSpeech = true)
         {
             if (IsOpen)
                 return;
@@ -111,13 +111,13 @@ namespace Antura.Discover
             else
             { iconTranslate.SetActive(false); }
 
-            DisplayText(UseLearningLanguage, automaticTranslation: QuestManager.I.HasTranslation);
+            DisplayText(UseLearningLanguage, automaticTranslation: QuestManager.I.HasTranslation, doSpeech);
 
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeStart(currNode);
         }
 
-        public void DisplayText(bool UseLearningLanguage, bool automaticTranslation = false)
+        public void DisplayText(bool UseLearningLanguage, bool automaticTranslation = false, bool doSpeech = true)
         {
             var textLength = 0;
             // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
@@ -125,7 +125,7 @@ namespace Antura.Discover
             {
                 textLength = currNode.Content.Length;
                 textRender.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
-                if (currNode.AudioLearning != null)
+                if (currNode.AudioLearning != null && doSpeech)
                 {
                     if (automaticTranslation)
                     {
@@ -141,7 +141,7 @@ namespace Antura.Discover
             {
                 textLength = currNode.ContentNative.Length;
                 textRender.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.Default);
-                if (currNode.AudioNative != null)
+                if (currNode.AudioNative != null && doSpeech)
                 {
                     if (automaticTranslation)
                     {

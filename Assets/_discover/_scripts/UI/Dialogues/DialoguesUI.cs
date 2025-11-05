@@ -143,11 +143,6 @@ namespace Antura.Discover
             }
         }
 
-        public void StartDialogue(QuestNode node)
-        {
-            //ShowDialogueFor(node);
-        }
-
         public void CloseDialogue(int choiceIndex = 0)
         {
             if (!IsOpen)
@@ -238,7 +233,7 @@ namespace Antura.Discover
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
-                        currBalloon.Show(node, learningLanguageFirst);
+                        currBalloon.Show(node, learningLanguageFirst, false);
                     choices.Show(node.Choices, node.Type == NodeType.QUIZ, learningLanguageFirst);
                     break;
                 default:
