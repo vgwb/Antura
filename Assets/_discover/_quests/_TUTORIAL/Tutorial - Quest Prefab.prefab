@@ -2876,6 +2876,13 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
+    - Command: 18
+      mainObject: {fileID: 700858236149353224}
+      Parameter: 0
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
   - ActionCode: area_init
     Commands:
     - Command: 2
@@ -4394,6 +4401,7 @@ Transform:
   - {fileID: 3737020551684069539}
   - {fileID: 7698276251757096758}
   - {fileID: 1477284248203607044}
+  - {fileID: 3149151687652972982}
   - {fileID: 4144174493444046110}
   m_Father: {fileID: 2519344455256515021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14442,6 +14450,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Billboard WASD
       objectReference: {fileID: 0}
+    - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4278319559478767620, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: PlatformType
@@ -14500,7 +14513,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 488639258107589786}
   m_SourcePrefab: {fileID: 100100000, guid: aec78715485724438a97aa3feb338050, type: 3}
 --- !u!4 &1477284248203607044 stripped
 Transform:
@@ -14508,6 +14525,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6653810290821647964}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7663240331308072136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
+    type: 3}
+  m_PrefabInstance: {fileID: 6653810290821647964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &488639258107589786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663240331308072136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6db7edc04c4f3e8853a276ceb9949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Utilities.PlatformVisibility
+  EditorOnly: 0
+  PlatformType: 3
 --- !u!1001 &6733506856415284592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14933,6 +14970,115 @@ MonoBehaviour:
   MoveAxis: 1
   distance: 3.5
   targetPoint: {fileID: 5040623212367158136}
+--- !u!1001 &7161642328578812910
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 601719908780543761}
+    m_Modifications:
+    - target: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_Name
+      value: Billboard Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970012676992426316, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: Asset
+      value: 
+      objectReference: {fileID: 11400000, guid: aa8a775adc6c549249fe6d6a57ab98d0,
+        type: 2}
+    - target: {fileID: 4278319559478767620, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: PlatformType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.507153
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 99.25374
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9097505
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.41515547
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 49.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 674014993324572690}
+  m_SourcePrefab: {fileID: 100100000, guid: aec78715485724438a97aa3feb338050, type: 3}
+--- !u!4 &3149151687652972982 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5248746382503178840, guid: aec78715485724438a97aa3feb338050,
+    type: 3}
+  m_PrefabInstance: {fileID: 7161642328578812910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6155605466765613434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3895148919588598420, guid: aec78715485724438a97aa3feb338050,
+    type: 3}
+  m_PrefabInstance: {fileID: 7161642328578812910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &674014993324572690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155605466765613434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6db7edc04c4f3e8853a276ceb9949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Utilities.PlatformVisibility
+  EditorOnly: 0
+  PlatformType: 1
 --- !u!1001 &7209041719606640945
 PrefabInstance:
   m_ObjectHideFlags: 0
