@@ -551,13 +551,11 @@ actor: NARRATOR
 ---
 <<card flag_luxembourg>>
 <<if GetCurrentTask() == "FIND_LUX_FLAG">>
-You found the Luxembourg flag! Go back to Luxembourg. #line:0324097 
-
+    You found the Luxembourg flag! Go back to Luxembourg. #line:0324097 
     <<inventory flag_luxembourg add>>
     <<target NPC_Lux>>
 <<else>>
-Flag of Luxembourg. #line:05badd7 
-
+    Flag of Luxembourg. #line:05badd7 
 <<endif>>
 ===
 
@@ -663,9 +661,9 @@ group: andorra
 color: blue
 actor: GUIDE_F
 ---
+<<asset flag_andorra>>
 Hola! I’m from Andorra! #line:071f85c 
 My flag is blue, yellow, and red. #line:02846e8 
-<<asset flag_andorra>>
 ===
 
 

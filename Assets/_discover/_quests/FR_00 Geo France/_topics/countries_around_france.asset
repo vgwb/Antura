@@ -20,10 +20,19 @@ MonoBehaviour:
   Country: 2
   CoreCard: {fileID: 11400000, guid: a0dfa77a6c5cf49beb78dd3cdd094618, type: 2}
   Connections:
-  - ConnectedCard: {fileID: 11400000, guid: e93050ba294664e77b4d8a2fa9cf4a39, type: 2}
+  - ConnectedCard: {fileID: 11400000, guid: 658468920c08e43d19cdf7851ed1fa19, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.3
     ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 0001eb74ad9dadc4a82dc1b5a629db31, type: 2}
+    ConnectionType: 7
+    ConnectionStrength: 0.6
+    ConnectionReason: national symbol
     LinkingKeywords: []
     LearningValue: 
     TimeKind: 1
@@ -47,24 +56,6 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
-  - ConnectedCard: {fileID: 11400000, guid: 0001eb74ad9dadc4a82dc1b5a629db31, type: 2}
-    ConnectionType: 7
-    ConnectionStrength: 0.6
-    ConnectionReason: national symbol
-    LinkingKeywords: []
-    LearningValue: 
-    TimeKind: 1
-    CompareKind: 0
-    CulturalRole: 0
-  - ConnectedCard: {fileID: 11400000, guid: 7b8e41f7613d8954bad6d61262a05cf6, type: 2}
-    ConnectionType: 7
-    ConnectionStrength: 0.6
-    ConnectionReason: national symbol
-    LinkingKeywords: []
-    LearningValue: 
-    TimeKind: 1
-    CompareKind: 0
-    CulturalRole: 0
   - ConnectedCard: {fileID: 11400000, guid: f0d7c16f0c5f2944b9c089bb304676fb, type: 2}
     ConnectionType: 7
     ConnectionStrength: 0.6
@@ -83,10 +74,37 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 51ffaf625edf14c83a054107659c8a43, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: cb8f1456dc8a040c6a84c3204610926c, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
   - ConnectedCard: {fileID: 11400000, guid: 91f408929de47a64092269095b5fafe5, type: 2}
     ConnectionType: 7
     ConnectionStrength: 0.6
     ConnectionReason: national symbol
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: e93050ba294664e77b4d8a2fa9cf4a39, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
     LinkingKeywords: []
     LearningValue: 
     TimeKind: 1
@@ -101,6 +119,15 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: e0d66794cc11942f5bee09f3cb4f0dd6, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
   - ConnectedCard: {fileID: 11400000, guid: 0353fe97e5a94426a817bfde428ef131, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.3
@@ -110,7 +137,16 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
-  - ConnectedCard: {fileID: 11400000, guid: 658468920c08e43d19cdf7851ed1fa19, type: 2}
+  - ConnectedCard: {fileID: 11400000, guid: 7b8e41f7613d8954bad6d61262a05cf6, type: 2}
+    ConnectionType: 7
+    ConnectionStrength: 0.6
+    ConnectionReason: national symbol
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 22db14c6f320e4b19a99d2378c53ee6d, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.3
     ConnectionReason: neighboring country
@@ -119,19 +155,51 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
-  DiscoveryPath:
-  - {fileID: 11400000, guid: a0dfa77a6c5cf49beb78dd3cdd094618, type: 2}
-  - {fileID: 11400000, guid: e93050ba294664e77b4d8a2fa9cf4a39, type: 2}
-  - {fileID: 11400000, guid: 931f83cf8c365418f813b46bdd1c54f6, type: 2}
-  - {fileID: 11400000, guid: 0eb79fae298994228bc1ac68029ee9a9, type: 2}
-  - {fileID: 11400000, guid: 0001eb74ad9dadc4a82dc1b5a629db31, type: 2}
-  - {fileID: 11400000, guid: 7b8e41f7613d8954bad6d61262a05cf6, type: 2}
-  - {fileID: 11400000, guid: f0d7c16f0c5f2944b9c089bb304676fb, type: 2}
-  - {fileID: 11400000, guid: c4155f34c1056d645b83735a3e522425, type: 2}
-  - {fileID: 11400000, guid: 91f408929de47a64092269095b5fafe5, type: 2}
-  - {fileID: 11400000, guid: 12417a96a23123f45840dbeb8d8d2e0c, type: 2}
-  - {fileID: 11400000, guid: 0353fe97e5a94426a817bfde428ef131, type: 2}
-  - {fileID: 11400000, guid: 658468920c08e43d19cdf7851ed1fa19, type: 2}
+  - ConnectedCard: {fileID: 11400000, guid: 5cfe0356f0e8e43edbbfde6a1392135e, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 80d2b2b09d1e643dfaabc2c5033d0eb9, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: cf1836c6ca3764895830e009ac97d657, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 7829f4a8acd604e0a9149a903313b478, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 686c1daede728de4c89b5608fddbea91, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: neighboring country
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
   CohesionStrength: 0.8
   TargetAge: 2
   Subjects: 
