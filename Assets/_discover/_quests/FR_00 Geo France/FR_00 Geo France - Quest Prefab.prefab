@@ -10707,7 +10707,7 @@ PrefabInstance:
     - target: {fileID: 6162346162628877853, guid: 080c1c88d3a34374eb24c83c81c88d69,
         type: 3}
       propertyPath: IsInteractable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6162346162628877853, guid: 080c1c88d3a34374eb24c83c81c88d69,
         type: 3}
@@ -10723,7 +10723,7 @@ PrefabInstance:
     - target: {fileID: 6162346162628877853, guid: 080c1c88d3a34374eb24c83c81c88d69,
         type: 3}
       propertyPath: DialogueNode.nodeName
-      value: 
+      value: item_flag_france
       objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: 080c1c88d3a34374eb24c83c81c88d69,
         type: 3}
@@ -10768,9 +10768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
-  AutoCollect: 1
+  AutoCollect: 0
   Type: 3
-  ItemTag: france
+  ItemTag: 
   particleEffectPrefab: {fileID: 0}
   enableRotation: 1
   rotationSpeed: 50

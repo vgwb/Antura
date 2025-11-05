@@ -159,7 +159,7 @@ tags:
 <<card flag_france>>
 <<inventory flag_france add>>
 <<target NPC_France>>
-You found the French flag! Go back to France. #line:0a9b166 
+You found the French flag! Go back to France. #shadow:0a9b166 
 ===
 
 title: item_flag_france
@@ -169,9 +169,12 @@ color: yellow
 actor: NARRATOR
 ---
 <<card flag_france>>
-    Flag of France. #line:01d9617 
 <<if GetCurrentTask() == "FIND_FRENCH_FLAG">>
+    You found the French flag! Go back to France. #line:0a9b166 
     <<inventory flag_france add>>
+    <<target NPC_France>>
+<<else>>
+    Flag of France. #line:01d9617  
 <<endif>>
 ===
 
