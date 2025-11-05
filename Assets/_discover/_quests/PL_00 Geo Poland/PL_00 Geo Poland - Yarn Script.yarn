@@ -44,8 +44,8 @@ tags: Start
 color: red
 type: panel
 ---
-<<set $CURRENT_PROGRESS = 0>>
-<<set $MAX_PROGRESS = 7>>
+<<declare $COUNTRIES_COMPLETED = 0>>
+<<declare $TOTAL_COUNTRIES = 7>>
 <<declare $poland_met = false>>
 <<declare $poland_completed = false>>
 <<declare $germany_met = false>>
@@ -60,11 +60,14 @@ type: panel
 <<declare $lithuania_completed = false>>
 <<declare $czech_met = false>>
 <<declare $czech_completed = false>>
+<<declare $russia_met = false>>
+<<declare $russia_completed = false>>
 <<action area_poland>>
-
+<<card country_poland>>
 Welcome to Poland! #line:046db1f
 We are in Europe #line:002aafd
 Let's meet friends from nearby countries. #line:0862117
+<<target npc_poland>>
 ===
 
 title: quest_end
@@ -94,7 +97,7 @@ color: purple
 <<task_end talk_npc_poland_final>>
 Good job! You did it! #line:0ba3c4c 
 <<card concept_europe_map>>
-You discovered a part of Central Euorpe! #line:031f72c 
+You discovered a part of Central Europe! #line:031f72c 
 <<card concept_europe_map zoom>>
 <<jump quest_end>>
 ===
@@ -109,13 +112,11 @@ color: blue
 group: poland
 actor: KID_F
 ---
-<<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
+<<if $COUNTRIES_COMPLETED >= $TOTAL_COUNTRIES>>
     <<jump win>>
 <<elseif $poland_completed == true>>
     <<card capital_warsaw>>
-    Warsaw is the capital of Poland!
-    Thank you for helping me! #line:0a4a56f
-    Can you help my other friends? #line:097eeb8
+    Warsaw is the capital of Poland! #line:09d7771 
 <<elseif has_item("flag_poland")>>
     Yes, that is my flag! Thank you! #line:0c9fa89
     <<inventory flag_poland remove>>
@@ -123,12 +124,12 @@ actor: KID_F
     <<set $poland_met = true>>
     <<set $poland_completed = true>>
     <<set $CURRENT_ITEM = "">>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<action germany_active>>
     <<action area_europe>>
     <<target npc_germany>>
     <<card country_germany>>
-    Can you find the German Flag? #line:04bd4db
+    Can you help our German friends? #line:04bd4db #task:talk_npc_germany
     <<task_start talk_npc_germany>>
 <<elseif $CURRENT_ITEM != "">>
     That's not my flag. Mine is white and red. #line:0f967da 
@@ -136,8 +137,7 @@ actor: KID_F
     <<set $poland_met = true>>
     Hello! I am from Poland! #line:017ad80
     Antura made a mess and all the flags have been mixed up! #line:0b9e31d
-    My flag, the polish one is white and red. #line:08a2f6d
-    Can you help me? #line:0fe57ef
+    Can you help us? #line:0fe57ef
     <<jump task_poland>>
 <<endif>>
 ===
@@ -161,7 +161,7 @@ tags:
 <<card flag_poland>>
 <<inventory flag_poland add>>
 <<target NPC_poland>>
-You found the Polish flag! Go back to Poland.
+You found the Polish flag! Go back to Poland. #line:0891273 
 ===
 
 title: item_flag_poland
@@ -172,10 +172,14 @@ actor:
 tags:
 ---
 <<card flag_poland>>
-Flag of Poland. #line:07ca581
 <<if GetCurrentTask() == "find_flag_poland">>
+    You found the Polish flag! Go back to Poland. #line:06e3263 
     <<inventory flag_poland add>>
+    <<target npc_poland>>
+<<else>>
+    Flag of Poland. #line:07ca581
 <<endif>>
+
 ===
 
 //--------------------------------------------
@@ -190,7 +194,6 @@ group: germany
 actor: ADULT_M
 ---
 <<if $germany_completed>>
-    Thank you for helping me! #line:0eaf07d 
     <<card capital_berlin>>
     Berlin is the capital of Germany. #line:0446f03 
 <<elseif has_item("flag_germany")>>
@@ -200,7 +203,7 @@ actor: ADULT_M
     <<set $germany_met = true>>
     <<set $germany_completed = true>>
     <<set $CURRENT_ITEM = "">>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<action belarus_active>>
     <<target NPC_Belarus>>
     <<card country_belarus>>
@@ -223,8 +226,7 @@ group: germany
 tags: task
 ---
 <<card flag_germany>>
-Find the German flag and bring it to the German person. #line:029ee72 #task:FIND_GERMAN_FLAG
-It has horizontal stripes of black, red, and yellow. #line:0f95ef2 
+Find the German flag. It's black, red, and yellow. #line:029ee72 #task:find_flag_germany
 <<task_start find_flag_germany task_germany_done>>
 ===
 
@@ -236,7 +238,7 @@ tags:
 <<card flag_germany>>
 <<inventory flag_germany add>>
 <<target NPC_Germany>>
-You found the German flag! Go back to the Germany.
+You found the German flag! Go back to Germany. #shadow:05f0ed2
 ===
 
 title: item_flag_germany
@@ -246,10 +248,12 @@ color: yellow
 actor: 
 ---
 <<card flag_germany>>
-Flag of Germany. #line:05ff51a 
 <<if GetCurrentTask() == "find_flag_germany">>
+    You found the German flag! Go back to Germany. #line:05f0ed2
     <<inventory flag_germany add>>
     <<target NPC_Germany>>
+<<else>>
+    Flag of Germany. #line:05ff51a
 <<endif>>
 ===
 
@@ -274,11 +278,11 @@ tags:
     <<set $belarus_met = true>>
     <<set $belarus_completed = true>>
     <<set $CURRENT_ITEM = "">>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>> 
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>> 
     <<action czech_active>>
     <<target NPC_czech>>
     <<card country_czech>>
-    Thank you, can you give my czech friend their flag? #line:021e1a2 #task:talk_npc_czech
+    Can you help my czech friend? #line:021e1a2 #task:talk_npc_czech
     <<task_start talk_npc_czech>>
 <<elseif $belarus_met == false >>
     <<set $belarus_met = true>>
@@ -298,7 +302,7 @@ tags: task
 actor: ADULT_F
 ---
 <<card flag_belarus>>
-Find the belarusian flag. It's red and green, with a pattern on the left! #line:0c00afe #task:FIND_belarusian_FLAG
+Find the belarusian flag and bring it back. #line:0c00afe #task:find_flag_belarus
 <<task_start find_flag_belarus task_belarus_done>>
 ===
 
@@ -310,7 +314,7 @@ tags:
 <<card flag_belarus>>
 <<inventory flag_belarus add>>
 <<target NPC_Belarus>>
-You found the Belarusian flag! Go back to the Belarus.
+You found the Belarusian flag! Go back to the Belarus. #shadow:0157c15 
 ===
 
 title: item_flag_belarus
@@ -320,10 +324,12 @@ group: belarus
 actor: 
 ---
 <<card flag_belarus>>
-Flag of belarus #line:006ce10 
-<<if $CURRENT_ITEM != "flag_belarus">>
+<<if GetCurrentTask() == "find_flag_belarus">>
+    You found the Belarusian flag! Go back to the Belarus. #line:0157c15 
     <<inventory flag_belarus add>>
-    <<target NPC_Belaruss>>
+    <<target NPC_Belarus>>
+<<else>>
+    Flag of belarus #line:006ce10
 <<endif>>
 ===
 
@@ -345,11 +351,11 @@ color: blue
     <<inventory flag_czech_republic remove>>
     <<task_end find_flag_czech>>
     <<set $czech_completed = true>>
-    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<action lithuania_active>>
     <<target NPC_lithuania>>
     <<card country_lithuania>>
-    Help the find the lithuanian flag! #line:0a1e0a3 #task:talk_npc_lithuania
+    Help our lithuanian friends! #line:0a1e0a3 #task:talk_npc_lithuania
     <<task_start talk_npc_lithuania>>
 <<elseif $czech_met == false>>
     <<set $czech_met = true>>
@@ -368,9 +374,18 @@ group: czech_republic
 actor: KID_M
 ---
 <<card flag_czech_republic>>
-Find the Czech flag. It's white and red with a blue triangle. #line:0ff23aa #task:find_flag_czech
-<<camera_focus camera_Flag_CZ>>
+Find the Czech flag and bring it back. #line:0ff23aa #task:find_flag_czech
 <<task_start find_flag_czech find_flag_czech_done>>
+===
+title: find_flag_czech_done
+position: 834,-1390
+group: czech_republic
+tags: 
+---
+<<card flag_czech_republic>>
+<<inventory flag_czech_republic add>>
+<<target NPC_Czech_Republic>>
+You found the Czech flag! Go back to Czech Republic. #shadow:0a134f5 
 ===
 
 title: item_flag_czech_republic
@@ -380,9 +395,12 @@ color: yellow
 actor: 
 ---
 <<card flag_czech_republic>>
-Flag of Czech Republic. #line:0fdc68b 
-<<if $CURRENT_ITEM != "flag_czech_republic">>
+<<if GetCurrentTask() == "find_flag_czech">>
+    You found the Czech flag! Go back to Czech Republic. #line:0a134f5 
     <<inventory flag_czech_republic add>>
+    <<target NPC_Czech>>
+<<else>>
+    Flag of Czech Republic. #line:0fdc68b 
 <<endif>>
 ===
 
@@ -401,30 +419,24 @@ color: blue
     <<card capital_vilnius>>
     Vilnius is the capital of Lithuania. #line:0acbb04 
 <<elseif has_item("flag_lithuania")>>   
-    <<if $CURRENT_ITEM == "flag_lithuania">>
-        Thank you, my beautiful flag is back! #line:0d2f54c 
-        Can you help my Ukrainian friend? #line:0bcf83b 
-        <<inventory flag_lithuania remove>>
-        <<task_end FIND_lithuania_FLAG >>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<set $lithuania_completed = true>>
-        <<action ukraine_active>>
-        <<camera_focus camera_NPC_UK>>
-        <<set $lithuania_met = true>>
-        <<jump task_ukraine>>
-    <<else>>
-        You have my flag in your inventory! #line:0036d67 
-        It's red, yellow and green. Select it and talk to me again. #line:078ab98 
-    <<endif>>
-<<elseif $CURRENT_ITEM != "">>
-    Remember, my flag is red, green and yellow. #line:00af906 
-    <<jump task_lithuania>>
+    Thank you, my beautiful flag is back! #line:0d2f54c 
+    <<inventory flag_lithuania remove>>
+    <<task_end find_flag_lithuania>>
     <<set $lithuania_met = true>>
-<<else>>
+    <<set $lithuania_completed = true>>
+    <<set $CURRENT_ITEM = "">>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
+    <<action ukraine_active>>
+    <<target npc_ukraine>>
+    Can you help my Ukrainian friend? #line:0bcf83b #task:talk_npc_ukraine
+    <<task_start talk_npc_ukraine>>
+<<elseif $lithuania_met == false>>
     <<set $lithuania_met = true>>
     Hi! I'm from Lithuania! #line:0534a85 
     One third of our country is covered by forests! #line:0465c31 
     <<jump task_lithuania>>
+<<else>>
+    Remember, my flag is red, green and yellow. #line:00af906 
 <<endif>>
 ===
 
@@ -434,9 +446,19 @@ group: lithuania
 actor: SENIOR_F
 ---
 <<card flag_lithuania>>
-Find the Lithuanian flag. It's red, green and yellow. #line:0b88326 #task:FIND_lithuania_FLAG
-<<camera_focus camera_Flag_LI>>
-<<task_start FIND_lithuania_FLAG task_lithuania>>
+Find the Lithuanian flag and bring it back. #line:0b88326 #task:find_flag_lithuania
+<<task_start find_flag_lithuania task_lithuania_done>>
+===
+
+title: task_lithuania_done
+position: 834,-1390
+group: lithuania
+tags: 
+---
+<<card flag_lithuania>>
+<<inventory flag_lithuania add>>
+<<target NPC_Lithuania>>
+You found the Lithuanian flag! Go back to Lithuania. #shadow:069f1a0 
 ===
 
 title: item_flag_lithuania
@@ -446,9 +468,12 @@ color: yellow
 actor: 
 ---
 <<card flag_lithuania>>
-Flag of Lithuania. #line:0942331 
-<<if $CURRENT_ITEM != "flag_lithuania">>
+<<if GetCurrentTask() == "find_flag_lithuania">>
+    You found the Lithuanian flag! Go back to Lithuania. #line:069f1a0 
     <<inventory flag_lithuania add>>
+    <<target npc_lithuania>>
+<<else>>
+    Flag of Lithuania. #line:0a3e2f1
 <<endif>>
 ===
 
@@ -466,29 +491,23 @@ actor: SENIOR_M
     <<card capital_kyiv>>
     Our capital is Kiev. #line:01b1e6d 
 <<elseif has_item("flag_ukraine")>>
-    <<if $CURRENT_ITEM == "flag_ukraine">>
-        Thank you! That is my flag. #line:05de5ab 
-        Can you help my slovakian friend? #line:0aa87ef 
-        <<inventory flag_ukraine remove>>
-        <<task_end FIND_ukraine_FLAG>>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<set $ukraine_completed = true>>
-        <<action slovakia_active>>
-        <<camera_focus camera_NPC_SL>>
-        <<jump task_slovakia>>
-    <<else>>
-        You have my flag in your inventory. #line:0a4b7da 
-        It's yellow and blue, select it and talk to me again! #line:089138a 
-    <<endif>>
-<<elseif $CURRENT_ITEM != "">>
-    Nope! Our flag is blue and yellow. #line:0a94866 
-    <<set $ukraine_met = true>>
-    <<jump task_ukraine>>
-<<else>>
+    Thank you! That is my flag. #line:05de5ab 
+    <<inventory flag_ukraine remove>>
+    <<task_end find_flag_ukraine>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
+    <<set $ukraine_completed = true>>
+    <<action slovakia_active>>
+    <<target npc_slovakia>>
+    <<card  country_slovakia>>
+    Can you help my slovakian friend? #line:0aa87ef #task:talk_npc_slovakia
+    <<task_start talk_npc_slovakia>>
+<<elseif $ukraine_met == false>>
     <<set $ukraine_met = true>>
     Moien! I’m from Ukraine! #line:07ea99a 
     We are called the "Bread Basket" of Europe because we produce a lot of grain! #line:0dbd4af 
     <<jump task_ukraine>>
+<<else>>
+    Our flag is blue and yellow. #line:0a94866 
 <<endif>>
 ===
 
@@ -499,9 +518,20 @@ group: ukraine
 actor: SENIOR_F
 ---
 <<card flag_ukraine>>
-Find the flag of Ukraine. It is blue and yellow. #line:07c148b #task:FIND_ukraine_FLAG
+Find the flag of Ukraine. It is blue and yellow. #line:07c148b #task:find_flag_ukraine
 <<camera_focus camera_Flag_UK>>
-<<task_start FIND_ukraine_FLAG task_ukraine>>
+<<task_start find_flag_ukraine task_ukraine_done>>
+===
+
+title: task_ukraine_done
+position: 834,-1390
+group: germany
+tags: 
+---
+<<card flag_ukraine>>
+<<inventory flag_ukraine add>>
+<<target NPC_ukraine>>
+You found the Ukrainian flag! Go back to Ukraine. #shadow:0f8bc9d 
 ===
 
 title: item_flag_ukraine
@@ -511,9 +541,12 @@ color: yellow
 actor: 
 ---
 <<card flag_ukraine>>
-Flag of Ukraine. #line:0805b90 
-<<if $CURRENT_ITEM != "flag_ukraine">>
+<<if GetCurrentTask() == "find_flag_ukraine">>
+    You found the Ukrainian flag! Go back to Ukraine. #line:0f8bc9d 
     <<inventory flag_ukraine add>>
+    <<target NPC_ukraine>>
+<<else>>
+    Flag of Ukraine. #line:0805b90
 <<endif>>
 ===
 
@@ -531,29 +564,24 @@ color: blue
     <<card capital_bratislava>>
     The capital of Slovakia is Bratislava! #line:0891aba
 <<elseif has_item("flag_slovakia")>>
-    <<if $CURRENT_ITEM == "flag_slovakia">>
-        Thank you for bringing my flag back! #line:0d453e9 
-        Go back to the start and claim your victory! #line:04bf6d1 
-        <<inventory flag_slovakia remove>>
-        <<task_end FIND_slovakia_FLAG >>
-        //<<camera_focus camera_NPC_PL>>
-        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-        <<set $slovakia_completed = true>>
-    <<else>>
-        You have my flag in your inventory! #line:095b95b 
-        It's red, white and blue with a coat of arms. #line:0b0fa74 
-        Select it and then talk to me again! #line:0a051db 
-    <<endif>>
-<<elseif $CURRENT_ITEM != "">>
-    Our flag is white, red and blue with a coat of arms. #line:0af30a1 
-    <<jump task_slovakia>>
-<<else>>
+    Thank you for bringing our flag back! #line:0d453e9 
+    <<inventory flag_slovakia remove>>
+    <<task_end find_flag_slovakia>>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
+    <<set $ukraine_completed = true>>
+    <<action russia_active>>
+    <<target npc_russia>>
+    <<card country_russia>>
+    Can you help our russian neighbour? #line:04bf6d1 #task:talk_npc_russia
+    <<task_start talk_npc_russia>>
+<<elseif $slovakia_met == false>>
     <<set $slovakia_met = true>>
     I'm from Slovakia! #line:054e1b8 
     We used to be a country with Czech Republic. #line:0278f6a 
     <<jump task_slovakia>>
+<<else>>
+    Our flag is white, red and blue with a coat of arms. #line:0af30a1 
 <<endif>>
-
 ===
 
 
@@ -563,10 +591,21 @@ group: slovakia
 actor: SENIOR_F
 ---
 <<card flag_slovakia>>
-Find the Slovakian flag. #line:04b6692 #task:FIND_slovakia_FLAG
+Find the Slovakian flag. #line:04b6692 #task:find_flag_slovakia
 It's white, red and blue with the coat of arms. #line:0866ee1 
 <<camera_focus camera_NPC_SL>>
-<<task_start FIND_slovakia_FLAG npc_slovakia>>
+<<task_start find_flag_slovakia npc_slovakia_done>>
+===
+
+title: npc_slovakia_done
+position: 834,-1390
+group: italy
+tags: 
+---
+<<card flag_slovakia>>
+<<inventory flag_slovakia add>>
+<<target NPC_Slovakia>>
+You found the Slovakian flag! Go back to Slovakia. #shadow:0c95e0a 
 ===
 
 title: item_flag_slovakia
@@ -576,9 +615,12 @@ color: yellow
 actor: 
 ---
 <<card flag_slovakia>>
-Flag of slovakia. #line:0768ab7 
-<<if $CURRENT_ITEM != "flag_slovakia">>
+<<if GetCurrentTask() == "find_flag_slovakia">>
+    You found the Slovakian flag! Go back to Slovakia. #line:0c95e0a 
     <<inventory flag_slovakia add>>
+    <<target NPC_Slovakia>>
+<<else>>
+    Flag of slovakia. #line:0768ab7 
 <<endif>>
 ===
 
@@ -594,9 +636,66 @@ group: russia
 actor: SENIOR_M
 tags: 
 ---
+<<if $russia_completed>>
+    The capital of Russia is Moscow! #line:0f8817a 
+<<elseif has_item("flag_russia")>>
+    Thank you for bringing my flag back! #line:0466a59 
+    <<inventory flag_russia remove>>
+    <<task_end find_flag_russia>>
+    <<set $russia_met = true>>
+    <<set $russia_completed = true>>
+    <<set $CURRENT_ITEM = "">>
+    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
+    <<target NPC_Poland>>
+    Go back to the start and get your prize! #line:07b7f05 #task:talk_npc_poland_final
+    <<task_start talk_npc_poland_final>> 
+<<elseif $russia_met == false>>
+    <<set $russia_met = true>>
+    <<card country_russia>>
+    Hello, I'm Russia. #line:065c41c 
+    This is just a tiny part of the big country. #line:0a4bae4 
+    <<jump task_russia>>
+<<else>>
+    Our flag is red with a white cross. #line:05e0820 
+<<endif>>
+===
+
+title: task_russia
+position: 903,83
+group: russia
+actor:
+---
 <<card flag_russia>>
-Hello, I'm Russia. #line:065c41c 
-This is just a tiny part of the big country. #line:0a4bae4 
+Find the Russian flag #task:find_flag_russia #line:06442e4 
+It's white, blue and red. #line:0c6ba5e 
+<<task_start find_flag_russia task_russia_done>>
+===
+
+title: task_russia_done
+position: 834,-1390
+group: russia
+tags: 
+---
+<<card flag_russia>>
+<<inventory flag_russia add>>
+<<target NPC_Russia>>
+You found the Russian flag! Go back to Russia. #shadow:0d1a793 
+===
+
+title: item_flag_russia
+position: 1234,86
+group: russia
+color: yellow
+actor: NARRATOR
+---
+<<card flag_russia>>
+<<if GetCurrentTask() == "find_flag_russia">>
+    You found the Russian flag! Go back to Russia. #line:0d1a793 
+    <<inventory flag_russia add>>
+    <<target NPC_Russia>>
+<<else>>
+    Flag of russia. #line:00f1fcc
+<<endif>>
 ===
 
 
