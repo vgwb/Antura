@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   IdDisplay: 9
   Version: 100
-  Status: 2
+  Status: 1
   TitleEn: Food & Market (Marseille)
   Title:
     m_TableReference:
@@ -75,6 +75,7 @@ MonoBehaviour:
   targetAge: 2
   Difficulty: 3
   Duration: 15
+  ProgressPoints: 0
   Dependencies: []
   Gameplay: 0100000003000000
   cookies: 0
@@ -109,9 +110,13 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  QuestPrefab: {fileID: 4474422697355515469, guid: 6b16b15ff73f24cb2ac1ee8695a7a26c,
-    type: 3}
-  WorldControllerPrefab: {fileID: 0}
+  questPrefab:
+    m_AssetGUID: 6b16b15ff73f24cb2ac1ee8695a7a26c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  legacyQuestPrefab: {fileID: 0}
   WorldSetup: {fileID: 0}
   assetsFolder: FR_09
   scene: discover fr_09 food_market
