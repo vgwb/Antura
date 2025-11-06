@@ -1,3 +1,4 @@
+using Antura.UI;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,8 +30,7 @@ namespace Antura.Discover
     public enum VerticalAnchor { Bottom, Center, Top }
 
     /// <summary>
-    /// Shows a Sprite from AssetData, CardData, TopicData or a list on a 3D billboard (quad/mesh) using UV cropping.
-    /// Keeps the panel's world size constant and fits the image by adjusting _MainTex_ST (no stretching).
+    /// Shows images from AssetData, CardData, TopicData or a list on a 3D billboard.
     /// </summary>
     public class BillboardGallery : MonoBehaviour
     {
@@ -77,8 +77,7 @@ namespace Antura.Discover
 
         [Header("Card Title (CardData / TopicData)")]
         public GameObject PanelTitle;
-        public TMP_Text TitleText;
-        [Tooltip("Optional string.Format pattern for the title (e.g., '{0}').")] public string TitleFormat = "{0}";
+        public TextRender TitleText;
         [Tooltip("Hide the title object if there's no card to show a title for.")] public bool HideTitleWhenNoCard = true;
 
         // Cache
@@ -620,19 +619,12 @@ namespace Antura.Discover
             var card = _currentCard;
             if (card != null)
             {
-                try
-                {
-                    if (card.Title != null && !card.Title.IsEmpty)
-                    {
-                        title = card.Title.GetLocalizedString();
-                    }
-                }
-                catch { }
-                if (string.IsNullOrEmpty(title))
-                    title = string.IsNullOrEmpty(card.TitleEn) ? card.name : card.TitleEn;
+                var localizedTitle = DiscoverDataManager.I.GetCardTitle(card);
+                title = !string.IsNullOrEmpty(localizedTitle) ? localizedTitle : card.TitleEn;
             }
 
-            if (string.IsNullOrEmpty(title))
+            bool hasTitle = !string.IsNullOrEmpty(title);
+            if (!hasTitle)
             {
                 if (HideTitleWhenNoCard)
                 {
@@ -645,13 +637,12 @@ namespace Antura.Discover
                     TitleText.gameObject.SetActive(true);
                     TitleText.text = string.Empty;
                 }
+                return;
             }
-            else
-            {
-                PanelTitle.SetActive(true);
-                TitleText.gameObject.SetActive(true);
-                TitleText.text = string.IsNullOrEmpty(TitleFormat) ? title : string.Format(TitleFormat, title);
-            }
+
+            PanelTitle.SetActive(true);
+            TitleText.gameObject.SetActive(true);
+            TitleText.text = title;
         }
     }
 }

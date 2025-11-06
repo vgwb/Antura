@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 2691613907470610163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.49, z: 0.104}
-  m_LocalScale: {x: 0.65, y: 0.3, z: 12.81}
+  m_LocalPosition: {x: 0, y: 2.67, z: 0.104}
+  m_LocalScale: {x: 0.65, y: 0.41133, z: 12.81}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248746382503178840}
@@ -98,6 +98,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1775625445735999796}
+  - component: {fileID: 7564441179716392936}
   - component: {fileID: 5484280523542998210}
   - component: {fileID: 8975250573548358907}
   m_Layer: 0
@@ -123,9 +124,28 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0, y: 0.69}
-  m_SizeDelta: {x: 1, y: 0.15}
+  m_AnchoredPosition: {x: 0.0167, y: 2.8909}
+  m_SizeDelta: {x: 2.3693, y: 0.3881}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7564441179716392936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3346525206390276157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e49fa5c3fe4d65ba8553977228fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.UI.TextRender
+  m_text: 
+  isNumber: 0
+  isSubtitle: 0
+  languageUse: 0
+  LocalizationId: 0
+  OverridenLanguageCode: 0
+  drawingFontSize: 40
 --- !u!23 &5484280523542998210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -222,15 +242,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.65
+  m_fontSize: 2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.43
-  m_fontSizeMax: 10
+  m_fontSizeMax: 3
   m_fontStyle: 16
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -260,7 +280,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.7122356, y: 0, z: -0.7311395, w: -0.08455968}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -471,8 +491,7 @@ MonoBehaviour:
   IncludePreviewImage: 0
   ShuffleGallery: 0
   PanelTitle: {fileID: 2691613907470610163}
-  TitleText: {fileID: 8975250573548358907}
-  TitleFormat: '{0}'
+  TitleText: {fileID: 7564441179716392936}
   HideTitleWhenNoCard: 1
 --- !u!1 &6363236684876905168
 GameObject:
