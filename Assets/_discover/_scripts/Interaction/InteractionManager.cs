@@ -22,6 +22,7 @@ namespace Antura.Discover
         public Interactable NearbyInteractable { get; private set; } // Closest interactable, if any
 
         readonly List<Interactable> allNearbyInteractables = new();
+        Interactable currentInteractable;
         int focusViewEnterFrame;
         Coroutine coChangeLayer, coStartDialogue;
 
@@ -128,11 +129,16 @@ namespace Antura.Discover
         public void ActivateWorldTargetIcon(bool activate, Transform target = null)
         {
             if (activate)
+            {
                 currentTarget = target;
+                var TargetChildrenFound = currentTarget?.Find("Target");
+                UIManager.I.ActivateWorldTargetMarker(activate, TargetChildrenFound ? TargetChildrenFound : currentTarget);
+            }
             else
+            {
                 currentTarget = null;
-
-            UIManager.I.ActivateWorldTargetMarker(activate, currentTarget);
+                UIManager.I.ActivateWorldTargetMarker(false, null);
+            }
         }
 
         public void CheckDeactivateTarget(Transform target)
@@ -181,12 +187,12 @@ namespace Antura.Discover
 
             if (HasValidNearbyInteractable)
             {
-                var interacted = NearbyInteractable;
-                CheckDeactivateTarget(interacted.transform);
+                currentInteractable = NearbyInteractable;
+                CheckDeactivateTarget(currentInteractable.transform);
 
-                interacted.Execute();
+                currentInteractable.Execute();
                 // Notify task manager for Interact-type tasks
-                QuestManager.I?.TaskManager?.OnInteractableUsed(interacted);
+                QuestManager.I?.TaskManager?.OnInteractableUsed(currentInteractable);
                 // if (questNode != null)
                 //     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, interacted));
             }
@@ -203,6 +209,14 @@ namespace Antura.Discover
         //     DiscoverNotifier.Game.OnStartDialogue.Dispatch();
         //     UIManager.I.dialogues.StartDialogue(node);
         // }
+
+        public void CollectCurrentInteractable()
+        {
+            if (currentInteractable != null)
+            {
+                currentInteractable.GetComponent<CollectableItem>()?.Collect();
+            }
+        }
 
         public void StartDialogue(Interactable interactable)
         {

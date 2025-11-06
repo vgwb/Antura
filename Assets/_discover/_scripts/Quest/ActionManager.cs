@@ -235,9 +235,9 @@ namespace Antura.Discover
                 }
                 switch (command.Command)
                 {
-                    // case CommandType.Activity:
-                    //     QuestManager.I.ActivityStart(command.mainObject);
-                    //     break;
+                    case CommandType.Activity:
+                        Debug.LogWarning("CommandType.Activity is not supported in the current flow and will be ignored.");
+                        break;
                     case CommandType.Area:
                         ChangeArea(command.mainObject);
                         break;

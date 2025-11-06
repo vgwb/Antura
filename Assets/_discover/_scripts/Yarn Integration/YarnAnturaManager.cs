@@ -277,6 +277,19 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         /// <summary>
+        /// Usage in Yarn: <<collect>>
+        /// </summary>
+        [YarnCommand("collect")]
+        public static void CommandCollect()
+        {
+            InteractionManager.I.CollectCurrentInteractable();
+        }
+
+        // ------------------------------------------------------------
+        // COOKIES
+        // ------------------------------------------------------------
+
+        /// <summary>
         /// Usage in Yarn: <<cookies_add 5>>
         /// </summary>
         [YarnCommand("cookies_add")]
