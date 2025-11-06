@@ -91,6 +91,10 @@ namespace Antura.Discover
                     ValidateCardsLocalization();
                 }
             }
+            if (GUILayout.Button("Purge Obsolete Translations", GUILayout.Height(26)))
+            {
+                PurgeObsoleteTranslations();
+            }
 
             EditorGUILayout.Space(10);
             EditorGUILayout.LabelField("Card ↔ Quest Links", EditorStyles.boldLabel);
@@ -180,6 +184,115 @@ namespace Antura.Discover
         private void ValidateCardsLocalization()
         {
             RunLocalizationValidationAndShowDialog();
+        }
+
+        private void PurgeObsoleteTranslations()
+        {
+            var cards = LoadAllCards();
+            if (cards == null)
+            {
+                EditorUtility.DisplayDialog("Purge Obsolete Translations", "No card assets found.", "OK");
+                return;
+            }
+
+            var expectedKeys = new HashSet<string>(StringComparer.Ordinal);
+            foreach (var card in cards)
+            {
+                if (card == null)
+                    continue;
+
+                if (!string.IsNullOrEmpty(card.Id))
+                {
+                    expectedKeys.Add(card.Id);
+                    expectedKeys.Add(card.Id + ".desc");
+                }
+
+                if (card.Title != null && !card.Title.IsEmpty)
+                {
+                    var key = card.Title.TableEntryReference.Key;
+                    if (!string.IsNullOrEmpty(key))
+                        expectedKeys.Add(key);
+                }
+
+                if (card.Description != null && !card.Description.IsEmpty)
+                {
+                    var key = card.Description.TableEntryReference.Key;
+                    if (!string.IsNullOrEmpty(key))
+                        expectedKeys.Add(key);
+                }
+            }
+
+            var locales = LocalizationSettings.AvailableLocales?.Locales;
+            if (locales == null || locales.Count == 0)
+            {
+                EditorUtility.DisplayDialog("Purge Obsolete Translations", "No locales configured in Localization Settings.", "OK");
+                return;
+            }
+
+            var stringTables = new List<StringTable>();
+            foreach (var locale in locales)
+            {
+                if (locale == null)
+                    continue;
+                var table = LocalizationSettings.StringDatabase.GetTable("Cards", locale);
+                if (table != null && !stringTables.Contains(table))
+                    stringTables.Add(table);
+            }
+
+            if (stringTables.Count == 0)
+            {
+                EditorUtility.DisplayDialog("Purge Obsolete Translations", "No 'Cards' string tables found for the available locales.", "OK");
+                return;
+            }
+
+            var sharedData = stringTables[0].SharedData;
+            if (sharedData == null)
+            {
+                EditorUtility.DisplayDialog("Purge Obsolete Translations", "Shared data for the 'Cards' tables could not be found.", "OK");
+                return;
+            }
+
+            var entriesToRemove = sharedData.Entries
+                .Where(entry => entry != null && !string.IsNullOrEmpty(entry.Key) && !expectedKeys.Contains(entry.Key))
+                .ToList();
+
+            if (entriesToRemove.Count == 0)
+            {
+                EditorUtility.DisplayDialog("Purge Obsolete Translations", "No obsolete localization entries detected.", "OK");
+                return;
+            }
+
+            int removedCount = 0;
+            var dirtyTables = new HashSet<StringTable>();
+
+            foreach (var sharedEntry in entriesToRemove)
+            {
+                long entryId = sharedEntry.Id;
+                foreach (var table in stringTables)
+                {
+                    if (table.GetEntry(entryId) != null)
+                    {
+                        table.RemoveEntry(entryId);
+                        dirtyTables.Add(table);
+                    }
+                }
+                sharedData.RemoveKey(entryId);
+                removedCount++;
+            }
+
+            foreach (var table in dirtyTables)
+            {
+                EditorUtility.SetDirty(table);
+            }
+
+            EditorUtility.SetDirty(sharedData);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            EditorUtility.DisplayDialog(
+                "Purge Obsolete Translations",
+                $"Removed {removedCount} obsolete entr{(removedCount == 1 ? "y" : "ies")} from the 'Cards' tables across {dirtyTables.Count} locale(s).",
+                "OK");
         }
 
         private static void RunLocalizationValidationAndShowDialog()
