@@ -61,7 +61,8 @@ actor: NARRATOR
 <<declare $greengrocer_completed = false>>
 <<declare $grocer_completed = false>>
 <<declare $pirate_completed = false>>
-Welcome to Côte d'Azur! It's a sunny day on the coast. #line:078e646
+Welcome to Côte d'Azur, on the Mediterranean Sea! #line:078e646
+Let's explore the market and buy ingredients for a traditional dish. #line:0462dca 
 <<target npc_chef>>
 ===
 
@@ -93,7 +94,7 @@ group: chef
 color: blue
 tags: 
 ---
-<<if GetCollectedItem("COLLECT_THE_INGREDIENTS") == 9>>
+<<if GetCollectedItem("COLLECT_THE_INGREDIENTS") >= 9>>
     <<jump chef_ingredients_done>>
 <<elseif GetCollectedItem("COLLECT_THE_INGREDIENTS") > 0 >>
     <<jump chef_not_enough>>
@@ -107,9 +108,9 @@ position: 674,-579
 group: chef
 actor: ADULT_M
 ---
-Bonjour! Welcome to Marseille, on the Mediterranean Sea! #line:02548dd 
+Bonjour! Welcome to Marseille. We are at the market! #line:02548dd 
 <<card bouillabaisse>>
-I want to make a special dish for you, a bouillabaisse! #line:0c65de3 
+I want to make a french typical dish for you, a bouillabaisse! #line:0c65de3 
 But I need some ingredients. #line:0623733 
 <<jump task_ingredients>>
 ===
@@ -121,10 +122,10 @@ group: chef
 color: green
 tags: task
 ---
-Please go to the market and buy them for me. #line:06602c6 
+Please go to the market and buy the recipe ingredients. #line:06602c6 
 <<detour task_ingredients_desc>>
 <<task_start COLLECT_THE_INGREDIENTS task_ingredients_done>>
-Remember your manners! #line:02819db 
+When you talk to people, remember your manners! #line:02819db
 Say "Bonjour" to greet someone #line:04c9d69 
 and "Merci" to thank them. #line:022fd8f 
 <<area area_full>>
@@ -135,14 +136,14 @@ type: task
 position: 926,-742
 ---
 Collect all the ingredients for the recipe. #line:00849bb #task:COLLECT_THE_INGREDIENTS
-Some bread #card:food_bread
-A fish #card:food_fish
-An orange #card:food_orange
-A lemon #card:food_lemon
-A tomato #card:food_tomato
-Some milk #card:food_milk
-Olive oil #card:food_olive_oil
-Pepper and salt #card:food_pepper_salt
+Some bread #card:food_bread #line:0e3c40e 
+A fish #card:food_fish #line:0c4ae56 
+An orange #card:food_orange #line:01e73d1 
+A lemon #card:food_lemon #line:0ef3a69 
+A tomato #card:food_tomato #line:0d6f051 
+Some milk #card:food_milk #line:0dbb71c 
+Olive oil #card:food_olive_oil #line:0710b9c 
+Pepper and salt #card:food_pepper_salt #line:08ad40e 
 <<card_hide>>
 ===
 
@@ -151,8 +152,9 @@ position: 404,-274
 group: chef
 tags: task
 ---
-I need more ingredients! #line:0c5c6ac 
-Make sure you talk to everyone in the market. #line:0060c01 
+You don't have all ingredients! #line:0c5c6ac
+Make sure you talk to everyone in the market. #line:0060c01
+And take the ingredients you buy. #line:0ea58f3 
 ===
 
 title: task_ingredients_done
@@ -169,9 +171,9 @@ position: 669,-418
 group: chef
 actor: ADULT_M
 ---
-Magnifique! You have everything. #line:0257fc7 
-You were very polite. #line:0112e25 
-Now, let's prepare our feast! #line:0051174 
+Magnifique! You have everything. #line:0257fc7
+And you were very polite. #line:0112e25
+Now, let's prepare our feast! #line:0051174
 <<jump activity_match_ingredients>>
 ===
 
@@ -181,7 +183,7 @@ group: chef
 tags: activity
 color: purple
 ---
-Match each item to the right seller. #line:0a6e106 
+Match each food to its seller. #line:0a6e106
 <<activity match_ingredients activity_match_done>>
 ===
 
@@ -196,28 +198,19 @@ Now, let's cook the bouillabaisse! #line:0f0f617
 <<jump quest_end>>
 ===
 
-title: baker_bonjour
-position: 649,-11
-group: baker
-actor: ADULT_M
----
-Bonjour! I sell fresh bread. I am a baker. #line:0c6f41f 
-Every day I wake up early to bake. #line:0f6e48a 
-<<card person_baker>>
-<<jump baker_question>>
-===
-
-title: shop_baker
+title: baker
 position: 405,-9
 group: baker
-actor: SENIOR_M
+actor: ADULT_F
 tags:  noRepeatLastLine
 color: blue
 ---
 <<if GetActivityResult("money_baker") > 0>>
-    You already bought bread from me!  #line:023d379 
-    Do you want to play again? #line:042cec8 
-    <<activity hard_money_baker hard_payment_done>>
+    You already bought bread from me! #line:023d379 
+    Do you want to play again? #line:play_again
+    -> Yes #line:yes
+        <<activity hard_money_baker hard_payment_done>>
+    -> No #line:no
 <<else>>
 -> Bonjour! #line:09460ce 
     <<jump baker_bonjour>>
@@ -228,27 +221,39 @@ color: blue
 <<endif>>
 ===
 
+title: baker_bonjour
+position: 649,-11
+group: baker
+actor: ADULT_F
+---
+<<card person_baker>>
+Bonjour! I am a baker and I sell fresh bread. #line:0c6f41f
+Every day I wake up early to bake. #line:0f6e48a 
+<<jump baker_question>>
+===
+
+
 title: baker_question
 position: 880,-10
 group: baker
-actor: SENIOR_M
+actor: ADULT_F
 tags: type=Choice
 ---
 What do you want to buy? #line:00279c8 
 -> Bread #line:00eab87 
     <<jump baker_pay_activity>>
--> Fish and Crab #line:08177a5 
+-> Fish and crab #line:08177a5 
     <<jump talk_dont_sell>>
--> Tomatoes, Oranges, and Lemons #line:0a8294a 
+-> Tomatoes, oranges and lemons #line:0a8294a 
     <<jump talk_dont_sell>>
--> Salt, Pepper, and Oil #line:0babba5 
+-> Salt, pepper, and oil #line:0babba5 
     <<jump talk_dont_sell>>
 ===
 
 title: baker_pay_activity
 position: 1132,-12
 group: baker
-actor: ADULT_M
+actor: ADULT_F
 color: purple
 ---
 Select enough money to pay. #line:0bbf963 
@@ -259,61 +264,17 @@ title: baker_payment_done
 position: 1131,145
 group: baker
 tags: no_translate, noRepeatLastLine
-actor: ADULT_M
+actor: ADULT_F
 ---
-Here you go. #line:0567082 
+<<SetActive Collect_Baker>>
+I put your items in the table. Thank you! #line:0567082 
 -> Merci! #line:00da30a 
 -> Au revoir! #line:00cbd60 
 -> Bonne journée! #line:00cd1cf 
-<<SetActive Collect_Baker>>
 ===
 
-title: baker_dontsell
-position: 879,149
-group: baker
-actor: ADULT_M
----
-Sorry, I don't sell that. #line:0875143 
-===
 
-title: fisher_payment_done
-position: 2169,551
-group: fisher
-tags: do_not_translate, noRepeatLastLine
-actor: SENIOR_M
----
-Here you go. #line:08733ac 
--> Au revoir! #line:02e64ff 
--> Merci! #line:02c23e5 
--> Bonne journée! #line:080d945 
-<<SetActive Collect_Fisherman>>
-===
-
-title: fisher_dontsell
-position: 1925,554
-group: fisher
-actor: SENIOR_M
----
-Sorry, I don't sell that. #line:01ea288 
-===
-
-title: fisher_question
-position: 1925,391
-group: fisher
-actor: SENIOR_M
----
-What do you want to buy? #line:04deddc 
--> Fish and Crab #line:0e562df 
-    <<jump fisher_pay_activity>>
--> Tomatoes, Oranges, and Lemons #line:085463e 
-    <<jump talk_dont_sell>>
--> Bread #line:0604902 
-    <<jump talk_dont_sell>>
--> Milk #line:0c5f144 
-    <<jump talk_dont_sell>>
-===
-
-title: shop_fisher
+title: fisher
 position: 1434,393
 color: blue
 group: fisher
@@ -322,8 +283,10 @@ actor: SENIOR_M
 ---
 <<if GetActivityResult("money_fishmonger") > 0>>
     You already bought fish from me! #line:044d973 
-    Do you want to play again? #line:0fcca94 
-    <<activity hard_money_fishmonger hard_payment_done>>
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<activity hard_money_fishmonger hard_payment_done>>
+    -> No #shadow:no
 <<else>>
 -> Lycée! #line:0d65316 
     <<jump talk_dont_understand>>
@@ -340,23 +303,65 @@ group: fisher
 actor: SENIOR_M
 actor: SENIOR_M
 ---
-Good morning! I sell fish and crab. I'm a fishmonger. #line:04b4a87 
-All of my items come from the sea! #line:0aa9ce7 
 <<card  person_fishmonger>>
+Good morning! I'm a fishmonger and I sell fish and crabs. #line:04b4a87
+All of my products come from the sea! #line:0aa9ce7 
 <<jump fisher_question>>
 ===
 
-title: shop_cheesemonger
+title: fisher_question
+position: 1925,391
+group: fisher
+actor: SENIOR_M
+---
+What do you want to buy? #line:04deddc 
+-> Fish and crab #line:0e562df 
+    <<jump fisher_pay_activity>>
+-> Tomatoes, oranges and lemons #line:085463e
+    <<jump talk_dont_sell>>
+-> Bread #line:0604902 
+    <<jump talk_dont_sell>>
+-> Milk #line:0c5f144 
+    <<jump talk_dont_sell>>
+===
+
+title: fisher_pay_activity
+position: 2173,388
+group: fisher
+actor: SENIOR_M
+color: purple
+---
+Select enough money to pay. #line:0995020 
+<<activity money_fishmonger fisher_payment_done>>
+===
+
+title: fisher_payment_done
+position: 2169,551
+group: fisher
+tags: do_not_translate, noRepeatLastLine
+actor: SENIOR_M
+---
+Here you go. #line:08733ac 
+-> Au revoir! #line:02e64ff 
+-> Merci! #line:02c23e5 
+-> Bonne journée! #line:080d945 
+<<SetActive Collect_Fisherman>>
+===
+
+
+title: cheesemonger
 position: 403,401
 color: blue
 group: cheesemonger
 actor: ADULT_F
-tags:  do_not_translate, noRepeatLastLine
+tags: noRepeatLastLine
 ---
 <<if GetActivityResult("money_cheesemonger") > 0>>
     You already bought milk from me! #line:090b5cc 
-    Do you want to play again? #line:0432de2 
-    <<activity hard_money_cheesemonger hard_payment_done>>
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<activity hard_money_cheesemonger hard_payment_done>>
+    -> No #shadow:no
 <<else>>
 -> Merci! #line:0693ba6 
     <<jump talk_dont_understand>>
@@ -383,11 +388,21 @@ What do you want to buy? #line:03009de
     <<jump talk_dont_sell>>
 ===
 
+title: cheesemonger_pay_activity
+position: 1116,398
+group:cheesemonger
+actor: ADULT_F
+color: purple
+---
+Select enough money to pay. #line:0f44ea7 
+<<activity money_cheesemonger cheesemonger_payment_done>>
+===
+
 title: cheesemonger_payment_done
 position: 1117,550
 group:cheesemonger
 actor: ADULT_F
-tags:  do_not_translate, noRepeatLastLine
+tags: do_not_translate, noRepeatLastLine
 ---
 Here you go. #line:07d1671 
 -> Bonne journée! #line:0dd3ac3 
@@ -407,20 +422,49 @@ I use both cow milk and goat milk. #line:02f4bc9
 <<jump cheesemonger_question>>
 ===
 
-title: cheesemonger_dontsell
-position: 875,559
-group:cheesemonger
+title: greengrocer
+position: 401,820
+color: blue
+group: greengrocer
 actor: ADULT_F
+tags:  noRepeatLastLine
 ---
-Sorry, I don't sell that. #line:058fc6d 
+<<if GetActivityResult("money_greengrocer") > 0>>
+    You already bought fruit from me! #line:0755f3c 
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<activity hard_money_greengrocer hard_payment_done>>
+    -> No #shadow:no
+<<else>>
+    hello #line:00ee67d 
+-> Merci! #line:0a43c28 
+    <<detour talk_dont_understand>>
+-> Train! #line:02af86a 
+    <<detour talk_dont_understand>>
+-> Bonjour! #line:0039ce8 
+    <<jump greengrocer_bonjour>>
+<<endif>>
 ===
 
-title: greengrocer_dontsell
-position: 870,981
+title: greengrocer_bonjour
+position: 634,820
 group: greengrocer
-actor: ADULT_M
+actor: ADULT_F
 ---
-MAN: Sorry, I don't sell that. #line:03b0024 
+<<card  person_greengrocer>>
+Hello! I'm a greengrocer. I sell fruits and vegetables. #line:041ade1
+My items are always fresh! #line:0969b87 
+<<jump greengrocer_question>>
+===
+
+title: greengrocer_pay_activity
+position: 1109,818
+group: greengrocer
+actor: ADULT_F
+color: purple
+---
+Select enough money to pay. #line:08fc94e 
+<<activity money_greengrocer greengrocer_payment_activity>>
 ===
 
 title: greengrocer_payment_activity
@@ -452,38 +496,51 @@ What do you want to buy? #line:042eb5a
     <<jump talk_dont_sell>>
 ===
 
-title: shop_greengrocer
-position: 401,820
-color: blue
-group: greengrocer
-actor: ADULT_F
+
+title: grocer
+position: 1439,-12
+group: grocer
+actor: SENIOR_F
 tags:  noRepeatLastLine
+color: blue
 ---
-<<if GetActivityResult("money_greengrocer") > 0>>
-    You already bought fruit from me! #line:0755f3c 
-    Do you want to play again? #line:0bbe1ea 
-    <<activity hard_money_greengrocer hard_payment_done>>
+<<if GetActivityResult("money_grocer") > 0>>
+    You already bought from me! #line:0348f3c 
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<activity hard_money_grocer hard_payment_done>>
+    -> No #shadow:no
 <<else>>
-    hello #line:00ee67d 
--> Merci! #line:0a43c28 
-    <<detour talk_dont_understand>>
--> Train! #line:02af86a 
-    <<detour talk_dont_understand>>
--> Bonjour! #line:0039ce8 
-    <<jump greengrocer_bonjour>>
+-> Merci! #line:0dd992c 
+    <<jump talk_dont_understand>>
+-> Bonjour! #line:0623f71 
+    <<jump grocer_bonjour>>
+-> Livre! #line:0b4db3b 
+    <<jump talk_dont_understand>>
 <<endif>>
 ===
 
-title: greengrocer_bonjour
-position: 634,820
-group: greengrocer
-actor: ADULT_F
+title: grocer_bonjour
+position: 1684,-8
+group: grocer
+actor: SENIOR_F
 ---
-Hello! I sell fruits and vegetables. I'm a greengrocer. #line:041ade1 
-My items are always fresh! #line:0969b87 
-<<card  person_greengrocer>>
-<<jump greengrocer_question>>
+<<card person_grocer>>
+Hello! I am a grocer. I sell spices and pantry goods. #line:0ffbfa4
+You can use my items for many recipes. #line:0c6a554 
+<<jump grocer_question>>
 ===
+
+title: grocer_pay_activity
+position: 2166,-4
+group: grocer
+actor: SENIOR_F
+color: purple
+---
+Select enough money to pay. #line:0c80f9e 
+<<activity money_grocer grocer_payment_done>>
+===
+
 
 title: grocer_payment_done
 position: 2168,154
@@ -496,15 +553,6 @@ Here you go. #line:050a906
 -> Merci! #line:0e8ec1b 
 -> Bonne journée! #line:062029a 
 <<SetActive Collect_Grocer>>
-===
-
-title: grocer_dontsell
-position: 1918,155
-group: grocer
-actor: SENIOR_F
-action: OLD_WOMAN
----
-Sorry, I don't sell that. #line:0977493 
 ===
 
 title: grocer_question
@@ -523,38 +571,6 @@ What do you want to buy? #line:0c36100
     <<jump grocer_pay_activity>>
 ===
 
-title: shop_grocer
-position: 1439,-12
-group: grocer
-actor: SENIOR_F
-tags:  noRepeatLastLine
-color: blue
----
-<<if GetActivityResult("money_grocer") > 0>>
-    You already bought from me! #line:0348f3c 
-    Do you want to play again? #line:0e4aeb6 
-    <<activity hard_money_grocer hard_payment_done>>
-<<else>>
--> Merci! #line:0dd992c 
-    <<jump talk_dont_understand>>
--> Bonjour! #line:0623f71 
-    <<jump grocer_bonjour>>
--> Livre! #line:0b4db3b 
-    <<jump talk_dont_understand>>
-<<endif>>
-===
-
-title: grocer_bonjour
-position: 1684,-8
-group: grocer
-actor: SENIOR_F
----
-Hello! I sell spices and pantry goods. I am a grocer. #line:0ffbfa4 
-You can use my items for many recipes. #line:0c6a554 
-<<card person_grocer>>
-<<jump grocer_question>>
-===
-
 title: pirate
 position: 1428,-273
 group: pirates
@@ -567,8 +583,12 @@ Now go! I have to prepare for my next voyage. #line:04a0605
 Ahoy! Welcome aboard. #line:04ee922 
 <<card pirates>>
 We come from Saint-Malo and sailed the seas to get here. #line:056c70d 
-People call us pirates, but we were corsairs — privateers. #line:0f764a6 
-<<jump pirate_activity>>
+People call us pirates, but we were corsairs. #line:0f764a6
+Do you want to play a game? #line:022f719 
+-> Yes #shadow:yes
+    <<jump pirate_activity>>
+-> No #shadow:no
+    Ahoy, then! Fair winds to ye! #line:0d078d6 
 <<endif>>
 ===
 
@@ -590,74 +610,17 @@ tags:
 ---
 We worked for the King of France. #line:0af3bba 
 In the past, we took items from the king's enemies, but those days are gone. #line:0b61715 
-You should pay for what you need  #line:0209784 
+You should pay for what you need #line:0209784 
 so the shops can stay open! #line:02c49d0 
 <<set $pirate_completed = true>>
 ===
 
 
-title: fisher_pay_activity
-position: 2173,388
-group: fisher
-actor: SENIOR_M
-color: purple
----
-Select enough money to pay. #line:0995020 
-<<activity money_fishmonger fisher_payment_done>>
-===
 
-title: cheesemonger_pay_activity
-position: 1116,398
-group:cheesemonger
-actor: ADULT_F
-color: purple
----
-Select enough money to pay. #line:0f44ea7 
-<<activity money_cheesemonger cheesemonger_payment_done>>
-===
 
-title: grocer_pay_activity
-position: 2166,-4
-group: grocer
-actor: SENIOR_F
-color: purple
----
-Select enough money to pay. #line:0c80f9e 
-<<activity money_grocer grocer_payment_done>>
-===
 
-title: greengrocer_pay_activity
-position: 1109,818
-group: greengrocer
-actor: ADULT_F
-color: purple
----
-Select enough money to pay. #line:08fc94e 
-<<activity money_greengrocer greengrocer_payment_activity>>
-===
-title: baker_notunderstand
-position: 404,150
-group: baker
-actor: ADULT_M
----
-Sorry, I don't think I understand... #line:0db5121 
-===
 
-title: cheesemonger_notunderstand
-position: 403,563
-group: cheesemonger
-actor: ADULT_F
----
-Sorry, I don't think I understand... #line:01a0ec9 
-===
 
-title: grocer_notunderstand
-position: 1437,157
-group: grocer
-actor: SENIOR_F
----
-Sorry, I don't think I understand... #line:0a30381 
-===
 
 title: talk_dont_understand
 position: 1400,834
