@@ -62,7 +62,7 @@ actor: NARRATOR
 <<declare $grocer_completed = false>>
 <<declare $pirate_completed = false>>
 Welcome to Côte d'Azur! It's a sunny day on the coast. #line:078e646
-<<target target_chef>> 
+<<target npc_chef>>
 ===
 
 title: quest_end
@@ -108,8 +108,8 @@ group: chef
 actor: ADULT_M
 ---
 Bonjour! Welcome to Marseille, on the Mediterranean Sea! #line:02548dd 
+<<card bouillabaisse>>
 I want to make a special dish for you, a bouillabaisse! #line:0c65de3 
-<<card bouillabaisse zoom>>
 But I need some ingredients. #line:0623733 
 <<jump task_ingredients>>
 ===
@@ -125,8 +125,9 @@ Please go to the market and buy them for me. #line:06602c6
 <<detour task_ingredients_desc>>
 <<task_start COLLECT_THE_INGREDIENTS task_ingredients_done>>
 Remember your manners! #line:02819db 
-Say "Bonjour" to greet someone, #line:04c9d69 
+Say "Bonjour" to greet someone #line:04c9d69 
 and "Merci" to thank them. #line:022fd8f 
+<<area area_full>>
 ===
 
 title: task_ingredients_desc
@@ -134,14 +135,15 @@ type: task
 position: 926,-742
 ---
 Collect all the ingredients for the recipe. #line:00849bb #task:COLLECT_THE_INGREDIENTS
-bread #card:food_bread
-fish #card:food_fish
-orange #card:food_orange
-lemon #card:food_lemon
-tomato #card:food_tomatobread
-milk #card:food_milk
-pepper and salt #card:food_pepper_salt
-oil #card:food_olive_oil
+Some bread #card:food_bread
+A fish #card:food_fish
+An orange #card:food_orange
+A lemon #card:food_lemon
+A tomato #card:food_tomato
+Some milk #card:food_milk
+Olive oil #card:food_olive_oil
+Pepper and salt #card:food_pepper_salt
+<<card_hide>>
 ===
 
 title: chef_not_enough
@@ -157,6 +159,7 @@ title: task_ingredients_done
 position: 671,-268
 group: chef
 ---
+<<target npc_chef>>
 You got all the ingredients! Go back to the chef. #line:05398f2 
 ===
 
@@ -187,7 +190,8 @@ title: activity_match_done
 position: 926,-273
 group: chef
 ---
-Well done! You matched all the items. #line:01648b2 
+Well done! You matched all the items. #line:01648b2
+<<card bouillabaisse>>
 Now, let's cook the bouillabaisse! #line:0f0f617 
 <<jump quest_end>>
 ===
@@ -199,7 +203,7 @@ actor: ADULT_M
 ---
 Bonjour! I sell fresh bread. I am a baker. #line:0c6f41f 
 Every day I wake up early to bake. #line:0f6e48a 
-<<card person_baker zoom>>
+<<card person_baker>>
 <<jump baker_question>>
 ===
 
@@ -228,7 +232,7 @@ title: baker_question
 position: 880,-10
 group: baker
 actor: SENIOR_M
-tags:  type=Choice
+tags: type=Choice
 ---
 What do you want to buy? #line:00279c8 
 -> Bread #line:00eab87 
@@ -338,7 +342,7 @@ actor: SENIOR_M
 ---
 Good morning! I sell fish and crab. I'm a fishmonger. #line:04b4a87 
 All of my items come from the sea! #line:0aa9ce7 
-<<card  person_fishmonger zoom>>
+<<card  person_fishmonger>>
 <<jump fisher_question>>
 ===
 
@@ -399,7 +403,7 @@ actor: ADULT_F
 ---
 Hi! I sell cheese and milk. I am a cheesemonger. #line:09eb222 
 I use both cow milk and goat milk. #line:02f4bc9 
-<<card  person_cheesemonger zoom>>
+<<card  person_cheesemonger>>
 <<jump cheesemonger_question>>
 ===
 
@@ -477,7 +481,7 @@ actor: ADULT_F
 ---
 Hello! I sell fruits and vegetables. I'm a greengrocer. #line:041ade1 
 My items are always fresh! #line:0969b87 
-<<card  person_greengrocer zoom>>
+<<card  person_greengrocer>>
 <<jump greengrocer_question>>
 ===
 
@@ -547,7 +551,7 @@ actor: SENIOR_F
 ---
 Hello! I sell spices and pantry goods. I am a grocer. #line:0ffbfa4 
 You can use my items for many recipes. #line:0c6a554 
-<<card  person_grocer zoom>>
+<<card person_grocer>>
 <<jump grocer_question>>
 ===
 
@@ -689,6 +693,7 @@ tags:  item
 ---
 <<card food_bread>>
 Bread #line:08e101e 
+<<collect>>
 ===
 
 title: item_fish
