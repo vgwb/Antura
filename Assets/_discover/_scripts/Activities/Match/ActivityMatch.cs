@@ -1,6 +1,7 @@
 using Antura.Discover.Audio;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 using DG.Tweening;
 
@@ -95,13 +96,8 @@ namespace Antura.Discover.Activities
                     slotRT.anchorMax = new Vector2(0.5f, 0.5f);
                     slotRT.pivot = new Vector2(0.5f, 0.5f);
                 }
-                // Prefer localized title, fallback to TitleEn or asset name
-                string questionTitle = null;
-                try
-                { questionTitle = pair.Question.Title != null ? pair.Question.Title.GetLocalizedString() : null; }
-                catch { }
-                if (string.IsNullOrWhiteSpace(questionTitle))
-                    questionTitle = !string.IsNullOrEmpty(pair.Question.TitleEn) ? pair.Question.TitleEn : pair.Question.name;
+                // Prefer learning-language title, fallback to TitleEn or asset name
+                string questionTitle = ResolveLearningTitle(pair.Question);
                 slotGO.name = $"QuestionSlot_{i}_{questionTitle}";
 
                 // Initialize via QuestionItem to encapsulate visuals and overlay
@@ -109,7 +105,7 @@ namespace Antura.Discover.Activities
                 if (qItem == null)
                     qItem = slotGO.AddComponent<QuestionItem>();
                 var sprite = ResolveSprite(pair.Question);
-                qItem.Init(questionTitle, sprite, i, this, pair.Question, pair.Answer?.Id);
+                qItem.Init(questionTitle, sprite, i, this, pair.Question, pair.Answer?.Id, PlayCardTitleForTile);
 
                 // Track structures: use the DropSlot created by QuestionItem, or ensure one exists
                 var drop = qItem.DropSlot != null ? qItem.DropSlot : slotGO.GetComponentInChildren<MatchDropSlot>(includeInactive: true);
@@ -170,7 +166,9 @@ namespace Antura.Discover.Activities
                     onLift: NotifyTileLiftedFromSlot,
                     onReturn: NotifyTileReturnedToPool,
                     onHint: null,
-                    owner: this);
+                    owner: this,
+                    onClick: PlayCardTitleForTile,
+                    titleResolver: ResolveLearningTitle);
                 // Ensure CanvasGroup exists for proper drag raycast toggling
                 if (go.GetComponent<CanvasGroup>() == null)
                     go.AddComponent<CanvasGroup>();
@@ -402,6 +400,18 @@ namespace Antura.Discover.Activities
             }
         }
 
+        private void PlayCardTitleForTile(CardData card)
+        {
+            if (card == null)
+                return;
+
+            var dataManager = DiscoverDataManager.I;
+            if (dataManager == null)
+                return;
+
+            dataManager.PlayCardTitle(card, true);
+        }
+
         public void OnTileDroppedInPoolKeepPosition(DraggableTile tile)
         {
             if (tile == null)
@@ -605,6 +615,25 @@ namespace Antura.Discover.Activities
             if (data.ImageAsset != null)
                 return data.ImageAsset.Image;
             return null;
+        }
+
+        private string ResolveLearningTitle(CardData card)
+        {
+            if (card == null)
+                return string.Empty;
+
+            var dataManager = DiscoverDataManager.I;
+            if (dataManager != null)
+            {
+                var localized = dataManager.GetCardTitle(card);
+                if (!string.IsNullOrEmpty(localized))
+                    return localized;
+            }
+
+            if (card.Title != null)
+                return card.Title.GetLocalizedString();
+
+            return card.name;
         }
     }
 }

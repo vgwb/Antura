@@ -19,6 +19,7 @@ namespace Antura.Discover.Activities
         private System.Action onReturnedToPool;
         private System.Action<AudioClip> onPlayItemSound;
         private System.Action<CardData, DraggableTile> onFlashCorrectSlot;
+        private System.Action<CardData> onCardClicked;
         private System.Func<Transform> getPoolParent;
         private CanvasGroup canvasGroup;
         private RectTransform rectTransform;
@@ -32,7 +33,7 @@ namespace Antura.Discover.Activities
         public float soundCooldown = 0.5f;
         private float lastSoundTime = -999f;
 
-        public void Init(ActivityOrder mgr, CardData data, Transform activityRoot)
+        public void Init(ActivityOrder mgr, CardData data, Transform activityRoot, System.Action<CardData> onClick = null)
         {
             manager = mgr;
             CardData = data;
@@ -53,6 +54,7 @@ namespace Antura.Discover.Activities
             onPlayItemSound = mgr.PlayItemSound;
             onFlashCorrectSlot = (ci, dt) => mgr.FlashCorrectSlot(ci, dt);
             getPoolParent = () => mgr.tilesPoolParent;
+            onCardClicked = onClick;
         }
 
         // Generic initializer for other activities (e.g., match)
@@ -61,12 +63,26 @@ namespace Antura.Discover.Activities
             System.Action<int> onLift,
             System.Action onReturn,
             System.Action<CardData, DraggableTile> onHint = null,
-            object owner = null)
+            object owner = null,
+            System.Action<CardData> onClick = null,
+            System.Func<CardData, string> titleResolver = null)
         {
             manager = owner;
             CardData = data;
             if (Label != null)
-                Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
+            {
+                if (titleResolver != null)
+                {
+                    var resolvedTitle = titleResolver.Invoke(data);
+                    Label.text = !string.IsNullOrEmpty(resolvedTitle)
+                        ? resolvedTitle
+                        : data.Title != null ? data.Title.GetLocalizedString() : data.name;
+                }
+                else
+                {
+                    Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
+                }
+            }
             var sprite = ResolveSprite(data);
             if (sprite != null)
                 TileImage.sprite = sprite;
@@ -78,6 +94,7 @@ namespace Antura.Discover.Activities
             onReturnedToPool = onReturn;
             // onPlayItemSound = onPlay;
             onFlashCorrectSlot = onHint;
+            onCardClicked = onClick;
         }
 
         private void Awake()
@@ -143,12 +160,15 @@ namespace Antura.Discover.Activities
             if (Time.unscaledTime - lastSoundTime < soundCooldown)
                 return;
 
+            lastSoundTime = Time.unscaledTime;
+
             var clip = ResolveAudio(CardData);
             if (clip != null)
             {
                 onPlayItemSound?.Invoke(clip);
-                lastSoundTime = Time.unscaledTime;
             }
+
+            onCardClicked?.Invoke(CardData);
 
             // Tutorial hint
             onFlashCorrectSlot?.Invoke(CardData, this);

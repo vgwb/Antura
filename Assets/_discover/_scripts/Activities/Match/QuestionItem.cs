@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 using Antura.Discover;
 
@@ -13,7 +15,7 @@ namespace Antura.Discover.Activities
         Wrong
     }
 
-    public class QuestionItem : MonoBehaviour
+    public class QuestionItem : MonoBehaviour, IPointerClickHandler
     {
         [Header("References")]
         public Image CardImage;
@@ -27,10 +29,16 @@ namespace Antura.Discover.Activities
         public CardData Data;
         public string ExpectedAnswerId;
 
+        [Header("Interaction")]
+        [Tooltip("Minimum seconds between voice playback when clicking the card.")]
+        public float ClickCooldown = 0.5f;
+
+        private float _lastClickTime = -999f;
+        private Action<CardData> _onClicked;
 
         private HighlightVisualState _currentHighlightState = HighlightVisualState.Default;
 
-        public void Init(string title, Sprite sprite, int slotIndex, ActivityMatch manager, CardData data, string expectedAnswerId = null)
+        public void Init(string title, Sprite sprite, int slotIndex, ActivityMatch manager, CardData data, string expectedAnswerId = null, Action<CardData> onClicked = null)
         {
             if (CardImage == null)
             {
@@ -47,6 +55,7 @@ namespace Antura.Discover.Activities
 
             Data = data;
             ExpectedAnswerId = expectedAnswerId;
+            _onClicked = onClicked;
 
             if (DropSlot != null)
             {
@@ -98,6 +107,18 @@ namespace Antura.Discover.Activities
         public void SetHoverVisual(bool isHover)
         {
             SetHighlightState(isHover ? HighlightVisualState.Hover : _currentHighlightState);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (Data == null)
+                return;
+
+            if (Time.unscaledTime - _lastClickTime < ClickCooldown)
+                return;
+
+            _lastClickTime = Time.unscaledTime;
+            _onClicked?.Invoke(Data);
         }
     }
 }
