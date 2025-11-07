@@ -358,6 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1848089903520703840}
+  - component: {fileID: 2171869736273920866}
   - component: {fileID: 5106426578503681026}
   - component: {fileID: 4583904532644709140}
   m_Layer: 5
@@ -386,6 +387,25 @@ RectTransform:
   m_AnchoredPosition: {x: 40, y: 0}
   m_SizeDelta: {x: -100, y: 45}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2171869736273920866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284946202361041942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e49fa5c3fe4d65ba8553977228fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.UI.TextRender
+  m_text: 
+  isNumber: 0
+  isSubtitle: 0
+  languageUse: 0
+  LocalizationId: 0
+  OverridenLanguageCode: 0
+  drawingFontSize: 40
 --- !u!222 &5106426578503681026
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -442,7 +462,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
+  m_fontSize: 21.65
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -910,7 +930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Code: {fileID: 4674240036103034588}
-  Title: {fileID: 4583904532644709140}
+  Title: {fileID: 2171869736273920866}
   Location: {fileID: 268537714738643982}
   SelectBtn: {fileID: 4850776921542235086}
   Lock: {fileID: 5733559195233385734}

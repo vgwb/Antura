@@ -1,3 +1,4 @@
+using Antura.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Antura.Discover.UI
     {
         [Header("References")]
         public TextMeshProUGUI Code;
-        public TextMeshProUGUI Title;
+        public TextRender Title;
         public TextMeshProUGUI Location;
         public Button SelectBtn;
         public GameObject Lock;

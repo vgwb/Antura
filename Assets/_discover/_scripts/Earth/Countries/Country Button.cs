@@ -1,6 +1,7 @@
+using Antura.Core;
+using Antura.UI;
 using System.Collections.Generic;
 using UnityEngine;
-using Antura.Core;
 using TMPro;
 using UnityEngine.EventSystems;
 
@@ -9,7 +10,7 @@ namespace Antura.Discover
     public class CountryButton : MonoBehaviour
     {
         public CountryData country;
-        public TMP_Text countryLabel;
+        public TextRender countryLabel;
         private SpriteRenderer _sprite;
         private static readonly List<CountryButton> _all = new List<CountryButton>();
         private const float OtherAlpha = 0.25f;
