@@ -192,10 +192,15 @@ title: activity_match_done
 position: 926,-273
 group: chef
 ---
+<<if GetActivityResult("match_ingredients") > 0>>
 Well done! You matched all the items. #line:01648b2
 <<card bouillabaisse>>
 Now, let's cook the bouillabaisse! #line:0f0f617 
 <<jump quest_end>>
+<<else>>
+Not perfect. Try again! #line:007427a 
+<<jump activity_match_ingredients>>
+<<endif>>
 ===
 
 title: baker
@@ -301,9 +306,8 @@ title: fisher_bonjour
 position: 1689,392
 group: fisher
 actor: SENIOR_M
-actor: SENIOR_M
 ---
-<<card  person_fishmonger>>
+<<card person_fishmonger>>
 Good morning! I'm a fishmonger and I sell fish and crabs. #line:04b4a87
 All of my products come from the sea! #line:0aa9ce7 
 <<jump fisher_question>>
@@ -338,10 +342,10 @@ Select enough money to pay. #line:0995020
 title: fisher_payment_done
 position: 2169,551
 group: fisher
-tags: do_not_translate, noRepeatLastLine
+tags:
 actor: SENIOR_M
 ---
-Here you go. #line:08733ac 
+I put your items in the table. Thank you! #shadow:0567082 
 -> Au revoir! #line:02e64ff 
 -> Merci! #line:02c23e5 
 -> Bonne journée! #line:080d945 
@@ -404,7 +408,7 @@ group:cheesemonger
 actor: ADULT_F
 tags: do_not_translate, noRepeatLastLine
 ---
-Here you go. #line:07d1671 
+I put your items in the table. Thank you! #shadow:0567082 
 -> Bonne journée! #line:0dd3ac3 
 -> Au revoir! #line:02a1238 
 -> Merci! #line:0273de1 
@@ -464,16 +468,16 @@ actor: ADULT_F
 color: purple
 ---
 Select enough money to pay. #line:08fc94e 
-<<activity money_greengrocer greengrocer_payment_activity>>
+<<activity money_greengrocer greengrocer_payment_done>>
 ===
 
-title: greengrocer_payment_activity
+title: greengrocer_payment_done
 position: 1105,976
 group: greengrocer
 actor: ADULT_F
 tags:  do_not_translate, noRepeatLastLine
 ---
-Here you go. #line:019edd0 
+I put your items in the table. Thank you! #shadow:0567082 
 -> Bonne journée! #line:0ff9361 
 -> Merci! #line:0741be3 
 -> Au revoir! #line:023f352 
@@ -548,7 +552,7 @@ group: grocer
 actor: SENIOR_F
 tags:  do_not_translate, noRepeatLastLine
 ---
-Here you go. #line:050a906 
+I put your items in the table. Thank you! #shadow:0567082 
 -> Au revoir! #line:0ce6f8a 
 -> Merci! #line:0e8ec1b 
 -> Bonne journée! #line:062029a 
