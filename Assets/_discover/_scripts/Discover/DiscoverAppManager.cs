@@ -1,6 +1,7 @@
 using Antura.Core;
 using Antura.Profile;
 using Antura.Utilities;
+using Antura.Language;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -45,6 +46,7 @@ namespace Antura.Discover
         private Locale _cachedLearningLocale;
         private string _cachedLearningIso2;
         private readonly Dictionary<string, string> _learningStringCache = new Dictionary<string, string>();
+        private bool _pendingUiLocaleApply;
 
         [SerializeField]
         private EconomySettings economySettings;
@@ -434,22 +436,80 @@ namespace Antura.Discover
             if (_cachedLearningLocale != null && string.Equals(_cachedLearningIso2, iso2, StringComparison.OrdinalIgnoreCase))
                 return _cachedLearningLocale;
 
-            Locale locale = LocalizationSettings.AvailableLocales.GetLocale(iso2);
-            if (locale == null)
-            {
-                foreach (var loc in LocalizationSettings.AvailableLocales.Locales)
-                {
-                    if (loc == null)
-                        continue;
-                    var code = loc.Identifier.Code;
-                    if (!string.IsNullOrEmpty(code) && code.StartsWith(iso2, StringComparison.OrdinalIgnoreCase))
-                    { locale = loc; break; }
-                }
-            }
+            Locale locale = ResolveLocaleFromIso(iso2);
 
             _cachedLearningLocale = locale;
             _cachedLearningIso2 = iso2;
             return locale;
+        }
+
+        public Locale GetNativeLocale()
+        {
+            var iso2 = LanguageUtilities.GetIso2Direct(AppManager.I.AppSettings.NativeLanguage);
+            return ResolveLocaleFromIso(iso2);
+        }
+
+        public void ApplyDiscoverUiLocale()
+        {
+            var initOp = LocalizationSettings.InitializationOperation;
+            if (initOp.IsValid() && !initOp.IsDone)
+            {
+                if (_pendingUiLocaleApply)
+                    return;
+
+                _pendingUiLocaleApply = true;
+                initOp.Completed += _ =>
+                {
+                    _pendingUiLocaleApply = false;
+                    ApplyDiscoverUiLocaleInternal();
+                };
+                return;
+            }
+
+            ApplyDiscoverUiLocaleInternal();
+        }
+
+        private void ApplyDiscoverUiLocaleInternal()
+        {
+            Locale target = null;
+            if (AppManager.I.AppSettings.isClassroomMode())
+            {
+                target = GetLearningLocale();
+            }
+            else
+            {
+                target = GetNativeLocale();
+            }
+
+            if (target == null)
+                return;
+
+            if (LocalizationSettings.SelectedLocale != target)
+            {
+                LocalizationSettings.SelectedLocale = target;
+            }
+        }
+
+        private Locale ResolveLocaleFromIso(string iso2)
+        {
+            if (string.IsNullOrEmpty(iso2) || LocalizationSettings.AvailableLocales == null)
+                return null;
+
+            var available = LocalizationSettings.AvailableLocales;
+            var locale = available.GetLocale(iso2);
+            if (locale != null)
+                return locale;
+
+            foreach (var loc in available.Locales)
+            {
+                if (loc == null)
+                    continue;
+                var code = loc.Identifier.Code;
+                if (!string.IsNullOrEmpty(code) && code.StartsWith(iso2, StringComparison.OrdinalIgnoreCase))
+                    return loc;
+            }
+
+            return null;
         }
 
         /// <summary>

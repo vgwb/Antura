@@ -33,6 +33,14 @@ namespace Antura.Discover
             btDiscoArcade.onClick.AddListener(OpenDiscoArcade);
         }
 
+        private void OnEnable()
+        {
+            if (DiscoverAppManager.I != null)
+            {
+                DiscoverAppManager.I.ApplyDiscoverUiLocale();
+            }
+        }
+
         void Start()
         {
             InfoPanel.Close();
