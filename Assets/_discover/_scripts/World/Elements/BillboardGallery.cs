@@ -101,20 +101,20 @@ namespace Antura.Discover
         private enum GalleryState { Showing, FadingOut, FadingIn }
 
 #if UNITY_EDITOR
-        private void OnEnable()
-        {
-            EditorApplication.projectChanged += EditorProjectChanged;
-            Undo.undoRedoPerformed += RefreshNow;
-            Init();
-            RebuildGalleryIfNeeded();
-            RefreshNow();
-        }
-        private void OnDisable()
-        {
-            EditorApplication.projectChanged -= EditorProjectChanged;
-            Undo.undoRedoPerformed -= RefreshNow;
-        }
-        private void EditorProjectChanged() => RefreshNow();
+        // private void OnEnable()
+        // {
+        //     EditorApplication.projectChanged += EditorProjectChanged;
+        //     Undo.undoRedoPerformed += RefreshNow;
+        //     Init();
+        //     RebuildGalleryIfNeeded();
+        //     RefreshNow();
+        // }
+        // private void OnDisable()
+        // {
+        //     EditorApplication.projectChanged -= EditorProjectChanged;
+        //     Undo.undoRedoPerformed -= RefreshNow;
+        // }
+        // private void EditorProjectChanged() => RefreshNow();
 #else
         private void OnEnable()
         {
