@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134184}
+  - component: {fileID: 134187}
   - component: {fileID: 134186}
   - component: {fileID: 134185}
   m_Layer: 0
@@ -300,6 +301,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &134187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e49fa5c3fe4d65ba8553977228fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.UI.TextRender
+  m_text: 
+  isNumber: 0
+  isSubtitle: 0
+  languageUse: 0
+  LocalizationId: 0
+  OverridenLanguageCode: 0
+  drawingFontSize: 40
 --- !u!1 &43242531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000012126422044, guid: a4469b8478625462689946a5762b7cdd,
@@ -344,6 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 56645844}
+  - component: {fileID: 56645847}
   - component: {fileID: 56645846}
   - component: {fileID: 56645845}
   m_Layer: 0
@@ -515,6 +536,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &56645847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56645843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e49fa5c3fe4d65ba8553977228fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.UI.TextRender
+  m_text: 
+  isNumber: 0
+  isSubtitle: 0
+  languageUse: 0
+  LocalizationId: 0
+  OverridenLanguageCode: 0
+  drawingFontSize: 40
 --- !u!1 &304702321
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 304702322}
+  - component: {fileID: 304702325}
   - component: {fileID: 304702324}
   - component: {fileID: 304702323}
   m_Layer: 0
@@ -695,6 +736,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &304702325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304702321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e49fa5c3fe4d65ba8553977228fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.UI.TextRender
+  m_text: 
+  isNumber: 0
+  isSubtitle: 0
+  languageUse: 0
+  LocalizationId: 0
+  OverridenLanguageCode: 0
+  drawingFontSize: 40
 --- !u!1001 &341704098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -899,7 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 11400000, guid: c95aa9747dae644748d57ee791128928, type: 2}
-  countryLabel: {fileID: 304702323}
+  countryLabel: {fileID: 304702325}
 --- !u!65 &405314543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1074,7 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 11400000, guid: 058810b86f7944101b66eb8fbb37fb46, type: 2}
-  countryLabel: {fileID: 134185}
+  countryLabel: {fileID: 134187}
 --- !u!212 &502966241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1781,7 +1841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 11400000, guid: b92afd9e6a07b4e4287e6d9f519ca332, type: 2}
-  countryLabel: {fileID: 1353312584}
+  countryLabel: {fileID: 1353312586}
 --- !u!1001 &784465406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1932,7 +1992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 11400000, guid: 1f5eb98f948d0435cbc0930b3d292faf, type: 2}
-  countryLabel: {fileID: 1283789546}
+  countryLabel: {fileID: 1283789548}
 --- !u!212 &846628715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2341,6 +2401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1283789545}
+  - component: {fileID: 1283789548}
   - component: {fileID: 1283789547}
   - component: {fileID: 1283789546}
   m_Layer: 0
@@ -2512,6 +2573,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1283789548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283789544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e49fa5c3fe4d65ba8553977228fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.UI.TextRender
+  m_text: 
+  isNumber: 0
+  isSubtitle: 0
+  languageUse: 0
+  LocalizationId: 0
+  OverridenLanguageCode: 0
+  drawingFontSize: 40
 --- !u!1 &1353312582
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,6 +2601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353312583}
+  - component: {fileID: 1353312586}
   - component: {fileID: 1353312585}
   - component: {fileID: 1353312584}
   m_Layer: 0
@@ -2692,6 +2773,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1353312586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353312582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e49fa5c3fe4d65ba8553977228fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.UI.TextRender
+  m_text: 
+  isNumber: 0
+  isSubtitle: 0
+  languageUse: 0
+  LocalizationId: 0
+  OverridenLanguageCode: 0
+  drawingFontSize: 40
 --- !u!1001 &1407038931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3306,7 +3406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 11400000, guid: 41547fdc9c2ce4daea176503ebc5593e, type: 2}
-  countryLabel: {fileID: 56645845}
+  countryLabel: {fileID: 56645847}
 --- !u!1001 &1683403552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4115,7 +4215,7 @@ PrefabInstance:
     - target: {fileID: 1970328458600074887, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000010251999
+      value: -0.0000030994415
       objectReference: {fileID: 0}
     - target: {fileID: 2378754431776579437, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
@@ -4151,11 +4251,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2507298623378374388, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
-        type: 3}
-      propertyPath: m_Size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2507298623378374388, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
@@ -4265,32 +4360,32 @@ PrefabInstance:
     - target: {fileID: 4692721477441921674, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4692721477441921674, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4692721477441921674, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 547.1
       objectReference: {fileID: 0}
     - target: {fileID: 4692721477441921674, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4692721477441921674, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 273.55
       objectReference: {fileID: 0}
     - target: {fileID: 4692721477441921674, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4963827712747202002, guid: 3d4aa6f6c07544e6f98d795441d5b33b,
         type: 3}
