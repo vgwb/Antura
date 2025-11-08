@@ -31,6 +31,8 @@ namespace Antura.Discover
         [DeEmptyAlert]
         [SerializeField] TextRender textRender;
         [DeEmptyAlert]
+        [SerializeField] TextRender textRenderSubtitle;
+        [DeEmptyAlert]
         [SerializeField] Button btContinue;
 
         [DeEmptyAlert]
@@ -46,6 +48,7 @@ namespace Antura.Discover
         public bool IsOpen { get; private set; }
 
         protected bool SpeechCycle = false;
+        protected bool learningLanguageFirst;
         protected QuestNode currNode;
         protected Tween showTween;
         Sequence continueHintTween;
@@ -84,13 +87,15 @@ namespace Antura.Discover
 
         #region Public Methods
 
-        public void Show(QuestNode node, bool UseLearningLanguage, bool doSpeech = true)
+        public void Show(QuestNode node, bool useLearningLanguageFirst, bool doSpeech = true)
         {
             if (IsOpen)
                 return;
 
             IsOpen = true;
             currNode = node;
+            learningLanguageFirst = useLearningLanguageFirst;
+            textRenderSubtitle.text = "";
             SetInteractable(false);
             showTween.timeScale = 1;
             showTween.Restart();
@@ -111,23 +116,29 @@ namespace Antura.Discover
             else
             { iconTranslate.SetActive(false); }
 
-            DisplayText(UseLearningLanguage, automaticTranslation: QuestManager.I.HasTranslation, doSpeech);
+            DisplayText(learningLanguageFirst, useMainLabel: true, hasTranslation: QuestManager.I.HasTranslation, doSpeech: doSpeech);
 
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeStart(currNode);
         }
 
-        public void DisplayText(bool UseLearningLanguage, bool automaticTranslation = false, bool doSpeech = true)
+        public void DisplayText(bool UseLearningLanguage, bool useMainLabel = true, bool hasTranslation = false, bool doSpeech = true)
         {
             var textLength = 0;
+            var TextRenderToUse = useMainLabel ? textRender : textRenderSubtitle;
+
+            // clean the subtitle
+            // if (useMainLabel)
+            //     textRenderSubtitle.text = "";
+
             // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
             if (UseLearningLanguage)
             {
                 textLength = currNode.Content.Length;
-                textRender.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
+                TextRenderToUse.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
                 if (currNode.AudioLearning != null && doSpeech)
                 {
-                    if (automaticTranslation)
+                    if (hasTranslation)
                     {
                         DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning, () => OnEndSpeaking(UseLearningLanguage));
                     }
@@ -140,10 +151,10 @@ namespace Antura.Discover
             else
             {
                 textLength = currNode.ContentNative.Length;
-                textRender.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.Default);
+                TextRenderToUse.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.UI);
                 if (currNode.AudioNative != null && doSpeech)
                 {
-                    if (automaticTranslation)
+                    if (hasTranslation)
                     {
                         DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative, () => OnEndSpeaking(UseLearningLanguage));
                     }
@@ -156,15 +167,20 @@ namespace Antura.Discover
             }
             //Debug.Log("DisplayText() " + learningText.Length + " fillPeriod " + fillPeriod);
 
-            StartCoroutine(DisplayTextCoroutine(textLength / lettersPerSecond));
+            StartCoroutine(DisplayTextCoroutine(TextRenderToUse, textLength / lettersPerSecond));
         }
 
         public void OnEndSpeaking(bool UseLearningLanguage)
         {
-            DisplayText(!UseLearningLanguage, false);
+            DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false);
         }
 
-        IEnumerator DisplayTextCoroutine(float fillPeriod)
+        public void RepeatText()
+        {
+            DisplayText(learningLanguageFirst, useMainLabel: true, hasTranslation: QuestManager.I.HasTranslation);
+        }
+
+        IEnumerator DisplayTextCoroutine(TextRender textRender, float fillPeriod)
         {
             yield return null; // Wait 1 frame otherwise TMP doesn't update characterCount
 
@@ -186,6 +202,7 @@ namespace Antura.Discover
             showTween.PlayBackwards();
             DiscoverNotifier.Game.OnCloseDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeEnd(currNode);
+            textRenderSubtitle.text = "";
             StopContinueHint();
         }
 

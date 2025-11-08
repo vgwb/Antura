@@ -321,11 +321,7 @@ namespace Antura.Discover
         void OnBalloonClicked()
         {
             // Debug.Log("OnBalloonClicked with " + UseLearningLanguage);
-            if (QuestManager.I.HasTranslation)
-            {
-                learningLanguageFirst = !learningLanguageFirst;
-            }
-            currBalloon.DisplayText(learningLanguageFirst);
+            currBalloon.RepeatText();
         }
 
         void OnBalloonContinueClicked()
