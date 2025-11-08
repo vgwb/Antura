@@ -1,4 +1,5 @@
 using Antura.UI;
+using DG.DeInspektor.Attributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,7 +101,7 @@ namespace Antura.Discover
 
         private enum GalleryState { Showing, FadingOut, FadingIn }
 
-#if UNITY_EDITOR
+
         // private void OnEnable()
         // {
         //     EditorApplication.projectChanged += EditorProjectChanged;
@@ -115,14 +116,19 @@ namespace Antura.Discover
         //     Undo.undoRedoPerformed -= RefreshNow;
         // }
         // private void EditorProjectChanged() => RefreshNow();
-#else
+
         private void OnEnable()
+        {
+            Setup();
+        }
+
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        private void Setup()
         {
             Init();
             RebuildGalleryIfNeeded();
             RefreshNow();
         }
-#endif
 
         private void Reset()
         {
@@ -162,12 +168,8 @@ namespace Antura.Discover
             return -1;
         }
 
-        private void OnValidate()
-        {
-            Init();
-            RebuildGalleryIfNeeded();
-            RefreshNow();
-        }
+
+
 
         private void Update()
         {
