@@ -166,8 +166,8 @@ namespace Antura.Discover
                 }
             }
             //Debug.Log("DisplayText() " + learningText.Length + " fillPeriod " + fillPeriod);
-
-            StartCoroutine(DisplayTextCoroutine(TextRenderToUse, textLength / lettersPerSecond));
+            // TODO fix typewriter effect
+            //StartCoroutine(DisplayTextCoroutine(TextRenderToUse, textLength / lettersPerSecond));
         }
 
         public void OnEndSpeaking(bool UseLearningLanguage)
