@@ -33,6 +33,10 @@ namespace Antura.Discover
         public ProfileStats stats = new();
         public Dictionary<string, CardState> cards = new();
         public Dictionary<string, AchievementState> achievements = new();
+
+        #region utilities
+        public bool isClassroomMode => profile.classroom > 0;
+        #endregion
     }
 
     [Serializable]

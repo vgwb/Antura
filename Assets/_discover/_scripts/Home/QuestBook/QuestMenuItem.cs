@@ -1,3 +1,4 @@
+using Antura.Core;
 using Antura.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,8 +37,7 @@ namespace Antura.Discover.UI
             Lock.SetActive(locked);
 
             Code.text = _questData.IdDisplay;
-            // Debug.Log("QuestMenuItem Init: " + _questData.Code);
-            Title.text = _questData.Title.GetLocalizedString();
+            Title.text = LocalizationSystem.I.GetLocalizedString(_questData.Title, true);
 
             if (isEditor)
             {
@@ -50,8 +50,7 @@ namespace Antura.Discover.UI
 
             if (_questData.Location != null)
             {
-                Location.text += _questData.Location.Name.GetLocalizedString();
-
+                Location.text += LocalizationSystem.I.GetLocalizedString(_questData.Location.Name, true);
             }
 
             SetStars(questData.GetBestStars());

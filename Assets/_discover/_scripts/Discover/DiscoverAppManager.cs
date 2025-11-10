@@ -1,7 +1,6 @@
 using Antura.Core;
 using Antura.Profile;
 using Antura.Utilities;
-using Antura.Language;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,7 +36,6 @@ namespace Antura.Discover
     [RequireComponent(typeof(DiscoverDataManager))]
     public class DiscoverAppManager : SingletonMonoBehaviour<DiscoverAppManager>
     {
-
         [SerializeField]
         private DiscoverDataManager dataManager;
         public string LearningLanguageIso2 = "fr";
@@ -46,7 +44,6 @@ namespace Antura.Discover
         private Locale _cachedLearningLocale;
         private string _cachedLearningIso2;
         private readonly Dictionary<string, string> _learningStringCache = new Dictionary<string, string>();
-        private bool _pendingUiLocaleApply;
 
         [SerializeField]
         private EconomySettings economySettings;
@@ -70,9 +67,7 @@ namespace Antura.Discover
         private bool dirty;
         private Coroutine saveCo;
 
-        // ------------------------------
-        // Events for UI / systems
-        // ------------------------------
+        #region Events for UI / systems
         /// <summary>Raised after a profile is loaded/created/switches.</summary>
         public event Action<DiscoverPlayerProfile> OnProfileLoaded;
 
@@ -84,7 +79,9 @@ namespace Antura.Discover
 
         /// <summary>Raised when gems are awarded through the ledger (delta, newly added tokens).</summary>
         public event Action<int, GemTokenClaim[]> OnGemsAwarded;
+        #endregion
 
+        #region unity events
         protected override void Init()
         {
             Debug.Log("<color=#d8249c>########### DiscoverAppManager Init</color>");
@@ -112,7 +109,7 @@ namespace Antura.Discover
                                          AppManager.I.PlayerProfileManager.CurrentPlayer);
             }
 
-            LearningLanguageIso2 = AppManager.I.ContentEdition.LearningLanguageConfig.Iso2;
+            LocalizationSystem.I.SetupWithLearningLocale(AppManager.I.ContentEdition.LearningLanguageConfig.Iso2);
         }
 
         private void OnApplicationPause(bool pauseStatus)
@@ -140,9 +137,9 @@ namespace Antura.Discover
             }
         }
 
-        // ------------------------------
-        // Navigation
-        // ------------------------------
+        #endregion
+
+        #region Navigation
         public void OpenQuest(QuestData questData)
         {
             AppManager.I.NavigationManager.GoToDiscoverQuest(questData.scene);
@@ -153,10 +150,9 @@ namespace Antura.Discover
             AppManager.I.NavigationManager.ExitToMainMenu();
         }
 
+        #endregion
 
-        // ------------------------------
-        // Profile load / switch
-        // ------------------------------
+        #region Profile load / switch
         public void InitializeFromLegacyUuid(string legacyUuid, PlayerProfile legacy = null)
         {
             var platform = IsMobile() ? "mobile" : "desktop";
@@ -185,8 +181,9 @@ namespace Antura.Discover
             // Profile switch may impact language choice; clear cached localization
             ClearLearningLocalizationCache();
         }
+        #endregion
 
-
+        #region Data Accessors
         public CardData GetCardById(string cardId)
         {
             return dataManager != null ? dataManager.GetCard(cardId) : null;
@@ -207,9 +204,9 @@ namespace Antura.Discover
             return dataManager != null ? dataManager.GetQuest(questId) : null;
         }
 
-        // =========================================================
-        //   QUEST FLOW
-        // =========================================================
+        #endregion
+
+        #region QUEST FLOW & INTERACTiONS
 
         public void RecordActivityEnd(ActivityEnd activityEnd)
         {
@@ -236,7 +233,7 @@ namespace Antura.Discover
             if (CurrentProfile == null)
             { Debug.LogWarning("DiscoverAppManager.RecordQuestEnd called with no profile loaded."); return; }
 
-            // Record quest run (updates stats + awards star→gem delta if improved)
+            // Record quest run
             var award = ProfileSvc.RecordQuestRun(end.questId, end.score, end.stars, end.durationSec);
 
             // Aggregate activities
@@ -268,10 +265,6 @@ namespace Antura.Discover
             MarkDirty();
         }
 
-        // =========================================================
-        //   CARD INTERACTIONS
-        // =========================================================
-
         /// <summary>Record a single interaction with a card.</summary>
         public void RecordCardInteraction(CardData card, bool answeredCorrect = true)
         {
@@ -294,10 +287,9 @@ namespace Antura.Discover
 
             MarkDirty();
         }
+        #endregion
 
-        // =========================================================
-        //   ACHIEVEMENTS
-        // =========================================================
+        #region ACHIEVEMENTS
 
         /// <summary>Increment an achievement's progress counter. If already unlocked, no-op.</summary>
         public void AddAchievementProgress(string achievementId, int delta)
@@ -372,9 +364,9 @@ namespace Antura.Discover
             MarkDirty();
         }
 
-        // =========================================================
-        //   SAVE PROFILE
-        // =========================================================
+        #endregion
+
+        #region SAVE PROFILE
 
         /// <summary>Mark the profile as modified, so it will be saved.</summary>
         public void MarkDirty()
@@ -403,15 +395,14 @@ namespace Antura.Discover
                 SaveNow();
         }
 
+        #endregion
         private bool IsMobile()
         {
             var p = Application.platform;
             return p == RuntimePlatform.IPhonePlayer || p == RuntimePlatform.Android;
         }
 
-        // =========================================================
-        //   LEARNING LANGUAGE LOCALIZATION (CACHE)
-        // =========================================================
+        #region LOCALIZATION
 
         /// <summary>Clears the cached learning locale and localized string cache.</summary>
         public void ClearLearningLocalizationCache()
@@ -423,93 +414,22 @@ namespace Antura.Discover
 
         /// <summary>
         /// Resolve current learning Locale based on <see cref="LearningLanguageIso2"/>.
-        /// Prefers exact match, then first locale whose code starts with the ISO2.
         /// Cached until the ISO2 changes.
         /// </summary>
+        [Obsolete("Use LocalizationSystem.I.GetLearningLocale() instead.")]
         public Locale GetLearningLocale()
         {
             LearningLanguageIso2 = AppManager.I.ContentEdition.LearningLanguageConfig.Iso2;
-            var iso2 = LearningLanguageIso2;
-            if (string.IsNullOrEmpty(iso2) || LocalizationSettings.AvailableLocales == null)
+            if (string.IsNullOrEmpty(LearningLanguageIso2) || LocalizationSettings.AvailableLocales == null)
                 return null;
 
-            if (_cachedLearningLocale != null && string.Equals(_cachedLearningIso2, iso2, StringComparison.OrdinalIgnoreCase))
+            if (_cachedLearningLocale != null && string.Equals(_cachedLearningIso2, LearningLanguageIso2, StringComparison.OrdinalIgnoreCase))
                 return _cachedLearningLocale;
 
-            Locale locale = ResolveLocaleFromIso(iso2);
+            _cachedLearningLocale = LocalizationSettings.AvailableLocales.GetLocale(LearningLanguageIso2);
 
-            _cachedLearningLocale = locale;
-            _cachedLearningIso2 = iso2;
-            return locale;
-        }
-
-        public Locale GetNativeLocale()
-        {
-            var iso2 = LanguageUtilities.GetIso2Direct(AppManager.I.AppSettings.NativeLanguage);
-            return ResolveLocaleFromIso(iso2);
-        }
-
-        public void ApplyDiscoverUiLocale()
-        {
-            var initOp = LocalizationSettings.InitializationOperation;
-            if (initOp.IsValid() && !initOp.IsDone)
-            {
-                if (_pendingUiLocaleApply)
-                    return;
-
-                _pendingUiLocaleApply = true;
-                initOp.Completed += _ =>
-                {
-                    _pendingUiLocaleApply = false;
-                    ApplyDiscoverUiLocaleInternal();
-                };
-                return;
-            }
-
-            ApplyDiscoverUiLocaleInternal();
-        }
-
-        private void ApplyDiscoverUiLocaleInternal()
-        {
-            Locale target = null;
-            if (AppManager.I.AppSettings.isClassroomMode())
-            {
-                target = GetLearningLocale();
-            }
-            else
-            {
-                target = GetNativeLocale();
-            }
-
-            if (target == null)
-                return;
-
-            if (LocalizationSettings.SelectedLocale != target)
-            {
-                LocalizationSettings.SelectedLocale = target;
-            }
-        }
-
-        private Locale ResolveLocaleFromIso(string iso2)
-        {
-            if (string.IsNullOrEmpty(iso2) || LocalizationSettings.AvailableLocales == null)
-                return null;
-
-            var available = LocalizationSettings.AvailableLocales;
-            var locale = available.GetLocale(iso2);
-            if (locale != null)
-                return locale;
-
-            foreach (var loc in available.Locales)
-            {
-                if (loc == null)
-                    continue;
-                var code = loc.Identifier.Code;
-                if (!string.IsNullOrEmpty(code) && code.StartsWith(iso2, StringComparison.OrdinalIgnoreCase))
-                    return loc;
-            }
-
-            return null;
+            _cachedLearningIso2 = LearningLanguageIso2;
+            return _cachedLearningLocale;
         }
 
         /// <summary>
@@ -548,5 +468,8 @@ namespace Antura.Discover
                 return string.Empty;
             }
         }
+
+        #endregion
+
     }
 }

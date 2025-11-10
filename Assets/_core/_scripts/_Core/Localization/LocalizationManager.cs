@@ -1,8 +1,10 @@
 using System;
 using Antura.Database;
+using Antura.Discover;
 using Antura.Language;
 using Antura.Profile;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 namespace Antura.Core
 {
@@ -12,11 +14,15 @@ namespace Antura.Core
     public class LocalizationManager
     {
 
+        #region Unity Localization
+
+        [Obsolete("Use LocalizationSystem.I.GetLocalizedString instead.")]
         public static string GetNewLocalized(string id, string table = "Common")
         {
             var str = new LocalizedString(table, id);
             return str.GetLocalizedString();
         }
+        #endregion
 
         public static PlayerGender CurrentPlayerGender
         {
@@ -88,11 +94,11 @@ namespace Antura.Core
 
         public static string PrefixHomerNodeWithLangCode(string node_id, LanguageCode langCode)
         {
-            string prefix = IsoLangFromLangCode(langCode);
+            string prefix = GetIso2FromLangCode(langCode);
             return prefix + "_" + node_id;
         }
 
-        public static string IsoLangFromLangCode(LanguageCode langCode)
+        public static string GetIso2FromLangCode(LanguageCode langCode)
         {
             string iso2lang = "";
             switch (langCode)

@@ -35,10 +35,7 @@ namespace Antura.Discover
 
         private void OnEnable()
         {
-            if (DiscoverAppManager.I != null)
-            {
-                DiscoverAppManager.I.ApplyDiscoverUiLocale();
-            }
+
         }
 
         void Start()

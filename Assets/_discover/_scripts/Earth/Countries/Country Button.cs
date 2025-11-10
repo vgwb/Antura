@@ -36,7 +36,7 @@ namespace Antura.Discover
 
         void Start()
         {
-            countryLabel.text = country.CountryName.GetLocalizedString();
+            countryLabel.text = LocalizationSystem.I.GetLocalizedString(country.CountryName, true);
             if (_sprite == null)
                 _sprite = GetComponentInChildren<SpriteRenderer>();
         }
