@@ -33,7 +33,7 @@ namespace Antura.Discover
 
         TimeWorldSystem _time;
 
-        void OnEnable()
+        void Start()
         {
             ApplyProfile(Profile);
 

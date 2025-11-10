@@ -117,7 +117,7 @@ namespace Antura.Discover
         // }
         // private void EditorProjectChanged() => RefreshNow();
 
-        private void OnEnable()
+        private void Start()
         {
             Setup();
         }
