@@ -73,10 +73,9 @@ namespace Antura.Discover
             }
         }
 
-        // Sugar
         public static T Get<T>(string id) where T : IdentifiedData
         {
-            Debug.Log($"[DatabaseProvider] Get<{typeof(T).Name}> requested for id '{id}'");
+            //            Debug.Log($"[DatabaseProvider] Get<{typeof(T).Name}> requested for id '{id}'");
             var db = I;
             if (db == null)
                 throw new InvalidOperationException("[DatabaseProvider] Database not available. Ensure a DatabaseManager asset is under Resources.");
@@ -85,7 +84,7 @@ namespace Antura.Discover
 
         public static bool TryGet<T>(string id, out T data) where T : IdentifiedData
         {
-            Debug.Log($"[DatabaseProvider] TryGet<{typeof(T).Name}> requested for id '{id}'");
+            //            Debug.Log($"[DatabaseProvider] TryGet<{typeof(T).Name}> requested for id '{id}'");
             data = null;
             var db = I;
             if (db == null)
