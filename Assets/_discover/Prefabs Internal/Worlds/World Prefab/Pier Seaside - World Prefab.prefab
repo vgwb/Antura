@@ -385,6 +385,37 @@ Transform:
   - {fileID: 7839081649091636474}
   m_Father: {fileID: 1427475328401575893}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &4033715735081747818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3308893481092605535}
+  m_Layer: 0
+  m_Name: ship target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3308893481092605535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033715735081747818}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.691513, z: -0, w: 0.72236407}
+  m_LocalPosition: {x: -37.8, y: 0, z: -50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1744420693385480356}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4422598368175267853
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +708,7 @@ Transform:
   - {fileID: 4655340364273793339}
   - {fileID: 3132553521685130711}
   - {fileID: 7934829230829262813}
+  - {fileID: 3308893481092605535}
   - {fileID: 5822966744649716501}
   - {fileID: 5241573059606485386}
   - {fileID: 5936616212594555777}
@@ -2109,16 +2141,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &8254069555821909435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7039025033499317970, guid: 6ec9c887ecfec49e382b1fd540024935,
@@ -2674,16 +2711,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &4972890629378057991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5951284725661396632, guid: 6f7fc4f0174154c3080c0e1ee1ab2167,
@@ -3569,16 +3611,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!1001 &2554105683493303066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5111,16 +5158,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!1001 &4113335872439917664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5458,16 +5510,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!1001 &4223445760470645108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7081,16 +7138,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &5241573059606485386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
@@ -7198,16 +7260,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &7472887963666166925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3000574416717288582, guid: 4cf1950fa0abb41d0b6a52602509774f,
@@ -7426,7 +7493,7 @@ PrefabInstance:
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.44
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
@@ -7436,27 +7503,27 @@ PrefabInstance:
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41.91
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.72236407
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.691513
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
@@ -7466,7 +7533,7 @@ PrefabInstance:
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -87.5
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
@@ -7501,16 +7568,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 0
-  distance: -80
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 1
+  targetPoint: {fileID: 3308893481092605535}
+  targetCycle: 0
+  targetSpeed: 0.2
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &7934829230829262813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
@@ -7754,16 +7826,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &5822966744649716501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
@@ -7871,16 +7948,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &5936616212594555777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
@@ -8913,16 +8995,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &5293371776580767053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3066824394993949061, guid: 7dad558541e1a43288aae09279648e44,
@@ -10627,16 +10714,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
   someRandomness: 0.1
-  enableMovement: 0
-  movementSpeed: 1
-  MoveAxis: 1
-  distance: 2
-  movementType: 0
-  enableRotation: 0
-  rotationSpeed: 100
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
   enableBobbing: 1
   bobbingAmount: 0.1
   bobbingSpeed: 0.5
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!1001 &8872847043699557816
 PrefabInstance:
   m_ObjectHideFlags: 0
