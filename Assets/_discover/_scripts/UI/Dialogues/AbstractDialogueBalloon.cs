@@ -128,8 +128,8 @@ namespace Antura.Discover
             var TextRenderToUse = useMainLabel ? textRender : textRenderSubtitle;
 
             // clean the subtitle
-            // if (useMainLabel)
-            //     textRenderSubtitle.text = "";
+            if (useMainLabel)
+                textRenderSubtitle.text = "";
 
             // Debug.Log("Displaying dialogue in " + UseLearningLanguage + " : " + currNode.Content + " / " + currNode.ContentNative);
             if (UseLearningLanguage)
@@ -202,8 +202,8 @@ namespace Antura.Discover
             showTween.PlayBackwards();
             DiscoverNotifier.Game.OnCloseDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeEnd(currNode);
-            textRenderSubtitle.text = "";
             StopContinueHint();
+            textRenderSubtitle.text = "";
         }
 
         #endregion
