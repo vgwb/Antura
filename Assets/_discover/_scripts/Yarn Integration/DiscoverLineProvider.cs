@@ -175,7 +175,7 @@ namespace Antura.Discover
                 var loadOp = LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<UnityEngine.Object>(assetTable.TableReference, shadowLineID ?? line.ID, null, FallbackBehavior.UseFallback);
                 asset = await YarnTask.WaitForAsyncOperation(loadOp, cancellationToken);
 
-                var loadOpLearning = LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<UnityEngine.Object>(assetTable.TableReference, shadowLineID ?? line.ID, DiscoverAppManager.I.GetLearningLocale(), FallbackBehavior.UseFallback);
+                var loadOpLearning = LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<UnityEngine.Object>(assetTable.TableReference, shadowLineID ?? line.ID, LocalizationSystem.I.GetLearningLocale(), FallbackBehavior.UseFallback);
                 assetLearning = await YarnTask.WaitForAsyncOperation(loadOpLearning, cancellationToken);
             }
 
