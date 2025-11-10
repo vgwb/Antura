@@ -181,13 +181,6 @@ Transform:
   - {fileID: 3203038341275737094}
   - {fileID: 1427475328401575893}
   - {fileID: 1744420693385480356}
-  - {fileID: 4655340364273793339}
-  - {fileID: 3132553521685130711}
-  - {fileID: 7934829230829262813}
-  - {fileID: 5822966744649716501}
-  - {fileID: 5241573059606485386}
-  - {fileID: 5936616212594555777}
-  - {fileID: 5293371776580767053}
   - {fileID: 6639276792411406473}
   - {fileID: 4696640139112071422}
   m_Father: {fileID: 0}
@@ -681,6 +674,13 @@ Transform:
   - {fileID: 2030542197525819754}
   - {fileID: 8254069555821909435}
   - {fileID: 4639327675700313683}
+  - {fileID: 4655340364273793339}
+  - {fileID: 3132553521685130711}
+  - {fileID: 7934829230829262813}
+  - {fileID: 5822966744649716501}
+  - {fileID: 5241573059606485386}
+  - {fileID: 5936616212594555777}
+  - {fileID: 5293371776580767053}
   m_Father: {fileID: 5826405480926435366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6243553495344823549
@@ -2016,10 +2016,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
+    - target: {fileID: 3199995774558106906, guid: 6ec9c887ecfec49e382b1fd540024935,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4257332198955301277, guid: 6ec9c887ecfec49e382b1fd540024935,
         type: 3}
       propertyPath: m_Name
       value: boat-tow-a
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257332198955301277, guid: 6ec9c887ecfec49e382b1fd540024935,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7039025033499317970, guid: 6ec9c887ecfec49e382b1fd540024935,
         type: 3}
@@ -2074,8 +2084,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4257332198955301277, guid: 6ec9c887ecfec49e382b1fd540024935,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934698127174895885}
   m_SourcePrefab: {fileID: 100100000, guid: 6ec9c887ecfec49e382b1fd540024935, type: 3}
+--- !u!1 &2897765551130458868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4257332198955301277, guid: 6ec9c887ecfec49e382b1fd540024935,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379222430780654441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1934698127174895885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897765551130458868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &8254069555821909435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7039025033499317970, guid: 6ec9c887ecfec49e382b1fd540024935,
@@ -2543,6 +2586,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: boat-speed-d
       objectReference: {fileID: 0}
+    - target: {fileID: 531576920566092876, guid: 6f7fc4f0174154c3080c0e1ee1ab2167,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660639580639931568, guid: 6f7fc4f0174154c3080c0e1ee1ab2167,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5951284725661396632, guid: 6f7fc4f0174154c3080c0e1ee1ab2167,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2596,8 +2649,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 531576920566092876, guid: 6f7fc4f0174154c3080c0e1ee1ab2167,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8469703775845448233}
   m_SourcePrefab: {fileID: 100100000, guid: 6f7fc4f0174154c3080c0e1ee1ab2167, type: 3}
+--- !u!1 &1221880845092036051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 531576920566092876, guid: 6f7fc4f0174154c3080c0e1ee1ab2167,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699110791354239391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8469703775845448233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221880845092036051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &4972890629378057991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5951284725661396632, guid: 6f7fc4f0174154c3080c0e1ee1ab2167,
@@ -3382,7 +3468,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5826405480926435366}
+    m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
     - target: {fileID: 777821207362610249, guid: 25bba8e021f7846b596b651fb89b9bf6,
         type: 3}
@@ -3392,7 +3478,7 @@ PrefabInstance:
     - target: {fileID: 777821207362610249, guid: 25bba8e021f7846b596b651fb89b9bf6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000019073486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 777821207362610249, guid: 25bba8e021f7846b596b651fb89b9bf6,
         type: 3}
@@ -3442,17 +3528,21 @@ PrefabInstance:
     - target: {fileID: 8430548840641512051, guid: 25bba8e021f7846b596b651fb89b9bf6,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9173636949487435929, guid: 25bba8e021f7846b596b651fb89b9bf6,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8430548840641512051, guid: 25bba8e021f7846b596b651fb89b9bf6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4494324519177372248}
   m_SourcePrefab: {fileID: 100100000, guid: 25bba8e021f7846b596b651fb89b9bf6, type: 3}
 --- !u!4 &3132553521685130711 stripped
 Transform:
@@ -3460,6 +3550,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2428126916649011614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6146607618265254893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8430548840641512051, guid: 25bba8e021f7846b596b651fb89b9bf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2428126916649011614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4494324519177372248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146607618265254893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!1001 &2554105683493303066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4893,10 +5012,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
+    - target: {fileID: 121237464354901648, guid: a9f7b29c36ab84266b3f2e9ba0c089a3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1717377282830956156, guid: a9f7b29c36ab84266b3f2e9ba0c089a3,
         type: 3}
       propertyPath: m_Name
       value: boat-speed-i
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717377282830956156, guid: a9f7b29c36ab84266b3f2e9ba0c089a3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3005353473910231776, guid: a9f7b29c36ab84266b3f2e9ba0c089a3,
         type: 3}
@@ -4951,7 +5080,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1717377282830956156, guid: a9f7b29c36ab84266b3f2e9ba0c089a3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 173915611853631749}
   m_SourcePrefab: {fileID: 100100000, guid: a9f7b29c36ab84266b3f2e9ba0c089a3, type: 3}
 --- !u!4 &2030542197525819754 stripped
 Transform:
@@ -4959,6 +5092,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3862054733477864330}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2471807534590498294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1717377282830956156, guid: a9f7b29c36ab84266b3f2e9ba0c089a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3862054733477864330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &173915611853631749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471807534590498294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!1001 &4113335872439917664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5180,22 +5342,22 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5826405480926435366}
+    m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
     - target: {fileID: 761063811481269430, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2558327294011020652, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3768502001682413227, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5037421945752725756, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
@@ -5205,12 +5367,12 @@ PrefabInstance:
     - target: {fileID: 5037421945752725756, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8625044713109363051, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8829903524702056338, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
@@ -5220,7 +5382,7 @@ PrefabInstance:
     - target: {fileID: 8829903524702056338, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000019073486
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8829903524702056338, guid: 0479be086188b415eb54bb9a2cf940ac,
         type: 3}
@@ -5265,7 +5427,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5037421945752725756, guid: 0479be086188b415eb54bb9a2cf940ac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913097644505144833}
   m_SourcePrefab: {fileID: 100100000, guid: 0479be086188b415eb54bb9a2cf940ac, type: 3}
 --- !u!4 &4655340364273793339 stripped
 Transform:
@@ -5273,6 +5439,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4184135546811340457}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9221557350955974229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5037421945752725756, guid: 0479be086188b415eb54bb9a2cf940ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 4184135546811340457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &913097644505144833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221557350955974229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!1001 &4223445760470645108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6791,7 +6986,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5826405480926435366}
+    m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
     - target: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
@@ -6846,7 +7041,7 @@ PrefabInstance:
     - target: {fileID: 4229686016891351779, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
@@ -6856,13 +7051,46 @@ PrefabInstance:
     - target: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5730651023504975592}
   m_SourcePrefab: {fileID: 100100000, guid: 000465510228b4f8ab0c9e91fa1178f0, type: 3}
+--- !u!1 &2798826133229496418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5493598607288482168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5730651023504975592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798826133229496418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &5241573059606485386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
@@ -6932,11 +7160,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: boat-speed-j
       objectReference: {fileID: 0}
+    - target: {fileID: 8102516667259562786, guid: 4cf1950fa0abb41d0b6a52602509774f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860745294854384473, guid: 4cf1950fa0abb41d0b6a52602509774f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8102516667259562786, guid: 4cf1950fa0abb41d0b6a52602509774f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3183476665748611766}
   m_SourcePrefab: {fileID: 100100000, guid: 4cf1950fa0abb41d0b6a52602509774f, type: 3}
+--- !u!1 &4494818311529433897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8102516667259562786, guid: 4cf1950fa0abb41d0b6a52602509774f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5625319785019613195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3183476665748611766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4494818311529433897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &7472887963666166925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3000574416717288582, guid: 4cf1950fa0abb41d0b6a52602509774f,
@@ -7137,7 +7408,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5826405480926435366}
+    m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
     - target: {fileID: 6216442075028118, guid: e95c85c08ca6f47ce9008d6fe5981807, type: 3}
       propertyPath: m_Name
@@ -7145,17 +7416,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6216442075028118, guid: e95c85c08ca6f47ce9008d6fe5981807, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2606993063286487548, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.001259
+      value: 7.44
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
@@ -7165,7 +7436,7 @@ PrefabInstance:
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.466354
+      value: -41.91
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
@@ -7175,7 +7446,7 @@ PrefabInstance:
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
@@ -7185,7 +7456,7 @@ PrefabInstance:
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
         type: 3}
@@ -7205,8 +7476,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6216442075028118, guid: e95c85c08ca6f47ce9008d6fe5981807,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4996191581562904312}
   m_SourcePrefab: {fileID: 100100000, guid: e95c85c08ca6f47ce9008d6fe5981807, type: 3}
+--- !u!1 &5913350231996368903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6216442075028118, guid: e95c85c08ca6f47ce9008d6fe5981807,
+    type: 3}
+  m_PrefabInstance: {fileID: 5910523052402676369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4996191581562904312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913350231996368903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 0
+  distance: -80
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &7934829230829262813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4330290496595215692, guid: e95c85c08ca6f47ce9008d6fe5981807,
@@ -7355,7 +7659,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5826405480926435366}
+    m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
     - target: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
@@ -7410,7 +7714,7 @@ PrefabInstance:
     - target: {fileID: 4229686016891351779, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
@@ -7420,13 +7724,46 @@ PrefabInstance:
     - target: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 441641976822657559}
   m_SourcePrefab: {fileID: 100100000, guid: 000465510228b4f8ab0c9e91fa1178f0, type: 3}
+--- !u!1 &4514284681518195453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6075273819119612903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &441641976822657559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4514284681518195453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &5822966744649716501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
@@ -7439,7 +7776,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5826405480926435366}
+    m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
     - target: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
@@ -7494,7 +7831,7 @@ PrefabInstance:
     - target: {fileID: 4229686016891351779, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
@@ -7504,13 +7841,46 @@ PrefabInstance:
     - target: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6172600939392418225}
   m_SourcePrefab: {fileID: 100100000, guid: 000465510228b4f8ab0c9e91fa1178f0, type: 3}
+--- !u!1 &4326195190632450665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7704044164873965850, guid: 000465510228b4f8ab0c9e91fa1178f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6261121425182907251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6172600939392418225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326195190632450665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &5936616212594555777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 324505732413694194, guid: 000465510228b4f8ab0c9e91fa1178f0,
@@ -8443,12 +8813,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5826405480926435366}
+    m_TransformParent: {fileID: 1744420693385480356}
     m_Modifications:
     - target: {fileID: 1443173740287472408, guid: 7dad558541e1a43288aae09279648e44,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3066824394993949061, guid: 7dad558541e1a43288aae09279648e44,
         type: 3}
@@ -8508,18 +8878,51 @@ PrefabInstance:
     - target: {fileID: 4714052295331448033, guid: 7dad558541e1a43288aae09279648e44,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7177542863408628168, guid: 7dad558541e1a43288aae09279648e44,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4714052295331448033, guid: 7dad558541e1a43288aae09279648e44,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5309066886515682959}
   m_SourcePrefab: {fileID: 100100000, guid: 7dad558541e1a43288aae09279648e44, type: 3}
+--- !u!1 &2491040943141654569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4714052295331448033, guid: 7dad558541e1a43288aae09279648e44,
+    type: 3}
+  m_PrefabInstance: {fileID: 7204168530914251976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5309066886515682959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491040943141654569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!4 &5293371776580767053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3066824394993949061, guid: 7dad558541e1a43288aae09279648e44,
@@ -10110,6 +10513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: boat-sail-b
       objectReference: {fileID: 0}
+    - target: {fileID: 1100147180833427252, guid: d7356c2cb9cac4bb2af3f5f35a2bd0cb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4247527864179678281, guid: d7356c2cb9cac4bb2af3f5f35a2bd0cb,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -10175,10 +10583,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7323325577480975532, guid: d7356c2cb9cac4bb2af3f5f35a2bd0cb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008771638528921245, guid: d7356c2cb9cac4bb2af3f5f35a2bd0cb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1100147180833427252, guid: d7356c2cb9cac4bb2af3f5f35a2bd0cb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8430837608225876894}
   m_SourcePrefab: {fileID: 100100000, guid: d7356c2cb9cac4bb2af3f5f35a2bd0cb, type: 3}
 --- !u!4 &4639327675700313683 stripped
 Transform:
@@ -10186,6 +10608,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8831686302375191066}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8490677203866545454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1100147180833427252, guid: d7356c2cb9cac4bb2af3f5f35a2bd0cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8831686302375191066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8430837608225876894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490677203866545454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0.1
+  enableMovement: 0
+  movementSpeed: 1
+  MoveAxis: 1
+  distance: 2
+  movementType: 0
+  enableRotation: 0
+  rotationSpeed: 100
+  enableBobbing: 1
+  bobbingAmount: 0.1
+  bobbingSpeed: 0.5
 --- !u!1001 &8872847043699557816
 PrefabInstance:
   m_ObjectHideFlags: 0
