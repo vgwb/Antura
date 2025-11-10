@@ -40,10 +40,10 @@ namespace Antura.Discover.UI
 
             Description.text = "";
             if (questData.Description != null && !questData.Description.IsEmpty)
-                Description.text += questData.Description.GetLocalizedString() + "\n";
+                Description.text += LocalizationSystem.I.GetLocalizedString(questData.Description, true) + "\n";
 
             if (questData.Location != null)
-                Description.text += "Location: " + questData.Location.Name.GetLocalizedString() + "\n";
+                Description.text += "Location: " + LocalizationSystem.I.GetLocalizedString(questData.Location.Name, true) + "\n";
 
             if (questData.SubjectsListText != null && questData.SubjectsListText != "")
                 Description.text += "Subjects: " + questData.SubjectsListText + "\n";

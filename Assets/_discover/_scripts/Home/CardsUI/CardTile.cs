@@ -42,7 +42,7 @@ namespace Antura.Discover.UI
             this.state = state;
             this.onClick = onClick;
 
-            titleText.text = card.Title.GetLocalizedString();
+            titleText.text = LocalizationSystem.I.GetLocalizedString(card.Title, true);
             categoryText.text = card.Type.ToString();
 
             if (image)

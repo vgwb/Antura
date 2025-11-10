@@ -74,15 +74,8 @@ namespace Antura.Discover.UI
 
             bool isLocked = state == null || !state.unlocked;
 
-            SetLocalized(titleText, card.Title, fallback: card.Id);
-            if (isLocked)
-            {
-                SetLocalized(descriptionText, card.Description, fallback: "Locked. Play quests to discover this content.");
-            }
-            else
-            {
-                SetLocalized(descriptionText, card.Description, fallback: string.Empty);
-            }
+            titleText.text = LocalizationSystem.I.GetLocalizedString(card.Title, true);
+            descriptionText.text = LocalizationSystem.I.GetLocalizedString(card.Description, true);
 
             if (card.ImageAsset != null && card.ImageAsset.Image != null && image != null)
                 image.sprite = card.ImageAsset.Image;
