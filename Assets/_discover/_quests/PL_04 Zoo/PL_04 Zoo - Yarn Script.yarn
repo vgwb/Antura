@@ -67,8 +67,9 @@ color: red
 <<declare $penguin_completed = false>>
 <<declare $found_chest_cookies = false>>
 Welcome to WROCŁAW ZOO. #line:0fe55d1 
-There are many ANIMALS here! #line:005dd46 
-<<target target_director>>
+The biggest zoo in Poland! #line:005dd46 
+There are more than 10000 ANIMALS here.
+<<target director>>
 ===
 
 title: quest_end
@@ -112,15 +113,16 @@ image: centennial_hall_empty_flag
 color: green
 ---
 <<target off>>
-Oh no! #line:0c71176 
+<<area area_all>>
+Help, we have a problem! #line:0c71176 
 <<camera_focus Flagpole>>
 The FLAG is missing! #line:09c6bf7 
 <<card iglica>>
 It was on the IGLICA at CENTENNIAL HALL, #line:02f35e4 
-which is a famous symbol of our city. #line:0335bf7 
+the famous symbol of our city. #line:0335bf7 
 <<camera_reset>>
 Find the FLAG! #line:0da284c #task:TASK_ANIMALS
-Talk to the ANIMALS. Maybe one of them has it. #line:012b933 
+Talk to the ANIMALS. Maybe one of them has it. #line:012b933 #task:TASK_ANIMALS
 <<task_start TASK_ANIMALS task_animals_done>>
 ===
 
@@ -412,8 +414,8 @@ group: MONKEY
 actor: KID_F
 image: kid_monkey
 ---
-He copied my dance! #line:0bf2346 
-Do CHIMPANZEES wink? #line:0eecdf9 
+Chimps have long arms to swing in trees. #line:0bf2346 
+CHIMPANZEES are smart! #line:0eecdf9 
 ===
 
 // PART 5 – PENGUIN
