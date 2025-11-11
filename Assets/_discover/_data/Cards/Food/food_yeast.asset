@@ -14,15 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: food_yeast
   Status: 1
-  Importance: 20
   Type: 3
-  Topics: 2d00000003000000
-  IsCoreCard: 0
-  IsInTopics: 1
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 2d00000003000000
   TitleEn: Yeast
   DescriptionEn: Yeast is like magic powder that makes bread soft and tasty!
   Title:
@@ -43,14 +36,23 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 3
   Quests: []
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 91489a9eb8ca64286b5769bf9e150e30, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -59,11 +61,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
-  Rationale: 
   Credits: []
+  Rationale: 
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Yeast
   _lastDescriptionEn: Yeast is like magic powder that makes bread soft and tasty!
   references:

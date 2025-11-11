@@ -15,15 +15,7 @@ MonoBehaviour:
   Id: food_baguette
   Status: 3
   Type: 3
-  Topics: 2d00000003000000
-  Importance: 0
-  CoreOfTopic: {fileID: 11400000, guid: 7562f9326af2249da8e5afc2b6a4cdea, type: 2}
-  IsInTopics: 0
-  MasteryPointsToUnlock: 1
-  Year: 1700
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Baguette
+  Subjects: 2d00000003000000
   TitleEn: French Baguette
   DescriptionEn: A long, crispy bread that is the most famous food in France. French
     people buy fresh baguettes every day from the bakery!
@@ -45,6 +37,15 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1700
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Baguette
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: 7562f9326af2249da8e5afc2b6a4cdea, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 3
   Quests:
   - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   - {fileID: 11400000, guid: d18b0b80b09374f6db671c77b4ab5b64, type: 2}
@@ -54,6 +55,7 @@ MonoBehaviour:
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: e1adce30737194248a561ec075dc87e0, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 1
@@ -62,12 +64,13 @@ MonoBehaviour:
   ItemIcon: {fileID: 11400000, guid: b3b621c4b0a6d4a1dbcb09a2b9a303d5, type: 2}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Baguettes are iconic French culture that kids can easily understand
     and remember
-  Credits: []
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: French Baguette
   _lastDescriptionEn: A long, crispy bread that is the most famous food in France.
     French people buy fresh baguettes every day from the bakery!
