@@ -34,11 +34,28 @@ namespace Antura.Discover
             return str.GetLocalizedString();
         }
 
+        public string GetLocalizedStringByLangType(LocalizedString localizedString, bool useLearning = false)
+        {
+            if (useLearning)
+            {
+                localizedString.LocaleOverride = GetLearningLocale();
+            }
+            else
+            {
+                localizedString.LocaleOverride = null;
+            }
+            return localizedString.GetLocalizedString();
+        }
+
         public string GetLocalizedString(LocalizedString localizedString, bool respectClassroomMode = false)
         {
             if (respectClassroomMode && AppManager.I.AppSettings.isClassroomMode)
             {
                 localizedString.LocaleOverride = GetLearningLocale();
+            }
+            else
+            {
+                localizedString.LocaleOverride = null;
             }
             return localizedString.GetLocalizedString();
         }

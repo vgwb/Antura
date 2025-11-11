@@ -91,7 +91,8 @@ namespace Antura.Discover
             infoPanel.SetActive(hasTitle);
             tfTitle.gameObject.SetActive(hasTitle);
             tfDescription.gameObject.SetActive(hasTitle);
-            if (hasTitle) DisplayText(QuestManager.I.LearningLangFirst);
+            if (hasTitle)
+                DisplayText(QuestManager.I.LearningLangFirst);
             imgRT.offsetMin = new Vector2(imgRT.offsetMin.x, hasTitle ? titleBottomOffset : 0);
             showTween.timeScale = 1;
             showTween.Restart();
@@ -126,18 +127,9 @@ namespace Antura.Discover
         private void DisplayText(bool useLearningLanguage)
         {
             usingLearningLanguage = useLearningLanguage;
-            if (usingLearningLanguage)
-            {
-                tfTitle.text = DiscoverDataManager.I.GetCardTitle(currCardData);
-                tfDescription.text = DiscoverDataManager.I.GetCardDescription(currCardData);
-                DiscoverDataManager.I.PlayCardTitle(currCardData, usingLearningLanguage);
-            }
-            else
-            {
-                tfTitle.text = currCardData.Title.GetLocalizedString();
-                tfDescription.text = currCardData.Description.GetLocalizedString();
-                DiscoverDataManager.I.PlayCardTitle(currCardData, usingLearningLanguage);
-            }
+            tfTitle.text = LocalizationSystem.I.GetLocalizedStringByLangType(currCardData.Title, usingLearningLanguage);
+            tfDescription.text = LocalizationSystem.I.GetLocalizedStringByLangType(currCardData.Description, usingLearningLanguage);
+            DiscoverDataManager.I.PlayCardTitle(currCardData, usingLearningLanguage);
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using Antura.UI;
+﻿using Antura.Core;
+using Antura.UI;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
@@ -140,7 +141,7 @@ namespace Antura.Discover
             currCardData = null;
             DoShow(asset.Image, true, magnified, null, false);
         }
-        
+
         /// <summary>
         /// Shows the postcard immediately and without animations,
         /// with options for title, magnification and view mode
@@ -188,7 +189,7 @@ namespace Antura.Discover
             CurrSpriteWasMagnifiedOnce = true;
             focusView.Show(CurrSprite, currCardData);
         }
-        
+
         /// <summary>
         /// Shows the fullscreen zoomed in version of the postcard
         /// </summary>
@@ -264,20 +265,25 @@ namespace Antura.Discover
             if (QuestManager.I.HasTranslation)
             {
                 usingLearningLanguage = !usingLearningLanguage;
-                DisplayTitle(usingLearningLanguage);
+                DisplayTitle(usingLearningLanguage, true);
             }
         }
 
-        private void DisplayTitle(bool useLearningLanguage)
+        private void DisplayTitle(bool useLearningLanguage, bool speak = false)
         {
             usingLearningLanguage = useLearningLanguage;
+
             if (usingLearningLanguage)
             {
-                tfTitle.text = DiscoverDataManager.I.GetCardTitle(currCardData);
+                tfTitle.text = LocalizationSystem.I.GetLocalizedStringByLangType(currCardData.Title, true);
             }
             else
             {
-                tfTitle.text = currCardData.Title.GetLocalizedString();
+                tfTitle.text = LocalizationSystem.I.GetLocalizedStringByLangType(currCardData.Title, false);
+            }
+            if (speak)
+            {
+                DiscoverDataManager.I.PlayCardTitle(currCardData, usingLearningLanguage);
             }
         }
         #endregion
