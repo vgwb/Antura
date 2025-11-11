@@ -49,6 +49,35 @@ namespace Antura.Discover.Audio.Editor
             return locales.FirstOrDefault(l => l.Identifier.Code.StartsWith("en", StringComparison.OrdinalIgnoreCase));
         }
 
+        private static string ResolveLanguageCode(Locale locale)
+        {
+            if (locale == null)
+                return "en";
+
+            var identifier = locale.Identifier;
+
+            try
+            {
+                var ci = identifier.CultureInfo;
+                if (ci != null)
+                    return ci.TwoLetterISOLanguageName.ToLowerInvariant();
+            }
+            catch
+            {
+                // ignore and fallback below
+            }
+
+            var code = identifier.Code;
+            if (string.IsNullOrEmpty(code))
+                return "en";
+
+            var dash = code.IndexOf('-');
+            if (dash > 0)
+                code = code.Substring(0, dash);
+
+            return code.ToLowerInvariant();
+        }
+
         private static void AssignCardAudioToAssetTable(Locale locale, string key, string assetPath)
         {
             if (locale == null || string.IsNullOrEmpty(key) || string.IsNullOrEmpty(assetPath))
@@ -463,6 +492,10 @@ namespace Antura.Discover.Audio.Editor
                     {
                         RunValidateAddressablesCards();
                     }
+                    if (GUILayout.Button("Delete card audio files", GUILayout.Height(22)))
+                    {
+                        RunDeleteCardAudio(filteredCards);
+                    }
                     if (GUILayout.Button("Create card audio files", GUILayout.Height(22)))
                     {
                         RunCreateCardAudio(filteredCards);
@@ -486,6 +519,143 @@ namespace Antura.Discover.Audio.Editor
             if (idx >= 0 && idx < _locales.Count)
                 return new[] { _locales[idx] };
             return Enumerable.Empty<Locale>();
+        }
+
+        private void RunDeleteCardAudio(List<CardData> cards)
+        {
+            if (cards == null || cards.Count == 0)
+            { EditorUtility.DisplayDialog("Cards Audio", "No cards to process (check Search filter).", "OK"); return; }
+
+            var locales = GetTargetLocales().ToList();
+            if (locales.Count == 0)
+            { EditorUtility.DisplayDialog("Cards Audio", "No locales configured.", "OK"); return; }
+
+            int deletedCount = 0;
+            bool anyTableUpdated = false;
+            foreach (var card in cards)
+            {
+                string baseName = SanitizeFileNamePart(card.Id ?? card.name);
+                string cardFolder = (CardsBundlesRoot + "/" + baseName).Replace('\\', '/');
+
+                foreach (var locale in locales)
+                {
+                    var assetTable = LocalizationSettings.AssetDatabase.GetTable(CardsAudioTableName, locale);
+                    bool clearedTitle = false;
+                    bool clearedDesc = false;
+
+                    var items = new List<string>();
+                    items.Add($"{baseName}.{locale.Identifier.Code}.mp3");
+                    items.Add($"{baseName}.{locale.Identifier.Code}.ogg");
+                    if (_cardsIncludeDescriptions)
+                    {
+                        items.Add($"{baseName}.desc.{locale.Identifier.Code}.mp3");
+                        items.Add($"{baseName}.desc.{locale.Identifier.Code}.ogg");
+                    }
+
+                    foreach (var item in items)
+                    {
+                        string assetPath = CombinePath(cardFolder, item);
+                        assetPath = assetPath.Replace('\\', '/');
+                        if (DeleteClipAsset(assetPath))
+                        {
+                            deletedCount++;
+                            if (item.Contains($".desc.{locale.Identifier.Code}", StringComparison.Ordinal))
+                            {
+                                clearedDesc = true;
+                            }
+                            else if (item.Contains($".{locale.Identifier.Code}", StringComparison.Ordinal))
+                            {
+                                clearedTitle = true;
+                            }
+                        }
+                    }
+
+                    if (assetTable != null)
+                    {
+                        if (clearedTitle)
+                        {
+                            anyTableUpdated |= ClearCardAudioEntry(assetTable, ResolveCardTitleKey(card));
+                        }
+                        if (_cardsIncludeDescriptions && clearedDesc)
+                        {
+                            anyTableUpdated |= ClearCardAudioEntry(assetTable, ResolveCardDescriptionKey(card));
+                        }
+                    }
+                }
+            }
+
+            if (deletedCount > 0 || anyTableUpdated)
+            {
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+            if (anyTableUpdated)
+            {
+                EditorUtility.DisplayDialog("Cards Audio", $"Deleted {deletedCount} audio files and cleared asset table assignments for {cards.Count} cards.", "OK");
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("Cards Audio", $"Deleted {deletedCount} audio files for {cards.Count} cards.", "OK");
+            }
+        }
+        static bool DeleteClipAsset(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath))
+                return false;
+
+            relativePath = relativePath.Replace('\\', '/');
+            var obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(relativePath);
+            bool existed = obj != null;
+            if (!existed)
+            {
+                var fullPath = Path.GetFullPath(Path.Combine(Application.dataPath, "..", relativePath));
+                existed = File.Exists(fullPath) || File.Exists(fullPath + ".meta");
+            }
+            if (!existed)
+                return false;
+
+            if (AssetDatabase.DeleteAsset(relativePath))
+                return true;
+
+            var absolutePath = Path.GetFullPath(Path.Combine(Application.dataPath, "..", relativePath));
+            if (File.Exists(absolutePath))
+            {
+                File.Delete(absolutePath);
+            }
+            var metaPath = absolutePath + ".meta";
+            if (File.Exists(metaPath))
+            {
+                File.Delete(metaPath);
+            }
+            return true;
+        }
+
+        static bool ClearCardAudioEntry(AssetTable table, string key)
+        {
+            if (table == null || string.IsNullOrEmpty(key))
+                return false;
+            var entry = table.GetEntry(key);
+            if (entry == null || string.IsNullOrEmpty(entry.Guid))
+                return false;
+            entry.Guid = string.Empty;
+            EditorUtility.SetDirty(table);
+            if (table.SharedData != null)
+                EditorUtility.SetDirty(table.SharedData);
+            return true;
+        }
+
+        static string ResolveCardTitleKey(CardData card)
+        {
+            if (card?.Title != null && !string.IsNullOrEmpty(card.Title.TableEntryReference.Key))
+                return card.Title.TableEntryReference.Key;
+            return card != null ? (card.Id ?? card.name) : string.Empty;
+        }
+
+        static string ResolveCardDescriptionKey(CardData card)
+        {
+            if (card?.Description != null && !string.IsNullOrEmpty(card.Description.TableEntryReference.Key))
+                return card.Description.TableEntryReference.Key;
+            return card != null ? (card.Id ?? card.name) + ".desc" : string.Empty;
         }
 
         private void RunCreateCardAudio(List<CardData> cards)
@@ -639,7 +809,7 @@ namespace Antura.Discover.Audio.Editor
                             continue;
 
                         byte[] bytes = null;
-                        string languageCode = locale.Identifier.Code;
+                        string languageCode = ResolveLanguageCode(locale);
                         yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voice, text, languageCode, b => bytes = b);
                         if (bytes == null || bytes.Length == 0)
                         { Debug.LogError($"[QVM] TTS failed for card {card.Id ?? card.name} ({locale.Identifier.Code}) {kind}"); continue; }
@@ -1153,7 +1323,7 @@ namespace Antura.Discover.Audio.Editor
                         continue;
 
                     byte[] bytes = null;
-                    string languageCode = locale.Identifier.Code;
+                    string languageCode = ResolveLanguageCode(locale);
                     yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voiceForLine, text, languageCode, b => bytes = b);
                     if (bytes == null || bytes.Length == 0)
                     { Debug.LogError($"[QVM] TTS failed for key {key} in {quest.Id} ({locale.Identifier.Code})"); continue; }

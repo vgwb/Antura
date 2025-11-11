@@ -59,6 +59,9 @@ namespace Antura.Discover.Audio.Editor
                 output_format = "mp3_44100_96"
             };
 
+            string preview = text.Length > 120 ? text.Substring(0, 120) + "…" : text;
+            Debug.Log($"[QVM] ElevenLabs call voice={voiceId} model={modelId} lang={payload.language_code} format={payload.output_format} len={text.Length} profile={profile?.Id ?? "(none)"} preview=\"{preview}\"");
+
             var json = JsonUtility.ToJson(payload);
             request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
             request.downloadHandler = new DownloadHandlerBuffer();

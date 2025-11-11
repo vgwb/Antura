@@ -20,7 +20,7 @@ namespace Antura.Discover.EditorTools
     /// <summary>
     /// Cross-validates Yarn lines against String/Asset tables and provides per-locale controls.
     /// </summary>
-    public class ScriptManagementWindow : EditorWindow
+    public partial class ScriptManagementWindow : EditorWindow
     {
         private Vector2 _scroll;
 
@@ -28,6 +28,9 @@ namespace Antura.Discover.EditorTools
         private readonly List<QuestData> _quests = new();
         private readonly List<Locale> _locales = new();
         private readonly Dictionary<string, CardData> _cardsById = new(StringComparer.Ordinal);
+
+        private DialogueSection _dialogueSection;
+        private CardSection _cardSection;
 
         // Selection
         private int _selectedQuest = 0;
@@ -64,6 +67,8 @@ namespace Antura.Discover.EditorTools
         private void OnEnable()
         {
             RefreshAll();
+            _dialogueSection ??= new DialogueSection(this);
+            _cardSection ??= new CardSection(this);
         }
 
         private void OnDisable()
@@ -239,27 +244,14 @@ namespace Antura.Discover.EditorTools
                     return;
                 }
 
-                // Summary and batch actions
-                DrawSummaryAndBatchActions(quest);
-
-                // Legend
-                EditorGUILayout.LabelField("Legend: !!! = needs regeneration (string changed since audio was generated); 'missing' = no audio", EditorStyles.miniLabel);
-
-                // Reload staleness from manifest
-                using (new EditorGUILayout.HorizontalScope())
+                if (_viewMode == ViewMode.Card)
                 {
-                    GUILayout.FlexibleSpace();
-                    if (GUILayout.Button("Reload manifest (re-read _index.json)", GUILayout.Width(260)))
-                    {
-                        _manifestCache.Clear();
-                        AssetDatabase.Refresh();
-                        Repaint();
-                    }
+                    _cardSection.Draw(quest);
                 }
-
-                DrawLinesTable(quest);
-                EditorGUILayout.Space(8);
-                DrawOrphansSection(quest);
+                else
+                {
+                    _dialogueSection.Draw(quest);
+                }
             }
         }
 
@@ -380,223 +372,8 @@ namespace Antura.Discover.EditorTools
             }
         }
 
-        private void DrawLinesTable(QuestData quest)
-        {
-            if (_viewMode == ViewMode.Card)
-            {
-                DrawCardTable(quest);
-                return;
-            }
-            // Yarn metadata
-            var meta = YarnLineMapBuilder.BuildMeta(quest);
-            var rows = GetRowsInScriptOrder(quest, meta);
-            if (!string.IsNullOrWhiteSpace(_filter))
-            {
-                var f = _filter.Trim();
-                rows = rows.Where(r =>
-                {
-                    if (r.ShortId.IndexOf(f, StringComparison.OrdinalIgnoreCase) >= 0)
-                        return true;
-                    if (meta.Titles.TryGetValue(r.ShortId, out var title))
-                        return title != null && title.IndexOf(f, StringComparison.OrdinalIgnoreCase) >= 0;
-                    return false;
-                }).ToList();
-            }
-
-            var targetLocales = GetTargetLocales().ToList();
-            if (targetLocales.Count == 0)
-            {
-                EditorGUILayout.HelpBox("No locales configured in Project Settings/Localization.", MessageType.Info);
-                return;
-            }
-
-            // pick EN for the main text column; second text column if another locale is selected
-            var enLocale = GetEnglishLocale();
-            var displayLocale = enLocale ?? targetLocales.FirstOrDefault();
-            var secondTextLocale = targetLocales.FirstOrDefault(l => displayLocale != null && !string.Equals(l.Identifier.Code, displayLocale.Identifier.Code, StringComparison.OrdinalIgnoreCase));
-
-            // Table header (Dialogue mode)
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColNodeTitleW)))
-                { GUILayout.Label("Node title", EditorStyles.boldLabel, GUILayout.Width(ColNodeTitleW)); }
-                using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColLineIdW)))
-                { GUILayout.Label("Line Id", EditorStyles.boldLabel, GUILayout.Width(ColLineIdW)); }
-                using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColTextW)))
-                { GUILayout.Label($"Text ({GetLocaleDisplayName(displayLocale)})", EditorStyles.boldLabel, GUILayout.Width(ColTextW)); }
-                if (secondTextLocale != null)
-                {
-                    using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColTextW)))
-                    { GUILayout.Label($"Text ({GetLocaleDisplayName(secondTextLocale)})", EditorStyles.boldLabel, GUILayout.Width(ColTextW)); }
-                }
-                if (targetLocales.Count > 1)
-                {
-                    using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColStringsW)))
-                    { GUILayout.Label("Strings (per locale)", EditorStyles.boldLabel, GUILayout.Width(ColStringsW)); }
-                    using (new EditorGUILayout.VerticalScope("box"))
-                    { GUILayout.Label("Audio (per locale)", EditorStyles.boldLabel); }
-                }
-                else
-                {
-                    using (new EditorGUILayout.VerticalScope("box"))
-                    { GUILayout.Label("Audio", EditorStyles.boldLabel); }
-                }
-            }
-
-            foreach (var row in rows)
-            {
-                var shortId = row.ShortId;
-                var key = (row.IsShadow ? "shadow:" : "line:") + shortId;
-                var displayId = row.IsShadow ? ($"shadow:{shortId}") : shortId;
-                var nodeTitle = meta.Titles.TryGetValue(shortId, out var t) ? t : string.Empty;
-
-                using (new EditorGUILayout.HorizontalScope())
-                {
-                    // First col: node title
-                    using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColNodeTitleW)))
-                    { GUILayout.Label(nodeTitle, EditorStyles.wordWrappedLabel, GUILayout.Width(ColNodeTitleW)); }
-                    // Selectable line id
-                    using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColLineIdW)))
-                    { EditorGUILayout.SelectableLabel(displayId, GUILayout.Height(18)); }
-
-                    // Shadow alias row: show empty text and keep columns aligned
-                    if (row.IsShadow)
-                    {
-                        var oldCol = GUI.color;
-                        GUI.color = Color.gray;
-                        using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColTextW)))
-                        { GUILayout.Label(string.Empty, EditorStyles.wordWrappedLabel, GUILayout.Width(ColTextW)); }
-                        if (secondTextLocale != null)
-                        {
-                            using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColTextW)))
-                            { GUILayout.Label(string.Empty, EditorStyles.wordWrappedLabel, GUILayout.Width(ColTextW)); }
-                        }
-                        GUI.color = oldCol;
-
-                        if (targetLocales.Count > 1)
-                        {
-                            using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColStringsW)))
-                            { /* leave empty */ }
-                            using (new EditorGUILayout.VerticalScope("box"))
-                            { /* leave empty */ }
-                        }
-                        else
-                        {
-                            using (new EditorGUILayout.VerticalScope("box"))
-                            { /* leave empty */ }
-                        }
-                        continue;
-                    }
-
-                    string entryTextEn = displayLocale != null ? (GetStringValue(quest, displayLocale, key) ?? string.Empty) : string.Empty;
-                    using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColTextW)))
-                    {
-                        GUILayout.Label(entryTextEn, EditorStyles.wordWrappedLabel, GUILayout.Width(ColTextW));
-                        if (displayLocale != null && IsLineStale(quest, displayLocale, key))
-                        { GUILayout.Label("!!!", GUILayout.Width(26)); }
-                    }
-                    if (secondTextLocale != null)
-                    {
-                        string entryText2 = GetStringValue(quest, secondTextLocale, key) ?? string.Empty;
-                        using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColTextW)))
-                        {
-                            GUILayout.Label(entryText2, EditorStyles.wordWrappedLabel, GUILayout.Width(ColTextW));
-                            if (IsLineStale(quest, secondTextLocale, key))
-                            { GUILayout.Label("!!!", GUILayout.Width(26)); }
-                        }
-                    }
-
-                    if (targetLocales.Count > 1)
-                    {
-                        using (new EditorGUILayout.VerticalScope("box", GUILayout.Width(ColStringsW)))
-                        {
-                            // Strings subtables inside this box
-                            using (new EditorGUILayout.HorizontalScope())
-                            {
-                                foreach (var loc in targetLocales)
-                                {
-                                    bool has = HasString(quest, loc, key);
-                                    using (new EditorGUI.DisabledScope(true))
-                                    { GUILayout.Toggle(has, loc.Identifier.Code, GUILayout.Width(50)); }
-                                }
-                            }
-                        }
-                        using (new EditorGUILayout.VerticalScope("box"))
-                        { DrawAllLocalesRow_AudioOnly(quest, key, targetLocales); }
-                    }
-                    else
-                    {
-                        using (new EditorGUILayout.VerticalScope("box"))
-                        { DrawSingleLocaleRow(quest, key, targetLocales[0]); }
-                    }
-                }
-            }
-        }
-
         // Build ordered rows including both #line and #shadow occurrences; fallback to meta titles when parsing fails
-        private List<RowItem> GetRowsInScriptOrder(QuestData quest, Antura.Discover.Audio.Editor.YarnLineMapBuilder.YarnLineMeta meta)
-        {
-            var rows = new List<RowItem>();
-            try
-            {
-                string text = quest?.YarnScript != null ? quest.YarnScript.text : null;
-                if (!string.IsNullOrEmpty(text))
-                {
-                    var rx = new Regex(@"#(line|shadow):([A-Za-z0-9_-]+)");
-                    foreach (Match m in rx.Matches(text))
-                    {
-                        var kind = m.Groups[1].Value;
-                        var id = m.Groups[2].Value;
-                        if (string.IsNullOrEmpty(id))
-                            continue;
-                        bool isShadow = string.Equals(kind, "shadow", StringComparison.OrdinalIgnoreCase);
-                        // Prefer listing real lines even if meta lacks; for shadows we list as-is
-                        rows.Add(new RowItem { ShortId = id, IsShadow = isShadow });
-                    }
-                }
-            }
-            catch { }
-
-            if (rows.Count == 0 && meta != null)
-            {
-                // Fallback: meta titles as normal lines
-                foreach (var id in meta.Titles.Keys)
-                {
-                    rows.Add(new RowItem { ShortId = id, IsShadow = false });
-                }
-            }
-            return rows;
-        }
-
         // Audio-only part for multi-locale rows (keeps vertical box for the column)
-        private void DrawAllLocalesRow_AudioOnly(QuestData quest, string lineKey, List<Locale> locales)
-        {
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                foreach (var loc in locales)
-                {
-                    var info = GetAudioInfo(quest, loc, lineKey);
-                    bool stale = IsLineStale(quest, loc, lineKey);
-                    if (info.Clip != null && !info.IsZeroLength)
-                    {
-                        if (stale)
-                        { GUILayout.Label("!!!", GUILayout.Width(26)); }
-                        if (GUILayout.Button("▶", GUILayout.Width(24)))
-                        { PlayClip(info.Clip); }
-                        if (GUILayout.Button("R", GUILayout.Width(22)))
-                        { RegenerateLineAudioViaVoManager(quest, loc, lineKey); }
-                        if (GUILayout.Button("Ping", GUILayout.Width(40)))
-                        { PingObject(info.Obj); }
-                    }
-                    else
-                    {
-                        if (GUILayout.Button("Generate", GUILayout.Width(80)))
-                        { RegenerateLineAudioViaVoManager(quest, loc, lineKey); }
-                    }
-                }
-            }
-        }
-
         private sealed class CardOccurrence
         {
             public string NodeTitle;
@@ -947,119 +724,6 @@ namespace Antura.Discover.EditorTools
             }
         }
 
-        private void DrawAllLocalesRow(QuestData quest, string lineKey, List<Locale> locales)
-        {
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                // Strings presence as toggles
-                using (new EditorGUILayout.HorizontalScope(GUILayout.Width(180)))
-                {
-                    foreach (var loc in locales)
-                    {
-                        bool has = HasString(quest, loc, lineKey);
-                        using (new EditorGUI.DisabledScope(true))
-                        {
-                            GUILayout.Toggle(has, loc.Identifier.Code, GUILayout.Width(50));
-                        }
-                    }
-                }
-
-                // Audio: small play buttons if assigned, else "-"; prepend !!! when stale
-                using (new EditorGUILayout.HorizontalScope())
-                {
-                    foreach (var loc in locales)
-                    {
-                        var info = GetAudioInfo(quest, loc, lineKey);
-                        bool stale = IsLineStale(quest, loc, lineKey);
-                        if (info.Clip != null && !info.IsZeroLength)
-                        {
-                            if (stale)
-                            {
-                                GUILayout.Label("!!!", GUILayout.Width(26));
-                            }
-                            if (GUILayout.Button("▶", GUILayout.Width(24)))
-                            {
-                                PlayClip(info.Clip);
-                            }
-                            // Always show a small Regenerate button next to Play
-                            if (GUILayout.Button("R", GUILayout.Width(22)))
-                            {
-                                RegenerateLineAudioViaVoManager(quest, loc, lineKey);
-                            }
-                            if (GUILayout.Button("Ping", GUILayout.Width(40)))
-                            {
-                                PingObject(info.Obj);
-                            }
-                        }
-                        else
-                        {
-                            // Offer a Generate action when audio is missing
-                            if (GUILayout.Button("Generate", GUILayout.Width(80)))
-                            {
-                                RegenerateLineAudioViaVoManager(quest, loc, lineKey);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private void DrawSingleLocaleRow(QuestData quest, string lineKey, Locale locale)
-        {
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                var info = GetAudioInfo(quest, locale, lineKey);
-                bool stale = IsLineStale(quest, locale, lineKey);
-                if (info.Clip != null && !info.IsZeroLength)
-                {
-                    if (stale)
-                    {
-                        GUILayout.Label("!!!", GUILayout.Width(26));
-                    }
-                    if (GUILayout.Button("Play", GUILayout.Width(44)))
-                        PlayClip(info.Clip);
-                    // Small inline regenerate next to Play
-                    if (GUILayout.Button("R", GUILayout.Width(24)))
-                        RegenerateLineAudioViaVoManager(quest, locale, lineKey);
-                    if (GUILayout.Button("Ping", GUILayout.Width(44)))
-                        PingObject(info.Obj);
-                    if (GUILayout.Button("Delete", GUILayout.Width(58)))
-                        ClearAudioAssignment(quest, locale, lineKey);
-                }
-                else
-                {
-                    if (info.MissingOnDisk)
-                    {
-                        GUILayout.Label("missing on disk", GUILayout.Width(100));
-                        using (new EditorGUI.DisabledScope(string.IsNullOrEmpty(info.Path)))
-                        {
-                            if (!string.IsNullOrEmpty(info.Path) && GUILayout.Button("Reimport", GUILayout.Width(70)))
-                            {
-                                AssetDatabase.ImportAsset(info.Path, ImportAssetOptions.ForceUpdate);
-                            }
-                        }
-                        if (GUILayout.Button("Clear", GUILayout.Width(50)))
-                        {
-                            ClearAudioAssignment(quest, locale, lineKey);
-                        }
-                        // Also allow generating a fresh clip if the file is gone
-                        if (GUILayout.Button("Generate", GUILayout.Width(90)))
-                            RegenerateLineAudioViaVoManager(quest, locale, lineKey);
-                    }
-                    else
-                    {
-                        // Offer Generate when no audio is assigned
-                        if (GUILayout.Button("Generate", GUILayout.Width(90)))
-                            RegenerateLineAudioViaVoManager(quest, locale, lineKey);
-                    }
-                }
-            }
-
-            // Card addon: if text contains <<card cardid>> show card title localisation and audio controls
-            var addonText = GetStringValue(quest, locale, lineKey) ?? string.Empty;
-            TryDrawCardAddon(locale, addonText);
-        }
-
         private void TryDrawCardAddon(Locale locale, string entryText)
         {
             if (string.IsNullOrEmpty(entryText))
@@ -1220,67 +884,6 @@ namespace Antura.Discover.EditorTools
             return ordered;
         }
 
-        private void DrawSummaryAndBatchActions(QuestData quest)
-        {
-            var meta = YarnLineMapBuilder.BuildMeta(quest);
-            var allIds = GetLineIdsInScriptOrder(quest, meta);
-            if (!string.IsNullOrWhiteSpace(_filter))
-            {
-                var f = _filter.Trim();
-                allIds = allIds.Where(id =>
-                {
-                    if (id.IndexOf(f, StringComparison.OrdinalIgnoreCase) >= 0)
-                        return true;
-                    if (meta.Titles.TryGetValue(id, out var title))
-                        return title != null && title.IndexOf(f, StringComparison.OrdinalIgnoreCase) >= 0;
-                    return false;
-                }).ToList();
-            }
-            var locales = GetTargetLocales().ToList();
-            int totalLines = allIds.Count;
-            int missingStrings = 0;
-            int missingAudio = 0;
-            int changedAudio = 0;
-            foreach (var id in allIds)
-            {
-                var key = "line:" + id;
-                foreach (var loc in locales)
-                {
-                    if (!HasNonEmptyString(quest, loc, key))
-                        missingStrings++;
-                    var ai = GetAudioInfo(quest, loc, key);
-                    if (!(ai.Clip != null && !ai.IsZeroLength))
-                        missingAudio++;
-                    else if (IsLineStale(quest, loc, key))
-                        changedAudio++;
-                }
-            }
-
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                GUILayout.Label($"Lines: {totalLines}", GUILayout.Width(100));
-                GUILayout.Label($"Missing strings: {missingStrings}", GUILayout.Width(160));
-                GUILayout.Label($"Missing audio: {missingAudio}", GUILayout.Width(150));
-                GUILayout.Label($"Changed audio: {changedAudio}", GUILayout.Width(160));
-
-                var selectedLocales = locales;
-                using (new EditorGUI.DisabledScope(missingAudio == 0 || selectedLocales.Count == 0))
-                {
-                    if (GUILayout.Button("Regenerate all missing (selected)", GUILayout.Width(240)))
-                    {
-                        RegenerateAllMissingForSelectedLocales(quest, selectedLocales);
-                    }
-                }
-                using (new EditorGUI.DisabledScope(changedAudio == 0 || selectedLocales.Count == 0))
-                {
-                    if (GUILayout.Button("Regenerate all changed (selected)", GUILayout.Width(250)))
-                    {
-                        RegenerateAllChangedForSelectedLocales(quest, selectedLocales, allIds);
-                    }
-                }
-            }
-        }
-
         private bool HasNonEmptyString(QuestData quest, Locale locale, string key)
         {
             try
@@ -1297,6 +900,14 @@ namespace Antura.Discover.EditorTools
             foreach (var locale in locales)
             {
                 RegenerateAllMissingForLocale(quest, locale);
+            }
+        }
+
+        private void RegenerateAllOverwriteForSelectedLocales(QuestData quest, List<Locale> locales)
+        {
+            foreach (var locale in locales)
+            {
+                RegenerateAllOverwriteForLocale(quest, locale);
             }
         }
 
@@ -1358,6 +969,67 @@ namespace Antura.Discover.EditorTools
             catch (Exception ex)
             {
                 Debug.LogError($"Failed to call VO Manager batch: {ex.Message}");
+            }
+        }
+
+        private void RegenerateAllOverwriteForLocale(QuestData quest, Locale locale)
+        {
+            if (locale == null)
+                return;
+
+            var voWindow = Resources.FindObjectsOfTypeAll<Antura.Discover.Audio.Editor.VoiceoverManagerWindow>().FirstOrDefault()
+                           ?? GetWindow<Antura.Discover.Audio.Editor.VoiceoverManagerWindow>();
+            if (voWindow == null)
+            {
+                Debug.LogWarning("Voiceover Manager window not found.");
+                return;
+            }
+
+            try
+            {
+                var t = voWindow.GetType();
+                var questsField = t.GetField("_quests", BindingFlags.Instance | BindingFlags.NonPublic);
+                var localesField = t.GetField("_locales", BindingFlags.Instance | BindingFlags.NonPublic);
+                var questIdxField = t.GetField("_selectedQuestIndex", BindingFlags.Instance | BindingFlags.NonPublic);
+                var localeIdxField = t.GetField("_selectedLocaleIndex", BindingFlags.Instance | BindingFlags.NonPublic);
+                var onlyMissingField = t.GetField("_onlyGenerateMissing", BindingFlags.Instance | BindingFlags.NonPublic);
+                var capField = t.GetField("_createCapIndex", BindingFlags.Instance | BindingFlags.NonPublic);
+                var runMethod = t.GetMethod("RunCreateAudioFiles", BindingFlags.Instance | BindingFlags.NonPublic);
+
+                var voQuests = questsField?.GetValue(voWindow) as System.Collections.IList;
+                var voLocales = localesField?.GetValue(voWindow) as System.Collections.IList;
+
+                int qIndex = 0;
+                if (voQuests != null)
+                {
+                    for (int i = 0; i < voQuests.Count; i++)
+                    {
+                        if (ReferenceEquals(voQuests[i], quest))
+                        { qIndex = i; break; }
+                    }
+                }
+                questIdxField?.SetValue(voWindow, qIndex);
+
+                int lIndex = 0;
+                if (voLocales != null)
+                {
+                    for (int i = 0; i < voLocales.Count; i++)
+                    {
+                        var loc = voLocales[i] as Locale;
+                        if (loc != null && loc.Identifier.Code == locale.Identifier.Code)
+                        { lIndex = i + 1; break; }
+                    }
+                }
+                localeIdxField?.SetValue(voWindow, lIndex);
+
+                onlyMissingField?.SetValue(voWindow, false);
+                capField?.SetValue(voWindow, 2);
+
+                runMethod?.Invoke(voWindow, null);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Failed to call VO Manager overwrite batch: {ex.Message}");
             }
         }
 
