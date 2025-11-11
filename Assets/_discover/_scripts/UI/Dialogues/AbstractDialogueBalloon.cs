@@ -166,8 +166,7 @@ namespace Antura.Discover
                 }
             }
             //Debug.Log("DisplayText() " + learningText.Length + " fillPeriod " + fillPeriod);
-            // TODO fix typewriter effect
-            //StartCoroutine(DisplayTextCoroutine(TextRenderToUse, textLength / lettersPerSecond));
+            StartCoroutine(TypewriterCoroutine(TextRenderToUse, textLength / lettersPerSecond));
         }
 
         public void OnEndSpeaking(bool UseLearningLanguage)
@@ -180,7 +179,7 @@ namespace Antura.Discover
             DisplayText(learningLanguageFirst, useMainLabel: true, hasTranslation: QuestManager.I.HasTranslation);
         }
 
-        IEnumerator DisplayTextCoroutine(TextRender textRender, float fillPeriod)
+        IEnumerator TypewriterCoroutine(TextRender textRender, float fillPeriod)
         {
             yield return null; // Wait 1 frame otherwise TMP doesn't update characterCount
 
