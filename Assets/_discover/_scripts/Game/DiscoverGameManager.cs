@@ -28,13 +28,13 @@ namespace Antura.Discover
         [SerializeField] private YarnAnturaManager yarnAnturaManager;
         [SerializeField] private ActionManager actionManager;
 
-        [Header("Readonly")]
+        [Header("ReadOnly")]
         public GameplayState State { get; private set; }
         /// <summary>Last play state (used to know to which play state to return after a dialogue/etc. state)</summary>
         public GameplayState LastPlayState { get; private set; }
         // when we pause the game we use this global var
         public bool isPaused;
-        private bool isIntroRunning;
+
         Coroutine coChangeState;
 
         // sets stars when the game ends. hack we need to check state
@@ -46,6 +46,7 @@ namespace Antura.Discover
             var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             if (yarn != null)
             {
+                yarn.OnDialogueStart += OnYarnDialogueStart;
                 yarn.OnDialogueComplete += OnYarnDialogueComplete;
             }
         }
@@ -55,13 +56,19 @@ namespace Antura.Discover
             var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             if (yarn != null)
             {
+                yarn.OnDialogueStart -= OnYarnDialogueStart;
                 yarn.OnDialogueComplete -= OnYarnDialogueComplete;
             }
         }
 
         IEnumerator Start()
         {
-            State = GameplayState.None;
+            // Enter Setup state first to let managers initialize (ActionManager, QuestManager, etc.)
+            ChangeState(GameplayState.Setup, true);
+
+            // Let one frame pass for Start() of managers and task registration
+            yield return null;
+
 
             if (!questManager)
                 questManager = FindFirstObjectByType<QuestManager>(FindObjectsInactive.Include);
@@ -87,15 +94,8 @@ namespace Antura.Discover
                 }
             }
 
-            // Enter Setup state first to let managers initialize (ActionManager, QuestManager, etc.)
-            ChangeState(GameplayState.Setup, true);
-
-            // Let one frame pass for Start() of managers and task registration
-            yield return null;
-
             // Initialize intro: set Dialogue state and start Yarn init via QuestManager
-            ChangeState(GameplayState.Intro, true);
-            isIntroRunning = true;
+            //ChangeState(GameplayState.Intro, true);
             if (questManager != null)
             {
                 questManager.QuestStart();
@@ -108,7 +108,7 @@ namespace Antura.Discover
         }
 
         /// <summary>Changing state takes one frame unless forced to be immediate</summary>
-        public void ChangeState(GameplayState newState, bool immediate = false)
+        public void ChangeState(GameplayState newState, bool immediate = true)
         {
             if (newState == State)
                 return;
@@ -117,6 +117,7 @@ namespace Antura.Discover
         }
         IEnumerator CO_ChangeState(GameplayState newState, bool immediate)
         {
+            LastPlayState = State;
             if (!immediate)
             {
                 State = GameplayState.Changing;
@@ -136,15 +137,24 @@ namespace Antura.Discover
             // }
 
             State = newState;
+            //            Debug.Log("<color=#d8249c>Changed state to " + State + "</color>");
+        }
+
+        void OnYarnDialogueStart()
+        {
+            ChangeState(GameplayState.Dialogue, true);
         }
 
         void OnYarnDialogueComplete()
         {
             Debug.Log("-- discoverGameManager - OnYarnDialogueComplete in state " + State);
             // After intro/dialogue completes, return to 3D play only if we're handling the intro
-            if (isIntroRunning)
+            if (State == GameplayState.PlayActivity)
             {
-                isIntroRunning = false;
+
+            }
+            else
+            {
                 ChangeState(GameplayState.Play3D, true);
             }
 

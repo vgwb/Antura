@@ -17,6 +17,7 @@ namespace Antura.Discover
         public event Action<string> OnNodeStarted;
         public event Action<QuestNode> OnQuestNode;
         public event Action<QuestNode> OnQuestOptions;
+        public event Action OnDialogueStart;
         public event Action OnDialogueComplete;
 
         public DialogueRunner Runner => runner;
@@ -40,6 +41,7 @@ namespace Antura.Discover
             if (runner != null)
             {
                 runner.onNodeStart.AddListener(nodeName => { OnNodeStarted?.Invoke(nodeName); presenter?.SetCurrentNodeName(nodeName); });
+                runner.onDialogueStart.AddListener(() => OnDialogueStart?.Invoke());
                 runner.onDialogueComplete.AddListener(() => OnDialogueComplete?.Invoke());
                 Variables = runner.VariableStorage as AnturaYarnVariables;
 
@@ -120,10 +122,7 @@ namespace Antura.Discover
             OnQuestOptions?.Invoke(node);
         }
 
-        // ------------------------------------------------------------
-        // YARN COMMANDS
-        // ------------------------------------------------------------
-
+        #region custom COMMANDS
 
         [YarnFunction("GetTotalCoins")]
         public static int FunctionGetTotalCoins()
@@ -142,10 +141,9 @@ namespace Antura.Discover
             yield return new WaitForSeconds(4.0f);
 
         }
+        #endregion
 
-        // ------------------------------------------------------------
-        // ACTION
-        // ------------------------------------------------------------
+        #region ACTION
 
         [YarnCommand("action")]
         public static void CommandAction(string actionCode)
@@ -154,10 +152,9 @@ namespace Antura.Discover
                 return;
             ActionManager.I.ResolveQuestAction(actionCode);
         }
+        #endregion
 
-        // ------------------------------------------------------------
-        // ACTIVITY
-        // ------------------------------------------------------------
+        #region ACTIVITY
 
         [YarnCommand("activity")]
         public static void CommandActivity(string activitySettingsCode, string nodeReturn = "", string difficulty = "")
@@ -173,6 +170,7 @@ namespace Antura.Discover
         {
             return ActivityManager.I?.GetResult(activitySettingsCode) ?? 0;
         }
+        #endregion
 
         // ------------------------------------------------------------
         // AREA
@@ -436,9 +434,7 @@ namespace Antura.Discover
             QuestManager.I.QuestEnd();
         }
 
-        // ------------------------------------------------------------
-        // INVENTORY
-        // ------------------------------------------------------------
+        #region INVENTORY
 
         [YarnCommand("inventory")]
         public static void CommandInventory(string itemCode, string action = "add")
@@ -497,6 +493,7 @@ namespace Antura.Discover
                 return false;
             return inv.CanCollect(itemCode);
         }
+        #endregion
 
         // ------------------------------------------------------------
         // TRIGGERS

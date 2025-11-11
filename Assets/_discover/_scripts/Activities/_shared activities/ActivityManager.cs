@@ -61,29 +61,6 @@ namespace Antura.Discover.Activities
             }
 
             return Launch(activityConfig.ActivitySettings, nodeReturn);
-
-
-            // // Legacy path: use existing scene object reference
-            // var activityBase = activityConfig.ActivityGO.GetComponentInChildren<ActivityBase>(true);
-            // if (activityBase == null)
-            // {
-            //     Debug.LogError($"ActivityManager.Launch: ActivityBase missing on '{settingsCode}'");
-            //     return false;
-            // }
-
-            // PrepareNewLaunch();
-            // DiscoverGameManager.I?.ChangeState(GameplayState.PlayActivity, true);
-            // _currentActivity = activityBase;
-            // _ownsCurrentInstance = false;
-            // _spawnedInstanceGO = null;
-
-            // // Configure from data
-            // activityBase.ConfigureSettings(activityConfig.ActivitySettings);
-            // // Try populate metadata for tracking
-            // TryPopulateActivityMeta(activityBase, activityConfig.ActivitySettings);
-            // ApplyActivityLabels(activityBase, activityConfig.ActivitySettings, activityBase.ActivityData);
-            // activityBase.OpenFresh();
-            // return true;
         }
 
         /// <summary>
@@ -147,11 +124,8 @@ namespace Antura.Discover.Activities
 
             // Configure from data
             activityBase.ConfigureSettings(settings);
-            // Populate meta
             activityBase.ActivityData = actData;
-            try
-            { activityBase.ActivityCode = actData.Code.ToString(); }
-            catch { }
+            activityBase.ActivityCode = actData.Code.ToString();
             ApplyActivityLabels(activityBase, settings, actData);
             GlobalUI.ShowPauseMenu(false);
             activityBase.OpenFresh();

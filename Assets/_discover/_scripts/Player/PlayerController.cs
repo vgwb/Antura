@@ -24,6 +24,7 @@ namespace Antura.Discover
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
+        #region Properties
         [Header("Player Status (debug)")]
         [ReadOnly]
         public PlayerState CurrentState = PlayerState.Idle;
@@ -114,8 +115,9 @@ namespace Antura.Discover
 
         [Header("References")]
         public CatAnimationController animationController;
+        #endregion
 
-
+        #region Private Members
         public delegate void FallDamageEvent(float fallHeight, float damage, GameObject hitObject);
         public event FallDamageEvent OnFallDamage;
 
@@ -185,7 +187,9 @@ namespace Antura.Discover
         private bool _movementLocked;
         private Vector3 _frozenPosition;
         private Quaternion _frozenRotation;
+        #endregion
 
+        #region Unity Methods
         private float GetSlopeLimit()
         {
             return _character.Motor.MaxStableSlopeAngle;
@@ -250,6 +254,9 @@ namespace Antura.Discover
             UpdateIdleBehavior();
             UpdatePlayerState();
         }
+        #endregion
+
+        #region Movement
 
         private void GroundedCheck()
         {
@@ -481,7 +488,9 @@ namespace Antura.Discover
                 _isAutoSprinting = false;
             }
         }
+        #endregion
 
+        #region Effects
         private void UpdateMovementEffects(bool isSprinting)
         {
             if (_isTeleporting)
@@ -540,7 +549,9 @@ namespace Antura.Discover
                 _wasSprinting = grounded && isSprinting;
             }
         }
+        #endregion
 
+        #region Jump and Gravity
         private void JumpAndGravity()
         {
             if (_isTeleporting)
@@ -665,7 +676,9 @@ namespace Antura.Discover
             _fallStartHeight = transform.position.y;
             _isTrackingFall = true;
         }
+        #endregion
 
+        #region Teleport and Spawn
         public void SpawnToLocation(Transform newLocation)
         {
             SetPosition(newLocation.position, newLocation.rotation);
@@ -692,7 +705,7 @@ namespace Antura.Discover
             // Reset animation to idle
             animationController.State = CatAnimationStates.idle;
         }
-
+        #endregion
         public void ForceJump(float? customHeight = null)
         {
             if (isGrounded)

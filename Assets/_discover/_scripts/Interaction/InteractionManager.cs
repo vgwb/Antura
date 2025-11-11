@@ -71,7 +71,8 @@ namespace Antura.Discover
             {
                 UpdateWorld();
             }
-            else if (DiscoverGameManager.I.State == GameplayState.Dialogue)
+            else if (DiscoverGameManager.I.State == GameplayState.Dialogue
+            || DiscoverGameManager.I.State == GameplayState.PlayActivity)
             {
                 UpdateDialogue();
             }
@@ -87,10 +88,10 @@ namespace Antura.Discover
 
         void UpdateDialogue()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                ExitDialogue();
-            if (IsUsingFocusView && Input.GetMouseButtonDown(0))
-                ResetCameraFocus();
+            // if (Input.GetKeyDown(KeyCode.Escape))
+            //     ExitDialogue();
+            // if (IsUsingFocusView && Input.GetMouseButtonDown(0))
+            //     ResetCameraFocus();
         }
 
         #endregion
@@ -222,7 +223,7 @@ namespace Antura.Discover
         {
             player?.SetMovementLock(true);
 
-            DiscoverGameManager.I.ChangeState(GameplayState.Dialogue);
+            //DiscoverGameManager.I.ChangeState(GameplayState.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
             Interactable activeInteractable = interactable != null ? interactable : NearbyInteractable;
@@ -257,7 +258,7 @@ namespace Antura.Discover
 
         void ExitDialogue()
         {
-            DiscoverGameManager.I.ChangeState(GameplayState.Play3D);
+            //DiscoverGameManager.I.ChangeState(GameplayState.Play3D);
             player?.SetMovementLock(false);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
             if (HasValidNearbyInteractable)
