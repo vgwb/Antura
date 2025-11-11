@@ -374,7 +374,8 @@ namespace Antura.Discover.Activities
                 bool decided = false;
 
                 overlay.ShowResultPrompt(
-                    message: LocalizationManager.GetNewLocalized("result.exit", "Activities"),
+                    message: LocalizationSystem.I.GetLocalizedString("result.exit", "Activities", true),
+                    messageTranslated: LocalizationSystem.I.GetLocalizedString("result.exit", "Activities", false),
                     color: Color.white,
                     onContinue: () => { userChoseReplay = false; decided = true; },
                     onRetry: () => { userChoseReplay = true; decided = true; }
@@ -414,7 +415,8 @@ namespace Antura.Discover.Activities
             if (HasTimer)
                 PauseTimer();
             overlay.ShowResultPrompt(
-                message: LocalizationManager.GetNewLocalized("result.exit", "Activities"),
+                message: LocalizationSystem.I.GetLocalizedString("result.exit", "Activities", true),
+                messageTranslated: LocalizationSystem.I.GetLocalizedString("result.exit", "Activities", false),
                 color: Color.white,
                 onContinue: () =>
                 {
@@ -448,7 +450,8 @@ namespace Antura.Discover.Activities
             var LabelString = success ? "result.success" : "result.fail";
 
             overlay.ShowResultPrompt(
-                message: LocalizationManager.GetNewLocalized(LabelString, "Activities"),
+                message: LocalizationSystem.I.GetLocalizedString(LabelString, "Activities", true),
+                messageTranslated: LocalizationSystem.I.GetLocalizedString(LabelString, "Activities", false),
                 color: color,
                 onContinue: () => onContinue?.Invoke(),
                 onRetry: () => onRetry?.Invoke()

@@ -28,10 +28,10 @@ namespace Antura.Discover
             currentLearningLocale = LocalizationSettings.AvailableLocales.GetLocale(iso2);
         }
 
-        public string GetLocalizedString(string id, string table = "Common")
+        public string GetLocalizedString(string id, string table = "Common", bool useLearning = false)
         {
-            var str = new LocalizedString(table, id);
-            return str.GetLocalizedString();
+            var localizedString = new LocalizedString(table, id);
+            return GetLocalizedStringByLangType(localizedString, useLearning);
         }
 
         public string GetLocalizedStringByLangType(LocalizedString localizedString, bool useLearning = false)

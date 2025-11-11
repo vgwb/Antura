@@ -26,11 +26,13 @@ namespace Antura.Discover.Activities
         [SerializeField] TextRender labelTopic;
 
         [SerializeField] GameObject feedbackBox;
-        [SerializeField] TMP_Text feedbackText;
+        [SerializeField] TextRender feedbackText;
 
         [Header("Result Prompt")]
         [SerializeField] GameObject resultPromptRoot;
-        [SerializeField] TMP_Text resultPromptLabel;
+        [SerializeField] TextRender resultPromptLabel;
+        [SerializeField] TextRender resultPromptLabelTranslated;
+
         [SerializeField] Button resultContinueButton;
         [SerializeField] Button resultRetryButton;
 
@@ -70,7 +72,7 @@ namespace Antura.Discover.Activities
                 timer.CancelTimer();
         }
 
-        public void ShowResultPrompt(string message, Color color, Action onContinue, Action onRetry)
+        public void ShowResultPrompt(string message, string messageTranslated, Color color, Action onContinue, Action onRetry)
         {
             if (resultPromptRoot == null)
             {
@@ -81,7 +83,7 @@ namespace Antura.Discover.Activities
             ClearPromptListeners();
 
             resultPromptLabel.text = message ?? string.Empty;
-            //resultPromptLabel.color = color;
+            resultPromptLabelTranslated.text = messageTranslated ?? string.Empty;
 
             onContinueCallback = onContinue;
             onRetryCallback = onRetry;
