@@ -115,6 +115,12 @@ namespace Antura.Discover
 
             this.RestartCoroutine(ref coChangeState, CO_ChangeState(newState, immediate));
         }
+
+        public void ChangeToPreviousState()
+        {
+            this.RestartCoroutine(ref coChangeState, CO_ChangeState(LastPlayState, true));
+        }
+
         IEnumerator CO_ChangeState(GameplayState newState, bool immediate)
         {
             LastPlayState = State;

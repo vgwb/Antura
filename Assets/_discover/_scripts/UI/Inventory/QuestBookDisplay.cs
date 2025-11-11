@@ -38,6 +38,7 @@ namespace Antura.Discover
         {
             if (isOpen)
                 return;
+            DiscoverGameManager.I.ChangeState(GameplayState.Dialogue);
             isOpen = true;
             CardsUI.Init(QuestManager.I.CurrentQuest);
             gameObject.SetActive(true);
@@ -47,6 +48,7 @@ namespace Antura.Discover
         {
             isOpen = false;
             gameObject.SetActive(false);
+            DiscoverGameManager.I.ChangeToPreviousState();
         }
     }
 }
