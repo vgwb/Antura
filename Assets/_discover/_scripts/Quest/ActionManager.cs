@@ -211,6 +211,20 @@ namespace Antura.Discover
             actable.Trigger();
         }
 
+        public void CommandSetInteractable(string actableCode, bool active)
+        {
+            actableCode = actableCode.ToLower();
+            var actable = FindActableInChildren(actableCode);
+            if (actable != null)
+            {
+                actable.GetComponent<Interactable>().IsInteractable = active;
+            }
+            else
+            {
+                Debug.LogWarning($"Interactable '{name}' not found under ActionManager hierarchy.");
+            }
+        }
+
         public void CommandSetActive(string name, bool active)
         {
             // Debug.LogWarning($"CommandSetActive '{name}' set to {active}.");
@@ -357,6 +371,18 @@ namespace Antura.Discover
         private ActableAbstract FindActableInChildren(string name)
         {
             var list = GetComponentsInChildren<ActableAbstract>(includeInactive: true);
+            if (list == null || list.Length == 0)
+                return null;
+
+            if (string.IsNullOrEmpty(name))
+                return list.FirstOrDefault();
+
+            return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        private Interactable FindInteractableInChildren(string name)
+        {
+            var list = GetComponentsInChildren<Interactable>(includeInactive: true);
             if (list == null || list.Length == 0)
                 return null;
 

@@ -495,9 +495,14 @@ namespace Antura.Discover
         }
         #endregion
 
-        // ------------------------------------------------------------
-        // TRIGGERS
-        // ------------------------------------------------------------
+        #region interactable
+        [YarnCommand("SetInteractable")]
+        public static void CommandSetInteractable(string interactable, bool active = true)
+        {
+            // Debug.Log($"YarnAnturaManager: SetInteractable {interactable} {active}");
+            ActionManager.I.CommandSetInteractable(interactable, active);
+        }
+
         [YarnCommand("SetActive")]
         public static void CommandSetActive(string triggerable, bool active = true)
         {
@@ -505,10 +510,9 @@ namespace Antura.Discover
             ActionManager.I.CommandSetActive(triggerable, active);
         }
 
-        // ------------------------------------------------------------
-        // UTILITIES
-        // ------------------------------------------------------------
+        #endregion
 
+        #region UTILITIES
         public void DebugMetadata(string nodeName)
         {
             if (runner == null || string.IsNullOrEmpty(nodeName))
@@ -519,5 +523,7 @@ namespace Antura.Discover
 
             Debug.Log($"TAGS for {nodeName}: {metadata}");
         }
+        #endregion
+
     }
 }
