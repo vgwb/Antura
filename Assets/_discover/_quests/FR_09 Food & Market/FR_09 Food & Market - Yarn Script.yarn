@@ -268,14 +268,14 @@ Select enough money to pay. #line:0bbf963
 title: baker_payment_done
 position: 1131,145
 group: baker
-tags: no_translate, noRepeatLastLine
+tags:
 actor: ADULT_F
 ---
-<<SetActive Collect_Baker>>
 I put your items in the table. Thank you! #line:0567082 
 -> Merci! #line:00da30a 
 -> Au revoir! #line:00cbd60 
 -> Bonne journée! #line:00cd1cf 
+<<SetActive Collect_Baker>>
 ===
 
 
@@ -406,7 +406,7 @@ title: cheesemonger_payment_done
 position: 1117,550
 group:cheesemonger
 actor: ADULT_F
-tags: do_not_translate, noRepeatLastLine
+tags:
 ---
 I put your items in the table. Thank you! #shadow:0567082 
 -> Bonne journée! #line:0dd3ac3 
@@ -475,7 +475,7 @@ title: greengrocer_payment_done
 position: 1105,976
 group: greengrocer
 actor: ADULT_F
-tags:  do_not_translate, noRepeatLastLine
+tags:
 ---
 I put your items in the table. Thank you! #shadow:0567082 
 -> Bonne journée! #line:0ff9361 
@@ -550,7 +550,7 @@ title: grocer_payment_done
 position: 2168,154
 group: grocer
 actor: SENIOR_F
-tags:  do_not_translate, noRepeatLastLine
+tags:
 ---
 I put your items in the table. Thank you! #shadow:0567082 
 -> Au revoir! #line:0ce6f8a 

@@ -131,6 +131,8 @@ namespace Antura.Discover
 
             if (shadowLineID != null)
             {
+                Debug.Log($"<color=#ff9900>[DiscoverLineProvider] Line {line.ID} is a shadow line for {shadowLineID}</color>");
+
                 // This line actually shadows another line. Fetch that line, and
                 // use its text (but not its metadata)
                 var getShadowLineOp = LocalizationSettings.StringDatabase.GetTableEntryAsync(stringsTable.TableReference, shadowLineID, null, FallbackBehavior.UseFallback);
