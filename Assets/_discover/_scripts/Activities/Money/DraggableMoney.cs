@@ -1,12 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Antura.Discover.Activities
 {
-    /// <summary>
-    /// Drag & drop behaviour for money tokens
-    /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public class DraggableMoney : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
@@ -89,7 +85,7 @@ namespace Antura.Discover.Activities
                 else
                 {
                     // Fallback: keep last dragged position (already in canvas space). Convert through canvas if needed.
-                    rt.anchoredPosition = startPos; // very unlikely path
+                    rt.anchoredPosition = startPos;
                 }
             }
         }

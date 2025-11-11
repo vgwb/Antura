@@ -39,14 +39,13 @@ namespace Antura.Discover.Activities
         public float RangeMax = 20f;
 
         [Header("Tray Generation")]
-        [Tooltip("Difficulty levels: determines how many extra items appear in the tray.")]
-        public int MaxDifficulty = 3;
+        public MoneyTypeFilter GenType = MoneyTypeFilter.Both;
 
         [Tooltip("How many copies to spawn for each base combo item (minimum 2). Includes the original.")]
-        public int CopiesPerBaseItem = 3;
+        public int GenDuplicates = 3;
         [Tooltip("Extra copies of the smallest denomination to add to ensure the target is reachable in many ways.")]
-        public int ExtraCopiesSmallest = 6;
+        public int GenExtraCopies = 6;
         [Tooltip("Maximum number of tokens to spawn in the tray to avoid excess.")]
-        public int MaxTrayTokens = 12;
+        public int GenMaxTokens = 12;
     }
 }

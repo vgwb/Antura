@@ -103,25 +103,25 @@ namespace Antura.Discover.Activities
             // Helper to add copies but respect a soft cap
             void AddCopies(MoneySet.MoneyItem item, int copies)
             {
-                int cap = Mathf.Max(1, Settings.MaxTrayTokens);
+                int cap = Mathf.Max(1, Settings.GenMaxTokens);
                 for (int i = 0; i < copies && tray.Count < cap; i++)
                     tray.Add(item);
             }
 
             // Duplicate each base item several times (minimum 2)
-            int copiesPerBase = Mathf.Max(2, Settings.CopiesPerBaseItem);
+            int copiesPerBase = Mathf.Max(2, Settings.GenDuplicates);
             foreach (var bi in baseCombo)
                 AddCopies(bi, copiesPerBase);
 
             // Add extra copies of the smallest denomination available by difficulty
             var smallest = all.FirstOrDefault();
             if (smallest != null)
-                AddCopies(smallest, Mathf.Max(0, Settings.ExtraCopiesSmallest));
+                AddCopies(smallest, Mathf.Max(0, Settings.GenExtraCopies));
 
             // Add a spread of distractors (other denominations) up to cap
             foreach (var d in all)
             {
-                if (tray.Count >= Settings.MaxTrayTokens)
+                if (tray.Count >= Settings.GenMaxTokens)
                     break;
                 // Add 1-2 copies depending on difficulty
                 int extra = Mathf.Clamp(difficulty, 0, 2);
