@@ -79,7 +79,7 @@ namespace Antura.Discover
             IsOpen = true;
             usedLearningLanguage = true;
             currNode = infoNode;
-            Debug.Log($"Show task (to collect: {targetItemsToCollect})");
+            //            Debug.Log($"Show task (to collect: {targetItemsToCollect})");
             DisplayText(true);
             counter.Setup(0, targetItemsToCollect);
             showTween.PlayForward();

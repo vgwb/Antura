@@ -599,7 +599,7 @@ Do you want to play a game? #line:022f719
 title: pirate_activity
 position: 1669,-267
 group: pirates
-actor: ADULT_M
+actor: SENIOR_M
 color: purple
 ---
 Complete the image. #line:08396f2 
@@ -612,27 +612,39 @@ group: pirates
 actor: SENIOR_M
 tags: 
 ---
+
+<<if GetActivityResult("jigsaw_pirate") > 0>>
+Well done, matey! You completed the puzzle. #line:07e3282 
 We worked for the King of France. #line:0af3bba 
 In the past, we took items from the king's enemies, but those days are gone. #line:0b61715 
 You should pay for what you need #line:0209784 
 so the shops can stay open! #line:02c49d0 
+Take my treasure as a reward. #line:092a215 
 <<set $pirate_completed = true>>
+<<trigger pirate_chest_lid>>
+<<SetInteractable pirate_chest false>>
+<<SetActive pirate_cookie true>>
+<<else>>
+Ahoy! You didn't complete the puzzle. #line:00ec06f 
+<<endif>>
 ===
 
-
-
-
-
-
-
+title: pirate_chest
+position: 2132,-263
+group: pirates
+---
+<<if $pirate_completed == false>>
+The pirate's chest is locked. #line:79f813e5
+<<endif>>
+===
 
 title: talk_dont_understand
-position: 1400,834
+position: 1400,834 
 tags: detour
 color: orange
 ---
 => Sorry, I don't think I understand... #line:0f9044b 
-=> What?? #line:09682b7 
+=> What? #line:09682b7 
 => Huh? #line:0c1b3e0 
 ===
 
