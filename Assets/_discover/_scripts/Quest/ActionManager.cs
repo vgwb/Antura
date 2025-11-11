@@ -363,9 +363,7 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(name))
                 return list.FirstOrDefault();
 
-            return list.FirstOrDefault(t => string.Equals(t.gameObject.name, name, StringComparison.OrdinalIgnoreCase)
-                                          || string.Equals(t.name, name, StringComparison.OrdinalIgnoreCase)
-                                          || string.Equals(t.GetComponent<ActableAbstract>().Id, name, StringComparison.OrdinalIgnoreCase));
+            return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase));
         }
 
         #region Debug Methods

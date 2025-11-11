@@ -24,7 +24,9 @@ namespace Antura.Discover
         [Header("Interaction")]
         [Tooltip("Is it enabled for interaction?")]
         public bool IsInteractable = true;
-        [Tooltip("Autorun when player gets nerby")]
+        [Tooltip("Is it hidden at the start of the scene?")]
+        public bool IsHiddenAtStart = false;
+        [Tooltip("Autorun when player gets nearby")]
         public bool NearbyAutoActivate;
         [Tooltip("Icon to be shown")]
         public InteractionType IconType = InteractionType.Look;
@@ -93,6 +95,10 @@ namespace Antura.Discover
             {
                 IsLL = true;
                 LL = ll;
+            }
+            if (IsHiddenAtStart)
+            {
+                gameObject.SetActive(false);
             }
         }
 
