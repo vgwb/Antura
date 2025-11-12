@@ -377,7 +377,8 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(name))
                 return list.FirstOrDefault();
 
-            return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase));
+            return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase)
+                                    || string.Equals(t.gameObject.name, name, StringComparison.OrdinalIgnoreCase));
         }
 
         private Interactable FindInteractableInChildren(string name)
@@ -389,7 +390,8 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(name))
                 return list.FirstOrDefault();
 
-            return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase));
+            return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase)
+                                        || string.Equals(t.gameObject.name, name, StringComparison.OrdinalIgnoreCase));
         }
 
         #region Debug Methods
