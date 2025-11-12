@@ -13,6 +13,9 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
+#if UNITY_EDITOR
+using UnityEditor.Localization;
+#endif
 using Newtonsoft.Json;
 
 namespace Antura.Discover.EditorTools
@@ -107,7 +110,11 @@ namespace Antura.Discover.EditorTools
         private void RefreshLocales()
         {
             _locales.Clear();
+#if UNITY_EDITOR
+            var list = LocalizationEditorSettings.GetLocales();
+#else
             var list = LocalizationSettings.AvailableLocales?.Locales;
+#endif
             if (list != null)
                 _locales.AddRange(list);
             _locales.Sort((a, b) => string.Compare(a.Identifier.Code, b.Identifier.Code, StringComparison.OrdinalIgnoreCase));
