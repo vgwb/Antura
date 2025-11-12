@@ -16,6 +16,7 @@ namespace Antura.Discover
         K_CityIndustrial = 23,
         K_CityRoads = 24,
         K_CitySuburban = 25,
+        Kay_CityBuilder = 39,
         K_Fantasy = 26,
         K_Food = 27,
         K_Furniture = 28,
