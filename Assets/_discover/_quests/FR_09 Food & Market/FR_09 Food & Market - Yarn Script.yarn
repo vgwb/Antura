@@ -160,9 +160,12 @@ And take the ingredients you buy. #line:0ea58f3
 title: task_ingredients_done
 position: 671,-268
 group: chef
+type: panel
 ---
 <<target npc_chef>>
-You got all the ingredients! Go back to the chef. #line:05398f2 
+Great! You got all the ingredients. #line:0316106 
+Go back to the chef. #line:05398f2 #task:go_back_chef
+<<task_start go_back_chef>>
 ===
 
 
