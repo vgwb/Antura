@@ -13,6 +13,7 @@ namespace Antura.Discover
         public int GetMaxPoints() { return tasksMaxPoints; }
 
         public string CurrentTaskCode => CurrentTask != null ? CurrentTask.Code : string.Empty;
+        private string EndTaskNodeToRun = "";
 
         public void RegisterTasks(IEnumerable<QuestTask> tasks)
         {
@@ -57,6 +58,7 @@ namespace Antura.Discover
             }
 
             CurrentTask = task;
+            EndTaskNodeToRun = "";
             task.Begin(nodeReturn);
 
             // Activate task content; QuestTask.Activate handles showing TaskDisplay appropriately
@@ -117,8 +119,30 @@ namespace Antura.Discover
                 EndTask(code, true);
                 if (!string.IsNullOrEmpty(nodeReturn))
                 {
-                    YarnAnturaManager.I?.StartDialogue(nodeReturn);
+                    Debug.Log($"QuestTaskManager: Starting dialogue node '{nodeReturn}' after collecting items for task '{code}'.");
+                    if (DiscoverGameManager.I.State != GameplayState.Dialogue)
+                    {
+                        Debug.Log($"NOT dialogue.");
+                        EndTaskNodeToRun = "";
+                        YarnAnturaManager.I?.StartDialogue(nodeReturn);
+                    }
+                    else
+                    {
+                        Debug.Log($"IN dialogue and nodeReturn is " + nodeReturn);
+                        EndTaskNodeToRun = nodeReturn;
+                    }
                 }
+            }
+        }
+
+        public void CheckEndTaskNode()
+        {
+            Debug.Log($"QuestTaskManager: CheckEndTaskNode called, EndTaskNodeToRun is '{EndTaskNodeToRun}'");
+            if (!string.IsNullOrEmpty(EndTaskNodeToRun))
+            {
+                var nodeToRun = EndTaskNodeToRun;
+                EndTaskNodeToRun = "";
+                YarnAnturaManager.I?.StartDialogueAgain(nodeToRun);
             }
         }
 

@@ -143,7 +143,7 @@ namespace Antura.Discover
             // }
 
             State = newState;
-            //            Debug.Log("<color=#d8249c>Changed state to " + State + "</color>");
+            Debug.Log("<color=#d8249c>Changed state to " + State + "</color>");
         }
 
         void OnYarnDialogueStart()
@@ -163,6 +163,8 @@ namespace Antura.Discover
             {
                 ChangeState(GameplayState.Play3D, true);
             }
+
+            QuestManager.I.TaskManager.CheckEndTaskNode();
 
             if (GameEndStars >= 0)
             {

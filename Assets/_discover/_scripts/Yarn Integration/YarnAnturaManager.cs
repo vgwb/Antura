@@ -89,6 +89,15 @@ namespace Antura.Discover
             }
         }
 
+        public void StartDialogueAgain(string nodeName)
+        {
+            //Debug.Log($"YarnAnturaManager: StartDialogue '{nodeName}' and runner is running: {runner.IsDialogueRunning}");
+            if (runner == null || string.IsNullOrEmpty(nodeName))
+                return;
+            runner.Stop();
+            runner.StartDialogue(nodeName);
+        }
+
         /// <summary>
         /// Sets the DialogueRunner's Yarn Project.
         /// </summary>
