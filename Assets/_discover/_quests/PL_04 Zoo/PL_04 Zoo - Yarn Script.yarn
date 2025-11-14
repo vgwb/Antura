@@ -114,14 +114,14 @@ color: green
 ---
 <<target off>>
 <<area area_all>>
-Hi. I am the Zoo Director #line:0815405 
-and today we have a problem #line:0c71176 
+Hi, I am the Zoo Director. #line:0815405 
+Today we have a problem. #line:0c71176 
 <<camera_focus Flagpole>>
 Our FLAG is missing! #line:09c6bf7 
 <<card iglica>>
-It was on the IGLICA at CENTENNIAL HALL #line:02f35e4 
-the famous symbol of our city. #line:0335bf7 
-and it is 90 meters high! #line:001cba3 
+It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
+It's the famous metallic sculpture and a symbol of our city. #line:0335bf7 
+It's 90 meters tall! #line:001cba3 
 Who could have taken it? #line:0fc7e35 
 <<camera_reset>>
 Find the FLAG. Talk to the ANIMALS. #line:0da284c #task:TASK_ANIMALS
@@ -133,8 +133,9 @@ title: task_animals_done
 position: -451,-152
 actor: 
 ---
-GREAT! Now go back to the ZOO DIRECTOR. #line:0a93d9b 
-<<target target_director>>
+Now go back to the ZOO DIRECTOR. #line:0a93d9b #task:back_to_director
+<<target director>>
+<<task_start back_to_director>>
 <<set $talked_animals = true>>
 ===
 
@@ -146,8 +147,8 @@ image: centennial_hall_empty_flag
 color: purple
 ---
 You talked to all ANIMALS. #line:032811f 
-But you did not find the FLAG. #line:0364f30 
-Help me put the pieces together. #line:0bc6238 
+And they didn't take the FLAG. #line:0364f30 
+Let's go back to the Centennial Hall. #line:0bc6238 
 <<activity jigsaw_zoo_settings jigsaw_zoo_done>>
 ===
 
@@ -160,11 +161,11 @@ Who took the FLAG? #line:0fc0ab7
 <<SetActive anturaFlag>>
 Wait, look! #line:0b3d05f 
 <<camera_focus Antura>>
-ANTURA has the FLAG! #line:0e24973 
+Antura has the FLAG! #line:0e24973 
 <<camera_reset>>
 <<card wroclaw_flag>>
-The mystery is solved #line:0bf024f 
-and now the FLAG is back. #line:0d91701 
+The mystery is solved. #line:0bf024f 
+Now the FLAG is back. #line:0d91701 
 <<jump quest_end>>
 ===
 
@@ -187,8 +188,8 @@ color: blue
 <<else>>
     I am a CHIMPANZEE. I climb TREES. #line:0867233 
     <<card animal_chimpanzee collect>>
-    I really love to eat fruits! #line:0eaefd6 
-    Can you guess what tree I need to climb to get #line:0617de7 
+    I really love eating fruit! #line:0eaefd6 
+    Can you guess which tree I need to climb to get... #line:0617de7 
     An apple #card:food_apple #line:0c6c41a 
     An orange #card:food_orange #line:08c7ea3 
     And a banana? #card:food_banana #line:0ce7b11 
@@ -203,9 +204,8 @@ group: MONKEY
 actor: SENIOR_M
 image: monkey_keeper
 ---
-<<inventory animal_monkey add>>
 It would be fun to climb that pole. #line:0a43c85
-But I did not take the FLAG! #line:0c53945 
+But I didn't take the FLAG! #line:0c53945 
 <<set $monkey_completed = true>> 
 <<if HasCompletedTask("TASK_ANIMALS")>>
     <<jump task_animals_done>>
@@ -220,9 +220,9 @@ actor: SENIOR_M
 <<card animal_chimpanzee>>
 Chimpanzees are great climbers. #line:01d80fc 
 <<card food_apple>>
-They eat lots of different fruits. #line:0883b4b 
+They eat lots of fruit. #line:0883b4b 
 <<card plant_apple>>
-Every fruit comes from a different tree. #line:0cda3c2 
+Each fruit grows on a different tree. #line:0cda3c2 
 ===
 
 title: monkey_kid
@@ -230,7 +230,7 @@ position: 1123,394
 group: MONKEY
 actor: KID_F
 ---
-=> Chimps have long arms to swing in trees. #line:0bf2346 
+=> CHIMPANZEES have long arms for swinging in trees. #line:0bf2346 
 => CHIMPANZEES are smart! #line:0eecdf9 
 ===
 
@@ -254,11 +254,12 @@ color: blue
 <<else>>
     I am a LION from AFRICA. #line:07f2e15 
     <<card animal_lion_cub>>
-    When I was young I lived with my parents #line:0124e1c
+    When I was young, I lived with my parents. #line:0124e1c
     <<card animal_lion_young_male>>
-    Then I grew up with my mantle #line:019539f 
+    Then I grew up... #line:019539f 
     <<card animal_lion collect>>
-    Now I am an old Lion... #line:0774b92 
+    Now I'm an adult LION with a magnificent mane. #line:0774b92 
+    Can you put my pictures in order?  #line:095a71f 
     <<activity order_lion_settings lion_activity_done>>
 <<endif>>
 ===
@@ -269,9 +270,8 @@ group: LION
 actor: SENIOR_M
 image: lion_keeper
 ---
-<<inventory animal_lion add>>
 I love watching the flag up there on the Iglica. #line:01b3593 
-But I didn't take it. You must find that FLAG! #line:05da6d7 
+But I didn't take it. Please find that FLAG! #line:05da6d7 
 <<set $lion_completed = true>>
 <<if HasCompletedTask("TASK_ANIMALS")>>
     <<jump task_animals_done>>
@@ -317,9 +317,10 @@ color: blue
     -> No #shadow:no
 <<else>>
     I am the tallest ANIMAL. #line:0d5c607 
-    <<card animal_giraffe collect>>
+    <<card animal_giraffe>>
     My long NECK helps me reach leaves. #line:0a4d24e 
-    I love to eat WATTLE leaves! #line:04b42f2 
+    I love eating WATTLE leaves! #line:04b42f2 
+    Can you clean the picture for me? #line:02af551 
     <<activity canvas_giraffe_settings giraffe_activity_done>>
 <<endif>>
 ===
@@ -329,9 +330,9 @@ position: 1127,-143
 group: GIRAFFE
 actor: SENIOR_M
 ---
-<<inventory animal_elephant add>>
-I did not take the FLAG. #line:0877d6f
-I am tall, but not 90 meters like the IGLICA! #line:02d00e2 
+Thank you. I did not take the FLAG. #line:0877d6f
+I'm tall, but not 90 meters like the IGLICA! #line:02d00e2 
+<<card animal_giraffe collect>>
 <<set $giraffe_completed = true>>
 <<if HasCompletedTask("TASK_ANIMALS")>>
     <<jump task_animals_done>>
@@ -353,7 +354,7 @@ position: 1134,0
 group: GIRAFFE
 actor: KID_F
 ---
-With a NECK like that I could see my house from here! #line:0bee484 
+With a NECK like that, I could see my house from here! #line:0bee484 
 ===
 
 // ##########################  ELEPHANT
@@ -365,7 +366,7 @@ actor: SENIOR_M
 image: elephant_keeper
 color: blue
 ---
-<<if GetActivityResult("jigsaw_zoo_settings") > 0>>
+<<if $elephant_completed>>
     Do you want to play again? #shadow:play_again
     -> Yes #shadow:yes
         <<activity memory_elephant_settings>>
@@ -374,8 +375,8 @@ color: blue
     -> No #shadow:no
 <<else>>
     I am the biggest land ANIMAL. #line:027b51f 
-    <<card animal_elephant collect>>
-    I have great MEMORY. #line:03a150c 
+    <<card animal_elephant>>
+    I have a great MEMORY. #line:03a150c 
     I remember everything! #line:01fe852 
     Do you have a good MEMORY? #line:0f98478 
     <<activity memory_elephant_settings elephant_activity_done>>
@@ -388,9 +389,9 @@ group: ELEPHANT
 actor: SENIOR_M
 image: elephant_keeper
 ---
-<<inventory animal_elephant add>>
-THE FLAG? I do not have it. #line:0b79d01
-If I took it I would REMEMBER! #line:0f124bf
+<<card animal_elephant collect>>
+THE FLAG? I don't have it. #line:0b79d01
+If I took it, I would REMEMBER! #line:0f124bf
 <<set $elephant_completed = true>>
 <<if HasCompletedTask("TASK_ANIMALS")>>
     <<jump task_animals_done>>
@@ -433,11 +434,11 @@ color: blue
         <<activity jigsaw_penguin_settings_hard>>
     -> No #shadow:no
 <<else>>
-    I am a PENGUIN, a strange BIRD. #line:08c70e8 
+    I am a PENGUIN, a special BIRD. #line:08c70e8 
     <<card animal_penguin collect>>
-    I can't fly, but I swim well! #line:0540c5a 
+    I can't FLY, but I SWIM well! #line:0540c5a 
     I love the ICE and the COLD. #line:0ba1a43 
-    Can you find the path in ICE? #line:0a3420c 
+    Let's try to solve the puzzle together! #line:020100a 
     <<activity jigsaw_penguin_settings penguin_activity_done>>
 <<endif>>
 ===
@@ -448,9 +449,8 @@ group: PENGUIN
 actor: SENIOR_M
 image: penguin_keeper
 ---
-<<inventory animal_penguin add>>
-No, I did not take the FLAG. #line:078190f 
-I can't fly, remember? #line:08568f5 
+No, I didn't take the FLAG. #line:078190f 
+Remember, I can't fly! #line:08568f5 
 <<set $penguin_completed = true>>
 <<if HasCompletedTask("TASK_ANIMALS")>>
     <<jump task_animals_done>>
@@ -473,8 +473,8 @@ position: 613,777
 group: PENGUIN
 actor: KID_F
 ---
-=> Do you prefer to fly or to swim?! #line:0ae73f3 
-=> I could not live on ice! #line:05ac327 
+=> Do you prefer to fly or swim? #line:0ae73f3 
+=> I couldn't live on ice! #line:05ac327 
 ===
 
 title: spawn_tourist
@@ -483,9 +483,9 @@ group: SPAWN
 actor: 
 ---
 <<card  wroclaw_zoo>>
-=> There are more than 10000 ANIMALS here. #line:0354bea 
+=> There are more than 10,000 ANIMALS here. #line:0354bea 
 => This zoo is very big. #line:0d80278 
-=> I think I saw a treasure chest somewhere #line:0694a4c 
+=> I think I saw a treasure chest somewhere. #line:0694a4c 
 ===
 
 
@@ -495,8 +495,8 @@ group: ZOO
 actor: 
 ---
 <<card peacock>>
-I do not need a FLAG. #line:0085a8a 
-My tail is a FLAG! #line:04fff6b 
+    I don't need a FLAG. #line:0085a8a 
+    My tail is like a FLAG! #line:04fff6b 
 ===
 
 title: animal_parrot
@@ -505,7 +505,7 @@ group: ZOO
 actor:
 ---
 <<card parrot>>
-Squawk! Red and yellow ran by! #line:0e84545 
+Squawk! I saw red and yellow go by! #line:0e84545 
 ===
 
 title: animal_fox
