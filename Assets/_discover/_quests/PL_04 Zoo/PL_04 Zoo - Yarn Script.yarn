@@ -59,12 +59,13 @@ actor: ADULT_M,
 image: centennial_hall_empty_flag
 color: red
 ---
-<<declare $talked_animals = false>>
 <<declare $elephant_completed = false>>
 <<declare $giraffe_completed = false>>
 <<declare $lion_completed = false>>
 <<declare $monkey_completed = false>>
 <<declare $penguin_completed = false>>
+
+<<declare $talked_animals = false>>
 <<declare $found_chest_cookies = false>>
 Welcome to WROCŁAW ZOO. #line:0fe55d1 
 The biggest zoo in Poland! #line:005dd46
@@ -185,7 +186,7 @@ color: blue
     -> No #line:no
 <<else>>
     I am a CHIMPANZEE. I climb TREES. #line:0867233 
-    <<card animal_chimpanzee>>
+    <<card animal_chimpanzee collect>>
     I really love to eat fruits! #line:0eaefd6 
     Can you guess what tree I need to climb to get #line:0617de7 
     An apple #card:food_apple #line:0c6c41a 
@@ -201,7 +202,6 @@ position: 1123,231
 group: MONKEY
 actor: SENIOR_M
 image: monkey_keeper
-
 ---
 <<inventory animal_monkey add>>
 It would be fun to climb that pole. #line:0a43c85
@@ -257,7 +257,7 @@ color: blue
     When I was young I lived with my parents #line:0124e1c
     <<card animal_lion_young_male>>
     Then I grew up with my mantle #line:019539f 
-    <<card animal_lion>>
+    <<card animal_lion collect>>
     Now I am an old Lion... #line:0774b92 
     <<activity order_lion_settings lion_activity_done>>
 <<endif>>
@@ -317,7 +317,7 @@ color: blue
     -> No #shadow:no
 <<else>>
     I am the tallest ANIMAL. #line:0d5c607 
-    <<card animal_giraffe>>
+    <<card animal_giraffe collect>>
     My long NECK helps me reach leaves. #line:0a4d24e 
     I love to eat WATTLE leaves! #line:04b42f2 
     <<activity canvas_giraffe_settings giraffe_activity_done>>
@@ -374,7 +374,7 @@ color: blue
     -> No #shadow:no
 <<else>>
     I am the biggest land ANIMAL. #line:027b51f 
-    <<card animal_elephant>>
+    <<card animal_elephant collect>>
     I have great MEMORY. #line:03a150c 
     I remember everything! #line:01fe852 
     Do you have a good MEMORY? #line:0f98478 
@@ -434,7 +434,7 @@ color: blue
     -> No #shadow:no
 <<else>>
     I am a PENGUIN, a strange BIRD. #line:08c70e8 
-    <<card animal_penguin>>
+    <<card animal_penguin collect>>
     I can't fly, but I swim well! #line:0540c5a 
     I love the ICE and the COLD. #line:0ba1a43 
     Can you find the path in ICE? #line:0a3420c 
@@ -482,6 +482,7 @@ position: 613,777
 group: SPAWN
 actor: 
 ---
+<<card  wroclaw_zoo>>
 => There are more than 10000 ANIMALS here. #line:0354bea 
 => This zoo is very big. #line:0d80278 
 => I think I saw a treasure chest somewhere #line:0694a4c 
