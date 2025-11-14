@@ -7,10 +7,14 @@ namespace Antura.Discover
     public class QuestTaskManager
     {
         private readonly List<QuestTask> registeredTasks = new List<QuestTask>();
+        private readonly List<CardData> interactedCards = new List<CardData>();
+        private readonly HashSet<string> interactedCardKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         public QuestTask CurrentTask { get; private set; }
 
         private int tasksMaxPoints = 0;
         public int GetMaxPoints() { return tasksMaxPoints; }
+
+        public IReadOnlyList<CardData> InteractedCards => interactedCards;
 
         public string CurrentTaskCode => CurrentTask != null ? CurrentTask.Code : string.Empty;
         private string EndTaskNodeToRun = "";
@@ -20,6 +24,8 @@ namespace Antura.Discover
             registeredTasks.Clear();
             CurrentTask = null;
             tasksMaxPoints = 0;
+
+            ResetCardInteractionHistory();
 
             if (tasks == null)
                 return;
@@ -108,6 +114,8 @@ namespace Antura.Discover
 
             if (!string.IsNullOrEmpty(task.ItemTag) && !string.Equals(task.ItemTag, tag))
                 return;
+
+
 
             task.IncrementCollected();
             UIManager.I.TaskDisplay.SetTotItemsCollected(task.Collected);
@@ -208,9 +216,43 @@ namespace Antura.Discover
 
         public void OnInteractCard(CardData card)
         {
-            if (string.IsNullOrEmpty(card.CustomTag))
+            if (card == null || string.IsNullOrEmpty(card.CustomTag))
                 return;
+
+            if (!TryGetCardInteractionKey(card, out var cardKey))
+                return;
+
+            if (!interactedCardKeys.Add(cardKey))
+                return;
+
+            interactedCards.Add(card);
             OnCollectItemTag(card.CustomTag);
+        }
+
+        private void ResetCardInteractionHistory()
+        {
+            interactedCards.Clear();
+            interactedCardKeys.Clear();
+        }
+
+        private static bool TryGetCardInteractionKey(CardData card, out string key)
+        {
+            key = null;
+            if (card == null)
+                return false;
+            if (!string.IsNullOrEmpty(card.Id))
+            {
+                key = card.Id;
+                return true;
+            }
+            if (!string.IsNullOrEmpty(card.name))
+            {
+                key = card.name;
+                return true;
+            }
+
+            key = card.GetInstanceID().ToString();
+            return true;
         }
 
         public int GetCollectedCount(string taskCode)
