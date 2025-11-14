@@ -19,7 +19,7 @@ _Learn with Antura_ is **free and open source**. You can play it on **any device
 ## 💻 Windows
 
 The **PC version** in under development.
-👉 Try the latest [Windows beta build](/en/manual/install.md)
+👉 Try the latest [https://vgwb.itch.io/antura](https://vgwb.itch.io/antura)
 
 - Runs on **Windows 10/11**  
 - Works with keyboard, mouse, or gamepad  
