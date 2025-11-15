@@ -148,10 +148,10 @@ namespace Antura.Discover.Activities
                 {
                     _lastBounceSfxTime = Time.unscaledTime;
                     // Occasionally a harder hit
-                    if (Random.value < 0.15f)
-                        AudioManager.I?.PlaySound(Sfx.ScreenGlassHit);
+                    if (Random.value < 0.50f)
+                        AudioManager.I?.PlaySound(Sfx.DogBarking);
                     else
-                        AudioManager.I?.PlaySound(Sfx.ScreenHit);
+                        AudioManager.I?.PlaySound(Sfx.DogBarking);
                 }
             }
 

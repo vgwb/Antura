@@ -260,7 +260,15 @@ namespace Antura.Discover.Activities
 
             DisplayFeedback($"{pct:0}%");
 
-            if (!completed && pct >= completionThreshold)
+            // If we've reached the configured completion threshold, enable validation
+            // but do not stop the game yet — allow the player to keep playing until 100%.
+            if (pct >= completionThreshold)
+            {
+                EnableValidateButton(true);
+            }
+
+            // Only consider the canvas fully cleared when we reach 100%.
+            if (!completed && pct >= 100f)
             {
                 completed = true;
                 OnCanvasCleared();
@@ -269,7 +277,6 @@ namespace Antura.Discover.Activities
 
         private void OnCanvasCleared()
         {
-            Debug.Log("DONE");
             DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
             EnableValidateButton(true);
             // Auto-reveal any remaining uncollected treasures visually
