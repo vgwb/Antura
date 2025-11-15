@@ -187,7 +187,7 @@ color: blue
     -> No #line:no
 <<else>>
     I am a CHIMPANZEE. I climb TREES. #line:0867233 
-    <<card animal_chimpanzee collect>>
+    <<card animal_chimpanzee>>
     I really love eating fruit! #line:0eaefd6 
     Can you guess which tree I need to climb to get... #line:0617de7 
     An apple #card:food_apple #line:0c6c41a 
@@ -204,12 +204,10 @@ group: MONKEY
 actor: SENIOR_M
 image: monkey_keeper
 ---
+<<card animal_chimpanzee collect>>
+<<set $monkey_completed = true>>
 It would be fun to climb that pole. #line:0a43c85
 But I didn't take the FLAG! #line:0c53945 
-<<set $monkey_completed = true>> 
-<<if HasCompletedTask("TASK_ANIMALS")>>
-    <<jump task_animals_done>>
-<<endif>>
 ===
 
 title: monkey_tutor
@@ -257,7 +255,7 @@ color: blue
     When I was young, I lived with my parents. #line:0124e1c
     <<card animal_lion_young_male>>
     Then I grew up... #line:019539f 
-    <<card animal_lion collect>>
+    <<card animal_lion>>
     Now I'm an adult LION with a magnificent mane. #line:0774b92 
     Can you put my pictures in order?  #line:095a71f 
     <<activity order_lion_settings lion_activity_done>>
@@ -270,12 +268,10 @@ group: LION
 actor: SENIOR_M
 image: lion_keeper
 ---
+<<set $lion_completed = true>>
+<<card animal_lion collect>>
 I love watching the flag up there on the Iglica. #line:01b3593 
 But I didn't take it. Please find that FLAG! #line:05da6d7 
-<<set $lion_completed = true>>
-<<if HasCompletedTask("TASK_ANIMALS")>>
-    <<jump task_animals_done>>
-<<endif>>
 ===
 
 title: lion_tutor
@@ -330,13 +326,10 @@ position: 1127,-143
 group: GIRAFFE
 actor: SENIOR_M
 ---
-Thank you. I did not take the FLAG. #line:0877d6f
-I'm tall, but not 90 meters like the IGLICA! #line:02d00e2 
 <<card animal_giraffe collect>>
 <<set $giraffe_completed = true>>
-<<if HasCompletedTask("TASK_ANIMALS")>>
-    <<jump task_animals_done>>
-<<endif>>
+Thank you. I did not take the FLAG. #line:0877d6f
+I'm tall, but not 90 meters like the IGLICA! #line:02d00e2
 ===
 
 title: giraffe_tutor
@@ -390,12 +383,9 @@ actor: SENIOR_M
 image: elephant_keeper
 ---
 <<card animal_elephant collect>>
+<<set $elephant_completed = true>>
 THE FLAG? I don't have it. #line:0b79d01
 If I took it, I would REMEMBER! #line:0f124bf
-<<set $elephant_completed = true>>
-<<if HasCompletedTask("TASK_ANIMALS")>>
-    <<jump task_animals_done>>
-<<endif>>
 ===
 
 title: elephant_tutor
@@ -435,7 +425,7 @@ color: blue
     -> No #shadow:no
 <<else>>
     I am a PENGUIN, a special BIRD. #line:08c70e8 
-    <<card animal_penguin collect>>
+    <<card animal_penguin>>
     I can't FLY, but I SWIM well! #line:0540c5a 
     I love the ICE and the COLD. #line:0ba1a43 
     Let's try to solve the puzzle together! #line:020100a 
@@ -449,12 +439,10 @@ group: PENGUIN
 actor: SENIOR_M
 image: penguin_keeper
 ---
+<<card animal_penguin collect>>
+<<set $penguin_completed = true>>
 No, I didn't take the FLAG. #line:078190f 
 Remember, I can't fly! #line:08568f5 
-<<set $penguin_completed = true>>
-<<if HasCompletedTask("TASK_ANIMALS")>>
-    <<jump task_animals_done>>
-<<endif>>
 ===
 
 title: penguin_tutor
