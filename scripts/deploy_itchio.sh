@@ -2,14 +2,36 @@
 set -euo pipefail
 
 CHANNEL="vgwb/antura:windows"   # itch.io channel
-BUILD_DIR="${UNITY_BUILD_OUTPUT}"
+# Prefer explicit UNITY_BUILD_OUTPUT, fall back to BUILD_PATH (Unity Cloud Build)
+BUILD_DIR="${UNITY_BUILD_OUTPUT:-${BUILD_PATH:-}}"
 
 # Read version from project repo
-VERSION=$(cat docs/latest-version.txt | tr -d '[:space:]')
+VERSION_FILE="docs/latest-version.txt"
+if [ ! -f "$VERSION_FILE" ]; then
+    echo "ERROR: version file '$VERSION_FILE' not found." >&2
+    exit 1
+fi
+VERSION=$(tr -d '[:space:]' < "$VERSION_FILE")
 
-echo "==> Using version from docs/latest-version.txt: ${VERSION}"
-echo "==> Build dir: ${BUILD_DIR}"
+echo "==> Using version from $VERSION_FILE: ${VERSION}"
+echo "==> Build dir: ${BUILD_DIR:-<not set>}"
 echo "==> Target itch.io channel: ${CHANNEL}"
+
+# Validate build dir
+if [ -z "${BUILD_DIR}" ]; then
+    echo "ERROR: UNITY_BUILD_OUTPUT (or BUILD_PATH) is not set. Export the path to your Unity build output folder." >&2
+    exit 1
+fi
+if [ ! -d "${BUILD_DIR}" ]; then
+    echo "ERROR: build dir '${BUILD_DIR}' does not exist." >&2
+    exit 1
+fi
+
+# Validate API key
+if [ -z "${ITCHIO_API_KEY:-}" ]; then
+    echo "ERROR: ITCHIO_API_KEY is not set. Export your itch.io API key in this env var." >&2
+    exit 1
+fi
 
 # Download Butler if not present
 if [ ! -f "butler" ]; then
@@ -22,15 +44,8 @@ fi
 # Authenticate
 ./butler login --api-key "$ITCHIO_API_KEY"
 
-# Zip the build folder
-ZIP_NAME="build-${VERSION}.zip"
-
-echo "==> Zipping build to ${ZIP_NAME}..."
-cd "$BUILD_DIR"
-zip -r "../${ZIP_NAME}" .
-
-cd ..
-echo "==> Pushing to itch.io..."
-./butler push "${ZIP_NAME}" "${CHANNEL}" --userversion "${VERSION}"
+echo "==> Pushing build directory to itch.io (incremental upload)..."
+# Use butler to push the directory directly for incremental uploads
+./butler push "${BUILD_DIR}" "${CHANNEL}" --userversion "${VERSION}"
 
 echo "==> Upload complete."
