@@ -154,7 +154,9 @@ namespace Antura.Discover.Activities
 
             // Wire buttons
             overlay.BtClose.onClick.AddListener(ExitWithoutPoints);
-            overlay.BtHelp.onClick.AddListener(ToggleHelp);
+            // temporarily disable help button
+            overlay.BtHelp.gameObject.SetActive(false);
+            //overlay.BtHelp.onClick.AddListener(ToggleHelp);
             overlay.BtValidate.onClick.AddListener(Validate);
 
             // Subscriptions
