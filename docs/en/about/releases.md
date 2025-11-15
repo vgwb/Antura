@@ -5,20 +5,24 @@ title: Releases
 All notable changes to this project will be documented in this file.  
 Check [github.com/vgwb/Antura/releases](https://github.com/vgwb/Antura/releases) for more developer oriented changelog.
 
-## [3.0.0 beta] - Discover Edition - 2026
+## [2025 beta] - Discover Edition
+
+You can find details on minor updates here [antura.org/CHANGELOG](https://antura.org/CHANGELOG)
 
 ### New Features
 
 - Discover Module
 - French and Poland initial quests
+- Topics & Cards education content
 - Classroom mode
 - the Cat model
 - update antura.org website with content from the game itself
 
 ### Dev notes
 
+- Unity 6
+- Localization package
 - Removed Facebook SDK
-- Unity 6.2
 - initial refactoring of content with editor management and validation tools
 
 ## [2.4.0] - Pashto - 2022
