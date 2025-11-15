@@ -2,8 +2,7 @@
 set -euo pipefail
 
 CHANNEL="vgwb/antura:windows"   # itch.io channel
-# Prefer explicit UNITY_BUILD_OUTPUT, fall back to BUILD_PATH (Unity Cloud Build)
-BUILD_DIR="${UNITY_BUILD_OUTPUT:-${BUILD_PATH:-}}"
+BUILD_DIR="${1:-${UNITY_BUILD_OUTPUT:-${BUILD_PATH:-$PWD}}}"
 
 # Read version from project repo
 VERSION_FILE="docs/latest-version.txt"
@@ -14,12 +13,12 @@ fi
 VERSION=$(tr -d '[:space:]' < "$VERSION_FILE")
 
 echo "==> Using version from $VERSION_FILE: ${VERSION}"
-echo "==> Build dir: ${BUILD_DIR:-<not set>}"
+echo "==> Build dir: ${BUILD_DIR:-<not set>} (override via first script arg)"
 echo "==> Target itch.io channel: ${CHANNEL}"
 
 # Validate build dir
 if [ -z "${BUILD_DIR}" ]; then
-    echo "ERROR: UNITY_BUILD_OUTPUT (or BUILD_PATH) is not set. Export the path to your Unity build output folder." >&2
+    echo "ERROR: Build directory not set. Pass it as the first argument or set UNITY_BUILD_OUTPUT/BUILD_PATH." >&2
     exit 1
 fi
 if [ ! -d "${BUILD_DIR}" ]; then
