@@ -881,7 +881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5822392520810544867
 Transform:
   m_ObjectHideFlags: 0
@@ -969,11 +969,11 @@ Transform:
   m_GameObject: {fileID: 3094654728567971391}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0036593848, y: 1.15, z: -0.374}
-  m_LocalScale: {x: 0.12857142, y: 0.12857142, z: 0.12857142}
+  m_LocalPosition: {x: -0.0036593848, y: 0, z: -0.37400112}
+  m_LocalScale: {x: 0.12857144, y: 0.12857142, z: 0.12857144}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1113957941119092192}
+  m_Father: {fileID: 6689572650374398766}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!212 &358822999336274459
 SpriteRenderer:
@@ -2964,6 +2964,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9145300070324807310}
+  - component: {fileID: 4583755817283819264}
+  - component: {fileID: 3237383610036952382}
   m_Layer: 0
   m_Name: flag
   m_TagString: Untagged
@@ -2987,6 +2989,65 @@ Transform:
   - {fileID: 6081624771878960470}
   m_Father: {fileID: 3038993168411161549}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4583755817283819264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110356994182152325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
+  enableBobbing: 0
+  bobbingAmount: 0.05
+  bobbingSpeed: 1
+  enableRotation: 1
+  rotationSpeed: 100
+  pauseDelay: 1
+--- !u!114 &3237383610036952382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110356994182152325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: iglica_flag
+  IsInteractable: 0
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &6161200965095979066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3477,6 +3538,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7672172564296850193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7841312701463920047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6689572650374398766}
+  - component: {fileID: 1696844180999020305}
+  m_Layer: 0
+  m_Name: Flag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6689572650374398766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841312701463920047}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.179, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 3242561972915507967}
+  m_Father: {fileID: 1113957941119092192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1696844180999020305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841312701463920047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
+  enableBobbing: 0
+  bobbingAmount: 0.05
+  bobbingSpeed: 1
+  enableRotation: 1
+  rotationSpeed: 80
+  pauseDelay: 1
 --- !u!1 &7864037113392012690
 GameObject:
   m_ObjectHideFlags: 0
@@ -5129,37 +5251,37 @@ PrefabInstance:
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.88
+      value: 28.494661
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7
+      value: 4.063508
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.96
+      value: 31.003681
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99201417
+      value: 0.9861643
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.123561904
+      value: 0.15906405
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.02511057
+      value: -0.046080124
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0031276871
+      value: 0.0074325344
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
@@ -11695,47 +11817,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2978276656412534459, guid: dabddada89da04e8b9d7258d59ef5705,
         type: 3}
       insertIndex: 0
-      addedObject: {fileID: 3242561972915507967}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2863234149278228544, guid: dabddada89da04e8b9d7258d59ef5705,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4546572372284101827}
+      addedObject: {fileID: 6689572650374398766}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dabddada89da04e8b9d7258d59ef5705, type: 3}
---- !u!1 &116289054404805403 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2863234149278228544, guid: dabddada89da04e8b9d7258d59ef5705,
-    type: 3}
-  m_PrefabInstance: {fileID: 2747587261304382299}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4546572372284101827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116289054404805403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
-  someRandomness: 0
-  enableAxisMovement: 0
-  moveAxis: 1
-  axisDistance: 2
-  axisCycle: 0
-  axisSpeed: 1
-  enableTargetMovement: 0
-  targetPoint: {fileID: 0}
-  targetCycle: 0
-  targetSpeed: 1
-  enableBobbing: 0
-  bobbingAmount: 0.05
-  bobbingSpeed: 1
-  enableRotation: 1
-  rotationSpeed: 100
-  pauseDelay: 1
 --- !u!4 &1113957941119092192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2978276656412534459, guid: dabddada89da04e8b9d7258d59ef5705,
@@ -25184,37 +25268,37 @@ PrefabInstance:
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.78
+      value: 0.57102776
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.88
+      value: 15.989039
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 76.38
+      value: 110.21535
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98699635
+      value: 0.27675465
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.16074266
+      value: 0.042519312
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.9488664
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.14577925
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}

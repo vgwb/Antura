@@ -56,7 +56,6 @@ type: panel
 position: -952,-145
 group: Intro
 actor: ADULT_M, 
-image: centennial_hall_empty_flag
 color: red
 ---
 <<declare $elephant_completed = false>>
@@ -88,7 +87,8 @@ type: panel
 color: green
 tags: proposal
 ---
-Draw your favorite ANIMAL. #line:0809ac5 
+<<card wroclaw_centennial_hall>>
+Draw your favorite ANIMAL or the CENTENNIAL HALL. #line:0809ac5
 <<quest_end>>
 ===
 
@@ -133,6 +133,7 @@ title: task_animals_done
 position: -451,-152
 actor: 
 ---
+You talked to all ANIMALS. #shadow:032811f
 Now go back to the ZOO DIRECTOR. #line:0a93d9b #task:back_to_director
 <<target director>>
 <<task_start back_to_director>>
@@ -162,9 +163,11 @@ Who took the FLAG? #line:0fc0ab7
 Wait, look! #line:0b3d05f 
 <<camera_focus Antura>>
 Antura has the FLAG! #line:0e24973 
-<<camera_reset>>
 <<card wroclaw_flag>>
-The mystery is solved. #line:0bf024f 
+<<SetActive iglica_flag true>>
+The mystery is solved. #line:0bf024f
+<<camera_focus Flagpole>>
+<<card wroclaw_centennial_hall>>
 Now the FLAG is back. #line:0d91701 
 <<jump quest_end>>
 ===

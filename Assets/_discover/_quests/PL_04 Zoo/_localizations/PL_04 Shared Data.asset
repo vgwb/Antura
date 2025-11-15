@@ -640,6 +640,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 2714115095707254903
+  - m_Id: 27186950266937344
+    m_Key: line:sh_d64de990
+    m_Metadata:
+      m_Items:
+      - rid: 2714115112381710416
+  - m_Id: 27186950296297472
+    m_Key: line:sh_4ce5ef23
+    m_Metadata:
+      m_Items:
+      - rid: 2714115112381710417
+  - m_Id: 27186950296297473
+    m_Key: line:sh_e4de7e66
+    m_Metadata:
+      m_Items:
+      - rid: 2714115112381710418
+  - m_Id: 27186950296297474
+    m_Key: line:sh_a1de478b
+    m_Metadata:
+      m_Items:
+      - rid: 2714115112381710419
+  - m_Id: 27186950296297475
+    m_Key: line:sh_571770f5
+    m_Metadata:
+      m_Items:
+      - rid: 2714115112381710420
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -964,19 +989,20 @@ MonoBehaviour:
       data:
         nodeName: lion
         tags:
-        - shadow:yes
+        - shadow:play_again
+        - lastline
     - rid: 2714115095707254887
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: lion
         tags:
-        - shadow:yes_harder
+        - shadow:yes
     - rid: 2714115095707254888
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: lion
         tags:
-        - shadow:no
+        - shadow:yes_harder
     - rid: 2714115095707254889
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -994,19 +1020,20 @@ MonoBehaviour:
       data:
         nodeName: giraffe
         tags:
-        - shadow:yes
+        - shadow:play_again
+        - lastline
     - rid: 2714115095707254892
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: giraffe
         tags:
-        - shadow:yes_harder
+        - shadow:yes
     - rid: 2714115095707254893
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: giraffe
         tags:
-        - shadow:no
+        - shadow:yes_harder
     - rid: 2714115095707254894
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -1024,19 +1051,20 @@ MonoBehaviour:
       data:
         nodeName: elephant
         tags:
-        - shadow:yes
+        - shadow:play_again
+        - lastline
     - rid: 2714115095707254897
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: elephant
         tags:
-        - shadow:yes_harder
+        - shadow:yes
     - rid: 2714115095707254898
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: elephant
         tags:
-        - shadow:no
+        - shadow:yes_harder
     - rid: 2714115095707254899
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -1049,24 +1077,55 @@ MonoBehaviour:
       data:
         nodeName: penguin
         tags:
-        - shadow:yes
+        - shadow:play_again
+        - lastline
     - rid: 2714115095707254901
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: penguin
         tags:
-        - shadow:yes_harder
+        - shadow:yes
     - rid: 2714115095707254902
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: penguin
         tags:
-        - shadow:no
+        - shadow:yes_harder
     - rid: 2714115095707254903
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: penguin
         tags: []
+    - rid: 2714115112381710416
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_animals_done
+        tags:
+        - shadow:032811f
+    - rid: 2714115112381710417
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: lion
+        tags:
+        - shadow:no
+    - rid: 2714115112381710418
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: giraffe
+        tags:
+        - shadow:no
+    - rid: 2714115112381710419
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: elephant
+        tags:
+        - shadow:no
+    - rid: 2714115112381710420
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: penguin
+        tags:
+        - shadow:no
     - rid: 6508225951601787449
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
