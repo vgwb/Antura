@@ -274,7 +274,9 @@ namespace Antura.Discover.Activities
             if (resolving || card.IsLocked || card.IsFaceUp)
                 return;
             lastActionTime = Time.unscaledTime;
-
+            // Stop any active hint so interaction proceeds normally
+            StopAllHints();
+            card.StopWiggle();
             card.RevealUp();
             DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivityClick);
 
@@ -404,6 +406,18 @@ namespace Antura.Discover.Activities
             if (candidates.Count == 0)
                 return null;
             return candidates[Random.Range(0, candidates.Count)];
+        }
+
+        /// <summary>
+        /// Stop any active wiggle/hint animations on all cards.
+        /// </summary>
+        private void StopAllHints()
+        {
+            foreach (var c in cards)
+            {
+                if (c != null)
+                    c.StopWiggle();
+            }
         }
 
         /// <summary>

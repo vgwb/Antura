@@ -24,6 +24,7 @@ namespace Antura.Discover.Activities
         private ActivityMemory manager;
         private RectTransform rt;
         private bool flipping;
+        private Coroutine wiggleRoutine;
 
         public void Init(ActivityMemory _mgr, CardData _cardData, int _id, Sprite _face, Sprite _back)
         {
@@ -129,8 +130,22 @@ namespace Antura.Discover.Activities
 
         public void Wiggle(float angle = 7f, float time = 0.25f)
         {
-            StopAllCoroutines();
-            StartCoroutine(WiggleCo(angle, time));
+            if (wiggleRoutine != null)
+                StopCoroutine(wiggleRoutine);
+            wiggleRoutine = StartCoroutine(WiggleCo(angle, time));
+        }
+
+        /// <summary>
+        /// Stop any active wiggle hint and reset rotation.
+        /// </summary>
+        public void StopWiggle()
+        {
+            if (wiggleRoutine != null)
+            {
+                StopCoroutine(wiggleRoutine);
+                wiggleRoutine = null;
+            }
+            transform.localRotation = Quaternion.identity;
         }
 
         IEnumerator WiggleCo(float angle, float time)
@@ -144,6 +159,7 @@ namespace Antura.Discover.Activities
                 yield return null;
             }
             transform.localRotation = Quaternion.identity;
+            wiggleRoutine = null;
         }
     }
 }
