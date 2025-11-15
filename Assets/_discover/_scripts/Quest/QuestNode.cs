@@ -104,7 +104,7 @@ namespace Antura.Discover
 
         public bool IsPanel()
         {
-            return Type == NodeType.PANEL;
+            return Type == NodeType.PANEL || Type == NodeType.PANEL_ENDGAME;
         }
 
         public Sprite GetImage()
