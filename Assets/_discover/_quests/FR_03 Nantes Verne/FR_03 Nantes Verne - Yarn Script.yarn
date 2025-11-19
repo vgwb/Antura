@@ -41,22 +41,22 @@ position: 0,0
 tags: 
 color: red
 type: panel
-actor: NARRATOR
+actor:
 ---
-<<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
 <<declare $QUEST_ITEMS = 4>>
-Welcome to the museum of Jules Verne in Nantes! #line:0b5e2f3
+We are in NANTES, at the Jules Verne MUSEUM! #line:0b5e2f3
+Let's discover this great WRITER together. #line:006e7fc 
 ===
 
 title: quest_end
 position: 334,976
 color: green
 type: panel_endgame
-actor: NARRATOR
+actor:
 ---
-Now you know something about Jules Verne  #line:0174104 
-and his books! #line:0a01f9e 
+Now you know about Jules Verne #line:0174104 
+and his BOOKS! #line:0a01f9e 
 <<jump post_quest_activity>>
 ===
 
@@ -65,9 +65,9 @@ position: 236,184
 color: green
 type: panel
 tags: proposal
-actor: NARRATOR
+actor:
 ---
-Read one of his books! #line:06521b4 
+Read one of Jules Verne's BOOKS! #line:06521b4 
 <<quest_end>>
 ===
 
@@ -77,10 +77,16 @@ actor: ADULT_F
 ---
 
 <<if $COLLECTED_ITEMS == 0>>
-    Welcome to the house of Jules Verne! #line:08f7bc1 
     <<card jules_verne_1>>
-<<elseif $COLLECTED_ITEMS < $QUEST_ITEMS>>
+    Welcome to the Jules Verne MUSEUM! #line:08f7bc1
+    Do you know who Jules Verne is? #line:00b1d04 
+    => Yes, he is a WRITER! #line:07f7b4b 
+    => No #line:06fb1cd 
+    Jules Verne was a French WRITER. He was born here long ago.  #line:0c790cf 
+    He wrote famous adventure BOOKS. #line:0f92a05 
     <<jump task_find_books>>
+<<elseif $COLLECTED_ITEMS > 0 and $COLLECTED_ITEMS < $QUEST_ITEMS>>
+    Keep looking for all Jules Verne's BOOKS! #line:0698674 
 <<else>>
     <<jump won>>
 <<endif>>
@@ -90,18 +96,25 @@ title: task_find_books
 position: 702,219
 tags: task
 ---
+We have a PROBLEM. #line:0642734 
+A funny blue DOG took four BOOKS! #line:0525efc 
+We need them for the MUSEUM. #line:0c79499 
+One BOOK is about a trip around the WORLD, #line:041de18 
+another is about a trip to the MOON, #line:0e1235e 
+one is about a SUBMARINE under the SEA, #line:0331c3f 
+and one is about a hot air BALLOON. #line:0db6ac3 
 <<asset jverne_mission_overview>>
-Explore the house and find four of his books! #line:0aac249 #task:FIND_BOOKS
+Find four of his BOOKS! #line:0aac249 #task:FIND_BOOKS
 <<task_start FIND_BOOKS task_find_books_done>>
 ===
 
 
 title: task_find_books_done
 position: 1043,219
-actor: NARRATOR
+actor:
 ---
-You found all the books! #line:0fc503c 
-GO talk to the guide! #line:01b0c19 
+You found all the BOOKS! #line:0fc503c 
+Go talk to the GUIDE! #line:01b0c19 
 ===
 
 
@@ -110,7 +123,7 @@ position: 351,-354
 actor:
 tags:  asset=jules_verne_1
 ---
-This is Jules Verne. He was a writer. #line:096a3b3 
+This is Jules Verne. He was a WRITER. #line:096a3b3 
 ===
 
 title: verne_house
@@ -118,7 +131,7 @@ position: 638,-360
 actor:
 tags:  asset=jules_verne_house
 ---
-He was born in Nantes in 1828. #line:003b311 
+He was born in NANTES. #line:003b311 
 ===
 
 title: map_nantes
@@ -126,7 +139,7 @@ position: 894,-362
 actor:
 tags:  asset=map_nantes
 ---
-This is a map of Nantes. #line:09bcaba 
+This is a MAP of NANTES. #line:09bcaba 
 ===
 
 title: open_chest
@@ -146,7 +159,7 @@ actor: ADULT_F
 ---
 <<asset jules_verne_2>>
 Great! You met Jules Verne, #line:099cdca 
-the science fiction writer. #line:05a032e 
+the famous WRITER. #line:05a032e 
 <<jump quest_end>>
 ===
 
@@ -156,7 +169,7 @@ color: yellow
 actor: 
 ---
 <<asset book_80days>>
-This book is "Around the World in 80 Days." #line:03131e3
+This BOOK is "Around the World in 80 Days." #line:03131e3
 <<jump train>>
 ===
 title: train
@@ -164,7 +177,7 @@ position: 709,885
 tags: item
 ---
 <<asset train>>
-This is an old train. #line:0732ebc 
+This is an old TRAIN. #line:0732ebc 
 <<action COLLECT_TRAIN>>
 ===
 
@@ -173,9 +186,9 @@ position: -360,360
 color: purple
 actor: ADULT_M
 ---
-=> This old train used STEAM to move.  #line:0d10edc 
+=> This old TRAIN used STEAM to move.  #line:0d10edc 
     <<card book_around_the_world_80_days>>
-=> Trains made long trips faster.  #line:00a9db2 
+=> TRAINS made long trips faster.  #line:00a9db2 
     <<card book_around_the_world_80_days>>
 ===
 
@@ -183,7 +196,7 @@ title: paint_moon
 position: 709,1062
 ---
 <<card rocket>>
-This is a space rocket. #line:0e5ae78 
+This is a space ROCKET. #line:0e5ae78 
 ===
 
 title: book_moon
@@ -191,7 +204,7 @@ position: 356,1067
 color: yellow
 ---
 <<asset book_earthmoon>>
-This book is "From the Earth to the Moon." #line:06df7d0 
+This BOOK is "From the Earth to the Moon." #line:06df7d0 
 <<jump paint_moon>>
 ===
 
@@ -200,9 +213,9 @@ title: npc_rocket
 position: -360,450
 color: purple
 ---
-=> A rocket must push very hard to leave Earth.  #line:06b6d4d 
+=> A ROCKET pushes hard to leave EARTH.  #line:06b6d4d 
     <<card book_from_earth_to_moon>>
-=> Jules Verne imagined space travel early.  #line:0cd7302 
+=> Jules Verne imagined space TRAVEL.  #line:0cd7302 
     <<card book_from_earth_to_moon>>
 ===
 
@@ -214,7 +227,7 @@ color: yellow
 actor: 
 ---
 <<asset book_underthesea>>
-This book is "20,000 Leagues Under the Seas." #line:03536a1 
+This BOOK is "20,000 Leagues Under the Seas." #line:03536a1 
 <<jump paint_20000>>
 ===
 
@@ -223,7 +236,7 @@ position: 695,699
 actor: 
 ---
 <<asset submarine>>
-This is a submarine. #line:0f298c2 
+This is a SUBMARINE. #line:0f298c2 
 <<action COLLECT_SUBMARINE>>
 ===
 
@@ -231,9 +244,9 @@ title: npc_submarine
 position: -360,540
 color: purple
 ---
-=> A submarine travels underwater.  #line:0dcb855 
+=> A SUBMARINE travels UNDERWATER.  #line:0dcb855 
     <<card book_20000_leagues_under_the_sea>>
-=> The Nautilus is Captain Nemo's ship.  #line:0d69bb8 
+=> The Nautilus is a big SHIP.  #line:0d69bb8 
     <<card book_20000_leagues_under_the_sea>>
 ===
 
@@ -246,7 +259,7 @@ position: 681,490
 actor: 
 ---
 <<card balloon>>
-This is a hot air balloon. #line:06a7709 
+This is a hot air BALLOON. #line:06a7709 
 ===
 
 title: book_5weeks
@@ -255,7 +268,7 @@ color: yellow
 actor: 
 ---
 <<card book_5weeksballoon>>
-This book is "Five Weeks in a Balloon." #line:0934a7c 
+This BOOK is "Five Weeks in a Balloon." #line:0934a7c 
 <<jump paint_5weeks>>
 ===
 
@@ -263,9 +276,9 @@ title: npc_balloon
 position: -360,630
 color: purple
 ---
-=> A hot air balloon rises with warm air.  #line:0131b99 
+=> A BALLOON goes up with warm AIR.  #line:0131b99 
     <<card hot_air_balloon>>
-=> It moves with the wind.  #line:09a8c21 
+=> It moves with the WIND.  #line:09a8c21 
     <<card hot_air_balloon>>
 ===
 
@@ -281,13 +294,13 @@ color: purple
 actor: 
 spawn_group: generic 
 ---
-=> I love reading books! #line:00f3a57 
+=> I love reading BOOKS! #line:00f3a57 
     <<card book_around_the_world_80_days>>
-=> Did you know that Jules Verne is considered one of the fathers of science fiction? #line:056e79e 
+=> Jules Verne invented science FICTION stories. #line:056e79e 
     <<card jules_verne>>
-=> I heard that Jules Verne wrote more than 60 novels in his life! #line:0caca1b 
+=> Jules Verne wrote many BOOKS! #line:0caca1b 
     <<card jules_verne>>
-=> I read that Jules Verne's works have been translated into more than 140 languages! #line:0f5f36d 
+=> People read his BOOKS in many languages! #line:0f5f36d 
     <<card jules_verne>>
 ===
 
@@ -297,13 +310,13 @@ color: purple
 actor: KID_M
 spawn_group: kids 
 ---
-=> I like the story about going around the world. #line:0e81901 
+=> I like the story about the WORLD. #line:0e81901 
     <<card book_around_the_world_80_days>>
-=> The submarine Nautilus sounds amazing. #line:08669ce 
+=> The SUBMARINE Nautilus is amazing. #line:08669ce 
     <<card submarine_nautilus>>
-=> I want to ride a hot air balloon one day. #line:00be1f0 
+=> I want to ride a BALLOON one day. #line:00be1f0 
     <<card hot_air_balloon>>
-=> The rocket to the Moon looks very fast. #line:07ee86b 
+=> The ROCKET to the MOON looks fast. #line:07ee86b 
     <<card space_rocket>>
 ===
 
@@ -313,13 +326,13 @@ color: purple
 actor: ADULT_F
 spawn_group: guides 
 ---
-=> Around the World in 80 Days shows many places on Earth. #line:0bcc84d 
+=> That BOOK shows many places on EARTH. #line:0bcc84d 
     <<card book_around_the_world_80_days>>
-=> The Nautilus is the submarine in 20,000 Leagues Under the Seas. #line:0a998ac 
+=> The Nautilus is a SUBMARINE. #line:0a998ac 
     <<card book_20000_leagues_under_the_sea>>
-=> Jules Verne imagined space travel before real rockets. #line:01e7e5c 
+=> Jules Verne imagined ROCKETS long ago. #line:01e7e5c 
     <<card book_from_earth_to_moon>>
-=> Five Weeks in a Balloon tells of an air journey over Africa. #line:09e090d 
+=> That BOOK is about a BALLOON trip. #line:09e090d 
     <<card book_five_weeks_in_a_balloon>>
 ===
 
@@ -329,12 +342,12 @@ color: purple
 actor: ADULT_M
 spawn_group: guides 
 ---
-=> From Earth to the Moon tells of a huge space cannon. #line:0f07e41 
+=> That BOOK has a huge space CANNON. #line:0f07e41 
     <<card book_from_earth_to_moon>>
-=> 20,000 Leagues Under the Seas has Captain Nemo and the Nautilus. #line:09b9d24 
+=> That BOOK has a SUBMARINE. #line:09b9d24 
     <<card book_20000_leagues_under_the_sea>>
-=> A hot air balloon rises because warm air is light. #line:0281b73 
+=> A BALLOON rises because warm AIR is light. #line:0281b73 
     <<card hot_air_balloon>>
-=> Many ideas in his books became real technology. #line:06e1473 
+=> Many ideas in his BOOKS became real. #line:06e1473 
     <<card jules_verne>>
 ===
