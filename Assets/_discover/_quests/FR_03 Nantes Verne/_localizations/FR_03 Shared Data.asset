@@ -310,6 +310,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 2714115212707365129
+  - m_Id: 29108564554407936
+    m_Key: line:087acef
+    m_Metadata:
+      m_Items:
+      - rid: 2714115212707365188
+  - m_Id: 29116849504378880
+    m_Key: line:79839b9f
+    m_Metadata:
+      m_Items:
+      - rid: 2714115212707365196
+  - m_Id: 29120284177981440
+    m_Key: line:c0fa0599
+    m_Metadata:
+      m_Items:
+      - rid: 2714115212707365197
+  - m_Id: 29120553569738752
+    m_Key: line:efb39ce8
+    m_Metadata:
+      m_Items:
+      - rid: 2714115212707365198
+  - m_Id: 29120553569738753
+    m_Key: line:7aab0c00
+    m_Metadata:
+      m_Items:
+      - rid: 2714115212707365199
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -325,32 +350,33 @@ MonoBehaviour:
     - rid: 2714115212707365117
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_guide
-        tags: []
+        nodeName: museum_director
+        tags:
+        - lastline
     - rid: 2714115212707365118
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_guide
+        nodeName: museum_director
         tags: []
     - rid: 2714115212707365119
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_guide
+        nodeName: museum_director
         tags: []
     - rid: 2714115212707365120
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_guide
+        nodeName: museum_director
         tags: []
     - rid: 2714115212707365121
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_guide
+        nodeName: museum_director
         tags: []
     - rid: 2714115212707365122
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_guide
+        nodeName: museum_director
         tags: []
     - rid: 2714115212707365123
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -387,6 +413,32 @@ MonoBehaviour:
       data:
         nodeName: task_find_books
         tags: []
+    - rid: 2714115212707365188
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: post_quest_activity
+        tags: []
+    - rid: 2714115212707365196
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_door
+        tags: []
+    - rid: 2714115212707365197
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_clean_done
+        tags: []
+    - rid: 2714115212707365198
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_door
+        tags:
+        - task:clean_sidewalk
+    - rid: 2714115212707365199
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_clean_done
+        tags: []
     - rid: 6508225951601787284
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
@@ -415,14 +467,14 @@ MonoBehaviour:
     - rid: 6508226108598255702
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_guide
+        nodeName: museum_director
         tags: []
     - rid: 6508226108598255703
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: task_find_books
         tags:
-        - task:FIND_BOOKS
+        - task:find_books
     - rid: 6508226108598255704
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -432,7 +484,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: task_find_books_done
-        tags: []
+        tags:
+        - task:museum_director
     - rid: 6508226108598255706
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:

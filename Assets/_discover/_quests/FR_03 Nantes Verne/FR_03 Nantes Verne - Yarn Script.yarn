@@ -46,7 +46,9 @@ actor:
 <<set $COLLECTED_ITEMS = 0>>
 <<declare $QUEST_ITEMS = 4>>
 We are in NANTES, at the Jules Verne MUSEUM! #line:0b5e2f3
-Let's discover this great WRITER together. #line:006e7fc 
+Let's discover this great WRITER together. #line:006e7fc
+<<target ll_door>>
+<<SetActive museum_door false>>
 ===
 
 title: quest_end
@@ -70,17 +72,37 @@ As classroom activity, you can DRAW a SUBMARINE or a ROCKET! #line:087acef
 <<quest_end>>
 ===
 
-title: npc_guide
+title: ll_door
+position: 337,219
+---
+<<if HasCompletedTask("clean_sidewalk")>>
+    Please enter the MUSEUM and talk to the director!
+    <<SetActive museum_door false>>
+    <<target museum_director>>
+<<else>>
+    To enter the MUSEUM, clean the sidewalk first! #task:clean_sidewalk
+    <<task_start clean_sidewalk task_clean_done>>
+<<endif>>
+===
+
+title: task_clean_done
+position: 337,219
+---
+Well done! Go back to the door keeper
+<<target ll_door>>
+===
+
+
+title: museum_director
 position: 337,219
 actor: ADULT_F
 ---
-
 <<if $COLLECTED_ITEMS == 0>>
     <<card jules_verne_1>>
     Welcome to the Jules Verne MUSEUM! #line:08f7bc1
     Do you know who Jules Verne is? #line:00b1d04 
-    => Yes, he is a WRITER! #line:07f7b4b 
-    => No, who is he? #line:06fb1cd 
+    -> Yes, he is a WRITER! #line:07f7b4b 
+    -> No, who is he? #line:06fb1cd 
     Jules Verne was a French WRITER. He was born near here.  #line:0c790cf 
     He wrote very famous adventure BOOKS. #line:0f92a05 
     <<jump task_find_books>>
@@ -98,13 +120,13 @@ tags: task
 We have a PROBLEM! #line:0642734 
 A funny blue DOG took four BOOKS! #line:0525efc 
 We need them for the MUSEUM. #line:0c79499 
-One BOOK is about a trip around the WORLD, #line:041de18 
-another is about a trip to the MOON, #line:0e1235e 
+One book is about a trip around the WORLD, #line:041de18 
+another is about a ROCKET to the MOON, #line:0e1235e 
 one is about a SUBMARINE under the SEA, #line:0331c3f 
 and one is about a hot air BALLOON. #line:0db6ac3 
 <<asset jverne_mission_overview>>
-Find four of his BOOKS! #line:0aac249 #task:FIND_BOOKS
-<<task_start FIND_BOOKS task_find_books_done>>
+Find four of his BOOKS! #line:0aac249 #task:find_books
+<<task_start find_books task_find_books_done>>
 ===
 
 
@@ -113,7 +135,9 @@ position: 1043,219
 actor:
 ---
 You found all the BOOKS! #line:0fc503c 
-Go talk to the GUIDE! #line:01b0c19 
+Go back to the MUSEUM DIRECTOR! #line:01b0c19 #task:museum_director
+<<task_start museum_director>>
+<<target museum_director>>
 ===
 
 
