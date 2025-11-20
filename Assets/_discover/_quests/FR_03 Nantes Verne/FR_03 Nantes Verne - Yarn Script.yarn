@@ -55,8 +55,7 @@ color: green
 type: panel_endgame
 actor:
 ---
-Now you know about Jules Verne #line:0174104 
-and his BOOKS! #line:0a01f9e 
+Now you know about Jules Verne and his BOOKS! #line:0174104 
 <<jump post_quest_activity>>
 ===
 
@@ -67,11 +66,11 @@ type: panel
 tags: proposal
 actor:
 ---
-Read one of Jules Verne's BOOKS! #line:06521b4 
+As classroom activity, you can DRAW a SUBMARINE or a ROCKET! #line:087acef 
 <<quest_end>>
 ===
 
-title: talk_guide
+title: npc_guide
 position: 337,219
 actor: ADULT_F
 ---
@@ -81,9 +80,9 @@ actor: ADULT_F
     Welcome to the Jules Verne MUSEUM! #line:08f7bc1
     Do you know who Jules Verne is? #line:00b1d04 
     => Yes, he is a WRITER! #line:07f7b4b 
-    => No #line:06fb1cd 
-    Jules Verne was a French WRITER. He was born here long ago.  #line:0c790cf 
-    He wrote famous adventure BOOKS. #line:0f92a05 
+    => No, who is he? #line:06fb1cd 
+    Jules Verne was a French WRITER. He was born near here.  #line:0c790cf 
+    He wrote very famous adventure BOOKS. #line:0f92a05 
     <<jump task_find_books>>
 <<elseif $COLLECTED_ITEMS > 0 and $COLLECTED_ITEMS < $QUEST_ITEMS>>
     Keep looking for all Jules Verne's BOOKS! #line:0698674 
@@ -96,7 +95,7 @@ title: task_find_books
 position: 702,219
 tags: task
 ---
-We have a PROBLEM. #line:0642734 
+We have a PROBLEM! #line:0642734 
 A funny blue DOG took four BOOKS! #line:0525efc 
 We need them for the MUSEUM. #line:0c79499 
 One BOOK is about a trip around the WORLD, #line:041de18 
