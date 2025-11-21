@@ -220,9 +220,7 @@ namespace Antura.Discover
             UIManager.I.dialogues.HidePostcard();
         }
 
-        // ------------------------------------------------------------
-        // CAMERA
-        // ------------------------------------------------------------
+        #region CAMERA
 
         [YarnCommand("camera_focus")]
         public static IEnumerator CommandCameraFocus(string cameraCode)
@@ -247,11 +245,9 @@ namespace Antura.Discover
         {
             CameraManager.I.ResetFocus();
         }
+        #endregion
 
-
-        // ------------------------------------------------------------
-        // CARDS / ASSETS
-        // ------------------------------------------------------------
+        #region CARDS / ASSETS
 
         [YarnCommand("card")]
         public static void CommandCard(string cardId, string param1 = "", string param2 = "")
@@ -280,6 +276,7 @@ namespace Antura.Discover
         {
             UIManager.I.dialogues.HidePostcard();
         }
+        #endregion
 
         // ------------------------------------------------------------
         // COOKIES
@@ -313,9 +310,8 @@ namespace Antura.Discover
             return QuestManager.I.Inventory.GetCookies();
         }
 
-        // ------------------------------------------------------------
-        // PARTY
-        // ------------------------------------------------------------
+        #region PARTY
+
         //  <<party_join "LETTER_A_ID">>
         //  <<party_release "LETTER_A_ID">> // if no id, remove all
         //  <<party_formation "circle">>
@@ -364,10 +360,10 @@ namespace Antura.Discover
                 return;
             pm.SetFormation(name);
         }
+        #endregion
 
-        // ------------------------------------------------------------
-        // TARGET
-        // ------------------------------------------------------------
+
+        #region TARGET
 
         [YarnCommand("target")]
         public static void CommandTarget(string actableCode)
@@ -377,9 +373,9 @@ namespace Antura.Discover
             ActionManager.I.ResolveTargetCommand(actableCode);
         }
 
-        // ------------------------------------------------------------
-        // TRIGGER
-        // ------------------------------------------------------------
+        #endregion
+
+        #region TRIGGER
 
         [YarnCommand("trigger")]
         public static void CommandTrigger(string actableCode)
@@ -388,10 +384,9 @@ namespace Antura.Discover
                 return;
             ActionManager.I.ResolveTriggerCommand(actableCode);
         }
+        #endregion
 
-        // ------------------------------------------------------------
-        // TASK
-        // ------------------------------------------------------------
+        #region TASK
 
         [YarnCommand("task_start")]
         public static void CommandTaskStart(string taskCode, string nodeReturn = "")
@@ -433,10 +428,9 @@ namespace Antura.Discover
                 return false;
             return QuestManager.I.TaskManager?.IsTaskCompleted(taskCode) ?? false;
         }
+        #endregion
 
-        // ------------------------------------------------------------
-        // QUEST
-        // ------------------------------------------------------------
+        #region QUEST
 
         [YarnCommand("quest_end")]
         public static void CommandQuestEnd()
@@ -444,6 +438,8 @@ namespace Antura.Discover
             //Debug.Log($"ActionManager: ResolveNodeCommandEndquest: {finalStars}");
             QuestManager.I.QuestEnd();
         }
+
+        #endregion
 
         #region INVENTORY
 
