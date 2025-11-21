@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8997849671879031960}
   - component: {fileID: 1912663844981742235}
+  - component: {fileID: 2256471485819424270}
+  - component: {fileID: 8425058366840898236}
   m_Layer: 0
   m_Name: Submarine
   m_TagString: Untagged
@@ -27,9 +29,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2511167, y: 0.2511167, z: 0.2511167}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 303221002725481021}
   - {fileID: 8814920363817612493}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,6 +55,58 @@ MonoBehaviour:
   Tags: 
   Notes: Submarine by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/)
     via Poly Pizza (https://poly.pizza/m/dfSQmeuuYt3)
+--- !u!114 &2256471485819424270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666866563843478805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: 
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 303221002725481021}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
+--- !u!135 &8425058366840898236
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666866563843478805}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1463137449939138543
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 1463137449939138543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -166,3 +221,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3768719051437600471, guid: 357d6f386e62e47e5ac6d8a45708ead2, type: 3}
+--- !u!1 &4931978115778568585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303221002725481021}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &303221002725481021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931978115778568585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.5, z: 1.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8997849671879031960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

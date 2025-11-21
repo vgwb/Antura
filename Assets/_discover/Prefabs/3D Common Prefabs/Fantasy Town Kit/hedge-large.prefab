@@ -50,6 +50,7 @@ MonoBehaviour:
   Country: 0
   Category: 10
   Tags: a0000000
+  Notes: 
 --- !u!1001 &8956556390582273941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b93180cf422714d31821806f4c137c42,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1504042382837579193}
+      addedObject: {fileID: 3048749731332153343}
   m_SourcePrefab: {fileID: 100100000, guid: b93180cf422714d31821806f4c137c42, type: 3}
 --- !u!1 &8110276237985086148 stripped
 GameObject:
@@ -128,8 +129,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8956556390582273941}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1504042382837579193
-MeshCollider:
+--- !u!65 &3048749731332153343
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,10 +147,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6976038345249901483, guid: b93180cf422714d31821806f4c137c42, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.4, y: 0.6, z: 1}
+  m_Center: {x: -0.3, y: 0.3, z: 0}
 --- !u!4 &8919007324699631742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b93180cf422714d31821806f4c137c42,

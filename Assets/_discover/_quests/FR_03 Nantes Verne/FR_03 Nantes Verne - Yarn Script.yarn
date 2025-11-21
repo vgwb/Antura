@@ -48,7 +48,6 @@ actor:
 We are in NANTES, at the Jules Verne MUSEUM! #line:0b5e2f3
 Let's discover this great WRITER together. #line:006e7fc
 <<target ll_door>>
-<<SetActive museum_door false>>
 ===
 
 title: quest_end
@@ -58,6 +57,7 @@ type: panel_endgame
 actor:
 ---
 Now you know about Jules Verne and his BOOKS! #line:0174104 
+And you know what to do in Nantes.
 <<jump post_quest_activity>>
 ===
 
@@ -76,7 +76,7 @@ title: ll_door
 position: 337,219
 ---
 <<if HasCompletedTask("clean_sidewalk")>>
-    Please enter the MUSEUM and talk to the director!
+    The Museum is now open! Talk to the director!
     <<SetActive museum_door false>>
     <<target museum_director>>
 <<else>>
@@ -109,7 +109,10 @@ actor: ADULT_F
 <<elseif $COLLECTED_ITEMS > 0 and $COLLECTED_ITEMS < $QUEST_ITEMS>>
     Keep looking for all Jules Verne's BOOKS! #line:0698674 
 <<else>>
-    <<jump won>>
+    <<asset jules_verne_2>>
+    Thank you! Now the Museum is in order
+    Now we'll wait for your visit here in Nantes.
+    <<jump quest_end>>
 <<endif>>
 ===
 
@@ -144,7 +147,7 @@ Go back to the MUSEUM DIRECTOR! #line:01b0c19 #task:museum_director
 title: verne_painting
 position: 351,-354
 actor:
-tags:  asset=jules_verne_1
+tags:
 ---
 This is Jules Verne. He was a WRITER. #line:096a3b3 
 ===
@@ -152,7 +155,7 @@ This is Jules Verne. He was a WRITER. #line:096a3b3
 title: verne_house
 position: 638,-360
 actor:
-tags:  asset=jules_verne_house
+tags:
 ---
 He was born in NANTES. #line:003b311 
 ===
@@ -160,30 +163,9 @@ He was born in NANTES. #line:003b311
 title: map_nantes
 position: 894,-362
 actor:
-tags:  asset=map_nantes
----
-This is a MAP of NANTES. #line:09bcaba 
-===
-
-title: open_chest
-position: 381,-83
 tags:
 ---
-<<if $COLLECTED_ITEMS >= 4>>
-<<jump won>>
-<<else>>
-<<jump task_find_books>>
-<<endif>>
-===
-
-title: won
-position: 796,-106
-actor: ADULT_F
----
-<<asset jules_verne_2>>
-Great! You met Jules Verne, #line:099cdca 
-the famous WRITER. #line:05a032e 
-<<jump quest_end>>
+This is a MAP of NANTES. #line:09bcaba 
 ===
 
 title: book_80days

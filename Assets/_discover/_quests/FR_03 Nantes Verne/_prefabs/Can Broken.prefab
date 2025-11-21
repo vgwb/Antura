@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3293159771313765658
+--- !u!1 &2846191785763327251
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7447812004324978890}
-  - component: {fileID: 8581589495660574328}
+  - component: {fileID: 1226390067137633450}
+  - component: {fileID: 7586854493072442777}
   m_Layer: 0
-  m_Name: Rocketship
+  m_Name: Can Broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7447812004324978890
+--- !u!4 &1226390067137633450
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3293159771313765658}
+  m_GameObject: {fileID: 2846191785763327251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2255605804686545312}
+  - {fileID: 3482573394861918611}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8581589495660574328
+--- !u!114 &7586854493072442777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3293159771313765658}
+  m_GameObject: {fileID: 2846191785763327251}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
-  Id: old_rocketship
-  Kit: 2
+  Id: models_can_broken
+  Kit: 0
   Country: 0
-  Category: 70
+  Category: 0
   Tags: 
-  Notes: Rocketship by jeremy [CC-BY] (https://creativecommons.org/licenses/by/3.0/)
-    via Poly Pizza (https://poly.pizza/m/ah8WSBbizA6)
---- !u!1 &7060865028511199168
+  Notes: Can Broken by Quaternius (https://poly.pizza/m/JjC5l1gXMo)
+--- !u!1 &4068889612920592576
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,47 +59,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2255605804686545312}
-  - component: {fileID: 6739970896625686220}
-  - component: {fileID: 7118652575120899749}
-  - component: {fileID: 1685321221515652270}
+  - component: {fileID: 2060558725108737327}
+  - component: {fileID: 4922249105816512938}
+  - component: {fileID: 5797288247309403278}
+  - component: {fileID: 3433710319445582128}
   m_Layer: 0
-  m_Name: Rocketship
+  m_Name: Can_Broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2255605804686545312
+--- !u!4 &2060558725108737327
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060865028511199168}
+  m_GameObject: {fileID: 4068889612920592576}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7447812004324978890}
+  m_Father: {fileID: 3482573394861918611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6739970896625686220
+--- !u!33 &4922249105816512938
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060865028511199168}
-  m_Mesh: {fileID: -7435133473822124146, guid: d51731963704a4fe187b72cb45ec32f2, type: 3}
---- !u!23 &7118652575120899749
+  m_GameObject: {fileID: 4068889612920592576}
+  m_Mesh: {fileID: -6991189275829698096, guid: ab7ccccf2a3974c49ba8638f5178cf2f, type: 3}
+--- !u!23 &5797288247309403278
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060865028511199168}
+  m_GameObject: {fileID: 4068889612920592576}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -119,11 +118,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1866527548577854613, guid: d51731963704a4fe187b72cb45ec32f2, type: 3}
-  - {fileID: -7372078324599714502, guid: d51731963704a4fe187b72cb45ec32f2, type: 3}
-  - {fileID: -1339210969535732898, guid: d51731963704a4fe187b72cb45ec32f2, type: 3}
-  - {fileID: -5620054985434019107, guid: d51731963704a4fe187b72cb45ec32f2, type: 3}
-  - {fileID: -8464379318126888546, guid: d51731963704a4fe187b72cb45ec32f2, type: 3}
+  - {fileID: -4513266191972033142, guid: ab7ccccf2a3974c49ba8638f5178cf2f, type: 3}
+  - {fileID: 2251904023028492610, guid: ab7ccccf2a3974c49ba8638f5178cf2f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,13 +142,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1685321221515652270
+--- !u!64 &3433710319445582128
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060865028511199168}
+  m_GameObject: {fileID: 4068889612920592576}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -167,4 +163,36 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -7435133473822124146, guid: d51731963704a4fe187b72cb45ec32f2, type: 3}
+  m_Mesh: {fileID: -6991189275829698096, guid: ab7ccccf2a3974c49ba8638f5178cf2f, type: 3}
+--- !u!1 &6273202273411979644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3482573394861918611}
+  m_Layer: 0
+  m_Name: Can Broken
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3482573394861918611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6273202273411979644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2060558725108737327}
+  m_Father: {fileID: 1226390067137633450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
