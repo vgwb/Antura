@@ -45,6 +45,7 @@ actor:
 ---
 <<set $COLLECTED_ITEMS = 0>>
 <<declare $QUEST_ITEMS = 4>>
+<<declare $museum_clean = false>>
 We are in NANTES, at the Jules Verne MUSEUM! #line:0b5e2f3
 Let's discover this WRITER and his fantastic VOYAGES. #line:006e7fc
 <<area area_init>>
@@ -57,6 +58,7 @@ color: green
 type: panel_endgame
 actor:
 ---
+The quest is complete! Congratulations! #line:08f0d37 
 Now you know about Jules Verne and his BOOKS! #line:0174104
 When you come to Nantes, come and visit the MUSEUM! #line:0f72ec7 
 <<jump post_quest_activity>>
@@ -104,45 +106,58 @@ Well done! Go back to the door keeper #line:0f8dd6c
 <<target ll_door>>
 ===
 
-
 title: museum_guide
 position: 337,219
 actor: ADULT_F
 ---
 <<area area_full>>
-<<if $COLLECTED_ITEMS == 0>>
-    <<card jules_verne_1>>
-    Welcome to the Jules Verne MUSEUM! #line:08f7bc1
-    Do you know who Jules Verne is? #line:00b1d04 
-    -> Yes, he is a WRITER! #line:07f7b4b 
-    -> No, who is he? #line:06fb1cd 
-    Jules Verne was a French WRITER. He was born near here.  #line:0c790cf 
-    He wrote very famous adventure BOOKS. #line:0f92a05 
-    <<jump task_find_books>>
-<<elseif $COLLECTED_ITEMS > 0 and $COLLECTED_ITEMS < $QUEST_ITEMS>>
-    Keep looking for all Jules Verne's BOOKS! #line:0698674 
+<<if $museum_clean == false>>
+    We have a PROBLEM! #line:0642734 
+    A funny blue DOG entered the MUSEUM and made a mess! #line:0525efc
+    Can you help cleaning the MUSEUM? #task:clean_museum #line:09eafa1
+    <<task_start clean_museum task_clean_museum_done>>
+<<elseif $COLLECTED_ITEMS >= $QUEST_ITEMS>>
+    Thank you! Now the MUSEUM is in order #line:0c81640 
+    Jules Verne would be proud of you! #line:0bc6c7b 
+    Please match the BOOKS with their VEHICLES! #line:0245e0e 
+    <<activity match_verne_vehicles activity_match_done>>
+<<elseif $COLLECTED_ITEMS >0>>
+    You are doing well!  #line:0c52f3c 
 <<else>>
-    <<asset jules_verne_2>>
-    Thank you! Now the Museum is in order #line:0c81640 
-    Now we'll wait for your visit here in Nantes. #line:0db699e 
-    <<jump quest_end>>
+    We have another PROBLEM! #line:0a7dfb3 
+    Our special vehicles are missing. #line:0bb46da 
+    Please talk to the first room guardian. #line:0386706 
+    <<target ll_20000>>
 <<endif>>
+===
+
+title: activity_match_done
+position: 337,219
+---
+Well done! You matched all the BOOKS with their VEHICLES. #line:0e86b01 
+Now everything is ready for the visitors! #line:00eefe0 
+<<jump quest_end>>
+===
+
+title: task_clean_museum_done
+position: 337,219
+---
+Perfect. Now the Museum is clean! Go back to the MUSEUM GUIDE. #line:0b5eb24 
+<<set $museum_clean = true>>
+<<target museum_guide>>
 ===
 
 title: task_find_books
 position: 702,219
 tags: task
 ---
-We have a PROBLEM! #line:0642734 
-A funny blue DOG took four BOOKS! #line:0525efc 
-We need them for the MUSEUM. #line:0c79499 
-One book is about a trip around the WORLD, #line:041de18 
-another is about a ROCKET to the MOON, #line:0e1235e 
-one is about a SUBMARINE under the SEA, #line:0331c3f 
-and one is about a hot air BALLOON. #line:0db6ac3 
-<<asset jverne_mission_overview>>
-Find four of his BOOKS! #line:0aac249 #task:find_books
-<<task_start find_books task_find_books_done>>
+We have a PROBLEM! #line:0ce15a5 
+A funny blue DOG took four BOOKS! #line:0a3686c 
+We need them for the MUSEUM. #line:02b4a0c 
+One book is about a trip around the WORLD, #line:02397be 
+another is about a ROCKET to the MOON, #line:025bb67 
+one is about a SUBMARINE under the SEA, #line:02d7ed8 
+and one is about a hot air BALLOON. #line:0c38d27 
 ===
 
 
@@ -156,30 +171,75 @@ Go back to the MUSEUM DIRECTOR! #line:01b0c19 #task:museum_director
 <<target museum_director>>
 ===
 
+//////////////////////////// 200000
 
-title: verne_painting
-position: 351,-354
-actor:
-tags:
+title: ll_20000
+position: -360,540
+color: purple
 ---
-This is Jules Verne. He was a WRITER. #line:096a3b3 
+<<if HasCompletedTask("find_submarine")>>
+    <<camera_focus Camera20000>>
+    You found the SUBMARINE! #line:0666ee2 
+    Now please fix it on its place. #line:02e7812 
+    <<activity jigsaw_verne_submarine>>
+<<else>>
+<<card submarine_nautilus>>
+    Help! The Nautilus is missing! #line:00a6154 
+    Find the SUBMARINE #task:find_submarine #line:0bb264b 
+    <<SetActive submarine_lost true>>
+    <<task_start find_submarine nodeReturn>>
+<<endif>>
 ===
 
-title: verne_house
-position: 638,-360
-actor:
-tags:
+title: jigsaw_verne_submarine_done
+position: -360,540
 ---
-He was born in NANTES. #line:003b311 
+<<camera_focus Camera20000>>
+<<SetActive submarine true>>
+Thank you! #line:0ba85d3 
+<<camera_reset>>
+Now go to next guardian #line:09438f6 
+<<target ll_5weeks>>
 ===
 
-title: map_nantes
-position: 894,-362
-actor:
-tags:
+title: find_submarine_done
+position: -360,540
+color: purple
 ---
-This is a MAP of NANTES. #line:09bcaba 
+<<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+
+Great, Now bring it back to its guardian #line:07ac4a8 
 ===
+
+title: book_20000
+position: 370,670
+color: yellow
+actor: 
+---
+<<card book_20000_leagues_under_the_sea>>
+This BOOK is "20,000 Leagues Under the Seas." #line:03536a1 
+A SUBMARINE travels UNDERWATER. #line:0dcb855 
+===
+
+title: submarine
+position: 695,699
+actor: 
+---
+<<asset submarine>>
+<<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+Great, Now bring it back to its guardian  #line:0757b30 
+<<collect>>
+<<target ll_20000>>
+===
+
+
+
+
+
+
+
+
+
 
 title: book_80days
 position: 382,873
@@ -231,41 +291,10 @@ title: npc_rocket
 position: -360,450
 color: purple
 ---
-=> A ROCKET pushes hard to leave EARTH.  #line:06b6d4d 
+=> A ROCKET pushes hard to leave EARTH. #line:06b6d4d 
     <<card book_from_earth_to_moon>>
-=> Jules Verne imagined space TRAVEL.  #line:0cd7302 
+=> Jules Verne imagined space TRAVEL. #line:0cd7302 
     <<card book_from_earth_to_moon>>
-===
-
-
-
-title: book_20000legues
-position: 370,670
-color: yellow
-actor: 
----
-<<asset book_underthesea>>
-This BOOK is "20,000 Leagues Under the Seas." #line:03536a1 
-<<jump paint_20000>>
-===
-
-title: paint_20000
-position: 695,699
-actor: 
----
-<<asset submarine>>
-This is a SUBMARINE. #line:0f298c2 
-<<action COLLECT_SUBMARINE>>
-===
-
-title: npc_submarine
-position: -360,540
-color: purple
----
-=> A SUBMARINE travels UNDERWATER.  #line:0dcb855 
-    <<card book_20000_leagues_under_the_sea>>
-=> The Nautilus is a big SHIP.  #line:0d69bb8 
-    <<card book_20000_leagues_under_the_sea>>
 ===
 
 
@@ -300,6 +329,32 @@ color: purple
     <<card hot_air_balloon>>
 ===
 
+///////// OBJECCTS
+
+title: verne_painting
+position: 351,-354
+actor:
+tags:
+---
+This is Jules Verne. He was a WRITER. #line:096a3b3 
+===
+
+title: verne_house
+position: 638,-360
+actor:
+tags:
+---
+Jules Verne was born here in NANTES. #line:003b311 
+===
+
+title: map_nantes
+position: 894,-362
+actor:
+tags:
+---
+This is a MAP of NANTES. #line:09bcaba 
+===
+
 
 ///////// NPCs SPAWNED IN THE SCENE //////////
 // these npc are spawn automatically in the scene
@@ -310,7 +365,7 @@ title: spawned_visitor
 position: -367,1
 color: purple
 actor: 
-spawn_group: generic 
+spawn_group: visitors 
 ---
 => I love reading BOOKS! #line:00f3a57 
     <<card book_around_the_world_80_days>>
@@ -326,7 +381,7 @@ title: spawned_kid_visitor
 position: -360,90
 color: purple
 actor: KID_M
-spawn_group: kids 
+spawn_group: visitors 
 ---
 => I like the story about the WORLD. #line:0e81901 
     <<card book_around_the_world_80_days>>
@@ -352,14 +407,6 @@ spawn_group: guides
     <<card book_from_earth_to_moon>>
 => That BOOK is about a BALLOON trip. #line:09e090d 
     <<card book_five_weeks_in_a_balloon>>
-===
-
-title: spawned_guide_man
-position: -360,270
-color: purple
-actor: ADULT_M
-spawn_group: guides 
----
 => That BOOK has a huge space CANNON. #line:0f07e41 
     <<card book_from_earth_to_moon>>
 => That BOOK has a SUBMARINE. #line:09b9d24 
@@ -367,5 +414,18 @@ spawn_group: guides
 => A BALLOON rises because warm AIR is light. #line:0281b73 
     <<card hot_air_balloon>>
 => Many ideas in his BOOKS became real. #line:06e1473 
-    <<card jules_verne>>
+    <<card jules_verne>>    
+===
+
+title: spawned_guide
+position: -360,270
+color: purple
+actor: ADULT_M
+spawn_group: guides 
+---
+Do you know who Jules Verne is? #line:00b1d04 
+-> Yes, he is a WRITER! #line:07f7b4b 
+-> No, who is he? #line:06fb1cd 
+Jules Verne was a French WRITER. He was born near here.  #line:0c790cf 
+He wrote very famous adventure BOOKS. #line:0f92a05 
 ===

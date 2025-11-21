@@ -2108,10 +2108,10 @@ Transform:
   - {fileID: 9216027079411669907}
   - {fileID: 8393162985602298639}
   - {fileID: 8050421518848392694}
+  - {fileID: 8745080571123494932}
+  - {fileID: 5067170603904818946}
   - {fileID: 2241864233534239513}
   - {fileID: 4352148132495162820}
-  - {fileID: 5067170603904818946}
-  - {fileID: 8745080571123494932}
   - {fileID: 3761023607069391619}
   - {fileID: 8803966682587865814}
   - {fileID: 8894894431688239424}
@@ -2144,7 +2144,8 @@ MonoBehaviour:
       code: en
     LearningLanguage:
       code: en
-  ActivityConfigs: []
+  ActivityConfigs:
+  - ActivitySettings: {fileID: 11400000, guid: 7543d008927624d818e5a74a94f677a1, type: 2}
   QuestTasks:
   - Code: clean_sidewalk
     Type: 1
@@ -2170,7 +2171,7 @@ MonoBehaviour:
     ItemCount: 10
     ItemTag: 
     TargetPoint: {fileID: 0}
-  - Code: find_train
+  - Code: find_submarine
     Type: 1
     InteractGO: {fileID: 0}
     ProgressPoints: 10
@@ -2179,25 +2180,13 @@ MonoBehaviour:
       nodeName: 
     NodeSuccess: 
     ItemsContainer: {fileID: 0}
-    ItemCount: 1
-    ItemTag: book
-    TargetPoint: {fileID: 0}
-  - Code: find_submarine
-    Type: 2
-    InteractGO: {fileID: 5320153515727291814}
-    ProgressPoints: 4
-    TaskNode:
-      project: {fileID: 0}
-      nodeName: 
-    NodeSuccess: 
-    ItemsContainer: {fileID: 0}
     ItemCount: 0
-    ItemTag: 
+    ItemTag: submarine
     TargetPoint: {fileID: 0}
   - Code: find_balloon
     Type: 2
-    InteractGO: {fileID: 5320153515727291814}
-    ProgressPoints: 4
+    InteractGO: {fileID: 2315005427732927225}
+    ProgressPoints: 10
     TaskNode:
       project: {fileID: 0}
       nodeName: 
@@ -2208,8 +2197,20 @@ MonoBehaviour:
     TargetPoint: {fileID: 0}
   - Code: find_rocket
     Type: 2
-    InteractGO: {fileID: 5320153515727291814}
-    ProgressPoints: 4
+    InteractGO: {fileID: 1048985343687724809}
+    ProgressPoints: 10
+    TaskNode:
+      project: {fileID: 0}
+      nodeName: 
+    NodeSuccess: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 0
+    ItemTag: 
+    TargetPoint: {fileID: 0}
+  - Code: find_train
+    Type: 2
+    InteractGO: {fileID: 5714774139347820114}
+    ProgressPoints: 10
     TaskNode:
       project: {fileID: 0}
       nodeName: 
@@ -2221,7 +2222,7 @@ MonoBehaviour:
   - Code: museum_director
     Type: 2
     InteractGO: {fileID: 5320153515727291814}
-    ProgressPoints: 4
+    ProgressPoints: 2
     TaskNode:
       project: {fileID: 0}
       nodeName: 
@@ -2245,6 +2246,8 @@ MonoBehaviour:
   DebugAction: 
   PlayerSpawnPoint: {fileID: 8257536372233782281}
   QuestActions:
+  - ActionCode: init
+    Commands: []
   - ActionCode: area_init
     Commands:
     - Command: 2
@@ -2296,9 +2299,9 @@ Transform:
   m_Children:
   - {fileID: 7912936694583806970}
   - {fileID: 8841029112989326380}
+  - {fileID: 9221145634684743335}
   - {fileID: 2374014752257779351}
   - {fileID: 850123008314569586}
-  - {fileID: 9221145634684743335}
   - {fileID: 8047644251445058512}
   m_Father: {fileID: 2519344455256515021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3084,6 +3087,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7721085891937198679}
+  - {fileID: 7426528787276062100}
   m_Father: {fileID: 2519344455256515021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5953249806786016722
@@ -3876,9 +3880,9 @@ Transform:
   m_Children:
   - {fileID: 11230657421775944}
   - {fileID: 6127628711010546843}
+  - {fileID: 4499533647427382259}
   - {fileID: 4523575084005552791}
   - {fileID: 5733234281417538489}
-  - {fileID: 4499533647427382259}
   - {fileID: 3252527513591546742}
   m_Father: {fileID: 2519344455256515021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5925,20 +5929,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+  Id: book_20000
   IsInteractable: 1
   IsHiddenAtStart: 0
   NearbyAutoActivate: 0
   IconType: 1
   IconTransform: {fileID: 7972116439085513562}
-  ShowOnMap: 1
-  ShowIconAlways: 1
+  ShowOnMap: 0
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   FaceToPlayer: 0
   DialogueNode:
-    project: {fileID: 0}
-    nodeName: 
-  NodePermalink: book_20000legues
+    project: {fileID: 7545569452688597077, guid: 1f338d96a29b14b918e917ec824cce62,
+      type: 3}
+    nodeName: book_20000
+  NodePermalink: 
   disableAfterAction: 0
   QuestAction: 
   Commands: []
@@ -6164,8 +6169,8 @@ MonoBehaviour:
   NearbyAutoActivate: 0
   IconType: 1
   IconTransform: {fileID: 797038697447008577}
-  ShowOnMap: 1
-  ShowIconAlways: 1
+  ShowOnMap: 0
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   FaceToPlayer: 0
   DialogueNode:
@@ -6203,6 +6208,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3861340387468196733, guid: f3eb2877353669e4e9eedbf682de8f10,
     type: 3}
   m_PrefabInstance: {fileID: 1780452466314590219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1801508552592334430
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3673772507821194917}
+    m_Modifications:
+    - target: {fileID: 7485245345513814750, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: Id
+      value: Camera20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8198396362905792596, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038265134237777845, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_Name
+      value: Camera20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038265134237777845, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.827229
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.849227
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -64.4831
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.22231184
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.04550444
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9541307
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.19529818
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -91.649
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 718c201ee772940479f69bc1c03d0b5e, type: 3}
+--- !u!4 &7426528787276062100 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1801508552592334430}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1899511892649174784
 PrefabInstance:
@@ -6729,6 +6823,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f0247e0934d469db96337601a8a7ab, type: 3}
+--- !u!1 &2315005427732927225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4350100600831935049, guid: b7f0247e0934d469db96337601a8a7ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 2053118445147541680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5733234281417538489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6047963123672525577, guid: b7f0247e0934d469db96337601a8a7ab,
@@ -7062,6 +7162,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aa2b72d09f9943ce82acff94aa7ef52, type: 3}
+--- !u!1 &1048985343687724809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3293159771313765658, guid: 6aa2b72d09f9943ce82acff94aa7ef52,
+    type: 3}
+  m_PrefabInstance: {fileID: 2539214085734167059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4928882269066904281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7447812004324978890, guid: 6aa2b72d09f9943ce82acff94aa7ef52,
@@ -8104,7 +8210,7 @@ PrefabInstance:
     - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: Id
-      value: ll_door
+      value: ll_20000
       objectReference: {fileID: 0}
     - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -8130,7 +8236,7 @@ PrefabInstance:
     - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: DialogueNode.nodeName
-      value: ll_door
+      value: ll_20000
       objectReference: {fileID: 0}
     - target: {fileID: 1255010923214976118, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -8404,6 +8510,12 @@ PrefabInstance:
 --- !u!4 &4747910278010558517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8991819199274263424, guid: ff4c74bab33454406bd75ec7bd69a723,
+    type: 3}
+  m_PrefabInstance: {fileID: 4407525219442981813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5714774139347820114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8242810082125096423, guid: ff4c74bab33454406bd75ec7bd69a723,
     type: 3}
   m_PrefabInstance: {fileID: 4407525219442981813}
   m_PrefabAsset: {fileID: 0}
@@ -9408,6 +9520,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: Id
+      value: submarine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: IsHiddenAtStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8425058366840898236, guid: 08ef3f082df834f44ae303e23ce77ead,
         type: 3}
       propertyPath: m_Radius
@@ -10353,8 +10475,8 @@ MonoBehaviour:
   NearbyAutoActivate: 0
   IconType: 1
   IconTransform: {fileID: 1475593431658892640}
-  ShowOnMap: 1
-  ShowIconAlways: 1
+  ShowOnMap: 0
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   FaceToPlayer: 0
   DialogueNode:
@@ -11977,7 +12099,43 @@ PrefabInstance:
     - target: {fileID: 666866563843478805, guid: 08ef3f082df834f44ae303e23ce77ead,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: Id
+      value: submarine_lost
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: IconType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: ShowIconAlways
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: IsHiddenAtStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 1f338d96a29b14b918e917ec824cce62,
+        type: 3}
+    - target: {fileID: 2256471485819424270, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: submarine
       objectReference: {fileID: 0}
     - target: {fileID: 8997849671879031960, guid: 08ef3f082df834f44ae303e23ce77ead,
         type: 3}
@@ -12002,12 +12160,12 @@ PrefabInstance:
     - target: {fileID: 8997849671879031960, guid: 08ef3f082df834f44ae303e23ce77ead,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9
+      value: 1.435
       objectReference: {fileID: 0}
     - target: {fileID: 8997849671879031960, guid: 08ef3f082df834f44ae303e23ce77ead,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -54.25
+      value: -53.655
       objectReference: {fileID: 0}
     - target: {fileID: 8997849671879031960, guid: 08ef3f082df834f44ae303e23ce77ead,
         type: 3}
@@ -12821,8 +12979,8 @@ MonoBehaviour:
   NearbyAutoActivate: 0
   IconType: 1
   IconTransform: {fileID: 242946242358461129}
-  ShowOnMap: 1
-  ShowIconAlways: 1
+  ShowOnMap: 0
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   FaceToPlayer: 0
   DialogueNode:
@@ -12872,7 +13030,7 @@ PrefabInstance:
     - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: Id
-      value: ll_door
+      value: ll_5weeks
       objectReference: {fileID: 0}
     - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
