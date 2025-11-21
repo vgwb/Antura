@@ -46,7 +46,8 @@ actor:
 <<set $COLLECTED_ITEMS = 0>>
 <<declare $QUEST_ITEMS = 4>>
 We are in NANTES, at the Jules Verne MUSEUM! #line:0b5e2f3
-Let's discover this great WRITER together. #line:006e7fc
+Let's discover this WRITER and his fantastic VOYAGES. #line:006e7fc
+<<area area_init>>
 <<target ll_door>>
 ===
 
@@ -56,8 +57,8 @@ color: green
 type: panel_endgame
 actor:
 ---
-Now you know about Jules Verne and his BOOKS! #line:0174104 
-And you know what to do in Nantes.
+Now you know about Jules Verne and his BOOKS! #line:0174104
+When you come to Nantes, come and visit the MUSEUM! #line:0f72ec7 
 <<jump post_quest_activity>>
 ===
 
@@ -76,11 +77,22 @@ title: ll_door
 position: 337,219
 ---
 <<if HasCompletedTask("clean_sidewalk")>>
-    The Museum is now open! Talk to the director!
+    Thank you for cleaning up! #line:0cec96a 
+    The Museum is now open! Talk to the MUSEUM GUIDE! #line:0d2e2f0 
     <<SetActive museum_door false>>
-    <<target museum_director>>
+    <<area area_init>>
+    <<target museum_guide>>
 <<else>>
-    To enter the MUSEUM, clean the sidewalk first! #task:clean_sidewalk
+    What a MESS outside the MUSEUM! #line:0a3e2f4
+    <<camera_focus CameraSidewalk>>
+    That blue DOG was running and made a mess! #line:0210ef0 
+    I can't open the MUSEUM with this mess here. #line:0d58543 
+    <<camera_reset>>
+    Help me clean the sidewalk! #task:clean_sidewalk #line:01a9d0f 
+    <<SetActive antura false>>
+    <<SetActive trash_down false>>
+    <<SetActive trash_up true>>
+    <<area area_full>>
     <<task_start clean_sidewalk task_clean_done>>
 <<endif>>
 ===
@@ -88,15 +100,16 @@ position: 337,219
 title: task_clean_done
 position: 337,219
 ---
-Well done! Go back to the door keeper
+Well done! Go back to the door keeper #line:0f8dd6c 
 <<target ll_door>>
 ===
 
 
-title: museum_director
+title: museum_guide
 position: 337,219
 actor: ADULT_F
 ---
+<<area area_full>>
 <<if $COLLECTED_ITEMS == 0>>
     <<card jules_verne_1>>
     Welcome to the Jules Verne MUSEUM! #line:08f7bc1
@@ -110,8 +123,8 @@ actor: ADULT_F
     Keep looking for all Jules Verne's BOOKS! #line:0698674 
 <<else>>
     <<asset jules_verne_2>>
-    Thank you! Now the Museum is in order
-    Now we'll wait for your visit here in Nantes.
+    Thank you! Now the Museum is in order #line:0c81640 
+    Now we'll wait for your visit here in Nantes. #line:0db699e 
     <<jump quest_end>>
 <<endif>>
 ===
