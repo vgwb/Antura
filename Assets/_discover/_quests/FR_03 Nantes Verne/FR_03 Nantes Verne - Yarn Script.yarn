@@ -13,19 +13,40 @@
 // - jules_verne
 // - space_rocket
 // - submarine_nautilus
-//   - BROKEN balloon
 //   - BROKEN book_5weeksballoon
-//   - BROKEN jules_verne_1
 //   - BROKEN rocket
-//   - TODO concept_charter_of_secularism
-//   - TODO education_college_fr
-//   - TODO object_french_school_poster
-//   - TODO place_classroom
+//   - TODO train
 // TASKS
-//   - BROKEN FIND_BOOKS
+// - clean_museum
+// - clean_sidewalk
+// - find_balloon
+// - find_submarine
+// - museum_director
+//   - TODO find_rocket
+//   - TODO find_train
 // ACTIVITIES
-// - (none)
+// - jigsaw_verne_baloon
+// - jigsaw_verne_submarine
+// - match_verne_vehicles
+//   - BROKEN jigsaw_verne_baloon
+//   - BROKEN jigsaw_verne_submarine
+//   - TODO jigsaw_junes_verne
+//   - TODO jigsaw_verne_rocket
+//   - TODO jigsaw_verne_train
 // ACTABLE
+//   - TODO antura
+//   - TODO balloon
+//   - TODO balloon_lost
+//   - TODO book_20000
+//   - TODO ll_door
+//   - TODO museum_door
+//   - TODO museum_guide
+//   - TODO submarine
+//   - TODO submarine_lost
+//   - TODO trash_down
+//   - TODO tutor_20000
+//   - TODO tutor_5weeks
+//   - TODO tutor_earthmoon
 // WORDS: (none)
 // </scene_data>
 
@@ -49,7 +70,10 @@ actor:
 We are in NANTES, at the Jules Verne MUSEUM! #line:0b5e2f3
 Let's discover this WRITER and his fantastic VOYAGES. #line:006e7fc
 <<area area_init>>
-<<target ll_door>>
+<<target npc_door>>
+// DEBUG
+// <<set $museum_clean= true>>
+// <<SetActive museum_door false>>
 ===
 
 title: quest_end
@@ -75,7 +99,7 @@ As classroom activity, you can DRAW a SUBMARINE or a ROCKET! #line:087acef
 <<quest_end>>
 ===
 
-title: ll_door
+title: npc_door
 position: 337,219
 ---
 <<if HasCompletedTask("clean_sidewalk")>>
@@ -86,7 +110,7 @@ position: 337,219
     <<target museum_guide>>
 <<else>>
     What a MESS outside the MUSEUM! #line:0a3e2f4
-    <<camera_focus CameraSidewalk>>
+    <<camera_focus camera_sidewalk>>
     That blue DOG was running and made a mess! #line:0210ef0 
     I can't open the MUSEUM with this mess here. #line:0d58543 
     <<camera_reset>>
@@ -103,7 +127,7 @@ title: task_clean_done
 position: 337,219
 ---
 Well done! Go back to the door keeper #line:0f8dd6c 
-<<target ll_door>>
+<<target npc_door>>
 ===
 
 title: museum_guide
@@ -122,12 +146,12 @@ actor: ADULT_F
     Please match the BOOKS with their VEHICLES! #line:0245e0e 
     <<activity match_verne_vehicles activity_match_done>>
 <<elseif $COLLECTED_ITEMS >0>>
-    You are doing well!  #line:0c52f3c 
+    You are doing well! #line:0c52f3c 
 <<else>>
     We have another PROBLEM! #line:0a7dfb3 
     Our special vehicles are missing. #line:0bb46da 
     Please talk to the first room guardian. #line:0386706 
-    <<target ll_20000>>
+    <<target tutor_20000>>
 <<endif>>
 ===
 
@@ -147,189 +171,269 @@ Perfect. Now the Museum is clean! Go back to the MUSEUM GUIDE. #line:0b5eb24
 <<target museum_guide>>
 ===
 
-title: task_find_books
-position: 702,219
-tags: task
----
-We have a PROBLEM! #line:0ce15a5 
-A funny blue DOG took four BOOKS! #line:0a3686c 
-We need them for the MUSEUM. #line:02b4a0c 
-One book is about a trip around the WORLD, #line:02397be 
-another is about a ROCKET to the MOON, #line:025bb67 
-one is about a SUBMARINE under the SEA, #line:02d7ed8 
-and one is about a hot air BALLOON. #line:0c38d27 
-===
+// --------------------------------------------------------------------------- 
+// 20000 - SUBMARINE
 
-
-title: task_find_books_done
-position: 1043,219
-actor:
----
-You found all the BOOKS! #line:0fc503c 
-Go back to the MUSEUM DIRECTOR! #line:01b0c19 #task:museum_director
-<<task_start museum_director>>
-<<target museum_director>>
-===
-
-//////////////////////////// 200000
-
-title: ll_20000
+title: tutor_20000
 position: -360,540
 color: purple
 ---
 <<if HasCompletedTask("find_submarine")>>
-    <<camera_focus Camera20000>>
     You found the SUBMARINE! #line:0666ee2 
-    Now please fix it on its place. #line:02e7812 
-    <<activity jigsaw_verne_submarine>>
+    But it's BROKEN in pieces! #line:097c3fc 
+    Can you please fix it? #line:02e7812 
+    <<activity jigsaw_verne_submarine activity_submarine_done>>
 <<else>>
-<<card submarine_nautilus>>
+    <<card submarine_nautilus>>
     Help! The Nautilus is missing! #line:00a6154 
-    Find the SUBMARINE #task:find_submarine #line:0bb264b 
+    Find the SUBMARINE #task:find_submarine #line:0bb264b
+    If you can't find it, USE THE MAP #line:05bc5e9 
     <<SetActive submarine_lost true>>
-    <<task_start find_submarine nodeReturn>>
+    <<task_start find_submarine>>
 <<endif>>
 ===
 
-title: jigsaw_verne_submarine_done
+title: activity_submarine_done
 position: -360,540
 ---
-<<camera_focus Camera20000>>
+<<camera_focus camera_20000>>
 <<SetActive submarine true>>
-Thank you! #line:0ba85d3 
+You repaired it! Thank you! #line:0ba85d3 
 <<camera_reset>>
-Now go to next guardian #line:09438f6 
-<<target ll_5weeks>>
+Now go to next guardian. #line:09438f6 
+<<target tutor_5weeks>>
 ===
 
-title: find_submarine_done
-position: -360,540
-color: purple
+title: submarine_lost
+position: 695,699
+color: yellow
 ---
+<<card submarine_nautilus>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+Great! Now bring it back to its guardian #line:0757b30 
+<<collect>>
+<<target tutor_20000>>
+===
 
-Great, Now bring it back to its guardian #line:07ac4a8 
+title: submarine
+position: 695,699
+color: yellow
+---
+<<card submarine_nautilus>>
+A SUBMARINE moves under the SEA. #line:06aef1a 
 ===
 
 title: book_20000
 position: 370,670
 color: yellow
-actor: 
 ---
 <<card book_20000_leagues_under_the_sea>>
 This BOOK is "20,000 Leagues Under the Seas." #line:03536a1 
 A SUBMARINE travels UNDERWATER. #line:0dcb855 
 ===
 
-title: submarine
+
+// --------------------------------------------------------------------------- 
+// 5 weeks - BALLOON
+
+title: tutor_5weeks
+position: -360,540
+color: purple
+---
+<<if HasCompletedTask("find_balloon")>>
+    You found the HOT AIR BALLOON! #line:0286510
+    But it's BROKEN in pieces! #shadow:097c3fc 
+    Can you please fix it? #shadow:02e7812 
+    <<activity jigsaw_verne_balloon activity_balloon_done>>
+<<elseif HasCompletedTask("find_submarine")>>
+    <<card hot_air_balloon>>
+    Help! Something is missing! #line:0e928ab 
+    Find the HOT AIR BALLOON #task:find_balloon #line:0a1520b
+    If you can't find it, USE THE MAP #shadow:05bc5e9
+    <<SetActive balloon_lost true>>
+    <<task_start find_balloon>>
+<<else>>
+    Come back to me later. #line:03af9a8 
+<<endif>>
+===
+
+title: activity_balloon_done
+position: -360,540
+---
+<<camera_focus camera_5weeks>>
+<<SetActive balloon true>>
+You repaired it! Thank you! #shadow:0ba85d3 
+<<camera_reset>>
+Now go to next guardian. #shadow:09438f6 
+<<target tutor_earthmoon>>
+===
+
+title: balloon_lost
 position: 695,699
-actor: 
+color: yellow
 ---
-<<asset submarine>>
+<<card hot_air_balloon>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
-Great, Now bring it back to its guardian  #line:0757b30 
+Great! Now bring it back to its guardian #shadow:0757b30 
 <<collect>>
-<<target ll_20000>>
+<<target tutor_5weeks>>
 ===
 
-
-
-
-
-
-
-
-
-
-title: book_80days
-position: 382,873
-color: yellow
-actor: 
----
-<<asset book_80days>>
-This BOOK is "Around the World in 80 Days." #line:03131e3
-<<jump train>>
-===
-title: train
-position: 709,885
-tags: item
----
-<<asset train>>
-This is an old TRAIN. #line:0732ebc 
-<<action COLLECT_TRAIN>>
-===
-
-title: npc_train
-position: -360,360
-color: purple
-actor: ADULT_M
----
-=> This old TRAIN used STEAM to move.  #line:0d10edc 
-    <<card book_around_the_world_80_days>>
-=> TRAINS made long trips faster.  #line:00a9db2 
-    <<card book_around_the_world_80_days>>
-===
-
-title: paint_moon
-position: 709,1062
----
-<<card rocket>>
-This is a space ROCKET. #line:0e5ae78 
-===
-
-title: book_moon
-position: 356,1067
+title: balloon
+position: 695,699
 color: yellow
 ---
-<<asset book_earthmoon>>
-This BOOK is "From the Earth to the Moon." #line:06df7d0 
-<<jump paint_moon>>
-===
-
-
-title: npc_rocket
-position: -360,450
-color: purple
----
-=> A ROCKET pushes hard to leave EARTH. #line:06b6d4d 
-    <<card book_from_earth_to_moon>>
-=> Jules Verne imagined space TRAVEL. #line:0cd7302 
-    <<card book_from_earth_to_moon>>
-===
-
-
-
-
-
-title: paint_5weeks
-position: 681,490
-actor: 
----
-<<card balloon>>
-This is a hot air BALLOON. #line:06a7709 
+<<card hot_air_balloon>>
+A BALLOON goes up with warm AIR.  #line:0131b99 
+It moves with the WIND. #line:09a8c21 
 ===
 
 title: book_5weeks
-position: 387,480
+position: 370,670
 color: yellow
-actor: 
 ---
 <<card book_5weeksballoon>>
-This BOOK is "Five Weeks in a Balloon." #line:0934a7c 
-<<jump paint_5weeks>>
+This BOOK is "Five Weeks in a Balloon." #line:0c3d777 
+A BALLOON rises because warm AIR is light. #line:020d924 
 ===
 
-title: npc_balloon
-position: -360,630
+
+// --------------------------------------------------------------------------- 
+// EARTH MOON - ROCKET
+
+
+title: tutor_earthmoon
+position: -360,540
 color: purple
 ---
-=> A BALLOON goes up with warm AIR.  #line:0131b99 
-    <<card hot_air_balloon>>
-=> It moves with the WIND.  #line:09a8c21 
-    <<card hot_air_balloon>>
+<<if HasCompletedTask("find_rocket")>>
+    You found the ROCKET! #line:08fed68 
+    But it's BROKEN in pieces! #shadow:097c3fc
+    Can you please fix it? #shadow:02e7812
+    <<activity jigsaw_verne_rocket activity_rocket_done>>
+<<elseif HasCompletedTask("find_balloon")>>
+    <<card space_rocket>>
+    Help! Our most precious machine is missing! #line:07c4369 
+    Find the SPACE ROCKET #task:find_rocket #line:03efbc0 
+    If you can't find it, USE THE MAP #shadow:05bc5e9
+    <<SetActive rocket_lost true>>
+    <<task_start find_rocket>>
+<<else>>
+    Come back to me later. #shadow:03af9a8 
+<<endif>>
 ===
 
-///////// OBJECCTS
+title: activity_rocket_done
+position: -360,540
+---
+<<camera_focus camera_earthmoon>>
+<<SetActive rocket true>>
+You repaired it! Thank you! #shadow:0ba85d3 
+<<camera_reset>>
+Now go to next guardian. #shadow:09438f6 
+<<target tutor_80days>>
+===
+
+title: rocket_lost
+position: 695,699
+color: yellow
+---
+<<card space_rocket>>
+<<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+Great! Now bring it back to its guardian #shadow:0757b30 
+<<collect>>
+<<target tutor_earthmoon>>
+===
+
+title: rocket
+position: 695,699
+color: yellow
+---
+<<card space_rocket>>
+This is a space ROCKET. #line:0de00ff 
+A ROCKET pushes hard to leave EARTH. #line:06b6d4d 
+===
+
+title: book_earthmoon
+position: 370,670
+color: yellow
+---
+<<card book_earthmoon>>
+Jules Verne imagined ROCKETS and space TRAVEL long ago. #line:0907ccb 
+The story has a huge space CANNON to launch the ROCKET #line:05e298d 
+===
+
+
+// --------------------------------------------------------------------------- 
+// 80 DAYS - TRAIN
+
+
+title: tutor_80days
+position: -360,540
+color: purple
+---
+<<if HasCompletedTask("find_train")>>
+    You found the TRAIN! #line:01f76f3 
+    But it's BROKEN in pieces! #shadow:097c3fc
+    Can you please fix it? #shadow:02e7812
+    <<activity jigsaw_verne_train activity_train_done>>
+<<elseif HasCompletedTask("find_balloon")>>
+    <<card train>>
+    Help! We lost the TRAIN! #line:08cfbc0 
+    Find the OLD STEAM TRAIN #task:find_train #line:036574d
+    If you can't find it, USE THE MAP #shadow:05bc5e9
+    <<SetActive train_lost true>>
+    <<task_start find_train>>
+<<else>>
+    Come back to me later. #shadow:03af9a8 
+<<endif>>
+===
+
+title: activity_train_done
+position: -360,540
+---
+<<camera_focus camera_80days>>
+<<SetActive train true>>
+You repaired it! Thank you! #shadow:0ba85d3 
+<<camera_reset>>
+You found all the vehicles! #line:084486e 
+Go back to the MUSEUM GUIDE! #line:0ee83b2 #task:back_to_museum_guide
+<<task_start back_to_museum_guide>>
+<<target museum_guide>>
+===
+
+title: train_lost
+position: 695,699
+color: yellow
+---
+<<card train>>
+<<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+Great! Now bring it back to its guardian #shadow:0757b30 
+<<collect>>
+<<target tutor_80days>>
+===
+
+title: train
+position: 695,699
+color: yellow
+---
+<<card train>>
+A TRAIN runs on RAILS. #line:0998347 
+This old TRAIN used STEAM to move. #line:0b7b198 
+TRAINS made long trips faster. #line:05130c0 
+===
+
+title: book_80days
+position: 370,670
+color: yellow
+---
+<<card book_80days>>
+This BOOK is "Around the World in 80 Days." #line:03131e3
+It shows many places on EARTH. #line:0bcc84d 
+===
+
+// ---------------------------------------------------------------------------
+// OBJECTS
 
 title: verne_painting
 position: 351,-354
@@ -368,13 +472,9 @@ actor:
 spawn_group: visitors 
 ---
 => I love reading BOOKS! #line:00f3a57 
-    <<card book_around_the_world_80_days>>
 => Jules Verne invented science FICTION stories. #line:056e79e 
-    <<card jules_verne>>
 => Jules Verne wrote many BOOKS! #line:0caca1b 
-    <<card jules_verne>>
 => People read his BOOKS in many languages! #line:0f5f36d 
-    <<card jules_verne>>
 ===
 
 title: spawned_kid_visitor
@@ -383,39 +483,12 @@ color: purple
 actor: KID_M
 spawn_group: visitors 
 ---
-=> I like the story about the WORLD. #line:0e81901 
-    <<card book_around_the_world_80_days>>
-=> The SUBMARINE Nautilus is amazing. #line:08669ce 
-    <<card submarine_nautilus>>
-=> I want to ride a BALLOON one day. #line:00be1f0 
-    <<card hot_air_balloon>>
-=> The ROCKET to the MOON looks fast. #line:07ee86b 
-    <<card space_rocket>>
+=> I like the story about the WORLD. #line:0e81901 #card:book_around_the_world_80_days
+=> The SUBMARINE Nautilus is amazing. #line:08669ce #card:submarine_nautilus
+=> I want to ride a BALLOON one day. #line:00be1f0 #card:hot_air_balloon
+=> The ROCKET to the MOON looks fast. #line:07ee86b #card:space_rocket
 ===
 
-title: spawned_guide_woman
-position: -360,180
-color: purple
-actor: ADULT_F
-spawn_group: guides 
----
-=> That BOOK shows many places on EARTH. #line:0bcc84d 
-    <<card book_around_the_world_80_days>>
-=> The Nautilus is a SUBMARINE. #line:0a998ac 
-    <<card book_20000_leagues_under_the_sea>>
-=> Jules Verne imagined ROCKETS long ago. #line:01e7e5c 
-    <<card book_from_earth_to_moon>>
-=> That BOOK is about a BALLOON trip. #line:09e090d 
-    <<card book_five_weeks_in_a_balloon>>
-=> That BOOK has a huge space CANNON. #line:0f07e41 
-    <<card book_from_earth_to_moon>>
-=> That BOOK has a SUBMARINE. #line:09b9d24 
-    <<card book_20000_leagues_under_the_sea>>
-=> A BALLOON rises because warm AIR is light. #line:0281b73 
-    <<card hot_air_balloon>>
-=> Many ideas in his BOOKS became real. #line:06e1473 
-    <<card jules_verne>>    
-===
 
 title: spawned_guide
 position: -360,270
@@ -426,6 +499,7 @@ spawn_group: guides
 Do you know who Jules Verne is? #line:00b1d04 
 -> Yes, he is a WRITER! #line:07f7b4b 
 -> No, who is he? #line:06fb1cd 
-Jules Verne was a French WRITER. He was born near here.  #line:0c790cf 
-He wrote very famous adventure BOOKS. #line:0f92a05 
+Jules Verne was a French WRITER. He was born near here. #line:0c790cf 
+He wrote very famous adventure BOOKS. #line:0f92a05
+Many ideas in his BOOKS became real. #line:06e1473 
 ===
