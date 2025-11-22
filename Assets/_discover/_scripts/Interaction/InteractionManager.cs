@@ -71,11 +71,6 @@ namespace Antura.Discover
             {
                 UpdateWorld();
             }
-            else if (DiscoverGameManager.I.State == GameplayState.Dialogue
-            || DiscoverGameManager.I.State == GameplayState.PlayActivity)
-            {
-                UpdateDialogue();
-            }
         }
 
         void UpdateWorld()
@@ -84,14 +79,6 @@ namespace Antura.Discover
             {
                 DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(NearbyInteractable);
             }
-        }
-
-        void UpdateDialogue()
-        {
-            // if (Input.GetKeyDown(KeyCode.Escape))
-            //     ExitDialogue();
-            // if (IsUsingFocusView && Input.GetMouseButtonDown(0))
-            //     ResetCameraFocus();
         }
 
         #endregion
@@ -243,17 +230,6 @@ namespace Antura.Discover
 
                 UIManager.I.dialogues.HideSignal(activeInteractable, false);
             }
-
-            // if (questNode == null)
-            // {
-            //     Debug.LogError("QuestNode is NULL, shouldn't happen");
-            // }
-            // else
-            // {
-            //     yield return new WaitForSeconds(0.5f);
-            //     UIManager.I.dialogues.StartDialogue(questNode);
-            // }
-            // coStartDialogue = null;
         }
 
         void ExitDialogue()

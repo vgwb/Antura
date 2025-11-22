@@ -239,7 +239,6 @@ namespace Antura.Discover
                 Debug.Log("Remove item " + itemCode);
                 collected_items--;
                 //YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
-                UpateItemsCounter();
             }
         }
 
@@ -260,23 +259,11 @@ namespace Antura.Discover
         private void updateCounters()
         {
             UpateCoinsCounter();
-            UpateItemsCounter();
         }
 
         public void UpdateProgressScore(int counter)
         {
             UIManager.I.ProgressDisplay.SetCurrentScore(counter);
-        }
-
-        public void UpateItemsCounter()
-        {
-            // int questItemsTarget = YarnAnturaManager.I.Variables.QUEST_ITEMS;
-            // if (questItemsTarget > 0)
-            // {
-            //     UIManager.I.TaskDisplay.gameObject.SetActive(true);
-            //     UIManager.I.TaskDisplay.SetTargetItems(questItemsTarget);
-            //     UIManager.I.TaskDisplay.SetTotItemsCollected(collected_items);
-            // }
         }
 
         public void UpateCoinsCounter()
@@ -290,7 +277,7 @@ namespace Antura.Discover
             total_coins++;
             // YarnAnturaManager.I.Variables.TOTAL_COINS = total_coins;
             UIManager.I.CoinsCounter.IncreaseByOne();
-            Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
+            //Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
         }
 
         // Yarn bindings

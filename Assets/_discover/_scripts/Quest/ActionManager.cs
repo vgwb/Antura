@@ -16,10 +16,9 @@ namespace Antura.Discover
         [Tooltip("if set, it will be resolved at the start of the game")]
         public string DebugAction;
 
-        [Tooltip("The starting location of the player, if set, goes here")]
+        [Tooltip("The optional starting location of the player")]
         public PlayerSpawnPoint PlayerSpawnPoint;
         private GameObject PlayerSpawnPointGO;
-
         public Transform CurrentPlayerSpawnTransform => PlayerSpawnPointGO != null ? PlayerSpawnPointGO.transform : null;
 
         public QuestActionData[] QuestActions;
@@ -105,31 +104,17 @@ namespace Antura.Discover
         public void ResolveQuestAction(string action, QuestNode node = null)
         {
             action = action.ToLower();
-
-            if (action == "update_ui")
+            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
+            if (actionData == null)
             {
-                QuestManager.I.UpateItemsCounter();
-                QuestManager.I.UpateCoinsCounter();
+                Debug.LogWarning("Action not found: " + action);
                 return;
             }
-            else if (action == "game_end" || action == "win")
-            {
-                QuestEnd();
-                return;
-            }
-            else
-            {
-                var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
-                if (actionData == null)
-                {
-                    Debug.LogWarning("Action not found: " + action);
-                    return;
-                }
 
-                ResolveCommands(actionData.Commands);
-            }
+            ResolveCommands(actionData.Commands);
         }
 
+        #region Command Resolvers
         public void ResolveAreaCommand(string areaCode)
         {
             areaCode = areaCode.ToLower();
@@ -227,10 +212,11 @@ namespace Antura.Discover
 
         public void CommandSetActive(string name, bool active)
         {
-            // Debug.LogWarning($"CommandSetActive '{name}' set to {active}.");
             var triggerable = FindActableInChildren(name);
+            //Debug.Log($"CommandSetActive found {triggerable?.name} - name {name} set to {active}.");
             if (triggerable != null)
             {
+                //Debug.Log("SetActive " + triggerable.gameObject.name);
                 triggerable.gameObject.SetActive(active);
             }
             else
@@ -238,6 +224,7 @@ namespace Antura.Discover
                 Debug.LogWarning($"Triggerable '{name}' not found under ActionManager hierarchy.");
             }
         }
+        #endregion
 
         public void ResolveCommands(List<CommandData> commands)
         {
@@ -346,13 +333,15 @@ namespace Antura.Discover
 
         private void QuestEnd()
         {
-            WinFx.SetActive(true);
-            WinFx.GetComponent<ParticleSystem>().Play();
+            if (WinFx != null)
+            {
+                WinFx.SetActive(true);
+                WinFx.GetComponent<ParticleSystem>().Play();
+            }
             AudioManager.I.PlaySound(Sfx.Win);
-            AnturaDog.SetActive(true);
-            QuestManager.I.QuestEnd();
         }
 
+        #region Find Methods
         public CameraFocusData FindCameraFocus(string id, bool includeInactive = true)
         {
             Debug.Log("ActionManager: FindCameraFocus: " + id);
@@ -393,12 +382,7 @@ namespace Antura.Discover
             return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase)
                                         || string.Equals(t.gameObject.name, name, StringComparison.OrdinalIgnoreCase));
         }
-
-        #region Debug Methods
-        public void TestQuestEnd()
-        {
-            QuestEnd();
-        }
         #endregion
+
     }
 }

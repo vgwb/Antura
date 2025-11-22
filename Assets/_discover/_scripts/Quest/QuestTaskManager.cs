@@ -115,8 +115,6 @@ namespace Antura.Discover
             if (!string.IsNullOrEmpty(task.ItemTag) && !string.Equals(task.ItemTag, tag))
                 return;
 
-
-
             task.IncrementCollected();
             UIManager.I.TaskDisplay.SetTotItemsCollected(task.Collected);
 
@@ -131,8 +129,8 @@ namespace Antura.Discover
                     if (DiscoverGameManager.I.State != GameplayState.Dialogue)
                     {
                         Debug.Log($"NOT dialogue.");
-                        EndTaskNodeToRun = "";
-                        YarnAnturaManager.I?.StartDialogue(nodeReturn);
+                        EndTaskNodeToRun = nodeReturn;
+                        CheckAndRunEndTaskNode();
                     }
                     else
                     {
@@ -143,13 +141,14 @@ namespace Antura.Discover
             }
         }
 
-        public void CheckEndTaskNode()
+        public void CheckAndRunEndTaskNode()
         {
-            Debug.Log($"QuestTaskManager: CheckEndTaskNode called, EndTaskNodeToRun is '{EndTaskNodeToRun}'");
+            Debug.Log($"QuestTaskManager: CheckAndRunEndTaskNode called, EndTaskNodeToRun is '{EndTaskNodeToRun}'");
             if (!string.IsNullOrEmpty(EndTaskNodeToRun))
             {
                 var nodeToRun = EndTaskNodeToRun;
                 EndTaskNodeToRun = "";
+                InteractionManager.I.StartDialogue(null);
                 YarnAnturaManager.I?.StartDialogueAgain(nodeToRun);
             }
         }
@@ -165,7 +164,8 @@ namespace Antura.Discover
 
             if (EndTask(taskCode, true) && !string.IsNullOrEmpty(nodeReturn))
             {
-                YarnAnturaManager.I?.StartDialogue(nodeReturn);
+                EndTaskNodeToRun = nodeReturn;
+                CheckAndRunEndTaskNode();
             }
         }
 
@@ -180,7 +180,8 @@ namespace Antura.Discover
 
             if (EndTask(taskCode, true) && !string.IsNullOrEmpty(nodeReturn))
             {
-                YarnAnturaManager.I?.StartDialogue(nodeReturn);
+                EndTaskNodeToRun = nodeReturn;
+                CheckAndRunEndTaskNode();
             }
         }
 

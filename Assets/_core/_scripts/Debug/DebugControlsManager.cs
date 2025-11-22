@@ -94,7 +94,7 @@ namespace Antura.Debugging
                 else InteractionManager.I.ActivateWorldTargetIcon(true, beam.transform);
             }),
             new DebugCommand("Quest END", CommandCondition.OnPress, KeyCode.E, KeyModifier.Shift, on => {
-                ActionManager.I.TestQuestEnd();
+                QuestManager.I.QuestEnd();
             })
         };
 

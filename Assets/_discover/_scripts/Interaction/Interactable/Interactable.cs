@@ -206,6 +206,7 @@ namespace Antura.Discover
             else if (NodePermalink != "")
             {
                 Debug.Log($"Interactable: Execute - NodePermalink: {NodePermalink}");
+                InteractionManager.I.StartDialogue(this);
                 QuestManager.I.StartDialogue(NodePermalink);
             }
 

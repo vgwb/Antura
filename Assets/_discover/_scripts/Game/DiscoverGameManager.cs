@@ -164,7 +164,7 @@ namespace Antura.Discover
                 ChangeState(GameplayState.Play3D, true);
             }
 
-            QuestManager.I.TaskManager.CheckEndTaskNode();
+            QuestManager.I.TaskManager.CheckAndRunEndTaskNode();
 
             if (GameEndStars >= 0)
             {
