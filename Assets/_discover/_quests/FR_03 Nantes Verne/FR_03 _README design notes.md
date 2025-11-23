@@ -1,13 +1,21 @@
 ## Game Design Notes
-Let’s go to Nantes and discover who Jules Verne was and discover some transport vehicles.
 
-- He was born in Nantes in 1828
-- He is a writer 
-- He has written le tour du monde en 80 jours
+**Core Subject:** Literature, Vocabulary (Vehicles/Travel), and Civic Responsibility.
 
-Other books:
+### Player Objectives
 
-- train & boat in Le tour du monde en 80 jours
-- hot air balloon in cinq semaines en ballon
-- submarin in 20.000 lieues sous les mers
-- rocket in de la terre à la lune 
+**Civic Duty:** The player arrives to find the museum in disarray. They must first help the staff by cleaning the sidewalk and tidying up the museum hall to make it ready for visitors.
+
+**Literary Exploration:** The Museum Guide tasks the player with finding four missing exhibits corresponding to Verne's famous novels: a Submarine, a Hot Air Balloon, a Rocket, and a Steam Train.
+
+**Restoration & Learning:** Upon finding each object, the player repairs it (via a jigsaw puzzle) and learns facts about the vehicle and the book it comes from (e.g., linking the Nautilus to 20,000 Leagues Under the Sea).
+
+**Final Assessment:** The quest concludes with a matching activity where the player must correctly pair each book with its specific vehicle.
+
+### Educational Content
+
+**Cultural Figure:** Introduces Jules Verne as a famous writer born in Nantes who imagined future technologies.
+
+**Vocabulary:** Focuses on travel and vehicle words (Submarine, Rocket, Balloon, Train, Steam, Earth, Moon).
+
+**Reading Comprehension:** Players read simple descriptions of the books to understand the function of each vehicle
