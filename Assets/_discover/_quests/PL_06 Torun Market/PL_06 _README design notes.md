@@ -1,4 +1,3 @@
-## Game Design Notes
 
 **Core Subject:** Food, Commerce, and Social Etiquette.
 

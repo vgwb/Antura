@@ -1,19 +1,23 @@
 ---
-title: Tutorial (tutorial)
+title: Tutoriel (tutorial)
 hide:
 ---
 
-# Tutorial (tutorial)
+# Tutoriel (tutorial)
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
 > **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
 
 Version: 1.00  
-Status: Production  
+Status: NeedsReview  
 Location: International
 
 Let's learn how to play Antura Discover!
+
+## Quest Script
+
+[See the full script here](./tutorial-script.md)
 
 ## Content
 Subjects: 
@@ -39,12 +43,6 @@ Subjects:
 Talk to them all...  they have stories to tell!  
   - **[Danger](../../cards/index.md#antura_malus)**  
     Something you should not do! Be careful and stay safe.  
-
-## Quest Script
-
-[See the full script here](./tutorial-script.md)
-
----
 
 ## Words
 ## Activities

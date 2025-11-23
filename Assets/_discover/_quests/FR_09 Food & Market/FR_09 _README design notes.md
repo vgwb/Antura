@@ -1,4 +1,3 @@
-## Game Design
 
 **Core Subject:** Food, Commerce, and Social Etiquette.
 

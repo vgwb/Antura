@@ -29,27 +29,25 @@ hide:
 <span class="yarn-header-dim">// Activities:</span>
 <span class="yarn-header-dim">// - money activities to pay</span>
 <span class="yarn-header-dim">// - collect ingredients (eggs, flour, milk, butter, honey, cloves, cinnamon, ginger)</span>
-<span class="yarn-header-dim">// - buy pierogi for the cook</span>
 <span class="yarn-header-dim">// - bake gingerbread (order/memory of ingredients)</span>
 <span class="yarn-header-dim">// - Pierogi Challenge: order/memory of ingredients (flour, eggs, cheese, potatoes)</span>
 <span class="yarn-header-dim">// Words used: Toruń, market, vendor, grocer, beekeeper, dairy, eggs, milk, butter, flour, honey, cloves, cinnamon, ginger, pierogi, molds, coins, zloty, kitchen, gingerbread, medieval</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $ingredients = 0&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $needed_ingredients = 8&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $pierogi_bought = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $got_eggs = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $got_flour = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $got_milk = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $got_butter = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $got_honey = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_cloves = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_cinnamon = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_ginger = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card medieval_market&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $got_honey = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $got_milk = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $got_butter = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $got_eggs = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $got_flour = false&gt;&gt;</span>
+
 <span class="yarn-line">Welcome to TORUŃ!</span> <span class="yarn-meta">#line:080555e </span>
+<span class="yarn-line">Let's go to the MARKET.</span> <span class="yarn-meta">#line:03e11fa </span>
+<span class="yarn-cmd">&lt;&lt;target npc_cook&gt;&gt;</span>
 
 </code>
 </pre>
@@ -94,162 +92,206 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-intro"></a>
+<a id="ys-node-cook"></a>
 
-## intro
+## cook
 
-<div class="yarn-node" data-title="intro">
+<div class="yarn-node" data-title="cook">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: cook</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Antura is free but hungry.</span> <span class="yarn-meta">#line:0382fdb </span>
-<span class="yarn-cmd">&lt;&lt;card torun_town_hall&gt;&gt;</span>
-<span class="yarn-line">Let's go to the TORUŃ market.</span> <span class="yarn-meta">#line:03e11fa </span>
-<span class="yarn-line">We will get food and ingredients.</span> <span class="yarn-meta">#line:0522f6a </span>
-
+&lt;&lt;if GetCollectedItem("COLLECT_INGREDIENTS") &gt;= 8&gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;jump cook_ingredients_done&gt;&gt;</span>
+&lt;&lt;elseif GetCollectedItem("COLLECT_INGREDIENTS") &gt; 0&gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;jump cook_not_enough&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump cook_welcome&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-market-hub"></a>
+<a id="ys-node-cook-welcome"></a>
 
-## market_hub
+## cook_welcome
 
-<div class="yarn-node" data-title="market_hub">
+<div class="yarn-node" data-title="cook_welcome">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: cook</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card butcher&gt;&gt;</span>
-<span class="yarn-line">Visit stands and talk to vendors.</span> <span class="yarn-meta">#line:0c470ae </span>
-<span class="yarn-line">Grocer (spices)</span> <span class="yarn-meta">#line:0c33932 </span>
-	<span class="yarn-cmd">&lt;&lt;camera_focus shop_grocer&gt;&gt;</span>
-<span class="yarn-line">Beekeeper (honey)</span> <span class="yarn-meta">#line:0431cbc </span>
-	<span class="yarn-cmd">&lt;&lt;camera_focus shop_beekeeper&gt;&gt;</span>
-<span class="yarn-line">Dairy vendor (milk, butter)</span> <span class="yarn-meta">#line:0bfeb9e </span>
-	<span class="yarn-cmd">&lt;&lt;camera_focus shop_dairy&gt;&gt;</span>
-<span class="yarn-line">Egg vendor (eggs)</span> <span class="yarn-meta">#line:0aed436 </span>
-	<span class="yarn-cmd">&lt;&lt;camera_focus shop_eggs&gt;&gt;</span>
-<span class="yarn-line">Greengrocer (fruits, vegetables)</span> <span class="yarn-meta">#line:0b3cc4d </span>
-	<span class="yarn-cmd">&lt;&lt;camera_focus shop_greengrocer&gt;&gt;</span>
-<span class="yarn-line">Cook (pierogi)</span> <span class="yarn-meta">#line:0486ae8 </span>
-	<span class="yarn-cmd">&lt;&lt;camera_focus shop_cook&gt;&gt;</span>
+<span class="yarn-line">Dzień dobry! I am the COOK.</span> <span class="yarn-meta">#line:07fb019 </span>
+<span class="yarn-line">I want to make PIEROGI and GINGERBREAD.</span> <span class="yarn-meta">#line:0201a0f </span>
+<span class="yarn-line">But I need INGREDIENTS.</span> <span class="yarn-meta">#line:00a46f0 </span>
+<span class="yarn-cmd">&lt;&lt;jump task_ingredients&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-shop-grocer"></a>
+<a id="ys-node-task-ingredients"></a>
 
-## shop_grocer
+## task_ingredients
 
-<div class="yarn-node" data-title="shop_grocer">
+<div class="yarn-node" data-title="task_ingredients">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
+<span class="yarn-header-dim">group: cook</span>
+<span class="yarn-header-dim">tags: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Go to the MARKET and buy INGREDIENTS.</span> <span class="yarn-meta">#line:0c35a9c </span>
+<span class="yarn-cmd">&lt;&lt;detour task_ingredients_desc&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start COLLECT_INGREDIENTS task_ingredients_done&gt;&gt;</span>
+<span class="yarn-line">Remember to say "Dzień dobry" (Hello)</span> <span class="yarn-meta">#line:091bb57 </span>
+<span class="yarn-line">and "Dziękuję" (Thank you).</span> <span class="yarn-meta">#line:076ffac </span>
+<span class="yarn-cmd">&lt;&lt;area area_full&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-ingredients-desc"></a>
+
+## task_ingredients_desc
+
+<div class="yarn-node" data-title="task_ingredients_desc">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">type: task</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Collect all the ingredients for the recipe.</span> <span class="yarn-meta">#line:00565e5 </span>
+<span class="yarn-line">CLOVES</span> <span class="yarn-meta">#line:0feb774 </span>
+<span class="yarn-line">CINNAMON</span> <span class="yarn-meta">#line:0ba5cca </span>
+<span class="yarn-line">GINGER</span> <span class="yarn-meta">#line:0a700e3 </span>
+<span class="yarn-line">HONEY</span> <span class="yarn-meta">#line:0e22cab </span>
+<span class="yarn-line">MILK</span> <span class="yarn-meta">#line:08e580d </span>
+<span class="yarn-line">BUTTER</span> <span class="yarn-meta">#line:0bfb896 </span>
+<span class="yarn-line">EGGS</span> <span class="yarn-meta">#line:0de2001 </span>
+<span class="yarn-line">FLOUR</span> <span class="yarn-meta">#line:070b733 </span>
+<span class="yarn-cmd">&lt;&lt;card_hide&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-cook-not-enough"></a>
+
+## cook_not_enough
+
+<div class="yarn-node" data-title="cook_not_enough">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: cook</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">You don't have all INGREDIENTS!</span> <span class="yarn-meta">#line:003f24d </span>
+<span class="yarn-line">Visit the VENDORS in the MARKET.</span> <span class="yarn-meta">#line:0d691b9 </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-ingredients-done"></a>
+
+## task_ingredients_done
+
+<div class="yarn-node" data-title="task_ingredients_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: cook</span>
+<span class="yarn-header-dim">type: panel</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;target npc_cook&gt;&gt;</span>
+<span class="yarn-line">You got all INGREDIENTS!</span> <span class="yarn-meta">#line:03f7a4a </span>
+<span class="yarn-line">Go back to the COOK.</span> <span class="yarn-meta">#line:0222915 </span>
+<span class="yarn-cmd">&lt;&lt;task_start go_back_cook&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-cook-ingredients-done"></a>
+
+## cook_ingredients_done
+
+<div class="yarn-node" data-title="cook_ingredients_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: cook</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Magnifique! You have everything.</span> <span class="yarn-meta">#line:0bb1792 </span>
+<span class="yarn-line">Let's bake TORUŃ GINGERBREAD!</span> <span class="yarn-meta">#line:0b5d503</span>
+<span class="yarn-cmd">&lt;&lt;jump bake_gingerbread&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-grocer"></a>
+
+## grocer
+
+<div class="yarn-node" data-title="grocer">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: grocer</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I sell CLOVES, CINNAMON, GINGER. I am a grocer.</span> <span class="yarn-meta">#line:0a66f1e </span>
-<span class="yarn-line">Buy cloves (1zł)</span> <span class="yarn-meta">#line:0eff39a </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_cloves&gt;&gt;</span>
-<span class="yarn-line">Buy cinnamon (1zł)</span> <span class="yarn-meta">#line:02f52e1 </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_cinnamon&gt;&gt;</span>
-<span class="yarn-line">Buy ginger (1zł)</span> <span class="yarn-meta">#line:077537d </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_ginger&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $got_cloves and $got_cinnamon and $got_ginger&gt;&gt;</span>
+<span class="yarn-line">    You bought all my SPICES!</span> <span class="yarn-meta">#line:01e336a </span>
+<span class="yarn-line">    Dziękuję!</span> <span class="yarn-meta">#line:thanks</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Dzień dobry!</span> <span class="yarn-meta">#line:hello</span>
+        <span class="yarn-cmd">&lt;&lt;jump grocer_hello&gt;&gt;</span>
+        -&gt; Dziękuję! #shadow:thanks
+        <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-shop-beekeeper"></a>
+<a id="ys-node-grocer-hello"></a>
 
-## shop_beekeeper
+## grocer_hello
 
-<div class="yarn-node" data-title="shop_beekeeper">
+<div class="yarn-node" data-title="grocer_hello">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: grocer</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card beekeeper&gt;&gt;</span>
-<span class="yarn-line">I sell HONEY. I am a beekeeper.</span> <span class="yarn-meta">#line:001922d </span>
-<span class="yarn-line">Buy honey (1zł)</span> <span class="yarn-meta">#line:086cd0b </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_honey&gt;&gt;</span>
+<span class="yarn-line">Dzień dobry! I sell SPICES.</span> <span class="yarn-meta">#line:0a66f1e</span>
+<span class="yarn-cmd">&lt;&lt;jump grocer_question&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-shop-dairy"></a>
+<a id="ys-node-grocer-question"></a>
 
-## shop_dairy
+## grocer_question
 
-<div class="yarn-node" data-title="shop_dairy">
+<div class="yarn-node" data-title="grocer_question">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: grocer</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
+<span class="yarn-header-dim">tags: type=Choice</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card dairy_vendor&gt;&gt;</span>
-<span class="yarn-line">I sell MILK and BUTTER. I am a dairy vendor.</span> <span class="yarn-meta">#line:0acb509 </span>
-<span class="yarn-line">Buy milk (5zł)</span> <span class="yarn-meta">#line:0cd7285 </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_milk&gt;&gt;</span>
-<span class="yarn-line">Buy butter (5zł)</span> <span class="yarn-meta">#line:0e1775b </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_butter&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-shop-eggs"></a>
-
-## shop_eggs
-
-<div class="yarn-node" data-title="shop_eggs">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card egg_vendor&gt;&gt;</span>
-<span class="yarn-line">I sell EGGS. I am an egg vendor.</span> <span class="yarn-meta">#line:03de236 </span>
-<span class="yarn-line">Buy eggs (10zł)</span> <span class="yarn-meta">#line:07a79e8 </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_eggs&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-shop-greengrocer"></a>
-
-## shop_greengrocer
-
-<div class="yarn-node" data-title="shop_greengrocer">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">I sell FRUITS and VEG. I am a greengrocer.</span> <span class="yarn-meta">#line:082b55f </span>
-<span class="yarn-line">Today you need SPICES and baking items.</span> <span class="yarn-meta">#line:0af9f1e </span>
-<span class="yarn-line">Buy flour (2zł)</span> <span class="yarn-meta">#line:0cf3d86 </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_flour&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-shop-cook"></a>
-
-## shop_cook
-
-<div class="yarn-node" data-title="shop_cook">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card cook&gt;&gt;</span>
-<span class="yarn-line">I sell PIEROGI.</span> <span class="yarn-meta">#line:0d24718 </span>
-<span class="yarn-cmd">&lt;&lt;card pierogi&gt;&gt;</span>
-<span class="yarn-line">Buy PIEROGI and use my KITCHEN.</span> <span class="yarn-meta">#line:0eda999 </span>
-<span class="yarn-line">Buy pierogi (20zł)</span> <span class="yarn-meta">#line:01729c1 </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_pierogi&gt;&gt;</span>
+<span class="yarn-line">What do you want to BUY?</span> <span class="yarn-meta">#line:06b8f99 </span>
+<span class="yarn-cmd">&lt;&lt;if !$got_cloves&gt;&gt;</span>
+<span class="yarn-line">CLOVES (1zł)</span> <span class="yarn-meta">#line:0eff39a</span>
+    <span class="yarn-cmd">&lt;&lt;jump pay_cloves&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if !$got_cinnamon&gt;&gt;</span>
+<span class="yarn-line">CINNAMON (1zł)</span> <span class="yarn-meta">#line:02f52e1</span>
+    <span class="yarn-cmd">&lt;&lt;jump pay_cinnamon&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if !$got_ginger&gt;&gt;</span>
+<span class="yarn-line">GINGER (1zł)</span> <span class="yarn-meta">#line:077537d</span>
+    <span class="yarn-cmd">&lt;&lt;jump pay_ginger&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-line">MILK and BUTTER</span> <span class="yarn-meta">#line:wrong_dairy</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">EGGS</span> <span class="yarn-meta">#line:wrong_eggs</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">Nothing</span> <span class="yarn-meta">#line:new_nothing</span>
 
 </code>
 </pre>
@@ -265,7 +307,7 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
-<span class="yarn-line">Select coins to pay 1 zł.</span> <span class="yarn-meta">#line:019a160 </span>
+<span class="yarn-line">Select COINS to pay 1 zł.</span> <span class="yarn-meta">#line:019a160 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_cloves_done&gt;&gt;</span>
 
 </code>
@@ -280,11 +322,24 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_cloves&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_cloves = true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $got_cloves = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_cloves&gt;&gt;</span>
 
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-cloves"></a>
+
+## item_cloves
+
+<div class="yarn-node" data-title="item_cloves">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card cloves&gt;&gt;</span>
+<span class="yarn-line">CLOVES</span> <span class="yarn-meta">#line:item_cloves</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
 </code>
 </pre>
@@ -300,7 +355,7 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card coins&gt;&gt;</span>
-<span class="yarn-line">Select coins to pay 1 zł.</span> <span class="yarn-meta">#line:055af31 </span>
+<span class="yarn-line">Select COINS to pay 1 zł.</span> <span class="yarn-meta">#line:055af31 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_cinnamon_done&gt;&gt;</span>
 
 </code>
@@ -315,11 +370,24 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_cinnamon&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_cinnamon = true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $got_cinnamon = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_cinnamon&gt;&gt;</span>
 
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-cinnamon"></a>
+
+## item_cinnamon
+
+<div class="yarn-node" data-title="item_cinnamon">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card cinnamon&gt;&gt;</span>
+<span class="yarn-line">CINNAMON</span> <span class="yarn-meta">#line:item_cinnamon</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
 </code>
 </pre>
@@ -334,7 +402,7 @@ hide:
 <span class="yarn-header-dim">group: pay</span>
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select coins to pay 1 zł.</span> <span class="yarn-meta">#line:0172345 </span>
+<span class="yarn-line">Select COINS to pay 1 zł.</span> <span class="yarn-meta">#line:0172345 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_ginger_done&gt;&gt;</span>
 
 </code>
@@ -349,11 +417,70 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_ginger&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_ginger = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $got_ginger = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_ginger&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-ginger"></a>
+
+## item_ginger
+
+<div class="yarn-node" data-title="item_ginger">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card ginger&gt;&gt;</span>
+<span class="yarn-line">GINGER</span> <span class="yarn-meta">#line:item_ginger</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-beekeeper"></a>
+
+## beekeeper
+
+<div class="yarn-node" data-title="beekeeper">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: beekeeper</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $got_honey&gt;&gt;</span>
+<span class="yarn-line">    You bought my HONEY!</span> <span class="yarn-meta">#line:new_honey_done</span>
+        -&gt; Dziękuję! #shadow:thanks
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+        -&gt; Dzień dobry! #shadow:hello
+        <span class="yarn-cmd">&lt;&lt;jump beekeeper_hello&gt;&gt;</span>
+        -&gt; Dziękuję! #shadow:thanks
+        <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
+</code>
+</pre>
+</div>
+
+<a id="ys-node-beekeeper-hello"></a>
+
+## beekeeper_hello
+
+<div class="yarn-node" data-title="beekeeper_hello">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: beekeeper</span>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card beekeeper&gt;&gt;</span>
+<span class="yarn-line">I sell HONEY. I am a BEEKEEPER.</span> <span class="yarn-meta">#line:001922d </span>
+<span class="yarn-line">Buy HONEY (1zł)</span> <span class="yarn-meta">#line:086cd0b </span>
+	<span class="yarn-cmd">&lt;&lt;jump pay_honey&gt;&gt;</span>
+<span class="yarn-line">Buy FLOUR</span> <span class="yarn-meta">#line:wrong_flour</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">Buy SPICES</span> <span class="yarn-meta">#line:wrong_spices</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">No thanks</span> <span class="yarn-meta">#line:new_no_bee</span>
 
 </code>
 </pre>
@@ -368,7 +495,7 @@ hide:
 <span class="yarn-header-dim">group: pay</span>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select coins to pay 1 zł.</span> <span class="yarn-meta">#line:0c1dcdb </span>
+<span class="yarn-line">Select COINS to pay 1 zł.</span> <span class="yarn-meta">#line:0c1dcdb </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_1 add_honey_done&gt;&gt;</span>
 
 </code>
@@ -383,10 +510,93 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_honey&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_honey = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $got_honey = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_honey&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-honey"></a>
+
+## item_honey
+
+<div class="yarn-node" data-title="item_honey">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card honey&gt;&gt;</span>
+<span class="yarn-line">HONEY</span> <span class="yarn-meta">#line:item_honey</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dairy"></a>
+
+## dairy
+
+<div class="yarn-node" data-title="dairy">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dairy</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $got_milk and $got_butter&gt;&gt;</span>
+<span class="yarn-line">    You bought MILK and BUTTER!</span> <span class="yarn-meta">#line:new_dairy_done</span>
+        -&gt; Dziękuję! #shadow:thanks
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+        -&gt; Dzień dobry! #shadow:hello
+        <span class="yarn-cmd">&lt;&lt;jump dairy_hello&gt;&gt;</span>
+        -&gt; Dziękuję! #shadow:thanks
+        <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dairy-hello"></a>
+
+## dairy_hello
+
+<div class="yarn-node" data-title="dairy_hello">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dairy</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card dairy_vendor&gt;&gt;</span>
+<span class="yarn-line">I sell MILK and BUTTER.</span> <span class="yarn-meta">#line:0acb509 </span>
+<span class="yarn-cmd">&lt;&lt;jump dairy_question&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dairy-question"></a>
+
+## dairy_question
+
+<div class="yarn-node" data-title="dairy_question">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dairy</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">tags: type=Choice</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">What do you want?</span> <span class="yarn-meta">#line:new_dairy_q</span>
+<span class="yarn-cmd">&lt;&lt;if !$got_milk&gt;&gt;</span>
+<span class="yarn-line">MILK (5zł)</span> <span class="yarn-meta">#line:0cd7285 </span>
+	<span class="yarn-cmd">&lt;&lt;jump pay_milk&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if !$got_butter&gt;&gt;</span>
+<span class="yarn-line">BUTTER (5zł)</span> <span class="yarn-meta">#line:0e1775b </span>
+	<span class="yarn-cmd">&lt;&lt;jump pay_butter&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-line">SPICES</span> <span class="yarn-meta">#line:wrong_spices_2</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">HONEY</span> <span class="yarn-meta">#line:wrong_honey</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">Nothing</span> <span class="yarn-meta">#line:new_nothing_dairy</span>
 
 </code>
 </pre>
@@ -401,7 +611,7 @@ hide:
 <span class="yarn-header-dim">group: pay</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select coins to pay 5 zł.</span> <span class="yarn-meta">#line:04a5053 </span>
+<span class="yarn-line">Select COINS to pay 5 zł.</span> <span class="yarn-meta">#line:04a5053 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_5 add_milk_done&gt;&gt;</span>
 
 </code>
@@ -416,11 +626,24 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_milk&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_milk = true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $got_milk = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_milk&gt;&gt;</span>
 
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-milk"></a>
+
+## item_milk
+
+<div class="yarn-node" data-title="item_milk">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card milk&gt;&gt;</span>
+<span class="yarn-line">MILK</span> <span class="yarn-meta">#line:item_milk</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
 </code>
 </pre>
@@ -435,7 +658,7 @@ hide:
 <span class="yarn-header-dim">group: pay</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select coins to pay 5 zł.</span> <span class="yarn-meta">#line:0bd010e </span>
+<span class="yarn-line">Select COINS to pay 5 zł.</span> <span class="yarn-meta">#line:0bd010e </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_5 add_butter_done&gt;&gt;</span>
 
 </code>
@@ -450,11 +673,70 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_butter&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_butter = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $got_butter = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_butter&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-butter"></a>
+
+## item_butter
+
+<div class="yarn-node" data-title="item_butter">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card butter&gt;&gt;</span>
+<span class="yarn-line">BUTTER</span> <span class="yarn-meta">#line:item_butter</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-egg-vendor"></a>
+
+## egg_vendor
+
+<div class="yarn-node" data-title="egg_vendor">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: eggs</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $got_eggs&gt;&gt;</span>
+<span class="yarn-line">    You bought EGGS!</span> <span class="yarn-meta">#line:new_eggs_done</span>
+        -&gt; Dziękuję! #shadow:thanks
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+        -&gt; Dzień dobry! #shadow:hello
+        <span class="yarn-cmd">&lt;&lt;jump egg_hello&gt;&gt;</span>
+        -&gt; Dziękuję! #shadow:thanks
+        <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
+</code>
+</pre>
+</div>
+
+<a id="ys-node-egg-hello"></a>
+
+## egg_hello
+
+<div class="yarn-node" data-title="egg_hello">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: eggs</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card egg_vendor&gt;&gt;</span>
+<span class="yarn-line">I sell EGGS.</span> <span class="yarn-meta">#line:03de236 </span>
+<span class="yarn-line">Buy EGGS (10zł)</span> <span class="yarn-meta">#line:07a79e8 </span>
+	<span class="yarn-cmd">&lt;&lt;jump pay_eggs&gt;&gt;</span>
+<span class="yarn-line">Buy MILK</span> <span class="yarn-meta">#line:wrong_milk</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">Buy GINGER</span> <span class="yarn-meta">#line:wrong_ginger</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">No thanks</span> <span class="yarn-meta">#line:new_no_eggs</span>
 
 </code>
 </pre>
@@ -469,7 +751,7 @@ hide:
 <span class="yarn-header-dim">group: pay</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select coins to pay 10 zł.</span> <span class="yarn-meta">#line:0bdf451 </span>
+<span class="yarn-line">Select COINS to pay 10 zł.</span> <span class="yarn-meta">#line:0bdf451 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_10 add_eggs_done&gt;&gt;</span>
 
 </code>
@@ -484,11 +766,70 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_eggs&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_eggs = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $got_eggs = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_eggs&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-item-eggs"></a>
+
+## item_eggs
+
+<div class="yarn-node" data-title="item_eggs">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">tags: item</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card eggs&gt;&gt;</span>
+<span class="yarn-line">EGGS</span> <span class="yarn-meta">#line:item_eggs</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-greengrocer"></a>
+
+## greengrocer
+
+<div class="yarn-node" data-title="greengrocer">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: greengrocer</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $got_flour&gt;&gt;</span>
+<span class="yarn-line">    You bought FLOUR!</span> <span class="yarn-meta">#line:new_flour_done</span>
+        -&gt; Dziękuję! #shadow:thanks
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+        -&gt; Dzień dobry! #shadow:hello
+        <span class="yarn-cmd">&lt;&lt;jump greengrocer_hello&gt;&gt;</span>
+        -&gt; Dziękuję! #shadow:thanks
+        <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
+</code>
+</pre>
+</div>
+
+<a id="ys-node-greengrocer-hello"></a>
+
+## greengrocer_hello
+
+<div class="yarn-node" data-title="greengrocer_hello">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: greengrocer</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">I sell FRUITS and VEG.</span> <span class="yarn-meta">#line:082b55f </span>
+<span class="yarn-line">Today you need FLOUR.</span> <span class="yarn-meta">#line:0af9f1e </span>
+<span class="yarn-line">Buy FLOUR (2zł)</span> <span class="yarn-meta">#line:0cf3d86 </span>
+	<span class="yarn-cmd">&lt;&lt;jump pay_flour&gt;&gt;</span>
+<span class="yarn-line">Buy SPICES</span> <span class="yarn-meta">#line:wrong_spices_3</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">Buy EGGS</span> <span class="yarn-meta">#line:wrong_eggs_2</span>
+    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
+<span class="yarn-line">No thanks</span> <span class="yarn-meta">#line:new_no_flour</span>
 
 </code>
 </pre>
@@ -503,7 +844,7 @@ hide:
 <span class="yarn-header-dim">group: pay</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Select coins to pay 2 zł.</span> <span class="yarn-meta">#line:0aac231 </span>
+<span class="yarn-line">Select COINS to pay 2 zł.</span> <span class="yarn-meta">#line:0aac231 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_2 add_flour_done&gt;&gt;</span>
 
 </code>
@@ -518,78 +859,24 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags: type=Variables</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if !$got_flour&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
-	<span class="yarn-cmd">&lt;&lt;set $got_flour = true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-
+<span class="yarn-cmd">&lt;&lt;set $got_flour = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump item_flour&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-pay-pierogi"></a>
+<a id="ys-node-item-flour"></a>
 
-## pay_pierogi
+## item_flour
 
-<div class="yarn-node" data-title="pay_pierogi">
+<div class="yarn-node" data-title="item_flour">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: pay</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">tags: item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_20 pierogi_done&gt;&gt;</span>
-<span class="yarn-line">Select coins to pay 20 zł.</span> <span class="yarn-meta">#line:0dd43a0 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-pierogi-done"></a>
-
-## pierogi_done
-
-<div class="yarn-node" data-title="pierogi_done">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">tags: type=Variables</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $pierogi_bought = true&gt;&gt;</span>
-
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-flour-hint"></a>
-
-## flour_hint
-
-<div class="yarn-node" data-title="flour_hint">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: market</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">You can buy FLOUR here.</span> <span class="yarn-meta">#line:077f3e2 </span>
-<span class="yarn-line">Buy flour (2zł)</span> <span class="yarn-meta">#line:00c5178 </span>
-	<span class="yarn-cmd">&lt;&lt;jump pay_flour&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-go-to-kitchen"></a>
-
-## go_to_kitchen
-
-<div class="yarn-node" data-title="go_to_kitchen">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: kitchen</span>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Great! You have all ingredients and PIEROGI.</span> <span class="yarn-meta">#line:0dda4ac </span>
-<span class="yarn-cmd">&lt;&lt;card kitchen&gt;&gt;</span>
-<span class="yarn-line">You can use my KITCHEN.</span> <span class="yarn-meta">#line:019c938 </span>
-<span class="yarn-line">Let's bake TORUŃ GINGERBREAD!</span> <span class="yarn-meta">#line:0b5d503 </span>
-<span class="yarn-cmd">&lt;&lt;jump bake_gingerbread&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card flour&gt;&gt;</span>
+<span class="yarn-line">FLOUR</span> <span class="yarn-meta">#line:item_flour</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
 </code>
 </pre>
@@ -639,7 +926,7 @@ hide:
 <span class="yarn-header-dim">group: kitchen</span>
 <span class="yarn-header-dim">tags: activity</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Order steps: FLOUR EGGS CHEESE POTATOES.</span> <span class="yarn-meta">#line:01a6d63 </span>
+<span class="yarn-line">Put in order: FLOUR, EGGS, CHEESE, POTATOES.</span> <span class="yarn-meta">#line:01a6d63 </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_ORDER PIEROGI_ORDER_DONE&gt;&gt;</span>
 
 </code>
@@ -673,7 +960,7 @@ hide:
 <span class="yarn-header-dim">group: assessment</span>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Time for a quick check.</span> <span class="yarn-meta">#line:0bad7e0 </span>
+<span class="yarn-line">Let's check what we learned.</span> <span class="yarn-meta">#line:0bad7e0 </span>
 <span class="yarn-cmd">&lt;&lt;jump assessment_vocab&gt;&gt;</span>
 
 </code>
@@ -689,7 +976,7 @@ hide:
 <span class="yarn-header-dim">group: assessment</span>
 <span class="yarn-header-dim">tags: activity</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Match words to pictures</span> <span class="yarn-meta">#line:04fee1b </span>
+<span class="yarn-line">Match WORDS to PICTURES.</span> <span class="yarn-meta">#line:04fee1b </span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_ORDER VOCAB_MATCH_DONE&gt;&gt;</span>
 
 </code>
@@ -705,8 +992,38 @@ hide:
 <span class="yarn-header-dim">group: assessment</span>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Great work! You helped Antura learn words.</span> <span class="yarn-meta">#line:0cb84a7 </span>
+<span class="yarn-line">Great work! You helped Antura learn WORDS.</span> <span class="yarn-meta">#line:0cb84a7 </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-dont-understand"></a>
+
+## talk_dont_understand
+
+<div class="yarn-node" data-title="talk_dont_understand">
+<pre class="yarn-code" style="--node-color:orange"><code>
+<span class="yarn-header-dim">tags: detour</span>
+<span class="yarn-header-dim">color: orange</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Sorry, I don't understand...</span> <span class="yarn-meta">#line:dont_understand</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-dont-sell"></a>
+
+## talk_dont_sell
+
+<div class="yarn-node" data-title="talk_dont_sell">
+<pre class="yarn-code" style="--node-color:orange"><code>
+<span class="yarn-header-dim">tags: detour</span>
+<span class="yarn-header-dim">color: orange</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Sorry, I don't sell that.</span> <span class="yarn-meta">#line:dont_sell</span>
 
 </code>
 </pre>
@@ -726,7 +1043,7 @@ hide:
 <span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I like sweet GINGERBREAD.</span> <span class="yarn-meta">#line:087d4b0 </span>
-<span class="yarn-line">Coins jingle in my bag.</span> <span class="yarn-meta">#line:0090fb8 </span>
+<span class="yarn-line">COINS jingle in my bag.</span> <span class="yarn-meta">#line:0090fb8 </span>
 
 </code>
 </pre>
@@ -742,7 +1059,7 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Fresh EGGS and MILK today.</span> <span class="yarn-meta">#line:039e272 </span>
-<span class="yarn-line">Pierogi sell very fast.</span> <span class="yarn-meta">#line:07b9a99 </span>
+<span class="yarn-line">PIEROGI sell very fast.</span> <span class="yarn-meta">#line:07b9a99 </span>
 
 </code>
 </pre>

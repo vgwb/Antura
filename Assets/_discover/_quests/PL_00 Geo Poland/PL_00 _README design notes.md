@@ -1,4 +1,3 @@
-## Game Design
 
 **Core Subject:** Geography, Flags, and Neighboring Countries.
 

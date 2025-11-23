@@ -10,10 +10,14 @@ hide:
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
 
 Version: 1.00  
-Status: Production  
+Status: NeedsReview  
 Location: International
 
 Apprenons à jouer à Antura Discover !
+
+## Quest Script
+
+[See the full script here](./tutorial-script.md)
 
 ## Content
 Subjects: 
@@ -39,12 +43,6 @@ Subjects:
 Parlez-leur à tous… ils ont des histoires à raconter !  
   - **[Danger](../../cards/index.md#antura_malus)**  
     À éviter absolument ! Soyez prudents et protégez-vous.  
-
-## Quest Script
-
-[See the full script here](./tutorial-script.md)
-
----
 
 ## Words
 ## Activities

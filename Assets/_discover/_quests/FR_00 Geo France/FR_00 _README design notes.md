@@ -1,4 +1,3 @@
-## Game Design Notes
 
 **Core Subject:** Geography, Flags, and European Countries.
 
