@@ -53,6 +53,40 @@ namespace Antura.Discover.Editor
                 sb.AppendLine();
             }
 
+            if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
+            {
+                sb.AppendLine("##  Design Notes");
+                sb.AppendLine(q.AdditionalResources.text);
+                sb.AppendLine();
+            }
+
+            // Quest Script
+            sb.AppendLine("## Quest Script");
+            sb.AppendLine();
+            if (q.IsScriptPublic)
+            {
+                if (!string.IsNullOrEmpty(scriptPageFileName))
+                {
+                    sb.AppendLine($"[See the full script here](./{scriptPageFileName})");
+                }
+                else if (q.YarnScript != null)
+                {
+                    sb.AppendLine("```yarn");
+                    var strippedEarly = RemoveSceneDataChunk(q.YarnScript.text);
+                    sb.AppendLine(strippedEarly);
+                    sb.AppendLine("```");
+                }
+                else
+                {
+                    sb.AppendLine("(No YarnScript attached)");
+                }
+            }
+            else
+            {
+                sb.AppendLine("(Script not public)");
+            }
+            sb.AppendLine();
+
             sb.AppendLine("## Content");
             sb.AppendLine("Subjects: ");
             sb.AppendLine();
@@ -117,37 +151,6 @@ namespace Antura.Discover.Editor
                     }
                 }
             }
-
-            // Quest Script placed early (before other metadata)
-            sb.AppendLine("## Quest Script");
-            sb.AppendLine();
-            if (q.IsScriptPublic)
-            {
-                if (!string.IsNullOrEmpty(scriptPageFileName))
-                {
-                    sb.AppendLine($"[See the full script here](./{scriptPageFileName})");
-                }
-                else if (q.YarnScript != null)
-                {
-                    sb.AppendLine("```yarn");
-                    var strippedEarly = RemoveSceneDataChunk(q.YarnScript.text);
-                    sb.AppendLine(strippedEarly);
-                    sb.AppendLine("```");
-                }
-                else
-                {
-                    sb.AppendLine("(No YarnScript attached)");
-                }
-            }
-            else
-            {
-                sb.AppendLine("(Script not public)");
-            }
-
-            // Separator before remaining sections
-            sb.AppendLine();
-            sb.AppendLine("---");
-            sb.AppendLine();
 
             sb.AppendLine("## Words");
             if (q.Words != null && q.Words.Count > 0)
@@ -263,14 +266,6 @@ namespace Antura.Discover.Editor
                     var suffix = roles.Count > 0 ? " (" + string.Join(", ", roles) + ")" : string.Empty;
                     sb.AppendLine("- " + PublishUtils.FormatAuthor(kv.Key) + suffix);
                 }
-            }
-
-            if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
-            {
-                // sb.AppendLine();
-                // sb.AppendLine("## Additional Resources");
-                sb.AppendLine();
-                sb.AppendLine(q.AdditionalResources.text);
             }
 
             return sb.ToString();
