@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &249954522466670091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4129570536508372201}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4129570536508372201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249954522466670091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.103, y: 0.5, z: -0.001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7078825874774608034}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383723000079596551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2562,6 +2593,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4943240232672066779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6570006635971615433}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6570006635971615433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943240232672066779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.128, y: 0.514, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4747910278010558517}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5155357904261459335
 GameObject:
   m_ObjectHideFlags: 0
@@ -6998,6 +7060,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1216467225437314576}
+    - targetCorrespondingSourceObject: {fileID: 4350100600831935049, guid: b7f0247e0934d469db96337601a8a7ab,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3918637388121822267}
   m_SourcePrefab: {fileID: 100100000, guid: b7f0247e0934d469db96337601a8a7ab, type: 3}
 --- !u!1 &2315005427732927225 stripped
 GameObject:
@@ -7025,6 +7091,34 @@ MonoBehaviour:
   rotationSpeed: 100
   bobbingAmount: 0.05
   bobbingSpeed: 1
+--- !u!114 &3918637388121822267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315005427732927225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
+  enableBobbing: 1
+  bobbingAmount: 0.07
+  bobbingSpeed: 1
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &2410186339238426116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4399057982950500020, guid: b7f0247e0934d469db96337601a8a7ab,
@@ -7050,6 +7144,11 @@ PrefabInstance:
       propertyPath: Id
       value: train
       objectReference: {fileID: 0}
+    - target: {fileID: 3652092926698391822, guid: ff4c74bab33454406bd75ec7bd69a723,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 4129570536508372201}
     - target: {fileID: 7245169695675165094, guid: ff4c74bab33454406bd75ec7bd69a723,
         type: 3}
       propertyPath: m_Size.x
@@ -7142,7 +7241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8991819199274263424, guid: ff4c74bab33454406bd75ec7bd69a723,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4129570536508372201}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8242810082125096423, guid: ff4c74bab33454406bd75ec7bd69a723,
         type: 3}
@@ -7498,6 +7601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 517116260725219006, guid: 6aa2b72d09f9943ce82acff94aa7ef52,
         type: 3}
+      propertyPath: IconType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 517116260725219006, guid: 6aa2b72d09f9943ce82acff94aa7ef52,
+        type: 3}
       propertyPath: IsHiddenAtStart
       value: 1
       objectReference: {fileID: 0}
@@ -7595,6 +7703,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5179906793664988966}
+    - targetCorrespondingSourceObject: {fileID: 3293159771313765658, guid: 6aa2b72d09f9943ce82acff94aa7ef52,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6984877778267757009}
   m_SourcePrefab: {fileID: 100100000, guid: 6aa2b72d09f9943ce82acff94aa7ef52, type: 3}
 --- !u!1 &1048985343687724809 stripped
 GameObject:
@@ -7622,6 +7734,34 @@ MonoBehaviour:
   rotationSpeed: 100
   bobbingAmount: 0.05
   bobbingSpeed: 1
+--- !u!114 &6984877778267757009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048985343687724809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
+  enableBobbing: 1
+  bobbingAmount: 0.07
+  bobbingSpeed: 1
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!4 &4928882269066904281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7447812004324978890, guid: 6aa2b72d09f9943ce82acff94aa7ef52,
@@ -8816,6 +8956,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3652092926698391822, guid: ff4c74bab33454406bd75ec7bd69a723,
         type: 3}
+      propertyPath: IconType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652092926698391822, guid: ff4c74bab33454406bd75ec7bd69a723,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 6570006635971615433}
+    - target: {fileID: 3652092926698391822, guid: ff4c74bab33454406bd75ec7bd69a723,
+        type: 3}
       propertyPath: DialogueNode.nodeName
       value: train_lost
       objectReference: {fileID: 0}
@@ -8896,12 +9046,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8991819199274263424, guid: ff4c74bab33454406bd75ec7bd69a723,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6570006635971615433}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8242810082125096423, guid: ff4c74bab33454406bd75ec7bd69a723,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5252346851383704240}
+    - targetCorrespondingSourceObject: {fileID: 8242810082125096423, guid: ff4c74bab33454406bd75ec7bd69a723,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5561165737382911572}
   m_SourcePrefab: {fileID: 100100000, guid: ff4c74bab33454406bd75ec7bd69a723, type: 3}
 --- !u!4 &4747910278010558517 stripped
 Transform:
@@ -8935,6 +9093,34 @@ MonoBehaviour:
   rotationSpeed: 100
   bobbingAmount: 0.05
   bobbingSpeed: 1
+--- !u!114 &5561165737382911572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5714774139347820114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
+  enableBobbing: 1
+  bobbingAmount: 0.07
+  bobbingSpeed: 1
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!1001 &4419310155221946567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13834,6 +14020,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7123602432892703148}
+    - targetCorrespondingSourceObject: {fileID: 666866563843478805, guid: 08ef3f082df834f44ae303e23ce77ead,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4809297308176587081}
   m_SourcePrefab: {fileID: 100100000, guid: 08ef3f082df834f44ae303e23ce77ead, type: 3}
 --- !u!4 &850123008314569586 stripped
 Transform:
@@ -13867,6 +14057,34 @@ MonoBehaviour:
   rotationSpeed: 100
   bobbingAmount: 0.05
   bobbingSpeed: 1
+--- !u!114 &4809297308176587081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102858273441635071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ec1b21149c8445f978d6560013e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AutoAnimate
+  someRandomness: 0
+  enableAxisMovement: 0
+  moveAxis: 1
+  axisDistance: 2
+  axisCycle: 0
+  axisSpeed: 1
+  enableTargetMovement: 0
+  targetPoint: {fileID: 0}
+  targetCycle: 0
+  targetSpeed: 1
+  enableBobbing: 1
+  bobbingAmount: 0.07
+  bobbingSpeed: 1
+  enableRotation: 0
+  rotationSpeed: 100
+  pauseDelay: 1
 --- !u!1001 &8649593610957210767
 PrefabInstance:
   m_ObjectHideFlags: 0
