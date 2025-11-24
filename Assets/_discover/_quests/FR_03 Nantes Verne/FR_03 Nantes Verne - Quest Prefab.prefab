@@ -165,6 +165,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -1573,6 +1574,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -2852,6 +2854,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -5115,6 +5118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2222729975397419143, guid: a9f8e06cae61c4aa3934015ffe6b8b44,
         type: 3}
+      propertyPath: CameraFocusData
+      value: 
+      objectReference: {fileID: 1663389414044801428}
+    - target: {fileID: 2222729975397419143, guid: a9f8e06cae61c4aa3934015ffe6b8b44,
+        type: 3}
       propertyPath: FaceToPlayerComp
       value: 
       objectReference: {fileID: 0}
@@ -5128,6 +5136,11 @@ PrefabInstance:
         type: 3}
       propertyPath: DialogueNode.nodeName
       value: tutor_earthmoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222729975397419143, guid: a9f8e06cae61c4aa3934015ffe6b8b44,
+        type: 3}
+      propertyPath: FocusCameraOnInteract
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2537302358617369809, guid: a9f8e06cae61c4aa3934015ffe6b8b44,
         type: 3}
@@ -6260,6 +6273,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 1f338d96a29b14b918e917ec824cce62,
@@ -6526,6 +6540,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 1f338d96a29b14b918e917ec824cce62,
@@ -8445,6 +8460,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -10271,7 +10287,7 @@ PrefabInstance:
     - target: {fileID: 7485245345513814750, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: Id
-      value: Camera20000
+      value: camera_80days
       objectReference: {fileID: 0}
     - target: {fileID: 8198396362905792596, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
@@ -10877,6 +10893,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -11157,6 +11174,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -11610,6 +11628,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 1f338d96a29b14b918e917ec824cce62,
@@ -12153,6 +12172,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8139523091143729994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1663389414044801428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7485245345513814750, guid: 718c201ee772940479f69bc1c03d0b5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8139523091143729994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d9d4888400d459c906fbf52a5f4e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CameraFocusData
 --- !u!1001 &8190648448030000722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14854,6 +14885,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 1f338d96a29b14b918e917ec824cce62,

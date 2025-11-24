@@ -38,6 +38,8 @@ namespace Antura.Discover
         public bool ShowIconAlways;
         [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
+        [Tooltip("Manual Camera focus data on interaction")]
+        public CameraFocusData CameraFocusData;
 
         [Tooltip("Face to Player when nearby")]
         public bool FaceToPlayer;

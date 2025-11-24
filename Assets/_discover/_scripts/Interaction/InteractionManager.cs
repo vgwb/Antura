@@ -225,7 +225,14 @@ namespace Antura.Discover
                 if (activeInteractable.FocusCameraOnInteract)
                 {
                     CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-                    CameraManager.I.SetDialogueModeTarget(activeInteractable.LookAtTransform);
+                    if (activeInteractable.CameraFocusData != null)
+                    {
+                        I.StartCoroutine(CameraManager.I.FocusOn(activeInteractable.CameraFocusData));
+                    }
+                    else
+                    {
+                        CameraManager.I.SetDialogueModeTarget(activeInteractable.LookAtTransform);
+                    }
                 }
 
                 UIManager.I.dialogues.HideSignal(activeInteractable, false);
