@@ -71,8 +71,8 @@ Let's discover this WRITER and his extraordinary VOYAGES. #line:006e7fc
 <<area area_init>>
 <<target npc_door>>
 // DEBUG
-//<<set $museum_clean= true>>
-//<<SetActive museum_door false>>
+<<set $museum_clean= true>>
+<<SetActive museum_door false>>
 ===
 
 title: quest_end
@@ -180,7 +180,8 @@ color: purple
 <<if HasCompletedTask("find_submarine")>>
     You found the SUBMARINE! #line:0666ee2 
     But it's BROKEN in pieces! #line:097c3fc 
-    Can you please fix it? #line:02e7812 
+    Can you please fix it? #line:02e7812
+    <<inventory submarine_nautilus remove>>
     <<activity jigsaw_verne_submarine activity_submarine_done>>
 <<else>>
     <<card submarine_nautilus>>
@@ -209,6 +210,7 @@ color: yellow
 ---
 <<card submarine_nautilus>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+<<inventory submarine_nautilus add>>
 Great! Now bring it back to its guardian #line:0757b30 
 <<collect>>
 <<target tutor_20000>>
@@ -241,8 +243,9 @@ color: purple
 ---
 <<if HasCompletedTask("find_balloon")>>
     You found the HOT AIR BALLOON! #line:0286510
-    But it's BROKEN in pieces! #shadow:097c3fc 
-    Can you please fix it? #shadow:02e7812 
+    But it's BROKEN in pieces! #shadow:097c3fc
+    Can you please fix it? #shadow:02e7812
+    <<inventory hot_air_balloon remove>>
     <<activity jigsaw_verne_balloon activity_balloon_done>>
 <<elseif HasCompletedTask("find_submarine")>>
     <<card hot_air_balloon>>
@@ -272,6 +275,7 @@ position: 695,699
 color: yellow
 ---
 <<card hot_air_balloon>>
+<<inventory hot_air_balloon add>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
 Great! Now bring it back to its guardian #shadow:0757b30 
 <<collect>>
@@ -309,6 +313,7 @@ color: purple
     You found the ROCKET! #line:08fed68 
     But it's BROKEN in pieces! #shadow:097c3fc
     Can you please fix it? #shadow:02e7812
+    <<inventory space_rocket remove>>
     <<activity jigsaw_verne_rocket activity_rocket_done>>
 <<elseif HasCompletedTask("find_balloon")>>
     <<card space_rocket>>
@@ -338,6 +343,7 @@ position: 695,699
 color: yellow
 ---
 <<card space_rocket>>
+<<inventory space_rocket add>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
 Great! Now bring it back to its guardian #shadow:0757b30 
 <<collect>>
@@ -375,6 +381,7 @@ color: purple
     You found the TRAIN! #line:01f76f3 
     But it's BROKEN in pieces! #shadow:097c3fc
     Can you please fix it? #shadow:02e7812
+    <<inventory train remove>>
     <<activity jigsaw_verne_train activity_train_done>>
 <<elseif HasCompletedTask("find_balloon")>>
     <<card train>>
@@ -406,6 +413,7 @@ position: 695,699
 color: yellow
 ---
 <<card train>>
+<<inventory train add>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
 Great! Now bring it back to its guardian #shadow:0757b30 
 <<collect>>
