@@ -184,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 910494262428190613}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.55224043, z: -0, w: 0.8336849}
-  m_LocalPosition: {x: -16.19, y: 0, z: 8.03}
+  m_LocalPosition: {x: -27.8, y: 0, z: 12.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1515,6 +1515,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -3112,7 +3113,7 @@ Transform:
   m_GameObject: {fileID: 3360290221880530872}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.23, y: 0, z: 0.46}
+  m_LocalPosition: {x: -7.11, y: 0, z: 15.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3648,6 +3649,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -3848,6 +3850,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -3982,7 +3985,7 @@ Transform:
   m_GameObject: {fileID: 4027879945182537539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.05, y: 0, z: 0.84}
+  m_LocalPosition: {x: 2.49, y: 0, z: 17.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4502,7 +4505,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5503189106055774779}
-  - {fileID: 5870672354742403751}
   - {fileID: 1477287079581384008}
   - {fileID: 3960348449442403568}
   - {fileID: 6608206975214351607}
@@ -4592,7 +4594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugAction: 
-  PlayerSpawnPoint: {fileID: 0}
+  PlayerSpawnPoint: {fileID: 8259598302793719725}
   QuestActions:
   - ActionCode: init
     Commands:
@@ -5138,7 +5140,7 @@ Transform:
   m_GameObject: {fileID: 5308796263211103347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.42, y: 0, z: 7.31}
+  m_LocalPosition: {x: -30.96, y: 0, z: 15.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5922,6 +5924,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -6621,6 +6624,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -7695,7 +7699,7 @@ Transform:
   m_GameObject: {fileID: 8070095063840396463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.30477867, z: -0, w: 0.9524233}
-  m_LocalPosition: {x: -12.81, y: 0, z: -3.27}
+  m_LocalPosition: {x: -20.95, y: 0, z: 9.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8151,6 +8155,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -8987,6 +8992,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -9396,37 +9402,6 @@ Transform:
   - {fileID: 821620599485307143}
   m_Father: {fileID: 7846197204034305262}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &9034558428482028351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5870672354742403751}
-  m_Layer: 0
-  m_Name: Spawn Pirate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5870672354742403751
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034558428482028351}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.534, y: 0.803, z: -10.317}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 7846197204034305262}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9091205739058583682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9574,6 +9549,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -12624,6 +12600,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
@@ -17771,7 +17748,7 @@ PrefabInstance:
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.952997
+      value: -15.57
       objectReference: {fileID: 0}
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -17781,7 +17758,7 @@ PrefabInstance:
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.382143
+      value: 19.17
       objectReference: {fileID: 0}
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -18419,6 +18396,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC chef
       objectReference: {fileID: 0}
+    - target: {fileID: 1956009910635067953, guid: eec33ebdba94648679d16d0485a9eb63,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956009910635067953, guid: eec33ebdba94648679d16d0485a9eb63,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2222729975397419143, guid: eec33ebdba94648679d16d0485a9eb63,
         type: 3}
       propertyPath: Id
@@ -18458,7 +18445,7 @@ PrefabInstance:
     - target: {fileID: 2537302358617369809, guid: eec33ebdba94648679d16d0485a9eb63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.49
+      value: -12.29
       objectReference: {fileID: 0}
     - target: {fileID: 2537302358617369809, guid: eec33ebdba94648679d16d0485a9eb63,
         type: 3}
@@ -18468,7 +18455,7 @@ PrefabInstance:
     - target: {fileID: 2537302358617369809, guid: eec33ebdba94648679d16d0485a9eb63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.85
+      value: 15.52
       objectReference: {fileID: 0}
     - target: {fileID: 2537302358617369809, guid: eec33ebdba94648679d16d0485a9eb63,
         type: 3}
@@ -18527,7 +18514,7 @@ PrefabInstance:
     - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.87
+      value: -14.07
       objectReference: {fileID: 0}
     - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
         type: 3}
@@ -18537,7 +18524,7 @@ PrefabInstance:
     - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.03
+      value: 20.06
       objectReference: {fileID: 0}
     - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
         type: 3}
@@ -18579,6 +18566,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Spawn Point
       objectReference: {fileID: 0}
+    - target: {fileID: 7862168161942259471, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862168161942259471, guid: 02c441c47a029418f9fe519bcfc24380,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18590,6 +18587,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8752079381113322808}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8259598302793719725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 858601168500679317, guid: 02c441c47a029418f9fe519bcfc24380,
+    type: 3}
+  m_PrefabInstance: {fileID: 8752079381113322808}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
 --- !u!1001 &8901959123544325808
 PrefabInstance:
   m_ObjectHideFlags: 0
