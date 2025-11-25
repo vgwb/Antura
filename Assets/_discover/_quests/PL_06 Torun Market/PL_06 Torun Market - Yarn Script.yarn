@@ -103,7 +103,7 @@ tags: proposal
 ---
 Draw a MARKET stall. #line:01f8217 
 Add FLOUR SUGAR BUTTER EGGS. #line:0435fc9 
-Add HONEY CLOVES CINNAMON GINGER. #line:0fed740 
+Add HONEY CINNAMON GINGER. #line:0fed740 
 Show it to a friend. #line:0f16df6 
 <<quest_end>>
 ===
@@ -127,9 +127,10 @@ position: 604,-200
 group: cook
 actor: ADULT_M
 ---
-Dzień dobry! I am a COOK and I want to make GINGERBREAD. #line:028131b 
+<<card cook>>
+Dzień dobry! I am a COOK of typical polish recipes. #line:028131b
 <<card gingerbread>>
-I am a COOK and I want to make GINGERBREAD. #line:07fb019
+I can prepare for you our famous GINGERBREAD #line:07fb019
 But I need some INGREDIENTS. #line:00a46f0
 <<jump task_ingredients>>
 ===
@@ -156,9 +157,9 @@ position: 900,-350
 type: task
 ---
 Buy the ingredients for the recipe. #task:COLLECT_INGREDIENTS #line:00565e5 
-Some FLOUR #card:flour #line:070b733 
+Some FLOUR #card:food_flour #line:070b733 
 Some HONEY #card:honey #line:0e22cab 
-Some SUGAR #card:sugar #line:055af31
+Some SUGAR #card:food_sugar #line:055af31
 Some BUTTER #card:butter #line:0bfb896 
 One EGG #card:eggs #line:0de2001 
 Some CINNAMON #card:cinnamon #line:0ba5cca 
@@ -284,6 +285,7 @@ group: grocer
 actor: SENIOR_F
 color: purple
 ---
+<<card currency_zloty>>
 Select enough money to pay. #line:select_money
 <<activity money_grocer grocer_payment_done>>
 ===
@@ -338,6 +340,7 @@ actor: SENIOR_M
 ---
 <<card person_beekeper>>
 Good morning! I'm a beekeeper and I sell honey. #line:04b4a87
+<<card honey>>
 All of my products come from my beehives! #line:0aa9ce7
 <<jump beekeper_question>>
 ===
@@ -364,6 +367,7 @@ group: beekeper
 actor: SENIOR_M
 color: purple
 ---
+<<card currency_zloty>>
 Select enough money to pay. #shadow:select_money
 <<activity money_beekeper beekeper_payment_done>>
 ===
@@ -440,6 +444,7 @@ group: cheesemonger
 actor: ADULT_F
 color: purple
 ---
+<<card currency_zloty>>
 Select enough money to pay. #shadow:select_money
 <<activity money_cheesemonger cheesemonger_payment_done>>
 ===
@@ -478,7 +483,7 @@ tags: noRepeatLastLine
 -> Dziękuję! #shadow:thanks 
    <<jump talk_dont_understand>>
 -> Dzień dobry! #shadow:hello 
-   <<jump cheesemonger_bonjour>>
+   <<jump eggvendor_bonjour>>
 -> Do widzenia! #shadow:goodbye
    <<jump talk_dont_understand>>
 <<endif>>
@@ -514,6 +519,7 @@ group: eggvendor
 actor: ADULT_F
 color: purple
 ---
+<<card currency_zloty>>
 Select enough money to pay. #shadow:select_money
 <<activity money_eggvendor eggvendor_payment_done>>
 ===
@@ -551,7 +557,7 @@ tags: noRepeatLastLine
 -> Dziękuję! #shadow:thanks 
    <<jump talk_dont_understand>>
 -> Dzień dobry! #shadow:hello 
-   <<jump cheesemonger_bonjour>>
+   <<jump spicevendor_bonjour>>
 -> Do widzenia! #shadow:goodbye
    <<jump talk_dont_understand>>
 <<endif>>
@@ -587,6 +593,7 @@ group: spicevendor
 actor: ADULT_F
 color: purple
 ---
+<<card currency_zloty>>
 Select enough money to pay. #shadow:select_money
 <<activity money_spicevendor spicevendor_payment_done>>
 ===
