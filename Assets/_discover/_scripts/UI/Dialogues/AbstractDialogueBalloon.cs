@@ -147,6 +147,10 @@ namespace Antura.Discover
                         DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning);
                     }
                 }
+                else if (hasTranslation)
+                {
+                    DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false);
+                }
             }
             else
             {
@@ -162,7 +166,10 @@ namespace Antura.Discover
                     {
                         DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative);
                     }
-
+                }
+                else if (hasTranslation)
+                {
+                    DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false);
                 }
             }
             //Debug.Log("DisplayText() " + learningText.Length + " fillPeriod " + fillPeriod);
