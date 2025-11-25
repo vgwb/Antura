@@ -140,7 +140,7 @@ group: cook
 tags: task
 ---
 <<card  currency_zloty>>
-Please take this money
+Please take this money #line:0ff272d 
 <<card market_traders>>
 And go to the MARKET TRADERS #line:0c35a9c
 <<detour task_ingredients_desc>>
@@ -490,7 +490,7 @@ group: eggvendor
 actor: ADULT_F
 ---
 <<card person_eggvendor>>
-Hi! I sell eggs. I am an egg vendor.
+Hi! I sell eggs. I am an egg vendor. #line:09a9960 
 <<jump eggvendor_question>>
 ===
 
@@ -502,9 +502,9 @@ actor: ADULT_F
 What do you want to buy? #shadow:what_to_buy
 -> Eggs #line:eggs
    <<jump eggvendor_pay_activity>>
--> Oil 
+-> Oil  #line:06cc62e 
    <<jump talk_dont_sell>>
--> Bread
+-> Bread #line:059920e 
    <<jump talk_dont_sell>>
 ===
 
@@ -563,7 +563,7 @@ group: spicevendor
 actor: ADULT_F
 ---
 <<card person_spicevendor>>
-Hi! I sell spices. I am a spice vendor.
+Hi! I sell spices. I am a spice vendor. #line:0f83873 
 <<jump spicevendor_question>>
 ===
 
@@ -573,11 +573,11 @@ group: spicevendor
 actor: ADULT_F
 ---
 What do you want to buy? #shadow:what_to_buy
--> Cinnamon and ginger
+-> Cinnamon and ginger #line:0fe40e7 
    <<jump spicevendor_pay_activity>>
--> Butter
+-> Butter #line:0fa399a 
    <<jump talk_dont_sell>>
--> Honey
+-> Honey #line:0cec0d0 
    <<jump talk_dont_sell>>
 ===
 
@@ -654,7 +654,7 @@ actor:
 tags: item
 ---
 <<card food_honey>>
-Honey
+Honey #line:0817d3c 
 <<collect>>
 ===
 
@@ -665,7 +665,7 @@ actor:
 tags: item
 ---
 <<card food_sugar>>
-Sugar
+Sugar #line:05ad31e 
 <<collect>>
 ===
 
@@ -674,7 +674,7 @@ position: -442,12
 color: yellow
 ---
 <<card food_butter>>
-Butter
+Butter #line:0a8a8cc 
 <<collect>>
 ===
 
@@ -684,7 +684,7 @@ color: yellow
 actor: 
 ---
 <<card food_egg>>
-Egg
+Egg #line:00ab8e2 
 <<collect>>
 ===
 
@@ -694,7 +694,7 @@ color: yellow
 tags: item
 ---
 <<card food_cinnamon>>
-Cinnamon
+Cinnamon #line:0f00ddd 
 <<collect>>
 ===
 
@@ -705,7 +705,7 @@ actor:
 tags: item
 ---
 <<card food_ginger>>
-Ginger
+Ginger #line:08049d5 
 <<collect>>
 ===
 
@@ -732,7 +732,7 @@ actor: ADULT_M
 ---
 => The Old HALL looks so tall. #line:041418b 
 => I will taste PIEROGI. #line:068a9a7
-=> Torun is really beautiful!
+=> Torun is really beautiful! #line:08bc7dd 
 => The market is so lively! #line:0d92388 
 ===
 
