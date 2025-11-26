@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: flag_andorra
   Status: 1
-  Importance: 30
   Type: 4
-  Topics: 0200000003000000
-  Year: 1866
-  Country: 4
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 0200000003000000
   TitleEn: Flag of Andorra
   DescriptionEn: The flag of Andorra has blue, yellow, and red stripes with a coat
     of arms in the middle. Andorra is a tiny country between France and Spain.
@@ -42,14 +37,23 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1866
+  Country: 4
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 30
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests: []
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 2728278d5cf6841e3bef83a63d0dd91a, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -58,10 +62,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Learning about small countries helps kids understand European diversity
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Flag of Andorra
   _lastDescriptionEn: The flag of Andorra has blue, yellow, and red stripes with
     a coat of arms in the middle. Andorra is a tiny country between France and Spain.
