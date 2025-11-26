@@ -9,11 +9,10 @@ namespace Antura.Discover.Activities
         Paper = 1
     }
 
-    public enum MoneyTypeFilter
+    public enum MoneyGenerationType
     {
-        Both = 0,
-        CoinOnly = 1,
-        BanknoteOnly = 2,
+        Automatic = 0,
+        Manual = 1,
     }
 
     [CreateAssetMenu(fileName = "MoneySettingsData", menuName = "Antura/Activity/Money Settings")]
@@ -39,12 +38,20 @@ namespace Antura.Discover.Activities
         public float RangeMax = 20f;
 
         [Header("Tray Generation")]
-        public MoneyTypeFilter GenType = MoneyTypeFilter.Both;
+        public MoneyGenerationType GenType = MoneyGenerationType.Automatic;
 
-        [Tooltip("How many copies to spawn for each base combo item (minimum 2). Includes the original.")]
-        public int GenDuplicates = 3;
-        [Tooltip("Extra copies of the smallest denomination to add to ensure the target is reachable in many ways.")]
-        public int GenExtraCopies = 6;
+        [System.Serializable]
+        public class ManualMoneyConfig
+        {
+            [Tooltip("Value of the coin/bill")]
+            public float Value;
+            [Tooltip("Type (Coin/Paper)")]
+            public MoneyType Type;
+            [Tooltip("How many to spawn")]
+            public int Count;
+        }
+        public System.Collections.Generic.List<ManualMoneyConfig> ManualComposition;
+
         [Tooltip("Maximum number of tokens to spawn in the tray to avoid excess.")]
         public int GenMaxTokens = 12;
     }

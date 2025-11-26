@@ -89,43 +89,100 @@ namespace Antura.Discover.Activities
             if (all.Count == 0)
                 all = Settings.MoneySet.items.OrderBy(it => it.Value).ToList();
 
-            // 2) Choose a solvable target: sum of 2-4 random items (with replacement)
-            data.TargetAmount = Settings.UseFixedTarget
-                ? Settings.FixedTargetAmount
-                : BuildSolvableTarget(all, 2, 4);
+            // 2) Choose a solvable target
+            if (Settings.UseFixedTarget)
+            {
+                data.TargetAmount = Settings.FixedTargetAmount;
+                // We need to find a combination that sums to this target to ensure solvability
+                lastComboForTarget = GetCombinationForTarget(data.TargetAmount, all);
+            }
+            else
+            {
+                data.TargetAmount = BuildSolvableTarget(all, 2, 4);
+            }
 
             base.DisplayFeedback($"{Settings.MoneySet.CurrencySymbol} {data.TargetAmount:0.00}");
 
-            // 3) Build a rich tray ensuring solvability with many tokens
-            var baseCombo = lastComboForTarget; // from BuildSolvableTarget
+            // 3) Build tray based on difficulty
             var tray = new List<MoneySet.MoneyItem>();
+            var solution = lastComboForTarget; // The coins needed to solve it
 
-            // Helper to add copies but respect a soft cap
-            void AddCopies(MoneySet.MoneyItem item, int copies)
+            // Helper to add items respecting cap
+            void AddToTray(IEnumerable<MoneySet.MoneyItem> items)
             {
-                int cap = Mathf.Max(1, Settings.GenMaxTokens);
-                for (int i = 0; i < copies && tray.Count < cap; i++)
+                foreach (var item in items)
+                {
+                    if (tray.Count >= Settings.GenMaxTokens)
+                        break;
                     tray.Add(item);
+                }
             }
 
-            // Duplicate each base item several times (minimum 2)
-            int copiesPerBase = Mathf.Max(2, Settings.GenDuplicates);
-            foreach (var bi in baseCombo)
-                AddCopies(bi, copiesPerBase);
-
-            // Add extra copies of the smallest denomination available by difficulty
-            var smallest = all.FirstOrDefault();
-            if (smallest != null)
-                AddCopies(smallest, Mathf.Max(0, Settings.GenExtraCopies));
-
-            // Add a spread of distractors (other denominations) up to cap
-            foreach (var d in all)
+            if (Settings.GenType == MoneyGenerationType.Manual)
             {
-                if (tray.Count >= Settings.GenMaxTokens)
-                    break;
-                // Add 1-2 copies depending on difficulty
-                int extra = Mathf.Clamp(difficulty, 0, 2);
-                AddCopies(d, extra);
+                if (Settings.ManualComposition != null)
+                {
+                    foreach (var entry in Settings.ManualComposition)
+                    {
+                        var match = Settings.MoneySet.items.FirstOrDefault(x => Mathf.Abs(x.Value - entry.Value) < 0.001f && x.Type == entry.Type);
+                        if (match != null)
+                        {
+                            for (int i = 0; i < entry.Count; i++)
+                            {
+                                AddToTray(new[] { match });
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // Base: always add the solution first (so it's solvable)
+                AddToTray(solution);
+
+                var smallest = all.OrderBy(x => x.Value).FirstOrDefault();
+
+                switch (difficulty)
+                {
+                    case 0: // Tutorial: Exact amount
+                        // Already added solution
+                        break;
+
+                    case 1: // Easy: Exact + few smallest
+                        if (smallest != null)
+                        {
+                            for (int i = 0; i < 3; i++)
+                                AddToTray(new[] { smallest });
+                        }
+                        break;
+
+                    case 2: // Normal: Double solution + minor coins
+                        AddToTray(solution); // Double the solution coins
+                        if (smallest != null)
+                        {
+                            for (int i = 0; i < 3; i++)
+                                AddToTray(new[] { smallest });
+                        }
+                        // Add some random distractors
+                        for (int i = 0; i < 2; i++)
+                        {
+                            var randomItem = all[prng.Next(all.Count)];
+                            AddToTray(new[] { randomItem });
+                        }
+                        break;
+
+                    case 3: // Expert: Triple solution + more distractors
+                    default:
+                        AddToTray(solution);
+                        AddToTray(solution);
+                        // Add more random distractors
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var randomItem = all[prng.Next(all.Count)];
+                            AddToTray(new[] { randomItem });
+                        }
+                        break;
+                }
             }
 
             // Shuffle tray and assign
@@ -296,6 +353,90 @@ namespace Antura.Discover.Activities
 
         private List<MoneySet.MoneyItem> lastComboForTarget = new();
 
+        private List<MoneySet.MoneyItem> GetCombinationForTarget(float target, List<MoneySet.MoneyItem> pool)
+        {
+            // 1. Filter by difficulty
+            var validItems = pool
+                .Where(it => (int)it.Difficulty <= difficulty)
+                .OrderByDescending(x => x.Value)
+                .ToList();
+
+            if (validItems.Count == 0)
+                validItems = pool.OrderByDescending(x => x.Value).ToList();
+
+            // 2. Try to find a combination (with retries for randomness)
+            // We try multiple times to find a valid combination because the random choices might lead to a dead end
+            // or we just want to ensure we can solve it.
+            for (int attempt = 0; attempt < 20; attempt++)
+            {
+                var currentCombo = new List<MoneySet.MoneyItem>();
+                float remaining = target;
+                bool failed = false;
+
+                // Safety break
+                int safety = 0;
+                while (remaining > 0.001f && safety++ < 100)
+                {
+                    // Find candidates that fit
+                    var candidates = validItems.Where(x => x.Value <= remaining + 0.001f).ToList();
+                    if (candidates.Count == 0)
+                    {
+                        failed = true;
+                        break;
+                    }
+
+                    // Pick one.
+                    // To ensure we don't just pick 1s, prefer larger coins.
+                    // Strategy: Pick randomly from the top 3 candidates (largest values).
+                    int topN = Mathf.Min(candidates.Count, 3);
+                    // candidates are already sorted descending because validItems is sorted descending
+                    var pick = candidates[prng.Next(0, topN)];
+
+                    currentCombo.Add(pick);
+                    remaining -= pick.Value;
+                }
+
+                if (!failed && Mathf.Abs(remaining) <= 0.001f)
+                {
+                    return currentCombo;
+                }
+            }
+
+            // Fallback to strict greedy if random attempts fail
+            return GetGreedyCombination(target, validItems);
+        }
+
+        private List<MoneySet.MoneyItem> GetGreedyCombination(float target, List<MoneySet.MoneyItem> pool)
+        {
+            var result = new List<MoneySet.MoneyItem>();
+            // Pool is assumed to be sorted descending
+            float current = 0f;
+
+            foreach (var item in pool)
+            {
+                while (current + item.Value <= target + 0.001f)
+                {
+                    current += item.Value;
+                    result.Add(item);
+                }
+            }
+
+            // Fill with smallest if needed
+            if (Mathf.Abs(target - current) > 0.001f)
+            {
+                var smallest = pool.LastOrDefault(); // validItems is sorted descending, so last is smallest
+                if (smallest != null)
+                {
+                    while (current + smallest.Value <= target + 0.001f)
+                    {
+                        current += smallest.Value;
+                        result.Add(smallest);
+                    }
+                }
+            }
+
+            return result;
+        }
         private float BuildSolvableTarget(List<MoneySet.MoneyItem> pool, int minCount, int maxCount)
         {
             // Try a few times to assemble a simple sum

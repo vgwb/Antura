@@ -42,6 +42,7 @@ namespace Antura.Discover.Activities
             }
             if (valueLabel)
                 valueLabel.text = $"{currencySymbol} {Model.Value:0.00}";
+            valueLabel.gameObject.SetActive(false); // TODO enable this only in tutorial
 
             transform.localScale = new Vector3(globalScale, globalScale, 1f);
         }

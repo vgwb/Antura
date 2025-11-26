@@ -27,10 +27,21 @@ MonoBehaviour:
   SelectionMode: 0
   MoneySet: {fileID: 11400000, guid: 7bdbc4b74a13f4d5b9af72f851297b51, type: 2}
   UseFixedTarget: 1
-  FixedTargetAmount: 15
+  FixedTargetAmount: 8
   RangeMin: 40
   RangeMax: 100
-  GenType: 0
-  GenDuplicates: 4
-  GenExtraCopies: 4
+  GenType: 1
+  ManualComposition:
+  - Value: 5
+    Type: 0
+    Count: 1
+  - Value: 2
+    Type: 0
+    Count: 2
+  - Value: 1
+    Type: 0
+    Count: 3
+  - Value: 0.5
+    Type: 0
+    Count: 2
   GenMaxTokens: 14
