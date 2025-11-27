@@ -8,11 +8,11 @@ All notable changes to this project will be documented in this file.
 - Quest PL_06: Poland Torun Market
 
 ### Experimental (to test)
-- introduced LL words (Kids Living Letters tha speak just a Word)
+- introduced LL words (Kids Living Letters that speak just a Word)
 
 ### Fixed
 - Cards speaks in correct native language
-- improved Money activities with bettere selections of money in the tray
+- improved Money activities with better selections of money in the tray
 
 ### Changed
 - from now the version number is the publish date

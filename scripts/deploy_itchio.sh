@@ -5,7 +5,7 @@ CHANNEL="vgwb/antura:windows"   # itch.io channel
 BUILD_DIR="${1:-${UNITY_BUILD_OUTPUT:-${BUILD_PATH:-$PWD}}}"
 
 # Read version from project repo
-VERSION_FILE="docs/latest-version.txt"
+VERSION_FILE="docs/public/latest-version.txt"
 if [ ! -f "$VERSION_FILE" ]; then
     echo "ERROR: version file '$VERSION_FILE' not found." >&2
     exit 1
