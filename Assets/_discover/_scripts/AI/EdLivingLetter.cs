@@ -1,4 +1,5 @@
 using System;
+using Antura.Audio;
 using Antura.LivingLetters;
 using DG.DeExtensions;
 using UnityEngine;
@@ -126,6 +127,15 @@ namespace Antura.Discover
         }
 
         bool IsAgentMoving(NavMeshAgent a) => a && a.enabled && a.isOnNavMesh && !a.isStopped && !a.pathPending && (a.velocity.sqrMagnitude > 0.01f || (a.hasPath && a.remainingDistance > a.stoppingDistance + 0.05f));
+
+        public void PlayWord()
+        {
+            if (Word != null)
+            {
+                AudioManager.I.PlayWord(Word, false);
+            }
+
+        }
 
     }
 }

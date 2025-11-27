@@ -47,7 +47,7 @@ namespace Antura.Discover
             }
             else
             {
-                localizedString.LocaleOverride = null;
+                localizedString.LocaleOverride = GetNativeLocale();
             }
             return localizedString.GetLocalizedString();
         }
@@ -60,7 +60,7 @@ namespace Antura.Discover
             }
             else
             {
-                localizedString.LocaleOverride = null;
+                localizedString.LocaleOverride = GetNativeLocale();
             }
             return localizedString.GetLocalizedString();
         }

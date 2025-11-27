@@ -312,6 +312,13 @@ namespace Antura.Audio
             return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
         }
 
+        public IAudioSource PlayWord(Discover.WordData data, bool exclusive = true, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
+        {
+            var sourcePath = new SourcePath(data.Id, "/Audio/Words", use);
+            return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
+        }
+
+
         public IAudioSource PlayPhrase(PhraseData data, bool exclusive = true, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
             var sourcePath = new SourcePath(data.Id, "/Audio/Phrases", use);

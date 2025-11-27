@@ -40,13 +40,11 @@ namespace Antura.Discover.Audio
 
         static string GetCardTitleKey(CardData card)
         {
-            // Convention: title audio entries are keyed by the card id.
             return card.Id;
         }
 
         static string GetCardDescriptionKey(CardData card)
         {
-            // Conventional fallback: description key derived from id.
             return card.Id + "_DESC";
         }
 
@@ -55,10 +53,12 @@ namespace Antura.Discover.Audio
             if (string.IsNullOrEmpty(entryKey))
                 return null;
 
+            Debug.Log($"----- LearningLocale is {LocalizationSystem.I.GetLearningLocale()?.Identifier.Code}, NativeLocale is {LocalizationSystem.I.GetNativeLocale()?.Identifier.Code}");
+
             // Determine target locale.
             Locale locale = route == CardAudioLanguage.Learning
-                ? DiscoverAppManager.I?.GetLearningLocale()
-                : null; // null uses active SelectedLocale as per GetLocalizedAssetAsync API
+                ? LocalizationSystem.I.GetLearningLocale()
+                : LocalizationSystem.I.GetNativeLocale();
 
             // Use the same pattern as DiscoverLineProvider to fetch localized assets.
             // Debug.Log($"[LocalizedCardAudioService] Loading audio for key '{entryKey}' in locale '{locale?.Identifier.Code ?? "native"}' from table '{_cardsAudioTableRef.TableCollectionName}'");
