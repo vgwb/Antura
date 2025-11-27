@@ -228,7 +228,7 @@ Credits:
 
     ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ width="200" }
 
-- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md), [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
+- Quests: [Sąsiedzi Polski (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -473,6 +473,7 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
+- Quests: [Poruszaj się bezpiecznie po mieście (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -573,7 +574,7 @@ Credits:
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
-    - **[SÓL](../cards/index.md#food_salt)** (MadeOf)
+    - **[Sól](../cards/index.md#food_salt)** (MadeOf)
     Białe kryształy, które poprawiają smak potraw.
 
     ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ width="200" }
@@ -607,12 +608,12 @@ Credits:
     ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ width="200" }
 
 - Connected cards:
-    - **[CHLEB](../cards/index.md#food_bread)** (MadeOf)
+    - **[Chleb](../cards/index.md#food_bread)** (MadeOf)
     Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
 
     ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ width="200" }
 
-    - **[RYBA](../cards/index.md#food_fish)** (MadeOf)
+    - **[Ryba](../cards/index.md#food_fish)** (MadeOf)
     Zwierzę żyjące i pływające w wodzie. Ryby mają płetwy i skrzela, które umożliwiają im oddychanie pod wodą.
 
     ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ width="200" }
@@ -669,10 +670,15 @@ Credits:
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
 - Connected cards:
-    - **[Szwajcaria](../cards/index.md#country_switzerland)** (RelatedTo)
-    Kraj w Europie. Stolicą jest Berno. Szwajcaria słynie z gór i sera.
+    - **[Hiszpania](../cards/index.md#country_spain)** (RelatedTo)
+    Kraj w Europie. Stolicą jest Madryt. Hiszpania wynalazła taniec flamenco.
 
-    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+
+    - **[Flaga Hiszpanii](../cards/index.md#flag_spain)** (CulturalContext)
+    Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają słońce i paprykę! To Hiszpania wynalazła taniec flamenco.
+
+    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Luksemburg](../cards/index.md#country_luxembourg)** (RelatedTo)
     Państwo w Europie. Stolicą jest miasto Luksemburg.
@@ -684,16 +690,6 @@ Credits:
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
-    - **[Flaga Hiszpanii](../cards/index.md#flag_spain)** (CulturalContext)
-    Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają słońce i paprykę! To Hiszpania wynalazła taniec flamenco.
-
-    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
-
-    - **[Flaga Niemiec](../cards/index.md#flag_germany)** (CulturalContext)
-    Flaga Niemiec ma trzy poziome pasy: czarny, czerwony i żółty. Niemcy słyną z samochodów, zamków i bajek!
-
-    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
-
     - **[Flaga Włoch](../cards/index.md#flag_italy)** (CulturalContext)
     Flaga Włoch ma trzy pionowe pasy: zielony, biały i czerwony. Kolory te przypominają bazylię, mozzarellę i pomidory na pizzy!
 
@@ -704,26 +700,77 @@ Credits:
 
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
+    - **[Miasto Luksemburg](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
+    Stolica Luksemburga.
+
+    ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
+
+    - **[Belgia](../cards/index.md#country_belgium)** (RelatedTo)
+    Państwo w Europie. Stolicą jest Bruksela.
+
+    ![preview country_belgium](../../../assets/img/content/cards/country_belgium.jpg){ width="200" }
+
     - **[Flaga Belgii](../cards/index.md#flag_belgium)** (CulturalContext)
     Flaga Belgii ma trzy pionowe pasy: czarny, żółty i czerwony. Belgia słynie z czekolady i gofrów!
 
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
+
+    - **[Szwajcaria](../cards/index.md#country_switzerland)** (RelatedTo)
+    Kraj w Europie. Stolicą jest Berno. Szwajcaria słynie z gór i sera.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
     - **[Flaga Szwajcarii](../cards/index.md#flag_switzerland)** (CulturalContext)
     Flaga Szwajcarii jest czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
 
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
+    - **[Berno](../cards/index.md#capital_bern)** (RelatedTo)
+    Stolica Szwajcarii.
+
+    ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ width="200" }
+
     - **[Niemcy](../cards/index.md#country_germany)** (RelatedTo)
     Państwo w Europie. Stolicą jest Berlin.
 
     ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ width="200" }
 
-    - **[Hiszpania](../cards/index.md#country_spain)** (RelatedTo)
-    Kraj w Europie. Stolicą jest Madryt. Hiszpania wynalazła taniec flamenco.
+    - **[Flaga Niemiec](../cards/index.md#flag_germany)** (CulturalContext)
+    Flaga Niemiec ma trzy poziome pasy: czarny, czerwony i żółty. Niemcy słyną z samochodów, zamków i bajek!
 
-    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
+    - **[Berlin](../cards/index.md#capital_berlin)** (RelatedTo)
+    Stolica Niemiec.
+
+    ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ width="200" }
+
+    - **[Rzym](../cards/index.md#capital_rome)** (RelatedTo)
+    Stolica Włoch.
+
+    ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ width="200" }
+
+    - **[Bruksela](../cards/index.md#capital_brussels)** (RelatedTo)
+    Stolica Belgii.
+
+    ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ width="200" }
+
+    - **[Madryt](../cards/index.md#capital_madrid)** (RelatedTo)
+    Stolica Hiszpanii.
+
+    ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ width="200" }
+
+    - **[Flaga Andory](../cards/index.md#flag_andorra)** (RelatedTo)
+    Flaga Andory ma niebieskie, żółte i czerwone pasy z herbem pośrodku. Andora to malutkie państwo położone między Francją a Hiszpanią.
+
+    ![preview flag_andorra](../../../assets/img/content/cards/flag_andorra.jpg){ width="200" }
+
+    - **[Flaga Monako](../cards/index.md#flag_monaco)** (RelatedTo)
+    Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem!
+
+    ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ width="200" }
+
+- Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -865,15 +912,25 @@ Credits:
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Balon na ogrzane powietrze](../cards/index.md#hot_air_balloon)** (RelatedTo)
-    Balon latający na gorące powietrze. Pierwszy taki balon poleciał we Francji.
+    - **[Pięć tygodni w balonie](../cards/index.md#book_five_weeks_in_a_balloon)** (RelatedTo)
+    Książka Juliusza Verne'a o locie nad Afryką balonem na ogrzane powietrze. Pełna przygód i odkryć!
 
-    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
+    ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ width="200" }
 
     - **[Rakieta kosmiczna](../cards/index.md#space_rocket)** (RelatedTo)
     Rakieta, która leci w kosmos.
 
     ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ width="200" }
+
+    - **[Łódź podwodna (Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
+    Łódź podwodna z powieści Juliusza Verne'a. Mogła eksplorować głębiny morskie.
+
+    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+
+    - **[Pociąg](../cards/index.md#train)** (RelatedTo)
+    Pociągi szybko przewożą ludzi i towary przez cały kraj.
+
+    ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
     - **[Łódź podwodna (Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
     Łódź podwodna z powieści Juliusza Verne'a. Mogła eksplorować głębiny morskie.
@@ -1188,6 +1245,7 @@ Credits:
 
     ![preview honey](../../../assets/img/content/cards/honey.jpg){ width="200" }
 
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1285,12 +1343,6 @@ Credits:
 ### Pierogi Recipe {#pierogi}
 - Importance: Medium  
 - Target Age: Ages6to10
-- Core card:
-    - **[Przepis na pierogi](../cards/index.md#pierogi_recipe)**
-    Wyrób miękkie ciasto, nałóż na nie puree ziemniaczane i serek wiejski, zamknij i gotuj, aż ciasto wypłynie na powierzchnię – następnie smaż na patelni z cebulą na maśle.
-
-    ![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ width="200" }
-
 - Connected cards:
     - **[Polskie pierogi](../cards/index.md#pierogi)** (RelatedTo)
     Pierogi z nadzieniem ziemniaczanym, serowym lub owocowym. To słynne polskie danie.

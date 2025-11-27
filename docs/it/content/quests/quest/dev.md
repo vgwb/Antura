@@ -13,6 +13,10 @@ Version: 1.00
 Status: Development  
 Location: Italy - Firenze
 
+## Quest Script
+
+[See the full script here](./dev-script.md)
+
 ## Content
 Subjects: 
 
@@ -31,7 +35,7 @@ Subjects:
     La capitale della Francia. Parigi ha una famosa torre alta chiamata Torre Eiffel!  
   - **[Panettiere](../../cards/index.md#person_baker)**  
     Una persona che prepara pane, torte e pasticcini.  
-  - **[SALE](../../cards/index.md#food_salt)**  
+  - **[Sale](../../cards/index.md#food_salt)**  
     Cristalli bianchi che migliorano il sapore del cibo.  
   - **[Lievito](../../cards/index.md#food_yeast)**  
     Il lievito è come una polvere magica che rende il pane morbido e gustoso!  
@@ -39,12 +43,6 @@ Subjects:
     Polvere bianca ricavata dal grano, utilizzata per fare il pane.  
   - **[Acqua](../../cards/index.md#food_water)**  
     L'acqua è essenziale per tutta la vita  
-
-## Quest Script
-
-[See the full script here](./dev-script.md)
-
----
 
 ## Words
 - peace

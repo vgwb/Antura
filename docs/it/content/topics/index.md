@@ -229,7 +229,7 @@ Credits:
 
     ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ width="200" }
 
-- Quests: [I vicini della Francia (fr_00)](../quests/quest/fr_00.md), [I vicini della Polonia (pl_00)](../quests/quest/pl_00.md)
+- Quests: [I vicini della Polonia (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -474,6 +474,7 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
+- Quests: [Muoversi in città in sicurezza (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -574,7 +575,7 @@ Credits:
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
-    - **[SALE](../cards/index.md#food_salt)** (MadeOf)
+    - **[Sale](../cards/index.md#food_salt)** (MadeOf)
     Cristalli bianchi che migliorano il sapore del cibo.
 
     ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ width="200" }
@@ -608,12 +609,12 @@ Credits:
     ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ width="200" }
 
 - Connected cards:
-    - **[PANE](../cards/index.md#food_bread)** (MadeOf)
+    - **[Pane](../cards/index.md#food_bread)** (MadeOf)
     Un alimento delizioso a base di farina e acqua. Puoi preparare dei panini con il pane!
 
     ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ width="200" }
 
-    - **[PESCARE](../cards/index.md#food_fish)** (MadeOf)
+    - **[Pesce](../cards/index.md#food_fish)** (MadeOf)
     Un animale che vive e nuota nell'acqua. I pesci hanno pinne e branchie per respirare sott'acqua.
 
     ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ width="200" }
@@ -670,10 +671,15 @@ Credits:
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
 - Connected cards:
-    - **[Svizzera](../cards/index.md#country_switzerland)** (RelatedTo)
-    Un paese in Europa. La capitale è Berna. La Svizzera è famosa per le montagne e il formaggio.
+    - **[Spagna](../cards/index.md#country_spain)** (RelatedTo)
+    Un paese in Europa. La capitale è Madrid. La Spagna ha inventato il flamenco.
 
-    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+
+    - **[Bandiera della Spagna](../cards/index.md#flag_spain)** (CulturalContext)
+    La bandiera spagnola ha strisce orizzontali rosse e gialle. I colori sono quelli del sole e dei peperoni! La Spagna ha inventato il flamenco.
+
+    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Lussemburgo](../cards/index.md#country_luxembourg)** (RelatedTo)
     Uno stato europeo. La capitale è la città di Lussemburgo.
@@ -685,16 +691,6 @@ Credits:
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
-    - **[Bandiera della Spagna](../cards/index.md#flag_spain)** (CulturalContext)
-    La bandiera spagnola ha strisce orizzontali rosse e gialle. I colori sono quelli del sole e dei peperoni! La Spagna ha inventato il flamenco.
-
-    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
-
-    - **[Bandiera della Germania](../cards/index.md#flag_germany)** (CulturalContext)
-    La bandiera della Germania ha tre strisce orizzontali: nera, rossa e gialla. La Germania è famosa per le automobili, i castelli e le fiabe!
-
-    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
-
     - **[Bandiera dell'Italia](../cards/index.md#flag_italy)** (CulturalContext)
     La bandiera italiana ha tre strisce verticali: verde, bianco e rosso. I colori ricordano il basilico, la mozzarella e i pomodori sulla pizza!
 
@@ -705,26 +701,77 @@ Credits:
 
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
+    - **[Città di Lussemburgo](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
+    La capitale del Lussemburgo.
+
+    ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
+
+    - **[Belgio](../cards/index.md#country_belgium)** (RelatedTo)
+    Un paese in Europa. La capitale è Bruxelles.
+
+    ![preview country_belgium](../../../assets/img/content/cards/country_belgium.jpg){ width="200" }
+
     - **[Bandiera del Belgio](../cards/index.md#flag_belgium)** (CulturalContext)
     La bandiera del Belgio ha tre strisce verticali: nera, gialla e rossa. Il Belgio è famoso per il cioccolato e i waffle!
 
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
+
+    - **[Svizzera](../cards/index.md#country_switzerland)** (RelatedTo)
+    Un paese in Europa. La capitale è Berna. La Svizzera è famosa per le montagne e il formaggio.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
     - **[Bandiera della Svizzera](../cards/index.md#flag_switzerland)** (CulturalContext)
     La bandiera svizzera è rossa con una croce bianca al centro. Sembra un kit di pronto soccorso! La Svizzera è famosa per le montagne e il formaggio.
 
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
+    - **[Berna](../cards/index.md#capital_bern)** (RelatedTo)
+    La capitale della Svizzera.
+
+    ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ width="200" }
+
     - **[Germania](../cards/index.md#country_germany)** (RelatedTo)
     Un paese in Europa. La capitale è Berlino.
 
     ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ width="200" }
 
-    - **[Spagna](../cards/index.md#country_spain)** (RelatedTo)
-    Un paese in Europa. La capitale è Madrid. La Spagna ha inventato il flamenco.
+    - **[Bandiera della Germania](../cards/index.md#flag_germany)** (CulturalContext)
+    La bandiera della Germania ha tre strisce orizzontali: nera, rossa e gialla. La Germania è famosa per le automobili, i castelli e le fiabe!
 
-    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
+    - **[Berlino](../cards/index.md#capital_berlin)** (RelatedTo)
+    La capitale della Germania.
+
+    ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ width="200" }
+
+    - **[Roma](../cards/index.md#capital_rome)** (RelatedTo)
+    La capitale d'Italia.
+
+    ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ width="200" }
+
+    - **[Bruxelles](../cards/index.md#capital_brussels)** (RelatedTo)
+    La capitale del Belgio.
+
+    ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ width="200" }
+
+    - **[Madrid](../cards/index.md#capital_madrid)** (RelatedTo)
+    La capitale della Spagna.
+
+    ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ width="200" }
+
+    - **[Bandiera di Andorra](../cards/index.md#flag_andorra)** (RelatedTo)
+    La bandiera di Andorra è composta da strisce blu, gialle e rosse con uno stemma al centro. Andorra è un piccolo stato tra Francia e Spagna.
+
+    ![preview flag_andorra](../../../assets/img/content/cards/flag_andorra.jpg){ width="200" }
+
+    - **[Bandiera di Monaco](../cards/index.md#flag_monaco)** (RelatedTo)
+    La bandiera di Monaco è a strisce orizzontali rosse e bianche. Monaco è piccola ma famosa per le sue auto di lusso e i palazzi reali sul mare!
+
+    ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ width="200" }
+
+- Quests: [I vicini della Francia (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -866,15 +913,25 @@ Credits:
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Mongolfiera](../cards/index.md#hot_air_balloon)** (RelatedTo)
-    Un pallone che vola ad aria calda. Il primo esemplare volò in Francia.
+    - **[Cinque settimane in mongolfiera](../cards/index.md#book_five_weeks_in_a_balloon)** (RelatedTo)
+    Un libro di Jules Verne sul volo attraverso l'Africa in mongolfiera. È pieno di avventure e scoperte!
 
-    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
+    ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ width="200" }
 
     - **[Razzo spaziale](../cards/index.md#space_rocket)** (RelatedTo)
     Un razzo che va nello spazio.
 
     ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ width="200" }
+
+    - **[Sottomarino (Il Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
+    Un sottomarino tratto dal racconto di Jules Verne. Poteva esplorare le profondità marine.
+
+    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+
+    - **[Treno](../cards/index.md#train)** (RelatedTo)
+    I treni trasportano rapidamente persone e merci in tutto il Paese.
+
+    ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
     - **[Sottomarino (Il Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
     Un sottomarino tratto dal racconto di Jules Verne. Poteva esplorare le profondità marine.
@@ -1189,6 +1246,7 @@ Credits:
 
     ![preview honey](../../../assets/img/content/cards/honey.jpg){ width="200" }
 
+- Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1286,12 +1344,6 @@ Credits:
 ### Pierogi Recipe {#pierogi}
 - Importance: Medium  
 - Target Age: Ages6to10
-- Core card:
-    - **[Ricetta dei pierogi](../cards/index.md#pierogi_recipe)**
-    Preparare un impasto morbido, farcirlo con purè di patate e formaggio contadino, sigillare, far bollire finché non vengono a galla, quindi soffriggere in padella con burro e cipolle.
-
-    ![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ width="200" }
-
 - Connected cards:
     - **[Pierogi polacchi](../cards/index.md#pierogi)** (RelatedTo)
     Ravioli ripieni di patate, formaggio o frutta. Sono un famoso piatto polacco.

@@ -13,6 +13,10 @@ Version: 1.00
 Status: Development  
 Location: Italy - Firenze
 
+## Quest Script
+
+[See the full script here](./dev-script.md)
+
 ## Content
 Subjects: 
 
@@ -31,7 +35,7 @@ Subjects:
     Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !  
   - **[Boulanger](../../cards/index.md#person_baker)**  
     Une personne qui fait du pain, des gâteaux et des pâtisseries.  
-  - **[SEL](../../cards/index.md#food_salt)**  
+  - **[Sel](../../cards/index.md#food_salt)**  
     Des cristaux blancs qui améliorent le goût des aliments.  
   - **[Levure](../../cards/index.md#food_yeast)**  
     La levure est comme une poudre magique qui rend le pain moelleux et savoureux !  
@@ -39,12 +43,6 @@ Subjects:
     Poudre blanche fabriquée à partir de blé qui est utilisée pour faire du pain.  
   - **[Eau](../../cards/index.md#food_water)**  
     L'eau est essentielle à toute vie  
-
-## Quest Script
-
-[See the full script here](./dev-script.md)
-
----
 
 ## Words
 - peace

@@ -1,9 +1,9 @@
 ---
-title: Tutoriel (tutorial)
+title: Tutorial (tutorial)
 hide:
 ---
 
-# Tutoriel (tutorial)
+# Tutorial (tutorial)
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
 > **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  

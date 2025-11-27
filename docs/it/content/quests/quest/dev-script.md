@@ -390,6 +390,7 @@ hide:
 
 <div class="yarn-node" data-title="test_dialog">
 <pre class="yarn-code"><code>
+<span class="yarn-header-dim">// the tag noRepeatLastLine prevents repeating the last line when showing options</span>
 <span class="yarn-header-dim">group: dialog</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
@@ -1070,7 +1071,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Attività CANVAS!</span> <span class="yarn-meta">#line:0532f99 </span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; Yes #highlight]</span> <span class="yarn-meta">#line:0103ffa </span>
-    <span class="yarn-cmd">&lt;&lt;activity canvas_beach_settings activity_canvas_result&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings activity_canvas_result&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: -&gt; No]</span> <span class="yarn-meta">#line:08a0b03 </span>
 
 
@@ -1167,7 +1168,7 @@ hide:
 <span class="yarn-line">[MISSING TRANSLATION: You played MEMORY activity well!]</span> <span class="yarn-meta">#line:0940d53 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Attività MEMORIA!</span> <span class="yarn-meta">#line:0727144</span>
-<span class="yarn-cmd">&lt;&lt;activity memory_baguette_settings activity_memory_result expert&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity memory_baguette_settings activity_memory_result&gt;&gt;</span>
 
 </code>
 </pre>

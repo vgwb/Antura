@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **383**
+Total found: **384**
 
 ## International
 
@@ -98,6 +98,7 @@ Państwo w Europie. Stolicą jest Bruksela.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Loc7798_R01.jpg: Marc Ryckaert (MJJR)
 derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki/File:Loc7798_R01_alt.jpg)
 
@@ -111,6 +112,7 @@ Stolica Szwajcarii.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Daniel Kraft | [source](https://commons.wikimedia.org/wiki/File:Bern_Panorama_von_Rosengarten_20211007.jpg)
 
 ---
@@ -223,11 +225,12 @@ Stolica Belgii.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Horst J. Meuter | [source](https://commons.wikimedia.org/wiki/File:Atomium,_Brüssel_2.jpg)
 
 ---
 
-### CHLEB {#food_bread}
+### Chleb {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
 Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
@@ -250,6 +253,18 @@ Słodkie nagrody, które możesz zbierać podczas gry! Wykorzystaj je, aby zdoby
 - Country: International
 - Topics: [Antura's world](../topics/index.md#antura-world)
 - Image credit: CC0
+
+---
+
+### Cukier {#food_sugar}
+![preview food_sugar](../../../assets/img/content/cards/food_sugar.jpg){ loading=lazy }
+
+Cukier wytwarza się z roślin takich jak buraki czy trzcina cukrowa. Dodaje energii i sprawia, że ​​ciasta i ciasteczka smakują wyśmienicie.
+
+- Type: Object
+- Subjects: Food, Science
+- Country: International
+- Image credit: CC0 | Romain Behar, Public domain, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Sucre_blanc_cassonade_complet_rapadura.jpg)
 
 ---
 
@@ -1050,6 +1065,7 @@ Stolica Luksemburga.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:City_Hall_of_Luxembourg_City_01.jpg)
 
 ---
@@ -1438,7 +1454,7 @@ Ptak, który nie lata, ale świetnie pływa. Żyje w zimnych miejscach.
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0
+- Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -1491,6 +1507,7 @@ Pociągi szybko przewożą ludzi i towary przez cały kraj.
 - Type: Object
 - Subjects: Transportation
 - Country: International
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 
 ---
@@ -1741,7 +1758,7 @@ Drzewo o różowych kwiatach i czerwonych, smacznych owocach. Uwielbia słońce 
 
 ---
 
-### RYBA {#food_fish}
+### Ryba {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
 Zwierzę żyjące i pływające w wodzie. Ryby mają płetwy i skrzela, które umożliwiają im oddychanie pod wodą.
@@ -1831,6 +1848,18 @@ Osoba sprzedająca mleko, masło i ser.
 - Country: International
 - Image credit: CC_BY_SA | Something Original (talk) | [source](https://commons.wikimedia.org/wiki/File:Pennsylvania_State_University_Food_Science_Building_and_Berkey_Creamery_May_15,_2010.jpg)
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Sprzedawca przypraw {#person_spicevendor}
+![preview person_spicevendor](../../../assets/img/content/cards/person_spicevendor.jpg){ loading=lazy }
+
+Sprzedaje małe słoiczki z pysznymi zapachami, takimi jak cynamon, goździki i imbir. Dzięki nim potrawy stają się ciepłe, słodkie i pełne smaku.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Image credit: CC0 | RajaKACEM, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Salesmanspice.jpg)
 
 ---
 
@@ -1948,7 +1977,7 @@ Sprytny i wesoły, uwielbia wspinać się na drzewa. Używa patyków i kamieni j
 
 ---
 
-### SÓL {#food_salt}
+### Sól {#food_salt}
 ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
 
 Białe kryształy, które poprawiają smak potraw.
@@ -2397,7 +2426,6 @@ Balon latający na gorące powietrze. Pierwszy taki balon poleciał we Francji.
 - Type: Object
 - Subjects: Transportation
 - Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
@@ -2606,7 +2634,7 @@ Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słyn
 - Subjects: Geography, Culture
 - Year: 1881
 - Country: France
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe)
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 - Quests: [Sąsiedzi Francji (fr_00)](../quests/quest/fr_00.md)
 
@@ -3171,6 +3199,7 @@ Książka Juliusza Verne'a o locie nad Afryką balonem na ogrzane powietrze. Pe�
 - Subjects: Literature
 - Year: 1863
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
@@ -4507,19 +4536,6 @@ Miejsce, w którym statki załadowują się i rozładowują.
 
 ---
 
-### Przepis na pierogi {#pierogi_recipe}
-![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ loading=lazy }
-
-Wyrób miękkie ciasto, nałóż na nie puree ziemniaczane i serek wiejski, zamknij i gotuj, aż ciasto wypłynie na powierzchnię – następnie smaż na patelni z cebulą na maśle.
-
-- Type: Object
-- Subjects: Food
-- Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
-- Image credit: CC0
-
----
-
 ### Ratusz {#town_hall}
 ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ loading=lazy }
 
@@ -4990,6 +5006,7 @@ Stolica Niemiec.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
 
 ---
@@ -5085,6 +5102,7 @@ Stolica Włoch.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
 
 ---
@@ -5114,6 +5132,7 @@ Flaga Andory ma niebieskie, żółte i czerwone pasy z herbem pośrodku. Andora 
 - Subjects: Geography, Culture
 - Year: 1866
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 
 ---
@@ -5158,5 +5177,6 @@ Stolica Hiszpanii.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
 

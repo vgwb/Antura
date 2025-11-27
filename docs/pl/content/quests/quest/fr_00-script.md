@@ -1,9 +1,9 @@
 ---
-title: Les voisins de la France (fr_00) - Script
+title: Sąsiedzi Francji (fr_00) - Script
 hide:
 ---
 
-# Les voisins de la France (fr_00) - Script
+# Sąsiedzi Francji (fr_00) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-00-the-neighbors-of-france/22)  
 > **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  

@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **383**
+Total found: **384**
 
 ## International
 
@@ -189,6 +189,7 @@ A country in Europe. Capital is Brussels.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Loc7798_R01.jpg: Marc Ryckaert (MJJR)
 derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki/File:Loc7798_R01_alt.jpg)
 
@@ -202,6 +203,7 @@ The capital city of Switzerland.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Daniel Kraft | [source](https://commons.wikimedia.org/wiki/File:Bern_Panorama_von_Rosengarten_20211007.jpg)
 
 ---
@@ -293,7 +295,7 @@ The capital city of Slovakia.
 
 ---
 
-### BREAD {#food_bread}
+### Bread {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
 A yummy food made from flour and water. You can make sandwiches with bread!
@@ -343,6 +345,7 @@ The capital city of Belgium.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Horst J. Meuter | [source](https://commons.wikimedia.org/wiki/File:Atomium,_Brüssel_2.jpg)
 
 ---
@@ -811,7 +814,7 @@ A map showing all the countries in Europe. You can see where France, Poland, Ger
 
 ---
 
-### FISH {#food_fish}
+### Fish {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
 An animal that lives and swims in water. Fish have fins and gills to breathe underwater.
@@ -1424,6 +1427,7 @@ The capital city of Luxembourg.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:City_Hall_of_Luxembourg_City_01.jpg)
 
 ---
@@ -1755,7 +1759,7 @@ A bird that cannot fly but swims very well. It lives in cold places.
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0
+- Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg)
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -1930,7 +1934,7 @@ A country in Europe. Capital is Moscow.
 
 ---
 
-### SALT {#food_salt}
+### Salt {#food_salt}
 ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
 
 White crystals that make food taste better. 
@@ -2038,6 +2042,18 @@ A rocket that goes into space.
 
 ---
 
+### Spice Vendor {#person_spicevendor}
+![preview person_spicevendor](../../../assets/img/content/cards/person_spicevendor.jpg){ loading=lazy }
+
+Sells small jars of tasty smells like cinnamon, cloves, and ginger. They help make food warm, sweet, and full of flavor.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Image credit: CC0 | RajaKACEM, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Salesmanspice.jpg)
+
+---
+
 ### Square {#math_setsquare}
 ![preview math_setsquare](../../../assets/img/content/cards/math_setsquare.jpg){ loading=lazy }
 
@@ -2072,6 +2088,18 @@ Rules that keep everyone safe on the road.
 - Subjects: Transportation, Civics, Health
 - Country: International
 - Topics: [Stree safety](../topics/index.md#street-safety)
+
+---
+
+### Sugar {#food_sugar}
+![preview food_sugar](../../../assets/img/content/cards/food_sugar.jpg){ loading=lazy }
+
+Sugar is made from plants like beets or cane. It gives energy and makes cakes and cookies taste delicious.
+
+- Type: Object
+- Subjects: Food, Science
+- Country: International
+- Image credit: CC0 | Romain Behar, Public domain, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Sucre_blanc_cassonade_complet_rapadura.jpg)
 
 ---
 
@@ -2162,6 +2190,7 @@ Trains carry people and goods fast across the country.
 - Type: Object
 - Subjects: Transportation
 - Country: International
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 
 ---
@@ -2830,6 +2859,7 @@ A book by Jules Verne about flying across Africa in a hot air balloon. It's full
 - Subjects: Literature
 - Year: 1863
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
 
@@ -2861,7 +2891,7 @@ The flag of Monaco has red and white horizontal stripes. Monaco is tiny but famo
 - Subjects: Geography, Culture
 - Year: 1881
 - Country: France
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe)
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 - Quests: [The neighbors of France (fr_00)](../quests/quest/fr_00.md)
 
@@ -3048,7 +3078,6 @@ A balloon that flies using hot air. The first one flew in France.
 - Type: Object
 - Subjects: Transportation
 - Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
 
@@ -4392,19 +4421,6 @@ A colorful bird with a big tail of feathers.
 
 ---
 
-### Pierogi Recipe {#pierogi_recipe}
-![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ loading=lazy }
-
-Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
-
-- Type: Object
-- Subjects: Food
-- Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
-- Image credit: CC0
-
----
-
 ### Planetarium {#planetarium}
 ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ loading=lazy }
 
@@ -4991,6 +5007,7 @@ The capital city of Germany.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
 
 ---
@@ -5100,6 +5117,7 @@ The capital city of Italy.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
 
 ---
@@ -5115,6 +5133,7 @@ The flag of Andorra has blue, yellow, and red stripes with a coat of arms in the
 - Subjects: Geography, Culture
 - Year: 1866
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 
 ---
@@ -5145,6 +5164,7 @@ The capital city of Spain.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
 
 ---

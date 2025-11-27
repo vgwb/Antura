@@ -229,7 +229,7 @@ Credits:
 
     ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ width="200" }
 
-- Quests: [The neighbors of France (fr_00)](../quests/quest/fr_00.md), [The neighbors of Poland (pl_00)](../quests/quest/pl_00.md)
+- Quests: [The neighbors of Poland (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -474,6 +474,7 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
+- Quests: [Move around in a city in safety (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -574,7 +575,7 @@ Credits:
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
-    - **[SALT](../cards/index.md#food_salt)** (MadeOf)
+    - **[Salt](../cards/index.md#food_salt)** (MadeOf)
     White crystals that make food taste better. 
 
     ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ width="200" }
@@ -608,12 +609,12 @@ Credits:
     ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ width="200" }
 
 - Connected cards:
-    - **[BREAD](../cards/index.md#food_bread)** (MadeOf)
+    - **[Bread](../cards/index.md#food_bread)** (MadeOf)
     A yummy food made from flour and water. You can make sandwiches with bread!
 
     ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ width="200" }
 
-    - **[FISH](../cards/index.md#food_fish)** (MadeOf)
+    - **[Fish](../cards/index.md#food_fish)** (MadeOf)
     An animal that lives and swims in water. Fish have fins and gills to breathe underwater.
 
     ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ width="200" }
@@ -670,10 +671,15 @@ Credits:
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
 - Connected cards:
-    - **[Switzerland](../cards/index.md#country_switzerland)** (RelatedTo)
-    A country in Europe. Capital is Bern. Switzerland is famous for mountains and cheese.
+    - **[Spain](../cards/index.md#country_spain)** (RelatedTo)
+    A country in Europe. Capital is Madrid. Spain invented flamenco dancing.
 
-    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+
+    - **[Flag of Spain](../cards/index.md#flag_spain)** (CulturalContext)
+    The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
+
+    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Luxembourg](../cards/index.md#country_luxembourg)** (RelatedTo)
     A country in Europe. Capital is Luxembourg City.
@@ -685,16 +691,6 @@ Credits:
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
-    - **[Flag of Spain](../cards/index.md#flag_spain)** (CulturalContext)
-    The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
-
-    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
-
-    - **[Flag of Germany](../cards/index.md#flag_germany)** (CulturalContext)
-    The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
-
-    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
-
     - **[Flag of Italy](../cards/index.md#flag_italy)** (CulturalContext)
     The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
 
@@ -705,26 +701,77 @@ Credits:
 
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
+    - **[Luxembourg City](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
+    The capital city of Luxembourg.
+
+    ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
+
+    - **[Belgium](../cards/index.md#country_belgium)** (RelatedTo)
+    A country in Europe. Capital is Brussels.
+
+    ![preview country_belgium](../../../assets/img/content/cards/country_belgium.jpg){ width="200" }
+
     - **[Flag of Belgium](../cards/index.md#flag_belgium)** (CulturalContext)
     The flag of Belgium has three vertical stripes: black, yellow, and red. Belgium is famous for chocolate and waffles!
 
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
+
+    - **[Switzerland](../cards/index.md#country_switzerland)** (RelatedTo)
+    A country in Europe. Capital is Bern. Switzerland is famous for mountains and cheese.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
     - **[Flag of Switzerland](../cards/index.md#flag_switzerland)** (CulturalContext)
     The flag of Switzerland is red with a white cross in the middle. It looks like a first aid kit! Switzerland is famous for mountains and cheese.
 
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
+    - **[Bern](../cards/index.md#capital_bern)** (RelatedTo)
+    The capital city of Switzerland.
+
+    ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ width="200" }
+
     - **[Germany](../cards/index.md#country_germany)** (RelatedTo)
     A country in Europe. Capital is Berlin.
 
     ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ width="200" }
 
-    - **[Spain](../cards/index.md#country_spain)** (RelatedTo)
-    A country in Europe. Capital is Madrid. Spain invented flamenco dancing.
+    - **[Flag of Germany](../cards/index.md#flag_germany)** (CulturalContext)
+    The flag of Germany has three horizontal stripes: black, red, and yellow. Germany is famous for cars, castles, and fairy tales!
 
-    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
+    - **[Berlin](../cards/index.md#capital_berlin)** (RelatedTo)
+    The capital city of Germany.
+
+    ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ width="200" }
+
+    - **[Rome](../cards/index.md#capital_rome)** (RelatedTo)
+    The capital city of Italy.
+
+    ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ width="200" }
+
+    - **[Brussels](../cards/index.md#capital_brussels)** (RelatedTo)
+    The capital city of Belgium.
+
+    ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ width="200" }
+
+    - **[Madrid](../cards/index.md#capital_madrid)** (RelatedTo)
+    The capital city of Spain.
+
+    ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ width="200" }
+
+    - **[Flag of Andorra](../cards/index.md#flag_andorra)** (RelatedTo)
+    The flag of Andorra has blue, yellow, and red stripes with a coat of arms in the middle. Andorra is a tiny country between France and Spain.
+
+    ![preview flag_andorra](../../../assets/img/content/cards/flag_andorra.jpg){ width="200" }
+
+    - **[Flag of Monaco](../cards/index.md#flag_monaco)** (RelatedTo)
+    The flag of Monaco has red and white horizontal stripes. Monaco is tiny but famous for fancy cars and royal palaces by the sea!
+
+    ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ width="200" }
+
+- Quests: [The neighbors of France (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -866,15 +913,25 @@ Credits:
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Hot-Air Balloon](../cards/index.md#hot_air_balloon)** (RelatedTo)
-    A balloon that flies using hot air. The first one flew in France.
+    - **[Five Weeks in a Balloon](../cards/index.md#book_five_weeks_in_a_balloon)** (RelatedTo)
+    A book by Jules Verne about flying across Africa in a hot air balloon. It's full of adventure and discovery!
 
-    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
+    ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ width="200" }
 
     - **[Space Rocket](../cards/index.md#space_rocket)** (RelatedTo)
     A rocket that goes into space.
 
     ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ width="200" }
+
+    - **[Submarine (The Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
+    A submarine from Jules Verne’s story. It could explore the deep sea.
+
+    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+
+    - **[Train](../cards/index.md#train)** (RelatedTo)
+    Trains carry people and goods fast across the country.
+
+    ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
     - **[Submarine (The Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
     A submarine from Jules Verne’s story. It could explore the deep sea.
@@ -1189,6 +1246,7 @@ Credits:
 
     ![preview honey](../../../assets/img/content/cards/honey.jpg){ width="200" }
 
+- Quests: [Gingerbread & food market (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1286,12 +1344,6 @@ Credits:
 ### Pierogi Recipe {#pierogi}
 - Importance: Medium  
 - Target Age: Ages6to10
-- Core card:
-    - **[Pierogi Recipe](../cards/index.md#pierogi_recipe)**
-    Make a soft dough, fill with mashed potatoes and farmer’s cheese, seal, boil until they float—then pan-fry in butter with onions.
-
-    ![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ width="200" }
-
 - Connected cards:
     - **[Polish Pierogi](../cards/index.md#pierogi)** (RelatedTo)
     Dumplings filled with things like potato, cheese, or fruit. They are a famous Polish dish.

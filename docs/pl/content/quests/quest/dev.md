@@ -13,6 +13,10 @@ Version: 1.00
 Status: Development  
 Location: Italy - Firenze
 
+## Quest Script
+
+[See the full script here](./dev-script.md)
+
 ## Content
 Subjects: 
 
@@ -31,7 +35,7 @@ Subjects:
     Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!  
   - **[Piekarz](../../cards/index.md#person_baker)**  
     Osoba zajmująca się wypiekiem chleba, ciast i wypieków.  
-  - **[SÓL](../../cards/index.md#food_salt)**  
+  - **[Sól](../../cards/index.md#food_salt)**  
     Białe kryształy, które poprawiają smak potraw.  
   - **[Drożdże](../../cards/index.md#food_yeast)**  
     Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i smaczny!  
@@ -39,12 +43,6 @@ Subjects:
     Biały proszek z pszenicy, używany do wypieku chleba.  
   - **[Woda](../../cards/index.md#food_water)**  
     Woda jest niezbędna do życia  
-
-## Quest Script
-
-[See the full script here](./dev-script.md)
-
----
 
 ## Words
 - peace

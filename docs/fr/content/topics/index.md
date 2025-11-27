@@ -229,7 +229,7 @@ Credits:
 
     ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ width="200" }
 
-- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md), [Les voisins de la Pologne (pl_00)](../quests/quest/pl_00.md)
+- Quests: [Les voisins de la Pologne (pl_00)](../quests/quest/pl_00.md)
 
 ---
 
@@ -474,6 +474,7 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
+- Quests: [Se déplacer en ville en toute sécurité (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -574,7 +575,7 @@ Credits:
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
-    - **[SEL](../cards/index.md#food_salt)** (MadeOf)
+    - **[Sel](../cards/index.md#food_salt)** (MadeOf)
     Des cristaux blancs qui améliorent le goût des aliments.
 
     ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ width="200" }
@@ -608,12 +609,12 @@ Credits:
     ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ width="200" }
 
 - Connected cards:
-    - **[PAIN](../cards/index.md#food_bread)** (MadeOf)
+    - **[Pain](../cards/index.md#food_bread)** (MadeOf)
     Un délicieux aliment à base de farine et d'eau. Vous pouvez faire des sandwichs avec du pain !
 
     ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ width="200" }
 
-    - **[POISSON](../cards/index.md#food_fish)** (MadeOf)
+    - **[Poisson](../cards/index.md#food_fish)** (MadeOf)
     Un animal qui vit et nage dans l'eau. Les poissons ont des nageoires et des branchies pour respirer sous l'eau.
 
     ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ width="200" }
@@ -670,10 +671,15 @@ Credits:
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
 - Connected cards:
-    - **[Suisse](../cards/index.md#country_switzerland)** (RelatedTo)
-    Un pays d'Europe dont la capitale est Berne. La Suisse est célèbre pour ses montagnes et son fromage.
+    - **[Espagne](../cards/index.md#country_spain)** (RelatedTo)
+    Un pays d'Europe dont la capitale est Madrid. L'Espagne a inventé le flamenco.
 
-    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+
+    - **[Drapeau de l'Espagne](../cards/index.md#flag_spain)** (CulturalContext)
+    Le drapeau espagnol est orné de bandes horizontales rouges et jaunes. Ces couleurs évoquent le soleil et les poivrons ! L'Espagne a inventé le flamenco.
+
+    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Luxembourg](../cards/index.md#country_luxembourg)** (RelatedTo)
     Un pays d'Europe dont la capitale est la ville de Luxembourg.
@@ -685,16 +691,6 @@ Credits:
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
-    - **[Drapeau de l'Espagne](../cards/index.md#flag_spain)** (CulturalContext)
-    Le drapeau espagnol est orné de bandes horizontales rouges et jaunes. Ces couleurs évoquent le soleil et les poivrons ! L'Espagne a inventé le flamenco.
-
-    ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
-
-    - **[Drapeau de l'Allemagne](../cards/index.md#flag_germany)** (CulturalContext)
-    Le drapeau allemand comporte trois bandes horizontales : noire, rouge et jaune. L'Allemagne est célèbre pour ses voitures, ses châteaux et ses contes de fées !
-
-    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
-
     - **[Drapeau de l'Italie](../cards/index.md#flag_italy)** (CulturalContext)
     Le drapeau italien comporte trois bandes verticales : verte, blanche et rouge. Ces couleurs rappellent le basilic, la mozzarella et les tomates sur une pizza !
 
@@ -705,26 +701,77 @@ Credits:
 
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
+    - **[Ville de Luxembourg](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
+    La capitale du Luxembourg.
+
+    ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
+
+    - **[Belgique](../cards/index.md#country_belgium)** (RelatedTo)
+    Un pays d'Europe. Sa capitale est Bruxelles.
+
+    ![preview country_belgium](../../../assets/img/content/cards/country_belgium.jpg){ width="200" }
+
     - **[Drapeau de la Belgique](../cards/index.md#flag_belgium)** (CulturalContext)
     Le drapeau belge comporte trois bandes verticales : noire, jaune et rouge. La Belgique est célèbre pour son chocolat et ses gaufres !
 
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
+
+    - **[Suisse](../cards/index.md#country_switzerland)** (RelatedTo)
+    Un pays d'Europe dont la capitale est Berne. La Suisse est célèbre pour ses montagnes et son fromage.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
     - **[Drapeau de la Suisse](../cards/index.md#flag_switzerland)** (CulturalContext)
     Le drapeau suisse est rouge avec une croix blanche au milieu. On dirait une trousse de premiers secours ! La Suisse est célèbre pour ses montagnes et son fromage.
 
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
+    - **[Bern](../cards/index.md#capital_bern)** (RelatedTo)
+    La capitale de la Suisse.
+
+    ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ width="200" }
+
     - **[Allemagne](../cards/index.md#country_germany)** (RelatedTo)
     Un pays d'Europe. Sa capitale est Berlin.
 
     ![preview country_germany](../../../assets/img/content/cards/country_germany.jpg){ width="200" }
 
-    - **[Espagne](../cards/index.md#country_spain)** (RelatedTo)
-    Un pays d'Europe dont la capitale est Madrid. L'Espagne a inventé le flamenco.
+    - **[Drapeau de l'Allemagne](../cards/index.md#flag_germany)** (CulturalContext)
+    Le drapeau allemand comporte trois bandes horizontales : noire, rouge et jaune. L'Allemagne est célèbre pour ses voitures, ses châteaux et ses contes de fées !
 
-    ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
+    ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
+    - **[Berlin](../cards/index.md#capital_berlin)** (RelatedTo)
+    La capitale de l'Allemagne.
+
+    ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ width="200" }
+
+    - **[Rome](../cards/index.md#capital_rome)** (RelatedTo)
+    La capitale de l'Italie.
+
+    ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ width="200" }
+
+    - **[Bruxelles](../cards/index.md#capital_brussels)** (RelatedTo)
+    La capitale de la Belgique.
+
+    ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ width="200" }
+
+    - **[Madrid](../cards/index.md#capital_madrid)** (RelatedTo)
+    La capitale de l'Espagne.
+
+    ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ width="200" }
+
+    - **[Drapeau d'Andorre](../cards/index.md#flag_andorra)** (RelatedTo)
+    Le drapeau d'Andorre est composé de bandes bleues, jaunes et rouges, avec un blason au centre. Andorre est un petit pays situé entre la France et l'Espagne.
+
+    ![preview flag_andorra](../../../assets/img/content/cards/flag_andorra.jpg){ width="200" }
+
+    - **[Drapeau de Monaco](../cards/index.md#flag_monaco)** (RelatedTo)
+    Le drapeau de Monaco est composé de bandes horizontales rouges et blanches. Monaco est une petite ville, mais célèbre pour ses voitures de luxe et ses palais royaux en bord de mer !
+
+    ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ width="200" }
+
+- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -861,20 +908,30 @@ Credits:
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
-    - **[20 000 lieues sous les mers](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
+    - **[Vingt Mille Lieues sous les mers](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
     Un livre de Jules Verne relatant des aventures sous-marines à bord du sous-marin Nautilus. Vous y rencontrerez des créatures marines géantes !
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Montgolfière](../cards/index.md#hot_air_balloon)** (RelatedTo)
-    Un ballon volant à l'air chaud. Le premier à voler en France.
+    - **[Cinq semaines en ballon](../cards/index.md#book_five_weeks_in_a_balloon)** (RelatedTo)
+    Un livre de Jules Verne sur la traversée de l'Afrique en montgolfière. Plein d'aventures et de découvertes !
 
-    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
+    ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ width="200" }
 
     - **[Fusée spatiale](../cards/index.md#space_rocket)** (RelatedTo)
     Une fusée qui va dans l'espace.
 
     ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ width="200" }
+
+    - **[Sous-marin (Le Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
+    Un sous-marin du roman de Jules Verne. Il pouvait explorer les profondeurs marines.
+
+    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+
+    - **[Former](../cards/index.md#train)** (RelatedTo)
+    Les trains transportent rapidement des personnes et des marchandises à travers le pays.
+
+    ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
     - **[Sous-marin (Le Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
     Un sous-marin du roman de Jules Verne. Il pouvait explorer les profondeurs marines.
@@ -1189,6 +1246,7 @@ Credits:
 
     ![preview honey](../../../assets/img/content/cards/honey.jpg){ width="200" }
 
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1286,12 +1344,6 @@ Credits:
 ### Pierogi Recipe {#pierogi}
 - Importance: Medium  
 - Target Age: Ages6to10
-- Core card:
-    - **[Recette de Pierogi](../cards/index.md#pierogi_recipe)**
-    Préparez une pâte molle, remplissez-la de purée de pommes de terre et de fromage fermier, fermez-la, faites-la bouillir jusqu'à ce qu'elle flotte, puis faites-la revenir à la poêle dans du beurre avec des oignons.
-
-    ![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ width="200" }
-
 - Connected cards:
     - **[Pierogi polonais](../cards/index.md#pierogi)** (RelatedTo)
     Raviolis farcis de pommes de terre, de fromage ou de fruits. C'est un plat polonais célèbre.

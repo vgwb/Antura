@@ -1,9 +1,9 @@
 ---
-title: Jules Verne et les transports (fr_03) - Script
+title: Jules Verne e i trasporti (fr_03) - Script
 hide:
 ---
 
-# Jules Verne et les transports (fr_03) - Script
+# Jules Verne e i trasporti (fr_03) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-03-jules-verne-and-transportation/25/1)  
 > **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=336647638#gid=336647638)  
@@ -32,7 +32,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $QUEST_ITEMS = 4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $museum_clean = false&gt;&gt;</span>
 <span class="yarn-line">Siamo a NANTES, al MUSEO Jules Verne!</span> <span class="yarn-meta">#line:0b5e2f3</span>
-<span class="yarn-line">Scopriamo questo SCRITTORE e i suoi fantastici VIAGGI.</span> <span class="yarn-meta">#line:006e7fc</span>
+<span class="yarn-line">Scopriamo questo SCRITTORE e i suoi straordinari VIAGGI.</span> <span class="yarn-meta">#line:006e7fc</span>
 <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_door&gt;&gt;</span>
 <span class="yarn-comment">// DEBUG</span>
@@ -200,7 +200,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_submarine")&gt;&gt;</span>
 <span class="yarn-line">    Hai trovato il SOTTOMARINO!</span> <span class="yarn-meta">#line:0666ee2 </span>
 <span class="yarn-line">    Ma è ROTTO a pezzi!</span> <span class="yarn-meta">#line:097c3fc </span>
-<span class="yarn-line">    Puoi per favore sistemarlo?</span> <span class="yarn-meta">#line:02e7812 </span>
+<span class="yarn-line">    Puoi per favore sistemarlo?</span> <span class="yarn-meta">#line:02e7812</span>
+    <span class="yarn-cmd">&lt;&lt;inventory submarine_nautilus remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_submarine activity_submarine_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card submarine_nautilus&gt;&gt;</span>
@@ -243,6 +244,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card submarine_nautilus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;inventory submarine_nautilus add&gt;&gt;</span>
 <span class="yarn-line">Ottimo! Ora riportalo al suo guardiano</span> <span class="yarn-meta">#line:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_20000&gt;&gt;</span>
@@ -296,6 +298,7 @@ hide:
 <span class="yarn-line">    Hai trovato la MONGOLFIERA!</span> <span class="yarn-meta">#line:0286510</span>
     [MISSING TRANSLATION:     But it's BROKEN in pieces! #shadow:097c3fc]
     [MISSING TRANSLATION:     Can you please fix it? #shadow:02e7812]
+    <span class="yarn-cmd">&lt;&lt;inventory hot_air_balloon remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_balloon activity_balloon_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_submarine")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card hot_air_balloon&gt;&gt;</span>
@@ -339,6 +342,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card hot_air_balloon&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;inventory hot_air_balloon add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
 [MISSING TRANSLATION: Great! Now bring it back to its guardian #shadow:0757b30]
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
@@ -372,7 +376,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card book_5weeksballoon&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card book_five_weeks_in_a_balloon&gt;&gt;</span>
 <span class="yarn-line">Questo LIBRO si intitola "Cinque settimane in mongolfiera".</span> <span class="yarn-meta">#line:0c3d777 </span>
 <span class="yarn-line">Un PALLONCINO sale perché l'ARIA calda è leggera.</span> <span class="yarn-meta">#line:020d924 </span>
 
@@ -394,6 +398,7 @@ hide:
 <span class="yarn-line">    Hai trovato il RAZZO!</span> <span class="yarn-meta">#line:08fed68 </span>
     [MISSING TRANSLATION:     But it's BROKEN in pieces! #shadow:097c3fc]
     [MISSING TRANSLATION:     Can you please fix it? #shadow:02e7812]
+    <span class="yarn-cmd">&lt;&lt;inventory space_rocket remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_rocket activity_rocket_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_balloon")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card space_rocket&gt;&gt;</span>
@@ -420,7 +425,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_earthmoon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive rocket true&gt;&gt;</span>
 [MISSING TRANSLATION: You repaired it! Thank you! #shadow:0ba85d3]
-<span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+<span class="yarn-comment">//&lt;&lt;camera_reset&gt;&gt;</span>
 [MISSING TRANSLATION: Now go to next guardian. #shadow:09438f6]
 <span class="yarn-cmd">&lt;&lt;target tutor_80days&gt;&gt;</span>
 
@@ -437,6 +442,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card space_rocket&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;inventory space_rocket add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
 [MISSING TRANSLATION: Great! Now bring it back to its guardian #shadow:0757b30]
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
@@ -470,7 +476,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card book_earthmoon&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card book_from_earth_to_moon&gt;&gt;</span>
 <span class="yarn-line">Jules Verne immaginò i RAZZI e i VIAGGI nello spazio molto tempo fa.</span> <span class="yarn-meta">#line:0907ccb </span>
 <span class="yarn-line">La storia ha un enorme CANNONE spaziale per lanciare il RAZZO</span> <span class="yarn-meta">#line:05e298d </span>
 
@@ -492,6 +498,7 @@ hide:
 <span class="yarn-line">    Hai trovato il TRENO!</span> <span class="yarn-meta">#line:01f76f3 </span>
     [MISSING TRANSLATION:     But it's BROKEN in pieces! #shadow:097c3fc]
     [MISSING TRANSLATION:     Can you please fix it? #shadow:02e7812]
+    <span class="yarn-cmd">&lt;&lt;inventory train remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_train activity_train_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_balloon")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card train&gt;&gt;</span>
@@ -537,6 +544,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card train&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;inventory train add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
 [MISSING TRANSLATION: Great! Now bring it back to its guardian #shadow:0757b30]
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
@@ -571,7 +579,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card book_80days&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card book_around_the_world_80_days&gt;&gt;</span>
 <span class="yarn-line">Questo LIBRO è "Il giro del mondo in 80 giorni".</span> <span class="yarn-meta">#line:03131e3</span>
 <span class="yarn-line">Mostra molti luoghi della TERRA.</span> <span class="yarn-meta">#line:0bcc84d </span>
 

@@ -13,6 +13,10 @@ Version: 1.00
 Status: Development  
 Location: Italy - Florence
 
+## Quest Script
+
+[See the full script here](./dev-script.md)
+
 ## Content
 Subjects: 
 
@@ -31,7 +35,7 @@ Subjects:
     The capital city of France. Paris has a famous tall tower called the Eiffel Tower!  
   - **[Baker](../../cards/index.md#person_baker)**  
     A person who makes bread, cakes, and pastries.  
-  - **[SALT](../../cards/index.md#food_salt)**  
+  - **[Salt](../../cards/index.md#food_salt)**  
     White crystals that make food taste better.   
   - **[Yeast](../../cards/index.md#food_yeast)**  
     Yeast is like magic powder that makes bread soft and tasty!  
@@ -39,12 +43,6 @@ Subjects:
     White powder made from wheat that is used to make bread.  
   - **[Water](../../cards/index.md#food_water)**  
     Water is essential for all life  
-
-## Quest Script
-
-[See the full script here](./dev-script.md)
-
----
 
 ## Words
 - peace

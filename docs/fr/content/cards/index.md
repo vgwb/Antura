@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **383**
+Total found: **384**
 
 ## International
 
@@ -148,6 +148,7 @@ Un pays d'Europe. Sa capitale est Bruxelles.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Loc7798_R01.jpg: Marc Ryckaert (MJJR)
 derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki/File:Loc7798_R01_alt.jpg)
 
@@ -161,6 +162,7 @@ La capitale de la Suisse.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Daniel Kraft | [source](https://commons.wikimedia.org/wiki/File:Bern_Panorama_von_Rosengarten_20211007.jpg)
 
 ---
@@ -280,6 +282,7 @@ La capitale de la Belgique.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Horst J. Meuter | [source](https://commons.wikimedia.org/wiki/File:Atomium,_Brüssel_2.jpg)
 
 ---
@@ -884,6 +887,7 @@ Les trains transportent rapidement des personnes et des marchandises à travers 
 - Type: Object
 - Subjects: Transportation
 - Country: International
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 
 ---
@@ -1255,7 +1259,7 @@ Un oiseau qui ne peut pas voler mais qui nage très bien. Il vit dans les régio
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0
+- Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -1551,7 +1555,7 @@ Un fruit rond et orange, au goût sucré et juteux. L'orange est riche en vitami
 
 ---
 
-### PAIN {#food_bread}
+### Pain {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
 Un délicieux aliment à base de farine et d'eau. Vous pouvez faire des sandwichs avec du pain !
@@ -1707,7 +1711,7 @@ Un arbre vert brillant aux oranges rondes et juteuses. Son parfum frais et sucr�
 
 ---
 
-### POISSON {#food_fish}
+### Poisson {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
 Un animal qui vit et nage dans l'eau. Les poissons ont des nageoires et des branchies pour respirer sous l'eau.
@@ -1943,7 +1947,7 @@ Un sac que vous portez sur votre dos.
 
 ---
 
-### SEL {#food_salt}
+### Sel {#food_salt}
 ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
 
 Des cristaux blancs qui améliorent le goût des aliments.
@@ -2046,6 +2050,18 @@ Une statue représentant la légende de la ville sur les guerres et Sawa.
 - Country: International
 - Image credit: CC_BY_SA | Wistula
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Sucre {#food_sugar}
+![preview food_sugar](../../../assets/img/content/cards/food_sugar.jpg){ loading=lazy }
+
+Le sucre est fabriqué à partir de plantes comme la betterave ou la canne à sucre. Il apporte de l'énergie et donne un goût délicieux aux gâteaux et aux biscuits.
+
+- Type: Object
+- Subjects: Food, Science
+- Country: International
+- Image credit: CC0 | Romain Behar, Public domain, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Sucre_blanc_cassonade_complet_rapadura.jpg)
 
 ---
 
@@ -2174,6 +2190,18 @@ La capitale de la Pologne.
 
 ---
 
+### Vendeur d'épices {#person_spicevendor}
+![preview person_spicevendor](../../../assets/img/content/cards/person_spicevendor.jpg){ loading=lazy }
+
+Vend des petits pots aux arômes délicieux comme la cannelle, le clou de girofle et le gingembre. Ils contribuent à rendre les plats chaleureux, sucrés et savoureux.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Image credit: CC0 | RajaKACEM, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Salesmanspice.jpg)
+
+---
+
 ### Vendeur d'œufs {#egg_vendor}
 ![preview egg_vendor](../../../assets/img/content/cards/egg_vendor.jpg){ loading=lazy }
 
@@ -2222,6 +2250,7 @@ La capitale du Luxembourg.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:City_Hall_of_Luxembourg_City_01.jpg)
 
 ---
@@ -2331,21 +2360,6 @@ Nourriture provenant de poulets utilisée pour la cuisson et la pâtisserie.
 - Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
 
 ## France
-
-### 20 000 lieues sous les mers {#book_20000_leagues_under_the_sea}
-![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
-
-Un livre de Jules Verne relatant des aventures sous-marines à bord du sous-marin Nautilus. Vous y rencontrerez des créatures marines géantes !
-
-- Type: Object
-- Subjects: Literature
-- Year: 1871
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
 
 ### 24 Heures du Mans {#24_hours_of_le_mans}
 ![preview 24_hours_of_le_mans](../../../assets/img/content/cards/24_hours_of_le_mans.jpg){ loading=lazy }
@@ -2655,6 +2669,7 @@ Un livre de Jules Verne sur la traversée de l'Afrique en montgolfière. Plein d
 - Subjects: Literature
 - Year: 1863
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
@@ -2771,7 +2786,7 @@ Le drapeau de Monaco est composé de bandes horizontales rouges et blanches. Mon
 - Subjects: Geography, Culture
 - Year: 1881
 - Country: France
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe)
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 - Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
 
@@ -3196,7 +3211,6 @@ Un ballon volant à l'air chaud. Le premier à voler en France.
 - Type: Object
 - Subjects: Transportation
 - Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
@@ -3514,6 +3528,21 @@ Une célèbre sculpture antique d'une déesse avec des ailes.
 - Country: France
 - Image credit: CC_BY_SA | Rijin | [source](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_(1).jpg)
 - Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### Vingt Mille Lieues sous les mers {#book_20000_leagues_under_the_sea}
+![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
+
+Un livre de Jules Verne relatant des aventures sous-marines à bord du sous-marin Nautilus. Vous y rencontrerez des créatures marines géantes !
+
+- Type: Object
+- Subjects: Literature
+- Year: 1871
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -4671,19 +4700,6 @@ Une personne qui attrape du poisson en mer.
 
 ---
 
-### Recette de Pierogi {#pierogi_recipe}
-![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ loading=lazy }
-
-Préparez une pâte molle, remplissez-la de purée de pommes de terre et de fromage fermier, fermez-la, faites-la bouillir jusqu'à ce qu'elle flotte, puis faites-la revenir à la poêle dans du beurre avec des oignons.
-
-- Type: Object
-- Subjects: Food
-- Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
-- Image credit: CC0
-
----
-
 ### Rivière Motława {#motawa_river}
 ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ loading=lazy }
 
@@ -5004,6 +5020,7 @@ La capitale de l'Allemagne.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
 
 ---
@@ -5099,6 +5116,7 @@ La capitale de l'Italie.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
 
 ---
@@ -5114,6 +5132,7 @@ Le drapeau d'Andorre est composé de bandes bleues, jaunes et rouges, avec un bl
 - Subjects: Geography, Culture
 - Year: 1866
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 
 ---
@@ -5158,5 +5177,6 @@ La capitale de l'Espagne.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
 

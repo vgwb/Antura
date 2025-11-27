@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **383**
+Total found: **384**
 
 ## International
 
@@ -353,6 +353,7 @@ Un paese in Europa. La capitale è Bruxelles.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Loc7798_R01.jpg: Marc Ryckaert (MJJR)
 derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki/File:Loc7798_R01_alt.jpg)
 
@@ -366,6 +367,7 @@ La capitale della Svizzera.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Daniel Kraft | [source](https://commons.wikimedia.org/wiki/File:Bern_Panorama_von_Rosengarten_20211007.jpg)
 
 ---
@@ -468,6 +470,7 @@ La capitale del Belgio.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Horst J. Meuter | [source](https://commons.wikimedia.org/wiki/File:Atomium,_Brüssel_2.jpg)
 
 ---
@@ -667,6 +670,7 @@ La capitale del Lussemburgo.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:City_Hall_of_Luxembourg_City_01.jpg)
 
 ---
@@ -1563,7 +1567,7 @@ Un oggetto rotondo utilizzato in molti giochi.
 
 ---
 
-### PANE {#food_bread}
+### Pane {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
 Un alimento delizioso a base di farina e acqua. Puoi preparare dei panini con il pane!
@@ -1631,7 +1635,7 @@ Qualcosa che non dovresti fare! Fai attenzione e stai al sicuro.
 
 ---
 
-### PESCARE {#food_fish}
+### Pesce {#food_fish}
 ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
 
 Un animale che vive e nuota nell'acqua. I pesci hanno pinne e branchie per respirare sott'acqua.
@@ -1718,7 +1722,7 @@ Un uccello che non sa volare ma nuota molto bene. Vive in luoghi freddi.
 - Subjects: Animal, Environment
 - Country: International
 - Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0
+- Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg)
 - Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -1905,7 +1909,7 @@ Un paese in Europa. La capitale è Mosca.
 
 ---
 
-### SALE {#food_salt}
+### Sale {#food_salt}
 ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
 
 Cristalli bianchi che migliorano il sapore del cibo.
@@ -2142,6 +2146,7 @@ I treni trasportano rapidamente persone e merci in tutto il Paese.
 - Type: Object
 - Subjects: Transportation
 - Country: International
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 
 ---
@@ -2222,6 +2227,18 @@ Una persona che vende latte, burro e formaggio.
 - Country: International
 - Image credit: CC_BY_SA | Something Original (talk) | [source](https://commons.wikimedia.org/wiki/File:Pennsylvania_State_University_Food_Science_Building_and_Berkey_Creamery_May_15,_2010.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Venditore di spezie {#person_spicevendor}
+![preview person_spicevendor](../../../assets/img/content/cards/person_spicevendor.jpg){ loading=lazy }
+
+Vende piccoli barattoli di aromi gustosi come cannella, chiodi di garofano e zenzero. Aiutano a rendere i cibi caldi, dolci e ricchi di sapore.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Image credit: CC0 | RajaKACEM, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Salesmanspice.jpg)
 
 ---
 
@@ -2315,6 +2332,18 @@ Radice piccante utilizzata in cucina e per la preparazione di biscotti.
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC0 | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | [source](https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Zucchero {#food_sugar}
+![preview food_sugar](../../../assets/img/content/cards/food_sugar.jpg){ loading=lazy }
+
+Lo zucchero è ricavato da piante come la barbabietola o la canna da zucchero. Fornisce energia e rende deliziosi dolci e biscotti.
+
+- Type: Object
+- Subjects: Food, Science
+- Country: International
+- Image credit: CC0 | Romain Behar, Public domain, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Sucre_blanc_cassonade_complet_rapadura.jpg)
 
 ---
 
@@ -2503,7 +2532,7 @@ La bandiera di Monaco è a strisce orizzontali rosse e bianche. Monaco è piccol
 - Subjects: Geography, Culture
 - Year: 1881
 - Country: France
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe)
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 - Quests: [I vicini della Francia (fr_00)](../quests/quest/fr_00.md)
 
@@ -2723,6 +2752,7 @@ Un libro di Jules Verne sul volo attraverso l'Africa in mongolfiera. È pieno di
 - Subjects: Literature
 - Year: 1863
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quests/quest/fr_03.md)
 
@@ -3224,7 +3254,6 @@ Un pallone che vola ad aria calda. Il primo esemplare volò in Francia.
 - Type: Object
 - Subjects: Transportation
 - Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quests/quest/fr_03.md)
 
@@ -4724,19 +4753,6 @@ Una rete usata per catturare i pesci.
 
 ---
 
-### Ricetta dei pierogi {#pierogi_recipe}
-![preview pierogi_recipe](../../../assets/img/content/cards/pierogi_recipe.jpg){ loading=lazy }
-
-Preparare un impasto morbido, farcirlo con purè di patate e formaggio contadino, sigillare, far bollire finché non vengono a galla, quindi soffriggere in padella con burro e cipolle.
-
-- Type: Object
-- Subjects: Food
-- Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
-- Image credit: CC0
-
----
-
 ### Sala del Centenario {#wroclaw_centennial_hall}
 ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ loading=lazy }
 
@@ -5008,6 +5024,7 @@ La capitale della Germania.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Germany
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | ArildV | [source](https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg)
 
 ---
@@ -5100,6 +5117,7 @@ La capitale d'Italia.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Italy
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg)
 
 ---
@@ -5132,6 +5150,7 @@ La bandiera di Andorra è composta da strisce blu, gialle e rosse con uno stemma
 - Subjects: Geography, Culture
 - Year: 1866
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC0
 
 ---
@@ -5145,6 +5164,7 @@ La capitale della Spagna.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Spain
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY | Dmitry Dzhus from London | [source](https://commons.wikimedia.org/wiki/File:Madrid_(38624991251).jpg)
 
 ---
