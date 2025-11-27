@@ -43,8 +43,16 @@ fi
 # Authenticate
 ./butler login --api-key "$ITCHIO_API_KEY"
 
-echo "==> Pushing build directory to itch.io (incremental upload)..."
-# Use butler to push the directory directly for incremental uploads
-./butler push "${BUILD_DIR}" "${CHANNEL}" --userversion "${VERSION}"
+# Zip the build folder
+ZIP_NAME="build-${VERSION}.zip"
+START_DIR="$PWD"
+
+echo "==> Zipping build to ${ZIP_NAME}..."
+cd "$BUILD_DIR"
+zip -r "${START_DIR}/${ZIP_NAME}" .
+
+cd "$START_DIR"
+echo "==> Pushing to itch.io..."
+./butler push "${ZIP_NAME}" "${CHANNEL}" --userversion "${VERSION}"
 
 echo "==> Upload complete."
