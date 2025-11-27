@@ -71,6 +71,7 @@ actor:
 <<declare $cheesemonger_completed = false>>
 <<declare $eggvendor_completed = false>>
 <<declare $spicevendor_completed = false>>
+<<declare $gingerbread_done = false>>
 
 We are in TORUŃ, home of Poland's legendary GINGERBREAD! #line:080555e 
 Let's explore the MARKET. #line:03e11fa 
@@ -82,8 +83,7 @@ position: 234,7
 type: panel_endgame
 color: green
 ---
-Great job at the MARKET. #line:073978d 
-Ready for an extra task? #line:04e4583 
+This quest is complete. #line:073978d
 <<jump post_quest_activity>>
 ===
 
@@ -93,9 +93,8 @@ type: panel
 color: green
 tags: proposal
 ---
-Draw a MARKET stall. #line:01f8217 
-Add FLOUR SUGAR BUTTER EGGS. #line:0435fc9 
-Add HONEY CINNAMON GINGER. #line:0fed740 
+Would you like to try making a GINGERBREAD? #line:09722f2 
+Or the PIEROGI recipe? #line:0954c65 
 <<quest_end>>
 ===
 
@@ -119,9 +118,9 @@ group: cook
 actor: ADULT_M
 ---
 <<card cook>>
-Dzień dobry! I am a COOK of typical polish recipes. #line:028131b
+Dzień dobry! I am a COOK of typical Polish recipes. #line:028131b
 <<card gingerbread>>
-I can prepare for you our famous GINGERBREAD #line:07fb019
+I can bake our famous GINGERBREAD for you. #line:07fb019
 But I need some INGREDIENTS. #line:00a46f0
 <<jump task_ingredients>>
 ===
@@ -186,6 +185,7 @@ actor:
 ---
 Well done, you have everything. #line:0bb1792
 And you were very polite. #line:0c400be 
+<<card gingerbread>>
 Now we can bake TORUŃ GINGERBREAD! #line:0b5d503
 <<jump activity_bake_gingerbread>>
 ===
@@ -209,8 +209,11 @@ actor:
 <<if GetActivityResult("match_ingredients") > 0>>
 Well done! You matched all the ingredients. #line:01648b2
 <<card gingerbread>>
-Now, let's cook the GINGERBREAD! #line:0f0f617 
-<<jump quest_end>>
+Now I can cook the GINGERBREAD! #line:0f0f617 
+Please now go inside the Old Town Hall... #line:01c48d3 
+there is a surprise waiting for you! #line:0e25ece 
+<<set $gingerbread_done = true>>
+<<target npc_castle>>
 <<else>>
 Not perfect. Try again! #line:007427a 
 <<jump activity_bake_gingerbread>>
@@ -234,11 +237,11 @@ color: blue
      <<activity hard_money_zloty hard_payment_done>>
    -> No #line:no
 <<else>>
--> Dziękuję! #line:thanks 
+-> Thanks! #line:thanks 
    <<jump talk_dont_understand>>
--> Dzień dobry! #line:hello 
+-> Good morning! #line:hello 
    <<jump grocer_bonjour>>
--> Livre! #line:0b4db3b 
+-> Dobranoc! #line:0b4db3b 
    <<jump talk_dont_understand>>
 <<endif>>
 ===
@@ -286,12 +289,12 @@ title: grocer_payment_done
 position: 2168,154
 group: grocer
 actor: SENIOR_F
-tags:
+tags: noRepeatLastLine
 ---
 I put your items in the table. Thank you! #line:0567082 
--> Do widzenia! #line:goodbye
--> Dziękuję! #shadow:thanks
--> Miłego dnia! #line:nice_day
+-> Goodbye! #line:goodbye
+-> Thanks! #shadow:thanks
+-> Have a nice day! #line:nice_day
 <<SetActive Collect_Grocer>>
 ===
 
@@ -315,11 +318,11 @@ actor: SENIOR_M
      <<activity hard_money_zloty hard_payment_done>>
    -> No #shadow:no
 <<else>>
--> Dziękuję! #shadow:thanks 
+-> Thanks! #shadow:thanks
    <<jump talk_dont_understand>>
--> Dzień dobry! #shadow:hello 
+-> Good morning! #shadow:hello 
    <<jump beekeper_bonjour>>
--> Au revoir! #line:06b0535 
+-> Do widzenia! #line:06b0535 
    <<jump talk_dont_understand>>
 <<endif>>
 ===
@@ -367,11 +370,12 @@ title: beekeper_payment_done
 position: 2169,551
 group: beekeper
 actor: SENIOR_M
+tags: noRepeatLastLine
 ---
 I put your items in the table. Thank you! #shadow:0567082 
--> Do widzenia! #shadow:goodbye
--> Dziękuję! #shadow:thanks
--> Miłego dnia! #shadow:nice_day
+-> Goodbye! #shadow:goodbye
+-> Thanks! #shadow:thanks
+-> Have a nice day! #shadow:nice_day
 <<SetActive Collect_Beekeper>>
 ===
 
@@ -393,11 +397,11 @@ tags: noRepeatLastLine
      <<activity hard_money_zloty hard_payment_done>>
    -> No #shadow:no
 <<else>>
--> Dziękuję! #shadow:thanks 
+-> Thanks! #shadow:thanks 
    <<jump talk_dont_understand>>
--> Dzień dobry! #shadow:hello 
+-> Good morning! #shadow:hello 
    <<jump cheesemonger_bonjour>>
--> Do widzenia! #shadow:goodbye
+-> Goodbye! #shadow:goodbye
    <<jump talk_dont_understand>>
 <<endif>>
 ===
@@ -444,12 +448,12 @@ title: cheesemonger_payment_done
 position: 1117,550
 group: cheesemonger
 actor: ADULT_F
-tags:
+tags: noRepeatLastLine
 ---
 I put your items in the table. Thank you! #shadow:0567082 
--> Do widzenia! #shadow:goodbye
--> Dziękuję! #shadow:thanks
--> Miłego dnia! #shadow:nice_day
+-> Goodbye! #shadow:goodbye
+-> Thanks! #shadow:thanks
+-> Have a nice day! #shadow:nice_day
 <<SetActive Collect_Cheesemonger>>
 ===
 
@@ -471,11 +475,11 @@ tags: noRepeatLastLine
      <<activity hard_money_zloty hard_payment_done>>
    -> No #shadow:no
 <<else>>
--> Dziękuję! #shadow:thanks 
+-> Thanks! #shadow:thanks 
    <<jump talk_dont_understand>>
--> Dzień dobry! #shadow:hello 
+-> Good morning! #shadow:hello 
    <<jump eggvendor_bonjour>>
--> Do widzenia! #shadow:goodbye
+-> Goodbye! #shadow:goodbye
    <<jump talk_dont_understand>>
 <<endif>>
 ===
@@ -519,12 +523,12 @@ title: eggvendor_payment_done
 position: 1117,550
 group: eggvendor
 actor: ADULT_F
-tags:
+tags: noRepeatLastLine
 ---
 I put your items in the table. Thank you! #shadow:0567082 
--> Do widzenia! #shadow:goodbye
--> Dziękuję! #shadow:thanks
--> Miłego dnia! #shadow:nice_day
+-> Goodbye! #shadow:goodbye
+-> Thanks! #shadow:thanks
+-> Have a nice day! #shadow:nice_day
 <<SetActive Collect_Eggvendor>>
 ===
 
@@ -545,11 +549,11 @@ tags: noRepeatLastLine
      <<activity hard_money_zloty hard_payment_done>>
    -> No #shadow:no
 <<else>>
--> Dziękuję! #shadow:thanks 
+-> Thanks! #shadow:thanks 
    <<jump talk_dont_understand>>
--> Dzień dobry! #shadow:hello 
+-> Good morning! #shadow:hello 
    <<jump spicevendor_bonjour>>
--> Do widzenia! #shadow:goodbye
+-> Goodbye! #shadow:goodbye
    <<jump talk_dont_understand>>
 <<endif>>
 ===
@@ -593,12 +597,12 @@ title: spicevendor_payment_done
 position: 1117,550
 group: spicevendor
 actor: ADULT_F
-tags:
+tags: noRepeatLastLine
 ---
 I put your items in the table. Thank you! #shadow:0567082 
--> Do widzenia! #shadow:goodbye
--> Dziękuję! #shadow:thanks
--> Miłego dnia! #shadow:nice_day
+-> Goodbye! #shadow:goodbye
+-> Thanks! #shadow:thanks
+-> Have a nice day! #shadow:nice_day
 <<SetActive Collect_Spicevendor>>
 ===
 
@@ -707,7 +711,81 @@ Ginger #line:08049d5
 <<collect>>
 ===
 
+// ----------------------------------------------
+// PIEROGI
 
+title: door_castle
+position: 2500,1500
+type:
+---
+The door is locked. #line:042ecfc 
+===
+
+title: npc_castle
+position: 2500,1700
+actor:
+---
+Hallo. What do you want? #line:0f11caf 
+-> I want to enter the Old Town Hall. #line:0449db3 
+   <<if $gingerbread_done == true>>
+      <<trigger open_door_castle>>
+      <<area area_castle>>
+      Please, come in! There is someone waiting for you. #line:0716b5d 
+      <<target npc_pierogi>>
+      <<SetInteractable door_castle false>>
+   <<else>>
+      The Old Town Hall is closed to visitors. #line:096470a 
+   <<endif>>
+-> Just looking around. #line:09a9858 
+   Alright, have a nice day. #line:09ee9bf 
+===
+
+title: npc_pierogi
+position: 604,-19
+group: cook
+actor: ADULT_M
+---
+<<if HasCompletedTask("clean_castle")>>
+    Thank you for cleaning up! Now we can start the Pierogi Festival! #line:07e852b 
+    <<card pierogi>>
+    Have you ever tried PIEROGI? #line:0da391b 
+    -> Yes #line:08ac4ff 
+      It's delicious. Isn't it? #line:040912f 
+    -> No #line:0cb270e 
+      It's our traditional dish made of dough filled with various ingredients. #line:09da259 
+    <<card_hide>>
+    <<camera_focus camera_tower>>
+    I saw that big blue dog going up the stairs! #line:0ee5d9b 
+    Go find Antura! #task:climb_the_tower #line:09877a9 
+    I turned on the elevator for you. #line:0f5e348 
+    <<camera_reset>>
+   <<SetInteractable tower_lever true>>
+   <<task_start climb_the_tower antura_tower>>
+<<else>>
+    Hi. We want to open the Pierogi Festival #line:09c418a 
+    <<camera_focus camera_trash>>
+    But that big blue dog made a mess in the hall. #line:067cefa 
+    Can you help us clean the Hall? #task:clean_castle #line:003385d  
+    <<camera_reset>>
+    <<area area_full>>
+    <<SetActive antura_hall false>>
+    <<task_start clean_castle task_clean_done>>
+<<endif>>
+===
+
+title: task_clean_done
+position: 337,219
+---
+Well done! Go back to the chef. #line:08e9b5f 
+<<target npc_pierogi>>
+===
+
+title: antura_tower
+position: 2700,1800
+---
+You found Antura! #line:0307b40 
+<<jump quest_end>>
+===
 
 ///////// NPCs SPAWNED IN THE SCENE //////////
 // these npc are spawn automatically in the scene
@@ -719,7 +797,7 @@ position: 2300,1766
 group: Spawned
 actor: KID_F
 ---
-=> I like sweet GINGERBREAD #line:087d4b0 
+=> I love sweet GINGERBREAD! #line:087d4b0 
 => I like the OLD MARKET! #line:0090fb8 
 ===
 
@@ -752,7 +830,7 @@ color: purple
 actor: 
 spawn_group: tourists 
 ---
-=> One Zloty is 100 cents. #line:0e6c526 #card:currency_zloty
+=> One Zloty is 100 groszy. #line:0e6c526 #card:currency_zloty
 => Zlotys have different sizes for each value. #line:021819a #card:currency_zloty
 ===
 

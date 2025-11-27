@@ -12,7 +12,8 @@
    - Spice vendore - spices (cinnamon, ginger)
 3. **Social Interaction:** To succeed, the player must use polite greetings ("Dzień dobry", "Dziękuję") and select the correct items from each vendor's list.
 4. **Financial Literacy:** The player pays for items using a mini-game that simulates counting money (Złoty).
-5. **Final Preparation:** After collecting all 8 ingredients, the player returns to the Cook to bake the gingerbread.
+5. **Final Preparation:** After collecting all 8 ingredients, the player returns to the Cook to bake the gingerbread, and is allowed to enter the Old Town Hall
+6. **Cleaning the Hall** for the Pierogi Festival
 
 **Educational Content:**
 
