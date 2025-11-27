@@ -724,6 +724,7 @@ The door is locked. #line:042ecfc
 title: npc_castle
 position: 2500,1700
 actor:
+tags: noRepeatLastLine
 ---
 Hallo. What do you want? #line:0f11caf 
 -> I want to enter the Old Town Hall. #line:0449db3 
@@ -744,6 +745,7 @@ title: npc_pierogi
 position: 604,-19
 group: cook
 actor: ADULT_M
+tags: noRepeatLastLine
 ---
 <<if HasCompletedTask("clean_castle")>>
     Thank you for cleaning up! Now we can start the Pierogi Festival! #line:07e852b 
