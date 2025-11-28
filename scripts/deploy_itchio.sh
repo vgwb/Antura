@@ -2,7 +2,7 @@
 set -euo pipefail
 
 CHANNEL="vgwb/antura:windows"   # itch.io channel
-BUILD_DIR="${1:-${UNITY_BUILD_OUTPUT:-${BUILD_PATH:-$PWD}}}"
+BUILD_DIR="${1:-${OUTPUT_DIRECTORY:-${UNITY_BUILD_OUTPUT:-${BUILD_PATH:-$PWD}}}}"
 
 # Read version from project repo
 VERSION_FILE="docs/public/latest-version.txt"
@@ -112,16 +112,7 @@ fi
 BUTLER_CMD="./$BUTLER_BIN"
 export BUTLER_API_KEY="$ITCHIO_API_KEY"
 
-PUSH_PATH="$BUILD_DIR"
-if [[ "$DETECTED_OS" == WINDOWS* ]]; then
-    if command -v cygpath >/dev/null 2>&1; then
-        PUSH_PATH=$(cygpath -w "$BUILD_DIR")
-    elif command -v powershell >/dev/null 2>&1; then
-        PUSH_PATH=$(powershell -NoProfile -Command "(Resolve-Path '$BUILD_DIR').Path")
-    fi
-fi
-
 echo "==> Pushing build directory to itch.io (incremental upload)..."
-"$BUTLER_CMD" push "${PUSH_PATH}" "${CHANNEL}" --userversion "${VERSION}"
+"$BUTLER_CMD" push "${BUILD_DIR}" "${CHANNEL}" --userversion "${VERSION}"
 
 echo "==> Upload complete."
