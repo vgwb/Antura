@@ -106,6 +106,8 @@ position: 337,219
     <<SetActive museum_door false>>
     <<area area_init>>
     <<target museum_guide>>
+<<elseif GetCurrentTask() == "clean_sidewalk">>
+    You are doing well! #shadow:0c52f3c
 <<else>>
     What a MESS outside the MUSEUM! #line:0a3e2f4
     <<camera_focus camera_sidewalk>>
@@ -133,18 +135,18 @@ position: 337,219
 actor: ADULT_F
 ---
 <<area area_full>>
-<<if $museum_clean == false>>
-    We have a PROBLEM! #line:0642734 
-    A funny blue DOG entered the MUSEUM and made a mess! #line:0525efc
-    Can you help cleaning the MUSEUM? #task:clean_museum #line:09eafa1
-    <<task_start clean_museum task_clean_museum_done>>
-<<elseif $COLLECTED_ITEMS >= $QUEST_ITEMS>>
+<<if $COLLECTED_ITEMS >= $QUEST_ITEMS>>
     Thank you! Now the MUSEUM is in order #line:0c81640 
     Jules Verne would be proud of you! #line:0bc6c7b 
     Please match the BOOKS with their VEHICLES! #line:0245e0e 
     <<activity match_verne_vehicles activity_match_done>>
-<<elseif $COLLECTED_ITEMS >0>>
-    You are doing well! #line:0c52f3c 
+<<elseif $COLLECTED_ITEMS > 0 or GetCurrentTask() == "clean_museum">>
+    You are doing well! #line:0c52f3c
+<<elseif $museum_clean == false>>
+    We have a PROBLEM! #line:0642734 
+    A funny blue DOG entered the MUSEUM and made a mess! #line:0525efc
+    Can you help cleaning the MUSEUM? #task:clean_museum #line:09eafa1
+    <<task_start clean_museum task_clean_museum_done>>
 <<else>>
     We have another PROBLEM! #line:0a7dfb3 
     Our special vehicles are missing. #line:0bb46da 
