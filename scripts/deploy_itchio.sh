@@ -32,27 +32,89 @@ if [ -z "${ITCHIO_API_KEY:-}" ]; then
     exit 1
 fi
 
-# Download Butler if not present
-if [ ! -f "butler" ]; then
-    echo "==> Downloading Butler..."
-    curl -L -o butler.zip https://broth.itch.ovh/butler_linux_amd64.zip
-    unzip butler.zip
-    chmod +x butler
+DETECTED_OS=$(echo "${BUILDER_OS:-$(uname -s)}" | tr '[:lower:]' '[:upper:]')
+BUTLER_BIN="butler"
+BUTLER_URL="https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default"
+
+case "$DETECTED_OS" in
+    WINDOWS*|MINGW*|CYGWIN*)
+        BUTLER_BIN="butler.exe"
+        BUTLER_URL="https://broth.itch.ovh/butler/windows-amd64/LATEST/archive/default"
+        ;;
+    DARWIN*|MAC*)
+        BUTLER_URL="https://broth.itch.ovh/butler/darwin-amd64/LATEST/archive/default"
+        ;;
+    *)
+        ;; # keep defaults for Linux
+esac
+
+extract_zip()
+{
+    local zip_file="$1"
+    local dest_dir="$2"
+
+    if command -v unzip >/dev/null 2>&1; then
+        unzip -o "$zip_file" -d "$dest_dir"
+        return 0
+    fi
+
+    if command -v python3 >/dev/null 2>&1; then
+        python3 - "$zip_file" "$dest_dir" <<'PY'
+import sys, zipfile
+zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])
+PY
+        return 0
+    fi
+
+    if command -v python >/dev/null 2>&1; then
+        python - "$zip_file" "$dest_dir" <<'PY'
+import sys, zipfile
+zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])
+PY
+        return 0
+    fi
+
+    if [[ "$DETECTED_OS" == WINDOWS* ]] && command -v powershell >/dev/null 2>&1; then
+        powershell -NoProfile -Command "Add-Type -AssemblyName System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('$zip_file', '$dest_dir', \$true)"
+        return 0
+    fi
+
+    echo "ERROR: Could not extract $zip_file - no unzip/python/powershell available." >&2
+    return 1
+}
+
+if [ ! -f "$BUTLER_BIN" ]; then
+    echo "==> Downloading Butler for ${DETECTED_OS:-unknown}..."
+    TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t butler)
+    ZIP_PATH="$TMP_DIR/butler.zip"
+    curl -L -o "$ZIP_PATH" "$BUTLER_URL"
+
+    EXTRACT_DIR="$TMP_DIR/extracted"
+    mkdir -p "$EXTRACT_DIR"
+    extract_zip "$ZIP_PATH" "$EXTRACT_DIR"
+
+    FOUND_BIN=$(find "$EXTRACT_DIR" -name "$BUTLER_BIN" -print -quit)
+    if [ -z "$FOUND_BIN" ]; then
+        echo "ERROR: Butler executable '$BUTLER_BIN' not found inside archive." >&2
+        exit 1
+    fi
+
+    rm -f "$BUTLER_BIN"
+    cp "$FOUND_BIN" "$BUTLER_BIN"
+
+    if [[ "$DETECTED_OS" != WINDOWS* ]]; then
+        chmod +x "$BUTLER_BIN"
+    fi
+
+    rm -rf "$TMP_DIR"
 fi
 
+BUTLER_CMD="./$BUTLER_BIN"
+
 # Authenticate
-./butler login --api-key "$ITCHIO_API_KEY"
+"$BUTLER_CMD" login --api-key "$ITCHIO_API_KEY"
 
-# Zip the build folder
-ZIP_NAME="build-${VERSION}.zip"
-START_DIR="$PWD"
-
-echo "==> Zipping build to ${ZIP_NAME}..."
-cd "$BUILD_DIR"
-zip -r "${START_DIR}/${ZIP_NAME}" .
-
-cd "$START_DIR"
-echo "==> Pushing to itch.io..."
-./butler push "${ZIP_NAME}" "${CHANNEL}" --userversion "${VERSION}"
+echo "==> Pushing build directory to itch.io (incremental upload)..."
+"$BUTLER_CMD" push "${BUILD_DIR}" "${CHANNEL}" --userversion "${VERSION}"
 
 echo "==> Upload complete."
