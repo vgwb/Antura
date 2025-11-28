@@ -110,9 +110,7 @@ if [ ! -f "$BUTLER_BIN" ]; then
 fi
 
 BUTLER_CMD="./$BUTLER_BIN"
-
-# Authenticate
-"$BUTLER_CMD" login --api-key "$ITCHIO_API_KEY"
+export BUTLER_API_KEY="$ITCHIO_API_KEY"
 
 echo "==> Pushing build directory to itch.io (incremental upload)..."
 "$BUTLER_CMD" push "${BUILD_DIR}" "${CHANNEL}" --userversion "${VERSION}"
