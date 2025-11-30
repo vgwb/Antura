@@ -184,13 +184,15 @@ color: purple
     Can you please fix it? #line:02e7812
     <<inventory submarine_nautilus remove>>
     <<activity jigsaw_verne_submarine activity_submarine_done>>
-<<else>>
+<<elseif HasCompletedTask("clean_museum")>>
     <<card submarine_nautilus>>
     Help! The Nautilus is missing! #line:00a6154 
     Find the SUBMARINE #task:find_submarine #line:0bb264b
     If you can't find it, USE THE MAP #line:05bc5e9 
     <<SetActive submarine_lost true>>
     <<task_start find_submarine>>
+<<else>>
+    Come back to me later. #shadow:03af9a8 
 <<endif>>
 ===
 

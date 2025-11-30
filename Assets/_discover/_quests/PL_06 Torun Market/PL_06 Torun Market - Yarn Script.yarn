@@ -210,8 +210,7 @@ actor:
 Well done! You matched all the ingredients. #line:01648b2
 <<card gingerbread>>
 Now I can cook the GINGERBREAD! #line:0f0f617 
-Please now go inside the Old Town Hall... #line:01c48d3 
-there is a surprise waiting for you! #line:0e25ece 
+Please go inside the Old Town Hall. A surprise is waiting for you! #line:01c48d3
 <<set $gingerbread_done = true>>
 <<target npc_castle>>
 <<else>>
@@ -280,7 +279,7 @@ actor: SENIOR_F
 color: purple
 ---
 <<card currency_zloty>>
-Select enough money to pay. #line:select_money
+Pick the right coins to pay. #line:select_money
 <<activity money_grocer grocer_payment_done>>
 ===
 
@@ -291,7 +290,7 @@ group: grocer
 actor: SENIOR_F
 tags: noRepeatLastLine
 ---
-I put your items in the table. Thank you! #line:0567082 
+I put your items on the table. Thanks! #line:0567082 
 -> Goodbye! #line:goodbye
 -> Thanks! #shadow:thanks
 -> Have a nice day! #line:nice_day
@@ -362,7 +361,7 @@ actor: SENIOR_M
 color: purple
 ---
 <<card currency_zloty>>
-Select enough money to pay. #shadow:select_money
+Pick the right coins to pay. #shadow:select_money
 <<activity money_beekeper beekeper_payment_done>>
 ===
 
@@ -372,7 +371,7 @@ group: beekeper
 actor: SENIOR_M
 tags: noRepeatLastLine
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I put your items on the table. Thanks! #shadow:0567082 
 -> Goodbye! #shadow:goodbye
 -> Thanks! #shadow:thanks
 -> Have a nice day! #shadow:nice_day
@@ -440,7 +439,7 @@ actor: ADULT_F
 color: purple
 ---
 <<card currency_zloty>>
-Select enough money to pay. #shadow:select_money
+Pick the right coins to pay. #shadow:select_money
 <<activity money_cheesemonger cheesemonger_payment_done>>
 ===
 
@@ -450,7 +449,7 @@ group: cheesemonger
 actor: ADULT_F
 tags: noRepeatLastLine
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I put your items on the table. Thanks! #shadow:0567082 
 -> Goodbye! #shadow:goodbye
 -> Thanks! #shadow:thanks
 -> Have a nice day! #shadow:nice_day
@@ -515,7 +514,7 @@ actor: ADULT_F
 color: purple
 ---
 <<card currency_zloty>>
-Select enough money to pay. #shadow:select_money
+Pick the right coins to pay. #shadow:select_money
 <<activity money_eggvendor eggvendor_payment_done>>
 ===
 
@@ -525,7 +524,7 @@ group: eggvendor
 actor: ADULT_F
 tags: noRepeatLastLine
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I put your items on the table. Thanks! #shadow:0567082 
 -> Goodbye! #shadow:goodbye
 -> Thanks! #shadow:thanks
 -> Have a nice day! #shadow:nice_day
@@ -589,7 +588,7 @@ actor: ADULT_F
 color: purple
 ---
 <<card currency_zloty>>
-Select enough money to pay. #shadow:select_money
+Pick the right coins to pay. #shadow:select_money
 <<activity money_spicevendor spicevendor_payment_done>>
 ===
 
@@ -599,7 +598,7 @@ group: spicevendor
 actor: ADULT_F
 tags: noRepeatLastLine
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I put your items on the table. Thanks! #shadow:0567082 
 -> Goodbye! #shadow:goodbye
 -> Thanks! #shadow:thanks
 -> Have a nice day! #shadow:nice_day
@@ -754,7 +753,7 @@ tags: noRepeatLastLine
     -> Yes #line:08ac4ff 
       It's delicious. Isn't it? #line:040912f 
     -> No #line:0cb270e 
-      It's our traditional dish made of dough filled with various ingredients. #line:09da259 
+      It’s a special dumpling filled with yummy stuff like cheese or potatoes. #line:09da259 
     <<card_hide>>
     <<camera_focus camera_tower>>
     I saw that big blue dog going up the stairs! #line:0ee5d9b 
@@ -785,7 +784,7 @@ Well done! Go back to the chef. #line:08e9b5f
 title: antura_tower
 position: 2700,1800
 ---
-You found Antura! #line:0307b40 
+You have found Antura! #line:0307b40 
 <<jump quest_end>>
 ===
 
