@@ -2,7 +2,7 @@
 set -euo pipefail
 
 CHANNEL="vgwb/antura:windows"   # itch.io channel
-BUILD_DIR="${1:-${OUTPUT_DIRECTORY:-${UNITY_BUILD_OUTPUT:-${BUILD_PATH:-$PWD}}}}"
+BUILD_DIR="${UNITY_BUILD_OUTPUT}"
 
 # Read version from project repo
 VERSION_FILE="docs/public/latest-version.txt"
