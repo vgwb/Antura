@@ -34,15 +34,15 @@ fi
 
 DETECTED_OS=$(echo "${BUILDER_OS:-$(uname -s)}" | tr '[:lower:]' '[:upper:]')
 BUTLER_BIN="butler"
-BUTLER_URL="https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default"
+BUTLER_URL="https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default"
 
 case "$DETECTED_OS" in
     WINDOWS*|MINGW*|CYGWIN*)
         BUTLER_BIN="butler.exe"
-        BUTLER_URL="https://broth.itch.ovh/butler/windows-amd64/LATEST/archive/default"
+        BUTLER_URL="https://broth.itch.zone/butler/windows-amd64/LATEST/archive/default"
         ;;
     DARWIN*|MAC*)
-        BUTLER_URL="https://broth.itch.ovh/butler/darwin-amd64/LATEST/archive/default"
+        BUTLER_URL="https://broth.itch.zone/butler/darwin-amd64/LATEST/archive/default"
         ;;
     *)
         ;; # keep defaults for Linux
