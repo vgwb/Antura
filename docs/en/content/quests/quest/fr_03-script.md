@@ -6,7 +6,8 @@ hide:
 # Jules Verne and transportation (fr_03) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-03-jules-verne-and-transportation/25/1)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=336647638#gid=336647638)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=336647638#gid=336647638)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_03%20Nantes%20Verne/FR_03%20Nantes%20Verne%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -93,6 +94,8 @@ hide:
     <span class="yarn-cmd">&lt;&lt;SetActive museum_door false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target museum_guide&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "clean_sidewalk"&gt;&gt;</span>
+<span class="yarn-line">    You are doing well!</span> <span class="yarn-meta">#shadow:0c52f3c</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    What a MESS outside the MUSEUM!</span> <span class="yarn-meta">#line:0a3e2f4</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_sidewalk&gt;&gt;</span>
@@ -134,18 +137,18 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;area area_full&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;if $museum_clean == false&gt;&gt;</span>
-<span class="yarn-line">    We have a PROBLEM!</span> <span class="yarn-meta">#line:0642734 </span>
-<span class="yarn-line">    A funny blue DOG entered the MUSEUM and made a mess!</span> <span class="yarn-meta">#line:0525efc</span>
-<span class="yarn-line">    Can you help cleaning the MUSEUM?</span> <span class="yarn-meta">#line:09eafa1</span>
-    <span class="yarn-cmd">&lt;&lt;task_start clean_museum task_clean_museum_done&gt;&gt;</span>
-&lt;&lt;elseif $COLLECTED_ITEMS &gt;= $QUEST_ITEMS&gt;&gt;
+&lt;&lt;if $COLLECTED_ITEMS &gt;= $QUEST_ITEMS&gt;&gt;
 <span class="yarn-line">    Thank you! Now the MUSEUM is in order</span> <span class="yarn-meta">#line:0c81640 </span>
 <span class="yarn-line">    Jules Verne would be proud of you!</span> <span class="yarn-meta">#line:0bc6c7b </span>
 <span class="yarn-line">    Please match the BOOKS with their VEHICLES!</span> <span class="yarn-meta">#line:0245e0e </span>
     <span class="yarn-cmd">&lt;&lt;activity match_verne_vehicles activity_match_done&gt;&gt;</span>
-&lt;&lt;elseif $COLLECTED_ITEMS &gt;0&gt;&gt;
-<span class="yarn-line">    You are doing well!</span> <span class="yarn-meta">#line:0c52f3c </span>
+&lt;&lt;elseif $COLLECTED_ITEMS &gt; 0 or GetCurrentTask() == "clean_museum"&gt;&gt;
+<span class="yarn-line">    You are doing well!</span> <span class="yarn-meta">#line:0c52f3c</span>
+<span class="yarn-cmd">&lt;&lt;elseif $museum_clean == false&gt;&gt;</span>
+<span class="yarn-line">    We have a PROBLEM!</span> <span class="yarn-meta">#line:0642734 </span>
+<span class="yarn-line">    A funny blue DOG entered the MUSEUM and made a mess!</span> <span class="yarn-meta">#line:0525efc</span>
+<span class="yarn-line">    Can you help cleaning the MUSEUM?</span> <span class="yarn-meta">#line:09eafa1</span>
+    <span class="yarn-cmd">&lt;&lt;task_start clean_museum task_clean_museum_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    We have another PROBLEM!</span> <span class="yarn-meta">#line:0a7dfb3 </span>
 <span class="yarn-line">    Our special vehicles are missing.</span> <span class="yarn-meta">#line:0bb46da </span>
@@ -203,13 +206,15 @@ hide:
 <span class="yarn-line">    Can you please fix it?</span> <span class="yarn-meta">#line:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory submarine_nautilus remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_submarine activity_submarine_done&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("clean_museum")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card submarine_nautilus&gt;&gt;</span>
 <span class="yarn-line">    Help! The Nautilus is missing!</span> <span class="yarn-meta">#line:00a6154 </span>
 <span class="yarn-line">    Find the SUBMARINE</span> <span class="yarn-meta">#line:0bb264b</span>
 <span class="yarn-line">    If you can't find it, USE THE MAP</span> <span class="yarn-meta">#line:05bc5e9 </span>
     <span class="yarn-cmd">&lt;&lt;SetActive submarine_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_submarine&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Come back to me later.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -296,15 +301,15 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_balloon")&gt;&gt;</span>
 <span class="yarn-line">    You found the HOT AIR BALLOON!</span> <span class="yarn-meta">#line:0286510</span>
-        But it's BROKEN in pieces! #shadow:097c3fc
-        Can you please fix it? #shadow:02e7812
+<span class="yarn-line">    But it's BROKEN in pieces!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Can you please fix it?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory hot_air_balloon remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_balloon activity_balloon_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_submarine")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card hot_air_balloon&gt;&gt;</span>
 <span class="yarn-line">    Help! Something is missing!</span> <span class="yarn-meta">#line:0e928ab </span>
 <span class="yarn-line">    Find the HOT AIR BALLOON</span> <span class="yarn-meta">#line:0a1520b</span>
-        If you can't find it, USE THE MAP #shadow:05bc5e9
+<span class="yarn-line">    If you can't find it, USE THE MAP</span> <span class="yarn-meta">#shadow:05bc5e9</span>
     <span class="yarn-cmd">&lt;&lt;SetActive balloon_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_balloon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -324,9 +329,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_5weeks&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive balloon true&gt;&gt;</span>
-You repaired it! Thank you! #shadow:0ba85d3
+<span class="yarn-line">You repaired it! Thank you!</span> <span class="yarn-meta">#shadow:0ba85d3 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-Now go to next guardian. #shadow:09438f6
+<span class="yarn-line">Now go to next guardian.</span> <span class="yarn-meta">#shadow:09438f6 </span>
 <span class="yarn-cmd">&lt;&lt;target tutor_earthmoon&gt;&gt;</span>
 
 </code>
@@ -344,7 +349,7 @@ Now go to next guardian. #shadow:09438f6
 <span class="yarn-cmd">&lt;&lt;card hot_air_balloon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory hot_air_balloon add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
-Great! Now bring it back to its guardian #shadow:0757b30
+<span class="yarn-line">Great! Now bring it back to its guardian</span> <span class="yarn-meta">#shadow:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_5weeks&gt;&gt;</span>
 
@@ -396,19 +401,19 @@ Great! Now bring it back to its guardian #shadow:0757b30
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_rocket")&gt;&gt;</span>
 <span class="yarn-line">    You found the ROCKET!</span> <span class="yarn-meta">#line:08fed68 </span>
-        But it's BROKEN in pieces! #shadow:097c3fc
-        Can you please fix it? #shadow:02e7812
+<span class="yarn-line">    But it's BROKEN in pieces!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Can you please fix it?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory space_rocket remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_rocket activity_rocket_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_balloon")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card space_rocket&gt;&gt;</span>
 <span class="yarn-line">    Help! Our most precious machine is missing!</span> <span class="yarn-meta">#line:07c4369 </span>
 <span class="yarn-line">    Find the SPACE ROCKET</span> <span class="yarn-meta">#line:03efbc0 </span>
-        If you can't find it, USE THE MAP #shadow:05bc5e9
+<span class="yarn-line">    If you can't find it, USE THE MAP</span> <span class="yarn-meta">#shadow:05bc5e9</span>
     <span class="yarn-cmd">&lt;&lt;SetActive rocket_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_rocket&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-        Come back to me later. #shadow:03af9a8
+<span class="yarn-line">    Come back to me later.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -424,9 +429,9 @@ Great! Now bring it back to its guardian #shadow:0757b30
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_earthmoon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive rocket true&gt;&gt;</span>
-You repaired it! Thank you! #shadow:0ba85d3
+<span class="yarn-line">You repaired it! Thank you!</span> <span class="yarn-meta">#shadow:0ba85d3 </span>
 <span class="yarn-comment">//&lt;&lt;camera_reset&gt;&gt;</span>
-Now go to next guardian. #shadow:09438f6
+<span class="yarn-line">Now go to next guardian.</span> <span class="yarn-meta">#shadow:09438f6 </span>
 <span class="yarn-cmd">&lt;&lt;target tutor_80days&gt;&gt;</span>
 
 </code>
@@ -444,7 +449,7 @@ Now go to next guardian. #shadow:09438f6
 <span class="yarn-cmd">&lt;&lt;card space_rocket&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory space_rocket add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
-Great! Now bring it back to its guardian #shadow:0757b30
+<span class="yarn-line">Great! Now bring it back to its guardian</span> <span class="yarn-meta">#shadow:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_earthmoon&gt;&gt;</span>
 
@@ -496,19 +501,19 @@ Great! Now bring it back to its guardian #shadow:0757b30
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_train")&gt;&gt;</span>
 <span class="yarn-line">    You found the TRAIN!</span> <span class="yarn-meta">#line:01f76f3 </span>
-        But it's BROKEN in pieces! #shadow:097c3fc
-        Can you please fix it? #shadow:02e7812
+<span class="yarn-line">    But it's BROKEN in pieces!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Can you please fix it?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory train remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_train activity_train_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_balloon")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card train&gt;&gt;</span>
 <span class="yarn-line">    Help! We lost the TRAIN!</span> <span class="yarn-meta">#line:08cfbc0 </span>
 <span class="yarn-line">    Find the OLD STEAM TRAIN</span> <span class="yarn-meta">#line:036574d</span>
-        If you can't find it, USE THE MAP #shadow:05bc5e9
+<span class="yarn-line">    If you can't find it, USE THE MAP</span> <span class="yarn-meta">#shadow:05bc5e9</span>
     <span class="yarn-cmd">&lt;&lt;SetActive train_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_train&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-        Come back to me later. #shadow:03af9a8
+<span class="yarn-line">    Come back to me later.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -524,7 +529,7 @@ Great! Now bring it back to its guardian #shadow:0757b30
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_80days&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive train true&gt;&gt;</span>
-You repaired it! Thank you! #shadow:0ba85d3
+<span class="yarn-line">You repaired it! Thank you!</span> <span class="yarn-meta">#shadow:0ba85d3 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">You found all the vehicles!</span> <span class="yarn-meta">#line:084486e </span>
 <span class="yarn-line">Go back to the MUSEUM GUIDE!</span> <span class="yarn-meta">#line:0ee83b2 #task:back_to_museum_guide</span>
@@ -546,7 +551,7 @@ You repaired it! Thank you! #shadow:0ba85d3
 <span class="yarn-cmd">&lt;&lt;card train&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory train add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
-Great! Now bring it back to its guardian #shadow:0757b30
+<span class="yarn-line">Great! Now bring it back to its guardian</span> <span class="yarn-meta">#shadow:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_80days&gt;&gt;</span>
 

@@ -6,7 +6,8 @@ hide:
 # Tutorial (tutorial) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -506,14 +507,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">È bello pulire, non è vero?</span> <span class="yarn-meta">#line:059323a</span>
-[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
-[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
+<span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
+<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result easy&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
+<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result normal&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
+<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result expert&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
+<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -546,14 +547,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Adoro i puzzle!</span> <span class="yarn-meta">#line:0fc42d8 </span>
-[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
-[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
+<span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
+<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result easy&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
+<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result normal&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
+<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result expert&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
+<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -586,14 +587,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bell'abbinamento!</span> <span class="yarn-meta">#line:0f0ee2e</span>
-[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
-[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
+<span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
+<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result easy&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
+<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result normal&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
+<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result expert&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
+<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -626,14 +627,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">È importante imparare a usare il denaro!</span> <span class="yarn-meta">#line:06136c1</span>
-[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
-[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
+<span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
+<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result easy&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
+<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result normal&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
+<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result expert&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
+<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -666,14 +667,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Buona attività.</span> <span class="yarn-meta">#line:0838f7f </span>
-[MISSING TRANSLATION: Do you want to play again? #shadow:0c78a9e]
-[MISSING TRANSLATION: -&gt; Easy #shadow:0cd0316]
+<span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
+<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result easy&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Normal #shadow:07cbfdd]
+<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result normal&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; Expert #shadow:0e3251c]
+<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result expert&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No #highlight #shadow:010515b]
+<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>

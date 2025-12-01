@@ -6,42 +6,85 @@ hide:
 # Samouczek (tutorial)
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
 
-Version: 1.00  
-Status: NeedsReview  
-Location: International
+- Version: 1.00
+- Status: Production
+- Location: International
 
-Nauczmy się grać w Antura Discover!
+- Difficulty: Tutorial
+- Duration (min): 10
+- Description: Nauczmy się grać w Antura Discover!
+
+## Topics
+### Antura's world {#antura-world}
+[Open topic page](../../topics/index.md#antura-world)  
+
+- Importance: Medium  
+- Country: International  
+- Target age: Ages6to10
+
+#### Core Card - Antura
+Główny bohater tej gry wideo
+
+![preview antura](../../../../assets/img/content/cards/antura.jpg){ width="200" }
+- Type: Concept
+
+#### Connection (RelatedTo) - Ciastka
+Słodkie nagrody, które możesz zbierać podczas gry! Wykorzystaj je, aby zdobyć nowe przedmioty i niespodzianki.
+
+![preview antura_cookies](../../../../assets/img/content/cards/antura_cookies.jpg){ width="200" }
+- Type: Object
+
+#### Connection (RelatedTo) - Portal
+Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+
+![preview antura_portal](../../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
+- Type: Object
+
+#### Connection (RelatedTo) - Karty
+Każda karta skrywa coś wyjątkowego. Znajdź je wszystkie i przeczytaj!
+
+![preview antura_cards](../../../../assets/img/content/cards/antura_cards.jpg){ width="200" }
+- Type: Concept
+
+#### Connection (RelatedTo) - Kot
+Najlepszy przyjaciel i towarzysz podróży Antury. Ciekawy, sprytny i zawsze gotowy do pomocy!
+
+![preview antura_cat](../../../../assets/img/content/cards/antura_cat.jpg){ width="200" }
+- Type: Concept
+
+#### Connection (RelatedTo) - Żywy List
+Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby nauczyć się nowych słów.
+
+![preview antura_livingletter](../../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
+- Type: Concept
+
+#### Connection (RelatedTo) - Blokowy
+Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... mają historie do opowiedzenia!
+
+![preview antura_blocky_character](../../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
+- Type: Concept
+
+#### Connection (RelatedTo) - Portal
+Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+
+![preview antura_portal](../../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
+- Type: Object
+
+#### Connection (RelatedTo) - Niebezpieczeństwo
+Czegoś takiego nie powinieneś robić! Zachowaj ostrożność i bądź bezpieczny.
+
+![preview antura_malus](../../../../assets/img/content/cards/antura_malus.jpg){ width="200" }
+- Type: Concept
+
+
 
 ## Quest Script
 
 [See the full script here](./tutorial-script.md)
-
-## Content
-Subjects: 
-
-
-## Topics
-### [Antura's world](../../topics/index.md#antura-world)
-
-  - **[Antura](../../cards/index.md#antura)**  
-    Główny bohater tej gry wideo  
-  - **[Ciastka](../../cards/index.md#antura_cookies)**  
-    Słodkie nagrody, które możesz zbierać podczas gry! Wykorzystaj je, aby zdobyć nowe przedmioty i niespodzianki.  
-  - **[Portal](../../cards/index.md#antura_portal)**  
-    Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!  
-  - **[Karty](../../cards/index.md#antura_cards)**  
-    Każda karta skrywa coś wyjątkowego. Znajdź je wszystkie i przeczytaj!  
-  - **[Kot](../../cards/index.md#antura_cat)**  
-    Najlepszy przyjaciel i towarzysz podróży Antury. Ciekawy, sprytny i zawsze gotowy do pomocy!  
-  - **[Żywy List](../../cards/index.md#antura_livingletter)**  
-    Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby nauczyć się nowych słów.  
-  - **[Blokowy](../../cards/index.md#antura_blocky_character)**  
-    Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... mają historie do opowiedzenia!  
-  - **[Niebezpieczeństwo](../../cards/index.md#antura_malus)**  
-    Czegoś takiego nie powinieneś robić! Zachowaj ostrożność i bądź bezpieczny.  
 
 ## Words
 ## Activities
@@ -55,9 +98,6 @@ Subjects:
 ## Tasks
 - [Collect] talk_everybody
 - [Interact] open_chest
-## Gameplay
-- Difficulty: Tutorial
-- Duration (min): 10
 ## Credits
 - Fabio Cecere (Italy) (design, development)
 - [Stefano Cecere](https://stefanocecere.com) (Italy) (design, development)

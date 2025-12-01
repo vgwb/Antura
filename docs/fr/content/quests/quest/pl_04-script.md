@@ -6,7 +6,8 @@ hide:
 # Le zoo (pl_04) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-04-the-zoo/35/1)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=819047762#gid=819047762)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=819047762#gid=819047762)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_04%20Zoo/PL_04%20Zoo%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -131,7 +132,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: You talked to all ANIMALS. #shadow:032811f]
+<span class="yarn-line">Vous avez parlé à tous les ANIMAUX.</span> <span class="yarn-meta">#shadow:032811f</span>
 <span class="yarn-line">Retournez maintenant voir le DIRECTEUR DU ZOO.</span> <span class="yarn-meta">#line:0a93d9b #task:back_to_director</span>
 <span class="yarn-cmd">&lt;&lt;target director&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start back_to_director&gt;&gt;</span>
@@ -289,12 +290,12 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("order_lion_settings") &gt; 0&gt;&gt;
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity order_lion_settings&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; Yes but more difficult #shadow:yes_harder]
+<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity order_lion_settings_hard&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis un LION d'AFRIQUE.</span> <span class="yarn-meta">#line:07f2e15 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_lion_cub&gt;&gt;</span>
@@ -377,12 +378,12 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("canvas_giraffe_settings") &gt; 0&gt;&gt;
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; Yes but more difficult #shadow:yes_harder]
+<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings_hard&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis l'ANIMAL le plus grand.</span> <span class="yarn-meta">#line:0d5c607 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_giraffe&gt;&gt;</span>
@@ -459,12 +460,12 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $elephant_completed&gt;&gt;</span>
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; Yes but more difficult #shadow:yes_harder]
+<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings_hard&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis le plus grand ANIMAL terrestre.</span> <span class="yarn-meta">#line:027b51f </span>
     <span class="yarn-cmd">&lt;&lt;card animal_elephant&gt;&gt;</span>
@@ -542,12 +543,12 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("jigsaw_penguin_settings") &gt; 0&gt;&gt;
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; Yes but more difficult #shadow:yes_harder]
+<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings_hard&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis un PINGOUIN, un OISEAU spécial.</span> <span class="yarn-meta">#line:08c70e8 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_penguin&gt;&gt;</span>

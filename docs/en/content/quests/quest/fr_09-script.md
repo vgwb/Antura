@@ -6,7 +6,8 @@ hide:
 # The Colors of the Marseille Market (fr_09) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-09-the-colors-of-the-marseille-market/28/1)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1243903291#gid=1243903291)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1243903291#gid=1243903291)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_09%20Food%20&%20Market/FR_09%20Food%20&%20Market%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -371,10 +372,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_fishmonger") &gt; 0&gt;&gt;
 <span class="yarn-line">    You already bought fish from me!</span> <span class="yarn-meta">#line:044d973 </span>
-        Do you want to play again? #shadow:play_again
-        -&gt; Yes #shadow:yes
+<span class="yarn-line">    Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Yes</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_fishmonger hard_payment_done&gt;&gt;</span>
-        -&gt; No #shadow:no
+<span class="yarn-line">    No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Lycée!</span> <span class="yarn-meta">#line:0d65316 </span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -456,7 +457,7 @@ hide:
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
+<span class="yarn-line">I put your items in the table. Thank you!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Au revoir!</span> <span class="yarn-meta">#line:02e64ff </span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:02c23e5 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:080d945 </span>
@@ -479,10 +480,10 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_cheesemonger") &gt; 0&gt;&gt;
 <span class="yarn-line">    You already bought milk from me!</span> <span class="yarn-meta">#line:090b5cc </span>
-        Do you want to play again? #shadow:play_again
-        -&gt; Yes #shadow:yes
+<span class="yarn-line">    Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Yes</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_cheesemonger hard_payment_done&gt;&gt;</span>
-        -&gt; No #shadow:no
+<span class="yarn-line">    No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0693ba6 </span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -546,7 +547,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
+<span class="yarn-line">I put your items in the table. Thank you!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:0dd3ac3 </span>
 <span class="yarn-line">Au revoir!</span> <span class="yarn-meta">#line:02a1238 </span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0273de1 </span>
@@ -587,10 +588,10 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_greengrocer") &gt; 0&gt;&gt;
 <span class="yarn-line">    You already bought fruit from me!</span> <span class="yarn-meta">#line:0755f3c </span>
-        Do you want to play again? #shadow:play_again
-        -&gt; Yes #shadow:yes
+<span class="yarn-line">    Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Yes</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_greengrocer hard_payment_done&gt;&gt;</span>
-        -&gt; No #shadow:no
+<span class="yarn-line">    No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    hello</span> <span class="yarn-meta">#line:00ee67d </span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0a43c28 </span>
@@ -650,7 +651,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
+<span class="yarn-line">I put your items in the table. Thank you!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:0ff9361 </span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0741be3 </span>
 <span class="yarn-line">Au revoir!</span> <span class="yarn-meta">#line:023f352 </span>
@@ -696,10 +697,10 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_grocer") &gt; 0&gt;&gt;
 <span class="yarn-line">    You already bought from me!</span> <span class="yarn-meta">#line:0348f3c </span>
-        Do you want to play again? #shadow:play_again
-        -&gt; Yes #shadow:yes
+<span class="yarn-line">    Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Yes</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_grocer hard_payment_done&gt;&gt;</span>
-        -&gt; No #shadow:no
+<span class="yarn-line">    No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0dd992c </span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -758,7 +759,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
+<span class="yarn-line">I put your items in the table. Thank you!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Au revoir!</span> <span class="yarn-meta">#line:0ce6f8a </span>
 <span class="yarn-line">Merci!</span> <span class="yarn-meta">#line:0e8ec1b </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:062029a </span>
@@ -809,9 +810,9 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-line">We come from Saint-Malo and sailed the seas to get here.</span> <span class="yarn-meta">#line:056c70d </span>
 <span class="yarn-line">People call us pirates, but we were corsairs.</span> <span class="yarn-meta">#line:0f764a6</span>
 <span class="yarn-line">Do you want to play a game?</span> <span class="yarn-meta">#line:022f719 </span>
--&gt; Yes #shadow:yes
+<span class="yarn-line">Yes</span> <span class="yarn-meta">#shadow:yes</span>
     <span class="yarn-cmd">&lt;&lt;jump pirate_activity&gt;&gt;</span>
--&gt; No #shadow:no
+<span class="yarn-line">No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-line">    Ahoy, then! Fair winds to ye!</span> <span class="yarn-meta">#line:0d078d6 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 

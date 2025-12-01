@@ -6,7 +6,8 @@ hide:
 # Gingerbread & food market (pl_06) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-06-gingerbread-food-market/37/1)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1211829352#gid=1211829352)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1211829352#gid=1211829352)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_06%20Torun%20Market/PL_06%20Torun%20Market%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -252,8 +253,7 @@ hide:
 <span class="yarn-line">Well done! You matched all the ingredients.</span> <span class="yarn-meta">#line:01648b2</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread&gt;&gt;</span>
 <span class="yarn-line">Now I can cook the GINGERBREAD!</span> <span class="yarn-meta">#line:0f0f617 </span>
-<span class="yarn-line">Please now go inside the Old Town Hall...</span> <span class="yarn-meta">#line:01c48d3 </span>
-<span class="yarn-line">there is a surprise waiting for you!</span> <span class="yarn-meta">#line:0e25ece </span>
+<span class="yarn-line">Please go inside the Old Town Hall. A surprise is waiting for you!</span> <span class="yarn-meta">#line:01c48d3</span>
 <span class="yarn-cmd">&lt;&lt;set $gingerbread_done = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_castle&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -349,7 +349,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
-<span class="yarn-line">Select enough money to pay.</span> <span class="yarn-meta">#line:select_money</span>
+<span class="yarn-line">Pick the right coins to pay.</span> <span class="yarn-meta">#line:select_money</span>
 <span class="yarn-cmd">&lt;&lt;activity money_grocer grocer_payment_done&gt;&gt;</span>
 
 </code>
@@ -366,9 +366,9 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I put your items in the table. Thank you!</span> <span class="yarn-meta">#line:0567082 </span>
+<span class="yarn-line">I put your items on the table. Thanks!</span> <span class="yarn-meta">#line:0567082 </span>
 <span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#line:goodbye</span>
--&gt; Thanks! #shadow:thanks
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks</span>
 <span class="yarn-line">Have a nice day!</span> <span class="yarn-meta">#line:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Grocer&gt;&gt;</span>
 
@@ -390,15 +390,15 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_beekeper") &gt; 0&gt;&gt;
-      You already bought from me! #shadow:already_bought
-      Do you want to play again? #shadow:play_again
-      -&gt; Yes #shadow:yes
+<span class="yarn-line">   You already bought from me!</span> <span class="yarn-meta">#shadow:already_bought</span>
+<span class="yarn-line">   Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">   Yes</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-      -&gt; No #shadow:no
+<span class="yarn-line">   No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
--&gt; Thanks! #shadow:thanks
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
--&gt; Good morning! #shadow:hello
+<span class="yarn-line">Good morning!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump beekeper_bonjour&gt;&gt;</span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:06b0535 </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -436,7 +436,7 @@ hide:
 <span class="yarn-header-dim">group: beekeper</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-What do you want to buy? #shadow:what_to_buy
+<span class="yarn-line">What do you want to buy?</span> <span class="yarn-meta">#shadow:what_to_buy </span>
 <span class="yarn-line">Honey</span> <span class="yarn-meta">#line:honey</span>
    <span class="yarn-cmd">&lt;&lt;jump beekeper_pay_activity&gt;&gt;</span>
 <span class="yarn-line">Chocolate</span> <span class="yarn-meta">#line:chocolate</span>
@@ -461,7 +461,7 @@ What do you want to buy? #shadow:what_to_buy
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
-Select enough money to pay. #shadow:select_money
+<span class="yarn-line">Pick the right coins to pay.</span> <span class="yarn-meta">#shadow:select_money</span>
 <span class="yarn-cmd">&lt;&lt;activity money_beekeper beekeper_payment_done&gt;&gt;</span>
 
 </code>
@@ -478,10 +478,10 @@ Select enough money to pay. #shadow:select_money
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
--&gt; Goodbye! #shadow:goodbye
--&gt; Thanks! #shadow:thanks
--&gt; Have a nice day! #shadow:nice_day
+<span class="yarn-line">I put your items on the table. Thanks!</span> <span class="yarn-meta">#shadow:0567082 </span>
+<span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-line">Have a nice day!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Beekeper&gt;&gt;</span>
 
 </code>
@@ -502,17 +502,17 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_cheesemonger") &gt; 0&gt;&gt;
-      You already bought from me! #shadow:already_bought
-      Do you want to play again? #shadow:play_again
-      -&gt; Yes #shadow:yes
+<span class="yarn-line">   You already bought from me!</span> <span class="yarn-meta">#shadow:already_bought</span>
+<span class="yarn-line">   Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">   Yes</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-      -&gt; No #shadow:no
+<span class="yarn-line">   No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
--&gt; Thanks! #shadow:thanks
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
--&gt; Good morning! #shadow:hello
+<span class="yarn-line">Good morning!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_bonjour&gt;&gt;</span>
--&gt; Goodbye! #shadow:goodbye
+<span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#shadow:goodbye</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -547,7 +547,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">group: cheesemonger</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-What do you want to buy? #shadow:what_to_buy
+<span class="yarn-line">What do you want to buy?</span> <span class="yarn-meta">#shadow:what_to_buy </span>
 <span class="yarn-line">Butter</span> <span class="yarn-meta">#line:butter </span>
    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_pay_activity&gt;&gt;</span>
 <span class="yarn-line">Oil</span> <span class="yarn-meta">#line:057f694 </span>
@@ -572,7 +572,7 @@ What do you want to buy? #shadow:what_to_buy
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
-Select enough money to pay. #shadow:select_money
+<span class="yarn-line">Pick the right coins to pay.</span> <span class="yarn-meta">#shadow:select_money</span>
 <span class="yarn-cmd">&lt;&lt;activity money_cheesemonger cheesemonger_payment_done&gt;&gt;</span>
 
 </code>
@@ -589,10 +589,10 @@ Select enough money to pay. #shadow:select_money
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
--&gt; Goodbye! #shadow:goodbye
--&gt; Thanks! #shadow:thanks
--&gt; Have a nice day! #shadow:nice_day
+<span class="yarn-line">I put your items on the table. Thanks!</span> <span class="yarn-meta">#shadow:0567082 </span>
+<span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-line">Have a nice day!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Cheesemonger&gt;&gt;</span>
 
 </code>
@@ -613,17 +613,17 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_eggvendor") &gt; 0&gt;&gt;
-      You already bought from me! #shadow:already_bought
-      Do you want to play again? #shadow:play_again
-      -&gt; Yes #shadow:yes
+<span class="yarn-line">   You already bought from me!</span> <span class="yarn-meta">#shadow:already_bought</span>
+<span class="yarn-line">   Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">   Yes</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-      -&gt; No #shadow:no
+<span class="yarn-line">   No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
--&gt; Thanks! #shadow:thanks
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
--&gt; Good morning! #shadow:hello
+<span class="yarn-line">Good morning!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump eggvendor_bonjour&gt;&gt;</span>
--&gt; Goodbye! #shadow:goodbye
+<span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#shadow:goodbye</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -657,7 +657,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">group: eggvendor</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-What do you want to buy? #shadow:what_to_buy
+<span class="yarn-line">What do you want to buy?</span> <span class="yarn-meta">#shadow:what_to_buy</span>
 <span class="yarn-line">Eggs</span> <span class="yarn-meta">#line:eggs</span>
    <span class="yarn-cmd">&lt;&lt;jump eggvendor_pay_activity&gt;&gt;</span>
 <span class="yarn-line">Oil</span> <span class="yarn-meta">#line:06cc62e </span>
@@ -680,7 +680,7 @@ What do you want to buy? #shadow:what_to_buy
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
-Select enough money to pay. #shadow:select_money
+<span class="yarn-line">Pick the right coins to pay.</span> <span class="yarn-meta">#shadow:select_money</span>
 <span class="yarn-cmd">&lt;&lt;activity money_eggvendor eggvendor_payment_done&gt;&gt;</span>
 
 </code>
@@ -697,10 +697,10 @@ Select enough money to pay. #shadow:select_money
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
--&gt; Goodbye! #shadow:goodbye
--&gt; Thanks! #shadow:thanks
--&gt; Have a nice day! #shadow:nice_day
+<span class="yarn-line">I put your items on the table. Thanks!</span> <span class="yarn-meta">#shadow:0567082 </span>
+<span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-line">Have a nice day!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Eggvendor&gt;&gt;</span>
 
 </code>
@@ -721,17 +721,17 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_spicevendor") &gt; 0&gt;&gt;
-      You already bought from me! #shadow:already_bought
-      Do you want to play again? #shadow:play_again
-      -&gt; Yes #shadow:yes
+<span class="yarn-line">   You already bought from me!</span> <span class="yarn-meta">#shadow:already_bought</span>
+<span class="yarn-line">   Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">   Yes</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-      -&gt; No #shadow:no
+<span class="yarn-line">   No</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
--&gt; Thanks! #shadow:thanks
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
--&gt; Good morning! #shadow:hello
+<span class="yarn-line">Good morning!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump spicevendor_bonjour&gt;&gt;</span>
--&gt; Goodbye! #shadow:goodbye
+<span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#shadow:goodbye</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -765,7 +765,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-header-dim">group: spicevendor</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-What do you want to buy? #shadow:what_to_buy
+<span class="yarn-line">What do you want to buy?</span> <span class="yarn-meta">#shadow:what_to_buy</span>
 <span class="yarn-line">Cinnamon and ginger</span> <span class="yarn-meta">#line:0fe40e7 </span>
    <span class="yarn-cmd">&lt;&lt;jump spicevendor_pay_activity&gt;&gt;</span>
 <span class="yarn-line">Butter</span> <span class="yarn-meta">#line:0fa399a </span>
@@ -788,7 +788,7 @@ What do you want to buy? #shadow:what_to_buy
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
-Select enough money to pay. #shadow:select_money
+<span class="yarn-line">Pick the right coins to pay.</span> <span class="yarn-meta">#shadow:select_money</span>
 <span class="yarn-cmd">&lt;&lt;activity money_spicevendor spicevendor_payment_done&gt;&gt;</span>
 
 </code>
@@ -805,10 +805,10 @@ Select enough money to pay. #shadow:select_money
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-I put your items in the table. Thank you! #shadow:0567082
--&gt; Goodbye! #shadow:goodbye
--&gt; Thanks! #shadow:thanks
--&gt; Have a nice day! #shadow:nice_day
+<span class="yarn-line">I put your items on the table. Thanks!</span> <span class="yarn-meta">#shadow:0567082 </span>
+<span class="yarn-line">Goodbye!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-line">Thanks!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-line">Have a nice day!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Spicevendor&gt;&gt;</span>
 
 </code>
@@ -1048,7 +1048,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <span class="yarn-line">    Yes</span> <span class="yarn-meta">#line:08ac4ff </span>
 <span class="yarn-line">      It's delicious. Isn't it?</span> <span class="yarn-meta">#line:040912f </span>
 <span class="yarn-line">    No</span> <span class="yarn-meta">#line:0cb270e </span>
-<span class="yarn-line">      It's our traditional dish made of dough filled with various ingredients.</span> <span class="yarn-meta">#line:09da259 </span>
+<span class="yarn-line">      It’s a special dumpling filled with yummy stuff like cheese or potatoes.</span> <span class="yarn-meta">#line:09da259 </span>
     <span class="yarn-cmd">&lt;&lt;card_hide&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_tower&gt;&gt;</span>
 <span class="yarn-line">    I saw that big blue dog going up the stairs!</span> <span class="yarn-meta">#line:0ee5d9b </span>
@@ -1093,7 +1093,7 @@ I put your items in the table. Thank you! #shadow:0567082
 <div class="yarn-node" data-title="antura_tower">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">You found Antura!</span> <span class="yarn-meta">#line:0307b40 </span>
+<span class="yarn-line">You have found Antura!</span> <span class="yarn-meta">#line:0307b40 </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>

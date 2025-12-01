@@ -6,7 +6,8 @@ hide:
 # Sąsiedzi Polski (pl_00) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-00-the-neighbors-of-poland/31/1)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1929643794#gid=1929643794)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1929643794#gid=1929643794)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_00%20Geo%20Poland/PL_00%20Geo%20Poland%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -282,7 +283,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_germany add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Germany&gt;&gt;</span>
-[MISSING TRANSLATION: You found the German flag! Go back to Germany. #shadow:05f0ed2]
+<span class="yarn-line">Znalazłeś niemiecką flagę! Wracaj do Niemiec.</span> <span class="yarn-meta">#shadow:05f0ed2</span>
 
 </code>
 </pre>
@@ -385,7 +386,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_belarus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_belarus add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Belarus&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Belarusian flag! Go back to the Belarus. #shadow:0157c15]
+<span class="yarn-line">Znalazłeś białoruską flagę! Wracaj na Białoruś.</span> <span class="yarn-meta">#shadow:0157c15 </span>
 
 </code>
 </pre>
@@ -484,7 +485,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_czech_republic add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Czech_Republic&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Czech flag! Go back to Czech Republic. #shadow:0a134f5]
+<span class="yarn-line">Znalazłeś czeską flagę! Wracaj do Czech.</span> <span class="yarn-meta">#shadow:0a134f5 </span>
 
 </code>
 </pre>
@@ -583,7 +584,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_lithuania&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_lithuania add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Lithuania&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Lithuanian flag! Go back to Lithuania. #shadow:069f1a0]
+<span class="yarn-line">Znalazłeś litewską flagę! Wracaj na Litwę.</span> <span class="yarn-meta">#shadow:069f1a0 </span>
 
 </code>
 </pre>
@@ -682,7 +683,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_ukraine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_ukraine add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_ukraine&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Ukrainian flag! Go back to Ukraine. #shadow:0f8bc9d]
+<span class="yarn-line">Znalazłeś ukraińską flagę! Wracaj na Ukrainę.</span> <span class="yarn-meta">#shadow:0f8bc9d </span>
 
 </code>
 </pre>
@@ -782,7 +783,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_slovakia add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Slovakia&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Slovakian flag! Go back to Slovakia. #shadow:0c95e0a]
+<span class="yarn-line">Znalazłeś flagę Słowacji! Wracaj na Słowację.</span> <span class="yarn-meta">#shadow:0c95e0a </span>
 
 </code>
 </pre>
@@ -882,7 +883,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_russia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_russia add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Russia&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Russian flag! Go back to Russia. #shadow:0d1a793]
+<span class="yarn-line">Znalazłeś rosyjską flagę! Wracaj do Rosji.</span> <span class="yarn-meta">#shadow:0d1a793 </span>
 
 </code>
 </pre>

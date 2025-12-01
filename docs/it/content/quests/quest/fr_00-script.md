@@ -6,7 +6,8 @@ hide:
 # I vicini della Francia (fr_00) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-00-the-neighbors-of-france/22)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_00%20Geo%20France/FR_00%20Geo%20France%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -180,7 +181,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_France&gt;&gt;</span>
-[MISSING TRANSLATION: You found the French flag! Go back to France. #shadow:0a9b166]
+<span class="yarn-line">Hai trovato la bandiera francese! Torna in Francia.</span> <span class="yarn-meta">#shadow:0a9b166 </span>
 
 </code>
 </pre>
@@ -282,7 +283,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_germany add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Germany&gt;&gt;</span>
-[MISSING TRANSLATION: You found the German flag! Go back to Germany. #shadow:05f0ed2]
+<span class="yarn-line">Hai trovato la bandiera tedesca! Torna in Germania.</span> <span class="yarn-meta">#shadow:05f0ed2</span>
 
 </code>
 </pre>
@@ -383,7 +384,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_italy&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_italy add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Italy&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Italian flag! Go back to Italy. #shadow:0dc2c74]
+<span class="yarn-line">Hai trovato la bandiera italiana! Torna in Italia.</span> <span class="yarn-meta">#shadow:0dc2c74 </span>
 
 </code>
 </pre>
@@ -486,7 +487,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_belgium&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_belgium add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Belgium&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Belgian flag! Go back to Belgium. #shadow:073fe02]
+<span class="yarn-line">Hai trovato la bandiera belga! Torna in Belgio.</span> <span class="yarn-meta">#shadow:073fe02 </span>
 
 </code>
 </pre>
@@ -590,7 +591,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_spain&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_spain add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Spain&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Spanish flag! Go back to Spain. #shadow:049610c]
+<span class="yarn-line">Hai trovato la bandiera spagnola! Torna in Spagna.</span> <span class="yarn-meta">#shadow:049610c </span>
 
 </code>
 </pre>
@@ -693,7 +694,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_luxembourg&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_luxembourg add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Luxembourg&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Luxembourg flag! Go back to Luxembourg. #shadow:0324097]
+<span class="yarn-line">Hai trovato la bandiera del Lussemburgo! Torna a Lussemburgo.</span> <span class="yarn-meta">#shadow:0324097 </span>
 
 </code>
 </pre>
@@ -794,7 +795,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_switzerland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_switzerland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_Switzerland&gt;&gt;</span>
-[MISSING TRANSLATION: You found the Swiss flag! Go back to Switzerland. #shadow:0feb2b9]
+<span class="yarn-line">Hai trovato la bandiera svizzera! Torna in Svizzera.</span> <span class="yarn-meta">#shadow:0feb2b9 </span>
 
 </code>
 </pre>

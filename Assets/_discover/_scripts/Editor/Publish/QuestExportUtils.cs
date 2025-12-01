@@ -34,8 +34,8 @@ namespace Antura.Discover.Editor
 
             sb.AppendLine(GetEditInfoSection(q));
 
-            sb.AppendLine("Version: " + q.VersionText + "  ");
-            sb.AppendLine("Status: " + q.Status + "  ");
+            sb.AppendLine("- Version: " + q.VersionText);
+            sb.AppendLine("- Status: " + q.Status);
             string locName = string.Empty;
             if (q.Location != null)
             {
@@ -44,20 +44,55 @@ namespace Antura.Discover.Editor
                 var localized = PublishUtils.SafeLocalized(q.Location.Name, fallback: fallback);
                 locName = localized;
             }
-            sb.AppendLine("Location: " + q.Country + (string.IsNullOrEmpty(locName) ? string.Empty : (" - " + locName)));
+            sb.AppendLine("- Location: " + q.Country + (string.IsNullOrEmpty(locName) ? string.Empty : (" - " + locName)));
             sb.AppendLine();
+            sb.AppendLine("- Difficulty: " + q.Difficulty);
+            sb.AppendLine("- Duration (min): " + q.Duration);
+            if (q.Gameplay != null && q.Gameplay.Count > 0)
+            {
+                sb.AppendLine("- Kind:");
+                foreach (var g in q.Gameplay)
+                    sb.AppendLine("  - " + g);
+            }
 
             if (!string.IsNullOrEmpty(desc))
             {
-                sb.AppendLine(desc);
+                sb.AppendLine("- Description: " + desc);
                 sb.AppendLine();
             }
 
             if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
             {
-                sb.AppendLine("##  Design Notes");
+                sb.AppendLine("## Design Notes");
                 sb.AppendLine(q.AdditionalResources.text);
                 sb.AppendLine();
+            }
+
+            // Topics list (with inline topic meta and rich card details)
+            var topicCardsSet = new HashSet<CardData>();
+            if (q.Topics != null && q.Topics.Count > 0)
+            {
+                sb.AppendLine("## Topics");
+                foreach (var topic in q.Topics.Where(t => t != null))
+                {
+                    AppendTopicDetails(sb, topic, locale, topicCardsSet);
+                }
+                sb.AppendLine();
+            }
+
+            // Additional quest cards (those not already covered by topics)
+            if (q.Cards != null && q.Cards.Count > 0)
+            {
+                var additional = q.Cards.Where(c => c != null && !topicCardsSet.Contains(c)).ToList();
+                if (additional.Count > 0)
+                {
+                    sb.AppendLine("## Additional Cards");
+                    foreach (var card in additional)
+                    {
+                        AppendCardDetails(sb, card, locale);
+                        sb.AppendLine();
+                    }
+                }
             }
 
             // Quest Script
@@ -86,71 +121,6 @@ namespace Antura.Discover.Editor
                 sb.AppendLine("(Script not public)");
             }
             sb.AppendLine();
-
-            sb.AppendLine("## Content");
-            sb.AppendLine("Subjects: ");
-            sb.AppendLine();
-
-            if (q.Subjects != null)
-            {
-                foreach (var cc in q.Subjects)
-                {
-                    sb.AppendLine("  - " + cc.Subject + " (x" + cc.Count + ")");
-                }
-                sb.AppendLine();
-            }
-
-            // Topics list (links + their cards)
-            var topicCardsSet = new HashSet<CardData>();
-            if (q.Topics != null && q.Topics.Count > 0)
-            {
-                sb.AppendLine("## Topics");
-                foreach (var topic in q.Topics.Where(t => t != null))
-                {
-                    string topicId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.name;
-                    string tName = !string.IsNullOrEmpty(topic.Name) ? topic.Name : topicId;
-                    sb.AppendLine($"### [{tName}](../../topics/index.md#{topicId})");
-                    sb.AppendLine();
-
-                    // List all cards of the topic (core + connections + discovery path) with description
-                    try
-                    {
-                        var allCards = topic.GetAllCards();
-                        foreach (var c in allCards.Where(ca => ca != null))
-                        {
-                            topicCardsSet.Add(c);
-                            string cardId = !string.IsNullOrEmpty(c.Id) ? c.Id : c.name;
-                            string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Title"), fallback: cardId);
-                            string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(c, "Description"), fallback: string.Empty);
-                            sb.AppendLine($"  - **[{cTitle}](../../cards/index.md#{cardId})**  ");
-                            if (!string.IsNullOrEmpty(cDesc))
-                                sb.AppendLine($"    {cDesc}  ");
-                        }
-                    }
-                    catch { }
-                }
-                sb.AppendLine();
-            }
-
-            // Additional quest cards (those not already covered by topics)
-            if (q.Cards != null && q.Cards.Count > 0)
-            {
-                var additional = q.Cards.Where(c => c != null && !topicCardsSet.Contains(c)).ToList();
-                if (additional.Count > 0)
-                {
-                    sb.AppendLine("## Additional Cards");
-                    foreach (var card in additional)
-                    {
-                        string cTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Title"), fallback: string.IsNullOrEmpty(card.Id) ? card.name : card.Id);
-                        string cDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Description"), fallback: string.Empty);
-                        string cId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
-                        sb.AppendLine($"**[{cTitle}](../../cards/index.md#{cId})**  ");
-                        if (!string.IsNullOrEmpty(cDesc))
-                            sb.AppendLine($"{cDesc}  ");
-                        sb.AppendLine();
-                    }
-                }
-            }
 
             sb.AppendLine("## Words");
             if (q.Words != null && q.Words.Count > 0)
@@ -228,16 +198,6 @@ namespace Antura.Discover.Editor
                 sb.AppendLine("- (error reading tasks)");
             }
 
-
-            sb.AppendLine("## Gameplay");
-            sb.AppendLine("- Difficulty: " + q.Difficulty);
-            sb.AppendLine("- Duration (min): " + q.Duration);
-            if (q.Gameplay != null && q.Gameplay.Count > 0)
-            {
-                sb.AppendLine("- Kind:");
-                foreach (var g in q.Gameplay)
-                    sb.AppendLine("  - " + g);
-            }
 
             // Credits
             sb.AppendLine("## Credits");
@@ -389,13 +349,17 @@ namespace Antura.Discover.Editor
                         string originalEscaped = line; // HTML-escaped original line
                         string lineKey = string.Empty;
                         var mTag = Regex.Match(lineRaw, @"#line:([A-Za-z0-9_]+)");
+                        if (!mTag.Success)
+                        {
+                            mTag = Regex.Match(lineRaw, @"#shadow:([A-Za-z0-9_]+)");
+                        }
                         if (mTag.Success && mTag.Groups.Count > 1)
                         { lineKey = "line:" + mTag.Groups[1].Value; }
 
                         bool isChoice = Regex.IsMatch(t, @"^[-\\s]?>");
                         bool isComment = t.StartsWith("//");
                         bool isCommandOnly = t.StartsWith("&lt;&lt;") || Regex.IsMatch(t, "&lt;&lt;[^&]*?&gt;&gt;");
-                        bool hasLineTag = t.Contains("#line:");
+                        bool hasLineTag = Regex.IsMatch(lineRaw, @"#(?:line|shadow):[A-Za-z0-9_]+");
                         bool isSpoken = !isComment && !isChoice && !isCommandOnly && !string.IsNullOrEmpty(t) && hasLineTag;
 
                         // Capture leading indentation from original raw line (spaces/tabs) to reapply before translated text.
@@ -404,7 +368,7 @@ namespace Antura.Discover.Editor
 
                         // Extract meta tag text (e.g., #line:abc123) without wrapping it yet
                         string metaText = string.Empty;
-                        var metaMatch = Regex.Match(lineRaw, @"#line:[^\r\n]*");
+                        var metaMatch = Regex.Match(lineRaw, @"#(?:line|shadow):[^\r\n]*");
                         if (metaMatch.Success)
                             metaText = metaMatch.Value;
 
@@ -414,7 +378,7 @@ namespace Antura.Discover.Editor
                         if (isComment)
                         {
                             // Output comment content without meta as one span and meta as a sibling span (no nested spans)
-                            string commentContent = Regex.Replace(lineRaw, @"#line:[^\r\n]*", "");
+                            string commentContent = Regex.Replace(lineRaw, @"#(?:line|shadow):[^\r\n]*", "");
                             commentContent = PublishUtils.HtmlEscape(commentContent.TrimEnd());
                             var metaSuffix = string.IsNullOrEmpty(metaText) ? string.Empty : (" <span class=\"yarn-meta\">" + PublishUtils.HtmlEscape(metaText) + "</span>\n");
                             code.AppendLine($"<span class=\"yarn-comment\">{commentContent}</span>{metaSuffix}");
@@ -425,7 +389,7 @@ namespace Antura.Discover.Editor
                         {
                             // Highlight commands, append meta as a sibling span (no nesting)
                             string cmdProcessed = Regex.Replace(originalEscaped, "&lt;&lt;[^&]*?&gt;&gt;", m => $"<span class=\"yarn-cmd\">{m.Value}</span>");
-                            cmdProcessed = Regex.Replace(cmdProcessed, @"#line:[^\n]*", "");
+                            cmdProcessed = Regex.Replace(cmdProcessed, @"#(?:line|shadow):[^\n]*", "");
                             var metaSuffix = string.IsNullOrEmpty(metaText) ? string.Empty : (" <span class=\"yarn-meta\">" + PublishUtils.HtmlEscape(metaText) + "</span>");
                             code.AppendLine(cmdProcessed + metaSuffix);
                             continue;
@@ -449,7 +413,7 @@ namespace Antura.Discover.Editor
                         {
                             // Missing translation fallback depends on locale, but if the original has no visible text (only a tag) leave it blank.
                             string originalPlain = lineRaw;
-                            originalPlain = Regex.Replace(originalPlain, @"#line:[^\n]*", "").TrimEnd();
+                            originalPlain = Regex.Replace(originalPlain, @"#(?:line|shadow):[^\n]*", "").TrimEnd();
                             string langCode = locale != null ? PublishUtils.GetLanguageCode(locale) : string.Empty;
 
                             if (string.IsNullOrWhiteSpace(originalPlain))
@@ -505,6 +469,115 @@ namespace Antura.Discover.Editor
             return sb.ToString();
         }
 
+        static void AppendTopicDetails(StringBuilder sb, TopicData topic, Locale locale, HashSet<CardData> collectedCards)
+        {
+            if (topic == null)
+                return;
+
+            string topicId = !string.IsNullOrEmpty(topic.Id) ? topic.Id : topic.name;
+            string topicTitle = !string.IsNullOrEmpty(topic.Name) ? topic.Name : topicId;
+            sb.AppendLine($"### {topicTitle} {{#{topicId}}}");
+            sb.AppendLine($"[Open topic page](../../topics/index.md#{topicId})  ");
+            sb.AppendLine();
+
+            if (!string.IsNullOrEmpty(topic.Description))
+            {
+                sb.AppendLine(PublishUtils.EscapeParagraph(topic.Description));
+                sb.AppendLine();
+            }
+
+            var metaLines = new List<string>
+            {
+                $"Importance: {topic.Importance}",
+                $"Country: {topic.Country}",
+                $"Target age: {topic.TargetAge}"
+            };
+            if (topic.Subjects != null && topic.Subjects.Count > 0)
+            {
+                metaLines.Add("Subjects: " + string.Join(", ", topic.Subjects));
+            }
+            if (metaLines.Count > 0)
+            {
+                sb.AppendLine("- " + string.Join("  \n- ", metaLines));
+                sb.AppendLine();
+            }
+
+            if (topic.CoreCard != null)
+            {
+                collectedCards?.Add(topic.CoreCard);
+                AppendCardDetails(sb, topic.CoreCard, locale, "Core Card");
+            }
+
+            if (topic.Connections != null && topic.Connections.Count > 0)
+            {
+                foreach (var connection in topic.Connections.Where(c => c?.ConnectedCard != null))
+                {
+                    collectedCards?.Add(connection.ConnectedCard);
+                    var label = $"Connection ({connection.ConnectionType})";
+                    if (!string.IsNullOrEmpty(connection.ConnectionReason))
+                    {
+                        label += $": {connection.ConnectionReason}";
+                    }
+                    AppendCardDetails(sb, connection.ConnectedCard, locale, label);
+                }
+            }
+
+            sb.AppendLine();
+        }
+
+        static void AppendCardDetails(StringBuilder sb, CardData card, Locale locale, string headingLabel = null)
+        {
+            if (card == null)
+                return;
+
+            string cardId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
+            string cardTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Title"), fallback: cardId);
+            string heading = string.IsNullOrEmpty(headingLabel) ? cardTitle : $"{headingLabel} - {cardTitle}";
+            sb.AppendLine($"#### {heading}");
+
+            string cardDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Description"), fallback: string.Empty);
+            if (!string.IsNullOrEmpty(cardDesc))
+            {
+                sb.AppendLine(cardDesc);
+                sb.AppendLine();
+            }
+
+            if (card.ImageAsset != null)
+            {
+                sb.AppendLine($"![preview {cardId}](../../../../assets/img/content/cards/{cardId}.jpg){{ width=\"200\" }}");
+            }
+
+            if (!string.IsNullOrEmpty(card.Rationale))
+            {
+                sb.AppendLine("- Rationale: " + PublishUtils.EscapeParagraph(card.Rationale));
+            }
+            sb.AppendLine("- Type: " + card.Type);
+            if (card.Subjects != null && card.Subjects.Count > 0)
+            {
+                sb.AppendLine("- Subjects: " + string.Join(", ", card.Subjects));
+            }
+            if (card.Year != 0)
+            {
+                sb.AppendLine("- Year: " + card.Year);
+            }
+
+            if (card.Words != null && card.Words.Count > 0)
+            {
+                var wordIds = card.Words
+                    .Where(w => w != null)
+                    .Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)
+                    .Where(id => !string.IsNullOrEmpty(id))
+                    .ToList();
+                if (wordIds.Count > 0)
+                {
+                    sb.AppendLine("- Words: " + string.Join(", ", wordIds));
+                }
+            }
+
+            sb.AppendLine();
+        }
+
+
         // Local helpers (kept private to this file)
         static Type FindTypeByName(string name)
         {
@@ -527,12 +600,14 @@ namespace Antura.Discover.Editor
 
         static string GetEditInfoSection(QuestData q)
         {
+            var Cardsgooglelink = "https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977";
             var scriptPath = q != null && q.YarnScript != null ? AssetDatabase.GetAssetPath(q.YarnScript) : "NO_SCRIPT_ATTACHED.yarn";
             var githublink = "https://github.com/vgwb/Antura/blob/main/" + PublishUtils.EncodeUriString(scriptPath);
             var googlelink = q.GoogleSheetUrl;
             var editInfo = "> [!note] Educators & Designers: help improving this quest!" + "\n";
             editInfo += $"> **Comments and feedback**: [discuss in the Forum]({q.ForumUrl})  " + "\n";
-            editInfo += $"> **Improve translations**: [comment the Google Sheet]({googlelink})  " + "\n";
+            editInfo += $"> **Improve script translations**: [comment the Google Sheet]({googlelink})  " + "\n";
+            editInfo += $"> **Improve Cards translations**: [comment the Google Sheet]({Cardsgooglelink})  " + "\n";
             editInfo += $"> **Improve the script**: [propose an edit here]({githublink})  " + "\n";
             return editInfo;
         }

@@ -6,7 +6,8 @@ hide:
 # Jedzenie i targ (fr_09) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-09-the-colors-of-the-marseille-market/28/1)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1243903291#gid=1243903291)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1243903291#gid=1243903291)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_09%20Food%20&%20Market/FR_09%20Food%20&%20Market%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -371,10 +372,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_fishmonger") &gt; 0&gt;&gt;
 <span class="yarn-line">    Już kupiłeś ode mnie rybę!</span> <span class="yarn-meta">#line:044d973 </span>
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Tak</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_fishmonger hard_payment_done&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Liceum!</span> <span class="yarn-meta">#line:0d65316 </span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -456,7 +457,7 @@ hide:
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: I put your items in the table. Thank you! #shadow:0567082]
+<span class="yarn-line">Dodałem Twoje pozycje do tabeli. Dziękuję!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:02e64ff </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:02c23e5 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:080d945 </span>
@@ -479,10 +480,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_cheesemonger") &gt; 0&gt;&gt;
 <span class="yarn-line">    Już kupiłeś ode mnie mleko!</span> <span class="yarn-meta">#line:090b5cc </span>
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Tak</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_cheesemonger hard_payment_done&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0693ba6 </span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -546,7 +547,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: I put your items in the table. Thank you! #shadow:0567082]
+<span class="yarn-line">Dodałem Twoje pozycje do tabeli. Dziękuję!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:0dd3ac3 </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:02a1238 </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0273de1 </span>
@@ -587,10 +588,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_greengrocer") &gt; 0&gt;&gt;
 <span class="yarn-line">    Już kupiłeś ode mnie owoce!</span> <span class="yarn-meta">#line:0755f3c </span>
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Tak</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_greengrocer hard_payment_done&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Witam</span> <span class="yarn-meta">#line:00ee67d </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0a43c28 </span>
@@ -650,7 +651,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: I put your items in the table. Thank you! #shadow:0567082]
+<span class="yarn-line">Dodałem Twoje pozycje do tabeli. Dziękuję!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:0ff9361 </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0741be3 </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:023f352 </span>
@@ -696,10 +697,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("money_grocer") &gt; 0&gt;&gt;
 <span class="yarn-line">    Już u mnie kupiłeś!</span> <span class="yarn-meta">#line:0348f3c </span>
-    [MISSING TRANSLATION:     Do you want to play again? #shadow:play_again]
-    [MISSING TRANSLATION:     -&gt; Yes #shadow:yes]
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-line">    Tak</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity hard_money_grocer hard_payment_done&gt;&gt;</span>
-    [MISSING TRANSLATION:     -&gt; No #shadow:no]
+<span class="yarn-line">    NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0dd992c </span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -758,7 +759,7 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-[MISSING TRANSLATION: I put your items in the table. Thank you! #shadow:0567082]
+<span class="yarn-line">Dodałem Twoje pozycje do tabeli. Dziękuję!</span> <span class="yarn-meta">#shadow:0567082 </span>
 <span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:0ce6f8a </span>
 <span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:0e8ec1b </span>
 <span class="yarn-line">Bonne journée!</span> <span class="yarn-meta">#line:062029a </span>
@@ -809,9 +810,9 @@ hide:
 <span class="yarn-line">Pochodzimy z Saint-Malo i przepłynęliśmy całe morza, żeby tu dotrzeć.</span> <span class="yarn-meta">#line:056c70d </span>
 <span class="yarn-line">Ludzie nazywają nas piratami, ale byliśmy korsarzami.</span> <span class="yarn-meta">#line:0f764a6</span>
 <span class="yarn-line">Chcesz zagrać w grę?</span> <span class="yarn-meta">#line:022f719 </span>
-[MISSING TRANSLATION: -&gt; Yes #shadow:yes]
+<span class="yarn-line">Tak</span> <span class="yarn-meta">#shadow:yes</span>
     <span class="yarn-cmd">&lt;&lt;jump pirate_activity&gt;&gt;</span>
-[MISSING TRANSLATION: -&gt; No #shadow:no]
+<span class="yarn-line">NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-line">    Ahoj! Niechaj wiatry będą z wami pomyślne!</span> <span class="yarn-meta">#line:0d078d6 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
