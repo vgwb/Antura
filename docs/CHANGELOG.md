@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2025.11.30]
+
+### Fixed
+- FR_03 nantes: bug talking to director museum while collecting trash
+- reworked some audio in PL_06
+
 ## [2025.11.27]
 
 ### Added
