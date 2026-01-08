@@ -138,7 +138,7 @@ And go to the MARKET TRADERS #line:0c35a9c
 <<task_start COLLECT_INGREDIENTS task_ingredients_done>>
 When you talk to people, remember your manners! #line:03f1020 
 We say "Dzień dobry" to greet someone #line:091bb57 
-and "Dziękuję" to thank them. #line:076ffac 
+and "Dziękuję", to thank someone. #line:076ffac 
 <<area area_full>>
 ===
 
@@ -147,13 +147,13 @@ position: 900,-350
 type: task
 ---
 Buy the ingredients for the recipe. #task:COLLECT_INGREDIENTS #line:00565e5 
-Some FLOUR #card:food_flour #line:070b733 
-Some HONEY #card:honey #line:0e22cab 
-Some SUGAR #card:food_sugar #line:055af31
-Some BUTTER #card:butter #line:0bfb896 
+FLOUR #card:food_flour #line:070b733 
+HONEY #card:honey #line:0e22cab 
+SUGAR #card:food_sugar #line:055af31
+BUTTER #card:butter #line:0bfb896 
 One EGG #card:eggs #line:0de2001 
-Some CINNAMON #card:cinnamon #line:0ba5cca 
-And finally some GINGER #card:ginger #line:0a700e3 
+CINNAMON #card:cinnamon #line:0ba5cca 
+And finally GINGER #card:ginger #line:0a700e3 
 <<card_hide>>
 ===
 
@@ -725,7 +725,7 @@ position: 2500,1700
 actor:
 tags: noRepeatLastLine
 ---
-Hallo. What do you want? #line:0f11caf 
+Hi. How can I help? #line:0f11caf 
 -> I want to enter the Old Town Hall. #line:0449db3 
    <<if $gingerbread_done == true>>
       <<trigger open_door_castle>>
