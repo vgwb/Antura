@@ -1216,6 +1216,19 @@ namespace Antura.Discover.EditorTools
             }
         }
 
+        private void RegenerateLineAudioForAllLocales(QuestData quest, string lineKey)
+        {
+            if (quest == null || string.IsNullOrEmpty(lineKey))
+                return;
+
+            foreach (var locale in _locales)
+            {
+                if (locale == null)
+                    continue;
+                RegenerateLineAudioViaVoManager(quest, locale, lineKey);
+            }
+        }
+
         private static void MarkDirty(LocalizationTable table)
         {
             if (table == null)

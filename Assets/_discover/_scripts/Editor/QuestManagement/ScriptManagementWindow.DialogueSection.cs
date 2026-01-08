@@ -260,6 +260,11 @@ namespace Antura.Discover.EditorTools
             {
                 using (new EditorGUILayout.HorizontalScope())
                 {
+                    if (GUILayout.Button("R All", GUILayout.Width(60)))
+                    {
+                        owner.RegenerateLineAudioForAllLocales(quest, lineKey);
+                    }
+                    GUILayout.Space(6);
                     foreach (var loc in locales)
                     {
                         var info = owner.GetAudioInfo(quest, loc, lineKey);
@@ -288,6 +293,11 @@ namespace Antura.Discover.EditorTools
             {
                 using (new EditorGUILayout.HorizontalScope())
                 {
+                    if (GUILayout.Button("R All", GUILayout.Width(60)))
+                    {
+                        owner.RegenerateLineAudioForAllLocales(quest, lineKey);
+                    }
+                    GUILayout.Space(6);
                     var info = owner.GetAudioInfo(quest, locale, lineKey);
                     bool stale = owner.IsLineStale(quest, locale, lineKey);
                     if (info.Clip != null && !info.IsZeroLength)
