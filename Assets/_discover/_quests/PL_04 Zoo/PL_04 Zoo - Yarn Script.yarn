@@ -100,6 +100,8 @@ actor: ADULT_M
 ---
 <<if HasCompletedTask("TASK_ANIMALS")>>
     <<jump director_task_done>>
+<<elseif GetCurrentTask() == "TASK_ANIMALS">>
+    Talk to all the ANIMALS! #line:07b60e7 
 <<else>>
     <<jump director_task>>
 <<endif>>
@@ -120,7 +122,7 @@ Today we have a problem. #line:0c71176
 Our FLAG is missing! #line:09c6bf7 
 <<card iglica>>
 It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
-It's the famous metallic sculpture and a symbol of our city. #line:0335bf7 
+It is a thin metal tower and a symbol of our city. #line:0335bf7 
 It's 90 meters tall! #line:001cba3 
 Who could have taken it? #line:0fc7e35 
 <<camera_reset>>
@@ -496,7 +498,7 @@ group: ZOO
 actor:
 ---
 <<card parrot>>
-Squawk! I saw red and yellow go by! #line:0e84545 
+Squawk! I love red and yellow! #line:0e84545 
 ===
 
 title: animal_fox
