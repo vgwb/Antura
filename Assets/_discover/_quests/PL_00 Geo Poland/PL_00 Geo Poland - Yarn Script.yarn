@@ -173,7 +173,7 @@ tags:
 ---
 <<card flag_poland>>
 <<if GetCurrentTask() == "find_flag_poland">>
-    You found the Polish flag! Go back to Poland. #line:06e3263 
+    You found the Polish flag! Go back to Poland. #shadow:0891273 
     <<inventory flag_poland add>>
     <<target npc_poland>>
 <<else>>
@@ -361,7 +361,7 @@ color: blue
     <<set $czech_met = true>>
     <<card country_czech>>
     Hi! I'm from Czech Republic! #line:0ded863 
-    We have the most castle in Europe! #line:03dc09c 
+    Czechia is famous for its beautiful castles, crystal glass, and delicious dumplings! #line:03dc09c 
     <<jump task_czech_republic>>
 <<else>>
     My flag is white and red with a blue triangle. #line:0000741 
@@ -503,7 +503,7 @@ actor: SENIOR_M
     <<task_start talk_npc_slovakia>>
 <<elseif $ukraine_met == false>>
     <<set $ukraine_met = true>>
-    Moien! I’m from Ukraine! #line:07ea99a 
+    Hi! I’m from Ukraine! #line:07ea99a 
     We are called the "Bread Basket" of Europe because we produce a lot of grain! #line:0dbd4af 
     <<jump task_ukraine>>
 <<else>>
@@ -569,11 +569,14 @@ color: blue
     <<task_end find_flag_slovakia>>
     <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
     <<set $ukraine_completed = true>>
-    <<action russia_active>>
-    <<target npc_russia>>
-    <<card country_russia>>
-    Can you help our russian neighbour? #line:04bf6d1 #task:talk_npc_russia
-    <<task_start talk_npc_russia>>
+    // <<action russia_active>>
+    // <<target npc_russia>>
+    // <<card country_russia>>
+    // Can you help our russian neighbour? #line:04bf6d1 #task:talk_npc_russia
+    // <<task_start talk_npc_russia>>
+    <<target NPC_Poland>>
+    Go back to the start and get your prize! #line:07b7f05 #task:talk_npc_poland_final
+    <<task_start talk_npc_poland_final>> 
 <<elseif $slovakia_met == false>>
     <<set $slovakia_met = true>>
     I'm from Slovakia! #line:054e1b8 
@@ -639,22 +642,22 @@ tags:
 <<if $russia_completed>>
     The capital of Russia is Moscow! #line:0f8817a 
 <<elseif has_item("flag_russia")>>
-    Thank you for bringing my flag back! #line:0466a59 
-    <<inventory flag_russia remove>>
-    <<task_end find_flag_russia>>
-    <<set $russia_met = true>>
-    <<set $russia_completed = true>>
-    <<set $CURRENT_ITEM = "">>
-    <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
-    <<target NPC_Poland>>
-    Go back to the start and get your prize! #line:07b7f05 #task:talk_npc_poland_final
-    <<task_start talk_npc_poland_final>> 
+    // Thank you for bringing my flag back! #line:0466a59 
+    // <<inventory flag_russia remove>>
+    // <<task_end find_flag_russia>>
+    // <<set $russia_met = true>>
+    // <<set $russia_completed = true>>
+    // <<set $CURRENT_ITEM = "">>
+    // <<set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1>>
+    // <<target NPC_Poland>>
+    // Go back to the start and get your prize! #line:07b7f05 #task:talk_npc_poland_final
+    // <<task_start talk_npc_poland_final>> 
 <<elseif $russia_met == false>>
     <<set $russia_met = true>>
     <<card country_russia>>
     Hello, I'm Russia. #line:065c41c 
     This is just a tiny part of the big country. #line:0a4bae4 
-    <<jump task_russia>>
+    // <<jump task_russia>>
 <<else>>
     Our flag is red with a white cross. #line:05e0820 
 <<endif>>
