@@ -169,18 +169,32 @@ Great! You opened the chest! #line:0c30eb1
 title: tutor_end
 position: 2592,1398
 group: 
+type: panel
 color: purple
 ---
 <<area area_all>>
 This is the end of the basic tutorial. #line:0dfdfc5 
-You can now explore the area and talk to everybody #line:02fea28 
-Are you ready to play? #line:0ac17d0 
--> Yes #line:0b66e60 
-    Great. See you soon in the game! #line:07498c0 
-    There is much more to discover in Antura. #line:0ed06b6 
--> No #line:01d5126 
-    You can replay the tutorial anytime you want. #line:06f9065 
-    Ask your teacher to help you. #line:0c6bc14 
+You can now explore this world and talk to everybody to learn more about the game. #line:02fea28 
+<<jump tutor_end_2>>
+===
+
+title: tutor_end_2
+position: 2592,1398
+group:
+color: purple
+---
+<<camera_focus camera_exit>>
+If you want to exit, go to this portal. #line:05ac9be 
+<<camera_reset>>
+===
+
+title: exit_portal
+position: 2592,1598
+---
+Do you want to exit this tutorial? #line:09279d4 
+-> Yes, exit #line:00eae37 #highlight
+    <<quest_end>>
+-> No, stay here #line:0427785 
 ===
 
 title: tutor_teleport
