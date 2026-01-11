@@ -27,9 +27,10 @@ namespace Antura.Discover.UI
 
             questData = _questData;
 
-            bool isEditor = Application.isEditor && DiscoverAppManager.I.CurrentProfile.profile.godMode;
+            bool isTeacher = DiscoverAppManager.I.CurrentProfile.profile.godMode; // Application.isEditor &&
             bool locked = questData.Status == Status.Standby ||
-                          (!isEditor && questData.Status == Status.Development);
+                        questData.Status == Status.Development ||
+                          (!isTeacher && questData.Status == Status.NeedsReview);
 
             SelectBtn.interactable = !locked;
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
@@ -39,7 +40,7 @@ namespace Antura.Discover.UI
             Code.text = _questData.IdDisplay;
             Title.text = LocalizationSystem.I.GetLocalizedString(_questData.Title, true);
 
-            if (isEditor)
+            if (isTeacher)
             {
                 Location.text = _questData.Status.ToString() + " - " + _questData.Id;
             }
