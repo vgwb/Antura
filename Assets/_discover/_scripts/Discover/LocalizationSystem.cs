@@ -57,10 +57,12 @@ namespace Antura.Discover
             if (respectClassroomMode && AppManager.I.AppSettings.isClassroomMode)
             {
                 localizedString.LocaleOverride = GetLearningLocale();
+                //Debug.Log("LocaleOverride Learning: " + localizedString.LocaleOverride);
             }
             else
             {
                 localizedString.LocaleOverride = GetNativeLocale();
+                // Debug.Log("LocaleOverride Native: " + localizedString.LocaleOverride);
             }
             return localizedString.GetLocalizedString();
         }
@@ -79,7 +81,9 @@ namespace Antura.Discover
 
         public Locale GetNativeLocale()
         {
-            var desiredLanguage = LanguageCode.italian;
+            var desiredLanguage = AppManager.I != null && AppManager.I.AppSettings != null
+                ? AppManager.I.AppSettings.NativeLanguage
+                : LanguageCode.english;
             if (currentNativeLocale == null || desiredLanguage != currentNativeLanguageCode)
             {
                 currentNativeLanguageCode = desiredLanguage;
