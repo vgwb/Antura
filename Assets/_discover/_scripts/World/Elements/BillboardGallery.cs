@@ -646,5 +646,14 @@ namespace Antura.Discover
             TitleText.gameObject.SetActive(true);
             TitleText.text = title;
         }
+
+        public void OnOpenCard()
+        {
+            if (_currentCard == null)
+                return;
+
+            // Debug.Log("BillboardGallery: OnOpenCard: " + _currentCard.Id);
+            UIManager.I.dialogues.TogglePostcard(_currentCard);
+        }
     }
 }

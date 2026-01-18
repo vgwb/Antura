@@ -88,6 +88,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3346525206390276157
 GameObject:
@@ -193,6 +194,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8975250573548358907
 MonoBehaviour:
@@ -253,6 +255,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -378,6 +381,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2013002802638001261
 BoxCollider:
@@ -411,6 +415,8 @@ GameObject:
   - component: {fileID: 5248746382503178840}
   - component: {fileID: 5002909209426785743}
   - component: {fileID: 3970012676992426316}
+  - component: {fileID: 209963042780597834}
+  - component: {fileID: 1573375711698105638}
   m_Layer: 0
   m_Name: Billboard Gallery
   m_TagString: Untagged
@@ -436,6 +442,7 @@ Transform:
   - {fileID: 2269147133567892815}
   - {fileID: 7798796904755674209}
   - {fileID: 1775625445735999796}
+  - {fileID: 1543996862529417337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &5002909209426785743
@@ -493,6 +500,78 @@ MonoBehaviour:
   PanelTitle: {fileID: 2691613907470610163}
   TitleText: {fileID: 7564441179716392936}
   HideTitleWhenNoCard: 1
+--- !u!114 &209963042780597834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895148919588598420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: 
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 1543996862529417337}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands:
+  - Command: 7
+    mainObject: {fileID: 0}
+    Parameter: 
+    Bypass: 0
+    unityAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3970012676992426316}
+          m_TargetAssemblyTypeName: Antura.Discover.BillboardGallery, Assembly-CSharp
+          m_MethodName: OnOpenCard
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
+--- !u!65 &1573375711698105638
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895148919588598420}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.4690511, y: 2.5238123, z: 1.3060834}
+  m_Center: {x: -0.032489654, y: 1.2820592, z: 0.68092734}
 --- !u!1 &6363236684876905168
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +661,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &735569720389393758
 BoxCollider:
@@ -604,6 +684,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20000017, y: 1, z: 0.20000003}
   m_Center: {x: 0, y: 0.5, z: -0.00000023841858}
+--- !u!1 &7230682717539897024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543996862529417337}
+  m_Layer: 0
+  m_Name: Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1543996862529417337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230682717539897024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.025, y: 1.076, z: 0.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 5248746382503178840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8645977219785403295
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,4 +803,5 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}

@@ -179,6 +179,14 @@ namespace Antura.Discover
             postcard.Hide();
         }
 
+        public void TogglePostcard(CardData card)
+        {
+            if (postcard.IsActive)
+                HidePostcard();
+            else
+                ShowPostcard(card, true, false);
+        }
+
         #endregion
 
         #region Methods
