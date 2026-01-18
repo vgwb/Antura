@@ -82,6 +82,7 @@ position: 338,-337
 tags:
 actor: ADULT_F
 ---
+<<card education_ecole_maternelle_fr>>
 Welcome! This is a nursery school for children aged 3 to 5. #line:096b721 
 You are too big for our small chairs. Your school is nearby. #line:07ed07b 
 ===
@@ -102,6 +103,7 @@ title: school_2_welcome
 position: 724,-284
 actor: GUIDE_M
 ---
+<<card education_ecole_primaire_fr>>
 Bonjour! Welcome! You found it. This is your elementary school. #line:092b309
 <<card school_bag>>
 It looks like you forgot your backpack. #line:0dd7977 
@@ -109,10 +111,22 @@ You need your books for the lesson. #line:044385f
 <<jump task_backpack>>
 ===
 
+title: school_2_talk
+position: 734,-24
+actor: GUIDE_M
+---
+There it is! Let's go inside and start the lesson. #line:0624437 
+<<action door_open_2>>
+Come in! Your classroom is down the hall. #line:0b91268 
+<<jump task_find_classroom >>
+===
+
+
 title: school_3
 position: 340,61
 actor: KID_M
 ---
+<<card education_lycee_fr>>
 Hi! This is a middle school for ages 11 to 15. #line:06478e9 
 You are almost old enough, but not yet. Keep looking! #line:0df97f8 
 ===
@@ -121,6 +135,7 @@ title: school_4
 position: 341,293
 actor: ADULT_F
 ---
+<<card education_college_fr>>
 Bonjour! This is a high school for ages 16 to 18. #line:04a0e4b 
 Students study for the Baccalauréat exam here before university. #line:027eba1 
 You are too young. Try another school. #line:0630d14 
@@ -155,17 +170,6 @@ actor: SENIOR_M
 <<elseif GetActivityResult("order_schools_settings") == 0>>
     Sorry! Try again. #line:0e1ff90 
 <<endif>>
-===
-
-
-title: school_2_talk
-position: 734,-24
-actor: GUIDE_M
----
-There it is! Let's go inside and start the lesson. #line:0624437 
-<<action door_open_2>>
-Come in! Your classroom is down the hall. #line:0b91268 
-<<jump task_find_classroom >>
 ===
 
 title: task_find_classroom
