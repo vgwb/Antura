@@ -365,7 +365,7 @@ namespace Antura.UI
 
         IEnumerator PopulateDatabaseWithUsefulDataCO(JourneyPosition targetPosition)
         {
-            bool useBestScores = true;
+            bool useBestScores = false;
 
             LogAI logAi = AppManager.I.Teacher.logAI;
 
@@ -398,7 +398,7 @@ namespace Antura.UI
             {
                 int score = useBestScores
                     ? AppConfig.MaxMiniGameScore
-                    : UnityEngine.Random.Range(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore);
+                    : AppConfig.MinMiniGameScore;
                 logMiniGameScoreParamses.Add(new LogMiniGameScoreParams(JourneyPosition.InitialJourneyPosition,
                     allMiniGameInfo[i].data.Code, score, 12f));
                 //Debug.Log("Add minigame score " + i);
