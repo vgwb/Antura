@@ -20,6 +20,8 @@ namespace Antura.UI
     public class ProfileSelectorUI : MonoBehaviour
     {
         [Header("References")]
+        public GameObject prefabPlayerIcon;
+
         public UIButton BtAdd;
 
         public UIButton BtPlay;
@@ -38,9 +40,8 @@ namespace Antura.UI
             get { return AppManager.I.PlayerProfileManager; }
         }
 
-        int maxProfiles;
-        List<PlayerProfilePreview> profiles;
-        PlayerIcon[] playerIcons;
+        List<PlayerProfilePreview> profilesList = null;
+        List<PlayerIcon> playerIcons = new List<PlayerIcon>();
         Tween btAddTween, btPlayTween;
 
 
@@ -48,8 +49,7 @@ namespace Antura.UI
 
         void Awake()
         {
-            playerIcons = ProfilesPanel.GetComponentsInChildren<PlayerIcon>(true);
-            maxProfiles = playerIcons.Length;
+            //playerIcons = ProfilesPanel.GetComponentsInChildren<PlayerIcon>(true);
         }
 
         void Start()
@@ -57,7 +57,7 @@ namespace Antura.UI
             // By default, the letter shows a truly random letter
             LLInStage.GetComponent<HomeSceneLetter>().ChangeLetter();
 
-            Setup();
+            SetupPlayerIcons();
 
             btAddTween = BtAdd.transform.DORotate(new Vector3(0, 0, -45), 0.3f).SetAutoKill(false).Pause()
                 .SetEase(Ease.OutBack)
@@ -70,7 +70,7 @@ namespace Antura.UI
                     }
                 });
             btPlayTween = DOTween.Sequence().SetAutoKill(false).Pause()
-                .Append(BtPlay.RectT.DOAnchorPosY(-210, 0.2f).From(true))
+                .Append(BtPlay.RectT.DOLocalMoveY(10, 0.2f).From(true))
                 .OnPlay(() => BtPlay.gameObject.SetActive(true))
                 .OnRewind(() => BtPlay.gameObject.SetActive(false))
                 .OnComplete(() => BtPlay.Pulse());
@@ -114,8 +114,11 @@ namespace Antura.UI
             ProfileManager.SetPlayerAsCurrentByUUID(playerIconData.Uuid);
             AudioManager.I.PlaySound(SfxSelectProfile);
             LLInStage.GetComponent<HomeSceneLetter>().ChangeLetter();
-            Setup();
-            // load profil in DiscoverAppManager
+            HighlightCurrentPlayer();
+
+            Debug.Log("ProfileSelectorUI:: SelectProfile: " + playerIconData.Uuid);
+
+            // load profile in DiscoverAppManager
             if (Discover.DiscoverAppManager.I != null)
             {
                 var legacyProfile = AppManager.I.PlayerProfileManager.CurrentPlayer;
@@ -126,40 +129,47 @@ namespace Antura.UI
 
         #region Methods
 
-        // Layout with current profiles
-        void Setup()
+        void HighlightCurrentPlayer()
         {
-            ActivatePlayerIcons(true);
-            if (profiles == null)
+
+            // Make sure to load the DB for that player (or it causes issues if we switch languages)
+            AppManager.I.DB.LoadDatabaseForPlayer(AppManager.I.Player.Uuid);
+
+            foreach (PlayerIcon playerIcon in playerIcons)
+            {
+                playerIcon.Select(AppManager.I.Player.Uuid);
+                playerIcon.transform.localScale = Vector3.one * (AppManager.I.Player.Uuid == playerIcon.Uuid ? 1.14f : 1);
+            }
+        }
+
+        // Layout with current profiles
+        void SetupPlayerIcons()
+        {
+            for (int i = ProfilesPanel.childCount - 1; i >= 0; i--)
+                Destroy(ProfilesPanel.GetChild(i).gameObject);
+            playerIcons.Clear();
+
+            // ActivatePlayerIcons(true);
+            if (profilesList == null)
             {
                 int currClassroomIndex = AppManager.I.AppSettings.ClassRoomMode;
-                profiles = ProfileManager.GetPlayersIconDataForClassroom(currClassroomIndex);
+                profilesList = ProfileManager.GetPlayersIconDataForClassroom(currClassroomIndex);
             }
-            int totProfiles = profiles == null ? 0 : profiles.Count;
-            int len = playerIcons.Length;
-            for (int i = 0; i < len; ++i)
+            int totProfiles = profilesList == null ? 0 : profilesList.Count;
+
+            foreach (var profile in profilesList)
             {
-                PlayerIcon playerIcon = playerIcons[i];
-                if (i >= totProfiles)
-                {
-                    playerIcon.gameObject.SetActive(false);
-                }
-                else
-                {
-                    PlayerProfilePreview iconData = profiles[i];
-                    playerIcon.gameObject.SetActive(true);
-                    playerIcon.Init(iconData);
+                var playerIconGO = Instantiate(prefabPlayerIcon, ProfilesPanel.transform, true);
+                playerIconGO.transform.localScale = Vector3.one;
+                playerIconGO.SetActive(true);
+                var icon = playerIconGO.GetComponent<PlayerIcon>();
+                icon.Init(profile);
+                playerIcons.Add(icon);
 
-                    // Use the first available, if the player is null
-                    if (AppManager.I.Player == null)
-                    {
-                        AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(playerIcon.Uuid);
-                    }
-                    // Make sure to load the DB for that player (or it causes issues if we switch languages)
-                    AppManager.I.DB.LoadDatabaseForPlayer(AppManager.I.Player.Uuid);
-
-                    playerIcon.Select(AppManager.I.Player.Uuid);
-                    playerIcon.transform.localScale = Vector3.one * (AppManager.I.Player.Uuid == playerIcon.Uuid ? 1.14f : 1);
+                // Use the first available, if the player is null
+                if (AppManager.I.Player == null)
+                {
+                    AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(icon.Uuid);
                 }
             }
 
@@ -173,11 +183,7 @@ namespace Antura.UI
             {
                 // Set play button position
                 this.StartCoroutine(CO_SetupPlayButton());
-            }
-            if (totProfiles >= maxProfiles)
-            {
-                btAddTween.Rewind();
-                BtAdd.gameObject.SetActive(false);
+                HighlightCurrentPlayer();
             }
         }
 
@@ -189,26 +195,26 @@ namespace Antura.UI
             BtPlay.gameObject.SetActive(true);
             // PLAYER REFACTORING WITH UUID
             PlayerIcon activePlayerIcon = GetPlayerIconByUUID(AppManager.I.Player.Uuid);
-            if (activePlayerIcon == null && playerIcons.Length > 0)
+            if (activePlayerIcon == null && playerIcons.Count > 0)
             {
                 activePlayerIcon = playerIcons[0];
                 OnSelectProfile(activePlayerIcon);
             }
 
-            if (activePlayerIcon != null)
-            {
-                BtPlay.RectT.SetAnchoredPosX(activePlayerIcon.UIButton.RectT.anchoredPosition.x);
-            }
+            // if (activePlayerIcon != null)
+            // {
+            //     BtPlay.RectT.SetAnchoredPosX(activePlayerIcon.UIButton.RectT.anchoredPosition.x);
+            // }
             btPlayTween.PlayForward();
         }
 
-        void ActivatePlayerIcons(bool _activate)
-        {
-            foreach (PlayerIcon pIcon in playerIcons)
-            {
-                pIcon.UIButton.Bt.interactable = _activate;
-            }
-        }
+        // void ActivatePlayerIcons(bool _activate)
+        // {
+        //     foreach (PlayerIcon pIcon in playerIcons)
+        //     {
+        //         pIcon.UIButton.Bt.interactable = _activate;
+        //     }
+        // }
 
         PlayerIcon GetPlayerIconByUUID(string uuid)
         {
@@ -238,8 +244,8 @@ namespace Antura.UI
 
         void OnSelectProfile(PlayerIcon playerIcon)
         {
-            int index = Array.IndexOf(playerIcons, playerIcon);
-            PlayerProfilePreview playerIconData = profiles[index];
+            int index = playerIcons.IndexOf(playerIcon);
+            PlayerProfilePreview playerIconData = profilesList[index];
             SelectProfile(playerIconData);
             // Debug.Log("Selected profile with TalkToPlayerStyle " + playerIconData.TalkToPlayerStyle);
         }
