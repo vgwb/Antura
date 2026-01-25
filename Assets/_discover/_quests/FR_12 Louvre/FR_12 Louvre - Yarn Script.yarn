@@ -1,0 +1,230 @@
+﻿// 
+
+title: quest_start
+position: 0,0
+tags: Start
+color: red
+type: panel
+---
+Welcome #line:0583648 
+===
+
+title: quest_end
+position: 220,0
+type: panel_endgame
+color: green
+---
+The quest is complete. #line:083187e 
+<<jump post_quest_activity>>
+===
+
+title: post_quest_activity
+position: 220,160
+type: panel
+color: green
+tags: proposal
+---
+Why don't you? #line:0d0d1ce 
+<<quest_end>>
+===
+
+
+title: talk_louvre_external
+position: 320,61
+group: louvre
+actor: SENIOR_F
+---
+<<if $MET_MONALISA>>
+    <<card go_bakery>>
+<<else>>
+<<asset louvre>>
+This is the entrance to the Louvre, a big art museum. #line:0cf1cc8 
+Do you want to go in? #line:0f74ff9
+-> Yes #line:090114f 
+    Enjoy your visit! #line:056e051 
+    <<action AREA_LOUVRE_ENTER >>
+-> No #line:077422a 
+    Ok. Au revoir. #line:0c28ea0 #do_not_translate
+<<endif>>
+===
+
+
+title: talk_louvre_guide
+position: 749,285
+group: louvre
+actor: ADULT_F
+color: blue
+---
+Welcome to the Louvre. What do you want to do? #line:0e6d2a5 
+-> Tell me about the Louvre #line:0a5fc63 
+    <<jump visit_louvre>>
+-> Exit #line:0efc18f 
+    <<if $MET_MONALISA>>
+        <<action AREA_LOUVRE_EXIT>>
+        Come back! #line:07dd921 
+    <<else>>
+        <<jump find_monalisa>>
+    <<endif>>
+===
+
+title: louvre_monalisa
+position: 320,589
+group: louvre
+color: yellow
+actor: ADULT_F
+---
+<<asset monalisa>>
+This is the famous Mona Lisa. #line:louvre_monalisa_1
+<<set $MET_MONALISA = true>>
+<<asset leaonardodavinci>>
+A painter named Leonardo made it long ago. #line:louvre_monalisa_2
+People still love it today. #line:louvre_monalisa_3
+===
+
+title: louvre_liberty
+position: 322,431
+group: louvre
+color: yellow
+actor: ADULT_F
+---
+<<asset liberty_leading>>
+This painting represents freedom. #line:louvre_liberty_1
+It is called Liberty Leading the People. #line:louvre_liberty_2
+It was painted by a French artist. #line:louvre_liberty_3
+===
+
+title: louvre_venus
+position: 323,272
+group: louvre
+color: yellow
+actor: ADULT_F
+---
+<<asset venusmilo>>
+This is the Venus de Milo, a very old statue. #line:053d4fe 
+===
+
+
+title: npc_louvre_pyramid
+position: -120,250
+actor: GUIDE_F
+color: purple
+spawn_group: louvre
+---
+<<card louvre_pyramid>>
+This glass pyramid is the main entrance of the museum. #line:fr01_pyramid_1
+It was built in the 1980s to welcome more visitors. #line:fr01_pyramid_2
+===
+
+title: npc_code_of_hammurabi
+position: -110,240
+actor: GUIDE_F
+color: purple
+spawn_group: louvre
+---
+<<card code_of_hammurabi>>
+This stone has very old laws from ancient Mesopotamia. #line:fr01_hammurabi_1
+They were written a very long time ago. #line:fr01_hammurabi_2
+===
+
+title: npc_coronation_of_napoleon_david
+position: -100,230
+actor: GUIDE_M
+color: purple
+spawn_group: louvre
+---
+<<card coronation_of_napoleon_david>>
+This big painting shows Napoleon becoming a leader. #line:fr01_coronation_1
+The artist painted lots of details. #line:fr01_coronation_2
+===
+
+title: npc_oath_of_the_horatii_david
+position: -90,220
+actor: GUIDE_M
+color: purple
+spawn_group: louvre
+---
+<<card oath_of_the_horatii_david>>
+This painting shows brothers making a brave promise. #line:fr01_horatii_1
+It is about being brave and keeping promises. #line:fr01_horatii_2
+===
+
+title: npc_the_seated_scribe
+position: -80,210
+actor: GUIDE_F
+color: purple
+spawn_group: louvre
+---
+<<card the_seated_scribe>>
+This statue shows a man writing long ago. #line:fr01_scribe_1
+His eyes look very real and bright. #line:fr01_scribe_2
+===
+
+title: npc_winged_victory_of_samothrace
+position: -70,200
+actor: GUIDE_M
+color: purple
+spawn_group: louvre
+---
+<<card winged_victory_of_samothrace>>
+This statue shows a winged figure landing on a ship. #line:fr01_victory_1
+The wind shapes its clothes and wings. #line:fr01_victory_2
+===
+
+
+
+title: talk_cook
+position: 334,976
+group: bakery
+actor: SENIOR_M
+---
+<<if $COLLECTED_ITEMS >= 4>>
+    <<jump quest_end>>
+<<else>>
+    Help me! Antura made a mess in my kitchen! #line:07bbb10 
+    I cannot find the ingredients to make the baguette. #line:09e867c 
+    <<asset  baguette>>
+    Our French bread! #line:0874503 
+    <<set $QUEST_ITEMS = 4>>
+    Please bring me four things: #line:07d64c7 
+    flour, water, yeast, and salt. #line:0c01530 
+<<endif>>
+
+===
+
+title: visit_louvre
+position: 748,580
+group: louvre
+actor: ADULT_F
+---
+<<asset louvre_inside>>
+There are many statues and paintings here. #line:08dc97f 
+<<jump find_monalisa>>
+===
+
+
+title: find_monalisa
+position: 1120,434
+group: louvre
+actor: ADULT_F
+---
+
+<<action monalisa>>
+Go find the Mona Lisa! #line:0442392 
+===
+
+
+
+
+
+
+title: npc_louvre_museum
+position: -60,260
+actor: GUIDE_F
+color: purple
+spawn_group: louvre
+---
+=> The Louvre is one of the biggest museums in the world. #line:fr01_louvre_rand_1
+=> You can walk here for a long time and still not see everything. #line:fr01_louvre_rand_2
+=> Many artworks here are very, very old. #line:fr01_louvre_rand_3
+=> The glass pyramid lets in light for the halls below. #line:fr01_louvre_rand_4
+===

@@ -5,54 +5,37 @@
 // TOPICS
 //   - TODO baguette
 //   - TODO eiffel-tower
-//   - TODO louvre
 //   - TODO notredame
 // CARDS
-// - code_of_hammurabi
-// - coronation_of_napoleon_david
+// - capital_paris
+// - cathedral
+// - church
+// - eiffel_tower
+// - eiffel_tower_elevators
+// - eiffel_tower_map
+// - eiffel_tower_ticket
+// - flying_buttress
+// - food_baguette
+// - food_flour
+// - food_salt
+// - food_water
+// - food_yeast
 // - gargoyle
-// - louvre_pyramid
-// - oath_of_the_horatii_david
-// - the_seated_scribe
-// - winged_victory_of_samothrace
-//   - BROKEN baguette_flour
-//   - BROKEN baguette_salt
-//   - BROKEN baguette_water
-//   - BROKEN baguette_yeast
-//   - BROKEN go_bakery
-//   - BROKEN notredame
-//   - TODO art_liberty_leading_the_people
-//   - TODO art_monalisa
-//   - TODO art_venus_milo
-//   - TODO capital_paris
-//   - TODO cathedral
-//   - TODO church
-//   - TODO eiffel_tower
-//   - TODO eiffel_tower_elevators
-//   - TODO eiffel_tower_map
-//   - TODO eiffel_tower_ticket
-//   - TODO flying_buttress
-//   - TODO food_baguette
-//   - TODO food_flour
-//   - TODO food_salt
-//   - TODO food_water
-//   - TODO food_yeast
-//   - TODO gustave_eiffel
-//   - TODO ile_de_france
-//   - TODO iron_material
-//   - TODO louvre
-//   - TODO notre_dame_de_paris
-//   - TODO notre_dame_de_paris_fire
-//   - TODO person_baker
-//   - TODO person_leonardodavinci
-//   - TODO rose_window
-//   - TODO worlds_fair_1889
+// - gustave_eiffel
+// - ile_de_france
+// - iron_material
+// - louvre
+// - notre_dame_de_paris
+// - notre_dame_de_paris_fire
+// - person_baker
+// - rose_window
+// - worlds_fair_1889
 // TASKS
 // - (none)
 // ACTIVITIES
 // - (none)
 // ACTABLE
-// WORDS: WOMAN
+// WORDS: (none)
 // </scene_data>
 
 title: quest_start
@@ -67,9 +50,9 @@ actor: NARRATOR
 <<declare $QUEST_ITEMS = 0>>
 <<declare $MET_GUIDE = false>>
 <<declare $MET_MAJOR = false>>
-<<declare $MET_MONALISA = false>>
-
-Welcome to Paris! #line:start 
+Welcome to Paris, the capital of France! #line:start 
+<<card capital_paris>>
+Paris is the capital city. #line:start_capital
 <<target tutor>>
 Go talk to the tutor! #line:start_2
 ===
@@ -80,9 +63,7 @@ color: green
 type: panel_endgame
 actor: NARRATOR
 ---
-
-Great! I can bake the baguette now. #line:0017917 
-Congratulations! You won the game! Did you like it? #line:0d11596 
+Congratulations! You finished this quest! Did you like it? #line:0d11596 
 <<jump post_quest_activity>>
 ===
 
@@ -92,9 +73,8 @@ color: green
 type: panel
 tags: proposal
 actor: NARRATOR
-
 ---
-Why don't you draw the Eiffel Tower? #line:002620f 
+Why don't you draw the Eiffel Tower? #line:002620f
 <<quest_end>>
 ===
 
@@ -108,26 +88,7 @@ color: blue
 I saw Antura go to the Eiffel Tower. #line:talk_tutor
 <<camera_focus tour_eiffell>>
 Follow the light or use the map! #line:talk_tutor_2 
-Go there now! #line:talk_tutor_3 
 <<target eiffell>>
-===
-
-
-title: talk_eiffell_roof
-position: 319,-444
-group: toureiffel
-actor: GUIDE_F
----
-<<asset toureiffell>>
-The Eiffel Tower is 300 meters tall. #line:08c1973 
-<<asset mr_eiffel>>
-Gustave Eiffel built it in 1887. #line:09e5c3b 
-<<asset iron>>
-It is made of iron! #line:0d59ade 
-I saw Antura go to Notre Dame. #line:04d1e52 
-<<camera_focus notredame>>
-Go there! #line:083b3bf 
-
 ===
 
 
@@ -139,18 +100,42 @@ actor: GUIDE_F
 <<target off>>
 <<if GetTotalCoins() > 2>>
     Here is your ticket. #line:04e74ad 
-    <<asset tour_eiffell_ticket>>
-    <<set $TOTAL_COINS = $TOTAL_COINS-3>>
+    <<card eiffel_tower_ticket>>
+    <<set $TOTAL_COINS = $TOTAL_COINS - 3>>
     <<action area_toureiffel>>
-    <<asset tour_eiffell_map>>
+    <<card eiffel_tower_map>>
     I saw Antura going up to the top of the tower. #line:089abda 
     Take the elevator! #line:0585a5e 
 <<elseif GetTotalCoins() > 0>> 
     Collect all the coins! #line:04d966b 
 <<else>>
     The ticket costs 3 coins. #line:069cbb3 
+    Look around and pick up coins. #line:0097a65 
 <<endif>>
 ===
+
+title: talk_eiffell_roof
+position: 319,-444
+group: toureiffel
+actor: GUIDE_F
+---
+<<card eiffel_tower_map>>
+The Eiffel Tower is 300 meters tall. #line:08c1973 
+<<card eiffel_tower>>
+This is the famous Eiffel Tower. #line:08c1973a
+<<card gustave_eiffel>>
+Gustave Eiffel built it in 1887. #line:09e5c3b 
+<<card iron_material>>
+It is made of iron! #line:0d59ade 
+<<card worlds_fair_1889>>
+It was built for a big fair long ago. #line:0d59ade_fair
+I saw Antura go to Notre Dame. #line:04d1e52 
+<<camera_focus notredame>>
+Let’s go there! #line:083b3bf 
+===
+
+
+
 
 title: talk_notre_dame
 position: 327,-203
@@ -158,9 +143,11 @@ group: notredame
 actor: SENIOR_M
 ---
 I am the mayor of Paris. #line:0cc11fa 
+<<card notre_dame_de_paris>>
 This is Notre-Dame Cathedral. #line:06f3fa2 
-<<card notredame zoom>>
-It is a famous Gothic church. Built in 1182. #line:02edc0f 
+<<card cathedral>>
+Cathedral means a very big church. #line:06f3fa2_cathedral
+It is a very old church. It was built long ago. #line:0ac5a72 
 <<action AREA_NOTREDAME_ROOF>>
 Come with me to the roof! #line:083dfcc 
 <<set $MET_MAJOR = true>>
@@ -171,10 +158,11 @@ position: 638,-205
 group: notredame
 actor: SENIOR_M
 ---
-<<asset notredame_fire>>
+<<card notre_dame_de_paris_fire>>
 There was a big fire in 2019, but we repaired it. #line:09a0ead 
+<<card louvre>>
 I saw Antura run into the Louvre. #line:02ba888 
-It is across the River Seine. #line:00d22e5 
+It is across the river. #line:00d22e5 
 ===
 
 
@@ -187,197 +175,14 @@ Look at that statue! #line:0f7f9d8
 Isn't it scary? #line:0b5d057 
 ===
 
-
-title: talk_louvre_external
-position: 320,61
-group: louvre
-actor: SENIOR_F
----
-<<if $MET_MONALISA>>
-    <<card go_bakery>>
-<<else>>
-<<asset louvre>>
-This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
-Do you want to go in? #line:0f74ff9
--> Yes #line:090114f 
-    Enjoy your visit! #line:056e051 
-    <<action AREA_LOUVRE_ENTER >>
--> No #line:077422a 
-    Ok. Au revoir. #line:0c28ea0 #do_not_translate
-<<endif>>
-===
-
-
-title: talk_louvre_guide
-position: 749,285
-group: louvre
-actor: ADULT_F
-color: blue
----
-Welcome to the Louvre. What do you want to do? #line:0e6d2a5 
--> Tell me about the Louvre #line:0a5fc63 
-    <<jump visit_louvre>>
--> Exit #line:0efc18f 
-    <<if $MET_MONALISA>>
-        <<action AREA_LOUVRE_EXIT>>
-        Come back! #line:07dd921 
-    <<else>>
-        <<jump find_monalisa>>
-    <<endif>>
-===
-
-title: louvre_monalisa
-position: 320,589
-group: louvre
-color: yellow
-actor: ADULT_F
----
-<<asset monalisa>>
-This is the famous Mona Lisa. #line:louvre_monalisa_1
-<<set $MET_MONALISA = true>>
-<<asset leaonardodavinci>>
-Leonardo painted it around 1500. #line:louvre_monalisa_2
-by the artist Leonardo da Vinci. #line:louvre_monalisa_3
-===
-
-title: louvre_liberty
-position: 322,431
-group: louvre
-color: yellow
-actor: ADULT_F
----
-<<asset liberty_leading>>
-This painting represents freedom. #line:louvre_liberty_1
-It is called Liberty Leading the People. #line:louvre_liberty_2
-by the French artist Eugène Delacroix. #line:louvre_liberty_3
-===
-
-title: louvre_venus
-position: 323,272
-group: louvre
-color: yellow
-actor: ADULT_F
----
-<<asset venusmilo>>
-This is the Venus de Milo, an ancient Greek statue. #line:053d4fe 
-===
-
-
-title: npc_louvre_pyramid
-position: -120,250
-actor: GUIDE_F
-color: purple
-spawn_group: louvre
----
-<<card louvre_pyramid>>
-This glass pyramid is the main entrance of the museum. #line:fr01_pyramid_1
-It was built in the 1980s to welcome more visitors. #line:fr01_pyramid_2
-===
-
-title: npc_code_of_hammurabi
-position: -110,240
-actor: GUIDE_F
-color: purple
-spawn_group: louvre
----
-<<card code_of_hammurabi>>
-This stone has very old laws from ancient Mesopotamia. #line:fr01_hammurabi_1
-They were written almost 4,000 years ago. #line:fr01_hammurabi_2
-===
-
-title: npc_coronation_of_napoleon_david
-position: -100,230
-actor: GUIDE_M
-color: purple
-spawn_group: louvre
----
-<<card coronation_of_napoleon_david>>
-This big painting shows Napoleon becoming emperor. #line:fr01_coronation_1
-The artist Jacques-Louis David painted many details. #line:fr01_coronation_2
-===
-
-title: npc_oath_of_the_horatii_david
-position: -90,220
-actor: GUIDE_M
-color: purple
-spawn_group: louvre
----
-<<card oath_of_the_horatii_david>>
-This painting shows brothers making a brave promise. #line:fr01_horatii_1
-It teaches duty and courage from ancient Rome. #line:fr01_horatii_2
-===
-
-title: npc_the_seated_scribe
-position: -80,210
-actor: GUIDE_F
-color: purple
-spawn_group: louvre
----
-<<card the_seated_scribe>>
-This statue shows a man writing in ancient Egypt. #line:fr01_scribe_1
-His eyes look very real and bright. #line:fr01_scribe_2
-===
-
-title: npc_winged_victory_of_samothrace
-position: -70,200
-actor: GUIDE_M
-color: purple
-spawn_group: louvre
----
-<<card winged_victory_of_samothrace>>
-This statue shows a winged figure landing on a ship. #line:fr01_victory_1
-The wind shapes its clothes and wings. #line:fr01_victory_2
-===
-
-
-
-title: talk_cook
-position: 334,976
-group: bakery
-actor: SENIOR_M
----
-<<if $COLLECTED_ITEMS >= 4>>
-    <<jump quest_end>>
-<<else>>
-    Help me! Antura made a mess in my kitchen! #line:07bbb10 
-    I cannot find the ingredients to make the baguette. #line:09e867c 
-    <<asset  baguette>>
-    Our French bread! #line:0874503 
-    <<set $QUEST_ITEMS = 4>>
-    Please bring me four things: #line:07d64c7 
-    flour, water, yeast, and salt. #line:0c01530 
-<<endif>>
-
-===
-
-title: visit_louvre
-position: 748,580
-group: louvre
-actor: ADULT_F
----
-<<asset louvre_inside>>
-There are many statues and paintings here. #line:08dc97f 
-<<jump find_monalisa>>
-===
-
-
-title: find_monalisa
-position: 1120,434
-group: louvre
-actor: ADULT_F
----
-
-<<action monalisa>>
-Go find the Mona Lisa! #line:0442392 
-===
-
 title: go_bakery
 position: 605,64
 group: louvre
 actor: SENIOR_F
 ---
- 
 Now look for Antura! It went to the bakery for a baguette! #line:076ef0f 
+<<card food_baguette>>
+Let’s help the baker make a baguette. #line:076ef0f_baguette
 Hurry up! #line:0e9c3e7 
 ===
 
@@ -387,8 +192,7 @@ group: bakery
 color: yellow
 actor: SENIOR_M
 ---
-<<action COLLECT_1>>
-<<card baguette_salt>>
+<<card food_salt>>
 This is salt. #line:00f1d2f 
 ===
 
@@ -399,8 +203,7 @@ group: bakery
 color: yellow
 actor: SENIOR_M
 ---
-<<action COLLECT_2>>
-<<card baguette_flour>>
+<<card food_flour>>
 This is flour. #line:06022b0 
 ===
 
@@ -411,8 +214,7 @@ group: bakery
 color: yellow
 actor: SENIOR_M
 ---
-<<action COLLECT_3>>
-<<card baguette_water>>
+<<card food_water>>
 This is water. #line:0c4d1f6 
 ===
 
@@ -422,8 +224,7 @@ group: bakery
 color: yellow
 actor: SENIOR_M
 ---
-<<action COLLECT_4>>
-<<card baguette_yeast>>
+<<card food_yeast>>
 This is yeast. #line:025865d 
 ===
 
@@ -444,13 +245,13 @@ spawn_group: generic
 Hello. What do you want to know? #line:0070084 
 -> What is the Eiffel Tower? #line:0d91dc0 
     A tall iron tower, 300 meters high. #line:0f17af0 
-    It is a symbol of Paris! #line:07a113f 
+    It is a special sign of Paris! #line:07a113f 
 -> Where are we? #line:09dd1da 
     We are in Paris. #line:02b627d 
 -> Is this place real? #line:08bede4 
     Yes! Why do you ask? #line:08654e6 
     Well... it looks like a video game. #line:0bc62a3 
--> Nothing. Bye. #line:0fe0732 
+-> Nothing. Bye. #line:0fe0732 #highlight
 ===
 
 title: spawned_eiffell_tourist
@@ -462,8 +263,8 @@ spawn_group: eiffel_tower
 -> I would like to go up the Eiffel Tower. #line:0aee9bb 
 -> You need a ticket to go up. #line:09be864 
 -> There was a big fair in Paris in 1889. #line:0a3f4e1 
-    It was to celebrate the 100th anniversary of the French Revolution. #line:01fa210 
-    The Eiffel Tower was built for that event. #line:0d6f3c4 
+    It was to celebrate a big birthday for France. #line:01fa210 
+    The Eiffel Tower was built for that big party. #line:0d6f3c4 
 -> I love Paris! #line:0bda18a 
 ===
 
@@ -483,7 +284,7 @@ Do you have questions? #line:07b94e9
 -> Where do you come from? #line:05eabcf 
     => I was not born in this country. #line:0635a6a 
     => From planet Earth. #line:0749690 
--> Goodbye #line:0ee51fc 
+-> Goodbye #line:0ee51fc #highlight
 ===
 
 title: spawned_kid_m
@@ -505,27 +306,15 @@ spawn_group: kids
 => Ca va? #do_not_translate #line:04986a3 
 ===
 
-title: npc_louvre_museum
-position: -60,260
-actor: GUIDE_F
-color: purple
-spawn_group: louvre
----
-=> The Louvre is one of the largest museums in the world. #line:fr01_louvre_rand_1
-=> You can walk here for hours and still not see everything. #line:fr01_louvre_rand_2
-=> Many artworks here are older than your grandparents' grandparents. #line:fr01_louvre_rand_3
-=> The glass pyramid lets in light for the halls below. #line:fr01_louvre_rand_4
-===
-
 title: npc_notredame_base
 position: -40,180
 actor: GUIDE_M
 color: purple
 spawn_group: notredame
 ---
-=> Notre-Dame is a famous Gothic cathedral. #line:fr01_notredame_base_1
-=> Builders started it more than 800 years ago. #line:fr01_notredame_base_2
-=> The big bells ring across the city. #line:fr01_notredame_base_3
+Notre-Dame is a very old cathedral. #line:fr01_notredame_base_1
+Do you know what a cathedral is? #line:fr01_notredame_base_2
+It is a big church where people go to pray. #line:fr01_notredame_base_3
 ===
 
 title: npc_notredame_roof
@@ -536,7 +325,43 @@ spawn_group: notredame_roof
 ---
 => From the roof you can see much of Paris. #line:fr01_notredame_roof_1
 => Stone creatures called gargoyles sit up here. #line:fr01_notredame_roof_2
-=> Workers are still restoring parts of the cathedral. #line:fr01_notredame_roof_3
+=> These stone arms help hold up the walls. #line:fr01_notredame_roof_2b
+    <<card flying_buttress>>
+=> The big round window is called a rose window. #line:fr01_notredame_roof_2c
+    <<card rose_window>>
+=> People are still fixing some parts of the cathedral. #line:fr01_notredame_roof_3
+===
+
+title: npc_eiffell_elevator
+position: -210,260
+actor: GUIDE_F
+color: purple
+spawn_group: eiffel_tower
+---
+<<card eiffel_tower_elevators>>
+The elevator helps people go up the tower. #line:fr01_eiffel_elevator_1
+===
+
+title: npc_paris_region
+position: -250,300
+actor: ADULT_F
+color: purple
+spawn_group: generic
+---
+<<card ile_de_france>>
+Paris is in a region called Île-de-France. #line:fr01_region_1
+===
+
+title: npc_baker
+position: -10,140
+actor: SENIOR_M
+color: purple
+spawn_group: bakery
+---
+<<card person_baker>>
+I am the baker. I make bread every day. #line:fr01_baker_1
+<<card church>>
+Sometimes people meet at a church to sing. #line:fr01_baker_2
 ===
 
 title: npc_bakery
@@ -547,5 +372,5 @@ spawn_group: bakery
 ---
 => Fresh bread smell makes people happy. #line:fr01_bakery_1
 => A baguette uses flour, water, yeast, and salt. #line:fr01_bakery_2
-=> Bakers wake up very early to start making dough. #line:fr01_bakery_3
+=> Bakers wake up very early to start making bread. #line:fr01_bakery_3
 ===
