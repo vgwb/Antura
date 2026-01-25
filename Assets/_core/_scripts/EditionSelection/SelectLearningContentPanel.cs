@@ -13,6 +13,25 @@ namespace Antura.UI
 {
     public class SelectLearningContentPanel : MonoBehaviour
     {
+        public TextRender QuestionText;
+        public SelectNativeLanguageButton SelectNativeLanguageButton;
+
+        public SelectLearningContentButton prefabButton;
+        private List<SelectLearningContentButton> buttons = new List<SelectLearningContentButton>();
+
+        private LearningContentID PreferredContentID;
+        public LanguageCode SelectedNativeCode;
+
+        public bool HasPerformedSelection;
+        public SelectLearningContentButton SelectedButton;
+
+        public RectTransform questionRectTr;
+        public RectTransform scrollRectTr;
+        private Color BGColor;
+        public Image BG;
+        public Image Overlay;
+        private bool isOpen;
+
         public static void FindAllContentEditions(List<ContentConfig> supportedConfigs, LanguageCode nativeCode)
         {
             // Find all content editions with the current native language
@@ -42,14 +61,6 @@ namespace Antura.UI
             }
         }
 
-        public TextRender QuestionText;
-        public SelectNativeLanguageButton SelectNativeLanguageButton;
-
-        public SelectLearningContentButton prefabButton;
-        private List<SelectLearningContentButton> buttons = new List<SelectLearningContentButton>();
-
-        private LearningContentID PreferredContentID;
-        public LanguageCode SelectedNativeCode;
         public void OnEnable()
         {
             GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.zero;
@@ -111,8 +122,6 @@ namespace Antura.UI
             // }
         }
 
-        public bool HasPerformedSelection;
-        public SelectLearningContentButton SelectedButton;
         public void ConfirmSelection(LearningContentID contentId)
         {
             ConfirmNativeLanguage(SelectedNativeCode, contentId);
@@ -136,13 +145,7 @@ namespace Antura.UI
             }
         }
 
-        public RectTransform questionRectTr;
-        public RectTransform scrollRectTr;
-        private Color BGColor;
-        public Image BG;
-        public Image Overlay;
 
-        private bool isOpen;
         public void Open(bool scrollToLast)
         {
             gameObject.SetActive(true);
@@ -159,10 +162,14 @@ namespace Antura.UI
             scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).SetDelay(0.5f).OnComplete(() =>
             {
                 if (scrollToLast)
+                {
                     ScrollTo(PreferredContentID);
+                }
             });
             if (BGColor == default)
+            {
                 BGColor = BG.color;
+            }
             BG.color = new Color(BGColor.r, BGColor.g, BGColor.b, 0f);
             BG.DOColor(BGColor, 0.35f);
         }
@@ -170,7 +177,6 @@ namespace Antura.UI
         public void Close()
         {
             questionRectTr.DOAnchorPos(new Vector2(0, 500), 0.35f);
-
             gameObject.SetActive(false);
             isOpen = false;
         }
