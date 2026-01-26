@@ -1,0 +1,30 @@
+﻿// 
+
+title: quest_start
+position: 0,0
+tags: Start
+color: red
+type: panel
+---
+Welcome #line:0583648 
+===
+
+title: quest_end
+position: 220,0
+type: panel_endgame
+color: green
+---
+The quest is complete. #line:083187e 
+<<jump post_quest_activity>>
+===
+
+title: post_quest_activity
+position: 220,160
+type: panel
+color: green
+tags: proposal
+---
+Why don't you? #line:0d0d1ce 
+<<quest_end>>
+===
+
