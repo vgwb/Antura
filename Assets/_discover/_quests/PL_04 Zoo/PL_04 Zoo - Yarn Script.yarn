@@ -128,7 +128,16 @@ Who could have taken it? #line:0fc7e35
 <<camera_reset>>
 Find the FLAG. Talk to the ANIMALS. #line:0da284c #task:TASK_ANIMALS
 Maybe one of them has it. #line:012b933
-<<task_start TASK_ANIMALS task_animals_done>>
+<<task_start TASK_ANIMALS>>
+===
+
+title: check_animals_done
+position: -451,-152
+actor: 
+---
+<<if HasCompletedTask("TASK_ANIMALS")>>
+    <<jump task_animals_done>>
+<<endif>>
 ===
 
 title: task_animals_done
@@ -212,7 +221,8 @@ image: monkey_keeper
 <<card animal_chimpanzee collect>>
 <<set $monkey_completed = true>>
 It would be fun to climb that pole. #line:0a43c85
-But I didn't take the FLAG! #line:0c53945 
+But I didn't take the FLAG! #line:0c53945
+<<jump check_animals_done>>
 ===
 
 title: monkey_tutor
@@ -276,7 +286,8 @@ image: lion_keeper
 <<set $lion_completed = true>>
 <<card animal_lion collect>>
 I love watching the flag up there on the Iglica. #line:01b3593 
-But I didn't take it. Please find that FLAG! #line:05da6d7 
+But I didn't take it. Please find that FLAG! #line:05da6d7
+<<jump check_animals_done>>
 ===
 
 title: lion_tutor
@@ -335,6 +346,7 @@ actor: SENIOR_M
 <<set $giraffe_completed = true>>
 Thank you. I did not take the FLAG. #line:0877d6f
 I'm tall, but not 90 meters like the IGLICA! #line:02d00e2
+<<jump check_animals_done>>
 ===
 
 title: giraffe_tutor
@@ -391,6 +403,7 @@ image: elephant_keeper
 <<set $elephant_completed = true>>
 THE FLAG? I don't have it. #line:0b79d01
 If I took it, I would REMEMBER! #line:0f124bf
+<<jump check_animals_done>>
 ===
 
 title: elephant_tutor
@@ -447,7 +460,8 @@ image: penguin_keeper
 <<card animal_penguin collect>>
 <<set $penguin_completed = true>>
 No, I didn't take the FLAG. #line:078190f 
-Remember, I can't fly! #line:08568f5 
+Remember, I can't fly! #line:08568f5
+<<jump check_animals_done>>
 ===
 
 title: penguin_tutor
