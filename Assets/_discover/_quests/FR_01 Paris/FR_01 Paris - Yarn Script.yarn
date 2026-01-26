@@ -8,12 +8,15 @@
 //   - TODO notredame
 // CARDS
 // - capital_paris
-// - cathedral
-// - church
+// - gustave_eiffel
 // - eiffel_tower
 // - eiffel_tower_elevators
 // - eiffel_tower_map
 // - eiffel_tower_ticket
+// - iron_material
+// - worlds_fair_1889
+// - cathedral
+// - church
 // - flying_buttress
 // - food_baguette
 // - food_flour
@@ -21,15 +24,11 @@
 // - food_water
 // - food_yeast
 // - gargoyle
-// - gustave_eiffel
 // - ile_de_france
-// - iron_material
-// - louvre
 // - notre_dame_de_paris
 // - notre_dame_de_paris_fire
 // - person_baker
 // - rose_window
-// - worlds_fair_1889
 // TASKS
 // - (none)
 // ACTIVITIES
@@ -48,13 +47,17 @@ actor: NARRATOR
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
 <<declare $QUEST_ITEMS = 0>>
-<<declare $MET_GUIDE = false>>
-<<declare $MET_MAJOR = false>>
-Welcome to Paris, the capital of France! #line:start 
+<<area init>>
 <<card capital_paris>>
-Paris is the capital city. #line:start_capital
-<<target tutor>>
-Go talk to the tutor! #line:start_2
+We are in Paris, the Capital of France. #line:start 
+<<card eiffel_tower>>
+Today we will explore the Eiffel Tower #line:start_1
+<<card notre_dame_de_paris>>
+and Notre Dame Cathedral. #line:start_1a
+<<card food_baguette>>
+and if we have time, we will make a baguette! #line:start_1b
+<<target init_tutor>>
+Are you ready? Let's start! #line:start_2
 ===
 
 title: quest_end
@@ -63,7 +66,9 @@ color: green
 type: panel_endgame
 actor: NARRATOR
 ---
-Congratulations! You finished this quest! Did you like it? #line:0d11596 
+Congratulations! #line:0d11596 
+<<card capital_paris>>
+Did you like Paris? #line:0d11596a
 <<jump post_quest_activity>>
 ===
 
@@ -74,7 +79,8 @@ type: panel
 tags: proposal
 actor: NARRATOR
 ---
-Why don't you draw the Eiffel Tower? #line:002620f
+<<card eiffel_tower>>
+Do you want to draw the Eiffel Tower? #line:002620f
 <<quest_end>>
 ===
 
@@ -85,34 +91,68 @@ actor:
 color: blue
 ---
 <<target off>>
+<<card capital_paris>>
+Hallo and welcome to Paris! #line:talk_tutor_0
+Have you ever been here? #line:talk_tutor_0a
+-> Yes! #line:talk_tutor_0b
+   Great! Let's see if you remember these places. #line:talk_tutor_0c
+-> No. #line:talk_tutor_0d
+   I hope you will come here, someday! #line:talk_tutor_0e
 I saw Antura go to the Eiffel Tower. #line:talk_tutor
 <<camera_focus tour_eiffell>>
-Follow the light or use the map! #line:talk_tutor_2 
+Try to go to the top! Let's get there! #line:talk_tutor_2 
 <<target eiffell>>
+<<area area_tower>>
 ===
 
-
-title: talk_eiffell_guide
+title: talk_eiffell_ticket_seller
 position: 584,-443
 group: toureiffel
 actor: GUIDE_F
 ---
 <<target off>>
-<<if GetTotalCoins() > 2>>
-    Here is your ticket. #line:04e74ad 
-    <<card eiffel_tower_ticket>>
-    <<set $TOTAL_COINS = $TOTAL_COINS - 3>>
-    <<action area_toureiffel>>
-    <<card eiffel_tower_map>>
-    I saw Antura going up to the top of the tower. #line:089abda 
-    Take the elevator! #line:0585a5e 
-<<elseif GetTotalCoins() > 0>> 
-    Collect all the coins! #line:04d966b 
-<<else>>
-    The ticket costs 3 coins. #line:069cbb3 
-    Look around and pick up coins. #line:0097a65 
-<<endif>>
+Good morning. What do you want?
+-> A ticket to go up the Eiffel Tower.
+    <<if GetTotalCoins() > 4>>
+        <<card eiffel_tower_ticket>>
+        Here is your ticket. #line:04e74ad 
+        <<set $TOTAL_COINS = $TOTAL_COINS - 3>>
+        <<action area_toureiffel>>
+        I saw Antura going up to the top of the tower. #line:089abda 
+        <<card eiffel_tower_map>>
+        Take the elevator! #line:0585a5e 
+    <<elseif GetTotalCoins() > 0>> 
+        The ticket costs 5 coins #line:069cbb3
+        Look around and pick up coins. #shadow:0097a65
+    <<else>>
+        You need coins to buy a ticket. #line:０6b5e2c
+        Look around and pick up coins. #line:0097a65
+    <<endif>>
+-> A baguette.
+   There is a bakery near here. But it opens later.
+-> Just to look around.
+   Enjoy your visit!
 ===
+
+title: talk_eiffell_guide
+position: -284,321
+actor: ADULT_F
+color: purple
+spawn_group: generic
+
+---
+Hello. What do you want to know? #line:0070084 
+-> What is the Eiffel Tower? #line:0d91dc0 
+    A tall iron tower, 300 meters high. #line:0f17af0 
+    It is a special sign of Paris! #line:07a113f 
+-> Where are we? #line:09dd1da 
+    We are in Paris. #line:02b627d 
+-> Is this place real? #line:08bede4 
+    Yes! Why do you ask? #line:08654e6 
+    Well... it looks like a video game. #line:0bc62a3 
+-> Nothing. Bye. #line:0fe0732 #highlight
+===
+
 
 title: talk_eiffell_roof
 position: 319,-444
@@ -131,10 +171,9 @@ It is made of iron! #line:0d59ade
 It was built for a big fair long ago. #line:0d59ade_fair
 I saw Antura go to Notre Dame. #line:04d1e52 
 <<camera_focus notredame>>
-Let’s go there! #line:083b3bf 
+Let’s go there! #line:083b3bf
+<<area area_all>>
 ===
-
-
 
 
 title: talk_notre_dame
@@ -150,7 +189,6 @@ Cathedral means a very big church. #line:06f3fa2_cathedral
 It is a very old church. It was built long ago. #line:0ac5a72 
 <<action AREA_NOTREDAME_ROOF>>
 Come with me to the roof! #line:083dfcc 
-<<set $MET_MAJOR = true>>
 ===
 
 title: talk_notre_dame_roof
@@ -234,25 +272,6 @@ This is yeast. #line:025865d
 // these npc are spawn automatically in the scene
 // use these to add random facts. everythime you meet them
 // they will say one of these lines randomly
-
-title: npc_french_guide
-position: -284,321
-actor: ADULT_F
-color: purple
-spawn_group: generic
-
----
-Hello. What do you want to know? #line:0070084 
--> What is the Eiffel Tower? #line:0d91dc0 
-    A tall iron tower, 300 meters high. #line:0f17af0 
-    It is a special sign of Paris! #line:07a113f 
--> Where are we? #line:09dd1da 
-    We are in Paris. #line:02b627d 
--> Is this place real? #line:08bede4 
-    Yes! Why do you ask? #line:08654e6 
-    Well... it looks like a video game. #line:0bc62a3 
--> Nothing. Bye. #line:0fe0732 #highlight
-===
 
 title: spawned_eiffell_tourist
 position: -284,321
