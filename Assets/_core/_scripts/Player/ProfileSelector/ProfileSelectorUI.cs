@@ -185,6 +185,16 @@ namespace Antura.UI
                 this.StartCoroutine(CO_SetupPlayButton());
                 HighlightCurrentPlayer();
             }
+
+            if (AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0)
+            {
+                BtAdd.gameObject.SetActive(false);
+            }
+            else
+            {
+                BtAdd.gameObject.SetActive(true);
+                btAddTween.PlayBackwards();
+            }
         }
 
         // Used to set play button position after one frame, so grid is set correctly
