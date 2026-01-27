@@ -111,19 +111,21 @@ color: purple
     Great! We have flour. #line:baker_r1
     <<card food_salt>>
     Now i need the salt. #line:06cccc0 
-    <<card notre_dame_de_paris>>
+    // <<card notre_dame_de_paris>>
+    <<camera_focus camera_notredame>>
     Go to Notre-Dame. #line:baker_r2
-    <<target npc_eiffell_ticket>>
-    //<<camera_focus notredame>>
+    <<target npc_notredame>>
 <<elseif $BAGUETTE_STEP == 2>>
     Salt! Well done. #line:baker_r3
     <<card louvre>>
+    <<camera_focus camera_louvre>>
     Antura stole the water going to the Louvre. #line:baker_r4
-    //<<camera_focus louvre>>
+    <<target npc_louvre>>
 <<elseif $BAGUETTE_STEP == 3>>
     Perfect! We have water. #line:baker_r5
+    <<camera_focus camera_arc>>
     Maybe the yeast is at the Arc de Triomphe. #line:baker_r6
-    //<<camera_focus arc_de_triomphe>>
+    <<target npc_arc>>
 <<elseif $BAGUETTE_STEP == 4>>
     <<jump baker_finish>>
 <<else>>
@@ -136,9 +138,9 @@ color: purple
     <<card food_flour>>
     A big blue dog stole my flour! #line:baker_3
     Can you help me find them? #line:baker_4
+    <<camera_focus camera_eiffell>>
     First, go to the Eiffel Tower. We need flour. #line:baker_5
     <<set $BAGUETTE_STEP = 0>>
-    <<camera_focus tour_eiffell>>
     <<target eiffell>>
     <<area area_all>>
 <<endif>>
@@ -279,26 +281,36 @@ Gustave Eiffel built it in 1887. #line:09e5c3b
 It is made of iron! #line:0d59ade 
 <<card worlds_fair_1889>>
 It was built for a big fair long ago. #line:0d59ade_fair
-I saw Antura go to Notre Dame. #line:04d1e52 
-<<camera_focus notredame>>
-Let’s go there! #line:083b3bf
-<<area area_all>>
+To open the chest, solve the puzzle! #line:solve_puzzle
+<<activity jigsaw_eiffelltower eiffell_activity_done>>
 ===
 
+title: eiffell_activity_done
+position: 700,140
+group: 
+---
+Great! You solved the puzzle. #line:puzzle_done
+The chest is now unlocked. #line:chest_unlocked
+<<SetActive chest_flour true>>
+===
 
 title: talk_notre_dame
 position: 327,-203
 group: notredame
 actor: SENIOR_M
 ---
-I am the mayor of Paris. #line:0cc11fa 
-<<card notre_dame_de_paris>>
-This is Notre-Dame Cathedral. #line:06f3fa2 
-<<card cathedral>>
-Cathedral means a very big church. #line:06f3fa2_cathedral
-It is a very old church. It was built long ago. #line:0ac5a72 
-<<action AREA_NOTREDAME_ROOF>>
-Come with me to the roof! #line:083dfcc 
+<<if $BAGUETTE_STEP < 1>>
+    Come back later. #line:come_back_later
+<<elseif $BAGUETTE_STEP == 1>>
+    <<card notre_dame_de_paris>>
+    This is Notre-Dame Cathedral. #line:06f3fa2 
+    <<card cathedral>>
+    Cathedral means a very big church. #line:06f3fa2_cathedral
+    <<card church>>
+    A church is a place where people go to pray. #line:fr01_notredame_base_3
+    It is a very old church. It was built long ago. #line:0ac5a72 
+    Go up to the roof with that portal! #line:083dfcc 
+<<endif>>
 ===
 
 title: talk_notre_dame_roof
@@ -308,9 +320,17 @@ actor: SENIOR_M
 ---
 <<card notre_dame_de_paris_fire>>
 There was a big fire in 2019, but we repaired it. #line:09a0ead 
-<<card louvre>>
-I saw Antura run into the Louvre. #line:02ba888 
-It is across the river. #line:00d22e5 
+To open the chest, solve the puzzle! #shadow:solve_puzzle
+<<activity jigsaw_notredame notredame_activity_done>>
+===
+
+title: notredame_activity_done
+position: 700,140
+group: arc_de_triomphe
+---
+Great! You solved the puzzle. #shadow:puzzle_done
+The chest is now unlocked. #shadow:chest_unlocked
+<<SetActive chest_salt true>>
 ===
 
 
@@ -318,10 +338,56 @@ title: gargoyle
 position: 634,-34
 group: notredame
 ---
-Look at that statue! #line:0f7f9d8 
 <<card gargoyle zoom>>
-Isn't it scary? #line:0b5d057 
+Look at that statue! Isn't it scary? #line:0f7f9d8 
 ===
+
+///// LOUVRE: puzzle -> chest unlock -> water
+
+title: talk_louvre
+position: 605,64
+group: louvre
+actor: SENIOR_F
+---
+<<target off>>
+<<card louvre>>
+This is the Louvre, the famous Museum. #line:louvre_0
+To open the chest, solve the puzzle! #shadow:solve_puzzle
+<<activity jigsaw_louvre louvre_activity_done>>
+===
+
+title: louvre_activity_done
+position: 700,140
+group: arc_de_triomphe
+---
+Great! You solved the puzzle. #shadow:puzzle_done
+The chest is now unlocked. #shadow:chest_unlocked
+<<SetActive chest_water true>>
+===
+
+///// ARC DE TRIOMPHE: puzzle -> chest unlock -> yeast
+
+title: talk_arc
+position: 700,140
+group: arc_de_triomphe
+---
+<<target off>>
+<<card arc_de_triomphe>>
+This is the Arc de Triomphe. #line:arc_0
+A monument to honor those who fought for France. #line:arc_0a
+To open the chest, solve the puzzle! #shadow:solve_puzzle
+<<activity jigsaw_arc arc_activity_done>>
+===
+
+title: arc_activity_done
+position: 700,140
+group: arc_de_triomphe
+---
+Great! You solved the puzzle. #shadow:puzzle_done
+The chest is now unlocked. #shadow:chest_unlocked
+<<SetActive chest_yeast true>>
+===
+
 
 ///////// NPCs SPAWNED IN THE SCENE //////////
 // these npc are spawn automatically in the scene
@@ -350,26 +416,14 @@ spawn_group: generic
 ---
 Do you have questions? #line:07b94e9 
 -> Have you seen Antura? #line:0f18ad3 
-    => Yes! Talk to people and follow the lights! #line:0cf9b4e 
     => No. Who is Antura? #line:0f9dd62 
 -> What are you doing? #line:002796f 
-    => I am going to work! #line:0fe4ff4 
     => I am going to buy bread at the bakery. #line:05a38a8 
 -> Where do you come from? #line:05eabcf 
     => I was not born in this country. #line:0635a6a 
-    => From planet Earth. #line:0749690 
 -> Goodbye #line:0ee51fc #highlight
 ===
 
-title: spawned_kid_m
-position: -571,-106
-actor: KID_M
-color: purple
-spawn_group: kids
----
-=> Hi! #line:0c4d9e4 
-=> How are you? #line:032d401 
-===
 title: spawned_kid_f
 position: -571,-106
 actor: KID_F
@@ -380,17 +434,6 @@ spawn_group: kids
 => Ca va? #do_not_translate #line:04986a3 
 ===
 
-title: npc_notredame_base
-position: -40,180
-actor: GUIDE_M
-color: purple
-spawn_group: notredame
----
-Notre-Dame is a very old cathedral. #line:fr01_notredame_base_1
-Do you know what a cathedral is? #line:fr01_notredame_base_2
-It is a big church where people go to pray. #line:fr01_notredame_base_3
-===
-
 title: npc_notredame_roof
 position: -30,170
 actor: GUIDE_M
@@ -399,11 +442,8 @@ spawn_group: notredame_roof
 ---
 => From the roof you can see much of Paris. #line:fr01_notredame_roof_1
 => Stone creatures called gargoyles sit up here. #line:fr01_notredame_roof_2
-=> These stone arms help hold up the walls. #line:fr01_notredame_roof_2b
-    <<card flying_buttress>>
-=> The big round window is called a rose window. #line:fr01_notredame_roof_2c
-    <<card rose_window>>
-=> People are still fixing some parts of the cathedral. #line:fr01_notredame_roof_3
+=> These stone arms help hold up the walls. #line:fr01_notredame_roof_2b #card:flying_buttress
+=> The big round window is called a rose window. #line:fr01_notredame_roof_2c #card:rose_window
 ===
 
 title: npc_eiffell_elevator

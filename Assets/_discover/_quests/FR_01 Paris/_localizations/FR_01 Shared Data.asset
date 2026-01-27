@@ -940,6 +940,121 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 3826776057034834481
+  - m_Id: 53942005548441600
+    m_Key: line:arc_0
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834547
+  - m_Id: 53942005598773248
+    m_Key: line:arc_1
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834548
+  - m_Id: 53942902647152640
+    m_Key: line:louvre_0
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834549
+  - m_Id: 53947474560147456
+    m_Key: line:come_back_later
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834577
+  - m_Id: 53951939577110528
+    m_Key: line:arc_0a
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834578
+  - m_Id: 53951939585499136
+    m_Key: line:solve_puzzle
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834579
+  - m_Id: 53951939585499137
+    m_Key: line:puzzle_done
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834580
+  - m_Id: 53951939585499138
+    m_Key: line:chest_unlocked
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834581
+  - m_Id: 53952925666369536
+    m_Key: line:sh_4fabc921
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834582
+  - m_Id: 53952925666369537
+    m_Key: line:sh_cf470084
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834583
+  - m_Id: 53952925666369538
+    m_Key: line:sh_597707f3
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834584
+  - m_Id: 53952925666369539
+    m_Key: line:sh_39622ce3
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834585
+  - m_Id: 53952925666369540
+    m_Key: line:sh_355a61b1
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834586
+  - m_Id: 53952925670563840
+    m_Key: line:sh_8f0b6828
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834587
+  - m_Id: 53953265123975168
+    m_Key: line:sh_fba07937
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834588
+  - m_Id: 53953265123975169
+    m_Key: line:sh_242b7da3
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834589
+  - m_Id: 53953265123975170
+    m_Key: line:sh_b21b7ad4
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834590
+  - m_Id: 53953265123975171
+    m_Key: line:sh_086e8331
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834591
+  - m_Id: 53953265123975172
+    m_Key: line:sh_7516091d
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834592
+  - m_Id: 53953265123975173
+    m_Key: line:sh_d6836d83
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834593
+  - m_Id: 53953265123975174
+    m_Key: line:sh_8333257a
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834594
+  - m_Id: 53953265123975175
+    m_Key: line:sh_8826d0cf
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834595
+  - m_Id: 53953265123975176
+    m_Key: line:sh_1e16d7b8
+    m_Metadata:
+      m_Items:
+      - rid: 3826776057034834596
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -996,12 +1111,14 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: npc_notredame_roof
-        tags: []
+        tags:
+        - card:flying_buttress
     - rid: 3826776046827470879
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: npc_notredame_roof
-        tags: []
+        tags:
+        - card:rose_window
     - rid: 3826776046827470880
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -1317,6 +1434,136 @@ MonoBehaviour:
         nodeName: talk_eiffell_ticket
         tags:
         - shadow:0097a65
+    - rid: 3826776057034834547
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_arc
+        tags: []
+    - rid: 3826776057034834548
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_arc
+        tags: []
+    - rid: 3826776057034834549
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_louvre
+        tags: []
+    - rid: 3826776057034834577
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_notre_dame
+        tags: []
+    - rid: 3826776057034834578
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_arc
+        tags: []
+    - rid: 3826776057034834579
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_eiffell_roof
+        tags: []
+    - rid: 3826776057034834580
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: eiffell_activity_done
+        tags: []
+    - rid: 3826776057034834581
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: eiffell_activity_done
+        tags: []
+    - rid: 3826776057034834582
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_louvre
+        tags:
+        - shadow:solve_puzzle
+    - rid: 3826776057034834583
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: louvre_activity_done
+        tags:
+        - shadow:puzzle_done
+    - rid: 3826776057034834584
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: louvre_activity_done
+        tags:
+        - shadow:chest_unlocked
+    - rid: 3826776057034834585
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_arc
+        tags:
+        - shadow:solve_puzzle
+    - rid: 3826776057034834586
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: arc_activity_done
+        tags:
+        - shadow:puzzle_done
+    - rid: 3826776057034834587
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: arc_activity_done
+        tags:
+        - shadow:chest_unlocked
+    - rid: 3826776057034834588
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_notre_dame_roof
+        tags:
+        - shadow:solve_puzzle
+    - rid: 3826776057034834589
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: notredame_activity_done
+        tags:
+        - shadow:puzzle_done
+    - rid: 3826776057034834590
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: notredame_activity_done
+        tags:
+        - shadow:chest_unlocked
+    - rid: 3826776057034834591
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_louvre
+        tags:
+        - shadow:solve_puzzle
+    - rid: 3826776057034834592
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: louvre_activity_done
+        tags:
+        - shadow:puzzle_done
+    - rid: 3826776057034834593
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: louvre_activity_done
+        tags:
+        - shadow:chest_unlocked
+    - rid: 3826776057034834594
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: talk_arc
+        tags:
+        - shadow:solve_puzzle
+    - rid: 3826776057034834595
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: arc_activity_done
+        tags:
+        - shadow:puzzle_done
+    - rid: 3826776057034834596
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: arc_activity_done
+        tags:
+        - shadow:chest_unlocked
     - rid: 6508225951601787002
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
@@ -1822,7 +2069,7 @@ MonoBehaviour:
     - rid: 6508226101711470759
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_notredame_base
+        nodeName: talk_notre_dame
         tags: []
     - rid: 6508226101711470760
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
