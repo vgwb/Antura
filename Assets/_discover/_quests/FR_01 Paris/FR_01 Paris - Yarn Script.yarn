@@ -155,6 +155,15 @@ color: green
 <<card food_baguette>>
 You found all the ingredients! #line:baker_finish_0
 Now I can make a baguette. #line:baker_finish_1
+Let's see if you remember what you learned in Paris. #line:076b3e3 
+<<activity match_paris_final final_activity_done>>
+===
+
+title: final_activity_done
+position: 700,140
+group: 
+---
+Great! You solved the puzzle. #line:puzzle_done
 Paris smells like fresh bread! #line:baker_finish_2
 <<jump quest_end>>
 ===
@@ -289,7 +298,7 @@ title: eiffell_activity_done
 position: 700,140
 group: 
 ---
-Great! You solved the puzzle. #line:puzzle_done
+Great! You solved the puzzle. #shadow:puzzle_done
 The chest is now unlocked. #line:chest_unlocked
 <<SetActive chest_flour true>>
 ===
