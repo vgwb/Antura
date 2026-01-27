@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: FR_12 Louvre - Quest Data
   m_EditorClassIdentifier: 
   Id: 
-  YarnProject: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+  YarnProject: {fileID: 7545569452688597077, guid: b4859d0ba01bb415cbead90dd966460c,
     type: 3}
-  YarnScript: {fileID: -8253061345870894857, guid: c70b27b1aa4b94d518232869db40ffdb,
+  YarnScript: {fileID: -8253061345870894857, guid: cf6bd0576ff8940a8aa6dc9d8dada40e,
     type: 3}
-  IdDisplay: G
+  IdDisplay: 12
   Version: 100
-  Status: 0
-  TitleEn: Template
+  Status: 1
+  TitleEn: Louvre Museum
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
     m_TableEntryReference:
-      m_KeyId: 5382939108958208
+      m_KeyId: 67430902618120192
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -34,28 +34,29 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
     m_TableEntryReference:
-      m_KeyId: 14500280191148032
+      m_KeyId: 67430946125635584
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Country: 0
+  Country: 2
   Location: {fileID: 0}
   Thumbnail: {fileID: 0}
   Subjects: []
   Subject: 2
-  Topics: []
+  Topics:
+  - {fileID: 11400000, guid: cdfe435401e4447d8a06a855193a1268, type: 2}
   Cards: []
   Words: []
   targetAge: 2
-  Difficulty: 2
+  Difficulty: 3
   Duration: 15
   ProgressPoints: 0
   Dependencies: []
   Gameplay: 
   cookies: 0
   IsPublic: 1
-  IsScriptPublic: 1
+  IsScriptPublic: 0
   ForumUrl: https://antura.discourse.group/t/fr-00-the-neighbors-of-france/22
   GoogleSheetUrl: https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815
   TeacherResources: {fileID: 0}
@@ -97,7 +98,7 @@ MonoBehaviour:
   scene: discover fr_12 louvre
   QuestStringsTable:
     m_TableReference:
-      m_TableCollectionName: GUID:9481a1e17b8714c969d2c646ab788881
+      m_TableCollectionName: GUID:ff4833185c6a2410897bc834166c1556
   QuestAssetsTable:
     m_TableReference:
       m_TableCollectionName: GUID:20c31ba06b6314d168b7bd445d24ea77
