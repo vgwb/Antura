@@ -46,15 +46,16 @@ actor: NARRATOR
 ---
 <<set $TOTAL_COINS = 0>>
 <<declare $BAGUETTE_STEP = 0>>
+<<declare $met_tutor = false>>
 <<area area_init>>
 <<card capital_paris>>
-We are in Paris, the Capital of France. #line:start 
+We are in Paris, the capital of France. #line:start 
 <<card eiffel_tower>>
 Today we will explore the Eiffel Tower #line:start_1
 <<card notre_dame_de_paris>>
-and Notre Dame Cathedral. #line:start_1a
+and Notre-Dame. #line:start_1a
 <<card food_baguette>>
-but first, let's have a baguette! #line:start_1b
+But first, let's eat a baguette! #line:start_1b
 <<target tutor>>
 Are you ready? Let's start! #line:start_2
 ===
@@ -88,17 +89,21 @@ position: 300,-663
 actor:
 color: blue
 ---
-<<target off>>
-<<card capital_paris>>
-Hallo and welcome to Paris! #line:talk_tutor_0
-Have you ever been here? #line:talk_tutor_0a
--> Yes! #line:talk_tutor_0b
-   Great! Let's see if you remember these places. #line:talk_tutor_0c
--> No. #line:talk_tutor_0d
-   I hope you will come here, someday! #line:talk_tutor_0e
-I saw Antura go to the baker. Let's go and talk to him! #line:talk_tutor
-<<area area_bakery>>
-<<target baker>>
+<<if $met_tutor == false>>
+    <<set $met_tutor = true>>
+    <<target off>>
+    <<card capital_paris>>
+    Hello! Have you ever been here in Paris! #line:talk_tutor_0
+    -> Yes! #line:talk_tutor_0b
+        Great! Let's see if you remember these places. #line:talk_tutor_0c
+    -> No. #line:talk_tutor_0d
+        I hope you can come here one day! #line:talk_tutor_0e
+    I saw Antura go to the baker. Let's go there! #line:talk_tutor
+    <<area area_bakery>>
+    <<target baker>>
+<<else>>
+    <<jump spawned_man>>
+<<endif>>
 ===
 
 title: talk_baker
@@ -110,21 +115,24 @@ color: purple
 <<if $BAGUETTE_STEP == 1>>
     Great! We have flour. #line:baker_r1
     <<card food_salt>>
-    Now i need the salt. #line:06cccc0 
+    Now I need the salt. #line:06cccc0 
     // <<card notre_dame_de_paris>>
     <<camera_focus camera_notredame>>
-    Go to Notre-Dame. #line:baker_r2
+    Go to Notre-Dame. #line:baker_r2 #task:go_notredame
+    <<task_start go_notredame>>
     <<target npc_notredame>>
 <<elseif $BAGUETTE_STEP == 2>>
     Salt! Well done. #line:baker_r3
     <<card louvre>>
     <<camera_focus camera_louvre>>
-    Antura stole the water going to the Louvre. #line:baker_r4
+    Antura took the water and went to the Louvre. #line:baker_r4 #task:go_louvre
+    <<task_start go_louvre>>
     <<target npc_louvre>>
 <<elseif $BAGUETTE_STEP == 3>>
     Perfect! We have water. #line:baker_r5
     <<camera_focus camera_arc>>
-    Maybe the yeast is at the Arc de Triomphe. #line:baker_r6
+    Maybe the yeast is at the Arc de Triomphe. #line:baker_r6 #task:go_arc
+    <<task_start go_arc>>
     <<target npc_arc>>
 <<elseif $BAGUETTE_STEP == 4>>
     <<jump baker_finish>>
@@ -141,7 +149,7 @@ color: purple
     <<camera_focus camera_eiffell>>
     Go to the Eiffel Tower. #line:baker_5 #task:go_eiffell
     <<set $BAGUETTE_STEP = 0>>
-    <<target eiffell>>
+    <<target npc_eiffell_ticket>>
     <<area area_all>>
     <<task_start go_eiffell>>
 <<endif>>
@@ -193,8 +201,9 @@ actor: SENIOR_M
 <<card food_salt>>
 You found salt. #line:00f1d2f 
 <<set $BAGUETTE_STEP = 2>>
-Go back to the baker. #shadow:go_back_baker 
+Go back to the baker. #shadow:go_back_baker #task:go_baker 
 <<target baker>>
+<<task_start go_baker>>
 ===
 
 
@@ -207,8 +216,9 @@ actor: SENIOR_M
 <<card food_water>>
 This is water. #line:0c4d1f6
 <<set $BAGUETTE_STEP = 3>>
-Go back to the baker. #shadow:go_back_baker 
+Go back to the baker. #shadow:go_back_baker #task:go_baker
 <<target baker>>
+<<task_start go_baker>>
 ===
 
 title: baguette_yeast
@@ -220,8 +230,9 @@ actor: SENIOR_M
 <<card food_yeast>>
 You found yeast! #line:025865d
 <<set $BAGUETTE_STEP = 4>>
-Go back to the baker. #shadow:go_back_baker 
+Go back to the baker. #shadow:go_back_baker #task:go_baker
 <<target baker>>
+<<task_start go_baker>>
 ===
 
 
@@ -236,25 +247,35 @@ actor: GUIDE_F
 <<target off>>
 Good morning. What do you want? #line:09e454b 
 -> A ticket to go up the Eiffel Tower. #line:0141851 
-    <<if GetTotalCoins() > 4>>
+    <<if HasCompletedTask("collect_coins")>>
         <<card eiffel_tower_ticket>>
         Here is your ticket. #line:04e74ad 
-        <<set $TOTAL_COINS = $TOTAL_COINS - 3>>
-        <<action area_toureiffel>>
-        I saw Antura going up to the top of the tower. #line:089abda 
+        <<action activate_elevator>>
+        I saw Antura going up to the top of the tower. #line:089abda
+        <<target npc_eiffell_roof>>
         <<card eiffel_tower_map>>
-        Take the elevator! #line:0585a5e 
-    <<elseif GetTotalCoins() > 0>> 
-        The ticket costs 5 coins #line:069cbb3
+        Take the elevator or use the stairs! #line:0585a5e 
+    <<elseif GetCurrentTask() == "collect_coins">>
+        The ticket costs 5 coins. #line:069cbb3
         Look around and pick up coins. #shadow:0097a65
     <<else>>
-        You need coins to buy a ticket. #line:０6b5e2c
-        Look around and pick up coins. #line:0097a65
+        The ticket costs 5 coins. #shadow:069cbb3
+        Look around and pick up coins. #line:0097a65 #task:collect_coins
+        <<task_start collect_coins coins_collected>>
     <<endif>>
 -> A baguette. #line:03dc852 
    There is a bakery near here. But it opens later. #line:0cbdcce 
 -> Just to look around. #line:0718e4a 
    Enjoy your visit! #line:006fcf2 
+===
+
+title: coins_collected
+position: 584,-443
+group: toureiffel
+actor: GUIDE_F
+---
+You have enough coins now to buy the ticket. #line:0ba42cd 
+<<target npc_eiffell_ticket>>
 ===
 
 title: talk_eiffell_guide
@@ -266,8 +287,8 @@ spawn_group: generic
 ---
 Hello. What do you want to know? #line:0070084 
 -> What is the Eiffel Tower? #line:0d91dc0 
-    A tall iron tower, 300 meters high. #line:0f17af0 
-    It is a special sign of Paris! #line:07a113f 
+    A tall iron tower, about 300 meters high. #line:0f17af0 
+    It is a special symbol of Paris! #line:07a113f 
 -> Where are we? #line:09dd1da 
     We are in Paris. #line:02b627d 
 -> Is this place real? #line:08bede4 
@@ -282,10 +303,11 @@ position: 319,-444
 group: toureiffel
 actor: GUIDE_F
 ---
+<<target off>>
+<<card eiffel_tower>>
+Welcome to the top of the Eiffel Tower! #line:0da46e8 
 <<card eiffel_tower_map>>
 The Eiffel Tower is 300 meters tall. #line:08c1973 
-<<card eiffel_tower>>
-This is the famous Eiffel Tower. #line:08c1973a
 <<card gustave_eiffel>>
 Gustave Eiffel built it in 1887. #line:09e5c3b 
 <<card iron_material>>
@@ -303,6 +325,7 @@ group:
 Great! You solved the puzzle. #shadow:puzzle_done
 The chest is now unlocked. #line:chest_unlocked
 <<SetActive chest_flour true>>
+<<target chest_flour>>
 ===
 
 title: talk_notre_dame
@@ -316,11 +339,14 @@ actor: SENIOR_M
     <<card notre_dame_de_paris>>
     This is Notre-Dame Cathedral. #line:06f3fa2 
     <<card cathedral>>
-    Cathedral means a very big church. #line:06f3fa2_cathedral
+    A cathedral is a very big church. #line:06f3fa2_cathedral
     <<card church>>
     A church is a place where people go to pray. #line:fr01_notredame_base_3
     It is a very old church. It was built long ago. #line:0ac5a72 
-    Go up to the roof with that portal! #line:083dfcc 
+    Go up to the roof through that portal! #line:083dfcc
+    <<action activate_teleporter>>
+<<else>>
+    We already solved this part. #line:already_solved
 <<endif>>
 ===
 
@@ -330,9 +356,9 @@ group: notredame
 actor: SENIOR_M
 ---
 <<card notre_dame_de_paris_fire>>
-There was a big fire in 2019, but we repaired it. #line:09a0ead 
+There was a big fire in 2019, but it is fixed now. #line:09a0ead 
 To open the chest, solve the puzzle! #shadow:solve_puzzle
-<<activity jigsaw_notredame notredame_activity_done>>
+<<activity memory_notredame notredame_activity_done>>
 ===
 
 title: notredame_activity_done
@@ -342,6 +368,7 @@ group: arc_de_triomphe
 Great! You solved the puzzle. #shadow:puzzle_done
 The chest is now unlocked. #shadow:chest_unlocked
 <<SetActive chest_salt true>>
+<<target chest_salt>>
 ===
 
 
@@ -350,7 +377,7 @@ position: 634,-34
 group: notredame
 ---
 <<card gargoyle zoom>>
-Look at that statue! Isn't it scary? #line:0f7f9d8 
+Look at that statue! Is it scary? #line:0f7f9d8 
 ===
 
 ///// LOUVRE: puzzle -> chest unlock -> water
@@ -361,10 +388,16 @@ group: louvre
 actor: SENIOR_F
 ---
 <<target off>>
-<<card louvre>>
-This is the Louvre, the famous Museum. #line:louvre_0
-To open the chest, solve the puzzle! #shadow:solve_puzzle
-<<activity jigsaw_louvre louvre_activity_done>>
+<<if $BAGUETTE_STEP < 2>>
+    Come back later. #shadow:come_back_later
+<<elseif $BAGUETTE_STEP == 2>>
+    <<card louvre>>
+    This is the Louvre, a famous museum. #line:louvre_0
+    To open the chest, solve the puzzle! #shadow:solve_puzzle
+    <<activity jigsaw_louvre louvre_activity_done>>
+<<else>>
+    We already solved this part. #shadow:already_solved
+<<endif>>
 ===
 
 title: louvre_activity_done
@@ -383,11 +416,17 @@ position: 700,140
 group: arc_de_triomphe
 ---
 <<target off>>
-<<card arc_de_triomphe>>
-This is the Arc de Triomphe. #line:arc_0
-A monument to honor those who fought for France. #line:arc_0a
-To open the chest, solve the puzzle! #shadow:solve_puzzle
-<<activity jigsaw_arc arc_activity_done>>
+<<if $BAGUETTE_STEP < 3>>
+    Come back later. #shadow:come_back_later
+<<elseif $BAGUETTE_STEP == 3>>
+    <<card arc_de_triomphe>>
+    This is the Arc de Triomphe. #line:arc_0
+    It honors people who fought for France. #line:arc_0a
+    To open the chest, solve the puzzle! #shadow:solve_puzzle
+    <<activity jigsaw_arc arc_activity_done>>
+<<else>>
+    We already solved this part. #shadow:already_solved
+<<endif>>
 ===
 
 title: arc_activity_done
@@ -397,6 +436,7 @@ group: arc_de_triomphe
 Great! You solved the puzzle. #shadow:puzzle_done
 The chest is now unlocked. #shadow:chest_unlocked
 <<SetActive chest_yeast true>>
+<<target chest_yeast>>
 ===
 
 
@@ -474,7 +514,7 @@ color: purple
 spawn_group: generic
 ---
 <<card ile_de_france>>
-Paris is in a region called Île-de-France. #line:fr01_region_1
+Paris is in a place called Île-de-France. #line:fr01_region_1
 ===
 
 
@@ -485,6 +525,7 @@ color: purple
 spawn_group: bakery
 ---
 => Fresh bread smell makes people happy. #line:fr01_bakery_1
-=> A baguette uses flour, water, yeast, and salt. #line:fr01_bakery_2
+=> A baguette needs flour, water, yeast, and salt. #line:fr01_bakery_2
+=> Yeast helps bread rise. #line:fr01_bakery_2a
 => Bakers wake up very early to start making bread. #line:fr01_bakery_3
 ===
