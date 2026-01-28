@@ -38,7 +38,7 @@
 // - go_back_cook
 // ACTIVITIES
 // - hard_money_zloty
-// - match_ingredients
+// - match_ingredients_pl_06
 // - money_beekeper
 // - money_cheesemonger
 // - money_eggvendor
@@ -198,7 +198,7 @@ tags: activity
 ---
 <<card gingerbread_mold>>
 Match GINGERBREAD parts to their seller. #line:0e54683 
-<<activity match_ingredients activity_match_done>>
+<<activity match_ingredients_pl_06 activity_match_done>>
 ===
 
 title: activity_match_done
@@ -206,7 +206,7 @@ position: 1306,1348
 group: cook
 actor: 
 ---
-<<if GetActivityResult("match_ingredients") > 0>>
+<<if GetActivityResult("match_ingredients_pl_06") > 0>>
 Well done! You matched all the ingredients. #line:01648b2
 <<card gingerbread>>
 Now I can cook the GINGERBREAD! #line:0f0f617 
@@ -229,7 +229,7 @@ actor: SENIOR_F
 tags: noRepeatLastLine
 color: blue
 ---
-<<if GetActivityResult("money_grocer") > 0>>
+<<if GetActivityResult("money_grocer_pl_06") > 0>>
    You already bought from me! #line:already_bought
    Do you want to play again? #line:play_again
    -> Yes #line:yes
@@ -280,7 +280,7 @@ color: purple
 ---
 <<card currency_zloty>>
 Pick the right coins to pay. #line:select_money
-<<activity money_grocer grocer_payment_done>>
+<<activity money_grocer_pl_06 grocer_payment_done>>
 ===
 
 
@@ -389,7 +389,7 @@ group: cheesemonger
 actor: ADULT_F
 tags: noRepeatLastLine
 ---
-<<if GetActivityResult("money_cheesemonger") > 0>>
+<<if GetActivityResult("money_cheesemonger_pl_06") > 0>>
    You already bought from me! #shadow:already_bought
    Do you want to play again? #shadow:play_again
    -> Yes #shadow:yes
@@ -440,7 +440,7 @@ color: purple
 ---
 <<card currency_zloty>>
 Pick the right coins to pay. #shadow:select_money
-<<activity money_cheesemonger cheesemonger_payment_done>>
+<<activity money_cheesemonger_pl_06 cheesemonger_payment_done>>
 ===
 
 title: cheesemonger_payment_done
