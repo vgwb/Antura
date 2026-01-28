@@ -93,7 +93,7 @@ color: blue
     <<set $met_tutor = true>>
     <<target off>>
     <<card capital_paris>>
-    Hello! Have you ever been here in Paris! #line:talk_tutor_0
+    Hello! Have you ever been here in Paris? #line:talk_tutor_0
     -> Yes! #line:talk_tutor_0b
         Great! Let's see if you remember these places. #line:talk_tutor_0c
     -> No. #line:talk_tutor_0d
@@ -116,7 +116,6 @@ color: purple
     Great! We have flour. #line:baker_r1
     <<card food_salt>>
     Now I need the salt. #line:06cccc0 
-    // <<card notre_dame_de_paris>>
     <<camera_focus camera_notredame>>
     Go to Notre-Dame. #line:baker_r2 #task:go_notredame
     <<task_start go_notredame>>
@@ -173,7 +172,6 @@ position: 700,140
 group: 
 ---
 Great! You solved the puzzle. #line:puzzle_done
-Paris smells like fresh bread! #line:baker_finish_2
 <<jump quest_end>>
 ===
 
@@ -249,7 +247,7 @@ Good morning. What do you want? #line:09e454b
 -> A ticket to go up the Eiffel Tower. #line:0141851 
     <<if HasCompletedTask("collect_coins")>>
         Select the money to pay. #line:0f44ea7 
-        <<activity money_eiffel ticket_payment_done>>
+        <<activity money_elevator ticket_payment_done>>
     <<elseif GetCurrentTask() == "collect_coins">>
         The ticket costs 5 coins. #line:069cbb3
         Look around and pick up coins. #shadow:0097a65
@@ -264,7 +262,7 @@ Good morning. What do you want? #line:09e454b
    Enjoy your visit! #line:006fcf2 
 ===
 
-title: ticked_payment_done
+title: ticket_payment_done
 position: 1117,550
 group: toureiffel
 actor: GUIDE_F
@@ -324,8 +322,10 @@ Gustave Eiffel built it in 1887. #line:09e5c3b
 It is made of iron! #line:0d59ade 
 <<card worlds_fair_1889>>
 It was built for a big fair long ago. #line:0d59ade_fair
-To open the chest, solve the puzzle! #line:solve_puzzle
-<<activity memory_eiffell eiffell_activity_done>>
+<<if GetActivityResult("memory_eiffell") < 1 >>
+    To open the chest, solve the puzzle! #line:solve_puzzle
+    <<activity memory_eiffell eiffell_activity_done>>
+<<endif>>
 ===
 
 title: eiffell_activity_done
@@ -404,7 +404,7 @@ actor: SENIOR_F
     <<card louvre>>
     This is the Louvre, a famous museum. #line:louvre_0
     To open the chest, solve the puzzle! #shadow:solve_puzzle
-    <<activity jigsaw_louvre louvre_activity_done>>
+    <<activity activity_louvre louvre_activity_done>>
 <<else>>
     We already solved this part. #shadow:already_solved
 <<endif>>
@@ -445,7 +445,9 @@ group: arc_de_triomphe
 ---
 Great! You solved the puzzle. #shadow:puzzle_done
 The chest is now unlocked. #shadow:chest_unlocked
+It is on the roof. use the teleporter to go there. #line:0d46853 
 <<SetActive chest_yeast true>>
+<<action activate_arc_teleporter>>
 <<target chest_yeast>>
 ===
 
