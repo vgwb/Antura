@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2026.01.28]
+
+### Added
+- Quest FR_01: Paris
+
+## changed
+- Unity 6.3 LTS
+- Home player selector: infinite players
+
+## [2026.01.12]
+
+### Added
+- Quest FR_02: School
+
+## changed
+- Unity 6.3 LTS
+
 ## [2025.11.30]
 
 ### Fixed
