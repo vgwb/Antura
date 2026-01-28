@@ -474,6 +474,49 @@ Well done! Go back to the robot #line:dev_test_task_done_1
 ===
 
 
+title: task_collect_ingredients
+position: 1232,2135
+tags:
+group: tasks
+color: green
+type: task
+---
+Collect the 2 ingredients! #task:collect_ingredients
+<<task_start collect_ingredients task_collect_ingredients_done>>
+===
+
+title: task_collect_ingredients_done
+position: 1232,2135
+tags:
+group: tasks
+color: green
+---
+Well done! You collected the 2 ingredients.
+===
+
+title: item_collectable_1
+position: -442,990
+color: yellow
+actor:
+tags: item
+---
+<<card food_honey>>
+Honey #line:0817d3c 
+<<collect>>
+===
+
+title: item_collectable_2
+position: -442,990
+color: yellow
+actor:
+tags: item
+---
+<<card food_sugar>>
+Sugar #line:05ad31e 
+<<collect>>
+===
+
+
 title: task_open_chest
 position: 1232,2135
 tags:
