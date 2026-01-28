@@ -131,7 +131,7 @@ color: purple
 <<else>>
     <<target off>>
     <<card person_baker>>
-    Hello! I am the baker. I make bread every day. #line:baker_0
+    Hello! I am a baker. I make bread every day. #line:baker_0
     <<card food_baguette>>
     Today I want to make a baguette... #line:baker_1
     But I lost the ingredients! #line:baker_2
@@ -139,10 +139,11 @@ color: purple
     A big blue dog stole my flour! #line:baker_3
     Can you help me find them? #line:baker_4
     <<camera_focus camera_eiffell>>
-    First, go to the Eiffel Tower. We need flour. #line:baker_5
+    Go to the Eiffel Tower. #line:baker_5 #task:go_eiffell
     <<set $BAGUETTE_STEP = 0>>
     <<target eiffell>>
     <<area area_all>>
+    <<task_start go_eiffell>>
 <<endif>>
 ===
 
@@ -177,8 +178,9 @@ actor: SENIOR_M
 <<card food_flour>>
 You found flour! #line:06022b0 
 <<set $BAGUETTE_STEP = 1>>
-Go back to the baker. #line:go_back_baker 
+Go back to the baker. #line:go_back_baker #task:go_baker
 <<target baker>>
+<<task_start go_baker>>
 ===
 
 
