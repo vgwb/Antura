@@ -248,13 +248,8 @@ actor: GUIDE_F
 Good morning. What do you want? #line:09e454b 
 -> A ticket to go up the Eiffel Tower. #line:0141851 
     <<if HasCompletedTask("collect_coins")>>
-        <<card eiffel_tower_ticket>>
-        Here is your ticket. #line:04e74ad 
-        <<action activate_elevator>>
-        I saw Antura going up to the top of the tower. #line:089abda
-        <<target npc_eiffell_roof>>
-        <<card eiffel_tower_map>>
-        Take the elevator or use the stairs! #line:0585a5e 
+        Select the money to pay. #line:0f44ea7 
+        <<activity money_eiffel ticket_payment_done>>
     <<elseif GetCurrentTask() == "collect_coins">>
         The ticket costs 5 coins. #line:069cbb3
         Look around and pick up coins. #shadow:0097a65
@@ -267,6 +262,21 @@ Good morning. What do you want? #line:09e454b
    There is a bakery near here. But it opens later. #line:0cbdcce 
 -> Just to look around. #line:0718e4a 
    Enjoy your visit! #line:006fcf2 
+===
+
+title: ticked_payment_done
+position: 1117,550
+group: toureiffel
+actor: GUIDE_F
+tags:
+---
+<<card eiffel_tower_ticket>>
+Here is your ticket. #line:04e74ad 
+<<action activate_elevator>>
+I saw Antura going up to the top of the tower. #line:089abda
+<<target npc_eiffell_roof>>
+<<card eiffel_tower_map>>
+Take the elevator or use the stairs! #line:0585a5e 
 ===
 
 title: coins_collected
