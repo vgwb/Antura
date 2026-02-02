@@ -26,7 +26,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $got_backpack = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Backpack false&gt;&gt;</span>
 <span class="yarn-line">Benvenuti ad Angers! È il primo giorno di scuola!</span> <span class="yarn-meta">#line:014887e </span>
-<span class="yarn-line">Hai 10 anni e frequenti l'ultimo anno della scuola elementare.</span> <span class="yarn-meta">#line:063e8e0 </span>
+<span class="yarn-line">Hai 10 anni e frequenti l'ultimo anno della SCUOLA PRIMARIA.</span> <span class="yarn-meta">#line:063e8e0 </span>
 <span class="yarn-line">Trova la tua scuola e la tua classe!</span> <span class="yarn-meta">#line:0f65a1b #task:TASK_SCHOOL</span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_SCHOOL task_find_school_done&gt;&gt;</span>
 
@@ -46,7 +46,6 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Il gioco è completato! Congratulazioni!</span> <span class="yarn-meta">#line:022962d </span>
 <span class="yarn-line">Questo è il nostro giorno di scuola</span> <span class="yarn-meta">#line:038dacc </span>
-
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -109,9 +108,9 @@ hide:
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card education_ecole_maternelle_fr&gt;&gt;</span>
 <span class="yarn-line">Benvenuti! Questa è una scuola materna per bambini dai 3 ai 5 anni.</span> <span class="yarn-meta">#line:096b721 </span>
 <span class="yarn-line">Sei troppo grande per le nostre piccole sedie. La tua scuola è vicina.</span> <span class="yarn-meta">#line:07ed07b </span>
-
 
 </code>
 </pre>
@@ -143,10 +142,29 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: GUIDE_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Buongiorno! Benvenuti! L'avete trovato. Questa è la vostra scuola elementare.</span> <span class="yarn-meta">#line:092b309 </span>
+<span class="yarn-cmd">&lt;&lt;card education_ecole_primaire_fr&gt;&gt;</span>
+<span class="yarn-line">Buongiorno! Benvenuti! L'avete trovato. Questa è la vostra scuola elementare.</span> <span class="yarn-meta">#line:092b309</span>
+<span class="yarn-cmd">&lt;&lt;card school_bag&gt;&gt;</span>
 <span class="yarn-line">Sembra che tu abbia dimenticato lo zaino.</span> <span class="yarn-meta">#line:0dd7977 </span>
 <span class="yarn-line">Hai bisogno dei tuoi libri per la lezione.</span> <span class="yarn-meta">#line:044385f </span>
 <span class="yarn-cmd">&lt;&lt;jump task_backpack&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-school-2-talk"></a>
+
+## school_2_talk
+
+<div class="yarn-node" data-title="school_2_talk">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: GUIDE_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Ecco fatto! Entriamo e iniziamo la lezione.</span> <span class="yarn-meta">#line:0624437 </span>
+<span class="yarn-cmd">&lt;&lt;action door_open_2&gt;&gt;</span>
+<span class="yarn-line">Entrate! La vostra aula è in fondo al corridoio.</span> <span class="yarn-meta">#line:0b91268 </span>
+<span class="yarn-cmd">&lt;&lt;jump task_find_classroom &gt;&gt;</span>
 
 </code>
 </pre>
@@ -160,6 +178,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card education_lycee_fr&gt;&gt;</span>
 <span class="yarn-line">Ciao! Questa è una scuola media per ragazzi dagli 11 ai 15 anni.</span> <span class="yarn-meta">#line:06478e9 </span>
 <span class="yarn-line">Hai quasi l'età giusta, ma non ancora. Continua a cercare!</span> <span class="yarn-meta">#line:0df97f8 </span>
 
@@ -175,6 +194,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card education_college_fr&gt;&gt;</span>
 <span class="yarn-line">Buongiorno! Questa è una scuola superiore per ragazzi dai 16 ai 18 anni.</span> <span class="yarn-meta">#line:04a0e4b </span>
 <span class="yarn-line">Qui gli studenti studiano per l'esame di Baccalauréat prima di iscriversi all'università.</span> <span class="yarn-meta">#line:027eba1 </span>
 <span class="yarn-line">Sei troppo giovane. Prova un'altra scuola.</span> <span class="yarn-meta">#line:0630d14 </span>
@@ -192,14 +212,15 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("order_schools_settings") &gt; 0&gt;&gt;
-<span class="yarn-line">    Ora vai a cercare la tua scuola!</span> <span class="yarn-meta">#line:0b22d07 </span>
+<span class="yarn-line">  Ora vai a cercare la tua scuola!</span> <span class="yarn-meta">#line:0b22d07 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Ciao! Ho trovato uno zaino mentre venivo qui.</span> <span class="yarn-meta">#line:0c3b4fe </span>
-<span class="yarn-line">    Questi libri sono più semplici di quelli che usano i miei studenti.</span> <span class="yarn-meta">#line:04da48b </span>
-<span class="yarn-line">    Forse è tuo?</span> <span class="yarn-meta">#line:0ce9646 </span>
-<span class="yarn-line">    Ma prima devi guadagnartelo!</span> <span class="yarn-meta">#line:094eace </span>
-<span class="yarn-line">    Qual è l'ordine delle scuole?</span> <span class="yarn-meta">#line:092fccb </span>
-    <span class="yarn-cmd">&lt;&lt;activity order_schools_settings schools_activity_done&gt;&gt;</span>
+  <span class="yarn-cmd">&lt;&lt;card school_bag&gt;&gt;</span>
+<span class="yarn-line">  Ciao! Ho trovato uno zaino mentre venivo qui.</span> <span class="yarn-meta">#line:0c3b4fe </span>
+<span class="yarn-line">  Questi libri sono più semplici di quelli che usano i miei studenti.</span> <span class="yarn-meta">#line:04da48b </span>
+<span class="yarn-line">  Forse è tuo?</span> <span class="yarn-meta">#line:0ce9646 </span>
+<span class="yarn-line">  Ma prima devi guadagnartelo!</span> <span class="yarn-meta">#line:094eace </span>
+<span class="yarn-line">  Qual è l'ordine delle scuole?</span> <span class="yarn-meta">#line:092fccb </span>
+  <span class="yarn-cmd">&lt;&lt;activity order_schools_settings schools_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -226,23 +247,6 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-school-2-talk"></a>
-
-## school_2_talk
-
-<div class="yarn-node" data-title="school_2_talk">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: GUIDE_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ecco fatto! Entriamo e iniziamo la lezione.</span> <span class="yarn-meta">#line:0624437 </span>
-<span class="yarn-cmd">&lt;&lt;action door_open_2&gt;&gt;</span>
-<span class="yarn-line">Entrate! La vostra aula è in fondo al corridoio.</span> <span class="yarn-meta">#line:0b91268 </span>
-<span class="yarn-cmd">&lt;&lt;jump task_find_classroom &gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
 <a id="ys-node-task-find-classroom"></a>
 
 ## task_find_classroom
@@ -252,7 +256,7 @@ hide:
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">COMPITO: Trova la tua classe.</span> <span class="yarn-meta">#line:058ddbc #task:TASK_CLASSROOM</span>
+<span class="yarn-line">Trova la tua classe.</span> <span class="yarn-meta">#line:058ddbc #task:TASK_CLASSROOM</span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_CLASSROOM task_class_done&gt;&gt;</span>
 
 </code>
@@ -421,6 +425,7 @@ hide:
 <span class="yarn-header-dim">tags:  task</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card school_bag&gt;&gt;</span>
 <span class="yarn-line">Trova il tuo zaino e poi torna indietro.</span> <span class="yarn-meta">#line:0e3ad75 #task:TASK_BACKPACK</span>
 <span class="yarn-line">Forse qualcuno ce l'ha,</span> <span class="yarn-meta">#line:0b43290 </span>
 <span class="yarn-line">Prova a chiedere in giro.</span> <span class="yarn-meta">#line:0c282e5 </span>
@@ -565,7 +570,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La scuola è aperta dalle 8:00 alle 16:00.</span> <span class="yarn-meta">#line:0f6b039 </span>
 <span class="yarn-line">Portatevi il pranzo o mangiate alla mensa.</span> <span class="yarn-meta">#line:008ffb5 </span>
-<span class="yarn-line">Impariamo a scrivere in corsivo.</span> <span class="yarn-meta">#line:0d88d5b </span>
+<span class="yarn-line">Impariamo a scrivere in corsivo.</span> <span class="yarn-meta">#line:0d88d5b #card:concept_cursive_writing</span>
 
 </code>
 </pre>

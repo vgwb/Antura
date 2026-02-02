@@ -6,7 +6,8 @@ hide:
 # Paris ! (fr_01) - Script
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-01-paris/23/1)  
-> **Improve translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=755037318#gid=755037318)  
+> **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=755037318#gid=755037318)  
+> **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_01%20Paris/FR_01%20Paris%20-%20Yarn%20Script.yarn)  
 
 <a id="ys-node-quest-start"></a>
@@ -23,15 +24,19 @@ hide:
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $QUEST_ITEMS = 0&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $MET_GUIDE = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $MET_MAJOR = false&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;declare $MET_MONALISA = false&gt;&gt;</span>
-
-<span class="yarn-line">Bienvenue à Paris !</span> <span class="yarn-meta">#line:start </span>
+<span class="yarn-cmd">&lt;&lt;declare $BAGUETTE_STEP = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $met_tutor = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
+<span class="yarn-line">Nous sommes à Paris, la capitale de la France.</span> <span class="yarn-meta">#line:start </span>
+<span class="yarn-cmd">&lt;&lt;card eiffel_tower&gt;&gt;</span>
+<span class="yarn-line">Aujourd'hui, nous allons explorer la Tour Eiffel</span> <span class="yarn-meta">#line:start_1</span>
+<span class="yarn-cmd">&lt;&lt;card notre_dame_de_paris&gt;&gt;</span>
+<span class="yarn-line">et Notre-Dame</span> <span class="yarn-meta">#line:start_1a</span>
+<span class="yarn-cmd">&lt;&lt;card food_baguette&gt;&gt;</span>
+<span class="yarn-line">Mais d'abord, prenons une baguette !</span> <span class="yarn-meta">#line:start_1b</span>
 <span class="yarn-cmd">&lt;&lt;target tutor&gt;&gt;</span>
-<span class="yarn-line">Va parler au tuteur !</span> <span class="yarn-meta">#line:start_2</span>
+<span class="yarn-line">Êtes-vous prêts ? C'est parti !</span> <span class="yarn-meta">#line:start_2</span>
 
 </code>
 </pre>
@@ -47,9 +52,9 @@ hide:
 <span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
-
-<span class="yarn-line">Super ! Je peux maintenant faire cuire la baguette. Et…</span> <span class="yarn-meta">#line:0017917 </span>
-<span class="yarn-line">FÉLICITATIONS ! Vous avez gagné ! Vous avez aimé ?</span> <span class="yarn-meta">#line:0d11596 </span>
+<span class="yarn-line">Félicitations!</span> <span class="yarn-meta">#line:0d11596 </span>
+<span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
+<span class="yarn-line">Paris vous a plu ?</span> <span class="yarn-meta">#line:0d11596a</span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -66,9 +71,9 @@ hide:
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
-
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Pourquoi ne dessines-tu pas la Tour Eiffel ?</span> <span class="yarn-meta">#line:002620f </span>
+<span class="yarn-cmd">&lt;&lt;card eiffel_tower&gt;&gt;</span>
+<span class="yarn-line">Veux-tu dessiner la Tour Eiffel ?</span> <span class="yarn-meta">#line:002620f</span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -84,430 +89,111 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
-<span class="yarn-line">J'ai vu Antura aller à la Tour Eiffel.</span> <span class="yarn-meta">#line:talk_tutor</span>
-<span class="yarn-cmd">&lt;&lt;camera_focus tour_eiffell&gt;&gt;</span>
-<span class="yarn-line">Suivez la lumière ou utilisez la carte !</span> <span class="yarn-meta">#line:talk_tutor_2 </span>
-<span class="yarn-line">Allez-y maintenant !</span> <span class="yarn-meta">#line:talk_tutor_3 </span>
-<span class="yarn-cmd">&lt;&lt;target eiffell&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $met_tutor == false&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $met_tutor = true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
+<span class="yarn-line">    Bonjour ! Êtes-vous déjà venu à Paris ?</span> <span class="yarn-meta">#line:talk_tutor_0</span>
+<span class="yarn-line">    Oui!</span> <span class="yarn-meta">#line:talk_tutor_0b</span>
+<span class="yarn-line">        Super ! Voyons si vous vous souvenez de ces endroits.</span> <span class="yarn-meta">#line:talk_tutor_0c</span>
+<span class="yarn-line">    Non.</span> <span class="yarn-meta">#line:talk_tutor_0d</span>
+<span class="yarn-line">        J'espère que vous viendrez ici un jour !</span> <span class="yarn-meta">#line:talk_tutor_0e</span>
+<span class="yarn-line">    J'ai vu Antura aller chez le boulanger. Allons-y !</span> <span class="yarn-meta">#line:talk_tutor</span>
+    <span class="yarn-cmd">&lt;&lt;area area_bakery&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_man&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-talk-eiffell-roof"></a>
+<a id="ys-node-talk-baker"></a>
 
-## talk_eiffell_roof
+## talk_baker
 
-<div class="yarn-node" data-title="talk_eiffell_roof">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: toureiffel</span>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset toureiffell&gt;&gt;</span>
-<span class="yarn-line">La tour Eiffel mesure 300 mètres de haut.</span> <span class="yarn-meta">#line:08c1973 </span>
-<span class="yarn-cmd">&lt;&lt;asset mr_eiffel&gt;&gt;</span>
-<span class="yarn-line">Construit par Monsieur Eiffel en 1887.</span> <span class="yarn-meta">#line:09e5c3b </span>
-<span class="yarn-cmd">&lt;&lt;asset iron&gt;&gt;</span>
-<span class="yarn-line">C'est fait de fer !</span> <span class="yarn-meta">#line:0d59ade </span>
-<span class="yarn-line">J'ai vu Antura se diriger vers Notre Dame.</span> <span class="yarn-meta">#line:04d1e52 </span>
-<span class="yarn-cmd">&lt;&lt;camera_focus notredame&gt;&gt;</span>
-<span class="yarn-line">Allez-y !</span> <span class="yarn-meta">#line:083b3bf </span>
-
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-talk-eiffell-guide"></a>
-
-## talk_eiffell_guide
-
-<div class="yarn-node" data-title="talk_eiffell_guide">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: toureiffel</span>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
+<div class="yarn-node" data-title="talk_baker">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
-&lt;&lt;if GetTotalCoins() &gt; 2&gt;&gt;
-<span class="yarn-line">    Voici votre billet.</span> <span class="yarn-meta">#line:04e74ad </span>
-    <span class="yarn-cmd">&lt;&lt;asset tour_eiffell_ticket&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = $TOTAL_COINS-3&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;action area_toureiffel&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;asset tour_eiffell_map&gt;&gt;</span>
-<span class="yarn-line">    J'ai vu Antura monter au sommet de la tour.</span> <span class="yarn-meta">#line:089abda </span>
-<span class="yarn-line">    Prenez l'ascenseur !</span> <span class="yarn-meta">#line:0585a5e </span>
-&lt;&lt;elseif GetTotalCoins() &gt; 0&gt;&gt; 
-<span class="yarn-line">    Collectez toutes les pièces !</span> <span class="yarn-meta">#line:04d966b </span>
+<span class="yarn-cmd">&lt;&lt;if $BAGUETTE_STEP == 1&gt;&gt;</span>
+<span class="yarn-line">    Super ! Nous avons de la farine.</span> <span class="yarn-meta">#line:baker_r1</span>
+    <span class="yarn-cmd">&lt;&lt;card food_salt&gt;&gt;</span>
+<span class="yarn-line">    Maintenant, il me faut du sel.</span> <span class="yarn-meta">#line:06cccc0 </span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_notredame&gt;&gt;</span>
+<span class="yarn-line">    Allez à Notre-Dame.</span> <span class="yarn-meta">#line:baker_r2 #task:go_notredame</span>
+    <span class="yarn-cmd">&lt;&lt;task_start go_notredame&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target npc_notredame&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 2&gt;&gt;</span>
+<span class="yarn-line">    Du sel ! Bravo.</span> <span class="yarn-meta">#line:baker_r3</span>
+    <span class="yarn-cmd">&lt;&lt;card louvre&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_louvre&gt;&gt;</span>
+<span class="yarn-line">    Antura prit l'eau et se rendit au Louvre.</span> <span class="yarn-meta">#line:baker_r4 #task:go_louvre</span>
+    <span class="yarn-cmd">&lt;&lt;task_start go_louvre&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target npc_louvre&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 3&gt;&gt;</span>
+<span class="yarn-line">    Parfait ! Nous avons de l'eau.</span> <span class="yarn-meta">#line:baker_r5</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_arc&gt;&gt;</span>
+<span class="yarn-line">    Peut-être que la levure se trouve à l'Arc de Triomphe.</span> <span class="yarn-meta">#line:baker_r6 #task:go_arc</span>
+    <span class="yarn-cmd">&lt;&lt;task_start go_arc&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target npc_arc&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 4&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump baker_finish&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Le billet pour la Tour Eiffel coûte 3 pièces.</span> <span class="yarn-meta">#line:069cbb3 </span>
+    <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card person_baker&gt;&gt;</span>
+<span class="yarn-line">    Bonjour ! Je suis le boulanger. Je fais du pain tous les jours.</span> <span class="yarn-meta">#line:baker_0</span>
+    <span class="yarn-cmd">&lt;&lt;card food_baguette&gt;&gt;</span>
+<span class="yarn-line">    Aujourd'hui, j'ai envie de faire une baguette...</span> <span class="yarn-meta">#line:baker_1</span>
+<span class="yarn-line">    Mais j'ai perdu les ingrédients !</span> <span class="yarn-meta">#line:baker_2</span>
+    <span class="yarn-cmd">&lt;&lt;card food_flour&gt;&gt;</span>
+<span class="yarn-line">    Un gros chien bleu a volé ma farine !</span> <span class="yarn-meta">#line:baker_3</span>
+<span class="yarn-line">    Pouvez-vous m'aider à les trouver ?</span> <span class="yarn-meta">#line:baker_4</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_eiffell&gt;&gt;</span>
+<span class="yarn-line">    Allez à la Tour Eiffel.</span> <span class="yarn-meta">#line:baker_5 #task:go_eiffell</span>
+    <span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 0&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target npc_eiffell_ticket&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;task_start go_eiffell&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-talk-notre-dame"></a>
+<a id="ys-node-baker-finish"></a>
 
-## talk_notre_dame
+## baker_finish
 
-<div class="yarn-node" data-title="talk_notre_dame">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: notredame</span>
+<div class="yarn-node" data-title="baker_finish">
+<pre class="yarn-code" style="--node-color:green"><code>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Je suis le maire de Paris.</span> <span class="yarn-meta">#line:0cc11fa </span>
-<span class="yarn-line">C'est la cathédrale Notre-Dame.</span> <span class="yarn-meta">#line:06f3fa2 </span>
-<span class="yarn-cmd">&lt;&lt;card notredame zoom&gt;&gt;</span>
-<span class="yarn-line">C'est une célèbre église gothique, construite en 1182.</span> <span class="yarn-meta">#line:02edc0f </span>
-<span class="yarn-cmd">&lt;&lt;action AREA_NOTREDAME_ROOF&gt;&gt;</span>
-<span class="yarn-line">Viens avec moi sur le toit de l'église !</span> <span class="yarn-meta">#line:083dfcc </span>
-<span class="yarn-cmd">&lt;&lt;set $MET_MAJOR = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card food_baguette&gt;&gt;</span>
+<span class="yarn-line">Vous avez trouvé tous les ingrédients !</span> <span class="yarn-meta">#line:baker_finish_0</span>
+<span class="yarn-line">Maintenant, je peux faire une baguette.</span> <span class="yarn-meta">#line:baker_finish_1</span>
+<span class="yarn-line">Voyons si vous vous souvenez de ce que vous avez appris à Paris.</span> <span class="yarn-meta">#line:076b3e3 </span>
+<span class="yarn-cmd">&lt;&lt;activity match_paris_final final_activity_done&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-talk-notre-dame-roof"></a>
+<a id="ys-node-final-activity-done"></a>
 
-## talk_notre_dame_roof
+## final_activity_done
 
-<div class="yarn-node" data-title="talk_notre_dame_roof">
+<div class="yarn-node" data-title="final_activity_done">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: notredame</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">group: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset notredame_fire&gt;&gt;</span>
-<span class="yarn-line">Il y a eu un gros incendie en 2019, mais nous avons pu le réparer.</span> <span class="yarn-meta">#line:09a0ead </span>
-<span class="yarn-line">J'ai vu Antura courir dans le musée du Louvre.</span> <span class="yarn-meta">#line:02ba888 </span>
-<span class="yarn-line">C'est juste de l'autre côté de la Seine.</span> <span class="yarn-meta">#line:00d22e5 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-gargoyle"></a>
-
-## gargoyle
-
-<div class="yarn-node" data-title="gargoyle">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: notredame</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Regardez cette statue !</span> <span class="yarn-meta">#line:0f7f9d8 </span>
-<span class="yarn-cmd">&lt;&lt;card gargoyle zoom&gt;&gt;</span>
-<span class="yarn-line">N'est-ce pas effrayant ?</span> <span class="yarn-meta">#line:0b5d057 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-talk-louvre-external"></a>
-
-## talk_louvre_external
-
-<div class="yarn-node" data-title="talk_louvre_external">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">actor: SENIOR_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $MET_MONALISA&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card go_bakery&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;asset louvre&gt;&gt;</span>
-<span class="yarn-line">femme : C'est l'entrée du Louvre, notre musée d'art national.</span> <span class="yarn-meta">#line:0cf1cc8 </span>
-<span class="yarn-line">femme : Tu veux entrer ?</span> <span class="yarn-meta">#line:0f74ff9</span>
-<span class="yarn-line">Oui</span> <span class="yarn-meta">#line:090114f </span>
-<span class="yarn-line">    Bonne visite !</span> <span class="yarn-meta">#line:056e051 </span>
-    <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_ENTER &gt;&gt;</span>
-<span class="yarn-line">Non</span> <span class="yarn-meta">#line:077422a </span>
-<span class="yarn-line">    D'accord.</span> <span class="yarn-meta">#line:0c28ea0 #do_not_translate</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-talk-louvre-guide"></a>
-
-## talk_louvre_guide
-
-<div class="yarn-node" data-title="talk_louvre_guide">
-<pre class="yarn-code" style="--node-color:blue"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">color: blue</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bienvenue au musée du Louvre. Que souhaitez-vous faire ?</span> <span class="yarn-meta">#line:0e6d2a5 </span>
-<span class="yarn-line">Parlez-moi du Louvre</span> <span class="yarn-meta">#line:0a5fc63 </span>
-    <span class="yarn-cmd">&lt;&lt;jump visit_louvre&gt;&gt;</span>
-<span class="yarn-line">Sortie</span> <span class="yarn-meta">#line:0efc18f </span>
-    <span class="yarn-cmd">&lt;&lt;if $MET_MONALISA&gt;&gt;</span>
-        <span class="yarn-cmd">&lt;&lt;action AREA_LOUVRE_EXIT&gt;&gt;</span>
-<span class="yarn-line">        Revenir!</span> <span class="yarn-meta">#line:07dd921 </span>
-    <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-        <span class="yarn-cmd">&lt;&lt;jump find_monalisa&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-louvre-monalisa"></a>
-
-## louvre_monalisa
-
-<div class="yarn-node" data-title="louvre_monalisa">
-<pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset monalisa&gt;&gt;</span>
-<span class="yarn-line">C'est la célèbre Mona Lisa.</span> <span class="yarn-meta">#line:louvre_monalisa_1</span>
-<span class="yarn-cmd">&lt;&lt;set $MET_MONALISA = true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;asset leaonardodavinci&gt;&gt;</span>
-<span class="yarn-line">Léonard l'a peint vers 1500.</span> <span class="yarn-meta">#line:louvre_monalisa_2</span>
-<span class="yarn-line">par l'artiste Léonard de Vinci.</span> <span class="yarn-meta">#line:louvre_monalisa_3</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-louvre-liberty"></a>
-
-## louvre_liberty
-
-<div class="yarn-node" data-title="louvre_liberty">
-<pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset liberty_leading&gt;&gt;</span>
-<span class="yarn-line">Ce tableau représente la liberté.</span> <span class="yarn-meta">#line:louvre_liberty_1</span>
-<span class="yarn-line">Cela s'appelle La Liberté guidant le peuple.</span> <span class="yarn-meta">#line:louvre_liberty_2</span>
-<span class="yarn-line">par l'artiste français Eugène Delacroix.</span> <span class="yarn-meta">#line:louvre_liberty_3</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-louvre-venus"></a>
-
-## louvre_venus
-
-<div class="yarn-node" data-title="louvre_venus">
-<pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset venusmilo&gt;&gt;</span>
-<span class="yarn-line">La Vénus de Milo, une sculpture en marbre de la Grèce antique.</span> <span class="yarn-meta">#line:053d4fe </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-louvre-pyramid"></a>
-
-## npc_louvre_pyramid
-
-<div class="yarn-node" data-title="npc_louvre_pyramid">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: louvre</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card louvre_pyramid&gt;&gt;</span>
-<span class="yarn-line">Cette pyramide de verre est l'entrée principale du musée.</span> <span class="yarn-meta">#line:fr01_pyramid_1</span>
-<span class="yarn-line">Il a été construit dans les années 1980 pour accueillir davantage de visiteurs.</span> <span class="yarn-meta">#line:fr01_pyramid_2</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-code-of-hammurabi"></a>
-
-## npc_code_of_hammurabi
-
-<div class="yarn-node" data-title="npc_code_of_hammurabi">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: louvre</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card code_of_hammurabi&gt;&gt;</span>
-<span class="yarn-line">Cette pierre possède de très anciennes lois de l'ancienne Mésopotamie.</span> <span class="yarn-meta">#line:fr01_hammurabi_1</span>
-<span class="yarn-line">Ils ont été écrits il y a près de 4 000 ans.</span> <span class="yarn-meta">#line:fr01_hammurabi_2</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-coronation-of-napoleon-david"></a>
-
-## npc_coronation_of_napoleon_david
-
-<div class="yarn-node" data-title="npc_coronation_of_napoleon_david">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_M</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: louvre</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card coronation_of_napoleon_david&gt;&gt;</span>
-<span class="yarn-line">Ce grand tableau montre Napoléon devenant empereur.</span> <span class="yarn-meta">#line:fr01_coronation_1</span>
-<span class="yarn-line">L'artiste Jacques-Louis David a peint de nombreux détails.</span> <span class="yarn-meta">#line:fr01_coronation_2</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-oath-of-the-horatii-david"></a>
-
-## npc_oath_of_the_horatii_david
-
-<div class="yarn-node" data-title="npc_oath_of_the_horatii_david">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_M</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: louvre</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card oath_of_the_horatii_david&gt;&gt;</span>
-<span class="yarn-line">Ce tableau montre des frères faisant une promesse courageuse.</span> <span class="yarn-meta">#line:fr01_horatii_1</span>
-<span class="yarn-line">Il enseigne le devoir et le courage depuis la Rome antique.</span> <span class="yarn-meta">#line:fr01_horatii_2</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-the-seated-scribe"></a>
-
-## npc_the_seated_scribe
-
-<div class="yarn-node" data-title="npc_the_seated_scribe">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: louvre</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card the_seated_scribe&gt;&gt;</span>
-<span class="yarn-line">Cette statue représente un homme en train d'écrire dans l'Égypte ancienne.</span> <span class="yarn-meta">#line:fr01_scribe_1</span>
-<span class="yarn-line">Ses yeux semblent très réels et brillants.</span> <span class="yarn-meta">#line:fr01_scribe_2</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-winged-victory-of-samothrace"></a>
-
-## npc_winged_victory_of_samothrace
-
-<div class="yarn-node" data-title="npc_winged_victory_of_samothrace">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_M</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: louvre</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card winged_victory_of_samothrace&gt;&gt;</span>
-<span class="yarn-line">Cette statue représente une figure ailée atterrissant sur un navire.</span> <span class="yarn-meta">#line:fr01_victory_1</span>
-<span class="yarn-line">Le vent façonne ses vêtements et ses ailes.</span> <span class="yarn-meta">#line:fr01_victory_2</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-talk-cook"></a>
-
-## talk_cook
-
-<div class="yarn-node" data-title="talk_cook">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: bakery</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">---</span>
-&lt;&lt;if $COLLECTED_ITEMS &gt;= 4&gt;&gt;
-    <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Au secours ! Antura a mis le bazar dans ma cuisine !</span> <span class="yarn-meta">#line:07bbb10 </span>
-<span class="yarn-line">    Je ne trouve pas les ingrédients pour faire la baguette.</span> <span class="yarn-meta">#line:09e867c </span>
-    <span class="yarn-cmd">&lt;&lt;asset  baguette&gt;&gt;</span>
-<span class="yarn-line">    Notre pain français spécial !</span> <span class="yarn-meta">#line:0874503 </span>
-    <span class="yarn-cmd">&lt;&lt;set $QUEST_ITEMS = 4&gt;&gt;</span>
-<span class="yarn-line">    S'il vous plaît, apportez-moi 4 ingrédients :</span> <span class="yarn-meta">#line:07d64c7 </span>
-<span class="yarn-line">    farine, eau, levure et sel.</span> <span class="yarn-meta">#line:0c01530 </span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-visit-louvre"></a>
-
-## visit_louvre
-
-<div class="yarn-node" data-title="visit_louvre">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset louvre_inside&gt;&gt;</span>
-<span class="yarn-line">Vous pourrez y découvrir de nombreuses sculptures et peintures.</span> <span class="yarn-meta">#line:08dc97f </span>
-<span class="yarn-cmd">&lt;&lt;jump find_monalisa&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-find-monalisa"></a>
-
-## find_monalisa
-
-<div class="yarn-node" data-title="find_monalisa">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">---</span>
-
-<span class="yarn-cmd">&lt;&lt;action monalisa&gt;&gt;</span>
-<span class="yarn-line">Allez chercher la Joconde !</span> <span class="yarn-meta">#line:0442392 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-go-bakery"></a>
-
-## go_bakery
-
-<div class="yarn-node" data-title="go_bakery">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: louvre</span>
-<span class="yarn-header-dim">actor: SENIOR_F</span>
-<span class="yarn-header-dim">---</span>
- 
-<span class="yarn-line">Maintenant, cherchez Antura ! Elle est allée à la boulangerie chercher une baguette !</span> <span class="yarn-meta">#line:076ef0f </span>
-<span class="yarn-line">Dépêche-toi!</span> <span class="yarn-meta">#line:0e9c3e7 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-baguette-salt"></a>
-
-## baguette_salt
-
-<div class="yarn-node" data-title="baguette_salt">
-<pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">group: bakery</span>
-<span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;action COLLECT_1&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card baguette_salt&gt;&gt;</span>
-<span class="yarn-line">C'est du sel.</span> <span class="yarn-meta">#line:00f1d2f </span>
+<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#line:puzzle_done</span>
+<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>
 </pre>
@@ -523,9 +209,33 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;action COLLECT_2&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card baguette_flour&gt;&gt;</span>
-<span class="yarn-line">C'est de la farine.</span> <span class="yarn-meta">#line:06022b0 </span>
+<span class="yarn-cmd">&lt;&lt;card food_flour&gt;&gt;</span>
+<span class="yarn-line">Vous avez trouvé de la farine !</span> <span class="yarn-meta">#line:06022b0 </span>
+<span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 1&gt;&gt;</span>
+<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#line:go_back_baker #task:go_baker</span>
+<span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-baguette-salt"></a>
+
+## baguette_salt
+
+<div class="yarn-node" data-title="baguette_salt">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">group: bakery</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card food_salt&gt;&gt;</span>
+<span class="yarn-line">Vous avez trouvé du sel.</span> <span class="yarn-meta">#line:00f1d2f </span>
+<span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 2&gt;&gt;</span>
+<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker </span>
+<span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
 
 </code>
 </pre>
@@ -541,9 +251,12 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;action COLLECT_3&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card baguette_water&gt;&gt;</span>
-<span class="yarn-line">C'est de l'eau.</span> <span class="yarn-meta">#line:0c4d1f6 </span>
+<span class="yarn-cmd">&lt;&lt;card food_water&gt;&gt;</span>
+<span class="yarn-line">Ceci est de l'eau.</span> <span class="yarn-meta">#line:0c4d1f6</span>
+<span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 3&gt;&gt;</span>
+<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker</span>
+<span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
 
 </code>
 </pre>
@@ -559,39 +272,321 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;action COLLECT_4&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card baguette_yeast&gt;&gt;</span>
-<span class="yarn-line">C'est de la levure.</span> <span class="yarn-meta">#line:025865d </span>
+<span class="yarn-cmd">&lt;&lt;card food_yeast&gt;&gt;</span>
+<span class="yarn-line">Vous avez trouvé de la levure !</span> <span class="yarn-meta">#line:025865d</span>
+<span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 4&gt;&gt;</span>
+<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker</span>
+<span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-npc-french-guide"></a>
+<a id="ys-node-talk-eiffell-ticket"></a>
 
-## npc_french_guide
+## talk_eiffell_ticket
 
-<div class="yarn-node" data-title="npc_french_guide">
+<div class="yarn-node" data-title="talk_eiffell_ticket">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">////////// EIFFEL TOWER: pay 5 coins -&gt; roof -&gt; chest flour</span>
+<span class="yarn-header-dim">group: toureiffel</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+<span class="yarn-line">Bonjour. Que désirez-vous ?</span> <span class="yarn-meta">#line:09e454b </span>
+<span class="yarn-line">Un billet pour monter en haut de la Tour Eiffel.</span> <span class="yarn-meta">#line:0141851 </span>
+    <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("collect_coins")&gt;&gt;</span>
+<span class="yarn-line">        Sélectionnez le montant à payer.</span> <span class="yarn-meta">#line:0f44ea7 </span>
+        <span class="yarn-cmd">&lt;&lt;activity money_elevator ticket_payment_done&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "collect_coins"&gt;&gt;</span>
+<span class="yarn-line">        Le billet coûte 5 pièces</span> <span class="yarn-meta">#line:069cbb3</span>
+<span class="yarn-line">        Regardez autour de vous et ramassez les pièces.</span> <span class="yarn-meta">#shadow:0097a65</span>
+    <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">        Le billet coûte 5 pièces</span> <span class="yarn-meta">#shadow:069cbb3</span>
+<span class="yarn-line">        Regardez autour de vous et ramassez les pièces.</span> <span class="yarn-meta">#line:0097a65 #task:collect_coins</span>
+        <span class="yarn-cmd">&lt;&lt;task_start collect_coins coins_collected&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+<span class="yarn-line">Une baguette.</span> <span class="yarn-meta">#line:03dc852 </span>
+<span class="yarn-line">   Il y a une boulangerie près d'ici. Mais elle ouvre tard.</span> <span class="yarn-meta">#line:0cbdcce </span>
+<span class="yarn-line">Juste pour regarder autour de soi.</span> <span class="yarn-meta">#line:0718e4a </span>
+<span class="yarn-line">   Profitez de votre visite !</span> <span class="yarn-meta">#line:006fcf2 </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-ticket-payment-done"></a>
+
+## ticket_payment_done
+
+<div class="yarn-node" data-title="ticket_payment_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: toureiffel</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card eiffel_tower_ticket&gt;&gt;</span>
+<span class="yarn-line">Voici votre billet.</span> <span class="yarn-meta">#line:04e74ad </span>
+<span class="yarn-cmd">&lt;&lt;action activate_elevator&gt;&gt;</span>
+<span class="yarn-line">J'ai vu Antura monter au sommet de la tour.</span> <span class="yarn-meta">#line:089abda</span>
+<span class="yarn-cmd">&lt;&lt;target npc_eiffell_roof&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card eiffel_tower_map&gt;&gt;</span>
+<span class="yarn-line">Prenez l'ascenseur ou utilisez les escaliers !</span> <span class="yarn-meta">#line:0585a5e </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-coins-collected"></a>
+
+## coins_collected
+
+<div class="yarn-node" data-title="coins_collected">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: toureiffel</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Vous avez maintenant assez de pièces pour acheter le billet.</span> <span class="yarn-meta">#line:0ba42cd </span>
+<span class="yarn-cmd">&lt;&lt;target npc_eiffell_ticket&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-eiffell-guide"></a>
+
+## talk_eiffell_guide
+
+<div class="yarn-node" data-title="talk_eiffell_guide">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
-<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
-<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
-<span class="yarn-header-dim">// they will say one of these lines randomly</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: generic</span>
 
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Salut. Que veux-tu savoir ?</span> <span class="yarn-meta">#line:0070084 </span>
-<span class="yarn-line">Qu'est-ce que la Tour Eiffel ?</span> <span class="yarn-meta">#line:0d91dc0 </span>
-<span class="yarn-line">    La célèbre tour de fer, haute de 300 mètres.</span> <span class="yarn-meta">#line:0f17af0 </span>
-<span class="yarn-line">    Le symbole de Paris !</span> <span class="yarn-meta">#line:07a113f </span>
+<span class="yarn-line">Bonjour. Que voulez-vous savoir ?</span> <span class="yarn-meta">#line:0070084 </span>
+<span class="yarn-line">Qu'est-ce que la tour Eiffel ?</span> <span class="yarn-meta">#line:0d91dc0 </span>
+<span class="yarn-line">    Une haute tour en fer, d'environ 300 mètres de haut.</span> <span class="yarn-meta">#line:0f17af0 </span>
+<span class="yarn-line">    C'est un symbole emblématique de Paris !</span> <span class="yarn-meta">#line:07a113f </span>
 <span class="yarn-line">Où sommes-nous?</span> <span class="yarn-meta">#line:09dd1da </span>
-<span class="yarn-line">    Nous sommes à Paris, la ville de l'amour !</span> <span class="yarn-meta">#line:02b627d </span>
-<span class="yarn-line">Cet endroit est-il réel ?</span> <span class="yarn-meta">#line:08bede4 </span>
-<span class="yarn-line">    Bien sûr ! Pourquoi demandes-tu ça ?</span> <span class="yarn-meta">#line:08654e6 </span>
-<span class="yarn-line">    Eh bien... ça ressemble à un jeu vidéo, n'est-ce pas ?</span> <span class="yarn-meta">#line:0bc62a3 </span>
-<span class="yarn-line">Rien. Au revoir.</span> <span class="yarn-meta">#line:0fe0732 </span>
+<span class="yarn-line">    Nous sommes à Paris.</span> <span class="yarn-meta">#line:02b627d </span>
+<span class="yarn-line">Cet endroit existe-t-il vraiment ?</span> <span class="yarn-meta">#line:08bede4 </span>
+<span class="yarn-line">    Oui ! Pourquoi me posez-vous cette question ?</span> <span class="yarn-meta">#line:08654e6 </span>
+<span class="yarn-line">    Eh bien… on dirait un jeu vidéo.</span> <span class="yarn-meta">#line:0bc62a3 </span>
+<span class="yarn-line">Rien. Au revoir.</span> <span class="yarn-meta">#line:0fe0732 #highlight</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-eiffell-roof"></a>
+
+## talk_eiffell_roof
+
+<div class="yarn-node" data-title="talk_eiffell_roof">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: toureiffel</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card eiffel_tower&gt;&gt;</span>
+<span class="yarn-line">Bienvenue au sommet de la Tour Eiffel !</span> <span class="yarn-meta">#line:0da46e8 </span>
+<span class="yarn-cmd">&lt;&lt;card eiffel_tower_map&gt;&gt;</span>
+<span class="yarn-line">La tour Eiffel mesure 300 mètres de haut.</span> <span class="yarn-meta">#line:08c1973 </span>
+<span class="yarn-cmd">&lt;&lt;card gustave_eiffel&gt;&gt;</span>
+<span class="yarn-line">Gustave Eiffel l'a construit en 1887.</span> <span class="yarn-meta">#line:09e5c3b </span>
+<span class="yarn-cmd">&lt;&lt;card iron_material&gt;&gt;</span>
+<span class="yarn-line">Il est en fer !</span> <span class="yarn-meta">#line:0d59ade </span>
+<span class="yarn-cmd">&lt;&lt;card worlds_fair_1889&gt;&gt;</span>
+<span class="yarn-line">Il a été construit il y a longtemps pour une grande foire.</span> <span class="yarn-meta">#line:0d59ade_fair</span>
+&lt;&lt;if GetActivityResult("memory_eiffell") &lt; 1 &gt;&gt;
+<span class="yarn-line">    Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#line:solve_puzzle</span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_eiffell eiffell_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-eiffell-activity-done"></a>
+
+## eiffell_activity_done
+
+<div class="yarn-node" data-title="eiffell_activity_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#line:chest_unlocked</span>
+<span class="yarn-cmd">&lt;&lt;SetActive chest_flour true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target chest_flour&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-notre-dame"></a>
+
+## talk_notre_dame
+
+<div class="yarn-node" data-title="talk_notre_dame">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: notredame</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">---</span>
+&lt;&lt;if $BAGUETTE_STEP &lt; 1&gt;&gt;
+<span class="yarn-line">    Revenez plus tard.</span> <span class="yarn-meta">#line:come_back_later</span>
+<span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card notre_dame_de_paris&gt;&gt;</span>
+<span class="yarn-line">    Voici la cathédrale Notre-Dame.</span> <span class="yarn-meta">#line:06f3fa2 </span>
+    <span class="yarn-cmd">&lt;&lt;card cathedral&gt;&gt;</span>
+<span class="yarn-line">    Cathédrale signifie une très grande église.</span> <span class="yarn-meta">#line:06f3fa2_cathedral</span>
+    <span class="yarn-cmd">&lt;&lt;card church&gt;&gt;</span>
+<span class="yarn-line">    Une église est un lieu où les gens vont prier.</span> <span class="yarn-meta">#line:fr01_notredame_base_3</span>
+<span class="yarn-line">    C'est une très vieille église. Elle a été construite il y a très longtemps.</span> <span class="yarn-meta">#line:0ac5a72 </span>
+<span class="yarn-line">    Monte sur le toit avec ce portail !</span> <span class="yarn-meta">#line:083dfcc</span>
+    <span class="yarn-cmd">&lt;&lt;action activate_teleporter&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Nous avons déjà résolu cette partie.</span> <span class="yarn-meta">#line:already_solved</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-notre-dame-roof"></a>
+
+## talk_notre_dame_roof
+
+<div class="yarn-node" data-title="talk_notre_dame_roof">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: notredame</span>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card notre_dame_de_paris_fire&gt;&gt;</span>
+<span class="yarn-line">Il y a eu un gros incendie en 2019, mais nous l'avons réparé.</span> <span class="yarn-meta">#line:09a0ead </span>
+<span class="yarn-line">Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
+<span class="yarn-cmd">&lt;&lt;activity memory_notredame notredame_activity_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-notredame-activity-done"></a>
+
+## notredame_activity_done
+
+<div class="yarn-node" data-title="notredame_activity_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: arc_de_triomphe</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
+<span class="yarn-cmd">&lt;&lt;SetActive chest_salt true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target chest_salt&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-gargoyle"></a>
+
+## gargoyle
+
+<div class="yarn-node" data-title="gargoyle">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: notredame</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card gargoyle zoom&gt;&gt;</span>
+<span class="yarn-line">Regardez cette statue ! Elle n'est pas effrayante ?</span> <span class="yarn-meta">#line:0f7f9d8 </span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-louvre"></a>
+
+## talk_louvre
+
+<div class="yarn-node" data-title="talk_louvre">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">///// LOUVRE: puzzle -&gt; chest unlock -&gt; water</span>
+<span class="yarn-header-dim">group: louvre</span>
+<span class="yarn-header-dim">actor: SENIOR_F</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+&lt;&lt;if $BAGUETTE_STEP &lt; 2&gt;&gt;
+<span class="yarn-line">    Revenez plus tard.</span> <span class="yarn-meta">#shadow:come_back_later</span>
+<span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card louvre&gt;&gt;</span>
+<span class="yarn-line">    Voici le Louvre, un musée célèbre.</span> <span class="yarn-meta">#line:louvre_0</span>
+<span class="yarn-line">    Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
+    <span class="yarn-cmd">&lt;&lt;activity activity_louvre louvre_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Nous avons déjà résolu cette partie.</span> <span class="yarn-meta">#shadow:already_solved</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-louvre-activity-done"></a>
+
+## louvre_activity_done
+
+<div class="yarn-node" data-title="louvre_activity_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: arc_de_triomphe</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
+<span class="yarn-cmd">&lt;&lt;SetActive chest_water true&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-talk-arc"></a>
+
+## talk_arc
+
+<div class="yarn-node" data-title="talk_arc">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">///// ARC DE TRIOMPHE: puzzle -&gt; chest unlock -&gt; yeast</span>
+<span class="yarn-header-dim">group: arc_de_triomphe</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
+&lt;&lt;if $BAGUETTE_STEP &lt; 3&gt;&gt;
+<span class="yarn-line">    Revenez plus tard.</span> <span class="yarn-meta">#shadow:come_back_later</span>
+<span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 3&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card arc_de_triomphe&gt;&gt;</span>
+<span class="yarn-line">    Voici l'Arc de Triomphe.</span> <span class="yarn-meta">#line:arc_0</span>
+<span class="yarn-line">    Il rend hommage aux personnes qui ont combattu pour la France.</span> <span class="yarn-meta">#line:arc_0a</span>
+<span class="yarn-line">    Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_arc arc_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Nous avons déjà résolu cette partie.</span> <span class="yarn-meta">#shadow:already_solved</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-arc-activity-done"></a>
+
+## arc_activity_done
+
+<div class="yarn-node" data-title="arc_activity_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: arc_de_triomphe</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
+<span class="yarn-line">Il se trouve sur le toit. Utilisez le téléporteur pour y aller.</span> <span class="yarn-meta">#line:0d46853 </span>
+<span class="yarn-cmd">&lt;&lt;SetActive chest_yeast true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;action activate_arc_teleporter&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target chest_yeast&gt;&gt;</span>
 
 </code>
 </pre>
@@ -603,15 +598,19 @@ hide:
 
 <div class="yarn-node" data-title="spawned_eiffell_tourist">
 <pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
+<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
+<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
+<span class="yarn-header-dim">// they will say one of these lines randomly</span>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: eiffel_tower</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">J'aimerais monter sur la Tour Eiffel.</span> <span class="yarn-meta">#line:0aee9bb </span>
-<span class="yarn-line">Il faut un ticket pour monter.</span> <span class="yarn-meta">#line:09be864 </span>
-<span class="yarn-line">Il y a eu une grande foire à Paris en 1889.</span> <span class="yarn-meta">#line:0a3f4e1 </span>
-<span class="yarn-line">    C'était pour célébrer le 100e anniversaire de la Révolution française.</span> <span class="yarn-meta">#line:01fa210 </span>
-<span class="yarn-line">    La Tour Eiffel a été construite pour cet événement.</span> <span class="yarn-meta">#line:0d6f3c4 </span>
+<span class="yarn-line">J'aimerais monter en haut de la tour Eiffel.</span> <span class="yarn-meta">#line:0aee9bb </span>
+<span class="yarn-line">Il vous faut un billet pour monter.</span> <span class="yarn-meta">#line:09be864 </span>
+<span class="yarn-line">Il y eut une grande foire à Paris en 1889.</span> <span class="yarn-meta">#line:0a3f4e1 </span>
+<span class="yarn-line">    C'était pour célébrer un anniversaire important pour la France.</span> <span class="yarn-meta">#line:01fa210 </span>
+<span class="yarn-line">    La tour Eiffel a été construite pour cette grande fête.</span> <span class="yarn-meta">#line:0d6f3c4 </span>
 <span class="yarn-line">J'adore Paris !</span> <span class="yarn-meta">#line:0bda18a </span>
 
 </code>
@@ -628,34 +627,14 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: generic</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Avez-vous des questions?</span> <span class="yarn-meta">#line:07b94e9 </span>
+<span class="yarn-line">Avez-vous des questions ?</span> <span class="yarn-meta">#line:07b94e9 </span>
 <span class="yarn-line">Avez-vous vu Antura ?</span> <span class="yarn-meta">#line:0f18ad3 </span>
-<span class="yarn-line">    Oui ! Parlez à tout le monde et suivez les lumières !</span> <span class="yarn-meta">#line:0cf9b4e </span>
 <span class="yarn-line">    Non. Qui est Antura ?</span> <span class="yarn-meta">#line:0f9dd62 </span>
 <span class="yarn-line">Que fais-tu?</span> <span class="yarn-meta">#line:002796f </span>
-<span class="yarn-line">    Je vais au travail !</span> <span class="yarn-meta">#line:0fe4ff4 </span>
 <span class="yarn-line">    Je vais acheter du pain à la boulangerie.</span> <span class="yarn-meta">#line:05a38a8 </span>
 <span class="yarn-line">D'où viens-tu?</span> <span class="yarn-meta">#line:05eabcf </span>
 <span class="yarn-line">    Je ne suis pas né dans ce pays.</span> <span class="yarn-meta">#line:0635a6a </span>
-<span class="yarn-line">    De la planète Terre.</span> <span class="yarn-meta">#line:0749690 </span>
-<span class="yarn-line">Au revoir</span> <span class="yarn-meta">#line:0ee51fc </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-spawned-kid-m"></a>
-
-## spawned_kid_m
-
-<div class="yarn-node" data-title="spawned_kid_m">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: KID_M</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: kids</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Salut!</span> <span class="yarn-meta">#line:0c4d9e4 </span>
-<span class="yarn-line">Comment vas-tu?</span> <span class="yarn-meta">#line:032d401 </span>
+<span class="yarn-line">Au revoir</span> <span class="yarn-meta">#line:0ee51fc #highlight</span>
 
 </code>
 </pre>
@@ -671,45 +650,8 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: kids</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bonjour!</span> <span class="yarn-meta">#line:041403d </span>
+<span class="yarn-line">Bonjour !</span> <span class="yarn-meta">#line:041403d </span>
 <span class="yarn-line">Ça va ?</span> <span class="yarn-meta">#line:04986a3 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-louvre-museum"></a>
-
-## npc_louvre_museum
-
-<div class="yarn-node" data-title="npc_louvre_museum">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: louvre</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Le Louvre est l’un des plus grands musées du monde.</span> <span class="yarn-meta">#line:fr01_louvre_rand_1</span>
-<span class="yarn-line">Vous pouvez marcher ici pendant des heures sans toujours tout voir.</span> <span class="yarn-meta">#line:fr01_louvre_rand_2</span>
-<span class="yarn-line">De nombreuses œuvres d’art ici sont plus anciennes que les grands-parents de vos grands-parents.</span> <span class="yarn-meta">#line:fr01_louvre_rand_3</span>
-<span class="yarn-line">La pyramide de verre laisse entrer la lumière dans les salles situées en dessous.</span> <span class="yarn-meta">#line:fr01_louvre_rand_4</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-npc-notredame-base"></a>
-
-## npc_notredame_base
-
-<div class="yarn-node" data-title="npc_notredame_base">
-<pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">actor: GUIDE_M</span>
-<span class="yarn-header-dim">color: purple</span>
-<span class="yarn-header-dim">spawn_group: notredame</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Notre-Dame est une célèbre cathédrale gothique.</span> <span class="yarn-meta">#line:fr01_notredame_base_1</span>
-<span class="yarn-line">Les constructeurs ont commencé à construire ce bâtiment il y a plus de 800 ans.</span> <span class="yarn-meta">#line:fr01_notredame_base_2</span>
-<span class="yarn-line">Les grosses cloches sonnent dans toute la ville.</span> <span class="yarn-meta">#line:fr01_notredame_base_3</span>
 
 </code>
 </pre>
@@ -725,9 +667,44 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: notredame_roof</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Depuis le toit, vous pouvez voir une grande partie de Paris.</span> <span class="yarn-meta">#line:fr01_notredame_roof_1</span>
+<span class="yarn-line">Du toit, on peut voir une grande partie de Paris.</span> <span class="yarn-meta">#line:fr01_notredame_roof_1</span>
 <span class="yarn-line">Des créatures de pierre appelées gargouilles sont assises ici.</span> <span class="yarn-meta">#line:fr01_notredame_roof_2</span>
-<span class="yarn-line">Les ouvriers restaurent encore certaines parties de la cathédrale.</span> <span class="yarn-meta">#line:fr01_notredame_roof_3</span>
+<span class="yarn-line">Ces bras de pierre contribuent à soutenir les murs.</span> <span class="yarn-meta">#line:fr01_notredame_roof_2b #card:flying_buttress</span>
+<span class="yarn-line">La grande fenêtre ronde s'appelle une rosace.</span> <span class="yarn-meta">#line:fr01_notredame_roof_2c #card:rose_window</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-eiffell-elevator"></a>
+
+## npc_eiffell_elevator
+
+<div class="yarn-node" data-title="npc_eiffell_elevator">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">spawn_group: eiffel_tower</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card eiffel_tower_elevators&gt;&gt;</span>
+<span class="yarn-line">L'ascenseur permet aux gens de monter dans la tour.</span> <span class="yarn-meta">#line:fr01_eiffel_elevator_1</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-paris-region"></a>
+
+## npc_paris_region
+
+<div class="yarn-node" data-title="npc_paris_region">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">spawn_group: generic</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card ile_de_france&gt;&gt;</span>
+<span class="yarn-line">Paris se trouve dans une région appelée Île-de-France.</span> <span class="yarn-meta">#line:fr01_region_1</span>
 
 </code>
 </pre>
@@ -743,9 +720,10 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: bakery</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">L’odeur du pain frais rend les gens heureux.</span> <span class="yarn-meta">#line:fr01_bakery_1</span>
-<span class="yarn-line">Une baguette utilise de la farine, de l’eau, de la levure et du sel.</span> <span class="yarn-meta">#line:fr01_bakery_2</span>
-<span class="yarn-line">Les boulangers se lèvent très tôt pour commencer à faire la pâte.</span> <span class="yarn-meta">#line:fr01_bakery_3</span>
+<span class="yarn-line">L'odeur du pain frais rend les gens heureux.</span> <span class="yarn-meta">#line:fr01_bakery_1</span>
+<span class="yarn-line">Une baguette est composée de farine, d'eau, de levure et de sel.</span> <span class="yarn-meta">#line:fr01_bakery_2</span>
+<span class="yarn-line">La levure permet au pain de lever.</span> <span class="yarn-meta">#line:fr01_bakery_2a</span>
+<span class="yarn-line">Les boulangers se lèvent très tôt pour commencer à faire du pain.</span> <span class="yarn-meta">#line:fr01_bakery_3</span>
 
 </code>
 </pre>

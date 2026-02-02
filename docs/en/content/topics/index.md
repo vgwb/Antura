@@ -87,6 +87,8 @@ Talk to them all...  they have stories to tell!
     - **[Eleementary Maths](../cards/index.md#elementary_maths)**
     Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
+    ![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ width="200" }
+
 - Connected cards:
     - **[Line](../cards/index.md#fr_figure_line)** (PartOf)
     A straight mark that goes from one point to another. Lines can be long or short.
@@ -595,7 +597,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [DEV (dev)](../quests/quest/dev.md), [Paris! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -848,6 +850,8 @@ Credits:
     - **[French Schools](../cards/index.md#french_schools)**
     In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
 
+    ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
+
 - Connected cards:
     - **[École Maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
     School for little kids aged 3 to 5. You learn by playing and exploring.
@@ -981,7 +985,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
 
 ---
 

@@ -16,7 +16,7 @@ Total found: **384**
 ### Akacja {#tree_wattle}
 ![preview tree_wattle](../../../assets/img/content/cards/tree_wattle.jpg){ loading=lazy }
 
-Roślina pokryta drobnymi, złotymi kwiatami. Rozświetla ziemię swoim żółtym blaskiem!
+Roślina pokryta drobnymi złotymi kwiatami. Rozświetla wszystko swoim żółtym blaskiem!
 
 - Type: Object
 - Country: International
@@ -54,7 +54,7 @@ Główny bohater tej gry wideo
 ### Autobus {#bus}
 ![preview bus](../../../assets/img/content/cards/bus.jpg){ loading=lazy }
 
-Duży pojazd, którym można przewieźć wiele osób.
+Duży pojazd, który przewozi wiele osób.
 
 - Type: Object
 - Subjects: Transportation, Community
@@ -64,28 +64,26 @@ Duży pojazd, którym można przewieźć wiele osób.
 
 ---
 
-### Badylarz {#person_greengrocer}
-![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ loading=lazy }
-
-Osoba sprzedająca świeże owoce i warzywa.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
 ### Banan {#food_banana}
 ![preview food_banana](../../../assets/img/content/cards/food_banana.jpg){ loading=lazy }
 
-Miękkie, żółte i łatwe do obierania. Pełne energii na cały dzień!
+Miękki, żółty i łatwy do obrania. Pełen energii na cały dzień!
 
 - Type: Object
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Bananowiec {#plant_banana}
+![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
+
+Wysoka roślina o olbrzymich liściach i żółtych bananach. Jej owoce rosną w zwisających gronach!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -117,7 +115,7 @@ Stolica Szwajcarii.
 
 ---
 
-### Bezpieczeństwo na ulicy {#street_safety}
+### Bezpieczeństwo uliczne {#street_safety}
 Zasady zapewniające bezpieczeństwo wszystkim uczestnikom ruchu drogowego.
 
 - Type: Concept
@@ -151,18 +149,6 @@ Specjalny dokument umożliwiający odwiedzenie słynnej wysokiej wieży w Paryż
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Blokowy {#antura_blocky_character}
-![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ loading=lazy }
-
-Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... mają historie do opowiedzenia!
-
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-- Image credit: CC0
 
 ---
 
@@ -233,7 +219,7 @@ Stolica Belgii.
 ### Chleb {#food_bread}
 ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
 
-Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
+Pyszne pieczywo z mąki i wody, Z chleba można zrobić kanapki!
 
 - Type: Object
 - Subjects: Food, Culture
@@ -244,7 +230,7 @@ Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
 
 ---
 
-### Ciastka {#antura_cookies}
+### Ciasteczka {#antura_cookies}
 ![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ loading=lazy }
 
 Słodkie nagrody, które możesz zbierać podczas gry! Wykorzystaj je, aby zdobyć nowe przedmioty i niespodzianki.
@@ -268,6 +254,61 @@ Cukier wytwarza się z roślin takich jak buraki czy trzcina cukrowa. Dodaje ene
 
 ---
 
+### Cyfra 0 {#number_0}
+![preview number_0](../../../assets/img/content/cards/number_0.jpg){ loading=lazy }
+
+Liczba oznaczająca nic, ale wciąż ważna! Jest ważniejsza niż wszystkie inne.
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Cyfra 1 {#number_1}
+![preview number_1](../../../assets/img/content/cards/number_1.jpg){ loading=lazy }
+
+Pierwsza liczba, wskazuje tylko jedną rzecz.
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Cyfra 2 {#number_2}
+![preview number_2](../../../assets/img/content/cards/number_2.jpg){ loading=lazy }
+
+Para, jak dwoje oczu albo dwa buty. Uwielbia mieć przyjaciela!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Cyfra 3 {#number_3}
+![preview number_3](../../../assets/img/content/cards/number_3.jpg){ loading=lazy }
+
+Trzy oznaczają grupę, np. trójnóg lub rower trójkołowy!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
+### Cyfra 4 {#number_4}
+![preview number_4](../../../assets/img/content/cards/number_4.jpg){ loading=lazy }
+
+Cztery rzeczy zapewniają stabilność, jak nogi stołu. Są mocne i wyważone!
+
+- Type: None
+- Country: International
+- Image credit: CC0
+
+---
+
 ### Cynamon {#cinnamon}
 ![preview cinnamon](../../../assets/img/content/cards/cinnamon.jpg){ loading=lazy }
 
@@ -282,10 +323,24 @@ Słodka przyprawa wytwarzana z kory drzewa.
 
 ---
 
-### Cytrynowy {#food_lemon}
+### Cyrkiel {#math_compass}
+![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
+
+Narzędzie, które pomaga rysować idealne okręgi. Ma dwie nogi jak nożyczki.
+
+- Type: Object
+- Subjects: Math
+- Country: International
+- Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
+
+---
+
+### Cytryna {#food_lemon}
 ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
 
-Żółty owoc o bardzo kwaśnym smaku. Cytryny służą do robienia lemoniady!
+Żółty, bardzo kwaśny owoc. Z cytryn można zrobić lemoniadę!
 
 - Type: Object
 - Subjects: Food, Culture
@@ -309,7 +364,7 @@ Kraj w Europie. Stolicą jest Praga.
 
 ---
 
-### Dom na łodzi {#boat_house}
+### Dom na wodzie {#boat_house}
 ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ loading=lazy }
 
 Dom, który unosi się na wodzie jak łódź. Ludzie mogą mieszkać w domkach na łodziach!
@@ -334,16 +389,17 @@ Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i sm
 
 ---
 
-### Dzień Niepodległości (Polska) {#independence_day_poland}
-![preview independence_day_poland](../../../assets/img/content/cards/independence_day_poland.jpg){ loading=lazy }
+### Ekierka {#math_setsquare}
+![preview math_setsquare](../../../assets/img/content/cards/math_setsquare.jpg){ loading=lazy }
 
-Święto narodowe obchodzone 11 listopada.
+Narzędzie w kształcie trójkąta, służące do rysowania linii prostych i kątów prostych w matematyce.
 
-- Type: Concept
-- Subjects: Civics, History, Time
+- Type: Object
+- Subjects: Math
 - Country: International
-- Image credit: CC_BY_SA | Patryk Matyjaszczyk | [source](https://commons.wikimedia.org/wiki/File:Narodowe_Święto_Niepodległości_2012_01.JPG)
-- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
+- Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squadra_45.jpg)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -366,7 +422,7 @@ Flaga Belgii ma trzy pionowe pasy: czarny, żółty i czerwony. Belgia słynie z
 ### Flaga Białorusi {#flag_belarus}
 ![preview flag_belarus](../../../assets/img/content/cards/flag_belarus.jpg){ loading=lazy }
 
-Flaga Białorusi ma poziome, czerwone i zielone pasy z pięknymi, tradycyjnymi wzorami po bokach. Białoruś jest sąsiadem Polski.
+Flaga Białorusi ma poziome czerwone i zielone pasy z pięknymi, tradycyjnymi wzorami po bokach. Białoruś jest sąsiadem Polski.
 
 - Rationale: Learning neighboring countries helps kids understand regional geography
 - Type: Concept
@@ -414,7 +470,7 @@ Flaga Luksemburga ma poziome pasy w kolorze czerwonym, białym i jasnoniebieskim
 ### Flaga Republiki Czeskiej {#flag_czech_republic}
 ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ loading=lazy }
 
-Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z pięknego Zamku Praskiego i kryształowego szkła.
+Flaga ma biały i czerwony pas oraz niebieski trójkąt. Czechy słyną z Zamku Praskiego i kryształowego szkła.
 
 - Rationale: Central European countries help kids understand the region around Poland
 - Type: Concept
@@ -430,7 +486,7 @@ Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z piękne
 ### Flaga Rosji {#flag_russia}
 ![preview flag_russia](../../../assets/img/content/cards/flag_russia.jpg){ loading=lazy }
 
-Flaga z białymi, niebieskimi i czerwonymi paskami. Reprezentuje Rosję.
+Flaga Rosji ma trzy poziome pasy: biały, niebieski i czerwony.
 
 - Type: Concept
 - Subjects: Community, Culture
@@ -444,7 +500,7 @@ Flaga z białymi, niebieskimi i czerwonymi paskami. Reprezentuje Rosję.
 ### Flaga Szwajcarii {#flag_switzerland}
 ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ loading=lazy }
 
-Flaga Szwajcarii jest czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
+Flaga Szwajcarii: czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
 
 - Rationale: The Swiss flag's unique cross design helps kids remember this mountain country
 - Type: Concept
@@ -474,7 +530,7 @@ Flaga w kolorach białym, niebieskim i czerwonym. Reprezentuje Słowację.
 ### Flaga Ukrainy {#flag_ukraine}
 ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ loading=lazy }
 
-Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Reprezentuje Ukrainę.
+Flaga w kolorach niebieskim i żółtym, przypominają niebo i słońce. Reprezentuje Ukrainę.
 
 - Type: Concept
 - Subjects: Community, Culture
@@ -553,10 +609,37 @@ Region we Francji, w którym znajduje się stolica, Paryż. Mieszka tu wielu lud
 
 ---
 
+### Imbir {#ginger}
+![preview ginger](../../../assets/img/content/cards/ginger.jpg){ loading=lazy }
+
+Pikantny korzeń używany w kuchni, na przykład do pieczenia ciasteczek.
+
+- Type: Object
+- Subjects: Food, Plant
+- Country: International
+- Topics: [Gingerbread](../topics/index.md#gingerbread)
+- Image credit: CC0 | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | [source](https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Izby parlamentu polskiego {#polish_houses_of_parliament}
+![preview polish_houses_of_parliament](../../../assets/img/content/cards/polish_houses_of_parliament.jpg){ loading=lazy }
+
+Gdzie tworzone jest prawo: Sejm i Senat.
+
+- Type: Place
+- Subjects: Civics, History, Geography
+- Country: International
+- Image credit: CC0
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Jabłko {#food_apple}
 ![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
 
-Czerwony, okrągły i chrupiący w smaku. Smaczny owoc, który doda Ci sił!
+Czerwone, okrągłe i chrupiące w smaku. To smaczny owoc, który doda ci sił!
 
 - Type: Object
 - Country: International
@@ -565,10 +648,22 @@ Czerwony, okrągły i chrupiący w smaku. Smaczny owoc, który doda Ci sił!
 
 ---
 
+### Jabłoń {#plant_apple}
+![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
+
+Drzewo o różowych kwiatach i czerwonych, smacznych owocach. Uwielbia słońce i daje nam chrupiące jabłka!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
 ### Jajka {#eggs}
 ![preview eggs](../../../assets/img/content/cards/eggs.jpg){ loading=lazy }
 
-Pokarm z kurczaków, używany do pieczenia i gotowania.
+Znoszą je kury. Używamy do pieczenia i gotowania.
 
 - Type: Object
 - Subjects: Food, Animal
@@ -620,7 +715,7 @@ Stolica Ukrainy.
 ### Klasa {#place_classroom}
 ![preview place_classroom](../../../assets/img/content/cards/place_classroom.jpg){ loading=lazy }
 
-Pomieszczenie w szkole, w którym uczniowie siedzą i uczą się nowych rzeczy od nauczyciela.
+Pomieszczenie w szkole, w którym uczniowie uczą się nowych rzeczy.
 
 - Type: Place
 - Subjects: Education, Community
@@ -630,7 +725,19 @@ Pomieszczenie w szkole, w którym uczniowie siedzą i uczą się nowych rzeczy o
 
 ---
 
-### Kolumna Króla Zygmunta {#king_sigismunds_column}
+### Klockowi {#antura_blocky_character}
+![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ loading=lazy }
+
+Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... ci zabawni ludzie mogą opowiedzieć ciekawe historie.
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
+### Kolumna Zygmunta III Wazy {#king_sigismunds_column}
 ![preview king_sigismunds_column](../../../assets/img/content/cards/king_sigismunds_column.jpg){ loading=lazy }
 
 Wysoka kolumna ku czci króla Zygmunta na Placu Zamkowym.
@@ -643,24 +750,10 @@ Wysoka kolumna ku czci króla Zygmunta na Placu Zamkowym.
 
 ---
 
-### Kompas {#math_compass}
-![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
-
-Narzędzie, które pomaga rysować idealne okręgi. Ma dwie nogi jak nożyczki.
-
-- Type: Object
-- Subjects: Math
-- Country: International
-- Topics: [Elementary Math](../topics/index.md#elementary-maths)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
-- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### Konstytucja 3 Maja {#constitution_of_3_may}
 ![preview constitution_of_3_may](../../../assets/img/content/cards/constitution_of_3_may.jpg){ loading=lazy }
 
-Historyczna polska konstytucja obchodzona 3 Maja.
+Historyczna polska konstytucja, której uchwalenie świętuje się 3 maja.
 
 - Type: Concept
 - Subjects: Civics, History, Time
@@ -698,7 +791,7 @@ Najlepszy przyjaciel i towarzysz podróży Antury. Ciekawy, sprytny i zawsze got
 ### Koło {#fr_figure_circle}
 ![preview fr_figure_circle](../../../assets/img/content/cards/fr_figure_circle.jpg){ loading=lazy }
 
-Okrągły kształt bez rogów. Koła wyglądają jak koła, piłki i monety!
+Okrągły kształt, bez rogów. Koła wyglądają jak koła samochodu, piłki i monety!
 
 - Type: Concept
 - Subjects: Math
@@ -712,7 +805,7 @@ Okrągły kształt bez rogów. Koła wyglądają jak koła, piłki i monety!
 ### Krab {#food_crab}
 ![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ loading=lazy }
 
-Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą bokiem po plaży!
+Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą po plaży bokiem!
 
 - Type: Object
 - Subjects: Food, Culture
@@ -750,38 +843,10 @@ Derivative work:  Radomianin | [source](https://commons.wikimedia.org/wiki/File:
 
 ---
 
-### Kupiec handlujący serem {#person_cheesemonger}
-![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ loading=lazy }
-
-Osoba sprzedająca wiele rodzajów sera.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Kwadrat {#math_setsquare}
-![preview math_setsquare](../../../assets/img/content/cards/math_setsquare.jpg){ loading=lazy }
-
-Narzędzie w kształcie trójkąta, służące do rysowania linii prostych i kątów prostych w matematyce.
-
-- Type: Object
-- Subjects: Math
-- Country: International
-- Topics: [Elementary Math](../topics/index.md#elementary-maths)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squadra_45.jpg)
-- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### Kładki dla pieszych {#place_bridge_people}
 ![preview place_bridge_people](../../../assets/img/content/cards/place_bridge_people.jpg){ loading=lazy }
 
-Małe mostki dla pieszych. Chronią przed ruchem ulicznym.
+Małe mostki dla pieszych, dzięki nim można bezpiecznie przejść na druga stronę ulicy.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -916,7 +981,7 @@ Państwo w Europie. Stolicą jest miasto Luksemburg.
 ### Lwiątko {#animal_lion_cub}
 ![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
 
-Mały lew o miękkim futrze i dużych łapach. Spędza dni na zabawie i cichym ryku.
+Mały lew o miękkim futrze i dużych łapach. Spędza czas, bawiąc się i cicho rycząc.
 
 - Type: Object
 - Country: International
@@ -942,7 +1007,7 @@ Zamarznięta woda, która może być bardzo śliska.
 ### Lód arktyczny {#ice_arctic}
 ![preview ice_arctic](../../../assets/img/content/cards/ice_arctic.jpg){ loading=lazy }
 
-Zimne, białe i lśniące jak szkło. Dom fok, niedźwiedzi i przygód!
+Zimny, biały i lśniący jak szkło. Dom fok i niedźwiedzi polarnych.
 
 - Type: Place
 - Country: International
@@ -984,7 +1049,7 @@ Mapa pokazująca lokalizację słynnej wysokiej wieży w Paryżu.
 ### Maria Skłodowska‑Curie {#maria_skodowskacurie}
 ![preview maria_skodowskacurie](../../../assets/img/content/cards/maria_skodowskacurie.jpg){ loading=lazy }
 
-Naukowiec, który zdobył dwie Nagrody Nobla.
+Uczona, która zdobyła dwie Nagrody Nobla.
 
 - Type: Person
 - Subjects: Science, History
@@ -1009,11 +1074,14 @@ Naukowiec, który zdobył dwie Nagrody Nobla.
 ---
 
 ### Matematyka podstawowa {#elementary_maths}
-Liczby i kształty do codziennego użytku: liczenie, dodawanie i odejmowanie, proste ułamki, mierzenie, określanie czasu i korzystanie z pieniędzy.
+![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ loading=lazy }
+
+Liczby i kształty potrzebne w codziennym życiu: liczenie, dodawanie, odejmowanie, proste ułamki, mierzenie, określanie czasu i korzystanie z pieniędzy.
 
 - Type: None
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mathematics.png)
 
 ---
 
@@ -1046,7 +1114,7 @@ Inteligentne zwierzę, które potrafi się wspinać i bawić. Niektóre małpy �
 ### Menu stołówki {#object_canteen_menu}
 ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ loading=lazy }
 
-Lista pokazująca, co możesz zjeść w szkolnym lunchu. Pomoże Ci wybrać, co zjeść!
+Lista dań, które możesz wybrać na szkolny obiad.
 
 - Type: Object
 - Subjects: Community, Culture
@@ -1136,19 +1204,6 @@ Małe okrągłe pieniądze wykonane z metalu.
 
 ---
 
-### Monety złote {#zoty_coins}
-![preview zoty_coins](../../../assets/img/content/cards/zoty_coins.jpg){ loading=lazy }
-
-Polskie pieniądze (złoty) przedstawiane jako monety.
-
-- Type: Object
-- Subjects: Money, Geography
-- Country: International
-- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Mont Blanc {#place_mont_blanc}
 ![preview place_mont_blanc](../../../assets/img/content/cards/place_mont_blanc.jpg){ loading=lazy }
 
@@ -1232,7 +1287,7 @@ Most w pobliżu zamku. Zamki to duże, potężne budowle, w których dawno temu 
 ### Mąka {#food_flour}
 ![preview food_flour](../../../assets/img/content/cards/food_flour.jpg){ loading=lazy }
 
-Biały proszek z pszenicy, używany do wypieku chleba.
+Zmielona pszenica, używana do wypieku chleba.
 
 - Type: Object
 - Subjects: Food, Science
@@ -1268,6 +1323,19 @@ Zjeżdżanie na nartach po śniegu.
 
 ---
 
+### Narodowe Święto Niepodległości {#independence_day_poland}
+![preview independence_day_poland](../../../assets/img/content/cards/independence_day_poland.jpg){ loading=lazy }
+
+Święto narodowe obchodzone 11 listopada.
+
+- Type: Concept
+- Subjects: Civics, History, Time
+- Country: International
+- Image credit: CC_BY_SA | Patryk Matyjaszczyk | [source](https://commons.wikimedia.org/wiki/File:Narodowe_Święto_Niepodległości_2012_01.JPG)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Niebezpieczeństwo {#antura_malus}
 ![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ loading=lazy }
 
@@ -1276,61 +1344,6 @@ Czegoś takiego nie powinieneś robić! Zachowaj ostrożność i bądź bezpiecz
 - Type: Concept
 - Country: International
 - Topics: [Antura's world](../topics/index.md#antura-world)
-- Image credit: CC0
-
----
-
-### Numer 0 {#number_0}
-![preview number_0](../../../assets/img/content/cards/number_0.jpg){ loading=lazy }
-
-Liczba bez znaczenia, ale wciąż ważna! Jest ważniejsza niż wszystkie inne.
-
-- Type: None
-- Country: International
-- Image credit: CC0
-
----
-
-### Numer 1 {#number_1}
-![preview number_1](../../../assets/img/content/cards/number_1.jpg){ loading=lazy }
-
-Pierwsza liczba! Oznacza tylko jedno.
-
-- Type: None
-- Country: International
-- Image credit: CC0
-
----
-
-### Numer 2 {#number_2}
-![preview number_2](../../../assets/img/content/cards/number_2.jpg){ loading=lazy }
-
-Para, jak dwoje oczu albo dwa buty. Uwielbia mieć przyjaciela!
-
-- Type: None
-- Country: International
-- Image credit: CC0
-
----
-
-### Numer 3 {#number_3}
-![preview number_3](../../../assets/img/content/cards/number_3.jpg){ loading=lazy }
-
-Trzy oznaczają grupę, np. trójnóg lub rower trójkołowy!
-
-- Type: None
-- Country: International
-- Image credit: CC0
-
----
-
-### Numer 4 {#number_4}
-![preview number_4](../../../assets/img/content/cards/number_4.jpg){ loading=lazy }
-
-Cztery rzeczy zapewniają stabilność, jak nogi stołu. Są mocne i wyważone!
-
-- Type: None
-- Country: International
 - Image credit: CC0
 
 ---
@@ -1352,7 +1365,7 @@ Okulary chroniące oczy przed jasnym światłem.
 ### Oliwa z oliwek {#food_olive_oil}
 ![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ loading=lazy }
 
-Specjalny olej z oliwek. Ludzie używają go do gotowania smacznych potraw.
+Specjalny olej z oliwek, używany do gotowania smacznych potraw.
 
 - Type: Object
 - Subjects: Food, Culture
@@ -1360,20 +1373,6 @@ Specjalny olej z oliwek. Ludzie używają go do gotowania smacznych potraw.
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
 - Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Ożywić {#ginger}
-![preview ginger](../../../assets/img/content/cards/ginger.jpg){ loading=lazy }
-
-Pikantny korzeń używany w kuchni i ciasteczkach.
-
-- Type: Object
-- Subjects: Food, Plant
-- Country: International
-- Topics: [Gingerbread](../topics/index.md#gingerbread)
-- Image credit: CC0 | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | [source](https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1385,7 +1384,7 @@ Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
@@ -1394,7 +1393,7 @@ Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!
 ### Pałac Kultury i Nauki {#palace_of_culture_and_science}
 ![preview palace_of_culture_and_science](../../../assets/img/content/cards/palace_of_culture_and_science.jpg){ loading=lazy }
 
-Wysoki budynek przeznaczony na muzea, teatry i placówki edukacyjne.
+Bardzo wysoki budynek, w którym są muzea, teatry, kino i restauracje.
 
 - Type: Place
 - Subjects: Culture, Education, History
@@ -1420,7 +1419,7 @@ Oficjalna siedziba Prezydenta Polski.
 ### Piekarz {#person_baker}
 ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
 
-Osoba zajmująca się wypiekiem chleba, ciast i wypieków.
+Osoba, która piecze chleb, bułki i różne ciasta.
 
 - Type: Person
 - Subjects: History, Culture
@@ -1431,7 +1430,7 @@ Osoba zajmująca się wypiekiem chleba, ciast i wypieków.
 
 ---
 
-### Pieprz Sól {#food_pepper_salt}
+### Pieprz i sól {#food_pepper_salt}
 ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ loading=lazy }
 
 Przyprawy, które poprawiają smak potraw. Sól jest biała, a pieprz czarny i ma drobne kawałki.
@@ -1462,7 +1461,7 @@ Ptak, który nie lata, ale świetnie pływa. Żyje w zimnych miejscach.
 ### Piłka {#ball}
 ![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
 
-Okrągły obiekt używany w wielu grach.
+Okrągły przedmiot używany w wielu grach.
 
 - Type: Object
 - Subjects: Sport, Recreation
@@ -1475,7 +1474,7 @@ Okrągły obiekt używany w wielu grach.
 ### Piłka nożna {#football_soccer}
 ![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
 
-Gra zespołowa, w którą gra się piłką, którą się kopie.
+Gra zespołowa, w której kopie się piłkę.
 
 - Type: Object
 - Subjects: Sport, Recreation, Community
@@ -1496,6 +1495,19 @@ Torba, którą nosisz na plecach.
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | FOTO:Fortepan — ID 20607: Adományozó/Donor: Wein Sarolta. archive copy at the Wayback Machine | [source](https://commons.wikimedia.org/wiki/File:Colorful,_backpack_Fortepan_20607.jpg)
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### Plecak szkolny {#school_bag}
+![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
+
+Plecak, w którym uczniowie noszą książki, ołówki i prace domowe.
+
+- Type: Object
+- Subjects: Science
+- Country: International
+- Image credit: CC0
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -1525,16 +1537,30 @@ Kraj w Europie. Stolicą jest Warszawa. Polska słynie z naukowców takich jak K
 
 ---
 
-### Polskie Izby Parlamentu {#polish_houses_of_parliament}
-![preview polish_houses_of_parliament](../../../assets/img/content/cards/polish_houses_of_parliament.jpg){ loading=lazy }
+### Polskie monety {#zoty_coins}
+![preview zoty_coins](../../../assets/img/content/cards/zoty_coins.jpg){ loading=lazy }
 
-Gdzie tworzone jest prawo: Sejm i Senat.
+Polskie pieniądze (złoty) przedstawiane jako monety.
 
-- Type: Place
-- Subjects: Civics, History, Geography
+- Type: Object
+- Subjects: Money, Geography
 - Country: International
-- Image credit: CC0
+- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
 - Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Pomarańcza {#food_orange}
+![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ loading=lazy }
+
+Okrągły, pomarańczowy owoc, słodki i soczysty. Pomarańcze mają mnóstwo witaminy C!
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1550,24 +1576,10 @@ Lśniące, zielone drzewo z okrągłymi, soczystymi pomarańczami. Pachnie świe
 
 ---
 
-### Pomarańczowy {#food_orange}
-![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ loading=lazy }
-
-Okrągły, pomarańczowy owoc o słodkim i soczystym smaku. Pomarańcze mają mnóstwo witaminy C!
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
 ### Pomidor {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
-Czerwony, okrągły owoc rosnący na roślinach. Pomidory służą do robienia sosu do pizzy!
+Jest czerwony i okrągły. Można z niego zrobić sos do pizzy!
 
 - Type: Object
 - Subjects: Food, Culture
@@ -1591,10 +1603,23 @@ Pomnik astronoma Mikołaja Kopernika.
 
 ---
 
+### Pomnik Warsa i Sawy {#wars_and_sawa_statue}
+![preview wars_and_sawa_statue](../../../assets/img/content/cards/wars_and_sawa_statue.jpg){ loading=lazy }
+
+Rzeźba przedstawiająca legendę miasta o Warsie i Sawie.
+
+- Type: Place
+- Subjects: Culture, History
+- Country: International
+- Image credit: CC_BY_SA | Wistula
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Portal {#antura_portal}
 ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ loading=lazy }
 
-Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd trafisz tym razem!
 
 - Type: Object
 - Country: International
@@ -1618,7 +1643,7 @@ Stolica Republiki Czeskiej.
 ### Prezydent {#person_president}
 ![preview person_president](../../../assets/img/content/cards/person_president.jpg){ loading=lazy }
 
-Przywódca wybrany do przewodzenia krajowi. Ludzie głosują w wyborach.
+Najważniejsza osoba w kraju, wybrana przez obywateli.
 
 - Type: Person
 - Subjects: History, Culture
@@ -1670,7 +1695,7 @@ Ciepła kurtka na zimne dni.
 ### Raki {#crampons}
 ![preview crampons](../../../assets/img/content/cards/crampons.jpg){ loading=lazy }
 
-Kolczaste metalowe uchwyty przymocowane do butów, aby móc jeździć po lodzie.
+Kolczaste metalowe uchwyty przymocowane do butów. Pozwalają chodzić po lodzie.
 
 - Type: Object
 - Subjects: Safety, Technology, Sport
@@ -1731,30 +1756,6 @@ Dwukołowy pojazd, który napędza się pedałami.
 - Country: International
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
 - Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Roślina bananowa {#plant_banana}
-![preview plant_banana](../../../assets/img/content/cards/plant_banana.jpg){ loading=lazy }
-
-Wysoka roślina o olbrzymich liściach i żółtych bananach. Jej owoce rosną w zwisających gronach!
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Musa_JPG01.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Roślina jabłoni {#plant_apple}
-![preview plant_apple](../../../assets/img/content/cards/plant_apple.jpg){ loading=lazy }
-
-Drzewo o różowych kwiatach i czerwonych, smacznych owocach. Uwielbia słońce i daje nam chrupiące jabłka!
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1825,6 +1826,20 @@ Mały pojazd przeznaczony do jazdy po drogach.
 
 ---
 
+### Sprzedawca artykułów spożywczych {#person_grocer}
+![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ loading=lazy }
+
+Osoba sprzedająca różnego rodzaju żywność i napoje.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+
+---
+
 ### Sprzedawca jajek {#egg_vendor}
 ![preview egg_vendor](../../../assets/img/content/cards/egg_vendor.jpg){ loading=lazy }
 
@@ -1835,6 +1850,19 @@ Osoba sprzedająca jajka.
 - Country: International
 - Image credit: CC_BY_SA | Elgabarty2002 | [source](https://commons.wikimedia.org/wiki/File:Egg_Seller_in_Nigeria.jpg)
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Sprzedawca na targu {#market_traders}
+![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
+
+Osoby sprzedające żywność i towary na targach - sprzedawcy ryb, serów, owoców. Ważą, pakują i wykrzykują ceny.
+
+- Type: Person
+- Subjects: Money, Community
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
 
 ---
 
@@ -1877,10 +1905,38 @@ Osoba sprzedająca świeże ryby i owoce morza.
 
 ---
 
+### Sprzedawca serów {#person_cheesemonger}
+![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ loading=lazy }
+
+Osoba sprzedająca wiele rodzajów sera.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### Sprzedawca warzyw i owoców {#person_greengrocer}
+![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ loading=lazy }
+
+Osoba sprzedająca świeże owoce i warzywa.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
+- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+
+---
+
 ### Stadion Narodowy (Warszawa) {#national_stadium_warsaw}
 ![preview national_stadium_warsaw](../../../assets/img/content/cards/national_stadium_warsaw.jpg){ loading=lazy }
 
-Nowoczesny stadion przeznaczony do meczów piłkarskich i koncertów.
+Nowoczesny stadion, na którym rozgrywane są mecze lub organizowane są koncerty.
 
 - Type: Place
 - Subjects: Sport, Culture, Community
@@ -1890,23 +1946,10 @@ Nowoczesny stadion przeznaczony do meczów piłkarskich i koncertów.
 
 ---
 
-### Statua Warsa i Sawy {#wars_and_sawa_statue}
-![preview wars_and_sawa_statue](../../../assets/img/content/cards/wars_and_sawa_statue.jpg){ loading=lazy }
-
-Rzeźba przedstawiająca legendę miasta o Warsie i Sawie.
-
-- Type: Place
-- Subjects: Culture, History
-- Country: International
-- Image credit: CC_BY_SA | Wistula
-- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Symbol docelowy {#antura_target}
 ![preview antura_target](../../../assets/img/content/cards/antura_target.jpg){ loading=lazy }
 
-Jeśli to widzisz, przejdź do tego miejsca. Może to być coś ważnego!
+Jeśli to widzisz, idź tam. Może to być coś ważnego!
 
 - Type: Concept
 - Country: International
@@ -1917,7 +1960,7 @@ Jeśli to widzisz, przejdź do tego miejsca. Może to być coś ważnego!
 ### Szalik {#scarf}
 ![preview scarf](../../../assets/img/content/cards/scarf.jpg){ loading=lazy }
 
-Ciepły materiał noszony wokół szyi.
+Ciepły kawałek materiału noszony wokół szyi.
 
 - Type: Object
 - Subjects: Health, Safety, Weather
@@ -1931,7 +1974,7 @@ Ciepły materiał noszony wokół szyi.
 ### Szczyt {#summit}
 ![preview summit](../../../assets/img/content/cards/summit.jpg){ loading=lazy }
 
-Sam szczyt góry.
+Najwyższy punkt góry.
 
 - Type: Concept
 - Subjects: Geography, Environment, Education
@@ -1943,12 +1986,15 @@ Sam szczyt góry.
 ---
 
 ### Szkoły francuskie {#french_schools}
-We Francji nauka w szkole przebiega w czterech głównych etapach: maternelle (zabawa i nauka dla małych dzieci), école élémentaire (czytanie, pisanie, matematyka), collège (szkoła średnia) i lycée (szkoła średnia). Na koniec lycée wielu uczniów zdaje ważny egzamin baccalauréat („le bac”).
+![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
+
+We Francji nauka w szkołach dzieli się na cztery główne etapy: przedszkole (zabawa i nauka dla małych dzieci), szkoła podstawowa (czytanie, pisanie, matematyka), gimnazjum i liceum (szkoła średnia). Na koniec szkoły średniej wielu uczniów zdaje ważny egzamin - maturę.
 
 - Type: Concept
 - Subjects: Education, Civics, Culture
 - Country: International
 - Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | P_L_Martin_des_Amoignes_In_the_classroom_1886 | [source](https://commons.wikimedia.org/wiki/File:P_L_Martin_des_Amoignes_In_the_classroom_1886.jpg)
 
 ---
 
@@ -2019,7 +2065,7 @@ Kraj w Europie. Stolicą jest Bratysława.
 ### Słoń {#animal_elephant}
 ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ loading=lazy }
 
-Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie. Mają duże uszy i uwielbiają pryskać wodą!
+Ogromne zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie. Mają duże uszy i uwielbiają pryskać wodą!
 
 - Rationale: Elephants are amazing animals that kids love learning about at the zoo!
 - Type: Object
@@ -2032,36 +2078,10 @@ Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie
 
 ---
 
-### Torba szkolna {#school_bag}
-![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
-
-Torba, w której uczniowie noszą do szkoły książki, ołówki i prace domowe.
-
-- Type: Object
-- Subjects: Science
-- Country: International
-- Image credit: CC0
-- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
-
----
-
-### Traderzy rynkowi {#market_traders}
-![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
-
-Ludzie sprzedający żywność i towary na straganach targowych – jak sprzedawcy ryb, serów i owoców. Ważą, pakują i wykrzykują dzisiejsze ceny.
-
-- Type: Person
-- Subjects: Money, Community
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
-
----
-
-### Tramwajowy {#tram}
+### Tramwaj {#tram}
 ![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
 
-Pociąg miejski poruszający się po torach ulicznych.
+Pojazd miejski poruszający się po torach.
 
 - Type: Object
 - Subjects: Transportation, Technology, Community
@@ -2074,7 +2094,7 @@ Pociąg miejski poruszający się po torach ulicznych.
 ### Trójkąt {#fr_figure_triangle}
 ![preview fr_figure_triangle](../../../assets/img/content/cards/fr_figure_triangle.jpg){ loading=lazy }
 
-Kształt z trzema prostymi bokami i trzema narożnikami. Trójkąty wyglądają jak kawałki pizzy!
+Ma trzy boki i trzy kąty. Trójkąty wyglądają jak kawałki pizzy.
 
 - Type: Concept
 - Subjects: Math
@@ -2179,7 +2199,7 @@ Woda jest niezbędna do życia
 ### Wspinaczka {#climbing}
 ![preview climbing](../../../assets/img/content/cards/climbing.jpg){ loading=lazy }
 
-Wspinaczka po skałach lub lodzie przy użyciu specjalnego sprzętu.
+Wchodzenie na strome skały lub lód przy użyciu specjalnego sprzętu.
 
 - Type: Concept
 - Subjects: Sport, Safety, Recreation
@@ -2188,20 +2208,6 @@ Wspinaczka po skałach lub lodzie przy użyciu specjalnego sprzętu.
 - Image credit: CC_BY_SA | Original version: Valentin Chapuis
 Derivative version: Subsidiary account (image rotated 90 degrees CCW) | [source](https://commons.wikimedia.org/wiki/File:Flo_dans_Juvsøyla_à_Rjukan,_Norvège-rotated.jpg)
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### Właściciel sklepu spożywczego {#person_grocer}
-![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ loading=lazy }
-
-Osoba sprzedająca różnego rodzaju żywność i napoje.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2259,7 +2265,7 @@ Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 ### Łódź dla ludzi {#boat_people}
 ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ loading=lazy }
 
-Łódź przewożąca ludzi z jednego miejsca do drugiego przez wodę.
+Łódź przewożąca ludzi.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -2271,7 +2277,7 @@ Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 ### Łódź rzeczna {#boat_river}
 ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ loading=lazy }
 
-Łódź, która płynie po rzekach. Rzeki są jak drogi zbudowane z wody!
+Łódź, która pływa po rzekach. Rzeki są jak drogi zbudowane z wody!
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -2285,7 +2291,7 @@ Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 ### Łódź towarowa {#boat_for_goods}
 ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ loading=lazy }
 
-Duża łódź, która przewozi pudełka, żywność i inne rzeczy z miejsca na miejsce.
+Duża łódź, która przewozi paczki, żywność i inne rzeczy z miejsca na miejsce.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -2311,7 +2317,7 @@ Zamarznięta woda spadająca w zimne dni.
 ### Świstak {#marmot}
 ![preview marmot](../../../assets/img/content/cards/marmot.jpg){ loading=lazy }
 
-Futrzane zwierzę górskie, które gwiżdże.
+Zwierzę górskie z grubym futrem, charakterystycznie gwiżdże.
 
 - Type: Object
 - Subjects: Animal, Environment, Science
@@ -2348,7 +2354,7 @@ Bardzo wysokie zwierzę z długą szyją. Żyrafy są wyższe niż drzewa! Zjada
 
 ---
 
-### Żywy List {#antura_livingletter}
+### Żywa literka {#antura_livingletter}
 ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ loading=lazy }
 
 Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby nauczyć się nowych słów.
@@ -2363,7 +2369,7 @@ Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby n
 ### 20 000 mil podmorskiej żeglugi {#book_20000_leagues_under_the_sea}
 ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
-Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Spotykasz gigantyczne morskie stworzenia!
+Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Możesz spotkać gigantyczne morskie stworzenia!
 
 - Type: Object
 - Subjects: Literature
@@ -2390,7 +2396,7 @@ Wyścig samochodowy trwający 24 godziny. Zespoły ścigają się dniem i nocą.
 ### Allons enfants {#marseillaise_1}
 ![preview marseillaise_1](../../../assets/img/content/cards/marseillaise_1.jpg){ loading=lazy }
 
-Pierwsze słowa pierwszego wersu hymnu.
+Pierwsze słowa hymnu francuskiego
 
 - Type: Object
 - Subjects: Music, Education, Culture
@@ -2405,7 +2411,7 @@ Pierwsze słowa pierwszego wersu hymnu.
 ### Bagietka francuska {#food_baguette}
 ![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ loading=lazy }
 
-Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie kupują świeże bagietki z piekarni!
+Długi chrupiący chleb. Najsłynniejsze pieczywo w całej Francji. Francuzi codziennie kupują świeże bagietki w piekarni.
 
 - Rationale: Baguettes are iconic French culture that kids can easily understand and remember
 - Type: Object
@@ -2414,14 +2420,14 @@ Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie 
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md), [DEV (dev)](../quests/quest/dev.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
 ### Balon na ogrzane powietrze {#hot_air_balloon}
 ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ loading=lazy }
 
-Balon latający na gorące powietrze. Pierwszy taki balon poleciał we Francji.
+Balon wznoszący się dzięki ogrzanemu powietrzu. Pierwszy taki balon skonstruowano we Francji.
 
 - Type: Object
 - Subjects: Transportation
@@ -2434,7 +2440,7 @@ Balon latający na gorące powietrze. Pierwszy taki balon poleciał we Francji.
 ### Bouillabaisse {#bouillabaisse}
 ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ loading=lazy }
 
-Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu różnych gatunków ryb, ma pyszny zapach!
+Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu różnych gatunków ryb, ma wspaniały zapach!
 
 - Type: Object
 - Subjects: Food, Culture
@@ -2443,18 +2449,6 @@ Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu r
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
 - Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Brona {#portcullis}
-![preview portcullis](../../../assets/img/content/cards/portcullis.jpg){ loading=lazy }
-
-Ciężka brama, która opada i blokuje wejście.
-
-- Type: Object
-- Subjects: Technology, History, Safety
-- Country: France
-- Image credit: CC_BY | Kevin King from Pensacola, FL, US of A | [source](https://commons.wikimedia.org/wiki/File:Cahir_Castle_Portcullis_by_Kevin_King.jpg)
 
 ---
 
@@ -2473,7 +2467,7 @@ Buty przeznaczone do tańca na sali balowej.
 ### Collège we Francji {#education_college_fr}
 ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
 
-Szkoła średnia we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wielu przedmiotów i przygotowują się do szkoły średniej.
+Gimnazjum we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wielu przedmiotów i przygotowują się do szkoły średniej.
 
 - Rationale: Understanding the French school system helps kids compare education across countries
 - Type: Concept
@@ -2526,25 +2520,10 @@ Słynny francuski region z wieloma zamkami.
 
 ---
 
-### Dookoła świata w osiemdziesiąt dni {#book_around_the_world_80_days}
-![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
-
-Ekscytująca książka Juliusza Verne'a o bardzo szybkiej podróży dookoła całego świata pociągami, statkami i balonami na ogrzane powietrze!
-
-- Type: Object
-- Subjects: Literature
-- Year: 1873
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Dworzec kolejowy Le Mans {#le_mans_train_station}
 ![preview le_mans_train_station](../../../assets/img/content/cards/le_mans_train_station.jpg){ loading=lazy }
 
-Stacja, z której wsiadasz do pociągu, którym wracasz do domu.
+Stacja, z której odjeżdżasz pociągiem do domu.
 
 - Type: Place
 - Subjects: Geography, Transportation, Community
@@ -2627,7 +2606,7 @@ Flaga Francji ma trzy pionowe pasy: niebieski, biały i czerwony. Te kolory symb
 ### Flaga Monako {#flag_monaco}
 ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ loading=lazy }
 
-Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem!
+Flaga Monako ma poziome czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem.
 
 - Rationale: Monaco shows kids how small places can be special and important
 - Type: Concept
@@ -2643,7 +2622,7 @@ Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słyn
 ### Fortepian {#piano}
 ![preview piano](../../../assets/img/content/cards/piano.jpg){ loading=lazy }
 
-Instrument klawiszowy służący do grania melodii i akordów.
+Duży instrument z klawiszami.
 
 - Type: Object
 - Subjects: Music, Education
@@ -2707,7 +2686,7 @@ Zabawna lub straszna figurka, która pełni również funkcję rynny deszczowej.
 ### Gustave Eiffel {#gustave_eiffel}
 ![preview gustave_eiffel](../../../assets/img/content/cards/gustave_eiffel.jpg){ loading=lazy }
 
-Człowiek, który zbudował Wieżę Eiffla! Był inżynierem, który uwielbiał budować z żelaza i stworzył najsłynniejszą wieżę na świecie.
+Inżynier, który zbudował Wieżę Eiffla! Uwielbiał konstruować z żelaza i stworzył najsłynniejszą wieżę na świecie.
 
 - Type: Person
 - Subjects: History, Culture, Science
@@ -2751,7 +2730,7 @@ Francuski pisarz, który wyobrażał sobie niesamowite przygody, zanim stały si
 ### Kapelusz z piórami {#feathered_hat}
 ![preview feathered_hat](../../../assets/img/content/cards/feathered_hat.jpg){ loading=lazy }
 
-Elegancki kapelusz z piórkiem dodającym stylu.
+Elegancki kapelusz ze stylowym piórkiem.
 
 - Type: Object
 - Subjects: Culture, History
@@ -2778,7 +2757,7 @@ Zbiór zasad szanujących przekonania każdego. Pomaga ludziom żyć razem w pok
 ### Kask {#helmet}
 ![preview helmet](../../../assets/img/content/cards/helmet.jpg){ loading=lazy }
 
-Metalowy kapelusz chroniący głowę.
+Metalowe ochronne nakrycie głowy.
 
 - Type: Object
 - Subjects: History, Safety
@@ -2787,10 +2766,10 @@ Metalowy kapelusz chroniący głowę.
 
 ---
 
-### Kask (bezpieczeństwo uliczne) {#helmet_street_safety}
+### Kask (bezpieczeństwo na drodze) {#helmet_street_safety}
 ![preview helmet_street_safety](../../../assets/img/content/cards/helmet_street_safety.jpg){ loading=lazy }
 
-Twardy kask chroniący głowę podczas jazdy.
+Twardy kask chroniący głowę podczas jazdy na rowerze.
 
 - Type: Object
 - Subjects: Safety, Health, Education
@@ -2800,10 +2779,10 @@ Twardy kask chroniący głowę podczas jazdy.
 
 ---
 
-### Katapultować {#catapult}
+### Katapulta {#catapult}
 ![preview catapult](../../../assets/img/content/cards/catapult.jpg){ loading=lazy }
 
-Maszyna, która rzuca kamieniami na dużą odległość.
+Maszyna, która wyrzuca kamienie na dużą odległość.
 
 - Type: Object
 - Subjects: Technology, History
@@ -2856,7 +2835,7 @@ Kamień z wyrytymi bardzo starymi prawami.
 ### Koronacja Napoleona (Dawid) {#coronation_of_napoleon_david}
 ![preview coronation_of_napoleon_david](../../../assets/img/content/cards/coronation_of_napoleon_david.jpg){ loading=lazy }
 
-Ogromny obraz przedstawiający ceremonię cesarza Francji.
+Ogromny obraz przedstawiający ceremonię koronacji cesarza Francji.
 
 - Type: Object
 - Subjects: Art, History
@@ -2879,6 +2858,18 @@ Specjalny budynek, w którym ludzie spotykają się, aby modlić się i śpiewa�
 
 ---
 
+### Krata {#portcullis}
+![preview portcullis](../../../assets/img/content/cards/portcullis.jpg){ loading=lazy }
+
+Ciężka brama, która opada i blokuje wejście.
+
+- Type: Object
+- Subjects: Technology, History, Safety
+- Country: France
+- Image credit: CC_BY | Kevin King from Pensacola, FL, US of A | [source](https://commons.wikimedia.org/wiki/File:Cahir_Castle_Portcullis_by_Kevin_King.jpg)
+
+---
+
 ### Królewska sypialnia {#royal_bedroom}
 ![preview royal_bedroom](../../../assets/img/content/cards/royal_bedroom.jpg){ loading=lazy }
 
@@ -2894,7 +2885,7 @@ Elegancki pokój z dużym łóżkiem z baldachimem.
 ### Ksylofon {#xylophone}
 ![preview xylophone](../../../assets/img/content/cards/xylophone.jpg){ loading=lazy }
 
-Instrument z prętami, w które uderza się, aby uzyskać nuty.
+Instrument ze sztabkami, w które uderza się, aby uzyskać dźwięki.
 
 - Type: Object
 - Subjects: Music, Education
@@ -2913,19 +2904,6 @@ Nuta muzyczna.
 - Country: France
 - Topics: [Musical Notes](../topics/index.md#musical_notes)
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Karst_peaks_and_green_paddy_fields_under_a_stormy_sky,_South_view_from_Mount_Nam_Xay,_Vang_Vieng,_Laos.jpg)
-
----
-
-### Latająca przypora {#flying_buttress}
-![preview flying_buttress](../../../assets/img/content/cards/flying_buttress.jpg){ loading=lazy }
-
-Kamienne ramiona na zewnątrz, które pomagają podtrzymywać wysokie mury.
-
-- Type: Concept
-- Subjects: Technology, History, Art
-- Country: France
-- Image credit: CC_BY_SA | Acroterion | [source](https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_gallery_roof_and_buttresses_1980-1.jpg)
-- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2957,22 +2935,25 @@ Szkoła średnia we Francji dla nastolatków w wieku od 16 do 18 lat. Uczniowie 
 
 ---
 
-### Luki {#loopholes}
-![preview loopholes](../../../assets/img/content/cards/loopholes.jpg){ loading=lazy }
+### Louvre {#louvre}
+![preview louvre](../../../assets/img/content/cards/louvre.jpg){ loading=lazy }
 
-Wąskie okna umożliwiające bezpieczne strzelanie.
+Ogromne muzeum pełne sztuki. To tu mieszka Mona Lisa.
 
-- Type: Concept
-- Subjects: History, Technology
+- Type: Place
+- Subjects: Art, Culture, History
+- Year: 1793
 - Country: France
-- Image credit: CC_BY_SA | A.-K. D. | [source](https://commons.wikimedia.org/wiki/File:Cross_shaped_loophole.jpg)
+- Topics: [Louvre](../topics/index.md#louvre)
+- Image credit: CC0
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
 ### Lutnia {#lute}
 ![preview lute](../../../assets/img/content/cards/lute.jpg){ loading=lazy }
 
-Instrument strunowy, na którym gra się na dworze.
+Dawny instrument muzyczny, jego kształt przypominał gruszkę.
 
 - Type: Object
 - Subjects: Music, Culture, History
@@ -2997,7 +2978,7 @@ Zdjęcie przedstawiające rzekę Sekwanę i jej przepływ przez ląd.
 ### Mapa Sekwany w Paryżu {#seine_map_in_paris}
 ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ loading=lazy }
 
-Zdjęcie przedstawiające przepływ rzeki Sekwany przez Paryż.
+Zdjęcie przedstawiające jak Sekwana płynie przez Paryż.
 
 - Type: Object
 - Subjects: Science
@@ -3010,7 +2991,7 @@ Zdjęcie przedstawiające przepływ rzeki Sekwany przez Paryż.
 ### Marsylianka {#marseillaise_music}
 ![preview marseillaise_music](../../../assets/img/content/cards/marseillaise_music.jpg){ loading=lazy }
 
-Francuska pieśń narodowa. Śpiewa się ją podczas wielkich wydarzeń i meczów sportowych.
+Francuski hymn narodowy, śpiewany podczas wielkich wydarzeń i zawodów sportowych.
 
 - Type: Concept
 - Subjects: Music, Culture
@@ -3023,7 +3004,7 @@ Francuska pieśń narodowa. Śpiewa się ją podczas wielkich wydarzeń i meczó
 
 ---
 
-### Maska maskaradowa {#masquerade_mask}
+### Maska karnawałowa {#masquerade_mask}
 ![preview masquerade_mask](../../../assets/img/content/cards/masquerade_mask.jpg){ loading=lazy }
 
 Maska na imprezy i bale.
@@ -3076,25 +3057,12 @@ Piękny most w Paryżu z misternymi dekoracjami i złotymi posągami.
 ### Most zwodzony {#drawbridge}
 ![preview drawbridge](../../../assets/img/content/cards/drawbridge.jpg){ loading=lazy }
 
-Most podnoszony w celu ochrony wejścia do zamku.
+Podnoszony most, który chronił wejście do zamku.
 
 - Type: Object
 - Subjects: Technology, History, Safety
 - Country: France
 - Image credit: CC_BY_SA | Chuck Homler, Focus On Wildlife | [source](https://commons.wikimedia.org/wiki/File:Bufflehead-Tacony-MT.jpg)
-
----
-
-### Muzyka {#musical_score}
-![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ loading=lazy }
-
-Zapis nutowy i słowa piosenki.
-
-- Type: Object
-- Subjects: Education, Music
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC0 | Claude Joseph Rouget de Lisle | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_français_de_Rouget_de_L'Isle_Transcription_de_Langevin-2.jpg)
 
 ---
 
@@ -3124,10 +3092,10 @@ Nuta muzyczna.
 
 ---
 
-### Ogrody formalne {#formal_gardens}
+### Ogród francuski {#formal_gardens}
 ![preview formal_gardens](../../../assets/img/content/cards/formal_gardens.jpg){ loading=lazy }
 
-Ogrody ozdobne do spacerów i przyjęć.
+Ozdobny ogród, w którym można spacerować lub urządzać przyjęcia.
 
 - Type: Place
 - Subjects: Culture, Environment
@@ -3149,6 +3117,18 @@ Duży, okrągły witraż opowiadający historie światłem.
 
 ---
 
+### Otwory strzelnicze {#loopholes}
+![preview loopholes](../../../assets/img/content/cards/loopholes.jpg){ loading=lazy }
+
+Wąskie okna umożliwiające bezpieczne strzelanie.
+
+- Type: Concept
+- Subjects: History, Technology
+- Country: France
+- Image credit: CC_BY_SA | A.-K. D. | [source](https://commons.wikimedia.org/wiki/File:Cross_shaped_loophole.jpg)
+
+---
+
 ### Parapet {#parapet}
 ![preview parapet](../../../assets/img/content/cards/parapet.jpg){ loading=lazy }
 
@@ -3158,6 +3138,19 @@ Niski mur na skraju wałów obronnych.
 - Subjects: History, Technology
 - Country: France
 - Image credit: CC_BY_SA | Johann Jaritz | [source](https://commons.wikimedia.org/wiki/File:Feldkirchen_Kirchgasse_6_Wohn-und_Geschäftshaus_Parapet-Fenster_06062019_7122.jpg)
+
+---
+
+### Partytura muzyczna {#musical_score}
+![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ loading=lazy }
+
+Zapis nutowy i słowa piosenki.
+
+- Type: Object
+- Subjects: Education, Music
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC0 | Claude Joseph Rouget de Lisle | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_français_de_Rouget_de_L'Isle_Transcription_de_Langevin-2.jpg)
 
 ---
 
@@ -3221,10 +3214,25 @@ W 2019 roku wielki pożar zniszczył piękną katedrę Notre-Dame w Paryżu. Wie
 
 ---
 
+### Przedszkole {#education_ecole_maternelle_fr}
+![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
+
+Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i odkrywanie.
+
+- Type: Concept
+- Subjects: Education, Culture
+- Year: 1975
+- Country: France
+- Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | Polymagou, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_Paul-Langevin,_Les_Clayes-sous-Bois,_Yvelines_9-3.jpg)
+- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
+
+---
+
 ### Przewoźnik {#boatman}
 ![preview boatman](../../../assets/img/content/cards/boatman.jpg){ loading=lazy }
 
-Osoba wiosłująca łodzią po Loarze.
+Osoba pływająca łódką po Loarze.
 
 - Type: Person
 - Subjects: Community, Transportation
@@ -3233,7 +3241,7 @@ Osoba wiosłująca łodzią po Loarze.
 
 ---
 
-### Przysięga Horacjuszy (Dawida) {#oath_of_the_horatii_david}
+### Przysięga Horacjuszy (David) {#oath_of_the_horatii_david}
 ![preview oath_of_the_horatii_david](../../../assets/img/content/cards/oath_of_the_horatii_david.jpg){ loading=lazy }
 
 Obraz przedstawiający trzech braci składających odważną obietnicę.
@@ -3262,7 +3270,7 @@ Okres lat dziewięćdziesiątych XVIII wieku, kiedy we Francji nastąpiła zmian
 ### Rower {#bicycle}
 ![preview bicycle](../../../assets/img/content/cards/bicycle.jpg){ loading=lazy }
 
-Pojazd z dwoma kołami, do których pedałuje się.
+Pojazd z dwoma kołami, napędzany nogami.
 
 - Type: Object
 - Subjects: Transportation, Health, Recreation
@@ -3274,7 +3282,7 @@ Pojazd z dwoma kołami, do których pedałuje się.
 ### Rzeka Loara {#loire_river}
 ![preview loire_river](../../../assets/img/content/cards/loire_river.jpg){ loading=lazy }
 
-Długa rzeka we Francji, wzdłuż której brzegów znajduje się wiele zamków.
+Długa Rzeka we Francji, nad jej brzegami znajduje się wiele zamków.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -3337,7 +3345,7 @@ Nuta muzyczna.
 ### Siedzący skryba {#the_seated_scribe}
 ![preview the_seated_scribe](../../../assets/img/content/cards/the_seated_scribe.jpg){ loading=lazy }
 
-Starożytna egipska statua przedstawiająca osobę piszącą.
+Starożytna egipska rzeźba przedstawiająca uczonego piszącego na papirusie.
 
 - Type: Object
 - Subjects: Art, History
@@ -3372,7 +3380,7 @@ Nuta muzyczna.
 
 ---
 
-### Statek po Sekwanie {#boat_eiffel_tower}
+### Statek na Sekwanie {#boat_eiffel_tower}
 ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ loading=lazy }
 
 Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę Eiffla i inne piękne budynki!
@@ -3387,7 +3395,7 @@ Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę E
 
 ---
 
-### Strzałki {#arrows}
+### Strzały {#arrows}
 ![preview arrows](../../../assets/img/content/cards/arrows.jpg){ loading=lazy }
 
 Ostre patyki wystrzeliwane z łuku.
@@ -3402,28 +3410,13 @@ Ostre patyki wystrzeliwane z łuku.
 ### Sygnalizacja świetlna {#traffic_lights}
 ![preview traffic_lights](../../../assets/img/content/cards/traffic_lights.jpg){ loading=lazy }
 
-Latarnie uliczne informujące, kiedy należy się ZATRZYMAĆ lub JECHAĆ.
+Światła uliczne, które informują, kiedy należy się ZATRZYMAĆ lub JECHAĆ.
 
 - Type: Object
 - Subjects: Safety, Education, Transportation
 - Country: France
 - Topics: [Stree safety](../topics/index.md#street-safety)
 - Image credit: CC0
-
----
-
-### Szkoła Maternelle {#education_ecole_maternelle_fr}
-![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
-
-Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i odkrywanie.
-
-- Type: Concept
-- Subjects: Education, Culture
-- Year: 1975
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | Polymagou, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_Paul-Langevin,_Les_Clayes-sous-Bois,_Yvelines_9-3.jpg)
-- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -3442,22 +3435,25 @@ Szkoła dla dzieci w wieku od 6 do 10 lat. Uczysz się czytania, pisania i licze
 
 ---
 
-### Ukłon {#bow}
-![preview bow](../../../assets/img/content/cards/bow.jpg){ loading=lazy }
+### W osiemdziesiąt dni dookoła świata {#book_around_the_world_80_days}
+![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
-Broń strzelająca strzałami.
+Ekscytująca książka Juliusza Verne'a o bardzo szybkiej podróży dookoła całego świata pociągami, statkami i balonami na ogrzane powietrze!
 
 - Type: Object
-- Subjects: History, Technology
+- Subjects: Literature
+- Year: 1873
 - Country: France
-- Image credit: CC0 | Harold Dean Carsey (1886-1947) | [source](https://commons.wikimedia.org/wiki/File:Clara_Bow,_grayscale.jpg)
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
 ### Wały {#ramparts}
 ![preview ramparts](../../../assets/img/content/cards/ramparts.jpg){ loading=lazy }
 
-Wysokie mury, po których można chodzić i strzec zamku.
+Wysokie mury, które strzegą zamku.
 
 - Type: Concept
 - Subjects: History, Technology
@@ -3469,7 +3465,7 @@ Wysokie mury, po których można chodzić i strzec zamku.
 ### Wejście na tor wyścigowy Le Mans {#le_mans_racetrack_entrance}
 ![preview le_mans_racetrack_entrance](../../../assets/img/content/cards/le_mans_racetrack_entrance.jpg){ loading=lazy }
 
-Wejście na tor wyścigowy Le Mans.
+Strefa wejścia na tor wyścigowy Le Mans.
 
 - Type: Place
 - Subjects: Geography, Sport, Culture
@@ -3506,7 +3502,7 @@ Windy, którymi zwiedzający mogą wjechać na żelazną wieżę.
 
 ---
 
-### Wolność wiodąca lud {#art_liberty_leading_the_people}
+### Wolność wiodąca lud na barykady {#art_liberty_leading_the_people}
 ![preview art_liberty_leading_the_people](../../../assets/img/content/cards/art_liberty_leading_the_people.jpg){ loading=lazy }
 
 Słynny obraz o wolności i odwadze. Przedstawia odważną kobietę trzymającą flagę Francji i prowadzącą ludzi do walki o swoje prawa.
@@ -3537,7 +3533,7 @@ Wielka światowa wystawa, na której pokazano Wieżę Eiffla.
 ### Z Ziemi na Księżyc {#book_from_earth_to_moon}
 ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
 
-Książka Juliusza Verne'a o podróży na Księżyc w wielkiej armacie! Została napisana, zanim jeszcze istniały prawdziwe rakiety.
+Książka Juliusza Verne'a o podróżny na księżyc po wystrzeleniu z armaty. Została napisana, zanim jeszcze istniały prawdziwe rakiety.
 
 - Type: Object
 - Subjects: Literature, Space, Science
@@ -3611,10 +3607,35 @@ Białe pasy tam, gdzie ludzie przechodzą przez ulicę.
 
 ---
 
+### Łuk {#bow}
+![preview bow](../../../assets/img/content/cards/bow.jpg){ loading=lazy }
+
+Broń miotająca strzały.
+
+- Type: Object
+- Subjects: History, Technology
+- Country: France
+- Image credit: CC0 | Harold Dean Carsey (1886-1947) | [source](https://commons.wikimedia.org/wiki/File:Clara_Bow,_grayscale.jpg)
+
+---
+
+### Łuk przyporowy {#flying_buttress}
+![preview flying_buttress](../../../assets/img/content/cards/flying_buttress.jpg){ loading=lazy }
+
+Kamienne zewnętrzne ramiona, które pomagają podtrzymywać wysokie mury.
+
+- Type: Concept
+- Subjects: Technology, History, Art
+- Country: France
+- Image credit: CC_BY_SA | Acroterion | [source](https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_gallery_roof_and_buttresses_1980-1.jpg)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
 ### Łuk Triumfalny {#arc_de_triomphe}
 ![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
 
-Wielki łuk w Paryżu, wzniesiony ku czci bohaterów. Widać go lśniącego na końcu długiej alei!
+Wielki łuk w Paryżu wzniesiony ku czci bohaterów. Lśni tak, że widać go z drugiego końca długiej alei!
 
 - Type: Place
 - Country: France
@@ -3626,7 +3647,7 @@ Wielki łuk w Paryżu, wzniesiony ku czci bohaterów. Widać go lśniącego na k
 ### Łódź podwodna (Nautilus) {#submarine_nautilus}
 ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ loading=lazy }
 
-Łódź podwodna z powieści Juliusza Verne'a. Mogła eksplorować głębiny morskie.
+Łódź podwodna z powieści Juliusza Verne'a. Mogła badać głębiny morskie.
 
 - Type: Object
 - Subjects: Literature, Science
@@ -3634,21 +3655,6 @@ Wielki łuk w Paryżu, wzniesiony ku czci bohaterów. Widać go lśniącego na k
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
-
----
-
-### Żaluzja {#louvre}
-![preview louvre](../../../assets/img/content/cards/louvre.jpg){ loading=lazy }
-
-Ogromne muzeum pełne sztuki. To tu mieszka Mona Lisa.
-
-- Type: Place
-- Subjects: Art, Culture, History
-- Year: 1793
-- Country: France
-- Topics: [Louvre](../topics/index.md#louvre)
-- Image credit: CC0
-- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ## Poland
 
@@ -3679,24 +3685,10 @@ Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
 
 ---
 
-### Biskup Krasnolud {#bishop_dwarf}
-![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
-
-Posąg karła zadającego pytanie kościelne.
-
-- Type: Object
-- Subjects: Culture, History
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Bursztyn {#amber}
 ![preview amber](../../../assets/img/content/cards/amber.jpg){ loading=lazy }
 
-Błyszcząca skamieniała żywica drzewna zwana „Bałtyckim Złotem”.
+Błyszcząca, skamieniała żywica drzew iglastych zwana "złotem Bałtyku".
 
 - Type: Object
 - Subjects: History, Culture, Science
@@ -3707,7 +3699,7 @@ Błyszcząca skamieniała żywica drzewna zwana „Bałtyckim Złotem”.
 
 ---
 
-### Bursztynowy Pokój {#amber_room}
+### Bursztynowa Komnata {#amber_room}
 ![preview amber_room](../../../assets/img/content/cards/amber_room.jpg){ loading=lazy }
 
 Słynny pokój z bursztynu o tajemniczej historii.
@@ -3737,7 +3729,7 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 ### Dom na wodzie {#houseboat}
 ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ loading=lazy }
 
-Łódź stworzona do życia na niej.
+Łódź, w której można mieszkać.
 
 - Type: Object
 - Subjects: Transportation, Community
@@ -3751,7 +3743,7 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 ### Dorosły słoń {#animal_elephant_adult}
 ![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
 
-Duży i silny, z długimi kłami i głośną trąbką. Troszczy się o stado i wskazuje drogę.
+Duży i silny, z długimi kłami i głośną trąbą. Troszczy się o stado i wskazuje drogę.
 
 - Type: None
 - Country: Poland
@@ -3786,20 +3778,6 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 
 ---
 
-### Ekspert Krasnoludów {#dwarf_expert}
-![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
-
-Przyjazny przewodnik, który wie wszystko o krasnoludkach.
-
-- Type: Person
-- Subjects: Education, Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Fale {#waves}
 ![preview waves](../../../assets/img/content/cards/waves.jpg){ loading=lazy }
 
@@ -3814,10 +3792,24 @@ Ruch wody na morzu.
 
 ---
 
+### Figurka wrocławskiego krasnala {#wroclaw_dwarf_statue}
+![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ loading=lazy }
+
+Niewielka figurka krasnala-symbolu Wrocławia.
+
+- Type: Object
+- Subjects: Culture, Community, History
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Flaga Polski {#flag_poland}
 ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ loading=lazy }
 
-Flaga Polski ma poziome, biało-czerwone pasy. Polska słynie z naukowców takich jak Kopernik i pysznych pierogów!
+Flaga Polski ma dwa poziome pasy: biały i czerwony. Polska słynie z naukowców takich jak Kopernik oraz pysznych pierogów.
 
 - Rationale: The Polish flag is essential for Polish language learning and cultural identity
 - Type: Concept
@@ -3900,19 +3892,6 @@ Miasto portowe w Polsce nad Morzem Bałtyckim.
 
 ---
 
-### Główny Ratusz {#main_town_hall}
-![preview main_town_hall](../../../assets/img/content/cards/main_town_hall.jpg){ loading=lazy }
-
-Wysoki ratusz z wieżą i muzeum.
-
-- Type: Place
-- Subjects: History, Culture
-- Country: Poland
-- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Ayuntamiento_Principal,_Gdansk,_Polonia,_2013-05-20,_DD_01.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
-
----
-
 ### Hala Stulecia {#wroclaw_centennial_hall}
 ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ loading=lazy }
 
@@ -3929,7 +3908,7 @@ Hala Stulecia to ogromny budynek przypominający wielki namiot z dachem. Jest ba
 ### Iglica {#iglica}
 ![preview iglica](../../../assets/img/content/cards/iglica.jpg){ loading=lazy }
 
-Wysoka metalowa rzeźba obok Centennial Hall.
+Wysoka metalowa konstrukcja obok Hali Stulecia.
 
 - Type: Place
 - Subjects: History, Culture
@@ -3939,7 +3918,7 @@ Wysoka metalowa rzeźba obok Centennial Hall.
 
 ---
 
-### Jupiter {#jupiter}
+### Jowisz {#jupiter}
 ![preview jupiter](../../../assets/img/content/cards/jupiter.jpg){ loading=lazy }
 
 Największa planeta, słynąca z Wielkiej Czerwonej Plamy.
@@ -3956,7 +3935,7 @@ Największa planeta, słynąca z Wielkiej Czerwonej Plamy.
 ### Kajak {#kayak}
 ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ loading=lazy }
 
-Mała łódka, którą wiosłujesz.
+Mała łódka napędzana wiosłami.
 
 - Type: Object
 - Subjects: Recreation, Sport
@@ -3966,30 +3945,58 @@ Mała łódka, którą wiosłujesz.
 
 ---
 
-### Krasnale wrocławskie {#wroclaw_dwarfs}
-![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ loading=lazy }
+### Krasnal Biskup {#bishop_dwarf}
+![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
 
-Malutkie figurki w całym mieście, które uwielbiają płatać figle.
+Posąg karła zadającego pytanie kościelne.
 
-- Type: Concept
-- Subjects: Culture, Community, History
+- Type: Object
+- Subjects: Culture, History
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | Matti Blume | [source](https://commons.wikimedia.org/wiki/File:Dwarf,_Wroclaw_(P1180336).jpg)
+- Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
-### Krasnolud Klucznik {#keymaster_dwarf}
+### Krasnal Ekspert {#dwarf_expert}
+![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
+
+Przyjazny przewodnik, który wie wszystko o krasnoludkach.
+
+- Type: Person
+- Subjects: Education, Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Krasnal Klucznik {#keymaster_dwarf}
 ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
 
-Posąg krasnala pilnującego windy z dużym kluczem.
+Krasnal z dużym kluczem pilnujący windy.
 
 - Type: Object
 - Subjects: Culture
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:100matolog_(Tooth-dwarf)_Wroclaw_dwarf_02.JPG)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Krasnal Miłośnik Zwierząt {#animal_lover_dwarf}
+![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ loading=lazy }
+
+Figurka krasnala, który uwielbia zoo i zwierzęta.
+
+- Type: Object
+- Subjects: Culture, Animal, Education
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -4012,7 +4019,7 @@ Król Polski, który wzniósł wiele pięknych budowli w Warszawie. Jego pomnik 
 ### Kładka {#footbridge}
 ![preview footbridge](../../../assets/img/content/cards/footbridge.jpg){ loading=lazy }
 
-Most, po którym ludzie mogą chodzić. Bez samochodów.
+Mostek, po którym mogą chodzić tylko ludzie. Bez samochodów.
 
 - Type: Object
 - Subjects: Transportation, Community
@@ -4063,10 +4070,10 @@ Prosta mapa Wrocławia przedstawiająca rzekę Odrę z wyspami i wieloma mostami
 
 ---
 
-### Maria Curie {#maria_curie}
+### Maria Skłodowska-Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
-Genialna polska naukowiec, która odkryła promieniotwórczość. Była pierwszą kobietą, która otrzymała Nagrodę Nobla i to dwukrotnie!
+Genialna polska uczona, odkryła promieniotwórczość. Była pierwszą kobietą, która otrzymała Nagrodę Nobla. I to dwukrotnie!
 
 - Rationale: Maria Curie inspires kids (especially girls) to pursue science and shows Polish contributions to science
 - Type: Person
@@ -4088,6 +4095,20 @@ Czerwona planeta z pyłem i dużymi wulkanami.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY_SA | ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO | [source](https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg)
+- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Merkury {#mercury}
+![preview mercury](../../../assets/img/content/cards/mercury.jpg){ loading=lazy }
+
+Najbliższa Słońcu planeta, mała i bardzo szybka.
+
+- Type: Object
+- Subjects: Space, Science
+- Country: Poland
+- Topics: [Solar System](../topics/index.md#solar_system)
+- Image credit: CC0 | NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. Edited version of Image:Mercury in color - Prockter07.jpg by Papa Lima Whiskey. | [source](https://commons.wikimedia.org/wiki/File:Mercury_in_color_-_Prockter07_centered.jpg)
 - Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
@@ -4118,20 +4139,6 @@ Genialny naukowiec z Polski, który odkrył, że to Ziemia krąży wokół Sło�
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC0
 - Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
-
----
-
-### Miłośnik zwierząt Krasnolud {#animal_lover_dwarf}
-![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ loading=lazy }
-
-Figurka krasnala, który uwielbia zoo i zwierzęta.
-
-- Type: Object
-- Subjects: Culture, Animal, Education
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4193,7 +4200,7 @@ Most z torami kolejowymi.
 ### Most Rędziński {#redzinski_bridge}
 ![preview redzinski_bridge](../../../assets/img/content/cards/redzinski_bridge.jpg){ loading=lazy }
 
-Najdłuższy most wantowy w Polsce.
+Najdłuższy most podwieszany w Polsce.
 
 - Type: Place
 - Subjects: Geography, Transportation, Technology
@@ -4207,7 +4214,7 @@ Najdłuższy most wantowy w Polsce.
 ### Most Tumski {#tumski_bridge}
 ![preview tumski_bridge](../../../assets/img/content/cards/tumski_bridge.jpg){ loading=lazy }
 
-Słynny most z kłódkami symbolizującymi miłość i latarniami gazowymi.
+Słynny most z latarniami gazowymi i kłódkami symbolizującymi miłość.
 
 - Type: Place
 - Subjects: Culture, Geography, Community
@@ -4218,24 +4225,10 @@ Słynny most z kłódkami symbolizującymi miłość i latarniami gazowymi.
 
 ---
 
-### Mosty Wrocławskie {#wroclaw_bridges}
-![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ loading=lazy }
-
-We Wrocławiu nad Odrą przebiega wiele mostów.
-
-- Type: Concept
-- Subjects: Geography, Transportation, Community
-- Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
-
----
-
 ### Muszla {#seashell}
 ![preview seashell](../../../assets/img/content/cards/seashell.jpg){ loading=lazy }
 
-Twardy muszla zwierzęcia morskiego, przydatna do rękodzieła.
+Twarda muszla zwierzęcia morskiego, wykorzystywana w rzemiośle.
 
 - Type: Object
 - Subjects: Animal, Environment, Art
@@ -4262,7 +4255,7 @@ Mały lew.
 ### Młody słoń {#animal_elephant_young}
 ![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
 
-Ciekawski i uczący się, podąża za dorosłymi. Codziennie ćwiczy używanie trąby!
+Ciekawski, szybko się uczy, podąża za dorosłymi. Codziennie ćwiczy używanie trąby!
 
 - Type: None
 - Country: Poland
@@ -4287,7 +4280,7 @@ Sznur koralików lub muszelek noszony na szyi.
 ### Nawigacja {#navigation}
 ![preview navigation](../../../assets/img/content/cards/navigation.jpg){ loading=lazy }
 
-Znalezienie drogi na morzu za pomocą świateł, map i narzędzi.
+Wyznaczanie drogi na morzu za pomocą świateł, map i przyrządów nawigacyjnych.
 
 - Type: Concept
 - Subjects: Technology, Geography
@@ -4370,7 +4363,7 @@ Mała soczewka, przez którą patrzysz w teleskopie.
 ### Olga Tokarczuk {#olga_tokarczuk}
 ![preview olga_tokarczuk](../../../assets/img/content/cards/olga_tokarczuk.jpg){ loading=lazy }
 
-Znany polski pisarz mieszkający we Wrocławiu.
+Znana polska pisarka mieszkająca we Wrocławiu.
 
 - Type: Person
 - Subjects: Literature, Culture
@@ -4380,7 +4373,7 @@ Znany polski pisarz mieszkający we Wrocławiu.
 
 ---
 
-### Opiekun zoo {#zoo_keeper}
+### Opiekun zwierząt w zoo {#zoo_keeper}
 ![preview zoo_keeper](../../../assets/img/content/cards/zoo_keeper.jpg){ loading=lazy }
 
 Osoba opiekująca się zwierzętami w zoo.
@@ -4410,7 +4403,7 @@ Otacza Cię gigantyczny obraz przedstawiający historyczną bitwę.
 ### Papuga {#parrot}
 ![preview parrot](../../../assets/img/content/cards/parrot.jpg){ loading=lazy }
 
-Jasny ptak, który potrafi naśladować dźwięki.
+Kolorowy ptak, który potrafi naśladować dźwięki.
 
 - Type: Object
 - Subjects: Animal, Science
@@ -4436,7 +4429,7 @@ Kolorowy ptak z dużym ogonem z piór.
 ### Pierniki toruńskie {#gingerbread}
 ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ loading=lazy }
 
-tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtowany w piękne wzory.
+Tradycyjny polski przysmak, przygotowany z mąki, miodu, przypraw, często ma piękne wzory.
 
 - Type: Object
 - Subjects: Food
@@ -4450,7 +4443,7 @@ tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtow
 ### Planetarium {#planetarium}
 ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ loading=lazy }
 
-Miejsce, w którym można zobaczyć niebo i gwiazdy w pomieszczeniu.
+Budynek, w którym można oglądać niebo i gwiazdy.
 
 - Type: Place
 - Subjects: Education, Science, Space
@@ -4464,16 +4457,17 @@ Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://common
 
 ---
 
-### Podpisać {#sign}
-![preview sign](../../../assets/img/content/cards/sign.jpg){ loading=lazy }
+### Polska waluta: złoty. {#currency_zloty}
+![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ loading=lazy }
 
-Tablica z prostymi faktami, które pomogą Ci się uczyć.
+Walutą polską jest złoty. Monety i banknoty mają symbole polskie.
 
-- Type: Object
-- Subjects: Education, Community
+- Type: Concept
+- Subjects: Money, Geography
 - Country: Poland
-- Image credit: CC_BY_SA | Frank Schulenburg | [source](https://commons.wikimedia.org/wiki/File:Railroad_Park_Resort_in_Dunsmuir,_June_2021.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Bitllets_de_banc_polonesos_2024.jpg)
+- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -4510,8 +4504,7 @@ Pierogi z nadzieniem ziemniaczanym, serowym lub owocowym. To słynne polskie dan
 ### Pomnik Chopina {#chopin_monument}
 ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
 
-Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Specjalne drzewo, pod którym siedzi, to typowa polska… wierzba)
-
+Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Drzewo, pod którym siedzi, to typowa polska wierzba).
 
 - Type: Object
 - Subjects: Music, Culture
@@ -4525,7 +4518,7 @@ Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Ch
 ### Port {#port}
 ![preview port](../../../assets/img/content/cards/port.jpg){ loading=lazy }
 
-Miejsce, w którym statki załadowują się i rozładowują.
+Miejsce, w którym towary ładuje się na statki lub je rozładowuje.
 
 - Type: Place
 - Subjects: Transportation, Community, Geography
@@ -4539,13 +4532,26 @@ Miejsce, w którym statki załadowują się i rozładowują.
 ### Ratusz {#town_hall}
 ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ loading=lazy }
 
-Miejsce, w którym pracują i spotykają się przywódcy miasta.
+Budynek, w którym pracują władze miasta.
 
 - Type: Concept
 - Subjects: Civics, Community, History
 - Country: Poland
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Town_hall_of_Aosta_(3).jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Ratusz Główny {#main_town_hall}
+![preview main_town_hall](../../../assets/img/content/cards/main_town_hall.jpg){ loading=lazy }
+
+Wysoki ratusz z wieżą i muzeum.
+
+- Type: Place
+- Subjects: History, Culture
+- Country: Poland
+- Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Ayuntamiento_Principal,_Gdansk,_Polonia,_2013-05-20,_DD_01.jpg)
+- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4559,20 +4565,6 @@ Duża gotycka budowla w Toruniu, położona tuż przy rynku.
 - Country: Poland
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Old_town_hall_in_Torun_(6).jpg)
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Rtęć {#mercury}
-![preview mercury](../../../assets/img/content/cards/mercury.jpg){ loading=lazy }
-
-Najbliższa Słońcu planeta, mała i bardzo szybka.
-
-- Type: Object
-- Subjects: Space, Science
-- Country: Poland
-- Topics: [Solar System](../topics/index.md#solar_system)
-- Image credit: CC0 | NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. Edited version of Image:Mercury in color - Prockter07.jpg by Papa Lima Whiskey. | [source](https://commons.wikimedia.org/wiki/File:Mercury_in_color_-_Prockter07_centered.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4590,23 +4582,10 @@ Osoba łowiąca ryby w morzu.
 
 ---
 
-### Rynek wrocławski {#wroclaw_market_square}
-![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ loading=lazy }
-
-Główny plac Starego Miasta, pełen życia.
-
-- Type: Place
-- Subjects: Geography, Culture, Community, History
-- Country: Poland
-- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Rzeka Motława {#motawa_river}
 ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ loading=lazy }
 
-Rzeka przepływająca przez Gdańsk do morza.
+Rzeka płynąca przez Gdańsk.
 
 - Type: Place
 - Subjects: Geography
@@ -4628,20 +4607,6 @@ Duża rzeka w zachodniej Polsce. Umożliwia statkom podróżowanie i handel.
 - Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Rzeźba Krasnala wrocławskiego {#wroclaw_dwarf_statue}
-![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ loading=lazy }
-
-Niewielka figurka miejska; krasnale są symbolem Wrocławia.
-
-- Type: Object
-- Subjects: Culture, Community, History
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4689,7 +4654,7 @@ Nowoczesny plac, na którym ludzie spotykają się w pobliżu wieży.
 ### Stary Ratusz (Wrocław) {#wroclaw_old_town_hall}
 ![preview wroclaw_old_town_hall](../../../assets/img/content/cards/wroclaw_old_town_hall.jpg){ loading=lazy }
 
-Piękny gotycki budynek na głównym placu. Znajduje się w nim słynny zegar.
+Piękny gotycki budynek na Rynku.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -4713,10 +4678,10 @@ Duża łódź przewożąca ludzi lub towary.
 
 ---
 
-### Syrena Warszawska {#mermaid_of_warsaw}
+### Syrenka Warszawska {#mermaid_of_warsaw}
 ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ loading=lazy }
 
-Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg można zobaczyć nad rzeką.
+Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg stoi nad Wisłą.
 
 - Type: Object
 - Subjects: Culture, History
@@ -4730,7 +4695,7 @@ Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg można zoba
 ### Szkoła Podstawowa Leonarda da Vinci {#primary_school_leonardo_da_vinci}
 ![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
 
-To przyjazne miejsce, w którym dzieci uczą się, tworzą i odkrywają, kierując się ciekawością, sztuką i nauką.
+To przyjazne miejsce, w którym dzieci uczą się, tworzą i odkrywają naukę i sztukę, kierując się ciekawością.
 
 - Type: None
 - Subjects: Education
@@ -4795,7 +4760,7 @@ Słońce i osiem planet krążących wokół niego.
 ### Uran {#uranus}
 ![preview uranus](../../../assets/img/content/cards/uranus.jpg){ loading=lazy }
 
-Niebiesko-zielona planeta obracająca się na boku.
+Niebiesko-zielona planeta, toczy się na boku.
 
 - Type: Object
 - Subjects: Space, Science
@@ -4803,20 +4768,6 @@ Niebiesko-zielona planeta obracająca się na boku.
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech | [source](https://commons.wikimedia.org/wiki/File:Uranus2.jpg)
 - Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
-
----
-
-### Waluta Złoty {#currency_zloty}
-![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ loading=lazy }
-
-Walutą polską jest złoty. Monety i banknoty mają symbole polskie.
-
-- Type: Concept
-- Subjects: Money, Geography
-- Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Bitllets_de_banc_polonesos_2024.jpg)
-- Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -4852,7 +4803,7 @@ Bardzo gorąca planeta pokryta grubymi chmurami.
 ### Wisła {#vistula_river}
 ![preview vistula_river](../../../assets/img/content/cards/vistula_river.jpg){ loading=lazy }
 
-Najdłuższa rzeka Polski. Uchodzi do Morza Bałtyckiego.
+Najdłuższa rzeka Polski. Wpada do Morza Bałtyckiego.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -4879,7 +4830,7 @@ Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warsz
 ### Wrocław {#wroclaw}
 ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
 
-Miasto w Polsce z rzekami, mostami i historią.
+Miasto w Polsce z rzekami, mostami i pięknymi zabytkami.
 
 - Type: Place
 - Subjects: Geography, History, Culture
@@ -4893,7 +4844,7 @@ Miasto w Polsce z rzekami, mostami i historią.
 ### Wrocław: Katedra {#wroclaw_cathedral}
 ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
 
-Duży, ważny kościół, w którym ludzie się modlą. Można wspiąć się na wieżę, żeby zobaczyć widok.
+Duży, ważny kościół, w którym ludzie sie modlą, Można wspiąć sie na jego wieżę i podziwiać widoki.
 
 - Type: Place
 - Subjects: History, Culture
@@ -4929,6 +4880,47 @@ Woda tańcząca w rytm muzyki i kolorowych świateł.
 
 ---
 
+### Wrocławski Rynek {#wroclaw_market_square}
+![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ loading=lazy }
+
+Główny plac Starego Miasta, pełen życia.
+
+- Type: Place
+- Subjects: Geography, Culture, Community, History
+- Country: Poland
+- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Wrocławskie krasnale {#wroclaw_dwarfs}
+![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ loading=lazy }
+
+Malutkie figurki w całym mieście. Krasnale lubią płatać figle.
+
+- Type: Concept
+- Subjects: Culture, Community, History
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | Matti Blume | [source](https://commons.wikimedia.org/wiki/File:Dwarf,_Wroclaw_(P1180336).jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Wrocławskie mosty {#wroclaw_bridges}
+![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ loading=lazy }
+
+Wrocław znany jest z licznych mostów.
+
+- Type: Concept
+- Subjects: Geography, Transportation, Community
+- Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
 ### Wybieg dla zwierząt {#animal_enclosure}
 ![preview animal_enclosure](../../../assets/img/content/cards/animal_enclosure.jpg){ loading=lazy }
 
@@ -4946,7 +4938,7 @@ Bezpieczna przestrzeń w zoo, w której mogą żyć zwierzęta.
 ### Wybrzeże Morza Bałtyckiego {#baltic_sea_coast}
 ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
 
-Piaskowy brzeg Morza Bałtyckiego.
+Piaszczysty brzeg Morza Bałtyckiego.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -4960,7 +4952,7 @@ Piaskowy brzeg Morza Bałtyckiego.
 ### Ziemia {#earth}
 ![preview earth](../../../assets/img/content/cards/earth.jpg){ loading=lazy }
 
-Nasza planeta rodzinna z lądem, powietrzem i wodą.
+Nasza planeta, z domem powietrzem i wodą.
 
 - Type: Object
 - Subjects: Space, Science, Geography, Environment
@@ -4968,6 +4960,19 @@ Nasza planeta rodzinna z lądem, powietrzem i wodą.
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans | [source](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)
 - Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Znak {#sign}
+![preview sign](../../../assets/img/content/cards/sign.jpg){ loading=lazy }
+
+Tablica z prostymi faktami, które pomogą Ci się uczyć.
+
+- Type: Object
+- Subjects: Education, Community
+- Country: Poland
+- Image credit: CC_BY_SA | Frank Schulenburg | [source](https://commons.wikimedia.org/wiki/File:Railroad_Park_Resort_in_Dunsmuir,_June_2021.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4984,7 +4989,7 @@ Pojazd poruszający się po wodzie.
 
 ---
 
-### Żuraw Żuraw {#zuraw_crane}
+### Żuraw Gdański {#zuraw_crane}
 ![preview zuraw_crane](../../../assets/img/content/cards/zuraw_crane.jpg){ loading=lazy }
 
 Stary dźwig portowy i brama miejska nad rzeką.
@@ -5141,7 +5146,7 @@ Flaga Andory ma niebieskie, żółte i czerwone pasy z herbem pośrodku. Andora 
 ### Flaga Hiszpanii
 ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ loading=lazy }
 
-Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają słońce i paprykę! To Hiszpania wynalazła taniec flamenco.
+Flaga Hiszpanii ma poziome czerwone i żółte pasy. Kolory te przypominają słońce i paprykę. To w Hiszpanii tańczy się flamenco.
 
 - Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
 - Type: Concept
@@ -5158,7 +5163,7 @@ Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają s�
 ### Hiszpania
 ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ loading=lazy }
 
-Kraj w Europie. Stolicą jest Madryt. Hiszpania wynalazła taniec flamenco.
+Kraj w Europie. Stolicą jest Madryt. Hiszpania jest znana z tańca flamenco.
 
 - Type: Place
 - Subjects: Geography, Culture

@@ -140,7 +140,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;task_start COLLECT_INGREDIENTS task_ingredients_done&gt;&gt;</span>
 <span class="yarn-line">Quando parli con le persone, ricorda le buone maniere!</span> <span class="yarn-meta">#line:03f1020 </span>
 <span class="yarn-line">Diciamo "Dzień dobry" per salutare qualcuno</span> <span class="yarn-meta">#line:091bb57 </span>
-<span class="yarn-line">e "Dziękuję" per ringraziarli.</span> <span class="yarn-meta">#line:076ffac </span>
+<span class="yarn-line">e „Dziękuję”, per ringraziare qualcuno.</span> <span class="yarn-meta">#line:076ffac </span>
 <span class="yarn-cmd">&lt;&lt;area area_full&gt;&gt;</span>
 
 </code>
@@ -156,12 +156,12 @@ hide:
 <span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Acquista gli ingredienti per la ricetta.</span> <span class="yarn-meta">#line:00565e5 </span>
-<span class="yarn-line">Un po' di FARINA</span> <span class="yarn-meta">#line:070b733 </span>
-<span class="yarn-line">Un po' di MIELE</span> <span class="yarn-meta">#line:0e22cab </span>
-<span class="yarn-line">Un po' di ZUCCHERO</span> <span class="yarn-meta">#line:055af31</span>
-<span class="yarn-line">Un po' di BURRO</span> <span class="yarn-meta">#line:0bfb896 </span>
+<span class="yarn-line">FARINA</span> <span class="yarn-meta">#line:070b733 </span>
+<span class="yarn-line">MIELE</span> <span class="yarn-meta">#line:0e22cab </span>
+<span class="yarn-line">ZUCCHERO</span> <span class="yarn-meta">#line:055af31</span>
+<span class="yarn-line">BURRO</span> <span class="yarn-meta">#line:0bfb896 </span>
 <span class="yarn-line">Un UOVO</span> <span class="yarn-meta">#line:0de2001 </span>
-<span class="yarn-line">Un po' di CANNELLA</span> <span class="yarn-meta">#line:0ba5cca </span>
+<span class="yarn-line">CANNELLA</span> <span class="yarn-meta">#line:0ba5cca </span>
 <span class="yarn-line">E infine un po' di ZENZERO</span> <span class="yarn-meta">#line:0a700e3 </span>
 <span class="yarn-cmd">&lt;&lt;card_hide&gt;&gt;</span>
 
@@ -234,7 +234,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread_mold&gt;&gt;</span>
 <span class="yarn-line">Abbina i pezzi di GINGERBREAD al loro venditore.</span> <span class="yarn-meta">#line:0e54683 </span>
-<span class="yarn-cmd">&lt;&lt;activity match_ingredients activity_match_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity match_ingredients_pl_06 activity_match_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -249,7 +249,7 @@ hide:
 <span class="yarn-header-dim">group: cook</span>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("match_ingredients") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("match_ingredients_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">Ottimo lavoro! Hai abbinato tutti gli ingredienti.</span> <span class="yarn-meta">#line:01648b2</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread&gt;&gt;</span>
 <span class="yarn-line">Adesso prepariamo il PAN DI ZENZERO!</span> <span class="yarn-meta">#line:0f0f617 </span>
@@ -278,7 +278,7 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("money_grocer") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("money_grocer_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   Hai già acquistato da me!</span> <span class="yarn-meta">#line:already_bought</span>
 <span class="yarn-line">   Vuoi giocare di nuovo?</span> <span class="yarn-meta">#line:play_again</span>
 <span class="yarn-line">   SÌ</span> <span class="yarn-meta">#line:yes</span>
@@ -350,7 +350,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Scegli le monete giuste per pagare.</span> <span class="yarn-meta">#line:select_money</span>
-<span class="yarn-cmd">&lt;&lt;activity money_grocer grocer_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_grocer_pl_06 grocer_payment_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -501,7 +501,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("money_cheesemonger") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("money_cheesemonger_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   Hai già acquistato da me!</span> <span class="yarn-meta">#shadow:already_bought</span>
 <span class="yarn-line">   Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:play_again</span>
 <span class="yarn-line">   SÌ</span> <span class="yarn-meta">#shadow:yes</span>
@@ -573,7 +573,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Scegli le monete giuste per pagare.</span> <span class="yarn-meta">#shadow:select_money</span>
-<span class="yarn-cmd">&lt;&lt;activity money_cheesemonger cheesemonger_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_cheesemonger_pl_06 cheesemonger_payment_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1013,7 +1013,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ciao. Cosa vuoi?</span> <span class="yarn-meta">#line:0f11caf </span>
+<span class="yarn-line">Ciao. In cosa posso aiutare?</span> <span class="yarn-meta">#line:0f11caf </span>
 <span class="yarn-line">Voglio entrare nel Vecchio Municipio.</span> <span class="yarn-meta">#line:0449db3 </span>
    <span class="yarn-cmd">&lt;&lt;if $gingerbread_done == true&gt;&gt;</span>
       <span class="yarn-cmd">&lt;&lt;trigger open_door_castle&gt;&gt;</span>

@@ -87,6 +87,8 @@ Parlez-leur à tous… ils ont des histoires à raconter !
     - **[Mathématiques élémentaires](../cards/index.md#elementary_maths)**
     Chiffres et formes de la vie quotidienne : compter, additionner et soustraire, fractions simples, mesurer, lire l'heure et utiliser l'argent.
 
+    ![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ width="200" }
+
 - Connected cards:
     - **[Doubler](../cards/index.md#fr_figure_line)** (PartOf)
     Une ligne droite reliant un point à un autre. Les lignes peuvent être longues ou courtes.
@@ -98,7 +100,7 @@ Parlez-leur à tous… ils ont des histoires à raconter !
 
     ![preview fr_figure_triangle](../../../assets/img/content/cards/fr_figure_triangle.jpg){ width="200" }
 
-    - **[Boussole](../cards/index.md#math_compass)** (Purpose)
+    - **[Compas](../cards/index.md#math_compass)** (Purpose)
     Un outil qui permet de tracer des cercles parfaits. Il possède deux branches, comme des ciseaux.
 
     ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ width="200" }
@@ -595,7 +597,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [DEV (dev)](../quests/quest/dev.md), [Paris ! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -848,6 +850,8 @@ Credits:
     - **[écoles françaises](../cards/index.md#french_schools)**
     En France, l'école se déroule en quatre grandes étapes : la maternelle (apprentissage ludique pour les petits), l'école élémentaire (lecture, écriture, mathématiques), le collège et le lycée. À la fin du lycée, de nombreux élèves passent un examen important, le baccalauréat.
 
+    ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
+
 - Connected cards:
     - **[École maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
     École pour les petits de 3 à 5 ans. On apprend en jouant et en explorant.
@@ -928,7 +932,7 @@ Credits:
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
-    - **[Former](../cards/index.md#train)** (RelatedTo)
+    - **[Train](../cards/index.md#train)** (RelatedTo)
     Les trains transportent rapidement des personnes et des marchandises à travers le pays.
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
@@ -950,7 +954,7 @@ Credits:
 - Subjects: Art  
 - Target Age: Ages6to10
 - Core card:
-    - **[Persienne](../cards/index.md#louvre)**
+    - **[Louvre](../cards/index.md#louvre)**
     Un immense musée rempli d'œuvres d'art. C'est là que vit la Joconde.
 
     ![preview louvre](../../../assets/img/content/cards/louvre.jpg){ width="200" }
@@ -981,7 +985,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
 
 ---
 

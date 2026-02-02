@@ -257,18 +257,46 @@ hide:
 <div class="yarn-node" data-title="tutor_end">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">group: </span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
 <span class="yarn-line">Ceci conclut le tutoriel de base.</span> <span class="yarn-meta">#line:0dfdfc5 </span>
-<span class="yarn-line">Vous pouvez maintenant explorer la région et parler à tout le monde.</span> <span class="yarn-meta">#line:02fea28 </span>
-<span class="yarn-line">Êtes-vous prêt à jouer ?</span> <span class="yarn-meta">#line:0ac17d0 </span>
-<span class="yarn-line">Oui</span> <span class="yarn-meta">#line:0b66e60 </span>
-<span class="yarn-line">    Super. À bientôt en jeu !</span> <span class="yarn-meta">#line:07498c0 </span>
-<span class="yarn-line">    Il y a bien plus à découvrir à Antura.</span> <span class="yarn-meta">#line:0ed06b6 </span>
-<span class="yarn-line">Non</span> <span class="yarn-meta">#line:01d5126 </span>
-<span class="yarn-line">    Vous pouvez rejouer le didacticiel à tout moment.</span> <span class="yarn-meta">#line:06f9065 </span>
-<span class="yarn-line">    Demandez à votre professeur de vous aider.</span> <span class="yarn-meta">#line:0c6bc14 </span>
+<span class="yarn-line">Vous pouvez désormais explorer ce monde et parler à tout le monde pour en apprendre davantage sur le jeu.</span> <span class="yarn-meta">#line:02fea28 </span>
+<span class="yarn-cmd">&lt;&lt;jump tutor_end_2&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-tutor-end-2"></a>
+
+## tutor_end_2
+
+<div class="yarn-node" data-title="tutor_end_2">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">group:</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;camera_focus camera_exit&gt;&gt;</span>
+<span class="yarn-line">Si vous souhaitez sortir, rendez-vous sur ce portail.</span> <span class="yarn-meta">#line:05ac9be </span>
+<span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-exit-portal"></a>
+
+## exit_portal
+
+<div class="yarn-node" data-title="exit_portal">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Voulez-vous quitter ce tutoriel ?</span> <span class="yarn-meta">#line:09279d4 </span>
+<span class="yarn-line">Oui, sortie</span> <span class="yarn-meta">#line:00eae37 #highlight</span>
+    <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+<span class="yarn-line">Non, restez ici.</span> <span class="yarn-meta">#line:0427785 </span>
 
 </code>
 </pre>

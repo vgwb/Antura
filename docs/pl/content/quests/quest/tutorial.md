@@ -32,14 +32,14 @@ Główny bohater tej gry wideo
 ![preview antura](../../../../assets/img/content/cards/antura.jpg){ width="200" }
 - Type: Concept
 
-#### Connection (RelatedTo) - Ciastka
+#### Connection (RelatedTo) - Ciasteczka
 Słodkie nagrody, które możesz zbierać podczas gry! Wykorzystaj je, aby zdobyć nowe przedmioty i niespodzianki.
 
 ![preview antura_cookies](../../../../assets/img/content/cards/antura_cookies.jpg){ width="200" }
 - Type: Object
 
 #### Connection (RelatedTo) - Portal
-Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd trafisz tym razem!
 
 ![preview antura_portal](../../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 - Type: Object
@@ -56,20 +56,20 @@ Najlepszy przyjaciel i towarzysz podróży Antury. Ciekawy, sprytny i zawsze got
 ![preview antura_cat](../../../../assets/img/content/cards/antura_cat.jpg){ width="200" }
 - Type: Concept
 
-#### Connection (RelatedTo) - Żywy List
+#### Connection (RelatedTo) - Żywa literka
 Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby nauczyć się nowych słów.
 
 ![preview antura_livingletter](../../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
 - Type: Concept
 
-#### Connection (RelatedTo) - Blokowy
-Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... mają historie do opowiedzenia!
+#### Connection (RelatedTo) - Klockowi
+Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... ci zabawni ludzie mogą opowiedzieć ciekawe historie.
 
 ![preview antura_blocky_character](../../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
 - Type: Concept
 
 #### Connection (RelatedTo) - Portal
-Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd trafisz tym razem!
 
 ![preview antura_portal](../../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 - Type: Object

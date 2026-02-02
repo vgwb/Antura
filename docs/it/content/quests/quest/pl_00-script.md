@@ -180,7 +180,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_poland&gt;&gt;</span>
-<span class="yarn-line">Hai trovato la bandiera polacca! Torna in Polonia.</span> <span class="yarn-meta">#line:0891273 </span>
+<span class="yarn-line">Hai trovato la bandiera polacca! Torna all'inizio.</span> <span class="yarn-meta">#line:0891273 </span>
 
 </code>
 </pre>
@@ -199,7 +199,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if GetCurrentTask() == "find_flag_poland"&gt;&gt;</span>
-<span class="yarn-line">    Hai trovato la bandiera polacca! Torna in Polonia.</span> <span class="yarn-meta">#line:06e3263 </span>
+<span class="yarn-line">    Hai trovato la bandiera polacca! Torna all'inizio.</span> <span class="yarn-meta">#shadow:0891273 </span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -446,7 +446,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $czech_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card country_czech&gt;&gt;</span>
 <span class="yarn-line">    Ciao! Vengo dalla Repubblica Ceca!</span> <span class="yarn-meta">#line:0ded863 </span>
-<span class="yarn-line">    Abbiamo il maggior numero di castelli in Europa!</span> <span class="yarn-meta">#line:03dc09c </span>
+<span class="yarn-line">    La Repubblica Ceca è famosa per i suoi splendidi castelli, il cristallo e i deliziosi gnocchi.</span> <span class="yarn-meta">#line:03dc09c </span>
     <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    La mia bandiera è diversa! È bianca e rossa con un triangolo blu.</span> <span class="yarn-meta">#line:0000741 </span>
@@ -529,7 +529,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $lithuania_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card capital_vilnius&gt;&gt;</span>
-<span class="yarn-line">    Bruxelles è la capitale della Lituania.</span> <span class="yarn-meta">#line:0acbb04 </span>
+<span class="yarn-line">    Vilnius è la capitale della Lituania.</span> <span class="yarn-meta">#line:0acbb04 </span>
 <span class="yarn-cmd">&lt;&lt;elseif has_item("flag_lithuania")&gt;&gt;</span>   
 <span class="yarn-line">    Grazie, la mia bellissima bandiera è tornata!</span> <span class="yarn-meta">#line:0d2f54c </span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_lithuania remove&gt;&gt;</span>
@@ -642,7 +642,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;task_start talk_npc_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $ukraine_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $ukraine_met = true&gt;&gt;</span>
-<span class="yarn-line">    Moien! Vengo dall'Ucraina!</span> <span class="yarn-meta">#line:07ea99a </span>
+<span class="yarn-line">    Ciao! Vengo dall'Ucraina!</span> <span class="yarn-meta">#line:07ea99a </span>
 <span class="yarn-line">    Siamo chiamati il ​​"granaio" d'Europa perché produciamo molto grano!</span> <span class="yarn-meta">#line:0dbd4af </span>
     <span class="yarn-cmd">&lt;&lt;jump task_ukraine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -734,15 +734,19 @@ hide:
     <span class="yarn-cmd">&lt;&lt;task_end find_flag_slovakia&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $ukraine_completed = true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;action russia_active&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;target npc_russia&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card country_russia&gt;&gt;</span>
-<span class="yarn-line">    Puoi aiutare il nostro vicino russo?</span> <span class="yarn-meta">#line:04bf6d1 #task:talk_npc_russia</span>
-    <span class="yarn-cmd">&lt;&lt;task_start talk_npc_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;action russia_active&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;target npc_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;card country_russia&gt;&gt;</span>
+<span class="yarn-comment">    // Can you help our russian neighbour?</span> <span class="yarn-meta">#line:04bf6d1 #task:talk_npc_russia</span>
+
+<span class="yarn-comment">    // &lt;&lt;task_start talk_npc_russia&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target NPC_Poland&gt;&gt;</span>
+<span class="yarn-line">    Torna all'inizio e prendi il tuo premio!</span> <span class="yarn-meta">#line:07b7f05 #task:talk_npc_poland_final</span>
+    <span class="yarn-cmd">&lt;&lt;task_start talk_npc_poland_final&gt;&gt;</span> 
 <span class="yarn-cmd">&lt;&lt;elseif $slovakia_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $slovakia_met = true&gt;&gt;</span>
 <span class="yarn-line">    Vengo dalla Slovacchia!</span> <span class="yarn-meta">#line:054e1b8 </span>
-<span class="yarn-line">    Eravamo un paese insieme alla Repubblica Ceca.</span> <span class="yarn-meta">#line:0278f6a </span>
+<span class="yarn-line">    La Slovacchia è nota per le sue splendide montagne e grotte.</span> <span class="yarn-meta">#line:0278f6a </span>
     <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    La nostra bandiera è bianca, rossa e blu con uno stemma.</span> <span class="yarn-meta">#line:0af30a1 </span>
@@ -829,22 +833,24 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $russia_completed&gt;&gt;</span>
 <span class="yarn-line">    La capitale della Russia è Mosca!</span> <span class="yarn-meta">#line:0f8817a </span>
 <span class="yarn-cmd">&lt;&lt;elseif has_item("flag_russia")&gt;&gt;</span>
-<span class="yarn-line">    Grazie per avermi riportato la bandiera!</span> <span class="yarn-meta">#line:0466a59 </span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_russia remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;task_end find_flag_russia&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $russia_met = true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $russia_completed = true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;target NPC_Poland&gt;&gt;</span>
-<span class="yarn-line">    Torna all'inizio e prendi il tuo premio!</span> <span class="yarn-meta">#line:07b7f05 #task:talk_npc_poland_final</span>
-    <span class="yarn-cmd">&lt;&lt;task_start talk_npc_poland_final&gt;&gt;</span> 
+<span class="yarn-comment">    // Thank you for bringing my flag back!</span> <span class="yarn-meta">#line:0466a59 </span>
+
+<span class="yarn-comment">    // &lt;&lt;inventory flag_russia remove&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;task_end find_flag_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $russia_met = true&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $russia_completed = true&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;target NPC_Poland&gt;&gt;</span>
+<span class="yarn-comment">    // Go back to the start and get your prize!</span> <span class="yarn-meta">#line:07b7f05 #task:talk_npc_poland_final</span>
+
+<span class="yarn-comment">    // &lt;&lt;task_start talk_npc_poland_final&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $russia_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $russia_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card country_russia&gt;&gt;</span>
 <span class="yarn-line">    Ciao, sono Russia.</span> <span class="yarn-meta">#line:065c41c </span>
 <span class="yarn-line">    Questa è solo una piccola parte del grande Paese.</span> <span class="yarn-meta">#line:0a4bae4 </span>
-    <span class="yarn-cmd">&lt;&lt;jump task_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;jump task_russia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    La nostra bandiera è rossa con una croce bianca.</span> <span class="yarn-meta">#line:05e0820 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>

@@ -33,13 +33,13 @@ Total found: **35**
     ![preview antura](../../../assets/img/content/cards/antura.jpg){ width="200" }
 
 - Connected cards:
-    - **[Ciastka](../cards/index.md#antura_cookies)** (RelatedTo)
+    - **[Ciasteczka](../cards/index.md#antura_cookies)** (RelatedTo)
     Słodkie nagrody, które możesz zbierać podczas gry! Wykorzystaj je, aby zdobyć nowe przedmioty i niespodzianki.
 
     ![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ width="200" }
 
     - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
-    Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+    Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd trafisz tym razem!
 
     ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 
@@ -53,18 +53,18 @@ Total found: **35**
 
     ![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ width="200" }
 
-    - **[Żywy List](../cards/index.md#antura_livingletter)** (RelatedTo)
+    - **[Żywa literka](../cards/index.md#antura_livingletter)** (RelatedTo)
     Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby nauczyć się nowych słów.
 
     ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
 
-    - **[Blokowy](../cards/index.md#antura_blocky_character)** (RelatedTo)
-    Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... mają historie do opowiedzenia!
+    - **[Klockowi](../cards/index.md#antura_blocky_character)** (RelatedTo)
+    Ci zabawni ludzie żyją na tym świecie. Porozmawiaj z nimi wszystkimi... ci zabawni ludzie mogą opowiedzieć ciekawe historie.
 
     ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
 
     - **[Portal](../cards/index.md#antura_portal)** (RelatedTo)
-    Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd prowadzą!
+    Magiczne drzwi, które zaprowadzą Cię do nowych miejsc. Wejdź i zobacz, dokąd trafisz tym razem!
 
     ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 
@@ -84,7 +84,9 @@ Total found: **35**
 - Target Age: Ages6to10
 - Core card:
     - **[Matematyka podstawowa](../cards/index.md#elementary_maths)**
-    Liczby i kształty do codziennego użytku: liczenie, dodawanie i odejmowanie, proste ułamki, mierzenie, określanie czasu i korzystanie z pieniędzy.
+    Liczby i kształty potrzebne w codziennym życiu: liczenie, dodawanie, odejmowanie, proste ułamki, mierzenie, określanie czasu i korzystanie z pieniędzy.
+
+    ![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ width="200" }
 
 - Connected cards:
     - **[Linia](../cards/index.md#fr_figure_line)** (PartOf)
@@ -93,11 +95,11 @@ Total found: **35**
     ![preview fr_figure_line](../../../assets/img/content/cards/fr_figure_line.jpg){ width="200" }
 
     - **[Trójkąt](../cards/index.md#fr_figure_triangle)** (PartOf)
-    Kształt z trzema prostymi bokami i trzema narożnikami. Trójkąty wyglądają jak kawałki pizzy!
+    Ma trzy boki i trzy kąty. Trójkąty wyglądają jak kawałki pizzy.
 
     ![preview fr_figure_triangle](../../../assets/img/content/cards/fr_figure_triangle.jpg){ width="200" }
 
-    - **[Kompas](../cards/index.md#math_compass)** (Purpose)
+    - **[Cyrkiel](../cards/index.md#math_compass)** (Purpose)
     Narzędzie, które pomaga rysować idealne okręgi. Ma dwie nogi jak nożyczki.
 
     ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ width="200" }
@@ -107,13 +109,13 @@ Total found: **35**
 
     ![preview math_ruler](../../../assets/img/content/cards/math_ruler.jpg){ width="200" }
 
-    - **[Kwadrat](../cards/index.md#math_setsquare)** (Purpose)
+    - **[Ekierka](../cards/index.md#math_setsquare)** (Purpose)
     Narzędzie w kształcie trójkąta, służące do rysowania linii prostych i kątów prostych w matematyce.
 
     ![preview math_setsquare](../../../assets/img/content/cards/math_setsquare.jpg){ width="200" }
 
     - **[Koło](../cards/index.md#fr_figure_circle)** (PartOf)
-    Okrągły kształt bez rogów. Koła wyglądają jak koła, piłki i monety!
+    Okrągły kształt, bez rogów. Koła wyglądają jak koła samochodu, piłki i monety!
 
     ![preview fr_figure_circle](../../../assets/img/content/cards/fr_figure_circle.jpg){ width="200" }
 
@@ -136,7 +138,7 @@ Credits:
 
 - Connected cards:
     - **[Port](../cards/index.md#port)** (LocatedIn)
-    Miejsce, w którym statki załadowują się i rozładowują.
+    Miejsce, w którym towary ładuje się na statki lub je rozładowuje.
 
     ![preview port](../../../assets/img/content/cards/port.jpg){ width="200" }
 
@@ -146,7 +148,7 @@ Credits:
     ![preview waves](../../../assets/img/content/cards/waves.jpg){ width="200" }
 
     - **[Nawigacja](../cards/index.md#navigation)** (RelatedTo)
-    Znalezienie drogi na morzu za pomocą świateł, map i narzędzi.
+    Wyznaczanie drogi na morzu za pomocą świateł, map i przyrządów nawigacyjnych.
 
     ![preview navigation](../../../assets/img/content/cards/navigation.jpg){ width="200" }
 
@@ -189,7 +191,7 @@ Credits:
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
     - **[Flaga Monako](../cards/index.md#flag_monaco)** (CulturalContext)
-    Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem!
+    Flaga Monako ma poziome czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem.
 
     ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ width="200" }
 
@@ -199,12 +201,12 @@ Credits:
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
 
     - **[Flaga Hiszpanii](../cards/index.md#flag_spain)** (CulturalContext)
-    Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają słońce i paprykę! To Hiszpania wynalazła taniec flamenco.
+    Flaga Hiszpanii ma poziome czerwone i żółte pasy. Kolory te przypominają słońce i paprykę. To w Hiszpanii tańczy się flamenco.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Flaga Szwajcarii](../cards/index.md#flag_switzerland)** (CulturalContext)
-    Flaga Szwajcarii jest czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
+    Flaga Szwajcarii: czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
 
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
@@ -214,7 +216,7 @@ Credits:
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
     - **[Flaga Republiki Czeskiej](../cards/index.md#flag_czech_republic)** (CulturalContext)
-    Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z pięknego Zamku Praskiego i kryształowego szkła.
+    Flaga ma biały i czerwony pas oraz niebieski trójkąt. Czechy słyną z Zamku Praskiego i kryształowego szkła.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
 
@@ -224,7 +226,7 @@ Credits:
     ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ width="200" }
 
     - **[Flaga Ukrainy](../cards/index.md#flag_ukraine)** (CulturalContext)
-    Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Reprezentuje Ukrainę.
+    Flaga w kolorach niebieskim i żółtym, przypominają niebo i słońce. Reprezentuje Ukrainę.
 
     ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ width="200" }
 
@@ -253,7 +255,7 @@ Credits:
     ![preview hiking](../../../assets/img/content/cards/hiking.jpg){ width="200" }
 
     - **[Wspinaczka](../cards/index.md#climbing)** (RelatedTo)
-    Wspinaczka po skałach lub lodzie przy użyciu specjalnego sprzętu.
+    Wchodzenie na strome skały lub lód przy użyciu specjalnego sprzętu.
 
     ![preview climbing](../../../assets/img/content/cards/climbing.jpg){ width="200" }
 
@@ -298,12 +300,12 @@ Credits:
     ![preview rope](../../../assets/img/content/cards/rope.jpg){ width="200" }
 
     - **[Raki](../cards/index.md#crampons)** (RelatedTo)
-    Kolczaste metalowe uchwyty przymocowane do butów, aby móc jeździć po lodzie.
+    Kolczaste metalowe uchwyty przymocowane do butów. Pozwalają chodzić po lodzie.
 
     ![preview crampons](../../../assets/img/content/cards/crampons.jpg){ width="200" }
 
     - **[Szalik](../cards/index.md#scarf)** (RelatedTo)
-    Ciepły materiał noszony wokół szyi.
+    Ciepły kawałek materiału noszony wokół szyi.
 
     ![preview scarf](../../../assets/img/content/cards/scarf.jpg){ width="200" }
 
@@ -320,14 +322,14 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Muzyka](../cards/index.md#musical_score)**
+    - **[Partytura muzyczna](../cards/index.md#musical_score)**
     Zapis nutowy i słowa piosenki.
 
     ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
 
 - Connected cards:
     - **[Fortepian](../cards/index.md#piano)** (RelatedTo)
-    Instrument klawiszowy służący do grania melodii i akordów.
+    Duży instrument z klawiszami.
 
     ![preview piano](../../../assets/img/content/cards/piano.jpg){ width="200" }
 
@@ -381,7 +383,7 @@ Credits:
     ![preview solar_system](../../../assets/img/content/cards/solar_system.jpg){ width="200" }
 
 - Connected cards:
-    - **[Rtęć](../cards/index.md#mercury)** (RelatedTo)
+    - **[Merkury](../cards/index.md#mercury)** (RelatedTo)
     Najbliższa Słońcu planeta, mała i bardzo szybka.
 
     ![preview mercury](../../../assets/img/content/cards/mercury.jpg){ width="200" }
@@ -391,7 +393,7 @@ Credits:
 
     ![preview mars](../../../assets/img/content/cards/mars.jpg){ width="200" }
 
-    - **[Jupiter](../cards/index.md#jupiter)** (RelatedTo)
+    - **[Jowisz](../cards/index.md#jupiter)** (RelatedTo)
     Największa planeta, słynąca z Wielkiej Czerwonej Plamy.
 
     ![preview jupiter](../../../assets/img/content/cards/jupiter.jpg){ width="200" }
@@ -422,17 +424,17 @@ Credits:
     ![preview saturn](../../../assets/img/content/cards/saturn.jpg){ width="200" }
 
     - **[Planetarium](../cards/index.md#planetarium)** (RelatedTo)
-    Miejsce, w którym można zobaczyć niebo i gwiazdy w pomieszczeniu.
+    Budynek, w którym można oglądać niebo i gwiazdy.
 
     ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ width="200" }
 
     - **[Ziemia](../cards/index.md#earth)** (RelatedTo)
-    Nasza planeta rodzinna z lądem, powietrzem i wodą.
+    Nasza planeta, z domem powietrzem i wodą.
 
     ![preview earth](../../../assets/img/content/cards/earth.jpg){ width="200" }
 
     - **[Uran](../cards/index.md#uranus)** (RelatedTo)
-    Niebiesko-zielona planeta obracająca się na boku.
+    Niebiesko-zielona planeta, toczy się na boku.
 
     ![preview uranus](../../../assets/img/content/cards/uranus.jpg){ width="200" }
 
@@ -444,12 +446,12 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Bezpieczeństwo na ulicy](../cards/index.md#street_safety)**
+    - **[Bezpieczeństwo uliczne](../cards/index.md#street_safety)**
     Zasady zapewniające bezpieczeństwo wszystkim uczestnikom ruchu drogowego.
 
 - Connected cards:
-    - **[Kask (bezpieczeństwo uliczne)](../cards/index.md#helmet_street_safety)** (RelatedTo)
-    Twardy kask chroniący głowę podczas jazdy.
+    - **[Kask (bezpieczeństwo na drodze)](../cards/index.md#helmet_street_safety)** (RelatedTo)
+    Twardy kask chroniący głowę podczas jazdy na rowerze.
 
     ![preview helmet_street_safety](../../../assets/img/content/cards/helmet_street_safety.jpg){ width="200" }
 
@@ -464,7 +466,7 @@ Credits:
     ![preview zebra_crossing](../../../assets/img/content/cards/zebra_crossing.jpg){ width="200" }
 
     - **[Sygnalizacja świetlna](../cards/index.md#traffic_lights)** (RelatedTo)
-    Latarnie uliczne informujące, kiedy należy się ZATRZYMAĆ lub JECHAĆ.
+    Światła uliczne, które informują, kiedy należy się ZATRZYMAĆ lub JECHAĆ.
 
     ![preview traffic_lights](../../../assets/img/content/cards/traffic_lights.jpg){ width="200" }
 
@@ -504,7 +506,7 @@ Credits:
     ![preview lens](../../../assets/img/content/cards/lens.jpg){ width="200" }
 
     - **[Planetarium](../cards/index.md#planetarium)** (RelatedTo)
-    Miejsce, w którym można zobaczyć niebo i gwiazdy w pomieszczeniu.
+    Budynek, w którym można oglądać niebo i gwiazdy.
 
     ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ width="200" }
 
@@ -544,7 +546,7 @@ Credits:
     ![preview animal_penguin](../../../assets/img/content/cards/animal_penguin.jpg){ width="200" }
 
     - **[Słoń](../cards/index.md#animal_elephant)** (RelatedTo)
-    Duże zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie. Mają duże uszy i uwielbiają pryskać wodą!
+    Ogromne zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie. Mają duże uszy i uwielbiają pryskać wodą!
 
     ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ width="200" }
 
@@ -559,7 +561,7 @@ Credits:
 - Target Age: Ages3to5
 - Core card:
     - **[Bagietka francuska](../cards/index.md#food_baguette)**
-    Długi, chrupiący chleb, najsłynniejsze danie we Francji. Francuzi codziennie kupują świeże bagietki z piekarni!
+    Długi chrupiący chleb. Najsłynniejsze pieczywo w całej Francji. Francuzi codziennie kupują świeże bagietki w piekarni.
 
     ![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ width="200" }
 
@@ -570,7 +572,7 @@ Credits:
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
     - **[Piekarz](../cards/index.md#person_baker)** (CreatedBy)
-    Osoba zajmująca się wypiekiem chleba, ciast i wypieków.
+    Osoba, która piecze chleb, bułki i różne ciasta.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
@@ -585,7 +587,7 @@ Credits:
     ![preview food_yeast](../../../assets/img/content/cards/food_yeast.jpg){ width="200" }
 
     - **[Mąka](../cards/index.md#food_flour)** (MadeOf)
-    Biały proszek z pszenicy, używany do wypieku chleba.
+    Zmielona pszenica, używana do wypieku chleba.
 
     ![preview food_flour](../../../assets/img/content/cards/food_flour.jpg){ width="200" }
 
@@ -594,7 +596,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [DEV (dev)](../quests/quest/dev.md), [Paryż! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -603,13 +605,13 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Bouillabaisse](../cards/index.md#bouillabaisse)**
-    Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu różnych gatunków ryb, ma pyszny zapach!
+    Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu różnych gatunków ryb, ma wspaniały zapach!
 
     ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ width="200" }
 
 - Connected cards:
     - **[Chleb](../cards/index.md#food_bread)** (MadeOf)
-    Pyszne danie z mąki i wody. Można zrobić kanapki z chleba!
+    Pyszne pieczywo z mąki i wody, Z chleba można zrobić kanapki!
 
     ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ width="200" }
 
@@ -619,7 +621,7 @@ Credits:
     ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ width="200" }
 
     - **[Krab](../cards/index.md#food_crab)** (MadeOf)
-    Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą bokiem po plaży!
+    Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą po plaży bokiem!
 
     ![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ width="200" }
 
@@ -628,27 +630,27 @@ Credits:
 
     ![preview food_milk](../../../assets/img/content/cards/food_milk.jpg){ width="200" }
 
-    - **[Pomarańczowy](../cards/index.md#food_orange)** (MadeOf)
-    Okrągły, pomarańczowy owoc o słodkim i soczystym smaku. Pomarańcze mają mnóstwo witaminy C!
+    - **[Pomarańcza](../cards/index.md#food_orange)** (MadeOf)
+    Okrągły, pomarańczowy owoc, słodki i soczysty. Pomarańcze mają mnóstwo witaminy C!
 
     ![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ width="200" }
 
     - **[Pomidor](../cards/index.md#food_tomato)** (MadeOf)
-    Czerwony, okrągły owoc rosnący na roślinach. Pomidory służą do robienia sosu do pizzy!
+    Jest czerwony i okrągły. Można z niego zrobić sos do pizzy!
 
     ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ width="200" }
 
-    - **[Cytrynowy](../cards/index.md#food_lemon)** (MadeOf)
-    Żółty owoc o bardzo kwaśnym smaku. Cytryny służą do robienia lemoniady!
+    - **[Cytryna](../cards/index.md#food_lemon)** (MadeOf)
+    Żółty, bardzo kwaśny owoc. Z cytryn można zrobić lemoniadę!
 
     ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ width="200" }
 
     - **[Oliwa z oliwek](../cards/index.md#food_olive_oil)** (MadeOf)
-    Specjalny olej z oliwek. Ludzie używają go do gotowania smacznych potraw.
+    Specjalny olej z oliwek, używany do gotowania smacznych potraw.
 
     ![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ width="200" }
 
-    - **[Pieprz Sól](../cards/index.md#food_pepper_salt)** (MadeOf)
+    - **[Pieprz i sól](../cards/index.md#food_pepper_salt)** (MadeOf)
     Przyprawy, które poprawiają smak potraw. Sól jest biała, a pieprz czarny i ma drobne kawałki.
 
     ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ width="200" }
@@ -671,12 +673,12 @@ Credits:
 
 - Connected cards:
     - **[Hiszpania](../cards/index.md#country_spain)** (RelatedTo)
-    Kraj w Europie. Stolicą jest Madryt. Hiszpania wynalazła taniec flamenco.
+    Kraj w Europie. Stolicą jest Madryt. Hiszpania jest znana z tańca flamenco.
 
     ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
 
     - **[Flaga Hiszpanii](../cards/index.md#flag_spain)** (CulturalContext)
-    Flaga Hiszpanii ma poziome, czerwone i żółte pasy. Kolory te przypominają słońce i paprykę! To Hiszpania wynalazła taniec flamenco.
+    Flaga Hiszpanii ma poziome czerwone i żółte pasy. Kolory te przypominają słońce i paprykę. To w Hiszpanii tańczy się flamenco.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
@@ -721,7 +723,7 @@ Credits:
     ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
     - **[Flaga Szwajcarii](../cards/index.md#flag_switzerland)** (CulturalContext)
-    Flaga Szwajcarii jest czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
+    Flaga Szwajcarii: czerwona z białym krzyżem pośrodku. Wygląda jak apteczka pierwszej pomocy! Szwajcaria słynie z gór i sera.
 
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
@@ -766,7 +768,7 @@ Credits:
     ![preview flag_andorra](../../../assets/img/content/cards/flag_andorra.jpg){ width="200" }
 
     - **[Flaga Monako](../cards/index.md#flag_monaco)** (RelatedTo)
-    Flaga Monako ma poziome, czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem!
+    Flaga Monako ma poziome czerwone i białe pasy. Monako jest malutkie, ale słynie z luksusowych samochodów i królewskich pałaców nad morzem.
 
     ![preview flag_monaco](../../../assets/img/content/cards/flag_monaco.jpg){ width="200" }
 
@@ -792,7 +794,7 @@ Credits:
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
     - **[Gustave Eiffel](../cards/index.md#gustave_eiffel)** (CreatedBy)
-    Człowiek, który zbudował Wieżę Eiffla! Był inżynierem, który uwielbiał budować z żelaza i stworzył najsłynniejszą wieżę na świecie.
+    Inżynier, który zbudował Wieżę Eiffla! Uwielbiał konstruować z żelaza i stworzył najsłynniejszą wieżę na świecie.
 
     ![preview gustave_eiffel](../../../assets/img/content/cards/gustave_eiffel.jpg){ width="200" }
 
@@ -845,10 +847,12 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Szkoły francuskie](../cards/index.md#french_schools)**
-    We Francji nauka w szkole przebiega w czterech głównych etapach: maternelle (zabawa i nauka dla małych dzieci), école élémentaire (czytanie, pisanie, matematyka), collège (szkoła średnia) i lycée (szkoła średnia). Na koniec lycée wielu uczniów zdaje ważny egzamin baccalauréat („le bac”).
+    We Francji nauka w szkołach dzieli się na cztery główne etapy: przedszkole (zabawa i nauka dla małych dzieci), szkoła podstawowa (czytanie, pisanie, matematyka), gimnazjum i liceum (szkoła średnia). Na koniec szkoły średniej wielu uczniów zdaje ważny egzamin - maturę.
+
+    ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
 
 - Connected cards:
-    - **[Szkoła Maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
+    - **[Przedszkole](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
     Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i odkrywanie.
 
     ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ width="200" }
@@ -864,7 +868,7 @@ Credits:
     ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ width="200" }
 
     - **[Collège we Francji](../cards/index.md#education_college_fr)** (PartOf)
-    Szkoła średnia we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wielu przedmiotów i przygotowują się do szkoły średniej.
+    Gimnazjum we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wielu przedmiotów i przygotowują się do szkoły średniej.
 
     ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ width="200" }
 
@@ -874,7 +878,7 @@ Credits:
     ![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ width="200" }
 
     - **[Menu stołówki](../cards/index.md#object_canteen_menu)** (Purpose)
-    Lista pokazująca, co możesz zjeść w szkolnym lunchu. Pomoże Ci wybrać, co zjeść!
+    Lista dań, które możesz wybrać na szkolny obiad.
 
     ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ width="200" }
 
@@ -897,18 +901,18 @@ Credits:
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
-    - **[Dookoła świata w osiemdziesiąt dni](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
+    - **[W osiemdziesiąt dni dookoła świata](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
     Ekscytująca książka Juliusza Verne'a o bardzo szybkiej podróży dookoła całego świata pociągami, statkami i balonami na ogrzane powietrze!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
     - **[Z Ziemi na Księżyc](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    Książka Juliusza Verne'a o podróży na Księżyc w wielkiej armacie! Została napisana, zanim jeszcze istniały prawdziwe rakiety.
+    Książka Juliusza Verne'a o podróżny na księżyc po wystrzeleniu z armaty. Została napisana, zanim jeszcze istniały prawdziwe rakiety.
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
     - **[20 000 mil podmorskiej żeglugi](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
-    Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Spotykasz gigantyczne morskie stworzenia!
+    Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Możesz spotkać gigantyczne morskie stworzenia!
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
@@ -923,7 +927,7 @@ Credits:
     ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ width="200" }
 
     - **[Łódź podwodna (Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
-    Łódź podwodna z powieści Juliusza Verne'a. Mogła eksplorować głębiny morskie.
+    Łódź podwodna z powieści Juliusza Verne'a. Mogła badać głębiny morskie.
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
@@ -933,7 +937,7 @@ Credits:
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
     - **[Łódź podwodna (Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
-    Łódź podwodna z powieści Juliusza Verne'a. Mogła eksplorować głębiny morskie.
+    Łódź podwodna z powieści Juliusza Verne'a. Mogła badać głębiny morskie.
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
@@ -949,7 +953,7 @@ Credits:
 - Subjects: Art  
 - Target Age: Ages6to10
 - Core card:
-    - **[Żaluzja](../cards/index.md#louvre)**
+    - **[Louvre](../cards/index.md#louvre)**
     Ogromne muzeum pełne sztuki. To tu mieszka Mona Lisa.
 
     ![preview louvre](../../../assets/img/content/cards/louvre.jpg){ width="200" }
@@ -970,7 +974,7 @@ Credits:
 
     ![preview person_leonardodavinci](../../../assets/img/content/cards/person_leonardodavinci.jpg){ width="200" }
 
-    - **[Wolność wiodąca lud](../cards/index.md#art_liberty_leading_the_people)** (PartOf)
+    - **[Wolność wiodąca lud na barykady](../cards/index.md#art_liberty_leading_the_people)** (PartOf)
     Słynny obraz o wolności i odwadze. Przedstawia odważną kobietę trzymającą flagę Francji i prowadzącą ludzi do walki o swoje prawa.
 
     ![preview art_liberty_leading_the_people](../../../assets/img/content/cards/art_liberty_leading_the_people.jpg){ width="200" }
@@ -980,7 +984,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
 
 ---
 
@@ -989,28 +993,28 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Traderzy rynkowi](../cards/index.md#market_traders)**
-    Ludzie sprzedający żywność i towary na straganach targowych – jak sprzedawcy ryb, serów i owoców. Ważą, pakują i wykrzykują dzisiejsze ceny.
+    - **[Sprzedawca na targu](../cards/index.md#market_traders)**
+    Osoby sprzedające żywność i towary na targach - sprzedawcy ryb, serów, owoców. Ważą, pakują i wykrzykują ceny.
 
     ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
 
 - Connected cards:
-    - **[Kupiec handlujący serem](../cards/index.md#person_cheesemonger)** (RelatedTo)
+    - **[Sprzedawca serów](../cards/index.md#person_cheesemonger)** (RelatedTo)
     Osoba sprzedająca wiele rodzajów sera.
 
     ![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ width="200" }
 
     - **[Piekarz](../cards/index.md#person_baker)** (RelatedTo)
-    Osoba zajmująca się wypiekiem chleba, ciast i wypieków.
+    Osoba, która piecze chleb, bułki i różne ciasta.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
-    - **[Badylarz](../cards/index.md#person_greengrocer)** (RelatedTo)
+    - **[Sprzedawca warzyw i owoców](../cards/index.md#person_greengrocer)** (RelatedTo)
     Osoba sprzedająca świeże owoce i warzywa.
 
     ![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ width="200" }
 
-    - **[Właściciel sklepu spożywczego](../cards/index.md#person_grocer)** (RelatedTo)
+    - **[Sprzedawca artykułów spożywczych](../cards/index.md#person_grocer)** (RelatedTo)
     Osoba sprzedająca różnego rodzaju żywność i napoje.
 
     ![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ width="200" }
@@ -1029,7 +1033,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Marsylianka](../cards/index.md#marseillaise_music)**
-    Francuska pieśń narodowa. Śpiewa się ją podczas wielkich wydarzeń i meczów sportowych.
+    Francuski hymn narodowy, śpiewany podczas wielkich wydarzeń i zawodów sportowych.
 
     ![preview marseillaise_music](../../../assets/img/content/cards/marseillaise_music.jpg){ width="200" }
 
@@ -1045,7 +1049,7 @@ Credits:
     ![preview marseillaise_3](../../../assets/img/content/cards/marseillaise_3.jpg){ width="200" }
 
     - **[Allons enfants](../cards/index.md#marseillaise_1)** (RelatedTo)
-    Pierwsze słowa pierwszego wersu hymnu.
+    Pierwsze słowa hymnu francuskiego
 
     ![preview marseillaise_1](../../../assets/img/content/cards/marseillaise_1.jpg){ width="200" }
 
@@ -1084,7 +1088,7 @@ Credits:
     ![preview wind](../../../assets/img/content/cards/wind.jpg){ width="200" }
 
     - **[Szczyt](../cards/index.md#summit)** (RelatedTo)
-    Sam szczyt góry.
+    Najwyższy punkt góry.
 
     ![preview summit](../../../assets/img/content/cards/summit.jpg){ width="200" }
 
@@ -1153,7 +1157,7 @@ Credits:
 
 - Connected cards:
     - **[Kładki dla pieszych](../cards/index.md#place_bridge_people)** (RelatedTo)
-    Małe mostki dla pieszych. Chronią przed ruchem ulicznym.
+    Małe mostki dla pieszych, dzięki nim można bezpiecznie przejść na druga stronę ulicy.
 
     ![preview place_bridge_people](../../../assets/img/content/cards/place_bridge_people.jpg){ width="200" }
 
@@ -1163,7 +1167,7 @@ Credits:
     ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ width="200" }
 
     - **[Łódź rzeczna](../cards/index.md#boat_river)** (RelatedTo)
-    Łódź, która płynie po rzekach. Rzeki są jak drogi zbudowane z wody!
+    Łódź, która pływa po rzekach. Rzeki są jak drogi zbudowane z wody!
 
     ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ width="200" }
 
@@ -1187,12 +1191,12 @@ Credits:
     ![preview gdansk_lighthouse](../../../assets/img/content/cards/gdansk_lighthouse.jpg){ width="200" }
 
     - **[Rzeka Motława](../cards/index.md#motawa_river)** (RelatedTo)
-    Rzeka przepływająca przez Gdańsk do morza.
+    Rzeka płynąca przez Gdańsk.
 
     ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ width="200" }
 
     - **[Wybrzeże Morza Bałtyckiego](../cards/index.md#baltic_sea_coast)** (RelatedTo)
-    Piaskowy brzeg Morza Bałtyckiego.
+    Piaszczysty brzeg Morza Bałtyckiego.
 
     ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ width="200" }
 
@@ -1210,7 +1214,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Pierniki toruńskie](../cards/index.md#gingerbread)**
-    tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtowany w piękne wzory.
+    Tradycyjny polski przysmak, przygotowany z mąki, miodu, przypraw, często ma piękne wzory.
 
     ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ width="200" }
 
@@ -1231,12 +1235,12 @@ Credits:
     ![preview butter](../../../assets/img/content/cards/butter.jpg){ width="200" }
 
     - **[Jajka](../cards/index.md#eggs)** (RelatedTo)
-    Pokarm z kurczaków, używany do pieczenia i gotowania.
+    Znoszą je kury. Używamy do pieczenia i gotowania.
 
     ![preview eggs](../../../assets/img/content/cards/eggs.jpg){ width="200" }
 
-    - **[Ożywić](../cards/index.md#ginger)** (RelatedTo)
-    Pikantny korzeń używany w kuchni i ciasteczkach.
+    - **[Imbir](../cards/index.md#ginger)** (RelatedTo)
+    Pikantny korzeń używany w kuchni, na przykład do pieczenia ciasteczek.
 
     ![preview ginger](../../../assets/img/content/cards/ginger.jpg){ width="200" }
 
@@ -1260,17 +1264,17 @@ Credits:
 
 - Connected cards:
     - **[Bursztyn](../cards/index.md#amber)** (RelatedTo)
-    Błyszcząca skamieniała żywica drzewna zwana „Bałtyckim Złotem”.
+    Błyszcząca, skamieniała żywica drzew iglastych zwana "złotem Bałtyku".
 
     ![preview amber](../../../assets/img/content/cards/amber.jpg){ width="200" }
 
-    - **[Bursztynowy Pokój](../cards/index.md#amber_room)** (RelatedTo)
+    - **[Bursztynowa Komnata](../cards/index.md#amber_room)** (RelatedTo)
     Słynny pokój z bursztynu o tajemniczej historii.
 
     ![preview amber_room](../../../assets/img/content/cards/amber_room.jpg){ width="200" }
 
     - **[Muszla](../cards/index.md#seashell)** (RelatedTo)
-    Twardy muszla zwierzęcia morskiego, przydatna do rękodzieła.
+    Twarda muszla zwierzęcia morskiego, wykorzystywana w rzemiośle.
 
     ![preview seashell](../../../assets/img/content/cards/seashell.jpg){ width="200" }
 
@@ -1298,17 +1302,17 @@ Credits:
 
 - Connected cards:
     - **[Kładka](../cards/index.md#footbridge)** (RelatedTo)
-    Most, po którym ludzie mogą chodzić. Bez samochodów.
+    Mostek, po którym mogą chodzić tylko ludzie. Bez samochodów.
 
     ![preview footbridge](../../../assets/img/content/cards/footbridge.jpg){ width="200" }
 
     - **[Most Tumski](../cards/index.md#tumski_bridge)** (RelatedTo)
-    Słynny most z kłódkami symbolizującymi miłość i latarniami gazowymi.
+    Słynny most z latarniami gazowymi i kłódkami symbolizującymi miłość.
 
     ![preview tumski_bridge](../../../assets/img/content/cards/tumski_bridge.jpg){ width="200" }
 
     - **[Most Rędziński](../cards/index.md#redzinski_bridge)** (RelatedTo)
-    Najdłuższy most wantowy w Polsce.
+    Najdłuższy most podwieszany w Polsce.
 
     ![preview redzinski_bridge](../../../assets/img/content/cards/redzinski_bridge.jpg){ width="200" }
 
@@ -1318,7 +1322,7 @@ Credits:
     ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ width="200" }
 
     - **[Dom na wodzie](../cards/index.md#houseboat)** (RelatedTo)
-    Łódź stworzona do życia na niej.
+    Łódź, w której można mieszkać.
 
     ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
 
@@ -1327,8 +1331,8 @@ Credits:
 
     ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ width="200" }
 
-    - **[Mosty Wrocławskie](../cards/index.md#wroclaw_bridges)** (RelatedTo)
-    We Wrocławiu nad Odrą przebiega wiele mostów.
+    - **[Wrocławskie mosty](../cards/index.md#wroclaw_bridges)** (RelatedTo)
+    Wrocław znany jest z licznych mostów.
 
     ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
 
@@ -1349,13 +1353,13 @@ Credits:
 
     ![preview pierogi](../../../assets/img/content/cards/pierogi.jpg){ width="200" }
 
-    - **[Waluta Złoty](../cards/index.md#currency_zloty)** (RelatedTo)
+    - **[Polska waluta: złoty.](../cards/index.md#currency_zloty)** (RelatedTo)
     Walutą polską jest złoty. Monety i banknoty mają symbole polskie.
 
     ![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ width="200" }
 
     - **[Pierniki toruńskie](../cards/index.md#gingerbread)** (RelatedTo)
-    tradycyjny polski przysmak przygotowywany z przypraw i miodu, często kształtowany w piękne wzory.
+    Tradycyjny polski przysmak, przygotowany z mąki, miodu, przypraw, często ma piękne wzory.
 
     ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ width="200" }
 
@@ -1394,12 +1398,12 @@ Credits:
     ![preview country_belarus](../../../assets/img/content/cards/country_belarus.jpg){ width="200" }
 
     - **[Flaga Białorusi](../cards/index.md#flag_belarus)** (CulturalContext)
-    Flaga Białorusi ma poziome, czerwone i zielone pasy z pięknymi, tradycyjnymi wzorami po bokach. Białoruś jest sąsiadem Polski.
+    Flaga Białorusi ma poziome czerwone i zielone pasy z pięknymi, tradycyjnymi wzorami po bokach. Białoruś jest sąsiadem Polski.
 
     ![preview flag_belarus](../../../assets/img/content/cards/flag_belarus.jpg){ width="200" }
 
     - **[Flaga Rosji](../cards/index.md#flag_russia)** (CulturalContext)
-    Flaga z białymi, niebieskimi i czerwonymi paskami. Reprezentuje Rosję.
+    Flaga Rosji ma trzy poziome pasy: biały, niebieski i czerwony.
 
     ![preview flag_russia](../../../assets/img/content/cards/flag_russia.jpg){ width="200" }
 
@@ -1409,7 +1413,7 @@ Credits:
     ![preview flag_slovakia](../../../assets/img/content/cards/flag_slovakia.jpg){ width="200" }
 
     - **[Flaga Republiki Czeskiej](../cards/index.md#flag_czech_republic)** (CulturalContext)
-    Flaga ma biało-czerwone pasy z niebieskim trójkątem. Czechy słyną z pięknego Zamku Praskiego i kryształowego szkła.
+    Flaga ma biały i czerwony pas oraz niebieski trójkąt. Czechy słyną z Zamku Praskiego i kryształowego szkła.
 
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
 
@@ -1419,7 +1423,7 @@ Credits:
     ![preview flag_lithuania](../../../assets/img/content/cards/flag_lithuania.jpg){ width="200" }
 
     - **[Flaga Ukrainy](../cards/index.md#flag_ukraine)** (CulturalContext)
-    Flaga w kolorach niebieskim i żółtym, przypominającym niebo i słońce. Reprezentuje Ukrainę.
+    Flaga w kolorach niebieskim i żółtym, przypominają niebo i słońce. Reprezentuje Ukrainę.
 
     ![preview flag_ukraine](../../../assets/img/content/cards/flag_ukraine.jpg){ width="200" }
 
@@ -1452,7 +1456,7 @@ Credits:
 
 - Connected cards:
     - **[Flaga Polski](../cards/index.md#flag_poland)** (CulturalContext)
-    Flaga Polski ma poziome, biało-czerwone pasy. Polska słynie z naukowców takich jak Kopernik i pysznych pierogów!
+    Flaga Polski ma dwa poziome pasy: biały i czerwony. Polska słynie z naukowców takich jak Kopernik oraz pysznych pierogów.
 
     ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ width="200" }
 
@@ -1470,14 +1474,13 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Pomnik Chopina](../cards/index.md#chopin_monument)**
-    Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Specjalne drzewo, pod którym siedzi, to typowa polska… wierzba)
-
+    Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Drzewo, pod którym siedzi, to typowa polska wierzba).
 
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }
 
 - Connected cards:
-    - **[Syrena Warszawska](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
-    Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg można zobaczyć nad rzeką.
+    - **[Syrenka Warszawska](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
+    Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg stoi nad Wisłą.
 
     ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ width="200" }
 
@@ -1500,13 +1503,13 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Wrocław](../cards/index.md#wroclaw)**
-    Miasto w Polsce z rzekami, mostami i historią.
+    Miasto w Polsce z rzekami, mostami i pięknymi zabytkami.
 
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
 
 - Connected cards:
-    - **[Mosty Wrocławskie](../cards/index.md#wroclaw_bridges)** (RelatedTo)
-    We Wrocławiu nad Odrą przebiega wiele mostów.
+    - **[Wrocławskie mosty](../cards/index.md#wroclaw_bridges)** (RelatedTo)
+    Wrocław znany jest z licznych mostów.
 
     ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
 
@@ -1527,29 +1530,29 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Krasnale wrocławskie](../cards/index.md#wroclaw_dwarfs)**
-    Malutkie figurki w całym mieście, które uwielbiają płatać figle.
+    - **[Wrocławskie krasnale](../cards/index.md#wroclaw_dwarfs)**
+    Malutkie figurki w całym mieście. Krasnale lubią płatać figle.
 
     ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
 
 - Connected cards:
-    - **[Miłośnik zwierząt Krasnolud](../cards/index.md#animal_lover_dwarf)** (RelatedTo)
+    - **[Krasnal Miłośnik Zwierząt](../cards/index.md#animal_lover_dwarf)** (RelatedTo)
     Figurka krasnala, który uwielbia zoo i zwierzęta.
 
     ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ width="200" }
 
-    - **[Biskup Krasnolud](../cards/index.md#bishop_dwarf)** (RelatedTo)
+    - **[Krasnal Biskup](../cards/index.md#bishop_dwarf)** (RelatedTo)
     Posąg karła zadającego pytanie kościelne.
 
     ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ width="200" }
 
-    - **[Ekspert Krasnoludów](../cards/index.md#dwarf_expert)** (RelatedTo)
+    - **[Krasnal Ekspert](../cards/index.md#dwarf_expert)** (RelatedTo)
     Przyjazny przewodnik, który wie wszystko o krasnoludkach.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
 
-    - **[Krasnolud Klucznik](../cards/index.md#keymaster_dwarf)** (RelatedTo)
-    Posąg krasnala pilnującego windy z dużym kluczem.
+    - **[Krasnal Klucznik](../cards/index.md#keymaster_dwarf)** (RelatedTo)
+    Krasnal z dużym kluczem pilnujący windy.
 
     ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ width="200" }
 
@@ -1558,13 +1561,13 @@ Credits:
 
     ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ width="200" }
 
-    - **[Rzeźba Krasnala wrocławskiego](../cards/index.md#wroclaw_dwarf_statue)** (RelatedTo)
-    Niewielka figurka miejska; krasnale są symbolem Wrocławia.
+    - **[Figurka wrocławskiego krasnala](../cards/index.md#wroclaw_dwarf_statue)** (RelatedTo)
+    Niewielka figurka krasnala-symbolu Wrocławia.
 
     ![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ width="200" }
 
     - **[Wrocław](../cards/index.md#wroclaw)** (LocatedIn)
-    Miasto w Polsce z rzekami, mostami i historią.
+    Miasto w Polsce z rzekami, mostami i pięknymi zabytkami.
 
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
 
@@ -1582,7 +1585,7 @@ Credits:
     ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ width="200" }
 
 - Connected cards:
-    - **[Opiekun zoo](../cards/index.md#zoo_keeper)** (RelatedTo)
+    - **[Opiekun zwierząt w zoo](../cards/index.md#zoo_keeper)** (RelatedTo)
     Osoba opiekująca się zwierzętami w zoo.
 
     ![preview zoo_keeper](../../../assets/img/content/cards/zoo_keeper.jpg){ width="200" }

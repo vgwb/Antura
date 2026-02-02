@@ -489,20 +489,6 @@ Grasso giallo ricavato dal latte, utilizzato per cucinare e cuocere al forno.
 
 ---
 
-### Bussola {#math_compass}
-![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
-
-Uno strumento che ti aiuta a disegnare cerchi perfetti. Ha due gambe come forbici.
-
-- Type: Object
-- Subjects: Math
-- Country: International
-- Topics: [Elementary Math](../topics/index.md#elementary-maths)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
-- Quests: [Il sistema scolastico (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### Calcio {#football_soccer}
 ![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
 
@@ -698,6 +684,20 @@ Persone che vendono cibo e altri beni di consumo alle bancarelle del mercato, co
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
+
+---
+
+### Compasso {#math_compass}
+![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
+
+Uno strumento che ti aiuta a disegnare cerchi perfetti. Ha due gambe come forbici.
+
+- Type: Object
+- Subjects: Math
+- Country: International
+- Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
+- Quests: [Il sistema scolastico (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -1254,11 +1254,14 @@ Un animale di montagna peloso che fischia.
 ---
 
 ### Matematica elementare {#elementary_maths}
+![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ loading=lazy }
+
 Numeri e forme per la vita di tutti i giorni: contare, addizionare e sottrarre, frazioni semplici, misurare, leggere l'ora e usare il denaro.
 
 - Type: None
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mathematics.png)
 
 ---
 
@@ -1603,7 +1606,7 @@ La capitale della Francia. Parigi ha una famosa torre alta chiamata Torre Eiffel
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md)
 
@@ -1990,12 +1993,15 @@ Intelligente e giocoso, ama arrampicarsi sugli alberi. Usa bastoni e pietre come
 ---
 
 ### Scuole francesi {#french_schools}
+![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
+
 In Francia, la scuola si articola in quattro fasi principali: maternelle (scuola materna), école élémentaire (scuola elementare), collège (scuola media) e lycée (scuola superiore). Al termine del lycée, molti studenti sostengono un importante esame chiamato baccalauréat (‘le bac’).
 
 - Type: Concept
 - Subjects: Education, Civics, Culture
 - Country: International
 - Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | P_L_Martin_des_Amoignes_In_the_classroom_1886 | [source](https://commons.wikimedia.org/wiki/File:P_L_Martin_des_Amoignes_In_the_classroom_1886.jpg)
 
 ---
 
@@ -2502,7 +2508,7 @@ Un pane lungo e croccante, il più famoso in Francia. I francesi comprano baguet
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md), [DEV (dev)](../quests/quest/dev.md)
+- Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -2971,7 +2977,7 @@ Uno scrittore francese che immaginava avventure incredibili prima che fossero po
 
 ---
 
-### Giuramento degli Orazi (Davide) {#oath_of_the_horatii_david}
+### Giuramento degli Orazi (David) {#oath_of_the_horatii_david}
 ![preview oath_of_the_horatii_david](../../../assets/img/content/cards/oath_of_the_horatii_david.jpg){ loading=lazy }
 
 Un dipinto raffigurante tre fratelli che fanno una promessa coraggiosa.
@@ -4234,7 +4240,7 @@ Una semplice mappa di Breslavia che mostra il fiume Odra con le sue isole e nume
 
 ---
 
-### Maria Curie {#maria_curie}
+### Maria Skłodowska-Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
 Una brillante scienziata polacca che scoprì la radioattività. Fu la prima donna a vincere il Premio Nobel, e lo vinse due volte!

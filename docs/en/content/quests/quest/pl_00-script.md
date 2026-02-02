@@ -199,7 +199,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if GetCurrentTask() == "find_flag_poland"&gt;&gt;</span>
-<span class="yarn-line">    You found the Polish flag! Go back to Poland.</span> <span class="yarn-meta">#line:06e3263 </span>
+<span class="yarn-line">    You found the Polish flag! Go back to Poland.</span> <span class="yarn-meta">#shadow:0891273 </span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -446,7 +446,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $czech_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card country_czech&gt;&gt;</span>
 <span class="yarn-line">    Hi! I'm from Czech Republic!</span> <span class="yarn-meta">#line:0ded863 </span>
-<span class="yarn-line">    We have the most castle in Europe!</span> <span class="yarn-meta">#line:03dc09c </span>
+<span class="yarn-line">    Czechia is famous for its beautiful castles, crystal glass, and delicious dumplings!</span> <span class="yarn-meta">#line:03dc09c </span>
     <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    My flag is white and red with a blue triangle.</span> <span class="yarn-meta">#line:0000741 </span>
@@ -642,7 +642,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;task_start talk_npc_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $ukraine_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $ukraine_met = true&gt;&gt;</span>
-<span class="yarn-line">    Moien! I’m from Ukraine!</span> <span class="yarn-meta">#line:07ea99a </span>
+<span class="yarn-line">    Hi! I’m from Ukraine!</span> <span class="yarn-meta">#line:07ea99a </span>
 <span class="yarn-line">    We are called the "Bread Basket" of Europe because we produce a lot of grain!</span> <span class="yarn-meta">#line:0dbd4af </span>
     <span class="yarn-cmd">&lt;&lt;jump task_ukraine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -734,11 +734,15 @@ hide:
     <span class="yarn-cmd">&lt;&lt;task_end find_flag_slovakia&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $ukraine_completed = true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;action russia_active&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;target npc_russia&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card country_russia&gt;&gt;</span>
-<span class="yarn-line">    Can you help our russian neighbour?</span> <span class="yarn-meta">#line:04bf6d1 #task:talk_npc_russia</span>
-    <span class="yarn-cmd">&lt;&lt;task_start talk_npc_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;action russia_active&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;target npc_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;card country_russia&gt;&gt;</span>
+<span class="yarn-comment">    // Can you help our russian neighbour?</span> <span class="yarn-meta">#line:04bf6d1 #task:talk_npc_russia</span>
+
+<span class="yarn-comment">    // &lt;&lt;task_start talk_npc_russia&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target NPC_Poland&gt;&gt;</span>
+<span class="yarn-line">    Go back to the start and get your prize!</span> <span class="yarn-meta">#line:07b7f05 #task:talk_npc_poland_final</span>
+    <span class="yarn-cmd">&lt;&lt;task_start talk_npc_poland_final&gt;&gt;</span> 
 <span class="yarn-cmd">&lt;&lt;elseif $slovakia_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $slovakia_met = true&gt;&gt;</span>
 <span class="yarn-line">    I'm from Slovakia!</span> <span class="yarn-meta">#line:054e1b8 </span>
@@ -829,22 +833,24 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $russia_completed&gt;&gt;</span>
 <span class="yarn-line">    The capital of Russia is Moscow!</span> <span class="yarn-meta">#line:0f8817a </span>
 <span class="yarn-cmd">&lt;&lt;elseif has_item("flag_russia")&gt;&gt;</span>
-<span class="yarn-line">    Thank you for bringing my flag back!</span> <span class="yarn-meta">#line:0466a59 </span>
-    <span class="yarn-cmd">&lt;&lt;inventory flag_russia remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;task_end find_flag_russia&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $russia_met = true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $russia_completed = true&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;target NPC_Poland&gt;&gt;</span>
-<span class="yarn-line">    Go back to the start and get your prize!</span> <span class="yarn-meta">#line:07b7f05 #task:talk_npc_poland_final</span>
-    <span class="yarn-cmd">&lt;&lt;task_start talk_npc_poland_final&gt;&gt;</span> 
+<span class="yarn-comment">    // Thank you for bringing my flag back!</span> <span class="yarn-meta">#line:0466a59 </span>
+
+<span class="yarn-comment">    // &lt;&lt;inventory flag_russia remove&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;task_end find_flag_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $russia_met = true&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $russia_completed = true&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;set $COUNTRIES_COMPLETED = $COUNTRIES_COMPLETED + 1&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;target NPC_Poland&gt;&gt;</span>
+<span class="yarn-comment">    // Go back to the start and get your prize!</span> <span class="yarn-meta">#line:07b7f05 #task:talk_npc_poland_final</span>
+
+<span class="yarn-comment">    // &lt;&lt;task_start talk_npc_poland_final&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $russia_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $russia_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card country_russia&gt;&gt;</span>
 <span class="yarn-line">    Hello, I'm Russia.</span> <span class="yarn-meta">#line:065c41c </span>
 <span class="yarn-line">    This is just a tiny part of the big country.</span> <span class="yarn-meta">#line:0a4bae4 </span>
-    <span class="yarn-cmd">&lt;&lt;jump task_russia&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;jump task_russia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Our flag is red with a white cross.</span> <span class="yarn-meta">#line:05e0820 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>

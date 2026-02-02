@@ -49,7 +49,7 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">To zadanie zostało ukończone.</span> <span class="yarn-meta">#line:0bcc257 </span>
-<span class="yarn-line">Dowiedziałeś się o ZWIERZĘTACH ZOOLOGICZNYCH.</span> <span class="yarn-meta">#line:054cc37 </span>
+<span class="yarn-line">Dowiedziałeś się o ZWIERZĘTACH w ZOO.</span> <span class="yarn-meta">#line:054cc37 </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -67,7 +67,7 @@ hide:
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_centennial_hall&gt;&gt;</span>
-<span class="yarn-line">Narysuj swoje ulubione ZWIERZĘ lub SALĘ STULECIA.</span> <span class="yarn-meta">#line:0809ac5</span>
+<span class="yarn-line">Narysuj swoje ulubione ZWIERZĘ lub HALĘ STULECIA</span> <span class="yarn-meta">#line:0809ac5</span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -85,6 +85,8 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "TASK_ANIMALS"&gt;&gt;</span>
+<span class="yarn-line">    Porozmawiaj ze WSZYSTKIMI ZWIERZĘTAMI!</span> <span class="yarn-meta">#line:07b60e7 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -111,14 +113,30 @@ hide:
 <span class="yarn-cmd">&lt;&lt;camera_focus Flagpole&gt;&gt;</span>
 <span class="yarn-line">Nasza FLAGA zaginęła!</span> <span class="yarn-meta">#line:09c6bf7 </span>
 <span class="yarn-cmd">&lt;&lt;card iglica&gt;&gt;</span>
-<span class="yarn-line">Miało to miejsce na IGLICA w CENTENNIAL HALL.</span> <span class="yarn-meta">#line:02f35e4 </span>
-<span class="yarn-line">To słynna metalowa rzeźba i symbol naszego miasta.</span> <span class="yarn-meta">#line:0335bf7 </span>
+<span class="yarn-line">Miało to miejsce na IGLICY w HALI STULECIA.</span> <span class="yarn-meta">#line:02f35e4 </span>
+<span class="yarn-line">To cienka metalowa wieża i symbol naszego miasta.</span> <span class="yarn-meta">#line:0335bf7 </span>
 <span class="yarn-line">Ma 90 metrów wysokości!</span> <span class="yarn-meta">#line:001cba3 </span>
 <span class="yarn-line">Kto mógł to zabrać?</span> <span class="yarn-meta">#line:0fc7e35 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Znajdź FLAGĘ. Porozmawiaj ze ZWIERZĘTAMI.</span> <span class="yarn-meta">#line:0da284c #task:TASK_ANIMALS</span>
-<span class="yarn-line">Może któryś z nich je ma.</span> <span class="yarn-meta">#line:012b933</span>
-<span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
+<span class="yarn-line">Może któreś z nich je ma?</span> <span class="yarn-meta">#line:012b933</span>
+<span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-check-animals-done"></a>
+
+## check_animals_done
+
+<div class="yarn-node" data-title="check_animals_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -154,7 +172,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Rozmawiałeś ze WSZYSTKIMI ZWIERZĘTAMI.</span> <span class="yarn-meta">#line:032811f </span>
-<span class="yarn-line">I nie zabrali FLAGĘ.</span> <span class="yarn-meta">#line:0364f30 </span>
+<span class="yarn-line">I nie zabrali FLAGI.</span> <span class="yarn-meta">#line:0364f30 </span>
 <span class="yarn-line">Wróćmy do Hali Stulecia.</span> <span class="yarn-meta">#line:0bc6238 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_zoo_settings jigsaw_zoo_done&gt;&gt;</span>
 
@@ -235,7 +253,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $monkey_completed = true&gt;&gt;</span>
 <span class="yarn-line">Byłoby fajnie wspiąć się na ten słup.</span> <span class="yarn-meta">#line:0a43c85</span>
-<span class="yarn-line">Ale nie wziąłem FLAGĘ!</span> <span class="yarn-meta">#line:0c53945 </span>
+<span class="yarn-line">Ale nie wziąłem FLAGI!</span> <span class="yarn-meta">#line:0c53945</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -325,7 +344,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $lion_completed = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card animal_lion collect&gt;&gt;</span>
 <span class="yarn-line">Uwielbiam patrzeć na flagę na Iglicy.</span> <span class="yarn-meta">#line:01b3593 </span>
-<span class="yarn-line">Ale jej nie wziąłem. Proszę, znajdź tę FLAGĘ!</span> <span class="yarn-meta">#line:05da6d7 </span>
+<span class="yarn-line">Ale jej nie wziąłem. Proszę, znajdź tę FLAGĘ!</span> <span class="yarn-meta">#line:05da6d7</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -408,8 +428,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card animal_giraffe collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $giraffe_completed = true&gt;&gt;</span>
-<span class="yarn-line">Dziękuję. Nie wziąłem FLAG.</span> <span class="yarn-meta">#line:0877d6f</span>
+<span class="yarn-line">Dziękuję. Nie wziąłem FLAGI.</span> <span class="yarn-meta">#line:0877d6f</span>
 <span class="yarn-line">Jestem wysoki, ale nie mam 90 metrów jak IGLICA!</span> <span class="yarn-meta">#line:02d00e2</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -441,7 +462,7 @@ hide:
 <span class="yarn-header-dim">group: GIRAFFE</span>
 <span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dzięki takiej SZYI mogłem stąd widzieć swój dom!</span> <span class="yarn-meta">#line:0bee484 </span>
+<span class="yarn-line">Dzięki takiej SZYI mogłam stąd widzieć mój dom.</span> <span class="yarn-meta">#line:0bee484 </span>
 
 </code>
 </pre>
@@ -493,6 +514,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $elephant_completed = true&gt;&gt;</span>
 <span class="yarn-line">FLAGA? Nie mam jej.</span> <span class="yarn-meta">#line:0b79d01</span>
 <span class="yarn-line">Gdybym to wzięła, PAMIĘTAŁABYM!</span> <span class="yarn-meta">#line:0f124bf</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -550,7 +572,7 @@ hide:
         <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings_hard&gt;&gt;</span>
 <span class="yarn-line">    NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Jestem PINGWINEM, wyjątkowym PTAKEM.</span> <span class="yarn-meta">#line:08c70e8 </span>
+<span class="yarn-line">    Jestem PINGWINEM wyjątkowym PTAKIEM</span> <span class="yarn-meta">#line:08c70e8 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_penguin&gt;&gt;</span>
 <span class="yarn-line">    Nie umiem LATAĆ, ale dobrze PŁYWAM!</span> <span class="yarn-meta">#line:0540c5a </span>
 <span class="yarn-line">    Uwielbiam LÓD i ZIMNO.</span> <span class="yarn-meta">#line:0ba1a43 </span>
@@ -574,8 +596,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card animal_penguin collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $penguin_completed = true&gt;&gt;</span>
-<span class="yarn-line">Nie, nie wziąłem FLAG-a.</span> <span class="yarn-meta">#line:078190f </span>
-<span class="yarn-line">Pamiętaj, nie potrafię latać!</span> <span class="yarn-meta">#line:08568f5 </span>
+<span class="yarn-line">Nie, nie wziąłem FLAGI.</span> <span class="yarn-meta">#line:078190f </span>
+<span class="yarn-line">Pamiętaj, nie potrafię latać!</span> <span class="yarn-meta">#line:08568f5</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -643,7 +666,7 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card peacock&gt;&gt;</span>
-<span class="yarn-line">    Nie potrzebuję FLAG-u.</span> <span class="yarn-meta">#line:0085a8a </span>
+<span class="yarn-line">    Nie potrzebuję FLAGI</span> <span class="yarn-meta">#line:0085a8a </span>
 <span class="yarn-line">    Mój ogon jest jak FLAGA!</span> <span class="yarn-meta">#line:04fff6b </span>
 
 </code>
@@ -660,7 +683,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card parrot&gt;&gt;</span>
-<span class="yarn-line">Krzyk! Widziałem, jak przejeżdżają czerwony i żółty!</span> <span class="yarn-meta">#line:0e84545 </span>
+<span class="yarn-line">Krzyk! Uwielbiam czerwony i żółty!</span> <span class="yarn-meta">#line:0e84545 </span>
 
 </code>
 </pre>

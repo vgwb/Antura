@@ -113,7 +113,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card cook&gt;&gt;</span>
-<span class="yarn-line">Dzień dobry! Jestem kucharką i chcę upiec pierniki.</span> <span class="yarn-meta">#line:028131b</span>
+<span class="yarn-line">Dzień dobry! Jestem kucharzem i chcę upiec pierniki.</span> <span class="yarn-meta">#line:028131b</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread&gt;&gt;</span>
 <span class="yarn-line">Mogę upiec dla Ciebie nasze słynne PIERNIKI.</span> <span class="yarn-meta">#line:07fb019</span>
 <span class="yarn-line">Ale potrzebuję SKŁADNIKÓW.</span> <span class="yarn-meta">#line:00a46f0</span>
@@ -135,12 +135,12 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card  currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Proszę wziąć te pieniądze</span> <span class="yarn-meta">#line:0ff272d </span>
 <span class="yarn-cmd">&lt;&lt;card market_traders&gt;&gt;</span>
-<span class="yarn-line">I idź na RYNEK HANDLOWY</span> <span class="yarn-meta">#line:0c35a9c</span>
+<span class="yarn-line">Idź na TARG.</span> <span class="yarn-meta">#line:0c35a9c</span>
 <span class="yarn-cmd">&lt;&lt;detour task_ingredients_desc&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start COLLECT_INGREDIENTS task_ingredients_done&gt;&gt;</span>
 <span class="yarn-line">Rozmawiając z ludźmi pamiętaj o dobrych manierach!</span> <span class="yarn-meta">#line:03f1020 </span>
 <span class="yarn-line">Witając kogoś, mówimy „Dzień dobry”.</span> <span class="yarn-meta">#line:091bb57 </span>
-<span class="yarn-line">i „Dziękuję”, aby im podziękować.</span> <span class="yarn-meta">#line:076ffac </span>
+<span class="yarn-line">i "Dziękuję", aby komuś podziękować.</span> <span class="yarn-meta">#line:076ffac </span>
 <span class="yarn-cmd">&lt;&lt;area area_full&gt;&gt;</span>
 
 </code>
@@ -156,12 +156,12 @@ hide:
 <span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Kup składniki potrzebne do przepisu.</span> <span class="yarn-meta">#line:00565e5 </span>
-<span class="yarn-line">Trochę MĄKI</span> <span class="yarn-meta">#line:070b733 </span>
-<span class="yarn-line">Trochę MIODU</span> <span class="yarn-meta">#line:0e22cab </span>
-<span class="yarn-line">Trochę CUKRU</span> <span class="yarn-meta">#line:055af31</span>
-<span class="yarn-line">Trochę MASŁA</span> <span class="yarn-meta">#line:0bfb896 </span>
+<span class="yarn-line">MĄKA</span> <span class="yarn-meta">#line:070b733 </span>
+<span class="yarn-line">MIÓD</span> <span class="yarn-meta">#line:0e22cab </span>
+<span class="yarn-line">CUKIER</span> <span class="yarn-meta">#line:055af31</span>
+<span class="yarn-line">MASŁO</span> <span class="yarn-meta">#line:0bfb896 </span>
 <span class="yarn-line">Jedno jajko</span> <span class="yarn-meta">#line:0de2001 </span>
-<span class="yarn-line">Trochę cynamonu</span> <span class="yarn-meta">#line:0ba5cca </span>
+<span class="yarn-line">CYNAMON</span> <span class="yarn-meta">#line:0ba5cca </span>
 <span class="yarn-line">I na koniec trochę IMBIRU</span> <span class="yarn-meta">#line:0a700e3 </span>
 <span class="yarn-cmd">&lt;&lt;card_hide&gt;&gt;</span>
 
@@ -234,7 +234,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread_mold&gt;&gt;</span>
 <span class="yarn-line">Dopasuj części piernika do sprzedawcy.</span> <span class="yarn-meta">#line:0e54683 </span>
-<span class="yarn-cmd">&lt;&lt;activity match_ingredients activity_match_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity match_ingredients_pl_06 activity_match_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -249,11 +249,11 @@ hide:
 <span class="yarn-header-dim">group: cook</span>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("match_ingredients") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("match_ingredients_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">Brawo! Udało Ci się dopasować wszystkie składniki.</span> <span class="yarn-meta">#line:01648b2</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread&gt;&gt;</span>
 <span class="yarn-line">A teraz czas na pieczenie PIERNIKÓW!</span> <span class="yarn-meta">#line:0f0f617 </span>
-<span class="yarn-line">Zapraszamy do wejścia do Starego Ratusza. Czeka tam na Państwa niespodzianka!</span> <span class="yarn-meta">#line:01c48d3</span>
+<span class="yarn-line">Zapraszmy do wejścia do Starego ratusza. Czeka tam na Was niespodzianka.</span> <span class="yarn-meta">#line:01c48d3</span>
 <span class="yarn-cmd">&lt;&lt;set $gingerbread_done = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_castle&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -278,7 +278,7 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("money_grocer") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("money_grocer_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   Już u mnie kupiłeś!</span> <span class="yarn-meta">#line:already_bought</span>
 <span class="yarn-line">   Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:play_again</span>
 <span class="yarn-line">   Tak</span> <span class="yarn-meta">#line:yes</span>
@@ -350,7 +350,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Wybierz odpowiednie monety do zapłaty.</span> <span class="yarn-meta">#line:select_money</span>
-<span class="yarn-cmd">&lt;&lt;activity money_grocer grocer_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_grocer_pl_06 grocer_payment_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -501,7 +501,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("money_cheesemonger") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("money_cheesemonger_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   Już u mnie kupiłeś!</span> <span class="yarn-meta">#shadow:already_bought</span>
 <span class="yarn-line">   Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
 <span class="yarn-line">   Tak</span> <span class="yarn-meta">#shadow:yes</span>
@@ -529,7 +529,7 @@ hide:
 <span class="yarn-header-dim">group: cheesemonger</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Cześć! Sprzedaję ser i masło. Jestem sprzedawcą serów.</span> <span class="yarn-meta">#line:09eb222 </span>
+<span class="yarn-line">Cześć! Sprzedaję ser i masło.</span> <span class="yarn-meta">#line:09eb222 </span>
 <span class="yarn-line">Używam zarówno mleka krowiego, jak i koziego.</span> <span class="yarn-meta">#line:02f4bc9 </span>
 <span class="yarn-cmd">&lt;&lt;card person_cheesemonger&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump cheesemonger_question&gt;&gt;</span>
@@ -573,7 +573,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Wybierz odpowiednie monety do zapłaty.</span> <span class="yarn-meta">#shadow:select_money</span>
-<span class="yarn-cmd">&lt;&lt;activity money_cheesemonger cheesemonger_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_cheesemonger_pl_06 cheesemonger_payment_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -749,7 +749,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card person_spicevendor&gt;&gt;</span>
-<span class="yarn-line">Cześć! Sprzedaję przyprawy. Jestem sprzedawcą przypraw.</span> <span class="yarn-meta">#line:0f83873 </span>
+<span class="yarn-line">Cześć! Sprzedaję przyprawy.</span> <span class="yarn-meta">#line:0f83873 </span>
 <span class="yarn-cmd">&lt;&lt;jump spicevendor_question&gt;&gt;</span>
 
 </code>
@@ -981,7 +981,7 @@ hide:
 <span class="yarn-header-dim">tags: item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card food_ginger&gt;&gt;</span>
-<span class="yarn-line">Ożywić</span> <span class="yarn-meta">#line:08049d5 </span>
+<span class="yarn-line">Imbir</span> <span class="yarn-meta">#line:08049d5 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
 </code>
@@ -1013,7 +1013,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Cześć. Czego chcesz?</span> <span class="yarn-meta">#line:0f11caf </span>
+<span class="yarn-line">Cześć. W czym mogę pomóc?</span> <span class="yarn-meta">#line:0f11caf </span>
 <span class="yarn-line">Chcę wejść do Starego Ratusza.</span> <span class="yarn-meta">#line:0449db3 </span>
    <span class="yarn-cmd">&lt;&lt;if $gingerbread_done == true&gt;&gt;</span>
       <span class="yarn-cmd">&lt;&lt;trigger open_door_castle&gt;&gt;</span>
@@ -1046,7 +1046,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card pierogi&gt;&gt;</span>
 <span class="yarn-line">    Czy kiedykolwiek próbowałeś PIEROGÓW?</span> <span class="yarn-meta">#line:0da391b </span>
 <span class="yarn-line">    Tak</span> <span class="yarn-meta">#line:08ac4ff </span>
-<span class="yarn-line">      Jest pyszne, prawda?</span> <span class="yarn-meta">#line:040912f </span>
+<span class="yarn-line">      Są pyszne, prawda?</span> <span class="yarn-meta">#line:040912f </span>
 <span class="yarn-line">    NIE</span> <span class="yarn-meta">#line:0cb270e </span>
 <span class="yarn-line">      To specjalny rodzaj pierożka wypełnionego pysznościami, np. serem lub ziemniakami.</span> <span class="yarn-meta">#line:09da259 </span>
     <span class="yarn-cmd">&lt;&lt;card_hide&gt;&gt;</span>

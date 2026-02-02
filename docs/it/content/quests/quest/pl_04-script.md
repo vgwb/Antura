@@ -85,6 +85,8 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "TASK_ANIMALS"&gt;&gt;</span>
+<span class="yarn-line">    Parla con tutti gli ANIMALI!</span> <span class="yarn-meta">#line:07b60e7 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -111,14 +113,30 @@ hide:
 <span class="yarn-cmd">&lt;&lt;camera_focus Flagpole&gt;&gt;</span>
 <span class="yarn-line">Manca la nostra BANDIERA!</span> <span class="yarn-meta">#line:09c6bf7 </span>
 <span class="yarn-cmd">&lt;&lt;card iglica&gt;&gt;</span>
-<span class="yarn-line">Era sull'IGLICA al CENTENNIAL HALL.</span> <span class="yarn-meta">#line:02f35e4 </span>
-<span class="yarn-line">È la famosa scultura metallica e simbolo della nostra città.</span> <span class="yarn-meta">#line:0335bf7 </span>
+<span class="yarn-line">Si è svolto sulla Guglia nella SALA DEL CENTENARIO.</span> <span class="yarn-meta">#line:02f35e4 </span>
+<span class="yarn-line">È una sottile torre di metallo e un simbolo della nostra città.</span> <span class="yarn-meta">#line:0335bf7 </span>
 <span class="yarn-line">È alto 90 metri!</span> <span class="yarn-meta">#line:001cba3 </span>
 <span class="yarn-line">Chi potrebbe averlo preso?</span> <span class="yarn-meta">#line:0fc7e35 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Trova la BANDIERA. Parla con gli ANIMALI.</span> <span class="yarn-meta">#line:0da284c #task:TASK_ANIMALS</span>
 <span class="yarn-line">Forse uno di loro ce l'ha.</span> <span class="yarn-meta">#line:012b933</span>
-<span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-check-animals-done"></a>
+
+## check_animals_done
+
+<div class="yarn-node" data-title="check_animals_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -235,7 +253,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $monkey_completed = true&gt;&gt;</span>
 <span class="yarn-line">Sarebbe divertente arrampicarsi su quel palo.</span> <span class="yarn-meta">#line:0a43c85</span>
-<span class="yarn-line">Ma non ho preso la BANDIERA!</span> <span class="yarn-meta">#line:0c53945 </span>
+<span class="yarn-line">Ma non ho preso la BANDIERA!</span> <span class="yarn-meta">#line:0c53945</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -325,7 +344,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $lion_completed = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card animal_lion collect&gt;&gt;</span>
 <span class="yarn-line">Mi piace molto guardare la bandiera lassù sull'Iglica.</span> <span class="yarn-meta">#line:01b3593 </span>
-<span class="yarn-line">Ma non l'ho presa. Per favore, trova quella BANDIERA!</span> <span class="yarn-meta">#line:05da6d7 </span>
+<span class="yarn-line">Ma non l'ho presa. Per favore, trova quella BANDIERA!</span> <span class="yarn-meta">#line:05da6d7</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -385,7 +405,7 @@ hide:
         <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings_hard&gt;&gt;</span>
 <span class="yarn-line">    NO</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Sono l'ANIMALE più alto.</span> <span class="yarn-meta">#line:0d5c607 </span>
+<span class="yarn-line">    Io sono l'ANIMALE più alto.</span> <span class="yarn-meta">#line:0d5c607 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_giraffe&gt;&gt;</span>
 <span class="yarn-line">    Il mio lungo COLLO mi aiuta a raggiungere le foglie.</span> <span class="yarn-meta">#line:0a4d24e </span>
 <span class="yarn-line">    Adoro mangiare le foglie di ACAMICE!</span> <span class="yarn-meta">#line:04b42f2 </span>
@@ -410,6 +430,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $giraffe_completed = true&gt;&gt;</span>
 <span class="yarn-line">Grazie. Non ho preso la BANDIERA.</span> <span class="yarn-meta">#line:0877d6f</span>
 <span class="yarn-line">Sono alto, ma non 90 metri come l'IGLICA!</span> <span class="yarn-meta">#line:02d00e2</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -493,6 +514,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $elephant_completed = true&gt;&gt;</span>
 <span class="yarn-line">LA BANDIERA? Non ce l'ho.</span> <span class="yarn-meta">#line:0b79d01</span>
 <span class="yarn-line">Se lo prendessi, ME LO RICORDEREI!</span> <span class="yarn-meta">#line:0f124bf</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -575,7 +597,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card animal_penguin collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $penguin_completed = true&gt;&gt;</span>
 <span class="yarn-line">No, non ho preso la BANDIERA.</span> <span class="yarn-meta">#line:078190f </span>
-<span class="yarn-line">Ricordati, non so volare!</span> <span class="yarn-meta">#line:08568f5 </span>
+<span class="yarn-line">Ricordati, non so volare!</span> <span class="yarn-meta">#line:08568f5</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -660,7 +683,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card parrot&gt;&gt;</span>
-<span class="yarn-line">Squawk! Ho visto passare il rosso e il giallo!</span> <span class="yarn-meta">#line:0e84545 </span>
+<span class="yarn-line">Squawk! Adoro il rosso e il giallo!</span> <span class="yarn-meta">#line:0e84545 </span>
 
 </code>
 </pre>

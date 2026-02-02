@@ -140,7 +140,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;task_start COLLECT_INGREDIENTS task_ingredients_done&gt;&gt;</span>
 <span class="yarn-line">When you talk to people, remember your manners!</span> <span class="yarn-meta">#line:03f1020 </span>
 <span class="yarn-line">We say "Dzień dobry" to greet someone</span> <span class="yarn-meta">#line:091bb57 </span>
-<span class="yarn-line">and "Dziękuję" to thank them.</span> <span class="yarn-meta">#line:076ffac </span>
+<span class="yarn-line">and "Dziękuję", to thank someone.</span> <span class="yarn-meta">#line:076ffac </span>
 <span class="yarn-cmd">&lt;&lt;area area_full&gt;&gt;</span>
 
 </code>
@@ -156,13 +156,13 @@ hide:
 <span class="yarn-header-dim">type: task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Buy the ingredients for the recipe.</span> <span class="yarn-meta">#line:00565e5 </span>
-<span class="yarn-line">Some FLOUR</span> <span class="yarn-meta">#line:070b733 </span>
-<span class="yarn-line">Some HONEY</span> <span class="yarn-meta">#line:0e22cab </span>
-<span class="yarn-line">Some SUGAR</span> <span class="yarn-meta">#line:055af31</span>
-<span class="yarn-line">Some BUTTER</span> <span class="yarn-meta">#line:0bfb896 </span>
+<span class="yarn-line">FLOUR</span> <span class="yarn-meta">#line:070b733 </span>
+<span class="yarn-line">HONEY</span> <span class="yarn-meta">#line:0e22cab </span>
+<span class="yarn-line">SUGAR</span> <span class="yarn-meta">#line:055af31</span>
+<span class="yarn-line">BUTTER</span> <span class="yarn-meta">#line:0bfb896 </span>
 <span class="yarn-line">One EGG</span> <span class="yarn-meta">#line:0de2001 </span>
-<span class="yarn-line">Some CINNAMON</span> <span class="yarn-meta">#line:0ba5cca </span>
-<span class="yarn-line">And finally some GINGER</span> <span class="yarn-meta">#line:0a700e3 </span>
+<span class="yarn-line">CINNAMON</span> <span class="yarn-meta">#line:0ba5cca </span>
+<span class="yarn-line">And finally GINGER</span> <span class="yarn-meta">#line:0a700e3 </span>
 <span class="yarn-cmd">&lt;&lt;card_hide&gt;&gt;</span>
 
 </code>
@@ -234,7 +234,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread_mold&gt;&gt;</span>
 <span class="yarn-line">Match GINGERBREAD parts to their seller.</span> <span class="yarn-meta">#line:0e54683 </span>
-<span class="yarn-cmd">&lt;&lt;activity match_ingredients activity_match_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity match_ingredients_pl_06 activity_match_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -249,7 +249,7 @@ hide:
 <span class="yarn-header-dim">group: cook</span>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("match_ingredients") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("match_ingredients_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">Well done! You matched all the ingredients.</span> <span class="yarn-meta">#line:01648b2</span>
 <span class="yarn-cmd">&lt;&lt;card gingerbread&gt;&gt;</span>
 <span class="yarn-line">Now I can cook the GINGERBREAD!</span> <span class="yarn-meta">#line:0f0f617 </span>
@@ -278,7 +278,7 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("money_grocer") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("money_grocer_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   You already bought from me!</span> <span class="yarn-meta">#line:already_bought</span>
 <span class="yarn-line">   Do you want to play again?</span> <span class="yarn-meta">#line:play_again</span>
 <span class="yarn-line">   Yes</span> <span class="yarn-meta">#line:yes</span>
@@ -350,7 +350,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Pick the right coins to pay.</span> <span class="yarn-meta">#line:select_money</span>
-<span class="yarn-cmd">&lt;&lt;activity money_grocer grocer_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_grocer_pl_06 grocer_payment_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -501,7 +501,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-&lt;&lt;if GetActivityResult("money_cheesemonger") &gt; 0&gt;&gt;
+&lt;&lt;if GetActivityResult("money_cheesemonger_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   You already bought from me!</span> <span class="yarn-meta">#shadow:already_bought</span>
 <span class="yarn-line">   Do you want to play again?</span> <span class="yarn-meta">#shadow:play_again</span>
 <span class="yarn-line">   Yes</span> <span class="yarn-meta">#shadow:yes</span>
@@ -573,7 +573,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Pick the right coins to pay.</span> <span class="yarn-meta">#shadow:select_money</span>
-<span class="yarn-cmd">&lt;&lt;activity money_cheesemonger cheesemonger_payment_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity money_cheesemonger_pl_06 cheesemonger_payment_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1013,7 +1013,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Hallo. What do you want?</span> <span class="yarn-meta">#line:0f11caf </span>
+<span class="yarn-line">Hi. How can I help?</span> <span class="yarn-meta">#line:0f11caf </span>
 <span class="yarn-line">I want to enter the Old Town Hall.</span> <span class="yarn-meta">#line:0449db3 </span>
    <span class="yarn-cmd">&lt;&lt;if $gingerbread_done == true&gt;&gt;</span>
       <span class="yarn-cmd">&lt;&lt;trigger open_door_castle&gt;&gt;</span>

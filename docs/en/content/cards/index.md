@@ -761,11 +761,14 @@ A special paper that lets you visit the famous tall tower in Paris, France.
 ---
 
 ### Eleementary Maths {#elementary_maths}
+![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ loading=lazy }
+
 Numbers and shapes for everyday life: counting, adding and subtracting, simple fractions, measuring, telling time, and using money.
 
 - Type: None
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mathematics.png)
 
 ---
 
@@ -1046,12 +1049,15 @@ A big picture with information that hangs on classroom walls in French schools.
 ---
 
 ### French Schools {#french_schools}
+![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
+
 In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
 
 - Type: Concept
 - Subjects: Education, Civics, Culture
 - Country: International
 - Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | P_L_Martin_des_Amoignes_In_the_classroom_1886 | [source](https://commons.wikimedia.org/wiki/File:P_L_Martin_des_Amoignes_In_the_classroom_1886.jpg)
 
 ---
 
@@ -1744,7 +1750,7 @@ The capital city of France. Paris has a famous tall tower called the Eiffel Towe
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
 
@@ -2957,7 +2963,7 @@ A long, crispy bread that is the most famous food in France. French people buy f
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paris! (fr_01)](../quests/quest/fr_01.md), [DEV (dev)](../quests/quest/dev.md)
+- Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -4173,7 +4179,7 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 
 ---
 
-### Maria Curie {#maria_curie}
+### Maria Skłodowska-Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
 A brilliant scientist from Poland who discovered radioactivity. She was the first woman to win a Nobel Prize and won it twice!

@@ -248,20 +248,6 @@ Une personne qui fait du pain, des gâteaux et des pâtisseries.
 
 ---
 
-### Boussole {#math_compass}
-![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
-
-Un outil qui permet de tracer des cercles parfaits. Il possède deux branches, comme des ciseaux.
-
-- Type: Object
-- Subjects: Math
-- Country: International
-- Topics: [Elementary Math](../topics/index.md#elementary-maths)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### Bratislava {#capital_bratislava}
 ![preview capital_bratislava](../../../assets/img/content/cards/capital_bratislava.jpg){ loading=lazy }
 
@@ -538,6 +524,20 @@ Ceux qui vendent des produits alimentaires et autres marchandises sur les étals
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
+
+---
+
+### Compas {#math_compass}
+![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ loading=lazy }
+
+Un outil qui permet de tracer des cercles parfaits. Il possède deux branches, comme des ciseaux.
+
+- Type: Object
+- Subjects: Math
+- Country: International
+- Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
+- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -876,19 +876,6 @@ Un jeu d’équipe joué avec un ballon que vous frappez.
 - Country: International
 - Image credit: CC_BY_SA | Clément Bucco-Lechat | [source](https://commons.wikimedia.org/wiki/File:Algérie_-_Arménie_-_20140531_-_Yacine_Brahimi_(Alg)_face_à_Taron_Voskanyan_(Arm).jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Former {#train}
-![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
-
-Les trains transportent rapidement des personnes et des marchandises à travers le pays.
-
-- Type: Object
-- Subjects: Transportation
-- Country: International
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
 
 ---
 
@@ -1331,11 +1318,14 @@ Un animal de montagne à fourrure qui siffle.
 ---
 
 ### Mathématiques élémentaires {#elementary_maths}
+![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ loading=lazy }
+
 Chiffres et formes de la vie quotidienne : compter, additionner et soustraire, fractions simples, mesurer, lire l'heure et utiliser l'argent.
 
 - Type: None
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mathematics.png)
 
 ---
 
@@ -1629,7 +1619,7 @@ Paris, capitale de la France, possède une célèbre tour haute appelée la Tour
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Louvre](../topics/index.md#louvre), [Notre Dame](../topics/index.md#notredame)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
@@ -2126,6 +2116,19 @@ Un fruit rouge et rond qui pousse sur les plantes. On utilise les tomates pour f
 
 ---
 
+### Train {#train}
+![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
+
+Les trains transportent rapidement des personnes et des marchandises à travers le pays.
+
+- Type: Object
+- Subjects: Transportation
+- Country: International
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+
+---
+
 ### Tram {#tram}
 ![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
 
@@ -2294,12 +2297,15 @@ Un véhicule à deux roues sur lequel on pédale.
 ---
 
 ### écoles françaises {#french_schools}
+![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
+
 En France, l'école se déroule en quatre grandes étapes : la maternelle (apprentissage ludique pour les petits), l'école élémentaire (lecture, écriture, mathématiques), le collège et le lycée. À la fin du lycée, de nombreux élèves passent un examen important, le baccalauréat.
 
 - Type: Concept
 - Subjects: Education, Civics, Culture
 - Country: International
 - Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | P_L_Martin_des_Amoignes_In_the_classroom_1886 | [source](https://commons.wikimedia.org/wiki/File:P_L_Martin_des_Amoignes_In_the_classroom_1886.jpg)
 
 ---
 
@@ -2462,7 +2468,7 @@ Un pain long et croustillant, l'aliment le plus célèbre en France. Les França
 - Country: France
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md), [DEV (dev)](../quests/quest/dev.md)
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -3150,6 +3156,21 @@ Un long fleuve en France avec de nombreux châteaux le long de ses rives.
 
 ---
 
+### Louvre {#louvre}
+![preview louvre](../../../assets/img/content/cards/louvre.jpg){ loading=lazy }
+
+Un immense musée rempli d'œuvres d'art. C'est là que vit la Joconde.
+
+- Type: Place
+- Subjects: Art, Culture, History
+- Year: 1793
+- Country: France
+- Topics: [Louvre](../topics/index.md#louvre)
+- Image credit: CC0
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
 ### Luth {#lute}
 ![preview lute](../../../assets/img/content/cards/lute.jpg){ loading=lazy }
 
@@ -3278,21 +3299,6 @@ Une personne qui rame en barque sur la Loire.
 - Subjects: Community, Transportation
 - Country: France
 - Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Perhentian_Islands,_Boatman,_Malaysia.jpg)
-
----
-
-### Persienne {#louvre}
-![preview louvre](../../../assets/img/content/cards/louvre.jpg){ loading=lazy }
-
-Un immense musée rempli d'œuvres d'art. C'est là que vit la Joconde.
-
-- Type: Place
-- Subjects: Art, Culture, History
-- Year: 1793
-- Country: France
-- Topics: [Louvre](../topics/index.md#louvre)
-- Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -4210,7 +4216,7 @@ C'est aujourd'hui un musée où vous pourrez en apprendre davantage sur sa vie e
 
 ---
 
-### Maria Curie {#maria_curie}
+### Maria Skłodowska-Curie {#maria_curie}
 ![preview maria_curie](../../../assets/img/content/cards/maria_curie.jpg){ loading=lazy }
 
 Une brillante scientifique polonaise qui a découvert la radioactivité. Elle a été la première femme à recevoir un prix Nobel, et ce, à deux reprises !

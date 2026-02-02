@@ -85,6 +85,8 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "TASK_ANIMALS"&gt;&gt;</span>
+<span class="yarn-line">    Parlez à tous les ANIMAUX !</span> <span class="yarn-meta">#line:07b60e7 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump director_task&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -111,14 +113,30 @@ hide:
 <span class="yarn-cmd">&lt;&lt;camera_focus Flagpole&gt;&gt;</span>
 <span class="yarn-line">Notre drapeau a disparu !</span> <span class="yarn-meta">#line:09c6bf7 </span>
 <span class="yarn-cmd">&lt;&lt;card iglica&gt;&gt;</span>
-<span class="yarn-line">C'était sur l'IGLICA au CENTENNIAL HALL.</span> <span class="yarn-meta">#line:02f35e4 </span>
-<span class="yarn-line">C'est la célèbre sculpture métallique, un symbole de notre ville.</span> <span class="yarn-meta">#line:0335bf7 </span>
+<span class="yarn-line">Elle s'est déroulée sur la Flèche de la SALLE DU CENTENAIRE.</span> <span class="yarn-meta">#line:02f35e4 </span>
+<span class="yarn-line">C'est une fine tour métallique et un symbole de notre ville.</span> <span class="yarn-meta">#line:0335bf7 </span>
 <span class="yarn-line">Il mesure 90 mètres de haut !</span> <span class="yarn-meta">#line:001cba3 </span>
 <span class="yarn-line">Qui a bien pu le prendre ?</span> <span class="yarn-meta">#line:0fc7e35 </span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Trouvez le DRAPEAU. Parlez aux ANIMAUX.</span> <span class="yarn-meta">#line:0da284c #task:TASK_ANIMALS</span>
 <span class="yarn-line">Peut-être que l'un d'eux l'a.</span> <span class="yarn-meta">#line:012b933</span>
-<span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start TASK_ANIMALS&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-check-animals-done"></a>
+
+## check_animals_done
+
+<div class="yarn-node" data-title="check_animals_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("TASK_ANIMALS")&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump task_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -235,7 +253,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $monkey_completed = true&gt;&gt;</span>
 <span class="yarn-line">Ce serait amusant de grimper à ce poteau.</span> <span class="yarn-meta">#line:0a43c85</span>
-<span class="yarn-line">Mais je n'ai pas pris le DRAPEAU !</span> <span class="yarn-meta">#line:0c53945 </span>
+<span class="yarn-line">Mais je n'ai pas pris le DRAPEAU !</span> <span class="yarn-meta">#line:0c53945</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -325,7 +344,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $lion_completed = true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card animal_lion collect&gt;&gt;</span>
 <span class="yarn-line">J'adore regarder le drapeau flotter là-haut sur l'Iglica.</span> <span class="yarn-meta">#line:01b3593 </span>
-<span class="yarn-line">Mais je ne l'ai pas pris. Veuillez retrouver ce DRAPEAU !</span> <span class="yarn-meta">#line:05da6d7 </span>
+<span class="yarn-line">Mais je ne l'ai pas pris. Veuillez retrouver ce DRAPEAU !</span> <span class="yarn-meta">#line:05da6d7</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -410,6 +430,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $giraffe_completed = true&gt;&gt;</span>
 <span class="yarn-line">Merci. Je n'ai pas pris le drapeau.</span> <span class="yarn-meta">#line:0877d6f</span>
 <span class="yarn-line">Je suis grand, mais pas de 90 mètres comme l'IGLICA !</span> <span class="yarn-meta">#line:02d00e2</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -493,6 +514,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $elephant_completed = true&gt;&gt;</span>
 <span class="yarn-line">LE DRAPEAU ? Je ne l'ai pas.</span> <span class="yarn-meta">#line:0b79d01</span>
 <span class="yarn-line">Si je l'avais pris, je m'en souviendrais !</span> <span class="yarn-meta">#line:0f124bf</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -575,7 +597,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card animal_penguin collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $penguin_completed = true&gt;&gt;</span>
 <span class="yarn-line">Non, je n'ai pas pris le drapeau.</span> <span class="yarn-meta">#line:078190f </span>
-<span class="yarn-line">N'oubliez pas, je ne peux pas voler !</span> <span class="yarn-meta">#line:08568f5 </span>
+<span class="yarn-line">N'oubliez pas, je ne peux pas voler !</span> <span class="yarn-meta">#line:08568f5</span>
+<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -660,7 +683,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card parrot&gt;&gt;</span>
-<span class="yarn-line">Squawk ! J'ai vu passer du rouge et du jaune !</span> <span class="yarn-meta">#line:0e84545 </span>
+<span class="yarn-line">Squawk ! J'adore le rouge et le jaune !</span> <span class="yarn-meta">#line:0e84545 </span>
 
 </code>
 </pre>

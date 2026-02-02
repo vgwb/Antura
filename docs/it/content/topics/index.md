@@ -87,6 +87,8 @@ Parlate con loro... hanno storie da raccontare!
     - **[Matematica elementare](../cards/index.md#elementary_maths)**
     Numeri e forme per la vita di tutti i giorni: contare, addizionare e sottrarre, frazioni semplici, misurare, leggere l'ora e usare il denaro.
 
+    ![preview elementary_maths](../../../assets/img/content/cards/elementary_maths.jpg){ width="200" }
+
 - Connected cards:
     - **[Linea](../cards/index.md#fr_figure_line)** (PartOf)
     Un segno dritto che va da un punto all'altro. Le linee possono essere lunghe o corte.
@@ -98,7 +100,7 @@ Parlate con loro... hanno storie da raccontare!
 
     ![preview fr_figure_triangle](../../../assets/img/content/cards/fr_figure_triangle.jpg){ width="200" }
 
-    - **[Bussola](../cards/index.md#math_compass)** (Purpose)
+    - **[Compasso](../cards/index.md#math_compass)** (Purpose)
     Uno strumento che ti aiuta a disegnare cerchi perfetti. Ha due gambe come forbici.
 
     ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ width="200" }
@@ -595,7 +597,7 @@ Credits:
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
-- Quests: [DEV (dev)](../quests/quest/dev.md), [Parigi! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -848,6 +850,8 @@ Credits:
     - **[Scuole francesi](../cards/index.md#french_schools)**
     In Francia, la scuola si articola in quattro fasi principali: maternelle (scuola materna), école élémentaire (scuola elementare), collège (scuola media) e lycée (scuola superiore). Al termine del lycée, molti studenti sostengono un importante esame chiamato baccalauréat (‘le bac’).
 
+    ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
+
 - Connected cards:
     - **[École Maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
     Scuola per bambini dai 3 ai 5 anni. Si impara giocando ed esplorando.
@@ -981,7 +985,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md)
+- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
 
 ---
 
