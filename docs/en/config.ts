@@ -160,6 +160,7 @@ function sidebarAbout(): DefaultTheme.SidebarItem[] {
       text: 'About Antura project', link: '/' ,
       items: [
         { text: 'History', link: 'history' },
+        { text: 'Overview', link: 'overview' },
         { text: 'Supporters & Partners', link: 'supporters' },
         { text: 'Impact evaluation', link: 'impact' },
         { text: 'Erasmus+', link: 'erasmus' },
