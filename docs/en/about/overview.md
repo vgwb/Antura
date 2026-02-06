@@ -6,15 +6,15 @@ _Learn with Antura_ is an open source educational game ecosystem designed to sup
 
 It started in 2016 as a humanitarian initiative for children in fragile contexts and has grown into a modular platform that can be adapted with partners to new **countries, languages, curricula, and cultural contexts**.
 
-This website documents both the playable game and the underlying **Discover Framework**.
+This page documents both the playable game and the underlying **Discover Framework**.
 
 ## At a glance
 
 - **Audience**: primarily children aged 6–12 (usable in class or at home)
 - **Format**: short sessions (typical quests 5–15 minutes) + teacher-led debrief activities
-- **Platforms**: built with Unity; cross-platform by design
+- **Platforms**: cross-platform by design
 - **Offline-first**: after installation, the game does not require internet to play
-- **No ads / no in-app purchases**
+- **Open source** and community driven development
 - **Modular**: content can evolve without rewriting the core systems
 
 For educators and classroom usage, start from the [Manual](../manual/index.md).
