@@ -12,14 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
   m_Name: Seine
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.TopicData
-  Id: seine_bridges
-  Name: Seine Bridges
+  Id: seine
+  Name: Seine
   Description: 
   Importance: 20
   NodeColor: {r: 1, g: 1, b: 1, a: 1}
   Country: 2
-  CoreCard: {fileID: 11400000, guid: e39ade6ed88c54f82b490bb23f5046cb, type: 2}
+  CoreCard: {fileID: 11400000, guid: 7ae956bf1057c4154bddd85d0b95d6e0, type: 2}
   Connections:
+  - ConnectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
+    ConnectionType: 2
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 3294e79ca48e94069ba89332d1632202, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: c0254d58f50ed46bc83890fd20d2a557, type: 2}
+    ConnectionType: 2
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: e39ade6ed88c54f82b490bb23f5046cb, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
   - ConnectedCard: {fileID: 11400000, guid: 924ba342f3785407b85ae807a4a86d0f, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.3
@@ -38,6 +74,15 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 6c4aa108d13054818886821e5b14e9c5, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
   - ConnectedCard: {fileID: 11400000, guid: 000f778fc14ca49798f6fe1e2913ab6b, type: 2}
     ConnectionType: 11
     ConnectionStrength: 0.3
@@ -47,8 +92,49 @@ MonoBehaviour:
     TimeKind: 1
     CompareKind: 0
     CulturalRole: 0
-  DiscoveryPath: []
+  - ConnectedCard: {fileID: 11400000, guid: 1331ce9035b21438388c66dea7dee05a, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 0e1c1164ab19a429ead48846e6b6a54d, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 37e1622206a4f45aa95eafdcd8e754d7, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 69783c07a20cc49c9accc5bc51301e1b, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.3
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
   CohesionStrength: 0.8
   TargetAge: 2
-  Subjects: 
-  Credits: []
+  Subjects: 020000002c0000000f000000
+  Credits:
+  - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Research: 1
+    Content: 1
+    Design: 1
+    Development: 1
+    Validation: 0
