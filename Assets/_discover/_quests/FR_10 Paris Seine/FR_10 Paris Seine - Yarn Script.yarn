@@ -10,11 +10,11 @@
 // - boat_house
 // - boat_people
 // - boat_river
-// - ile_de_france
 // - place_bridge_cars
 // - place_bridge_people
 // - place_bridge_trains
 // - pont_alexandre_iii
+// - ile_de_france
 // - seine_map
 // - seine_map_in_paris
 //   - TODO capital_paris
@@ -23,8 +23,6 @@
 // - collect_cards
 // ACTIVITIES
 // - (none)
-// ACTABLE
-//   - TODO chest_flour
 // WORDS: (none)
 // </scene_data>
 
@@ -33,31 +31,32 @@ position: 0,0
 tags:
 type: panel
 color: red
-actor: NARRATOR
+actor:
 ---
 <<set $CURRENT_PROGRESS = 0>>
-<<set $MAX_PROGRESS = 8>>
+<<set $MAX_PROGRESS = 7>>
 We are at the River Seine, in Paris! #line:042160f 
-You will learn about the river, its bridges, and the boats that sail on it. #line:0280e8f 
+Today we will explore the river, the bridges, and the boats. #line:0280e8f 
+<<target protagonist>>
+<<area area_init>>
 ===
 
 title: quest_end
 position: 247,619
 color: green
 type: panel_endgame
-actor: NARRATOR
+actor:
 ---
-Great, you found all bridges. #line:0c408c3 
+Great, you finished the quest! #line:0c408c3 
 <<card place_bridge_people>>
 You learned about bridges for trains, cars, and people. #line:091e9fc 
-<<card boat_river>>
-You saw boats for people, for goods, and even a house boat. #line:01d91fb 
+<<card boat_people>>
+You saw tourist boats with big windows. In French, they are called "bateaux-mouches". 
+<<card boat_house>>
+You also saw house boats where people can live. 
 <<card seine_map_in_paris>>
 We looked at the map to see where the Seine flows. #line:0ca298e 
-The Seine ends in the English Channel. #line:0c693da 
-<<card pont_alexandre_iii>>
-Pont Alexandre III is a famous bridge with golden statues. #line:091d35c 
-<<card boat_eiffel_tower>>
+The Seine flows north into the English Channel (a sea). 
 Paris grows around the Seine. Rivers help cities live. #line:08cc02a 
 <<jump post_quest_activity>>
 ===
@@ -67,163 +66,248 @@ position: 270,842
 color: green
 type: panel
 tags: proposal
-actor: NARRATOR
+actor:
 ---
 Draw a bridge in your notebook! #line:0b37e92 
-Color the river blue and add a little boat. #line:04f7aaa 
+You can also find other activities on the website. #line:04f7aaa 
 <<quest_end>>
 ===
 
-title: talk_tutor
+title: protagonist
 position: 270,1
 tags: 
 color: blue
 ---
-<<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
-<<jump found_all_photos>>
-<<elseif $CURRENT_PROGRESS > 0>>
-Keep searching for the photos! #line:00b8877 
+<<if HasCompletedTask("find_photos")>>
+    Thank you! #line:0a70250
+    You found all my photos!
+    Now i can go back home!
+    <<jump quest_end>>
+<<elseif HasCompletedTask("collect_cards")>>
+    Thank you! #shadow:0a70250 
+    But I miss 7 photos about bridges and boats on the Seine!
+    <<area area_all>>
+    Explore the Seine and find my photos! #task:find_photos
+    If you can't find them, USE THE MAP!
+    <<task_start find_photos task_find_photos_done>>
+<<elseif GetCurrentTask() == "find_photos" or GetCurrentTask() == "collect_cards">>
+    You are doing well!
 <<else>>
-<<jump welcome>>
+    Help! Help me! #line:0aa0f3a 
+    <<camera_focus camera_intro>>
+    That big blue dog has taken my Paris guide book! #line:0210ef0
+    And the pages with photos of the Seine are missing! #line:0c8e7b6
+    <<camera_reset>>
+    <<SetActive antura false>>
+    Find the photos around here! #line:0a9c8e7 #task:collect_cards
+    <<area area_tutorial>>
+    <<task_start collect_cards task_collect_cards_done>>
 <<endif>>
-
 ===
 
-title: welcome
-position: 85,337
-actor:
-tags:  asset=seine_river_panoramic
-color: yellow
----
-This is the River Seine! #line:0aa0f3a 
-<<card seine_map>>
-The River Seine flows through Paris. #line:064988b 
-Many people live by this river. #line:080744b 
-<<jump task_seine>>
-===
-
-title: task_seine
-position: 366,356
-actor: 
----
-I lost 8 photos of the Seine. #line:0d77f5e #task:seine
-Can you find them all? #line:05727a9 
-Then come back to me! #line:09b03cc 
-<<task_start collect_cards found_all_cards>>
-===
-
-title: found_all_cards
+title: task_collect_cards_done
 position: 586,-3
 actor: 
 ---
-Thank you! #line:0a70250 
-Do you know that there are 37 bridges on the Seine? #line:0353a5c 
-<<jump look_seine_map>>
+You found all the photos! Go back and talk to the tourist.
+<<target protagonist>>
 ===
 
-
-title: sign_train_bridge
-position: -15,-430
-color: yellow
+title: task_find_photos_done
+position: 586,-3
 actor: 
 ---
-<<card place_bridge_trains>>
-<<action COLLECT_1>>
-This is a bridge for trains! #line:0a0991d 
-===
-
-title: sign_car_bridge
-position: 229,-428
-actor: 
-color: yellow
----
-<<card place_bridge_cars>>
-<<action COLLECT_2>>
-This is a bridge for cars! #line:0d79d7d 
-===
-
-
-title: sign_people_bridge
-position: 469,-424
-actor:
-tags:  
-color: yellow
----
-<<card place_bridge_people>>
-<<action COLLECT_3>>
-This is a bridge for people! #line:0f8a96f 
-===
-
-title: boat_people
-position: -1,-255
-actor: 
-color: yellow
----
-<<card boat_people>>
-<<action COLLECT_5>>
-This boat has large windows, so tourists can see the city. It's a 'bateau-mouche' (a tourist boat). #line:0129c99 
-===
-
-title: boat_house
-position: 721,-429
-actor:
-tags: 
-color: yellow
----
-<<card boat_house>>
-<<action COLLECT_6>>
-This boat is a house! People live here! #line:0a627c2 
-===
-
-title: boat_goods
-position: 730,-249
-actor:
-tags:
-color: yellow
----
-<<card boat_for_goods>>
-<<action COLLECT_7>>
-This boat transports goods. #line:0f13a44 
-===
+You found all the photos! Go back and talk to the tourist.
+<<target protagonist>>
 
 title: look_seine_map
 position: 863,-3
-actor: 
+actor:
 ---
 <<card seine_map_in_paris>>
-Now look at this map of the Seine. #line:0b03341 
+Now look at this map of the Seine. 
 <<jump question_seine_map>>
 ===
 
 title: question_seine_map
 position: 1135,-4
-actor: 
+actor:
 ---
-The Seine flows into a sea. Which one? #line:0adc7b7 
--> "The Mediterranean Sea": #line:04cf904 
+The Seine flows into a sea. Which one? 
+-> The Mediterranean Sea
     <<jump question_wrong>>
--> "The English Channel": #line:041b8ec 
+-> The English Channel
     <<jump question_correct>>
--> "The Atlantic Ocean": #line:0cdce92 
+-> The Atlantic Ocean
     <<jump question_wrong>>
 ===
 
 title: question_correct
 position: 1137,211
-actor: 
+actor:
 color: purple
 ---
-Yes! The Seine flows into the English Channel, in northern France. #line:023623a 
+Yes! The Seine flows into the English Channel, in northern France. 
 <<card seine_map>>
 <<jump quest_end>>
 ===
 
 title: question_wrong
 position: 1363,-135
-actor: 
+actor:
 ---
-Hmm... not really. Look at the map again. #line:01c9d19 
+Hmm... not really. Look at the map again. 
 <<jump question_seine_map>>
+===
+
+
+title: npc_boat_goods
+position: -100,-100
+---
+<<card boat_for_goods>>
+This boat transports goods. #line:0f13a44 
+What belongs on a goods boat?
+-> Boxes and supplies
+    Yes! That's why it's called a goods boat.
+    <<jump chest_boat_goods>>
+-> Only tourists with cameras
+    Not really. Try again.
+    <<jump npc_boat_goods>>
+-> Train wagons
+    Not quite. Try again.
+    <<jump npc_boat_goods>>
+===
+
+title: chest_boat_goods
+position: -100,-100
+---
+The chest opens. You find a photo!
+<<action COLLECT_6>>
+===
+
+
+title: npc_boat_house
+position: -100,-100
+---
+<<card boat_house>>
+This boat is a house! People live here! #line:0a627c2 
+Why is this a house boat?
+-> People can live on it
+    Exactly. It can be a real home.
+    <<jump chest_boat_house>>
+-> It is only for trains
+    Not quite. Try again.
+    <<jump npc_boat_house>>
+-> It can only carry goods
+    Not quite. Try again.
+    <<jump npc_boat_house>>
+===
+
+title: chest_boat_house
+position: -100,-100
+---
+The chest opens. You find a photo!
+<<action COLLECT_5>>
+===
+
+title: npc_boat_people
+position: -100,-100
+---
+<<card boat_people>>
+This boat has big windows, so tourists can see the city. It's a "bateau-mouche". #line:0129c99 
+Why does a tourist boat have big windows?
+-> To see the city and monuments
+    Yes! Tourists want a good view.
+    <<jump chest_boat_people>>
+-> To carry more cars
+    Not really. Try again.
+    <<jump npc_boat_people>>
+-> To go under the water
+    Not really. Try again.
+    <<jump npc_boat_people>>
+===
+
+title: chest_boat_people
+position: -100,-100
+---
+The chest opens. You find a photo!
+<<action COLLECT_4>>
+===
+
+
+title: npc_bridge_alexander
+position: -100,-100
+---
+<<card pont_alexandre_iii>>
+This is the Pont Alexandre III, a famous old bridge. #line:09c706f 
+What is special about this famous bridge?
+-> It has golden statues
+    Yes! That's what many people remember.
+    <<jump chest_bridge_alexander>>
+-> It is a train bridge
+    Not quite. Try again.
+    <<jump npc_bridge_alexander>>
+-> It is made of ice
+    Not quite. Try again.
+    <<jump npc_bridge_alexander>>
+===
+
+title: chest_bridge_alexander
+position: -100,-100
+---
+The chest opens. You find a photo!
+<<action COLLECT_7>>
+===
+
+
+title: npc_bridge_cars
+position: -100,-100
+---
+<<card place_bridge_cars>>
+This is a bridge for cars! #line:0d79d7d 
+Cars are fast. How do you cross safely?
+-> Use the sidewalk and cross at a crosswalk
+    Correct. Safety first!
+    <<jump chest_bridge_cars>>
+-> Run across anywhere
+    Not safe. Try again.
+    <<jump npc_bridge_cars>>
+-> Walk in the road
+    Not safe. Try again.
+    <<jump npc_bridge_cars>>
+===
+
+title: chest_bridge_cars
+position: -100,-100
+---
+The chest opens. You find a photo!
+<<action COLLECT_2>>
+===
+
+
+
+title: npc_bridge_train
+position: -100,-100
+---
+<<card place_bridge_trains>>
+This is a bridge for trains! #line:0a0991d 
+A train bridge must be...
+-> Very strong
+    Yes! Trains are heavy.
+    <<jump chest_bridge_train>>
+-> Soft and bouncy
+    Not quite. Try again.
+    <<jump npc_bridge_train>>
+-> Only for walking
+    Not quite. Try again.
+    <<jump npc_bridge_train>>
+===
+
+title: chest_bridge_train
+position: -100,-100
+---
+The chest opens. You find a photo!
+<<action COLLECT_1>>
 ===
 
 title: npc_train
@@ -233,6 +317,33 @@ actor: ADULT_M
 => I would love to ride a train! #line:01663fa 
 => I love trains! #line:0574872 
 ===
+
+
+title: npc_bridge_people
+position: -100,-100
+---
+<<card place_bridge_people>>
+This is a bridge for people! #line:0f8a96f 
+A bridge only for people to walk on is called a...
+-> Footbridge
+    Exactly. It's for people on foot.
+    <<jump chest_bridge_people>>
+-> Train bridge
+    Not quite. Try again.
+    <<jump npc_bridge_people>>
+-> Goods boat
+    Not quite. Try again.
+    <<jump npc_bridge_people>>
+===
+
+title: chest_bridge_people
+position: -100,-100
+---
+The chest opens. You find a photo!
+<<action COLLECT_3>>
+===
+
+
 
 title: npc_boat
 position: -271,28
@@ -244,27 +355,18 @@ actor: ADULT_M
 ===
 
 
-title: boat_eiffel
+title: npc_boat_eiffel
 position: 472,-249
 actor:
-tags:  meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel
+tags: 
 color: yellow
 ---
-Look how nice! #line:059f66d 
 <<card boat_eiffel_tower>>
+Look how nice! #line:059f66d 
 ===
 
-title: boat_river
-position: 239,-255
-actor:
-tags:  meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river
-color: yellow
----
-There are many boats. #line:076e2e6 
-<<card boat_river>>
-===
 
-title: talk_ile_de_france
+title: npc_ile_de_france
 position: -278,-435
 actor: ADULT_F
 ---
@@ -273,30 +375,20 @@ there is an island, Île de la Cité. #line:03e5667
 It is the historic center of Paris. #line:04b2cf2 
 ===
 
-title: talk_pont_alexandre
-position: -273,-285
-actor: ADULT_F
+
+title: facts_river
+position: 1080,600
+color: purple
+actor: 
 ---
-<<card pont_alexandre_iii>>
-This is the Pont Alexandre III, a historic monument. #line:09c706f 
+The river starts far away and ends in the English Channel. #line:074efa5 
 ===
+
 
 ///////// NPCs SPAWNED IN THE SCENE //////////
 // these npc are spawn automatically in the scene
 // use these to add random facts. everythime you meet them
 // they will say one of these lines randomly
-
-title: spawned_tourist
-position: -770,-388
-color: purple
-actor: 
-spawn_group: tourists 
----
-=> I love Paris!  #line:0d7db60 
-=> The Seine is so romantic! #line:001b48b 
-=> I want to see the Eiffel Tower! #line:0be0725 
-=> I would like to sleep on a boat on the Seine!  #line:09039ee 
-===
 
 title: spawned_french_woman
 position: -774,-60
@@ -305,7 +397,6 @@ actor: ADULT_F
 spawn_group: residents 
 ---
 => Bonjour! #do_not_translate #line:072a345 
-=> J'adore Paris! #do_not_translate #line:0f2e0aa 
 => La Seine est magnifique! #do_not_translate #line:0f0f558 
 => Il y a beaucoup de ponts à Paris! #do_not_translate #line:038b8f6 
 ===
@@ -322,44 +413,6 @@ spawn_group: residents
 => La Seine est très longue! #do_not_translate #line:0395113 
 ===
 
-title: facts_bridges
-position: 900,600
-color: purple
-actor: 
----
-<<card place_bridge_trains>>
-Bridges can carry fast trains over the water. #line:035a1f6 
-<<card place_bridge_cars>>
-Some bridges are busy with cars and buses. #line:0723c02 
-<<card place_bridge_people>>
-Some bridges are only for people to walk and enjoy the view. #line:01d93bc 
-<<card pont_alexandre_iii>>
-Pont Alexandre III has golden statues. #line:0ba2ad8 
-===
-
-title: facts_river
-position: 1080,600
-color: purple
-actor: 
----
-<<card seine_map_in_paris>>
-The Seine bends through Paris like a ribbon. #line:09ee6d9 
-<<card seine_map>>
-The river starts far away and ends in the English Channel. #line:074efa5 
-Rivers bring boats, water, and life to a city. #line:0bdfb18 
-===
-
-title: facts_boats
-position: 1260,600
-color: purple
-actor: 
----
-<<card boat_eiffel_tower>>
-Tourist boats have wide windows to see monuments. #line:0323421 
-<<card boat_river>>
-Some boats just move along quietly. #line:09a6062 
-Boats can move people, things, or be a home. #line:0b7a149 
-===
 
 title: spawned_bridge_expert
 position: -788,120
