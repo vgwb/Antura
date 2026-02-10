@@ -286,9 +286,16 @@ namespace Antura.Discover
         /// Usage in Yarn: <<collect>>
         /// </summary>
         [YarnCommand("collect")]
-        public static void CommandCollect()
+        public static void CommandCollect(string itemTag = "")
         {
-            InteractionManager.I.CollectCurrentInteractable();
+            if (string.IsNullOrEmpty(itemTag))
+            {
+                InteractionManager.I.CollectCurrentInteractable();
+            }
+            else
+            {
+                QuestManager.I.OnCollectItem(itemTag);
+            }
         }
 
         // ------------------------------------------------------------
