@@ -94,6 +94,12 @@ namespace Antura.Discover
         [Tooltip("Time (seconds) to travel back to the spawn point once a killzone is touched.")]
         [Min(0.05f)] public float respawnTravelDuration = 1.5f;
 
+        [Tooltip("If true, pressing the stuck reset key will teleport the player back to the spawn point (only during gameplay).")]
+        public bool enableStuckResetKey = true;
+
+        [Tooltip("Key used to teleport back to spawn when stuck.")]
+        public Key stuckResetKey = Key.Escape;
+
         [Tooltip("Maximum height (meters) of the arc travelled during respawn.")]
         [Min(0f)] public float respawnArcHeight = 2f;
 
@@ -247,12 +253,37 @@ namespace Antura.Discover
 
         private void Update()
         {
+            CheckStuckResetHotkey();
             MaintainFrozenTransform();
             GroundedCheck();
             Move();
             JumpAndGravity();
             UpdateIdleBehavior();
             UpdatePlayerState();
+        }
+
+        private void CheckStuckResetHotkey()
+        {
+            if (!enableStuckResetKey || _isTeleporting || _movementLocked)
+            {
+                return;
+            }
+
+            if (DiscoverGameManager.I == null || DiscoverGameManager.I.State != GameplayState.Play3D)
+            {
+                return;
+            }
+
+            var keyboard = Keyboard.current;
+            if (keyboard == null)
+            {
+                return;
+            }
+
+            if (keyboard[stuckResetKey].wasPressedThisFrame)
+            {
+                BeginTeleportToSpawn();
+            }
         }
         #endregion
 
