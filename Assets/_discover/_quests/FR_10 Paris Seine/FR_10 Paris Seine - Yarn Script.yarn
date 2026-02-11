@@ -163,7 +163,7 @@ position: -100,-100
         <<set $boat_goods = 1>>
         <<target chest_boat_goods>>
         <<camera_focus camera_chest_boat_goods>>
-        Yes! I'll give you my photo in that chest! #line:yes_chest
+        Yes! Now you can open that chest! #line:yes_chest
         <<camera_reset>>
     -> Tourists with cameras #line:0bbd3ce 
         No. Try again. #line:try_again 
@@ -212,7 +212,7 @@ Why is this a house boat? #line:0165157
     <<set $boat_house = 1>>
     <<target chest_boat_house>>
     <<camera_focus camera_chest_boat_house>>
-    Yes! I'll give you my photo in that chest! #shadow:yes_chest
+    Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
 -> It is only for trains #line:055d822 
     No. Try again. #shadow:try_again
@@ -257,7 +257,7 @@ Why does a tourist boat have big windows? #line:02ce3de
     <<set $boat_people = 1>>
     <<target chest_boat_people>>
     <<camera_focus camera_chest_boat_people>>
-    Yes! I'll give you my photo in that chest! #shadow:yes_chest
+    Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
 -> To carry more cars #line:02349a3
     No. Try again. #shadow:try_again
@@ -279,7 +279,7 @@ position: -100,-100
 <<if $boat_people == 1>>
     Play a mini game to open the chest! #shadow:chest_minigame
     <<set $boat_people = 2>>
-    <<activity activity_seine chest_boat_people>>
+    <<activity canvas_seine chest_boat_people>>
 <<elseif $boat_people == 2>>
     <<action open_chest_boat_people>>
     <<card boat_people>>
@@ -306,7 +306,7 @@ What is special about this famous bridge? #line:021f382
     <<set $bridge_alexandre = 1>>
     <<target chest_bridge_alexandre>>
     <<camera_focus camera_chest_bridge_alexandre>>
-    Yes! I'll give you my photo in that chest! #shadow:yes_chest
+    Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
 -> It is a train bridge #line:05c2518
     No. Try again. #shadow:try_again
@@ -352,7 +352,7 @@ Cars are fast. How do you cross safely? #line:01f30c4
     <<set $bridge_cars = 1>>
     <<target chest_bridge_cars>>
     <<camera_focus camera_chest_bridge_cars>>
-    Yes! I'll give you my photo in that chest! #shadow:yes_chest
+    Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
 -> Run across anywhere #line:076ee7f 
     No. Try again. #shadow:try_again
@@ -372,7 +372,7 @@ position: -100,-100
 <<if $bridge_cars == 1>>
     Play a mini game to open the chest! #shadow:chest_minigame
     <<set $bridge_cars = 2>>
-    <<activity memory_bridges chest_bridge_cars>>
+    <<activity canvas_bridge_cars chest_bridge_cars>>
 <<elseif $bridge_cars == 2>>
     <<action open_chest_bridge_cars>>
     <<card place_bridge_cars>>
@@ -399,7 +399,7 @@ A train bridge must be... #line:09731f9
     <<set $bridge_train = 1>>
     <<target chest_bridge_train>>
     <<camera_focus camera_chest_bridge_train>>
-    Yes! I'll give you my photo in that chest! #shadow:yes_chest
+    Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
 -> Soft and bouncy #line:08b4fad 
     No. Try again. #shadow:try_again
@@ -453,7 +453,7 @@ A bridge only for people to walk on is called a... #line:0484ee9
     <<set $bridge_people = 1>>
     <<target chest_bridge_people>>
     <<camera_focus camera_chest_bridge_people>>
-    Yes! I'll give you my photo in that chest! #shadow:yes_chest
+    Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
 -> Train bridge #line:0f74c53 
     No. Try again. #shadow:try_again
@@ -473,7 +473,7 @@ position: -100,-100
 <<if $bridge_people == 1>>
     Play a mini game to open the chest! #shadow:chest_minigame
     <<set $bridge_people = 2>>
-    <<activity memory_bridges chest_bridge_people>>
+    <<activity match_bridges chest_bridge_people>>
 <<elseif $bridge_people == 2>>
     <<action open_chest_bridge_people>>
     <<card place_bridge_people>>
