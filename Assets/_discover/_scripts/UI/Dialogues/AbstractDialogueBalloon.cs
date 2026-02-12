@@ -124,6 +124,8 @@ namespace Antura.Discover
 
         public void DisplayText(bool UseLearningLanguage, bool useMainLabel = true, bool hasTranslation = false, bool doSpeech = true)
         {
+            // Debug.Log("DisplayText() " + UseLearningLanguage + " useMainLabel " + useMainLabel + " hasTranslation " + hasTranslation + " doSpeech " + doSpeech);
+
             var textLength = 0;
             var TextRenderToUse = useMainLabel ? textRender : textRenderSubtitle;
 
@@ -140,7 +142,7 @@ namespace Antura.Discover
                 {
                     if (hasTranslation)
                     {
-                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning, () => OnEndSpeaking(UseLearningLanguage));
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioLearning, () => OnEndSpeaking(UseLearningLanguage, doSpeech));
                     }
                     else
                     {
@@ -149,7 +151,7 @@ namespace Antura.Discover
                 }
                 else if (hasTranslation)
                 {
-                    DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false);
+                    DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false, doSpeech: doSpeech);
                 }
             }
             else
@@ -160,7 +162,7 @@ namespace Antura.Discover
                 {
                     if (hasTranslation)
                     {
-                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative, () => OnEndSpeaking(UseLearningLanguage));
+                        DiscoverAudioManager.I.PlayDialogue(currNode.AudioNative, () => OnEndSpeaking(UseLearningLanguage, doSpeech));
                     }
                     else
                     {
@@ -169,16 +171,16 @@ namespace Antura.Discover
                 }
                 else if (hasTranslation)
                 {
-                    DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false);
+                    DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false, doSpeech: doSpeech);
                 }
             }
             //Debug.Log("DisplayText() " + learningText.Length + " fillPeriod " + fillPeriod);
             StartCoroutine(TypewriterCoroutine(TextRenderToUse, textLength / lettersPerSecond));
         }
 
-        public void OnEndSpeaking(bool UseLearningLanguage)
+        public void OnEndSpeaking(bool UseLearningLanguage, bool doSpeech)
         {
-            DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false);
+            DisplayText(!UseLearningLanguage, useMainLabel: false, hasTranslation: false, doSpeech: doSpeech);
         }
 
         public void RepeatText()
