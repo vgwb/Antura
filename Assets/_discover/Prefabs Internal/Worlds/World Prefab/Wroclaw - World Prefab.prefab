@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7413088355964475951
 Transform:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 3080310046029700473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: -32.86, y: 0.5, z: -12.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -258,6 +258,7 @@ Transform:
   - {fileID: 6024650639089717194}
   - {fileID: 7413088355964475951}
   - {fileID: 9133842065217879049}
+  - {fileID: 9162265040737049745}
   - {fileID: 8196440189790066817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,6 +309,110 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!1001 &44323508855865092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7042686429415778104}
+    m_Modifications:
+    - target: {fileID: 1109116955376594204, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181271931937656241, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795827261054490112, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855884702980169166, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934494719864716243, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426306170295269679, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_Name
+      value: Wroklaw Full OSM Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500422718288639973, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -254
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 127
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4416c063fd6548558baa9bdad6c5a78, type: 3}
+--- !u!4 &9162265040737049745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9204109133690823573, guid: b4416c063fd6548558baa9bdad6c5a78,
+    type: 3}
+  m_PrefabInstance: {fileID: 44323508855865092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4590084667111834403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -475,10 +580,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wroklaw city OSM Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2525464673007423569, guid: 95bfbb07b543343769db2022e2dd3994,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902446891005872875, guid: 95bfbb07b543343769db2022e2dd3994,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19135222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902446891005872875, guid: 95bfbb07b543343769db2022e2dd3994,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19135222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902446891005872875, guid: 95bfbb07b543343769db2022e2dd3994,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19135222
+      objectReference: {fileID: 0}
     - target: {fileID: 2902446891005872875, guid: 95bfbb07b543343769db2022e2dd3994,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -90
+      value: -87.2
       objectReference: {fileID: 0}
     - target: {fileID: 2902446891005872875, guid: 95bfbb07b543343769db2022e2dd3994,
         type: 3}
@@ -488,7 +613,7 @@ PrefabInstance:
     - target: {fileID: 2902446891005872875, guid: 95bfbb07b543343769db2022e2dd3994,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30
+      value: -38.2
       objectReference: {fileID: 0}
     - target: {fileID: 2902446891005872875, guid: 95bfbb07b543343769db2022e2dd3994,
         type: 3}
