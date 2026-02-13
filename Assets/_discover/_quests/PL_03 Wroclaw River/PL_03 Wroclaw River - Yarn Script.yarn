@@ -51,15 +51,26 @@
 
 title: quest_start
 position: 0,0
-group: Intro
-actor: SENIOR_M
-image: odra_dock
+tags:
+type: panel
 color: red
 ---
-Welcome to WROCŁAW in POLAND. #line:03f03fe 
+<<declare $PHOTOS = 0>>
+<<declare $PHOTOS_NEEDED = 7>>
+<<declare $bridge_foot = 0>>
+<<declare $bridge_train = 0>>
+<<declare $bridge_cars = 0>>
+<<declare $boat_barge = 0>>
+<<declare $boat_house = 0>>
+<<declare $map_triplet = 0>>
+<<declare $river_sign = 0>>
+
+We are in WROCŁAW. #line:03f03fe 
 <<card place_odra_river>>
 This is the ODRA RIVER. #line:053bcb9 
-Ready to explore? #line:06099c1 
+Today we will explore bridges and boats. #line:pl03_start_1
+<<target protagonist>>
+<<area area_init>>
 ===
 
 title: quest_end
@@ -67,10 +78,13 @@ position: 234,7
 type: panel_endgame
 color: green
 ---
-Great trip on the ODRA. #line:02a257c 
-You saw BRIDGES and BOATS. #line:0925273 
-You used a MAP and a QUIZ. #line:05d21d7 
-Want an extra task? #line:0913f94 
+Well done! #line:02a257c 
+<<card bridge>>
+We learned about bridges for people, cars, and trains. #line:pl03_end_1
+<<card boat>>
+We learned about boats for goods and living. #line:pl03_end_2
+<<card odra_river_map>>
+We explored the ODRA RIVER. #line:pl03_end_3
 <<jump post_quest_activity>>
 ===
 
@@ -80,13 +94,42 @@ type: panel
 color: green
 tags: proposal
 ---
-Draw a simple MAP. #line:0265d07 
-Mark ODRA and WISŁA. #line:08d1173 
-Add one ROAD BRIDGE. #line:0b3ae20 
-Add one TRAIN BRIDGE. #line:055fe3a 
-Sketch a BARGE and a KAYAK. #line:0cd2507 
-Show it to a friend. #line:0774214 
+Draw a simple MAP of your journey. #line:0265d07 
 <<quest_end>>
+===
+
+
+title: protagonist
+position: 300,-200
+color: blue
+actor: SENIOR_M
+---
+<<if $PHOTOS >= $PHOTOS_NEEDED>>
+    Thank you! #line:pl03_guide_done_0
+    You found all my photos. #line:pl03_guide_done_1
+    One last quiz. #line:pl03_guide_done_2
+    <<jump FINAL_QUIZ>>
+<<elseif GetCurrentTask() == "find_photos">>
+    You are doing well! #line:pl03_guide_progress
+<<else>>
+    Hello! I am your river guide. #line:pl03_guide_hello
+    Antura ran near the river. #line:pl03_guide_antura
+    Help me find 7 photos about bridges and boats. #task:find_photos #line:pl03_guide_task
+    <<card wroklaw_map>>
+    Use the map if you need help. #line:pl03_guide_map
+    <<area area_all>>
+    <<task_start find_photos task_find_photos_done>>
+<<endif>>
+===
+
+title: task_find_photos_done
+position: 560,-200
+actor:
+---
+You found all the photos! #line:pl03_task_done
+Go back and talk to the guide. #task:go_back #line:pl03_task_done_2
+<<target protagonist>>
+<<task_start go_back>>
 ===
 
 
@@ -95,7 +138,6 @@ Show it to a friend. #line:0774214
 //--------------------------------------------
 title: BRIDGES_INTRO
 position: 300,0
-group: Bridges
 actor: SENIOR_M
 image: city_of_bridges
 ---
@@ -103,50 +145,115 @@ image: city_of_bridges
 WROCŁAW has many BRIDGES. #line:041a469 
 <<card wroclaw_bridges>>
 More than one hundred! #line:0522f41 
-Let’s find three types. #line:04082d6 
-
 ===
 
 title: BRIDGE_FOOT_HINT
 position: 520,-40
-group: Bridges
 actor: SENIOR_M
 image: footbridge_view
 ---
 <<card footbridge>>
-FOOTBRIDGE is for people. #line:0d0c6ff 
-Hint: no CARS on it. #line:057b7a9 
+This is a FOOTBRIDGE. #line:pl03_foot_0
+It is for people. No cars. #line:0d0c6ff 
 
-<<activity cleancanvas odra_footbridge tutorial>>
+<<if GetCurrentTask() == "find_photos">>
+    <<if $bridge_foot < 10>>
+    A footbridge is for... #line:pl03_foot_q
+    -> People #line:pl03_foot_a1
+        Correct! Clean the picture. #line:pl03_foot_ok
+        <<activity cleancanvas odra_footbridge tutorial>>
+        <<collect photo>>
+        <<set $bridge_foot = 10>>
+        <<set $PHOTOS = $PHOTOS + 1>>
+        <<if $PHOTOS >= $PHOTOS_NEEDED>>
+            <<task_end find_photos>>
+            <<jump task_find_photos_done>>
+        <<endif>>
+    -> Cars #line:pl03_foot_a2
+        No. Try again. #line:pl03_try_again
+        <<jump BRIDGE_FOOT_HINT>>
+    -> Trains #line:pl03_foot_a3
+        No. Try again. #line:pl03_try_again_2
+        <<jump BRIDGE_FOOT_HINT>>
+    <<else>>
+        You already have this photo. #line:pl03_already
+    <<endif>>
+<<else>>
+    Come back later. #line:pl03_come_back
+<<endif>>
 
 ===
 
 title: BRIDGE_TRAIN_HINT
 position: 760,-20
-group: Bridges
 actor: SENIOR_M
 image: railway_bridge
 ---
 <<card train_bridge>>
-TRAIN BRIDGE carries TRAINS. #line:04b8fb2 
-Hint: look for TRACKS. #line:03bf613 
+This is a TRAIN BRIDGE. #line:04b8fb2 
+Trains run on tracks. #line:03bf613 
 
-<<activity memory odra_bridges tutorial>>
--> Next: ROAD BRIDGE #line:08d07e5 
-    <<jump BRIDGE_CAR_HINT>>
+<<if GetCurrentTask() == "find_photos">>
+    <<if $bridge_train < 10>>
+    A train bridge must be... #line:pl03_train_q
+    -> Very strong #line:pl03_train_a1
+        Correct! Match the bridges. #line:pl03_train_ok
+        <<activity memory odra_bridges tutorial>>
+        <<collect photo>>
+        <<set $bridge_train = 10>>
+        <<set $PHOTOS = $PHOTOS + 1>>
+        <<if $PHOTOS >= $PHOTOS_NEEDED>>
+            <<task_end find_photos>>
+            <<jump task_find_photos_done>>
+        <<endif>>
+    -> Soft and bouncy #line:pl03_train_a2
+        No. Try again. #line:pl03_try_again_3
+        <<jump BRIDGE_TRAIN_HINT>>
+    -> Only for walking #line:pl03_train_a3
+        No. Try again. #line:pl03_try_again_4
+        <<jump BRIDGE_TRAIN_HINT>>
+    <<else>>
+        You already have this photo. #line:pl03_already_2
+    <<endif>>
+<<else>>
+    Come back later. #line:pl03_come_back_2
+<<endif>>
 ===
 
 title: BRIDGE_CAR_HINT
 position: 1000,0
-group: Bridges
 actor: SENIOR_M
 image: road_bridge
 ---
 <<card road_bridge>>
-ROAD BRIDGE is for CARS. #line:0f6e252 
-Hint: see CARS crossing. #line:03fcfdf 
+This is a ROAD BRIDGE. #line:0f6e252 
+Cars cross here. #line:pl03_road_0
 
-<<activity memory odra_bridges tutorial>>
+<<if GetCurrentTask() == "find_photos">>
+    <<if $bridge_cars < 10>>
+    How do you cross safely? #line:pl03_road_q
+    -> Use the sidewalk and cross carefully #line:pl03_road_a1
+        Correct! Match the bridges again. #line:pl03_road_ok
+        <<activity memory odra_bridges tutorial>>
+        <<collect photo>>
+        <<set $bridge_cars = 10>>
+        <<set $PHOTOS = $PHOTOS + 1>>
+        <<if $PHOTOS >= $PHOTOS_NEEDED>>
+            <<task_end find_photos>>
+            <<jump task_find_photos_done>>
+        <<endif>>
+    -> Run anywhere #line:pl03_road_a2
+        No. Try again. #line:pl03_try_again_5
+        <<jump BRIDGE_CAR_HINT>>
+    -> Walk in the road #line:pl03_road_a3
+        No. Try again. #line:pl03_try_again_6
+        <<jump BRIDGE_CAR_HINT>>
+    <<else>>
+        You already have this photo. #line:pl03_already_3
+    <<endif>>
+<<else>>
+    Come back later. #line:pl03_come_back_3
+<<endif>>
 ===
 
 
@@ -155,53 +262,87 @@ Hint: see CARS crossing. #line:03fcfdf
 //--------------------------------------------
 title: BOATS_INTRO
 position: 0,260
-group: Boats
 actor: SENIOR_M
 image: odra_river_traffic
 ---
 <<card boat>>
-Many BOATS on the ODRA. #line:0eb639b 
-<<card barge>>
-Find a BARGE first. #line:0d21cc3 
-
--> Show me a BARGE #line:03495d2 
-    <<jump BOAT_BARGE_HINT>>
+Many BOATS are on the ODRA. #line:0eb639b 
+Find a BARGE and a HOUSEBOAT. #line:pl03_boats_intro_1
 ===
 
 title: BOAT_BARGE_HINT
 position: 240,260
-group: Boats
 actor: SENIOR_M
 image: barge_photo
 ---
 BARGE is low and flat. #line:028dcdf 
 It carries GOODS. #line:083423e 
 
-<<activity jigsawpuzzle odra_barge tutorial>>
--> Find a HOUSEBOAT #line:0a09f26 
+<<if GetCurrentTask() == "find_photos">>
+    <<if $boat_barge < 10>>
+    A barge carries... #line:pl03_barge_q
+    -> Goods and boxes #line:pl03_barge_a1
+        Correct! Build the puzzle. #line:pl03_barge_ok
+        <<activity jigsawpuzzle odra_barge tutorial>>
+        <<collect photo>>
+        <<set $boat_barge = 10>>
+        <<set $PHOTOS = $PHOTOS + 1>>
+        <<if $PHOTOS >= $PHOTOS_NEEDED>>
+            <<task_end find_photos>>
+            <<jump task_find_photos_done>>
+        <<endif>>
+    -> People sleeping #line:pl03_barge_a2
+        No. Try again. #line:pl03_try_again_7
+        <<jump BOAT_BARGE_HINT>>
+    -> Trains #line:pl03_barge_a3
+        No. Try again. #line:pl03_try_again_8
+        <<jump BOAT_BARGE_HINT>>
+    <<else>>
+        You already have this photo. #line:pl03_already_4
+    <<endif>>
+<<else>>
+    Come back later. #line:pl03_come_back_4
+<<endif>>
 ===
 
 title: BOAT_HOUSE_HINT
 position: 480,260
-group: Boats
 actor: SENIOR_M
 image: houseboat
 ---
 <<card houseboat>>
 HOUSEBOAT is for living. #line:0d77d00 
-Windows like a small home. #line:0d30896 
+It has windows like a home. #line:0d30896 
 
-<<activity jigsawpuzzle odra_houseboat tutorial>>
-
--> Show me a KAYAK #line:046e06a 
-    <<jump BOAT_KAYAK_HINT>>
--> Ready to match #line:0b48adf 
-    <<jump BOATS_MATCH>>
+<<if GetCurrentTask() == "find_photos">>
+    <<if $boat_house < 10>>
+    A houseboat is for... #line:pl03_house_q
+    -> Living on the water #line:pl03_house_a1
+        Correct! Build the puzzle. #line:pl03_house_ok
+        <<activity jigsawpuzzle odra_houseboat tutorial>>
+        <<collect photo>>
+        <<set $boat_house = 10>>
+        <<set $PHOTOS = $PHOTOS + 1>>
+        <<if $PHOTOS >= $PHOTOS_NEEDED>>
+            <<task_end find_photos>>
+            <<jump task_find_photos_done>>
+        <<endif>>
+    -> Flying in the sky #line:pl03_house_a2
+        No. Try again. #line:pl03_try_again_9
+        <<jump BOAT_HOUSE_HINT>>
+    -> Carrying train cars #line:pl03_house_a3
+        No. Try again. #line:pl03_try_again_10
+        <<jump BOAT_HOUSE_HINT>>
+    <<else>>
+        You already have this photo. #line:pl03_already_5
+    <<endif>>
+<<else>>
+    Come back later. #line:pl03_come_back_5
+<<endif>>
 ===
 
 title: BOAT_KAYAK_HINT
 position: 600,260
-group: Boats
 actor: SENIOR_M
 image: kayak
 ---
@@ -213,7 +354,6 @@ Move fast on calm water. #line:0e4d09c
 
 title: BOATS_MATCH
 position: 720,260
-group: Boats
 actor: SENIOR_M
 image: odra_couples
 ---
@@ -221,7 +361,23 @@ Match things to jobs. #line:0d62913
 BRIDGE -> people/CARS/TRAIN. #line:094d834 
 BOAT -> goods/live. #line:0e16bac 
 
-<<activity order odra_couples tutorial>>
+<<if GetCurrentTask() == "find_photos">>
+    <<if $river_sign < 10>>
+    Great! One more photo. #line:pl03_match_intro
+    <<activity order odra_couples tutorial>>
+    <<collect photo>>
+    <<set $river_sign = 10>>
+    <<set $PHOTOS = $PHOTOS + 1>>
+    <<if $PHOTOS >= $PHOTOS_NEEDED>>
+        <<task_end find_photos>>
+        <<jump task_find_photos_done>>
+    <<endif>>
+    <<else>>
+        You already have this photo. #line:pl03_already_6
+    <<endif>>
+<<else>>
+    Come back later. #line:pl03_come_back_6
+<<endif>>
 ===
 
 
@@ -230,17 +386,16 @@ BOAT -> goods/live. #line:0e16bac
 //--------------------------------------------
 title: MAP_INTRO
 position: 0,520
-group: Map
 actor: SENIOR_M
 image: poland_river_map
 ---
 <<card odra_river_map>>
-ODRA is Poland’s 2 RIVER. #line:0ff7dfd 
+ODRA is Poland’s second biggest river. #line:0ff7dfd 
 <<card place_vistula_river>>
-WISŁA is 1, the longest. #line:03fe124 
+WISŁA is number one, the longest. #line:03fe124 
 Both flow to the BALTIC SEA. #line:0941615 
 
-    <<jump MAP_ACTIVITY>>
+<<jump MAP_ACTIVITY>>
 ===
 
 title: MAP_ACTIVITY
@@ -253,7 +408,22 @@ image: map_icons
 Tap ODRA, WISŁA, BALTIC. #line:0ddc2c8 
 Follow RIVERS to the SEA. #line:06237e3 
 
-<<activity jigsaw_odra_map jigsaw_odra_map_done>>
+<<if GetCurrentTask() == "find_photos">>
+    <<if $map_triplet < 10>>
+    <<activity jigsaw_odra_map jigsaw_odra_map_done>>
+    <<collect photo>>
+    <<set $map_triplet = 10>>
+    <<set $PHOTOS = $PHOTOS + 1>>
+    <<if $PHOTOS >= $PHOTOS_NEEDED>>
+        <<task_end find_photos>>
+        <<jump task_find_photos_done>>
+    <<endif>>
+    <<else>>
+        You already have this photo. #line:pl03_already_7
+    <<endif>>
+<<else>>
+    <<activity jigsaw_odra_map jigsaw_odra_map_done>>
+<<endif>>
 ===
 
 title: jigsaw_odra_map_done
@@ -265,15 +435,13 @@ Great work, RIVER explorer! #line:012f97c
 
 title: ENDING_DOCK
 position: 600,520
-group: End
 actor: SENIOR_M
 image: odra_sign
 ---
 <<card tumski_bridge>>
-This blue SIGN means RIVER. #line:0b583df 
+This blue sign means RIVER. #line:0b583df 
 <<card redzinski_bridge>>
-You learned BRIDGES and BOATS. #line:0a2180f 
-Ready for a quiz? #line:07d9d36 
+Ready for the quiz? #line:07d9d36 
 <<jump FINAL_QUIZ>>
 ===
 
