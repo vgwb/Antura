@@ -2,6 +2,28 @@
 
 Discover the famous Odra River in Wrocław and the different types of bridges and boats that make this river a bustling artery of the city.
 
+### Flow
+
+Antura messed up the the pages of a tourist guide.
+She ask to find the 5 pages.
+When we bring them back she finds the best cards to be missing... she was along the Odra river... can we help her?
+
+Now we can go along all the river and get the 7 chests containing the photo. 
+each with someone protecting it who tells something about the place and asks a question / activitiy to open the chest
+
+these are the 7 cards:
+
+- odra_river_map
+- tumski_bridge
+- redzinski_bridge
+- train_bridge
+- houseboat
+- boat_people
+- barge
+
+When we have collected the 7 Cards we go back to the tourist for happy end
+Talking with NPC we can know these things:
+
 ### Knowledge Content
 **River Geography:**
 
