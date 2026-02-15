@@ -189,6 +189,9 @@ What do the white wavy lines tell us? #line:sign_3
     <<set $river_sign = 1>>
     <<target chest_river_sign>>
     Tak! Those blue waves are the universal sign for a river. #line:sign_5
+    <<camera_focus camera_chest_river_sign>>
+    Now you can open that chest! #line:yes_chest
+    <<camera_reset>>
 -> There bridge moves #line:sign_6
     No. Try again. #line:try_again 
 -> I don't know #line:dont_know #highlight
@@ -234,6 +237,9 @@ Does the Odra flow into the mountains or the sea? #line:map_2
     <<set $map_odra = 1>>
     <<target chest_odra_map>>
     Correct! It flows all the way to the north. #line:map_4
+    <<camera_focus camera_chest_odra_map>>
+    Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> The Mediterranean Sea #line:map_5
     No. Try again. #shadow:try_again 
     <<jump npc_odra_map>>
@@ -251,7 +257,7 @@ actor:
 <<if $map_odra == 1>>
     Prove you know where the river flows! #line:ch_map1
     <<set $map_odra = 2>>
-    <<activity memory_odra_facts chest_odra_river_map>>
+    <<activity jigsaw_odra_map chest_odra_map>>
 <<elseif $map_odra == 2>>
     <<action open_chest_map>>
     <<card odra_river_map>>
@@ -280,6 +286,9 @@ What do couples hang on this bridge for luck and love? #line:tum_3
     <<set $bridge_tumski = 1>>
     <<target chest_tumski_bridge>>
     Yes! Though they are very heavy and will be removed! #line:tum_5
+    <<camera_focus camera_chest_tumski_bridge>>
+    Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> Wet socks #line:tum_6
     That would not be very romantic! Try again. #line:fail_tum
     <<jump npc_tumski_bridge>>
@@ -297,7 +306,7 @@ actor:
 <<if $bridge_tumski == 1>>
     Clean the rust off this old iron bridge! #line:ch_tum1
     <<set $bridge_tumski = 2>>
-    <<activity cleancanvas odra_footbridge chest_tumski_bridge>>
+    <<activity clean_tumski_bridge chest_tumski_bridge>>
 <<elseif $bridge_tumski == 2>>
     <<action open_chest_tumski>>
     <<card tumski_bridge>>
@@ -326,6 +335,9 @@ What holds this massive bridge up? #line:redz_3
     <<set $bridge_redzinski = 1>>
     <<target chest_redzinski_bridge>>
     Correct! Strong ropes hold this giant bridge. Cars use it to drive around the city. #line:redz_5
+    <<camera_focus camera_chest_redzinski_bridge>>
+    Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> Magnets and Magic #line:redz_6
     It looks like magic, but it's actually engineering! #line:fail_redz
     <<jump npc_redzinski_bridge>>
@@ -343,7 +355,7 @@ actor:
 <<if $bridge_redzinski == 1>>
     Rebuild the tallest pylon in Wrocław! #line:ch_redz1
     <<set $bridge_redzinski = 2>>
-    <<activity jigsaw_pont chest_redzinski_bridge>>
+    <<activity jigsaw_redzinski_bridge chest_redzinski_bridge>>
 <<elseif $bridge_redzinski == 2>>
     <<action open_chest_redzinski>>
     <<card redzinski_bridge>>
@@ -358,12 +370,12 @@ actor:
 ===
 
 // ---------- TRAIN BRIDGE
-title: npc_train_bridge
+title: npc_bridge_train
 position: 100,100
 color: 
 actor:
 ---
-<<card train_bridge>>
+<<card bridge_trains>>
 Trains have been crossing the Odra in Wrocław for over 150 years. #line:train_1
 <<if $bridge_train < 10>>
 Why are train bridges made of such heavy steel? #line:train_2
@@ -371,9 +383,12 @@ Why are train bridges made of such heavy steel? #line:train_2
     <<set $bridge_train = 1>>
     <<target chest_bridge_train>>
     Yes! It must be strong enough for the heavy trains. #line:train_4
+    <<camera_focus camera_chest_bridge_train>>
+    Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> To make a loud noise #line:train_5
     They are loud, but that's not why! #line:fail_train
-    <<jump npc_train_bridge>>
+    <<jump npc_bridge_train>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_tourist>>
@@ -388,10 +403,10 @@ actor:
 <<if $bridge_train == 1>>
     Match the heavy boxes to the train tracks! #line:ch_train1
     <<set $bridge_train = 2>>
-    <<activity memory_bridges chest_bridge_train>>
+    <<activity memory_wroklaw_bridges chest_bridge_train>>
 <<elseif $bridge_train == 2>>
     <<action open_chest_train>>
-    <<card train_bridge>>
+    <<card bridge_trains>>
     The chest opens. You find a photo! #shadow:chest_opens 
     <<collect photo>>
     <<set $bridge_train = 10>>
@@ -404,7 +419,7 @@ actor:
 ===
 
 // ---------- HOUSEBOAT
-title: npc_houseboat
+title: npc_boat_house
 position: 100,100
 color: 
 actor:
@@ -416,18 +431,20 @@ Even the dwarves would love a floating house! #line:house_2
 If you live on a houseboat, what do you use for a backyard? #line:house_3
 -> The River Odra #line:house_4
     <<set $boat_house = 1>>
-    <<target chest_houseboat>>
-    The chest opens. You find a photo! #shadow:chest_opens 
+    <<target chest_boat_house>>
+    <<camera_focus camera_chest_boat_house>>
+    Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> A rooftop forest #line:house_6
     No. Try again. #shadow:try_again 
-    <<jump npc_houseboat>>
+    <<jump npc_boat_house>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_tourist>>
 <<endif>>
 ===
 
-title: chest_houseboat
+title: chest_boat_house
 position: 100,100
 color: 
 actor:
@@ -435,9 +452,9 @@ actor:
 <<if $boat_house == 1>>
     Fix the windows on the floating house! #line:ch_house1
     <<set $boat_house = 2>>
-    <<activity jigsaw_boat_house chest_houseboat>>
+    <<activity jigsaw_boat_house chest_boat_house>>
 <<elseif $boat_house == 2>>
-    <<action open_chest_houseboat>>
+    <<action open_chest_boat_house>>
     <<card houseboat>>
     A cozy home on the Odra! Photo collected. #line:ch_house2
     <<collect photo>>
@@ -463,6 +480,9 @@ What do the people on these boats use to see the sights? #line:tour_2
     <<set $boat_tourist = 1>>
     <<target chest_boat_people>>
     Yes! Smile for the photo! #line:tour_4
+    <<camera_focus camera_chest_boat_people>>
+    Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> A periscope #line:tour_5
     We aren't underwater yet! Try again. #line:fail_tour
     <<jump npc_boat_people>>
@@ -480,7 +500,7 @@ actor:
 <<if $boat_tourist == 1>>
     Find the tourists hidden on the deck! #line:ch_tour1
     <<set $boat_tourist = 2>>
-    <<activity memory_boats chest_boat_people>>
+    <<activity memory_wroklaw_boats chest_boat_people>>
 <<elseif $boat_tourist == 2>>
     <<action open_chest_tourist>>
     <<card boat_people>>
@@ -508,6 +528,9 @@ A barge is very flat. Why? #line:barge_2
     <<set $boat_barge = 1>>
     <<target chest_barge>>
     Exactly! It's a truck that floats. #line:barge_4
+    <<camera_focus camera_chest_boat_barge>>
+    Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> So it can hide from dwarves #line:barge_5
     No. Try again. #shadow:try_again 
     <<jump npc_boat_barge>>
@@ -526,7 +549,7 @@ actor:
 <<if $boat_barge == 1>>
     Play a mini game to open the chest! #line:chest_minigame
     <<set $boat_barge = 2>>
-    <<activity memory_boats chest_boat_barge>>
+    <<activity match_wroclaw_bridges chest_boat_barge>>
 <<elseif $boat_barge == 2>>
     <<action open_chest_boat_barge>>
     <<card barge>>
