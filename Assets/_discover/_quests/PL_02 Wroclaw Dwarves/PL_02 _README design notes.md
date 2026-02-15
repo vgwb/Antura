@@ -11,7 +11,7 @@ The player must explore a stylized map of Wrocław to find 10 unique dwarf statu
 
 **Facts about Wrocław:**
 
-- It is the third (3) biggest city in Poland.
+- It is the third biggest city in Poland.
 - The dwarf is the official symbol of the city.
 
 **Landmark Recognition:** To identify and learn about the Old Town Hall, the Cathedral, and the Sky Tower.

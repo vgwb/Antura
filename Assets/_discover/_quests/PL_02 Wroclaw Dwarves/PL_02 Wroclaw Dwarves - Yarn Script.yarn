@@ -32,12 +32,17 @@
 // - jigsaw_dwarf_origin
 //   - BROKEN jigsawpuzzle
 //   - BROKEN jigsaw_dwarf_origin
-//   - BROKEN jigsaw_multimedia_fountain
-//   - BROKEN jigsaw_town_hall
-//   - BROKEN jigsaw_wroclaw_cathedral
-//   - BROKEN jigsaw_wroclaw_zoo
-//   - TODO wroclaw_old_town_hall
+//   - TODO jigsaw_town_hall
 // ACTABLE
+//   - TODO antura
+//   - TODO chest_boat_goods
+//   - TODO chest_boat_house
+//   - TODO chest_boat_people
+//   - TODO chest_bridge_alexander
+//   - TODO chest_bridge_cars
+//   - TODO chest_bridge_people
+//   - TODO chest_bridge_train
+//   - TODO protagonist
 // WORDS: (none)
 // </scene_data>
 
@@ -52,7 +57,7 @@
 
 title: quest_start
 position: 0,0
-tags: type=Start
+tags:
 color: red
 type: panel
 ---
@@ -71,6 +76,10 @@ type: panel
 <<declare $top_met = false>>
 
 Welcome to Wrocław! #line:023b330 
+<<card wroklaw_map>>
+Let's explore the city and find the dwarves. #line:pl02_start_1
+<<area area_init>>
+<<target npg_task_dwarves>>
 ===
 
 title: quest_end
@@ -112,6 +121,7 @@ tags: task
 ---
 You found all the dwarves! #line:03df148 
 Now go up the elevator! #line:0364c03 
+<<task_end FIND_DWARVES>>
 ===
 
 
@@ -119,23 +129,32 @@ Now go up the elevator! #line:0364c03
 title: dwarf_1_origin
 position: 280,0
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-<<card wroclaw_dwarf_statue zoom>>
-Wrocław is the city of dwarfs. You can find them everywhere. #line:007686b 
-They are small and kind. They like to play tricks. #line:0143908 
-Do you want to play with me? #line:0e460fe 
--> yes #line:02a4fb8 
-	<<activity jigsaw_dwarf_origin dwarf_1_origin_done>>
--> no #line:0f7786d 
-	Oh, okay. Maybe later. #line:0e236f0 
-	<<SetActive dwarf_1 false>>
+<<if $dwarf_1_found>>
+	Hi again! Let's find the other dwarves. #line:pl02_d1_repeat
+<<else>>
+	<<card wroclaw_dwarf_statue zoom>>
+	Wrocław is the city of dwarves. #line:007686b 
+	Dwarves are small and playful. #line:pl02_d1_1
+	
+	What is the symbol of Wrocław? #line:pl02_d1_q
+	-> A dwarf #line:pl02_d1_a1
+		Correct! Let's play a puzzle. #line:pl02_d1_ok
+		<<activity jigsaw_dwarf_origin dwarf_1_origin_done>>
+	-> A dog #line:pl02_d1_a2
+		No. Try again. #line:pl02_d1_no
+		<<jump dwarf_1_origin>>
+	-> A car #line:pl02_d1_a3
+		No. Try again. #line:pl02_d1_no2
+		<<jump dwarf_1_origin>>
+<<endif>>
 ===
 
 title: dwarf_1_origin_done
 position: 280,0
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Good job! You solved the puzzle. #line:0a87d03 
 Now I come with you. #line:0f49b50 
@@ -149,18 +168,40 @@ Now I come with you. #line:0f49b50
 title: dwarf_2_town_hall
 position: 280,180
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-<<asset wroclaw_old_town_hall>>
-This is the Old Town Hall. City leaders work here. #line:02cbbf0 
-Meetings happen inside. The clock is very old. #line:0ca6131 
-<<activity jigsaw_town_hall dwarf_2_town_hall_done>>
+<<if $dwarf_2_found>>
+	Hi again! Keep exploring. #line:pl02_d2_repeat
+<<else>>
+	<<asset wroclaw_old_town_hall>>
+	This is the Old Town Hall. #line:02cbbf0 
+	City leaders work here. #line:pl02_d2_1
+	
+	What do city leaders do here? #line:pl02_d2_q
+	-> They work and meet #line:pl02_d2_a1
+		Yes! Let's do a puzzle. #line:pl02_d2_ok
+		<<jump dwarf_2_activity>>
+	-> They swim #line:pl02_d2_a2
+		No. Try again. #line:pl02_d2_no
+		<<jump dwarf_2_town_hall>>
+	-> They fly planes #line:pl02_d2_a3
+		No. Try again. #line:pl02_d2_no2
+		<<jump dwarf_2_town_hall>>
+<<endif>>
+===
+
+title: dwarf_2_activity
+position: 520,230
+group: dwarves
+actor:
+---
+<<activity jigsawpuzzle wroclaw_old_town_hall dwarf_2_town_hall_done>>
 ===
 
 title: dwarf_2_town_hall_done
 position: 280,180
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Well done! #line:004110a 
 <<inventory wroclaw_dwarfs add>>
@@ -175,30 +216,35 @@ Well done! #line:004110a
 title: dwarf_3_cathedral
 position: 280,360
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-<<card bishop_dwarf>>
-This is the cathedral. It is a large and important church. #line:00f2132 
-Do you know what a church is? #line:080f821 
--> Yes #line:07550a5 
--> No #line:09e7452 
- <<detour info_church>>
-It has tall towers and colorful stained-glass windows. #line:08871e4 
-<<jump dwarf_3_quiz>>
+<<if $dwarf_3_found>>
+	Hi again! The cathedral is beautiful. #line:pl02_d3_repeat
+<<else>>
+	<<card bishop_dwarf>>
+	This is the cathedral. #line:00f2132 
+	It is a big church. #line:pl02_d3_1
+	
+	Do you know what a church is? #line:080f821 
+	-> Yes #line:07550a5 
+		<<jump dwarf_3_quiz>>
+	-> No #line:09e7452 
+		<<detour info_church>>
+		<<jump dwarf_3_quiz>>
+<<endif>>
 ===
 title: info_church
 position: 520,360
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-<<card church>>
 A church is a place where people pray. #line:0b1f4e1
 ===
 
 title: dwarf_3_quiz
 position: 520,360
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 What do people do in a cathedral? #line:05ea00d 
 -> They shop for food. #line:0c891cc 
@@ -215,17 +261,17 @@ What do people do in a cathedral? #line:05ea00d
 title: dwarf_3_activity
 position: 760,360
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Let's play a game. #line:0c5d8d3 
-<<activity jigsaw_wroclaw_cathedral dwarf_3_activity_done>>
+<<activity jigsawpuzzle wroclaw_cathedral dwarf_3_activity_done>>
 
 ===
 
 title: dwarf_3_activity_done
 position: 760,360
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Great! He is another dwarf. #line:04886ba 
 <<inventory wroclaw_dwarfs add>>
@@ -238,26 +284,40 @@ Great! He is another dwarf. #line:04886ba
 title: dwarf_4_zoo
 position: 280,540
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-Visit the Wrocław zoo. It is the biggest in Poland. #line:0198e80 
-It has many animals from around the world. #line:01b020e 
-<<jump dwarf_4_activity>>
+<<if $dwarf_4_found>>
+	Hi again! I love animals. #line:pl02_d4_repeat
+<<else>>
+	Visit the Wrocław zoo. #line:0198e80 
+	It is the biggest zoo in Poland. #line:pl02_d4_1
+	
+	The zoo has many... #line:pl02_d4_q
+	-> animals #line:pl02_d4_a1
+		Yes! Let's play a puzzle. #line:pl02_d4_ok
+		<<jump dwarf_4_activity>>
+	-> cars #line:pl02_d4_a2
+		No. Try again. #line:pl02_d4_no
+		<<jump dwarf_4_zoo>>
+	-> clouds #line:pl02_d4_a3
+		No. Try again. #line:pl02_d4_no2
+		<<jump dwarf_4_zoo>>
+<<endif>>
 ===
 
 title: dwarf_4_activity
 position: 280,540
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Let's play a game. #line:0f921e7 
-<<activity jigsaw_wroclaw_zoo dwarf_4_activity_done>>
+<<activity jigsawpuzzle wroclaw_zoo dwarf_4_activity_done>>
 ===
 
 title: dwarf_4_activity_done
 position: 280,540
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Great! #line:0c852a7 
 <<inventory wroclaw_dwarfs add>>
@@ -270,17 +330,31 @@ Great! #line:0c852a7
 title: dwarf_5
 position: 280,720
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-The Centennial Hall is huge. You see shows inside. #line:0ebb952 
-The roof looks like a giant dome. #line:0f4189b 
-<<jump dwarf_5_activity>>
+<<if $dwarf_5_found>>
+	Hi again! See you at the Sky Tower. #line:pl02_d5_repeat
+<<else>>
+	The Centennial Hall is huge. #line:0ebb952 
+	You can see shows inside. #line:pl02_d5_1
+	
+	What can you see inside? #line:pl02_d5_q
+	-> shows #line:pl02_d5_a1
+		Correct! Let's do a puzzle. #line:pl02_d5_ok
+		<<jump dwarf_5_activity>>
+	-> fish #line:pl02_d5_a2
+		No. Try again. #line:pl02_d5_no
+		<<jump dwarf_5>>
+	-> snow #line:pl02_d5_a3
+		No. Try again. #line:pl02_d5_no2
+		<<jump dwarf_5>>
+<<endif>>
 ===
 
 title: dwarf_5_activity
 position: 280,720
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Let's play a game. #line:06b4a16 
 <<activity jigsawpuzzle centennial_hall dwarf_5_activity_done>>
@@ -289,7 +363,7 @@ Let's play a game. #line:06b4a16
 title: dwarf_5_activity_done
 position: 280,720
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Great! #line:0abf458 
 <<inventory wroclaw_dwarfs add>>
@@ -304,27 +378,40 @@ Great! #line:0abf458
 title: dwarf_6
 position: 280,900
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-Water dances here with music and lights. #line:0daf76d 
-The shows are beautiful on summer nights. #line:006ed40 
-<<jump dwarf_6_activity>>
+<<if $dwarf_6_found>>
+	Hi again! The fountain is fun. #line:pl02_d6_repeat
+<<else>>
+	Water dances here with music and lights. #line:0daf76d 
+	
+	What does the water do? #line:pl02_d6_q
+	-> It dances #line:pl02_d6_a1
+		Yes! Let's do a puzzle. #line:pl02_d6_ok
+		<<jump dwarf_6_activity>>
+	-> It sleeps #line:pl02_d6_a2
+		No. Try again. #line:pl02_d6_no
+		<<jump dwarf_6>>
+	-> It eats #line:pl02_d6_a3
+		No. Try again. #line:pl02_d6_no2
+		<<jump dwarf_6>>
+<<endif>>
 ===
 
 
 title: dwarf_6_activity
 position: 280,900
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Let's play a game. #line:0cdb4f5 
-<<activity jigsaw_multimedia_fountain dwarf_6_activity_done>>
+<<activity jigsawpuzzle wroclaw_multimedia_fountain dwarf_6_activity_done>>
 
 ===
 title: dwarf_6_activity_done
 position: 280,900
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Great! #line:0818eec 
 <<inventory wroclaw_dwarfs add>>
@@ -337,10 +424,28 @@ Great! #line:0818eec
 title: dwarf_7
 position: 280,1080
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-A giant battle painting goes all around you. #line:0de7f17 
-You stand inside the story. #line:0f8436b 
+<<if $dwarf_7_found>>
+	Hi again! The painting is still giant. #line:pl02_d7_repeat
+<<else>>
+	A giant painting goes all around you. #line:0de7f17 
+	
+	Is this painting small or giant? #line:pl02_d7_q
+	-> Giant #line:pl02_d7_a1
+		Correct! Let's do a puzzle. #line:pl02_d7_ok
+		<<jump dwarf_7_activity>>
+	-> Small #line:pl02_d7_a2
+		No. Try again. #line:pl02_d7_no
+		<<jump dwarf_7>>
+<<endif>>
+===
+
+title: dwarf_7_activity
+position: 760,1080
+group: dwarves
+actor:
+---
 <<activity jigsawpuzzle panorama_raclawicka dwarf_7_activity_done>>
 ===
 
@@ -350,10 +455,28 @@ You stand inside the story. #line:0f8436b
 title: dwarf_8
 position: 280,1260
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-Olga Tokarczuk is a famous writer in Wrocław. #line:0496de5 
-She won the Nobel Prize in Literature. #line:00ae354 
+<<if $dwarf_8_found>>
+	Hi again! Keep reading books. #line:pl02_d8_repeat
+<<else>>
+	Olga Tokarczuk is a famous writer in Wrocław. #line:0496de5 
+	
+	Olga Tokarczuk is a... #line:pl02_d8_q
+	-> writer #line:pl02_d8_a1
+		Yes! Let's do a puzzle. #line:pl02_d8_ok
+		<<jump dwarf_8_activity>>
+	-> pilot #line:pl02_d8_a2
+		No. Try again. #line:pl02_d8_no
+		<<jump dwarf_8>>
+<<endif>>
+===
+
+title: dwarf_8_activity
+position: 520,1320
+group: dwarves
+actor:
+---
 <<activity jigsawpuzzle olga_tokarczuk dwarf_8_activity_done>>
 ===
 
@@ -361,10 +484,28 @@ She won the Nobel Prize in Literature. #line:00ae354
 title: dwarf_9
 position: 560,1260
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-This is the modern plaza near the Sky Tower. #line:096a9ee 
-People meet here to talk and play. #line:0c899a5 
+<<if $dwarf_9_found>>
+	Hi again! The plaza is busy. #line:pl02_d9_repeat
+<<else>>
+	This is the modern plaza near the Sky Tower. #line:096a9ee 
+	
+	Where do people meet? #line:pl02_d9_q
+	-> In the plaza #line:pl02_d9_a1
+		Correct! Let's do a puzzle. #line:pl02_d9_ok
+		<<jump dwarf_9_activity>>
+	-> Under the sea #line:pl02_d9_a2
+		No. Try again. #line:pl02_d9_no
+		<<jump dwarf_9>>
+<<endif>>
+===
+
+title: dwarf_9_activity
+position: 800,1320
+group: dwarves
+actor:
+---
 <<activity jigsawpuzzle plaza_dwarf dwarf_9_activity_done>>
 ===
 
@@ -372,10 +513,28 @@ People meet here to talk and play. #line:0c899a5
 title: dwarf_10
 position: 840,1260
 group: dwarves
-actor: SPECIAL
+actor:
 ---
-The Sky Tower is very tall. #line:0ccd434 
-You can see very far from the top. #line:0170463 
+<<if $dwarf_10_found>>
+	Hi again! The Sky Tower is still tall. #line:pl02_d10_repeat
+<<else>>
+	The Sky Tower is very tall. #line:0ccd434 
+	
+	Can you see far from the top? #line:pl02_d10_q
+	-> Yes #line:pl02_d10_a1
+		Correct! Let's do a puzzle. #line:pl02_d10_ok
+		<<jump dwarf_10_activity>>
+	-> No #line:pl02_d10_a2
+		No. Try again. #line:pl02_d10_no
+		<<jump dwarf_10>>
+<<endif>>
+===
+
+title: dwarf_10_activity
+position: 1080,1320
+group: dwarves
+actor:
+---
 <<activity jigsawpuzzle sky_tower_dwarf dwarf_10_activity_done>>
 ===
 
@@ -385,13 +544,14 @@ You can see very far from the top. #line:0170463
 title: elevator_keymaster
 position: 1137,1267
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 I guard the elevator. #line:0dd986c 
 <<if $found < $need>>
 	You found {$found} / {$need} dwarves. Keep exploring. #line:08dfa28 
 <<else>>
 	Great! You found them all. I open the door with my key. #line:0fdc177 
+	<<task_end FIND_DWARVES>>
 	<<action activate_elevator>>
 <<endif>>
 ===
@@ -406,16 +566,15 @@ The view is beautiful. #line:008b500
 
 title: npg_rescue_top
 position: 851,1818
-actor: SPECIAL
+actor:
 ---
 <<if $top_met>>
 	<<jump assessment_intro>>
 <<else>>
 	<<set $top_met = true>>
-	AHhh Antura was here. #line:0708555 
-	But it just went away! #line:0f710dd 
-	Maybe next time you'll make it! #line:081c124 
-	But isn't the view beautiful? #line:079ea46 
+	Antura was here! #line:0708555 
+	But it ran away. #line:0f710dd 
+	The view is beautiful! #line:079ea46 
 	<<jump assessment_intro>>
 <<endif>>
 ===
@@ -476,7 +635,7 @@ Great! You finished the quest! #line:0fc1bad
 title: dwarf_7_activity_done
 position: 520,1080
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Good job! #line:074a28b 
 <<inventory wroclaw_dwarfs add>>
@@ -488,7 +647,7 @@ Good job! #line:074a28b
 title: dwarf_8_activity_done
 position: 520,1260
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Good job! #line:0ac938a 
 <<inventory wroclaw_dwarfs add>>
@@ -500,7 +659,7 @@ Good job! #line:0ac938a
 title: dwarf_9_activity_done
 position: 800,1260
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Good job! #line:0f70de9 
 <<inventory wroclaw_dwarfs add>>
@@ -512,7 +671,7 @@ Good job! #line:0f70de9
 title: dwarf_10_activity_done
 position: 1080,1260
 group: dwarves
-actor: SPECIAL
+actor:
 ---
 Good job! #line:054d57b 
 <<inventory wroclaw_dwarfs add>>
