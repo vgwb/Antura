@@ -19,26 +19,27 @@ hide:
 <span class="yarn-header-dim">// pl_03 | Odra River (Wroclaw)</span>
 <span class="yarn-header-dim">// PL_03 - A Voyage on the Odra River</span>
 <span class="yarn-header-dim">// </span>
-<span class="yarn-header-dim">// ---------------------------------------------</span>
-<span class="yarn-header-dim">// WANTED:</span>
-<span class="yarn-header-dim">// cleancanvas odra_footbridge  — Clean the FOOTBRIDGE image; concept: BRIDGE for people (no CARS).</span>
-<span class="yarn-header-dim">// memory odra_bridges          — Match BRIDGE types; concepts: TRAIN BRIDGE (tracks), ROAD BRIDGE (CARS).</span>
-<span class="yarn-header-dim">// jigsawpuzzle odra_barge      — Rebuild BARGE image; concept: BOAT that carries GOODS.</span>
-<span class="yarn-header-dim">// jigsawpuzzle odra_houseboat  — Rebuild HOUSEBOAT image; concept: BOAT for LIVING.</span>
-<span class="yarn-header-dim">// order odra_couples           — Pair BRIDGES→(people/CARS/TRAIN) and BOATS→(goods/live).</span>
-<span class="yarn-header-dim">// order odra_map_triplet       — Tap/sequence ODRA, WISŁA, BALTIC; concept: rivers flow to SEA.</span>
-<span class="yarn-header-dim">// quiz odra_facts              — Final assessment (at least 2 Qs): ODRA→BALTIC, longest river=WISŁA.</span>
-<span class="yarn-header-dim">// Words used: Odra, river, bridge, island , water, Wrocław, navigation, ecosystem</span>
-<span class="yarn-header-dim">// INTRO – DOCK</span>
-<span class="yarn-header-dim">group: Intro</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: odra_dock</span>
+<span class="yarn-header-dim">tags:</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Witamy we Wrocławiu w Polsce.</span> <span class="yarn-meta">#line:03f03fe </span>
+<span class="yarn-cmd">&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 8&gt;&gt;</span>
+<span class="yarn-comment">// State variables for the 8 chests</span>
+<span class="yarn-cmd">&lt;&lt;declare $map_odra = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $river_sign = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $bridge_tumski = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $bridge_redzinski = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $bridge_train = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $boat_house = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $boat_tourist = 0&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $boat_barge = 0&gt;&gt;</span>
+
 <span class="yarn-cmd">&lt;&lt;card place_odra_river&gt;&gt;</span>
-<span class="yarn-line">To jest RZEKA ODRA.</span> <span class="yarn-meta">#line:053bcb9 </span>
-<span class="yarn-line">Gotowy na eksplorację?</span> <span class="yarn-meta">#line:06099c1 </span>
+<span class="yarn-line">Jesteśmy we Wrocławiu, „Mieście Stu Mostów”.</span> <span class="yarn-meta">#line:start_1</span>
+<span class="yarn-line">Dzisiaj będziemy zwiedzać rzekę, mosty i łodzie.</span> <span class="yarn-meta">#line:start_2</span>
+<span class="yarn-cmd">&lt;&lt;target protagonist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
 
 </code>
 </pre>
@@ -53,10 +54,13 @@ hide:
 <span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Świetna wycieczka ODRA.</span> <span class="yarn-meta">#line:02a257c </span>
-<span class="yarn-line">Widziałeś MOSTY i ŁODZIE.</span> <span class="yarn-meta">#line:0925273 </span>
-<span class="yarn-line">Użyłeś MAPY i QUIZU.</span> <span class="yarn-meta">#line:05d21d7 </span>
-<span class="yarn-line">Potrzebujesz dodatkowego zadania?</span> <span class="yarn-meta">#line:0913f94 </span>
+<span class="yarn-line">Dobrze zrobiony!</span> <span class="yarn-meta">#line:02a257c </span>
+<span class="yarn-cmd">&lt;&lt;card bridge&gt;&gt;</span>
+<span class="yarn-line">Poznaliśmy różne rodzaje mostów.</span> <span class="yarn-meta">#line:end_1</span>
+<span class="yarn-cmd">&lt;&lt;card boat&gt;&gt;</span>
+<span class="yarn-line">Poznaliśmy różne rodzaje łodzi.</span> <span class="yarn-meta">#line:end_2</span>
+<span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span>
+<span class="yarn-line">Eksplorowaliśmy ODRĘ.</span> <span class="yarn-meta">#line:end_3</span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -73,289 +77,77 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Narysuj prostą MAPĘ.</span> <span class="yarn-meta">#line:0265d07 </span>
-<span class="yarn-line">Mark ODRA i WISŁA.</span> <span class="yarn-meta">#line:08d1173 </span>
-<span class="yarn-line">Dodaj jeden MOST DROGOWY.</span> <span class="yarn-meta">#line:0b3ae20 </span>
-<span class="yarn-line">Dodaj jeden MOST KOLEJOWY.</span> <span class="yarn-meta">#line:055fe3a </span>
-<span class="yarn-line">Naszkicuj BARKĘ i KAJAK.</span> <span class="yarn-meta">#line:0cd2507 </span>
-<span class="yarn-line">Pokaż to znajomemu.</span> <span class="yarn-meta">#line:0774214 </span>
+<span class="yarn-line">Narysuj prostą MAPĘ swojej podróży.</span> <span class="yarn-meta">#line:0265d07 </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-bridges-intro"></a>
+<a id="ys-node-protagonist"></a>
 
-## BRIDGES_INTRO
+## protagonist
 
-<div class="yarn-node" data-title="BRIDGES_INTRO">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// PART 1 – CITY OF BRIDGES</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">group: Bridges</span>
+<div class="yarn-node" data-title="protagonist">
+<pre class="yarn-code" style="--node-color:blue"><code>
+<span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: city_of_bridges</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card bridge&gt;&gt;</span>
-<span class="yarn-line">WROCŁAW ma wiele MOSTÓW.</span> <span class="yarn-meta">#line:041a469 </span>
-<span class="yarn-cmd">&lt;&lt;card wroclaw_bridges&gt;&gt;</span>
-<span class="yarn-line">Ponad sto!</span> <span class="yarn-meta">#line:0522f41 </span>
-<span class="yarn-line">Znajdźmy trzy typy.</span> <span class="yarn-meta">#line:04082d6 </span>
-
+<span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_photos")&gt;&gt;</span>
+<span class="yarn-line">    Dziękuję! Znalazłeś wszystkie moje zdjęcia!</span> <span class="yarn-meta">#line:prot_1</span>
+<span class="yarn-line">    Teraz mogę kontynuować wizytę. Jeszcze jedno ostatnie pytanie...</span> <span class="yarn-meta">#line:prot_2</span>
+    <span class="yarn-cmd">&lt;&lt;jump final_quiz&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("collect_cards")&gt;&gt;</span>
+<span class="yarn-line">    Jesteś odważny! Ale wciąż tęsknię za zdjęciami naszych rzecznych cudów.</span> <span class="yarn-meta">#line:006ab27 </span>
+    <span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
+<span class="yarn-line">    Szukaj skrzyń! Ludzie nad rzeką ich pilnują.</span> <span class="yarn-meta">#line:prot_4 </span>
+<span class="yarn-line">    Jeśli nie możesz ich znaleźć, skorzystaj z mapy!</span> <span class="yarn-meta">#line:0bfcb05 </span>
+    <span class="yarn-cmd">&lt;&lt;task_start find_photos task_find_photos_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "find_photos" or GetCurrentTask() == "collect_cards"&gt;&gt;</span>
+<span class="yarn-line">    Dobrze ci idzie!</span> <span class="yarn-meta">#line:03ea48b </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Pomocy! Antura myślała, że ​​mój przewodnik po Wrocławiu to kość!</span> <span class="yarn-meta">#line:prot_5</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_intro&gt;&gt;</span>
+<span class="yarn-line">    Strony są gdzieś zagubione. Czy potrafisz je znaleźć?</span> <span class="yarn-meta">#line:prot_6 #task:collect_cards</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;SetActive antura false&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;area area_tutorial&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;task_start collect_cards task_collect_cards_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-bridge-foot-hint"></a>
+<a id="ys-node-task-find-photos-done"></a>
 
-## BRIDGE_FOOT_HINT
+## task_find_photos_done
 
-<div class="yarn-node" data-title="BRIDGE_FOOT_HINT">
+<div class="yarn-node" data-title="task_find_photos_done">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Bridges</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: footbridge_view</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card footbridge&gt;&gt;</span>
-<span class="yarn-line">FOOTBRIDGE jest dla ludzi.</span> <span class="yarn-meta">#line:0d0c6ff </span>
-<span class="yarn-line">Podpowiedź: nie ma na nim SAMOCHODÓW.</span> <span class="yarn-meta">#line:057b7a9 </span>
-
-<span class="yarn-cmd">&lt;&lt;activity cleancanvas odra_footbridge tutorial&gt;&gt;</span>
-
+<span class="yarn-line">Znalazłeś wszystkie zdjęcia!</span> <span class="yarn-meta">#line:found_photos</span>
+<span class="yarn-line">Wróć i porozmawiaj z przewodnikiem.</span> <span class="yarn-meta">#line:go_back #task:go_back </span>
+<span class="yarn-cmd">&lt;&lt;target protagonist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start go_back&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-bridge-train-hint"></a>
+<a id="ys-node-task-collect-cards-done"></a>
 
-## BRIDGE_TRAIN_HINT
+## task_collect_cards_done
 
-<div class="yarn-node" data-title="BRIDGE_TRAIN_HINT">
+<div class="yarn-node" data-title="task_collect_cards_done">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Bridges</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: railway_bridge</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card train_bridge&gt;&gt;</span>
-<span class="yarn-line">MOST KOLEJOWY przewozi POCIĄGI.</span> <span class="yarn-meta">#line:04b8fb2 </span>
-<span class="yarn-line">Wskazówka: szukaj TRACKS.</span> <span class="yarn-meta">#line:03bf613 </span>
-
-<span class="yarn-cmd">&lt;&lt;activity memory odra_bridges tutorial&gt;&gt;</span>
-<span class="yarn-line">Dalej: MOST DROGOWY</span> <span class="yarn-meta">#line:08d07e5 </span>
-    <span class="yarn-cmd">&lt;&lt;jump BRIDGE_CAR_HINT&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-bridge-car-hint"></a>
-
-## BRIDGE_CAR_HINT
-
-<div class="yarn-node" data-title="BRIDGE_CAR_HINT">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Bridges</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: road_bridge</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card road_bridge&gt;&gt;</span>
-<span class="yarn-line">ROAD BRIDGE jest przeznaczony dla SAMOCHODÓW.</span> <span class="yarn-meta">#line:0f6e252 </span>
-<span class="yarn-line">Podpowiedź: patrz przejście dla pieszych CARS.</span> <span class="yarn-meta">#line:03fcfdf </span>
-
-<span class="yarn-cmd">&lt;&lt;activity memory odra_bridges tutorial&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-boats-intro"></a>
-
-## BOATS_INTRO
-
-<div class="yarn-node" data-title="BOATS_INTRO">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// PART 2 – RIVER BOATS</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: odra_river_traffic</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card boat&gt;&gt;</span>
-<span class="yarn-line">Wiele ŁODZI na ODRZE.</span> <span class="yarn-meta">#line:0eb639b </span>
-<span class="yarn-cmd">&lt;&lt;card barge&gt;&gt;</span>
-<span class="yarn-line">Najpierw znajdź BARKĘ.</span> <span class="yarn-meta">#line:0d21cc3 </span>
-
-<span class="yarn-line">Pokaż mi BARKĘ</span> <span class="yarn-meta">#line:03495d2 </span>
-    <span class="yarn-cmd">&lt;&lt;jump BOAT_BARGE_HINT&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-boat-barge-hint"></a>
-
-## BOAT_BARGE_HINT
-
-<div class="yarn-node" data-title="BOAT_BARGE_HINT">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: barge_photo</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">BARGE jest niska i płaska.</span> <span class="yarn-meta">#line:028dcdf </span>
-<span class="yarn-line">Przewozi TOWARY.</span> <span class="yarn-meta">#line:083423e </span>
-
-<span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle odra_barge tutorial&gt;&gt;</span>
-<span class="yarn-line">Znajdź łódź mieszkalną</span> <span class="yarn-meta">#line:0a09f26 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-boat-house-hint"></a>
-
-## BOAT_HOUSE_HINT
-
-<div class="yarn-node" data-title="BOAT_HOUSE_HINT">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: houseboat</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card houseboat&gt;&gt;</span>
-<span class="yarn-line">DOM NA BŁOCI jest do zamieszkania.</span> <span class="yarn-meta">#line:0d77d00 </span>
-<span class="yarn-line">Okna jak w małym domu.</span> <span class="yarn-meta">#line:0d30896 </span>
-
-<span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle odra_houseboat tutorial&gt;&gt;</span>
-
-<span class="yarn-line">Pokaż mi KAYAK</span> <span class="yarn-meta">#line:046e06a </span>
-    <span class="yarn-cmd">&lt;&lt;jump BOAT_KAYAK_HINT&gt;&gt;</span>
-<span class="yarn-line">Gotowy do dopasowania</span> <span class="yarn-meta">#line:0b48adf </span>
-    <span class="yarn-cmd">&lt;&lt;jump BOATS_MATCH&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-boat-kayak-hint"></a>
-
-## BOAT_KAYAK_HINT
-
-<div class="yarn-node" data-title="BOAT_KAYAK_HINT">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: kayak</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card kayak&gt;&gt;</span>
-<span class="yarn-line">KAYAK jest mały i lekki</span> <span class="yarn-meta">#line:06a76b7 </span>
-<span class="yarn-line">Jedna osoba może wiosłować.</span> <span class="yarn-meta">#line:0b0ccde </span>
-<span class="yarn-line">Poruszaj się szybko po spokojnej wodzie.</span> <span class="yarn-meta">#line:0e4d09c </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-boats-match"></a>
-
-## BOATS_MATCH
-
-<div class="yarn-node" data-title="BOATS_MATCH">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Boats</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: odra_couples</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dopasuj rzeczy do zadań.</span> <span class="yarn-meta">#line:0d62913 </span>
-<span class="yarn-line">MOST -&gt; ludzie/SAMOCHODY/POCIĄG.</span> <span class="yarn-meta">#line:094d834 </span>
-<span class="yarn-line">ŁÓDŹ -&gt; towary/żywe.</span> <span class="yarn-meta">#line:0e16bac </span>
-
-<span class="yarn-cmd">&lt;&lt;activity order odra_couples tutorial&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-map-intro"></a>
-
-## MAP_INTRO
-
-<div class="yarn-node" data-title="MAP_INTRO">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// PART 3 – BIG MAP</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">group: Map</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: poland_river_map</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span>
-<span class="yarn-line">ODRA jest drugą RZEKĄ w Polsce.</span> <span class="yarn-meta">#line:0ff7dfd </span>
-<span class="yarn-cmd">&lt;&lt;card place_vistula_river&gt;&gt;</span>
-<span class="yarn-line">WISŁA jest 1, najdłuższa.</span> <span class="yarn-meta">#line:03fe124 </span>
-<span class="yarn-line">Obie rzeki wpływają do Morza Bałtyckiego.</span> <span class="yarn-meta">#line:0941615 </span>
-
-    <span class="yarn-cmd">&lt;&lt;jump MAP_ACTIVITY&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-map-activity"></a>
-
-## MAP_ACTIVITY
-
-<div class="yarn-node" data-title="MAP_ACTIVITY">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Map</span>
-<span class="yarn-header-dim">tags: </span>
-<span class="yarn-header-dim">image: map_icons</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card wroklaw_map&gt;&gt;</span>
-<span class="yarn-line">Dotknij ODRA, WISŁA, BALTIC.</span> <span class="yarn-meta">#line:0ddc2c8 </span>
-<span class="yarn-line">Podążaj RIVERS do MORZA.</span> <span class="yarn-meta">#line:06237e3 </span>
-
-<span class="yarn-cmd">&lt;&lt;activity jigsaw_odra_map jigsaw_odra_map_done&gt;&gt;</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-jigsaw-odra-map-done"></a>
-
-## jigsaw_odra_map_done
-
-<div class="yarn-node" data-title="jigsaw_odra_map_done">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Map</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Świetna robota, badaczu RIVER!</span> <span class="yarn-meta">#line:012f97c</span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-ending-dock"></a>
-
-## ENDING_DOCK
-
-<div class="yarn-node" data-title="ENDING_DOCK">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: odra_sign</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card tumski_bridge&gt;&gt;</span>
-<span class="yarn-line">Ten niebieski ZNAK oznacza RZEKĘ.</span> <span class="yarn-meta">#line:0b583df </span>
-<span class="yarn-cmd">&lt;&lt;card redzinski_bridge&gt;&gt;</span>
-<span class="yarn-line">Nauczyłeś się o MOSTACH i ŁODZIACH.</span> <span class="yarn-meta">#line:0a2180f </span>
-<span class="yarn-line">Gotowy na quiz?</span> <span class="yarn-meta">#line:07d9d36 </span>
-<span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
+<span class="yarn-line">Znalazłeś wszystkie zdjęcia!</span> <span class="yarn-meta">#shadow:found_photos</span>
+<span class="yarn-line">Wróć i porozmawiaj z przewodnikiem.</span> <span class="yarn-meta">#shadow:go_back #task:go_back</span>
+<span class="yarn-cmd">&lt;&lt;target protagonist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_start go_back&gt;&gt;</span>
 
 </code>
 </pre>
@@ -363,50 +155,534 @@ hide:
 
 <a id="ys-node-final-quiz"></a>
 
-## FINAL_QUIZ
+## final_quiz
 
-<div class="yarn-node" data-title="FINAL_QUIZ">
+<div class="yarn-node" data-title="final_quiz">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">// FINAL QUIZ – ALWAYS LAST</span>
-<span class="yarn-header-dim">//--------------------------------------------</span>
-<span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">tags: </span>
-<span class="yarn-header-dim">image: odra_quiz</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Odpowiedz na dwa pytania.</span> <span class="yarn-meta">#line:0afcdc6 </span>
-<span class="yarn-line">Wybierz najlepszą opcję.</span> <span class="yarn-meta">#line:0c9b102 </span>
-
-<span class="yarn-cmd">&lt;&lt;activity order_odra_facts order_odra_facts_done&gt;&gt;</span>
+<span class="yarn-line">Odra to długa rzeka. Pamiętasz, dokąd trafia cała ta woda?</span> <span class="yarn-meta">#line:quiz1_intro</span>
+<span class="yarn-line">Morze Bałtyckie</span> <span class="yarn-meta">#line:quiz_a1</span>
+    <span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span>
+<span class="yarn-line">    Tak! Zgadza się! Odra płynie na północ przez Polskę i wpada do Morza Bałtyckiego.</span> <span class="yarn-meta">#line:quiz1_ok</span>
+    <span class="yarn-cmd">&lt;&lt;jump final_quiz_2&gt;&gt;</span>
+<span class="yarn-line">Morze Śródziemne</span> <span class="yarn-meta">#line:quiz_a2</span>
+<span class="yarn-line">    Hmm... to zdecydowanie za daleko na południe!</span> <span class="yarn-meta">#line:quiz1_fail1</span>
+    <span class="yarn-cmd">&lt;&lt;jump final_quiz&gt;&gt;</span>
+<span class="yarn-line">Morze Czarne</span> <span class="yarn-meta">#line:quiz_a3</span>
+<span class="yarn-line">    Nie do końca. Odra płynie na północ, a nie na południe!</span> <span class="yarn-meta">#line:quiz1_fail2</span>
+    <span class="yarn-cmd">&lt;&lt;jump final_quiz&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#line:dontknow</span>
+    <span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span> 
+<span class="yarn-line">    Spokojnie! Spójrz na niebieską linię na mapie.</span> <span class="yarn-meta">#line:quiz1_hint</span>
+    <span class="yarn-cmd">&lt;&lt;jump final_quiz&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-order-odra-facts-done"></a>
+<a id="ys-node-final-quiz-2"></a>
 
-## order_odra_facts_done
+## final_quiz_2
 
-<div class="yarn-node" data-title="order_odra_facts_done">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: End</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">image: quest_complete</span>
+<div class="yarn-node" data-title="final_quiz_2">
+<pre class="yarn-code" style="--node-color:green"><code>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Świetna robota, badaczu RIVER!</span> <span class="yarn-meta">#line:0117d8b </span>
-<span class="yarn-line">Do zobaczenia podczas następnej podróży!</span> <span class="yarn-meta">#line:045c7d9 </span>
-
-<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+<span class="yarn-line">Czy Odra jest *najdłuższą* rzeką w Polsce?</span> <span class="yarn-meta">#line:quiz2_intro</span>
+<span class="yarn-line">Nie, Wisła jest dłuższa</span> <span class="yarn-meta">#line:quiz2_a1</span>
+    <span class="yarn-cmd">&lt;&lt;card place_vistula_river&gt;&gt;</span>
+<span class="yarn-line">    Idealnie! Wisła jest numerem jeden, Odra jest drugą najdłuższą rzeką.</span> <span class="yarn-meta">#line:quiz2_ok</span>
+    <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+<span class="yarn-line">Tak, to jest najdłuższy</span> <span class="yarn-meta">#line:quiz2_a2</span>
+<span class="yarn-line">    Jest bardzo duża, ale jest jedna rzeka, która jest jeszcze dłuższa.</span> <span class="yarn-meta">#line:quiz2_fail</span>
+    <span class="yarn-cmd">&lt;&lt;jump final_quiz_2&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-spawned-child"></a>
+<a id="ys-node-npc-river-sign"></a>
 
-## spawned_child
+## npc_river_sign
 
-<div class="yarn-node" data-title="spawned_child">
+<div class="yarn-node" data-title="npc_river_sign">
+<pre class="yarn-code" style="--node-color:green"><code>
+<span class="yarn-header-dim">// ---------- RIVER SIGN</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+&lt;&lt;if $river_sign &lt; 10&gt;&gt;
+<span class="yarn-cmd">&lt;&lt;card river_sign&gt;&gt;</span>
+<span class="yarn-line">Spójrz na duży niebieski znak przy moście.</span> <span class="yarn-meta">#line:sign_1</span>
+<span class="yarn-line">Co mówią nam białe faliste linie?</span> <span class="yarn-meta">#line:sign_3</span>
+<span class="yarn-line">Tutaj płynie rzeka</span> <span class="yarn-meta">#line:sign_4</span>
+    <span class="yarn-cmd">&lt;&lt;set $river_sign = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_river_sign&gt;&gt;</span>
+<span class="yarn-line">    Tak! Te niebieskie fale są uniwersalnym znakiem rzeki.</span> <span class="yarn-meta">#line:sign_5</span>
+<span class="yarn-line">Tam most się porusza</span> <span class="yarn-meta">#line:sign_6</span>
+<span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#line:try_again </span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#line:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-river-sign"></a>
+
+## chest_river_sign
+
+<div class="yarn-node" data-title="chest_river_sign">
+<pre class="yarn-code" style="--node-color:green"><code>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $river_sign == 1&gt;&gt;</span>
+<span class="yarn-line">    Antura pokryła znak błotem! Wytrzyj go do czysta, żeby zobaczyć fale.</span> <span class="yarn-meta">#line:ch_sign1</span>
+    <span class="yarn-cmd">&lt;&lt;set $river_sign = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity clean_river_sign chest_river_sign&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $river_sign == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_sign&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card river_sign&gt;&gt;</span>
+<span class="yarn-line">    Świetna robota! Teraz zawsze będziesz wiedział, kiedy przeprawiasz się przez rzekę w Europie.</span> <span class="yarn-meta">#line:ch_sign2</span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $river_sign = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $river_sign == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#line:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#line:chest_locked </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-odra-map"></a>
+
+## npc_odra_map
+
+<div class="yarn-node" data-title="npc_odra_map">
+<pre class="yarn-code" style="--node-color:green"><code>
+<span class="yarn-header-dim">// ---------- ODRA RIVER MAP</span>
+<span class="yarn-header-dim">color: green</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span>
+<span class="yarn-line">Odra jest drugą pod względem długości rzeką w Polsce.</span> <span class="yarn-meta">#line:map_1</span>
+&lt;&lt;if $map_odra &lt; 10&gt;&gt;
+<span class="yarn-line">Czy Odra wpływa do gór czy do morza?</span> <span class="yarn-meta">#line:map_2</span>
+<span class="yarn-line">Morze Bałtyckie</span> <span class="yarn-meta">#line:map_3</span>
+    <span class="yarn-cmd">&lt;&lt;set $map_odra = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_odra_map&gt;&gt;</span>
+<span class="yarn-line">    Zgadza się! Płynie aż na północ.</span> <span class="yarn-meta">#line:map_4</span>
+<span class="yarn-line">Morze Śródziemne</span> <span class="yarn-meta">#line:map_5</span>
+<span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again </span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_odra_map&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight </span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-odra-map"></a>
+
+## chest_odra_map
+
+<div class="yarn-node" data-title="chest_odra_map">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $map_odra == 1&gt;&gt;</span>
+<span class="yarn-line">    Udowodnij, że wiesz, dokąd płynie rzeka!</span> <span class="yarn-meta">#line:ch_map1</span>
+    <span class="yarn-cmd">&lt;&lt;set $map_odra = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_odra_facts chest_odra_river_map&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $map_odra == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_map&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span>
+<span class="yarn-line">    Mapa wróciła! Pokazuje ujście Odry do Morza Bałtyckiego.</span> <span class="yarn-meta">#line:ch_map2</span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $map_odra = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $boat_barge == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#shadow:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-tumski-bridge"></a>
+
+## npc_tumski_bridge
+
+<div class="yarn-node" data-title="npc_tumski_bridge">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">// ---------- TUMSKI BRIDGE (The Romantic Bridge)</span>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card tumski_bridge&gt;&gt;</span>
+<span class="yarn-line">To jest Most Tumski. Prowadzi do najstarszej części miasta.</span> <span class="yarn-meta">#line:tum_1</span>
+<span class="yarn-line">Każdego wieczoru mężczyzna ręcznie zapala 102 latarnie gazowe!</span> <span class="yarn-meta">#line:tum_2</span>
+&lt;&lt;if $bridge_tumski &lt; 10&gt;&gt;
+<span class="yarn-line">Co pary wieszają na tym moście, aby zapewnić sobie szczęście i miłość?</span> <span class="yarn-meta">#line:tum_3</span>
+<span class="yarn-line">Kłódki</span> <span class="yarn-meta">#line:tum_4</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_tumski = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_tumski_bridge&gt;&gt;</span>
+<span class="yarn-line">    Tak! Choć są bardzo ciężkie i zostaną usunięte!</span> <span class="yarn-meta">#line:tum_5</span>
+<span class="yarn-line">Mokre skarpetki</span> <span class="yarn-meta">#line:tum_6</span>
+<span class="yarn-line">    To nie byłoby zbyt romantyczne! Spróbuj jeszcze raz.</span> <span class="yarn-meta">#line:fail_tum</span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_tumski_bridge&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-tumski-bridge"></a>
+
+## chest_tumski_bridge
+
+<div class="yarn-node" data-title="chest_tumski_bridge">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $bridge_tumski == 1&gt;&gt;</span>
+<span class="yarn-line">    Wyczyśćcie rdzę z tego starego żelaznego mostu!</span> <span class="yarn-meta">#line:ch_tum1</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_tumski = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity cleancanvas odra_footbridge chest_tumski_bridge&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $bridge_tumski == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_tumski&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card tumski_bridge&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia się otwiera. Znajdziesz zdjęcie!</span> <span class="yarn-meta">#shadow:chest_opens </span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_tumski = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $bridge_tumski == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#shadow:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-redzinski-bridge"></a>
+
+## npc_redzinski_bridge
+
+<div class="yarn-node" data-title="npc_redzinski_bridge">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">// ---------- RĘDZIŃSKI BRIDGE</span>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card redzinski_bridge&gt;&gt;</span>
+<span class="yarn-line">Most Rędziński jest najwyższym i najdłuższym mostem w Polsce.</span> <span class="yarn-meta">#line:redz_1</span>
+<span class="yarn-line">Ma 122 metry wysokości. Jest wyższy niż Katedra!</span> <span class="yarn-meta">#line:redz_2</span>
+&lt;&lt;if $bridge_redzinski &lt; 10&gt;&gt;
+<span class="yarn-line">Co podtrzymuje ten potężny most?</span> <span class="yarn-meta">#line:redz_3</span>
+<span class="yarn-line">Liny stalowe</span> <span class="yarn-meta">#line:redz_4</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_redzinski = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_redzinski_bridge&gt;&gt;</span>
+<span class="yarn-line">    Zgadza się! Ten gigantyczny most podtrzymują mocne liny. Samochody jeżdżą nim po mieście.</span> <span class="yarn-meta">#line:redz_5</span>
+<span class="yarn-line">Magnesy i magia</span> <span class="yarn-meta">#line:redz_6</span>
+<span class="yarn-line">    Wygląda to jak magia, ale tak naprawdę to inżynieria!</span> <span class="yarn-meta">#line:fail_redz</span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_redzinski_bridge&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-redzinski-bridge"></a>
+
+## chest_redzinski_bridge
+
+<div class="yarn-node" data-title="chest_redzinski_bridge">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $bridge_redzinski == 1&gt;&gt;</span>
+<span class="yarn-line">    Odbudujmy najwyższy pylon we Wrocławiu!</span> <span class="yarn-meta">#line:ch_redz1</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_redzinski = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_pont chest_redzinski_bridge&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $bridge_redzinski == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_redzinski&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card redzinski_bridge&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia się otwiera. Znajdziesz zdjęcie!</span> <span class="yarn-meta">#shadow:chest_opens </span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_redzinski = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $bridge_redzinski == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#shadow:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-train-bridge"></a>
+
+## npc_train_bridge
+
+<div class="yarn-node" data-title="npc_train_bridge">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">// ---------- TRAIN BRIDGE</span>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card train_bridge&gt;&gt;</span>
+<span class="yarn-line">Pociągi przemierzają Odrę we Wrocławiu od ponad 150 lat.</span> <span class="yarn-meta">#line:train_1</span>
+&lt;&lt;if $bridge_train &lt; 10&gt;&gt;
+<span class="yarn-line">Dlaczego mosty kolejowe są wykonane z tak ciężkiej stali?</span> <span class="yarn-meta">#line:train_2</span>
+<span class="yarn-line">Ponieważ pociągi są bardzo ciężkie</span> <span class="yarn-meta">#line:train_3</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_train = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_bridge_train&gt;&gt;</span>
+<span class="yarn-line">    Tak! Musi być wystarczająco wytrzymały, żeby wytrzymać ciężkie pociągi.</span> <span class="yarn-meta">#line:train_4</span>
+<span class="yarn-line">Wydawać głośny dźwięk</span> <span class="yarn-meta">#line:train_5</span>
+<span class="yarn-line">    Są głośne, ale nie dlatego!</span> <span class="yarn-meta">#line:fail_train</span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_train_bridge&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-bridge-train"></a>
+
+## chest_bridge_train
+
+<div class="yarn-node" data-title="chest_bridge_train">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $bridge_train == 1&gt;&gt;</span>
+<span class="yarn-line">    Dopasuj ciężkie pudła do torów kolejowych!</span> <span class="yarn-meta">#line:ch_train1</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_train = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_bridges chest_bridge_train&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $bridge_train == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_train&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card train_bridge&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia się otwiera. Znajdziesz zdjęcie!</span> <span class="yarn-meta">#shadow:chest_opens </span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $bridge_train = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $bridge_train == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#shadow:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-houseboat"></a>
+
+## npc_houseboat
+
+<div class="yarn-node" data-title="npc_houseboat">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">// ---------- HOUSEBOAT</span>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card houseboat&gt;&gt;</span>
+<span class="yarn-line">We Wrocławiu niektórzy nazywają rzekę swoją „ulicą domową”.</span> <span class="yarn-meta">#line:house_1</span>
+<span class="yarn-line">Nawet krasnoludy pokochałyby latający dom!</span> <span class="yarn-meta">#line:house_2</span>
+&lt;&lt;if $boat_house &lt; 10&gt;&gt;
+<span class="yarn-line">Jeśli mieszkasz na łodzi mieszkalnej, co wykorzystujesz na podwórku?</span> <span class="yarn-meta">#line:house_3</span>
+<span class="yarn-line">Rzeka Odra</span> <span class="yarn-meta">#line:house_4</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_house = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_houseboat&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia się otwiera. Znajdziesz zdjęcie!</span> <span class="yarn-meta">#shadow:chest_opens </span>
+<span class="yarn-line">Las na dachu</span> <span class="yarn-meta">#line:house_6</span>
+<span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again </span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_houseboat&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-houseboat"></a>
+
+## chest_houseboat
+
+<div class="yarn-node" data-title="chest_houseboat">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $boat_house == 1&gt;&gt;</span>
+<span class="yarn-line">    Napraw okna w pływającym domu!</span> <span class="yarn-meta">#line:ch_house1</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_house = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_boat_house chest_houseboat&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $boat_house == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_houseboat&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card houseboat&gt;&gt;</span>
+<span class="yarn-line">    Przytulny dom nad Odrą! Zdjęcie zebrane.</span> <span class="yarn-meta">#line:ch_house2</span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_house = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $boat_house == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#shadow:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-boat-people"></a>
+
+## npc_boat_people
+
+<div class="yarn-node" data-title="npc_boat_people">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">// ---------- BOAT PEOPLE (Tourist Boats)</span>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card boat_people&gt;&gt;</span>
+<span class="yarn-line">Łodzie turystyczne zabierają ludzi na wycieczkę do zoo i katedry.</span> <span class="yarn-meta">#line:tour_1</span>
+&lt;&lt;if $boat_tourist &lt; 10&gt;&gt;
+<span class="yarn-line">Czego używają ludzie na tych statkach, żeby podziwiać widoki?</span> <span class="yarn-meta">#line:tour_2</span>
+<span class="yarn-line">Ich oczy i kamery</span> <span class="yarn-meta">#line:tour_3</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_tourist = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_boat_people&gt;&gt;</span>
+<span class="yarn-line">    Tak! Uśmiechnij się do zdjęcia!</span> <span class="yarn-meta">#line:tour_4</span>
+<span class="yarn-line">Peryskop</span> <span class="yarn-meta">#line:tour_5</span>
+<span class="yarn-line">    Jeszcze nie jesteśmy pod wodą! Spróbuj ponownie.</span> <span class="yarn-meta">#line:fail_tour</span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_boat_people&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-boat-people"></a>
+
+## chest_boat_people
+
+<div class="yarn-node" data-title="chest_boat_people">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $boat_tourist == 1&gt;&gt;</span>
+<span class="yarn-line">    Znajdź turystów ukrytych na pokładzie!</span> <span class="yarn-meta">#line:ch_tour1</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_tourist = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_boats chest_boat_people&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $boat_tourist == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_tourist&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card boat_people&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia się otwiera. Znajdziesz zdjęcie!</span> <span class="yarn-meta">#shadow:chest_opens </span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_tourist = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $boat_tourist == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#shadow:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-boat-barge"></a>
+
+## npc_boat_barge
+
+<div class="yarn-node" data-title="npc_boat_barge">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">// ---------- BARGE (Cargo)</span>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card barge&gt;&gt;</span>
+<span class="yarn-line">Od stuleci barki (Barki) służyły do ​​transportu węgla i piasku Odrą.</span> <span class="yarn-meta">#line:barge_1</span>
+&lt;&lt;if $boat_barge &lt; 10&gt;&gt;
+<span class="yarn-line">Barka jest bardzo płaska. Dlaczego?</span> <span class="yarn-meta">#line:barge_2</span>
+<span class="yarn-line">Noszenie ciężkich przedmiotów, nawet gdy woda nie jest głęboka.</span> <span class="yarn-meta">#line:barge_3</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_barge = 1&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_barge&gt;&gt;</span>
+<span class="yarn-line">    Dokładnie! To ciężarówka, która pływa.</span> <span class="yarn-meta">#line:barge_4</span>
+<span class="yarn-line">Więc może się ukryć przed krasnoludami</span> <span class="yarn-meta">#line:barge_5</span>
+<span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again </span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_boat_barge&gt;&gt;</span>
+<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-boat-barge"></a>
+
+## chest_boat_barge
+
+<div class="yarn-node" data-title="chest_boat_barge">
+<pre class="yarn-code" style="--node-color:actor:"><code>
+<span class="yarn-header-dim">color: </span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $boat_barge == 1&gt;&gt;</span>
+<span class="yarn-line">    Zagraj w minigrę, aby otworzyć skrzynię!</span> <span class="yarn-meta">#line:chest_minigame</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_barge = 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_boats chest_boat_barge&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $boat_barge == 2&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_boat_barge&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card barge&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia się otwiera. Znajdziesz zdjęcie!</span> <span class="yarn-meta">#line:chest_opens </span>
+    <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $boat_barge = 10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $boat_barge == 10&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest pusta.</span> <span class="yarn-meta">#shadow:chest_empty</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Skrzynia jest zamknięta.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-spawned-kayak"></a>
+
+## spawned_kayak
+
+<div class="yarn-node" data-title="spawned_kayak">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
 <span class="yarn-header-dim">// these npc are spawned automatically in the scene</span>
@@ -414,8 +690,9 @@ hide:
 <span class="yarn-header-dim">group: Spawned</span>
 <span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Podoba mi się mały KAYAK.</span> <span class="yarn-meta">#line:0f36b7f </span>
-<span class="yarn-line">Płyń szybko po spokojnej wodzie.</span> <span class="yarn-meta">#line:07ff8c5 </span>
+<span class="yarn-line">Chcę popływać małym KAJAKIEM.</span> <span class="yarn-meta">#line:0f36b7f #card:kayak</span>
+<span class="yarn-line">Kajaki są świetne do odkrywania natury!</span> <span class="yarn-meta">#line:kayak_2 #card:kayak</span>
+<span class="yarn-line">Wiosłowanie to świetna zabawa i dobre ćwiczenie!</span> <span class="yarn-meta">#line:kayak_3</span>
 
 </code>
 </pre>
@@ -428,42 +705,12 @@ hide:
 <div class="yarn-node" data-title="spawned_tourist">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Tak wiele MOSTÓW w tym mieście.</span> <span class="yarn-meta">#line:0577d80 </span>
-<span class="yarn-line">Liczba moich zdjęć jest ogromna.</span> <span class="yarn-meta">#line:089ea37 </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-spawned-fisher"></a>
-
-## spawned_fisher
-
-<div class="yarn-node" data-title="spawned_fisher">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Spokojna woda jest dobra dla ryb.</span> <span class="yarn-meta">#line:0207b2a </span>
-<span class="yarn-line">Przyglądam się przepływającym łodziom.</span> <span class="yarn-meta">#line:04d0dac </span>
-
-</code>
-</pre>
-</div>
-
-<a id="ys-node-spawned-birdwatcher"></a>
-
-## spawned_birdwatcher
-
-<div class="yarn-node" data-title="spawned_birdwatcher">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: Spawned</span>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ptaki odpoczywają na starym moście.</span> <span class="yarn-meta">#line:05d28c9 </span>
-<span class="yarn-line">Zapisuję je w swojej książce.</span> <span class="yarn-meta">#line:0b1b835 </span>
+<span class="yarn-line">Wrocław jest naprawdę piękny.</span> <span class="yarn-meta">#line:089ea37 </span>
+<span class="yarn-line">Uwielbiam pierogi!</span> <span class="yarn-meta">#line:07ff8c5 </span>
+<span class="yarn-line">Wyspa Katedralna nocą wygląda magicznie.</span> <span class="yarn-meta">#line:tourist_4</span>
 
 </code>
 </pre>
