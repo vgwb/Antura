@@ -33,9 +33,7 @@ namespace Antura.Discover
         public QuestDebugConfig DebugConfig;
 
         public List<ActivityConfig> ActivityConfigs;
-
         public QuestTask[] QuestTasks;
-
         public InventoryManager Inventory;
         public ProgressManager Progress;
         public QuestTaskManager TaskManager;
@@ -66,10 +64,6 @@ namespace Antura.Discover
             }
             yarnManager?.Setup();
 
-            // Initialize inventory target from Yarn variables if present
-            // int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
-
-            // Inventory.Init(questItemsTarget);
             // Initialize and register tasks for this quest
             if (QuestTasks != null)
             {

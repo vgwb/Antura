@@ -6,7 +6,6 @@ using DG.DeInspektor.Attributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Debug = UnityEngine.Debug;
 
 namespace Antura.Discover.Activities
 {

@@ -1,15 +1,9 @@
 using Antura.UI;
-using Antura.Database;
-using Antura.Language;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 using System;
 using DG.Tweening;
-using Antura.Core;
-
 namespace Antura.Discover.Activities
 {
     public enum Difficulty
@@ -23,7 +17,6 @@ namespace Antura.Discover.Activities
 
     public class ActivityBase : MonoBehaviour
     {
-
         [Header("Common properties")]
         public ActivityData ActivityData;
         public string ActivityCode;

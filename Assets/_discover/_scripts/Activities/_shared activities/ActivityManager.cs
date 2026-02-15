@@ -1,10 +1,9 @@
+using Antura.UI;
 using Antura.Utilities;
-using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Localization;
-using Antura.UI;
-
 namespace Antura.Discover.Activities
 {
     public class ActivityManager : SingletonMonoBehaviour<ActivityManager>
@@ -14,20 +13,20 @@ namespace Antura.Discover.Activities
         [Tooltip("Optional parent for instantiated activity prefabs. If null, spawned under this manager.")]
         public Transform ActivitiesParent;
 
-        public string _returnNode;
-        private ActivityBase _currentActivity;
-        private int _lastResultScore;
-        private GameObject _spawnedInstanceGO;   // if we instantiate, keep a handle to destroy on close
-        private bool _ownsCurrentInstance;       // true when _currentActivity belongs to _spawnedInstanceGO
-        private string _currentSettingsCode;
-        private readonly Dictionary<string, int> _lastResultsBySettings = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        public string returnNode { get; private set; }
+        private ActivityBase currentActivity;
+        private string currentSettingsCode;
+        private int lastResultScore;
+        private GameObject spawnedInstanceGO;   // if we instantiate, keep a handle to destroy on close
+        private bool ownsCurrentInstance;       // true when _currentActivity belongs to _spawnedInstanceGO
+        private readonly Dictionary<string, int> lastResultsBySettings = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
         public bool Launch(string settingsCode, string nodeReturn = "", string difficulty = "")
         {
-            Debug.Log($"ActivityManager.Launch: {settingsCode} -> {nodeReturn}");
-            _lastResultScore = 0;
-            _returnNode = nodeReturn ?? string.Empty;
-            _currentSettingsCode = settingsCode;
+            // Debug.Log($"ActivityManager.Launch: {settingsCode} -> {nodeReturn}");
+            lastResultScore = 0;
+            returnNode = nodeReturn ?? string.Empty;
+            currentSettingsCode = settingsCode;
 
             // Find activity config from QuestManager list
             ActivityConfig activityConfig = null;
@@ -73,9 +72,9 @@ namespace Antura.Discover.Activities
                 Debug.LogWarning("ActivityManager.Launch(settings): settings is null");
                 return false;
             }
-            _lastResultScore = 0;
-            _returnNode = nodeReturn ?? string.Empty;
-            _currentSettingsCode = settings != null ? settings.Id : string.Empty;
+            lastResultScore = 0;
+            returnNode = nodeReturn ?? string.Empty;
+            currentSettingsCode = settings != null ? settings.Id : string.Empty;
 
             // Resolve ActivityData by code
             if (ActivityList == null || ActivityList.Activities == null)
@@ -118,9 +117,9 @@ namespace Antura.Discover.Activities
 
             // Enter PlayActivity and hide world UI
             DiscoverGameManager.I?.ChangeState(GameplayState.PlayActivity, true);
-            _currentActivity = activityBase;
-            _ownsCurrentInstance = true;
-            _spawnedInstanceGO = go;
+            currentActivity = activityBase;
+            ownsCurrentInstance = true;
+            spawnedInstanceGO = go;
 
             // Configure from data
             activityBase.ConfigureSettings(settings);
@@ -137,23 +136,23 @@ namespace Antura.Discover.Activities
         /// </summary>
         public void OnActivityClosed(string activitySettingsCode, int resultScore, int durationSec)
         {
-            _lastResultScore = resultScore;
+            lastResultScore = resultScore;
 
-            if (!string.IsNullOrEmpty(_currentSettingsCode))
+            if (!string.IsNullOrEmpty(currentSettingsCode))
             {
-                _lastResultsBySettings[_currentSettingsCode] = resultScore;
+                lastResultsBySettings[currentSettingsCode] = resultScore;
             }
             else if (!string.IsNullOrEmpty(activitySettingsCode))
             {
-                _lastResultsBySettings[activitySettingsCode] = resultScore;
-                _currentSettingsCode = activitySettingsCode;
+                lastResultsBySettings[activitySettingsCode] = resultScore;
+                currentSettingsCode = activitySettingsCode;
             }
 
             try
             {
                 DiscoverAppManager.I?.RecordActivityEnd(new ActivityEnd
                 {
-                    activityId = !string.IsNullOrEmpty(_currentSettingsCode) ? _currentSettingsCode : activitySettingsCode,
+                    activityId = !string.IsNullOrEmpty(currentSettingsCode) ? currentSettingsCode : activitySettingsCode,
                     score = resultScore,
                     durationSec = durationSec
                 });
@@ -161,27 +160,27 @@ namespace Antura.Discover.Activities
             catch { }
 
             // If a return node is provided, enter Dialogue and start it; otherwise resume Play3D
-            if (!string.IsNullOrEmpty(_returnNode))
+            if (!string.IsNullOrEmpty(returnNode))
             {
                 DiscoverGameManager.I?.ChangeState(GameplayState.Dialogue, true);
-                YarnAnturaManager.I?.StartDialogue(_returnNode);
+                YarnAnturaManager.I?.StartDialogue(returnNode);
             }
             else
             {
                 DiscoverGameManager.I?.ChangeState(GameplayState.Play3D, true);
             }
-            _returnNode = string.Empty;
+            returnNode = string.Empty;
             // If we spawned an instance for this session, destroy it now
-            if (_ownsCurrentInstance && _spawnedInstanceGO != null)
+            if (ownsCurrentInstance && spawnedInstanceGO != null)
             {
                 try
-                { Destroy(_spawnedInstanceGO); }
+                { Destroy(spawnedInstanceGO); }
                 catch { }
             }
-            _spawnedInstanceGO = null;
-            _ownsCurrentInstance = false;
-            _currentActivity = null;
-            _currentSettingsCode = string.Empty;
+            spawnedInstanceGO = null;
+            ownsCurrentInstance = false;
+            currentActivity = null;
+            currentSettingsCode = string.Empty;
             GlobalUI.ShowPauseMenu(true);
         }
 
@@ -191,16 +190,16 @@ namespace Antura.Discover.Activities
         public int GetResult(string activitySettingsCode)
         {
             if (string.IsNullOrEmpty(activitySettingsCode))
-                return _lastResultScore;
+                return lastResultScore;
 
-            if (_lastResultsBySettings.TryGetValue(activitySettingsCode, out var value))
+            if (lastResultsBySettings.TryGetValue(activitySettingsCode, out var value))
             {
                 return value;
             }
 
-            if (string.Equals(activitySettingsCode, _currentSettingsCode, StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(activitySettingsCode, currentSettingsCode, StringComparison.OrdinalIgnoreCase))
             {
-                return _lastResultScore;
+                return lastResultScore;
             }
 
             return 0;
@@ -211,25 +210,25 @@ namespace Antura.Discover.Activities
         /// </summary>
         private void PrepareNewLaunch()
         {
-            if (_currentActivity != null)
+            if (currentActivity != null)
             {
                 // If we own it, destroy. Otherwise, just hide to avoid duplicates.
-                if (_ownsCurrentInstance && _spawnedInstanceGO != null)
+                if (ownsCurrentInstance && spawnedInstanceGO != null)
                 {
                     try
-                    { Destroy(_spawnedInstanceGO); }
+                    { Destroy(spawnedInstanceGO); }
                     catch { }
                 }
                 else
                 {
                     try
-                    { _currentActivity.HidePanel(); }
+                    { currentActivity.HidePanel(); }
                     catch { }
                 }
             }
-            _spawnedInstanceGO = null;
-            _ownsCurrentInstance = false;
-            _currentActivity = null;
+            spawnedInstanceGO = null;
+            ownsCurrentInstance = false;
+            currentActivity = null;
         }
 
         private void TryPopulateActivityMeta(ActivityBase activityBase, ActivitySettingsAbstract settings)

@@ -68,16 +68,23 @@ namespace Antura.Discover
         private Coroutine saveCo;
 
         #region Events for UI / systems
-        /// <summary>Raised after a profile is loaded/created/switches.</summary>
+        /// <summary>
+        /// Raised after a profile is loaded/created/switches.
+        /// </summary>
         public event Action<DiscoverPlayerProfile> OnProfileLoaded;
 
-        /// <summary>Raised when an achievement becomes unlocked (id, at UTC ISO time).</summary>
+        /// <summary>
+        /// Raised when an achievement becomes unlocked (id, at UTC ISO time).
+        /// </summary>
         public event Action<string, string> OnAchievementUnlocked;
 
-        /// <summary>Raised when cookies/gems/points change (for HUD badges, etc.).</summary>
+        /// <summary>
+        /// Raised when cookies/gems/points change (for HUD badges, etc.).</summary>
         public event Action OnCurrencyChanged;
 
-        /// <summary>Raised when gems are awarded through the ledger (delta, newly added tokens).</summary>
+        /// <summary>
+        /// Raised when gems are awarded through the ledger (delta, newly added tokens).
+        /// </summary>
         public event Action<int, GemTokenClaim[]> OnGemsAwarded;
         #endregion
 
