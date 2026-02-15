@@ -165,7 +165,7 @@ position: 100,100
 color: green
 actor:
 ---
-Is Odra the *longest* river in Poland? #line:quiz2_intro
+Is Odra the longest river in Poland? #line:quiz2_intro
 -> No, the Wisła is longer #line:quiz2_a1
     <<card place_vistula_river>>
     Perfect! The Wisła is number one, Odra is the second longest. #line:quiz2_ok
@@ -526,7 +526,7 @@ Barges (Barki) have carried coal and sand on the Odra for centuries. #line:barge
 A barge is very flat. Why? #line:barge_2
 -> To carry heavy things even when the water is not deep. #line:barge_3
     <<set $boat_barge = 1>>
-    <<target chest_barge>>
+    <<target chest_boat_barge>>
     Exactly! It's a truck that floats. #line:barge_4
     <<camera_focus camera_chest_boat_barge>>
     Now you can open that chest! #shadow:yes_chest
