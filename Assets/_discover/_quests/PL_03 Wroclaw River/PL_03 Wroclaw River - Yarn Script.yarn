@@ -102,7 +102,7 @@ actor: SENIOR_M
 <<elseif HasCompletedTask("collect_cards")>>
     You are brave! But I still miss photos of our river wonders. #line:006ab27 
     <<area area_all>>
-    Look for the chests protected by the river folk! #task:find_photos #line:prot_4 
+    Look for the chests! The people by the river watch over them. #task:find_photos #line:prot_4 
     If you can't find them, use the map! #line:0bfcb05 
     <<task_start find_photos task_find_photos_done>>
 <<elseif GetCurrentTask() == "find_photos" or GetCurrentTask() == "collect_cards">>
@@ -275,7 +275,7 @@ actor:
 This is the Tumski Bridge. It goes to the oldest part of the city. #line:tum_1
 Every evening, a man lights the 102 gas lanterns here by hand! #line:tum_2
 <<if $bridge_tumski < 10>>
-What do couples hang on this bridge for luck? #line:tum_3
+What do couples hang on this bridge for luck and love? #line:tum_3
 -> Padlocks #line:tum_4
     <<set $bridge_tumski = 1>>
     <<target chest_tumski_bridge>>
@@ -325,7 +325,7 @@ What holds this massive bridge up? #line:redz_3
 -> Steel cables #line:redz_4
     <<set $bridge_redzinski = 1>>
     <<target chest_redzinski_bridge>>
-    Correct! Strong ropes hold this giant bridge. Cars drive on it around the city. #line:redz_5
+    Correct! Strong ropes hold this giant bridge. Cars use it to drive around the city. #line:redz_5
 -> Magnets and Magic #line:redz_6
     It looks like magic, but it's actually engineering! #line:fail_redz
     <<jump npc_redzinski_bridge>>
