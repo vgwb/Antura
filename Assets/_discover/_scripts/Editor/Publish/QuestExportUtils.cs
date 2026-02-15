@@ -8,7 +8,6 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 
 namespace Antura.Discover.Editor
 {
@@ -231,7 +230,6 @@ namespace Antura.Discover.Editor
             return sb.ToString();
         }
 
-        // Build the separate script page for web publish
         public static string BuildQuestScriptMarkdown(QuestData q, bool includeLanguageMenu = false, Locale locale = null)
         {
             var sb = new StringBuilder();
@@ -754,7 +752,6 @@ namespace Antura.Discover.Editor
             catch { }
             return string.Empty;
         }
-
 
     }
 }
