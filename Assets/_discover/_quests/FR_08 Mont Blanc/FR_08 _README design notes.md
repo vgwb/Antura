@@ -18,32 +18,81 @@ Mont Blanc, French Alps - Mountain peak
   - Learn the names of essential **clothing** for a cold environment.  
   - See examples of mountain **activities** like skiing, climbing, and hiking.
 
+## CARDS
+- alps
+- backpack
+- bobsled
+- climbing
+- coat
+- crampons
+- flag_france
+- flag_italy
+- flag_swiss
+- glacier
+- gloves
+- hat
+- hiking
+- ice
+- marmot
+- mountain
+- mountain_guide
+- place_mont_blanc
+- rope
+- scarf
+- skiing
+- snow
+- summit
+- sun
+- sunglasses
+- wind
+
 ### Flow
 
-**Base Camp \- The Preparation:** The quest starts at a base camp at the foot of Mont Blanc. The Mountain Guide greets Cat.
+**Core Gameplay Pillars (for this quest):**
+- **Parkour Traversal:** Climb, jump, and move through short obstacle sequences.
+- **Gear Decisions in Context:** Equip items when terrain/weather makes them useful.
+- **Hidden Object Discovery:** Find optional mountain objects tucked into side paths and vertical detours.
 
-- **Guide:** "Bonjour, mountaineer\! Ready to climb Mont Blanc, the highest peak in the Alps? The weather on the mountain can change quickly, so you must be prepared. I've packed your bag with all the essential gear. I'm also entrusting you with these three flags to place at the summit. Let's begin\!"  
-  - The player is shown the backpack UI, filled with the 5 clothing items.
+**Base Camp - Briefing and First Moves**
+- Quest starts at the foot of Mont Blanc with the **mountain_guide**.
+- Cat gets a **backpack** with weather gear and climbing tools.
+- A small tutorial obstacle teaches the movement rhythm (jump + ledge grab + pull up).
+- Learning anchor introduced early: this is **Mont Blanc** in the **Alps**.
 
-**The Ascent \- A Series of Challenges:** The player starts moving up a winding path.
+**Ascent Section 1 - Windy Pass (Parkour Intro)**
+- Environment: narrow ridge with strong **wind** gusts.
+- Traversal: cross gaps and climb low ledges between gust cycles.
+- Gear gate: equip **coat** + **scarf** to resist wind chill and continue.
+- Hidden objects (optional): one off-path collectible near a risky jump (e.g., **rope**).
 
-- **Challenge 1 (The Windy Pass):** The environment becomes windy (visual effects and sound). The Cat shivers.  
-  - **Guide's Voice-over:** "Brrr, that wind is biting\! Open your backpack and put on something to protect yourself. You should have a coat and a hat."  
-    - **Puzzle:** The player must open the backpack UI and select the **Coat** and **Scarf**. Once selected, the Cat puts them on, and can proceed.  
-  - **Challenge 2 (The Snow Line):** It begins to snow heavily. Along this part of the path, the player sees NPCs **skiing**.  
-    - **Guide's Voice-over:** "Snow\! It's beautiful but cold. You'll need your warmest layers now\!"  
-    - **Puzzle:** The player must open the backpack and select the **Hat** and **Gloves**.  
-  - **Challenge 3 (The Sun-Glacier):** The path crosses a wide, snowy field where the sun is intensely bright. The player sees NPCs **hiking** with poles and sunglasses.  
-    - **Guide's Voice-over:** "The sun's reflection on the snow can be blinding\! Protect your eyes."  
-    - **Puzzle:** The player must select the **Sunglasses**.
+**Ascent Section 2 - Snow Line (Vertical Climb)**
+- Environment: active **snow** area with icy ledges; NPCs in the distance **skiing**.
+- Traversal: steeper route with short wall climbs and timing-based jumps.
+- Gear gate: equip **hat** + **gloves** before entering the exposed upper section.
+- Hidden objects (optional): tucked in side alcoves (e.g., **marmot**, **hiking** token).
 
-**The Summit:** The player reaches the peak. The view is spectacular. A signpost reads **"Mont Blanc: 4807m"**. The Mountain Guide is waiting for them. Near the sign are three empty flagpoles.
+**Ascent Section 3 - Glacier Traverse (Precision Movement)**
+- Environment: reflective **glacier** and **ice** patches under intense **sun**.
+- Traversal: slippery ground segments, narrow edges, and one longer jump chain.
+- Gear gate: equip **sunglasses** to read route markers and avoid wrong paths.
+- Tool flavor: place **crampons** and **climbing** references as contextual props/tutorial prompts.
 
-**Final Challenge \- Placing the Flags:**
+**Ascent Section 4 - Summit Push (Final Parkour Chain)**
+- Environment: mixed terrain near the **summit** with snow + ice + wind.
+- Traversal: final combined sequence (jump \+ climb \+ balance) that reuses all learned movement beats.
+- Optional mastery path: a harder side route with bonus hidden object(s) for completionists.
 
-- **Guide:** "You made it\! Welcome to the top of the Alps\! From here, we can see into France, Italy, and Switzerland. Show me you know your geography. Place the flags on the correct poles\!"  
-  - The Guide gives the player the first flag (France), then the second (Switzerland) and then the last one (Italy). Hint?  
-  - **Puzzle:** The player is shown the three flags. They must drag each flag and drop it onto the correctly labeled pole (**France, Italy, Switzerland**).
+**The Summit - Geography Payoff**
+- Player reaches the top; sign reads **"Mont Blanc: 4807m"**.
+- View framing highlights nearby countries and the Alpine setting.
+- Final interactive puzzle remains the geography check with country flags.
+
+**Final Challenge - Placing the Flags**
+- Objective: place flags on the correct poles (**France, Italy, Switzerland**).
+- Outcome: confirms location knowledge after a traversal-driven climb.
+
+**Descent Reward - Bobsled Finish**
+- After summit success, unlock a short celebratory **bobsled** ride as quest outro.
 
 ### Final Assessment
 
