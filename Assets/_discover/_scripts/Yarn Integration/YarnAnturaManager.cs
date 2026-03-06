@@ -369,6 +369,17 @@ namespace Antura.Discover
         }
         #endregion
 
+        #region PLAYER
+
+        [YarnCommand("teleport")]
+        public static void CommandTeleport(string actableCode)
+        {
+            if (string.IsNullOrEmpty(actableCode))
+                return;
+            ActionManager.I.ResolveTeleportCommand(actableCode);
+        }
+
+        #endregion
 
         #region TARGET
 

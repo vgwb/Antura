@@ -139,6 +139,21 @@ namespace Antura.Discover
 
         }
 
+        public void ResolveTeleportCommand(string actableCode)
+        {
+            actableCode = actableCode.ToLower();
+
+            var actable = FindActableInChildren(actableCode);
+            if (actable != null)
+            {
+                PlayerController.SpawnToLocation(actable.transform);
+            }
+            else
+            {
+                Debug.LogWarning($"Spawn point '{actableCode}' not found under ActionManager hierarchy.");
+            }
+        }
+
         public void ResolveTargetCommand(string actableCode)
         {
             actableCode = actableCode.ToLower();
