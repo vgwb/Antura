@@ -1030,6 +1030,35 @@ namespace Antura.Discover
             _character.Motor.BaseVelocity = Vector3.zero;
         }
 
+        public void TeleportTo(GameObject target)
+        {
+            if (target == null)
+            {
+                Debug.LogWarning("PlayerController: TeleportTo called with null target transform.", this);
+                return;
+            }
+
+            if (_isTeleporting)
+            {
+                Debug.LogWarning("PlayerController: TeleportTo called while already teleporting. Ignoring new teleport request.", this);
+                return;
+            }
+
+            if (!isActiveAndEnabled)
+            {
+                Debug.LogWarning("PlayerController: TeleportTo called while component is disabled. Ignoring teleport request.", this);
+                return;
+            }
+
+            // if (DiscoverGameManager.I != null && DiscoverGameManager.I.State != GameplayState.Play3D)
+            // {
+            //     Debug.LogWarning("PlayerController: TeleportTo called while not in Play3D state. Ignoring teleport request.", this);
+            //     return;
+            // }
+            ActionManager.I.SetPlayerSpawnPoint(target);
+            BeginTeleportToSpawn();
+        }
+
         private void BeginTeleportToSpawn()
         {
             if (_isTeleporting || !isActiveAndEnabled)

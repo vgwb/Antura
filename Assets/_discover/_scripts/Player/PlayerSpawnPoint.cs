@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
-    public class PlayerSpawnPoint : MonoBehaviour
+    public class PlayerSpawnPoint : Actable
     {
         void Start()
         {

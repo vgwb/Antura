@@ -89,7 +89,7 @@ namespace Antura.Discover
             }
         }
 
-        private void SetPlayerSpawnPoint(GameObject spawnPoint)
+        public void SetPlayerSpawnPoint(GameObject spawnPoint)
         {
             PlayerSpawnPointGO = spawnPoint;
         }
@@ -146,7 +146,7 @@ namespace Antura.Discover
             var actable = FindActableInChildren(actableCode);
             if (actable != null)
             {
-                PlayerController.SpawnToLocation(actable.transform);
+                PlayerController.TeleportTo(actable.gameObject);
             }
             else
             {
