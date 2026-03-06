@@ -1,72 +1,58 @@
 ## Game Design Notes
 
-**Mission**  
-The player must explore a stylized map of Wrocław to find 10 unique dwarf statues. The quest involves simple exploration and collection, with key educational facts delivered through interactions with major landmarks like the Old Town Hall and the Cathedral. A small quiz-like interaction at the Cathedral must be completed to collect one of the dwarves. The ultimate goal is to gather all the dwarves to unlock the Sky Tower elevator.
+**Mission Objective**
+The player must explore a stylized, open-hub map of Wrocław to locate **10 unique dwarf statues**. By interacting with landmarks and completing mini-games, players learn about the city’s history and culture. The ultimate goal is to collect all 10 dwarves to convince the "Keymaster Dwarf" to unlock the Sky Tower elevator and rescue Antura.
 
-**Characters:**  
-**The Dwarf Expert (Guide):** A friendly guide who explains the mission and the magical nature of the dwarves.  
-**Special Dwarves:** The "Bishop Dwarf" who asks questions, and the "Keymaster Dwarf" who guards the elevator.  
+**Primary Characters** * **The Dwarf Expert:** A friendly guide based at the Leonardo School who introduces the lore and provides the player with "Dwarf Tunnel" access.
 
-### Knowledge Content
+**The Keymaster Dwarf:** The final "gatekeeper" at the Sky Tower who requires a full collection of 10 dwarves to proceed.
 
-**Facts about Wrocław:**
+### Knowledge Content & Educational Goals
 
-- It is the third biggest city in Poland.
-- The dwarf is the official symbol of the city.
+- **City Facts:** Wrocław is the 3rd largest city in Poland; Dwarves are the official symbol.
+- **Landmark Recognition:** Identifying the **Old Town Hall**, **The Cathedral**, **Centennial Hall**, and **Sky Tower**.
+- **Vocabulary & Concepts:**  
+  - _Town Hall:_ Where city leaders work.
+  - _Cathedral:_ A large, important church for prayer.
+  - _Panorama:_ A giant, 360-degree painting.
+- **Cultural Figures:** Recognition of Nobel Prize winner **Olga Tokarczuk**.
 
-**Landmark Recognition:** To identify and learn about the Old Town Hall, the Cathedral, and the Sky Tower.
+### Gameplay Mechanics
 
-**Basic Definitions:** To understand that a Town Hall is where the city's leaders work and a Cathedral is a large, important church where people pray.
+- **The Hunt:** Simple exploration and point-and-click collection.
+- **Dwarf Tunnels (Fast Travel):** Magical portals that allow the player to jump between three main hubs: **Old Town**, **Green Zone**, and **Sky Tower District**.
+- **Activities:** Each dwarf discovery triggers a **Jigsaw Puzzle** related to that specific landmark or fact.
+- **Special Interaction:** A mandatory **Quiz** at the Cathedral to unlock the Bishop Dwarf.
 
 ### Flow
 
-**Mission**: We start on the campus of the Leonardo School. The player meets the "Dwarf Expert."
+#### **Phase 1: The Briefing**
 
-**Dwarf Expert:** "Oh no, it's terrible! Your friend Antura is stuck on the observation deck of the Sky Tower! The mischievous Wrocław dwarves locked the elevator. They love games! The only way to get them to open it is to find 10 of their friends who are hiding around the city. Will you help me find them?"
+- **Location:** Leonardo School Campus.
+- **Event:** The Dwarf Expert explains that Antura is stuck atop the Sky Tower. The dwarves have locked the elevator as a game.
+- **Tutorial:** The Expert introduces the **Dwarf Tunnels** to help the player navigate the large city.
 
-**The Hunt - Part 1 (Old Town)**
-The player must find  several dwarves in fun, interactive ways (e.g., clicking on a bench to make a dwarf pop out from behind it).
-In the first part we hide 7 dwarfes
+#### **Phase 2: The Old Town Hub (Dwarves 1-3)**
 
-**Dwarfs stories**
-For each we play [Activity Jigsaw puzzle]
+- **Dwarf 1 - The Origin:** Found near the Market Square. Teaches the history of dwarves as a resistance symbol (2003/1980s).
+- **Dwarf 2 - The Councilor:** Located at the **Old Town Hall**. Focuses on the role of city leaders.
+- **Dwarf 3 - The Bishop:** Located at the **Cathedral**. Requires a quiz about what a Cathedral is (a place to pray).
 
-**Dwarf 0 - The origin of Dwarfs**
-They became the symbol of Wrocław and first appeared in that context in 2003, although they were used as a resistance movement in the 1980s against the communist regime. 
+#### **Phase 3: The Green Zone Hub (Dwarves 4-7)**
 
-"Wrocław is the city of dwarfs. You can find them everywhere: on sidewalks, in squares, and in the Wrocław Market Square. They are a big group of little city residents, like the Coach, Sleepyhead, Kind One, Firefighters, Forget-Me-Not, and many more."
+- **Dwarf 4 - Animal Lover:** Located at the **Wrocław ZOO**. Fact: It is the largest ZOO in Poland.
+- **Dwarf 5 - The Architect:** Located at **Centennial Hall**. Fact: A huge building for shows and sports with a unique dome roof.
+- **Dwarf 6 - The Conductor:** Located at the **Multimedia Fountain**. Fact: One of the largest in Europe, using lights and music.
+- **Dwarf 7 - The Painter:** Located at **Panorama Racławicka**. Fact: A giant battle painting (15m x 114m) that surrounds the viewer.
 
-**Dwarf 1: The Old Town Hall**  
-The player approaches the beautiful Town Hall building. A pop-up appears: A "Councilor Dwarf" is found on the steps.
+#### **Phase 4: The Modern Hub & Finale (Dwarves 8-10)**
 
-EN: "This is the magnificent Old Town Hall. It's a very old and important building where the city's leaders work."
+- **Dwarf 8 - The Writer:** Located near the base of the Sky Tower. Introduces **Olga Tokarczuk**, Nobel Prize-winning writer living in Wrocław.
+- **Dwarf 9 - The Traveler:** Found in the modern plaza of the Sky Tower. Represents the modern growth of the city.
+- **Dwarf 10 - The Keymaster:** Stands directly in front of the Sky Tower elevator.
 
-**Dwarf 2 - The Cathedral & Quiz**  
-The player reaches the Cathedral. A special "Bishop Dwarf" statue blocks the path to a collectible dwarf behind it. 
-[Activity Puzzle with a dwarf]
+#### **Phase 5: The Summit**
 
-**Dwarf 3 - ZOO Fact Integration**  
-The player finds an "Animal Lover Dwarf" sitting next to a large, colorful poster that reads: "Visit the Wrocław ZOO - The Biggest in Poland!" (it’ll be Quest PL 04)
-
-**Dwarf 4 - Centennial Hall**  
-EN: The Centennial Hall is a huge building that looks like a big tent with a roof. It’s very tall. Inside, you can see different shows, listen to concerts, or watch sports games. 
-
-**Dwarf 5 - The Wrocław Multimedia Fountain**
-one of the largest operating fountains in Europe, is a multimedia musical fountain, that offers nightly displays of Multimedia Shows that use different coloured lights.
-
-EN: The Wrocław multimedia fountain is a place where water dances to music and colorful lights. Every summer show is a beautiful story told with water and light.
-
-**Dwarf 6 - Panorama Racławicka**
-a museum in Wrocław that displays the painting by Wojciech Kossak and Jan Styka, showing the events of a battle of Raclawice. Its dimentions are 1500x11400 cm.
-
-EN: The Racławice Panorama is a giant painting that shows a big battle. It’s so big that it goes all around you, and when you stand in the middle, you feel like you’re part of the story.
-
-**Dwarf 7 - Olga Tokarczuk**
-polish writer who was awarded with the Nobel Prize in Literature. She is living in Wrocław.
-EN: In Wrocław lives Olga Tokarczuk. She is the most famous Polish writer. The characters in her books often live in Lower Silesia, the region where Wrocław is the main city.
-
-**The Hunt - Part 2 (Sky Tower): **
-After finding the first 7 dwarves,  we can enter the Sky Tower to find the final **3** hidden in the modern plaza around its base.
-
-Unlocking the Tower:
-With the Dwarf Counter showing 10/10, the player approaches the elevator doors of the Sky Tower, which are blocked by a "Keymaster Dwarf" with a giant key.
+- The elevator unlocks. The player reaches the observation deck.
+- **Final Assessment:** A 2-question recap (Symbol of the city? Size of the city?).
+- **Outcome:** Quest Complete! Antura is rescued (or has just moved to the next quest location).

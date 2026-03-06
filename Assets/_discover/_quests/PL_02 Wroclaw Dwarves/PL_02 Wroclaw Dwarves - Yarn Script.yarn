@@ -101,6 +101,19 @@ Why don't you draw your Dwarf? #line:0e7c76a
 <<quest_end>>
 ===
 
+title: magic_tram
+position: -200,800
+---
+Where do you want to jump to? #line:portal_intro
+-> The Old Town #line:portal_town
+    <<teleport tram_old_town>>
+-> The Big Park & ZOO #line:portal_park
+    <<teleport tram_centennial_hall>>
+-> The Sky Tower #line:portal_skytower
+    <<teleport tram_sky_tower>>
+-> Stay here #line:portal_cancel #highlight
+    <<stop>>
+===
 
 title: npg_task_dwarves
 position: 0,180
