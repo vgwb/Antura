@@ -626,6 +626,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 104c1af534acf1448948f93f215ff0c3, type: 3}
+--- !u!114 &2018736911 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1722555415137543121, guid: 2176006738dc54235b78190e6aab188b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5086884713898122335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
 --- !u!1 &2056311000
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +955,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1281210821818956974, guid: 2176006738dc54235b78190e6aab188b,
+        type: 3}
+      propertyPath: PlayerSpawnPoint
+      value: 
+      objectReference: {fileID: 2018736911}
     - target: {fileID: 2519344455256515021, guid: 2176006738dc54235b78190e6aab188b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1035,6 +1052,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5651115876431617115, guid: 6a0574282a943714496a03b9b43cefb9,
+        type: 3}
+      propertyPath: AllowJumpingWhenSliding
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6937420662406837792, guid: 6a0574282a943714496a03b9b43cefb9,
         type: 3}
       propertyPath: m_UIInputModule
