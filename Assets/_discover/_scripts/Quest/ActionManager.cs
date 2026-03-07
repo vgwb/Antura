@@ -91,6 +91,7 @@ namespace Antura.Discover
 
         public void SetPlayerSpawnPoint(GameObject spawnPoint)
         {
+            PlayerSpawnPoint = spawnPoint != null ? spawnPoint.GetComponent<PlayerSpawnPoint>() : null;
             PlayerSpawnPointGO = spawnPoint;
         }
         public void RespawnPlayer()
