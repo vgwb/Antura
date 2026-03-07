@@ -48,6 +48,9 @@ namespace Antura.Discover
         public float JumpScalableForwardSpeed = 10f;
         public float JumpPreGroundingGraceTime = 0.1f;
         public float JumpPostGroundingGraceTime = 0.2f;
+        public float BlockedJumpBackstepDistance = 0.2f;
+        public float BlockedJumpHitGraceTime = 0.15f;
+        [Range(0f, 1f)] public float BlockedJumpFacingThreshold = 0.5f;
 
         [Header("Misc")]
         public List<Collider> IgnoredColliders = new List<Collider>();
@@ -93,6 +96,8 @@ namespace Antura.Discover
         private float _standingCapsuleRadius;
         private readonly Collider[] _probedColliders = new Collider[8];
         private Vector3 _lastNonZeroLookDirection = Vector3.forward;
+        private Vector3 _lastBlockingHitNormal = Vector3.zero;
+        private float _timeSinceBlockingHit = Mathf.Infinity;
 
         private void Awake()
         {
@@ -173,6 +178,9 @@ namespace Antura.Discover
                         _lookInputVector = _lastNonZeroLookDirection;
                     }
                     break;
+                default:
+                    _lookInputVector = _lastNonZeroLookDirection;
+                    break;
             }
 
             // Jumping
@@ -229,6 +237,8 @@ namespace Antura.Discover
         {
             float maxStableSpeed = DesiredMaxStableMoveSpeed > 0f ? DesiredMaxStableMoveSpeed : DefaultMaxStableMoveSpeed;
             float maxAirSpeed = DesiredMaxAirMoveSpeed > 0f ? DesiredMaxAirMoveSpeed : DefaultMaxAirMoveSpeed;
+
+            _timeSinceBlockingHit += deltaTime;
 
             // Ground movement
             if (Motor.GroundingStatus.IsStableOnGround)
@@ -310,6 +320,8 @@ namespace Antura.Discover
                     {
                         jumpDirection = Motor.GroundingStatus.GroundNormal;
                     }
+
+                    TryApplyBlockedJumpBackstep();
 
                     Motor.ForceUnground();
 
@@ -411,6 +423,18 @@ namespace Antura.Discover
 
         public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
+            Vector3 planarHitNormal = Vector3.ProjectOnPlane(hitNormal, Motor.CharacterUp);
+            if (planarHitNormal.sqrMagnitude > 0.0001f && _moveInputVector.sqrMagnitude > 0.0001f)
+            {
+                Vector3 moveDirection = _moveInputVector.normalized;
+                Vector3 obstacleFacingDirection = -planarHitNormal.normalized;
+                if (Vector3.Dot(moveDirection, obstacleFacingDirection) >= BlockedJumpFacingThreshold)
+                {
+                    _lastBlockingHitNormal = planarHitNormal.normalized;
+                    _timeSinceBlockingHit = 0f;
+                }
+            }
+
             MovementHit?.Invoke(hitCollider, hitNormal, hitPoint, Motor != null ? Motor.Velocity : Vector3.zero);
         }
 
@@ -420,6 +444,51 @@ namespace Antura.Discover
 
         public void OnDiscreteCollisionDetected(Collider hitCollider)
         {
+        }
+
+        private void TryApplyBlockedJumpBackstep()
+        {
+            if (Motor == null || BlockedJumpBackstepDistance <= 0f || _timeSinceBlockingHit > BlockedJumpHitGraceTime)
+            {
+                return;
+            }
+
+            Vector3 moveDirection = Vector3.ProjectOnPlane(_moveInputVector, Motor.CharacterUp);
+            if (moveDirection.sqrMagnitude <= 0.0001f)
+            {
+                return;
+            }
+
+            Vector3 backstepDirection = Vector3.ProjectOnPlane(_lastBlockingHitNormal, Motor.CharacterUp);
+            if (backstepDirection.sqrMagnitude <= 0.0001f)
+            {
+                return;
+            }
+
+            moveDirection.Normalize();
+            backstepDirection.Normalize();
+            if (Vector3.Dot(moveDirection, -backstepDirection) < BlockedJumpFacingThreshold)
+            {
+                return;
+            }
+
+            float[] backstepFactors = { 1f, 0.66f, 0.33f };
+            for (int i = 0; i < backstepFactors.Length; i++)
+            {
+                Vector3 candidatePosition = Motor.TransientPosition + (backstepDirection * BlockedJumpBackstepDistance * backstepFactors[i]);
+                if (Motor.CharacterOverlap(
+                        candidatePosition,
+                        Motor.TransientRotation,
+                        _probedColliders,
+                        Motor.CollidableLayers,
+                        QueryTriggerInteraction.Ignore) > 0)
+                {
+                    continue;
+                }
+
+                Motor.SetTransientPosition(candidatePosition);
+                break;
+            }
         }
     }
 }
