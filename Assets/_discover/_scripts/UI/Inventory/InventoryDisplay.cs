@@ -53,7 +53,7 @@ namespace Antura.Discover
 
         public void OnClickBookIcon()
         {
-            QuestBookDisplay.OpenBook();
+            QuestBookDisplay.ToggleBook();
         }
         public void AddItem(InventoryItem itemData)
         {

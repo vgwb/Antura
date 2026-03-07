@@ -34,6 +34,14 @@ namespace Antura.Discover
             CloseBook();
         }
 
+        public void ToggleBook()
+        {
+            if (isOpen)
+                CloseBook();
+            else
+                OpenBook();
+        }
+
         public void OpenBook()
         {
             if (isOpen)
@@ -42,13 +50,17 @@ namespace Antura.Discover
             isOpen = true;
             CardsUI.Init(QuestManager.I.CurrentQuest);
             gameObject.SetActive(true);
+            DiscoverNotifier.Game.OnActivityPanelToggled.Dispatch(true);
         }
 
         public void CloseBook()
         {
+            var wasOpen = isOpen;
             isOpen = false;
             gameObject.SetActive(false);
             DiscoverGameManager.I.ChangeToPreviousState();
+            if (wasOpen)
+                DiscoverNotifier.Game.OnActivityPanelToggled.Dispatch(false);
         }
     }
 }
