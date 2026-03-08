@@ -36,12 +36,12 @@ namespace Antura.Discover.Editor
             return code + "-script.md";
         }
 
-        public static string GetHumanTitle(QuestData q)
+        public static string GetHumanTitle(QuestData q, Locale locale = null)
         {
             if (q == null)
                 return string.Empty;
             string fallback = !string.IsNullOrEmpty(q.IdDisplay) ? q.IdDisplay : (!string.IsNullOrEmpty(q.Id) ? q.Id : q.name);
-            string t = SafeLocalized(q.Title, fallback);
+            string t = SafeLocalized(q.Title, fallback, locale);
             return string.IsNullOrWhiteSpace(t) ? fallback : t;
         }
 
@@ -149,13 +149,23 @@ namespace Antura.Discover.Editor
             return name ?? string.Empty;
         }
 
-        public static string SafeLocalized(LocalizedString ls, string fallback)
+        public static string SafeLocalized(LocalizedString ls, string fallback, Locale locale = null)
         {
             if (ls == null)
                 return fallback;
             try
             {
-                var s = ls.GetLocalizedString();
+                string s = null;
+                if (locale != null)
+                {
+                    s = LocalizationSettings.StringDatabase.GetLocalizedString(
+                        ls.TableReference,
+                        ls.TableEntryReference,
+                        locale,
+                        FallbackBehavior.UseFallback);
+                }
+                if (string.IsNullOrWhiteSpace(s))
+                    s = ls.GetLocalizedString();
                 return string.IsNullOrWhiteSpace(s) ? fallback : s;
             }
             catch { return fallback; }

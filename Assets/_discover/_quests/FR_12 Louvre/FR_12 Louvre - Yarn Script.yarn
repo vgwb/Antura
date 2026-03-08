@@ -6,6 +6,8 @@ tags: Start
 color: red
 type: panel
 ---
+<<declare $MET_MONALISA = false>>
+<<declare $QUEST_ITEMS = 4>>
 Welcome #line:0583648 
 ===
 
@@ -34,9 +36,6 @@ position: 320,61
 group: louvre
 actor: SENIOR_F
 ---
-<<if $MET_MONALISA>>
-    <<card go_bakery>>
-<<else>>
 <<asset louvre>>
 This is the entrance to the Louvre, a big art museum. #line:0cf1cc8 
 Do you want to go in? #line:0f74ff9
@@ -45,7 +44,6 @@ Do you want to go in? #line:0f74ff9
     <<action AREA_LOUVRE_ENTER >>
 -> No #line:077422a 
     Ok. Au revoir. #line:0c28ea0 #do_not_translate
-<<endif>>
 ===
 
 

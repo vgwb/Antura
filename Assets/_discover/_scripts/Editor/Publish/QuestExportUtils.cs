@@ -17,8 +17,8 @@ namespace Antura.Discover.Editor
         {
             var sb = new StringBuilder();
 
-            string title = PublishUtils.GetHumanTitle(q);
-            string desc = PublishUtils.SafeLocalized(q.Description, fallback: q.DescriptionText);
+            string title = PublishUtils.GetHumanTitle(q, locale);
+            string desc = PublishUtils.SafeLocalized(q.Description, fallback: q.DescriptionText, locale: locale);
             string code = PublishUtils.GetQuestCode(q);
 
             sb.AppendLine("---");
@@ -40,7 +40,7 @@ namespace Antura.Discover.Editor
             {
                 var fallback = !string.IsNullOrEmpty(q.Location.Id) ? q.Location.Id : q.Location.name;
                 // Use localized Location.Name when available
-                var localized = PublishUtils.SafeLocalized(q.Location.Name, fallback: fallback);
+                var localized = PublishUtils.SafeLocalized(q.Location.Name, fallback: fallback, locale: locale);
                 locName = localized;
             }
             sb.AppendLine("- Location: " + q.Country + (string.IsNullOrEmpty(locName) ? string.Empty : (" - " + locName)));
@@ -234,7 +234,7 @@ namespace Antura.Discover.Editor
         {
             var sb = new StringBuilder();
             string code = PublishUtils.GetQuestCode(q);
-            string title = PublishUtils.GetHumanTitle(q);
+            string title = PublishUtils.GetHumanTitle(q, locale);
 
             sb.AppendLine("---");
             sb.AppendLine("title: " + title + " (" + code + ") - Script");
@@ -529,11 +529,11 @@ namespace Antura.Discover.Editor
                 return;
 
             string cardId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
-            string cardTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Title"), fallback: cardId);
+            string cardTitle = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Title"), fallback: cardId, locale: locale);
             string heading = string.IsNullOrEmpty(headingLabel) ? cardTitle : $"{headingLabel} - {cardTitle}";
             sb.AppendLine($"#### {heading}");
 
-            string cardDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Description"), fallback: string.Empty);
+            string cardDesc = PublishUtils.SafeLocalized(PublishUtils.GetLocalizedString(card, "Description"), fallback: string.Empty, locale: locale);
             if (!string.IsNullOrEmpty(cardDesc))
             {
                 sb.AppendLine(cardDesc);

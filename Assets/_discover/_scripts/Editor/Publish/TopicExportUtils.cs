@@ -160,7 +160,7 @@ namespace Antura.Discover.Editor
                         .Distinct()
                         .Select(q => new
                         {
-                            Title = PublishUtils.GetHumanTitle(q),
+                            Title = PublishUtils.GetHumanTitle(q, locale),
                             Code = PublishUtils.GetQuestCode(q),
                             File = PublishUtils.GetQuestPublishFileNameForLocale(q, locale)
                         })

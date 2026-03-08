@@ -174,7 +174,7 @@ namespace Antura.Discover.Editor
                         {
                             var questLinks = linkable.Select(q =>
                             {
-                                var qTitle = PublishUtils.GetHumanTitle(q);
+                                var qTitle = PublishUtils.GetHumanTitle(q, locale);
                                 var qCode = PublishUtils.GetQuestCode(q);
                                 var qFile = PublishUtils.GetQuestPublishFileNameForLocale(q, locale);
                                 return $"[{qTitle} ({qCode})](../quests/quest/{qFile})";
@@ -279,7 +279,7 @@ namespace Antura.Discover.Editor
                         {
                             var questLinks = linkable.Select(q =>
                             {
-                                var qTitle = PublishUtils.GetHumanTitle(q);
+                                var qTitle = PublishUtils.GetHumanTitle(q, locale);
                                 var qCode = PublishUtils.GetQuestCode(q);
                                 var qFile = PublishUtils.GetQuestPublishFileNameForLocale(q, locale);
                                 return $"[{qTitle} ({qCode})](../quests/quest/{qFile})";
