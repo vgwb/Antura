@@ -88,6 +88,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &522248358072355274
 GameObject:
@@ -608,6 +609,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2691809237515479876
 GameObject:
@@ -717,17 +719,28 @@ MonoBehaviour:
     LearningLanguage:
       code: en
   ActivityConfigs:
-  - ActivitySettings: {fileID: 11400000, guid: d6b1b24414b6e5340a52fb68df93186a, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: d68c2df3f21e9824cbd1414bdce2bfa6, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 2e1a582405b7a7d438def17681864ac3, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 3cc5d0dcf17d8ac4abe22ef47774421d, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 626078760a6cc91469bf2cf5df1ca64c, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 9bfeb6c9f025142319c61b9fc2555be3, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: e32467a3758708046b17903839efb656, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: b9e1dac9fe9d1b840b2ff4341e326798, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 807a29526ea5f9549af2aae262afc108, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 053df4d9bf8482b45814569e14ec52b5, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 163f708519bae644bb71e650d03a3452, type: 2}
+  - Code: memory_elephant_settings
+    ActivitySettings: {fileID: 11400000, guid: d6b1b24414b6e5340a52fb68df93186a, type: 2}
+  - Code: canvas_giraffe_settings
+    ActivitySettings: {fileID: 11400000, guid: d68c2df3f21e9824cbd1414bdce2bfa6, type: 2}
+  - Code: order_lion_settings
+    ActivitySettings: {fileID: 11400000, guid: 2e1a582405b7a7d438def17681864ac3, type: 2}
+  - Code: match_monkey_settings
+    ActivitySettings: {fileID: 11400000, guid: 3cc5d0dcf17d8ac4abe22ef47774421d, type: 2}
+  - Code: jigsaw_penguin_settings
+    ActivitySettings: {fileID: 11400000, guid: 626078760a6cc91469bf2cf5df1ca64c, type: 2}
+  - Code: jigsaw_zoo_settings
+    ActivitySettings: {fileID: 11400000, guid: 9bfeb6c9f025142319c61b9fc2555be3, type: 2}
+  - Code: memory_elephant_settings_hard
+    ActivitySettings: {fileID: 11400000, guid: e32467a3758708046b17903839efb656, type: 2}
+  - Code: canvas_giraffe_settings_hard
+    ActivitySettings: {fileID: 11400000, guid: b9e1dac9fe9d1b840b2ff4341e326798, type: 2}
+  - Code: order_lion_settings_hard
+    ActivitySettings: {fileID: 11400000, guid: 807a29526ea5f9549af2aae262afc108, type: 2}
+  - Code: jigsaw_penguin_settings_hard
+    ActivitySettings: {fileID: 11400000, guid: 053df4d9bf8482b45814569e14ec52b5, type: 2}
+  - Code: match_monkey_settings_hard
+    ActivitySettings: {fileID: 11400000, guid: 163f708519bae644bb71e650d03a3452, type: 2}
   QuestTasks:
   - Code: TASK_ANIMALS
     Type: 1
@@ -977,6 +990,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!212 &358822999336274459
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1022,6 +1036,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: cc4fda892bc5946fd84ab26576b6d48a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1031,7 +1046,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3179720293371336480
 GameObject:
@@ -1664,6 +1678,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3974336113701081593
 GameObject:
@@ -2424,6 +2439,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4965880720625601818
 GameObject:
@@ -2730,6 +2746,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5795715211675847173
 GameObject:
@@ -2954,6 +2971,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6110356994182152325
 GameObject:
@@ -3038,6 +3056,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -3879,6 +3898,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8432993470751381528
 GameObject:
@@ -4629,6 +4649,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &9124460945763514011
 GameObject:
@@ -4664,6 +4685,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!212 &7138857547975667594
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4709,6 +4731,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: cc4fda892bc5946fd84ab26576b6d48a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4718,7 +4741,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &31221683371630268
 PrefabInstance:
@@ -5251,37 +5273,37 @@ PrefabInstance:
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.494661
+      value: 27.08467
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.063508
+      value: 4.2861447
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.003681
+      value: 24.993656
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9861643
+      value: 0.98634267
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.15906405
+      value: 0.15605831
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.046080124
+      value: -0.052021187
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0074325344
+      value: 0.008230752
       objectReference: {fileID: 0}
     - target: {fileID: 9083878020968956874, guid: 718c201ee772940479f69bc1c03d0b5e,
         type: 3}
@@ -6775,6 +6797,7 @@ MonoBehaviour:
   ShowOnMap: 1
   ShowIconAlways: 1
   FocusCameraOnInteract: 1
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 1
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: d745c67ef72064733a3de020b5631622,
@@ -7756,6 +7779,7 @@ MonoBehaviour:
   ShowOnMap: 1
   ShowIconAlways: 1
   FocusCameraOnInteract: 1
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 1
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: d745c67ef72064733a3de020b5631622,
@@ -10412,6 +10436,7 @@ MonoBehaviour:
   ShowOnMap: 1
   ShowIconAlways: 1
   FocusCameraOnInteract: 1
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 1
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: d745c67ef72064733a3de020b5631622,
@@ -11278,6 +11303,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: d745c67ef72064733a3de020b5631622,
@@ -16713,6 +16739,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -17558,6 +17585,7 @@ MonoBehaviour:
   ShowOnMap: 1
   ShowIconAlways: 1
   FocusCameraOnInteract: 1
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 1
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: d745c67ef72064733a3de020b5631622,
@@ -18482,6 +18510,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: d745c67ef72064733a3de020b5631622,
@@ -25899,6 +25928,7 @@ MonoBehaviour:
   ShowOnMap: 1
   ShowIconAlways: 1
   FocusCameraOnInteract: 1
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 1
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: d745c67ef72064733a3de020b5631622,

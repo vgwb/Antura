@@ -321,8 +321,10 @@ MonoBehaviour:
     LearningLanguage:
       code: en
   ActivityConfigs:
-  - ActivitySettings: {fileID: 11400000, guid: 4786cb6f52ea7514ea4f6e6b1c0408fe, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: fdb6ce665557a5d4aa1d173d859340af, type: 2}
+  - Code: match_shapes
+    ActivitySettings: {fileID: 11400000, guid: 4786cb6f52ea7514ea4f6e6b1c0408fe, type: 2}
+  - Code: order_schools_settings
+    ActivitySettings: {fileID: 11400000, guid: fdb6ce665557a5d4aa1d173d859340af, type: 2}
   QuestTasks:
   - Code: TASK_SCHOOL
     Type: 2
@@ -612,7 +614,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3640
+      value: 3634
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}

@@ -2842,12 +2842,18 @@ MonoBehaviour:
     LearningLanguage:
       code: 
   ActivityConfigs:
-  - ActivitySettings: {fileID: 11400000, guid: 220f839791f4e44eab2eaecc100e4a70, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: cddbfcacb20b84f1681922ad57b6e661, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 57408bc08800c4670b59b63eaec58c4c, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 97abfcd39152e49f0aab84296978f4a6, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: 45c47edb9210b49548b3d1ee0fddaaa1, type: 2}
-  - ActivitySettings: {fileID: 11400000, guid: a21c1cdc4edb040a7b90db5132cba993, type: 2}
+  - Code: canvas_tutorial
+    ActivitySettings: {fileID: 11400000, guid: 220f839791f4e44eab2eaecc100e4a70, type: 2}
+  - Code: jigsaw_tutorial
+    ActivitySettings: {fileID: 11400000, guid: cddbfcacb20b84f1681922ad57b6e661, type: 2}
+  - Code: match_tutorial
+    ActivitySettings: {fileID: 11400000, guid: 57408bc08800c4670b59b63eaec58c4c, type: 2}
+  - Code: memory_tutorial
+    ActivitySettings: {fileID: 11400000, guid: 97abfcd39152e49f0aab84296978f4a6, type: 2}
+  - Code: money_tutorial
+    ActivitySettings: {fileID: 11400000, guid: 45c47edb9210b49548b3d1ee0fddaaa1, type: 2}
+  - Code: order_tutorial
+    ActivitySettings: {fileID: 11400000, guid: a21c1cdc4edb040a7b90db5132cba993, type: 2}
   QuestTasks:
   - Code: talk_everybody
     Type: 1
@@ -4679,6 +4685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
+  Id: 
 --- !u!1 &5927693330448462751
 GameObject:
   m_ObjectHideFlags: 0
