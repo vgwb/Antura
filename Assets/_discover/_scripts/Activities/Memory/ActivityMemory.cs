@@ -92,7 +92,8 @@ namespace Antura.Discover.Activities
 
         private void OnWin()
         {
-            Debug.Log("🏆 Memory: all pairs found!");
+            // Debug.Log("Activity Memory: all pairs found!");
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
             EnableValidateButton(true);
         }
 
