@@ -55,8 +55,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6641374, y: 0.56356025, z: 0.55324024}
-  m_Center: {x: -0.1257518, y: 0.28178084, z: 0.004411368}
+  m_Size: {x: 0.77604467, y: 0.56356025, z: 0.74929756}
+  m_Center: {x: -0.096390784, y: 0.28178084, z: -0.006300851}
 --- !u!114 &7448125120790419301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,12 +71,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 
   IsInteractable: 1
+  IsHiddenAtStart: 0
   NearbyAutoActivate: 0
   IconType: 1
   IconTransform: {fileID: 1351922451071125516}
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
@@ -213,6 +215,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3074610442636785419
 BoxCollider:
@@ -326,6 +329,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2527846229145413709
 BoxCollider:
