@@ -452,7 +452,7 @@ actor:
 <<if $boat_house == 1>>
     Fix the windows on the floating house! #line:ch_house1
     <<set $boat_house = 2>>
-    <<activity jigsaw_boat_house chest_boat_house>>
+    <<activity jigsaw_boat_house_pl chest_boat_house>>
 <<elseif $boat_house == 2>>
     <<action open_chest_boat_house>>
     <<card houseboat>>
