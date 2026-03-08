@@ -42,7 +42,7 @@ namespace Antura.Discover.UI
 
             if (isTeacher)
             {
-                Location.text = _questData.Status.ToString() + " - " + _questData.Id;
+                Location.text = _questData.Status.ToString() + " - " + _questData.Id + " - ";
             }
             else
             {
