@@ -145,6 +145,7 @@ namespace Antura.Discover.Activities
 
         public override bool DoValidate()
         {
+            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
             return true;
         }
 
@@ -277,7 +278,6 @@ namespace Antura.Discover.Activities
 
         private void OnCanvasCleared()
         {
-            DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
             EnableValidateButton(true);
             // Auto-reveal any remaining uncollected treasures visually
             foreach (var t in treasures)
