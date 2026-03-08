@@ -26,7 +26,7 @@ hide:
 <span class="yarn-header-dim">// - WroclawOldTownHall (historical building)</span>
 <span class="yarn-header-dim">// - WroclawCathedral (religious architecture)</span>
 <span class="yarn-header-dim">// - WroclawSkyTower (modern landmark)</span>
-<span class="yarn-header-dim">tags: type=Start</span>
+<span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
@@ -43,8 +43,11 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $dwarf_9_found = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $dwarf_10_found = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $top_met = false&gt;&gt;</span>
-
 <span class="yarn-line">Witamy we Wrocławiu!</span> <span class="yarn-meta">#line:023b330 </span>
+<span class="yarn-cmd">&lt;&lt;card wroklaw_map&gt;&gt;</span>
+<span class="yarn-line">[MISSING TRANSLATION: Let's explore the city and find the dwarves.]</span> <span class="yarn-meta">#line:pl02_start_1</span>
+<span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target npg_task_dwarves&gt;&gt;</span>
 
 </code>
 </pre>
@@ -83,6 +86,27 @@ hide:
 </pre>
 </div>
 
+<a id="ys-node-magic-tram"></a>
+
+## magic_tram
+
+<div class="yarn-node" data-title="magic_tram">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">[MISSING TRANSLATION: Where do you want to jump to?]</span> <span class="yarn-meta">#line:portal_intro</span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; The Old Town]</span> <span class="yarn-meta">#line:portal_town</span>
+    <span class="yarn-cmd">&lt;&lt;teleport tram_old_town&gt;&gt;</span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; The Centennial Hall]</span> <span class="yarn-meta">#line:portal_park</span>
+    <span class="yarn-cmd">&lt;&lt;teleport tram_centennial_hall&gt;&gt;</span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; The Sky Tower]</span> <span class="yarn-meta">#line:portal_skytower</span>
+    <span class="yarn-cmd">&lt;&lt;teleport tram_sky_tower&gt;&gt;</span>
+<span class="yarn-line">[MISSING TRANSLATION: -&gt; Stay here]</span> <span class="yarn-meta">#line:portal_cancel #highlight</span>
+    <span class="yarn-cmd">&lt;&lt;stop&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
 <a id="ys-node-npg-task-dwarves"></a>
 
 ## npg_task_dwarves
@@ -113,6 +137,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Znalazłeś wszystkie krasnoludki!</span> <span class="yarn-meta">#line:03df148 </span>
 <span class="yarn-line">Teraz wjedź windą na górę!</span> <span class="yarn-meta">#line:0364c03 </span>
+<span class="yarn-cmd">&lt;&lt;task_end FIND_DWARVES&gt;&gt;</span>
 
 </code>
 </pre>
@@ -126,17 +151,26 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 1) The origin of dwarves</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card wroclaw_dwarf_statue zoom&gt;&gt;</span>
-<span class="yarn-line">Wrocław to miasto krasnali. Można je spotkać wszędzie.</span> <span class="yarn-meta">#line:007686b </span>
-<span class="yarn-line">Są małe i miłe. Lubią płatać figle.</span> <span class="yarn-meta">#line:0143908 </span>
-<span class="yarn-line">Czy chce Pan zagrać ze mną?</span> <span class="yarn-meta">#line:0e460fe </span>
-<span class="yarn-line">Tak</span> <span class="yarn-meta">#line:02a4fb8 </span>
-	<span class="yarn-cmd">&lt;&lt;activity jigsaw_dwarf_origin dwarf_1_origin_done&gt;&gt;</span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:0f7786d </span>
-<span class="yarn-line">	Och, dobrze. Może później.</span> <span class="yarn-meta">#line:0e236f0 </span>
-	<span class="yarn-cmd">&lt;&lt;SetActive dwarf_1 false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_1_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! Let's find the other dwarves.]</span> <span class="yarn-meta">#line:pl02_d1_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card wroclaw_dwarf_statue zoom&gt;&gt;</span>
+<span class="yarn-line">	Wrocław to miasto krasnali. Można je spotkać wszędzie.</span> <span class="yarn-meta">#line:007686b </span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Dwarves are small and playful.]</span> <span class="yarn-meta">#line:pl02_d1_1</span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	What is the symbol of Wrocław?]</span> <span class="yarn-meta">#line:pl02_d1_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; A dwarf]</span> <span class="yarn-meta">#line:pl02_d1_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Correct! Let's play a puzzle.]</span> <span class="yarn-meta">#line:pl02_d1_ok</span>
+		<span class="yarn-cmd">&lt;&lt;activity jigsaw_dwarf_origin dwarf_1_origin_done&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; A dog]</span> <span class="yarn-meta">#line:pl02_d1_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d1_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_1_origin&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; A car]</span> <span class="yarn-meta">#line:pl02_d1_a3</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d1_no2</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_1_origin&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -149,7 +183,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_1_origin_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobra robota! Rozwiązałeś zagadkę.</span> <span class="yarn-meta">#line:0a87d03 </span>
 <span class="yarn-line">Teraz idę z tobą.</span> <span class="yarn-meta">#line:0f49b50 </span>
@@ -170,12 +204,41 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 2) Old Town Hall</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;asset wroclaw_old_town_hall&gt;&gt;</span>
-<span class="yarn-line">To jest Stary Ratusz. Pracują tu władze miasta.</span> <span class="yarn-meta">#line:02cbbf0 </span>
-<span class="yarn-line">Spotkania odbywają się w środku. Zegar jest bardzo stary.</span> <span class="yarn-meta">#line:0ca6131 </span>
-<span class="yarn-cmd">&lt;&lt;activity jigsaw_town_hall dwarf_2_town_hall_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_2_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! Keep exploring.]</span> <span class="yarn-meta">#line:pl02_d2_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;asset wroclaw_old_town_hall&gt;&gt;</span>
+<span class="yarn-line">	To jest Stary Ratusz. Pracują tu władze miasta.</span> <span class="yarn-meta">#line:02cbbf0 </span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	City leaders work here.]</span> <span class="yarn-meta">#line:pl02_d2_1</span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	What do city leaders do here?]</span> <span class="yarn-meta">#line:pl02_d2_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; They work and meet]</span> <span class="yarn-meta">#line:pl02_d2_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Yes! Let's do a puzzle.]</span> <span class="yarn-meta">#line:pl02_d2_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_2_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; They swim]</span> <span class="yarn-meta">#line:pl02_d2_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d2_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_2_town_hall&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; They fly planes]</span> <span class="yarn-meta">#line:pl02_d2_a3</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d2_no2</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_2_town_hall&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dwarf-2-activity"></a>
+
+## dwarf_2_activity
+
+<div class="yarn-node" data-title="dwarf_2_activity">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dwarves</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle wroclaw_old_town_hall dwarf_2_town_hall_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -188,7 +251,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_2_town_hall_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobrze zrobiony!</span> <span class="yarn-meta">#line:004110a </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -208,16 +271,22 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 3) Cathedral with quiz</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card bishop_dwarf&gt;&gt;</span>
-<span class="yarn-line">To jest katedra. To duży i ważny kościół.</span> <span class="yarn-meta">#line:00f2132 </span>
-<span class="yarn-line">Czy wiesz, czym jest kościół?</span> <span class="yarn-meta">#line:080f821 </span>
-<span class="yarn-line">Tak</span> <span class="yarn-meta">#line:07550a5 </span>
-<span class="yarn-line">NIE</span> <span class="yarn-meta">#line:09e7452 </span>
- <span class="yarn-cmd">&lt;&lt;detour info_church&gt;&gt;</span>
-<span class="yarn-line">Posiada wysokie wieże i kolorowe witraże.</span> <span class="yarn-meta">#line:08871e4 </span>
-<span class="yarn-cmd">&lt;&lt;jump dwarf_3_quiz&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_3_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! The cathedral is beautiful.]</span> <span class="yarn-meta">#line:pl02_d3_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card bishop_dwarf&gt;&gt;</span>
+<span class="yarn-line">	To jest katedra. To duży i ważny kościół.</span> <span class="yarn-meta">#line:00f2132 </span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	It is a big church.]</span> <span class="yarn-meta">#line:pl02_d3_1</span>
+	
+<span class="yarn-line">	Czy wiesz, czym jest kościół?</span> <span class="yarn-meta">#line:080f821 </span>
+<span class="yarn-line">	Tak</span> <span class="yarn-meta">#line:07550a5 </span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_3_quiz&gt;&gt;</span>
+<span class="yarn-line">	NIE</span> <span class="yarn-meta">#line:09e7452 </span>
+		<span class="yarn-cmd">&lt;&lt;detour info_church&gt;&gt;</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_3_quiz&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -230,9 +299,8 @@ hide:
 <div class="yarn-node" data-title="info_church">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card church&gt;&gt;</span>
 <span class="yarn-line">Kościół to miejsce, w którym ludzie się modlą.</span> <span class="yarn-meta">#line:0b1f4e1</span>
 
 </code>
@@ -246,7 +314,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_3_quiz">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co robią ludzie w katedrze?</span> <span class="yarn-meta">#line:05ea00d </span>
 <span class="yarn-line">Robią zakupy spożywcze.</span> <span class="yarn-meta">#line:0c891cc </span>
@@ -270,10 +338,10 @@ hide:
 <div class="yarn-node" data-title="dwarf_3_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Zagrajmy w grę.</span> <span class="yarn-meta">#line:0c5d8d3 </span>
-<span class="yarn-cmd">&lt;&lt;activity jigsaw_wroclaw_cathedral dwarf_3_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle wroclaw_cathedral dwarf_3_activity_done&gt;&gt;</span>
 
 
 </code>
@@ -287,7 +355,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_3_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetnie! To kolejny krasnoludek.</span> <span class="yarn-meta">#line:04886ba </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -307,11 +375,25 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 4) ZOO</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Odwiedź wrocławskie zoo. Jest największe w Polsce.</span> <span class="yarn-meta">#line:0198e80 </span>
-<span class="yarn-line">Żyje tam wiele zwierząt z całego świata.</span> <span class="yarn-meta">#line:01b020e </span>
-<span class="yarn-cmd">&lt;&lt;jump dwarf_4_activity&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_4_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! I love animals.]</span> <span class="yarn-meta">#line:pl02_d4_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">	Odwiedź wrocławskie zoo. Jest największe w Polsce.</span> <span class="yarn-meta">#line:0198e80 </span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	It is the biggest zoo in Poland.]</span> <span class="yarn-meta">#line:pl02_d4_1</span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	The zoo has many...]</span> <span class="yarn-meta">#line:pl02_d4_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; animals]</span> <span class="yarn-meta">#line:pl02_d4_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Yes! Let's play a puzzle.]</span> <span class="yarn-meta">#line:pl02_d4_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_4_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; cars]</span> <span class="yarn-meta">#line:pl02_d4_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d4_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_4_zoo&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; clouds]</span> <span class="yarn-meta">#line:pl02_d4_a3</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d4_no2</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_4_zoo&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -324,10 +406,10 @@ hide:
 <div class="yarn-node" data-title="dwarf_4_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Zagrajmy w grę.</span> <span class="yarn-meta">#line:0f921e7 </span>
-<span class="yarn-cmd">&lt;&lt;activity jigsaw_wroclaw_zoo dwarf_4_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle wroclaw_zoo dwarf_4_activity_done&gt;&gt;</span>
 
 </code>
 </pre>
@@ -340,7 +422,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_4_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetnie!</span> <span class="yarn-meta">#line:0c852a7 </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -360,11 +442,25 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 5) Centennial Hall</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Hala Stulecia jest ogromna. Można w niej oglądać pokazy.</span> <span class="yarn-meta">#line:0ebb952 </span>
-<span class="yarn-line">Dach wygląda jak gigantyczna kopuła.</span> <span class="yarn-meta">#line:0f4189b </span>
-<span class="yarn-cmd">&lt;&lt;jump dwarf_5_activity&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_5_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! See you at the Sky Tower.]</span> <span class="yarn-meta">#line:pl02_d5_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">	Hala Stulecia jest ogromna. Można w niej oglądać pokazy.</span> <span class="yarn-meta">#line:0ebb952 </span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	You can see shows inside.]</span> <span class="yarn-meta">#line:pl02_d5_1</span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	What can you see inside?]</span> <span class="yarn-meta">#line:pl02_d5_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; shows]</span> <span class="yarn-meta">#line:pl02_d5_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Correct! Let's do a puzzle.]</span> <span class="yarn-meta">#line:pl02_d5_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_5_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; fish]</span> <span class="yarn-meta">#line:pl02_d5_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d5_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_5&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; snow]</span> <span class="yarn-meta">#line:pl02_d5_a3</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d5_no2</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_5&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -377,7 +473,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_5_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Zagrajmy w grę.</span> <span class="yarn-meta">#line:06b4a16 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle centennial_hall dwarf_5_activity_done&gt;&gt;</span>
@@ -393,7 +489,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_5_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetnie!</span> <span class="yarn-meta">#line:0abf458 </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -413,11 +509,24 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 6) Multimedia Fountain</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Tutaj woda tańczy w rytm muzyki i świateł.</span> <span class="yarn-meta">#line:0daf76d </span>
-<span class="yarn-line">Spektakle są przepiękne w letnie noce.</span> <span class="yarn-meta">#line:006ed40 </span>
-<span class="yarn-cmd">&lt;&lt;jump dwarf_6_activity&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_6_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! The fountain is fun.]</span> <span class="yarn-meta">#line:pl02_d6_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">	Tutaj woda tańczy w rytm muzyki i świateł.</span> <span class="yarn-meta">#line:0daf76d </span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	What does the water do?]</span> <span class="yarn-meta">#line:pl02_d6_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; It dances]</span> <span class="yarn-meta">#line:pl02_d6_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Yes! Let's do a puzzle.]</span> <span class="yarn-meta">#line:pl02_d6_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_6_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; It sleeps]</span> <span class="yarn-meta">#line:pl02_d6_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d6_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_6&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; It eats]</span> <span class="yarn-meta">#line:pl02_d6_a3</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d6_no2</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_6&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -430,10 +539,10 @@ hide:
 <div class="yarn-node" data-title="dwarf_6_activity">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Zagrajmy w grę.</span> <span class="yarn-meta">#line:0cdb4f5 </span>
-<span class="yarn-cmd">&lt;&lt;activity jigsaw_multimedia_fountain dwarf_6_activity_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle wroclaw_multimedia_fountain dwarf_6_activity_done&gt;&gt;</span>
 
 
 </code>
@@ -447,7 +556,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_6_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Świetnie!</span> <span class="yarn-meta">#line:0818eec </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -467,10 +576,35 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 7) Panorama Racławicka</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Wokół ciebie znajduje się gigantyczny obraz przedstawiający bitwę.</span> <span class="yarn-meta">#line:0de7f17 </span>
-<span class="yarn-line">Stoisz w środku historii.</span> <span class="yarn-meta">#line:0f8436b </span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_7_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! The painting is still giant.]</span> <span class="yarn-meta">#line:pl02_d7_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">	Wokół ciebie znajduje się gigantyczny obraz przedstawiający bitwę.</span> <span class="yarn-meta">#line:0de7f17 </span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	Is this painting small or giant?]</span> <span class="yarn-meta">#line:pl02_d7_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; Giant]</span> <span class="yarn-meta">#line:pl02_d7_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Correct! Let's do a puzzle.]</span> <span class="yarn-meta">#line:pl02_d7_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_7_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; Small]</span> <span class="yarn-meta">#line:pl02_d7_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d7_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_7&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dwarf-7-activity"></a>
+
+## dwarf_7_activity
+
+<div class="yarn-node" data-title="dwarf_7_activity">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dwarves</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle panorama_raclawicka dwarf_7_activity_done&gt;&gt;</span>
 
 </code>
@@ -485,10 +619,35 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 8) Olga Tokarczuk</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Olga Tokarczuk jest znaną wrocławską pisarką.</span> <span class="yarn-meta">#line:0496de5 </span>
-<span class="yarn-line">Otrzymała Nagrodę Nobla w dziedzinie literatury.</span> <span class="yarn-meta">#line:00ae354 </span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_8_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! Keep reading books.]</span> <span class="yarn-meta">#line:pl02_d8_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">	Olga Tokarczuk jest znaną wrocławską pisarką.</span> <span class="yarn-meta">#line:0496de5 </span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	Olga Tokarczuk is a...]</span> <span class="yarn-meta">#line:pl02_d8_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; writer]</span> <span class="yarn-meta">#line:pl02_d8_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Yes! Let's do a puzzle.]</span> <span class="yarn-meta">#line:pl02_d8_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_8_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; pilot]</span> <span class="yarn-meta">#line:pl02_d8_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d8_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_8&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dwarf-8-activity"></a>
+
+## dwarf_8_activity
+
+<div class="yarn-node" data-title="dwarf_8_activity">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dwarves</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle olga_tokarczuk dwarf_8_activity_done&gt;&gt;</span>
 
 </code>
@@ -503,10 +662,35 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 9) Sky Tower Plaza Dwarf</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">To nowoczesny plac niedaleko Sky Tower.</span> <span class="yarn-meta">#line:096a9ee </span>
-<span class="yarn-line">Ludzie spotykają się tutaj, żeby porozmawiać i się pobawić.</span> <span class="yarn-meta">#line:0c899a5 </span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_9_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! The plaza is busy.]</span> <span class="yarn-meta">#line:pl02_d9_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">	To nowoczesny plac niedaleko Sky Tower.</span> <span class="yarn-meta">#line:096a9ee </span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	Where do people meet?]</span> <span class="yarn-meta">#line:pl02_d9_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; In the plaza]</span> <span class="yarn-meta">#line:pl02_d9_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Correct! Let's do a puzzle.]</span> <span class="yarn-meta">#line:pl02_d9_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_9_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; Under the sea]</span> <span class="yarn-meta">#line:pl02_d9_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d9_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_9&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dwarf-9-activity"></a>
+
+## dwarf_9_activity
+
+<div class="yarn-node" data-title="dwarf_9_activity">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dwarves</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle plaza_dwarf dwarf_9_activity_done&gt;&gt;</span>
 
 </code>
@@ -521,10 +705,35 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// 9) Sky Tower Dwarf</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sky Tower jest bardzo wysoki.</span> <span class="yarn-meta">#line:0ccd434 </span>
-<span class="yarn-line">Ze szczytu widać bardzo daleko.</span> <span class="yarn-meta">#line:0170463 </span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_10_found&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	Hi again! The Sky Tower is still tall.]</span> <span class="yarn-meta">#line:pl02_d10_repeat</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">	Sky Tower jest bardzo wysoki.</span> <span class="yarn-meta">#line:0ccd434 </span>
+	
+<span class="yarn-line">	[MISSING TRANSLATION: 	Can you see far from the top?]</span> <span class="yarn-meta">#line:pl02_d10_q</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; Yes]</span> <span class="yarn-meta">#line:pl02_d10_a1</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		Correct! Let's do a puzzle.]</span> <span class="yarn-meta">#line:pl02_d10_ok</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_10_activity&gt;&gt;</span>
+<span class="yarn-line">	[MISSING TRANSLATION: 	-&gt; No]</span> <span class="yarn-meta">#line:pl02_d10_a2</span>
+<span class="yarn-line">		[MISSING TRANSLATION: 		No. Try again.]</span> <span class="yarn-meta">#line:pl02_d10_no</span>
+		<span class="yarn-cmd">&lt;&lt;jump dwarf_10&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-dwarf-10-activity"></a>
+
+## dwarf_10_activity
+
+<div class="yarn-node" data-title="dwarf_10_activity">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: dwarves</span>
+<span class="yarn-header-dim">actor:</span>
+<span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle sky_tower_dwarf dwarf_10_activity_done&gt;&gt;</span>
 
 </code>
@@ -539,13 +748,14 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// Keymaster at the elevator</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Pilnuję windy.</span> <span class="yarn-meta">#line:0dd986c </span>
 &lt;&lt;if $found &lt; $need&gt;&gt;
 <span class="yarn-line">	Znaleziono {0} / {1} krasnoludków. Kontynuuj eksplorację.</span> <span class="yarn-meta">#line:08dfa28 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">	Świetnie! Znalazłeś je wszystkie. Otwieram drzwi kluczem.</span> <span class="yarn-meta">#line:0fdc177 </span>
+	<span class="yarn-cmd">&lt;&lt;task_end FIND_DWARVES&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;action activate_elevator&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -574,7 +784,7 @@ hide:
 
 <div class="yarn-node" data-title="npg_rescue_top">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $top_met&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_intro&gt;&gt;</span>
@@ -582,7 +792,6 @@ hide:
 	<span class="yarn-cmd">&lt;&lt;set $top_met = true&gt;&gt;</span>
 <span class="yarn-line">	Aaaa Antura tu była.</span> <span class="yarn-meta">#line:0708555 </span>
 <span class="yarn-line">	Ale to po prostu zniknęło!</span> <span class="yarn-meta">#line:0f710dd </span>
-<span class="yarn-line">	Może następnym razem Ci się uda!</span> <span class="yarn-meta">#line:081c124 </span>
 <span class="yarn-line">	Ale czyż widok nie jest piękny?</span> <span class="yarn-meta">#line:079ea46 </span>
 	<span class="yarn-cmd">&lt;&lt;jump assessment_intro&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -679,7 +888,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// Added completion nodes for dwarves 7-10</span>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobra robota!</span> <span class="yarn-meta">#line:074a28b </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -698,7 +907,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_8_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobra robota!</span> <span class="yarn-meta">#line:0ac938a </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -717,7 +926,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_9_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobra robota!</span> <span class="yarn-meta">#line:0f70de9 </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>
@@ -736,7 +945,7 @@ hide:
 <div class="yarn-node" data-title="dwarf_10_activity_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: dwarves</span>
-<span class="yarn-header-dim">actor: SPECIAL</span>
+<span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dobra robota!</span> <span class="yarn-meta">#line:054d57b </span>
 <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarfs add&gt;&gt;</span>

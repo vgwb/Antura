@@ -221,6 +221,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $river_sign = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_river_sign&gt;&gt;</span>
 <span class="yarn-line">    Tak! Quelle onde blu sono il segno universale di un fiume.</span> <span class="yarn-meta">#line:sign_5</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_river_sign&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#line:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Il ponte si muove</span> <span class="yarn-meta">#line:sign_6</span>
 <span class="yarn-line">    No. Riprova.</span> <span class="yarn-meta">#line:try_again </span>
 <span class="yarn-line">Non lo so</span> <span class="yarn-meta">#line:dont_know #highlight</span>
@@ -279,6 +282,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $map_odra = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_odra_map&gt;&gt;</span>
 <span class="yarn-line">    Esatto! Scorre fino a nord.</span> <span class="yarn-meta">#line:map_4</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_odra_map&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#shadow:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Il Mar Mediterraneo</span> <span class="yarn-meta">#line:map_5</span>
 <span class="yarn-line">    No. Riprova.</span> <span class="yarn-meta">#shadow:try_again </span>
     <span class="yarn-cmd">&lt;&lt;jump npc_odra_map&gt;&gt;</span>
@@ -303,7 +309,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $map_odra == 1&gt;&gt;</span>
 <span class="yarn-line">    Dimostra di sapere dove scorre il fiume!</span> <span class="yarn-meta">#line:ch_map1</span>
     <span class="yarn-cmd">&lt;&lt;set $map_odra = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity memory_odra_facts chest_odra_river_map&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_odra_map chest_odra_map&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $map_odra == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_map&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card odra_river_map&gt;&gt;</span>
@@ -339,6 +345,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $bridge_tumski = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_tumski_bridge&gt;&gt;</span>
 <span class="yarn-line">    Sì! Anche se sono molto pesanti e verranno rimossi!</span> <span class="yarn-meta">#line:tum_5</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_tumski_bridge&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#shadow:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Calzini bagnati</span> <span class="yarn-meta">#line:tum_6</span>
 <span class="yarn-line">    Non sarebbe molto romantico! Riprova.</span> <span class="yarn-meta">#line:fail_tum</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_tumski_bridge&gt;&gt;</span>
@@ -363,7 +372,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $bridge_tumski == 1&gt;&gt;</span>
 <span class="yarn-line">    Pulisci la ruggine da questo vecchio ponte di ferro!</span> <span class="yarn-meta">#line:ch_tum1</span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_tumski = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity cleancanvas odra_footbridge chest_tumski_bridge&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity clean_tumski_bridge chest_tumski_bridge&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $bridge_tumski == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_tumski&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card tumski_bridge&gt;&gt;</span>
@@ -399,6 +408,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $bridge_redzinski = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_redzinski_bridge&gt;&gt;</span>
 <span class="yarn-line">    Esatto! Questo ponte gigante è sorretto da corde robuste. Le auto lo usano per spostarsi in città.</span> <span class="yarn-meta">#line:redz_5</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_redzinski_bridge&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#shadow:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Magneti e magia</span> <span class="yarn-meta">#line:redz_6</span>
 <span class="yarn-line">    Sembra magia, ma in realtà è ingegneria!</span> <span class="yarn-meta">#line:fail_redz</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_redzinski_bridge&gt;&gt;</span>
@@ -423,7 +435,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $bridge_redzinski == 1&gt;&gt;</span>
 <span class="yarn-line">    Ricostruiamo il pilone più alto di Breslavia!</span> <span class="yarn-meta">#line:ch_redz1</span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_redzinski = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity jigsaw_pont chest_redzinski_bridge&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_redzinski_bridge chest_redzinski_bridge&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $bridge_redzinski == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_redzinski&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card redzinski_bridge&gt;&gt;</span>
@@ -440,17 +452,17 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-npc-train-bridge"></a>
+<a id="ys-node-npc-bridge-train"></a>
 
-## npc_train_bridge
+## npc_bridge_train
 
-<div class="yarn-node" data-title="npc_train_bridge">
+<div class="yarn-node" data-title="npc_bridge_train">
 <pre class="yarn-code" style="--node-color:actor:"><code>
 <span class="yarn-header-dim">// ---------- TRAIN BRIDGE</span>
 <span class="yarn-header-dim">color: </span>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card train_bridge&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card bridge_trains&gt;&gt;</span>
 <span class="yarn-line">Da oltre 150 anni i treni attraversano l'Oder a Breslavia.</span> <span class="yarn-meta">#line:train_1</span>
 &lt;&lt;if $bridge_train &lt; 10&gt;&gt;
 <span class="yarn-line">Perché i ponti ferroviari sono fatti di acciaio così pesante?</span> <span class="yarn-meta">#line:train_2</span>
@@ -458,9 +470,12 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $bridge_train = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_train&gt;&gt;</span>
 <span class="yarn-line">    Sì! Deve essere abbastanza resistente per i treni pesanti.</span> <span class="yarn-meta">#line:train_4</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_train&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#shadow:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Per fare un rumore forte</span> <span class="yarn-meta">#line:train_5</span>
 <span class="yarn-line">    Sono rumorosi, ma non è per questo!</span> <span class="yarn-meta">#line:fail_train</span>
-    <span class="yarn-cmd">&lt;&lt;jump npc_train_bridge&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_bridge_train&gt;&gt;</span>
 <span class="yarn-line">Non lo so</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
@@ -482,10 +497,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $bridge_train == 1&gt;&gt;</span>
 <span class="yarn-line">    Abbina le scatole pesanti ai binari del treno!</span> <span class="yarn-meta">#line:ch_train1</span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_train = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity memory_bridges chest_bridge_train&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_wroklaw_bridges chest_bridge_train&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $bridge_train == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_train&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card train_bridge&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card bridge_trains&gt;&gt;</span>
 <span class="yarn-line">    Si apre il baule. Trovi una foto!</span> <span class="yarn-meta">#shadow:chest_opens </span>
     <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_train = 10&gt;&gt;</span>
@@ -500,11 +515,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-npc-houseboat"></a>
+<a id="ys-node-npc-boat-house"></a>
 
-## npc_houseboat
+## npc_boat_house
 
-<div class="yarn-node" data-title="npc_houseboat">
+<div class="yarn-node" data-title="npc_boat_house">
 <pre class="yarn-code" style="--node-color:actor:"><code>
 <span class="yarn-header-dim">// ---------- HOUSEBOAT</span>
 <span class="yarn-header-dim">color: </span>
@@ -517,11 +532,13 @@ hide:
 <span class="yarn-line">Se vivi su una casa galleggiante, cosa usi come giardino?</span> <span class="yarn-meta">#line:house_3</span>
 <span class="yarn-line">Il fiume Odra</span> <span class="yarn-meta">#line:house_4</span>
     <span class="yarn-cmd">&lt;&lt;set $boat_house = 1&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;target chest_houseboat&gt;&gt;</span>
-<span class="yarn-line">    Si apre il baule. Trovi una foto!</span> <span class="yarn-meta">#shadow:chest_opens </span>
+    <span class="yarn-cmd">&lt;&lt;target chest_boat_house&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_house&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#shadow:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Una foresta sui tetti</span> <span class="yarn-meta">#line:house_6</span>
 <span class="yarn-line">    No. Riprova.</span> <span class="yarn-meta">#shadow:try_again </span>
-    <span class="yarn-cmd">&lt;&lt;jump npc_houseboat&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump npc_boat_house&gt;&gt;</span>
 <span class="yarn-line">Non lo so</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_tourist&gt;&gt;</span>
@@ -531,11 +548,11 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-chest-houseboat"></a>
+<a id="ys-node-chest-boat-house"></a>
 
-## chest_houseboat
+## chest_boat_house
 
-<div class="yarn-node" data-title="chest_houseboat">
+<div class="yarn-node" data-title="chest_boat_house">
 <pre class="yarn-code" style="--node-color:actor:"><code>
 <span class="yarn-header-dim">color: </span>
 <span class="yarn-header-dim">actor:</span>
@@ -543,9 +560,9 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $boat_house == 1&gt;&gt;</span>
 <span class="yarn-line">    Riparate le finestre della casa galleggiante!</span> <span class="yarn-meta">#line:ch_house1</span>
     <span class="yarn-cmd">&lt;&lt;set $boat_house = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity jigsaw_boat_house chest_houseboat&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_boat_house chest_boat_house&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $boat_house == 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;action open_chest_houseboat&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;action open_chest_boat_house&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card houseboat&gt;&gt;</span>
 <span class="yarn-line">    Una casa accogliente sull'Odra! Foto raccolta.</span> <span class="yarn-meta">#line:ch_house2</span>
     <span class="yarn-cmd">&lt;&lt;collect photo&gt;&gt;</span>
@@ -578,6 +595,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $boat_tourist = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_boat_people&gt;&gt;</span>
 <span class="yarn-line">    Sì! Sorridi per la foto!</span> <span class="yarn-meta">#line:tour_4</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_people&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#shadow:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Un periscopio</span> <span class="yarn-meta">#line:tour_5</span>
 <span class="yarn-line">    Non siamo ancora sott'acqua! Riprova.</span> <span class="yarn-meta">#line:fail_tour</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_people&gt;&gt;</span>
@@ -602,7 +622,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $boat_tourist == 1&gt;&gt;</span>
 <span class="yarn-line">    Trova i turisti nascosti sul ponte!</span> <span class="yarn-meta">#line:ch_tour1</span>
     <span class="yarn-cmd">&lt;&lt;set $boat_tourist = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity memory_boats chest_boat_people&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity memory_wroklaw_boats chest_boat_people&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $boat_tourist == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_tourist&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card boat_people&gt;&gt;</span>
@@ -635,8 +655,11 @@ hide:
 <span class="yarn-line">Una chiatta è molto piatta. Perché?</span> <span class="yarn-meta">#line:barge_2</span>
 <span class="yarn-line">Per trasportare oggetti pesanti anche quando l'acqua non è profonda.</span> <span class="yarn-meta">#line:barge_3</span>
     <span class="yarn-cmd">&lt;&lt;set $boat_barge = 1&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;target chest_barge&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target chest_boat_barge&gt;&gt;</span>
 <span class="yarn-line">    Esatto! È un camion che galleggia.</span> <span class="yarn-meta">#line:barge_4</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_barge&gt;&gt;</span>
+<span class="yarn-line">    Ora puoi aprire quello scrigno!</span> <span class="yarn-meta">#shadow:yes_chest</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">Così può nascondersi dai nani</span> <span class="yarn-meta">#line:barge_5</span>
 <span class="yarn-line">    No. Riprova.</span> <span class="yarn-meta">#shadow:try_again </span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_barge&gt;&gt;</span>
@@ -661,7 +684,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $boat_barge == 1&gt;&gt;</span>
 <span class="yarn-line">    Gioca a un minigioco per aprire lo scrigno!</span> <span class="yarn-meta">#line:chest_minigame</span>
     <span class="yarn-cmd">&lt;&lt;set $boat_barge = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity memory_boats chest_boat_barge&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity match_wroclaw_bridges chest_boat_barge&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $boat_barge == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_boat_barge&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card barge&gt;&gt;</span>
