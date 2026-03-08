@@ -208,15 +208,15 @@ position: -100,-100
 This boat is a house! People live here! #line:0a627c2 
 <<if $boat_house < 10>>
 Why is this a house boat? #line:0165157 
+-> It is only for trains #line:055d822 
+    No. Try again. #shadow:try_again
+    <<jump npc_boat_house>>
 -> People can live on it #line:0c86d26 
     <<set $boat_house = 1>>
     <<target chest_boat_house>>
     <<camera_focus camera_chest_boat_house>>
     Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> It is only for trains #line:055d822 
-    No. Try again. #shadow:try_again
-    <<jump npc_boat_house>>
 -> It can only carry goods #line:036ba15 
     No. Try again. #shadow:try_again 
     <<jump npc_boat_house>>
@@ -253,18 +253,18 @@ position: -100,-100
 This boat has big windows, so tourists can see the city. It's a "bateau-mouche". #line:0129c99 
 <<if $boat_people < 10>>
 Why does a tourist boat have big windows? #line:02ce3de 
--> To see the city and famous places #line:0454688 
-    <<set $boat_people = 1>>
-    <<target chest_boat_people>>
-    <<camera_focus camera_chest_boat_people>>
-    Yes! Now you can open that chest! #shadow:yes_chest
-    <<camera_reset>>
 -> To carry more cars #line:02349a3
     No. Try again. #shadow:try_again
     <<jump npc_boat_people>>
 -> To go under the water #line:037efcf
     No. Try again. #shadow:try_again
     <<jump npc_boat_people>>
+-> To see the city and famous places #line:0454688 
+    <<set $boat_people = 1>>
+    <<target chest_boat_people>>
+    <<camera_focus camera_chest_boat_people>>
+    Yes! Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_river_friend>>
@@ -348,15 +348,15 @@ position: -100,-100
 This is a bridge for cars! #line:0d79d7d 
 <<if $bridge_cars < 10>>
 Cars are fast. How do you cross safely? #line:01f30c4
+-> Run across anywhere #line:076ee7f 
+    No. Try again. #shadow:try_again
+    <<jump npc_bridge_cars>>
 -> Use the sidewalk and cross at the crossing #line:0c8cdae 
     <<set $bridge_cars = 1>>
     <<target chest_bridge_cars>>
     <<camera_focus camera_chest_bridge_cars>>
     Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> Run across anywhere #line:076ee7f 
-    No. Try again. #shadow:try_again
-    <<jump npc_bridge_cars>>
 -> Walk in the road #line:0cf371b
     No. Try again. #shadow:try_again
     <<jump npc_bridge_cars>>
@@ -395,18 +395,18 @@ position: -100,-100
 This is a bridge for trains! #line:0a0991d 
 <<if $bridge_train < 10>>
 A train bridge must be... #line:09731f9 
--> Very strong #line:018a0eb 
-    <<set $bridge_train = 1>>
-    <<target chest_bridge_train>>
-    <<camera_focus camera_chest_bridge_train>>
-    Yes! Now you can open that chest! #shadow:yes_chest
-    <<camera_reset>>
 -> Soft and bouncy #line:08b4fad 
     No. Try again. #shadow:try_again
     <<jump npc_bridge_train>>
 -> Only for walking #line:03ff912
     No. Try again. #shadow:try_again
     <<jump npc_bridge_train>>
+-> Very strong #line:018a0eb 
+    <<set $bridge_train = 1>>
+    <<target chest_bridge_train>>
+    <<camera_focus camera_chest_bridge_train>>
+    Yes! Now you can open that chest! #shadow:yes_chest
+    <<camera_reset>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_river_friend>>
@@ -449,15 +449,15 @@ position: -100,-100
 This is a bridge for people! #line:0f8a96f 
 <<if $bridge_people < 10>>
 A bridge only for people to walk on is called a... #line:0484ee9 
+-> Train bridge #line:0f74c53 
+    No. Try again. #shadow:try_again
+    <<jump npc_bridge_people>>
 -> Footbridge #line:0e48593 
     <<set $bridge_people = 1>>
     <<target chest_bridge_people>>
     <<camera_focus camera_chest_bridge_people>>
     Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> Train bridge #line:0f74c53 
-    No. Try again. #shadow:try_again
-    <<jump npc_bridge_people>>
 -> Car bridge #line:07f732f 
     No. Try again. #shadow:try_again
     <<jump npc_bridge_people>>
