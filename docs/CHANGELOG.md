@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2026.03.08]
+
+### Added
+- Quest FR_10: Paris Sein
+- Quest PL_03: Wroklaw Odra River
+
+Preparing
+- Quest FR_08: Mont Blanc
+- Quest PL_02: Wroklaw Dwarves
+
+## fixed
+- iOS: cards popup panel
+- iOS: we can click task panel to hear the mission
+- Activities: applauses after success
+- character controller: better jump forward when blocked by obstacle
+
+
 ## [2026.01.28]
 
 ### Added
