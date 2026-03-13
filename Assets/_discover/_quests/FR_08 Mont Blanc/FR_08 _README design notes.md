@@ -12,7 +12,15 @@
 
 - **Geography**: Mont Blanc is the highest mountain in the **Alps** (4807m). Neighbors visible from the peak include **France, Italy, and Switzerland**.
 - **Vocabulary**: Mountain, peak, snow, ice, sun, and wind.
-- **Gear & Safety**: Recognizing essential tools like a coat, scarf, hat, gloves, sunglasses, crampons, and rope.
+- **Gear & Safety**: Recognizing essential tools like a 
+  - backpack
+  - coat
+  - scarf
+  - hat
+  - gloves
+  - sunglasses
+  - crampons
+  - rope
 
 ### Gameplay Flow
 

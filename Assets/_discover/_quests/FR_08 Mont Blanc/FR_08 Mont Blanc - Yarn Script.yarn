@@ -62,6 +62,7 @@ Draw a snowy mountain in your notebook! #line:fr08_post_1
 <<quest_end>>
 ===
 
+
 title: mountain_guide
 position: 250,0
 color: blue
@@ -263,6 +264,9 @@ actor:
 <<card backpack>>
 This backpack carries food, water and a map. #line:05e80cb 
 It keeps hands free while hiking. #line:06d7fcf 
+<<inventory backpack add>>
+<<SetActive this false>>
+<<action wear_backpack>>
 ===
 
 title: item_coat
@@ -271,7 +275,19 @@ actor:
 ---
 <<card coat>>
 This coat keeps your body warm in wind and snow. #line:0e23f1f 
-Always zip it up high. #line:06fe689 
+Always zip it up high. #line:06fe689
+<<inventory coat add>>
+<<SetActive this false>>
+===
+
+title: item_crampons
+position: 1500,0
+actor: 
+---
+<<card crampons>>
+These are very useful to walk on ice.
+<<inventory crampons add>>
+<<SetActive this false>>
 ===
 
 title: item_gloves
@@ -281,6 +297,8 @@ actor:
 <<card gloves>>
 Gloves keep fingers warm and dry. #line:0f2aac7 
 Cold hands make climbing hard. #line:0d01879 
+<<inventory gloves add>>
+<<SetActive this false>>
 ===
 
 title: item_hat
@@ -289,7 +307,9 @@ actor:
 ---
 <<card hat>>
 A warm hat keeps heat from leaving your head. #line:000fc05 
-Wear it even in bright sun. #line:059d744 
+Wear it even in bright sun. #line:059d744
+<<inventory hat add>>
+<<SetActive this false>>
 ===
 
 title: item_rope
@@ -298,7 +318,9 @@ actor:
 ---
 <<card rope>>
 The rope helps climbers stay safe on ice and rock. #line:038d1bc 
-Always clip it correctly. #line:0b3d07e 
+Always clip it correctly. #line:0b3d07e
+<<inventory rope add>>
+<<SetActive this false>>
 ===
 
 title: item_scarf
@@ -307,7 +329,9 @@ actor:
 ---
 <<card scarf>>
 A scarf blocks wind on your neck. #line:0afb2dc 
-Tuck it so it will not flap. #line:07cb76f 
+Tuck it so it will not flap. #line:07cb76f
+<<inventory scarf add>>
+<<SetActive this false>>
 ===
 
 title: item_sunglasses
@@ -316,7 +340,9 @@ actor:
 ---
 <<card sunglasses>>
 Snow and ice reflect bright sun. #line:02a2ea9 
-Glasses protect your eyes. #line:088fb7f 
+Glasses protect your eyes. #line:088fb7f
+<<inventory sunglasses add>>
+<<SetActive this false>>
 ===
 
 title: flag_france
