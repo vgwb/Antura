@@ -389,7 +389,7 @@ namespace Antura.Discover
 
                 // Load prefabs containing WorldPrefabData component on the ROOT only (not children),
                 // limited to the Discover Prefabs folder for speed.
-                var wpGuids = AssetDatabase.FindAssets("t:Prefab", new[] { DiscoverPathPrefix + "Prefabs" });
+                var wpGuids = AssetDatabase.FindAssets("t:Prefab", new[] { DiscoverPathPrefix + "Prefabs", DiscoverPathPrefix + "_quests" });
                 foreach (var guid in wpGuids)
                 {
                     var path = AssetDatabase.GUIDToAssetPath(guid);
