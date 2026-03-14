@@ -14,43 +14,49 @@
 - **Vocabulary**: Mountain, peak, snow, ice, sun, and wind.
 - **Gear & Safety**: Recognizing essential tools like a 
   - backpack
+
   - coat
-  - scarf
   - hat
+
   - gloves
   - sunglasses
+
   - crampons
   - rope
 
 ### Gameplay Flow
 
-#### Step 1: Base Camp (The Start)
+#### Bonus place
+- chest with a scarf
+
+#### Base Camp - The Start
 
 - **Location**: The valley floor in Chamonix.
-- **Action**: Meet the **Mountain Guide** to receive the **Backpack**.
+- **NPC Interaction**: Meet the **Mountain Guide** 
+- **action**: find key to open chest to receive the **Backpack**.
 - **Knowledge**: Learn that Mont Blanc is the highest peak in the **Alps**.
 
-#### Step 2: Base 1 - The Valley's End (The Approach)
+#### Base 1 - The Valley's End
 
 - **Location**: After a walk through the lower valley, reaching the actual foot of the mountain.
 - **NPC Interaction**: A hiker explains the importance of layers.
-- **Collectible**: Unlock a chest to find the **Coat** and **Scarf** after a simple weather quiz.
+- **Collectible**: Unlock a chest to find the **Coat** and **Hat** after a simple weather quiz.
 
-#### Step 3: Base 2 - Lower Mid (The Snow Line)
+#### Base 2 - Lower Mid (The Snow Line)
 
 - **Location**: The transition area where grass turns to permanent **snow**.
 - **NPC Interaction**: A ski instructor discusses winter gear.
-- **Collectible**: Solve a jigsaw puzzle of the mountain to unlock **Gloves** and a **Hat**.
+- **Collectible**: Solve a jigsaw puzzle of the mountain to unlock **Gloves** and a **sunglasses**.
 
-#### Step 4: Base 3 - High-Mid (The Glacier)
+#### Base 3 - High-Mid (The Glacier)
 
 - **Location**: High-altitude **ice** and **glaciers**.
 - **NPC Interaction**: A glaciologist explains why the **sun** is dangerous on the ice.
-- **Collectible**: Answer a question about eye safety to unlock the **Sunglasses** and **Crampons**.
+- **Collectible**: Answer a question about eye safety to unlock the **Rope** and **Crampons**.
 
-#### Step 5: Base 4 - The Top (The Summit)
+#### Base 4 - The Top
 
-- **Location**: The 4807 m **summit**.
+- **Location**: The 4807m **summit**.
 - **Action**: Final geography check of neighboring countries.
 - **Quiz**: Identify **France**, **Italy**, and **Switzerland** from the peak.
 - **Final Puzzle**: Place the three national flags on their respective poles.

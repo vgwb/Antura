@@ -560,11 +560,126 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6914358212484923704
-  - m_Id: 70394119287988224
-    m_Key: line:1528a5e8
+  - m_Id: 70430512399769600
+    m_Key: line:ca660dc7
     m_Metadata:
       m_Items:
-      - rid: 6914358355397181536
+      - rid: 6914358355397181550
+  - m_Id: 70430512412352512
+    m_Key: line:e12abbce
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181551
+  - m_Id: 70439007530508288
+    m_Key: line:6c7ff2a9
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181560
+  - m_Id: 70439007585034240
+    m_Key: line:8318a29f
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181561
+  - m_Id: 70439007585034241
+    m_Key: line:994fe44f
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181562
+  - m_Id: 70440614645194752
+    m_Key: line:012ab799
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181564
+  - m_Id: 70440614645194753
+    m_Key: line:af79ac71
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181565
+  - m_Id: 70440614645194754
+    m_Key: line:eaf62458
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181566
+  - m_Id: 70447035742937088
+    m_Key: line:e4f99bd3
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181574
+  - m_Id: 70477348095385600
+    m_Key: line:04c1c1f
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181575
+  - m_Id: 70477348095385601
+    m_Key: line:01beb5e
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181576
+  - m_Id: 70477348095385602
+    m_Key: line:045409f
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181577
+  - m_Id: 70477348095385603
+    m_Key: line:0c1f006
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181578
+  - m_Id: 70477348095385604
+    m_Key: line:0658d28
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181579
+  - m_Id: 70477348095385605
+    m_Key: line:029f39c
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181580
+  - m_Id: 70477348095385606
+    m_Key: line:07102e7
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181581
+  - m_Id: 70477348095385607
+    m_Key: line:041818f
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181582
+  - m_Id: 70484646981263360
+    m_Key: line:4f2360a3
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181583
+  - m_Id: 70484646993846272
+    m_Key: line:sh_d91367d4
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181584
+  - m_Id: 70485203011756032
+    m_Key: line:c0d70ad3
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181585
+  - m_Id: 70485203011756033
+    m_Key: line:sh_63426e4d
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181586
+  - m_Id: 70494433513037824
+    m_Key: line:3e1e0cd5
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181593
+  - m_Id: 70494433521426432
+    m_Key: line:63426e4d
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181594
+  - m_Id: 70494433521426433
+    m_Key: line:sh_f572693a
+    m_Metadata:
+      m_Items:
+      - rid: 6914358355397181595
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -585,12 +700,12 @@ MonoBehaviour:
     - rid: 6508225959587479770
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_tutor
+        nodeName: npc_intro
         tags: []
     - rid: 6508225959587479771
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_tutor
+        nodeName: npc_intro
         tags: []
     - rid: 6508225959587479772
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -610,7 +725,7 @@ MonoBehaviour:
     - rid: 6508226014524998137
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: talk_tutor
+        nodeName: npc_intro
         tags: []
     - rid: 6508226082763702426
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -811,27 +926,32 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_hiker
-        tags: []
+        tags:
+        - card:hiking
     - rid: 6508226107661877648
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_hiker
-        tags: []
+        tags:
+        - card:wind
     - rid: 6508226107661877649
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_hiker
-        tags: []
+        tags:
+        - card:rope
     - rid: 6508226107661877650
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_hiker
-        tags: []
+        tags:
+        - card:glacier
     - rid: 6508226107661877651
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_alps_climber
-        tags: []
+        tags:
+        - card:alps
     - rid: 6508226107661877652
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -841,12 +961,14 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_alps_climber
-        tags: []
+        tags:
+        - card:crampons
     - rid: 6508226107661877654
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: spawned_alps_climber
-        tags: []
+        tags:
+        - card:mountain_guide
     - rid: 6508226497012302085
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -890,19 +1012,18 @@ MonoBehaviour:
     - rid: 6914358212484923658
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: mountain_guide
+        nodeName: npc_intro
         tags: []
     - rid: 6914358212484923659
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: mountain_guide
+        nodeName: npc_mountain_guide
         tags: []
     - rid: 6914358212484923660
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: mountain_guide
-        tags:
-        - task:find_gear
+        nodeName: npc_intro
+        tags: []
     - rid: 6914358212484923661
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -917,38 +1038,38 @@ MonoBehaviour:
     - rid: 6914358212484923663
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base1_hiker
+        nodeName: npc_base1
         tags: []
     - rid: 6914358212484923664
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base1_hiker
+        nodeName: npc_base1
         tags:
         - lastline
     - rid: 6914358212484923665
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base1_hiker
+        nodeName: npc_base1
         tags: []
     - rid: 6914358212484923666
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base1_hiker
+        nodeName: npc_base1
         tags: []
     - rid: 6914358212484923667
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base1_hiker
+        nodeName: npc_base1
         tags: []
     - rid: 6914358212484923668
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base1_hiker
+        nodeName: npc_base1
         tags: []
     - rid: 6914358212484923669
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base1_hiker
+        nodeName: npc_base1
         tags: []
     - rid: 6914358212484923670
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -963,38 +1084,38 @@ MonoBehaviour:
     - rid: 6914358212484923672
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base2_skier
+        nodeName: npc_base2
         tags: []
     - rid: 6914358212484923673
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base2_skier
+        nodeName: npc_base2
         tags:
         - lastline
     - rid: 6914358212484923674
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base2_skier
+        nodeName: npc_base2
         tags: []
     - rid: 6914358212484923675
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base2_skier
+        nodeName: npc_base2
         tags: []
     - rid: 6914358212484923676
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base2_skier
+        nodeName: npc_base2
         tags: []
     - rid: 6914358212484923677
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base2_skier
+        nodeName: npc_base2
         tags: []
     - rid: 6914358212484923678
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base2_skier
+        nodeName: npc_base2
         tags: []
     - rid: 6914358212484923679
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -1009,38 +1130,38 @@ MonoBehaviour:
     - rid: 6914358212484923681
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base3_glaciologist
+        nodeName: npc_base3
         tags: []
     - rid: 6914358212484923682
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base3_glaciologist
+        nodeName: npc_base3
         tags:
         - lastline
     - rid: 6914358212484923683
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base3_glaciologist
+        nodeName: npc_base3
         tags: []
     - rid: 6914358212484923684
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base3_glaciologist
+        nodeName: npc_base3
         tags: []
     - rid: 6914358212484923685
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base3_glaciologist
+        nodeName: npc_base3
         tags: []
     - rid: 6914358212484923686
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base3_glaciologist
+        nodeName: npc_base3
         tags: []
     - rid: 6914358212484923687
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base3_glaciologist
+        nodeName: npc_base3
         tags: []
     - rid: 6914358212484923688
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -1055,38 +1176,38 @@ MonoBehaviour:
     - rid: 6914358212484923690
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base4_climber
+        nodeName: npc_base4
         tags: []
     - rid: 6914358212484923691
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base4_climber
+        nodeName: npc_base4
         tags:
         - lastline
     - rid: 6914358212484923692
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base4_climber
+        nodeName: npc_base4
         tags: []
     - rid: 6914358212484923693
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base4_climber
+        nodeName: npc_base4
         tags: []
     - rid: 6914358212484923694
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base4_climber
+        nodeName: npc_base4
         tags: []
     - rid: 6914358212484923695
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base4_climber
+        nodeName: npc_base4
         tags: []
     - rid: 6914358212484923696
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
-        nodeName: npc_base4_climber
+        nodeName: npc_base4
         tags: []
     - rid: 6914358212484923697
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
@@ -1129,8 +1250,127 @@ MonoBehaviour:
       data:
         nodeName: question_summit_flags
         tags: []
-    - rid: 6914358355397181536
+    - rid: 6914358355397181550
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: mountain_guide
+        tags: []
+    - rid: 6914358355397181551
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: mountain_guide
+        tags: []
+    - rid: 6914358355397181560
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_get_backpack_done
+        tags: []
+    - rid: 6914358355397181561
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: item_crampons
         tags: []
+    - rid: 6914358355397181562
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: item_scarf
+        tags: []
+    - rid: 6914358355397181564
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_intro
+        tags: []
+    - rid: 6914358355397181565
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: item_crampons
+        tags: []
+    - rid: 6914358355397181566
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: item_scarf
+        tags: []
+    - rid: 6914358355397181574
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: item_backpack
+        tags: []
+    - rid: 6914358355397181575
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: npc_intro
+        tags: []
+    - rid: 6914358355397181576
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: npc_intro
+        tags: []
+    - rid: 6914358355397181577
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: npc_intro
+        tags:
+        - task:get_backpack
+    - rid: 6914358355397181578
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_intro
+        tags: []
+    - rid: 6914358355397181579
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_intro
+        tags: []
+    - rid: 6914358355397181580
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: item_backpack
+        tags: []
+    - rid: 6914358355397181581
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: item_crampons
+        tags: []
+    - rid: 6914358355397181582
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: item_scarf
+        tags: []
+    - rid: 6914358355397181583
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_bonus
+        tags: []
+    - rid: 6914358355397181584
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_bonus
+        tags:
+        - shadow:0658d28
+    - rid: 6914358355397181585
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_bonus
+        tags: []
+    - rid: 6914358355397181586
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_bonus
+        tags:
+        - shadow:0658d28
+    - rid: 6914358355397181593
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: npc_intro
+        tags: []
+    - rid: 6914358355397181594
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_bonus
+        tags: []
+    - rid: 6914358355397181595
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_bonus
+        tags:
+        - shadow:0658d28
