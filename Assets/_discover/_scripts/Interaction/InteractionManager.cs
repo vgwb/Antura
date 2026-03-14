@@ -22,7 +22,7 @@ namespace Antura.Discover
         public Interactable NearbyInteractable { get; private set; } // Closest interactable, if any
 
         readonly List<Interactable> allNearbyInteractables = new();
-        Interactable currentInteractable;
+        public Interactable currentInteractable { get; private set; }
         int focusViewEnterFrame;
         Coroutine coChangeLayer, coStartDialogue;
 

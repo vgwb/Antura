@@ -461,6 +461,9 @@ namespace Antura.Discover
 
         #region INVENTORY
 
+        /// <summary>
+        /// Usage: <<inventory "ITEM_CODE" "add">> or <<inventory "ITEM_CODE" "remove">>
+        /// </summary>
         [YarnCommand("inventory")]
         public static void CommandInventory(string itemCode, string action = "add")
         {

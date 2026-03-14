@@ -228,16 +228,28 @@ namespace Antura.Discover
 
         public void CommandSetActive(string name, bool active)
         {
-            var triggerable = FindActableInChildren(name);
-            //Debug.Log($"CommandSetActive found {triggerable?.name} - name {name} set to {active}.");
-            if (triggerable != null)
+            if (name == "this")
             {
-                //Debug.Log("SetActive " + triggerable.gameObject.name);
-                triggerable.gameObject.SetActive(active);
+                var interactable = InteractionManager.I.currentInteractable;
+                if (interactable != null)
+                {
+                    interactable.gameObject.SetActive(active);
+                    return;
+                }
             }
             else
             {
-                Debug.LogWarning($"Triggerable '{name}' not found under ActionManager hierarchy.");
+                var triggerable = FindActableInChildren(name);
+                //Debug.Log($"CommandSetActive found {triggerable?.name} - name {name} set to {active}.");
+                if (triggerable != null)
+                {
+                    //Debug.Log("SetActive " + triggerable.gameObject.name);
+                    triggerable.gameObject.SetActive(active);
+                }
+                else
+                {
+                    Debug.LogWarning($"Triggerable '{name}' not found under ActionManager hierarchy.");
+                }
             }
         }
         #endregion

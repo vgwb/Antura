@@ -36,7 +36,7 @@ namespace Antura.Discover
             CurrentItemData = itemData;
             lastQuantity = Mathf.Max(0, itemData.Quantity);
 
-            if (itemData.Quantity > 0)
+            if (itemData.Quantity > 1)
             {
                 CounterGO.SetActive(true);
                 CounterText.text = itemData.Quantity.ToString();
