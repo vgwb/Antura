@@ -214,15 +214,27 @@ namespace Antura.Discover
 
         public void CommandSetInteractable(string actableCode, bool active)
         {
-            actableCode = actableCode.ToLower();
-            var actable = FindActableInChildren(actableCode);
-            if (actable != null)
+            if (name == "this")
             {
-                actable.GetComponent<Interactable>().IsInteractable = active;
+                var interactable = InteractionManager.I.currentInteractable;
+                if (interactable != null)
+                {
+                    interactable.GetComponent<Interactable>().IsInteractable = active;
+                    return;
+                }
             }
             else
             {
-                Debug.LogWarning($"Interactable '{name}' not found under ActionManager hierarchy.");
+                actableCode = actableCode.ToLower();
+                var actable = FindActableInChildren(actableCode);
+                if (actable != null)
+                {
+                    actable.GetComponent<Interactable>().IsInteractable = active;
+                }
+                else
+                {
+                    Debug.LogWarning($"Interactable '{name}' not found under ActionManager hierarchy.");
+                }
             }
         }
 

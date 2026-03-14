@@ -17,6 +17,7 @@ namespace Antura.Discover
         public bool AutoCollect = true; // Automatically collect the item when the player collides with it
         public CollectableType Type;
         public string ItemTag; // Used to identify the item in the inventory
+        public bool AddToInventory = false; // Automatically add the item to the inventory when collected
 
         [Header("Effects")]
         public GameObject particleEffectPrefab;
@@ -81,6 +82,10 @@ namespace Antura.Discover
             if (Type == CollectableType.item)
             {
                 QuestManager.I.OnCollectItem(ItemTag);
+                if (AddToInventory)
+                {
+                    QuestManager.I.Inventory.CollectItem(ItemTag);
+                }
                 gameObject.SetActive(false); // Disable the item instead of destroying it
             }
 
