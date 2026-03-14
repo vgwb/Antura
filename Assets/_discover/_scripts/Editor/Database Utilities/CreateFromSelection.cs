@@ -10,6 +10,7 @@ namespace Antura.Discover
     {
         private static readonly string[] ImageExtensions = { ".png", ".jpg", ".jpeg" };
         private static readonly string[] AudioExtensions = { ".mp3", ".ogg" };
+        private static readonly string[] ModelExtensions = { ".fbx", ".glb" };
 
         // Create AssetData from selected image(s)
         [MenuItem("Assets/Antura/Create AssetData from Image", priority = 210)]
@@ -45,7 +46,7 @@ namespace Antura.Discover
 
                     var dir = Path.GetDirectoryName(assetPath);
                     var fileBase = Path.GetFileNameWithoutExtension(assetPath);
-                    var defaultPath = Path.Combine(dir ?? string.Empty, fileBase + ".asset").Replace("\\", "/");
+                    var defaultPath = Path.Combine(dir ?? string.Empty, fileBase + " asset.asset").Replace("\\", "/");
 
                     // Infer country and build id
                     var code = InferCountryCodeFromPath(assetPath);
@@ -230,7 +231,7 @@ namespace Antura.Discover
 
                     var dir = Path.GetDirectoryName(assetPath);
                     var fileBase = Path.GetFileNameWithoutExtension(assetPath);
-                    var defaultPath = Path.Combine(dir ?? string.Empty, fileBase + ".asset").Replace("\\", "/");
+                    var defaultPath = Path.Combine(dir ?? string.Empty, fileBase + " asset.asset").Replace("\\", "/");
 
                     var code = InferCountryCodeFromPath(assetPath);
                     var country = MapCountryCodeToEnum(code);
@@ -297,6 +298,112 @@ namespace Antura.Discover
                         return true;
                 }
             }
+            return false;
+        }
+
+        // Create AssetData from selected model file(s)
+        [MenuItem("Assets/Antura/Create AssetData from Model", priority = 213)]
+        public static void CreateAssetDataFromModel()
+        {
+            var objs = Selection.objects;
+            if (objs == null || objs.Length == 0)
+                return;
+
+            int created = 0, updated = 0, skipped = 0;
+            AssetDatabase.StartAssetEditing();
+            try
+            {
+                foreach (var obj in objs)
+                {
+                    if (obj == null)
+                    { skipped++; continue; }
+
+                    var assetPath = AssetDatabase.GetAssetPath(obj);
+                    if (string.IsNullOrEmpty(assetPath))
+                    { skipped++; continue; }
+
+                    var ext = Path.GetExtension(assetPath).ToLowerInvariant();
+                    bool isModelObject = obj is GameObject go && PrefabUtility.GetPrefabAssetType(go) == PrefabAssetType.Model;
+                    if (!(Array.IndexOf(ModelExtensions, ext) >= 0 || isModelObject))
+                    { skipped++; continue; }
+
+                    AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceSynchronousImport | ImportAssetOptions.ForceUpdate);
+                    var model = LoadModelAtPath(assetPath);
+                    if (model == null)
+                    { skipped++; continue; }
+
+                    var dir = Path.GetDirectoryName(assetPath);
+                    var fileBase = Path.GetFileNameWithoutExtension(assetPath);
+                    var defaultPath = Path.Combine(dir ?? string.Empty, fileBase + " asset.asset").Replace("\\", "/");
+
+                    var code = InferCountryCodeFromPath(assetPath);
+                    var country = MapCountryCodeToEnum(code);
+                    var id = IdentifiedData.BuildSanitizedId(fileBase);
+
+                    var existing = AssetDatabase.LoadAssetAtPath<AssetData>(defaultPath);
+                    if (existing == null)
+                    {
+                        var createPath = AssetDatabase.GenerateUniqueAssetPath(defaultPath);
+                        var data = ScriptableObject.CreateInstance<AssetData>();
+                        data.Type = AssetType.Model3D;
+                        data.Model3D = model;
+                        data.Country = country;
+                        data.Editor_SetId(id);
+                        AssetDatabase.CreateAsset(data, createPath);
+                        created++;
+                    }
+                    else
+                    {
+                        Undo.RecordObject(existing, "Update AssetData from Model");
+                        existing.Type = AssetType.Model3D;
+                        existing.Model3D = model;
+                        if (existing.Country == Countries.International && country != Countries.International)
+                            existing.Country = country;
+                        if (string.IsNullOrWhiteSpace(existing.Id))
+                            existing.Editor_SetId(id);
+                        EditorUtility.SetDirty(existing);
+                        updated++;
+                    }
+                }
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+
+            if (created + updated > 0)
+            {
+                Debug.Log($"[CreateFromSelection] AssetData (Model) - Created: {created}, Updated: {updated}, Skipped: {skipped}");
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("Create AssetData (Model)", "No valid models selected (fbx/glb).", "OK");
+            }
+        }
+
+        [MenuItem("Assets/Antura/Create AssetData from Model", validate = true)]
+        private static bool ValidateCreateAssetDataFromModel()
+        {
+            var objs = Selection.objects;
+            if (objs == null || objs.Length == 0)
+                return false;
+
+            foreach (var obj in objs)
+            {
+                if (obj is GameObject go && PrefabUtility.GetPrefabAssetType(go) == PrefabAssetType.Model)
+                    return true;
+
+                var path = AssetDatabase.GetAssetPath(obj);
+                if (!string.IsNullOrEmpty(path))
+                {
+                    var ext = Path.GetExtension(path).ToLowerInvariant();
+                    if (Array.IndexOf(ModelExtensions, ext) >= 0)
+                        return true;
+                }
+            }
+
             return false;
         }
 
@@ -378,6 +485,18 @@ namespace Antura.Discover
                         return c;
                 }
             }
+            return null;
+        }
+
+        private static GameObject LoadModelAtPath(string assetPath)
+        {
+            if (string.IsNullOrEmpty(assetPath))
+                return null;
+
+            var model = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
+            if (model != null && PrefabUtility.GetPrefabAssetType(model) == PrefabAssetType.Model)
+                return model;
+
             return null;
         }
 
