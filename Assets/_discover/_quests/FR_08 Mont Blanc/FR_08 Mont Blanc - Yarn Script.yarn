@@ -30,17 +30,20 @@ position: 0,0
 type: panel
 color: red
 ---
-<<declare $found_items = 0>>
 <<declare $step_base1 = 0>>
 <<declare $step_base2 = 0>>
 <<declare $step_base3 = 0>>
 <<declare $step_base4 = 0>>
-<<SetActive backpack false>>
+<<SetActive key_gold_intro false>>
 <<SetActive key_gold_1 false>>
+<<SetActive key_gold_2 false>>
+<<SetActive key_gold_3 false>>
+<<SetActive backpack false>>
 <<SetActive scarf false>>
-Welcome to the French Alps! #line:fr08_start_1
+<<SetActive hat false>>
+Welcome to the French Alps! #line:start_1
 <<card alps>>
-Today we climb Mont Blanc, the highest mountain in Western Europe. #line:fr08_start_2
+Today we climb Mont Blanc, the highest mountain in Western Europe. #line:start_2
 <<target npc_mountain_guide>>
 ===
 
@@ -49,9 +52,9 @@ position: 0,200
 type: panel_endgame
 color: red
 ---
-Amazing! You reached the summit of Mont Blanc at 4807m! #line:fr08_end_1
 <<card place_mont_blanc>>
-You braved the wind, the snow, and the ice. #line:fr08_end_2
+Amazing! You reached the summit of Mont Blanc at 4807m! #line:end_1
+The Alps are wonderful mountains. Visit them at least once. #line:end_2
 <<jump post_quest_activity>>
 ===
 
@@ -61,7 +64,7 @@ type: panel
 tags: proposal
 color: red
 ---
-Draw a snowy mountain in your notebook! #line:fr08_post_1
+Draw a snowy mountain in your notebook! #line:post_1
 <<quest_end>>
 ===
 
@@ -82,17 +85,19 @@ group: intro
     and put the 3 flags correctly #line:07f2699 
     <<SetActive door_intro false>>
     <<target npc_base_1>>
+<<elseif GetCurrentTask() == "get_backpack">>
+    Come back when you finished the task.
 <<else>>
-    Help! I am a mountain guide, but a blue dog took our climbing gear! #line:fr08_guide_1
+    Help! I am a mountain guide, but a blue dog took our climbing gear! #line:guide_1
     And we saw the dog go up into the mountains. #line:01beb5e 
     <<camera_focus camera_mont_blanc>>
-    Please explore the Mont Blanc and find all equipment. #line:fr08_guide_3
+    Please explore the Mont Blanc and find all equipment. #line:guide_3
     <<card backpack>>
     Before going, you need a backpack. #task:get_backpack #line:045409f
     <<camera_focus camera_intro>>
-    Look around if you find it!
+    Look around if you find it! #line:05cabb5 
     <<task_start get_backpack>>
-    <<SetActive key_gold_1 true>>
+    <<SetActive key_gold_intro true>>
 <<endif>>
 ===
 
@@ -137,36 +142,48 @@ position: 295,241
 group: base_1
 color: blue
 ---
-<<card coat>>
-The wind is starting to blow. It is cold! #line:fr08_b1_1
-<<if $step_base1 < 10>>
-    How do we stay warm when the wind is strong? #line:fr08_b1_q
-    -> Wear a thick coat #line:fr08_b1_a1
-        <<set $step_base1 = 1>>
-        <<target chest_base1>>
-        Yes! Open the chest to get the gear. #line:fr08_b1_ok
-    -> Wear a swimsuit #line:fr08_b1_a2
-        No, you would freeze! Try again. #line:fr08_b1_no
-        <<jump npc_base1>>
+<<if has_item("coat") and has_item("hat")>>
+    You are now ready to climb! #line:015bf8a
+    <<camera_focus camera_snowman>>
+    If you are blocked, the snowman can help! #line:showman_help
+    <<camera_reset>>
+    <<set $step_base1 = 1>>
+    <<SetActive door_base_1 false>>
+    <<target npc_base_2>>
+<<elseif !has_item("coat")>>
+    You are missing the coat!
+    <<target coat>>
 <<else>>
-    You look much warmer now! #line:fr08_b1_done
+    The wind is starting to blow. My ears need protection! #line:b1_1
+    How do we protect the ears when the wind is strong? #line:b1_q
+    <<activity fr08_activity_1 activity_1_done>>
 <<endif>>
 ===
+
+title: activity_1_done
+position: 538,235
+group: base_1
+---
+Open the chest to get a warm hat! #line:0e83480 #task:get_hat
+<<set $step_base1 = 1>>
+<<task_start get_hat>>
+<<SetActive key_gold_1 true>>
+<<target chest_1>>
+===
+
 
 title: chest_base1
 position: 538,235
 group: base_1
 ---
-<<if $step_base1 == 1>>
-    Solve the puzzle to open the chest! #line:fr08_chest_minigame
-    <<set $step_base1 = 2>>
-    <<activity jigsaw_weather chest_base1>>
-<<elseif $step_base1 == 2>>
-    <<card coat>>
-    <<card scarf>>
-    You found the Coat and the Scarf! #line:fr08_b1_found
-    <<set $found_items = $found_items + 2>>
-    <<set $step_base1 = 10>>
+<<if has_item("key_gold")>>
+    <<inventory key_gold remove>>
+    It opens! It contains some equipment. #line:056ec2b 
+    <<trigger chest_1_open>>
+    <<SetInteractable chest_1 false>>
+    <<SetActive hat true>>
+<<else>>
+    It's locked. Maybe you need a key. #shadow:0658d28 
 <<endif>>
 ===
 
@@ -177,7 +194,6 @@ color: yellow
 ---
 <<card coat>>
 This coat keeps your body warm in wind and snow. #line:0e23f1f 
-Always zip it up high! #line:06fe689
 <<inventory coat add>>
 <<SetActive this false>>
 ===
@@ -191,6 +207,9 @@ A warm hat keeps heat from leaving your head. #line:000fc05
 Wear it even in bright sun. #line:059d744
 <<inventory hat add>>
 <<SetActive this false>>
+<<task_end get_hat>>
+<<target npc_base_1>>
+Now you can continue the climb! #line:0a7146f 
 ===
 
 
@@ -198,44 +217,55 @@ Wear it even in bright sun. #line:059d744
 // Base 2 - Lower Mid
 // ---------------------------------------
 
+
+
 title: npc_base2
 position: 305,460
 group: base_2
 color: blue
 ---
-<<card snow>>
-Look at all this snow! People love to ski here. #line:fr08_b2_1
-<<if $step_base2 < 10>>
-    Which parts of your body get cold first in the snow? #line:fr08_b2_q
-    -> Hands and head #line:fr08_b2_a1
-        <<set $step_base2 = 1>>
-        <<target chest_base2>>
-        Correct! You need protection. #line:fr08_b2_ok
-    -> Your elbows #line:fr08_b2_a2
-        Not usually! Try again. #line:fr08_b2_no
-        <<jump npc_base2>>
+<<if has_item("sunglasses") and has_item("gloves")>>
+    You are now ready to climb! #shadow:015bf8a
+    If you are blocked, the snowman can help! #shadow:showman_help
+    <<set $step_base2 = 1>>
+    <<SetActive door_base_2 false>>
+    <<target npc_base_3>>
+<<elseif !has_item("sunglasses")>>
+    You are missing the sunglasses!
+    <<target sunglasses>>
 <<else>>
-    Enjoy the snow! #line:fr08_b2_done
+    The wind is starting to blow. My ears need protection!
+    How do we protect the ears when the wind is strong?
+    <<activity fr08_activity_2 activity_2_done>>
 <<endif>>
 ===
+
+title: activity_2_done
+position: 538,235
+group: base_1
+---
+Open the chest to get a warm hat! #task:get_hat
+<<set $step_base1 = 1>>
+<<task_start get_hat>>
+<<SetActive key_gold_1 true>>
+<<target chest_1>>
+===
+
 
 title: chest_base2
 position: 567,462
 group: base_2
 ---
-<<if $step_base2 == 1>>
-    Solve the puzzle to reach the gear! #line:fr08_b2_puzzle
-    <<set $step_base2 = 2>>
-    <<activity memory_snow chest_base2>>
-<<elseif $step_base2 == 2>>
-    <<card gloves>>
-    <<card hat>>
-    You found the Gloves and the Hat! #line:fr08_b2_found
-    <<set $found_items = $found_items + 2>>
-    <<set $step_base2 = 10>>
+<<if has_item("key_gold")>>
+    <<inventory key_gold remove>>
+    It opens! It contains some equipment. #shadow:056ec2b 
+    <<trigger chest_1_open>>
+    <<SetInteractable chest_1 false>>
+    <<SetActive hat true>>
+<<else>>
+    It's locked. Maybe you need a key. #shadow:0658d28 
 <<endif>>
 ===
-
 
 title: item_gloves
 position: 887,476
@@ -269,18 +299,18 @@ group: base_3
 color: blue
 ---
 <<card glacier>>
-We are walking on a glacier! It is a river of ice. #line:fr08_b3_1
+We are walking on a glacier! It is a river of ice. #line:b3_1
 <<if $step_base3 < 10>>
-    The sun is very bright on the white ice. What do you need? #line:fr08_b3_q
-    -> Sunglasses and Crampons #line:fr08_b3_a1
+    The sun is very bright on the white ice. What do you need? #line:b3_q
+    -> Sunglasses and Crampons #line:b3_a1
         <<set $step_base3 = 1>>
         <<target chest_base3>>
-        Yes! Sunglasses for your eyes and crampons for the ice. #line:fr08_b3_ok
-    -> An umbrella #line:fr08_b3_a2
-        That won't help you walk on ice! Try again. #line:fr08_b3_no
+        Yes! Sunglasses for your eyes and crampons for the ice. #line:b3_ok
+    -> An umbrella #line:b3_a2
+        That won't help you walk on ice! Try again. #line:b3_no
         <<jump npc_base3>>
 <<else>>
-    The view is beautiful, isn't it? #line:fr08_b3_done
+    The view is beautiful, isn't it? #line:b3_done
 <<endif>>
 ===
 
@@ -289,14 +319,13 @@ position: 567,705
 group: base_3
 ---
 <<if $step_base3 == 1>>
-    Open the chest with this activity! #line:fr08_b3_puzzle
+    Open the chest with this activity! #line:b3_puzzle
     <<set $step_base3 = 2>>
     <<activity canvas_ice chest_base3>>
 <<elseif $step_base3 == 2>>
     <<card sunglasses>>
     <<card crampons>>
-    You found the Sunglasses and the Crampons! #line:fr08_b3_found
-    <<set $found_items = $found_items + 2>>
+    You found the Sunglasses and the Crampons! #line:b3_found
     <<set $step_base3 = 10>>
 <<endif>>
 ===
@@ -335,18 +364,18 @@ group: base_4
 color: blue
 ---
 <<card rope>>
-Almost at the summit! The path is steep. #line:fr08_b4_1
+Almost at the summit! The path is steep. #line:b4_1
 <<if $step_base4 < 10>>
-    Climbers use this to stay safe and connected. What is it? #line:fr08_b4_q
-    -> A strong rope #line:fr08_b4_a1
+    Climbers use this to stay safe and connected. What is it? #line:b4_q
+    -> A strong rope #line:b4_a1
         <<set $step_base4 = 1>>
         <<target chest_base4>>
-        Perfect! This is the last piece. #line:fr08_b4_ok
-    -> A piece of string #line:fr08_b4_a2
-        Too weak! Try again. #line:fr08_b4_no
+        Perfect! This is the last piece. #line:b4_ok
+    -> A piece of string #line:b4_a2
+        Too weak! Try again. #line:b4_no
         <<jump npc_base4>>
 <<else>>
-    See you at the top! #line:fr08_b4_done
+    See you at the top! #line:b4_done
 <<endif>>
 ===
 
@@ -355,13 +384,12 @@ position: 565,995
 group: base_4
 ---
 <<if $step_base4 == 1>>
-    Last puzzle before the peak! #line:fr08_b4_puzzle
+    Last puzzle before the peak! #line:b4_puzzle
     <<set $step_base4 = 2>>
     <<activity jigsaw_summit chest_base4>>
 <<elseif $step_base4 == 2>>
     <<card rope>>
-    You found the Rope! #line:fr08_b4_found
-    <<set $found_items = $found_items + 1>>
+    You found the Rope! #line:b4_found
     <<set $step_base4 = 10>>
 <<endif>>
 ===
@@ -371,16 +399,13 @@ position: 301,1168
 group: base_4
 ---
 <<card summit>>
-We are at 4807 meters! Look at the view. #line:fr08_summit_1
-Which countries can you see from here? #line:fr08_summit_q
--> France, Italy, and Switzerland #line:fr08_summit_a1
-    <<card flag_france>>
-    <<card flag_italy>>
-    <<card flag_swiss>>
-    Correct! Let's place the flags. #line:fr08_summit_ok
+We are at 4807 meters! Look at the view. #line:summit_1
+Which countries can you see from here? #line:summit_q
+-> France, Italy, and Switzerland #line:summit_a1
+    Correct! Let's place the flags. #line:summit_ok
     <<activity match_flags quest_end>>
--> France, Spain, and Germany #line:fr08_summit_a2
-    Not quite. Those are a bit too far! #line:fr08_summit_no
+-> France, Spain, and Germany #line:summit_a2
+    Not quite. Those are a bit too far! #line:summit_no
     <<jump question_summit_flags>>
 ===
 
@@ -392,13 +417,6 @@ tags:
 To the West of Mont Blanc there is France. #line:0d23529 
 ===
 
-title: item_flag_france
-position: 1087,1009
-tags: 
----
-<<card flag_france zoom>>
-===
-
 title: npc_italy
 position: 1087,1009
 tags: 
@@ -407,12 +425,6 @@ tags:
 To the East of Mont Blanc there is Italy. #line:050fe70  
 ===
 
-title: item_flag_italy
-position: 850,984
-tags: 
----
-<<card flag_italy zoom>>
-===
 
 title: npc_swiss
 position: 1087,1009
@@ -421,14 +433,6 @@ tags:
 <<card country_switzerland>>
 To the North of Mont Blanc there is Switzerland. #line:03db010  
 ===
-
-title: item_flag_swiss
-position: 1318,999
----
-<<card flag_swiss>>
-===
-
-
 
 
 
@@ -443,17 +447,17 @@ title: snowman
 position: 301,1168
 group: 
 ---
-Do you need help to climb the mountain?
--> Yes
-    -> Base 2
+Do you need help to climb the mountain? #line:0c18060 
+-> Yes #line:0f4c405 
+    -> Basecamp 1 #line:07f2635 
+        <<teleport base_1>>
+    -> Basecamp 2 #line:05e3658 
         <<teleport base_2>>
-    -> Base 3
+    -> Basecamp 3 #line:058bb65 
         <<teleport base_3>>
-    -> Base 4
+    -> Basecamp 4 #line:035e68a 
         <<teleport base_4>>
-    -> Base 5
-        <<teleport base_5>>
--> No, I stay here #highlight
+-> No, I stay here #highlight #line:02a3874 
 ===
 
 
@@ -463,7 +467,7 @@ group: bonus
 ---
 <<if has_item("key_gold")>>
     <<inventory key_gold remove>>
-    It opens! It contains a scarf.
+    It opens! It contains a scarf. #line:003e87c 
     <<trigger chest_bonus_open>>
     <<SetInteractable chest_bonus false>>
     <<SetActive scarf true>>

@@ -12,15 +12,12 @@
 
 - **Geography**: Mont Blanc is the highest mountain in the **Alps** (4807m). Neighbors visible from the peak include **France, Italy, and Switzerland**.
 - **Vocabulary**: Mountain, peak, snow, ice, sun, and wind.
-- **Gear & Safety**: Recognizing essential tools like a 
+- **Gear & Safety**: Recognizing essential tools 
   - backpack
-
   - coat
   - hat
-
   - gloves
   - sunglasses
-
   - crampons
   - rope
 
@@ -32,34 +29,43 @@
 #### Base Camp - The Start
 
 - **Location**: The valley floor in Chamonix.
-- **NPC Interaction**: Meet the **Mountain Guide** 
-- **action**: find key to open chest to receive the **Backpack**.
+- **NPC**: Meet the **Mountain Guide**
 - **Knowledge**: Learn that Mont Blanc is the highest peak in the **Alps**.
+- **Collectible**: find key to open chest to receive the **Backpack**.
+- **Task**: needs Backpack to go on
 
 #### Base 1 - The Valley's End
 
 - **Location**: After a walk through the lower valley, reaching the actual foot of the mountain.
-- **NPC Interaction**: A hiker explains the importance of layers.
-- **Collectible**: Unlock a chest to find the **Coat** and **Hat** after a simple weather quiz.
+- **NPC**: A hiker explains the importance of layers.
+- **Collectible**: 
+  - Unlock a chest to find **Hat** after a simple weather quiz.
+  - a **Coat** is around
+- **Task**: needs Coat and Hat to go on
 
 #### Base 2 - Lower Mid (The Snow Line)
 
 - **Location**: The transition area where grass turns to permanent **snow**.
-- **NPC Interaction**: A ski instructor discusses winter gear.
-- **Collectible**: Solve a jigsaw puzzle of the mountain to unlock **Gloves** and a **sunglasses**.
+- **NPC**: **sun** is dangerous when snow.
+- **Collectibles**: 
+  - Solve a jigsaw puzzle of the mountain to unlock **sunglasses** n the chest
+  - **Gloves** around
+- **Task**: needs sunglasses and Gloves to go on
 
 #### Base 3 - High-Mid (The Glacier)
 
-- **Location**: High-altitude **ice** and **glaciers**.
-- **NPC Interaction**: A glaciologist explains why the **sun** is dangerous on the ice.
-- **Collectible**: Answer a question about eye safety to unlock the **Rope** and **Crampons**.
+- **Location**: High-altitude **ice**.
+- **NPC**: To climb on ice we need special equipments
+- **Collectible**: 
+  - Answer a question about walk on ice to unlock **Crampons**.
+  - the **Rope** is around
+- **Task**: needs Rope and Crampons to go on
 
 #### Base 4 - The Top
 
 - **Location**: The 4807m **summit**.
-- **Action**: Final geography check of neighboring countries.
-- **Quiz**: Identify **France**, **Italy**, and **Switzerland** from the peak.
-- **Final Puzzle**: Place the three national flags on their respective poles.
+- **Knowledge**: Identify **France**, **Italy**, and **Switzerland**.
+- **Final Puzzle**: Match countrie to flag
 
 ### Final Assessment
 
@@ -70,7 +76,7 @@
 2. How high is Mont Blanc?
 	- **Answer:** 4807 meters
 	- 3705 meters
-	- 4016 meters
+	- 5016 meters
 3. Which countries can you see from the top of Mont Blanc?
 	- **Answer:** Italy, France and Switzerland
 	- Italy, Austria, France
