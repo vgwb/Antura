@@ -41,8 +41,11 @@ color: red
 <<SetActive backpack false>>
 <<SetActive scarf false>>
 <<SetActive hat false>>
-Welcome to the French Alps! #line:start_1
+<<SetActive sunglasses false>>
+<<SetActive crampons false>>
 <<card alps>>
+Welcome to the French Alps! #line:start_1
+<<card place_mont_blanc>>
 Today we climb Mont Blanc. It is the highest mountain in the Alps. #line:start_2
 <<target npc_intro>>
 ===
@@ -79,14 +82,16 @@ group: intro
 ---
 <<if has_item("backpack")>>
     I see you have the backpack. Now you can go! #line:04c1c1f 
-    <<card mont_blanc>>
+    <<card place_mont_blanc>>
     Let's climb Mont Blanc. #line:0f4644b 
-    Find all the climbing gear and see the three nearby countries! #line:07f2699 
+    <<card climbing>>
+    Find all the climbing gear and learn about the three nearby countries! #line:07f2699 
     <<SetActive door_intro false>>
     <<target npc_base_1>>
 <<elseif GetCurrentTask() == "get_backpack">>
     Come back when you finish the task. #line:046eb33 
 <<else>>
+    <<card mountain_guide>>
     Help! I am a mountain guide. A blue dog took our climbing gear! #line:0724de3 
     We saw the dog run up the mountain. #line:01beb5e 
     <<camera_focus camera_mont_blanc>>
@@ -127,7 +132,8 @@ This backpack can carry food, water, and a map. #line:05e80cb
 <<SetActive this false>>
 <<action wear_backpack>>
 <<task_end get_backpack>>
-Now we can exit the base camp and start the adventure! #line:029f39c 
+Now we can exit the base camp and start the adventure! #line:029f39c
+<<target npc_intro>>
 ===
 
 
@@ -153,6 +159,7 @@ color: blue
     You are missing the coat! #line:03dd802 
     <<target coat>>
 <<else>>
+    <<card wind>>
     The wind is starting to blow. My ears need protection! #line:b1_1
     How do we protect the ears when the wind is strong? #line:b1_q
     <<activity fr08_activity_1 activity_1_done>>
@@ -229,13 +236,17 @@ color: blue
     <<set $step_base2 = 1>>
     <<SetActive door_base_2 false>>
     <<target npc_base_3>>
+<<elseif GetCurrentTask() == "get_sunglasses">>
+    Come back when you finish the task. #shadow:046eb33 
+<<elseif !has_item("sunglasses")>>
+    <<card sun>>
+    The sun on the snow is very bright. We need eye protection. #line:029a03e 
+    <<card snow>>
+    What protects your eyes from bright snow and sun? #line:0a70f7d 
+    <<activity fr08_activity_2 activity_2_done>>
 <<elseif !has_item("gloves")>>
     You are missing the gloves! #line:06b3363 
     <<target gloves>>
-<<elseif !has_item("sunglasses")>>
-    The sun on the snow is very bright. We need eye protection. #line:029a03e 
-    What protects your eyes from bright snow and sun? #line:0a70f7d 
-    <<activity fr08_activity_2 activity_2_done>>
 <<else>>
     Keep looking. We still need all the gear. #line:keep_looking
 <<endif>>
@@ -283,8 +294,9 @@ title: item_sunglasses
 position: 1125,474
 actor: 
 ---
-<<card sunglasses>>
+<<card ice>>
 Snow and ice reflect bright sunlight. #line:02a2ea9 
+<<card sunglasses>>
 Sunglasses protect your eyes. #line:088fb7f
 <<inventory sunglasses add>>
 <<SetActive this false>>
@@ -306,11 +318,15 @@ color: blue
     <<set $step_base3 = 1>>
     <<SetActive door_base_3 false>>
     <<target npc_base4>>
+<<elseif GetCurrentTask() == "get_crampons">>
+    Come back when you finish the task. #shadow:046eb33 
 <<elseif !has_item("rope")>>
     You are missing the rope! #line:0c18c08 
     <<target rope>>
 <<else>>
+    <<card ice>>
     To walk on glacier ice, we need special gear. #line:06d9f34 
+    <<card glacier>>
     What do you put on your boots to walk on ice and not slip? #line:076433f 
     -> Crampons #line:0b50050 
         Correct! Use them to stay steady. #line:00a7e83 
@@ -392,15 +408,17 @@ position: 301,1088
 group: base_4
 ---
 What mountain range is Mont Blanc in? #line:06f9a2a 
--> The Alps #line:summit_q1_a1
-    Correct! #line:correct
-    <<jump question_height>>
 -> The Pyrenees #line:summit_q1_a2
     Not quite. Try again. #line:try_again
     <<jump question_alps>>
 -> The Apennines #line:summit_q1_a3
     Not quite. Try again. #shadow:try_again
     <<jump question_alps>>
+-> The Alps #line:summit_q1_a1
+    Correct! #line:correct
+    <<jump question_height>>
+-> I don't know #line:dontknow #highlight
+    Come back later! #line:comebacklater
 ===
 
 title: question_height
@@ -408,15 +426,17 @@ position: 301,1128
 group: base_4
 ---
 How high is Mont Blanc? #line:summit_q2
--> 4807 meters #line:summit_q2_a1
-    Correct! #shadow:correct
-    <<jump question_summit_flags>>
 -> 3705 meters #line:summit_q2_a2
     Not quite. Try again. #shadow:try_again
     <<jump question_height>>
+-> 4807 meters #line:summit_q2_a1
+    Correct! #shadow:correct
+    <<jump question_summit_flags>>
 -> 5016 meters #line:summit_q2_a3
     Not quite. Try again. #shadow:try_again
     <<jump question_height>>
+-> I don't know #shadow:dontknow #highlight
+    Come back later! #shadow:comebacklater
 ===
 
 title: question_summit_flags
@@ -424,12 +444,16 @@ position: 301,1168
 group: base_4
 ---
 Which countries can you see from here? #line:summit_q
--> France, Italy, and Switzerland #line:summit_a1
-    Correct! Let's place the flags. #line:summit_ok
-    <<activity match_flags quest_end>>
 -> France, Spain, and Germany #line:summit_a2
     Not quite. Those are a bit too far! #line:summit_no
     <<jump question_summit_flags>>
+-> France, Italy, and Switzerland #line:summit_a1
+    Correct! Let's place the flags. #line:summit_ok
+    <<activity fr08_match_flags quest_end>>
+-> The Alps #shadow:summit_q1_a1
+    Come back later! #shadow:comebacklater
+-> I don't know #shadow:dontknow #highlight
+    Come back later! #shadow:comebacklater
 ===
 
 title: npc_france
@@ -466,21 +490,83 @@ Switzerland is north of Mont Blanc. #line:03db010
 // AREA BONUS
 // ---------------------------------------
 
-title: snowman
+title: snowman_1
 position: 301,1168
-group: 
 ---
-Do you need help to climb the mountain? #line:0c18060 
--> Yes #line:0f4c405 
-    -> Basecamp 1 #line:07f2635 
-        <<teleport base_1>>
-    -> Basecamp 2 #line:05e3658 
+<<if HasCompletedTask("get_hat")>>
+    Do you need help to climb the mountain? #line:0c18060 
+    -> Yes #line:0f4c405 
         <<teleport base_2>>
-    -> Basecamp 3 #line:058bb65 
+    -> No, I stay here #highlight #line:02a3874
+<<else>>
+    Come back later! #shadow:comebacklater
+<<endif>>
+===
+
+title: snowman_2
+position: 301,1168
+---
+<<if has_item("gloves")>>
+    Do you need help to climb the mountain? #shadow:0c18060 
+    -> Yes #shadow:0f4c405 
         <<teleport base_3>>
-    -> Basecamp 4 #line:035e68a 
+    -> No, I stay here #highlight #shadow:02a3874 
+<<else>>
+    Come back later! #shadow:comebacklater
+<<endif>>
+===
+
+title: snowman_3
+position: 301,1168
+---
+<<if HasCompletedTask("get_sunglasses")>>
+    Do you need help to climb the mountain? #shadow:0c18060 
+    -> Yes #shadow:0f4c405 
         <<teleport base_4>>
--> No, I stay here #highlight #line:02a3874 
+    -> No, I stay here #highlight #shadow:02a3874 
+<<else>>
+    Come back later! #shadow:comebacklater
+<<endif>>
+===
+
+title: snowman_4
+position: 301,1168
+---
+Do you need help to climb the mountain? #shadow:0c18060 
+-> Yes #shadow:0f4c405 
+    <<teleport base_5>>
+-> No, I stay here #highlight #shadow:02a3874 
+===
+
+title: snowman_5
+position: 301,1168
+---
+<<if HasCompletedTask("get_crampons")>>
+    Do you need help to climb the mountain? #shadow:0c18060 
+    -> Yes #shadow:0f4c405 
+        <<teleport base_6>>
+    -> No, I stay here #highlight #shadow:02a3874 
+<<else>>
+    Come back later! #shadow:comebacklater
+<<endif>>
+===
+
+title: snowman_6
+position: 301,1168
+---
+Do you need help to climb the mountain? #shadow:0c18060 
+-> Yes #shadow:0f4c405 
+    <<teleport base_7>>
+-> No, I stay here #highlight #shadow:02a3874 
+===
+
+title: snowman_7
+position: 301,1168
+---
+Do you need help to climb the mountain? #shadow:0c18060 
+-> Yes #shadow:0f4c405 
+    <<teleport base_1>>
+-> No, I stay here #highlight #shadow:02a3874 
 ===
 
 title: marmot
@@ -491,9 +577,9 @@ group: animals
 ---
 // The marmot makes a sound effect before talking
 // <<play_sfx marmot_whistle>>
-=> I sleep all winter under the snow. This is called hibernation! #line:fr08_marmot_2
-=> I love eating alpine flowers and grass. Yum! #line:fr08_marmot_3
-=> Don't mind me, I'm just sunbathing on this warm rock. #line:fr08_marmot_4
+=> I sleep all winter under the snow. This is called hibernation! #line:fr08_marmot_2 #card:marmot
+=> I love eating alpine flowers and grass. Yum! #line:fr08_marmot_3 #card:marmot
+=> Don't mind me, I'm just sunbathing on this warm rock. #line:fr08_marmot_4 #card:marmot
 ===
 
 title: chest_bonus
@@ -537,7 +623,7 @@ spawn_group: tourists
 ---
 => I love the mountains! #line:011dc7e 
 => Mont Blanc is the highest mountain in the Alps! #line:003ecb2 
-=> I hope to see a marmot! #line:04bbada 
+=> I hope to see a marmot! #line:04bbada #card:marmot
 => Don't forget to bring warm clothes! #line:0590129 
 => Mountains can be dangerous, so be careful! #line:097ecf0 
 ===
