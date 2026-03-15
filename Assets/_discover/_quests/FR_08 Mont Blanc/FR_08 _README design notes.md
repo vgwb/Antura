@@ -1,83 +1,81 @@
-## Game Design Notes FR_08
+## FR_08: Mont Blanc
 
-**Mission Statement** The player explores **Mont Blanc** to recover essential climbing gear and environmental facts. By talking to experts at five distinct altitude bases, the player learns about the **Alps**, mountain safety, and geography to reach the summit.
+### Overview
+
+In this quest, players explore **Mont Blanc** and climb from the valley floor to the summit while collecting essential mountain gear. Along the way, they meet guides and climbers, learn key facts about the **Alps**, and discover how preparation and safety help make high-altitude travel possible.
+
+The experience combines exploration, light puzzles, and educational dialogue. Each stage introduces a new part of the mountain environment and rewards the player with equipment needed to continue the ascent.
 
 ### Characters
 
-- **Mountain Guide**: Stationed at Base Camp to provide the backpack and mission briefing.
-- **Alpinists & Experts**: NPCs at each base who guard chests and provide educational facts.
-- **Mountain Wildlife**: Marmots and other local features providing atmospheric context.
+- **Mountain Guide**: Welcomes the player at Base Camp, introduces the mission, and helps begin the journey.
+- **Alpinists and Experts**: Climbers and specialists placed at each base who share facts, ask questions, and guard reward chests.
+- **Mountain Wildlife**: Marmots and other natural details that give the setting atmosphere and a stronger sense of place.
 
-### Knowledge Content
+### Learning Goals
 
-- **Geography**: Mont Blanc is the highest mountain in the **Alps** (4807m). Neighbors visible from the peak include **France, Italy, and Switzerland**.
-- **Vocabulary**: Mountain, peak, snow, ice, sun, and wind.
-- **Gear & Safety**: Recognizing essential tools 
-  - backpack
-  - coat
-  - hat
-  - gloves
-  - sunglasses
-  - crampons
-  - rope
+- **Geography**: Mont Blanc is the highest mountain in the **Alps**, reaching **4,807 meters**. From the summit, players learn about **France**, **Italy**, and **Switzerland**.
+- **Vocabulary**: mountain, peak, snow, ice, sun, and wind.
+- **Gear and Safety**: Players identify and collect essential climbing items, including a backpack, coat, hat, gloves, sunglasses, crampons, and rope.
 
 ### Gameplay Flow
 
-#### Bonus place
-- chest with a scarf
+#### Bonus Area
 
-#### Base Camp - The Start
+- A hidden chest rewards the player with a **scarf**.
+
+#### Base Camp: The Beginning
 
 - **Location**: The valley floor in Chamonix.
-- **NPC**: Meet the **Mountain Guide**
-- **Knowledge**: Learn that Mont Blanc is the highest peak in the **Alps**.
-- **Collectible**: find key to open chest to receive the **Backpack**.
-- **Task**: needs Backpack to go on
+- **Encounter**: The player meets the **Mountain Guide**.
+- **Knowledge Focus**: Mont Blanc is the highest peak in the **Alps**.
+- **Objective**: Find a key and open a chest to collect the **Backpack**.
+- **Progress Requirement**: The player needs the **Backpack** to continue.
 
-#### Base 1 - The Valley's End
+#### Base 1: The Valley's End
 
-- **Location**: After a walk through the lower valley, reaching the actual foot of the mountain.
-- **NPC**: A hiker explains the importance of layers.
-- **Collectible**: 
-  - Unlock a chest to find **Hat** after a simple weather quiz.
-  - a **Coat** is around
-- **Task**: needs Coat and Hat to go on
+- **Location**: The lower valley, at the foot of the mountain.
+- **Encounter**: A hiker explains why dressing in layers is important.
+- **Objectives**:
+  - Complete a simple weather quiz to unlock a chest containing the **Hat**.
+  - Find the **Coat** nearby.
+- **Progress Requirement**: The player needs the **Coat** and **Hat** to continue.
 
-#### Base 2 - Lower Mid (The Snow Line)
+#### Base 2: The Snow Line
 
-- **Location**: The transition area where grass turns to permanent **snow**.
-- **NPC**: **sun** is dangerous when snow.
-- **Collectibles**: 
-  - Solve a jigsaw puzzle of the mountain to unlock **sunglasses** n the chest
-  - **Gloves** around
-- **Task**: needs sunglasses and Gloves to go on
+- **Location**: The area where grass gives way to permanent **snow**.
+- **Encounter**: An NPC explains that the **sun** can be especially strong in snowy conditions.
+- **Objectives**:
+  - Solve a mountain jigsaw puzzle to unlock a chest containing **Sunglasses**.
+  - Find the **Gloves** nearby.
+- **Progress Requirement**: The player needs the **Sunglasses** and **Gloves** to continue.
 
-#### Base 3 - High-Mid (The Glacier)
+#### Base 3: The Glacier
 
-- **Location**: High-altitude **ice**.
-- **NPC**: To climb on ice we need special equipments
-- **Collectible**: 
-  - Answer a question about walk on ice to unlock **Crampons**.
-  - the **Rope** is around
-- **Task**: needs Rope and Crampons to go on
+- **Location**: A high-altitude area of **ice** and glacier terrain.
+- **Encounter**: An expert explains why special equipment is needed to walk safely on ice.
+- **Objectives**:
+  - Answer a question about moving on ice to unlock **Crampons**.
+  - Find the **Rope** nearby.
+- **Progress Requirement**: The player needs the **Rope** and **Crampons** to continue.
 
-#### Base 4 - The Top
+#### Base 4: The Summit
 
-- **Location**: The 4807m **summit**.
-- **Knowledge**: Identify **France**, **Italy**, and **Switzerland**.
-- **Final Puzzle**: Match countrie to flag
+- **Location**: The **4807-meter** summit of Mont Blanc.
+- **Knowledge Focus**: Players identify **France**, **Italy**, and **Switzerland**.
+- **Final Puzzle**: Match each country to its flag.
 
 ### Final Assessment
 
 1. What is the name of the mountain range where Mont Blanc is located?
-	- **Answer:** The Alps
-	- The Pyrenees
-	- The Apennines
+   - **Correct answer:** The Alps
+   - The Pyrenees
+   - The Apennines
 2. How high is Mont Blanc?
-	- **Answer:** 4807 meters
-	- 3705 meters
-	- 5016 meters
+   - **Correct answer:** 4807 meters
+   - 3705 meters
+   - 5016 meters
 3. Which countries can you see from the top of Mont Blanc?
-	- **Answer:** Italy, France and Switzerland
-	- Italy, Austria, France
-	- Germany, France, Switzerland
+   - **Correct answer:** Italy, France, and Switzerland
+   - Italy, Austria, and France
+   - Germany, France, and Switzerland

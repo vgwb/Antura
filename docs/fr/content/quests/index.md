@@ -21,7 +21,7 @@ hide:
 
 ## Poland
 
-- [Sąsiedzi Polski (pl_00)](./quest/pl_00.md)
+- [Les voisins de la Pologne (pl_00)](./quest/pl_00.md)
 - [Le grand sauvetage des nains de Wrocław (pl_02)](./quest/pl_02.md)
 - [Fleuve Oder (pl_03)](./quest/pl_03.md)
 - [Le zoo (pl_04)](./quest/pl_04.md)

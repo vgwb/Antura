@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2026.03.15]
+
+### Added
+- Quest FR_08: Mont Blanc
+- option to respawn using the backpack item
+- activity canva: color option
+- teleport commands
+
+## changed
+- improved voiceover manager to render jsut modified strings
+
 ## [2026.03.08]
 
 ### Added

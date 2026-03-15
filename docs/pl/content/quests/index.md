@@ -11,12 +11,12 @@ hide:
 
 ## France
 
-- [Les voisins de la France (fr_00)](./quest/fr_00.md)
-- [Paris ! (fr_01)](./quest/fr_01.md)
+- [Sąsiedzi Francji (fr_00)](./quest/fr_00.md)
+- [Paryż! (fr_01)](./quest/fr_01.md)
 - [System edukacji (fr_02)](./quest/fr_02.md)
 - [Juliusz Verne i transport (fr_03)](./quest/fr_03.md)
-- [Mont Blanc et montagnes (fr_08)](./quest/fr_08.md)
-- [Nourriture et marché (fr_09)](./quest/fr_09.md)
+- [Mont Blanc i góry (fr_08)](./quest/fr_08.md)
+- [Jedzenie i targ (fr_09)](./quest/fr_09.md)
 - [Paryż Sekwana (fr_10)](./quest/fr_10.md)
 
 ## Poland

@@ -560,7 +560,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $boat_house == 1&gt;&gt;</span>
 <span class="yarn-line">    Napraw okna w pływającym domu!</span> <span class="yarn-meta">#line:ch_house1</span>
     <span class="yarn-cmd">&lt;&lt;set $boat_house = 2&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;activity jigsaw_boat_house chest_boat_house&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;activity jigsaw_boat_house_pl chest_boat_house&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $boat_house == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_boat_house&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card houseboat&gt;&gt;</span>
