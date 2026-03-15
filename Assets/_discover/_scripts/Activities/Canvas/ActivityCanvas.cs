@@ -117,7 +117,13 @@ namespace Antura.Discover.Activities
 
         private void ResolveDifficulty()
         {
-            Settings.Resolve(out var difficulty, out var image, out var bugs, out var brushSize, out var compThreshold);
+            if (Settings == null)
+            {
+                BrushSize = Mathf.Max(2, BrushSize);
+                return;
+            }
+
+            Settings.Resolve(out var difficulty, out var image, out var bugs, out var brushSize, out var compThreshold, out var resolvedCoverColor);
             if (ActivityDifficulty == Difficulty.Default)
                 ActivityDifficulty = difficulty;
             if (BackgroundImage == null)
@@ -129,6 +135,7 @@ namespace Antura.Discover.Activities
             BrushSize = Mathf.Max(2, BrushSize);
 
             completionThreshold = compThreshold;
+            coverColor = resolvedCoverColor;
         }
 
         private void Setup()

@@ -20,6 +20,9 @@ namespace Antura.Discover.Activities
         [Tooltip("Background asset used as the canvas image")]
         public AssetData PuzzleImageAsset;
 
+        [Tooltip("Color used for the scratch cover. Use a lighter tint for dark images.")]
+        public Color CoverColor = Color.black;
+
         public Sprite BugSprite;
 
         [Header("Hidden Treasures")]
@@ -37,10 +40,11 @@ namespace Antura.Discover.Activities
         [Tooltip("If > 0 overrides Percentage (0-100) considered complete. 100 = all.")]
         public float CompletionThreshold = 0f;
 
-        public void Resolve(out Difficulty difficulty, out Texture2D image, out int bugs, out int brushSize, out float threshold)
+        public void Resolve(out Difficulty difficulty, out Texture2D image, out int bugs, out int brushSize, out float threshold, out Color coverColor)
         {
             image = ResolveTexture();
             difficulty = Difficulty;
+            coverColor = CoverColor;
 
             switch (Difficulty)
             {
