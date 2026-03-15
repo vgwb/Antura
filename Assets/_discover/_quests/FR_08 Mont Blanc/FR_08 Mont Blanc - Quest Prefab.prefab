@@ -1690,6 +1690,30 @@ MonoBehaviour:
     ItemCount: 1
     ItemTag: hat
     TargetPoint: {fileID: 0}
+  - Code: get_gloves
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 5
+    TaskNode:
+      project: {fileID: 0}
+      nodeName: 
+    NodeSuccess: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: gloves
+    TargetPoint: {fileID: 0}
+  - Code: get_crampons
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 5
+    TaskNode:
+      project: {fileID: 0}
+      nodeName: 
+    NodeSuccess: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: crampons
+    TargetPoint: {fileID: 0}
 --- !u!114 &1281210821818956974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6505,8 +6529,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1984929952780540701, guid: d9b5cd11843af436ea4addc72f111544,
         type: 3}
+      propertyPath: Id
+      value: crampons
+      objectReference: {fileID: 0}
+    - target: {fileID: -1984929952780540701, guid: d9b5cd11843af436ea4addc72f111544,
+        type: 3}
       propertyPath: IsInteractable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067145540386648546, guid: d9b5cd11843af436ea4addc72f111544,
+        type: 3}
+      propertyPath: ItemTag
+      value: crampons
       objectReference: {fileID: 0}
     - target: {fileID: 5242183173733484663, guid: d9b5cd11843af436ea4addc72f111544,
         type: 3}
@@ -7596,25 +7630,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marmot
       objectReference: {fileID: 0}
+    - target: {fileID: 3102427207238309566, guid: ecf6028bf11c644a7a54cb8ef422f275,
+        type: 3}
+      propertyPath: IconType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102427207238309566, guid: ecf6028bf11c644a7a54cb8ef422f275,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102427207238309566, guid: ecf6028bf11c644a7a54cb8ef422f275,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: c27d1bc97ed9b4aab84b70ede484641a,
+        type: 3}
+    - target: {fileID: 3102427207238309566, guid: ecf6028bf11c644a7a54cb8ef422f275,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: marmot
+      objectReference: {fileID: 0}
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.637026
+      value: -52.102
       objectReference: {fileID: 0}
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.163
+      value: 18.994928
       objectReference: {fileID: 0}
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40.814594
+      value: 37.256
       objectReference: {fileID: 0}
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.5044608
       objectReference: {fileID: 0}
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
@@ -7624,7 +7679,7 @@ PrefabInstance:
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.8634346
       objectReference: {fileID: 0}
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
@@ -7639,7 +7694,7 @@ PrefabInstance:
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 119.409
       objectReference: {fileID: 0}
     - target: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
         type: 3}
@@ -7649,8 +7704,72 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2833590607767286181, guid: ecf6028bf11c644a7a54cb8ef422f275,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 106386634225258858}
+    - targetCorrespondingSourceObject: {fileID: 2833590607767286181, guid: ecf6028bf11c644a7a54cb8ef422f275,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 625940974739484391}
   m_SourcePrefab: {fileID: 100100000, guid: ecf6028bf11c644a7a54cb8ef422f275, type: 3}
+--- !u!1 &1120874484986902441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2833590607767286181, guid: ecf6028bf11c644a7a54cb8ef422f275,
+    type: 3}
+  m_PrefabInstance: {fileID: 2944451194282264076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &106386634225258858
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120874484986902441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.71
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &625940974739484391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120874484986902441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7485bf833ff4318b0969d076647ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.SimpleIdleAnimator
+  targetObject: {fileID: 5037957349876721794}
+  rotationAmplitude: {x: 1.8, y: 0.28, z: 1.62}
+  positionAmplitude: {x: 0.02, y: 0.005, z: 0.02}
+  rotationDuration: 1.93
+  positionDuration: 4.31
+  scaleAmount: 0.02
+  scaleDuration: 2.5
+  minPauseDuration: 0.5
+  maxPauseDuration: 2.18
+--- !u!1 &5037957349876721794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7869654724072648334, guid: ecf6028bf11c644a7a54cb8ef422f275,
+    type: 3}
+  m_PrefabInstance: {fileID: 2944451194282264076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5373145781670816197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7083587564666089417, guid: ecf6028bf11c644a7a54cb8ef422f275,
@@ -8080,6 +8199,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7103450603918173274}
     m_Modifications:
+    - target: {fileID: -3114735535658077520, guid: cb560b7ce98fc4d16a5af2632bbefa1d,
+        type: 3}
+      propertyPath: Id
+      value: sunglasses
+      objectReference: {fileID: 0}
     - target: {fileID: -3114735535658077520, guid: cb560b7ce98fc4d16a5af2632bbefa1d,
         type: 3}
       propertyPath: ShowOnMap
@@ -8611,22 +8735,22 @@ PrefabInstance:
     - target: {fileID: 4169032985491228737, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.72
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 4169032985491228737, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.72
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 4169032985491228737, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.72
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 4169032985491228737, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.086
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4169032985491228737, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
@@ -8661,17 +8785,17 @@ PrefabInstance:
     - target: {fileID: 6638966230666963298, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.48
+      value: 24.091
       objectReference: {fileID: 0}
     - target: {fileID: 6638966230666963298, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.96
+      value: -2.48
       objectReference: {fileID: 0}
     - target: {fileID: 6638966230666963298, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.14
+      value: 9.352
       objectReference: {fileID: 0}
     - target: {fileID: 6638966230666963298, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
@@ -8711,6 +8835,11 @@ PrefabInstance:
     - target: {fileID: 7092390684928594250, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
         type: 3}
       propertyPath: m_Name
+      value: rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835668945532260998, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
+        type: 3}
+      propertyPath: Id
       value: rope
       objectReference: {fileID: 0}
     - target: {fileID: 7835668945532260998, guid: 0922e4ec32d2d41f7a61a2f55dfff764,
@@ -9826,7 +9955,7 @@ PrefabInstance:
     - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: Id
-      value: npc_mountain_guide
+      value: npc_intro
       objectReference: {fileID: 0}
     - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -11066,6 +11195,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4127221230586725277, guid: b4d6d46b78c274204ab75ba13b55c577,
         type: 3}
+      propertyPath: Id
+      value: gloves
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127221230586725277, guid: b4d6d46b78c274204ab75ba13b55c577,
+        type: 3}
       propertyPath: ShowOnMap
       value: 1
       objectReference: {fileID: 0}
@@ -11178,7 +11312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
   AutoCollect: 0
   Type: 3
-  ItemTag: 
+  ItemTag: gloves
   AddToInventory: 0
   particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
     type: 3}

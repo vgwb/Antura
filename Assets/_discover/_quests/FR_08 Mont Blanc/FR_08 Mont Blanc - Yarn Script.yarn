@@ -43,8 +43,8 @@ color: red
 <<SetActive hat false>>
 Welcome to the French Alps! #line:start_1
 <<card alps>>
-Today we climb Mont Blanc, the highest mountain in Western Europe. #line:start_2
-<<target npc_mountain_guide>>
+Today we climb Mont Blanc. It is the highest mountain in Europe. #line:start_2
+<<target npc_intro>>
 ===
 
 title: quest_end
@@ -53,8 +53,8 @@ type: panel_endgame
 color: red
 ---
 <<card place_mont_blanc>>
-Amazing! You reached the summit of Mont Blanc at 4807m! #line:end_1
-The Alps are wonderful mountains. Visit them at least once. #line:end_2
+Amazing! You reached the top of Mont Blanc. It is 4807 meters high! #line:end_1
+The Alps are full of tall, beautiful mountains. #line:end_2
 <<jump post_quest_activity>>
 ===
 
@@ -64,7 +64,7 @@ type: panel
 tags: proposal
 color: red
 ---
-Draw a snowy mountain in your notebook! #line:post_1
+Draw Mont Blanc and the three flags in your notebook! #line:post_1
 <<quest_end>>
 ===
 
@@ -80,22 +80,21 @@ group: intro
 <<if has_item("backpack")>>
     I see you have the backpack. Now you can go! #line:04c1c1f 
     <<card mont_blanc>>
-    You have to go up the Mont Blanc #line:0f4644b 
-    the highest mountain in Europe #line:07d23cb 
-    and put the 3 flags correctly #line:07f2699 
+    Let's climb Mont Blanc. #line:0f4644b 
+    And find all the climbing gear! #line:07f2699 
     <<SetActive door_intro false>>
     <<target npc_base_1>>
 <<elseif GetCurrentTask() == "get_backpack">>
-    Come back when you finished the task.
+    Come back when you finish the task. #line:046eb33 
 <<else>>
-    Help! I am a mountain guide, but a blue dog took our climbing gear! #line:guide_1
-    And we saw the dog go up into the mountains. #line:01beb5e 
+    Help! I am a mountain guide. A blue dog took our climbing gear! #line:guide_1
+    We saw the dog run up the mountain. #line:01beb5e 
     <<camera_focus camera_mont_blanc>>
-    Please explore the Mont Blanc and find all equipment. #line:guide_3
+    Please explore Mont Blanc and find our gear. #line:guide_3
     <<card backpack>>
     Before going, you need a backpack. #task:get_backpack #line:045409f
     <<camera_focus camera_intro>>
-    Look around if you find it! #line:05cabb5 
+    Look around for it! #line:05cabb5 
     <<task_start get_backpack>>
     <<SetActive key_gold_intro true>>
 <<endif>>
@@ -112,7 +111,7 @@ group: intro
     <<SetInteractable chest_intro false>>
     <<SetActive backpack true>>
 <<else>>
-    It's locked. Maybe you need a key. #line:0658d28 
+    It's locked. Maybe you need a key. #line:chest_locked 
 <<endif>>
 ===
 
@@ -123,7 +122,7 @@ actor:
 color: yellow
 ---
 <<card backpack>>
-This backpack carries food, water and a map. #line:05e80cb 
+This backpack can carry food, water, and a map. #line:05e80cb 
 <<inventory backpack add>>
 <<SetActive this false>>
 <<action wear_backpack>>
@@ -151,7 +150,7 @@ color: blue
     <<SetActive door_base_1 false>>
     <<target npc_base_2>>
 <<elseif !has_item("coat")>>
-    You are missing the coat!
+    You are missing the coat! #line:03dd802 
     <<target coat>>
 <<else>>
     The wind is starting to blow. My ears need protection! #line:b1_1
@@ -183,7 +182,7 @@ group: base_1
     <<SetInteractable chest_1 false>>
     <<SetActive hat true>>
 <<else>>
-    It's locked. Maybe you need a key. #shadow:0658d28 
+    It's locked. Maybe you need a key. #shadow:chest_locked 
 <<endif>>
 ===
 
@@ -193,7 +192,7 @@ actor:
 color: yellow
 ---
 <<card coat>>
-This coat keeps your body warm in wind and snow. #line:0e23f1f 
+This coat keeps you warm in wind and snow. #line:0e23f1f 
 <<inventory coat add>>
 <<SetActive this false>>
 ===
@@ -203,8 +202,8 @@ position: 1125,238
 actor: 
 ---
 <<card hat>>
-A warm hat keeps heat from leaving your head. #line:000fc05 
-Wear it even in bright sun. #line:059d744
+A warm hat keeps your head warm. #line:000fc05 
+It also helps when the wind is cold. #line:059d744
 <<inventory hat add>>
 <<SetActive this false>>
 <<task_end get_hat>>
@@ -226,29 +225,31 @@ color: blue
 ---
 <<if has_item("sunglasses") and has_item("gloves")>>
     You are now ready to climb! #shadow:015bf8a
-    If you are blocked, the snowman can help! #shadow:showman_help
+    If you get stuck, the snowman can help! #line:fr08_b2_help
     <<set $step_base2 = 1>>
     <<SetActive door_base_2 false>>
     <<target npc_base_3>>
+<<elseif !has_item("gloves")>>
+    You are missing the gloves! #line:06b3363 
+    <<target gloves>>
 <<elseif !has_item("sunglasses")>>
-    You are missing the sunglasses!
-    <<target sunglasses>>
-<<else>>
-    The wind is starting to blow. My ears need protection!
-    How do we protect the ears when the wind is strong?
+    The sun on the snow is very bright. We need eye protection. #line:029a03e 
+    What helps protect your eyes from bright snow and sun? #line:0a70f7d 
     <<activity fr08_activity_2 activity_2_done>>
+<<else>>
+    Keep looking. We still need all the gear. #line:keep_looking
 <<endif>>
 ===
 
 title: activity_2_done
 position: 538,235
-group: base_1
+group: base_2
 ---
-Open the chest to get a warm hat! #task:get_hat
-<<set $step_base1 = 1>>
-<<task_start get_hat>>
-<<SetActive key_gold_1 true>>
-<<target chest_1>>
+Open the chest to get sunglasses! #task:get_sunglasses #line:0fdc3cb 
+<<set $step_base2 = 1>>
+<<task_start get_sunglasses>>
+<<SetActive key_gold_2 true>>
+<<target chest_2>>
 ===
 
 
@@ -258,12 +259,12 @@ group: base_2
 ---
 <<if has_item("key_gold")>>
     <<inventory key_gold remove>>
-    It opens! It contains some equipment. #shadow:056ec2b 
-    <<trigger chest_1_open>>
-    <<SetInteractable chest_1 false>>
-    <<SetActive hat true>>
+    It opens! It has sunglasses inside. #line:fr08_b2_chest 
+    <<trigger chest_2_open>>
+    <<SetInteractable chest_2 false>>
+    <<SetActive sunglasses true>>
 <<else>>
-    It's locked. Maybe you need a key. #shadow:0658d28 
+    It's locked. Maybe you need a key. #shadow:chest_locked
 <<endif>>
 ===
 
@@ -283,10 +284,12 @@ position: 1125,474
 actor: 
 ---
 <<card sunglasses>>
-Snow and ice reflect bright sun. #line:02a2ea9 
-Glasses protect your eyes. #line:088fb7f
+Snow and ice reflect bright sunlight. #line:02a2ea9 
+Sunglasses protect your eyes. #line:088fb7f
 <<inventory sunglasses add>>
 <<SetActive this false>>
+<<task_end get_sunglasses>>
+<<target npc_base_2>>
 ===
 
 // ---------------------------------------
@@ -298,35 +301,50 @@ position: 299,727
 group: base_3
 color: blue
 ---
-<<card glacier>>
-We are walking on a glacier! It is a river of ice. #line:b3_1
-<<if $step_base3 < 10>>
-    The sun is very bright on the white ice. What do you need? #line:b3_q
-    -> Sunglasses and Crampons #line:b3_a1
-        <<set $step_base3 = 1>>
-        <<target chest_base3>>
-        Yes! Sunglasses for your eyes and crampons for the ice. #line:b3_ok
-    -> An umbrella #line:b3_a2
-        That won't help you walk on ice! Try again. #line:b3_no
-        <<jump npc_base3>>
+<<if has_item("crampons") and has_item("rope")>>
+    You have the ice gear. One last push to the top! #line:fr08_b3_ready
+    <<set $step_base3 = 1>>
+    <<SetActive door_base_3 false>>
+    <<target npc_base4>>
+<<elseif !has_item("rope")>>
+    You are missing the rope! #line:0c18c08 
+    <<target rope>>
 <<else>>
-    The view is beautiful, isn't it? #line:b3_done
+    To walk on glacier ice, we need special gear. #line:fr08_b3_1
+    What do you put on your boots to walk on ice and not slip? #line:fr08_b3_q
+    -> Crampons #line:fr08_b3_a1
+        Correct! Use them to stay steady. #line:fr08_b3_ok
+        <<activity fr08_activity_3 activity_3_done>>
+    -> Flippers #line:fr08_b3_a2
+        No! You aren't swimming! Try again. #line:fr08_b3_no
+        <<jump npc_base3>>
 <<endif>>
 ===
 
-title: chest_base3
-position: 567,705
+title: activity_3_done
+position: 538,235
 group: base_3
 ---
-<<if $step_base3 == 1>>
-    Open the chest with this activity! #line:b3_puzzle
-    <<set $step_base3 = 2>>
-    <<activity canvas_ice chest_base3>>
-<<elseif $step_base3 == 2>>
-    <<card sunglasses>>
-    <<card crampons>>
-    You found the Sunglasses and the Crampons! #line:b3_found
-    <<set $step_base3 = 10>>
+Open the chest to get crampons! #task:get_crampons #line:02c9805 
+<<set $step_base3 = 1>>
+<<task_start get_crampons>>
+<<SetActive key_gold_3 true>>
+<<target chest_3>>
+===
+
+
+title: chest_base3
+position: 567,462
+group: base_3
+---
+<<if has_item("key_gold")>>
+    <<inventory key_gold remove>>
+    It opens! It contains some equipment. #shadow:056ec2b 
+    <<trigger chest_3_open>>
+    <<SetInteractable chest_3 false>>
+    <<SetActive crampons true>>
+<<else>>
+    It's locked. Maybe you need a key. #shadow:chest_locked
 <<endif>>
 ===
 
@@ -335,7 +353,7 @@ position: 869,735
 actor: 
 ---
 <<card crampons>>
-These are very useful to walk on ice. #line:07102e7 
+These help you walk safely on ice. #line:07102e7 
 <<inventory crampons add>>
 <<SetActive this false>>
 ===
@@ -347,7 +365,6 @@ actor:
 ---
 <<card rope>>
 The rope helps climbers stay safe on ice and rock. #line:038d1bc 
-Always clip it correctly. #line:0b3d07e
 <<inventory rope add>>
 <<SetActive this false>>
 ===
@@ -363,43 +380,49 @@ position: 294,989
 group: base_4
 color: blue
 ---
-<<card rope>>
-Almost at the summit! The path is steep. #line:b4_1
-<<if $step_base4 < 10>>
-    Climbers use this to stay safe and connected. What is it? #line:b4_q
-    -> A strong rope #line:b4_a1
-        <<set $step_base4 = 1>>
-        <<target chest_base4>>
-        Perfect! This is the last piece. #line:b4_ok
-    -> A piece of string #line:b4_a2
-        Too weak! Try again. #line:b4_no
-        <<jump npc_base4>>
-<<else>>
-    See you at the top! #line:b4_done
-<<endif>>
+<<card summit>>
+You made it! We are at the top of Mont Blanc. #line:fr08_b4_1
+This summit is 4807 meters high. #line:fr08_b4_2
+Let's answer three mountain questions before the flag challenge. #line:fr08_b4_3
+<<jump question_alps>>
 ===
 
-title: chest_base4
-position: 565,995
+title: question_alps
+position: 301,1088
 group: base_4
 ---
-<<if $step_base4 == 1>>
-    Last puzzle before the peak! #line:b4_puzzle
-    <<set $step_base4 = 2>>
-    <<activity jigsaw_summit chest_base4>>
-<<elseif $step_base4 == 2>>
-    <<card rope>>
-    You found the Rope! #line:b4_found
-    <<set $step_base4 = 10>>
-<<endif>>
+What mountain range is Mont Blanc in? #line:summit_q1
+-> The Alps #line:summit_q1_a1
+    Correct! #line:correct
+    <<jump question_height>>
+-> The Pyrenees #line:summit_q1_a2
+    Not quite. Try again. #line:try_again
+    <<jump question_alps>>
+-> The Apennines #line:summit_q1_a3
+    Not quite. Try again. #shadow:try_again
+    <<jump question_alps>>
+===
+
+title: question_height
+position: 301,1128
+group: base_4
+---
+How high is Mont Blanc? #line:summit_q2
+-> 4807 meters #line:summit_q2_a1
+    Correct! #shadow:correct
+    <<jump question_summit_flags>>
+-> 3705 meters #line:summit_q2_a2
+    Not quite. Try again. #shadow:try_again
+    <<jump question_height>>
+-> 5016 meters #line:summit_q2_a3
+    Not quite. Try again. #shadow:try_again
+    <<jump question_height>>
 ===
 
 title: question_summit_flags
 position: 301,1168
 group: base_4
 ---
-<<card summit>>
-We are at 4807 meters! Look at the view. #line:summit_1
 Which countries can you see from here? #line:summit_q
 -> France, Italy, and Switzerland #line:summit_a1
     Correct! Let's place the flags. #line:summit_ok
@@ -460,6 +483,18 @@ Do you need help to climb the mountain? #line:0c18060
 -> No, I stay here #highlight #line:02a3874 
 ===
 
+title: marmot
+position: -250,650
+color: purple
+actor:
+group: animals
+---
+// The marmot makes a sound effect before talking
+// <<play_sfx marmot_whistle>>
+=> I sleep all winter under the snow. This is called hibernation! #line:fr08_marmot_2
+=> I love eating alpine flowers and grass. Yum! #line:fr08_marmot_3
+=> Don't mind me, I'm just sunbathing on this warm rock. #line:fr08_marmot_4
+===
 
 title: chest_bonus
 position: 300,-284
@@ -467,12 +502,12 @@ group: bonus
 ---
 <<if has_item("key_gold")>>
     <<inventory key_gold remove>>
-    It opens! It contains a scarf. #line:003e87c 
+    You found a warm scarf! #line:003e87c 
     <<trigger chest_bonus_open>>
     <<SetInteractable chest_bonus false>>
     <<SetActive scarf true>>
 <<else>>
-    It's locked. Maybe you need a key. #shadow:0658d28 
+    It's locked. Maybe you need a key. #shadow:chest_locked
 <<endif>>
 ===
 
@@ -501,7 +536,7 @@ actor: ADULT_F
 spawn_group: tourists 
 ---
 => I love the mountains! #line:011dc7e 
-=> Mont Blanc is the highest mountain in Europe! #line:003ecb2 
+=> Mont Blanc is the highest mountain in the Alps! #line:003ecb2 
 => I hope to see a marmot! #line:04bbada 
 => Don't forget to bring warm clothes! #line:0590129 
 => Mountains can be dangerous, be careful! #line:097ecf0 
@@ -525,7 +560,7 @@ color: purple
 actor: ADULT_F
 spawn_group: alps_climber
 ---
-=> The Alps are my playground. #line:0809dce #card:alps
-=> Crampons help me on hard ice. #line:081fbe4 #card:crampons
+=> I love climbing in the Alps. #line:0809dce #card:alps
+=> Crampons help me walk on hard ice. #line:081fbe4 #card:crampons
 => Climbing with a guide is safer. #line:0371d31 #card:mountain_guide
 ===
