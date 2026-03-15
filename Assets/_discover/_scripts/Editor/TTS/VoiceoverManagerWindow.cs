@@ -140,7 +140,7 @@ namespace Antura.Discover.Audio.Editor
         private LocalSecrets _secrets;
         private bool _overwriteExisting = false;
         private int _createCapIndex = 2; // 0=1, 1=5, 2=All
-        private bool _showPreviewCounts = true;
+        private bool _showPreviewCounts = false;
         private bool _cardsIncludeDescriptions = false;
 
         private ITtsService _tts = new ElevenLabsTtsService();
@@ -408,25 +408,40 @@ namespace Antura.Discover.Audio.Editor
                 {
                     var meta = YarnLineMapBuilder.BuildMeta(quest);
                     var eligiblePerLoc = new Dictionary<string, int>();
+                    var updatePerLoc = new Dictionary<string, int>();
                     int eligibleTotal = 0;
+                    int updateTotal = 0;
                     foreach (var loc in locales)
                     {
                         int eligible = ComputeEligibleCreateCount(quest, loc, meta, _onlyGenerateMissing, _convertToOgg, _overwriteExisting);
+                        int update = ComputeEligibleUpdateCount(quest, loc, meta);
                         eligiblePerLoc[loc.Identifier.Code] = eligible;
+                        updatePerLoc[loc.Identifier.Code] = update;
                         eligibleTotal += eligible;
+                        updateTotal += update;
                     }
                     int cap = _createCapIndex == 0 ? 1 : (_createCapIndex == 1 ? 5 : int.MaxValue);
                     var plannedPerLoc = new Dictionary<string, int>();
+                    var plannedUpdatePerLoc = new Dictionary<string, int>();
                     int plannedTotal = 0;
+                    int plannedUpdateTotal = 0;
                     foreach (var kv in eligiblePerLoc)
                     {
                         int planned = Mathf.Min(kv.Value, cap);
                         plannedPerLoc[kv.Key] = planned;
                         plannedTotal += planned;
                     }
+                    foreach (var kv in updatePerLoc)
+                    {
+                        int planned = Mathf.Min(kv.Value, cap);
+                        plannedUpdatePerLoc[kv.Key] = planned;
+                        plannedUpdateTotal += planned;
+                    }
                     string plannedStr = string.Join(", ", plannedPerLoc.Select(kv => kv.Key + ": " + kv.Value));
                     string eligibleStr = string.Join(", ", eligiblePerLoc.Select(kv => kv.Key + ": " + kv.Value));
-                    EditorGUILayout.HelpBox($"Will create now (after cap): {plannedTotal}  —  {plannedStr}.\nEligible (uncapped): {eligibleTotal}  —  {eligibleStr}.", MessageType.Info);
+                    string plannedUpdateStr = string.Join(", ", plannedUpdatePerLoc.Select(kv => kv.Key + ": " + kv.Value));
+                    string eligibleUpdateStr = string.Join(", ", updatePerLoc.Select(kv => kv.Key + ": " + kv.Value));
+                    EditorGUILayout.HelpBox($"Will create now (after cap): {plannedTotal}  —  {plannedStr}.\nEligible create (uncapped): {eligibleTotal}  —  {eligibleStr}.\nWill update changed now (after cap): {plannedUpdateTotal}  —  {plannedUpdateStr}.\nEligible update (uncapped): {updateTotal}  —  {eligibleUpdateStr}.", MessageType.Info);
                 }
 
                 using (new EditorGUILayout.HorizontalScope())
@@ -454,6 +469,8 @@ namespace Antura.Discover.Audio.Editor
                     }
                     EditorGUILayout.LabelField("Create Count", GUILayout.Width(90));
                     _createCapIndex = EditorGUILayout.Popup(_createCapIndex, new[] { "1", "5", "All" }, GUILayout.Width(70));
+                    if (GUILayout.Button("Update changed audio", GUILayout.Height(24)))
+                        RunUpdateChangedAudioFiles();
                     if (GUILayout.Button("Create quest audio files", GUILayout.Height(24)))
                         RunCreateAudioFiles();
                 }
@@ -481,6 +498,36 @@ namespace Antura.Discover.Audio.Editor
                     : _cards.Where(c => !string.IsNullOrEmpty(c.Id) && c.Id.IndexOf(_search, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                 EditorGUILayout.LabelField($"Filtered cards: {filteredCards.Count} / {_cards.Count}");
                 _cardsIncludeDescriptions = EditorGUILayout.ToggleLeft("Include Descriptions (.desc)", _cardsIncludeDescriptions);
+                var cardLocales = GetTargetLocales().ToList();
+                if (_showPreviewCounts && filteredCards.Count > 0 && cardLocales.Count > 0)
+                {
+                    var eligiblePerLoc = new Dictionary<string, int>();
+                    var updatePerLoc = new Dictionary<string, int>();
+                    int eligibleTotal = 0;
+                    int updateTotal = 0;
+                    foreach (var loc in cardLocales)
+                    {
+                        int eligible = ComputeEligibleCardCreateCount(filteredCards, loc, _onlyGenerateMissing, _convertToOgg, _overwriteExisting);
+                        int update = ComputeEligibleCardUpdateCount(filteredCards, loc);
+                        eligiblePerLoc[loc.Identifier.Code] = eligible;
+                        updatePerLoc[loc.Identifier.Code] = update;
+                        eligibleTotal += eligible;
+                        updateTotal += update;
+                    }
+
+                    int cap = _createCapIndex == 0 ? 1 : (_createCapIndex == 1 ? 5 : int.MaxValue);
+                    var plannedPerLoc = eligiblePerLoc.ToDictionary(kv => kv.Key, kv => Mathf.Min(kv.Value, cap));
+                    var plannedUpdatePerLoc = updatePerLoc.ToDictionary(kv => kv.Key, kv => Mathf.Min(kv.Value, cap));
+                    int plannedTotal = plannedPerLoc.Values.Sum();
+                    int plannedUpdateTotal = plannedUpdatePerLoc.Values.Sum();
+
+                    string plannedStr = string.Join(", ", plannedPerLoc.Select(kv => kv.Key + ": " + kv.Value));
+                    string eligibleStr = string.Join(", ", eligiblePerLoc.Select(kv => kv.Key + ": " + kv.Value));
+                    string plannedUpdateStr = string.Join(", ", plannedUpdatePerLoc.Select(kv => kv.Key + ": " + kv.Value));
+                    string eligibleUpdateStr = string.Join(", ", updatePerLoc.Select(kv => kv.Key + ": " + kv.Value));
+                    EditorGUILayout.HelpBox($"Cards create now (after cap): {plannedTotal}  —  {plannedStr}.\nCards eligible create (uncapped): {eligibleTotal}  —  {eligibleStr}.\nCards update changed now (after cap): {plannedUpdateTotal}  —  {plannedUpdateStr}.\nCards eligible update (uncapped): {updateTotal}  —  {eligibleUpdateStr}.", MessageType.Info);
+                }
+
                 using (new EditorGUILayout.HorizontalScope())
                 {
                     GUILayout.FlexibleSpace();
@@ -492,9 +539,21 @@ namespace Antura.Discover.Audio.Editor
                     {
                         RunValidateAddressablesCards();
                     }
+                    if (GUILayout.Button("Generate cards _index.json", GUILayout.Height(22)))
+                    {
+                        RunGenerateCardsManifest(filteredCards);
+                    }
+                }
+                using (new EditorGUILayout.HorizontalScope())
+                {
+                    GUILayout.FlexibleSpace();
                     if (GUILayout.Button("Delete card audio files", GUILayout.Height(22)))
                     {
                         RunDeleteCardAudio(filteredCards);
+                    }
+                    if (GUILayout.Button("Update changed card audio", GUILayout.Height(22)))
+                    {
+                        RunUpdateChangedCardAudio(filteredCards);
                     }
                     if (GUILayout.Button("Create card audio files", GUILayout.Height(22)))
                     {
@@ -532,10 +591,12 @@ namespace Antura.Discover.Audio.Editor
 
             int deletedCount = 0;
             bool anyTableUpdated = false;
+            bool anyManifestUpdated = false;
             foreach (var card in cards)
             {
-                string baseName = SanitizeFileNamePart(card.Id ?? card.name);
-                string cardFolder = (CardsBundlesRoot + "/" + baseName).Replace('\\', '/');
+                string cardId = card.Id ?? card.name;
+                string baseName = SanitizeFileNamePart(cardId);
+                string cardFolder = GetCardAudioFolder(card);
 
                 foreach (var locale in locales)
                 {
@@ -575,23 +636,32 @@ namespace Antura.Discover.Audio.Editor
                         if (clearedTitle)
                         {
                             anyTableUpdated |= ClearCardAudioEntry(assetTable, ResolveCardTitleKey(card));
+                            anyManifestUpdated |= VoiceoverManifestUtil.RemoveCardLine(cardId, locale, ResolveCardTitleKey(card));
                         }
                         if (_cardsIncludeDescriptions && clearedDesc)
                         {
                             anyTableUpdated |= ClearCardAudioEntry(assetTable, ResolveCardDescriptionKey(card));
+                            anyManifestUpdated |= VoiceoverManifestUtil.RemoveCardLine(cardId, locale, ResolveCardDescriptionKey(card));
                         }
+                    }
+                    else
+                    {
+                        if (clearedTitle)
+                            anyManifestUpdated |= VoiceoverManifestUtil.RemoveCardLine(cardId, locale, ResolveCardTitleKey(card));
+                        if (_cardsIncludeDescriptions && clearedDesc)
+                            anyManifestUpdated |= VoiceoverManifestUtil.RemoveCardLine(cardId, locale, ResolveCardDescriptionKey(card));
                     }
                 }
             }
 
-            if (deletedCount > 0 || anyTableUpdated)
+            if (deletedCount > 0 || anyTableUpdated || anyManifestUpdated)
             {
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
             }
-            if (anyTableUpdated)
+            if (anyTableUpdated || anyManifestUpdated)
             {
-                EditorUtility.DisplayDialog("Cards Audio", $"Deleted {deletedCount} audio files and cleared asset table assignments for {cards.Count} cards.", "OK");
+                EditorUtility.DisplayDialog("Cards Audio", $"Deleted {deletedCount} audio files and updated card asset/manifest data for {cards.Count} cards.", "OK");
             }
             else
             {
@@ -658,7 +728,272 @@ namespace Antura.Discover.Audio.Editor
             return card != null ? (card.Id ?? card.name) + ".desc" : string.Empty;
         }
 
+        private string GetCardAudioFolder(CardData card)
+        {
+            string baseName = SanitizeFileNamePart(card?.Id ?? card?.name);
+            return (CardsBundlesRoot + "/" + baseName).Replace('\\', '/');
+        }
+
+        private List<(string kind, string key, string text, string nameCore)> BuildCardAudioItems(CardData card, Locale locale)
+        {
+            var items = new List<(string kind, string key, string text, string nameCore)>();
+            if (card == null || locale == null)
+                return items;
+
+            string baseName = SanitizeFileNamePart(card.Id ?? card.name);
+            string titleText = string.Empty;
+            string descText = string.Empty;
+            try
+            {
+                if (card.Title != null)
+                    titleText = LocalizationSettings.StringDatabase.GetLocalizedString(card.Title.TableReference, card.Title.TableEntryReference, locale);
+            }
+            catch { }
+            try
+            {
+                if (card.Description != null)
+                    descText = LocalizationSettings.StringDatabase.GetLocalizedString(card.Description.TableReference, card.Description.TableEntryReference, locale);
+            }
+            catch { }
+
+            if (!string.IsNullOrWhiteSpace(titleText))
+                items.Add(("title", ResolveCardTitleKey(card), titleText, $"{baseName}.{locale.Identifier.Code}"));
+            if (_cardsIncludeDescriptions && !string.IsNullOrWhiteSpace(descText))
+                items.Add(("desc", ResolveCardDescriptionKey(card), descText, $"{baseName}.desc.{locale.Identifier.Code}"));
+            return items;
+        }
+
+        private bool TryResolveCardVoice(Locale locale, out VoiceProfileData voice, out string actorId)
+        {
+            voice = null;
+            actorId = (_selectedActor != VoiceActors.Default ? _selectedActor : VoiceActors.Default).ToString();
+
+            if (_selectedActor == VoiceActors.SILENT)
+                return false;
+
+            IVoiceProvider provider = _voiceCatalog != null ? _voiceCatalog : VoiceProviderManager.I?.Provider;
+            if (provider == null)
+            {
+                var guids = AssetDatabase.FindAssets("t:VoiceProfileCatalog");
+                if (guids != null && guids.Length > 0)
+                {
+                    var p = AssetDatabase.GUIDToAssetPath(guids[0]);
+                    provider = AssetDatabase.LoadAssetAtPath<VoiceProfileCatalog>(p);
+                }
+            }
+
+            if (_voiceProfile != null)
+            {
+                voice = _voiceProfile;
+                return true;
+            }
+
+            if (provider == null)
+                return false;
+
+            var actorForDefault = _selectedActor != VoiceActors.Default ? _selectedActor : VoiceActors.Default;
+            voice = provider.GetProfile(locale, actorForDefault);
+            return voice != null;
+        }
+
+        private static string FindExistingCardAudioPath(string cardFolder, string nameCore)
+        {
+            string ogg = CombinePath(cardFolder, nameCore + ".ogg");
+            if (File.Exists(ogg))
+                return ogg;
+
+            string mp3 = CombinePath(cardFolder, nameCore + ".mp3");
+            if (File.Exists(mp3))
+                return mp3;
+
+            return null;
+        }
+
+        private static int? GetAudioDurationMs(string assetPath)
+        {
+            if (string.IsNullOrEmpty(assetPath))
+                return null;
+
+            var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(assetPath);
+            return clip != null ? Mathf.RoundToInt(clip.length * 1000f) : null;
+        }
+
+        private bool UpsertCardManifestEntry(string cardId, Locale locale, string key, string assetPath, string textHash, VoiceProfileData voice, string actorId, string text)
+        {
+            return VoiceoverManifestUtil.UpsertCard(
+                cardId,
+                locale,
+                key,
+                Path.GetFileName(assetPath),
+                textHash,
+                GetAudioDurationMs(assetPath),
+                voice?.Id,
+                actorId,
+                text);
+        }
+
+        private int ComputeEligibleCardCreateCount(List<CardData> cards, Locale locale, bool onlyMissing, bool convertToOgg, bool overwrite)
+        {
+            if (cards == null || cards.Count == 0 || locale == null)
+                return 0;
+
+            if (!TryResolveCardVoice(locale, out _, out _))
+                return 0;
+
+            int count = 0;
+            foreach (var card in cards)
+            {
+                string cardFolder = GetCardAudioFolder(card);
+                foreach (var item in BuildCardAudioItems(card, locale))
+                {
+                    string finalPath = CombinePath(cardFolder, item.nameCore + (convertToOgg ? ".ogg" : ".mp3"));
+                    string mp3TempPath = CombinePath(cardFolder, item.nameCore + ".mp3");
+                    bool skipExisting = onlyMissing || !overwrite;
+                    if (skipExisting)
+                    {
+                        if (File.Exists(finalPath))
+                            continue;
+                        count++;
+                        continue;
+                    }
+
+                    if (overwrite || !File.Exists(finalPath) || (convertToOgg && File.Exists(mp3TempPath) && !File.Exists(finalPath)))
+                        count++;
+                }
+            }
+
+            return count;
+        }
+
+        private int ComputeEligibleCardUpdateCount(List<CardData> cards, Locale locale)
+        {
+            if (cards == null || cards.Count == 0 || locale == null)
+                return 0;
+
+            if (!TryResolveCardVoice(locale, out var voice, out var actorId))
+                return 0;
+
+            int count = 0;
+            foreach (var card in cards)
+            {
+                string cardId = card.Id ?? card.name;
+                string cardFolder = GetCardAudioFolder(card);
+                foreach (var item in BuildCardAudioItems(card, locale))
+                {
+                    var desiredHash = ComputeVoiceoverTextHash(NormalizeVoiceoverText(item.text), voice?.Id, actorId, locale.Identifier.Code);
+                    if (IsCardAudioOutOfDate(cardId, locale, item.key, desiredHash, cardFolder, out _))
+                        count++;
+                }
+            }
+
+            return count;
+        }
+
+        private bool IsCardAudioOutOfDate(string cardId, Locale locale, string key, string desiredHash, string cardFolder, out string existingAudioPath)
+        {
+            existingAudioPath = null;
+            if (string.IsNullOrEmpty(cardId) || locale == null || string.IsNullOrEmpty(key))
+                return true;
+
+            if (!VoiceoverManifestUtil.TryGetCardLineInfo(cardId, locale, key, out var manifestLine))
+                return true;
+
+            if (string.IsNullOrEmpty(manifestLine.AudioFile))
+                return true;
+
+            existingAudioPath = CombinePath(cardFolder, manifestLine.AudioFile);
+            if (!File.Exists(existingAudioPath))
+                return true;
+
+            return !string.Equals(manifestLine.TextHash ?? string.Empty, desiredHash ?? string.Empty, StringComparison.Ordinal);
+        }
+
+        private void RunGenerateCardsManifest(List<CardData> cards)
+        {
+            if (cards == null || cards.Count == 0)
+            {
+                EditorUtility.DisplayDialog("Cards Audio", "No cards to process (check Search filter).", "OK");
+                return;
+            }
+
+            var locales = GetTargetLocales().ToList();
+            if (locales.Count == 0)
+            {
+                EditorUtility.DisplayDialog("Cards Audio", "No locales configured.", "OK");
+                return;
+            }
+
+            int indexedCount = 0;
+            int missingCount = 0;
+            int skippedCount = 0;
+            int totalItems = cards.Count * locales.Count * (_cardsIncludeDescriptions ? 2 : 1);
+            int processed = 0;
+
+            try
+            {
+                foreach (var card in cards)
+                {
+                    string cardId = card.Id ?? card.name;
+                    string cardFolder = GetCardAudioFolder(card);
+                    EnsureFolder(cardFolder);
+
+                    foreach (var locale in locales)
+                    {
+                        if (!TryResolveCardVoice(locale, out var voice, out var actorId))
+                        {
+                            skippedCount += BuildCardAudioItems(card, locale).Count;
+                            continue;
+                        }
+
+                        foreach (var item in BuildCardAudioItems(card, locale))
+                        {
+                            processed++;
+                            float progress = Mathf.Clamp01(processed / Mathf.Max(1f, totalItems));
+                            bool canceled = EditorUtility.DisplayCancelableProgressBar("Cards Audio", $"Indexing {cardId} [{locale.Identifier.Code}] {item.kind}", progress);
+                            if (canceled)
+                            {
+                                EditorUtility.ClearProgressBar();
+                                EditorUtility.DisplayDialog("Cards Audio", "Canceled.", "OK");
+                                return;
+                            }
+
+                            string existingAudioPath = FindExistingCardAudioPath(cardFolder, item.nameCore);
+                            if (string.IsNullOrEmpty(existingAudioPath))
+                            {
+                                missingCount++;
+                                continue;
+                            }
+
+                            var desiredHash = ComputeVoiceoverTextHash(NormalizeVoiceoverText(item.text), voice?.Id, actorId, locale.Identifier.Code);
+                            if (UpsertCardManifestEntry(cardId, locale, item.key, existingAudioPath, desiredHash, voice, actorId, item.text))
+                                indexedCount++;
+                            else
+                                skippedCount++;
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                EditorUtility.ClearProgressBar();
+            }
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            EditorUtility.DisplayDialog("Cards Audio", $"Cards manifest updated. Indexed {indexedCount} entries, skipped {skippedCount}, missing audio for {missingCount} entries.", "OK");
+        }
+
+        private void RunUpdateChangedCardAudio(List<CardData> cards)
+        {
+            StartCardAudioGeneration(cards, updateChangedOnly: true);
+        }
+
         private void RunCreateCardAudio(List<CardData> cards)
+        {
+            StartCardAudioGeneration(cards, updateChangedOnly: false);
+        }
+
+        private void StartCardAudioGeneration(List<CardData> cards, bool updateChangedOnly)
         {
             if (cards == null || cards.Count == 0)
             { EditorUtility.DisplayDialog("Cards Audio", "No cards to process (check Search filter).", "OK"); return; }
@@ -673,97 +1008,59 @@ namespace Antura.Discover.Audio.Editor
             int maxToCreate = _createCapIndex == 0 ? 1 : (_createCapIndex == 1 ? 5 : int.MaxValue);
             _isRunning = true;
             _cancelRequested = false;
-            // Actor: Default (as requested), resolve via catalog or fallback profile
-            EditorCoroutineUtility.StartCoroutineOwnerless(CreateCardsAudioCoroutine(cards, locales, _voiceCatalog, _voiceProfile, _secrets, _overwriteExisting, maxToCreate, _onlyGenerateMissing, _convertToOgg, _ffmpegPath, _keepMp3AfterConversion));
+            EditorCoroutineUtility.StartCoroutineOwnerless(CreateCardsAudioCoroutine(cards, locales, _voiceCatalog, _voiceProfile, _secrets, _overwriteExisting, maxToCreate, _onlyGenerateMissing, _convertToOgg, _ffmpegPath, _keepMp3AfterConversion, updateChangedOnly));
         }
 
-        private IEnumerator CreateCardsAudioCoroutine(List<CardData> cards, List<Locale> locales, VoiceProfileCatalog catalog, VoiceProfileData fallbackVoice, LocalSecrets secrets, bool overwrite, int maxToCreate, bool onlyMissing, bool convertToOgg, string ffmpegPath, bool keepMp3)
+        private IEnumerator CreateCardsAudioCoroutine(List<CardData> cards, List<Locale> locales, VoiceProfileCatalog catalog, VoiceProfileData fallbackVoice, LocalSecrets secrets, bool overwrite, int maxToCreate, bool onlyMissing, bool convertToOgg, string ffmpegPath, bool keepMp3, bool updateChangedOnly)
         {
-            int totalCreated = 0;
+            int totalGenerated = 0;
             int totalItems = cards.Count * locales.Count * (_cardsIncludeDescriptions ? 2 : 1); // approx for progress
             int processed = 0;
-            // Track per-locale generation attempts so the cap applies like quest flow (cap per locale, not per card)
             var attemptsByLocale = new Dictionary<string, int>();
             foreach (var loc in locales)
                 attemptsByLocale[loc.Identifier.Code] = 0;
+
             foreach (var card in cards)
             {
-                string baseName = SanitizeFileNamePart(card.Id ?? card.name);
-                string cardFolder = (CardsBundlesRoot + "/" + baseName).Replace('\\', '/');
+                string cardId = card.Id ?? card.name;
+                string cardFolder = GetCardAudioFolder(card);
                 EnsureFolder(cardFolder);
 
                 foreach (var locale in locales)
                 {
-                    // If we've reached the cap for this locale, skip further items for it
                     var locCodeCap = locale.Identifier.Code;
                     if (maxToCreate != int.MaxValue && attemptsByLocale.TryGetValue(locCodeCap, out var atts) && atts >= maxToCreate)
                         continue;
 
-                    VoiceProfileData voice = null;
-                    IVoiceProvider provider = catalog != null ? catalog : VoiceProviderManager.I?.Provider;
-                    var forceProfile = fallbackVoice != null;
-                    var forceActor = _selectedActor != VoiceActors.Default;
-                    if (provider == null)
+                    VoiceProfileData voice = fallbackVoice;
+                    string actorId = (_selectedActor != VoiceActors.Default ? _selectedActor : VoiceActors.Default).ToString();
+                    if (!TryResolveCardVoice(locale, out voice, out actorId))
                     {
-                        var guids = AssetDatabase.FindAssets("t:VoiceProfileCatalog");
-                        if (guids != null && guids.Length > 0)
-                        {
-                            var p = AssetDatabase.GUIDToAssetPath(guids[0]);
-                            var cat = AssetDatabase.LoadAssetAtPath<VoiceProfileCatalog>(p);
-                            provider = cat;
-                        }
+                        if (_selectedActor != VoiceActors.SILENT)
+                            Debug.LogError($"[QVM] No voice profile for {locale.Identifier.Code} (cards)");
+                        continue;
                     }
-                    if (forceProfile)
-                    {
-                        voice = fallbackVoice;
-                    }
-                    else if (provider != null)
-                    {
-                        var actorForDefault = forceActor ? _selectedActor : VoiceActors.Default;
-                        voice = provider.GetProfile(locale, actorForDefault);
-                    }
-                    if (voice == null)
-                    { Debug.LogError($"[QVM] No voice profile for {locale.Identifier.Code} (cards)"); continue; }
 
-                    // Resolve strings from localized tables
-                    string titleText = string.Empty;
-                    string descText = string.Empty;
-                    try
-                    {
-                        if (card.Title != null)
-                            titleText = LocalizationSettings.StringDatabase.GetLocalizedString(card.Title.TableReference, card.Title.TableEntryReference, locale);
-                    }
-                    catch { }
-                    try
-                    {
-                        if (card.Description != null)
-                            descText = LocalizationSettings.StringDatabase.GetLocalizedString(card.Description.TableReference, card.Description.TableEntryReference, locale);
-                    }
-                    catch { }
-
-                    var items = new List<(string kind, string text)>();
-                    if (!string.IsNullOrWhiteSpace(titleText))
-                        items.Add(("title", titleText));
-                    if (_cardsIncludeDescriptions && !string.IsNullOrWhiteSpace(descText))
-                        items.Add(("desc", descText));
+                    var items = BuildCardAudioItems(card, locale);
                     if (items.Count == 0)
-                        continue; // skip this card/locale if both strings are empty
+                        continue;
 
-                    foreach (var (kind, text) in items)
+                    foreach (var item in items)
                     {
-                        // Check per-locale cap before attempting generation
                         if (maxToCreate != int.MaxValue && attemptsByLocale[locCodeCap] >= maxToCreate)
                             break;
+
                         bool generatedNow = false;
                         processed++;
 
                         string ext = convertToOgg ? ".ogg" : ".mp3";
-                        string nameCore = kind == "desc" ? ($"{baseName}.desc.{locale.Identifier.Code}") : ($"{baseName}.{locale.Identifier.Code}");
-                        string finalAssetPath = CombinePath(cardFolder, nameCore + ext);
-                        string mp3TempPath = CombinePath(cardFolder, nameCore + ".mp3");
+                        string finalAssetPath = CombinePath(cardFolder, item.nameCore + ext);
+                        string mp3TempPath = CombinePath(cardFolder, item.nameCore + ".mp3");
+                        string desiredHash = ComputeVoiceoverTextHash(NormalizeVoiceoverText(item.text), voice?.Id, actorId, locale.Identifier.Code);
 
                         float progress = Mathf.Clamp01(processed / Mathf.Max(1f, totalItems));
-                        bool canceled = EditorUtility.DisplayCancelableProgressBar("Cards Audio", $"{card.Id ?? card.name} [{locale.Identifier.Code}] {kind}", progress);
+                        string actionLabel = updateChangedOnly ? "Updating" : "Creating";
+                        bool canceled = EditorUtility.DisplayCancelableProgressBar("Cards Audio", $"{actionLabel} {cardId} [{locale.Identifier.Code}] {item.kind}", progress);
                         if (canceled || _cancelRequested)
                         {
                             EditorUtility.ClearProgressBar();
@@ -772,7 +1069,17 @@ namespace Antura.Discover.Audio.Editor
                             yield break;
                         }
 
-                        bool skipExisting = onlyMissing || !overwrite;
+                        if (updateChangedOnly)
+                        {
+                            if (!IsCardAudioOutOfDate(cardId, locale, item.key, desiredHash, cardFolder, out var existingManifestAudioPath))
+                            {
+                                AssignCardAudioToAssetTable(locale, item.key, existingManifestAudioPath);
+                                _addressablesSvc.UpdateAddressableForClip(locale, existingManifestAudioPath, questIdOrNull: null, isQuestClip: false, keyOrId: cardId);
+                                continue;
+                            }
+                        }
+
+                        bool skipExisting = !updateChangedOnly && (onlyMissing || !overwrite);
                         if (skipExisting && File.Exists(finalAssetPath))
                             continue;
                         if (skipExisting && convertToOgg && File.Exists(mp3TempPath) && !File.Exists(finalAssetPath))
@@ -792,27 +1099,20 @@ namespace Antura.Discover.Audio.Editor
                                 else
                                     Debug.Log($"[QVM] Created [cards {locale.Identifier.Code}] {Path.GetFileName(finalAssetPath)} ← {finalAssetPath}");
 
-                                // Assign into Cards audio Asset Table with the same key as the string table
-                                var key = kind == "desc"
-                                    ? (!string.IsNullOrEmpty(card.Description?.TableEntryReference.Key) ? card.Description.TableEntryReference.Key : (card.Id ?? card.name) + ".desc")
-                                    : (!string.IsNullOrEmpty(card.Title?.TableEntryReference.Key) ? card.Title.TableEntryReference.Key : (card.Id ?? card.name));
-                                AssignCardAudioToAssetTable(locale, key, finalAssetPath);
-                                // Ensure Addressables entry in official Localization-Assets group with VO/cards address and labels
-                                _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, questIdOrNull: null, isQuestClip: false, keyOrId: (card.Id ?? card.name));
-                                totalCreated++;
+                                AssignCardAudioToAssetTable(locale, item.key, finalAssetPath);
+                                _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, questIdOrNull: null, isQuestClip: false, keyOrId: cardId);
+                                UpsertCardManifestEntry(cardId, locale, item.key, finalAssetPath, desiredHash, voice, actorId, item.text);
+                                totalGenerated++;
+                                generatedNow = true;
                             }
                             continue;
                         }
 
-                        // If Actor is explicitly set to SILENT, skip cards rendering
-                        if (_selectedActor == VoiceActors.SILENT)
-                            continue;
-
                         byte[] bytes = null;
                         string languageCode = ResolveLanguageCode(locale);
-                        yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voice, text, languageCode, b => bytes = b);
+                        yield return _tts.SynthesizeMp3Coroutine(secrets.elevenLabsApiKey, voice, item.text, languageCode, b => bytes = b);
                         if (bytes == null || bytes.Length == 0)
-                        { Debug.LogError($"[QVM] TTS failed for card {card.Id ?? card.name} ({locale.Identifier.Code}) {kind}"); continue; }
+                        { Debug.LogError($"[QVM] TTS failed for card {cardId} ({locale.Identifier.Code}) {item.kind}"); continue; }
 
                         string assignPath = null;
                         try
@@ -841,16 +1141,14 @@ namespace Antura.Discover.Audio.Editor
                                         AssetDatabase.DeleteAsset(mp3TempPath);
                                 }
                             }
-                            totalCreated++;
+                            totalGenerated++;
                             generatedNow = true;
                         }
                         catch (Exception ex)
                         { Debug.LogError($"[QVM] Write/import failed for {finalAssetPath}: {ex.Message}"); continue; }
 
-                        // Clickable log
                         if (_trimSilence)
                         {
-                            // If we didn't convert, we may still want to trim the MP3
                             if (assignPath != null && TryTrimFileWithFfmpeg(ffmpegPath, assignPath, _trimThresholdDb, _trimTailDurationSec, _trimHeadAlso, _trimHeadDurationSec))
                             {
                                 AssetDatabase.ImportAsset(assignPath, ImportAssetOptions.ForceSynchronousImport);
@@ -862,17 +1160,10 @@ namespace Antura.Discover.Audio.Editor
                         else
                             Debug.Log($"[QVM] Created [cards {locale.Identifier.Code}] {Path.GetFileName(assignPath)} ← {assignPath}");
 
-                        // Assign into Cards audio Asset Table with the same key as the string table
-                        {
-                            var key = kind == "desc"
-                                ? (!string.IsNullOrEmpty(card.Description?.TableEntryReference.Key) ? card.Description.TableEntryReference.Key : (card.Id ?? card.name) + ".desc")
-                                : (!string.IsNullOrEmpty(card.Title?.TableEntryReference.Key) ? card.Title.TableEntryReference.Key : (card.Id ?? card.name));
-                            AssignCardAudioToAssetTable(locale, key, assignPath);
-                            // Ensure Addressables entry in official Localization-Assets group with VO/cards address and labels
-                            _addressablesSvc.UpdateAddressableForClip(locale, assignPath, questIdOrNull: null, isQuestClip: false, keyOrId: (card.Id ?? card.name));
-                        }
+                        AssignCardAudioToAssetTable(locale, item.key, assignPath);
+                        _addressablesSvc.UpdateAddressableForClip(locale, assignPath, questIdOrNull: null, isQuestClip: false, keyOrId: cardId);
+                        UpsertCardManifestEntry(cardId, locale, item.key, assignPath, desiredHash, voice, actorId, item.text);
 
-                        // After a successful new generation, count toward the per-locale cap
                         if (generatedNow)
                         {
                             attemptsByLocale[locCodeCap] = attemptsByLocale[locCodeCap] + 1;
@@ -885,7 +1176,7 @@ namespace Antura.Discover.Audio.Editor
             }
             EditorUtility.ClearProgressBar();
             _isRunning = false;
-            EditorUtility.DisplayDialog("Cards Audio", $"Done. Created {totalCreated} file(s).", "OK");
+            EditorUtility.DisplayDialog("Cards Audio", updateChangedOnly ? $"Done. Updated {totalGenerated} file(s)." : $"Done. Created {totalGenerated} file(s).", "OK");
         }
 
         // ------------------------------- Actions -------------------------------
@@ -1088,18 +1379,28 @@ namespace Antura.Discover.Audio.Editor
 
         private void RunCreateAudioFiles()
         {
+            StartQuestAudioGeneration(updateChangedOnly: false);
+        }
+
+        private void RunUpdateChangedAudioFiles()
+        {
+            StartQuestAudioGeneration(updateChangedOnly: true);
+        }
+
+        private void StartQuestAudioGeneration(bool updateChangedOnly)
+        {
             var quest = GetSelectedQuest();
             if (!ValidateBasics(quest, requireVoice: true))
                 return;
             var locales = GetTargetLocales().ToList();
             if (locales.Count == 0)
-            { EditorUtility.DisplayDialog("Create Audio", "No locales configured.", "OK"); return; }
+            { EditorUtility.DisplayDialog(updateChangedOnly ? "Update Audio" : "Create Audio", "No locales configured.", "OK"); return; }
 
             int maxToCreate = _createCapIndex == 0 ? 1 : (_createCapIndex == 1 ? 5 : int.MaxValue);
 
             _isRunning = true;
             _cancelRequested = false;
-            EditorCoroutineUtility.StartCoroutineOwnerless(CreateAudioCoroutine(quest, locales, _voiceCatalog, _selectedActor, _voiceProfile, _secrets, _overwriteExisting, maxToCreate, _onlyGenerateMissing, _convertToOgg, _ffmpegPath, _keepMp3AfterConversion));
+            EditorCoroutineUtility.StartCoroutineOwnerless(CreateAudioCoroutine(quest, locales, _voiceCatalog, _selectedActor, _voiceProfile, _secrets, _overwriteExisting, maxToCreate, _onlyGenerateMissing, _convertToOgg, _ffmpegPath, _keepMp3AfterConversion, updateChangedOnly));
         }
 
         private bool ValidateBasics(QuestData quest, bool requireVoice)
@@ -1114,7 +1415,7 @@ namespace Antura.Discover.Audio.Editor
             return true;
         }
 
-        private IEnumerator CreateAudioCoroutine(QuestData quest, List<Locale> locales, VoiceProfileCatalog catalog, VoiceActors actor, VoiceProfileData fallbackVoice, LocalSecrets secrets, bool overwrite, int maxToCreate, bool onlyMissing, bool convertToOgg, string ffmpegPath, bool keepMp3)
+        private IEnumerator CreateAudioCoroutine(QuestData quest, List<Locale> locales, VoiceProfileCatalog catalog, VoiceActors actor, VoiceProfileData fallbackVoice, LocalSecrets secrets, bool overwrite, int maxToCreate, bool onlyMissing, bool convertToOgg, string ffmpegPath, bool keepMp3, bool updateChangedOnly = false)
         {
             var meta = YarnLineMapBuilder.BuildMeta(quest);
             int totalCreated = 0;
@@ -1211,20 +1512,47 @@ namespace Antura.Discover.Audio.Editor
                     string finalExt = convertToOgg ? ".ogg" : ".mp3";
                     string finalAssetPath = CombinePath(folder, fileBase + finalExt);
                     string mp3TempPath = CombinePath(folder, fileBase + ".mp3");
+                    var normalizedText = NormalizeVoiceoverText(text);
+                    var desiredHash = ComputeVoiceoverTextHash(normalizedText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
+                    string enSource = null;
+                    if (stEn != null)
+                    {
+                        var enEntry = stEn.GetEntry(key);
+                        if (enEntry != null)
+                            enSource = enEntry.LocalizedValue;
+                    }
+
+                    if (updateChangedOnly)
+                    {
+                        if (!IsQuestLineAudioOutOfDate(quest.Id, locale, key, desiredHash, folder, out var existingManifestAudioPath))
+                        {
+                            var existingGuid = AssetDatabase.AssetPathToGUID(existingManifestAudioPath);
+                            if (!string.IsNullOrEmpty(existingGuid))
+                            {
+                                var existingEntry = at.GetEntry(key) ?? at.AddEntry(key, existingGuid);
+                                existingEntry.Guid = existingGuid;
+                                EditorUtility.SetDirty(at);
+                                if (at.SharedData != null)
+                                    EditorUtility.SetDirty(at.SharedData);
+                                _addressablesSvc.UpdateAddressableForClip(locale, existingManifestAudioPath, quest.Id, isQuestClip: true, keyOrId: key);
+                            }
+                            continue;
+                        }
+                    }
 
                     float totalPerAll = Mathf.Max(1f, total * Mathf.Max(1, locales.Count));
                     float progressGen = (processed + (localeIndex - 1) * total) / totalPerAll;
-                    bool canceled = EditorUtility.DisplayCancelableProgressBar("Generating Audio", $"{quest.Id} [{locale.Identifier.Code}] {processed}/{total}: {key}", Mathf.Clamp01(progressGen));
+                    bool canceled = EditorUtility.DisplayCancelableProgressBar(updateChangedOnly ? "Updating Audio" : "Generating Audio", $"{quest.Id} [{locale.Identifier.Code}] {processed}/{total}: {key}", Mathf.Clamp01(progressGen));
                     if (canceled || _cancelRequested)
                     {
                         EditorUtility.ClearProgressBar();
                         _isRunning = false;
-                        EditorUtility.DisplayDialog("Create Audio", "Canceled.", "OK");
+                        EditorUtility.DisplayDialog(updateChangedOnly ? "Update Audio" : "Create Audio", "Canceled.", "OK");
                         yield break;
                     }
 
                     bool forceThisLine = !string.IsNullOrEmpty(_onlyLineKey) && string.Equals(key, _onlyLineKey, StringComparison.Ordinal);
-                    bool skipExisting = forceThisLine && _forceRecreateSelected ? false : (onlyMissing || !overwrite);
+                    bool skipExisting = updateChangedOnly ? false : (forceThisLine && _forceRecreateSelected ? false : (onlyMissing || !overwrite));
                     if (skipExisting && File.Exists(finalAssetPath))
                     {
                         var guid = AssetDatabase.AssetPathToGUID(finalAssetPath);
@@ -1239,16 +1567,7 @@ namespace Antura.Discover.Audio.Editor
 
                         // Manifest upsert for existing file path
                         var audioFileName = Path.GetFileName(finalAssetPath);
-                        var normText = VoiceoverManifestUtil.NormalizeText(text);
-                        var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
-                        string enSource = null;
-                        if (stEn != null)
-                        {
-                            var enEntry = stEn.GetEntry(key);
-                            if (enEntry != null)
-                                enSource = enEntry.LocalizedValue;
-                        }
-                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
+                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: desiredHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
                         // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
                         _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                         continue;
@@ -1296,16 +1615,7 @@ namespace Antura.Discover.Audio.Editor
                                     AssetDatabase.DeleteAsset(mp3TempPath);
                                 // Manifest upsert after conversion
                                 var audioFileName = Path.GetFileName(finalAssetPath);
-                                var normText = VoiceoverManifestUtil.NormalizeText(text);
-                                var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
-                                string enSource = null;
-                                if (stEn != null)
-                                {
-                                    var enEntry = stEn.GetEntry(key);
-                                    if (enEntry != null)
-                                        enSource = enEntry.LocalizedValue;
-                                }
-                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
+                                VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: desiredHash, durationMs: null, voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
                                 // Ensure Addressables entry in official Localization-Assets group with VO/quest address and labels
                                 _addressablesSvc.UpdateAddressableForClip(locale, finalAssetPath, quest.Id, isQuestClip: true, keyOrId: key);
                             }
@@ -1386,16 +1696,7 @@ namespace Antura.Discover.Audio.Editor
                             Debug.Log($"[QVM] Created [{locale.Identifier.Code}] {Path.GetFileName(assignPath)} ← {assignPath}");
                         // Manifest upsert after generation
                         var audioFileName = Path.GetFileName(assignPath);
-                        var normText = VoiceoverManifestUtil.NormalizeText(text);
-                        var textHash = VoiceoverManifestUtil.ComputeTextHash(normText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
-                        string enSource = null;
-                        if (stEn != null)
-                        {
-                            var enEntry = stEn.GetEntry(key);
-                            if (enEntry != null)
-                                enSource = enEntry.LocalizedValue;
-                        }
-                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: textHash, durationMs: Mathf.RoundToInt((obj != null ? obj.length : 0f) * 1000f), voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
+                        VoiceoverManifestUtil.Upsert(quest.Id, locale, key: StripLinePrefix(key), audioFileName: audioFileName, textHash: desiredHash, durationMs: Mathf.RoundToInt((obj != null ? obj.length : 0f) * 1000f), voiceProfileId: (voiceForLine ?? localeDefaultVoice)?.Id, actorId: actorForFile.ToString(), nodeTitle: nodeTitle, sourceText: text, sourceEnText: enSource);
                     }
                 }
 
@@ -1407,7 +1708,7 @@ namespace Antura.Discover.Audio.Editor
             // Clear single-line mode flags after finishing
             _onlyLineKey = null;
             _forceRecreateSelected = false;
-            Debug.Log($"Create Audio - Done. Created {totalCreated} file(s).");
+            Debug.Log($"{(updateChangedOnly ? "Update Audio" : "Create Audio")} - Done. Created {totalCreated} file(s).");
             //EditorUtility.DisplayDialog("Create Audio", $"Done. Created {totalCreated} file(s).", "OK");
         }
 
@@ -1875,6 +2176,138 @@ namespace Antura.Discover.Audio.Editor
             }
             catch { }
             return count;
+        }
+
+        private int ComputeEligibleUpdateCount(QuestData quest, Locale locale, YarnLineMapBuilder.YarnLineMeta meta)
+        {
+            int count = 0;
+            try
+            {
+                var st = LocalizationSettings.StringDatabase.GetTable(quest.QuestStringsTable.TableReference, locale);
+                if (st == null)
+                    return 0;
+
+                string folder = GetQuestLangFolder(quest, locale);
+                EnsureFolder(folder);
+
+                IVoiceProvider provider = _voiceCatalog != null ? _voiceCatalog : VoiceProviderManager.I?.Provider;
+                bool forceProfile = _voiceProfile != null;
+                bool forceActor = _selectedActor != VoiceActors.Default;
+
+                VoiceProfileData localeDefaultVoice = null;
+                if (forceProfile)
+                {
+                    localeDefaultVoice = _voiceProfile;
+                }
+                else if (provider != null)
+                {
+                    var actorForDefault = forceActor ? _selectedActor : VoiceActors.Default;
+                    localeDefaultVoice = provider.GetProfile(locale, actorForDefault);
+                }
+                if (localeDefaultVoice == null)
+                    return 0;
+
+                foreach (var e in st.Values.Where(v => v != null && v.SharedEntry != null))
+                {
+                    string key = e.SharedEntry.Key;
+                    string text = e.Value;
+                    if (string.IsNullOrWhiteSpace(text))
+                        continue;
+
+                    string idShort = StripLinePrefix(key);
+                    string title = ResolveNodeTitleForKey(idShort, meta.Titles);
+                    if (!string.IsNullOrWhiteSpace(_search))
+                    {
+                        bool matchesKey = MatchesLineSearch(key, _search.Trim());
+                        bool matchesTitle = (title?.IndexOf(_search, StringComparison.OrdinalIgnoreCase) ?? -1) >= 0;
+                        if (!matchesKey && !matchesTitle)
+                            continue;
+                    }
+
+                    VoiceProfileData voiceForLine = localeDefaultVoice;
+                    if (!forceProfile && !forceActor)
+                    {
+                        if (meta.Actors != null && meta.Actors.TryGetValue(idShort, out var actorOpt) && actorOpt.HasValue)
+                        {
+                            var v = provider != null ? provider.GetProfile(locale.Identifier.Code, actorOpt.Value) : null;
+                            if (v != null)
+                                voiceForLine = v;
+                        }
+                    }
+
+                    VoiceActors actorForFile = VoiceActors.Default;
+                    if (forceActor)
+                        actorForFile = _selectedActor;
+                    else if (meta.Actors != null && meta.Actors.TryGetValue(idShort, out var aOpt) && aOpt.HasValue)
+                        actorForFile = aOpt.Value;
+
+                    var normalizedText = NormalizeVoiceoverText(text);
+                    var desiredHash = ComputeVoiceoverTextHash(normalizedText, (voiceForLine ?? localeDefaultVoice)?.Id, actorForFile.ToString(), locale.Identifier.Code);
+                    if (IsQuestLineAudioOutOfDate(quest.Id, locale, key, desiredHash, folder, out _))
+                        count++;
+                }
+            }
+            catch { }
+            return count;
+        }
+
+        private bool IsQuestLineAudioOutOfDate(string questId, Locale locale, string key, string desiredHash, string folder, out string existingAudioPath)
+        {
+            existingAudioPath = null;
+            if (string.IsNullOrEmpty(questId) || locale == null || string.IsNullOrEmpty(key))
+                return true;
+
+            if (!VoiceoverManifestUtil.TryGetLineInfo(questId, locale, StripLinePrefix(key), out var manifestLine))
+                return true;
+
+            if (string.IsNullOrEmpty(manifestLine.AudioFile))
+                return true;
+
+            existingAudioPath = CombinePath(folder, manifestLine.AudioFile);
+            if (!File.Exists(existingAudioPath))
+                return true;
+
+            return !string.Equals(manifestLine.TextHash ?? string.Empty, desiredHash ?? string.Empty, StringComparison.Ordinal);
+        }
+
+        private static string ComputeVoiceoverTextHash(string normalizedText, string voiceProfileId, string actorId, string lang)
+        {
+            var source = (normalizedText ?? string.Empty) + "|" + (voiceProfileId ?? string.Empty) + "|" + (actorId ?? string.Empty) + "|" + (lang ?? string.Empty);
+            using var sha = System.Security.Cryptography.SHA256.Create();
+            var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(source));
+            var builder = new StringBuilder(bytes.Length * 2);
+            foreach (var b in bytes)
+                builder.Append(b.ToString("x2"));
+            return builder.ToString();
+        }
+
+        private static string NormalizeVoiceoverText(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return string.Empty;
+
+            var normalized = text.Replace("\r\n", "\n").Replace("\r", "\n");
+            normalized = normalized.Trim();
+            normalized = normalized.Normalize(NormalizationForm.FormC);
+            normalized = normalized.ToLowerInvariant();
+
+            var builder = new StringBuilder(normalized.Length);
+            bool previousWasSpace = false;
+            foreach (var ch in normalized)
+            {
+                bool isSpace = ch == ' ' || ch == '\t' || ch == '\n';
+                if (isSpace)
+                {
+                    if (!previousWasSpace)
+                        builder.Append(' ');
+                }
+                else
+                {
+                    builder.Append(ch);
+                }
+                previousWasSpace = isSpace;
+            }
+            return builder.ToString();
         }
 
 
