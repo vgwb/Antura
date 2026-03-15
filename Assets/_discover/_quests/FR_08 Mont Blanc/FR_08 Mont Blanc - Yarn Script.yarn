@@ -43,7 +43,7 @@ color: red
 <<SetActive hat false>>
 Welcome to the French Alps! #line:start_1
 <<card alps>>
-Today we climb Mont Blanc. It is the highest mountain in Europe. #line:start_2
+Today we climb Mont Blanc. It is the highest mountain in the Alps. #line:start_2
 <<target npc_intro>>
 ===
 
@@ -81,7 +81,7 @@ group: intro
     I see you have the backpack. Now you can go! #line:04c1c1f 
     <<card mont_blanc>>
     Let's climb Mont Blanc. #line:0f4644b 
-    And find all the climbing gear! #line:07f2699 
+    Find all the climbing gear and see the three nearby countries! #line:07f2699 
     <<SetActive door_intro false>>
     <<target npc_base_1>>
 <<elseif GetCurrentTask() == "get_backpack">>
@@ -90,7 +90,7 @@ group: intro
     Help! I am a mountain guide. A blue dog took our climbing gear! #line:0724de3 
     We saw the dog run up the mountain. #line:01beb5e 
     <<camera_focus camera_mont_blanc>>
-    Please explore Mont Blanc and find our gear.  #line:0650acc 
+    Please explore Mont Blanc and find our gear. #line:0650acc 
     <<card backpack>>
     Before going, you need a backpack. #task:get_backpack #line:045409f
     <<camera_focus camera_intro>>
@@ -234,7 +234,7 @@ color: blue
     <<target gloves>>
 <<elseif !has_item("sunglasses")>>
     The sun on the snow is very bright. We need eye protection. #line:029a03e 
-    What helps protect your eyes from bright snow and sun? #line:0a70f7d 
+    What protects your eyes from bright snow and sun? #line:0a70f7d 
     <<activity fr08_activity_2 activity_2_done>>
 <<else>>
     Keep looking. We still need all the gear. #line:keep_looking
@@ -383,7 +383,7 @@ color: blue
 <<card summit>>
 You made it! We are at the top of Mont Blanc. #line:030fa1c 
 This summit is 4807 meters high. #line:018880a 
-Let's answer three mountain questions before the flag challenge.  #line:001e940 
+Let's answer three mountain questions before the flag game. #line:001e940 
 <<jump question_alps>>
 ===
 
@@ -391,7 +391,7 @@ title: question_alps
 position: 301,1088
 group: base_4
 ---
-What mountain range is Mont Blanc in?  #line:06f9a2a 
+What mountain range is Mont Blanc in? #line:06f9a2a 
 -> The Alps #line:summit_q1_a1
     Correct! #line:correct
     <<jump question_height>>
@@ -437,7 +437,7 @@ position: 1087,1009
 tags: 
 ---
 <<card country_france>>
-To the West of Mont Blanc there is France. #line:0d23529 
+France is west of Mont Blanc. #line:0d23529 
 ===
 
 title: npc_italy
@@ -445,7 +445,7 @@ position: 1087,1009
 tags: 
 ---
 <<card country_italy>>
-To the East of Mont Blanc there is Italy. #line:050fe70  
+Italy is east of Mont Blanc. #line:050fe70  
 ===
 
 
@@ -454,7 +454,7 @@ position: 1087,1009
 tags: 
 ---
 <<card country_switzerland>>
-To the North of Mont Blanc there is Switzerland. #line:03db010  
+Switzerland is north of Mont Blanc. #line:03db010  
 ===
 
 
@@ -539,7 +539,7 @@ spawn_group: tourists
 => Mont Blanc is the highest mountain in the Alps! #line:003ecb2 
 => I hope to see a marmot! #line:04bbada 
 => Don't forget to bring warm clothes! #line:0590129 
-=> Mountains can be dangerous, be careful! #line:097ecf0 
+=> Mountains can be dangerous, so be careful! #line:097ecf0 
 ===
 
 title: spawned_hiker
