@@ -7,9 +7,11 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Antura.Discover;
 using UnityEditor.IMGUI.Controls;
 using Antura.Discover.Activities; // ActivitySettingsAbstract
+using Yarn.Unity;
 
 namespace Antura.Discover.EditorTools
 {
@@ -27,6 +29,7 @@ namespace Antura.Discover.EditorTools
 
         // Cache last parse results
         private Dictionary<QuestData, QuestScriptAnalysis> _analysisCache = new Dictionary<QuestData, QuestScriptAnalysis>();
+        private SceneTestReport _lastSceneTestReport;
 
         private class QuestScriptAnalysis
         {
@@ -39,6 +42,26 @@ namespace Antura.Discover.EditorTools
             public HashSet<string> ActionMentions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             public string ScriptPath; // for info
             public string QuestId;
+        }
+
+        private class SceneTestIssue
+        {
+            public string TestName;
+            public string Message;
+            public UnityEngine.Object Context;
+        }
+
+        private class SceneTestReport
+        {
+            public string QuestId;
+            public string SceneName;
+            public int ChecksRun;
+            public int InteractablesChecked;
+            public int DialogueReferencesChecked;
+            public List<string> Infos = new List<string>();
+            public List<SceneTestIssue> Warnings = new List<SceneTestIssue>();
+            public List<SceneTestIssue> Errors = new List<SceneTestIssue>();
+            public bool Passed => Errors.Count == 0;
         }
 
         [MenuItem("Antura/Quest/Quest Management", priority = 21)]
@@ -123,6 +146,9 @@ namespace Antura.Discover.EditorTools
                 if (GUILayout.Button("Analyze Scripts", EditorStyles.toolbarButton, GUILayout.Width(120)))
                 { AnalyzeSelected(); }
 
+                if (GUILayout.Button("Run Tests", EditorStyles.toolbarButton, GUILayout.Width(90)))
+                { RunSelectedTests(); }
+
                 if (GUILayout.Button("Inject All Scene Data", EditorStyles.toolbarButton, GUILayout.Width(170)))
                 {
                     int success = 0;
@@ -154,6 +180,10 @@ namespace Antura.Discover.EditorTools
             // Scene-wide ActableAbstract ID uniqueness check
             DrawActableIdCheck();
             GUILayout.Space(10);
+
+            DrawLastSceneTestReport();
+            if (_lastSceneTestReport != null)
+                GUILayout.Space(10);
 
             foreach (var q in targets)
             {
@@ -221,6 +251,63 @@ namespace Antura.Discover.EditorTools
             }
         }
 
+        private void DrawLastSceneTestReport()
+        {
+            if (_lastSceneTestReport == null)
+                return;
+
+            using (new EditorGUILayout.VerticalScope("box"))
+            {
+                EditorGUILayout.LabelField($"Scene Tests: {_lastSceneTestReport.QuestId}", EditorStyles.boldLabel);
+                EditorGUILayout.LabelField($"Checks: {_lastSceneTestReport.ChecksRun} | Interactables: {_lastSceneTestReport.InteractablesChecked} | Dialogue refs: {_lastSceneTestReport.DialogueReferencesChecked}", EditorStyles.miniLabel);
+
+                foreach (var info in _lastSceneTestReport.Infos)
+                    EditorGUILayout.LabelField(info, EditorStyles.miniLabel);
+
+                if (_lastSceneTestReport.Warnings.Count > 0)
+                {
+                    EditorGUILayout.HelpBox($"Found {_lastSceneTestReport.Warnings.Count} warning(s) in '{_lastSceneTestReport.SceneName}'.", MessageType.Warning);
+                    foreach (var issue in _lastSceneTestReport.Warnings)
+                    {
+                        using (new EditorGUILayout.HorizontalScope())
+                        {
+                            if (issue.Context != null && GUILayout.Button(GetSceneTestContextLabel(issue.Context), GUILayout.Width(220)))
+                            {
+                                Selection.activeObject = issue.Context;
+                                EditorGUIUtility.PingObject(issue.Context);
+                            }
+
+                            EditorGUILayout.SelectableLabel($"[{issue.TestName}] {issue.Message}", EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                        }
+                    }
+                }
+
+                if (_lastSceneTestReport.Passed)
+                {
+                    var passedMessage = _lastSceneTestReport.Warnings.Count == 0
+                        ? $"All scene tests passed in '{_lastSceneTestReport.SceneName}'."
+                        : $"Scene tests passed with warnings in '{_lastSceneTestReport.SceneName}'.";
+                    EditorGUILayout.HelpBox(passedMessage, MessageType.Info);
+                    return;
+                }
+
+                EditorGUILayout.HelpBox($"Found {_lastSceneTestReport.Errors.Count} error(s) in '{_lastSceneTestReport.SceneName}'.", MessageType.Warning);
+                foreach (var issue in _lastSceneTestReport.Errors)
+                {
+                    using (new EditorGUILayout.HorizontalScope())
+                    {
+                        if (issue.Context != null && GUILayout.Button(GetSceneTestContextLabel(issue.Context), GUILayout.Width(220)))
+                        {
+                            Selection.activeObject = issue.Context;
+                            EditorGUIUtility.PingObject(issue.Context);
+                        }
+
+                        EditorGUILayout.SelectableLabel($"[{issue.TestName}] {issue.Message}", EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    }
+                }
+            }
+        }
+
         private List<ActableAbstract> GetSceneActables()
         {
             var list = new List<ActableAbstract>();
@@ -257,6 +344,14 @@ namespace Antura.Discover.EditorTools
                         || (!string.IsNullOrEmpty(quest.TitleEn) && quest.TitleEn.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                         || (quest.name.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0);
             return matches ? new[] { quest } : Enumerable.Empty<QuestData>();
+        }
+
+        private QuestData GetSelectedQuest()
+        {
+            if (_quests.Count == 0)
+                return null;
+
+            return _quests[Mathf.Clamp(_selectedQuestIndex, 0, _quests.Count - 1)];
         }
 
         private void DrawQuestSection(QuestData q)
@@ -575,6 +670,238 @@ namespace Antura.Discover.EditorTools
             foreach (var q in targets)
                 AnalyzeQuest(q, force: true);
             Repaint();
+        }
+
+        private void RunSelectedTests()
+        {
+            var quest = GetSelectedQuest();
+            if (quest == null)
+            {
+                Debug.LogWarning("[QuestManagement][Tests] No quest selected.");
+                return;
+            }
+
+            _lastSceneTestReport = RunSceneTests(quest);
+            Repaint();
+
+            var summary = _lastSceneTestReport.Passed
+                ? _lastSceneTestReport.Warnings.Count == 0
+                    ? $"[QuestManagement][Tests] All scene tests passed for '{_lastSceneTestReport.QuestId}'."
+                    : $"[QuestManagement][Tests] Scene tests passed with {_lastSceneTestReport.Warnings.Count} warning(s) for '{_lastSceneTestReport.QuestId}'."
+                : $"[QuestManagement][Tests] Found {_lastSceneTestReport.Errors.Count} error(s) for '{_lastSceneTestReport.QuestId}'.";
+
+            if (_lastSceneTestReport.Passed && _lastSceneTestReport.Warnings.Count == 0)
+                Debug.Log(summary);
+            else
+                Debug.LogWarning(summary);
+
+            var notificationText = !_lastSceneTestReport.Passed
+                ? $"{_lastSceneTestReport.Errors.Count} scene test errors"
+                : _lastSceneTestReport.Warnings.Count > 0
+                    ? $"{_lastSceneTestReport.Warnings.Count} scene test warnings"
+                    : "Scene tests passed";
+            ShowNotification(new GUIContent(notificationText));
+        }
+
+        private SceneTestReport RunSceneTests(QuestData quest)
+        {
+            var activeScene = EditorSceneManager.GetActiveScene();
+            var report = new SceneTestReport
+            {
+                QuestId = quest != null ? (quest.Id ?? quest.name) : "(none)",
+                SceneName = activeScene.IsValid() ? activeScene.name : "(invalid scene)"
+            };
+
+            ValidateSceneInteractableDialogueReferences(quest, activeScene, report);
+            return report;
+        }
+
+        private void ValidateSceneInteractableDialogueReferences(QuestData quest, Scene activeScene, SceneTestReport report)
+        {
+            const string testName = "Interactable DialogueReference";
+            report.ChecksRun++;
+
+            if (quest == null)
+            {
+                AddSceneTestError(report, testName, "No quest selected.", null);
+                return;
+            }
+
+            if (!activeScene.IsValid())
+            {
+                AddSceneTestError(report, testName, "The active scene is not valid.", null);
+                return;
+            }
+
+            if (quest.YarnProject == null)
+            {
+                AddSceneTestError(report, testName, $"Quest '{quest.Id ?? quest.name}' has no YarnProject assigned.", quest);
+                return;
+            }
+
+            var interactables = GetSceneInteractables(activeScene);
+            report.InteractablesChecked = interactables.Count;
+            report.Infos.Add($"Active scene: {activeScene.name}");
+
+            foreach (var interactable in interactables)
+            {
+                if (interactable == null)
+                    continue;
+
+                var serializedObject = new SerializedObject(interactable);
+                var dialogueNodeProperty = serializedObject.FindProperty("DialogueNode");
+                if (dialogueNodeProperty == null)
+                    continue;
+
+                var projectProperty = dialogueNodeProperty.FindPropertyRelative(nameof(DialogueReference.project));
+                var nodeNameProperty = dialogueNodeProperty.FindPropertyRelative(nameof(DialogueReference.nodeName));
+                if (nodeNameProperty == null)
+                    continue;
+
+                var nodeName = nodeNameProperty.stringValue != null ? nodeNameProperty.stringValue.Trim() : string.Empty;
+                var referencedProject = projectProperty != null ? projectProperty.objectReferenceValue as YarnProject : null;
+
+                if (referencedProject != null && string.IsNullOrEmpty(nodeName))
+                {
+                    AddSceneTestWarning(report, testName, $"Interactable '{interactable.name}' has a YarnProject linked but an empty DialogueNode.", interactable.gameObject);
+                    continue;
+                }
+
+                if (string.IsNullOrEmpty(nodeName))
+                    continue;
+
+                report.DialogueReferencesChecked++;
+
+                if (referencedProject == null)
+                {
+                    AddSceneTestError(report, testName, $"Interactable '{interactable.name}' has DialogueNode '{nodeName}' but no YarnProject assigned in its DialogueReference.", interactable.gameObject);
+                    continue;
+                }
+
+                if (referencedProject != quest.YarnProject)
+                {
+                    AddSceneTestWarning(report, testName, $"Interactable '{interactable.name}' points DialogueNode '{nodeName}' to YarnProject '{referencedProject.name}' instead of '{quest.YarnProject.name}'.", interactable.gameObject);
+                    continue;
+                }
+
+                if (!DoesYarnProjectContainNode(referencedProject, nodeName, out var validationError))
+                {
+                    var details = string.IsNullOrEmpty(validationError) ? string.Empty : $" {validationError}";
+                    AddSceneTestError(report, testName, $"Interactable '{interactable.name}' points to node '{nodeName}', but that node does not exist in YarnProject '{referencedProject.name}'.{details}", interactable.gameObject);
+                }
+            }
+        }
+
+        private static List<Interactable> GetSceneInteractables(Scene scene)
+        {
+            var list = new List<Interactable>();
+            try
+            {
+                var found = Resources.FindObjectsOfTypeAll<Interactable>();
+                foreach (var interactable in found)
+                {
+                    if (interactable == null)
+                        continue;
+                    if (EditorUtility.IsPersistent(interactable))
+                        continue;
+                    if (!interactable.gameObject.scene.IsValid())
+                        continue;
+                    if (interactable.gameObject.scene != scene)
+                        continue;
+                    list.Add(interactable);
+                }
+            }
+            catch { }
+            return list;
+        }
+
+        private void AddSceneTestError(SceneTestReport report, string testName, string message, UnityEngine.Object context)
+        {
+            report.Errors.Add(new SceneTestIssue
+            {
+                TestName = testName,
+                Message = message,
+                Context = context,
+            });
+
+            if (context != null)
+                Debug.LogError($"[QuestManagement][Tests][{testName}] {message}", context);
+            else
+                Debug.LogError($"[QuestManagement][Tests][{testName}] {message}");
+        }
+
+        private void AddSceneTestWarning(SceneTestReport report, string testName, string message, UnityEngine.Object context)
+        {
+            report.Warnings.Add(new SceneTestIssue
+            {
+                TestName = testName,
+                Message = message,
+                Context = context,
+            });
+
+            if (context != null)
+                Debug.LogWarning($"[QuestManagement][Tests][{testName}] {message}", context);
+            else
+                Debug.LogWarning($"[QuestManagement][Tests][{testName}] {message}");
+        }
+
+        private static bool DoesYarnProjectContainNode(YarnProject project, string nodeName, out string error)
+        {
+            error = string.Empty;
+            if (project == null)
+            {
+                error = "No YarnProject was provided.";
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(nodeName))
+            {
+                error = "The node name is empty.";
+                return false;
+            }
+
+            try
+            {
+                var programProperty = project.GetType().GetProperty("Program");
+                var program = programProperty != null ? programProperty.GetValue(project) : null;
+                if (program == null)
+                {
+                    error = "The YarnProject has no compiled Program.";
+                    return false;
+                }
+
+                var nodesProperty = program.GetType().GetProperty("Nodes");
+                var nodes = nodesProperty != null ? nodesProperty.GetValue(program) : null;
+                if (nodes == null)
+                {
+                    error = "The compiled Program has no node map.";
+                    return false;
+                }
+
+                var containsKey = nodes.GetType().GetMethod("ContainsKey", new[] { typeof(string) });
+                if (containsKey == null)
+                {
+                    error = "The node map does not expose ContainsKey(string).";
+                    return false;
+                }
+
+                var result = containsKey.Invoke(nodes, new object[] { nodeName });
+                return result is bool exists && exists;
+            }
+            catch (Exception ex)
+            {
+                error = $"Validation failed: {ex.Message}";
+                return false;
+            }
+        }
+
+        private static string GetSceneTestContextLabel(UnityEngine.Object context)
+        {
+            if (context is GameObject go)
+                return go.name;
+            if (context is Component component)
+                return component.gameObject.name;
+            return context != null ? context.name : "(no context)";
         }
 
         private QuestScriptAnalysis AnalyzeQuest(QuestData q, bool force = false)
