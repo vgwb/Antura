@@ -1,7 +1,9 @@
+using Antura.UI;
+using DG.DeInspektor.Attributes;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.DeInspektor.Attributes;
 
 namespace Antura.Discover
 {
@@ -90,6 +92,25 @@ namespace Antura.Discover
         {
             if (itemData == null)
                 return;
+
+            // manage doubleclick on backpack to respawn
+            if (CurrentItemData != null && CurrentItemData.Code == "backpack" && itemData.Code == "backpack")
+            {
+                // Handle double-click logic here
+                // Debug.Log("Backpack double-clicked, respawning player.");
+                GlobalUI.ShowPrompt("Do you want to respawn?", () =>
+                    {
+                        ActionManager.I?.RespawnPlayer();
+                    },
+                    () =>
+                    {
+                        // Cancelled, do nothing
+                    }
+                );
+                // ActionManager.I?.RespawnPlayer();
+                // return;
+            }
+
             CurrentItemData = itemData;
             QuestManager.I?.Inventory?.SelectItem(itemData.Code);
         }
