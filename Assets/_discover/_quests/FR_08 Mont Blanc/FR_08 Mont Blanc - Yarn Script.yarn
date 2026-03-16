@@ -302,7 +302,9 @@ Sunglasses protect your eyes. #line:088fb7f
 <<SetActive this false>>
 <<task_end get_sunglasses>>
 <<target npc_base_2>>
+Now you can continue the climb! #shadow:0a7146f 
 ===
+
 
 // ---------------------------------------
 // Base 3 - High-Mid
@@ -372,8 +374,10 @@ actor:
 These help you walk safely on ice. #line:07102e7 
 <<inventory crampons add>>
 <<SetActive this false>>
+<<task_end get_crampons>>
+<<target npc_base3>>
+Now you can continue the climb! #shadow:0a7146f 
 ===
-
 
 title: item_rope
 position: 1119,740
