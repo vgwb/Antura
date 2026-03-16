@@ -2,9 +2,9 @@
 
 ### Overview
 
-In this quest, players explore **Mont Blanc** and climb from the valley floor to the summit while collecting essential mountain gear. Along the way, they meet guides and climbers, learn key facts about the **Alps**, and discover how preparation and safety help make high-altitude travel possible.
+Explore **Mont Blanc** and climb from the valley floor to the summit while collecting essential mountain gear. Along the way, meet guides and climbers, learn key facts about the **Alps**, and discover how preparation and safety help make high-altitude travel possible.
 
-The experience combines exploration, light puzzles, and educational dialogue. Each stage introduces a new part of the mountain environment and rewards the player with equipment needed to continue the ascent.
+Each stage introduces a new part of the mountain environment and rewards the player with equipment needed to continue the ascent.
 
 ### Characters
 
@@ -68,14 +68,14 @@ The experience combines exploration, light puzzles, and educational dialogue. Ea
 ### Final Assessment
 
 1. What is the name of the mountain range where Mont Blanc is located?
-   - **Correct answer:** The Alps
+   - **The Alps**
    - The Pyrenees
    - The Apennines
 2. How high is Mont Blanc?
-   - **Correct answer:** 4807 meters
+   - **4807 meters**
    - 3705 meters
    - 5016 meters
 3. Which countries can you see from the top of Mont Blanc?
-   - **Correct answer:** Italy, France, and Switzerland
+   - **Italy, France, and Switzerland**
    - Italy, Austria, and France
    - Germany, France, and Switzerland
