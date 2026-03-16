@@ -60,12 +60,32 @@ namespace Antura.Discover.Editor
                 sb.AppendLine();
             }
 
+            // DESIGN NOTES (from AdditionalResources text field, if present)
             if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
             {
                 sb.AppendLine("## Design Notes");
                 sb.AppendLine(q.AdditionalResources.text);
                 sb.AppendLine();
             }
+
+            // Quest Script
+            sb.AppendLine("## Quest Script");
+            if (q.IsScriptPublic)
+            {
+                if (!string.IsNullOrEmpty(scriptPageFileName))
+                {
+                    sb.AppendLine($"[See the full script here](./{scriptPageFileName})");
+                }
+                else
+                {
+                    sb.AppendLine("(No YarnScript attached)");
+                }
+            }
+            else
+            {
+                sb.AppendLine("(Script not public)");
+            }
+            sb.AppendLine();
 
             // Topics list (with inline topic meta and rich card details)
             var topicCardsSet = new HashSet<CardData>();
@@ -93,33 +113,6 @@ namespace Antura.Discover.Editor
                     }
                 }
             }
-
-            // Quest Script
-            sb.AppendLine("## Quest Script");
-            sb.AppendLine();
-            if (q.IsScriptPublic)
-            {
-                if (!string.IsNullOrEmpty(scriptPageFileName))
-                {
-                    sb.AppendLine($"[See the full script here](./{scriptPageFileName})");
-                }
-                else if (q.YarnScript != null)
-                {
-                    sb.AppendLine("```yarn");
-                    var strippedEarly = RemoveSceneDataChunk(q.YarnScript.text);
-                    sb.AppendLine(strippedEarly);
-                    sb.AppendLine("```");
-                }
-                else
-                {
-                    sb.AppendLine("(No YarnScript attached)");
-                }
-            }
-            else
-            {
-                sb.AppendLine("(Script not public)");
-            }
-            sb.AppendLine();
 
             sb.AppendLine("## Words");
             if (q.Words != null && q.Words.Count > 0)

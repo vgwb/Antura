@@ -18,6 +18,9 @@ hide:
 - Duration (min): 10
 - Description: Apprenons à jouer à Antura Discover !
 
+## Quest Script
+[See the full script here](./tutorial-script.md)
+
 ## Topics
 ### Antura's world {#antura-world}
 [Open topic page](../../topics/index.md#antura-world)  
@@ -83,10 +86,6 @@ Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez
 
 
 
-## Quest Script
-
-[See the full script here](./tutorial-script.md)
-
 ## Words
 ## Activities
 - [CleanCanvas](../../activities/index.md#CleanCanvas)
@@ -101,4 +100,4 @@ Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez
 - [Interact] open_chest
 ## Credits
 - Fabio Cecere (Italy) (design, development)
-- [Stefano Cecere](https://stefanocecere.com) (Italy) (design, development)
+- [Stefano Cecere](https://stefanocecere.com) (Italy) (content, design, development)

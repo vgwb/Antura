@@ -1,5 +1,3 @@
-## FR_08: Mont Blanc
-
 ### Overview
 
 Explore **Mont Blanc** and climb from the valley floor to the summit while collecting essential mountain gear. Along the way, meet guides and climbers, learn key facts about the **Alps**, and discover how preparation and safety help make high-altitude travel possible.

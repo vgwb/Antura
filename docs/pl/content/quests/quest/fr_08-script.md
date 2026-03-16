@@ -388,6 +388,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_end get_sunglasses&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_base_2&gt;&gt;</span>
+<span class="yarn-line">Teraz możesz kontynuować wspinaczkę!</span> <span class="yarn-meta">#shadow:0a7146f </span>
 
 </code>
 </pre>
@@ -484,6 +485,9 @@ hide:
 <span class="yarn-line">Pomagają bezpiecznie chodzić po lodzie.</span> <span class="yarn-meta">#line:07102e7 </span>
 <span class="yarn-cmd">&lt;&lt;inventory crampons add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;task_end get_crampons&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target npc_base3&gt;&gt;</span>
+<span class="yarn-line">Teraz możesz kontynuować wspinaczkę!</span> <span class="yarn-meta">#shadow:0a7146f </span>
 
 </code>
 </pre>

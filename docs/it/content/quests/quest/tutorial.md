@@ -18,6 +18,9 @@ hide:
 - Duration (min): 10
 - Description: Impariamo a giocare ad Antura Discover!
 
+## Quest Script
+[See the full script here](./tutorial-script.md)
+
 ## Topics
 ### Antura's world {#antura-world}
 [Open topic page](../../topics/index.md#antura-world)  
@@ -83,10 +86,6 @@ Qualcosa che non dovresti fare! Fai attenzione e stai al sicuro.
 
 
 
-## Quest Script
-
-[See the full script here](./tutorial-script.md)
-
 ## Words
 ## Activities
 - [CleanCanvas](../../activities/index.md#CleanCanvas)
@@ -101,4 +100,4 @@ Qualcosa che non dovresti fare! Fai attenzione e stai al sicuro.
 - [Interact] open_chest
 ## Credits
 - Fabio Cecere (Italy) (design, development)
-- [Stefano Cecere](https://stefanocecere.com) (Italy) (design, development)
+- [Stefano Cecere](https://stefanocecere.com) (Italy) (content, design, development)
