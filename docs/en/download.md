@@ -2,6 +2,17 @@
 
 _Learn with Antura_ is **free and open source**. You can play it on **any devices**.
 
+## 📖 Updates & Changelog
+
+See the [Changelog](../CHANGELOG.md)
+
+## 🚀 Beta Test
+
+> [!IMPORTANT]
+> The new Learng with Antura is in open beta!
+> You can join testing and help us improve.  
+> 👉 [Join the Beta Test](./manual/install.md)
+
 ## 📱 iOS (iPhone & iPad)
 
 [![Download on App Store](/assets/img/download_appstore.png)](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
@@ -31,17 +42,6 @@ Antura can be built for macOS and Linux by anyone in the community, since it’s
 > [!TIP] Contribute builds  
 > If you compile Antura for macOS or Linux, consider sharing your build with the community forum so others can benefit!
 > 👉 See [How to build Antura from source](./dev/how-to/Build.md) for details.
-
-## 🚀 Beta Test
-
-> [!IMPORTANT] Beta 3.0  
-> Antura 3.0 is in beta! You can already join testing and help us improve.  
-> 👉 [Join the Beta Test](./manual/install.md)
-
-## 📖 Updates & Changelog
-
-Want to know what’s new?  
-See the [Releases page](./about/releases.md) for the latest updates, improvements, and bug fixes.  
 
 ## 💻 Source Code
 
