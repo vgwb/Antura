@@ -1,4 +1,5 @@
 ## Game Design Notes
+
 **Mission**  
 discover who Nicolaus Copernicus was and how he revolutionised science.
 And did you know he was from poland?

@@ -1,4 +1,4 @@
-## Game Design Notes FR_10
+## Game Design Notes
 
 **Mission Statement** The player explores the banks of the River Seine in Paris to help a distressed Tourist recover 7 missing guidebook photos stolen by Antura. By interacting with "River Friends" and local experts, the player learns to identify different types of bridges and boats, eventually discovering where the river flows.
 

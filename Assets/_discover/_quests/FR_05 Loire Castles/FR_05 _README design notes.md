@@ -1,4 +1,4 @@
-## Game Design Notes
+## Game Design Notes
 
 Journey to the Loire Valley and help Cat find the perfect outfits to visit two very different castles: a strong defensive fortress and a magnificent royal palace. 
 

@@ -1,3 +1,4 @@
+## Game Design Notes
 
 **Core Subject:** Animals, Logic, and Local Landmarks.
 

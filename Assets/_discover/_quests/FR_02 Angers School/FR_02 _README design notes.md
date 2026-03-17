@@ -1,4 +1,4 @@
-## Game Design Notes
+## Game Design Notes
 
 The cat goes to different places until he finds his school. Then he visits the school and finds his class.
 

@@ -27,9 +27,8 @@ namespace Antura.Discover.Editor
             sb.AppendLine("---");
             sb.AppendLine();
 
+            // Quest title and code
             sb.AppendLine("# " + title + " (" + code + ")");
-
-            // Language menu removed: global locale switch handles language selection now.
 
             sb.AppendLine(GetEditInfoSection(q));
 
@@ -60,10 +59,9 @@ namespace Antura.Discover.Editor
                 sb.AppendLine();
             }
 
-            // DESIGN NOTES (from AdditionalResources text field, if present)
+            // DESIGN NOTES
             if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
             {
-                sb.AppendLine("## Design Notes");
                 sb.AppendLine(q.AdditionalResources.text);
                 sb.AppendLine();
             }

@@ -1,3 +1,4 @@
+## Game Design Notes
 
 **Core Subject:** Geography, Flags, and Neighboring Countries.
 

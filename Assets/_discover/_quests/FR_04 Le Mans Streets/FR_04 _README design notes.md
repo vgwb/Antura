@@ -1,4 +1,4 @@
-## Game Design
+## Game Design Notes
 
 After watching the famous "24 Hours of Le Mans" car race, help Cat navigate the city streets on a scooter to safely reach the train station, learning important traffic rules along the way. 
 
