@@ -1,58 +1,162 @@
 ## Game Design Notes
 
 **Mission Objective**
-The player must explore a stylized, open-hub map of Wrocław to locate **10 unique dwarf statues**. By interacting with landmarks and completing mini-games, players learn about the city’s history and culture. The ultimate goal is to collect all 10 dwarves to convince the "Keymaster Dwarf" to unlock the Sky Tower elevator and rescue Antura.
+The player explores Wrocław to rescue Antura from the top of the Sky Tower. The player must free **10 dwarves locked inside chests**. Each chest requires a hidden key. Keys are discovered by moving objects, talking to NPCs, solving mini-games, and answering quizzes. Every freed dwarf teaches one clear fact about Wrocław.
 
-**Primary Characters** * **The Dwarf Expert:** A friendly guide based at the Leonardo School who introduces the lore and provides the player with "Dwarf Tunnel" access.
+### Primary Characters
 
-**The Keymaster Dwarf:** The final "gatekeeper" at the Sky Tower who requires a full collection of 10 dwarves to proceed.
+- **The Dwarf Expert:** A friendly guide at the Leonardo School Campus. He explains the mission, introduces the city map, and unlocks the Dwarf Tunnels / Trams after the tutorial chest.
+- **Local NPCs:** Children, guides, tourists, a librarian, and landmark helpers who give clues, hide keys, and trigger mini-games.
+- **The Keymaster Dwarf:** The final dwarf, trapped inside the last chest at the Sky Tower elevator. Once freed, he unlocks the elevator.
 
-### Knowledge Content & Educational Goals
+### Learning Goals
 
-- **City Facts:** Wrocław is the 3rd largest city in Poland; Dwarves are the official symbol.
-- **Landmark Recognition:** Identifying the **Old Town Hall**, **The Cathedral**, **Centennial Hall**, and **Sky Tower**.
-- **Vocabulary & Concepts:**  
-  - _Town Hall:_ Where city leaders work.
-  - _Cathedral:_ A large, important church for prayer.
-  - _Panorama:_ A giant, 360-degree painting.
-- **Cultural Figures:** Recognition of Nobel Prize winner **Olga Tokarczuk**.
+- **City Identity:** Wrocław is the **3rd largest city in Poland** and dwarves are one of its best-known symbols.
+- **Landmarks:** Recognize the **Market Square**, **Old Town Hall**, **Cathedral**, **Wrocław ZOO**, **Centennial Hall**, **Multimedia Fountain**, **Panorama Racławicka**, and **Sky Tower**.
+- **Vocabulary:**
+  - _Town Hall_: A place where city leaders work and meet.
+  - _Cathedral_: A large and important church where people pray.
+  - _Panorama_: A giant picture that surrounds the viewer.
+  - _Plaza_: An open city space where people meet.
+- **Culture:**
+  - Wrocław dwarves are linked to the city's playful identity and can be introduced as a child-friendly symbol of creativity and freedom.
+  - **Olga Tokarczuk** is a Nobel Prize-winning writer connected to Wrocław.
 
-### Gameplay Mechanics
+### Gameplay elements
 
-- **The Hunt:** Simple exploration and point-and-click collection.
-- **Dwarf Tunnels (Fast Travel):** Magical portals that allow the player to jump between three main hubs: **Old Town**, **Green Zone**, and **Sky Tower District**.
-- **Activities:** Each dwarf discovery triggers a **Jigsaw Puzzle** related to that specific landmark or fact.
-- **Special Interaction:** A mandatory **Quiz** at the Cathedral to unlock the Bishop Dwarf.
+- **Hidden Keys:** Every dwarf is inside a chest. The player first finds a clue, then reveals a key.
+- **Interactive Discovery:** Keys are found by moving objects, searching props, talking to NPCs, or completing mini-games and quizzes.
+- **Hub Travel:** Trams / Dwarf Tunnels connect three main hubs: **Old Town**, **Green Zone**, and **Sky Tower District**.
+- **Progressive Unlocking:** The player starts in the school tutorial area, then unlocks the three city hubs in sequence.
+- **Mini-game Variety:** Use a mix of jigsaws, simple quizzes, visual matching, and object-search interactions so the loop does not feel repetitive.
+
+### Core Loop
+
+1. Arrive at a hub.
+2. Meet an NPC or inspect a landmark.
+3. Learn one short fact.
+4. Get a clue about a hidden key.
+5. Reveal or earn the key.
+6. Open the chest.
+7. Free the dwarf.
+8. Find the Dwarf
+9. Add the dwarf to the collection and unlock the next clue or hub.
 
 ### Flow
 
-#### **Phase 1: The Briefing**
+#### Phase 1: The Briefing and Tutorial
 
 - **Location:** Leonardo School Campus.
-- **Event:** The Dwarf Expert explains that Antura is stuck atop the Sky Tower. The dwarves have locked the elevator as a game.
-- **Tutorial:** The Expert introduces the **Dwarf Tunnels** to help the player navigate the large city.
+- **Narrative Beat:** The Dwarf Expert explains that Antura is trapped at the top of the Sky Tower. The dwarves turned the elevator lock into a city-wide treasure game.
+- **Tutorial Goal:** Learn the key-and-chest loop.
+- **Tutorial Interaction:** The player follows a simple clue, finds a hidden key near the school, and opens a tutorial chest.
+- **Tutorial Reward:** The chest contains the **Dwarf Tunnel Pass**, which activates fast travel.
+- **Exit Condition:** The player can now travel to the **Old Town Hub**.
 
-#### **Phase 2: The Old Town Hub (Dwarves 1-3)**
+#### Phase 2: The Old Town Hub (Dwarves 1-3)
 
-- **Dwarf 1 - The Origin:** Found near the Market Square. Teaches the history of dwarves as a resistance symbol (2003/1980s).
-- **Dwarf 2 - The Councilor:** Located at the **Old Town Hall**. Focuses on the role of city leaders.
-- **Dwarf 3 - The Bishop:** Located at the **Cathedral**. Requires a quiz about what a Cathedral is (a place to pray).
+This hub teaches the oldest and most iconic parts of Wrocław.
 
-#### **Phase 3: The Green Zone Hub (Dwarves 4-7)**
+- **Dwarf 1 - The Origin**
+  - **Location:** Market Square.
+  - **Fact:** Wrocław dwarves are one of the city's symbols.
+  - **Key Source:** A local child gives a clue; the player moves a flowerpot or market object to reveal the key.
+  - **Chest Reward:** The Origin Dwarf.
 
-- **Dwarf 4 - Animal Lover:** Located at the **Wrocław ZOO**. Fact: It is the largest ZOO in Poland.
-- **Dwarf 5 - The Architect:** Located at **Centennial Hall**. Fact: A huge building for shows and sports with a unique dome roof.
-- **Dwarf 6 - The Conductor:** Located at the **Multimedia Fountain**. Fact: One of the largest in Europe, using lights and music.
-- **Dwarf 7 - The Painter:** Located at **Panorama Racławicka**. Fact: A giant battle painting (15m x 114m) that surrounds the viewer.
+- **Dwarf 2 - The Councilor**
+  - **Location:** Old Town Hall.
+  - **Fact:** The Town Hall is where city leaders work and meet.
+  - **Key Source:** Talk to an NPC near the hall, answer a short question, then complete a small jigsaw of the building.
+  - **Chest Reward:** The Councilor Dwarf.
 
-#### **Phase 4: The Modern Hub & Finale (Dwarves 8-10)**
+- **Dwarf 3 - The Bishop**
+  - **Location:** Cathedral.
+  - **Fact:** A cathedral is a large church where people pray.
+  - **Key Source:** Complete a mandatory cathedral quiz.
+  - **Chest Reward:** The Bishop Dwarf.
 
-- **Dwarf 8 - The Writer:** Located near the base of the Sky Tower. Introduces **Olga Tokarczuk**, Nobel Prize-winning writer living in Wrocław.
-- **Dwarf 9 - The Traveler:** Found in the modern plaza of the Sky Tower. Represents the modern growth of the city.
-- **Dwarf 10 - The Keymaster:** Stands directly in front of the Sky Tower elevator.
+- **Hub Reward:** After freeing 3 dwarves, the **Green Zone Hub** unlocks in the Dwarf Tunnels.
 
-#### **Phase 5: The Summit**
+#### Phase 3: The Green Zone Hub (Dwarves 4-6)
 
-- The elevator unlocks. The player reaches the observation deck.
-- **Final Assessment:** A 2-question recap (Symbol of the city? Size of the city?).
-- **Outcome:** Quest Complete! Antura is rescued (or has just moved to the next quest location).
+This hub focuses on nature, architecture, and public spectacle.
+
+- **Dwarf 4 - Animal Lover**
+  - **Location:** Wrocław ZOO.
+  - **Fact:** Wrocław ZOO is the largest zoo in Poland.
+  - **Key Source:** Talk to the zoo keeper and search an animal area or sign.
+  - **Chest Reward:** The Animal Lover Dwarf.
+
+- **Dwarf 5 - The Architect**
+  - **Location:** Centennial Hall.
+  - **Fact:** Centennial Hall is a huge building with a distinctive dome, used for shows and events.
+  - **Key Source:** Solve a building jigsaw or shape-based mini-game.
+  - **Chest Reward:** The Architect Dwarf.
+
+- **Dwarf 6 - The Conductor**
+  - **Location:** Multimedia Fountain.
+  - **Fact:** The fountain is famous for shows that combine water, lights, and music.
+  - **Key Source:** Speak to an NPC and complete a simple sound or sequence activity.
+  - **Chest Reward:** The Conductor Dwarf.
+
+#### Phase 4: The Panorama  Hub (Dwarves 7)
+
+This hub focuses on nature, architecture, and public spectacle.
+
+- **Dwarf 7 - The Painter**
+  - **Location:** Panorama Racławicka.
+  - **Fact:** A panorama is a giant painting that surrounds the viewer.
+  - **Key Source:** Solve a picture puzzle or visual matching mini-game.
+  - **Chest Reward:** The Painter Dwarf.
+
+- **Hub Reward:** After freeing 7 dwarves, the **Sky Tower District** unlocks in the Dwarf Tunnels.
+
+#### Phase 5: The Modern Hub (Dwarves 8-9)
+
+This hub shifts from historical landmarks to modern city life.
+
+- **Dwarf 8 - The Writer**
+  - **Location:** Near the base of the Sky Tower.
+  - **Fact:** Olga Tokarczuk is a Nobel Prize-winning writer associated with Wrocław.
+  - **Key Source:** Talk to a reader, bookseller, or librarian NPC and complete a short word or picture activity.
+  - **Chest Reward:** The Writer Dwarf.
+
+- **Dwarf 9 - The Traveler**
+  - **Location:** Sky Tower plaza.
+  - **Fact:** The plaza shows the modern and busy side of the city.
+  - **Key Source:** Search the plaza by moving modern objects or speaking to two NPCs to combine clues.
+  - **Chest Reward:** The Traveler Dwarf.
+
+#### Phase 5: The Final Chest
+
+- **Dwarf 10 - The Keymaster**
+  - **Location:** In front of the Sky Tower elevator.
+  - **Condition:** The final chest only becomes active after the first 9 dwarves are freed.
+  - **Key Source:** The player receives the final clue from the previously rescued dwarves or from a nearby plaque.
+  - **Chest Reward:** The Keymaster Dwarf.
+  - **Payoff:** The Keymaster unlocks the elevator.
+
+#### Phase 6: The Summit
+
+- The player rides the elevator to the top of the Sky Tower.
+- Antura has already moved on, but the rescue goal is acknowledged and the player gets a final city view.
+- The player completes a short recap.
+
+### Final Assessment
+
+The player answers 3 short recap questions at the top of the Sky Tower.
+
+1. **What is a famous symbol of Wrocław?**
+  - **A dwarf**
+  - A whale
+  - A rocket
+
+2. **What do people do in a cathedral?**
+  - **They pray**
+  - They race cars
+  - They fish
+
+3. **Who is Olga Tokarczuk?**
+  - **A writer**
+  - A pilot
+  - A giant cat
