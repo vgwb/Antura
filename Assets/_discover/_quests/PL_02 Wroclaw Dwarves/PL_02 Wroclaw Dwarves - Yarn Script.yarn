@@ -9,23 +9,23 @@
 // - wroclaw_dwarf_statue
 // - wroclaw_sky_tower
 // - wroklaw_map
-//   - TODO animal_lover_dwarf
-//   - TODO dwarf_expert
-//   - TODO keymaster_dwarf
-//   - TODO olga_tokarczuk
-//   - TODO panorama_racawicka
-//   - TODO polish_dwarf
-//   - TODO primary_school_leonardo_da_vinci
-//   - TODO sky_tower_plaza
-//   - TODO town_hall
-//   - TODO vistula_river
-//   - TODO wroclaw
-//   - TODO wroclaw_cathedral
-//   - TODO wroclaw_centennial_hall
-//   - TODO wroclaw_dwarfs
-//   - TODO wroclaw_market_square
-//   - TODO wroclaw_multimedia_fountain
-//   - TODO wroclaw_old_town_hall
+//   - animal_lover_dwarf
+//   - dwarf_expert
+//   - keymaster_dwarf
+//   - olga_tokarczuk
+//   - panorama_racawicka
+//   - polish_dwarf
+//   - primary_school_leonardo_da_vinci
+//   - sky_tower_plaza
+//   - town_hall
+//   - vistula_river
+//   - wroclaw
+//   - wroclaw_cathedral
+//   - wroclaw_centennial_hall
+//   - wroclaw_dwarfs
+//   - wroclaw_market_square
+//   - wroclaw_multimedia_fountain
+//   - wroclaw_old_town_hall
 // TASKS
 // - FIND_DWARVES
 // ACTIVITIES
@@ -107,7 +107,7 @@ color: red
 <<card wroklaw_map>>
 Welcome to Wrocław! #line:cf_001
 Let's help Antura at the top of the Sky Tower. #line:cf_002
-<<target npc_0_dwarf_expert>>
+<<target npc_0>>
 ===
 
 title: quest_end
@@ -145,48 +145,42 @@ color: blue
 		Look at the map #line:look_map
 	-> No, I'll find it #line:no_i_find 
 <<elseif $intro_done>>
-	The Dwarf Tunnels are ready. Pick a place to visit. #line:cf_003
+	The Magic Tram is ready. Pick a place to visit. #line:cf_003
 	<<target magic_tram>>
-<<elseif GetCurrentTask() == "get_tunnel_pass">>
-	Find the hidden key near the school, then open the chest. #line:cf_004
+<<elseif GetCurrentTask() == "get_dwarf_0">>
+	Find a key, then open the chest. #line:cf_004
 	<<target chest_0>>
 <<else>>
 	<<card primary_school_leonardo_da_vinci>>
 	Hi! I am the Dwarf Expert from Leonardo School. #line:cf_005
+	<<camera_focus skytower_roof>>
 	Antura ran up to the Sky Tower, and the elevator is locked. #line:cf_006
+	<<camera_reset>>
 	Ten dwarves are hiding inside magic chests all over Wrocław. #line:cf_007
-	Each chest opens with a hidden key. #line:cf_008
-	Let's learn the game here at school first. #line:cf_009 #task:get_tunnel_pass
-	<<task_start get_tunnel_pass>>
+	Each chest opens with a gold key. #line:cf_008
+	<<camera_focus camera_intro>>
+	Find the school Dwarf around here. #line:cf_009 #task:get_dwarf_0
+	<<camera_reset>>
+	<<task_start get_dwarf_0>>
 	<<SetActive key_0 true>>
-	<<target ll_0_hint>>
 	<<SetMapIcon chest_0 on>>
 <<endif>>
 ===
 
-title: school_hint
-position: 620,0
-group: intro
----
-<<card wroklaw_map>>
-Look around the school yard. A little key is hiding under something. #line:cf_010
-Move the object, pick up the key, and open the school chest. #line:cf_011
-===
-
-title: chest_tutorial_tunnel_pass
+title: chest_0
 position: 860,0
 group: intro
 ---
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
-	It opens. A Dwarf inside ran away! Find it! #line:cf_012
+	It opens. A Dwarf escaped and ran away! Catch it! #line:cf_012
 	<<trigger chest_0_open>>
 	<<SetInteractable chest_0 false>>
 	<<SetActive dwarf_0 true>>
 	<<SetMapIcon chest_0 off>>
 	<<set $dwarf_0_free = true>>
 <<else>>
-	It is locked. Find the hidden key first. #line:cf_013
+	It is locked. Find a gold key first. #line:locked
 <<endif>>
 ===
 
@@ -199,21 +193,16 @@ color: yellow
 <<set $intro_done = true>>
 <<SetActive this false>>
 // <<inventory tunnel_pass add>>
-<<task_end get_tunnel_pass>>
+<<task_end get_dwarf_0>>
 <<SetMapIcon dwarf_0 done>>
+Ahhh you found me! Bravo!
+Many years ago I created Dwarf Tunnels to travel around the city...
+<<card tram>>
+Now they have trasformed them into magical vehicles #line:cf_014
+Modern technology is really amazing!
 <<card wroklaw_map>>
-Now you can use the Dwarf Tunnels to travel around the city. #line:cf_014
-Your mission is to free all 10 dwarves. #line:cf_015 #task:FIND_DWARVES
-<<task_start FIND_DWARVES task_dwarves_done>>
-<<target ll_tram_0>>
-===
-
-title: task_dwarves_done
-position: 1120,220
-group: intro
----
-You rescued all the dwarves. Now go back to the Sky Tower elevator. #line:cf_016
-<<task_end FIND_DWARVES>>
+Your mission is to free all my 10 dwarves friends around Wroklaw. #line:cf_015 #task:FIND_DWARVES
+<<target tram_0>>
 ===
 
 title: magic_tram
@@ -223,13 +212,13 @@ Where do you want to go? #line:cf_017
 -> Old Town <<if $intro_done and $current_place != "old_town">> #line:tram_001
 	<<teleport tram_old_town>>
 	<<set $current_place = "old_town">>
--> Panorama <<if $found >= 2 and $current_place != "panorama">> #line:tram_002
+-> Panorama Park <<if $found >= 2 and $current_place != "panorama">> #line:tram_002
 	<<teleport tram_old_town>>
 	<<set $current_place = "panorama">>
 -> Centennial Hall <<if $found >= 3 and $current_place != "centennial_hall">> #line:tram_003 
 	<<teleport tram_centennial_hall>>
 	<<set $current_place = "centennial_hall">>
--> Sky Tower District <<if $found >= 7 and $current_place != "sky_tower">> #line:tram_004
+-> Sky Tower <<if $found >= 7 and $current_place != "sky_tower">> #line:tram_004
 	<<teleport tram_sky_tower>>
 	<<set $current_place = "sky_tower">>
 -> Stay here #line:tram_005 #highlight
@@ -245,10 +234,10 @@ group: old_town
 color: blue
 ---
 <<if $found < 3>>
-	The first three dwarf chests are in the Old Town. #line:cf_018
+	The first three dwarfs are in the Old Town. #line:cf_018
 	Look in the Market Square, the Town Hall, and the Cathedral. #line:cf_019
 <<else>>
-	You finished the Old Town. The Green Zone is open now. #line:cf_020
+	You finished the Old Town. You can go to the Green Zone. #line:cf_020
 	<<target magic_tram>>
 <<endif>>
 ===
@@ -257,25 +246,29 @@ title: npc_1
 position: 600,420
 group: old_town
 ---
-<<if $dwarf_1_found>>
+<<if $dwarf_1_free and !$dwarf_1_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_1 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_1_found>>
 	This dwarf is safe with you now. #line:cf_021
 <<else>>
 	<<card wroclaw_dwarf_statue>>
 	Wrocław is famous for its little dwarves. #line:cf_022
 	Tiny hats, tiny boots, big city fame. #line:cf_141
 	They are one of the symbols of the city. #line:cf_023
-	A child says the first key is hiding under a flowerpot in the market. #line:cf_024
-	<<target key_1>>
+	<<SetMapIcon chest_1 on>>
+	<<SetActive key_1 true>>
 <<endif>>
 ===
 
-title: key_1
+title: hint_1
 position: 840,420
 group: old_town
 ---
-You moved the flowerpot and found a key. #line:cf_025
-<<SetActive key_1 true>>
-<<target chest_1>>
+=> A child says the first key is hiding under a flowerpot in the market. #line:cf_024
 ===
 
 title: chest_1
@@ -288,6 +281,8 @@ group: old_town
 	<<trigger chest_1_open>>
 	<<SetInteractable chest_1 false>>
 	<<SetActive dwarf_1 true>>
+	<<SetMapIcon chest_1 off>>
+	<<set $dwarf_1_free = true>>
 <<else>>
 	The chest is locked. Look for the key in the market. #line:cf_027
 <<endif>>
@@ -302,6 +297,7 @@ color: yellow
 <<set $dwarf_1_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_1 done>>
 The Origin Dwarf is safe now. #line:cf_028
 It wiggles its little boots and gives a happy bow. #line:cf_142
 ===
@@ -310,7 +306,13 @@ title: npc_2
 position: 600,620
 group: old_town
 ---
-<<if $dwarf_2_found>>
+<<if $dwarf_2_free and !$dwarf_2_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_2 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_2_found>>
 	The Councilor Dwarf is safe now. #line:cf_029
 <<else>>
 	<<card wroclaw_old_town_hall>>
@@ -320,23 +322,23 @@ group: old_town
 	What do city leaders do in a Town Hall? #line:cf_032
 	-> They work and meet #line:d2_005
 		That's right. Now solve the building puzzle to find the key. #line:cf_033
-		<<activity jigsawpuzzle wroclaw_old_town_hall key_dwarf_2>>
+		<<activity pl02_activity_2 hint_2>>
 	-> They swim #line:d2_007
-		Not this one. Try again. #line:cf_034
+		No. Try again. #line:no_try_again
 		<<jump npc_2>>
 	-> They fly planes #line:d2_009
-		Not this one. Try again. #line:cf_035
+		No. Try again. #shadow:no_try_again
 		<<jump npc_2>>
 <<endif>>
 ===
 
-title: key_2
+title: hint_2
 position: 840,620
 group: old_town
 ---
 The puzzle reveals a hidden key behind the Town Hall sign. #line:cf_036
-<<SetActive key_oldtown_2 true>>
-	<<target chest_dwarf_2>>
+<<SetMapIcon chest_2 on>>
+<<SetActive key_2 true>>
 ===
 
 title: chest_2
@@ -345,10 +347,12 @@ group: old_town
 ---
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
+	<<trigger chest_2_open>>
+	<<SetInteractable chest_2 false>>
+	<<SetMapIcon chest_2 off>>
 	The chest opens. The Councilor Dwarf is inside. #line:cf_037
-	<<trigger chest_dwarf_2_open>>
-	<<SetInteractable chest_dwarf_2 false>>
-	<<SetActive dwarf_2_reward true>>
+	<<SetActive dwarf_2 true>>
+	<<set $dwarf_2_free = true>>
 <<else>>
 	It is locked. Finish the Town Hall puzzle first. #line:cf_038
 <<endif>>
@@ -363,6 +367,7 @@ color: yellow
 <<set $dwarf_2_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_2 done>>
 The Councilor Dwarf is safe now. #line:cf_039
 It straightens its tiny hat like a very busy mayor. #line:cf_144
 ===
@@ -371,7 +376,13 @@ title: npc_3
 position: 600,820
 group: old_town
 ---
-<<if $dwarf_3_found>>
+<<if $dwarf_3_free and !$dwarf_3_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_3 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_3_found>>
 	The Bishop Dwarf is safe now. #line:cf_040
 <<else>>
 	<<card bishop_dwarf>>
@@ -381,7 +392,8 @@ group: old_town
 	What do people do in a cathedral? #line:cf_043
 	-> They pray #line:d3_005
 		Yes! The quiz shows you the key. #line:cf_044
-		<<jump key_dwarf_3>>
+		<<SetMapIcon chest_3 on>>
+		<<jump key_3>>
 	-> They buy cars #line:d3_007
 		Nope. Try again. #line:cf_045
 		<<jump npc_3>>
@@ -391,13 +403,13 @@ group: old_town
 <<endif>>
 ===
 
-title: key_3
+title: hint_3
 position: 840,820
 group: old_town
 ---
 You earned the cathedral key. #line:cf_047
 <<SetActive key_oldtown_3 true>>
-	<<target chest_dwarf_3>>
+	<<target chest_3>>
 ===
 
 title: chest_3
@@ -407,9 +419,11 @@ group: old_town
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The chest opens. The Bishop Dwarf is free. #line:cf_048
-	<<trigger chest_dwarf_3_open>>
-	<<SetInteractable chest_dwarf_3 false>>
-	<<SetActive dwarf_3_reward true>>
+	<<trigger chest_3_open>>
+	<<SetInteractable chest_3 false>>
+	<<SetActive dwarf_3 true>>
+	<<SetMapIcon chest_3 off>>
+	<<set $dwarf_3_free = true>>
 <<else>>
 	It is locked. Answer the cathedral question first. #line:cf_049
 <<endif>>
@@ -424,6 +438,7 @@ color: yellow
 <<set $dwarf_3_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_3 done>>
 The Bishop Dwarf is safe now. #line:cf_050
 It gives you a calm little nod. #line:cf_146
 ===
@@ -453,24 +468,31 @@ title: npc_4
 position: 600,1040
 group: green_zone
 ---
-<<if $dwarf_4_found>>
+<<if $dwarf_4_free and !$dwarf_4_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_4 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_4_found>>
 	The Animal Lover Dwarf is safe now. #line:cf_055
 <<else>>
 	<<card animal_lover_dwarf>>
 	Wrocław Zoo is the biggest zoo in Poland. #line:cf_056
 	This dwarf loves paws, wings, and whiskers. #line:cf_147
 	Talk to the zoo keeper and check the animal sign. #line:cf_057
+	<<SetMapIcon chest_4 on>>
 	<<jump key_4>>
 <<endif>>
 ===
 
-title: key_4
+title: hint_4
 position: 840,1040
 group: green_zone
 ---
 You found the zoo key behind the sign. #line:cf_058
 <<SetActive key_green_1 true>>
-	<<target chest_dwarf_4>>
+	<<target chest_4>>
 ===
 
 title: chest_4
@@ -480,9 +502,11 @@ group: green_zone
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The chest opens. The Animal Lover Dwarf is inside. #line:cf_059
-	<<trigger chest_dwarf_4_open>>
-	<<SetInteractable chest_dwarf_4 false>>
-	<<SetActive dwarf_4_reward true>>
+	<<trigger chest_4_open>>
+	<<SetInteractable chest_4 false>>
+	<<SetActive dwarf_4 true>>
+	<<SetMapIcon chest_4 off>>
+	<<set $dwarf_4_free = true>>
 <<else>>
 	It is locked. Look around the zoo a little more. #line:cf_060
 <<endif>>
@@ -497,6 +521,7 @@ color: yellow
 <<set $dwarf_4_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_4 done>>
 The Animal Lover Dwarf is safe now. #line:cf_061
 It chirps, sniffs, and waves all at once. #line:cf_148
 ===
@@ -506,24 +531,31 @@ title: npc_5
 position: 600,1240
 group: green_zone
 ---
-<<if $dwarf_5_found>>
+<<if $dwarf_5_free and !$dwarf_5_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_5 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_5_found>>
 	The Architect Dwarf is safe now. #line:cf_062
 <<else>>
 	<<card wroclaw_centennial_hall>>
 	Centennial Hall is very big and has a famous round roof. #line:cf_063
 	This dwarf loves shapes, buildings, and clever designs. #line:cf_149
 	Solve the hall puzzle to find the hidden key. #line:cf_064
-	<<activity jigsawpuzzle wroclaw_centennial_hall key_dwarf_5>>
+	<<SetMapIcon chest_5 on>>
+	<<activity jigsawpuzzle wroclaw_centennial_hall key_5>>
 <<endif>>
 ===
 
-title: key_5
+title: hint_5
 position: 840,1240
 group: green_zone
 ---
 The key slides out from behind the hall model. #line:cf_065
 <<SetActive key_green_2 true>>
-	<<target chest_dwarf_5>>
+	<<target chest_5>>
 ===
 
 title: chest_5
@@ -533,9 +565,11 @@ group: green_zone
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The chest opens. The Architect Dwarf is inside. #line:cf_066
-	<<trigger chest_dwarf_5_open>>
-	<<SetInteractable chest_dwarf_5 false>>
-	<<SetActive dwarf_5_reward true>>
+	<<trigger chest_5_open>>
+	<<SetInteractable chest_5 false>>
+	<<SetActive dwarf_5 true>>
+	<<SetMapIcon chest_5 off>>
+	<<set $dwarf_5_free = true>>
 <<else>>
 	It is locked. Solve the hall puzzle first. #line:cf_067
 <<endif>>
@@ -550,6 +584,7 @@ color: yellow
 <<set $dwarf_5_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_5 done>>
 The Architect Dwarf is safe now. #line:cf_068
 It proudly taps the air like it is drawing a new roof. #line:cf_150
 ===
@@ -560,18 +595,25 @@ title: npc_6
 position: 600,1440
 group: green_zone
 ---
-<<if $dwarf_6_found>>
+<<if $dwarf_6_free and !$dwarf_6_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_6 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_6_found>>
 	The Conductor Dwarf is safe now. #line:cf_069
 <<else>>
 	<<card wroclaw_multimedia_fountain>>
 	This fountain uses water, lights, and music. #line:cf_070
 	This dwarf loves splashes, sparkles, and songs. #line:cf_151
 	Copy the fountain pattern to find the key. #line:cf_071
+	<<SetMapIcon chest_6 on>>
 	<<jump key_6>>
 <<endif>>
 ===
 
-title: key_6
+title: hint_6
 position: 840,1440
 group: green_zone
 ---
@@ -587,9 +629,11 @@ group: green_zone
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The chest opens. The Conductor Dwarf is inside. #line:cf_073
-	<<trigger chest_dwarf_6_open>>
-	<<SetInteractable chest_dwarf_6 false>>
-	<<SetActive dwarf_6_reward true>>
+	<<trigger chest_6_open>>
+	<<SetInteractable chest_6 false>>
+	<<SetActive dwarf_6 true>>
+	<<SetMapIcon chest_6 off>>
+	<<set $dwarf_6_free = true>>
 <<else>>
 	It is locked. Follow the fountain clue first. #line:cf_074
 <<endif>>
@@ -604,6 +648,7 @@ color: yellow
 <<set $dwarf_6_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_6 done>>
 The Conductor Dwarf is safe now. #line:cf_075
 It swishes its tiny baton and bows to the fountain. #line:cf_152
 ===
@@ -632,18 +677,25 @@ title: npc_7
 position: 600,1640
 group: green_zone
 ---
-<<if $dwarf_7_found>>
+<<if $dwarf_7_free and !$dwarf_7_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_7 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_7_found>>
 	The Painter Dwarf is safe now. #line:cf_076
 <<else>>
 	<<card panorama_racawicka>>
 	A panorama is a giant picture all around you. #line:cf_077
 	This dwarf loves colors, paint, and giant pictures. #line:cf_153
 	Match the picture pieces to find the key. #line:cf_078
+	<<SetMapIcon chest_7 on>>
 	<<activity jigsawpuzzle panorama_racawicka key_7>>
 <<endif>>
 ===
 
-title: key_7
+title: hint_7
 position: 840,1640
 group: green_zone
 ---
@@ -659,9 +711,11 @@ group: green_zone
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The chest opens. The Painter Dwarf is inside. #line:cf_080
-	<<trigger chest_dwarf_7_open>>
-	<<SetInteractable chest_dwarf_7 false>>
-	<<SetActive dwarf_7_reward true>>
+	<<trigger chest_7_open>>
+	<<SetInteractable chest_7 false>>
+	<<SetActive dwarf_7 true>>
+	<<SetMapIcon chest_7 off>>
+	<<set $dwarf_7_free = true>>
 <<else>>
 	It is locked. Finish the panorama puzzle first. #line:cf_081
 <<endif>>
@@ -676,6 +730,7 @@ color: yellow
 <<set $dwarf_7_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_7 done>>
 The Painter Dwarf is safe now. #line:cf_082
 It twirls like a brush making one last happy swirl. #line:cf_154
 ===
@@ -704,24 +759,31 @@ title: npc_8
 position: 600,1860
 group: sky_tower
 ---
-<<if $dwarf_8_found>>
+<<if $dwarf_8_free and !$dwarf_8_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_8 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_8_found>>
 	The Writer Dwarf is safe now. #line:cf_087
 <<else>>
 	<<card olga_tokarczuk>>
 	Olga Tokarczuk is a writer who won a very big prize. #line:cf_088
 	This dwarf loves stories, books, and quiet reading corners. #line:cf_155
 	Help the reader find the clue near the books. #line:cf_089
-	<<jump npc_8>>
+	<<SetMapIcon chest_8 on>>
+	<<jump key_8>>
 <<endif>>
 ===
 
-title: key_8
+title: hint_8
 position: 840,1860
 group: sky_tower
 ---
 You found the writer's key in the reading corner. #line:cf_090
 <<SetActive key_modern_1 true>>
-	<<target chest_dwarf_8>>
+	<<target chest_8>>
 ===
 
 title: chest_8
@@ -731,9 +793,11 @@ group: sky_tower
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The chest opens. The Writer Dwarf is inside. #line:cf_091
-	<<trigger chest_dwarf_8_open>>
-	<<SetInteractable chest_dwarf_8 false>>
-	<<SetActive dwarf_8_reward true>>
+	<<trigger chest_8_open>>
+	<<SetInteractable chest_8 false>>
+	<<SetActive dwarf_8 true>>
+	<<SetMapIcon chest_8 off>>
+	<<set $dwarf_8_free = true>>
 <<else>>
 	It is locked. Look near the books first. #line:cf_092
 <<endif>>
@@ -748,6 +812,7 @@ color: yellow
 <<set $dwarf_8_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_8 done>>
 The Writer Dwarf is safe now. #line:cf_093
 It hugs a tiny book and beams at you. #line:cf_156
 ===
@@ -757,24 +822,31 @@ title: npc_9
 position: 600,2060
 group: sky_tower
 ---
-<<if $dwarf_9_found>>
+<<if $dwarf_9_free and !$dwarf_9_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_9 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_9_found>>
 	The Traveler Dwarf is safe now. #line:cf_094
 <<else>>
 	<<card sky_tower_plaza>>
 	A plaza is an open place where people meet. #line:cf_095
 	This dwarf loves busy places, new paths, and city adventures. #line:cf_157
 	Talk to two people in the plaza to solve the clue. #line:cf_096
+	<<SetMapIcon chest_9 on>>
 	<<jump key_9>>
 <<endif>>
 ===
 
-title: key_9
+title: hint_9
 position: 840,2060
 group: sky_tower
 ---
 The two clues lead you to a key under a bench in the plaza. #line:cf_097
 <<SetActive key_modern_2 true>>
-	<<target chest_dwarf_9>>
+	<<target chest_9>>
 ===
 
 title: chest_9
@@ -784,9 +856,11 @@ group: sky_tower
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The chest opens. The Traveler Dwarf is inside. #line:cf_098
-	<<trigger chest_dwarf_9_open>>
-	<<SetInteractable chest_dwarf_9 false>>
-	<<SetActive dwarf_9_reward true>>
+	<<trigger chest_9_open>>
+	<<SetInteractable chest_9 false>>
+	<<SetActive dwarf_9 true>>
+	<<SetMapIcon chest_9 off>>
+	<<set $dwarf_9_free = true>>
 <<else>>
 	It is locked. Find both plaza clues first. #line:cf_099
 <<endif>>
@@ -801,6 +875,7 @@ color: yellow
 <<set $dwarf_9_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_9 done>>
 The Traveler Dwarf is safe now. #line:cf_100
 It spins in a little circle like it is ready for the next trip. #line:cf_158
 ===
@@ -810,7 +885,13 @@ title: npc_10
 position: 600,2260
 group: sky_tower
 ---
-<<if $dwarf_10_found>>
+<<if $dwarf_10_free and !$dwarf_10_found>>
+	Do you want help find the Dwarf?
+	-> Yes #shadow:yes
+		<<SetMapIcon dwarf_10 on>>
+		Look at the map #shadow:look_map
+	-> No, I'll find it #shadow:no_i_find 
+<<elseif $dwarf_10_found>>
 	The Keymaster already opened the elevator. #line:cf_101
 <<elseif $found < 9>>
 	The last chest is still sleeping. Free the other dwarves first. #line:cf_102
@@ -818,17 +899,18 @@ group: sky_tower
 	The nine rescued dwarves show you the last clue. #line:cf_103
 	The final key is hidden near the elevator sign. #line:cf_104
 	You can almost hear the Keymaster jingling inside. #line:cf_159
+	<<SetMapIcon chest_10 on>>
 	<<jump key_10>>
 <<endif>>
 ===
 
-title: key_10
+title: hint_10
 position: 840,2260
 group: sky_tower
 ---
 You found the final key. #line:cf_105
 <<SetActive key_keymaster true>>
-	<<target chest_dwarf_10>>
+	<<target chest_10>>
 ===
 
 title: chest_10
@@ -838,9 +920,11 @@ group: sky_tower
 <<if has_item("key_gold")>>
 	<<inventory key_gold remove>>
 	The final chest opens. The Keymaster Dwarf is free. #line:cf_106
-	<<trigger chest_dwarf_10_open>>
-	<<SetInteractable chest_dwarf_10 false>>
-	<<SetActive dwarf_10_reward true>>
+	<<trigger chest_10_open>>
+	<<SetInteractable chest_10 false>>
+	<<SetActive dwarf_10 true>>
+	<<SetMapIcon chest_10 off>>
+	<<set $dwarf_10_free = true>>
 <<else>>
 	It is locked. Find the last key near the elevator. #line:cf_107
 <<endif>>
@@ -855,6 +939,7 @@ color: yellow
 <<set $dwarf_10_found = true>>
 <<set $found = $found + 1>>
 <<SetActive this false>>
+<<SetMapIcon dwarf_10 done>>
 The Keymaster Dwarf is safe now. #line:cf_108
 Clink, clank, jingle. I will unlock the elevator for you. #line:cf_109
 <<action activate_elevator>>
@@ -894,7 +979,7 @@ group: finale
 actor: GUIDE_F
 ---
 Would you like to answer three short questions? #line:cf_114
--> Yes #line:final_006
+-> Yes #shadow:yes
 	<<jump assessment_q1>>
 -> No #line:final_007 #highlight
 	Come back when you are ready. #line:cf_115
@@ -909,10 +994,10 @@ What is a famous symbol of Wrocław? #line:cf_116
 	Yes, that's right. #line:cf_117
 	<<jump assessment_q2>>
 -> A whale #line:final_012
-	Not this one. Try again. #line:cf_118
+	No. Try again. #shadow:no_try_again
 	<<jump assessment_q1>>
 -> A rocket #line:final_014
-	Not this one. Try again. #line:cf_119
+	No. Try again. #shadow:no_try_again
 	<<jump assessment_q1>>
 ===
 
@@ -925,10 +1010,10 @@ What do people do in a cathedral? #line:cf_120
 	Yes, that's right. #line:cf_121
 	<<jump assessment_q3>>
 -> They race cars #line:final_019
-	Not this one. Try again. #line:cf_122
+	No. Try again. #shadow:no_try_again
 	<<jump assessment_q2>>
 -> They fish #line:final_021
-	Not this one. Try again. #line:cf_123
+	No. Try again. #shadow:no_try_again
 	<<jump assessment_q2>>
 ===
 
@@ -941,10 +1026,10 @@ Who is Olga Tokarczuk? #line:cf_124
 	Yes, that's right. #line:cf_125
 	<<jump assessment_end>>
 -> A pilot #line:final_026
-	Not this one. Try again. #line:cf_126
+	No. Try again. #shadow:no_try_again
 	<<jump assessment_q3>>
 -> A giant cat #line:final_028
-	Not this one. Try again. #line:cf_127
+	No. Try again. #shadow:no_try_again
 	<<jump assessment_q3>>
 ===
 
