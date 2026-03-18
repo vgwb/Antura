@@ -25,18 +25,6 @@
 //   - TODO boat_people
 //   - TODO place_bridge_cars
 //   - TODO wroclaw
-// TASKS
-// - find_photos
-// - go_back
-//   - TODO collect_cards
-// ACTIVITIES
-//   - BROKEN cleancanvas
-//   - BROKEN jigsawpuzzle
-//   - BROKEN jigsaw_odra_map
-//   - BROKEN memory
-//   - BROKEN order
-//   - BROKEN order_odra_facts
-// WORDS: (none)
 // </scene_data>
 
 title: quest_start
@@ -47,7 +35,6 @@ color: red
 ---
 <<set $CURRENT_PROGRESS = 0>>
 <<set $MAX_PROGRESS = 8>>
-// State variables for the 8 chests
 <<declare $map_odra = 0>>
 <<declare $river_sign = 0>>
 <<declare $bridge_tumski = 0>>
@@ -65,7 +52,7 @@ Today we will explore the river, bridges and boats. #line:start_2
 ===
 
 title: quest_end
-position: 234,7
+position: 1600,0
 type: panel_endgame
 color: green
 ---
@@ -80,7 +67,7 @@ We explored the ODRA RIVER. #line:end_3
 ===
 
 title: post_quest_activity
-position: 236,184
+position: 1920,0
 type: panel
 color: green
 tags: proposal
@@ -91,7 +78,8 @@ Draw a simple MAP of your journey. #line:0265d07
 
 
 title: protagonist
-position: 300,-200
+position: 320,0
+group: npc
 color: blue
 actor: SENIOR_M
 ---
@@ -119,7 +107,7 @@ actor: SENIOR_M
 ===
 
 title: task_find_photos_done
-position: 560,-200
+position: 640,80
 actor:
 ---
 You found all the photos! #line:found_photos
@@ -129,7 +117,7 @@ Go back and talk to the guide. #line:go_back #task:go_back
 ===
 
 title: task_collect_cards_done
-position: 586,-3
+position: 640,-80
 actor: 
 ---
 You found all the photos! #shadow:found_photos
@@ -140,7 +128,7 @@ Go back and talk to the guide. #shadow:go_back #task:go_back
 
 
 title: final_quiz
-position: 1135,-4
+position: 960,0
 actor: 
 ---
 The Odra is a long river. Do you remember where all that water ends up? #line:quiz1_intro
@@ -161,7 +149,7 @@ The Odra is a long river. Do you remember where all that water ends up? #line:qu
 ===
 
 title: final_quiz_2
-position: 100,100
+position: 1280,0
 color: green
 actor:
 ---
@@ -177,7 +165,8 @@ Is Odra the longest river in Poland? #line:quiz2_intro
 
 // ---------- RIVER SIGN
 title: npc_river_sign
-position: 100,100
+position: 0,260
+group: river_sign
 color: green
 actor:
 ---
@@ -201,20 +190,21 @@ What do the white wavy lines tell us? #line:sign_3
 ===
 
 title: chest_river_sign
-position: 100,100
+position: 320,260
+group: river_sign
 color: green
 actor:
 ---
 <<if $river_sign == 1>>
     Antura covered the sign in mud! Wipe it clean to see the waves. #line:ch_sign1
-    <<set $river_sign = 2>>
-    <<activity clean_river_sign chest_river_sign>>
+    <<activity clean_river_sign clean_river_sign_done>>
 <<elseif $river_sign == 2>>
     <<action open_chest_sign>>
     <<card river_sign>>
     Great job! Now you'll always know when you're crossing a river in Europe. #line:ch_sign2
     <<collect photo>>
     <<set $river_sign = 10>>
+    <<SetMapIcon npc_river_sign done>>
 <<elseif $river_sign == 10>>
     The chest is empty. #line:chest_empty
 <<else>>
@@ -222,10 +212,25 @@ actor:
 <<endif>>
 ===
 
+title: clean_river_sign_done
+position: 640,260
+group: river_sign
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $river_sign = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_river_sign>>
+===
 
 // ---------- ODRA RIVER MAP
 title: npc_odra_map
-position: 100,100
+position: 0,460
+group: river_map
 color: green
 actor:
 ---
@@ -250,30 +255,48 @@ Does the Odra flow into the mountains or the sea? #line:map_2
 ===
 
 title: chest_odra_map
-position: 100,100
+position: 320,460
+group: river_map
 color: 
 actor:
 ---
 <<if $map_odra == 1>>
     Prove you know where the river flows! #line:ch_map1
-    <<set $map_odra = 2>>
-    <<activity jigsaw_odra_map chest_odra_map>>
+    <<activity jigsaw_odra_map jigsaw_odra_map_done>>
 <<elseif $map_odra == 2>>
     <<action open_chest_map>>
     <<card odra_river_map>>
     The map is back! It shows the Odra flowing into the Baltic Sea. #line:ch_map2
     <<collect photo>>
     <<set $map_odra = 10>>
-<<elseif $boat_barge == 10>>
+    <<SetMapIcon npc_odra_map done>>
+<<elseif $map_odra == 10>>
     The chest is empty. #shadow:chest_empty
 <<else>>
     The chest is locked. #shadow:chest_locked 
 <<endif>>
 ===
 
+title: jigsaw_odra_map_done
+position: 640,460
+group: river_map
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $map_odra = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_odra_map>>
+===
+
+
 // ---------- TUMSKI BRIDGE (The Romantic Bridge)
 title: npc_tumski_bridge
-position: 100,100
+position: 0,660
+group: tumski_bridge
 color: 
 actor:
 ---
@@ -282,6 +305,9 @@ This is the Tumski Bridge. It goes to the oldest part of the city. #line:tum_1
 Every evening, a man lights the 102 gas lanterns here by hand! #line:tum_2
 <<if $bridge_tumski < 10>>
 What do couples hang on this bridge for luck and love? #line:tum_3
+-> Wet socks #line:tum_6
+    That would not be very romantic! Try again. #line:fail_tum
+    <<jump npc_tumski_bridge>>
 -> Padlocks #line:tum_4
     <<set $bridge_tumski = 1>>
     <<target chest_tumski_bridge>>
@@ -289,9 +315,6 @@ What do couples hang on this bridge for luck and love? #line:tum_3
     <<camera_focus camera_chest_tumski_bridge>>
     Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> Wet socks #line:tum_6
-    That would not be very romantic! Try again. #line:fail_tum
-    <<jump npc_tumski_bridge>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_tourist>>
@@ -299,20 +322,21 @@ What do couples hang on this bridge for luck and love? #line:tum_3
 ===
 
 title: chest_tumski_bridge
-position: 100,100
+position: 320,660
+group: tumski_bridge
 color: 
 actor:
 ---
 <<if $bridge_tumski == 1>>
     Clean the rust off this old iron bridge! #line:ch_tum1
-    <<set $bridge_tumski = 2>>
-    <<activity clean_tumski_bridge chest_tumski_bridge>>
+    <<activity clean_tumski_bridge clean_tumski_bridge_done>>
 <<elseif $bridge_tumski == 2>>
     <<action open_chest_tumski>>
     <<card tumski_bridge>>
     The chest opens. You find a photo! #shadow:chest_opens 
     <<collect photo>>
     <<set $bridge_tumski = 10>>
+    <<SetMapIcon npc_tumski_bridge done>>
 <<elseif $bridge_tumski == 10>>
     The chest is empty. #shadow:chest_empty
 <<else>>
@@ -320,9 +344,25 @@ actor:
 <<endif>>
 ===
 
+title: clean_tumski_bridge_done
+position: 640,660
+group: tumski_bridge
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $bridge_tumski = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_tumski_bridge>>
+===
+
 // ---------- RĘDZIŃSKI BRIDGE
 title: npc_redzinski_bridge
-position: 100,100
+position: 0,860
+group: redzinski_bridge
 color: 
 actor:
 ---
@@ -348,20 +388,21 @@ What holds this massive bridge up? #line:redz_3
 ===
 
 title: chest_redzinski_bridge
-position: 100,100
+position: 320,860
+group: redzinski_bridge
 color: 
 actor:
 ---
 <<if $bridge_redzinski == 1>>
     Rebuild the tallest pylon in Wrocław! #line:ch_redz1
-    <<set $bridge_redzinski = 2>>
-    <<activity jigsaw_redzinski_bridge chest_redzinski_bridge>>
+    <<activity jigsaw_redzinski_bridge chest_redzinski_bridge_done>>
 <<elseif $bridge_redzinski == 2>>
     <<action open_chest_redzinski>>
     <<card redzinski_bridge>>
     The chest opens. You find a photo! #shadow:chest_opens 
     <<collect photo>>
     <<set $bridge_redzinski = 10>>
+    <<SetMapIcon npc_redzinski_bridge done>>
 <<elseif $bridge_redzinski == 10>>
     The chest is empty. #shadow:chest_empty
 <<else>>
@@ -369,9 +410,25 @@ actor:
 <<endif>>
 ===
 
+title: chest_redzinski_bridge_done
+position: 640,860
+group: redzinski_bridge
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $bridge_redzinski = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_redzinski_bridge>>
+===
+
 // ---------- TRAIN BRIDGE
 title: npc_bridge_train
-position: 100,100
+position: 0,1060
+group: bridge_train
 color: 
 actor:
 ---
@@ -379,6 +436,9 @@ actor:
 Trains have been crossing the Odra in Wrocław for over 150 years. #line:train_1
 <<if $bridge_train < 10>>
 Why are train bridges made of such heavy steel? #line:train_2
+-> To make a loud noise #line:train_5
+    They are loud, but that's not why! #line:fail_train
+    <<jump npc_bridge_train>>
 -> Because trains are very heavy #line:train_3
     <<set $bridge_train = 1>>
     <<target chest_bridge_train>>
@@ -386,9 +446,6 @@ Why are train bridges made of such heavy steel? #line:train_2
     <<camera_focus camera_chest_bridge_train>>
     Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> To make a loud noise #line:train_5
-    They are loud, but that's not why! #line:fail_train
-    <<jump npc_bridge_train>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_tourist>>
@@ -396,20 +453,21 @@ Why are train bridges made of such heavy steel? #line:train_2
 ===
 
 title: chest_bridge_train
-position: 100,100
+position: 320,1060
+group: bridge_train
 color: 
 actor:
 ---
 <<if $bridge_train == 1>>
     Match the heavy boxes to the train tracks! #line:ch_train1
-    <<set $bridge_train = 2>>
-    <<activity memory_wroklaw_bridges chest_bridge_train>>
+    <<activity memory_wroklaw_bridges chest_bridge_train_done>>
 <<elseif $bridge_train == 2>>
     <<action open_chest_train>>
     <<card bridge_trains>>
     The chest opens. You find a photo! #shadow:chest_opens 
     <<collect photo>>
     <<set $bridge_train = 10>>
+    <<SetMapIcon npc_bridge_train done>>
 <<elseif $bridge_train == 10>>
     The chest is empty. #shadow:chest_empty
 <<else>>
@@ -418,9 +476,25 @@ actor:
 <<endif>>
 ===
 
+title: chest_bridge_train_done
+position: 640,1060
+group: bridge_train
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $bridge_train = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_bridge_train>>
+===
+
 // ---------- HOUSEBOAT
 title: npc_boat_house
-position: 100,100
+position: 0,1260
+group: boat_house
 color: 
 actor:
 ---
@@ -445,20 +519,21 @@ If you live on a houseboat, what do you use for a backyard? #line:house_3
 ===
 
 title: chest_boat_house
-position: 100,100
+position: 338,1260
+group: boat_house
 color: 
 actor:
 ---
 <<if $boat_house == 1>>
     Fix the windows on the floating house! #line:ch_house1
-    <<set $boat_house = 2>>
-    <<activity jigsaw_boat_house_pl chest_boat_house>>
+    <<activity jigsaw_boat_house_pl chest_boat_house_done>>
 <<elseif $boat_house == 2>>
     <<action open_chest_boat_house>>
     <<card houseboat>>
     A cozy home on the Odra! Photo collected. #line:ch_house2
     <<collect photo>>
     <<set $boat_house = 10>>
+    <<SetMapIcon npc_boat_house done>>
 <<elseif $boat_house == 10>>
     The chest is empty. #shadow:chest_empty
 <<else>>
@@ -466,9 +541,25 @@ actor:
 <<endif>>
 ===
 
+title: chest_boat_house_done
+position: 640,1260
+group: boat_house
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $boat_house = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_boat_house>>
+===
+
 // ---------- BOAT PEOPLE (Tourist Boats)
 title: npc_boat_people
-position: 100,100
+position: 0,1460
+group: boat_people
 color: 
 actor:
 ---
@@ -476,6 +567,9 @@ actor:
 Tourist boats take people to see the Zoo and the Cathedral. #line:tour_1
 <<if $boat_tourist < 10>>
 What do the people on these boats use to see the sights? #line:tour_2
+-> A periscope #line:tour_5
+    We aren't underwater yet! Try again. #line:fail_tour
+    <<jump npc_boat_people>>
 -> Their eyes and cameras #line:tour_3
     <<set $boat_tourist = 1>>
     <<target chest_boat_people>>
@@ -483,9 +577,6 @@ What do the people on these boats use to see the sights? #line:tour_2
     <<camera_focus camera_chest_boat_people>>
     Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> A periscope #line:tour_5
-    We aren't underwater yet! Try again. #line:fail_tour
-    <<jump npc_boat_people>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_tourist>>
@@ -493,20 +584,21 @@ What do the people on these boats use to see the sights? #line:tour_2
 ===
 
 title: chest_boat_people
-position: 100,100
+position: 320,1460
+group: boat_people
 color: 
 actor:
 ---
 <<if $boat_tourist == 1>>
     Find the tourists hidden on the deck! #line:ch_tour1
-    <<set $boat_tourist = 2>>
-    <<activity memory_wroklaw_boats chest_boat_people>>
+    <<activity memory_wroklaw_boats chest_boat_people_done>>
 <<elseif $boat_tourist == 2>>
     <<action open_chest_tourist>>
     <<card boat_people>>
     The chest opens. You find a photo! #shadow:chest_opens 
     <<collect photo>>
     <<set $boat_tourist = 10>>
+    <<SetMapIcon npc_boat_people done>>
 <<elseif $boat_tourist == 10>>
     The chest is empty. #shadow:chest_empty
 <<else>>
@@ -514,9 +606,25 @@ actor:
 <<endif>>
 ===
 
+title: chest_boat_people_done
+position: 640,1460
+group: boat_people
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $boat_tourist = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_boat_people>>
+===
+
 // ---------- BARGE (Cargo)
 title: npc_boat_barge
-position: 100,100
+position: 0,1660
+group: boat_barge
 color: 
 actor:
 ---
@@ -524,6 +632,9 @@ actor:
 Barges (Barki) have carried coal and sand on the Odra for centuries. #line:barge_1
 <<if $boat_barge < 10>>
 A barge is very flat. Why? #line:barge_2
+-> So it can hide from dwarves #line:barge_5
+    No. Try again. #shadow:try_again 
+    <<jump npc_boat_barge>>
 -> To carry heavy things even when the water is not deep. #line:barge_3
     <<set $boat_barge = 1>>
     <<target chest_boat_barge>>
@@ -531,9 +642,6 @@ A barge is very flat. Why? #line:barge_2
     <<camera_focus camera_chest_boat_barge>>
     Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> So it can hide from dwarves #line:barge_5
-    No. Try again. #shadow:try_again 
-    <<jump npc_boat_barge>>
 -> I don't know #shadow:dont_know #highlight
 <<else>>
     <<jump spawned_tourist>>
@@ -541,21 +649,21 @@ A barge is very flat. Why? #line:barge_2
 ===
 
 title: chest_boat_barge
-position: -100,-100
-position: 100,100
+position: 336,1678
+group: boat_barge
 color: 
 actor:
 ---
 <<if $boat_barge == 1>>
     Play a mini game to open the chest! #line:chest_minigame
-    <<set $boat_barge = 2>>
-    <<activity match_wroclaw_bridges chest_boat_barge>>
+    <<activity match_wroclaw_bridges chest_boat_barge_done>>
 <<elseif $boat_barge == 2>>
     <<action open_chest_boat_barge>>
     <<card barge>>
     The chest opens. You find a photo! #line:chest_opens 
     <<collect photo>>
     <<set $boat_barge = 10>>
+    <<SetMapIcon npc_boat_barge done>>
 <<elseif $boat_barge == 10>>
     The chest is empty. #shadow:chest_empty
 <<else>>
@@ -563,13 +671,28 @@ actor:
 <<endif>>
 ===
 
+title: chest_boat_barge_done
+position: 636,1682
+group: boat_barge
+color: green
+actor:
+---
+<<if GetActivityResult("") > 0>>
+    Well done! #shadow:02a257c 
+    <<set $boat_barge = 2>>
+<<else>>
+    No. Try again. #shadow:try_again 
+<<endif>>
+<<jump chest_boat_barge>>
+===
+
 ///////// NPCs SPAWNED IN THE SCENE //////////
 // these npc are spawned automatically in the scene
 // each time you meet them they say one random line
 
 title: spawned_kayak
-position: 1400,520
-group: Spawned
+position: 1064,1280
+group: spawned
 actor: KID_M
 ---
 => I want to ride a small KAYAK. #line:0f36b7f #card:kayak
@@ -578,8 +701,8 @@ actor: KID_M
 ===
 
 title: spawned_tourist
-position: 1400,600
-group: Spawned
+position: 1057,1490
+group: spawned
 actor:
 ---
 => So many BRIDGES in this city. #line:0577d80 
@@ -587,4 +710,3 @@ actor:
 => I love Pierogi! #line:07ff8c5 
 => The Cathedral island is magical at night. #line:tourist_4
 ===
-

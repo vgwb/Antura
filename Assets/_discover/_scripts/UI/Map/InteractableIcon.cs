@@ -5,22 +5,21 @@ namespace Antura.Discover
 {
     public class InteractableIcon : AbstractMapIcon
     {
+        [SerializeField] bool rotate = true;
+        [SerializeField, Range(0f, 60f)] float rotationSpeed = 10f;
         [SerializeField] Color activeColor = Color.white;
         [SerializeField] Color doneColor = new(0.45f, 0.9f, 0.45f, 1f);
 
         MapIconState currentState = MapIconState.On;
-        Quaternion restingRotation;
-        Quaternion restingVisualRotation;
-        bool hasRestingRotations;
 
         public override bool IsEnabled => currentState != MapIconState.Off;
 
-        void LateUpdate()
+        void Update()
         {
-            if (currentState != MapIconState.Done)
+            if (!rotate || currentState != MapIconState.On)
                 return;
 
-            ApplyDoneRotation();
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.Self);
         }
 
         public override void SetMapIconState(MapIconState state)
@@ -28,7 +27,6 @@ namespace Antura.Discover
             currentState = state == MapIconState.Default ? MapIconState.Off : state;
             if (currentState == MapIconState.Done)
             {
-                ApplyDoneRotation();
                 SetIconColor(doneColor);
             }
             else
@@ -42,27 +40,6 @@ namespace Antura.Discover
         protected override Vector3 GetPosition()
         {
             return Vector3.zero;
-        }
-
-        void ApplyDoneRotation()
-        {
-            CacheRestingRotations();
-            transform.localRotation = restingRotation;
-
-            if (iconRenderer != null)
-            {
-                iconRenderer.transform.localRotation = restingVisualRotation;
-            }
-        }
-
-        void CacheRestingRotations()
-        {
-            if (hasRestingRotations)
-                return;
-
-            restingRotation = transform.localRotation;
-            restingVisualRotation = iconRenderer != null ? iconRenderer.transform.localRotation : Quaternion.identity;
-            hasRestingRotations = true;
         }
 
         #endregion

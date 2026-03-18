@@ -35,11 +35,8 @@ namespace Antura.Discover
 
         public override void Activate(bool activate)
         {
-            base.Activate(activate);
-
             if (activate)
             {
-                cineComposer.CameraDistance = zoomOutFactor;
                 if (alignToPlayerCam)
                 {
                     Vector3 playerCamEuler = playerCamT.eulerAngles;
@@ -47,6 +44,16 @@ namespace Antura.Discover
                     euler.y = playerCamEuler.y;
                     cineMain.transform.rotation = Quaternion.Euler(euler);
                 }
+
+                // Configure the target pose before enabling the map camera so the
+                // Cinemachine brain can blend smoothly into the elevated map view.
+                cineComposer.CameraDistance = zoomOutFactor;
+            }
+
+            base.Activate(activate);
+
+            if (activate)
+            {
                 DiscoverNotifier.Game.OnMapCameraActivated.Dispatch(true);
             }
             else
