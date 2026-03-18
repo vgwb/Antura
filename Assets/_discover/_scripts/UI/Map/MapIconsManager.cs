@@ -17,6 +17,7 @@ namespace Antura.Discover
         bool mapIconsActivated;
         readonly List<AbstractMapIcon> interactableIcons = new();
         readonly Dictionary<AbstractMapIcon, Interactable> interactableByIcon = new();
+        readonly Dictionary<Interactable, AbstractMapIcon> iconByInteractable = new();
 
         #region Unity
 
@@ -54,7 +55,8 @@ namespace Antura.Discover
             {
                 if (!interactableByIcon.TryGetValue(icon, out Interactable interactable))
                     continue;
-                if (interactable.IsInteractable && icon.IsEnabled)
+                RefreshInteractableIcon(interactable);
+                if (ShouldShowInteractableIcon(interactable) && icon.IsEnabled)
                     icon.UpdatePosition();
             }
         }
@@ -72,13 +74,38 @@ namespace Antura.Discover
             Interactable[] allInteractables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (Interactable interactable in allInteractables)
             {
-                if (!interactable.ShowOnMap)
+                if (!interactable.ShouldCreateMapIcon())
                     continue;
-                AbstractMapIcon icon = Instantiate(defaultInteractableIconPrefab, defaultInteractableIconPrefab.transform.parent);
-                icon.gameObject.SetActive(true);
-                icon.AssignFollowTarget(interactable.transform);
-                interactableIcons.Add(icon);
-                interactableByIcon.Add(icon, interactable);
+                CreateIconFor(interactable);
+            }
+        }
+
+        public void RefreshInteractableIcon(Interactable interactable)
+        {
+            if (interactable == null)
+                return;
+
+            if (!iconByInteractable.TryGetValue(interactable, out AbstractMapIcon icon))
+            {
+                if (!interactable.ShouldCreateMapIcon())
+                    return;
+                icon = CreateIconFor(interactable);
+            }
+
+            var state = interactable.GetResolvedMapIconState();
+            icon.SetMapIconState(state);
+
+            if (!mapIconsActivated)
+                return;
+
+            if (ShouldShowInteractableIcon(interactable))
+            {
+                if (!icon.gameObject.activeSelf)
+                    icon.Show();
+            }
+            else if (icon.gameObject.activeSelf)
+            {
+                icon.Hide(true);
             }
         }
 
@@ -92,6 +119,25 @@ namespace Antura.Discover
                 Destroy(icon.gameObject);
             interactableIcons.Clear();
             interactableByIcon.Clear();
+            iconByInteractable.Clear();
+        }
+
+        AbstractMapIcon CreateIconFor(Interactable interactable)
+        {
+            AbstractMapIcon icon = Instantiate(defaultInteractableIconPrefab, defaultInteractableIconPrefab.transform.parent);
+            icon.gameObject.SetActive(true);
+            icon.AssignFollowTarget(interactable.transform);
+            icon.SetMapIconState(interactable.GetResolvedMapIconState());
+            interactableIcons.Add(icon);
+            interactableByIcon.Add(icon, interactable);
+            iconByInteractable.Add(interactable, icon);
+            return icon;
+        }
+
+        bool ShouldShowInteractableIcon(Interactable interactable)
+        {
+            var state = interactable.GetResolvedMapIconState();
+            return state == MapIconState.Done || (state == MapIconState.On && interactable.IsInteractable);
         }
 
         #endregion
@@ -109,7 +155,8 @@ namespace Antura.Discover
                 {
                     if (interactableByIcon.TryGetValue(icon, out Interactable interactable))
                     {
-                        if (interactable.IsInteractable && icon.IsEnabled)
+                        RefreshInteractableIcon(interactable);
+                        if (ShouldShowInteractableIcon(interactable) && icon.IsEnabled)
                             icon.Show();
                     }
                 }

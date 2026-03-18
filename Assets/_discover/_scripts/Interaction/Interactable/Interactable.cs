@@ -17,6 +17,14 @@ namespace Antura.Discover
         Use = 4
     }
 
+    public enum MapIconState
+    {
+        Default = 0,
+        Off = 1,
+        On = 2,
+        Done = 3
+    }
+
     public class Interactable : ActableAbstract
     {
         #region Serialized
@@ -34,6 +42,8 @@ namespace Antura.Discover
         public Transform IconTransform;
         [Tooltip("Show on map (if active)")]
         public bool ShowOnMap;
+        [Tooltip("Map icon state. Default uses the legacy ShowOnMap bool.")]
+        public MapIconState MapIcon = MapIconState.Default;
         [Tooltip("Should the icon be always shown?")]
         public bool ShowIconAlways;
         [Tooltip("Camera focus on icon on interaction?")]
@@ -165,6 +175,8 @@ namespace Antura.Discover
         public void OnCollected()
         {
             IsInteractable = false;
+            if (GetResolvedMapIconState() == MapIconState.On)
+                SetMapIconState(MapIconState.Done);
             //Debug.Log("ITEM " + NodePermalink + " COLLECTED");
             // if (permalink == NodePermalink)
             // {
@@ -191,6 +203,49 @@ namespace Antura.Discover
             {
                 InteractionManager.I.ShowPreviewSignalFor(this, false);
                 DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
+            }
+        }
+
+        public MapIconState GetResolvedMapIconState()
+        {
+            if (MapIcon != MapIconState.Default)
+                return MapIcon;
+            return ShowOnMap ? MapIconState.On : MapIconState.Off;
+        }
+
+        public bool ShouldCreateMapIcon()
+        {
+            return ShowOnMap || MapIcon != MapIconState.Default;
+        }
+
+        public void SetMapIconState(MapIconState state)
+        {
+            MapIcon = state;
+            UIManager.I?.MapIcons?.RefreshInteractableIcon(this);
+        }
+
+        public static bool TryParseMapIconState(string value, out MapIconState state)
+        {
+            switch ((value ?? string.Empty).Trim().ToLowerInvariant())
+            {
+                case "default":
+                    state = MapIconState.Default;
+                    return true;
+                case "off":
+                case "hidden":
+                    state = MapIconState.Off;
+                    return true;
+                case "on":
+                case "active":
+                    state = MapIconState.On;
+                    return true;
+                case "done":
+                case "completed":
+                    state = MapIconState.Done;
+                    return true;
+                default:
+                    state = MapIconState.Default;
+                    return false;
             }
         }
 
@@ -247,6 +302,8 @@ namespace Antura.Discover
         IEnumerator CO_DisableAfterAction()
         {
             yield return null;
+            if (GetResolvedMapIconState() == MapIconState.On)
+                SetMapIconState(MapIconState.Done);
             IsInteractable = false;
             InteractionManager.I.ShowPreviewSignalFor(this, false);
             OnTriggerExitPlayer();

@@ -13,7 +13,8 @@ namespace Antura.Discover
             item = 3,
             card = 4
         }
-
+        [Tooltip("Is it hidden at the start of the scene?")]
+        public bool IsHiddenAtStart = false;
         public bool AutoCollect = true; // Automatically collect the item when the player collides with it
         public CollectableType Type;
         public string ItemTag; // Used to identify the item in the inventory
@@ -33,6 +34,14 @@ namespace Antura.Discover
 
         private Vector3 startPosition;
         private float timer;
+
+        void Awake()
+        {
+            if (IsHiddenAtStart)
+            {
+                gameObject.SetActive(false);
+            }
+        }
 
         void Start()
         {

@@ -233,6 +233,11 @@ namespace Antura.Discover
             for (int i = 0; i < dialogueOptions.Length; i++)
             {
                 var option = dialogueOptions[i];
+                if (!option.IsAvailable)
+                {
+                    // skip unavailable options
+                    continue;
+                }
                 NodeChoice newChoice = new NodeChoice
                 {
                     YarnOption = option,

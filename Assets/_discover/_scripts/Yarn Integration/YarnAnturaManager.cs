@@ -538,6 +538,13 @@ namespace Antura.Discover
             ActionManager.I.CommandSetActive(triggerable, active);
         }
 
+        // state can be: "on", "off", "done", "default"
+        [YarnCommand("SetMapIcon")]
+        public static void CommandSetMapIcon(string interactable, string state)
+        {
+            ActionManager.I.CommandSetMapIcon(interactable, state);
+        }
+
         #endregion
 
         #region UTILITIES

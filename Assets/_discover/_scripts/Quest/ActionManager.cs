@@ -264,6 +264,41 @@ namespace Antura.Discover
                 }
             }
         }
+
+        public void CommandSetMapIcon(string actableCode, string stateValue)
+        {
+            if (!Interactable.TryParseMapIconState(stateValue, out var state))
+            {
+                Debug.LogWarning($"Unknown map icon state '{stateValue}'. Use default, off, on, or done.");
+                return;
+            }
+
+            if (actableCode == "this")
+            {
+                var interactable = InteractionManager.I.currentInteractable;
+                if (interactable != null)
+                {
+                    interactable.SetMapIconState(state);
+                    return;
+                }
+            }
+            else
+            {
+                actableCode = actableCode.ToLower();
+                var actable = FindActableInChildren(actableCode);
+                if (actable != null)
+                {
+                    var interactable = actable.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        interactable.SetMapIconState(state);
+                        return;
+                    }
+                }
+            }
+
+            Debug.LogWarning($"Interactable '{actableCode}' not found for SetMapIcon.");
+        }
         #endregion
 
         public void ResolveCommands(List<CommandData> commands)

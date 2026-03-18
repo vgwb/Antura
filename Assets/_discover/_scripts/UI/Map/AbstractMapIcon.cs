@@ -9,6 +9,7 @@ namespace Antura.Discover
         public abstract bool IsEnabled { get; }
 
         protected Transform followTarget;
+        protected SpriteRenderer iconRenderer;
         float defY;
         Tween showTween;
 
@@ -17,10 +18,14 @@ namespace Antura.Discover
         void Awake()
         {
             defY = this.transform.position.y;
+            iconRenderer = this.GetComponentInChildren<SpriteRenderer>();
 
-            showTween = this.GetComponentInChildren<SpriteRenderer>().DOFade(1, 0.45f).From(0).SetAutoKill(false).Pause()
-                .SetDelay(0.3f)
-                .SetEase(Ease.Linear);
+            if (iconRenderer != null)
+            {
+                showTween = iconRenderer.DOFade(1, 0.45f).From(0).SetAutoKill(false).Pause()
+                    .SetDelay(0.3f)
+                    .SetEase(Ease.Linear);
+            }
         }
 
         void Start()
@@ -30,7 +35,7 @@ namespace Antura.Discover
 
         void OnDestroy()
         {
-            showTween.Kill();
+            showTween?.Kill();
         }
 
         public void UpdatePosition()
@@ -48,8 +53,11 @@ namespace Antura.Discover
         {
             if (IsEnabled)
             {
-                showTween.timeScale = 1f;
-                showTween.Restart();
+                if (showTween != null)
+                {
+                    showTween.timeScale = 1f;
+                    showTween.Restart();
+                }
                 this.gameObject.SetActive(true);
             }
             else
@@ -60,6 +68,12 @@ namespace Antura.Discover
 
         public void Hide(bool immediate = false)
         {
+            if (showTween == null)
+            {
+                this.gameObject.SetActive(false);
+                return;
+            }
+
             if (immediate)
             {
                 showTween.Rewind();
@@ -77,12 +91,25 @@ namespace Antura.Discover
             followTarget = target;
         }
 
+        public virtual void SetMapIconState(MapIconState state)
+        {
+        }
+
         #endregion
 
         #region Methods
 
         // Only used if followTarget is NULL
         protected abstract Vector3 GetPosition();
+
+        protected void SetIconColor(Color color)
+        {
+            if (iconRenderer == null)
+                return;
+
+            color.a = iconRenderer.color.a;
+            iconRenderer.color = color;
+        }
 
         #endregion
     }
