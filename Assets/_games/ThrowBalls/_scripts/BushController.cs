@@ -6,14 +6,6 @@ namespace Antura.Minigames.ThrowBalls
     {
         public LetterController letterController;
 
-        void Start()
-        {
-        }
-
-        void Update()
-        {
-        }
-
         public void Enable()
         {
             gameObject.SetActive(true);

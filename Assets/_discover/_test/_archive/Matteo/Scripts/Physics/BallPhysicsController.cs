@@ -19,10 +19,5 @@ namespace PetanqueGame.Physics
             _rb.maxAngularVelocity = 20f;
         }
 
-        private void FixedUpdate()
-        {
-            //if (_rb.linearVelocity.magnitude < 0.05f)
-            //    _rb.linearVelocity = Vector3.zero;
-        }
     }
 }
