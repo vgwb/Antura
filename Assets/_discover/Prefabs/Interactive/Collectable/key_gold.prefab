@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHiddenAtStart: 0
   AutoCollect: 1
   Type: 3
   ItemTag: key_gold
@@ -75,8 +76,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6348915, y: 0.36612394, z: 0.6}
-  m_Center: {x: -0.0032463074, y: 0.18306197, z: 0}
+  m_Size: {x: 0.7156067, y: 0.4935577, z: 0.6}
+  m_Center: {x: -0.008417766, y: 0.16561672, z: 0}
 --- !u!1001 &1203087835063803646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,7 +179,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30

@@ -1,13 +1,13 @@
 ## Game Design Notes
 
 **Mission Objective**
-The player explores Wrocław to rescue Antura from the top of the Sky Tower. The player must free **10 dwarves locked inside chests**. Each chest requires a hidden key. Keys are discovered by moving objects, talking to NPCs, solving mini-games, and answering quizzes. Every freed dwarf teaches one clear fact about Wrocław.
+Explore Wrocław to rescue Antura from the top of the Sky Tower. To get there, the player must free **10 dwarves locked inside magical cages**. Each cage needs a hidden key found through exploration, NPC clues, mini-games, or quizzes. Every rescue teaches one clear fact about Wrocław.
 
-### Primary Characters
+**Characters**
 
-- **The Dwarf Expert:** A friendly guide at the Leonardo School Campus. He explains the mission, introduces the city map, and unlocks the Dwarf Tunnels / Trams after the tutorial chest.
+- **The Teacher:** A friendly guide at the Leonardo School Campus who explains the mission and unlocks the Dwarf Tunnels / Trams after the tutorial.
 - **Local NPCs:** Children, guides, tourists, a librarian, and landmark helpers who give clues, hide keys, and trigger mini-games.
-- **The Keymaster Dwarf:** The final dwarf, trapped inside the last chest at the Sky Tower elevator. Once freed, he unlocks the elevator.
+- **The Keymaster Dwarf:** The final dwarf, locked inside the last magical cage at the Sky Tower elevator. Once freed, he unlocks the elevator.
 
 ### Learning Goals
 
@@ -24,139 +24,244 @@ The player explores Wrocław to rescue Antura from the top of the Sky Tower. The
 
 ### Gameplay elements
 
-- **Hidden Keys:** Every dwarf is inside a chest. The player first finds a clue, then reveals a key.
-- **Interactive Discovery:** Keys are found by moving objects, searching props, talking to NPCs, or completing mini-games and quizzes.
-- **Hub Travel:** Trams / Dwarf Tunnels connect three main hubs: **Old Town**, **Green Zone**, and **Sky Tower District**.
-- **Progressive Unlocking:** The player starts in the school tutorial area, then unlocks the three city hubs in sequence.
-- **Mini-game Variety:** Use a mix of jigsaws, simple quizzes, visual matching, and object-search interactions so the loop does not feel repetitive.
+- **NPC Introduction:** Each dwarf starts with an NPC or landmark fact.
+- **Hidden Key:** Each magical cage needs a gold key.
+- **Protected Key:** The key alone is not enough; it must be used through a local challenge.
+- **Living Letter Hint:** A living letter gives a clear hint if needed.
+- **Puzzle Gate:** After finding the key, the player solves a short puzzle, quiz, or interaction.
+- **Rescue Payoff:** Unlock the cage, free the dwarf, and talk to it.
+- **Map Reward:** The Cathedral dwarf gives the Map of Wrocław, which also serves as the collection screen.
+- **Collection Grouping:** The map groups dwarves by hub for clear progress tracking.
+- **Hub Travel:** Trams connect the main zones.
+- **Progressive Unlocking:** The city opens area by area after the tutorial.
 
-### Core Loop
+**Per-Dwarf Loop**
 
-1. Arrive at a hub.
-2. Meet an NPC or inspect a landmark.
-3. Learn one short fact.
-4. Get a clue about a hidden key.
-5. Reveal or earn the key.
-6. Open the chest.
-7. Free the dwarf.
-8. Find the Dwarf
-9. Add the dwarf to the collection and unlock the next clue or hub.
+1. Talk to the NPC connected to that dwarf.
+2. Learn one short fact about the place.
+3. Search for the hidden key.
+4. If needed, ask the NPC or a living letter for a hint.
+5. Bring the key to the cage.
+6. Solve the challenge that let unlock the dwarf's cage.
+7. Talk to the rescued dwarf.
+8. Add the dwarf to the collection and unlock the next zone or objective.
 
-### Flow
+**Key Protection Variants**
 
-#### Phase 1: The Briefing and Tutorial
+The keys can be:
+
+- **Guarded by a person:** A guide, keeper, or local adult will only let the player use the key after answering a question or completing a task.
+- **Blocked by an animal:** The key is near an animal space, and the player must calm, distract, or identify the animal correctly first.
+- **Hidden in the scene:** The player finds the key early, but still needs to solve a local clue to discover the correct cage lock or magical seal.
+
+**Map Markers**
+
+- **No star:** The dwarf location is still unknown.
+- **Normal tar:** The location is known, but the dwarf is still locked.
+- **Green star:** The dwarf has been freed.
+
+### Areas
+
+- **Area 1: Cathedral** — 1 dwarf
+- **Area 2: Center** — 3 dwarves
+- **Area 3: Centennial** — 3 dwarves
+- **Area 4: Sky Tower** — 3 dwarves
+
+### Progression Rules
+
+- **School:** Only Cathedral is available.
+- **Cathedral:** Unlock the map reward and both mid areas.
+- **Center Area:** Market Square, Old Town Hall, and Panorama form one collection group.
+- **Centennial Area:** Zoo, Centennial Hall, and Fountain form the easier collection group.
+- **Sky Tower Area:** Unlock only after both Center and Centennial are complete.
+
+### Areas
+
+#### Area 0: School
 
 - **Location:** Leonardo School Campus.
-- **Narrative Beat:** The Dwarf Expert explains that Antura is trapped at the top of the Sky Tower. The dwarves turned the elevator lock into a city-wide treasure game.
-- **Tutorial Goal:** Learn the key-and-chest loop.
-- **Tutorial Interaction:** The player follows a simple clue, finds a hidden key near the school, and opens a tutorial chest.
-- **Tutorial Reward:** The chest contains the **Dwarf Tunnel Pass**, which activates fast travel.
-- **Exit Condition:** The player can now travel to the **Old Town Hub**.
+- **Narrative Beat:** The Dwarf Expert explains that Antura is trapped at the top of the Sky Tower and the dwarves turned the elevator lock into a city-wide treasure game.
+- **Tutorial Goal:** Learn the NPC -> key -> puzzle -> unlock -> dwarf loop.
+- **Tutorial Interaction:** Follow a simple clue, find the hidden key, use it in a local interaction, unlock the cage, and talk to the rescued dwarf.
+- **Tutorial Reward:** Unlocking the tutorial cage gives the **Dwarf Tunnel Pass**, which activates fast travel.
+- **Exit Condition:** Travel to the **Cathedral Area**.
+- **Variation Type:** Hidden in the scene + simple interaction.
 
-#### Phase 2: The Old Town Hub (Dwarves 1-3)
+#### Area 1: Cathedral
 
-This hub teaches the oldest and most iconic parts of Wrocław.
+The first real city area after the tutorial. Short, focused, and used to bridge onboarding into open exploration.
 
-- **Dwarf 1 - The Origin**
-  - **Location:** Market Square.
-  - **Fact:** Wrocław dwarves are one of the city's symbols.
-  - **Key Source:** A local child gives a clue; the player moves a flowerpot or market object to reveal the key.
-  - **Chest Reward:** The Origin Dwarf.
+- **Difficulty Role:** First mandatory city step.
+- **Major Reward:** The rescued Cathedral dwarf gives the **Map of Wrocław**.
+- **UI Result:** The inventory now shows the four grouped dwarf collections.
+- **Unlock Result:** Completing Cathedral unlocks the **Center Hub** and the **Centennial Hub**.
 
-- **Dwarf 2 - The Councilor**
-  - **Location:** Old Town Hall.
-  - **Fact:** The Town Hall is where city leaders work and meet.
-  - **Key Source:** Talk to an NPC near the hall, answer a short question, then complete a small jigsaw of the building.
-  - **Chest Reward:** The Councilor Dwarf.
-
-- **Dwarf 3 - The Bishop**
+- **Dwarf 1 - The Bishop**
   - **Location:** Cathedral.
   - **Fact:** A cathedral is a large church where people pray.
-  - **Key Source:** Complete a mandatory cathedral quiz.
-  - **Chest Reward:** The Bishop Dwarf.
+  - **Setup:** A cathedral guide introduces the place.
+  - **Challenge:** Find the key in the cathedral area, then pass a short knowledge check to use it.
+  - **Hint:** A living letter points to the key.
+  - **Reward:** The Bishop Dwarf and the **Map of Wrocław**.
 
-- **Hub Reward:** After freeing 3 dwarves, the **Green Zone Hub** unlocks in the Dwarf Tunnels.
+#### Area 2: Center
 
-#### Phase 3: The Green Zone Hub (Dwarves 4-6)
+The denser and harder branch. One tram stop leads into the Market Square, Old Town Hall, and Panorama locations.
 
-This hub focuses on nature, architecture, and public spectacle.
+- **Difficulty Role:** Harder branch.
+- **Spatial Role:** One central tram stop with short walking routes to multiple landmarks.
+- **Landmarks Covered:** Market Square, Old Town Hall, Panorama Racławicka.
 
-- **Dwarf 4 - Animal Lover**
-  - **Location:** Wrocław ZOO.
-  - **Fact:** Wrocław ZOO is the largest zoo in Poland.
-  - **Key Source:** Talk to the zoo keeper and search an animal area or sign.
-  - **Chest Reward:** The Animal Lover Dwarf.
+- **Dwarf 2 - The Origin**
+  - **Location:** Market Square.
+  - **Fact:** Wrocław dwarves are one of the city's symbols.
+  - **Setup:** A local child or guide introduces the dwarves.
+  - **Challenge:** Find the hidden key in the market, then use a clue to identify the correct cage.
+  - **Hint:** A living letter points to the flowerpot.
+  - **Reward:** The Origin Dwarf.
 
-- **Dwarf 5 - The Architect**
-  - **Location:** Centennial Hall.
-  - **Fact:** Centennial Hall is a huge building with a distinctive dome, used for shows and events.
-  - **Key Source:** Solve a building jigsaw or shape-based mini-game.
-  - **Chest Reward:** The Architect Dwarf.
+- **Dwarf 3 - The Councilor**
+  - **Location:** Old Town Hall.
+  - **Fact:** The Town Hall is where city leaders work and meet.
+  - **Setup:** A hall guide or helper introduces the building.
+  - **Challenge:** Find the key near the Town Hall, then answer a question and solve a building puzzle.
+  - **Hint:** A living letter reveals where the key appeared.
+  - **Reward:** The Councilor Dwarf.
 
-- **Dwarf 6 - The Conductor**
-  - **Location:** Multimedia Fountain.
-  - **Fact:** The fountain is famous for shows that combine water, lights, and music.
-  - **Key Source:** Speak to an NPC and complete a simple sound or sequence activity.
-  - **Chest Reward:** The Conductor Dwarf.
-
-#### Phase 4: The Panorama  Hub (Dwarves 7)
-
-This hub focuses on nature, architecture, and public spectacle.
-
-- **Dwarf 7 - The Painter**
+- **Dwarf 4 - The Painter**
   - **Location:** Panorama Racławicka.
   - **Fact:** A panorama is a giant painting that surrounds the viewer.
-  - **Key Source:** Solve a picture puzzle or visual matching mini-game.
-  - **Chest Reward:** The Painter Dwarf.
+  - **Setup:** A museum helper or painter guide introduces the artwork.
+  - **Challenge:** Find the key in the panorama area, then complete a picture-matching puzzle.
+  - **Hint:** A living letter points to the key under the frame.
+  - **Reward:** The Painter Dwarf.
 
-- **Hub Reward:** After freeing 7 dwarves, the **Sky Tower District** unlocks in the Dwarf Tunnels.
+#### Area 3: Centennial
 
-#### Phase 5: The Modern Hub (Dwarves 8-9)
+This hub focuses on nature, architecture, and public spectacle.
+
+- **Difficulty Role:** Easier branch.
+- **Unlock State:** Available at the same time as the Center Hub after Cathedral.
+
+- **Dwarf 5 - Animal Lover**
+  - **Location:** Wrocław ZOO.
+  - **Fact:** Wrocław ZOO is the largest zoo in Poland.
+  - **Setup:** A zoo keeper or landmark helper introduces the place.
+  - **Challenge:** Find the key near an animal sign or enclosure, then get keeper approval to use it.
+  - **Hint:** A living letter points to the correct zoo clue.
+  - **Reward:** The Animal Lover Dwarf.
+
+- **Dwarf 6 - The Architect**
+  - **Location:** Centennial Hall.
+  - **Fact:** Centennial Hall is a huge building with a distinctive dome, used for shows and events.
+  - **Setup:** A local guide introduces the hall.
+  - **Challenge:** Find the key near the hall or model area, then solve a building puzzle.
+  - **Hint:** A living letter reveals where the key appears after the puzzle.
+  - **Reward:** The Architect Dwarf.
+
+- **Dwarf 7 - The Conductor**
+  - **Location:** Multimedia Fountain.
+  - **Fact:** The fountain is famous for shows that combine water, lights, and music.
+  - **Setup:** A helper introduces the fountain show.
+  - **Challenge:** Find the key near the stage, then complete a simple pattern or sound activity.
+  - **Hint:** A living letter points to the stage clue.
+  - **Reward:** The Conductor Dwarf.
+
+#### Area 4: Sky Tower
 
 This hub shifts from historical landmarks to modern city life.
+
+- **Unlock Rule:** The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hub** are completed.
+- **Final Gate:** This is the last hub of the quest.
 
 - **Dwarf 8 - The Writer**
   - **Location:** Near the base of the Sky Tower.
   - **Fact:** Olga Tokarczuk is a Nobel Prize-winning writer associated with Wrocław.
-  - **Key Source:** Talk to a reader, bookseller, or librarian NPC and complete a short word or picture activity.
-  - **Chest Reward:** The Writer Dwarf.
+  - **Setup:** A reader, bookseller, or librarian introduces the clue.
+  - **Challenge:** Find the key in the reading corner, then complete a short reading or observation task.
+  - **Hint:** A living letter points to the reading corner.
+  - **Reward:** The Writer Dwarf.
 
 - **Dwarf 9 - The Traveler**
   - **Location:** Sky Tower plaza.
   - **Fact:** The plaza shows the modern and busy side of the city.
-  - **Key Source:** Search the plaza by moving modern objects or speaking to two NPCs to combine clues.
-  - **Chest Reward:** The Traveler Dwarf.
-
-#### Phase 5: The Final Chest
+  - **Setup:** Plaza visitors introduce the place.
+  - **Challenge:** Find the key in the plaza, then combine two clues to use it correctly.
+  - **Hint:** A living letter points to the hidden bench key.
+  - **Reward:** The Traveler Dwarf.
 
 - **Dwarf 10 - The Keymaster**
   - **Location:** In front of the Sky Tower elevator.
-  - **Condition:** The final chest only becomes active after the first 9 dwarves are freed.
-  - **Key Source:** The player receives the final clue from the previously rescued dwarves or from a nearby plaque.
-  - **Chest Reward:** The Keymaster Dwarf.
-  - **Payoff:** The Keymaster unlocks the elevator.
+  - **Condition:** The final cage only becomes active after the previous Sky Tower dwarves are freed and both branch hubs are already complete.
+  - **Setup:** The rescued dwarves and nearby signs point to the last rescue.
+  - **Challenge:** Find the final key near the elevator, then use the rescued dwarves' clues to activate the last lock.
+  - **Hint:** A living letter confirms the final key location.
+  - **Reward:** The Keymaster Dwarf unlocks the elevator.
 
-#### Phase 6: The Summit
+#### Final Assessment
 
-- The player rides the elevator to the top of the Sky Tower.
-- Antura has already moved on, but the rescue goal is acknowledged and the player gets a final city view.
-- The player completes a short recap.
+- Ride the elevator to the top of the Sky Tower.
+- Antura has already moved on, but the rescue is acknowledged and the player gets a final city view.
+- Finish with a short recap.
 
-### Final Assessment
-
-The player answers 3 short recap questions at the top of the Sky Tower.
+At the top of the Sky Tower, the player answers 3 short recap questions.
 
 1. **What is a famous symbol of Wrocław?**
-  - **A dwarf**
-  - A whale
-  - A rocket
+- **A dwarf**
+- A fountain
+- A cross
 
-2. **What do people do in a cathedral?**
-  - **They pray**
-  - They race cars
-  - They fish
+1. **What do people do in a cathedral?**
+- **They pray**
+- They read
+- They play
 
-3. **Who is Olga Tokarczuk?**
-  - **A writer**
-  - A pilot
-  - A giant cat
+1. **Who is Olga Tokarczuk?**
+- **A writer**
+- A politician
+- A scientist
+
+
+Dwarf Expert
+Title: Expert Dwarf
+Description: A clever dwarf from the school who helps you learn how to find keys, solve puzzles, and free the others.
+
+Bishop Dwarf
+Title: Bishop Dwarf
+Description: A calm cathedral dwarf with a dignified look, linked to prayer, tall towers, and the map of Wrocław.
+
+Origin Dwarf
+Title: Origin Dwarf
+Description: A classic Wrocław dwarf statue with a pointed hat and sturdy boots, representing one of the city’s most famous symbols.
+
+Councilor Dwarf
+Title: Councilor Dwarf
+Description: A formal dwarf linked to the Old Town Hall, looking ready for city meetings, plans, and important decisions.
+
+Painter Dwarf
+Title: Painter Dwarf
+Description: An artistic dwarf inspired by Panorama Raclawicka, full of color, imagination, and love for giant pictures.
+
+Animal Lover Dwarf
+Title: Animal Lover Dwarf
+Description: A cheerful dwarf from the zoo area who loves animals and feels at home among paws, wings, and whiskers.
+
+Architect Dwarf
+Title: Architect Dwarf
+Description: A thoughtful dwarf inspired by Centennial Hall, with a passion for shapes, buildings, and clever design.
+
+Conductor Dwarf
+Title: Conductor Dwarf
+Description: A lively dwarf from the Multimedia Fountain who seems ready to lead water, lights, and music like a grand performance.
+
+Writer Dwarf
+Title: Writer Dwarf
+Description: A quiet, book-loving dwarf inspired by Olga Tokarczuk, with a heart full of stories, ideas, and reading.
+
+Traveler Dwarf
+Title: Traveler Dwarf
+Description: An adventurous dwarf from the plaza who loves busy places, new paths, and exploring the city.
+
+Keymaster Dwarf
+Title: Keymaster Dwarf
+Description: A final guardian dwarf with keys and locks, ready to open the way to the last part of the adventure.

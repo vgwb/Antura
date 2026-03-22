@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5239781740931079046
+--- !u!1 &3133562441814075947
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,147 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 671862394851432426}
-  - component: {fileID: 2619298496257850236}
+  - component: {fileID: 7681232773910308423}
+  - component: {fileID: 5157265688900586193}
+  - component: {fileID: 6302528880460762498}
+  - component: {fileID: 6752147546981670496}
+  - component: {fileID: 1492696317617342247}
   m_Layer: 0
-  m_Name: bush
+  m_Name: bush moveable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &671862394851432426
+--- !u!4 &7681232773910308423
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239781740931079046}
+  m_GameObject: {fileID: 3133562441814075947}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.13484642, z: -0, w: 0.9908665}
+  m_LocalPosition: {x: -2.2, y: -0.0018246635, z: -1.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 8045232485452582082}
-  - {fileID: 4218071808476896731}
+  - {fileID: 895582573219462511}
+  - {fileID: 6431789242749938806}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2619298496257850236
+  m_LocalEulerAnglesHint: {x: 0, y: 15.499, z: 0}
+--- !u!114 &5157265688900586193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239781740931079046}
+  m_GameObject: {fileID: 3133562441814075947}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
-  Id: city_builder_bush
+  Id: city_builder_bush_moveable
   Kit: 39
   Country: 0
-  Category: 20
-  Tags: 00000000
+  Category: 10
+  Tags: b3010000
   Notes: 
---- !u!1 &5809482264885039081
+--- !u!114 &6302528880460762498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133562441814075947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: 
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 4
+  IconTransform: {fileID: 6431789242749938806}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands:
+  - Command: 7
+    mainObject: {fileID: 0}
+    Parameter: 
+    Bypass: 0
+    unityAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Antura.Discover.CollectableItem, Assembly-CSharp
+          m_MethodName: EnableAutocollect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  triggerChildren: 1
+  FaceToPlayerComp: {fileID: 0}
+--- !u!65 &6752147546981670496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133562441814075947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3647603, y: 1.2677197, z: 1.1599288}
+  m_Center: {x: -0.039560854, y: 0.5706316, z: 0.079964094}
+--- !u!114 &1492696317617342247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133562441814075947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe984a7758bf940a6a59c0a6b7e2a284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.MoveBy
+  Id: 
+  IsActivated: 0
+  speed: 1
+  movementType: 0
+  triggerMode: 1
+  MoveAxis: 0
+  distance: 0.5
+  targetPoint: {fileID: 0}
+--- !u!1 &3698786373666651716
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,10 +156,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8045232485452582082}
-  - component: {fileID: 5011294287487854085}
-  - component: {fileID: 2454582061921551997}
-  - component: {fileID: 8718454969736099278}
+  - component: {fileID: 895582573219462511}
+  - component: {fileID: 2756315471769458600}
+  - component: {fileID: 4745591873718089680}
+  - component: {fileID: 1960749539648914531}
   m_Layer: 0
   m_Name: bush
   m_TagString: Untagged
@@ -71,36 +167,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8045232485452582082
+--- !u!4 &895582573219462511
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809482264885039081}
+  m_GameObject: {fileID: 3698786373666651716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 671862394851432426}
+  m_Father: {fileID: 7681232773910308423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5011294287487854085
+--- !u!33 &2756315471769458600
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809482264885039081}
+  m_GameObject: {fileID: 3698786373666651716}
   m_Mesh: {fileID: 7200813882020725636, guid: be862f57e4cd743299743756433a7166, type: 3}
---- !u!23 &2454582061921551997
+--- !u!23 &4745591873718089680
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809482264885039081}
+  m_GameObject: {fileID: 3698786373666651716}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -143,13 +239,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8718454969736099278
+--- !u!64 &1960749539648914531
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809482264885039081}
+  m_GameObject: {fileID: 3698786373666651716}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -165,7 +261,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7200813882020725636, guid: be862f57e4cd743299743756433a7166, type: 3}
---- !u!1 &6355119741281384147
+--- !u!1 &4321833247458002814
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +269,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4218071808476896731}
+  - component: {fileID: 6431789242749938806}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -181,18 +277,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4218071808476896731
+--- !u!4 &6431789242749938806
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6355119741281384147}
+  m_GameObject: {fileID: 4321833247458002814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.249, z: 0.216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 671862394851432426}
+  m_Father: {fileID: 7681232773910308423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
