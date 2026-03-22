@@ -90,8 +90,8 @@ color: red
 //<<jump tram>>
 
 <<card wroklaw_map>>
-Welcome to Wrocław! #line:cf_001
-There is a problem in town... let's explore! #line:cf_002
+Welcome to Wrocław! #line:082706f 
+There is a problem in town... let's explore! #line:029d26c 
 <<jump intro_area_school>>
 ===
 
@@ -100,7 +100,7 @@ position: 0,220
 type: panel_endgame
 color: red
 ---
-You finished the Wrocław Dwarves quest. #line:end_001
+You finished the Wrocław Dwarves quest. #line:0069d94 
 <<jump post_quest_activity>>
 ===
 
@@ -110,7 +110,7 @@ type: panel
 tags: proposal
 color: red
 ---
-Draw your favorite Wrocław dwarf and the place where you found it. #line:post_001
+Draw your favorite Wrocław dwarf and the place where you found it. #line:00d7df1 
 <<quest_end>>
 ===
 
@@ -118,7 +118,7 @@ title: teleport
 position: 320,220
 ---
 Where do you want to go? #line:where_to_go
--> School <<if $current_place == "cathedral">> #line:tram_school
+-> School <<if $current_place == "cathedral">> #line:0d0e53a 
 	<<teleport tram_school>>
 	<<wait 4>>
 	<<jump intro_area_school>>
@@ -126,7 +126,7 @@ Where do you want to go? #line:where_to_go
 	<<teleport tram_cathedral>>
 	<<wait 4>>
 	<<jump intro_area_cathedral>>
--> Panorama <<if $current_place == "center" and !$dwarf_4_done>> #line:tram_panorama
+-> Panorama <<if $current_place == "center" and !$dwarf_4_done>> #line:01008e2 
 	<<teleport tram_panorama>>
 	<<wait 4>>
 	<<jump intro_area_panorama>>
@@ -138,7 +138,7 @@ Where do you want to go? #line:where_to_go
 	<<teleport tram_centennial_hall>>
 	<<wait 4>>
 	<<jump intro_area_centennial>>
--> Sky Tower <<if $dwarf_2_done and $dwarf_3_done and $dwarf_4_done and $dwarf_5_done and $dwarf_6_done and $dwarf_7_done and $current_place != "skytower">> #line:tram_skytower
+-> Sky Tower <<if $dwarf_2_done and $dwarf_3_done and $dwarf_4_done and $dwarf_5_done and $dwarf_6_done and $dwarf_7_done and $current_place != "skytower">> #line:012413f 
 	<<teleport tram_skytower>>
 	<<wait 4>>
 	<<jump intro_area_skytower>>
@@ -158,7 +158,7 @@ Where do you want to go? #shadow:where_to_go
 	<<jump intro_area_cathedral>>
 -> Stay here #shadow:stay_here #highlight
 <<else>>
-	Complete the task, first! #line:complete_the_task
+	Complete the task, first! #line:0beae23 
 <<endif>>
 ===
 
@@ -226,7 +226,7 @@ color: blue
 <<area area_school>>
 <<target npc_0>>
 ===
-	
+
 
 title: npc_0
 position: 320,0
@@ -234,22 +234,22 @@ group: school
 color: blue
 ---
 <<if $dwarf_0_done>>
-	Now you know how to free dwarves. Find 10 now! #line:a1_001
+	Now you know how to free dwarves. Find 10 now! #line:04b5c6e 
 	<<camera_focus skytower_roof>>
-	Antura is at the top of Sky Tower! #line:a1_002
+	Antura is at the top of Sky Tower! #line:09771a2 
 	<<camera_reset>>
-	The Tram is ready. First go to the Cathedral. #line:cf_003
+	The Tram is ready. First go to the Cathedral. #line:00f4741 
 	<<target driver_tram_school>>
 <<elseif GetCurrentTask() == "dwarf_0">>
 	<<jump hint_0>>
 <<else>>
 	<<card primary_school_leonardo_da_vinci>>
-	Hi! I am a teacher from Leonardo School. #line:cf_005
+	Hi! I am a teacher from Leonardo School. #line:08d54cc 
 	<<camera_focus camera_town_view>>
-	Ten dwarves are locked in magic cages in Wrocław. #line:a1_003
-	Each cage is sealed with a gold key. #line:cf_008
+	Ten dwarves are locked in magic cages in Wrocław. #line:0b42c98 
+	Each cage is sealed with a gold key. #line:084b7e8 
 	<<camera_focus camera_school>>
-	Find the School Dwarf here. #line:a1_004 #task:dwarf_0
+	Find the School Dwarf here. #task:dwarf_0 #line:0294a8c 
 	<<camera_reset>>
 	Talk to me if you need help. #line:talk_4_help
 	<<task_start dwarf_0>>
@@ -263,15 +263,15 @@ title: hint_0
 position: 1120,0
 group: school
 ---
-How can I help? #line:a1_005
--> How can I free the Dwarf? #line:how_free
-	Find the key. Then open the cage. #line:a1_006
--> Where is the key? #line:where_key
-	Move the plant to find it. #line:a1_007
--> Where is the dwarf? #line:where_dwarf
+How can I help? #line:0132277 
+-> How can I free the Dwarf? #line:04bc786 
+	Find the key. Then open the cage. #line:055d8b9 
+-> Where is the key? #line:02302de 
+	Move the plant to find it. #line:0a5ff98 
+-> Where is the dwarf? #line:05667f5 
 	<<SetMapIcon dwarf_0 on>>
-	Look at the star on the map. #line:a1_008
--> Nothing #line:nothing #highlight
+	Look at the star on the map. #line:02da44a 
+-> Nothing #highlight #line:0075ea0 
 ===
 
 
@@ -279,7 +279,7 @@ title: key_0
 position: 1120,0
 group: intro
 ---
-Now go and unlock the dwarf! #line:got_key
+Now go and unlock the dwarf! #line:0289364 
 <<target dwarf_0>>
 <<collect>>
 ===
@@ -292,11 +292,11 @@ color: yellow
 <<if $dwarf_0_done>>
 	<<card dwarf_expert>>
 	<<card wroklaw_map>>
-	Free all 10 of my dwarf friends in Wrocław. #line:cf_015c
+	Free all 10 of my dwarf friends in Wrocław. #line:0b401f5 
 	<<camera_focus camera_cathedral_overview>>
-	First go to the Cathedral. They will help you read the map. #line:a1_009
+	First go to the Cathedral. They will help you read the map. #line:0816b22 
 	<<camera_reset>>
-	Long ago, I made Dwarf Tunnels in the city. #line:a1_010
+	Long ago, I made Dwarf Tunnels in the city. #line:0e45f38 
 	<<card tram>>
 	Now they have turned into magical vehicles. #line:cf_014b
 	<<target driver_tram_school>>
@@ -311,7 +311,7 @@ color: yellow
 title: activity_0_done
 position: 1120,0
 group: school
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_0>>
@@ -337,7 +337,7 @@ color: blue
 ---
 <<set $current_place = "cathedral">>
 <<area area_cathedral>>
-We are at Bema Stop, near the Cathedral. #line:cf_018b
+We are at Bema Stop, near the Cathedral. #line:0d7ac4b 
 <<if !$dwarf_1_done>>
 	<<target npc_1>>
 <<endif>>
@@ -348,20 +348,20 @@ position: 600,420
 group: cathedral
 ---
 <<if $dwarf_1_done>>
-	Use the tram to choose your next stop. #line:use_map
+	Use the tram to choose your next stop. #line:03991b3 
 	<<target driver_tram_cathedral>>
 <<elseif GetCurrentTask() == "dwarf_1">>
 	<<jump hint_1>>
 <<else>>
 	<<card wroclaw_cathedral>>
-	This is the Wrocław cathedral. #line:cat_006
+	This is the Wrocław cathedral. #line:0eb59b5 
 	<<camera_focus camera_cathedral>>
-	It has tall towers and bright windows. #line:a1_012
+	It has tall towers and bright windows. #line:07f68f0 
 	<<camera_reset>>
-	People come here to pray. #line:cat_008
+	People come here to pray. #line:0141f95 
 	<<card dwarf_bishop>>
-	The Bishop Dwarf is locked nearby. #line:cat_009
-	Find the cathedral key and free the Bishop Dwarf. #line:a1_013 #task:dwarf_1
+	The Bishop Dwarf is locked nearby. #line:0769945 
+	Find the cathedral key and free the Bishop Dwarf. #task:dwarf_1 #line:0ebb3bc 
 	Talk to me if you need help. #shadow:talk_4_help
 	<<task_start dwarf_1>>
 	<<SetActive key_1 true>>
@@ -372,7 +372,7 @@ title: hint_1
 position: 840,420
 group: cathedral
 ---
-A living letter points to a key beside the cathedral door. #line:cat_011
+A living letter points to a key beside the cathedral door. #line:0166015 
 <<SetActive key_1 true>>
 <<target key_1>>
 ===
@@ -381,14 +381,14 @@ title: key_1
 position: 1080,420
 group: cathedral
 ---
-What do people do in a cathedral? #line:cat_013
--> They pray #line:cat_014
-	Correct. Here is your key. #line:cat_015
+What do people do in a cathedral? #line:0e6869e 
+-> They pray #line:0a1aab0 
+	Correct. Here is your key. #line:0e24cb8 
 	<<collect>>
 	<<target dwarf_1>>
--> They read #line:cat_016
+-> They read #line:0e25e89 
 	No. Try again. #line:try_again
--> They play #line:cat_018
+-> They play #line:0340188 
 	No. Try again. #shadow:try_again
 ===
 
@@ -400,12 +400,12 @@ color: yellow
 <<if $dwarf_1_done>>
 	<<card dwarf_bishop>>
 	<<card wroklaw_map>>
-	The Bishop Dwarf is safe now. #line:a1_014
-	The map of Wrocław is yours now. #line:cat_024
-	Use it to go to the City Center or Centennial Hall. #line:a1_015
+	The Bishop Dwarf is safe now. #line:0fcb25a 
+	The map of Wrocław is yours now. #line:054d9e8 
+	Use it to go to the City Center or Centennial Hall. #line:0d493c7 
 	<<target driver_tram_cathedral>>
 <<elseif has_item("key_gold")>>
-	Answer this question to open the cage. #line:a1_016
+	Answer this question to open the cage. #line:02c3a88 
 	<<activity activity_1 activity_1_done>>
 <<else>>
 	It is locked. Find a gold key! #shadow:locked
@@ -415,7 +415,7 @@ color: yellow
 title: activity_1_done
 position: 1560,420
 group: cathedral
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_1>>
@@ -442,7 +442,7 @@ color: blue
 ---
 <<area area_center>>
 <<set $current_place = "center">>
-Look at Market Square, the Town Hall, and Panorama Raclawicka. #line:a1_017
+Look at Market Square, the Town Hall, and Panorama Raclawicka. #line:0ccc1a3 
 <<if !$dwarf_2_done>>
 	<<target npc_2>>
 <<endif>>
@@ -454,21 +454,21 @@ group: center
 ---
 <<if $dwarf_2_done>>
 	<<if !$dwarf_3_done>>
-		The Councilor Dwarf is near the Old Town Hall. #line:03d7e34 
+		The Councilor Dwarf is near the Old Town Hall. #line:councilor_near_old_town_hall
 		<<target npc_3>>
 	<<elseif !$dwarf_4_done>>
-		Panorama Raclawicka is the last place here. #line:086ffb0 
+		Panorama Raclawicka is the last place here. #line:panorama_last_place_here
 		<<target npc_4>>
 	<<else>>
-		The Center area is done. #line:0a66375 
+		The Center area is done. #line:center_area_done
 		<<target driver_tram_center>>
 	<<endif>>
 <<elseif GetCurrentTask() == "dwarf_2">>
 	<<jump hint_2>>
 <<else>>
-	Wrocław is famous for its little dwarves. #line:cf_022
-	They have tiny hats and tiny boots. #line:a1_018
-	Find the hidden key in the market. #line:cf_023b #task:dwarf_2
+	Wrocław is famous for its little dwarves. #line:05b17f6 
+	They have tiny hats and tiny boots. #line:0f0ca08 
+	Find the hidden key in the market. #task:dwarf_2 #line:04fde74 
 	Talk to me if you need help. #shadow:talk_4_help
 	<<task_start dwarf_2>>
 	<<SetActive key_2 true>>
@@ -479,7 +479,7 @@ title: hint_2
 position: 840,900
 group: center
 ---
-A key is under a flowerpot in the market. #line:a1_019
+A key is under a flowerpot in the market. #line:0d121cc 
 <<SetActive key_2 true>>
 <<target key_2>>
 ===
@@ -500,9 +500,9 @@ color: yellow
 ---
 <<if $dwarf_2_done>>
 	<<card dwarf_origin>>
-	The Origin Dwarf is safe now. #line:cf_028
-	It wiggles its little boots and gives a happy bow. #line:cf_142
-	The Councilor Dwarf is near the Old Town Hall. #line:05d139e 
+	The Origin Dwarf is safe now. #line:025f12a 
+	It wiggles its little boots and gives a happy bow. #line:08150b1 
+	The Councilor Dwarf is near the Old Town Hall. #line:09ff330 
 	<<target npc_3>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -515,7 +515,7 @@ color: yellow
 title: activity_2_done
 position: 1560,900
 group: center
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_2>>
@@ -537,19 +537,19 @@ group: center
 ---
 <<if $dwarf_3_done>>
 	<<if !$dwarf_4_done>>
-		Panorama Raclawicka is the last place here. #line:09de98f 
+		Panorama Raclawicka is the last place here. #shadow:panorama_last_place_here
 		<<target npc_4>>
 	<<else>>
-		The Center area is done. #line:0e20ee2 
+		The Center area is done. #shadow:center_area_done
 		<<target driver_tram_center>>
 	<<endif>>
 <<elseif GetCurrentTask() == "dwarf_3">>
 	<<jump hint_3>>
 <<else>>
-This is the Old Town Hall. #line:cf_030
-	This dwarf loves plans, papers, and important meetings. #line:cf_143
-	City leaders work and meet here. #line:cf_031
-	Find the Town Hall key. #line:cf_032 #task:dwarf_3
+This is the Old Town Hall. #line:0de0a2f 
+	This dwarf loves plans, papers, and important meetings. #line:0597bfb 
+	City leaders work and meet here. #line:04f7a17 
+	Find the Town Hall key. #task:dwarf_3 #line:02ba9a9 
 	Talk to me if you need help. #shadow:talk_4_help
 	<<task_start dwarf_3>>
 	<<SetActive key_3 true>>
@@ -560,7 +560,7 @@ title: hint_3
 position: 840,1100
 group: center
 ---
-The hidden Town Hall key is behind the sign. #line:cf_036
+The hidden Town Hall key is behind the sign. #line:03a94f3 
 <<SetActive key_3 true>>
 <<target key_3>>
 ===
@@ -581,9 +581,9 @@ color: yellow
 ---
 <<if $dwarf_3_done>>
 	<<card dwarf_councilor>>
-	The Councilor Dwarf is safe now. #line:cf_039
-	It straightens its tiny hat like a very busy mayor. #line:cf_144
-	Panorama Raclawicka is the last place here. #line:098d084 
+	The Councilor Dwarf is safe now. #line:0851c6f 
+	It straightens its tiny hat like a very busy mayor. #line:06002b8 
+	Panorama Raclawicka is the last place here. #shadow:panorama_last_place_here
 	<<target npc_4>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -596,7 +596,7 @@ color: yellow
 title: activity_3_done
 position: 1560,1100
 group: center
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_3>>
@@ -619,9 +619,9 @@ type: panel
 color: blue
 ---
 <<area area_panorama>>
-Panorama Raclawicka is part of the Center hub. #line:pan_001
-It is a giant picture all around you. #line:pan_002
-Find the Painter Dwarf here. #line:pan_003
+Panorama Raclawicka is part of the Center hub. #line:0fb27ac 
+It is a giant picture all around you. #line:016bb86 
+Find the Painter Dwarf here. #line:0c878db 
 ===
 
 
@@ -630,15 +630,15 @@ position: 600,1300
 group: panorama
 ---
 <<if $dwarf_4_done>>
-	The Center area is done. #line:010590b 
+	The Center area is done. #shadow:center_area_done
 	<<target driver_tram_panorama>>
 <<elseif GetCurrentTask() == "dwarf_4">>
 	<<jump hint_4>>
 <<else>>
-	This is the Painter Dwarf from the Center hub. #line:cf_076c
-	A panorama is a giant picture all around you. #line:cf_077
-	This dwarf loves colors, paint, and big pictures. #line:a1_020
-	Find the key, then match the picture pieces to open the cage. #line:cf_078c #task:dwarf_4
+	This is the Painter Dwarf from the Center hub. #line:042c3ed 
+	A panorama is a giant picture all around you. #line:07177c7 
+	This dwarf loves colors, paint, and big pictures. #line:0697acd 
+	Find the key, then match the picture pieces to open the cage. #task:dwarf_4 #line:0737a2f 
 	<<task_start dwarf_4>>
 	<<SetActive key_4 true>>
 <<endif>>
@@ -648,7 +648,7 @@ title: hint_4
 position: 840,1300
 group: panorama
 ---
-The finished picture shows a key under the frame. #line:a1_021
+The finished picture shows a key under the frame. #line:key_under_the_frame
 <<SetActive key_4 true>>
 <<target key_4>>
 ===
@@ -669,9 +669,9 @@ color: yellow
 ---
 <<if $dwarf_4_done>>
 	<<card dwarf_painter>>
-	The Painter Dwarf is safe now. #line:cf_082
-	It twirls like a brush making one last happy swirl. #line:cf_154
-	The Center area is done. #line:0a84845 
+	The Painter Dwarf is safe now. #line:0a94d3e 
+	It twirls like a brush making one last happy swirl. #line:0018e0c 
+	The Center area is done. #shadow:center_area_done
 	<<target driver_tram_panorama>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -684,7 +684,7 @@ color: yellow
 title: activity_4_done
 position: 1560,1300
 group: panorama
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_4>>
@@ -711,8 +711,8 @@ color: blue
 ---
 <<set $current_place = "centennial">>
 <<area area_centennial>>
-Welcome to the Centennial area. #line:a1_022
-Look in the zoo, the hall, and the fountain. #line:cf_053b
+Welcome to the Centennial Hall area. #line:0db2417 
+Look in the zoo, the hall, and the fountain. #line:05bd1c1 
 <<if !$dwarf_5_done>>
 	<<target npc_5>>
 <<endif>>
@@ -726,21 +726,21 @@ group: centennial
 ---
 <<if $dwarf_5_done>>
 	<<if !$dwarf_6_done>>
-		Another dwarf is near Centennial Hall. #line:0efcaa9 
+		Another dwarf is near Centennial Hall. #line:another_dwarf_near_centennial_hall
 		<<target npc_6>>
 	<<elseif !$dwarf_7_done>>
-		The fountain is the last place here. #line:0b343c4 
+		The fountain is the last place here. #line:fountain_last_place_here
 		<<target npc_7>>
 	<<else>>
-		The Centennial area is done. #line:0440a6a 
+		The Centennial Hall area is done. #line:centennial_area_done
 		<<target driver_tram_centennial>>
 	<<endif>>
 <<elseif GetCurrentTask() == "dwarf_5">>
 	<<jump hint_5>>
 <<else>>
-	Wrocław Zoo is the biggest zoo in Poland. #line:cf_056
-	This dwarf loves paws, wings, and whiskers. #line:cf_147
-	Find the zoo key. Then talk to the zoo keeper. #line:a1_023 #task:dwarf_5
+	Wrocław Zoo is the biggest zoo in Poland. #line:07c9455 
+	This dwarf loves paws, wings, and whiskers. #line:048c7ab 
+	Find the zoo key. Then talk to the zoo keeper. #task:dwarf_5 #line:09b7b40 
 	<<task_start dwarf_5>>
 	<<SetActive key_5 true>>
 <<endif>>
@@ -750,7 +750,7 @@ title: hint_5
 position: 840,1700
 group: centennial
 ---
-There is a key behind the sign. #line:a1_024
+There is a key behind the sign. #line:0ae4723 
 <<SetActive key_5 true>>
 <<target key_5>>
 ===
@@ -771,9 +771,9 @@ color: yellow
 ---
 <<if $dwarf_5_done>>
 	<<card dwarf_animal_lover>>
-	The Animal Lover Dwarf is safe now. #line:cf_061
-	It chirps, sniffs, and waves all at once. #line:cf_148
-	Another dwarf is near Centennial Hall. #line:00ef39a 
+	The Animal Lover Dwarf is safe now. #line:0ee2e6a 
+	It chirps, sniffs, and waves all at once. #line:0f54894 
+	Another dwarf is near Centennial Hall. #shadow:another_dwarf_near_centennial_hall
 	<<target npc_6>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -786,7 +786,7 @@ color: yellow
 title: activity_5_done
 position: 1560,1700
 group: centennial
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_5>>
@@ -802,6 +802,7 @@ color:
 <<endif>>
 ===
 
+
 // CENTENNIAL HALL
 
 title: npc_6
@@ -810,18 +811,18 @@ group: centennial
 ---
 <<if $dwarf_6_done>>
 	<<if !$dwarf_7_done>>
-		The fountain is the last place here. #line:013880c 
+		The fountain is the last place here. #shadow:fountain_last_place_here
 		<<target npc_7>>
 	<<else>>
-		The Centennial area is done. #line:01ff035 
+		The Centennial Hall area is done. #shadow:centennial_area_done
 		<<target driver_tram_centennial>>
 	<<endif>>
 <<elseif GetCurrentTask() == "dwarf_6">>
 	<<jump hint_6>>
 <<else>>
-	Centennial Hall is very big and has a famous round roof. #line:cf_063
-	This dwarf loves shapes, buildings, and clever designs. #line:cf_149
-	Solve the hall puzzle to find the hidden key. #line:cf_064 #task:dwarf_6
+	Centennial Hall is very big and has a famous round roof. #line:0c3a081 
+	This dwarf loves shapes, buildings, and clever designs. #line:088d0bd 
+	Solve the hall puzzle to find the hidden key. #task:dwarf_6 #line:092e472 
 	<<task_start dwarf_6>>
 	<<SetActive key_6 true>>
 <<endif>>
@@ -831,7 +832,7 @@ title: hint_6
 position: 840,1900
 group: centennial
 ---
-The finished picture shows a key under the frame. #line:a1_025
+The finished picture shows a key under the frame. #shadow:key_under_the_frame
 <<SetActive key_6 true>>
 <<target key_6>>
 ===
@@ -852,9 +853,9 @@ color: yellow
 ---
 <<if $dwarf_6_done>>
 	<<card dwarf_architect>>
-	The Architect Dwarf is safe now. #line:cf_068
-	It proudly taps the air like it is drawing a new roof. #line:cf_150
-	The fountain is the last place here. #line:0c3ac2b 
+	The Architect Dwarf is safe now. #line:0c21d66 
+	It proudly taps the air like it is drawing a new roof. #line:0cfbd78 
+	The fountain is the last place here. #shadow:fountain_last_place_here
 	<<target npc_7>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -867,7 +868,7 @@ color: yellow
 title: activity_6_done
 position: 1560,1900
 group: centennial
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_6>>
@@ -891,14 +892,14 @@ position: 600,2100
 group: centennial
 ---
 <<if $dwarf_7_done>>
-	The Centennial area is done. #line:0dc08e4 
+	The Centennial Hall area is done. #shadow:centennial_area_done
 	<<target driver_tram_centennial>>
 <<elseif GetCurrentTask() == "dwarf_7">>
 	<<jump hint_7>>
 <<else>>
-	This fountain uses water, lights, and music. #line:cf_070
-	This dwarf loves splashes, sparkles, and songs. #line:cf_151
-	Find the key. Then copy the fountain pattern. #line:a1_026 #task:dwarf_7
+	This fountain uses water, lights, and music. #line:0d199f7 
+	This dwarf loves splashes, sparkles, and songs. #line:0f05296 
+	Find the key. Then copy the fountain pattern. #task:dwarf_7 #line:041a696 
 	<<task_start dwarf_7>>
 	<<SetActive key_7 true>>
 <<endif>>
@@ -908,7 +909,7 @@ title: hint_7
 position: 840,2100
 group: centennial
 ---
-The fountain pattern shows a key near the stage. #line:a1_027
+The fountain pattern shows a key near the stage. #line:0021931 
 <<SetActive key_7 true>>
 <<target key_7>>
 ===
@@ -929,9 +930,9 @@ color: yellow
 ---
 <<if $dwarf_7_done>>
 	<<card dwarf_conductor>>
-	The Conductor Dwarf is safe now. #line:cf_075
-	It swishes its tiny baton and bows to the fountain. #line:cf_152
-	The Centennial area is done. #line:09462ea 
+	The Conductor Dwarf is safe now. #line:0185409 
+	It swishes its tiny baton and bows to the fountain. #line:07f5241 
+	The Centennial Hall area is done. #shadow:centennial_area_done
 	<<target driver_tram_centennial>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -944,7 +945,7 @@ color: yellow
 title: activity_7_done
 position: 1560,2100
 group: centennial
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_7>>
@@ -963,7 +964,7 @@ color:
 
 
 // -----------------------------------------------------------------------------
-// AREA SKY TOWER 
+// AREA SKY TOWER
 
 title: intro_area_skytower
 position: 320,2500
@@ -972,7 +973,7 @@ color: blue
 ---
 <<set $current_place = "skytower">>
 <<area area_skytower>>
-Welcome to Sky Tower. #line:a1_028
+Welcome to Sky Tower. #line:05da79c 
 ===
 
 // WRITER
@@ -983,22 +984,22 @@ group: sky_tower
 ---
 <<if $dwarf_8_done>>
 	<<if !$dwarf_9_done>>
-		The Traveler Dwarf is in the plaza. #line:0be4c0a 
+		The Traveler Dwarf is in the plaza. #line:traveler_dwarf_in_plaza
 		<<target npc_9>>
 	<<elseif !$dwarf_10_done>>
-		The Keymaster cage is near the elevator. #line:0f528ed 
+		The Keymaster cage is near the elevator. #line:keymaster_cage_near_elevator
 		<<target npc_10>>
 	<<else>>
-		All Sky Tower dwarves are free. #line:0846282 
+		All Sky Tower dwarves are free. #line:all_sky_tower_dwarves_free
 		<<target driver_tram_skytower>>
 	<<endif>>
 <<elseif GetCurrentTask() == "dwarf_8">>
 	<<jump hint_8>>
 <<else>>
-	This is one of the Sky Tower dwarves. #line:cf_087b
-	Olga Tokarczuk is a famous writer. #line:cf_088c
-	This dwarf loves stories, books, and quiet places. #line:a1_029
-	Find the writer's key. Then talk to the reader. #line:a1_030 #task:dwarf_8
+	This is one of the Sky Tower dwarves. #line:0fbbba0 
+	Olga Tokarczuk is a famous writer. #line:0474fb4 
+	This dwarf loves stories, books, and quiet places. #line:082386e 
+	Find the writer's key. Then talk to the reader. #task:dwarf_8 #line:0ac8824 
 	<<task_start dwarf_8>>
 	<<SetActive key_8 true>>
 <<endif>>
@@ -1008,7 +1009,7 @@ title: hint_8
 position: 840,2500
 group: sky_tower
 ---
-The key is near the reading corner. #line:a1_031
+The key is near the reading corner. #line:0d82e66 
 <<SetActive key_8 true>>
 <<target key_8>>
 ===
@@ -1029,9 +1030,9 @@ color: yellow
 ---
 <<if $dwarf_8_done>>
 	<<card dwarf_writer>>
-	The Writer Dwarf is safe now. #line:cf_093
-	It hugs a tiny book and beams at you. #line:cf_156
-	The Traveler Dwarf is in the plaza. #line:003ec80 
+	The Writer Dwarf is safe now. #line:0b7bb76 
+	It hugs a tiny book and beams at you. #line:0be009e 
+	The Traveler Dwarf is in the plaza. #shadow:traveler_dwarf_in_plaza
 	<<target npc_9>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -1044,7 +1045,7 @@ color: yellow
 title: activity_8_done
 position: 1560,2500
 group: sky_tower
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_8>>
@@ -1069,18 +1070,18 @@ group: sky_tower
 ---
 <<if $dwarf_9_done>>
 	<<if !$dwarf_10_done>>
-		The Keymaster cage is near the elevator. #line:09ba5fb 
+		The Keymaster cage is near the elevator. #shadow:keymaster_cage_near_elevator
 		<<target npc_10>>
 	<<else>>
-		All Sky Tower dwarves are free. #line:026fa85 
+		All Sky Tower dwarves are free. #shadow:all_sky_tower_dwarves_free
 		<<target driver_tram_skytower>>
 	<<endif>>
 <<elseif GetCurrentTask() == "dwarf_9">>
 	<<jump hint_9>>
 <<else>>
-	A plaza is an open place where people meet. #line:cf_095
-	This dwarf loves busy places and new paths. #line:a1_032
-	Find the plaza key. #line:a1_033 #task:dwarf_9
+	A plaza is an open place where people meet. #line:00cf941 
+	This dwarf loves busy places and new paths. #line:02172f2 
+	Find the plaza key. #task:dwarf_9 #line:07cb84f 
 	<<task_start dwarf_9>>
 	<<SetActive key_9 true>>
 <<endif>>
@@ -1090,7 +1091,7 @@ title: hint_9
 position: 840,2700
 group: sky_tower
 ---
-The key is under a bench in the plaza. #line:a1_034
+The key is under a bench in the plaza. #line:0acc3e1 
 <<SetActive key_9 true>>
 <<target key_9>>
 ===
@@ -1111,9 +1112,9 @@ color: yellow
 ---
 <<if $dwarf_9_done>>
 	<<card dwarf_traveler>>
-	The Traveler Dwarf is safe now. #line:cf_100
-	It spins in a little circle like it is ready for the next trip. #line:cf_158
-	The Keymaster cage is near the elevator. #line:048f409 
+	The Traveler Dwarf is safe now. #line:07eb11a 
+	It spins in a little circle like it is ready for the next trip. #line:0add745 
+	The Keymaster cage is near the elevator. #shadow:keymaster_cage_near_elevator
 	<<target npc_10>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -1126,7 +1127,7 @@ color: yellow
 title: activity_9_done
 position: 1560,2700
 group: sky_tower
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_9>>
@@ -1150,13 +1151,13 @@ position: 600,2900
 group: sky_tower
 ---
 <<if $dwarf_10_done>>
-	The elevator is open now. #line:0275049 
+	The elevator is open now. #line:elevator_is_open_now
 	<<target driver_tram_skytower>>
 <<elseif GetCurrentTask() == "dwarf_10">>
 	<<jump hint_10>>
 <<else>>
-	The other dwarves show you where to look. #line:a1_035
-	Find the last key near the elevator sign. #line:a1_036 #task:dwarf_10
+	The other dwarves show you where to look. #line:0e6a977 
+	Find the last key near the elevator sign. #task:dwarf_10 #line:0e72fd8 
 	<<task_start dwarf_10>>
 	<<SetActive key_10 true>>
 <<endif>>
@@ -1166,7 +1167,7 @@ title: hint_10
 position: 840,2900
 group: sky_tower
 ---
-The key is near the elevator. #line:a1_037
+The key is near the elevator. #line:031d093 
 <<SetActive key_10 true>>
 <<target key_10>>
 ===
@@ -1187,9 +1188,9 @@ color: yellow
 ---
 <<if $dwarf_10_done>>
 	<<card dwarf_keymaster>>
-	The Keymaster Dwarf is safe now. #line:cf_108
-	Clink, clank, jingle. I will unlock the elevator for you. #line:cf_109
-	The elevator is open now. #line:0f65b25 
+	The Keymaster Dwarf is safe now. #line:0e47f75 
+	Clink, clank, jingle. I will unlock the elevator for you. #line:0c6f241 
+	The elevator is open now. #shadow:elevator_is_open_now
 	<<target driver_tram_skytower>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -1202,7 +1203,7 @@ color: yellow
 title: activity_10_done
 position: 1560,2900
 group: sky_tower
-color: 
+color:
 ---
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_10>>
@@ -1227,8 +1228,8 @@ position: 333,3151
 group: finale
 actor: GUIDE_F
 ---
-Up we go to the top of the Sky Tower. #line:cf_110
-The city looks beautiful from up here. #line:a1_038
+Up we go to the top of the Sky Tower. #line:0bca140 
+The city looks beautiful from up here. #line:035a519 
 ===
 
 title: assessment_intro
@@ -1236,25 +1237,25 @@ position: 853,3151
 group: finale
 actor: GUIDE_F
 ---
-Do you want to answer three short questions? #line:a1_039
--> Yes #line:yes
+Do you want to answer some questions? #line:071d502 
+-> Yes #line:yes 
 	<<jump assessment_q1>>
--> No #line:final_007 #highlight
-	Come back when you are ready. #line:cf_115
+-> No #highlight #line:no 
+	Come back when you are ready. #line:0b51799 
 ===
 
 title: assessment_q1
 position: 1093,3151
 group: finale
 ---
-What is a famous symbol of Wrocław? #line:cf_116
--> A dwarf #line:final_010
-	Yes, that is right. #line:a1_040
+What is a famous symbol of Wrocław? #line:0509f87 
+-> A dwarf #line:0b73e95 
+	Yes, that is right. #line:yes_right 
 	<<jump assessment_q2>>
--> A whale #line:final_012
+-> A whale #line:0ad5b67 
 	No. Try again. #shadow:try_again
 	<<jump assessment_q1>>
--> A rocket #line:final_014
+-> A rocket #line:0c5d850 
 	No. Try again. #shadow:try_again
 	<<jump assessment_q1>>
 ===
@@ -1263,14 +1264,14 @@ title: assessment_q2
 position: 1333,3151
 group: finale
 ---
-What do people do in a cathedral? #line:cf_120
--> They pray #line:final_017
-	Yes, that is right. #line:a1_041
+What do people do in a cathedral? #line:07cc31d 
+-> They pray #line:0416812 
+	Yes, that is right. #shadow:yes_right 
 	<<jump assessment_q3>>
--> They race cars #line:final_019
+-> They race cars #line:0bab60b 
 	No. Try again. #shadow:try_again
 	<<jump assessment_q2>>
--> They fish #line:final_021
+-> They fish #line:0509c68 
 	No. Try again. #shadow:try_again
 	<<jump assessment_q2>>
 ===
@@ -1279,14 +1280,14 @@ title: assessment_q3
 position: 1573,3151
 group: finale
 ---
-Who is Olga Tokarczuk? #line:cf_124
--> A writer #line:final_024
-	Yes, that is right. #line:a1_042
+Who is Olga Tokarczuk? #line:0041cc7 
+-> A writer #line:09368b4 
+	Yes, that is right. #shadow:yes_right 
 	<<jump assessment_end>>
--> A pilot #line:final_026
+-> A pilot #line:0aa7047 
 	No. Try again. #shadow:try_again
 	<<jump assessment_q3>>
--> A giant cat #line:final_028
+-> A giant cat #line:0c4a0b5 
 	No. Try again. #shadow:try_again
 	<<jump assessment_q3>>
 ===
@@ -1296,7 +1297,7 @@ position: 1813,3151
 group: finale
 actor: GUIDE_F
 ---
-Great job. You explored Wrocław and freed every dwarf. #line:cf_128
+Great job. You explored Wrocław and freed every dwarf. #line:0cedfa4 
 <<jump quest_end>>
 ===
 
@@ -1311,18 +1312,13 @@ color: purple
 actor: ADULT_F
 spawn_group: tourists
 ---
-=> The Old Town Hall is a very important building. #line:cf_132
-=> The panorama looks like a picture all around me. #line:cf_133
-=> The cathedral has tall towers and bright windows. #line:tour_001
-=> Many people visit Wroclaw to look for dwarf statues. #line:tour_002
-=> Centennial Hall is known for its big round roof. #line:tour_003
-=> The Multimedia Fountain uses water, light, and music. #line:tour_004
-=> Wrocław dwarves are famous all around the city. #line:cf_135
-=> A plaza is a place where people meet. #line:cf_136
-=> Sky Tower is one of the tallest buildings in Wroclaw. #line:tour_005
-=> The Market Square is one of the busiest places in the city. #line:tour_006
-=> Some Wroclaw dwarves look funny, and some look serious. #line:tour_007
-=> Olga Tokarczuk writes stories. #line:cf_138
+=> The panorama looks like a picture all around me. #line:055554f 
+=> Many people visit Wroclaw to look for dwarf statues. #line:0d17afb 
+=> Centennial Hall is known for its big round roof. #line:005b996 
+=> The Multimedia Fountain uses water, light, and music. #line:07d11df 
+=> Sky Tower is one of the tallest buildings in Wroclaw. #line:06c9490 
+=> The Market Square is one of the busiest places in the city. #line:0173c2b 
+=> Some Wroclaw dwarves look funny, and some look serious. #line:0805d72 
 ===
 
 title: spawned_polish
@@ -1331,12 +1327,10 @@ color: purple
 actor: ADULT_F
 spawn_group: polish
 ---
-=> We have dwarf statues all across our city. #line:local_001
-=> Many people in Wroclaw know their favorite dwarf. #line:local_002
-=> Our Market Square is a lively place to walk and meet friends. #line:local_003
-=> We are proud of Centennial Hall and its big round roof. #line:local_004
-=> The Cathedral is one of the most famous places in Wroclaw. #line:local_005
-=> On warm evenings, families like to watch the fountain show. #line:local_006
-=> Sky Tower is easy to see from many parts of the city. #line:local_007
-=> Wroclaw is a good city for walking, looking, and finding surprises. #line:local_008
+=> Many people in Wroclaw know their favorite dwarf. #line:0a2894d 
+=> Our Market Square is a lively place to walk and meet friends. #line:045e673 
+=> We are proud of Centennial Hall and its big round roof. #line:059c052 
+=> The Cathedral is one of the most famous places in Wroclaw. #line:072df5b 
+=> Families like to watch the fountain show. #line:00f6fde 
+=> Sky Tower is easy to see from many parts of the city. #line:0192207 
 ===
