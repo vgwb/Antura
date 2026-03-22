@@ -18,6 +18,7 @@ namespace Antura.Discover
         ProgressPoints = 17,
         QuestEnd = 12,
         SetActive = 18,
+        SetInteractable = 20,
         SpawnPlayer = 3,
         SpawnSet = 11,
         Target = 5,

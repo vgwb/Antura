@@ -29,15 +29,7 @@ namespace Antura.Discover.Activities
             currentSettingsCode = settingsCode;
 
             // Find activity config from QuestManager list
-            ActivityConfig activityConfig = null;
-            if (QuestManager.I.ActivityConfigs != null)
-            {
-                foreach (var c in QuestManager.I.ActivityConfigs)
-                {
-                    if (c != null && string.Equals(c.ActivitySettings.Id, settingsCode, StringComparison.OrdinalIgnoreCase))
-                    { activityConfig = c; break; }
-                }
-            }
+            ActivityConfig activityConfig = FindActivityConfig(settingsCode);
             if (activityConfig == null)
             {
                 Debug.LogWarning($"ActivityManager.Launch: config not found for '{settingsCode}'");
@@ -59,13 +51,19 @@ namespace Antura.Discover.Activities
                 activityConfig.ActivitySettings.Difficulty = overrideDifficulty;
             }
 
-            return Launch(activityConfig.ActivitySettings, nodeReturn);
+            var launchKey = !string.IsNullOrEmpty(activityConfig.Code) ? activityConfig.Code : settingsCode;
+            return Launch(activityConfig.ActivitySettings, nodeReturn, launchKey);
         }
 
         /// <summary>
         /// Launch an activity by just passing its settings. The prefab is resolved from ActivityList using ActivityCode.
         /// </summary>
         public bool Launch(ActivitySettingsAbstract settings, string nodeReturn = "")
+        {
+            return Launch(settings, nodeReturn, settings != null ? settings.Id : string.Empty);
+        }
+
+        private bool Launch(ActivitySettingsAbstract settings, string nodeReturn, string launchKey)
         {
             if (settings == null)
             {
@@ -74,7 +72,9 @@ namespace Antura.Discover.Activities
             }
             lastResultScore = 0;
             returnNode = nodeReturn ?? string.Empty;
-            currentSettingsCode = settings != null ? settings.Id : string.Empty;
+            currentSettingsCode = !string.IsNullOrEmpty(launchKey)
+                ? launchKey
+                : (settings != null ? settings.Id : string.Empty);
 
             // Resolve ActivityData by code
             if (ActivityList == null || ActivityList.Activities == null)
@@ -129,6 +129,31 @@ namespace Antura.Discover.Activities
             GlobalUI.ShowPauseMenu(false);
             activityBase.OpenFresh();
             return true;
+        }
+
+        private static ActivityConfig FindActivityConfig(string requestedCode)
+        {
+            if (string.IsNullOrEmpty(requestedCode) || QuestManager.I?.ActivityConfigs == null)
+                return null;
+
+            ActivityConfig fallback = null;
+            foreach (var config in QuestManager.I.ActivityConfigs)
+            {
+                if (config == null)
+                    continue;
+
+                if (string.Equals(config.Code, requestedCode, StringComparison.OrdinalIgnoreCase))
+                    return config;
+
+                if (fallback == null
+                    && config.ActivitySettings != null
+                    && string.Equals(config.ActivitySettings.Id, requestedCode, StringComparison.OrdinalIgnoreCase))
+                {
+                    fallback = config;
+                }
+            }
+
+            return fallback;
         }
 
         /// <summary>

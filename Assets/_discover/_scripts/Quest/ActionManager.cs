@@ -347,6 +347,12 @@ namespace Antura.Discover
                                 command.mainObject.SetActive(true);
                         }
                         break;
+                    case CommandType.SetInteractable:
+                        if (command.mainObject != null)
+                        {
+                            command.mainObject.GetComponent<Interactable>().IsInteractable = command.Parameter != "0";
+                        }
+                        break;
                     case CommandType.SpawnSet:
                         SetPlayerSpawnPoint(command.mainObject);
                         break;

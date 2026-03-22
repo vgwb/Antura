@@ -62,6 +62,11 @@ namespace Antura.Discover
             }
         }
 
+        public void EnableAutocollect()
+        {
+            AutoCollect = true;
+        }
+
         public void OnTriggerEnter(Collider other)
         {
             if (AutoCollect && other.CompareTag("Player"))
