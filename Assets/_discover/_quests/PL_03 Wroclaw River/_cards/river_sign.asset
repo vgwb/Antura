@@ -14,25 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: river_sign
   Status: 2
-  Type: 0
+  Type: 3
   Subjects: 
   TitleEn: 
   DescriptionEn: 
   Title:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 68531352775942144
-      m_Key: 
+      m_KeyId: 0
+      m_Key: river_sign
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 68531437567991808
-      m_Key: 
+      m_KeyId: 0
+      m_Key: river_sign.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -43,7 +43,7 @@ MonoBehaviour:
   Importance: 20
   targetAge: 2
   CoreOfTopic: {fileID: 0}
-  IsInTopics: 0
+  IsInTopics: 1
   MasteryPointsToUnlock: 1
   Quests: []
   Words: []
