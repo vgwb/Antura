@@ -17,24 +17,24 @@
 // - dwarf_painter
 // - dwarf_traveler
 // - dwarf_writer
+// - olga_tokarczuk
+// - panorama_racawicka
 // - primary_school_leonardo_da_vinci
+// - town_hall
+// - wroclaw
 // - wroclaw_cathedral
+// - wroclaw_centennial_hall
+// - wroclaw_dwarfs
+// - wroclaw_dwarf_statue
+// - wroclaw_market_square
+// - wroclaw_multimedia_fountain
+// - wroclaw_old_town_hall
+// - wroclaw_sky_tower
 // - wroklaw_map
-//   - TODO olga_tokarczuk
-//   - TODO panorama_racawicka
 //   - TODO place_odra_river
 //   - TODO place_vistula_river
 //   - TODO polish_dwarf
-//   - TODO town_hall
-//   - TODO wroclaw
 //   - TODO wroclaw_bridges
-//   - TODO wroclaw_centennial_hall
-//   - TODO wroclaw_dwarfs
-//   - TODO wroclaw_dwarf_statue
-//   - TODO wroclaw_market_square
-//   - TODO wroclaw_multimedia_fountain
-//   - TODO wroclaw_old_town_hall
-//   - TODO wroclaw_sky_tower
 //   - TODO wroclaw_zoo
 // TASKS
 // - dwarf_0
@@ -49,19 +49,89 @@
 // - dwarf_8
 // - dwarf_9
 // ACTIVITIES
-//   - BROKEN activity_0
-//   - BROKEN activity_1
-//   - BROKEN activity_10
-//   - BROKEN activity_2
-//   - BROKEN activity_3
-//   - BROKEN activity_4
-//   - BROKEN activity_5
-//   - BROKEN activity_6
-//   - BROKEN activity_7
-//   - BROKEN activity_8
-//   - BROKEN activity_9
-//   - TODO pl02_activity_2
-//   - TODO pl_02_jigsaw_dwarf
+// - activity_0
+// - activity_1
+// - activity_10
+// - activity_2
+// - activity_3
+// - activity_4
+// - activity_5
+// - activity_6
+// - activity_7
+// - activity_8
+// - activity_9
+// ACTABLE
+//   - TODO cage_0
+//   - TODO cage_1
+//   - TODO cage_10
+//   - TODO cage_2
+//   - TODO cage_3
+//   - TODO cage_4
+//   - TODO cage_5
+//   - TODO cage_6
+//   - TODO cage_7
+//   - TODO cage_8
+//   - TODO cage_9
+//   - TODO chest_1_open
+//   - TODO chest_2
+//   - TODO driver_tram_cathedral
+//   - TODO driver_tram_centennial
+//   - TODO driver_tram_center
+//   - TODO driver_tram_panorama
+//   - TODO driver_tram_school
+//   - TODO driver_tram_skytower
+//   - TODO dwarf_0
+//   - TODO dwarf_1
+//   - TODO dwarf_10
+//   - TODO dwarf_2
+//   - TODO dwarf_3
+//   - TODO dwarf_4
+//   - TODO dwarf_5
+//   - TODO dwarf_6
+//   - TODO dwarf_7
+//   - TODO dwarf_8
+//   - TODO dwarf_9
+//   - TODO hint_1
+//   - TODO hint_10
+//   - TODO hint_2
+//   - TODO hint_3
+//   - TODO hint_4
+//   - TODO hint_5
+//   - TODO hint_6
+//   - TODO hint_7
+//   - TODO hint_8
+//   - TODO hint_9
+//   - TODO iglica_flag
+//   - TODO key_0
+//   - TODO key_1
+//   - TODO key_10
+//   - TODO key_2
+//   - TODO key_3
+//   - TODO key_4
+//   - TODO key_5
+//   - TODO key_6
+//   - TODO key_7
+//   - TODO key_8
+//   - TODO key_9
+//   - TODO ll_0_hint
+//   - TODO npc_0
+//   - TODO npc_1
+//   - TODO npc_10
+//   - TODO npc_2
+//   - TODO npc_3
+//   - TODO npc_4
+//   - TODO npc_5
+//   - TODO npc_6
+//   - TODO npc_7
+//   - TODO npc_8
+//   - TODO npc_9
+//   - TODO tram_cathedral
+//   - TODO tram_centennial_hall
+//   - TODO tram_center
+//   - TODO tram_panorama
+//   - TODO tram_school
+//   - TODO tram_skytower
+// WORDS: (none)
 // </scene_data>
 
 title: quest_start
@@ -95,19 +165,19 @@ color: red
 
 // DEBUG (comment in production)
 <<set $dwarf_0_done = true>>
-<<set $dwarf_1_done = true>>
-<<set $dwarf_2_done = true>>
-<<set $dwarf_3_done = true>>
-<<set $dwarf_4_done = true>>
-<<set $dwarf_5_done = true>>
-<<set $dwarf_6_done = true>>
-<<set $dwarf_7_done = true>>
-<<set $dwarf_8_done = true>>
-<<set $dwarf_9_done = true>>
-<<set $dwarf_10_done = true>>
+//<<set $dwarf_1_done = true>>
+//<<set $dwarf_2_done = true>>
+//<<set $dwarf_3_done = true>>
+//<<set $dwarf_4_done = true>>
+//<<set $dwarf_5_done = true>>
+//<<set $dwarf_6_done = true>>
+//<<set $dwarf_7_done = true>>
+//<<set $dwarf_8_done = true>>
+//<<set $dwarf_9_done = true>>
+//<<set $dwarf_10_done = true>>
 //<<jump tram>>
 
-<<card wroklaw_map>>
+<<card wroklaw>>
 Welcome to Wrocław! #line:082706f 
 There is a problem in town... let's explore! #line:029d26c 
 <<jump intro_area_school>>
@@ -243,6 +313,7 @@ color: blue
 <<set $current_place = "school">>
 <<area area_school>>
 <<target npc_0>>
+We are at the Leonardo Primary School
 ===
 
 
@@ -276,6 +347,16 @@ color: blue
 <<endif>>
 ===
 
+title: info_0
+position: 320,0
+group: school
+color: purple
+---
+<<card primary_school_leonardo_da_vinci>>
+Do you like to go to school? #line:info_00
+-> Yes #shadow:yes
+-> No #shadow:no 
+===
 
 title: hint_0
 position: 1120,0
@@ -309,14 +390,16 @@ color: yellow
 ---
 <<if $dwarf_0_done>>
 	<<card dwarf_expert>>
-	<<card wroklaw_map>>
-	Free all 10 of my dwarf friends in Wrocław. #line:0b401f5 
-	<<camera_focus camera_cathedral_overview>>
-	First go to the Cathedral. They will help you read the map. #line:0816b22 
-	<<camera_reset>>
 	Long ago, I made Dwarf Tunnels in the city. #line:0e45f38 
 	<<card tram>>
-	Now they have turned into magical vehicles. #line:cf_014b
+	Now they have turned into magical vehicles called "tram". #line:cf_014b
+	<<inventory dwarf_expert add>>
+	I give you this special ticket to travel everywhere!
+	<<card wroklaw_map>>
+	Now go and free all 10 of my dwarf friends. #line:0b401f5 
+	<<camera_focus camera_cathedral_overview>>
+	First go to the Cathedral. #line:0816b22 
+	<<camera_reset>>
 	<<target driver_tram_school>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #line:solve_to_unlock
@@ -406,16 +489,23 @@ color: purple
 ---
 <<card wroclaw_cathedral>>
 The cathedral stands on one of the oldest parts of Wroclaw. #line:info_001
-People know it for its tall towers and quiet island streets. #line:info_002
+People come here to pray, to stay silent and think. #line:info_002
 ===
 
 title: hint_1
 position: 840,420
 group: cathedral
 ---
-A living letter points to a key beside the cathedral door. #line:0166015 
-<<SetActive key_1 true>>
-<<target key_1>>
+How can I help? #shadow:0132277 
+-> How can I free the Dwarf? #shadow:04bc786 
+	Find the key. Then open the cage. #shadow:055d8b9 
+-> Where is the key? #shadow:02302de
+	<<target key_1>>
+	Beside the cathedral door. #line:0166015 
+-> Where is the dwarf? #shadow:05667f5 
+	<<SetMapIcon dwarf_1 on>>
+	Look at the star on the map. #shadow:02da44a 
+-> Nothing #highlight #shadow:0075ea0
 ===
 
 title: key_1
@@ -440,13 +530,13 @@ color: yellow
 ---
 <<if $dwarf_1_done>>
 	<<card dwarf_bishop>>
-	<<card wroklaw_map>>
-	The Bishop Dwarf is safe now. #line:0fcb25a 
-	The map of Wrocław is yours now. #line:054d9e8 
-	Use it to go to the City Center or Centennial Hall. #line:0d493c7 
+	Now go and help my friends!
+	There are 3 dwarves at Centennial Hall
+	And 3 dwarves in the city center
 	<<target driver_tram_cathedral>>
 <<elseif has_item("key_gold")>>
-	Answer this question to open the cage. #line:02c3a88 
+	To unlock the cage solve this puzzle #shadow:solve_to_unlock
+//	Answer this question to open the cage. #line:02c3a88 
 	<<activity activity_1 activity_1_done>>
 <<else>>
 	It is locked. Find a gold key! #shadow:locked
@@ -461,11 +551,15 @@ color:
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_1>>
 	<<inventory key_gold remove>>
-	<<inventory wroclaw_dwarfs add>>
+	<<inventory dwarf_bishop add>>
 	<<SetActive cage_1 false>>
 	<<SetMapIcon dwarf_1 done>>
 	<<set $dwarf_1_done = true>>
 	Thank you! You saved me! #shadow:dwarf_saved
+	<<card wroklaw_map>>
+	I've been drawing a map of Wrocław. #line:0fcb25a 
+	I give it to you! #line:054d9e8 
+	Use it to see where you are! #line:0d493c7
 	<<jump dwarf_1>>
 <<else>>
 	Try again later! #shadow:try_again_later
@@ -512,6 +606,8 @@ group: center
 		<<target npc_3>>
 	<<elseif !$dwarf_4_done>>
 		Panorama Raclawicka is the last place here. #line:panorama_last_place_here
+		<<card tram>>
+		You can use a tram if you dont' want to walk. #line:use_tram
 		<<target npc_4>>
 	<<else>>
 		The Center area is done. #line:center_area_done
@@ -565,9 +661,9 @@ color: yellow
 ---
 <<if $dwarf_2_done>>
 	<<card dwarf_origin>>
-	The Origin Dwarf is safe now. #line:025f12a 
-	It wiggles its little boots and gives a happy bow. #line:08150b1 
-	The Councilor Dwarf is near the Old Town Hall. #line:09ff330 
+	I am one of the oldest Dwarf, born in 2005 #line:025f12a 
+	There were over 800 dwarves! #line:08150b1 
+	Will you find all of us? #line:09ff330 
 	<<target npc_2>>
 <<elseif has_item("key_gold")>>
 	To unlock the cage solve this puzzle #shadow:solve_to_unlock
@@ -585,7 +681,7 @@ color:
 <<if GetActivityResult("") > 0>>
 	<<task_end dwarf_2>>
 	<<inventory key_gold remove>>
-	<<inventory wroclaw_dwarfs add>>
+	<<inventory dwarf_origin add>>
 	<<SetActive cage_2 false>>
 	<<SetMapIcon dwarf_2 done>>
 	<<set $dwarf_2_done = true>>
@@ -618,8 +714,13 @@ position: 600,1100
 group: center
 ---
 <<if $dwarf_3_done>>
-	<<if !$dwarf_4_done>>
+	<<if !$dwarf_2_done>>
+		The Origin Dwarf is at the market.
+		<<target npc_2>>
+	<<elseif !$dwarf_4_done>>
 		Panorama Raclawicka is the last place here. #shadow:panorama_last_place_here
+		<<card tram>>
+		You can use a tram if you dont' want to walk. #shadow:use_tram
 		<<target npc_4>>
 	<<else>>
 		The Center area is done. #shadow:center_area_done
@@ -628,10 +729,10 @@ group: center
 <<elseif GetCurrentTask() == "dwarf_3">>
 	<<jump hint_3>>
 <<else>>
-This is the Old Town Hall. #line:0de0a2f 
-	This dwarf loves plans, papers, and important meetings. #line:0597bfb 
+	This is the Old Town Hall. #line:0de0a2f 
 	City leaders work and meet here. #line:04f7a17 
-	Find the Town Hall key. #task:dwarf_3 #line:02ba9a9 
+	The local dwarf loves plans, papers, and important meetings. #line:0597bfb 
+	Help the Origin Dwarf! #task:dwarf_3 #line:02ba9a9 
 	Talk to me if you need help. #shadow:talk_4_help
 	<<task_start dwarf_3>>
 	<<SetActive key_3 true>>
