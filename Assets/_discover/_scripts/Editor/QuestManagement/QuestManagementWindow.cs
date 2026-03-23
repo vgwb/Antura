@@ -64,6 +64,15 @@ namespace Antura.Discover.EditorTools
             public bool Passed => Errors.Count == 0;
         }
 
+        private class QuestActivityConfigInfo
+        {
+            public string Code;
+            public string SettingsId;
+            public ActivitySettingsAbstract Settings;
+            public UnityEngine.Object Context;
+            public int Index;
+        }
+
         [MenuItem("Antura/Quest/Quest Management", priority = 21)]
         public static void ShowWindow()
         {
@@ -78,6 +87,11 @@ namespace Antura.Discover.EditorTools
             RefreshData();
             if (_searchField == null)
                 _searchField = new SearchField();
+        }
+
+        private void OnDisable()
+        {
+            EditorApplication.delayCall -= RunPendingSelectedTestsStatic;
         }
 
         private void RefreshData()
@@ -136,7 +150,14 @@ namespace Antura.Discover.EditorTools
                     var labels = _quests.Select(q => GetQuestLabel(q)).ToArray();
                     int newIdx = EditorGUILayout.Popup(_selectedQuestIndex, labels, EditorStyles.toolbarPopup, GUILayout.Width(250));
                     if (newIdx != _selectedQuestIndex)
-                    { _selectedQuestIndex = newIdx; Repaint(); }
+                    {
+                        _selectedQuestIndex = newIdx;
+                        _lastSceneTestReport = null;
+                        var selectedQuest = GetSelectedQuest();
+                        if (selectedQuest != null)
+                            EnsureSelectedQuestSceneOpen(selectedQuest, rerunTestsAfterOpen: false);
+                        Repaint();
+                    }
                 }
 
                 GUILayout.Space(8);
@@ -465,8 +486,8 @@ namespace Antura.Discover.EditorTools
                         {
                             GUILayout.Space(6);
                             EditorGUILayout.LabelField("ACTIVITIES", EditorStyles.boldLabel);
-                            EditorGUILayout.LabelField("Missing Activities (ActivityConfigs by Settings.Id):", EditorStyles.miniBoldLabel);
-                            DrawActivityList(missingActivities);
+                            EditorGUILayout.LabelField("Missing Activities (ActivityConfigs.Code):", EditorStyles.miniBoldLabel);
+                            DrawActivityList(q, missingActivities);
                         }
                         // ACTIONS
                         if (missingActions.Count > 0)
@@ -496,7 +517,7 @@ namespace Antura.Discover.EditorTools
                             GUILayout.Space(6);
                             EditorGUILayout.LabelField("ACTIVITIES", EditorStyles.boldLabel);
                             EditorGUILayout.LabelField("Activities configured but NOT used:", EditorStyles.miniBoldLabel);
-                            DrawActivityList(unusedActivities);
+                            DrawActivityList(q, unusedActivities);
                         }
                         // ACTIONS
                         if (unusedActions.Count > 0)
@@ -527,16 +548,7 @@ namespace Antura.Discover.EditorTools
                 return;
             }
 
-            string path = null;
-            try
-            { path = AssetDatabase.GetAssetPath(go); }
-            catch { path = null; }
-            if (string.IsNullOrEmpty(path))
-            {
-                try
-                { path = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(go); }
-                catch { path = null; }
-            }
+            var path = GetQuestPrefabAssetPath(q);
 
             if (!string.IsNullOrEmpty(path) && path.EndsWith(".prefab", StringComparison.OrdinalIgnoreCase))
             {
@@ -549,6 +561,26 @@ namespace Antura.Discover.EditorTools
                 Selection.activeObject = go;
                 EditorGUIUtility.PingObject(go);
             }
+        }
+
+        private static string GetQuestPrefabAssetPath(QuestData q)
+        {
+            var go = q != null ? q.GetQuestPrefabEditorAsset() : null;
+            if (go == null)
+                return null;
+
+            string path = null;
+            try
+            { path = AssetDatabase.GetAssetPath(go); }
+            catch { path = null; }
+            if (string.IsNullOrEmpty(path))
+            {
+                try
+                { path = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(go); }
+                catch { path = null; }
+            }
+
+            return path;
         }
 
         private static string GetQuestLabel(QuestData q)
@@ -611,8 +643,8 @@ namespace Antura.Discover.EditorTools
             }
         }
 
-        // Render a clickable grid of activity settings IDs; clicking selects the ActivitySettings asset in the Project
-        private void DrawActivityList(List<string> items)
+        // Render a clickable grid of quest activity codes; clicking selects the linked ActivitySettings asset when available.
+        private void DrawActivityList(QuestData quest, List<string> items)
         {
             using (new EditorGUILayout.VerticalScope("box"))
             {
@@ -628,11 +660,14 @@ namespace Antura.Discover.EditorTools
                             var id = items[idx++];
                             if (GUILayout.Button(id, GUILayout.MinWidth(120)))
                             {
-                                var settings = FindActivitySettingsById(id);
-                                if (settings != null)
+                                var config = FindQuestActivityConfigByCode(quest, id);
+                                var target = config != null
+                                    ? (config.Settings != null ? config.Settings : config.Context)
+                                    : null;
+                                if (target != null)
                                 {
-                                    Selection.activeObject = settings;
-                                    EditorGUIUtility.PingObject(settings);
+                                    Selection.activeObject = target;
+                                    EditorGUIUtility.PingObject(target);
                                 }
                             }
                         }
@@ -641,27 +676,12 @@ namespace Antura.Discover.EditorTools
             }
         }
 
-        private static ActivitySettingsAbstract FindActivitySettingsById(string id)
+        private static QuestActivityConfigInfo FindQuestActivityConfigByCode(QuestData q, string code)
         {
-            if (string.IsNullOrEmpty(id))
+            if (q == null || string.IsNullOrEmpty(code))
                 return null;
-            try
-            {
-                var guids = AssetDatabase.FindAssets("t:" + nameof(ActivitySettingsAbstract));
-                foreach (var g in guids)
-                {
-                    var path = AssetDatabase.GUIDToAssetPath(g);
-                    var obj = AssetDatabase.LoadAssetAtPath<ActivitySettingsAbstract>(path);
-                    if (obj != null)
-                    {
-                        var oid = obj.Id;
-                        if (!string.IsNullOrEmpty(oid) && string.Equals(oid, id, StringComparison.OrdinalIgnoreCase))
-                            return obj;
-                    }
-                }
-            }
-            catch { }
-            return null;
+            return GetQuestActivityConfigs(q)
+                .FirstOrDefault(info => string.Equals(info.Code, code, StringComparison.OrdinalIgnoreCase));
         }
 
         private void AnalyzeSelected()
@@ -680,6 +700,9 @@ namespace Antura.Discover.EditorTools
                 Debug.LogWarning("[QuestManagement][Tests] No quest selected.");
                 return;
             }
+
+            if (!EnsureSelectedQuestSceneOpen(quest, rerunTestsAfterOpen: true))
+                return;
 
             _lastSceneTestReport = RunSceneTests(quest);
             Repaint();
@@ -703,6 +726,87 @@ namespace Antura.Discover.EditorTools
             ShowNotification(new GUIContent(notificationText));
         }
 
+        private bool EnsureSelectedQuestSceneOpen(QuestData quest, bool rerunTestsAfterOpen)
+        {
+            var scenePath = GetQuestSceneAssetPath(quest);
+            if (string.IsNullOrEmpty(scenePath))
+                return true;
+
+            var activeScene = EditorSceneManager.GetActiveScene();
+            if (activeScene.IsValid() && string.Equals(activeScene.path, scenePath, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+                return false;
+
+            EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+            _lastSceneTestReport = null;
+            Repaint();
+            ShowNotification(new GUIContent(rerunTestsAfterOpen
+                ? $"Opened scene for {quest.Id ?? quest.name}. Running tests..."
+                : $"Opened scene for {quest.Id ?? quest.name}."));
+
+            if (rerunTestsAfterOpen)
+            {
+                EditorApplication.delayCall -= RunPendingSelectedTestsStatic;
+                EditorApplication.delayCall += RunPendingSelectedTestsStatic;
+                return false;
+            }
+
+            return true;
+        }
+
+        private static void RunPendingSelectedTestsStatic()
+        {
+            EditorApplication.delayCall -= RunPendingSelectedTestsStatic;
+
+            if (!HasOpenInstances<QuestManagementWindow>())
+                return;
+
+            var window = GetWindow<QuestManagementWindow>();
+            if (window == null)
+                return;
+
+            var currentQuest = window.GetSelectedQuest();
+            if (currentQuest != null)
+                window.RunSelectedTests();
+        }
+
+        private static string GetQuestSceneAssetPath(QuestData q)
+        {
+            if (q == null || string.IsNullOrWhiteSpace(q.scene))
+                return null;
+
+            var sceneRef = q.scene.Trim();
+            if (sceneRef.EndsWith(".unity", StringComparison.OrdinalIgnoreCase))
+            {
+                var direct = sceneRef.Replace('\\', '/');
+                if (direct.StartsWith("Assets/", StringComparison.OrdinalIgnoreCase)
+                    && AssetDatabase.LoadAssetAtPath<SceneAsset>(direct) != null)
+                {
+                    return direct;
+                }
+            }
+
+            var guids = AssetDatabase.FindAssets("t:Scene");
+            foreach (var guid in guids)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                if (string.IsNullOrEmpty(path))
+                    continue;
+
+                var sceneName = Path.GetFileNameWithoutExtension(path);
+                if (string.Equals(sceneName, sceneRef, StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(path, sceneRef, StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(path, sceneRef.Replace('\\', '/'), StringComparison.OrdinalIgnoreCase))
+                {
+                    return path;
+                }
+            }
+
+            return null;
+        }
+
         private SceneTestReport RunSceneTests(QuestData quest)
         {
             var activeScene = EditorSceneManager.GetActiveScene();
@@ -713,7 +817,81 @@ namespace Antura.Discover.EditorTools
             };
 
             ValidateSceneInteractableDialogueReferences(quest, activeScene, report);
+            ValidateQuestManagerActivityCodes(quest, report);
             return report;
+        }
+
+        private void ValidateQuestManagerActivityCodes(QuestData quest, SceneTestReport report)
+        {
+            const string testName = "QuestManager ActivityConfigs";
+            report.ChecksRun++;
+
+            if (quest == null)
+            {
+                AddSceneTestError(report, testName, "No quest selected.", null);
+                return;
+            }
+
+            var root = quest.GetQuestPrefabEditorAsset();
+            if (root == null)
+            {
+                AddSceneTestError(report, testName, $"Quest '{quest.Id ?? quest.name}' has no Quest prefab assigned.", quest);
+                return;
+            }
+
+            var configs = GetQuestActivityConfigs(quest);
+            if (configs.Count == 0)
+            {
+                AddSceneTestWarning(report, testName, $"Quest '{quest.Id ?? quest.name}' has no ActivityConfigs on its QuestManager.", root);
+                return;
+            }
+
+            var analysis = AnalyzeQuest(quest);
+            var usedCodes = new HashSet<string>(analysis.ActivityMentions, StringComparer.OrdinalIgnoreCase);
+            var configuredCodes = new HashSet<string>(configs
+                .Select(info => info.Code)
+                .Where(code => !string.IsNullOrWhiteSpace(code)), StringComparer.OrdinalIgnoreCase);
+
+            foreach (var config in configs)
+            {
+                UnityEngine.Object context = config.Context != null
+                    ? config.Context
+                    : (config.Settings != null ? config.Settings : root);
+
+                if (string.IsNullOrWhiteSpace(config.Code))
+                {
+                    AddSceneTestError(report, testName, $"ActivityConfig at index {config.Index} has an empty Code. Quest checks and Yarn activity commands now use ActivityConfig.Code.", context);
+                }
+
+                if (config.Settings == null)
+                {
+                    AddSceneTestError(report, testName, $"ActivityConfig '{config.Code}' at index {config.Index} has no ActivitySettings assigned.", context);
+                }
+
+                if (!string.IsNullOrWhiteSpace(config.SettingsId)
+                    && !string.Equals(config.Code, config.SettingsId, StringComparison.OrdinalIgnoreCase)
+                    && usedCodes.Contains(config.SettingsId))
+                {
+                    AddSceneTestError(report, testName, $"Yarn still references legacy activity id '{config.SettingsId}', but QuestManager.ActivityConfigs uses Code '{config.Code}'. Update the Yarn <<activity ...>> command to use ActivityConfig.Code.", context);
+                }
+            }
+
+            foreach (var duplicateGroup in configs
+                .Where(info => !string.IsNullOrWhiteSpace(info.Code))
+                .GroupBy(info => info.Code, StringComparer.OrdinalIgnoreCase)
+                .Where(group => group.Count() > 1))
+            {
+                var first = duplicateGroup.First();
+                UnityEngine.Object context = first.Context != null
+                    ? first.Context
+                    : (first.Settings != null ? first.Settings : root);
+                AddSceneTestError(report, testName, $"ActivityConfig code '{duplicateGroup.Key}' is duplicated {duplicateGroup.Count()} time(s) in QuestManager.ActivityConfigs.", context);
+            }
+
+            foreach (var usedCode in usedCodes.Where(code => !configuredCodes.Contains(code)).OrderBy(code => code, StringComparer.OrdinalIgnoreCase))
+            {
+                AddSceneTestError(report, testName, $"Yarn activity '{usedCode}' is not configured in QuestManager.ActivityConfigs by Code.", root);
+            }
         }
 
         private void ValidateSceneInteractableDialogueReferences(QuestData quest, Scene activeScene, SceneTestReport report)
@@ -964,12 +1142,13 @@ namespace Antura.Discover.EditorTools
             catch { return string.Empty; }
         }
 
-        // Parse <<card id>>, <<inventory id ...>>, <<asset id ...>>, <<activity code ...>>, <<action code ...>>, and <<task_start|task_end id ...>> tokens
+        // Parse <<card id>>, <<inventory id ...>>, <<asset id ...>>, <<activity code ...>>, <<action code ...>>, <<area code ...>>, and <<task_start|task_end id ...>> tokens
         private static readonly Regex CardRegex = new Regex(@"<<\s*card\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex InventoryRegex = new Regex(@"<<\s*inventory\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex AssetRegex = new Regex(@"<<\s*asset\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex ActivityRegex = new Regex(@"<<\s*activity\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex ActionRegex = new Regex(@"<<\s*action\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex AreaRegex = new Regex(@"<<\s*area\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex TaskStartRegex = new Regex(@"<<\s*task_start\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex TaskEndRegex = new Regex(@"<<\s*task_end\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
@@ -1048,6 +1227,15 @@ namespace Antura.Discover.EditorTools
                         into.ActionMentions.Add(id);
                 }
             }
+            foreach (Match m in AreaRegex.Matches(text))
+            {
+                if (m.Groups.Count > 1)
+                {
+                    var id = m.Groups[1].Value.Trim();
+                    if (!string.IsNullOrEmpty(id))
+                        into.ActionMentions.Add(id);
+                }
+            }
         }
 
         // Inspect the quest prefab to retrieve QuestManager.QuestTasks[*].Code values without hard depending on QuestManager type
@@ -1102,9 +1290,9 @@ namespace Antura.Discover.EditorTools
             return result;
         }
 
-        private static HashSet<string> GetQuestActivityCodes(QuestData q)
+        private static List<QuestActivityConfigInfo> GetQuestActivityConfigs(QuestData q)
         {
-            var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var result = new List<QuestActivityConfigInfo>();
             var root = q != null ? q.GetQuestPrefabEditorAsset() : null;
             if (root == null)
                 return result;
@@ -1131,17 +1319,21 @@ namespace Antura.Discover.EditorTools
                         var elem = activityConfigs.GetArrayElementAtIndex(i);
                         if (elem == null)
                             continue;
+                        var codeProp = elem.FindPropertyRelative("Code");
                         var settingsProp = elem.FindPropertyRelative("ActivitySettings");
-                        if (settingsProp != null && settingsProp.objectReferenceValue != null)
+                        var settings = settingsProp != null ? settingsProp.objectReferenceValue as ActivitySettingsAbstract : null;
+                        var code = codeProp != null ? codeProp.stringValue : string.Empty;
+                        result.Add(new QuestActivityConfigInfo
                         {
-                            var settings = settingsProp.objectReferenceValue as ActivitySettingsAbstract;
-                            if (settings != null && !string.IsNullOrEmpty(settings.Id))
-                                result.Add(settings.Id);
-                        }
+                            Code = code != null ? code.Trim() : string.Empty,
+                            SettingsId = settings != null ? settings.Id : string.Empty,
+                            Settings = settings,
+                            Context = settings != null ? settings : comp,
+                            Index = i,
+                        });
                     }
 
-                    if (result.Count > 0)
-                        break;
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -1149,6 +1341,13 @@ namespace Antura.Discover.EditorTools
                 Debug.LogWarning($"[QuestManagement] Could not read ActivityConfigs from prefab for {q.Id ?? q.name}: {ex.Message}");
             }
             return result;
+        }
+
+        private static HashSet<string> GetQuestActivityCodes(QuestData q)
+        {
+            return new HashSet<string>(GetQuestActivityConfigs(q)
+                .Select(info => info.Code)
+                .Where(code => !string.IsNullOrWhiteSpace(code)), StringComparer.OrdinalIgnoreCase);
         }
 
         private static HashSet<string> GetQuestActionCodes(QuestData q)
@@ -1414,10 +1613,9 @@ namespace Antura.Discover.EditorTools
 
             // ACTIVITIES (used vs missing vs todo)
             var questActivityCodes = new HashSet<string>(GetQuestActivityCodes(quest), StringComparer.OrdinalIgnoreCase);
-            var globalActivityCodes = new HashSet<string>(_allActivitySettings.Select(a => a != null ? a.name : null).Where(n => !string.IsNullOrEmpty(n)), StringComparer.OrdinalIgnoreCase);
             var usedActivityCodes = new HashSet<string>(analysis.ActivityMentions, StringComparer.OrdinalIgnoreCase);
             var activitiesUsedAndPresent = usedActivityCodes.Where(c => questActivityCodes.Contains(c)).OrderBy(c => c, StringComparer.OrdinalIgnoreCase).ToList();
-            var activitiesUsedButMissing = usedActivityCodes.Where(c => !globalActivityCodes.Contains(c)).OrderBy(c => c, StringComparer.OrdinalIgnoreCase).ToList(); // BROKEN if not even global
+            var activitiesUsedButMissing = usedActivityCodes.Where(c => !questActivityCodes.Contains(c)).OrderBy(c => c, StringComparer.OrdinalIgnoreCase).ToList(); // BROKEN
             var activitiesPresentButUnused = questActivityCodes.Where(c => !usedActivityCodes.Contains(c)).OrderBy(c => c, StringComparer.OrdinalIgnoreCase).ToList(); // TODO
             sb.AppendLine("// ACTIVITIES");
             foreach (var a in activitiesUsedAndPresent)
