@@ -345,7 +345,7 @@ namespace Antura.Discover.Editor
                         if (mTag.Success && mTag.Groups.Count > 1)
                         { lineKey = "line:" + mTag.Groups[1].Value; }
 
-                        bool isChoice = Regex.IsMatch(t, @"^[-\\s]?>");
+                        bool isChoice = Regex.IsMatch(lineRaw, @"^\s*->");
                         bool isComment = t.StartsWith("//");
                         bool isCommandOnly = t.StartsWith("&lt;&lt;") || Regex.IsMatch(t, "&lt;&lt;[^&]*?&gt;&gt;");
                         bool hasLineTag = Regex.IsMatch(lineRaw, @"#(?:line|shadow):[A-Za-z0-9_]+");
@@ -403,6 +403,10 @@ namespace Antura.Discover.Editor
                             // Missing translation fallback depends on locale, but if the original has no visible text (only a tag) leave it blank.
                             string originalPlain = lineRaw;
                             originalPlain = Regex.Replace(originalPlain, @"#(?:line|shadow):[^\n]*", "").TrimEnd();
+                            if (isChoice)
+                            {
+                                originalPlain = Regex.Replace(originalPlain, @"^\s*->\s*", string.Empty);
+                            }
                             string langCode = locale != null ? PublishUtils.GetLanguageCode(locale) : string.Empty;
 
                             if (string.IsNullOrWhiteSpace(originalPlain))
