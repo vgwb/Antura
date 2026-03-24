@@ -153,14 +153,14 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 - **Dwarf 10 - The Keymaster**
   - **Location:** In front of the Sky Tower elevator.
   - **Condition:** The final cage only becomes active after the previous Sky Tower dwarves are freed
-  - **Challenge:** Find the final key near the tram
+  - **Challenge:** Find 10 keys around
   - **Reward:** The Keymaster Dwarf unlocks the elevator.
 
 #### Final Assessment
 
 - Ride the elevator to the top of the Sky Tower.
-- Antura has already moved on, but the rescue is acknowledged and the player gets a final city view.
-- final assessment with 3 short recap questions:
+- final city view.
+- final assessment with 3 short questions:
 
 1. **What is a famous symbol of Wrocław?**
 - **A dwarf**
