@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **384**
+Total found: **394**
 
 ## International
 
@@ -242,6 +242,7 @@ A big boat that carries boxes, food, and other things from place to place.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 
 ---
@@ -254,6 +255,7 @@ A boat that carries people from one place to another across the water.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 
 ---
@@ -266,6 +268,7 @@ A house that floats on water like a boat. People can live in boat houses!
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 
 ---
@@ -317,7 +320,7 @@ A road that goes over water so cars can drive across rivers and lakes.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -331,7 +334,7 @@ A special bridge built strong enough for heavy trains to cross over water.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -556,7 +559,8 @@ A warm jacket for cold weather.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
-- Image credit: CC_BY_SA | Calistemon | [source](https://commons.wikimedia.org/wiki/File:White_American_Staffordshire_Terrier_in_Vegemite_coat,_August_2022.jpg)
+- Topics: [mountain tools](../topics/index.md#mountain_tools)
+- Image credit: CC0
 - Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -1017,7 +1021,7 @@ Small bridges for people walking. They keep you safe from traffic.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -1180,7 +1184,7 @@ A warm cap for your head.
 - Subjects: Health, Safety, Weather
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
-- Image credit: CC0 | Michael Evans | [source](https://commons.wikimedia.org/wiki/File:Ronald_Reagan_with_cowboy_hat_12-0071M_edit.jpg)
+- Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Beanie_hat_by_Polo_Ralph_Lauren.jpg)
 - Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -1235,7 +1239,7 @@ A region in France where the capital city Paris is located. Many people live her
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Notre Dame](../topics/index.md#notredame)
+- Topics: [Notre Dame](../topics/index.md#notredame), [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
 
@@ -1750,7 +1754,7 @@ The capital city of France. Paris has a famous tall tower called the Eiffel Towe
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Louvre](../topics/index.md#louvre)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Seine](../topics/index.md#seine), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
 
@@ -1867,9 +1871,21 @@ A boat that travels on rivers. Rivers are like roads made of water!
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### River Sign {#river_sign}
+![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ loading=lazy }
+
+A blue rectangular sign with white wavy lines that acts as the universal European symbol to show where a river flows.
+
+- Type: Object
+- Country: International
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC0
 
 ---
 
@@ -2158,7 +2174,7 @@ A country in Europe. Capital is Bern. Switzerland is famous for mountains and ch
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg)
 
 ---
@@ -2936,7 +2952,7 @@ A country in Europe. Capital is Paris.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: France
-- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Another one of my pictures:
 
 
@@ -3084,6 +3100,7 @@ A balloon that flies using hot air. The first one flew in France.
 - Type: Object
 - Subjects: Transportation
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
 
@@ -3300,6 +3317,7 @@ A picture that shows how the Seine River flows through the city of Paris.
 - Type: Object
 - Subjects: Science
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -3313,6 +3331,7 @@ A picture that shows the Seine River and where it flows through the land.
 - Type: Object
 - Subjects: Geography, Environment
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -3420,6 +3439,7 @@ A beautiful bridge in Paris with fancy decorations and golden statues on it.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -3521,6 +3541,7 @@ A 777-kilometre-long river in northern France
 - Type: Place
 - Subjects: Geography
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -3536,6 +3557,7 @@ A special boat that sails on the Seine River in Paris. You can see the Eiffel To
 - Subjects: Transportation, Geography, Culture
 - Year: 1900
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
@@ -3712,8 +3734,8 @@ A safe space made for animals to live at the zoo.
 
 ---
 
-### Animal Lover Dwarf {#animal_lover_dwarf}
-![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ loading=lazy }
+### Animal Lover Dwarf {#dwarf_animal_lover}
+![preview dwarf_animal_lover](../../../assets/img/content/cards/dwarf_animal_lover.jpg){ loading=lazy }
 
 A dwarf statue that loves the zoo and animals.
 
@@ -3722,6 +3744,20 @@ A dwarf statue that loves the zoo and animals.
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Architect Dwarf {#dwarf_architect}
+![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ loading=lazy }
+
+A thoughtful dwarf who loves shapes, buildings, and clever design.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -3773,22 +3809,9 @@ A long, flat boat that carries goods on rivers.
 - Type: Object
 - Subjects: Transportation, Geography
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Dietmar Rabich
 - Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Bishop Dwarf {#bishop_dwarf}
-![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
-
-A dwarf statue who asks a church question.
-
-- Type: Object
-- Subjects: Culture, History
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3826,6 +3849,7 @@ The Centennial Hall is a huge building that looks like a big tent with a roof. I
 - Type: Place
 - Subjects: Culture, Recreation
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | Taxiarchos228, FAL, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Jahrhunderthalle1.jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -3843,6 +3867,34 @@ A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It�
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | Ethan Doyle White, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:The_Chopin_Monument_in_Warsaw.jpg)
 - Quests: [Discover Warszawa (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Conductor Dwarf {#dwarf_conductor}
+![preview dwarf_conductor](../../../assets/img/content/cards/dwarf_conductor.jpg){ loading=lazy }
+
+A lively dwarf who loves water, lights, and music.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Councilor Dwarf {#dwarf_councilor}
+![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ loading=lazy }
+
+A formal dwarf linked to the Old Town Hall and city work.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3872,17 +3924,16 @@ A small fishing boat used at sea.
 
 ---
 
-### Dwarf Expert {#dwarf_expert}
-![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
+### Dalí - Profile of Time {#dali_profile_of_time}
+![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ loading=lazy }
 
-A friendly guide who knows all about the dwarfs.
+This famous "melting clock" is a statue that shows time can be bendy and wiggly, just like in a dream!
 
-- Type: Person
-- Subjects: Education, Culture
+- Type: Object
+- Subjects: Art
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: PublicDomain
 
 ---
 
@@ -3910,6 +3961,20 @@ Living things and their home in nature, working together.
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
 - Quests: [The Amber Necklace of Gdańsk (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Expert nain {#dwarf_expert}
+![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
+
+A friendly guide who knows all about the dwarfs.
+
+- Type: Object
+- Subjects: Education, Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4092,13 +4157,14 @@ A small boat you paddle.
 - Type: Object
 - Subjects: Recreation, Sport
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | 0x010C
 - Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
-### Keymaster Dwarf {#keymaster_dwarf}
-![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
+### Keymaster Dwarf {#dwarf_keymaster}
+![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ loading=lazy }
 
 A dwarf statue guarding the elevator with a big key.
 
@@ -4140,19 +4206,6 @@ A clear piece of glass or plastic that bends light.
 
 ---
 
-### Leonardo da Vinci Primary School {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
-
-- Type: None
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Main Town Hall {#main_town_hall}
 ![preview main_town_hall](../../../assets/img/content/cards/main_town_hall.jpg){ loading=lazy }
 
@@ -4166,14 +4219,15 @@ A tall town hall with a tower and museum.
 
 ---
 
-### Map of Wroklaw {#wroklaw_map}
-![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
+### Map of Wroklaw {#wroclaw_map}
+![preview wroclaw_map](../../../assets/img/content/cards/wroclaw_map.jpg){ loading=lazy }
 
 A simple map of Wrocław showing the Odra River with its islands and many bridges
 
-- Type: None
+- Type: Place
 - Subjects: Geography
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md), [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
 
@@ -4343,7 +4397,7 @@ A big river in western Poland. It helps ships travel and trade.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
 
@@ -4357,6 +4411,7 @@ A simple map that shows the Odra River in Poland and the way it flows to the Bal
 - Type: None
 - Subjects: Geography
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
 
@@ -4370,6 +4425,7 @@ A beautiful Gothic building in the main square. It has a famous clock.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/7/70/Wroclaw-Rathaus.jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4388,6 +4444,34 @@ A famous Polish writer who lives in Wrocław.
 
 ---
 
+### Origine Nain {#dwarf_origin}
+![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
+
+A classic Wroclaw dwarf statue with a pointed hat and strong boots.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Painter Dwarf {#dwarf_painter}
+![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ loading=lazy }
+
+An artistic dwarf who loves color, paint, and big pictures.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Panorama Racławicka {#panorama_racawicka}
 ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ loading=lazy }
 
@@ -4396,6 +4480,7 @@ A giant painting all around you about a historic battle.
 - Type: Place
 - Subjects: History, Art, Culture
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Barbara Maliszewska
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4453,7 +4538,6 @@ Small dwarf statues hide around Wrocław. Finding them is a fun city game.
 - Subjects: Community, Culture
 - Year: 1700
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC0
 - Quests: [Discover Warszawa (pl_01)](../quests/quest/pl_01.md), [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4605,7 +4689,7 @@ A modern plaza where people meet near the tower.
 - Type: Place
 - Subjects: Geography, Community, Recreation
 - Country: Poland
-- Image credit: CC_BY_SA | JamesYoung8167 | [source](https://commons.wikimedia.org/wiki/File:Xiamen_Shimao_Straits_Tower_2016-02-09.jpg)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wn%C4%99trze_skytower_dali.jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -4683,9 +4767,10 @@ A city in Poland where Nicolaus Copernicus was born.
 
 The place where city leaders work and meet.
 
-- Type: Concept
+- Type: Place
 - Subjects: Civics, Community, History
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Town_hall_of_Aosta_(3).jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4702,6 +4787,20 @@ A bridge with tracks for trains.
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
 - Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Traveler Dwarf {#dwarf_traveler}
+![preview dwarf_traveler](../../../assets/img/content/cards/dwarf_traveler.jpg){ loading=lazy }
+
+An adventurous dwarf who loves busy places and new paths.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4768,7 +4867,7 @@ The longest river in Poland is called Wisła or Vistula. It flows through Krakó
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
 
@@ -4803,14 +4902,29 @@ Moving water on the sea.
 
 ---
 
-### Wroclaw: Cathedral {#wroclaw_cathedral}
+### Writer Dwarf {#dwarf_writer}
+![preview dwarf_writer](../../../assets/img/content/cards/dwarf_writer.jpg){ loading=lazy }
+
+A quiet dwarf who loves stories, books, and reading.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Wroclaw : Cathédrale {#wroclaw_cathedral}
 ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
 
-A big, important church where people pray. You can climb the tower for a view.
+Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
 
 - Type: Place
 - Subjects: History, Culture
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4824,6 +4938,7 @@ One of the tallest buildings in Poland. It has shops and a viewpoint.
 - Type: Place
 - Subjects: Geography, Community, Culture
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | [source](https://it.wikipedia.org/wiki/File:Wrocław,_2006_-_2012_-_budowa_Sky_Tower_-_fotopolska.eu_(311325).jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4837,7 +4952,7 @@ A city in Poland with rivers, bridges, and history.
 - Type: Place
 - Subjects: Geography, History, Culture
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -4851,7 +4966,7 @@ Many bridges cross the Odra River in Wrocław.
 - Type: Concept
 - Subjects: Geography, Transportation, Community
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
 - Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
 
@@ -4865,7 +4980,6 @@ A small city statue; dwarfs are Wrocław’s symbol.
 - Type: Object
 - Subjects: Culture, Community, History
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4879,7 +4993,7 @@ Tiny statues across the city that love to play tricks.
 - Type: Concept
 - Subjects: Culture, Community, History
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Matti Blume | [source](https://commons.wikimedia.org/wiki/File:Dwarf,_Wroclaw_(P1180336).jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4906,6 +5020,7 @@ The main square of the Old Town, full of life.
 - Type: Place
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4919,6 +5034,7 @@ Water that dances with music and colorful lights.
 - Type: Place
 - Subjects: Culture, Technology, Recreation
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Piotr Walczak & Konradr | [source](https://commons.wikimedia.org/wiki/File:Wrocławska_fontanna_Piotr_Walczak2.jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
@@ -4932,9 +5048,20 @@ A big zoo in Wrocław with many animals to learn about.
 - Type: Place
 - Subjects: Geography, Education, Animal
 - Country: Poland
-- Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Wroklaw islands map {#wroklaw_islands_map}
+![preview wroklaw_islands_map](../../../assets/img/content/cards/wroklaw_islands_map.jpg){ loading=lazy }
+
+A colorful map of Wrocław's central islands along the Odra River, showing the historical buildings, bridges, and green spaces of the Old Town district.
+
+- Type: Place
+- Country: Poland
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Islands.png)
 
 ---
 
@@ -4988,6 +5115,33 @@ A person who cares for animals at the zoo.
 - Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY_SA | 좀비 브렌다 | [source](https://commons.wikimedia.org/wiki/File:Hadada_Ibis_perched_on_Dallas_Zoo_keeper.jpg)
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Évêque Nain {#dwarf_bishop}
+![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
+
+A dwarf statue who asks a church question.
+
+- Type: Object
+- Subjects: Culture, History
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -5091,7 +5245,7 @@ A country in Europe. Capital is Rome.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Italy
-- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Agnes Monkelbaan | [source](https://commons.wikimedia.org/wiki/File:Bergwandeltocht_van_Peio_Paese_naar_Lago_Covel_(1,839_m)_in_het_Nationaal_park_Stelvio_(Italy)_23.jpg)
 
 ---

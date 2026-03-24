@@ -692,8 +692,8 @@ hide:
 <span class="yarn-header-dim">spawn_group: guides </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Sai chi è Jules Verne?</span> <span class="yarn-meta">#line:00b1d04 </span>
-<span class="yarn-line">Sì, è uno SCRITTORE!</span> <span class="yarn-meta">#line:07f7b4b </span>
-<span class="yarn-line">No, chi è?</span> <span class="yarn-meta">#line:06fb1cd </span>
+<span class="yarn-choice">-&gt; Sì, è uno SCRITTORE!</span> <span class="yarn-meta">#line:07f7b4b </span>
+<span class="yarn-choice">-&gt; No, chi è?</span> <span class="yarn-meta">#line:06fb1cd </span>
 <span class="yarn-line">Jules Verne era uno scrittore francese. Nacque qui vicino.</span> <span class="yarn-meta">#line:0c790cf </span>
 <span class="yarn-line">Ha scritto LIBRI d'avventura molto famosi.</span> <span class="yarn-meta">#line:0f92a05</span>
 <span class="yarn-line">Molte idee contenute nei suoi LIBRI sono diventate realtà.</span> <span class="yarn-meta">#line:06e1473 </span>

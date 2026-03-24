@@ -281,15 +281,15 @@ hide:
 &lt;&lt;if GetActivityResult("money_grocer_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   Już u mnie kupiłeś!</span> <span class="yarn-meta">#line:already_bought</span>
 <span class="yarn-line">   Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#line:play_again</span>
-<span class="yarn-line">   Tak</span> <span class="yarn-meta">#line:yes</span>
+<span class="yarn-choice">      -&gt; Tak</span> <span class="yarn-meta">#line:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-<span class="yarn-line">   NIE</span> <span class="yarn-meta">#line:no</span>
+<span class="yarn-choice">      -&gt; NIE</span> <span class="yarn-meta">#line:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#line:thanks </span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#line:thanks </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">Dzień dobry!</span> <span class="yarn-meta">#line:hello </span>
+<span class="yarn-choice">-&gt; Dzień dobry!</span> <span class="yarn-meta">#line:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump grocer_bonjour&gt;&gt;</span>
-<span class="yarn-line">Dobranoc!</span> <span class="yarn-meta">#line:0b4db3b </span>
+<span class="yarn-choice">-&gt; Dobranoc!</span> <span class="yarn-meta">#line:0b4db3b </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -325,13 +325,13 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co chcesz kupić?</span> <span class="yarn-meta">#line:what_to_buy </span>
-<span class="yarn-line">Ryba</span> <span class="yarn-meta">#line:0d6dabd </span>
+<span class="yarn-choice">-&gt; Ryba</span> <span class="yarn-meta">#line:0d6dabd </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Mięso</span> <span class="yarn-meta">#line:03eeda4 </span>
+<span class="yarn-choice">-&gt; Mięso</span> <span class="yarn-meta">#line:03eeda4 </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Sukienka</span> <span class="yarn-meta">#line:097fca2 </span>
+<span class="yarn-choice">-&gt; Sukienka</span> <span class="yarn-meta">#line:097fca2 </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Mąka i cukier</span> <span class="yarn-meta">#line:0068f15 </span>
+<span class="yarn-choice">-&gt; Mąka i cukier</span> <span class="yarn-meta">#line:0068f15 </span>
    <span class="yarn-cmd">&lt;&lt;jump grocer_pay_activity&gt;&gt;</span>
 
 </code>
@@ -367,9 +367,9 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Położyłem twoje rzeczy na stole. Dzięki!</span> <span class="yarn-meta">#line:0567082 </span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:goodbye</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
-<span class="yarn-line">Miłego dnia!</span> <span class="yarn-meta">#line:nice_day</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#line:goodbye</span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-choice">-&gt; Miłego dnia!</span> <span class="yarn-meta">#line:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Grocer&gt;&gt;</span>
 
 </code>
@@ -392,15 +392,15 @@ hide:
 &lt;&lt;if GetActivityResult("money_beekeper") &gt; 0&gt;&gt;
 <span class="yarn-line">   Już u mnie kupiłeś!</span> <span class="yarn-meta">#shadow:already_bought</span>
 <span class="yarn-line">   Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">   Tak</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">      -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-<span class="yarn-line">   NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">      -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
+<span class="yarn-choice">-&gt; Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump beekeper_bonjour&gt;&gt;</span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#line:06b0535 </span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#line:06b0535 </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -417,7 +417,7 @@ hide:
 <span class="yarn-header-dim">group: beekeper</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card person_beekeper&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card beekeeper&gt;&gt;</span>
 <span class="yarn-line">Dzień dobry! Jestem pszczelarzem i sprzedaję miód.</span> <span class="yarn-meta">#line:04b4a87</span>
 <span class="yarn-cmd">&lt;&lt;card honey&gt;&gt;</span>
 <span class="yarn-line">Wszystkie moje produkty pochodzą z moich uli!</span> <span class="yarn-meta">#line:0aa9ce7</span>
@@ -437,13 +437,13 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co chcesz kupić?</span> <span class="yarn-meta">#shadow:what_to_buy </span>
-<span class="yarn-line">Miód</span> <span class="yarn-meta">#line:honey</span>
+<span class="yarn-choice">-&gt; Miód</span> <span class="yarn-meta">#line:honey</span>
    <span class="yarn-cmd">&lt;&lt;jump beekeper_pay_activity&gt;&gt;</span>
-<span class="yarn-line">Czekolada</span> <span class="yarn-meta">#line:chocolate</span>
+<span class="yarn-choice">-&gt; Czekolada</span> <span class="yarn-meta">#line:chocolate</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Chleb</span> <span class="yarn-meta">#line:bread</span>
+<span class="yarn-choice">-&gt; Chleb</span> <span class="yarn-meta">#line:bread</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Mleko</span> <span class="yarn-meta">#line:milk</span>
+<span class="yarn-choice">-&gt; Mleko</span> <span class="yarn-meta">#line:milk</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code>
@@ -479,9 +479,9 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Położyłem twoje rzeczy na stole. Dzięki!</span> <span class="yarn-meta">#shadow:0567082 </span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
-<span class="yarn-line">Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-choice">-&gt; Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Beekeper&gt;&gt;</span>
 
 </code>
@@ -504,15 +504,15 @@ hide:
 &lt;&lt;if GetActivityResult("money_cheesemonger_pl_06") &gt; 0&gt;&gt;
 <span class="yarn-line">   Już u mnie kupiłeś!</span> <span class="yarn-meta">#shadow:already_bought</span>
 <span class="yarn-line">   Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">   Tak</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">      -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-<span class="yarn-line">   NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">      -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks </span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
+<span class="yarn-choice">-&gt; Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_bonjour&gt;&gt;</span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -548,13 +548,13 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co chcesz kupić?</span> <span class="yarn-meta">#shadow:what_to_buy </span>
-<span class="yarn-line">Masło</span> <span class="yarn-meta">#line:butter </span>
+<span class="yarn-choice">-&gt; Masło</span> <span class="yarn-meta">#line:butter </span>
    <span class="yarn-cmd">&lt;&lt;jump cheesemonger_pay_activity&gt;&gt;</span>
-<span class="yarn-line">Olej</span> <span class="yarn-meta">#line:057f694 </span>
+<span class="yarn-choice">-&gt; Olej</span> <span class="yarn-meta">#line:057f694 </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Chleb</span> <span class="yarn-meta">#line:087919f </span>
+<span class="yarn-choice">-&gt; Chleb</span> <span class="yarn-meta">#line:087919f </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Pomidory</span> <span class="yarn-meta">#line:067bfab </span>
+<span class="yarn-choice">-&gt; Pomidory</span> <span class="yarn-meta">#line:067bfab </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code>
@@ -590,9 +590,9 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Położyłem twoje rzeczy na stole. Dzięki!</span> <span class="yarn-meta">#shadow:0567082 </span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
-<span class="yarn-line">Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-choice">-&gt; Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Cheesemonger&gt;&gt;</span>
 
 </code>
@@ -615,15 +615,15 @@ hide:
 &lt;&lt;if GetActivityResult("money_eggvendor") &gt; 0&gt;&gt;
 <span class="yarn-line">   Już u mnie kupiłeś!</span> <span class="yarn-meta">#shadow:already_bought</span>
 <span class="yarn-line">   Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">   Tak</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">      -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-<span class="yarn-line">   NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">      -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks </span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
+<span class="yarn-choice">-&gt; Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump eggvendor_bonjour&gt;&gt;</span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -640,7 +640,7 @@ hide:
 <span class="yarn-header-dim">group: eggvendor</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card person_eggvendor&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card egg_vendor&gt;&gt;</span>
 <span class="yarn-line">Cześć! Sprzedaję JAJKA. Jestem sprzedawcą jajek.</span> <span class="yarn-meta">#line:09a9960 </span>
 <span class="yarn-cmd">&lt;&lt;jump eggvendor_question&gt;&gt;</span>
 
@@ -658,11 +658,11 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co chcesz kupić?</span> <span class="yarn-meta">#shadow:what_to_buy</span>
-<span class="yarn-line">Jajka</span> <span class="yarn-meta">#line:eggs</span>
+<span class="yarn-choice">-&gt; Jajka</span> <span class="yarn-meta">#line:eggs</span>
    <span class="yarn-cmd">&lt;&lt;jump eggvendor_pay_activity&gt;&gt;</span>
-<span class="yarn-line">Olej</span> <span class="yarn-meta">#line:06cc62e </span>
+<span class="yarn-choice">-&gt; Olej</span> <span class="yarn-meta">#line:06cc62e </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Chleb</span> <span class="yarn-meta">#line:059920e </span>
+<span class="yarn-choice">-&gt; Chleb</span> <span class="yarn-meta">#line:059920e </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code>
@@ -698,9 +698,9 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Położyłem twoje rzeczy na stole. Dzięki!</span> <span class="yarn-meta">#shadow:0567082 </span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
-<span class="yarn-line">Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-choice">-&gt; Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Eggvendor&gt;&gt;</span>
 
 </code>
@@ -723,15 +723,15 @@ hide:
 &lt;&lt;if GetActivityResult("money_spicevendor") &gt; 0&gt;&gt;
 <span class="yarn-line">   Już u mnie kupiłeś!</span> <span class="yarn-meta">#shadow:already_bought</span>
 <span class="yarn-line">   Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">   Tak</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">      -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
      <span class="yarn-cmd">&lt;&lt;activity hard_money_zloty hard_payment_done&gt;&gt;</span>
-<span class="yarn-line">   NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">      -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks </span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
-<span class="yarn-line">Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
+<span class="yarn-choice">-&gt; Dzień dobry!</span> <span class="yarn-meta">#shadow:hello </span>
    <span class="yarn-cmd">&lt;&lt;jump spicevendor_bonjour&gt;&gt;</span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -766,11 +766,11 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Co chcesz kupić?</span> <span class="yarn-meta">#shadow:what_to_buy</span>
-<span class="yarn-line">Cynamon i imbir</span> <span class="yarn-meta">#line:0fe40e7 </span>
+<span class="yarn-choice">-&gt; Cynamon i imbir</span> <span class="yarn-meta">#line:0fe40e7 </span>
    <span class="yarn-cmd">&lt;&lt;jump spicevendor_pay_activity&gt;&gt;</span>
-<span class="yarn-line">Masło</span> <span class="yarn-meta">#line:0fa399a </span>
+<span class="yarn-choice">-&gt; Masło</span> <span class="yarn-meta">#line:0fa399a </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
-<span class="yarn-line">Miód</span> <span class="yarn-meta">#line:0cec0d0 </span>
+<span class="yarn-choice">-&gt; Miód</span> <span class="yarn-meta">#line:0cec0d0 </span>
    <span class="yarn-cmd">&lt;&lt;jump talk_dont_sell&gt;&gt;</span>
 
 </code>
@@ -806,9 +806,9 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Położyłem twoje rzeczy na stole. Dzięki!</span> <span class="yarn-meta">#shadow:0567082 </span>
-<span class="yarn-line">Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
-<span class="yarn-line">Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
-<span class="yarn-line">Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
+<span class="yarn-choice">-&gt; Do widzenia!</span> <span class="yarn-meta">#shadow:goodbye</span>
+<span class="yarn-choice">-&gt; Dziękuję!</span> <span class="yarn-meta">#shadow:thanks</span>
+<span class="yarn-choice">-&gt; Miłego dnia!</span> <span class="yarn-meta">#shadow:nice_day</span>
 <span class="yarn-cmd">&lt;&lt;SetActive Collect_Spicevendor&gt;&gt;</span>
 
 </code>
@@ -894,7 +894,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags: item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card food_honey&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card honey&gt;&gt;</span>
 <span class="yarn-line">Miód</span> <span class="yarn-meta">#line:0817d3c </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
@@ -928,7 +928,7 @@ hide:
 <pre class="yarn-code" style="--node-color:yellow"><code>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card food_butter&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card butter&gt;&gt;</span>
 <span class="yarn-line">Masło</span> <span class="yarn-meta">#line:0a8a8cc </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
@@ -945,7 +945,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card food_egg&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card eggs&gt;&gt;</span>
 <span class="yarn-line">Jajko</span> <span class="yarn-meta">#line:00ab8e2 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
@@ -962,7 +962,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card food_cinnamon&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card cinnamon&gt;&gt;</span>
 <span class="yarn-line">Cynamon</span> <span class="yarn-meta">#line:0f00ddd </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
@@ -980,7 +980,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags: item</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card food_ginger&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card ginger&gt;&gt;</span>
 <span class="yarn-line">Imbir</span> <span class="yarn-meta">#line:08049d5 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
@@ -1014,7 +1014,7 @@ hide:
 <span class="yarn-header-dim">tags: noRepeatLastLine</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Cześć. W czym mogę pomóc?</span> <span class="yarn-meta">#line:0f11caf </span>
-<span class="yarn-line">Chcę wejść do Starego Ratusza.</span> <span class="yarn-meta">#line:0449db3 </span>
+<span class="yarn-choice">-&gt; Chcę wejść do Starego Ratusza.</span> <span class="yarn-meta">#line:0449db3 </span>
    <span class="yarn-cmd">&lt;&lt;if $gingerbread_done == true&gt;&gt;</span>
       <span class="yarn-cmd">&lt;&lt;trigger open_door_castle&gt;&gt;</span>
       <span class="yarn-cmd">&lt;&lt;area area_castle&gt;&gt;</span>
@@ -1024,7 +1024,7 @@ hide:
    <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">      Stary Ratusz jest zamknięty dla zwiedzających.</span> <span class="yarn-meta">#line:096470a </span>
    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Po prostu się rozglądam.</span> <span class="yarn-meta">#line:09a9858 </span>
+<span class="yarn-choice">-&gt; Po prostu się rozglądam.</span> <span class="yarn-meta">#line:09a9858 </span>
 <span class="yarn-line">   Dobrze, miłego dnia.</span> <span class="yarn-meta">#line:09ee9bf </span>
 
 </code>
@@ -1045,9 +1045,9 @@ hide:
 <span class="yarn-line">    Dziękujemy za sprzątanie! Teraz możemy rozpocząć Festiwal Pierogów!</span> <span class="yarn-meta">#line:07e852b </span>
     <span class="yarn-cmd">&lt;&lt;card pierogi&gt;&gt;</span>
 <span class="yarn-line">    Czy kiedykolwiek próbowałeś PIEROGÓW?</span> <span class="yarn-meta">#line:0da391b </span>
-<span class="yarn-line">    Tak</span> <span class="yarn-meta">#line:08ac4ff </span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#line:08ac4ff </span>
 <span class="yarn-line">      Są pyszne, prawda?</span> <span class="yarn-meta">#line:040912f </span>
-<span class="yarn-line">    NIE</span> <span class="yarn-meta">#line:0cb270e </span>
+<span class="yarn-choice">        -&gt; NIE</span> <span class="yarn-meta">#line:0cb270e </span>
 <span class="yarn-line">      To specjalny rodzaj pierożka wypełnionego pysznościami, np. serem lub ziemniakami.</span> <span class="yarn-meta">#line:09da259 </span>
     <span class="yarn-cmd">&lt;&lt;card_hide&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_tower&gt;&gt;</span>

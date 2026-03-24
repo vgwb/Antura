@@ -692,8 +692,8 @@ hide:
 <span class="yarn-header-dim">spawn_group: guides </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Do you know who Jules Verne is?</span> <span class="yarn-meta">#line:00b1d04 </span>
-<span class="yarn-line">Yes, he is a WRITER!</span> <span class="yarn-meta">#line:07f7b4b </span>
-<span class="yarn-line">No, who is he?</span> <span class="yarn-meta">#line:06fb1cd </span>
+<span class="yarn-choice">-&gt; Yes, he is a WRITER!</span> <span class="yarn-meta">#line:07f7b4b </span>
+<span class="yarn-choice">-&gt; No, who is he?</span> <span class="yarn-meta">#line:06fb1cd </span>
 <span class="yarn-line">Jules Verne was a French WRITER. He was born near here.</span> <span class="yarn-meta">#line:0c790cf </span>
 <span class="yarn-line">He wrote very famous adventure BOOKS.</span> <span class="yarn-meta">#line:0f92a05</span>
 <span class="yarn-line">Many ideas in his BOOKS became real.</span> <span class="yarn-meta">#line:06e1473 </span>

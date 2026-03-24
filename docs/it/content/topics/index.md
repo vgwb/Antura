@@ -270,7 +270,7 @@ Credits:
 ---
 
 ### mountain tools {#mountain_tools}
-- Description: what we need to stay ssafe in the mountain  
+- Description: what we need to stay safe in the mountain  
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -314,6 +314,11 @@ Credits:
     Occhiali che proteggono gli occhi dalla luce intensa.
 
     ![preview sunglasses](../../../assets/img/content/cards/sunglasses.jpg){ width="200" }
+
+    - **[Cappotto](../cards/index.md#coat)** (RelatedTo)
+    Una giacca calda per il clima freddo.
+
+    ![preview coat](../../../assets/img/content/cards/coat.jpg){ width="200" }
 
 - Quests: [Monte Bianco e montagne (fr_08)](../quests/quest/fr_08.md)
 
@@ -937,10 +942,10 @@ Credits:
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
-    - **[Sottomarino (Il Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
-    Un sottomarino tratto dal racconto di Jules Verne. Poteva esplorare le profondità marine.
+    - **[Mongolfiera](../cards/index.md#hot_air_balloon)** (RelatedTo)
+    Un pallone che vola ad aria calda. Il primo esemplare volò in Francia.
 
-    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
 
 - Quests: [Jules Verne e i trasporti (fr_03)](../quests/quest/fr_03.md)
 
@@ -985,7 +990,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
+- Quests: [Museo del Louvre (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
 
 ---
 
@@ -1113,6 +1118,21 @@ Credits:
 
     ![preview ice](../../../assets/img/content/cards/ice.jpg){ width="200" }
 
+    - **[Francia](../cards/index.md#country_france)** (LocatedIn)
+    Un paese in Europa. La capitale è Parigi.
+
+    ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
+
+    - **[Italia](../cards/index.md#country_italy)** (LocatedIn)
+    Un paese in Europa. La capitale è Roma.
+
+    ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
+
+    - **[Svizzera](../cards/index.md#country_switzerland)** (LocatedIn)
+    Un paese in Europa. La capitale è Berna. La Svizzera è famosa per le montagne e il formaggio.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+
 - Quests: [Monte Bianco e montagne (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -1147,16 +1167,37 @@ Credits:
 
 ---
 
-### Seine Bridges {#seine_bridges}
+### Seine {#seine}
 - Importance: Medium  
+- Subjects: Geography, Transportation, Civics  
 - Target Age: Ages6to10
 - Core card:
-    - **[Ponte per auto](../cards/index.md#place_bridge_cars)**
+    - **[Senna](../cards/index.md#seine)**
+    Un fiume lungo 777 chilometri nel nord della Francia
+
+    ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
+
+- Connected cards:
+    - **[Parigi](../cards/index.md#capital_paris)** (LocatedIn)
+    La capitale della Francia. Parigi ha una famosa torre alta chiamata Torre Eiffel!
+
+    ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
+
+    - **[Mappa della Senna](../cards/index.md#seine_map)** (RelatedTo)
+    Un'immagine che mostra il fiume Senna e il punto in cui scorre attraverso il territorio.
+
+    ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ width="200" }
+
+    - **[Mappa della Senna a Parigi](../cards/index.md#seine_map_in_paris)** (LocatedIn)
+    Un'immagine che mostra come la Senna scorre attraverso la città di Parigi.
+
+    ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ width="200" }
+
+    - **[Ponte per auto](../cards/index.md#place_bridge_cars)** (RelatedTo)
     Una strada che attraversa l'acqua, consentendo alle auto di attraversare fiumi e laghi.
 
     ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
-- Connected cards:
     - **[Passerelle](../cards/index.md#place_bridge_people)** (RelatedTo)
     Piccoli ponti per i pedoni. Ti proteggono dal traffico.
 
@@ -1167,12 +1208,45 @@ Credits:
 
     ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ width="200" }
 
+    - **[Ponte Alessandro III](../cards/index.md#pont_alexandre_iii)** (RelatedTo)
+    Uno splendido ponte di Parigi con decorazioni elaborate e statue dorate.
+
+    ![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ width="200" }
+
     - **[barca fluviale](../cards/index.md#boat_river)** (RelatedTo)
     Una barca che naviga sui fiumi. I fiumi sono come strade fatte d'acqua!
 
     ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ width="200" }
 
+    - **[Barca per merci](../cards/index.md#boat_for_goods)** (RelatedTo)
+    Una grande imbarcazione che trasporta scatole, cibo e altre cose da un posto all'altro.
+
+    ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ width="200" }
+
+    - **[Rimessa per barche](../cards/index.md#boat_house)** (RelatedTo)
+    Una casa che galleggia sull'acqua come una barca. Le persone possono vivere nelle case galleggianti!
+
+    ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ width="200" }
+
+    - **[Barca per le persone](../cards/index.md#boat_people)** (RelatedTo)
+    Un'imbarcazione che trasporta le persone da un luogo all'altro attraverso l'acqua.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Battello sulla Senna](../cards/index.md#boat_eiffel_tower)** (RelatedTo)
+    Un'imbarcazione speciale che naviga sulla Senna a Parigi. Dall'acqua si possono ammirare la Torre Eiffel e altri splendidi edifici!
+
+    ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ width="200" }
+
+    - **[Île-de-France](../cards/index.md#ile_de_france)** (LocatedIn)
+    Una regione della Francia dove si trova la capitale Parigi. Qui vivono moltissime persone!
+
+    ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
+
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ## Poland
 
@@ -1302,6 +1376,21 @@ Credits:
     ![preview place_odra_river](../../../assets/img/content/cards/place_odra_river.jpg){ width="200" }
 
 - Connected cards:
+    - **[Mappa del fiume Odra](../cards/index.md#odra_river_map)** (RelatedTo)
+    Una semplice mappa che mostra il fiume Odra in Polonia e il modo in cui scorre verso il Mar Baltico
+
+    ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ width="200" }
+
+    - **[fiume Vistola (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
+    Il fiume più lungo della Polonia si chiama Wisła o Vistola. Scorre attraverso Cracovia e Varsavia.
+
+    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+
+    - **[Ponti di Breslavia](../cards/index.md#wroclaw_bridges)** (RelatedTo)
+    A Breslavia ci sono molti ponti che attraversano il fiume Odra.
+
+    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+
     - **[Passerella](../cards/index.md#footbridge)** (RelatedTo)
     Un ponte su cui le persone possono camminare. Niente auto.
 
@@ -1322,26 +1411,42 @@ Credits:
 
     ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ width="200" }
 
-    - **[Casa galleggiante](../cards/index.md#houseboat)** (RelatedTo)
-    Una barca fatta per vivere.
+    - **[Ponte per auto](../cards/index.md#place_bridge_cars)** (RelatedTo)
+    Una strada che attraversa l'acqua, consentendo alle auto di attraversare fiumi e laghi.
 
-    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
+    ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
     - **[Ponte ferroviario](../cards/index.md#train_bridge)** (RelatedTo)
     Un ponte con binari per i treni.
 
     ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ width="200" }
 
-    - **[Ponti di Breslavia](../cards/index.md#wroclaw_bridges)** (RelatedTo)
-    A Breslavia ci sono molti ponti che attraversano il fiume Odra.
+    - **[Chiatta](../cards/index.md#barge)** (RelatedTo)
+    Una lunga imbarcazione piatta che trasporta merci sui fiumi.
 
-    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+    ![preview barge](../../../assets/img/content/cards/barge.jpg){ width="200" }
 
-    - **[fiume Vistola (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
-    Il fiume più lungo della Polonia si chiama Wisła o Vistola. Scorre attraverso Cracovia e Varsavia.
+    - **[Casa galleggiante](../cards/index.md#houseboat)** (RelatedTo)
+    Una barca fatta per vivere.
 
-    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
 
+    - **[Barca per le persone](../cards/index.md#boat_people)** (RelatedTo)
+    Un'imbarcazione che trasporta le persone da un luogo all'altro attraverso l'acqua.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Kayak](../cards/index.md#kayak)** (RelatedTo)
+    Una piccola barca su cui si pagaia.
+
+    ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ width="200" }
+
+    - **[Cartello di un fiume](../cards/index.md#river_sign)** (RelatedTo)
+    Un cartello rettangolare blu con linee ondulate bianche che funge da simbolo universale europeo per indicare il punto in cui scorre un fiume.
+
+    ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
+
+- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1502,14 +1607,20 @@ Credits:
 
 ### Wroclaw {#wroclaw}
 - Importance: Medium  
+- Subjects: Geography, Community  
 - Target Age: Ages6to10
 - Core card:
-    - **[Breslavia](../cards/index.md#wroclaw)**
+    - **[Wrocław](../cards/index.md#wroclaw)**
     Una città in Polonia con fiumi, ponti e storia.
 
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
 
 - Connected cards:
+    - **[Mappa di Wroklaw](../cards/index.md#wroclaw_map)** (RelatedTo)
+    Una semplice mappa di Breslavia che mostra il fiume Odra con le sue isole e i numerosi ponti.
+
+    ![preview wroclaw_map](../../../assets/img/content/cards/wroclaw_map.jpg){ width="200" }
+
     - **[Ponti di Breslavia](../cards/index.md#wroclaw_bridges)** (RelatedTo)
     A Breslavia ci sono molti ponti che attraversano il fiume Odra.
 
@@ -1525,6 +1636,65 @@ Credits:
 
     ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
 
+    - **[Panorama Racławicka](../cards/index.md#panorama_racawicka)** (RelatedTo)
+    Un dipinto gigante tutto intorno a te che racconta una battaglia storica.
+
+    ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ width="200" }
+
+    - **[Municipio](../cards/index.md#town_hall)** (RelatedTo)
+    Il luogo in cui i leader della città lavorano e si incontrano.
+
+    ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ width="200" }
+
+    - **[Wroclaw : Cathédrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
+    Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+
+    ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ width="200" }
+
+    - **[Sala del Centenario](../cards/index.md#wroclaw_centennial_hall)** (RelatedTo)
+    La Centennial Hall è un enorme edificio che sembra una grande tenda con un tetto. È molto alto. Al suo interno si possono vedere diversi spettacoli, ascoltare concerti o guardare partite sportive.
+
+    ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ width="200" }
+
+    - **[Nani di Breslavia](../cards/index.md#wroclaw_dwarfs)** (RelatedTo)
+    Piccole statue sparse per la città che amano fare scherzi.
+
+    ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
+
+    - **[Piazza del mercato di Breslavia](../cards/index.md#wroclaw_market_square)** (RelatedTo)
+    La piazza principale della Città Vecchia, piena di vita.
+
+    ![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ width="200" }
+
+    - **[Fontana multimediale di Breslavia](../cards/index.md#wroclaw_multimedia_fountain)** (RelatedTo)
+    Acqua che danza con musica e luci colorate.
+
+    ![preview wroclaw_multimedia_fountain](../../../assets/img/content/cards/wroclaw_multimedia_fountain.jpg){ width="200" }
+
+    - **[Vecchio Municipio (Breslavia)](../cards/index.md#wroclaw_old_town_hall)** (RelatedTo)
+    Uno splendido edificio gotico nella piazza principale. Ha un famoso orologio.
+
+    ![preview wroclaw_old_town_hall](../../../assets/img/content/cards/wroclaw_old_town_hall.jpg){ width="200" }
+
+    - **[Breslavia: Sky Tower](../cards/index.md#wroclaw_sky_tower)** (RelatedTo)
+    Uno degli edifici più alti della Polonia. Ospita negozi e un punto panoramico.
+
+    ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ width="200" }
+
+    - **[Zoo di Breslavia](../cards/index.md#wroclaw_zoo)** (RelatedTo)
+    Un grande zoo a Breslavia con molti animali da scoprire.
+
+    ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ width="200" }
+
+    - **[Dalí - Profilo del tempo](../cards/index.md#dali_profile_of_time)** (RelatedTo)
+    Questo famoso "orologio che si scioglie" è una statua che dimostra come il tempo possa essere flessibile e ondeggiante, proprio come in un sogno!
+
+    ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
+
+- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md), [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ---
 
@@ -1538,40 +1708,60 @@ Credits:
     ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
 
 - Connected cards:
-    - **[Nano amante degli animali](../cards/index.md#animal_lover_dwarf)** (RelatedTo)
-    Una statua di un nano che ama lo zoo e gli animali.
+    - **[Nano amante degli animali](../cards/index.md#dwarf_animal_lover)** (RelatedTo)
+    Una statuetta di nano che ama lo zoo e gli animali.
 
-    ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ width="200" }
+    ![preview dwarf_animal_lover](../../../assets/img/content/cards/dwarf_animal_lover.jpg){ width="200" }
 
-    - **[Vescovo nano](../cards/index.md#bishop_dwarf)** (RelatedTo)
-    Una statua nana che pone una domanda in chiesa.
+    - **[Nano architetto](../cards/index.md#dwarf_architect)** (RelatedTo)
+    Un nano riflessivo che ama le forme, gli edifici e il design intelligente.
 
-    ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ width="200" }
+    ![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ width="200" }
 
-    - **[Esperto di nani](../cards/index.md#dwarf_expert)** (RelatedTo)
+    - **[Évêque Nain](../cards/index.md#dwarf_bishop)** (RelatedTo)
+    Una statua di nano che pone una domanda a una chiesa.
+
+    ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ width="200" }
+
+    - **[Direttore d'orchestra nano](../cards/index.md#dwarf_conductor)** (RelatedTo)
+    Un nano vivace che ama l'acqua, le luci e la musica.
+
+    ![preview dwarf_conductor](../../../assets/img/content/cards/dwarf_conductor.jpg){ width="200" }
+
+    - **[Consigliere Nano](../cards/index.md#dwarf_councilor)** (RelatedTo)
+    Un nano formale legato al vecchio municipio e alle opere cittadine.
+
+    ![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ width="200" }
+
+    - **[Expert nain](../cards/index.md#dwarf_expert)** (RelatedTo)
     Una guida amichevole che sa tutto sui nani.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
 
-    - **[Maestro delle Chiavi Nano](../cards/index.md#keymaster_dwarf)** (RelatedTo)
-    Una statua nana sorveglia l'ascensore con una grande chiave.
+    - **[Nano Custode delle Chiavi](../cards/index.md#dwarf_keymaster)** (LocatedIn)
+    Una statua di un nano fa la guardia all'ascensore con una grande chiave.
 
-    ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ width="200" }
+    ![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ width="200" }
 
-    - **[Nano polacco (gnomi di Breslavia)](../cards/index.md#polish_dwarf)** (RelatedTo)
-    Piccole statue di nani si nascondono in giro per Breslavia. Trovarle è un divertente gioco cittadino.
+    - **[Origine Nain](../cards/index.md#dwarf_origin)** (LocatedIn)
+    Una classica statua di un nano di Breslavia con cappello a punta e robusti stivali.
 
-    ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ width="200" }
+    ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ width="200" }
 
-    - **[Statua del nano di Breslavia](../cards/index.md#wroclaw_dwarf_statue)** (RelatedTo)
-    Una piccola statua cittadina; i nani sono il simbolo di Breslavia.
+    - **[Nano Pittore](../cards/index.md#dwarf_painter)** (LocatedIn)
+    Un nano artista che ama i colori, la pittura e i quadri di grandi dimensioni.
 
-    ![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ width="200" }
+    ![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ width="200" }
 
-    - **[Breslavia](../cards/index.md#wroclaw)** (LocatedIn)
-    Una città in Polonia con fiumi, ponti e storia.
+    - **[Nano viaggiatore](../cards/index.md#dwarf_traveler)** (LocatedIn)
+    Un nano avventuroso che ama i luoghi affollati e i nuovi percorsi.
 
-    ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
+    ![preview dwarf_traveler](../../../assets/img/content/cards/dwarf_traveler.jpg){ width="200" }
+
+    - **[Nano scrittore](../cards/index.md#dwarf_writer)** (LocatedIn)
+    Un nano tranquillo che ama le storie, i libri e la lettura.
+
+    ![preview dwarf_writer](../../../assets/img/content/cards/dwarf_writer.jpg){ width="200" }
 
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 

@@ -94,9 +94,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
 <span class="yarn-line">    Cześć! Byłeś kiedyś w Paryżu?</span> <span class="yarn-meta">#line:talk_tutor_0</span>
-<span class="yarn-line">    Tak!</span> <span class="yarn-meta">#line:talk_tutor_0b</span>
+<span class="yarn-choice">        -&gt; Tak!</span> <span class="yarn-meta">#line:talk_tutor_0b</span>
 <span class="yarn-line">        Świetnie! Zobaczmy, czy pamiętasz te miejsca.</span> <span class="yarn-meta">#line:talk_tutor_0c</span>
-<span class="yarn-line">    NIE.</span> <span class="yarn-meta">#line:talk_tutor_0d</span>
+<span class="yarn-choice">        -&gt; NIE.</span> <span class="yarn-meta">#line:talk_tutor_0d</span>
 <span class="yarn-line">        Mam nadzieję, że kiedyś tu przyjedziesz!</span> <span class="yarn-meta">#line:talk_tutor_0e</span>
 <span class="yarn-line">    Widziałem, jak Antura poszedł do piekarza. Chodźmy tam!</span> <span class="yarn-meta">#line:talk_tutor</span>
     <span class="yarn-cmd">&lt;&lt;area area_bakery&gt;&gt;</span>
@@ -295,7 +295,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 <span class="yarn-line">Dzień dobry. Czego chcesz?</span> <span class="yarn-meta">#line:09e454b </span>
-<span class="yarn-line">Bilet na wejście na Wieżę Eiffla.</span> <span class="yarn-meta">#line:0141851 </span>
+<span class="yarn-choice">-&gt; Bilet na wejście na Wieżę Eiffla.</span> <span class="yarn-meta">#line:0141851 </span>
     <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("collect_coins")&gt;&gt;</span>
 <span class="yarn-line">        Wybierz kwotę do zapłaty.</span> <span class="yarn-meta">#line:0f44ea7 </span>
         <span class="yarn-cmd">&lt;&lt;activity money_elevator ticket_payment_done&gt;&gt;</span>
@@ -307,9 +307,9 @@ hide:
 <span class="yarn-line">        Rozejrzyj się i podnieś monety.</span> <span class="yarn-meta">#line:0097a65 #task:collect_coins</span>
         <span class="yarn-cmd">&lt;&lt;task_start collect_coins coins_collected&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Bagietka.</span> <span class="yarn-meta">#line:03dc852 </span>
+<span class="yarn-choice">-&gt; Bagietka.</span> <span class="yarn-meta">#line:03dc852 </span>
 <span class="yarn-line">   Niedaleko jest piekarnia. Ale otwiera się później.</span> <span class="yarn-meta">#line:0cbdcce </span>
-<span class="yarn-line">Po prostu rozejrzeć się.</span> <span class="yarn-meta">#line:0718e4a </span>
+<span class="yarn-choice">-&gt; Po prostu rozejrzeć się.</span> <span class="yarn-meta">#line:0718e4a </span>
 <span class="yarn-line">   Życzymy miłej wizyty!</span> <span class="yarn-meta">#line:006fcf2 </span>
 
 </code>
@@ -366,15 +366,15 @@ hide:
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Cześć. Co chcesz wiedzieć?</span> <span class="yarn-meta">#line:0070084 </span>
-<span class="yarn-line">Czym jest Wieża Eiffla?</span> <span class="yarn-meta">#line:0d91dc0 </span>
+<span class="yarn-choice">-&gt; Czym jest Wieża Eiffla?</span> <span class="yarn-meta">#line:0d91dc0 </span>
 <span class="yarn-line">    Wysoka żelazna wieża, o wysokości około 300 metrów.</span> <span class="yarn-meta">#line:0f17af0 </span>
 <span class="yarn-line">    To wyjątkowy symbol Paryża!</span> <span class="yarn-meta">#line:07a113f </span>
-<span class="yarn-line">Gdzie jesteśmy?</span> <span class="yarn-meta">#line:09dd1da </span>
+<span class="yarn-choice">-&gt; Gdzie jesteśmy?</span> <span class="yarn-meta">#line:09dd1da </span>
 <span class="yarn-line">    Jesteśmy w Paryżu.</span> <span class="yarn-meta">#line:02b627d </span>
-<span class="yarn-line">Czy to miejsce jest prawdziwe?</span> <span class="yarn-meta">#line:08bede4 </span>
+<span class="yarn-choice">-&gt; Czy to miejsce jest prawdziwe?</span> <span class="yarn-meta">#line:08bede4 </span>
 <span class="yarn-line">    Tak! Dlaczego pytasz?</span> <span class="yarn-meta">#line:08654e6 </span>
 <span class="yarn-line">    Cóż... wygląda to jak gra wideo.</span> <span class="yarn-meta">#line:0bc62a3 </span>
-<span class="yarn-line">Nic. Pa.</span> <span class="yarn-meta">#line:0fe0732 #highlight</span>
+<span class="yarn-choice">-&gt; Nic. Pa.</span> <span class="yarn-meta">#line:0fe0732 #highlight</span>
 
 </code>
 </pre>
@@ -606,12 +606,12 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: eiffel_tower</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Chciałbym wejść na Wieżę Eiffla.</span> <span class="yarn-meta">#line:0aee9bb </span>
-<span class="yarn-line">Aby wejść na górę potrzebny jest bilet.</span> <span class="yarn-meta">#line:09be864 </span>
-<span class="yarn-line">W 1889 roku w Paryżu odbył się wielki jarmark.</span> <span class="yarn-meta">#line:0a3f4e1 </span>
+<span class="yarn-choice">-&gt; Chciałbym wejść na Wieżę Eiffla.</span> <span class="yarn-meta">#line:0aee9bb </span>
+<span class="yarn-choice">-&gt; Aby wejść na górę potrzebny jest bilet.</span> <span class="yarn-meta">#line:09be864 </span>
+<span class="yarn-choice">-&gt; W 1889 roku w Paryżu odbył się wielki jarmark.</span> <span class="yarn-meta">#line:0a3f4e1 </span>
 <span class="yarn-line">    Miało to na celu uczczenie wielkich urodzin Francji.</span> <span class="yarn-meta">#line:01fa210 </span>
 <span class="yarn-line">    Wieża Eiffla została zbudowana specjalnie na tę wielką imprezę.</span> <span class="yarn-meta">#line:0d6f3c4 </span>
-<span class="yarn-line">Uwielbiam Paryż!</span> <span class="yarn-meta">#line:0bda18a </span>
+<span class="yarn-choice">-&gt; Uwielbiam Paryż!</span> <span class="yarn-meta">#line:0bda18a </span>
 
 </code>
 </pre>
@@ -628,13 +628,13 @@ hide:
 <span class="yarn-header-dim">spawn_group: generic</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Masz pytania?</span> <span class="yarn-meta">#line:07b94e9 </span>
-<span class="yarn-line">Widziałeś Anturę?</span> <span class="yarn-meta">#line:0f18ad3 </span>
+<span class="yarn-choice">-&gt; Widziałeś Anturę?</span> <span class="yarn-meta">#line:0f18ad3 </span>
 <span class="yarn-line">    Nie. Kim jest Antura?</span> <span class="yarn-meta">#line:0f9dd62 </span>
-<span class="yarn-line">Co robisz?</span> <span class="yarn-meta">#line:002796f </span>
+<span class="yarn-choice">-&gt; Co robisz?</span> <span class="yarn-meta">#line:002796f </span>
 <span class="yarn-line">    Zamierzam kupić chleb w piekarni.</span> <span class="yarn-meta">#line:05a38a8 </span>
-<span class="yarn-line">Skąd pochodzisz?</span> <span class="yarn-meta">#line:05eabcf </span>
+<span class="yarn-choice">-&gt; Skąd pochodzisz?</span> <span class="yarn-meta">#line:05eabcf </span>
 <span class="yarn-line">    Nie urodziłem się w tym kraju.</span> <span class="yarn-meta">#line:0635a6a </span>
-<span class="yarn-line">Do widzenia</span> <span class="yarn-meta">#line:0ee51fc #highlight</span>
+<span class="yarn-choice">-&gt; Do widzenia</span> <span class="yarn-meta">#line:0ee51fc #highlight</span>
 
 </code>
 </pre>

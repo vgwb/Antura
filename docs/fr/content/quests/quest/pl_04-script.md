@@ -219,11 +219,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("match_monkey_settings") &gt; 0&gt;&gt;
 <span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#line:play_again</span>
-<span class="yarn-line">    Oui</span> <span class="yarn-meta">#line:yes</span>
+<span class="yarn-choice">        -&gt; Oui</span> <span class="yarn-meta">#line:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings&gt;&gt;</span>
-<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#line:yes_harder</span>
+<span class="yarn-choice">        -&gt; Oui, mais plus difficile.</span> <span class="yarn-meta">#line:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings_hard&gt;&gt;</span>
-<span class="yarn-line">    Non</span> <span class="yarn-meta">#line:no</span>
+<span class="yarn-choice">        -&gt; Non</span> <span class="yarn-meta">#line:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis un chimpanzé. Je grimpe aux arbres.</span> <span class="yarn-meta">#line:0867233 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee&gt;&gt;</span>
@@ -310,11 +310,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("order_lion_settings") &gt; 0&gt;&gt;
 <span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">        -&gt; Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity order_lion_settings&gt;&gt;</span>
-<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
+<span class="yarn-choice">        -&gt; Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity order_lion_settings_hard&gt;&gt;</span>
-<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">        -&gt; Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis un LION d'AFRIQUE.</span> <span class="yarn-meta">#line:07f2e15 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_lion_cub&gt;&gt;</span>
@@ -399,11 +399,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("canvas_giraffe_settings") &gt; 0&gt;&gt;
 <span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">        -&gt; Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings&gt;&gt;</span>
-<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
+<span class="yarn-choice">        -&gt; Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity canvas_giraffe_settings_hard&gt;&gt;</span>
-<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">        -&gt; Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis l'ANIMAL le plus grand.</span> <span class="yarn-meta">#line:0d5c607 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_giraffe&gt;&gt;</span>
@@ -482,11 +482,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $elephant_completed&gt;&gt;</span>
 <span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">        -&gt; Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings&gt;&gt;</span>
-<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
+<span class="yarn-choice">        -&gt; Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity memory_elephant_settings_hard&gt;&gt;</span>
-<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">        -&gt; Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis le plus grand ANIMAL terrestre.</span> <span class="yarn-meta">#line:027b51f </span>
     <span class="yarn-cmd">&lt;&lt;card animal_elephant&gt;&gt;</span>
@@ -566,11 +566,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("jigsaw_penguin_settings") &gt; 0&gt;&gt;
 <span class="yarn-line">    Voulez-vous rejouer ?</span> <span class="yarn-meta">#shadow:play_again</span>
-<span class="yarn-line">    Oui</span> <span class="yarn-meta">#shadow:yes</span>
+<span class="yarn-choice">        -&gt; Oui</span> <span class="yarn-meta">#shadow:yes</span>
         <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings&gt;&gt;</span>
-<span class="yarn-line">    Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
+<span class="yarn-choice">        -&gt; Oui, mais plus difficile.</span> <span class="yarn-meta">#shadow:yes_harder</span>
         <span class="yarn-cmd">&lt;&lt;activity jigsaw_penguin_settings_hard&gt;&gt;</span>
-<span class="yarn-line">    Non</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-choice">        -&gt; Non</span> <span class="yarn-meta">#shadow:no</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Je suis un PINGOUIN, un OISEAU spécial.</span> <span class="yarn-meta">#line:08c70e8 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_penguin&gt;&gt;</span>

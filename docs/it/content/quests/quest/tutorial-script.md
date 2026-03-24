@@ -294,9 +294,9 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Vuoi uscire da questo tutorial?</span> <span class="yarn-meta">#line:09279d4 </span>
-<span class="yarn-line">Sì, esci</span> <span class="yarn-meta">#line:00eae37 #highlight</span>
+<span class="yarn-choice">-&gt; Sì, esci</span> <span class="yarn-meta">#line:00eae37 #highlight</span>
     <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
-<span class="yarn-line">No, resta qui</span> <span class="yarn-meta">#line:0427785 </span>
+<span class="yarn-choice">-&gt; No, resta qui</span> <span class="yarn-meta">#line:0427785 </span>
 
 </code>
 </pre>
@@ -495,13 +495,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">È bene esercitare la memoria!</span> <span class="yarn-meta">#line:00e6a04 </span>
 <span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#line:0c78a9e </span>
-<span class="yarn-line">Facile</span> <span class="yarn-meta">#line:0cd0316 </span>
+<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#line:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity memory_tutorial activity_memory_result easy&gt;&gt;</span>
-<span class="yarn-line">Normale</span> <span class="yarn-meta">#line:07cbfdd </span>
+<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#line:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity memory_tutorial activity_memory_result normal&gt;&gt;</span>
-<span class="yarn-line">Esperto</span> <span class="yarn-meta">#line:0e3251c </span>
+<span class="yarn-choice">-&gt; Esperto</span> <span class="yarn-meta">#line:0e3251c </span>
     <span class="yarn-cmd">&lt;&lt;activity memory_tutorial activity_memory_result expert&gt;&gt;</span>
-<span class="yarn-line">NO</span> <span class="yarn-meta">#line:010515b </span>
+<span class="yarn-choice">-&gt; NO</span> <span class="yarn-meta">#line:010515b </span>
 
 </code>
 </pre>
@@ -536,13 +536,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">È bello pulire, non è vero?</span> <span class="yarn-meta">#line:059323a</span>
 <span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result easy&gt;&gt;</span>
-<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result normal&gt;&gt;</span>
-<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result expert&gt;&gt;</span>
-<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
+<span class="yarn-choice">-&gt; NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -576,13 +576,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Adoro i puzzle!</span> <span class="yarn-meta">#line:0fc42d8 </span>
 <span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result easy&gt;&gt;</span>
-<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result normal&gt;&gt;</span>
-<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result expert&gt;&gt;</span>
-<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
+<span class="yarn-choice">-&gt; NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -616,13 +616,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bell'abbinamento!</span> <span class="yarn-meta">#line:0f0ee2e</span>
 <span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result easy&gt;&gt;</span>
-<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result normal&gt;&gt;</span>
-<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result expert&gt;&gt;</span>
-<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
+<span class="yarn-choice">-&gt; NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -656,13 +656,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">È importante imparare a usare il denaro!</span> <span class="yarn-meta">#line:06136c1</span>
 <span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result easy&gt;&gt;</span>
-<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result normal&gt;&gt;</span>
-<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result expert&gt;&gt;</span>
-<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
+<span class="yarn-choice">-&gt; NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>
@@ -696,13 +696,13 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Buona attività.</span> <span class="yarn-meta">#line:0838f7f </span>
 <span class="yarn-line">Vuoi giocare di nuovo?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-line">Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result easy&gt;&gt;</span>
-<span class="yarn-line">Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result normal&gt;&gt;</span>
-<span class="yarn-line">Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; Esperto</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result expert&gt;&gt;</span>
-<span class="yarn-line">NO</span> <span class="yarn-meta">#shadow:010515b </span>
+<span class="yarn-choice">-&gt; NO</span> <span class="yarn-meta">#shadow:010515b </span>
 
 </code>
 </pre>

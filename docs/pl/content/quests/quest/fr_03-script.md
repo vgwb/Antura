@@ -692,8 +692,8 @@ hide:
 <span class="yarn-header-dim">spawn_group: guides </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Czy wiesz kim był Juliusz Verne?</span> <span class="yarn-meta">#line:00b1d04 </span>
-<span class="yarn-line">Tak, on jest PISARZEM!</span> <span class="yarn-meta">#line:07f7b4b </span>
-<span class="yarn-line">Nie, kim on jest?</span> <span class="yarn-meta">#line:06fb1cd </span>
+<span class="yarn-choice">-&gt; Tak, on jest PISARZEM!</span> <span class="yarn-meta">#line:07f7b4b </span>
+<span class="yarn-choice">-&gt; Nie, kim on jest?</span> <span class="yarn-meta">#line:06fb1cd </span>
 <span class="yarn-line">Juliusz Verne był francuskim PISARZEM. Urodził się w pobliżu.</span> <span class="yarn-meta">#line:0c790cf </span>
 <span class="yarn-line">Napisał bardzo znane KSIĄŻKI przygodowe.</span> <span class="yarn-meta">#line:0f92a05</span>
 <span class="yarn-line">Wiele pomysłów zawartych w jego KSIĄŻKACH stało się rzeczywistością.</span> <span class="yarn-meta">#line:06e1473 </span>

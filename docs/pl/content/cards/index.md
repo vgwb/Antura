@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **384**
+Total found: **394**
 
 ## International
 
@@ -372,6 +372,7 @@ Dom, który unosi się na wodzie jak łódź. Ludzie mogą mieszkać w domkach n
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 
 ---
@@ -603,7 +604,7 @@ Region we Francji, w którym znajduje się stolica, Paryż. Mieszka tu wielu lud
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Notre Dame](../topics/index.md#notredame)
+- Topics: [Notre Dame](../topics/index.md#notredame), [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
@@ -683,7 +684,7 @@ Ciepła czapka na głowę.
 - Subjects: Health, Safety, Weather
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
-- Image credit: CC0 | Michael Evans | [source](https://commons.wikimedia.org/wiki/File:Ronald_Reagan_with_cowboy_hat_12-0071M_edit.jpg)
+- Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Beanie_hat_by_Polo_Ralph_Lauren.jpg)
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -851,7 +852,7 @@ Małe mostki dla pieszych, dzięki nim można bezpiecznie przejść na druga str
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -1252,7 +1253,7 @@ Specjalny most o konstrukcji wystarczająco wytrzymałej, aby umożliwić przeja
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -1266,7 +1267,7 @@ Droga biegnąca nad wodą, dzięki której samochody mogą pokonywać rzeki i je
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -1384,7 +1385,7 @@ Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Louvre](../topics/index.md#louvre)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Seine](../topics/index.md#seine), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
 
@@ -1687,7 +1688,8 @@ Ciepła kurtka na zimne dni.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
-- Image credit: CC_BY_SA | Calistemon | [source](https://commons.wikimedia.org/wiki/File:White_American_Staffordshire_Terrier_in_Vegemite_coat,_August_2022.jpg)
+- Topics: [mountain tools](../topics/index.md#mountain_tools)
+- Image credit: CC0
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -2006,7 +2008,7 @@ Kraj w Europie. Stolicą jest Berno. Szwajcaria słynie z gór i sera.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg)
 
 ---
@@ -2078,7 +2080,7 @@ Ogromne zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądz
 
 ---
 
-### Tramwaj {#tram}
+### Tram {#tram}
 ![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
 
 Pojazd miejski poruszający się po torach.
@@ -2237,6 +2239,18 @@ Znak ostrzegający przed zbliżającym się niebezpieczeństwem. Zachowaj szczeg
 
 ---
 
+### Znak rzeki {#river_sign}
+![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ loading=lazy }
+
+Niebieski, prostokątny znak z białymi falistymi liniami, będący uniwersalnym europejskim symbolem pokazującym, gdzie płynie rzeka.
+
+- Type: Object
+- Country: International
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC0
+
+---
+
 ### Znak STOP {#stop_sign}
 ![preview stop_sign](../../../assets/img/content/cards/stop_sign.jpg){ loading=lazy }
 
@@ -2270,6 +2284,7 @@ Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 
 ---
@@ -2282,7 +2297,7 @@ Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -2296,6 +2311,7 @@ Duża łódź, która przewozi paczki, żywność i inne rzeczy z miejsca na mie
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 
 ---
@@ -2432,6 +2448,7 @@ Balon wznoszący się dzięki ogrzanemu powietrzu. Pierwszy taki balon skonstruo
 - Type: Object
 - Subjects: Transportation
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
@@ -2640,7 +2657,7 @@ Kraj w Europie. Stolicą jest Paryż.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: France
-- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Another one of my pictures:
 
 
@@ -2970,6 +2987,7 @@ Zdjęcie przedstawiające rzekę Sekwanę i jej przepływ przez ląd.
 - Type: Object
 - Subjects: Geography, Environment
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -2983,6 +3001,7 @@ Zdjęcie przedstawiające jak Sekwana płynie przez Paryż.
 - Type: Object
 - Subjects: Science
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -3049,6 +3068,7 @@ Piękny most w Paryżu z misternymi dekoracjami i złotymi posągami.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -3324,6 +3344,7 @@ Rzeka o długości 777 kilometrów w północnej Francji
 - Type: Place
 - Subjects: Geography
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -3390,6 +3411,7 @@ Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę E
 - Subjects: Transportation, Geography, Culture
 - Year: 1900
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
 
@@ -3658,6 +3680,20 @@ Wielki łuk w Paryżu wzniesiony ku czci bohaterów. Lśni tak, że widać go z 
 
 ## Poland
 
+### Architekt Krasnolud {#dwarf_architect}
+![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ loading=lazy }
+
+Myślący krasnolud, który kocha kształty, budynki i pomysłowe projekty.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Astronomia {#astronomy}
 ![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
 
@@ -3680,6 +3716,7 @@ Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
 - Type: Object
 - Subjects: Transportation, Geography
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Dietmar Rabich
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -3710,6 +3747,19 @@ Słynny pokój z bursztynu o tajemniczej historii.
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
 - Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Dalí - Profil czasu {#dali_profile_of_time}
+![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ loading=lazy }
+
+Ten słynny „topniejący zegar” to statua, która pokazuje, że czas może być giętki i wirować, zupełnie jak we śnie!
+
+- Type: Object
+- Subjects: Art
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: PublicDomain
 
 ---
 
@@ -3765,6 +3815,20 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 
 ---
 
+### Dyrygent Krasnolud {#dwarf_conductor}
+![preview dwarf_conductor](../../../assets/img/content/cards/dwarf_conductor.jpg){ loading=lazy }
+
+Żywiołowy krasnolud, który kocha wodę, światła i muzykę.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Ekosystem {#ecosystem}
 ![preview ecosystem](../../../assets/img/content/cards/ecosystem.jpg){ loading=lazy }
 
@@ -3775,6 +3839,20 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
 - Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Expert nain {#dwarf_expert}
+![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
+
+Przyjazny przewodnik, który wie wszystko o krasnoludkach.
+
+- Type: Object
+- Subjects: Education, Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3800,7 +3878,6 @@ Niewielka figurka krasnala-symbolu Wrocławia.
 - Type: Object
 - Subjects: Culture, Community, History
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -3900,6 +3977,7 @@ Hala Stulecia to ogromny budynek przypominający wielki namiot z dachem. Jest ba
 - Type: Place
 - Subjects: Culture, Recreation
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | Taxiarchos228, FAL, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Jahrhunderthalle1.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -3940,63 +4018,22 @@ Mała łódka napędzana wiosłami.
 - Type: Object
 - Subjects: Recreation, Sport
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | 0x010C
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
-### Krasnal Biskup {#bishop_dwarf}
-![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
+### Krasnolud Klucznik {#dwarf_keymaster}
+![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ loading=lazy }
 
-Posąg karła zadającego pytanie kościelne.
-
-- Type: Object
-- Subjects: Culture, History
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Krasnal Ekspert {#dwarf_expert}
-![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
-
-Przyjazny przewodnik, który wie wszystko o krasnoludkach.
-
-- Type: Person
-- Subjects: Education, Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Krasnal Klucznik {#keymaster_dwarf}
-![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
-
-Krasnal z dużym kluczem pilnujący windy.
+Posąg krasnoluda pilnującego windy z dużym kluczem.
 
 - Type: Object
 - Subjects: Culture
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:100matolog_(Tooth-dwarf)_Wroclaw_dwarf_02.JPG)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Krasnal Miłośnik Zwierząt {#animal_lover_dwarf}
-![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ loading=lazy }
-
-Figurka krasnala, który uwielbia zoo i zwierzęta.
-
-- Type: Object
-- Subjects: Culture, Animal, Education
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -4044,6 +4081,20 @@ Zabytkowa latarnia morska, która pomaga statkom znaleźć port.
 
 ---
 
+### Malarz Krasnolud {#dwarf_painter}
+![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ loading=lazy }
+
+Artystyczny krasnolud, który kocha kolory, farby i duże obrazy.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Mapa rzeki Odry {#odra_river_map}
 ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
 
@@ -4052,21 +4103,34 @@ Prosta mapa przedstawiająca rzekę Odrę w Polsce i jej ujście do Morza Bałty
 - Type: None
 - Subjects: Geography
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
-### Mapa Wrocławia {#wroklaw_map}
-![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
+### Mapa Wrocławia {#wroclaw_map}
+![preview wroclaw_map](../../../assets/img/content/cards/wroclaw_map.jpg){ loading=lazy }
 
 Prosta mapa Wrocławia przedstawiająca rzekę Odrę z wyspami i wieloma mostami
 
-- Type: None
+- Type: Place
 - Subjects: Geography
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md), [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Mapa wysp wrocławskich {#wroklaw_islands_map}
+![preview wroklaw_islands_map](../../../assets/img/content/cards/wroklaw_islands_map.jpg){ loading=lazy }
+
+Kolorowa mapa centralnych wysp Wrocławia, położonych wzdłuż Odry, prezentująca zabytkowe budynki, mosty i tereny zielone Starego Miasta.
+
+- Type: Place
+- Country: Poland
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Islands.png)
 
 ---
 
@@ -4139,6 +4203,20 @@ Genialny naukowiec z Polski, który odkrył, że to Ziemia krąży wokół Sło�
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC0
 - Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Miłośnik zwierząt Krasnolud {#dwarf_animal_lover}
+![preview dwarf_animal_lover](../../../assets/img/content/cards/dwarf_animal_lover.jpg){ loading=lazy }
+
+Figurka krasnala, który uwielbia zoo i zwierzęta.
+
+- Type: Object
+- Subjects: Culture, Animal, Education
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4340,7 +4418,7 @@ Duży ogród zoologiczny we Wrocławiu, w którym można poznać wiele zwierząt
 - Type: Place
 - Subjects: Geography, Education, Animal
 - Country: Poland
-- Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -4387,6 +4465,20 @@ Osoba opiekująca się zwierzętami w zoo.
 
 ---
 
+### Origine Nain {#dwarf_origin}
+![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
+
+Klasyczna wrocławska figura krasnala w spiczastym kapeluszu i solidnych butach.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Panorama Racławicka {#panorama_racawicka}
 ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ loading=lazy }
 
@@ -4395,6 +4487,7 @@ Otacza Cię gigantyczny obraz przedstawiający historyczną bitwę.
 - Type: Place
 - Subjects: History, Art, Culture
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Barbara Maliszewska
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4440,6 +4533,20 @@ Tradycyjny polski przysmak, przygotowany z mąki, miodu, przypraw, często ma pi
 
 ---
 
+### Pisarz Krasnolud {#dwarf_writer}
+![preview dwarf_writer](../../../assets/img/content/cards/dwarf_writer.jpg){ loading=lazy }
+
+Cichy krasnolud, który uwielbia opowieści, książki i czytanie.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Planetarium {#planetarium}
 ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ loading=lazy }
 
@@ -4454,6 +4561,20 @@ Budynek, w którym można oglądać niebo i gwiazdy.
 Bernhard Müller († 1930)
 Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://commons.wikimedia.org/wiki/File:Planetarium_Pfaffendorfer_Strasse_Leipzig_um_1927.jpg)
 - Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Podróżnik Krasnolud {#dwarf_traveler}
+![preview dwarf_traveler](../../../assets/img/content/cards/dwarf_traveler.jpg){ loading=lazy }
+
+Żądny przygód krasnolud, który kocha ruchliwe miejsca i nowe ścieżki.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4480,7 +4601,6 @@ Małe figurki krasnali kryją się we Wrocławiu. Ich znalezienie to fajna gra m
 - Subjects: Community, Culture
 - Year: 1700
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC0
 - Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4529,14 +4649,29 @@ Miejsce, w którym towary ładuje się na statki lub je rozładowuje.
 
 ---
 
+### Radny Krasnolud {#dwarf_councilor}
+![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ loading=lazy }
+
+Formalny krasnolud związany ze Starym Ratuszem i sprawami miasta.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Ratusz {#town_hall}
 ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ loading=lazy }
 
 Budynek, w którym pracują władze miasta.
 
-- Type: Concept
+- Type: Place
 - Subjects: Civics, Community, History
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Town_hall_of_Aosta_(3).jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4604,7 +4739,7 @@ Duża rzeka w zachodniej Polsce. Umożliwia statkom podróżowanie i handel.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -4646,7 +4781,7 @@ Nowoczesny plac, na którym ludzie spotykają się w pobliżu wieży.
 - Type: Place
 - Subjects: Geography, Community, Recreation
 - Country: Poland
-- Image credit: CC_BY_SA | JamesYoung8167 | [source](https://commons.wikimedia.org/wiki/File:Xiamen_Shimao_Straits_Tower_2016-02-09.jpg)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wn%C4%99trze_skytower_dali.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -4659,6 +4794,7 @@ Piękny gotycki budynek na Rynku.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/7/70/Wroclaw-Rathaus.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4689,19 +4825,6 @@ Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg stoi nad Wi
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | Grzegorz Polak, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Syrenka_Warszawska.jpg)
 - Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Szkoła Podstawowa Leonarda da Vinci {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-To przyjazne miejsce, w którym dzieci uczą się, tworzą i odkrywają naukę i sztukę, kierując się ciekawością.
-
-- Type: None
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4821,9 +4944,23 @@ Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warsz
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Wroclaw : Cathédrale {#wroclaw_cathedral}
+![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
+
+Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+
+- Type: Place
+- Subjects: History, Culture
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4835,22 +4972,9 @@ Miasto w Polsce z rzekami, mostami i pięknymi zabytkami.
 - Type: Place
 - Subjects: Geography, History, Culture
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Wrocław: Katedra {#wroclaw_cathedral}
-![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
-
-Duży, ważny kościół, w którym ludzie sie modlą, Można wspiąć sie na jego wieżę i podziwiać widoki.
-
-- Type: Place
-- Subjects: History, Culture
-- Country: Poland
-- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4862,6 +4986,7 @@ Jeden z najwyższych budynków w Polsce. Znajdują się w nim sklepy i punkt wid
 - Type: Place
 - Subjects: Geography, Community, Culture
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | [source](https://it.wikipedia.org/wiki/File:Wrocław,_2006_-_2012_-_budowa_Sky_Tower_-_fotopolska.eu_(311325).jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4875,6 +5000,7 @@ Woda tańcząca w rytm muzyki i kolorowych świateł.
 - Type: Place
 - Subjects: Culture, Technology, Recreation
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Piotr Walczak & Konradr | [source](https://commons.wikimedia.org/wiki/File:Wrocławska_fontanna_Piotr_Walczak2.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4888,6 +5014,7 @@ Główny plac Starego Miasta, pełen życia.
 - Type: Place
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4901,7 +5028,7 @@ Malutkie figurki w całym mieście. Krasnale lubią płatać figle.
 - Type: Concept
 - Subjects: Culture, Community, History
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Matti Blume | [source](https://commons.wikimedia.org/wiki/File:Dwarf,_Wroclaw_(P1180336).jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
@@ -4915,7 +5042,7 @@ Wrocław znany jest z licznych mostów.
 - Type: Concept
 - Subjects: Geography, Transportation, Community
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -4973,6 +5100,33 @@ Tablica z prostymi faktami, które pomogą Ci się uczyć.
 - Country: Poland
 - Image credit: CC_BY_SA | Frank Schulenburg | [source](https://commons.wikimedia.org/wiki/File:Railroad_Park_Resort_in_Dunsmuir,_June_2021.jpg)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+To przyjazne miejsce, w którym dzieci uczą się, tworzą i odkrywają naukę i sztukę, kierując się ciekawością.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Évêque Nain {#dwarf_bishop}
+![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
+
+Posąg karła zadającego pytanie kościelne.
+
+- Type: Object
+- Subjects: Culture, History
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -5121,7 +5275,7 @@ Państwo w Europie. Stolicą jest Rzym.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Italy
-- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Agnes Monkelbaan | [source](https://commons.wikimedia.org/wiki/File:Bergwandeltocht_van_Peio_Paese_naar_Lago_Covel_(1,839_m)_in_het_Nationaal_park_Stelvio_(Italy)_23.jpg)
 
 ---

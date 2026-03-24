@@ -421,10 +421,10 @@ hide:
 <span class="yarn-line">    Aby chodzić po lodowcu, potrzebujemy specjalnego sprzętu.</span> <span class="yarn-meta">#line:06d9f34 </span>
     <span class="yarn-cmd">&lt;&lt;card glacier&gt;&gt;</span>
 <span class="yarn-line">    Co zakładasz do butów, żeby chodzić po lodzie i się nie ślizgać?</span> <span class="yarn-meta">#line:076433f </span>
-<span class="yarn-line">    Raki</span> <span class="yarn-meta">#line:0b50050 </span>
+<span class="yarn-choice">        -&gt; Raki</span> <span class="yarn-meta">#line:0b50050 </span>
 <span class="yarn-line">        Dobrze! Użyj ich, żeby utrzymać równowagę.</span> <span class="yarn-meta">#line:00a7e83 </span>
         <span class="yarn-cmd">&lt;&lt;activity fr08_activity_3 activity_3_done&gt;&gt;</span>
-<span class="yarn-line">    Płetwy</span> <span class="yarn-meta">#line:01a4b20 </span>
+<span class="yarn-choice">        -&gt; Płetwy</span> <span class="yarn-meta">#line:01a4b20 </span>
 <span class="yarn-line">        Nie! Nie pływasz! Spróbuj ponownie.</span> <span class="yarn-meta">#line:07c6385 </span>
         <span class="yarn-cmd">&lt;&lt;jump npc_base3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -541,16 +541,16 @@ hide:
 <span class="yarn-header-dim">group: base_4</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">W jakim paśmie górskim znajduje się Mont Blanc?</span> <span class="yarn-meta">#line:06f9a2a </span>
-<span class="yarn-line">Pireneje</span> <span class="yarn-meta">#line:summit_q1_a2</span>
+<span class="yarn-choice">-&gt; Pireneje</span> <span class="yarn-meta">#line:summit_q1_a2</span>
 <span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#line:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_alps&gt;&gt;</span>
-<span class="yarn-line">Apeniny</span> <span class="yarn-meta">#line:summit_q1_a3</span>
+<span class="yarn-choice">-&gt; Apeniny</span> <span class="yarn-meta">#line:summit_q1_a3</span>
 <span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_alps&gt;&gt;</span>
-<span class="yarn-line">Alpy</span> <span class="yarn-meta">#line:summit_q1_a1</span>
+<span class="yarn-choice">-&gt; Alpy</span> <span class="yarn-meta">#line:summit_q1_a1</span>
 <span class="yarn-line">    Prawidłowy!</span> <span class="yarn-meta">#line:correct</span>
     <span class="yarn-cmd">&lt;&lt;jump question_height&gt;&gt;</span>
-<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#line:dontknow #highlight</span>
+<span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#line:dontknow #highlight</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#line:comebacklater</span>
 
 </code>
@@ -566,16 +566,16 @@ hide:
 <span class="yarn-header-dim">group: base_4</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Jak wysoki jest Mont Blanc?</span> <span class="yarn-meta">#line:summit_q2</span>
-<span class="yarn-line">3705 metrów</span> <span class="yarn-meta">#line:summit_q2_a2</span>
+<span class="yarn-choice">-&gt; 3705 metrów</span> <span class="yarn-meta">#line:summit_q2_a2</span>
 <span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_height&gt;&gt;</span>
-<span class="yarn-line">4807 metrów</span> <span class="yarn-meta">#line:summit_q2_a1</span>
+<span class="yarn-choice">-&gt; 4807 metrów</span> <span class="yarn-meta">#line:summit_q2_a1</span>
 <span class="yarn-line">    Prawidłowy!</span> <span class="yarn-meta">#shadow:correct</span>
     <span class="yarn-cmd">&lt;&lt;jump question_summit_flags&gt;&gt;</span>
-<span class="yarn-line">5016 metrów</span> <span class="yarn-meta">#line:summit_q2_a3</span>
+<span class="yarn-choice">-&gt; 5016 metrów</span> <span class="yarn-meta">#line:summit_q2_a3</span>
 <span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_height&gt;&gt;</span>
-<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dontknow #highlight</span>
+<span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dontknow #highlight</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 
 </code>
@@ -591,15 +591,15 @@ hide:
 <span class="yarn-header-dim">group: base_4</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Jakie kraje widać stąd?</span> <span class="yarn-meta">#line:summit_q</span>
-<span class="yarn-line">Francja, Hiszpania i Niemcy</span> <span class="yarn-meta">#line:summit_a2</span>
+<span class="yarn-choice">-&gt; Francja, Hiszpania i Niemcy</span> <span class="yarn-meta">#line:summit_a2</span>
 <span class="yarn-line">    Nie do końca. To trochę za daleko!</span> <span class="yarn-meta">#line:summit_no</span>
     <span class="yarn-cmd">&lt;&lt;jump question_summit_flags&gt;&gt;</span>
-<span class="yarn-line">Francja, Włochy i Szwajcaria</span> <span class="yarn-meta">#line:summit_a1</span>
+<span class="yarn-choice">-&gt; Francja, Włochy i Szwajcaria</span> <span class="yarn-meta">#line:summit_a1</span>
 <span class="yarn-line">    Dobrze! Rozwieśmy flagi.</span> <span class="yarn-meta">#line:summit_ok</span>
     <span class="yarn-cmd">&lt;&lt;activity fr08_match_flags quest_end&gt;&gt;</span>
-<span class="yarn-line">Alpy</span> <span class="yarn-meta">#shadow:summit_q1_a1</span>
+<span class="yarn-choice">-&gt; Alpy</span> <span class="yarn-meta">#shadow:summit_q1_a1</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
-<span class="yarn-line">Nie wiem</span> <span class="yarn-meta">#shadow:dontknow #highlight</span>
+<span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dontknow #highlight</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 
 </code>
@@ -663,9 +663,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("get_hat")&gt;&gt;</span>
 <span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#line:0c18060 </span>
-<span class="yarn-line">    Tak</span> <span class="yarn-meta">#line:0f4c405 </span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#line:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_2&gt;&gt;</span>
-<span class="yarn-line">    Nie, zostaję tutaj</span> <span class="yarn-meta">#line:02a3874</span>
+<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#line:02a3874</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -683,9 +683,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("gloves")&gt;&gt;</span>
 <span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-line">    Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_3&gt;&gt;</span>
-<span class="yarn-line">    Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -703,9 +703,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("get_sunglasses")&gt;&gt;</span>
 <span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-line">    Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_4&gt;&gt;</span>
-<span class="yarn-line">    Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -722,9 +722,9 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-line">Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-choice">-&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
     <span class="yarn-cmd">&lt;&lt;teleport base_5&gt;&gt;</span>
-<span class="yarn-line">Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">-&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
 
 </code>
 </pre>
@@ -739,9 +739,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("get_crampons")&gt;&gt;</span>
 <span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-line">    Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_6&gt;&gt;</span>
-<span class="yarn-line">    Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -758,9 +758,9 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-line">Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-choice">-&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
     <span class="yarn-cmd">&lt;&lt;teleport base_7&gt;&gt;</span>
-<span class="yarn-line">Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">-&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
 
 </code>
 </pre>
@@ -774,9 +774,9 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-line">Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-choice">-&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
     <span class="yarn-cmd">&lt;&lt;teleport base_1&gt;&gt;</span>
-<span class="yarn-line">Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">-&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
 
 </code>
 </pre>

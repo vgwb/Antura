@@ -94,9 +94,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
 <span class="yarn-line">    Bonjour ! Êtes-vous déjà venu à Paris ?</span> <span class="yarn-meta">#line:talk_tutor_0</span>
-<span class="yarn-line">    Oui!</span> <span class="yarn-meta">#line:talk_tutor_0b</span>
+<span class="yarn-choice">        -&gt; Oui!</span> <span class="yarn-meta">#line:talk_tutor_0b</span>
 <span class="yarn-line">        Super ! Voyons si vous vous souvenez de ces endroits.</span> <span class="yarn-meta">#line:talk_tutor_0c</span>
-<span class="yarn-line">    Non.</span> <span class="yarn-meta">#line:talk_tutor_0d</span>
+<span class="yarn-choice">        -&gt; Non.</span> <span class="yarn-meta">#line:talk_tutor_0d</span>
 <span class="yarn-line">        J'espère que vous viendrez ici un jour !</span> <span class="yarn-meta">#line:talk_tutor_0e</span>
 <span class="yarn-line">    J'ai vu Antura aller chez le boulanger. Allons-y !</span> <span class="yarn-meta">#line:talk_tutor</span>
     <span class="yarn-cmd">&lt;&lt;area area_bakery&gt;&gt;</span>
@@ -295,7 +295,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 <span class="yarn-line">Bonjour. Que désirez-vous ?</span> <span class="yarn-meta">#line:09e454b </span>
-<span class="yarn-line">Un billet pour monter en haut de la Tour Eiffel.</span> <span class="yarn-meta">#line:0141851 </span>
+<span class="yarn-choice">-&gt; Un billet pour monter en haut de la Tour Eiffel.</span> <span class="yarn-meta">#line:0141851 </span>
     <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("collect_coins")&gt;&gt;</span>
 <span class="yarn-line">        Sélectionnez le montant à payer.</span> <span class="yarn-meta">#line:0f44ea7 </span>
         <span class="yarn-cmd">&lt;&lt;activity money_elevator ticket_payment_done&gt;&gt;</span>
@@ -307,9 +307,9 @@ hide:
 <span class="yarn-line">        Regardez autour de vous et ramassez les pièces.</span> <span class="yarn-meta">#line:0097a65 #task:collect_coins</span>
         <span class="yarn-cmd">&lt;&lt;task_start collect_coins coins_collected&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
-<span class="yarn-line">Une baguette.</span> <span class="yarn-meta">#line:03dc852 </span>
+<span class="yarn-choice">-&gt; Une baguette.</span> <span class="yarn-meta">#line:03dc852 </span>
 <span class="yarn-line">   Il y a une boulangerie près d'ici. Mais elle ouvre tard.</span> <span class="yarn-meta">#line:0cbdcce </span>
-<span class="yarn-line">Juste pour regarder autour de soi.</span> <span class="yarn-meta">#line:0718e4a </span>
+<span class="yarn-choice">-&gt; Juste pour regarder autour de soi.</span> <span class="yarn-meta">#line:0718e4a </span>
 <span class="yarn-line">   Profitez de votre visite !</span> <span class="yarn-meta">#line:006fcf2 </span>
 
 </code>
@@ -366,15 +366,15 @@ hide:
 
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour. Que voulez-vous savoir ?</span> <span class="yarn-meta">#line:0070084 </span>
-<span class="yarn-line">Qu'est-ce que la tour Eiffel ?</span> <span class="yarn-meta">#line:0d91dc0 </span>
+<span class="yarn-choice">-&gt; Qu'est-ce que la tour Eiffel ?</span> <span class="yarn-meta">#line:0d91dc0 </span>
 <span class="yarn-line">    Une haute tour en fer, d'environ 300 mètres de haut.</span> <span class="yarn-meta">#line:0f17af0 </span>
 <span class="yarn-line">    C'est un symbole emblématique de Paris !</span> <span class="yarn-meta">#line:07a113f </span>
-<span class="yarn-line">Où sommes-nous?</span> <span class="yarn-meta">#line:09dd1da </span>
+<span class="yarn-choice">-&gt; Où sommes-nous?</span> <span class="yarn-meta">#line:09dd1da </span>
 <span class="yarn-line">    Nous sommes à Paris.</span> <span class="yarn-meta">#line:02b627d </span>
-<span class="yarn-line">Cet endroit existe-t-il vraiment ?</span> <span class="yarn-meta">#line:08bede4 </span>
+<span class="yarn-choice">-&gt; Cet endroit existe-t-il vraiment ?</span> <span class="yarn-meta">#line:08bede4 </span>
 <span class="yarn-line">    Oui ! Pourquoi me posez-vous cette question ?</span> <span class="yarn-meta">#line:08654e6 </span>
 <span class="yarn-line">    Eh bien… on dirait un jeu vidéo.</span> <span class="yarn-meta">#line:0bc62a3 </span>
-<span class="yarn-line">Rien. Au revoir.</span> <span class="yarn-meta">#line:0fe0732 #highlight</span>
+<span class="yarn-choice">-&gt; Rien. Au revoir.</span> <span class="yarn-meta">#line:0fe0732 #highlight</span>
 
 </code>
 </pre>
@@ -606,12 +606,12 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">spawn_group: eiffel_tower</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">J'aimerais monter en haut de la tour Eiffel.</span> <span class="yarn-meta">#line:0aee9bb </span>
-<span class="yarn-line">Il vous faut un billet pour monter.</span> <span class="yarn-meta">#line:09be864 </span>
-<span class="yarn-line">Il y eut une grande foire à Paris en 1889.</span> <span class="yarn-meta">#line:0a3f4e1 </span>
+<span class="yarn-choice">-&gt; J'aimerais monter en haut de la tour Eiffel.</span> <span class="yarn-meta">#line:0aee9bb </span>
+<span class="yarn-choice">-&gt; Il vous faut un billet pour monter.</span> <span class="yarn-meta">#line:09be864 </span>
+<span class="yarn-choice">-&gt; Il y eut une grande foire à Paris en 1889.</span> <span class="yarn-meta">#line:0a3f4e1 </span>
 <span class="yarn-line">    C'était pour célébrer un anniversaire important pour la France.</span> <span class="yarn-meta">#line:01fa210 </span>
 <span class="yarn-line">    La tour Eiffel a été construite pour cette grande fête.</span> <span class="yarn-meta">#line:0d6f3c4 </span>
-<span class="yarn-line">J'adore Paris !</span> <span class="yarn-meta">#line:0bda18a </span>
+<span class="yarn-choice">-&gt; J'adore Paris !</span> <span class="yarn-meta">#line:0bda18a </span>
 
 </code>
 </pre>
@@ -628,13 +628,13 @@ hide:
 <span class="yarn-header-dim">spawn_group: generic</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Avez-vous des questions ?</span> <span class="yarn-meta">#line:07b94e9 </span>
-<span class="yarn-line">Avez-vous vu Antura ?</span> <span class="yarn-meta">#line:0f18ad3 </span>
+<span class="yarn-choice">-&gt; Avez-vous vu Antura ?</span> <span class="yarn-meta">#line:0f18ad3 </span>
 <span class="yarn-line">    Non. Qui est Antura ?</span> <span class="yarn-meta">#line:0f9dd62 </span>
-<span class="yarn-line">Que fais-tu?</span> <span class="yarn-meta">#line:002796f </span>
+<span class="yarn-choice">-&gt; Que fais-tu?</span> <span class="yarn-meta">#line:002796f </span>
 <span class="yarn-line">    Je vais acheter du pain à la boulangerie.</span> <span class="yarn-meta">#line:05a38a8 </span>
-<span class="yarn-line">D'où viens-tu?</span> <span class="yarn-meta">#line:05eabcf </span>
+<span class="yarn-choice">-&gt; D'où viens-tu?</span> <span class="yarn-meta">#line:05eabcf </span>
 <span class="yarn-line">    Je ne suis pas né dans ce pays.</span> <span class="yarn-meta">#line:0635a6a </span>
-<span class="yarn-line">Au revoir</span> <span class="yarn-meta">#line:0ee51fc #highlight</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#line:0ee51fc #highlight</span>
 
 </code>
 </pre>

@@ -269,7 +269,7 @@ Credits:
 ---
 
 ### mountain tools {#mountain_tools}
-- Description: what we need to stay ssafe in the mountain  
+- Description: what we need to stay safe in the mountain  
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -313,6 +313,11 @@ Credits:
     Okulary chroniące oczy przed jasnym światłem.
 
     ![preview sunglasses](../../../assets/img/content/cards/sunglasses.jpg){ width="200" }
+
+    - **[Płaszcz](../cards/index.md#coat)** (RelatedTo)
+    Ciepła kurtka na zimne dni.
+
+    ![preview coat](../../../assets/img/content/cards/coat.jpg){ width="200" }
 
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
@@ -936,10 +941,10 @@ Credits:
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
-    - **[Łódź podwodna (Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
-    Łódź podwodna z powieści Juliusza Verne'a. Mogła badać głębiny morskie.
+    - **[Balon na ogrzane powietrze](../cards/index.md#hot_air_balloon)** (RelatedTo)
+    Balon wznoszący się dzięki ogrzanemu powietrzu. Pierwszy taki balon skonstruowano we Francji.
 
-    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
 
 - Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
@@ -984,7 +989,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
+- Quests: [Muzeum Luwru (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
 
 ---
 
@@ -1112,6 +1117,21 @@ Credits:
 
     ![preview ice](../../../assets/img/content/cards/ice.jpg){ width="200" }
 
+    - **[Francja](../cards/index.md#country_france)** (LocatedIn)
+    Kraj w Europie. Stolicą jest Paryż.
+
+    ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
+
+    - **[Włochy](../cards/index.md#country_italy)** (LocatedIn)
+    Państwo w Europie. Stolicą jest Rzym.
+
+    ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
+
+    - **[Szwajcaria](../cards/index.md#country_switzerland)** (LocatedIn)
+    Kraj w Europie. Stolicą jest Berno. Szwajcaria słynie z gór i sera.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+
 - Quests: [Mont Blanc i góry (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -1146,16 +1166,37 @@ Credits:
 
 ---
 
-### Seine Bridges {#seine_bridges}
+### Seine {#seine}
 - Importance: Medium  
+- Subjects: Geography, Transportation, Civics  
 - Target Age: Ages6to10
 - Core card:
-    - **[Most dla samochodów](../cards/index.md#place_bridge_cars)**
+    - **[Sekwana](../cards/index.md#seine)**
+    Rzeka o długości 777 kilometrów w północnej Francji
+
+    ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
+
+- Connected cards:
+    - **[Paryż](../cards/index.md#capital_paris)** (LocatedIn)
+    Stolica Francji. Paryż ma słynną wysoką wieżę zwaną Wieżą Eiffla!
+
+    ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
+
+    - **[Mapa Sekwany](../cards/index.md#seine_map)** (RelatedTo)
+    Zdjęcie przedstawiające rzekę Sekwanę i jej przepływ przez ląd.
+
+    ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ width="200" }
+
+    - **[Mapa Sekwany w Paryżu](../cards/index.md#seine_map_in_paris)** (LocatedIn)
+    Zdjęcie przedstawiające jak Sekwana płynie przez Paryż.
+
+    ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ width="200" }
+
+    - **[Most dla samochodów](../cards/index.md#place_bridge_cars)** (RelatedTo)
     Droga biegnąca nad wodą, dzięki której samochody mogą pokonywać rzeki i jeziora.
 
     ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
-- Connected cards:
     - **[Kładki dla pieszych](../cards/index.md#place_bridge_people)** (RelatedTo)
     Małe mostki dla pieszych, dzięki nim można bezpiecznie przejść na druga stronę ulicy.
 
@@ -1166,12 +1207,45 @@ Credits:
 
     ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ width="200" }
 
+    - **[Most Aleksandra III](../cards/index.md#pont_alexandre_iii)** (RelatedTo)
+    Piękny most w Paryżu z misternymi dekoracjami i złotymi posągami.
+
+    ![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ width="200" }
+
     - **[Łódź rzeczna](../cards/index.md#boat_river)** (RelatedTo)
     Łódź, która pływa po rzekach. Rzeki są jak drogi zbudowane z wody!
 
     ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ width="200" }
 
+    - **[Łódź towarowa](../cards/index.md#boat_for_goods)** (RelatedTo)
+    Duża łódź, która przewozi paczki, żywność i inne rzeczy z miejsca na miejsce.
+
+    ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ width="200" }
+
+    - **[Dom na wodzie](../cards/index.md#boat_house)** (RelatedTo)
+    Dom, który unosi się na wodzie jak łódź. Ludzie mogą mieszkać w domkach na łodziach!
+
+    ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ width="200" }
+
+    - **[Łódź dla ludzi](../cards/index.md#boat_people)** (RelatedTo)
+    Łódź przewożąca ludzi.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Statek na Sekwanie](../cards/index.md#boat_eiffel_tower)** (RelatedTo)
+    Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę Eiffla i inne piękne budynki!
+
+    ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ width="200" }
+
+    - **[Ile-de-France](../cards/index.md#ile_de_france)** (LocatedIn)
+    Region we Francji, w którym znajduje się stolica, Paryż. Mieszka tu wielu ludzi!
+
+    ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
+
 - Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ## Poland
 
@@ -1301,6 +1375,21 @@ Credits:
     ![preview place_odra_river](../../../assets/img/content/cards/place_odra_river.jpg){ width="200" }
 
 - Connected cards:
+    - **[Mapa rzeki Odry](../cards/index.md#odra_river_map)** (RelatedTo)
+    Prosta mapa przedstawiająca rzekę Odrę w Polsce i jej ujście do Morza Bałtyckiego
+
+    ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ width="200" }
+
+    - **[Wisła (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
+    Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warszawę.
+
+    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+
+    - **[Wrocławskie mosty](../cards/index.md#wroclaw_bridges)** (RelatedTo)
+    Wrocław znany jest z licznych mostów.
+
+    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+
     - **[Kładka](../cards/index.md#footbridge)** (RelatedTo)
     Mostek, po którym mogą chodzić tylko ludzie. Bez samochodów.
 
@@ -1321,26 +1410,42 @@ Credits:
 
     ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ width="200" }
 
-    - **[Dom na wodzie](../cards/index.md#houseboat)** (RelatedTo)
-    Łódź, w której można mieszkać.
+    - **[Most dla samochodów](../cards/index.md#place_bridge_cars)** (RelatedTo)
+    Droga biegnąca nad wodą, dzięki której samochody mogą pokonywać rzeki i jeziora.
 
-    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
+    ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
     - **[Most kolejowy](../cards/index.md#train_bridge)** (RelatedTo)
     Most z torami kolejowymi.
 
     ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ width="200" }
 
-    - **[Wrocławskie mosty](../cards/index.md#wroclaw_bridges)** (RelatedTo)
-    Wrocław znany jest z licznych mostów.
+    - **[Barka](../cards/index.md#barge)** (RelatedTo)
+    Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
 
-    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+    ![preview barge](../../../assets/img/content/cards/barge.jpg){ width="200" }
 
-    - **[Wisła (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
-    Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warszawę.
+    - **[Dom na wodzie](../cards/index.md#houseboat)** (RelatedTo)
+    Łódź, w której można mieszkać.
 
-    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
 
+    - **[Łódź dla ludzi](../cards/index.md#boat_people)** (RelatedTo)
+    Łódź przewożąca ludzi.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Kajak](../cards/index.md#kayak)** (RelatedTo)
+    Mała łódka napędzana wiosłami.
+
+    ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ width="200" }
+
+    - **[Znak rzeki](../cards/index.md#river_sign)** (RelatedTo)
+    Niebieski, prostokątny znak z białymi falistymi liniami, będący uniwersalnym europejskim symbolem pokazującym, gdzie płynie rzeka.
+
+    ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
+
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1500,6 +1605,7 @@ Credits:
 
 ### Wroclaw {#wroclaw}
 - Importance: Medium  
+- Subjects: Geography, Community  
 - Target Age: Ages6to10
 - Core card:
     - **[Wrocław](../cards/index.md#wroclaw)**
@@ -1508,6 +1614,11 @@ Credits:
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
 
 - Connected cards:
+    - **[Mapa Wrocławia](../cards/index.md#wroclaw_map)** (RelatedTo)
+    Prosta mapa Wrocławia przedstawiająca rzekę Odrę z wyspami i wieloma mostami
+
+    ![preview wroclaw_map](../../../assets/img/content/cards/wroclaw_map.jpg){ width="200" }
+
     - **[Wrocławskie mosty](../cards/index.md#wroclaw_bridges)** (RelatedTo)
     Wrocław znany jest z licznych mostów.
 
@@ -1523,6 +1634,65 @@ Credits:
 
     ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
 
+    - **[Panorama Racławicka](../cards/index.md#panorama_racawicka)** (RelatedTo)
+    Otacza Cię gigantyczny obraz przedstawiający historyczną bitwę.
+
+    ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ width="200" }
+
+    - **[Ratusz](../cards/index.md#town_hall)** (RelatedTo)
+    Budynek, w którym pracują władze miasta.
+
+    ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ width="200" }
+
+    - **[Wroclaw : Cathédrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
+    Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+
+    ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ width="200" }
+
+    - **[Hala Stulecia](../cards/index.md#wroclaw_centennial_hall)** (RelatedTo)
+    Hala Stulecia to ogromny budynek przypominający wielki namiot z dachem. Jest bardzo wysoki. Wewnątrz można oglądać różne pokazy, słuchać koncertów i oglądać mecze sportowe.
+
+    ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ width="200" }
+
+    - **[Wrocławskie krasnale](../cards/index.md#wroclaw_dwarfs)** (RelatedTo)
+    Malutkie figurki w całym mieście. Krasnale lubią płatać figle.
+
+    ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
+
+    - **[Wrocławski Rynek](../cards/index.md#wroclaw_market_square)** (RelatedTo)
+    Główny plac Starego Miasta, pełen życia.
+
+    ![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ width="200" }
+
+    - **[Wrocławska Fontanna Multimedialna](../cards/index.md#wroclaw_multimedia_fountain)** (RelatedTo)
+    Woda tańcząca w rytm muzyki i kolorowych świateł.
+
+    ![preview wroclaw_multimedia_fountain](../../../assets/img/content/cards/wroclaw_multimedia_fountain.jpg){ width="200" }
+
+    - **[Stary Ratusz (Wrocław)](../cards/index.md#wroclaw_old_town_hall)** (RelatedTo)
+    Piękny gotycki budynek na Rynku.
+
+    ![preview wroclaw_old_town_hall](../../../assets/img/content/cards/wroclaw_old_town_hall.jpg){ width="200" }
+
+    - **[Wrocław: Sky Tower](../cards/index.md#wroclaw_sky_tower)** (RelatedTo)
+    Jeden z najwyższych budynków w Polsce. Znajdują się w nim sklepy i punkt widokowy.
+
+    ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ width="200" }
+
+    - **[Ogród Zoologiczny we Wrocławiu](../cards/index.md#wroclaw_zoo)** (RelatedTo)
+    Duży ogród zoologiczny we Wrocławiu, w którym można poznać wiele zwierząt.
+
+    ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ width="200" }
+
+    - **[Dalí - Profil czasu](../cards/index.md#dali_profile_of_time)** (RelatedTo)
+    Ten słynny „topniejący zegar” to statua, która pokazuje, że czas może być giętki i wirować, zupełnie jak we śnie!
+
+    ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
+
+- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ---
 
@@ -1536,40 +1706,60 @@ Credits:
     ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
 
 - Connected cards:
-    - **[Krasnal Miłośnik Zwierząt](../cards/index.md#animal_lover_dwarf)** (RelatedTo)
+    - **[Miłośnik zwierząt Krasnolud](../cards/index.md#dwarf_animal_lover)** (RelatedTo)
     Figurka krasnala, który uwielbia zoo i zwierzęta.
 
-    ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ width="200" }
+    ![preview dwarf_animal_lover](../../../assets/img/content/cards/dwarf_animal_lover.jpg){ width="200" }
 
-    - **[Krasnal Biskup](../cards/index.md#bishop_dwarf)** (RelatedTo)
+    - **[Architekt Krasnolud](../cards/index.md#dwarf_architect)** (RelatedTo)
+    Myślący krasnolud, który kocha kształty, budynki i pomysłowe projekty.
+
+    ![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ width="200" }
+
+    - **[Évêque Nain](../cards/index.md#dwarf_bishop)** (RelatedTo)
     Posąg karła zadającego pytanie kościelne.
 
-    ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ width="200" }
+    ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ width="200" }
 
-    - **[Krasnal Ekspert](../cards/index.md#dwarf_expert)** (RelatedTo)
+    - **[Dyrygent Krasnolud](../cards/index.md#dwarf_conductor)** (RelatedTo)
+    Żywiołowy krasnolud, który kocha wodę, światła i muzykę.
+
+    ![preview dwarf_conductor](../../../assets/img/content/cards/dwarf_conductor.jpg){ width="200" }
+
+    - **[Radny Krasnolud](../cards/index.md#dwarf_councilor)** (RelatedTo)
+    Formalny krasnolud związany ze Starym Ratuszem i sprawami miasta.
+
+    ![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ width="200" }
+
+    - **[Expert nain](../cards/index.md#dwarf_expert)** (RelatedTo)
     Przyjazny przewodnik, który wie wszystko o krasnoludkach.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
 
-    - **[Krasnal Klucznik](../cards/index.md#keymaster_dwarf)** (RelatedTo)
-    Krasnal z dużym kluczem pilnujący windy.
+    - **[Krasnolud Klucznik](../cards/index.md#dwarf_keymaster)** (LocatedIn)
+    Posąg krasnoluda pilnującego windy z dużym kluczem.
 
-    ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ width="200" }
+    ![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ width="200" }
 
-    - **[Polskie krasnale (wrocławskie krasnale)](../cards/index.md#polish_dwarf)** (RelatedTo)
-    Małe figurki krasnali kryją się we Wrocławiu. Ich znalezienie to fajna gra miejska.
+    - **[Origine Nain](../cards/index.md#dwarf_origin)** (LocatedIn)
+    Klasyczna wrocławska figura krasnala w spiczastym kapeluszu i solidnych butach.
 
-    ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ width="200" }
+    ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ width="200" }
 
-    - **[Figurka wrocławskiego krasnala](../cards/index.md#wroclaw_dwarf_statue)** (RelatedTo)
-    Niewielka figurka krasnala-symbolu Wrocławia.
+    - **[Malarz Krasnolud](../cards/index.md#dwarf_painter)** (LocatedIn)
+    Artystyczny krasnolud, który kocha kolory, farby i duże obrazy.
 
-    ![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ width="200" }
+    ![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ width="200" }
 
-    - **[Wrocław](../cards/index.md#wroclaw)** (LocatedIn)
-    Miasto w Polsce z rzekami, mostami i pięknymi zabytkami.
+    - **[Podróżnik Krasnolud](../cards/index.md#dwarf_traveler)** (LocatedIn)
+    Żądny przygód krasnolud, który kocha ruchliwe miejsca i nowe ścieżki.
 
-    ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
+    ![preview dwarf_traveler](../../../assets/img/content/cards/dwarf_traveler.jpg){ width="200" }
+
+    - **[Pisarz Krasnolud](../cards/index.md#dwarf_writer)** (LocatedIn)
+    Cichy krasnolud, który uwielbia opowieści, książki i czytanie.
+
+    ![preview dwarf_writer](../../../assets/img/content/cards/dwarf_writer.jpg){ width="200" }
 
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 

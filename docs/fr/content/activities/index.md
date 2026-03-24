@@ -29,8 +29,8 @@ Input Variable: Background image and the images of the moving obstacles
 
 
 Credits:
-  - Valeria Passarella (Italy)
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
+  - Valeria Passarella (Italy)
 
 <a id="JigsawPuzzle"></a>
 ## Puzzle
@@ -55,8 +55,8 @@ gameplay: Reconstructing an image based on parts of it Moving objects with  you
 Input Variable:  image 
 
 Credits:
-  - Vieri Toti (Italy)
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
+  - Vieri Toti (Italy)
 
 <a id="Match"></a>
 ## Correspondre
@@ -173,8 +173,8 @@ Input Variables:
 
 
 Credits:
-  - Lorenzo Castrovilli (Italy)
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
+  - Lorenzo Castrovilli (Italy)
 
 <a id="Piano"></a>
 ## Piano

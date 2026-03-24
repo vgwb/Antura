@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **384**
+Total found: **394**
 
 ## International
 
@@ -315,7 +315,7 @@ Una barca che naviga sui fiumi. I fiumi sono come strade fatte d'acqua!
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -329,6 +329,7 @@ Un'imbarcazione che trasporta le persone da un luogo all'altro attraverso l'acqu
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 
 ---
@@ -341,6 +342,7 @@ Una grande imbarcazione che trasporta scatole, cibo e altre cose da un posto all
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 
 ---
@@ -551,7 +553,7 @@ Un berretto caldo per la testa.
 - Subjects: Health, Safety, Weather
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
-- Image credit: CC0 | Michael Evans | [source](https://commons.wikimedia.org/wiki/File:Ronald_Reagan_with_cowboy_hat_12-0071M_edit.jpg)
+- Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Beanie_hat_by_Polo_Ralph_Lauren.jpg)
 - Quests: [Monte Bianco e montagne (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -564,7 +566,8 @@ Una giacca calda per il clima freddo.
 - Type: Object
 - Subjects: Health, Safety, Weather
 - Country: International
-- Image credit: CC_BY_SA | Calistemon | [source](https://commons.wikimedia.org/wiki/File:White_American_Staffordshire_Terrier_in_Vegemite_coat,_August_2022.jpg)
+- Topics: [mountain tools](../topics/index.md#mountain_tools)
+- Image credit: CC0
 - Quests: [Monte Bianco e montagne (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -591,6 +594,18 @@ Una borsa che gli studenti usano per portare a scuola libri, matite e compiti.
 - Country: International
 - Image credit: CC0
 - Quests: [Il sistema scolastico (fr_02)](../quests/quest/fr_02.md)
+
+---
+
+### Cartello di un fiume {#river_sign}
+![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ loading=lazy }
+
+Un cartello rettangolare blu con linee ondulate bianche che funge da simbolo universale europeo per indicare il punto in cui scorre un fiume.
+
+- Type: Object
+- Country: International
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC0
 
 ---
 
@@ -1606,7 +1621,7 @@ La capitale della Francia. Parigi ha una famosa torre alta chiamata Torre Eiffel
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Louvre](../topics/index.md#louvre)
+- Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Seine](../topics/index.md#seine), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md)
 
@@ -1620,7 +1635,7 @@ Piccoli ponti per i pedoni. Ti proteggono dal traffico.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -1777,7 +1792,7 @@ Una strada che attraversa l'acqua, consentendo alle auto di attraversare fiumi e
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -1791,7 +1806,7 @@ Un ponte speciale costruito in modo sufficientemente robusto da consentire ai tr
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Seine Bridges](../topics/index.md#seine_bridges)
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -1882,6 +1897,7 @@ Una casa che galleggia sull'acqua come una barca. Le persone possono vivere nell
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 
 ---
@@ -2126,7 +2142,7 @@ Un paese in Europa. La capitale è Berna. La Svizzera è famosa per le montagne 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
-- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg)
 
 ---
@@ -2361,7 +2377,7 @@ Una regione della Francia dove si trova la capitale Parigi. Qui vivono moltissim
 - Type: Place
 - Subjects: Geography, Environment
 - Country: International
-- Topics: [Notre Dame](../topics/index.md#notredame)
+- Topics: [Notre Dame](../topics/index.md#notredame), [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi! (fr_01)](../quests/quest/fr_01.md)
 
@@ -2578,6 +2594,7 @@ Un'imbarcazione speciale che naviga sulla Senna a Parigi. Dall'acqua si possono 
 - Subjects: Transportation, Geography, Culture
 - Year: 1900
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -2909,7 +2926,7 @@ Un paese in Europa. La capitale è Parigi.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: France
-- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [France country](../topics/index.md#france-country), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Another one of my pictures:
 
 
@@ -3209,6 +3226,7 @@ Un'immagine che mostra il fiume Senna e il punto in cui scorre attraverso il ter
 - Type: Object
 - Subjects: Geography, Environment
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -3222,6 +3240,7 @@ Un'immagine che mostra come la Senna scorre attraverso la città di Parigi.
 - Type: Object
 - Subjects: Science
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -3260,6 +3279,7 @@ Un pallone che vola ad aria calda. Il primo esemplare volò in Francia.
 - Type: Object
 - Subjects: Transportation
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne e i trasporti (fr_03)](../quests/quest/fr_03.md)
 
@@ -3341,6 +3361,7 @@ Uno splendido ponte di Parigi con decorazioni elaborate e statue dorate.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -3510,6 +3531,7 @@ Un fiume lungo 777 chilometri nel nord della Francia
 - Type: Place
 - Subjects: Geography
 - Country: France
+- Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
 - Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
 
@@ -3729,33 +3751,6 @@ Un veicolo che si muove sull'acqua.
 
 ---
 
-### Breslavia {#wroclaw}
-![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
-
-Una città in Polonia con fiumi, ponti e storia.
-
-- Type: Place
-- Subjects: Geography, History, Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves), [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
-- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Breslavia: Cattedrale {#wroclaw_cathedral}
-![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
-
-Una chiesa grande e importante, dove la gente prega. È possibile salire sulla torre per ammirare il panorama.
-
-- Type: Place
-- Subjects: History, Culture
-- Country: Poland
-- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Breslavia: Sky Tower {#wroclaw_sky_tower}
 ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ loading=lazy }
 
@@ -3764,6 +3759,7 @@ Uno degli edifici più alti della Polonia. Ospita negozi e un punto panoramico.
 - Type: Place
 - Subjects: Geography, Community, Culture
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | [source](https://it.wikipedia.org/wiki/File:Wrocław,_2006_-_2012_-_budowa_Sky_Tower_-_fotopolska.eu_(311325).jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -3831,6 +3827,7 @@ Una lunga imbarcazione piatta che trasporta merci sui fiumi.
 - Type: Object
 - Subjects: Transportation, Geography
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Dietmar Rabich
 - Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -3861,6 +3858,20 @@ Un guscio duro di un animale marino, ottimo per i lavoretti.
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Flexopecten_ponticus_2008_G1.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Consigliere Nano {#dwarf_councilor}
+![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ loading=lazy }
+
+Un nano formale legato al vecchio municipio e alle opere cittadine.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3902,6 +3913,19 @@ Piccolo e giocoso, agita la sua piccola proboscide. Ama stare vicino alla mamma.
 
 ---
 
+### Dalí - Profilo del tempo {#dali_profile_of_time}
+![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ loading=lazy }
+
+Questo famoso "orologio che si scioglie" è una statua che dimostra come il tempo possa essere flessibile e ondeggiante, proprio come in un sogno!
+
+- Type: Object
+- Subjects: Art
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: PublicDomain
+
+---
+
 ### Danzica {#gdansk}
 ![preview gdansk](../../../assets/img/content/cards/gdansk.jpg){ loading=lazy }
 
@@ -3913,6 +3937,20 @@ Città portuale in Polonia sul Mar Baltico.
 - Topics: [gdansk](../topics/index.md#gdansk), [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Calle_Dlugie_Pobrzeze,_Gdansk,_Polonia,_2013-05-20,_DD_05.jpg)
 - Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Direttore d'orchestra nano {#dwarf_conductor}
+![preview dwarf_conductor](../../../assets/img/content/cards/dwarf_conductor.jpg){ loading=lazy }
+
+Un nano vivace che ama l'acqua, le luci e la musica.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -3954,12 +3992,12 @@ Grande e forte, con lunghe zanne e un suono sonoro di tromba. Si prende cura del
 
 ---
 
-### Esperto di nani {#dwarf_expert}
+### Expert nain {#dwarf_expert}
 ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
 
 Una guida amichevole che sa tutto sui nani.
 
-- Type: Person
+- Type: Object
 - Subjects: Education, Culture
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
@@ -4004,7 +4042,7 @@ Un grande fiume nella Polonia occidentale. Aiuta le navi a viaggiare e commercia
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -4031,7 +4069,7 @@ Il fiume più lungo della Polonia si chiama Wisła o Vistola. Scorre attraverso 
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -4072,6 +4110,7 @@ Acqua che danza con musica e luci colorate.
 - Type: Place
 - Subjects: Culture, Technology, Recreation
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Piotr Walczak & Konradr | [source](https://commons.wikimedia.org/wiki/File:Wrocławska_fontanna_Piotr_Walczak2.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -4181,6 +4220,7 @@ Una piccola barca su cui si pagaia.
 - Type: Object
 - Subjects: Recreation, Sport
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | 0x010C
 - Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -4200,20 +4240,6 @@ Un pezzo di vetro o plastica trasparente che piega la luce.
 
 ---
 
-### Maestro delle Chiavi Nano {#keymaster_dwarf}
-![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ loading=lazy }
-
-Una statua nana sorveglia l'ascensore con una grande chiave.
-
-- Type: Object
-- Subjects: Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:100matolog_(Tooth-dwarf)_Wroclaw_dwarf_02.JPG)
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Mappa del fiume Odra {#odra_river_map}
 ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
 
@@ -4222,19 +4248,32 @@ Una semplice mappa che mostra il fiume Odra in Polonia e il modo in cui scorre v
 - Type: None
 - Subjects: Geography
 - Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
 - Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
-### Mappa di Wroklaw {#wroklaw_map}
-![preview wroklaw_map](../../../assets/img/content/cards/wroklaw_map.jpg){ loading=lazy }
+### Mappa delle isole di Wroklaw {#wroklaw_islands_map}
+![preview wroklaw_islands_map](../../../assets/img/content/cards/wroklaw_islands_map.jpg){ loading=lazy }
 
-Una semplice mappa di Breslavia che mostra il fiume Odra con le sue isole e numerosi ponti
+Una mappa colorata delle isole centrali di Breslavia lungo il fiume Odra, che mostra gli edifici storici, i ponti e gli spazi verdi del centro storico.
 
-- Type: None
+- Type: Place
+- Country: Poland
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Islands.png)
+
+---
+
+### Mappa di Wroklaw {#wroclaw_map}
+![preview wroclaw_map](../../../assets/img/content/cards/wroclaw_map.jpg){ loading=lazy }
+
+Una semplice mappa di Breslavia che mostra il fiume Odra con le sue isole e i numerosi ponti.
+
+- Type: Place
 - Subjects: Geography
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md), [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -4317,9 +4356,10 @@ Una grande statua nel Parco Łazienki di Varsavia, dedicata a Frédéric Chopin.
 
 Il luogo in cui i leader della città lavorano e si incontrano.
 
-- Type: Concept
+- Type: Place
 - Subjects: Civics, Community, History
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:Town_hall_of_Aosta_(3).jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -4359,22 +4399,64 @@ Piccole statue sparse per la città che amano fare scherzi.
 - Type: Concept
 - Subjects: Culture, Community, History
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves), [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Matti Blume | [source](https://commons.wikimedia.org/wiki/File:Dwarf,_Wroclaw_(P1180336).jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
-### Nano amante degli animali {#animal_lover_dwarf}
-![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ loading=lazy }
+### Nano amante degli animali {#dwarf_animal_lover}
+![preview dwarf_animal_lover](../../../assets/img/content/cards/dwarf_animal_lover.jpg){ loading=lazy }
 
-Una statua di un nano che ama lo zoo e gli animali.
+Una statuetta di nano che ama lo zoo e gli animali.
 
 - Type: Object
 - Subjects: Culture, Animal, Education
 - Country: Poland
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY | Klearchos Kapoutsis from Santorini, Greece | [source](https://commons.wikimedia.org/wiki/File:Gołębnik,_the_Flying_Dwarf..._(5629227878).jpg)
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Nano architetto {#dwarf_architect}
+![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ loading=lazy }
+
+Un nano riflessivo che ama le forme, gli edifici e il design intelligente.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Nano Custode delle Chiavi {#dwarf_keymaster}
+![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ loading=lazy }
+
+Una statua di un nano fa la guardia all'ascensore con una grande chiave.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:100matolog_(Tooth-dwarf)_Wroclaw_dwarf_02.JPG)
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Nano Pittore {#dwarf_painter}
+![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ loading=lazy }
+
+Un nano artista che ama i colori, la pittura e i quadri di grandi dimensioni.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -4388,9 +4470,36 @@ Piccole statue di nani si nascondono in giro per Breslavia. Trovarle è un diver
 - Subjects: Community, Culture
 - Year: 1700
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC0
 - Quests: [Scopri Varsavia (pl_01)](../quests/quest/pl_01.md), [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Nano scrittore {#dwarf_writer}
+![preview dwarf_writer](../../../assets/img/content/cards/dwarf_writer.jpg){ loading=lazy }
+
+Un nano tranquillo che ama le storie, i libri e la lettura.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Nano viaggiatore {#dwarf_traveler}
+![preview dwarf_traveler](../../../assets/img/content/cards/dwarf_traveler.jpg){ loading=lazy }
+
+Un nano avventuroso che ama i luoghi affollati e i nuovi percorsi.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4493,6 +4602,20 @@ Acqua in movimento sul mare.
 
 ---
 
+### Origine Nain {#dwarf_origin}
+![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
+
+Una classica statua di un nano di Breslavia con cappello a punta e robusti stivali.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Pan di zenzero di Torun {#gingerbread}
 ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ loading=lazy }
 
@@ -4515,6 +4638,7 @@ Un dipinto gigante tutto intorno a te che racconta una battaglia storica.
 - Type: Place
 - Subjects: History, Art, Culture
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Barbara Maliszewska
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -4582,6 +4706,7 @@ La piazza principale della Città Vecchia, piena di vita.
 - Type: Place
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -4696,7 +4821,7 @@ A Breslavia ci sono molti ponti che attraversano il fiume Odra.
 - Type: Concept
 - Subjects: Geography, Transportation, Community
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river), [Wroclaw](../topics/index.md#wroclaw)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
 - Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
@@ -4767,6 +4892,7 @@ La Centennial Hall è un enorme edificio che sembra una grande tenda con un tett
 - Type: Place
 - Subjects: Culture, Recreation
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | Taxiarchos228, FAL, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Jahrhunderthalle1.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -4783,19 +4909,6 @@ Un pianeta gigante con anelli luminosi e numerose lune.
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech/SSI/Cornell | [source](https://commons.wikimedia.org/wiki/File:Top_view_of_the_rings_of_Saturn_by_Cassini_-_October_10,_2013.jpg)
 - Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
-
----
-
-### Scuola Primaria Leonardo da Vinci {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-È un luogo accogliente dove i bambini imparano, creano ed esplorano guidati dalla curiosità, dall'arte e dalla scienza.
-
-- Type: None
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4835,7 +4948,7 @@ Una piazza moderna dove le persone si incontrano vicino alla torre.
 - Type: Place
 - Subjects: Geography, Community, Recreation
 - Country: Poland
-- Image credit: CC_BY_SA | JamesYoung8167 | [source](https://commons.wikimedia.org/wiki/File:Xiamen_Shimao_Straits_Tower_2016-02-09.jpg)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wn%C4%99trze_skytower_dali.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -4848,7 +4961,6 @@ Una piccola statua cittadina; i nani sono il simbolo di Breslavia.
 - Type: Object
 - Subjects: Culture, Community, History
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -4944,6 +5056,7 @@ Uno splendido edificio gotico nella piazza principale. Ha un famoso orologio.
 - Type: Place
 - Subjects: Geography, Environment
 - Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/7/70/Wroclaw-Rathaus.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
@@ -4963,17 +5076,31 @@ Un pianeta molto caldo ricoperto da spesse nubi.
 
 ---
 
-### Vescovo nano {#bishop_dwarf}
-![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ loading=lazy }
+### Wroclaw : Cathédrale {#wroclaw_cathedral}
+![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
 
-Una statua nana che pone una domanda in chiesa.
+Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
 
-- Type: Object
-- Subjects: Culture, History
+- Type: Place
+- Subjects: History, Culture
 - Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | Teal Reverie | [source](https://commons.wikimedia.org/wiki/File:Dwarf_spider_cephalothorax.jpg)
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Wrocław {#wroclaw}
+![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
+
+Una città in Polonia con fiumi, ponti e storia.
+
+- Type: Place
+- Subjects: Geography, History, Culture
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
+- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4985,9 +5112,36 @@ Un grande zoo a Breslavia con molti animali da scoprire.
 - Type: Place
 - Subjects: Geography, Education, Animal
 - Country: Poland
-- Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
+- Topics: [Wroclaw](../topics/index.md#wroclaw), [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 - Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+È un luogo accogliente dove i bambini imparano, creano ed esplorano guidati dalla curiosità, dall'arte e dalla scienza.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Évêque Nain {#dwarf_bishop}
+![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
+
+Una statua di nano che pone una domanda a una chiesa.
+
+- Type: Object
+- Subjects: Culture, History
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -5091,7 +5245,7 @@ Un paese in Europa. La capitale è Roma.
 - Type: Place
 - Subjects: Geography, Culture
 - Country: Italy
-- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Topics: [Countries around France](../topics/index.md#france_countries_around), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Agnes Monkelbaan | [source](https://commons.wikimedia.org/wiki/File:Bergwandeltocht_van_Peio_Paese_naar_Lago_Covel_(1,839_m)_in_het_Nationaal_park_Stelvio_(Italy)_23.jpg)
 
 ---

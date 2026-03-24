@@ -168,17 +168,17 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">The Seine flows into a sea. Which one?</span> <span class="yarn-meta">#line:066d7bd </span>
-<span class="yarn-line">The Mediterranean Sea</span> <span class="yarn-meta">#line:02ab1e0 </span>
+<span class="yarn-choice">-&gt; The Mediterranean Sea</span> <span class="yarn-meta">#line:02ab1e0 </span>
 <span class="yarn-line">   Hmm... not really. Look at the map again.</span> <span class="yarn-meta">#line:099fe86 </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
-<span class="yarn-line">The English Channel</span> <span class="yarn-meta">#line:03c92db </span>
+<span class="yarn-choice">-&gt; The English Channel</span> <span class="yarn-meta">#line:03c92db </span>
     <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
 <span class="yarn-line">    Yes. The Seine flows into the English Channel, in the north of France.</span> <span class="yarn-meta">#line:0a2bcd3</span>
     <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
-<span class="yarn-line">The Atlantic Ocean</span> <span class="yarn-meta">#line:052fdac </span>
+<span class="yarn-choice">-&gt; The Atlantic Ocean</span> <span class="yarn-meta">#line:052fdac </span>
 <span class="yarn-line">    Hmm... not really. Look at the map again.</span> <span class="yarn-meta">#shadow:099fe86 </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
-<span class="yarn-line">I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 
 </code>
 </pre>
@@ -196,19 +196,19 @@ hide:
 <span class="yarn-line">    This boat carries goods.</span> <span class="yarn-meta">#line:0f13a44</span>
     &lt;&lt;if $boat_goods &lt; 10&gt;&gt;
 <span class="yarn-line">    What can you find on a goods boat?</span> <span class="yarn-meta">#line:04059bd </span>
-<span class="yarn-line">    Boxes and things</span> <span class="yarn-meta">#line:0b12cb3</span>
+<span class="yarn-choice">        -&gt; Boxes and things</span> <span class="yarn-meta">#line:0b12cb3</span>
         <span class="yarn-cmd">&lt;&lt;set $boat_goods = 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;target chest_boat_goods&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_goods&gt;&gt;</span>
 <span class="yarn-line">        Yes! Now you can open that chest!</span> <span class="yarn-meta">#line:yes_chest</span>
         <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">    Tourists with cameras</span> <span class="yarn-meta">#line:0bbd3ce </span>
+<span class="yarn-choice">        -&gt; Tourists with cameras</span> <span class="yarn-meta">#line:0bbd3ce </span>
 <span class="yarn-line">        No. Try again.</span> <span class="yarn-meta">#line:try_again </span>
         <span class="yarn-cmd">&lt;&lt;jump npc_boat_goods&gt;&gt;</span>
-<span class="yarn-line">    Train cars</span> <span class="yarn-meta">#line:06638a3 </span>
+<span class="yarn-choice">        -&gt; Train cars</span> <span class="yarn-meta">#line:06638a3 </span>
 <span class="yarn-line">        No. Try again.</span> <span class="yarn-meta">#shadow:try_again </span>
         <span class="yarn-cmd">&lt;&lt;jump npc_boat_goods&gt;&gt;</span>
-<span class="yarn-line">    I don't know</span> <span class="yarn-meta">#line:dont_know #highlight </span>
+<span class="yarn-choice">        -&gt; I don't know</span> <span class="yarn-meta">#line:dont_know #highlight </span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;jump spawned_river_friend&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -258,19 +258,19 @@ hide:
 <span class="yarn-line">This boat is a house! People live here!</span> <span class="yarn-meta">#line:0a627c2 </span>
 &lt;&lt;if $boat_house &lt; 10&gt;&gt;
 <span class="yarn-line">Why is this a house boat?</span> <span class="yarn-meta">#line:0165157 </span>
-<span class="yarn-line">It is only for trains</span> <span class="yarn-meta">#line:055d822 </span>
+<span class="yarn-choice">-&gt; It is only for trains</span> <span class="yarn-meta">#line:055d822 </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_house&gt;&gt;</span>
-<span class="yarn-line">People can live on it</span> <span class="yarn-meta">#line:0c86d26 </span>
+<span class="yarn-choice">-&gt; People can live on it</span> <span class="yarn-meta">#line:0c86d26 </span>
     <span class="yarn-cmd">&lt;&lt;set $boat_house = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_boat_house&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_house&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">It can only carry goods</span> <span class="yarn-meta">#line:036ba15 </span>
+<span class="yarn-choice">-&gt; It can only carry goods</span> <span class="yarn-meta">#line:036ba15 </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again </span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_house&gt;&gt;</span>
-<span class="yarn-line">I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight </span>
+<span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_river_friend&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -317,19 +317,19 @@ hide:
 <span class="yarn-line">This boat has big windows, so tourists can see the city. It's a "bateau-mouche".</span> <span class="yarn-meta">#line:0129c99 </span>
 &lt;&lt;if $boat_people &lt; 10&gt;&gt;
 <span class="yarn-line">Why does a tourist boat have big windows?</span> <span class="yarn-meta">#line:02ce3de </span>
-<span class="yarn-line">To carry more cars</span> <span class="yarn-meta">#line:02349a3</span>
+<span class="yarn-choice">-&gt; To carry more cars</span> <span class="yarn-meta">#line:02349a3</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_people&gt;&gt;</span>
-<span class="yarn-line">To go under the water</span> <span class="yarn-meta">#line:037efcf</span>
+<span class="yarn-choice">-&gt; To go under the water</span> <span class="yarn-meta">#line:037efcf</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_people&gt;&gt;</span>
-<span class="yarn-line">To see the city and famous places</span> <span class="yarn-meta">#line:0454688 </span>
+<span class="yarn-choice">-&gt; To see the city and famous places</span> <span class="yarn-meta">#line:0454688 </span>
     <span class="yarn-cmd">&lt;&lt;set $boat_people = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_boat_people&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_people&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_river_friend&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -376,19 +376,19 @@ hide:
 <span class="yarn-line">This is the Pont Alexandre III, a famous old bridge.</span> <span class="yarn-meta">#line:09c706f</span>
 &lt;&lt;if $bridge_alexandre &lt; 10&gt;&gt;
 <span class="yarn-line">What is special about this famous bridge?</span> <span class="yarn-meta">#line:021f382</span>
-<span class="yarn-line">It has gold statues</span> <span class="yarn-meta">#line:056c933</span>
+<span class="yarn-choice">-&gt; It has gold statues</span> <span class="yarn-meta">#line:056c933</span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_alexandre = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_alexandre&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_alexandre&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">It is a train bridge</span> <span class="yarn-meta">#line:05c2518</span>
+<span class="yarn-choice">-&gt; It is a train bridge</span> <span class="yarn-meta">#line:05c2518</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_alexandre&gt;&gt;</span>
-<span class="yarn-line">It is made of ice</span> <span class="yarn-meta">#line:0d9bc29</span>
+<span class="yarn-choice">-&gt; It is made of ice</span> <span class="yarn-meta">#line:0d9bc29</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_alexandre&gt;&gt;</span>
-<span class="yarn-line">I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_river_friend&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -435,19 +435,19 @@ hide:
 <span class="yarn-line">This is a bridge for cars!</span> <span class="yarn-meta">#line:0d79d7d </span>
 &lt;&lt;if $bridge_cars &lt; 10&gt;&gt;
 <span class="yarn-line">Cars are fast. How do you cross safely?</span> <span class="yarn-meta">#line:01f30c4</span>
-<span class="yarn-line">Run across anywhere</span> <span class="yarn-meta">#line:076ee7f </span>
+<span class="yarn-choice">-&gt; Run across anywhere</span> <span class="yarn-meta">#line:076ee7f </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_cars&gt;&gt;</span>
-<span class="yarn-line">Use the sidewalk and cross at the crossing</span> <span class="yarn-meta">#line:0c8cdae </span>
+<span class="yarn-choice">-&gt; Use the sidewalk and cross at the crossing</span> <span class="yarn-meta">#line:0c8cdae </span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_cars = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_cars&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_cars&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">Walk in the road</span> <span class="yarn-meta">#line:0cf371b</span>
+<span class="yarn-choice">-&gt; Walk in the road</span> <span class="yarn-meta">#line:0cf371b</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_cars&gt;&gt;</span>
-<span class="yarn-line">I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_river_friend&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -494,19 +494,19 @@ hide:
 <span class="yarn-line">This is a bridge for trains!</span> <span class="yarn-meta">#line:0a0991d </span>
 &lt;&lt;if $bridge_train &lt; 10&gt;&gt;
 <span class="yarn-line">A train bridge must be...</span> <span class="yarn-meta">#line:09731f9 </span>
-<span class="yarn-line">Soft and bouncy</span> <span class="yarn-meta">#line:08b4fad </span>
+<span class="yarn-choice">-&gt; Soft and bouncy</span> <span class="yarn-meta">#line:08b4fad </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_train&gt;&gt;</span>
-<span class="yarn-line">Only for walking</span> <span class="yarn-meta">#line:03ff912</span>
+<span class="yarn-choice">-&gt; Only for walking</span> <span class="yarn-meta">#line:03ff912</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_train&gt;&gt;</span>
-<span class="yarn-line">Very strong</span> <span class="yarn-meta">#line:018a0eb </span>
+<span class="yarn-choice">-&gt; Very strong</span> <span class="yarn-meta">#line:018a0eb </span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_train = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_train&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_train&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_river_friend&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -568,19 +568,19 @@ hide:
 <span class="yarn-line">This is a bridge for people!</span> <span class="yarn-meta">#line:0f8a96f </span>
 &lt;&lt;if $bridge_people &lt; 10&gt;&gt;
 <span class="yarn-line">A bridge only for people to walk on is called a...</span> <span class="yarn-meta">#line:0484ee9 </span>
-<span class="yarn-line">Train bridge</span> <span class="yarn-meta">#line:0f74c53 </span>
+<span class="yarn-choice">-&gt; Train bridge</span> <span class="yarn-meta">#line:0f74c53 </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_people&gt;&gt;</span>
-<span class="yarn-line">Footbridge</span> <span class="yarn-meta">#line:0e48593 </span>
+<span class="yarn-choice">-&gt; Footbridge</span> <span class="yarn-meta">#line:0e48593 </span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_people = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_people&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_people&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">Car bridge</span> <span class="yarn-meta">#line:07f732f </span>
+<span class="yarn-choice">-&gt; Car bridge</span> <span class="yarn-meta">#line:07f732f </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_people&gt;&gt;</span>
-<span class="yarn-line">I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
+<span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump spawned_river_friend&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>

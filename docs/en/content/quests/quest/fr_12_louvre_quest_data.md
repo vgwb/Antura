@@ -18,13 +18,15 @@ hide:
 - Duration (min): 15
 - Description: Discover the most famous museum in the world and Leonardo Da Vinci!
 
-## Design Notes
-
+## Game Design Notes
 
 **Musée du Louvre and Mona Lisa**
 Mission: A stealth mission in the Louvre at night to go to Mona Lisa
 Character: TEACHER
 
+
+## Quest Script
+(Script not public)
 
 ## Topics
 ### Louvre {#louvre}
@@ -87,10 +89,6 @@ A beautiful ancient statue of a woman made from white marble. Her arms are missi
 - Year: 130
 
 
-
-## Quest Script
-
-(Script not public)
 
 ## Words
 ## Activities

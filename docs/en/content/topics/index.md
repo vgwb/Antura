@@ -270,7 +270,7 @@ Credits:
 ---
 
 ### mountain tools {#mountain_tools}
-- Description: what we need to stay ssafe in the mountain  
+- Description: what we need to stay safe in the mountain  
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -314,6 +314,11 @@ Credits:
     Glasses that protect your eyes from bright light.
 
     ![preview sunglasses](../../../assets/img/content/cards/sunglasses.jpg){ width="200" }
+
+    - **[Coat](../cards/index.md#coat)** (RelatedTo)
+    A warm jacket for cold weather.
+
+    ![preview coat](../../../assets/img/content/cards/coat.jpg){ width="200" }
 
 - Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
 
@@ -937,10 +942,10 @@ Credits:
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
-    - **[Submarine (The Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
-    A submarine from Jules Verne’s story. It could explore the deep sea.
+    - **[Hot-Air Balloon](../cards/index.md#hot_air_balloon)** (RelatedTo)
+    A balloon that flies using hot air. The first one flew in France.
 
-    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
 
 - Quests: [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
 
@@ -1113,6 +1118,21 @@ Credits:
 
     ![preview ice](../../../assets/img/content/cards/ice.jpg){ width="200" }
 
+    - **[France](../cards/index.md#country_france)** (LocatedIn)
+    A country in Europe. Capital is Paris.
+
+    ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
+
+    - **[Italy](../cards/index.md#country_italy)** (LocatedIn)
+    A country in Europe. Capital is Rome.
+
+    ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
+
+    - **[Switzerland](../cards/index.md#country_switzerland)** (LocatedIn)
+    A country in Europe. Capital is Bern. Switzerland is famous for mountains and cheese.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+
 - Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -1147,16 +1167,37 @@ Credits:
 
 ---
 
-### Seine Bridges {#seine_bridges}
+### Seine {#seine}
 - Importance: Medium  
+- Subjects: Geography, Transportation, Civics  
 - Target Age: Ages6to10
 - Core card:
-    - **[Bridge for cars](../cards/index.md#place_bridge_cars)**
+    - **[Seine](../cards/index.md#seine)**
+    A 777-kilometre-long river in northern France
+
+    ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
+
+- Connected cards:
+    - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
+    The capital city of France. Paris has a famous tall tower called the Eiffel Tower!
+
+    ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
+
+    - **[Map of Seine River](../cards/index.md#seine_map)** (RelatedTo)
+    A picture that shows the Seine River and where it flows through the land.
+
+    ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ width="200" }
+
+    - **[Map of Seine in Paris](../cards/index.md#seine_map_in_paris)** (LocatedIn)
+    A picture that shows how the Seine River flows through the city of Paris.
+
+    ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ width="200" }
+
+    - **[Bridge for cars](../cards/index.md#place_bridge_cars)** (RelatedTo)
     A road that goes over water so cars can drive across rivers and lakes.
 
     ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
-- Connected cards:
     - **[Footbridges](../cards/index.md#place_bridge_people)** (RelatedTo)
     Small bridges for people walking. They keep you safe from traffic.
 
@@ -1167,12 +1208,45 @@ Credits:
 
     ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ width="200" }
 
+    - **[Pont Alexandre III](../cards/index.md#pont_alexandre_iii)** (RelatedTo)
+    A beautiful bridge in Paris with fancy decorations and golden statues on it.
+
+    ![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ width="200" }
+
     - **[River boat](../cards/index.md#boat_river)** (RelatedTo)
     A boat that travels on rivers. Rivers are like roads made of water!
 
     ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ width="200" }
 
+    - **[Boat for goods](../cards/index.md#boat_for_goods)** (RelatedTo)
+    A big boat that carries boxes, food, and other things from place to place.
+
+    ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ width="200" }
+
+    - **[Boat House](../cards/index.md#boat_house)** (RelatedTo)
+    A house that floats on water like a boat. People can live in boat houses!
+
+    ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ width="200" }
+
+    - **[Boat for People](../cards/index.md#boat_people)** (RelatedTo)
+    A boat that carries people from one place to another across the water.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Seine River Boat](../cards/index.md#boat_eiffel_tower)** (RelatedTo)
+    A special boat that sails on the Seine River in Paris. You can see the Eiffel Tower and other beautiful buildings from the water!
+
+    ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ width="200" }
+
+    - **[Ile-de-France](../cards/index.md#ile_de_france)** (LocatedIn)
+    A region in France where the capital city Paris is located. Many people live here!
+
+    ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
+
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ## Poland
 
@@ -1302,6 +1376,21 @@ Credits:
     ![preview place_odra_river](../../../assets/img/content/cards/place_odra_river.jpg){ width="200" }
 
 - Connected cards:
+    - **[Odra river map](../cards/index.md#odra_river_map)** (RelatedTo)
+    A simple map that shows the Odra River in Poland and the way it flows to the Baltic Sea
+
+    ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ width="200" }
+
+    - **[Vistula River (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
+    The longest river in Poland is called Wisła or Vistula. It flows through Kraków and Warsaw.
+
+    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+
+    - **[Wrocław Bridges](../cards/index.md#wroclaw_bridges)** (RelatedTo)
+    Many bridges cross the Odra River in Wrocław.
+
+    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+
     - **[Footbridge](../cards/index.md#footbridge)** (RelatedTo)
     A bridge for people to walk on. No cars.
 
@@ -1322,26 +1411,42 @@ Credits:
 
     ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ width="200" }
 
-    - **[Houseboat](../cards/index.md#houseboat)** (RelatedTo)
-    A boat made to live on.
+    - **[Bridge for cars](../cards/index.md#place_bridge_cars)** (RelatedTo)
+    A road that goes over water so cars can drive across rivers and lakes.
 
-    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
+    ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
     - **[Train Bridge](../cards/index.md#train_bridge)** (RelatedTo)
     A bridge with tracks for trains.
 
     ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ width="200" }
 
-    - **[Wrocław Bridges](../cards/index.md#wroclaw_bridges)** (RelatedTo)
-    Many bridges cross the Odra River in Wrocław.
+    - **[Barge](../cards/index.md#barge)** (RelatedTo)
+    A long, flat boat that carries goods on rivers.
 
-    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+    ![preview barge](../../../assets/img/content/cards/barge.jpg){ width="200" }
 
-    - **[Vistula River (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
-    The longest river in Poland is called Wisła or Vistula. It flows through Kraków and Warsaw.
+    - **[Houseboat](../cards/index.md#houseboat)** (RelatedTo)
+    A boat made to live on.
 
-    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
 
+    - **[Boat for People](../cards/index.md#boat_people)** (RelatedTo)
+    A boat that carries people from one place to another across the water.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Kayak](../cards/index.md#kayak)** (RelatedTo)
+    A small boat you paddle.
+
+    ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ width="200" }
+
+    - **[River Sign](../cards/index.md#river_sign)** (RelatedTo)
+    A blue rectangular sign with white wavy lines that acts as the universal European symbol to show where a river flows.
+
+    ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
+
+- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1502,6 +1607,7 @@ Credits:
 
 ### Wroclaw {#wroclaw}
 - Importance: Medium  
+- Subjects: Geography, Community  
 - Target Age: Ages6to10
 - Core card:
     - **[Wrocław](../cards/index.md#wroclaw)**
@@ -1510,6 +1616,11 @@ Credits:
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
 
 - Connected cards:
+    - **[Map of Wroklaw](../cards/index.md#wroclaw_map)** (RelatedTo)
+    A simple map of Wrocław showing the Odra River with its islands and many bridges
+
+    ![preview wroclaw_map](../../../assets/img/content/cards/wroclaw_map.jpg){ width="200" }
+
     - **[Wrocław Bridges](../cards/index.md#wroclaw_bridges)** (RelatedTo)
     Many bridges cross the Odra River in Wrocław.
 
@@ -1525,6 +1636,65 @@ Credits:
 
     ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
 
+    - **[Panorama Racławicka](../cards/index.md#panorama_racawicka)** (RelatedTo)
+    A giant painting all around you about a historic battle.
+
+    ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ width="200" }
+
+    - **[Town Hall](../cards/index.md#town_hall)** (RelatedTo)
+    The place where city leaders work and meet.
+
+    ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ width="200" }
+
+    - **[Wroclaw : Cathédrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
+    Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+
+    ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ width="200" }
+
+    - **[Centennial Hall ](../cards/index.md#wroclaw_centennial_hall)** (RelatedTo)
+    The Centennial Hall is a huge building that looks like a big tent with a roof. It’s very tall. Inside, you can see different shows, listen to concerts, or watch sports games.
+
+    ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ width="200" }
+
+    - **[Wrocław Dwarfs](../cards/index.md#wroclaw_dwarfs)** (RelatedTo)
+    Tiny statues across the city that love to play tricks.
+
+    ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
+
+    - **[Wrocław Market Square](../cards/index.md#wroclaw_market_square)** (RelatedTo)
+    The main square of the Old Town, full of life.
+
+    ![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ width="200" }
+
+    - **[Wrocław Multimedia Fountain](../cards/index.md#wroclaw_multimedia_fountain)** (RelatedTo)
+    Water that dances with music and colorful lights.
+
+    ![preview wroclaw_multimedia_fountain](../../../assets/img/content/cards/wroclaw_multimedia_fountain.jpg){ width="200" }
+
+    - **[Old Town Hall (Wroclaw)](../cards/index.md#wroclaw_old_town_hall)** (RelatedTo)
+    A beautiful Gothic building in the main square. It has a famous clock.
+
+    ![preview wroclaw_old_town_hall](../../../assets/img/content/cards/wroclaw_old_town_hall.jpg){ width="200" }
+
+    - **[Wroclaw: Sky Tower](../cards/index.md#wroclaw_sky_tower)** (RelatedTo)
+    One of the tallest buildings in Poland. It has shops and a viewpoint.
+
+    ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ width="200" }
+
+    - **[Wrocław Zoo](../cards/index.md#wroclaw_zoo)** (RelatedTo)
+    A big zoo in Wrocław with many animals to learn about.
+
+    ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ width="200" }
+
+    - **[Dalí - Profile of Time](../cards/index.md#dali_profile_of_time)** (RelatedTo)
+    This famous "melting clock" is a statue that shows time can be bendy and wiggly, just like in a dream!
+
+    ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
+
+- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md), [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ---
 
@@ -1538,40 +1708,60 @@ Credits:
     ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
 
 - Connected cards:
-    - **[Animal Lover Dwarf](../cards/index.md#animal_lover_dwarf)** (RelatedTo)
+    - **[Animal Lover Dwarf](../cards/index.md#dwarf_animal_lover)** (RelatedTo)
     A dwarf statue that loves the zoo and animals.
 
-    ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ width="200" }
+    ![preview dwarf_animal_lover](../../../assets/img/content/cards/dwarf_animal_lover.jpg){ width="200" }
 
-    - **[Bishop Dwarf](../cards/index.md#bishop_dwarf)** (RelatedTo)
+    - **[Architect Dwarf](../cards/index.md#dwarf_architect)** (RelatedTo)
+    A thoughtful dwarf who loves shapes, buildings, and clever design.
+
+    ![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ width="200" }
+
+    - **[Évêque Nain](../cards/index.md#dwarf_bishop)** (RelatedTo)
     A dwarf statue who asks a church question.
 
-    ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ width="200" }
+    ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ width="200" }
 
-    - **[Dwarf Expert](../cards/index.md#dwarf_expert)** (RelatedTo)
+    - **[Conductor Dwarf](../cards/index.md#dwarf_conductor)** (RelatedTo)
+    A lively dwarf who loves water, lights, and music.
+
+    ![preview dwarf_conductor](../../../assets/img/content/cards/dwarf_conductor.jpg){ width="200" }
+
+    - **[Councilor Dwarf](../cards/index.md#dwarf_councilor)** (RelatedTo)
+    A formal dwarf linked to the Old Town Hall and city work.
+
+    ![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ width="200" }
+
+    - **[Expert nain](../cards/index.md#dwarf_expert)** (RelatedTo)
     A friendly guide who knows all about the dwarfs.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
 
-    - **[Keymaster Dwarf](../cards/index.md#keymaster_dwarf)** (RelatedTo)
+    - **[Keymaster Dwarf](../cards/index.md#dwarf_keymaster)** (LocatedIn)
     A dwarf statue guarding the elevator with a big key.
 
-    ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ width="200" }
+    ![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ width="200" }
 
-    - **[Polish Dwarf (Wrocław gnomes)](../cards/index.md#polish_dwarf)** (RelatedTo)
-    Small dwarf statues hide around Wrocław. Finding them is a fun city game.
+    - **[Origine Nain](../cards/index.md#dwarf_origin)** (LocatedIn)
+    A classic Wroclaw dwarf statue with a pointed hat and strong boots.
 
-    ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ width="200" }
+    ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ width="200" }
 
-    - **[Wrocław Dwarf Statue](../cards/index.md#wroclaw_dwarf_statue)** (RelatedTo)
-    A small city statue; dwarfs are Wrocław’s symbol.
+    - **[Painter Dwarf](../cards/index.md#dwarf_painter)** (LocatedIn)
+    An artistic dwarf who loves color, paint, and big pictures.
 
-    ![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ width="200" }
+    ![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ width="200" }
 
-    - **[Wrocław](../cards/index.md#wroclaw)** (LocatedIn)
-    A city in Poland with rivers, bridges, and history.
+    - **[Traveler Dwarf](../cards/index.md#dwarf_traveler)** (LocatedIn)
+    An adventurous dwarf who loves busy places and new paths.
 
-    ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
+    ![preview dwarf_traveler](../../../assets/img/content/cards/dwarf_traveler.jpg){ width="200" }
+
+    - **[Writer Dwarf](../cards/index.md#dwarf_writer)** (LocatedIn)
+    A quiet dwarf who loves stories, books, and reading.
+
+    ![preview dwarf_writer](../../../assets/img/content/cards/dwarf_writer.jpg){ width="200" }
 
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 

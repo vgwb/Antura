@@ -270,7 +270,7 @@ Credits:
 ---
 
 ### mountain tools {#mountain_tools}
-- Description: what we need to stay ssafe in the mountain  
+- Description: what we need to stay safe in the mountain  
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
@@ -314,6 +314,11 @@ Credits:
     Des lunettes qui protègent vos yeux de la lumière vive.
 
     ![preview sunglasses](../../../assets/img/content/cards/sunglasses.jpg){ width="200" }
+
+    - **[Manteau](../cards/index.md#coat)** (RelatedTo)
+    Une veste chaude pour le temps froid.
+
+    ![preview coat](../../../assets/img/content/cards/coat.jpg){ width="200" }
 
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
 
@@ -937,10 +942,10 @@ Credits:
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
-    - **[Sous-marin (Le Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
-    Un sous-marin du roman de Jules Verne. Il pouvait explorer les profondeurs marines.
+    - **[Montgolfière](../cards/index.md#hot_air_balloon)** (RelatedTo)
+    Un ballon volant à l'air chaud. Le premier à voler en France.
 
-    ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
+    ![preview hot_air_balloon](../../../assets/img/content/cards/hot_air_balloon.jpg){ width="200" }
 
 - Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
@@ -985,7 +990,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
+- Quests: [Musée du Louvre (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
 
 ---
 
@@ -1113,6 +1118,21 @@ Credits:
 
     ![preview ice](../../../assets/img/content/cards/ice.jpg){ width="200" }
 
+    - **[France](../cards/index.md#country_france)** (LocatedIn)
+    Un pays d'Europe. Sa capitale est Paris.
+
+    ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
+
+    - **[Italie](../cards/index.md#country_italy)** (LocatedIn)
+    Un pays d'Europe dont la capitale est Rome.
+
+    ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
+
+    - **[Suisse](../cards/index.md#country_switzerland)** (LocatedIn)
+    Un pays d'Europe dont la capitale est Berne. La Suisse est célèbre pour ses montagnes et son fromage.
+
+    ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
+
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
 
 ---
@@ -1147,16 +1167,37 @@ Credits:
 
 ---
 
-### Seine Bridges {#seine_bridges}
+### Seine {#seine}
 - Importance: Medium  
+- Subjects: Geography, Transportation, Civics  
 - Target Age: Ages6to10
 - Core card:
-    - **[Pont pour voitures](../cards/index.md#place_bridge_cars)**
+    - **[Seine](../cards/index.md#seine)**
+    Un fleuve de 777 kilomètres de long dans le nord de la France
+
+    ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
+
+- Connected cards:
+    - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
+    Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+
+    ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
+
+    - **[Carte de la Seine](../cards/index.md#seine_map)** (RelatedTo)
+    Une image qui montre la Seine et où elle coule à travers le territoire.
+
+    ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ width="200" }
+
+    - **[Carte de la Seine à Paris](../cards/index.md#seine_map_in_paris)** (LocatedIn)
+    Une image qui montre comment la Seine traverse la ville de Paris.
+
+    ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ width="200" }
+
+    - **[Pont pour voitures](../cards/index.md#place_bridge_cars)** (RelatedTo)
     Une route qui traverse l'eau pour que les voitures puissent traverser les rivières et les lacs.
 
     ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
-- Connected cards:
     - **[Passerelles](../cards/index.md#place_bridge_people)** (RelatedTo)
     De petits ponts pour les piétons. Ils vous protègent de la circulation.
 
@@ -1167,12 +1208,45 @@ Credits:
 
     ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ width="200" }
 
+    - **[Pont Alexandre III](../cards/index.md#pont_alexandre_iii)** (RelatedTo)
+    Un beau pont à Paris avec des décorations fantaisistes et des statues dorées dessus.
+
+    ![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ width="200" }
+
     - **[bateau fluvial](../cards/index.md#boat_river)** (RelatedTo)
     Un bateau qui navigue sur les rivières. Les rivières sont comme des routes faites d'eau !
 
     ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ width="200" }
 
+    - **[Bateau pour marchandises](../cards/index.md#boat_for_goods)** (RelatedTo)
+    Un grand bateau qui transporte des cartons, de la nourriture et d’autres choses d’un endroit à un autre.
+
+    ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ width="200" }
+
+    - **[hangar à bateaux](../cards/index.md#boat_house)** (RelatedTo)
+    Une maison flottant sur l'eau comme un bateau. On peut vivre dans des maisons-bateaux !
+
+    ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ width="200" }
+
+    - **[Un bateau pour les gens](../cards/index.md#boat_people)** (RelatedTo)
+    Un bateau qui transporte des personnes d’un endroit à un autre à travers l’eau.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Bateau sur la Seine](../cards/index.md#boat_eiffel_tower)** (RelatedTo)
+    Un bateau exceptionnel qui navigue sur la Seine à Paris. Depuis l'eau, vous pourrez admirer la Tour Eiffel et d'autres magnifiques monuments !
+
+    ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ width="200" }
+
+    - **[Île-de-France](../cards/index.md#ile_de_france)** (LocatedIn)
+    Région de France où se trouve Paris, la capitale. De nombreuses personnes y vivent !
+
+    ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
+
 - Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ## Poland
 
@@ -1302,6 +1376,21 @@ Credits:
     ![preview place_odra_river](../../../assets/img/content/cards/place_odra_river.jpg){ width="200" }
 
 - Connected cards:
+    - **[Carte de l'Oder](../cards/index.md#odra_river_map)** (RelatedTo)
+    Une carte simple qui montre la rivière Odra en Pologne et la façon dont elle coule vers la mer Baltique
+
+    ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ width="200" }
+
+    - **[La Vistule (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
+    Le plus long fleuve de Pologne s'appelle Wisła ou Vistule. Il traverse Cracovie et Varsovie.
+
+    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+
+    - **[Ponts de Wrocław](../cards/index.md#wroclaw_bridges)** (RelatedTo)
+    De nombreux ponts traversent la rivière Odra à Wrocław.
+
+    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+
     - **[Passerelle](../cards/index.md#footbridge)** (RelatedTo)
     Un pont piétonnier. Interdit aux voitures.
 
@@ -1322,26 +1411,42 @@ Credits:
 
     ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ width="200" }
 
-    - **[Péniche](../cards/index.md#houseboat)** (RelatedTo)
-    Un bateau fait pour vivre.
+    - **[Pont pour voitures](../cards/index.md#place_bridge_cars)** (RelatedTo)
+    Une route qui traverse l'eau pour que les voitures puissent traverser les rivières et les lacs.
 
-    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
+    ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
     - **[Pont ferroviaire](../cards/index.md#train_bridge)** (RelatedTo)
     Un pont avec des voies pour les trains.
 
     ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ width="200" }
 
-    - **[Ponts de Wrocław](../cards/index.md#wroclaw_bridges)** (RelatedTo)
-    De nombreux ponts traversent la rivière Odra à Wrocław.
+    - **[Barge](../cards/index.md#barge)** (RelatedTo)
+    Un bateau long et plat qui transporte des marchandises sur les rivières.
 
-    ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
+    ![preview barge](../../../assets/img/content/cards/barge.jpg){ width="200" }
 
-    - **[La Vistule (Wisła)](../cards/index.md#place_vistula_river)** (RelatedTo)
-    Le plus long fleuve de Pologne s'appelle Wisła ou Vistule. Il traverse Cracovie et Varsovie.
+    - **[Péniche](../cards/index.md#houseboat)** (RelatedTo)
+    Un bateau fait pour vivre.
 
-    ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
+    ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
 
+    - **[Un bateau pour les gens](../cards/index.md#boat_people)** (RelatedTo)
+    Un bateau qui transporte des personnes d’un endroit à un autre à travers l’eau.
+
+    ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
+
+    - **[Kayak](../cards/index.md#kayak)** (RelatedTo)
+    Un petit bateau sur lequel on pagaie.
+
+    ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ width="200" }
+
+    - **[Panneau de la rivière](../cards/index.md#river_sign)** (RelatedTo)
+    Un panneau rectangulaire bleu avec des lignes blanches ondulées qui sert de symbole européen universel pour indiquer le cours d'une rivière.
+
+    ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
+
+- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1501,6 +1606,7 @@ Credits:
 
 ### Wroclaw {#wroclaw}
 - Importance: Medium  
+- Subjects: Geography, Community  
 - Target Age: Ages6to10
 - Core card:
     - **[Wrocław](../cards/index.md#wroclaw)**
@@ -1509,6 +1615,11 @@ Credits:
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
 
 - Connected cards:
+    - **[Carte de Wroklaw](../cards/index.md#wroclaw_map)** (RelatedTo)
+    Une carte simplifiée de Wrocław montrant le fleuve Odra avec ses îles et ses nombreux ponts.
+
+    ![preview wroclaw_map](../../../assets/img/content/cards/wroclaw_map.jpg){ width="200" }
+
     - **[Ponts de Wrocław](../cards/index.md#wroclaw_bridges)** (RelatedTo)
     De nombreux ponts traversent la rivière Odra à Wrocław.
 
@@ -1524,6 +1635,65 @@ Credits:
 
     ![preview place_vistula_river](../../../assets/img/content/cards/place_vistula_river.jpg){ width="200" }
 
+    - **[Panorama de Racławicka](../cards/index.md#panorama_racawicka)** (RelatedTo)
+    Un tableau géant tout autour de vous sur une bataille historique.
+
+    ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ width="200" }
+
+    - **[Mairie](../cards/index.md#town_hall)** (RelatedTo)
+    Le lieu où les dirigeants de la ville travaillent et se rencontrent.
+
+    ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ width="200" }
+
+    - **[Wroclaw : Cathédrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
+    Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+
+    ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ width="200" }
+
+    - **[Salle du Centenaire](../cards/index.md#wroclaw_centennial_hall)** (RelatedTo)
+    Le Centennial Hall est un immense bâtiment ressemblant à une grande tente avec un toit. Il est très haut. À l'intérieur, vous pouvez assister à différents spectacles, écouter des concerts ou regarder des matchs.
+
+    ![preview wroclaw_centennial_hall](../../../assets/img/content/cards/wroclaw_centennial_hall.jpg){ width="200" }
+
+    - **[Nains de Wrocław](../cards/index.md#wroclaw_dwarfs)** (RelatedTo)
+    De petites statues à travers la ville qui aiment jouer des tours.
+
+    ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
+
+    - **[Place du marché de Wrocław](../cards/index.md#wroclaw_market_square)** (RelatedTo)
+    La place principale de la vieille ville, pleine de vie.
+
+    ![preview wroclaw_market_square](../../../assets/img/content/cards/wroclaw_market_square.jpg){ width="200" }
+
+    - **[Fontaine multimédia de Wrocław](../cards/index.md#wroclaw_multimedia_fountain)** (RelatedTo)
+    De l'eau qui danse avec de la musique et des lumières colorées.
+
+    ![preview wroclaw_multimedia_fountain](../../../assets/img/content/cards/wroclaw_multimedia_fountain.jpg){ width="200" }
+
+    - **[Ancien hôtel de ville (Wroclaw)](../cards/index.md#wroclaw_old_town_hall)** (RelatedTo)
+    Un magnifique édifice gothique sur la place principale. Il possède une horloge célèbre.
+
+    ![preview wroclaw_old_town_hall](../../../assets/img/content/cards/wroclaw_old_town_hall.jpg){ width="200" }
+
+    - **[Wroclaw : Sky Tower](../cards/index.md#wroclaw_sky_tower)** (RelatedTo)
+    L'un des plus hauts bâtiments de Pologne. Il abrite des boutiques et un belvédère.
+
+    ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ width="200" }
+
+    - **[Zoo de Wrocław](../cards/index.md#wroclaw_zoo)** (RelatedTo)
+    Un grand zoo à Wrocław avec de nombreux animaux à découvrir.
+
+    ![preview wroclaw_zoo](../../../assets/img/content/cards/wroclaw_zoo.jpg){ width="200" }
+
+    - **[Dalí - Profil du temps](../cards/index.md#dali_profile_of_time)** (RelatedTo)
+    Cette célèbre « horloge fondante » est une statue qui montre que le temps peut être flexible et tortueux, comme dans un rêve !
+
+    ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
+
+- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md), [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
+
+Credits:
+  - [Stefano Cecere](https://stefanocecere.com) (Italy)
 
 ---
 
@@ -1537,40 +1707,60 @@ Credits:
     ![preview wroclaw_dwarfs](../../../assets/img/content/cards/wroclaw_dwarfs.jpg){ width="200" }
 
 - Connected cards:
-    - **[Nain amoureux des animaux](../cards/index.md#animal_lover_dwarf)** (RelatedTo)
-    Une statue naine qui aime le zoo et les animaux.
+    - **[Nain amoureux des animaux](../cards/index.md#dwarf_animal_lover)** (RelatedTo)
+    Une statue de nain qui adore le zoo et les animaux.
 
-    ![preview animal_lover_dwarf](../../../assets/img/content/cards/animal_lover_dwarf.jpg){ width="200" }
+    ![preview dwarf_animal_lover](../../../assets/img/content/cards/dwarf_animal_lover.jpg){ width="200" }
 
-    - **[Évêque Nain](../cards/index.md#bishop_dwarf)** (RelatedTo)
-    Une statue de nain qui pose une question d'église.
+    - **[Architecte nain](../cards/index.md#dwarf_architect)** (RelatedTo)
+    Un nain réfléchi qui aime les formes, les bâtiments et les conceptions ingénieuses.
 
-    ![preview bishop_dwarf](../../../assets/img/content/cards/bishop_dwarf.jpg){ width="200" }
+    ![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ width="200" }
+
+    - **[Évêque Nain](../cards/index.md#dwarf_bishop)** (RelatedTo)
+    Une statue de nain qui pose une question sur l'église.
+
+    ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ width="200" }
+
+    - **[Nain chef d'orchestre](../cards/index.md#dwarf_conductor)** (RelatedTo)
+    Un nain plein de vie qui aime l'eau, les lumières et la musique.
+
+    ![preview dwarf_conductor](../../../assets/img/content/cards/dwarf_conductor.jpg){ width="200" }
+
+    - **[Conseiller Nain](../cards/index.md#dwarf_councilor)** (RelatedTo)
+    Un nain officiel lié à l'ancien hôtel de ville et aux travaux municipaux.
+
+    ![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ width="200" }
 
     - **[Expert nain](../cards/index.md#dwarf_expert)** (RelatedTo)
     Un guide sympathique qui connaît tout sur les nains.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
 
-    - **[Maître des clés nain](../cards/index.md#keymaster_dwarf)** (RelatedTo)
+    - **[Maître des clés nain](../cards/index.md#dwarf_keymaster)** (LocatedIn)
     Une statue de nain gardant l'ascenseur avec une grosse clé.
 
-    ![preview keymaster_dwarf](../../../assets/img/content/cards/keymaster_dwarf.jpg){ width="200" }
+    ![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ width="200" }
 
-    - **[Nain polonais (gnomes de Wrocław)](../cards/index.md#polish_dwarf)** (RelatedTo)
-    De petites statues de nains se cachent un peu partout à Wrocław. Les trouver est un jeu de ville amusant.
+    - **[Origine Nain](../cards/index.md#dwarf_origin)** (LocatedIn)
+    Une statue classique de nain de Wroclaw, coiffé d'un chapeau pointu et chaussé de bottes robustes.
 
-    ![preview polish_dwarf](../../../assets/img/content/cards/polish_dwarf.jpg){ width="200" }
+    ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ width="200" }
 
-    - **[Statue du nain de Wrocław](../cards/index.md#wroclaw_dwarf_statue)** (RelatedTo)
-    Une petite statue de la ville ; les nains sont le symbole de Wrocław.
+    - **[Nain peintre](../cards/index.md#dwarf_painter)** (LocatedIn)
+    Un nain artiste qui aime les couleurs, la peinture et les grands formats.
 
-    ![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ width="200" }
+    ![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ width="200" }
 
-    - **[Wrocław](../cards/index.md#wroclaw)** (LocatedIn)
-    Une ville de Pologne avec des rivières, des ponts et de l'histoire.
+    - **[Nain voyageur](../cards/index.md#dwarf_traveler)** (LocatedIn)
+    Un nain aventureux qui adore les endroits animés et les nouveaux chemins.
 
-    ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }
+    ![preview dwarf_traveler](../../../assets/img/content/cards/dwarf_traveler.jpg){ width="200" }
+
+    - **[Écrivain nain](../cards/index.md#dwarf_writer)** (LocatedIn)
+    Un nain discret qui adore les histoires, les livres et la lecture.
+
+    ![preview dwarf_writer](../../../assets/img/content/cards/dwarf_writer.jpg){ width="200" }
 
 - Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
 

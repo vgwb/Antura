@@ -1,9 +1,9 @@
 ---
-title: Louvre Museum (fr_12_louvre_quest_data)
+title: Musée du Louvre (fr_12_louvre_quest_data)
 hide:
 ---
 
-# Louvre Museum (fr_12_louvre_quest_data)
+# Musée du Louvre (fr_12_louvre_quest_data)
 > [!note] Educators & Designers: help improving this quest!
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-00-the-neighbors-of-france/22)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  
@@ -16,15 +16,17 @@ hide:
 
 - Difficulty: Normal
 - Duration (min): 15
-- Description: Discover the most famous museum in the world and Leonardo Da Vinci!
+- Description: Découvrez le musée le plus célèbre du monde et Léonard de Vinci !
 
-## Design Notes
-
+## Game Design Notes
 
 **Musée du Louvre and Mona Lisa**
 Mission: A stealth mission in the Louvre at night to go to Mona Lisa
 Character: TEACHER
 
+
+## Quest Script
+(Script not public)
 
 ## Topics
 ### Louvre {#louvre}
@@ -87,10 +89,6 @@ Magnifique statue antique de femme en marbre blanc. Ses bras ont disparu, mais e
 - Year: 130
 
 
-
-## Quest Script
-
-(Script not public)
 
 ## Words
 ## Activities
