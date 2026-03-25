@@ -156,6 +156,7 @@ color: red
 <<declare $dwarf_10_done = false>>
 <<declare $area_center_done = false>>
 <<declare $area_centennial_done = false>>
+<<declare $secret_0_done = false>>
 
 <<SetActive key_0 false>>
 <<SetActive key_1 false>>
@@ -335,7 +336,7 @@ color: yellow
 ---
 <<if $dwarf_0_done>>
     Now you know how to free the other dwarves. #line:04b5c6e 
-    <<camera_focus skytower_roof>>
+    <<camera_focus camera_skytower_roof>>
     Antura is at the top of Sky Tower! #line:09771a2 
     <<camera_reset>>
     The Tram is ready. First, go to the Cathedral. #line:00f4741 
@@ -344,9 +345,12 @@ color: yellow
     <<jump hint_0>>
 <<else>>
     <<card primary_school_leonardo_da_vinci>>
-    Hi! I am a teacher from Leonardo School. #line:08d54cc 
+    Hi! I am a teacher from Leonardo School. #line:08d54cc
+    <<card wroclaw>>
     <<camera_focus camera_town_view>>
-    Antura ran all around Wrocław tonight! #line:0b6daaa 
+    Antura ran all around Wrocław tonight! #line:0b6daaa
+    <<camera_reset>>
+    <<card wroclaw_dwarfs>>
     And this morning, ten dwarves are locked in cages! #line:0b42c98
     Each cage is locked with a gold key. #line:084b7e8 
     <<camera_focus camera_school>>
@@ -367,6 +371,10 @@ color: purple
 <<card primary_school_leonardo_da_vinci>>
 Do you like to go to school? #line:info_00
 -> Yes #shadow:yes
+    <<if !$secret_0_done>>
+        <<set $secret_0_done = true>>
+        <<collect cookie>>
+    <<endif>>
 -> No #shadow:no
 ===
 
@@ -491,7 +499,6 @@ color: yellow
     Find the Cathedral key and free him! #task:dwarf_1 #line:0ebb3bc 
     Talk to me if you need help. #shadow:talk_4_help
     <<task_start dwarf_1>>
-    <<SetActive key_1 true>>
 <<endif>>
 ===
 
@@ -511,31 +518,47 @@ group: cathedral
 ---
 How can I help? #shadow:how_can_help 
 -> How can I free the Dwarf? #shadow:how_free_dwarf 
-    Find the key. Then open the cage! #shadow:055d8b9 
+    Find the key. Then open the cage! #shadow:055d8b9
+    <<jump hint_1>>
 -> Where is the key? #shadow:where_key
-    <<target key_1>>
-    It's beside the Cathedral door. #line:0166015 
+    <<target ll_key_1>>
+    Someone has it. #line:0166015
+    <<jump hint_1>>
 -> Where is the dwarf? #shadow:where_dwarf 
     <<SetMapIcon dwarf_1 on>>
-    Look at the star on the map. #shadow:02da44a 
+    Look at the star on the map. #shadow:02da44a
+    <<jump hint_1>>
 -> Goodbye #highlight #shadow:goodbye
 ===
 
 
 
-title: key_1
+title: ll_key_1
 position: 1528,195
 group: cathedral
 ---
+<<if GetCurrentTask() == "dwarf_1">>
 What do people do in a Cathedral? #line:0e6869e 
 -> They pray #line:0a1aab0 
     Correct! Here is your key. #line:correct_key 
-    <<collect>>
-    <<target dwarf_1>>
+    <<SetActive key_1 true>>
+    <<target key_1>>
 -> They read #line:0e25e89 
     No. Try again! #line:try_again
 -> They play #line:0340188 
     No. Try again! #shadow:try_again
+<<else>>
+    <<jump info_1>>
+<<endif>>
+===
+
+title: key_1
+position: 1528,195
+group: cathedral
+---
+You found it! Now go and unlock the dwarf! #shadow:0289364 
+<<target dwarf_1>>
+<<collect>>
 ===
 
 title: dwarf_1

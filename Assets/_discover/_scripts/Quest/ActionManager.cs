@@ -56,7 +56,7 @@ namespace Antura.Discover
 
             if (QuestManager.I.DebugMode && QuestManager.I.DebugConfig.DebugSpawnPoint != null)
             {
-                SetPlayerSpawnPoint(QuestManager.I.DebugConfig.DebugSpawnPoint);
+                SetPlayerSpawnPoint(QuestManager.I.DebugConfig.DebugSpawnPoint.gameObject);
             }
             else
             {

@@ -17,7 +17,7 @@ namespace Antura.Discover
     {
         [Tooltip("Dialogue node to start")]
         public DialogueReference DebugNode = new();
-        public GameObject DebugSpawnPoint;
+        public PlayerSpawnPoint DebugSpawnPoint;
 
         public bool showInteractableLabels = false;
 

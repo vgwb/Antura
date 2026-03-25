@@ -25,13 +25,12 @@ Explore Wrocław to rescue Antura from the top of the Sky Tower. To get there, t
 ### Gameplay elements
 
 - **NPC Introduction:** Each dwarf starts with an NPC or landmark fact.
+- It gives hints if needed
 - **Hidden Key:** Each magical cage needs a gold key.
 - **Protected Key:** The key alone is not enough; it must be used through a local challenge.
-- **Living Letter Hint:** A living letter gives a clear hint if needed.
+- **Living Letter Info:** A living letter gives some info on the location
 - **Puzzle Gate:** After finding the key, the player solves a short puzzle, quiz, or interaction.
 - **Rescue Payoff:** Unlock the cage, free the dwarf, and talk to it.
-- **Map Reward:** The Cathedral dwarf gives the Map of Wrocław, which also serves as the collection screen.
-- **Collection Grouping:** The map groups dwarves by hub for clear progress tracking.
 - **Hub Travel:** Trams connect the main zones.
 - **Progressive Unlocking:** The city opens area by area after the tutorial.
 
@@ -40,19 +39,18 @@ Explore Wrocław to rescue Antura from the top of the Sky Tower. To get there, t
 1. Talk to the NPC connected to that dwarf.
 2. Learn one short fact about the place.
 3. Search for the hidden key.
-4. If needed, ask the NPC or a living letter for a hint.
+4. If needed, ask the NPC for a hint.
 5. Bring the key to the cage.
 6. Solve the challenge that let unlock the dwarf's cage.
 7. Talk to the rescued dwarf.
-8. Add the dwarf to the collection and unlock the next zone or objective.
+8. Add the dwarf to the collection and unlock the next zone.
 
 **Key Protection Variants**
 
 The keys can be:
 
-- **Guarded by a person:** A guide, keeper, or local adult will only let the player use the key after answering a question or completing a task.
-- **Blocked by an animal:** The key is near an animal space, and the player must calm, distract, or identify the animal correctly first.
-- **Hidden in the scene:** The player finds the key early, but still needs to solve a local clue to discover the correct cage lock or magical seal.
+- **Guarded by someone:** A guide, keeper, an animal will only let the player use the key after answering a question or completing a task.
+- **Hidden in the scene:** The player must move objects or find the key 
 
 **Map**
 The stars are at main NPC
