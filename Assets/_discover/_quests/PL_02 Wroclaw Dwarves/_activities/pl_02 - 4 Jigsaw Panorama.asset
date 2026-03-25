@@ -9,27 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7789ac026656849e1b81b19306e853a6, type: 3}
-  m_Name: Money
+  m_Script: {fileID: 11500000, guid: b7af6468ec5ed443382ad4a264476e3b, type: 3}
+  m_Name: pl_02 - 4 Jigsaw Panorama
   m_EditorClassIdentifier: 
-  Id: pl_02_money
-  ActivityCode: 7
+  Id: pl_02_4_jigsaw_panorama
+  ActivityCode: 5
   Difficulty: 2
   MinRounds: 1
   MaxRounds: 1
-  HasTimer: 0
-  TimerSeconds: 600
+  HasTimer: 1
+  TimerSeconds: 120
   PointsFail: -1
   PointsEasy: 1
   PointsNormal: 2
   PointsExpert: 3
   MainTopic: {fileID: 0}
   SelectionMode: 0
-  MoneySet: {fileID: 11400000, guid: fc313f7b930d245ef8a2e6821f6e4395, type: 2}
-  UseFixedTarget: 1
-  FixedTargetAmount: 5
-  RangeMin: 40
-  RangeMax: 100
-  GenType: 0
-  ManualComposition: []
-  GenMaxTokens: 12
+  PuzzleCard: {fileID: 11400000, guid: a6caec3e4374e47ccb0944b7de751aa5, type: 2}
+  HorizontalPieces: 0
+  VerticalPieces: 0
