@@ -135,7 +135,7 @@ namespace Antura.Discover
             var taskCode = GetLineTagValue(line.Metadata, "task");
             if (taskCode != null)
             {
-                Debug.Log($"Found task tag {taskCode} in line {lineId}");
+                //Debug.Log($"Found task tag {taskCode} in line {lineId}");
                 QuestManager.I.TaskManager.SetTaskDescription(taskCode, questNode);
             }
 

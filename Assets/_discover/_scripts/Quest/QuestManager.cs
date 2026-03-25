@@ -19,6 +19,8 @@ namespace Antura.Discover
         public DialogueReference DebugNode = new();
         public GameObject DebugSpawnPoint;
 
+        public bool showInteractableLabels = false;
+
         [Header("Override player settings")]
         public TalkToPlayerMode TalkToPlayerMode = TalkToPlayerMode.Default;
         public LanguageCode NativeLanguage;
@@ -93,7 +95,8 @@ namespace Antura.Discover
 
             // DiscoverGameManager is responsible for starting the intro Yarn node
 
-            ApplyInteractableDebugLabels(DebugMode);
+            if (DebugMode)
+                ApplyInteractableDebugLabels(DebugConfig.showInteractableLabels);
 
             // TODO, maybe in taskmanager
             UIManager.I.ProgressDisplay.Setup(CurrentQuest.ProgressPoints > 0 ? CurrentQuest.ProgressPoints : TaskManager.GetMaxPoints());
@@ -153,7 +156,9 @@ namespace Antura.Discover
             var currentItemCode = Inventory?.CurrentItem != null ? Inventory.CurrentItem.Code : string.Empty;
             YarnAnturaManager.I.Variables.CURRENT_ITEM = currentItemCode ?? string.Empty;
 
-            if (DebugMode && DebugConfig.DebugNode != null)
+            if (DebugMode && DebugConfig != null
+                && DebugConfig.DebugNode != null
+                && !string.IsNullOrWhiteSpace(DebugConfig.DebugNode.nodeName))
             {
                 StartDialogue(DebugConfig.DebugNode);
             }
