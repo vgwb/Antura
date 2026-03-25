@@ -5,19 +5,24 @@ namespace Antura.Discover
     public class MoveBy : ActableAbstract
     {
         public enum Axis { X, Y, Z }
-        public enum MovementType { Axis, TargetPoint }
+        public enum MovementType { GlobalAxis = 0, TargetPoint = 1, LocalAxis = 2 }
         public enum TriggerMode { Single, Toggle }
 
         public bool IsActivated;
         public float speed = 1f;
-        public MovementType movementType = MovementType.Axis;
+        [Tooltip("Choose whether the movement uses world axes, this object's local axes, or a target point.")]
+        public MovementType movementType = MovementType.GlobalAxis;
+        [Tooltip("Single moves only once when triggered. Toggle moves back and forth on repeated triggers.")]
         public TriggerMode triggerMode = TriggerMode.Single;
 
-        [Header("For Axis movement")]
+        [Header("Axis Movement")]
+        [Tooltip("Axis used when Movement Type is GlobalAxis or LocalAxis.")]
         public Axis MoveAxis = Axis.Y;
+        [Tooltip("Distance to move along the selected axis.")]
         public float distance = 2.0f;
 
-        [Header("For TargetPoint movement")]
+        [Header("Target Point Movement")]
+        [Tooltip("Destination used when Movement Type is TargetPoint.")]
         public Transform targetPoint;
 
         Vector3 startingPosition;
@@ -88,14 +93,26 @@ namespace Antura.Discover
             if (movementType == MovementType.TargetPoint && targetPoint != null)
                 return targetPoint.position;
 
-            Vector3 axisOffset = MoveAxis switch
+            Vector3 axisDirection = MoveAxis switch
             {
                 Axis.X => Vector3.right * distance,
                 Axis.Y => Vector3.up * distance,
                 Axis.Z => Vector3.forward * distance,
                 _ => Vector3.zero
             };
-            return startingPosition + axisOffset;
+
+            if (movementType == MovementType.LocalAxis)
+            {
+                axisDirection = MoveAxis switch
+                {
+                    Axis.X => transform.right * distance,
+                    Axis.Y => transform.up * distance,
+                    Axis.Z => transform.forward * distance,
+                    _ => Vector3.zero
+                };
+            }
+
+            return startingPosition + axisDirection;
         }
 
     }

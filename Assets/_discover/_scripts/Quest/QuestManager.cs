@@ -43,7 +43,6 @@ namespace Antura.Discover
         private GameObject currentNPC;
         private int total_coins = 0;
         public int TotalCoins => total_coins;
-        private int collected_items = 0;
 
         public TalkToPlayerMode TalkToPlayerMode { get; private set; }
         public bool HasTranslation => TalkToPlayerMode == TalkToPlayerMode.LearningThenNative || TalkToPlayerMode == TalkToPlayerMode.NativeThenLearning;
@@ -225,7 +224,6 @@ namespace Antura.Discover
             if (Inventory.CollectItem(itemCode))
             {
                 //Debug.Log("Collect item " + itemCode);
-                collected_items++;
                 // YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
                 // UpateItemsCounter();
             }
@@ -236,16 +234,17 @@ namespace Antura.Discover
             if (Inventory != null && Inventory.RemoveItem(itemCode))
             {
                 Debug.Log("Remove item " + itemCode);
-                collected_items--;
                 //YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
             }
         }
 
         public void OnCollectItem(string tag)
         {
-            collected_items++;
-            //YarnAnturaManager.I.Variables.COLLECTED_ITEMS = collected_items;
-            // route to task manager per-task logic
+            if (tag == "cookie")
+            {
+                OnCollectCookie();
+                return;
+            }
             TaskManager?.OnCollectItemTag(tag);
             AudioManager.I.PlaySound(Sfx.ScaleUp);
         }

@@ -40,6 +40,7 @@ namespace Antura.Discover.EditorTools
             public HashSet<string> TaskEndMentions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             public HashSet<string> ActivityMentions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             public HashSet<string> ActionMentions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            public HashSet<string> CameraFocusMentions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             public string ScriptPath; // for info
             public string QuestId;
         }
@@ -58,6 +59,7 @@ namespace Antura.Discover.EditorTools
             public int ChecksRun;
             public int InteractablesChecked;
             public int DialogueReferencesChecked;
+            public int CameraFocusCommandsChecked;
             public List<string> Infos = new List<string>();
             public List<SceneTestIssue> Warnings = new List<SceneTestIssue>();
             public List<SceneTestIssue> Errors = new List<SceneTestIssue>();
@@ -280,7 +282,7 @@ namespace Antura.Discover.EditorTools
             using (new EditorGUILayout.VerticalScope("box"))
             {
                 EditorGUILayout.LabelField($"Scene Tests: {_lastSceneTestReport.QuestId}", EditorStyles.boldLabel);
-                EditorGUILayout.LabelField($"Checks: {_lastSceneTestReport.ChecksRun} | Interactables: {_lastSceneTestReport.InteractablesChecked} | Dialogue refs: {_lastSceneTestReport.DialogueReferencesChecked}", EditorStyles.miniLabel);
+                EditorGUILayout.LabelField($"Checks: {_lastSceneTestReport.ChecksRun} | Interactables: {_lastSceneTestReport.InteractablesChecked} | Dialogue refs: {_lastSceneTestReport.DialogueReferencesChecked} | Camera focus refs: {_lastSceneTestReport.CameraFocusCommandsChecked}", EditorStyles.miniLabel);
 
                 foreach (var info in _lastSceneTestReport.Infos)
                     EditorGUILayout.LabelField(info, EditorStyles.miniLabel);
@@ -818,7 +820,67 @@ namespace Antura.Discover.EditorTools
 
             ValidateSceneInteractableDialogueReferences(quest, activeScene, report);
             ValidateQuestManagerActivityCodes(quest, report);
+            ValidateQuestCameraFocusCommands(quest, report);
             return report;
+        }
+
+        private void ValidateQuestCameraFocusCommands(QuestData quest, SceneTestReport report)
+        {
+            const string testName = "Yarn camera_focus";
+            report.ChecksRun++;
+
+            if (quest == null)
+            {
+                AddSceneTestError(report, testName, "No quest selected.", null);
+                return;
+            }
+
+            var analysis = AnalyzeQuest(quest);
+            report.CameraFocusCommandsChecked = analysis.CameraFocusMentions.Count;
+            if (analysis.CameraFocusMentions.Count == 0)
+                return;
+
+            var root = quest.GetQuestPrefabEditorAsset();
+            if (root == null)
+            {
+                AddSceneTestError(report, testName, $"Quest '{quest.Id ?? quest.name}' has no Quest prefab assigned.", quest);
+                return;
+            }
+
+            var focusDataItems = root.GetComponentsInChildren<CameraFocusData>(true);
+            var definedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var idCounts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var focusData in focusDataItems)
+            {
+                if (focusData == null)
+                    continue;
+
+                var id = focusData.Id != null ? focusData.Id.Trim() : string.Empty;
+                if (string.IsNullOrEmpty(id))
+                {
+                    AddSceneTestWarning(report, testName, $"CameraFocusData on '{focusData.gameObject.name}' has an empty Id.", focusData.gameObject);
+                    continue;
+                }
+
+                definedIds.Add(id);
+                if (!idCounts.ContainsKey(id))
+                    idCounts[id] = 0;
+                idCounts[id]++;
+            }
+
+            foreach (var duplicate in idCounts.Where(pair => pair.Value > 1).OrderBy(pair => pair.Key, StringComparer.OrdinalIgnoreCase))
+            {
+                AddSceneTestError(report, testName, $"CameraFocusData.Id '{duplicate.Key}' is duplicated {duplicate.Value} time(s) in the quest prefab.", root);
+            }
+
+            foreach (var cameraId in analysis.CameraFocusMentions.OrderBy(id => id, StringComparer.OrdinalIgnoreCase))
+            {
+                if (!definedIds.Contains(cameraId))
+                {
+                    AddSceneTestError(report, testName, $"Yarn camera_focus '{cameraId}' is not defined by any CameraFocusData.Id in the quest prefab.", root);
+                }
+            }
         }
 
         private void ValidateQuestManagerActivityCodes(QuestData quest, SceneTestReport report)
@@ -1149,6 +1211,7 @@ namespace Antura.Discover.EditorTools
         private static readonly Regex ActivityRegex = new Regex(@"<<\s*activity\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex ActionRegex = new Regex(@"<<\s*action\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex AreaRegex = new Regex(@"<<\s*area\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex CameraFocusRegex = new Regex(@"<<\s*camera_focus\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex TaskStartRegex = new Regex(@"<<\s*task_start\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex TaskEndRegex = new Regex(@"<<\s*task_end\s+([A-Za-z0-9_\-]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
@@ -1161,6 +1224,7 @@ namespace Antura.Discover.EditorTools
             into.TaskEndMentions.Clear();
             into.ActivityMentions.Clear();
             into.ActionMentions.Clear();
+            into.CameraFocusMentions.Clear();
             if (string.IsNullOrEmpty(text))
                 return;
 
@@ -1234,6 +1298,15 @@ namespace Antura.Discover.EditorTools
                     var id = m.Groups[1].Value.Trim();
                     if (!string.IsNullOrEmpty(id))
                         into.ActionMentions.Add(id);
+                }
+            }
+            foreach (Match m in CameraFocusRegex.Matches(text))
+            {
+                if (m.Groups.Count > 1)
+                {
+                    var id = m.Groups[1].Value.Trim();
+                    if (!string.IsNullOrEmpty(id))
+                        into.CameraFocusMentions.Add(id);
                 }
             }
         }
