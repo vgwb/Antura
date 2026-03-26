@@ -245,6 +245,13 @@ namespace Antura.Discover
         {
             CameraManager.I.ResetFocus();
         }
+
+        [YarnCommand("camera_map_distance")]
+        public static void CommandCameraMapDistance(int distance)
+        {
+            CameraManager.I.SetCameraMapDistance(distance);
+        }
+
         #endregion
 
         #region CARDS / ASSETS

@@ -15,14 +15,16 @@ namespace Antura.Discover
 
         #endregion
 
-        Transform camTarget;
-        Transform playerCamT;
-        CinemachinePositionComposer cineComposer;
+        private int currentZoomOutFactor;
+        private Transform camTarget;
+        private Transform playerCamT;
+        private CinemachinePositionComposer cineComposer;
 
         #region Unity
 
         void Awake()
         {
+            currentZoomOutFactor = zoomOutFactor;
             camTarget = FindFirstObjectByType<PlayerCameraTarget>().transform;
             cineMain.Target.TrackingTarget = camTarget;
             playerCamT = this.GetComponent<PlayerCameraController>().CineMain.transform;
@@ -32,6 +34,19 @@ namespace Antura.Discover
         #endregion
 
         #region Public Methods
+
+        public void SetZoomOutFactor(int factor)
+        {
+            if (factor < 0)
+            {
+                // negative factor means to use the default zoom out factor, which is set in the inspector
+                currentZoomOutFactor = zoomOutFactor;
+            }
+            else
+            {
+                currentZoomOutFactor = factor;
+            }
+        }
 
         public override void Activate(bool activate)
         {
@@ -47,7 +62,7 @@ namespace Antura.Discover
 
                 // Configure the target pose before enabling the map camera so the
                 // Cinemachine brain can blend smoothly into the elevated map view.
-                cineComposer.CameraDistance = zoomOutFactor;
+                cineComposer.CameraDistance = currentZoomOutFactor;
             }
 
             base.Activate(activate);

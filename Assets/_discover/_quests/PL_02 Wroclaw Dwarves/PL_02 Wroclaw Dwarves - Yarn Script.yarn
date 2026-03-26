@@ -1450,7 +1450,8 @@ color: yellow
 <<else>>
     This plaza is a busy place in the Sky Tower. #line:info_017
     Unlock the Traveler Dwarf! #task:dwarf_9 #line:07cb84f 
-    He loves visiting new places. #line:02172f2 
+    He loves visiting new places. #line:02172f2
+    <<camera_map_distance 30>>
     <<task_start dwarf_9>>
     <<SetActive key_9 true>>
 <<endif>>
@@ -1514,6 +1515,7 @@ color:
     <<inventory dwarf_traveler add>>
     <<SetActive cage_9 false>>
     <<SetMapIcon dwarf_9 done>>
+    <<camera_map_distance -1>>
     <<set $dwarf_9_done = true>>
     Thank you! You saved me! #shadow:dwarf_saved
     <<jump dwarf_9>>

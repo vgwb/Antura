@@ -31,12 +31,12 @@ namespace Antura.Discover
         public StarterAssetsInputs StarterInput { get; private set; }
         public bool IsFocusing { get; private set; }
 
-        float lastZoomTickTime;
-        float leaveMapTime;
-        DialogueCamera dialogueCam;
-        FocusCamera focusCam;
-        MapCamera mapCam;
-        Tween focusTween;
+        private float lastZoomTickTime;
+        private float leaveMapTime;
+        private DialogueCamera dialogueCam;
+        private FocusCamera focusCam;
+        private MapCamera mapCam;
+        private Tween focusTween;
 
         #region Unity
 
@@ -68,7 +68,8 @@ namespace Antura.Discover
 
         void OnDestroy()
         {
-            if (I == this) I = null;
+            if (I == this)
+                I = null;
             DiscoverNotifier.Game.OnMapButtonToggled.Unsubscribe(OnMapButtonToggled);
             focusTween.Kill();
         }
@@ -135,7 +136,7 @@ namespace Antura.Discover
         {
             dialogueCam.SetTarget(target);
         }
-        
+
         /// <summary>
         /// Focuses the camera to look at a specific target and with an optional specific origin.
         /// Only call this during dialogues
@@ -158,8 +159,10 @@ namespace Antura.Discover
         void DoFocusOnSetup(Transform lookAtTarget, Transform origin = null)
         {
             Vector3 toCamPos = dialogueCam.CineMain.transform.position;
-            if (origin != null) toCamPos = origin.position;
-            else toCamPos.y += focusCam.YOffset;
+            if (origin != null)
+                toCamPos = origin.position;
+            else
+                toCamPos.y += focusCam.YOffset;
             IsFocusing = true;
             focusTween.Kill();
             focusCam.SetTarget(lookAtTarget);
@@ -179,11 +182,25 @@ namespace Antura.Discover
         }
 
         /// <summary>
+        /// Sets the distance of the map camera.
+        /// This can be used to make the camera zoom in or out more when it switches to map mode.
+        /// The distance is set in the inspector as a default value,
+        /// but can be overridden by passing a custom distance to this method.
+        /// To reset to the default distance, pass a negative value.
+        /// </summary>
+        /// <param name="distance"></param>
+        public void SetCameraMapDistance(int distance)
+        {
+            mapCam.SetZoomOutFactor(distance);
+        }
+
+        /// <summary>
         /// Resets the eventually active camera focus
         /// </summary>
         public void ResetFocus()
         {
-            if (Mode != CameraMode.Focus) return;
+            if (Mode != CameraMode.Focus)
+                return;
 
             focusTween.Kill();
             IsFocusing = false;
