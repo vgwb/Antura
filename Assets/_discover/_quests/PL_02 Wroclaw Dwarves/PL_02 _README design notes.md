@@ -79,11 +79,11 @@ The stars are at main NPC
 #### Area 1: Cathedral
 
 - **Dwarf 1 - The Bishop**
-  - **Location:** Cathedral.
+  - **Location:** Cathedral
   - **Fact:** A cathedral is a large church where people pray.
   - **Challenge:** Find the key in the cathedral area, then pass a short knowledge check to use it.
   - **Hint:** A living letter points to the key.
-  - **Reward:** The Bishop Dwarf and the **Map of Wrocław**.
+  - **Reward:** the Map of Wrocław.
 
 #### Area 2: Center
 
