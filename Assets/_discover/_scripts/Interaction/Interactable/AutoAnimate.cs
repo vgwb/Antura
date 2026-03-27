@@ -4,7 +4,7 @@ namespace Antura.Discover
 {
     public class AutoAnimate : MonoBehaviour
     {
-        public enum MovementCycle { Loop, PingPong }
+        public enum MovementCycle { Loop, PingPong, Once }
         public enum Axis { X, Y, Z }
 
         public float someRandomness = 0.0f;
@@ -66,15 +66,7 @@ namespace Antura.Discover
             if (enableAxisMovement)
             {
                 axisTimer += Time.deltaTime * axisSpeed;
-                float travel;
-                if (axisCycle == MovementCycle.PingPong)
-                {
-                    travel = Mathf.PingPong(axisTimer, axisDistance);
-                }
-                else
-                {
-                    travel = Mathf.Repeat(axisTimer, axisDistance);
-                }
+                float travel = GetTravelDistance(axisCycle, axisTimer, axisDistance);
                 Vector3 axisDir = GetAxisVector(moveAxis);
                 nextPosition += axisDir * travel;
             }
@@ -89,15 +81,7 @@ namespace Antura.Discover
                 {
                     direction = direction.normalized;
                     targetTimer += Time.deltaTime * targetSpeed;
-                    float travel;
-                    if (targetCycle == MovementCycle.PingPong)
-                    {
-                        travel = Mathf.PingPong(targetTimer, dist);
-                    }
-                    else
-                    {
-                        travel = Mathf.Repeat(targetTimer, dist);
-                    }
+                    float travel = GetTravelDistance(targetCycle, targetTimer, dist);
                     nextPosition += direction * travel;
                 }
             }
@@ -119,6 +103,16 @@ namespace Antura.Discover
             }
         }
 
+        public void EnableTargetMovement(bool enable)
+        {
+            enableTargetMovement = enable;
+            enableRotation = false;
+            if (!enable)
+            {
+                targetTimer = 0f; // Reset timer to avoid jumps when re-enabled
+            }
+        }
+
         private static Vector3 GetAxisVector(Axis axis)
         {
             switch (axis)
@@ -132,6 +126,34 @@ namespace Antura.Discover
                 default:
                     return Vector3.up;
             }
+        }
+
+        private static float GetTravelDistance(MovementCycle cycle, float timer, float distance)
+        {
+            float magnitude = Mathf.Abs(distance);
+            if (magnitude <= Mathf.Epsilon)
+            {
+                return 0f;
+            }
+
+            float travel;
+            switch (cycle)
+            {
+                case MovementCycle.PingPong:
+                    travel = Mathf.PingPong(timer, magnitude);
+                    break;
+                case MovementCycle.Once:
+                    travel = Mathf.Clamp(timer, 0f, magnitude);
+                    break;
+                case MovementCycle.Loop:
+                    travel = Mathf.Repeat(timer, magnitude);
+                    break;
+                default:
+                    travel = 0f;
+                    break;
+            }
+
+            return Mathf.Sign(distance) * travel;
         }
 
         void OnDrawGizmos()

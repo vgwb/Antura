@@ -486,7 +486,6 @@ color: yellow
     Use the tram to choose your next stop. #line:03991b3 
     <<target driver_tram_cathedral>>
 <<elseif GetCurrentTask() == "dwarf_1">>
-    <<jump hint_1>>
 <<else>>
     <<card wroclaw_cathedral>>
     This is the Wrocław Cathedral. #line:0eb59b5 
@@ -519,15 +518,12 @@ group: cathedral
 How can I help? #shadow:how_can_help 
 -> How can I free the Dwarf? #shadow:how_free_dwarf 
     Find the key. Then open the cage! #shadow:055d8b9
-    <<jump hint_1>>
 -> Where is the key? #shadow:where_key
     <<target ll_key_1>>
     Someone has it. #line:0166015
-    <<jump hint_1>>
 -> Where is the dwarf? #shadow:where_dwarf 
     <<SetMapIcon dwarf_1 on>>
     Look at the star on the map. #shadow:02da44a
-    <<jump hint_1>>
 -> Goodbye #highlight #shadow:goodbye
 ===
 
@@ -701,6 +697,7 @@ group: center
 ---
 Here is your key! #line:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_2>>
 ===
 
@@ -808,15 +805,12 @@ group: center
 How can I help? #shadow:how_can_help 
 -> How can I free the Dwarf? #shadow:how_free_dwarf 
     Find the key. Then open the cage! #shadow:055d8b9
-    <<jump hint_1>>
 -> Where is the key? #shadow:where_key
     Collect all the books.
     Use the map if you don't find them all! #line:use_map_find
-    <<jump hint_1>>
 -> Where is the dwarf? #shadow:where_dwarf 
     <<SetMapIcon dwarf_3 on>>
     Look at the star on the map. #shadow:02da44a
-    <<jump hint_1>>
 -> Goodbye #highlight #shadow:goodbye
 ===
 
@@ -938,15 +932,12 @@ group: panorama
 How can I help? #shadow:how_can_help 
 -> How can I free the Dwarf? #shadow:how_free_dwarf 
     Find the key. Then open the cage! #shadow:055d8b9
-    <<jump hint_1>>
 -> Where is the key? #shadow:where_key
     Collect all the colors around the park. #line:key_under_the_frame
     Use the map if you don't find them all! #shadow:use_map_find
-    <<jump hint_1>>
 -> Where is the dwarf? #shadow:where_dwarf 
     <<SetMapIcon dwarf_4 on>>
     Look at the star on the map. #shadow:02da44a
-    <<jump hint_1>>
 -> Goodbye #highlight #shadow:goodbye
 ===
 
@@ -1111,15 +1102,12 @@ group: centennial
 How can I help? #shadow:how_can_help 
 -> How can I free the Dwarf? #shadow:how_free_dwarf 
     Find the key. Then open the cage! #shadow:055d8b9
-    <<jump hint_1>>
 -> Where is the key? #shadow:where_key
     Find all the animals around the Zoo.
     Use the map if you don't find them all! #shadow:use_map_find
-    <<jump hint_1>>
 -> Where is the dwarf? #shadow:where_dwarf 
     <<SetMapIcon dwarf_5 on>>
     Look at the star on the map. #shadow:02da44a
-    <<jump hint_1>>
 -> Goodbye #highlight #shadow:goodbye
 ===
 
@@ -1129,6 +1117,7 @@ group: centennial
 ---
 Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_5>>
 ===
 
@@ -1195,9 +1184,10 @@ color: yellow
 <<elseif GetCurrentTask() == "dwarf_6">>
     <<jump hint_6>>
 <<else>>
-    Centennial Hall is a giant, famous building. #line:0c3a081 
-    Save the Architect Dwarf! (He designs buildings). #task:dwarf_6 #line:092e472 
-    He loves drawing cool shapes and houses. #line:088d0bd 
+    Help! Our Architect Dwarf has disappeared! #line:0c3a081 
+    We need him to improve the buildings #line:088d0bd 
+    Find and save the Architect Dwarf! #task:dwarf_6 #line:092e472
+    Talk to me if you need help. #shadow:talk_4_help
     <<task_start dwarf_6>>
     <<SetActive key_6 true>>
 <<endif>>
@@ -1217,17 +1207,37 @@ title: hint_6
 position: 1011,2003
 group: centennial
 ---
-I see it! The key behind a tree. #line:0abe6d9 
-<<SetActive key_6 true>>
-<<target key_6>>
+How can I help? #shadow:how_can_help 
+-> How can I free the Dwarf? #shadow:how_free_dwarf 
+    Find the key. Then open the cage! #shadow:055d8b9
+-> Where is the key? #shadow:where_key
+    <<camera_focus camera_centennial_iglica>>
+    I see it! It's at the top of the Iglica! #line:0abe6d9
+    <<camera_reset>>
+-> Where is the dwarf? #shadow:where_dwarf
+    <<camera_focus camera_centennial>>
+    Someone saw him going up to the roof
+    <<camera_reset>>
+    <<SetMapIcon dwarf_6 on>>
+-> Goodbye #highlight #shadow:goodbye
+===
+
+title: lever_6
+position: 1251,2003
+group: centennial
+---
+<<camera_focus camera_centennial_iglica>>
+<<wait 3>>
+<<camera_reset>>
+Here is your key! #shadow:a_key
 ===
 
 title: key_6
 position: 1251,2003
 group: centennial
 ---
-Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_6>>
 ===
 
@@ -1327,6 +1337,7 @@ group: centennial
 ---
 Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_7>>
 ===
 
@@ -1462,6 +1473,7 @@ group: skytower
 ---
 Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_8>>
 ===
 
@@ -1563,6 +1575,7 @@ group: skytower
 ---
 Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_9>>
 ===
 
@@ -1671,6 +1684,7 @@ group: skytower
 ---
 Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_10>>
 ===
 

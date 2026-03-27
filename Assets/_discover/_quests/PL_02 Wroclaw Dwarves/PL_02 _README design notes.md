@@ -118,16 +118,15 @@ The stars are at main NPC
 
 - **Dwarf 6 - The Architect**
   - **Location:** Centennial Hall.
-  - **Fact:** Centennial Hall is a huge building with a distinctive dome, used for shows and events.
-  - **Challenge:** Find the key near the iglica
-  - **Hint:** A living letter reveals where the key appears after the puzzle.
+  - **Fact:** Centennial Hall is a huge building with a distinctive dome
+  - **Challenge:** Find the key on top of the Iglica. Lower it with a lever
   - **Reward:** The Architect Dwarf.
 
 - **Dwarf 7 - The Conductor**
   - **Location:** Multimedia Fountain.
   - **Fact:** The fountain is famous for shows that combine water, lights, and music.
-  - **Challenge:** Collect the 7 Notes and 7 Colors
-  - **Hint:** A living letter points to the stage clue.
+  - **Challenge:** turn on the fountinas, playing the 7 notes of the scale
+  - **Hint:** shows the sequence, with colors also
   - **Reward:** The Conductor Dwarf.
 
 #### Area 4: Sky Tower
@@ -181,4 +180,5 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 3 DONE
 4 DONE
 5 DONE
+6 DONE
 
