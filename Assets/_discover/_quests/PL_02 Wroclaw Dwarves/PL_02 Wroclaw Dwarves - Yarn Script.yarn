@@ -768,14 +768,26 @@ color: yellow
     <<jump check_area_center>>
 <<elseif GetCurrentTask() == "dwarf_3">>
     <<jump hint_3>>
+<<elseif HasCompletedTask("dwarf_3") >>
+    Go to the Dwarf with the key! #line:go_dwarf_key
+    <<target dwarf_3>>
 <<else>>
-    This is the Old Town Hall. #line:0de0a2f 
-    City leaders work and meet here. #line:04f7a17 
-    Help our Councilor Dwarf! (He helps run the city). #task:dwarf_3 #line:02ba9a9 
+    Here in the Old Town Hall we keep the laws of the city. #line:0de0a2f 
+    But our Councilor Dwarf has lost all his books! #line:04f7a17 
+    Please find all Dwarf books! #task:dwarf_3 #line:02ba9a9 
     Talk to me if you need help. #shadow:talk_4_help
-    <<task_start dwarf_3>>
-    <<SetActive key_3 true>>
+    <<camera_map_distance 30>>
+    <<task_start dwarf_3 task_3_done>>
 <<endif>>
+===
+
+title: task_3_done
+position: 765,1301
+group: panorama
+---
+You found them all! Go back for a reward #line:collected_all
+<<SetActive key_3 true>>
+<<target key_3>>
 ===
 
 title: info_3
@@ -793,9 +805,19 @@ title: hint_3
 position: 998,978
 group: center
 ---
-The hidden Town Hall key is behind the sign. #line:03a94f3 
-<<SetActive key_3 true>>
-<<target key_3>>
+How can I help? #shadow:how_can_help 
+-> How can I free the Dwarf? #shadow:how_free_dwarf 
+    Find the key. Then open the cage! #shadow:055d8b9
+    <<jump hint_1>>
+-> Where is the key? #shadow:where_key
+    Collect all the books.
+    Use the map if you don't find them all! #line:use_map_find
+    <<jump hint_1>>
+-> Where is the dwarf? #shadow:where_dwarf 
+    <<SetMapIcon dwarf_3 on>>
+    Look at the star on the map. #shadow:02da44a
+    <<jump hint_1>>
+-> Goodbye #highlight #shadow:goodbye
 ===
 
 title: key_3
@@ -804,6 +826,7 @@ group: center
 ---
 Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #line:unlock_dwarf
 <<target dwarf_3>>
 ===
 
@@ -878,12 +901,24 @@ color: yellow
     <<jump check_area_center>>
 <<elseif GetCurrentTask() == "dwarf_4">>
     <<jump hint_4>>
+<<elseif HasCompletedTask("dwarf_4") >>
+    Go to the Dwarf with the key! #shadow:go_dwarf_key
+    <<target dwarf_4>>
 <<else>>
-    A panorama is a giant picture that wraps around the room! #line:07177c7 
-    Help the Painter Dwarf! #task:dwarf_4 #line:0737a2f 
-    <<task_start dwarf_4>>
-    <<SetActive key_4 true>>
+    Help! Our Painter Dwarf has lost all his colors #line:07177c7 
+    Find all the colors! #task:dwarf_4 #line:0737a2f
+    <<camera_map_distance 30>>
+    <<task_start dwarf_4 task_4_done>>
 <<endif>>
+===
+
+title: task_4_done
+position: 765,1301
+group: panorama
+---
+You found them all! Go back for a reward #shadow:collected_all
+<<SetActive key_4 true>>
+<<target key_4>>
 ===
 
 title: info_4
@@ -892,7 +927,7 @@ group: panorama
 color: purple
 ---
 <<card panorama_racawicka>>
-Panorama Racławicka is a huge picture. #line:info_4a
+Panorama Racławicka is a huge picture that wraps around the room! #line:info_4a
 It makes you feel like you are inside the story! #line:info_4b
 ===
 
@@ -900,9 +935,19 @@ title: hint_4
 position: 1005,1301
 group: panorama
 ---
-Look closely! The key is hidden under the picture frame. #line:key_under_the_frame
-<<SetActive key_4 true>>
-<<target key_4>>
+How can I help? #shadow:how_can_help 
+-> How can I free the Dwarf? #shadow:how_free_dwarf 
+    Find the key. Then open the cage! #shadow:055d8b9
+    <<jump hint_1>>
+-> Where is the key? #shadow:where_key
+    Collect all the colors around the park. #line:key_under_the_frame
+    Use the map if you don't find them all! #shadow:use_map_find
+    <<jump hint_1>>
+-> Where is the dwarf? #shadow:where_dwarf 
+    <<SetMapIcon dwarf_4 on>>
+    Look at the star on the map. #shadow:02da44a
+    <<jump hint_1>>
+-> Goodbye #highlight #shadow:goodbye
 ===
 
 title: key_4
@@ -911,6 +956,7 @@ group: panorama
 ---
 Here is your key! #shadow:a_key
 <<collect>>
+Now you can unlock the dwarf! #shadow:unlock_dwarf
 <<target dwarf_4>>
 ===
 
@@ -1015,14 +1061,27 @@ color: yellow
     <<jump check_area_centennial>>
 <<elseif GetCurrentTask() == "dwarf_5">>
     <<jump hint_5>>
+<<elseif HasCompletedTask("dwarf_5") >>
+    Go to the Dwarf with the key! #shadow:go_dwarf_key
+    <<target dwarf_4>>
 <<else>>
-    Wrocław Zoo is the biggest zoo in Poland! #line:07c9455 
-    Help the Animal Lover Dwarf. #task:dwarf_5 #line:09b7b40 
-    He loves all the animals here! #line:048c7ab 
-    <<task_start dwarf_5>>
-    <<SetActive key_5 true>>
+    Our Animal Lover Dwarf loves all the animals #line:048c7ab 
+    But they ran away after a big blue dog passed here!  
+    Find all the animals and free the Dwarf! #task:dwarf_5 #line:09b7b40 
+    <<camera_map_distance 30>>
+    <<task_start dwarf_5 task_5_done>>
 <<endif>>
 ===
+
+title: task_5_done
+position: 771,1803
+group: centennial
+---
+You found them all! Go back for a reward #shadow:collected_all
+<<SetActive key_5 true>>
+<<target key_5>>
+===
+
 
 title: info_5
 position: 1971,1803
@@ -1030,17 +1089,38 @@ group: centennial
 color: purple
 ---
 <<card wroclaw_dwarfs>>
+Wrocław Zoo is the biggest zoo in Poland! #line:07c9455
 The Zoo was built a long time ago, in 1865! #line:info_5a
 Families come here to see animals from all over the world. #line:info_5b
+===
+
+title: ll_spawn_5
+position: 1971,1803
+group: centennial
+color:
+---
+=> I like the Zoo!
+=> I want to protect all animals
+=> Where is my cat?
 ===
 
 title: hint_5
 position: 1011,1803
 group: centennial
 ---
-There is a key behind that sign over there. #line:0ae4723 
-<<SetActive key_5 true>>
-<<target key_5>>
+How can I help? #shadow:how_can_help 
+-> How can I free the Dwarf? #shadow:how_free_dwarf 
+    Find the key. Then open the cage! #shadow:055d8b9
+    <<jump hint_1>>
+-> Where is the key? #shadow:where_key
+    Find all the animals around the Zoo.
+    Use the map if you don't find them all! #shadow:use_map_find
+    <<jump hint_1>>
+-> Where is the dwarf? #shadow:where_dwarf 
+    <<SetMapIcon dwarf_5 on>>
+    Look at the star on the map. #shadow:02da44a
+    <<jump hint_1>>
+-> Goodbye #highlight #shadow:goodbye
 ===
 
 title: key_5

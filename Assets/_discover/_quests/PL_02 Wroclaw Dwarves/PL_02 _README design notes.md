@@ -90,22 +90,22 @@ The stars are at main NPC
 - **Dwarf 2 - The Origin**
   - **Location:** Market Square.
   - **Fact:** Wrocław dwarves are one of the city's symbols.
-  - **Challenge:** Find the hidden key in the market, then use a clue to identify the correct cage.
+  - **Challenge:** Find the hidden key in the market (move all plants)
   - **Hint:** A living letter points to the flowerpot where the key is
   - **Reward:** The Origin Dwarf.
 
 - **Dwarf 3 - The Councilor**
   - **Location:** Old Town Hall.
   - **Fact:** The Town Hall is where city leaders work and meet.
-  - **Challenge:** Find the key near the Town Hall, then answer a question and solve a building puzzle.
-  - **Hint:** A living letter reveals where the key appeared.
+  - **Challenge:** Collect 6 books
+  - **Hint:** 
   - **Reward:** The Councilor Dwarf.
 
 - **Dwarf 4 - The Painter**
   - **Location:** Panorama Racławicka.
   - **Fact:** A panorama is a giant painting that surrounds the viewer.
-  - **Challenge:** Find the key in the panorama area, then complete a picture puzzle.
-  - **Hint:** the key under the frame.
+  - **Challenge:** Collect the 7 colors to paint
+  - **Hint:** 
   - **Reward:** The Painter Dwarf.
 
 #### Area 3: Centennial
@@ -113,20 +113,20 @@ The stars are at main NPC
 - **Dwarf 5 - Animal Lover**
   - **Location:** Wrocław ZOO.
   - **Fact:** Wrocław ZOO is the largest zoo in Poland.
-  - **Challenge:** Find the key near an animal sign, then get keeper approval to use it.
+  - **Challenge:** Collect the 7 Animals 
   - **Reward:** The Animal Lover Dwarf.
 
 - **Dwarf 6 - The Architect**
   - **Location:** Centennial Hall.
   - **Fact:** Centennial Hall is a huge building with a distinctive dome, used for shows and events.
-  - **Challenge:** Find the key near the iglica, then solve a building puzzle.
+  - **Challenge:** Find the key near the iglica
   - **Hint:** A living letter reveals where the key appears after the puzzle.
   - **Reward:** The Architect Dwarf.
 
 - **Dwarf 7 - The Conductor**
   - **Location:** Multimedia Fountain.
   - **Fact:** The fountain is famous for shows that combine water, lights, and music.
-  - **Challenge:** Find the key in the pool, then complete a simple pattern or sound activity.
+  - **Challenge:** Collect the 7 Notes and 7 Colors
   - **Hint:** A living letter points to the stage clue.
   - **Reward:** The Conductor Dwarf.
 
@@ -137,21 +137,20 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 - **Dwarf 8 - The Writer**
   - **Location:** Near the base of the Sky Tower.
   - **Fact:** Olga Tokarczuk is a Nobel Prize-winning writer associated with Wrocław.
-  - **Challenge:** Find the key in the reading corner, then complete a short reading task.
+  - **Challenge:** Find the key in the red book
   - **Hint:** points to the reading corner.
   - **Reward:** The Writer Dwarf.
 
 - **Dwarf 9 - The Traveler**
   - **Location:** Sky Tower plaza.
   - **Fact:** The plaza shows the modern and busy side of the city.
-  - **Challenge:** Find the key in the plaz
-  - **Hint:**  hidden bench key.
+  - **Challenge:** Find the key in the maze
   - **Reward:** The Traveler Dwarf.
 
 - **Dwarf 10 - The Keymaster**
   - **Location:** In front of the Sky Tower elevator.
   - **Condition:** The final cage only becomes active after the previous Sky Tower dwarves are freed
-  - **Challenge:** Find 10 keys around
+  - **Challenge:** Collect 10 keys around
   - **Reward:** The Keymaster Dwarf unlocks the elevator.
 
 #### Final Assessment
@@ -174,3 +173,12 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 - **A writer**
 - A politician
 - A scientist
+
+
+0 DONE
+1 DONE
+2 DONE
+3 DONE
+4 DONE
+5 DONE
+
