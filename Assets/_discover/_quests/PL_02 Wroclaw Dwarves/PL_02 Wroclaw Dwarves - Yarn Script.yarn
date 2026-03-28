@@ -22,6 +22,14 @@
 // - panorama_racawicka
 // - primary_school_leonardo_da_vinci
 // - town_hall
+// - musical_scale
+// - note_do
+// - note_fa
+// - note_la
+// - note_mi
+// - note_re
+// - note_si
+// - note_sol
 // - wroclaw
 // - wroclaw_cathedral
 // - wroclaw_centennial_hall
@@ -901,6 +909,7 @@ color: yellow
 <<else>>
     Help! Our Painter Dwarf has lost all his colors #line:07177c7 
     Find all the colors! #task:dwarf_4 #line:0737a2f
+    Talk to me if you need help. #shadow:talk_4_help
     <<camera_map_distance 30>>
     <<task_start dwarf_4 task_4_done>>
 <<endif>>
@@ -1292,7 +1301,7 @@ group: centennial
 ===
 
 
-// FOUNTAIN
+// MULTIMEDIA FOUNTAIN
 
 title: npc_7
 position: 771,2203
@@ -1303,13 +1312,28 @@ color: yellow
     <<jump check_area_centennial>>
 <<elseif GetCurrentTask() == "dwarf_7">>
     <<jump hint_7>>
+<<elseif HasCompletedTask("dwarf_4") >>
+    Go to the Dwarf with the key! #shadow:go_dwarf_key
+    <<target dwarf_4>>
 <<else>>
-    Save the Conductor Dwarf! (He leads the fountain show). #task:dwarf_7 #line:041a696 
-    He loves music and dancing water! #line:0f05296 
-    <<task_start dwarf_7>>
-    <<SetActive key_7 true>>
+    Our Dwarf used to conduct the fountain show.
+    But now he lost all musical notes! #line:0f05296 
+    Find the music and save the Conductor Dwarf! #task:dwarf_7 #line:041a696 
+    Talk to me if you need help. #shadow:talk_4_help
+    <<camera_map_distance 30>>
+    <<task_start dwarf_7 task_7_done>>
 <<endif>>
 ===
+
+title: task_7_done
+position: 771,2203
+group: centennial
+---
+You found them all! Go back for a reward #shadow:collected_all
+<<SetActive key_7 true>>
+<<target key_7>>
+===
+
 
 title: info_7
 position: 1971,2203
@@ -1326,9 +1350,17 @@ title: hint_7
 position: 1011,2203
 group: centennial
 ---
-The fountain water is hiding a key near the stage! #line:0021931 
-<<SetActive key_7 true>>
-<<target key_7>>
+How can I help? #shadow:how_can_help 
+-> How can I free the Dwarf? #shadow:how_free_dwarf
+    <<card musical_scale>>
+    Play the notes in order
+-> Where is the key? #shadow:where_key
+    Find all the musical notes around here
+    Use the map if you don't find them all! #shadow:use_map_find
+-> Where is the dwarf? #shadow:where_dwarf 
+    <<SetMapIcon dwarf_7 on>>
+    Look at the star on the map. #shadow:02da44a
+-> Goodbye #highlight #shadow:goodbye
 ===
 
 title: key_7
@@ -1349,10 +1381,12 @@ color: yellow
 <<if $dwarf_7_done>>
     <<card dwarf_conductor>>
     The fountain show feels like a big concert! #line:dwarf7_002
+    <<card piano>>
     Do you play a musical instrument? #line:dwarf7_001
     <<jump check_area_centennial>>
 <<elseif has_item("key_gold")>>
-    To unlock the cage, solve this puzzle! #shadow:solve_to_unlock
+    <<card musical_scale>>
+    Play the notes in order to unlock me!
     <<activity activity_7 activity_7_done>>
 <<else>>
     It is locked. Find a gold key! #shadow:locked

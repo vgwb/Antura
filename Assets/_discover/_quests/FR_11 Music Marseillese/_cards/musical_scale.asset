@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: musical_score
+  m_Name: musical_scale
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
-  Id: musical_score
+  Id: musical_scale
   Status: 2
-  Type: 3
-  Subjects: 1400000016000000
-  TitleEn: Musical Score
-  DescriptionEn: The written notes and words for a song.
+  Type: 4
+  Subjects: 
+  TitleEn: Musical Scale
+  DescriptionEn: The seven notes played in order
   Title:
     m_TableReference:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: musical_score
+      m_Key: musical_scale
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -32,18 +32,18 @@ MonoBehaviour:
       m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: musical_score.desc
+      m_Key: musical_scale.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Year: 0
-  Country: 2
+  Country: 0
   Location: {fileID: 0}
   WikipediaUrl: 
-  Importance: 0
+  Importance: 20
   targetAge: 2
-  CoreOfTopic: {fileID: 0}
-  IsInTopics: 1
+  CoreOfTopic: {fileID: 11400000, guid: 845b6ee7e9d88482dbe965df1d9cdac4, type: 2}
+  IsInTopics: 0
   MasteryPointsToUnlock: 1
   Quests: []
   Words: []
@@ -51,7 +51,7 @@ MonoBehaviour:
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: 800693786678340029684677f63fe95e, type: 2}
+  ImageAsset: {fileID: 11400000, guid: 99b10a8b4531d453e8c429a6a3140d6b, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
@@ -64,11 +64,11 @@ MonoBehaviour:
   Credits: []
   Rationale: 
   Notes: 
-  LastReviewed: 2025-09-03
+  LastReviewed: 2026-03-30
   NeedsLocalizationUpdate: 1
-  QuestOwner: FR_11
-  _lastTitleEn: Musical Score
-  _lastDescriptionEn: The written notes and words for a song.
+  QuestOwner: 
+  _lastTitleEn: Musical Scale
+  _lastDescriptionEn: The seven notes played in order
   references:
     version: 2
     RefIds: []

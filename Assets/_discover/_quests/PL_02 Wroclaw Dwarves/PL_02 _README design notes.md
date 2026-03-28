@@ -125,8 +125,7 @@ The stars are at main NPC
 - **Dwarf 7 - The Conductor**
   - **Location:** Multimedia Fountain.
   - **Fact:** The fountain is famous for shows that combine water, lights, and music.
-  - **Challenge:** turn on the fountinas, playing the 7 notes of the scale
-  - **Hint:** shows the sequence, with colors also
+  - **Challenge:** turn on the fountinas, finding and playing the 7 notes of the scale
   - **Reward:** The Conductor Dwarf.
 
 #### Area 4: Sky Tower
@@ -136,26 +135,25 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 - **Dwarf 8 - The Writer**
   - **Location:** Near the base of the Sky Tower.
   - **Fact:** Olga Tokarczuk is a Nobel Prize-winning writer associated with Wrocław.
-  - **Challenge:** Find the key in the red book
-  - **Hint:** points to the reading corner.
+  - **Challenge:** select the 
+  - **Hint:** points to the reading corner
   - **Reward:** The Writer Dwarf.
 
 - **Dwarf 9 - The Traveler**
-  - **Location:** Sky Tower plaza.
+  - **Location:** Sky Tower plaza
   - **Fact:** The plaza shows the modern and busy side of the city.
   - **Challenge:** Find the key in the maze
-  - **Reward:** The Traveler Dwarf.
+  - **Reward:** The Traveler Dwarf
 
 - **Dwarf 10 - The Keymaster**
   - **Location:** In front of the Sky Tower elevator.
   - **Condition:** The final cage only becomes active after the previous Sky Tower dwarves are freed
   - **Challenge:** Collect 10 keys around
-  - **Reward:** The Keymaster Dwarf unlocks the elevator.
+  - **Reward:** The Keymaster Dwarf unlocks the elevator
 
 #### Final Assessment
 
-- Ride the elevator to the top of the Sky Tower.
-- final city view.
+- Ride the elevator to the top of the Sky Tower
 - final assessment with 3 short questions:
 
 1. **What is a famous symbol of Wrocław?**
