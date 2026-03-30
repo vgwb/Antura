@@ -135,7 +135,7 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 - **Dwarf 8 - The Writer**
   - **Location:** Near the base of the Sky Tower.
   - **Fact:** Olga Tokarczuk is a Nobel Prize-winning writer associated with Wrocław.
-  - **Challenge:** select the 
+  - **Challenge:** get the key moving the libraries
   - **Hint:** points to the reading corner
   - **Reward:** The Writer Dwarf.
 
@@ -148,7 +148,7 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 - **Dwarf 10 - The Keymaster**
   - **Location:** In front of the Sky Tower elevator.
   - **Condition:** The final cage only becomes active after the previous Sky Tower dwarves are freed
-  - **Challenge:** Collect 10 keys around
+  - **Challenge:** Collect 10 keys
   - **Reward:** The Keymaster Dwarf unlocks the elevator
 
 #### Final Assessment

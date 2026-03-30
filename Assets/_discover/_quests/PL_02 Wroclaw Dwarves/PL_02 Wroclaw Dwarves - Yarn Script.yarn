@@ -1476,7 +1476,7 @@ color: yellow
 <<else>>
     A famous writer named Olga Tokarczuk lived near here! #line:0474fb4 
     Help the Writer Dwarf. #task:dwarf_8 #line:0ac8824 
-    He loves stories, books, and quiet corners. #line:082386e 
+    He loves stories, books, and ... libraries. #line:082386e 
     <<task_start dwarf_8>>
     <<SetActive key_8 true>>
 <<endif>>
@@ -1497,7 +1497,6 @@ position: 1011,2603
 group: skytower
 ---
 The key is near the reading corner! #line:0d82e66 
-<<SetActive key_8 true>>
 <<target key_8>>
 ===
 
@@ -1598,9 +1597,16 @@ title: hint_9
 position: 1011,2803
 group: skytower
 ---
-The key is under a bench in the plaza. #line:0acc3e1 
-<<SetActive key_9 true>>
-<<target key_9>>
+How can I help? #shadow:how_can_help 
+-> How can I free the Dwarf? #shadow:how_free_dwarf
+   Get a key on the books.
+-> Where is the key? #shadow:where_key
+    <<target key_9>>
+    Move and jump over the libraries to get it. #line:0acc3e1
+-> Where is the dwarf? #shadow:where_dwarf 
+    <<SetMapIcon dwarf_7 on>>
+    Look at the star on the map. #shadow:02da44a
+-> Goodbye #highlight #shadow:goodbye
 ===
 
 title: key_9
@@ -1679,9 +1685,10 @@ color: yellow
 <<else>>
     <<if $dwarf_8_done and $dwarf_9_done>>
         The final round! #line:0e6a977 
-        Unlock the Keymaster! #task:dwarf_10 #line:0e72fd8 
-        <<task_start dwarf_10>>
-        <<SetActive key_10 true>>
+        The Keymaster needs the 10 Dwarf Keys! #task:dwarf_10 #line:0e72fd8
+        Talk to me if you need help. #shadow:talk_4_help
+        <<camera_map_distance 30>>
+        <<task_start dwarf_10 task_10_done>>
     <<else>>
         Unlock the other two dwarves here first, then come back. #line:0a8844b 
         <<if !$dwarf_8_done>>
@@ -1692,6 +1699,15 @@ color: yellow
     <<endif>>
 <<endif>>
 ===
+
+title: task_10_done
+position: 771,2203
+group: centennial
+---
+Go to the Dwarf Master!
+<<target dwarf_10>>
+===
+
 
 title: info_10
 position: 1971,3003
@@ -1732,7 +1748,7 @@ color: yellow
     I can finally guard all the locks again! #line:dwarf10_001
     I will unlock the elevator for you. #line:0c6f241
     <<jump check_area_skytower>>
-<<elseif has_item("key_gold")>>
+<<elseif has_item_at_least("key_gold", 10)>>
     To unlock the cage, solve this puzzle! #shadow:solve_to_unlock
     <<activity activity_10 activity_10_done>>
 <<else>>
