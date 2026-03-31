@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **394**
+Total found: **395**
 
 ## International
 
@@ -1955,6 +1955,18 @@ Spezie che migliorano il sapore del cibo. Il sale è bianco e il pepe è nero, c
 
 ---
 
+### Scala musicale {#musical_scale}
+![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ loading=lazy }
+
+Le sette note suonate in ordine
+
+- Type: Concept
+- Country: International
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC0
+
+---
+
 ### Sciare {#skiing}
 ![preview skiing](../../../assets/img/content/cards/skiing.jpg){ loading=lazy }
 
@@ -3751,6 +3763,34 @@ Un veicolo che si muove sull'acqua.
 
 ---
 
+### Breslavia {#wroclaw}
+![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
+
+Una città in Polonia con fiumi, ponti e storia.
+
+- Type: Place
+- Subjects: Geography, History, Culture
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
+- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Breslavia: Cattedrale {#wroclaw_cathedral}
+![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
+
+Una chiesa grande e importante, dove la gente prega. È possibile salire sulla torre per ammirare il panorama.
+
+- Type: Place
+- Subjects: History, Culture
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Breslavia: Sky Tower {#wroclaw_sky_tower}
 ![preview wroclaw_sky_tower](../../../assets/img/content/cards/wroclaw_sky_tower.jpg){ loading=lazy }
 
@@ -3992,7 +4032,7 @@ Grande e forte, con lunghe zanne e un suono sonoro di tromba. Si prende cura del
 
 ---
 
-### Expert nain {#dwarf_expert}
+### Esperto di nani {#dwarf_expert}
 ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
 
 Una guida amichevole che sa tutto sui nani.
@@ -4447,6 +4487,20 @@ Una statua di un nano fa la guardia all'ascensore con una grande chiave.
 
 ---
 
+### Nano d'origine {#dwarf_origin}
+![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
+
+Una classica statua di un nano di Breslavia con cappello a punta e robusti stivali.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Nano Pittore {#dwarf_painter}
 ![preview dwarf_painter](../../../assets/img/content/cards/dwarf_painter.jpg){ loading=lazy }
 
@@ -4602,20 +4656,6 @@ Acqua in movimento sul mare.
 
 ---
 
-### Origine Nain {#dwarf_origin}
-![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
-
-Una classica statua di un nano di Breslavia con cappello a punta e robusti stivali.
-
-- Type: Object
-- Subjects: Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC0
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Pan di zenzero di Torun {#gingerbread}
 ![preview gingerbread](../../../assets/img/content/cards/gingerbread.jpg){ loading=lazy }
 
@@ -4707,7 +4747,7 @@ La piazza principale della Città Vecchia, piena di vita.
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
+- Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Breslau-Rynek-38-Panorama-2014-gje.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -4912,6 +4952,19 @@ Un pianeta gigante con anelli luminosi e numerose lune.
 
 ---
 
+### Scuola Primaria Leonardo da Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+È un luogo accogliente dove i bambini imparano, creano ed esplorano guidati dalla curiosità, dall'arte e dalla scienza.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Sirena di Varsavia {#mermaid_of_warsaw}
 ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ loading=lazy }
 
@@ -5076,31 +5129,17 @@ Un pianeta molto caldo ricoperto da spesse nubi.
 
 ---
 
-### Wroclaw : Cathédrale {#wroclaw_cathedral}
-![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
+### Vescovo Nano {#dwarf_bishop}
+![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
 
-Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+Una statua di nano che pone una domanda a una chiesa.
 
-- Type: Place
-- Subjects: History, Culture
+- Type: Object
+- Subjects: Culture, History
 - Country: Poland
-- Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Wrocław {#wroclaw}
-![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
-
-Una città in Polonia con fiumi, ponti e storia.
-
-- Type: Place
-- Subjects: Geography, History, Culture
-- Country: Poland
-- Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
-- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -5115,33 +5154,6 @@ Un grande zoo a Breslavia con molti animali da scoprire.
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 - Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-È un luogo accogliente dove i bambini imparano, creano ed esplorano guidati dalla curiosità, dall'arte e dalla scienza.
-
-- Type: Place
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Évêque Nain {#dwarf_bishop}
-![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
-
-Una statua di nano che pone una domanda a una chiesa.
-
-- Type: Object
-- Subjects: Culture, History
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
 

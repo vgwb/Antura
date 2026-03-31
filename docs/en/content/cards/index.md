@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **394**
+Total found: **395**
 
 ## International
 
@@ -1609,6 +1609,18 @@ A person who helps people climb safely.
 - Topics: [mont blanc](../topics/index.md#mont_blanc), [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Zagedan_Lakes,_Mountaineer,_Mountain_guide,_Caucasus_Mountains,_Karachay-Cherkessia.jpg)
 - Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### Musical Scale {#musical_scale}
+![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ loading=lazy }
+
+The seven notes played in order
+
+- Type: Concept
+- Country: International
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC0
 
 ---
 
@@ -3815,6 +3827,20 @@ A long, flat boat that carries goods on rivers.
 
 ---
 
+### Bishop Dwarf {#dwarf_bishop}
+![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
+
+A dwarf statue who asks a church question.
+
+- Type: Object
+- Subjects: Culture, History
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Boat {#boat}
 ![preview boat](../../../assets/img/content/cards/boat.jpg){ loading=lazy }
 
@@ -3937,6 +3963,20 @@ This famous "melting clock" is a statue that shows time can be bendy and wiggly,
 
 ---
 
+### Dwarf Expert {#dwarf_expert}
+![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
+
+A friendly guide who knows all about the dwarfs.
+
+- Type: Object
+- Subjects: Education, Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Earth {#earth}
 ![preview earth](../../../assets/img/content/cards/earth.jpg){ loading=lazy }
 
@@ -3961,20 +4001,6 @@ Living things and their home in nature, working together.
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
 - Quests: [The Amber Necklace of Gdańsk (pl_05)](../quests/quest/pl_05.md)
-
----
-
-### Expert nain {#dwarf_expert}
-![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
-
-A friendly guide who knows all about the dwarfs.
-
-- Type: Object
-- Subjects: Education, Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4203,6 +4229,19 @@ A clear piece of glass or plastic that bends light.
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Christian David | [source](https://commons.wikimedia.org/wiki/File:Village_de_Lens.jpg)
 - Quests: [Copernicus and the Solar System (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Leonardo da Vinci Primary School {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4444,7 +4483,7 @@ A famous Polish writer who lives in Wrocław.
 
 ---
 
-### Origine Nain {#dwarf_origin}
+### Origin Dwarf {#dwarf_origin}
 ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
 
 A classic Wroclaw dwarf statue with a pointed hat and strong boots.
@@ -4916,10 +4955,10 @@ A quiet dwarf who loves stories, books, and reading.
 
 ---
 
-### Wroclaw : Cathédrale {#wroclaw_cathedral}
+### Wroclaw: Cathedral {#wroclaw_cathedral}
 ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
 
-Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+A big, important church where people pray. You can climb the tower for a view.
 
 - Type: Place
 - Subjects: History, Culture
@@ -5021,7 +5060,7 @@ The main square of the Old Town, full of life.
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
+- Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Breslau-Rynek-38-Panorama-2014-gje.jpg)
 - Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -5115,33 +5154,6 @@ A person who cares for animals at the zoo.
 - Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY_SA | 좀비 브렌다 | [source](https://commons.wikimedia.org/wiki/File:Hadada_Ibis_perched_on_Dallas_Zoo_keeper.jpg)
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
-
-- Type: Place
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Évêque Nain {#dwarf_bishop}
-![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
-
-A dwarf statue who asks a church question.
-
-- Type: Object
-- Subjects: Culture, History
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 

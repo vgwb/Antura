@@ -35,7 +35,9 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $dwarf_10_done = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $area_center_done = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $area_centennial_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $secret_0_done = false&gt;&gt;</span>
 
+<span class="yarn-comment">// hide all the keys</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_0 false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_1 false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_2 false&gt;&gt;</span>
@@ -289,7 +291,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $dwarf_0_done&gt;&gt;</span>
 <span class="yarn-line">    Vous savez maintenant comment libérer les autres nains.</span> <span class="yarn-meta">#line:04b5c6e </span>
-    <span class="yarn-cmd">&lt;&lt;camera_focus skytower_roof&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_skytower_roof&gt;&gt;</span>
 <span class="yarn-line">    Antura se trouve au sommet de la Sky Tower !</span> <span class="yarn-meta">#line:09771a2 </span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 <span class="yarn-line">    Le tram est prêt. Rendez-vous d'abord à la cathédrale.</span> <span class="yarn-meta">#line:00f4741 </span>
@@ -298,10 +300,13 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump hint_0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card primary_school_leonardo_da_vinci&gt;&gt;</span>
-<span class="yarn-line">    Bonjour ! Je suis enseignante à l'école Leonardo.</span> <span class="yarn-meta">#line:08d54cc </span>
+<span class="yarn-line">    Bonjour ! Je suis enseignante à l'école Leonardo.</span> <span class="yarn-meta">#line:08d54cc</span>
+    <span class="yarn-cmd">&lt;&lt;card wroclaw&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_town_view&gt;&gt;</span>
-<span class="yarn-line">    Antura a couru partout à Wrocław ce soir !</span> <span class="yarn-meta">#line:0b6daaa </span>
-<span class="yarn-line">    Et ce matin, dix nains sont enfermés dans des cages !</span> <span class="yarn-meta">#line:0b42c98</span>
+<span class="yarn-line">    Antura a couru partout à Wrocław ce soir !</span> <span class="yarn-meta">#line:0b6daaa</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card wroclaw_dwarfs&gt;&gt;</span>
+<span class="yarn-line">    Et ce matin, dix nains étaient enfermés dans des cages !</span> <span class="yarn-meta">#line:0b42c98</span>
 <span class="yarn-line">    Chaque cage est verrouillée par une clé en or.</span> <span class="yarn-meta">#line:084b7e8 </span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_school&gt;&gt;</span>
 <span class="yarn-line">    Sauvez le nain de l'école.</span> <span class="yarn-meta">#line:0294a8c </span>
@@ -328,6 +333,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card primary_school_leonardo_da_vinci&gt;&gt;</span>
 <span class="yarn-line">Aimes-tu aller à l'école ?</span> <span class="yarn-meta">#line:info_00</span>
 <span class="yarn-choice">-&gt; Oui</span> <span class="yarn-meta">#shadow:yes</span>
+    <span class="yarn-cmd">&lt;&lt;if !$secret_0_done&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;set $secret_0_done = true&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;collect cookie&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#shadow:no</span>
 
 </code>
@@ -386,7 +395,6 @@ hide:
 <span class="yarn-line">    Il y a longtemps, j'ai construit des tunnels pour les nains dans la ville.</span> <span class="yarn-meta">#line:0e45f38 </span>
     <span class="yarn-cmd">&lt;&lt;card tram&gt;&gt;</span>
 <span class="yarn-line">    Ils se sont désormais transformés en véhicules magiques appelés « tramways ».</span> <span class="yarn-meta">#line:cf_014b</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_expert add&gt;&gt;</span>
 <span class="yarn-line">    Je vous offre ce billet spécial pour voyager partout !</span> <span class="yarn-meta">#line:0c46606 </span>
     <span class="yarn-cmd">&lt;&lt;card wroclaw_map&gt;&gt;</span>
 <span class="yarn-line">    Maintenant, allez libérer mes dix amis nains.</span> <span class="yarn-meta">#line:0b401f5 </span>
@@ -417,6 +425,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_0&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory tram add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_0 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_0 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_0_done = true&gt;&gt;</span>
@@ -486,20 +495,13 @@ hide:
 <span class="yarn-line">    Utilisez le tram pour choisir votre prochain arrêt.</span> <span class="yarn-meta">#line:03991b3 </span>
     <span class="yarn-cmd">&lt;&lt;target driver_tram_cathedral&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_1"&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;jump hint_1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;card wroclaw_cathedral&gt;&gt;</span>
-<span class="yarn-line">    Voici la cathédrale de Wrocław.</span> <span class="yarn-meta">#line:0eb59b5 </span>
-    <span class="yarn-cmd">&lt;&lt;camera_focus camera_cathedral&gt;&gt;</span>
-<span class="yarn-line">    Il possède de hautes tours et de magnifiques fenêtres.</span> <span class="yarn-meta">#line:07f68f0 </span>
-    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">    Les gens viennent ici pour prier ou pour se recueillir.</span> <span class="yarn-meta">#line:0141f95 </span>
+    <span class="yarn-cmd">&lt;&lt;detour info_1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card dwarf_bishop&gt;&gt;</span>
 <span class="yarn-line">    Le nain évêque est enfermé à proximité.</span> <span class="yarn-meta">#line:0769945 </span>
 <span class="yarn-line">    Trouvez la clé de la cathédrale et libérez-le !</span> <span class="yarn-meta">#line:0ebb3bc </span>
 <span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
     <span class="yarn-cmd">&lt;&lt;task_start dwarf_1&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;SetActive key_1 true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -516,8 +518,12 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_cathedral&gt;&gt;</span>
+<span class="yarn-line">Voici la cathédrale de Wrocław.</span> <span class="yarn-meta">#line:0eb59b5</span>
 <span class="yarn-line">La cathédrale se trouve dans l'un des quartiers les plus anciens de Wrocław.</span> <span class="yarn-meta">#line:info_1a</span>
 <span class="yarn-line">Les gens viennent ici pour prier et réfléchir en silence.</span> <span class="yarn-meta">#line:info_1b</span>
+<span class="yarn-cmd">&lt;&lt;camera_focus camera_cathedral&gt;&gt;</span>
+<span class="yarn-line">Il possède de hautes tours et de magnifiques fenêtres.</span> <span class="yarn-meta">#line:07f68f0 </span>
+<span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 
 </code>
 </pre>
@@ -533,14 +539,40 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
 <span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf </span>
-<span class="yarn-line">    Trouvez la clé. Puis ouvrez la cage !</span> <span class="yarn-meta">#shadow:055d8b9 </span>
+<span class="yarn-line">    Trouvez la clé. Puis ouvrez la cage !</span> <span class="yarn-meta">#shadow:055d8b9</span>
 <span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
-    <span class="yarn-cmd">&lt;&lt;target key_1&gt;&gt;</span>
-<span class="yarn-line">    C'est à côté de la porte de la cathédrale.</span> <span class="yarn-meta">#line:0166015 </span>
+    <span class="yarn-cmd">&lt;&lt;target ll_key_1&gt;&gt;</span>
+<span class="yarn-line">    Quelqu'un près d'ici l'a.</span> <span class="yarn-meta">#line:0166015</span>
 <span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf </span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_1 on&gt;&gt;</span>
-<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a </span>
+<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a</span>
 <span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-ll-key-1"></a>
+
+## ll_key_1
+
+<div class="yarn-node" data-title="ll_key_1">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: cathedral</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if GetCurrentTask() == "dwarf_1"&gt;&gt;</span>
+<span class="yarn-line">Que font les gens dans une cathédrale ?</span> <span class="yarn-meta">#line:0e6869e </span>
+<span class="yarn-choice">-&gt; Ils prient</span> <span class="yarn-meta">#line:0a1aab0 </span>
+<span class="yarn-line">    Exact ! Voici votre clé.</span> <span class="yarn-meta">#line:correct_key </span>
+    <span class="yarn-cmd">&lt;&lt;SetActive key_1 true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target key_1&gt;&gt;</span>
+<span class="yarn-choice">-&gt; Ils ont lu</span> <span class="yarn-meta">#line:0e25e89 </span>
+<span class="yarn-line">    Non. Réessayez !</span> <span class="yarn-meta">#line:try_again</span>
+<span class="yarn-choice">-&gt; Ils jouent</span> <span class="yarn-meta">#line:0340188 </span>
+<span class="yarn-line">    Non. Réessayez !</span> <span class="yarn-meta">#shadow:try_again</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump info_1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -554,15 +586,9 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: cathedral</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Que font les gens dans une cathédrale ?</span> <span class="yarn-meta">#line:0e6869e </span>
-<span class="yarn-choice">-&gt; Ils prient</span> <span class="yarn-meta">#line:0a1aab0 </span>
-<span class="yarn-line">    Exact ! Voici votre clé.</span> <span class="yarn-meta">#line:correct_key </span>
-    <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;target dwarf_1&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Ils ont lu</span> <span class="yarn-meta">#line:0e25e89 </span>
-<span class="yarn-line">    Non. Réessayez !</span> <span class="yarn-meta">#line:try_again</span>
-<span class="yarn-choice">-&gt; Ils jouent</span> <span class="yarn-meta">#line:0340188 </span>
-<span class="yarn-line">    Non. Réessayez !</span> <span class="yarn-meta">#shadow:try_again</span>
+<span class="yarn-line">Vous l'avez trouvé ! Maintenant, allez libérer le nain !</span> <span class="yarn-meta">#shadow:0289364 </span>
+<span class="yarn-cmd">&lt;&lt;target dwarf_1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 
 </code>
 </pre>
@@ -605,7 +631,8 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_bishop add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_map add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_1 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_1 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_1_done = true&gt;&gt;</span>
@@ -710,6 +737,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_2"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_2&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;detour info_2&gt;&gt;</span>
 <span class="yarn-line">    Wrocław est célèbre pour ses petits nains.</span> <span class="yarn-meta">#line:05b17f6 </span>
 <span class="yarn-line">    Ils ont des tout petits chapeaux et des toutes petites bottes !</span> <span class="yarn-meta">#line:0f0ca08 </span>
 <span class="yarn-line">    Libérez le Nain Originel.</span> <span class="yarn-meta">#line:04fde74 </span>
@@ -748,9 +776,17 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: center</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Une clé se trouve sous un pot de fleurs sur le marché.</span> <span class="yarn-meta">#line:0d121cc </span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_2 true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target key_2&gt;&gt;</span>
+<span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
+<span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf </span>
+<span class="yarn-line">    Trouvez la clé. Puis ouvrez la cage !</span> <span class="yarn-meta">#shadow:055d8b9</span>
+<span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
+<span class="yarn-line">    Une clé se trouve sous un pot de fleurs sur le marché.</span> <span class="yarn-meta">#line:0d121cc</span>
+    <span class="yarn-cmd">&lt;&lt;target key_2&gt;&gt;</span>
+<span class="yarn-line">    Utilisez la carte si vous ne les trouvez pas tous !</span> <span class="yarn-meta">#line:use_map_find</span>
+<span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf </span>
+    <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_2 on&gt;&gt;</span>
+<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
 
 </code>
 </pre>
@@ -766,6 +802,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#line:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_2&gt;&gt;</span>
 
 </code>
@@ -810,7 +847,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_origin add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_2 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_2 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_2_done = true&gt;&gt;</span>
@@ -860,14 +897,34 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump check_area_center&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_3"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("dwarf_3") &gt;&gt;</span>
+<span class="yarn-line">    Allez voir le nain qui a la clé !</span> <span class="yarn-meta">#line:go_dwarf_key</span>
+    <span class="yarn-cmd">&lt;&lt;target dwarf_3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Voici l'ancien hôtel de ville.</span> <span class="yarn-meta">#line:0de0a2f </span>
-<span class="yarn-line">    Les dirigeants de la ville travaillent et se réunissent ici.</span> <span class="yarn-meta">#line:04f7a17 </span>
-<span class="yarn-line">    Aidez notre conseiller nain ! (Il participe à la gestion de la ville).</span> <span class="yarn-meta">#line:02ba9a9 </span>
+    <span class="yarn-cmd">&lt;&lt;detour info_3&gt;&gt;</span>
+<span class="yarn-line">    Ici, dans l'ancien hôtel de ville, nous conservons les lois de la ville.</span> <span class="yarn-meta">#line:0de0a2f </span>
+<span class="yarn-line">    Mais notre conseiller nain a perdu tous ses livres !</span> <span class="yarn-meta">#line:04f7a17 </span>
+<span class="yarn-line">    Veuillez trouver tous les livres sur les nains !</span> <span class="yarn-meta">#line:02ba9a9 </span>
 <span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
-    <span class="yarn-cmd">&lt;&lt;task_start dwarf_3&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;SetActive key_3 true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;camera_map_distance 30&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;task_start dwarf_3 task_3_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-3-done"></a>
+
+## task_3_done
+
+<div class="yarn-node" data-title="task_3_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: panorama</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Vous les avez tous trouvés ! Retournez chercher votre récompense.</span> <span class="yarn-meta">#line:collected_all</span>
+<span class="yarn-cmd">&lt;&lt;SetActive key_3 true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target key_3&gt;&gt;</span>
 
 </code>
 </pre>
@@ -884,7 +941,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card town_hall&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_old_town_hall&gt;&gt;</span>
-<span class="yarn-line">L'ancien hôtel de ville est un bâtiment ancien très important.</span> <span class="yarn-meta">#line:info_3a</span>
+<span class="yarn-line">L'ancien hôtel de ville est un bâtiment ancien et important.</span> <span class="yarn-meta">#line:info_3a</span>
 <span class="yarn-line">Il a été construit aux alentours de l'an 1300 !</span> <span class="yarn-meta">#line:info_3b</span>
 
 </code>
@@ -899,9 +956,16 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: center</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">La clé de la mairie est cachée derrière le panneau.</span> <span class="yarn-meta">#line:03a94f3 </span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_3 true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target key_3&gt;&gt;</span>
+<span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
+<span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf </span>
+<span class="yarn-line">    Trouvez la clé. Puis ouvrez la cage !</span> <span class="yarn-meta">#shadow:055d8b9</span>
+<span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
+<span class="yarn-line">    Rassemblez tous les livres.</span> <span class="yarn-meta">#line:0d450fd </span>
+<span class="yarn-line">    Utilisez la carte si vous ne les trouvez pas tous !</span> <span class="yarn-meta">#shadow:use_map_find</span>
+<span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf </span>
+    <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_3 on&gt;&gt;</span>
+<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
 
 </code>
 </pre>
@@ -917,6 +981,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#line:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_3&gt;&gt;</span>
 
 </code>
@@ -960,7 +1025,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_3&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_councilor add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_3 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_3 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_3_done = true&gt;&gt;</span>
@@ -1026,12 +1091,33 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump check_area_center&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_4"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_4&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("dwarf_4") &gt;&gt;</span>
+<span class="yarn-line">    Allez voir le nain qui a la clé !</span> <span class="yarn-meta">#shadow:go_dwarf_key</span>
+    <span class="yarn-cmd">&lt;&lt;target dwarf_4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Un panorama est une image géante qui fait le tour de la pièce !</span> <span class="yarn-meta">#line:07177c7 </span>
-<span class="yarn-line">    Aidez le nain peintre !</span> <span class="yarn-meta">#line:0737a2f </span>
-    <span class="yarn-cmd">&lt;&lt;task_start dwarf_4&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;SetActive key_4 true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;detour info_4&gt;&gt;</span>
+<span class="yarn-line">    Notre nain peintre a perdu toutes ses couleurs !</span> <span class="yarn-meta">#line:07177c7 </span>
+<span class="yarn-line">    Trouvez toutes les couleurs !</span> <span class="yarn-meta">#line:0737a2f</span>
+<span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
+    <span class="yarn-cmd">&lt;&lt;camera_map_distance 30&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;task_start dwarf_4 task_4_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-4-done"></a>
+
+## task_4_done
+
+<div class="yarn-node" data-title="task_4_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: panorama</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Vous les avez tous trouvés ! Retournez chercher votre récompense.</span> <span class="yarn-meta">#shadow:collected_all</span>
+<span class="yarn-cmd">&lt;&lt;SetActive key_4 true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target key_4&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1047,8 +1133,8 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card panorama_racawicka&gt;&gt;</span>
-<span class="yarn-line">Panorama Racławicka est une image immense.</span> <span class="yarn-meta">#line:info_4a</span>
-<span class="yarn-line">On a l'impression d'être au cœur de l'histoire !</span> <span class="yarn-meta">#line:info_4b</span>
+<span class="yarn-line">Panorama Racławicka est une immense image qui fait le tour de la pièce !</span> <span class="yarn-meta">#line:info_4a</span>
+<span class="yarn-line">On a l'impression d'être à l'intérieur du tableau !</span> <span class="yarn-meta">#line:info_4b</span>
 
 </code>
 </pre>
@@ -1062,9 +1148,16 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: panorama</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Regardez attentivement ! La clé est cachée sous le cadre du tableau.</span> <span class="yarn-meta">#line:key_under_the_frame</span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_4 true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target key_4&gt;&gt;</span>
+<span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
+<span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf </span>
+<span class="yarn-line">    Trouvez la clé. Puis ouvrez la cage !</span> <span class="yarn-meta">#shadow:055d8b9</span>
+<span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
+<span class="yarn-line">    Ramassez toutes les couleurs dans le parc.</span> <span class="yarn-meta">#line:key_under_the_frame</span>
+<span class="yarn-line">    Utilisez la carte si vous ne les trouvez pas tous !</span> <span class="yarn-meta">#shadow:use_map_find</span>
+<span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf </span>
+    <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_4 on&gt;&gt;</span>
+<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
 
 </code>
 </pre>
@@ -1080,6 +1173,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_4&gt;&gt;</span>
 
 </code>
@@ -1122,7 +1216,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_4&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_painter add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_4 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_4 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_4_done = true&gt;&gt;</span>
@@ -1223,13 +1317,33 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump check_area_centennial&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_5"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_5&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("dwarf_5") &gt;&gt;</span>
+<span class="yarn-line">    Allez voir le nain qui a la clé !</span> <span class="yarn-meta">#shadow:go_dwarf_key</span>
+    <span class="yarn-cmd">&lt;&lt;target dwarf_5&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Le zoo de Wrocław est le plus grand zoo de Pologne !</span> <span class="yarn-meta">#line:07c9455 </span>
-<span class="yarn-line">    Aidez le nain amoureux des animaux.</span> <span class="yarn-meta">#line:09b7b40 </span>
-<span class="yarn-line">    Il adore tous les animaux d'ici !</span> <span class="yarn-meta">#line:048c7ab </span>
-    <span class="yarn-cmd">&lt;&lt;task_start dwarf_5&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;SetActive key_5 true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;detour info_5&gt;&gt;</span>
+<span class="yarn-line">    Notre nain amoureux des animaux adore tous les animaux</span> <span class="yarn-meta">#line:048c7ab </span>
+<span class="yarn-line">    Mais ils se sont enfuis lorsqu'un gros chien bleu est passé !</span> <span class="yarn-meta">#line:05deab1 </span>
+<span class="yarn-line">    Trouvez tous les animaux et libérez le nain !</span> <span class="yarn-meta">#line:09b7b40 </span>
+    <span class="yarn-cmd">&lt;&lt;camera_map_distance 30&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;task_start dwarf_5 task_5_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-5-done"></a>
+
+## task_5_done
+
+<div class="yarn-node" data-title="task_5_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: centennial</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Vous les avez tous trouvés ! Retournez chercher votre récompense.</span> <span class="yarn-meta">#shadow:collected_all</span>
+<span class="yarn-cmd">&lt;&lt;SetActive key_5 true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target key_5&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1245,8 +1359,26 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_dwarfs&gt;&gt;</span>
+<span class="yarn-line">Le zoo de Wrocław est le plus grand zoo de Pologne !</span> <span class="yarn-meta">#line:07c9455</span>
 <span class="yarn-line">Le zoo a été construit il y a longtemps, en 1865 !</span> <span class="yarn-meta">#line:info_5a</span>
 <span class="yarn-line">Des familles viennent ici pour voir des animaux du monde entier.</span> <span class="yarn-meta">#line:info_5b</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-ll-spawn-5"></a>
+
+## ll_spawn_5
+
+<div class="yarn-node" data-title="ll_spawn_5">
+<pre class="yarn-code" style="--node-color:---"><code>
+<span class="yarn-header-dim">group: centennial</span>
+<span class="yarn-header-dim">color:</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">J'aime le zoo !</span> <span class="yarn-meta">#line:08a038b </span>
+<span class="yarn-line">Je veux protéger tous les animaux</span> <span class="yarn-meta">#line:09033f1 </span>
+<span class="yarn-line">Où est mon chat ?</span> <span class="yarn-meta">#line:01dc29f </span>
 
 </code>
 </pre>
@@ -1260,9 +1392,16 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: centennial</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Il y a une clé derrière ce panneau là-bas.</span> <span class="yarn-meta">#line:0ae4723 </span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_5 true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target key_5&gt;&gt;</span>
+<span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
+<span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf </span>
+<span class="yarn-line">    Trouvez la clé. Puis ouvrez la cage !</span> <span class="yarn-meta">#shadow:055d8b9</span>
+<span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
+<span class="yarn-line">    Trouvez tous les animaux du zoo.</span> <span class="yarn-meta">#line:0d0946a </span>
+<span class="yarn-line">    Utilisez la carte si vous ne les trouvez pas tous !</span> <span class="yarn-meta">#shadow:use_map_find</span>
+<span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf </span>
+    <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_5 on&gt;&gt;</span>
+<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
 
 </code>
 </pre>
@@ -1278,6 +1417,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_5&gt;&gt;</span>
 
 </code>
@@ -1321,7 +1461,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_5&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_animal_lover add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_5 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_5 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_5_done = true&gt;&gt;</span>
@@ -1370,9 +1510,11 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_6"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_6&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Centennial Hall est un bâtiment gigantesque et célèbre.</span> <span class="yarn-meta">#line:0c3a081 </span>
-<span class="yarn-line">    Sauvez le nain architecte ! (Il conçoit des bâtiments).</span> <span class="yarn-meta">#line:092e472 </span>
-<span class="yarn-line">    Il adore dessiner des formes et des maisons originales.</span> <span class="yarn-meta">#line:088d0bd </span>
+    <span class="yarn-cmd">&lt;&lt;detour info_6&gt;&gt;</span>
+<span class="yarn-line">    Au secours ! Notre nain architecte a disparu !</span> <span class="yarn-meta">#line:0c3a081 </span>
+<span class="yarn-line">    Nous avons besoin de lui pour améliorer les bâtiments</span> <span class="yarn-meta">#line:088d0bd </span>
+<span class="yarn-line">    Trouvez et sauvez le nain architecte !</span> <span class="yarn-meta">#line:092e472</span>
+<span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
     <span class="yarn-cmd">&lt;&lt;task_start dwarf_6&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive key_6 true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -1391,7 +1533,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_centennial_hall&gt;&gt;</span>
-<span class="yarn-line">Le Centennial Hall possède un immense toit rond.</span> <span class="yarn-meta">#line:info_6a</span>
+<span class="yarn-line">Centennial Hall possède un immense toit rond.</span> <span class="yarn-meta">#line:info_6a</span>
 <span class="yarn-line">C'est l'un des bâtiments les plus célèbres de la ville !</span> <span class="yarn-meta">#line:info_6b</span>
 
 </code>
@@ -1406,9 +1548,36 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: centennial</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Je la vois ! La clé était cachée derrière un arbre.</span> <span class="yarn-meta">#line:0abe6d9 </span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_6 true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target key_6&gt;&gt;</span>
+<span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
+<span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf </span>
+<span class="yarn-line">    Trouvez la clé. Puis ouvrez la cage !</span> <span class="yarn-meta">#shadow:055d8b9</span>
+<span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_centennial_iglica&gt;&gt;</span>
+<span class="yarn-line">    Je le vois ! Il est tout en haut de l'Iglica !</span> <span class="yarn-meta">#line:0abe6d9</span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+<span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf</span>
+    <span class="yarn-cmd">&lt;&lt;camera_focus camera_centennial&gt;&gt;</span>
+<span class="yarn-line">    Quelqu'un l'a vu monter sur le toit.</span> <span class="yarn-meta">#line:0a7bbd6 </span>
+    <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_6 on&gt;&gt;</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-lever-6"></a>
+
+## lever_6
+
+<div class="yarn-node" data-title="lever_6">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: centennial</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;camera_focus camera_centennial_iglica&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;wait 3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+<span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 
 </code>
 </pre>
@@ -1422,8 +1591,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: centennial</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_6&gt;&gt;</span>
 
 </code>
@@ -1467,7 +1636,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_6&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_architect add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_6 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_6 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_6_done = true&gt;&gt;</span>
@@ -1507,7 +1676,7 @@ hide:
 
 <div class="yarn-node" data-title="npc_7">
 <pre class="yarn-code" style="--node-color:yellow"><code>
-<span class="yarn-header-dim">// FOUNTAIN</span>
+<span class="yarn-header-dim">// MULTIMEDIA FOUNTAIN</span>
 <span class="yarn-header-dim">group: centennial</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
@@ -1515,12 +1684,34 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump check_area_centennial&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_7"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_7&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("dwarf_7") &gt;&gt;</span>
+<span class="yarn-line">    Allez voir le nain qui a la clé !</span> <span class="yarn-meta">#shadow:go_dwarf_key</span>
+    <span class="yarn-cmd">&lt;&lt;target dwarf_7&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Sauvez le nain chef d'orchestre ! (Il dirige le spectacle de la fontaine).</span> <span class="yarn-meta">#line:041a696 </span>
-<span class="yarn-line">    Il adore la musique et l'eau qui danse !</span> <span class="yarn-meta">#line:0f05296 </span>
-    <span class="yarn-cmd">&lt;&lt;task_start dwarf_7&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;SetActive key_7 true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;detour info_7&gt;&gt;</span>
+<span class="yarn-line">    Notre nain s'occupait du spectacle de la fontaine.</span> <span class="yarn-meta">#line:01d8fa1 </span>
+<span class="yarn-line">    Mais maintenant, il a perdu toutes les notes !</span> <span class="yarn-meta">#line:0f05296 </span>
+<span class="yarn-line">    Trouvez la musique et sauvez le Nain Chef d'orchestre !</span> <span class="yarn-meta">#line:041a696 </span>
+<span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
+    <span class="yarn-cmd">&lt;&lt;camera_map_distance 30&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;task_start dwarf_7 task_7_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-7-done"></a>
+
+## task_7_done
+
+<div class="yarn-node" data-title="task_7_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: centennial</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Vous les avez tous trouvés ! Retournez chercher votre récompense.</span> <span class="yarn-meta">#shadow:collected_all</span>
+<span class="yarn-cmd">&lt;&lt;SetActive key_7 true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target key_7&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1552,9 +1743,17 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: centennial</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">L'eau de la fontaine cache une clé près de la scène !</span> <span class="yarn-meta">#line:0021931 </span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_7 true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target key_7&gt;&gt;</span>
+<span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
+<span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf</span>
+    <span class="yarn-cmd">&lt;&lt;card musical_scale&gt;&gt;</span>
+<span class="yarn-line">    Jouez les notes dans le bon ordre.</span> <span class="yarn-meta">#line:0ddb6b5 </span>
+<span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
+<span class="yarn-line">    Trouvez toutes les notes de musique ici.</span> <span class="yarn-meta">#line:0d919ae </span>
+<span class="yarn-line">    Utilisez la carte si vous ne les trouvez pas tous !</span> <span class="yarn-meta">#shadow:use_map_find</span>
+<span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf </span>
+    <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_7 on&gt;&gt;</span>
+<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
 
 </code>
 </pre>
@@ -1570,6 +1769,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_7&gt;&gt;</span>
 
 </code>
@@ -1588,10 +1788,12 @@ hide:
 <span class="yarn-cmd">&lt;&lt;if $dwarf_7_done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card dwarf_conductor&gt;&gt;</span>
 <span class="yarn-line">    Le spectacle des fontaines donne l'impression d'être un grand concert !</span> <span class="yarn-meta">#line:dwarf7_002</span>
+    <span class="yarn-cmd">&lt;&lt;card piano&gt;&gt;</span>
 <span class="yarn-line">    Jouez-vous d'un instrument de musique ?</span> <span class="yarn-meta">#line:dwarf7_001</span>
     <span class="yarn-cmd">&lt;&lt;jump check_area_centennial&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif has_item("key_gold")&gt;&gt;</span>
-<span class="yarn-line">    Pour déverrouiller la cage, résolvez cette énigme !</span> <span class="yarn-meta">#shadow:solve_to_unlock</span>
+    <span class="yarn-cmd">&lt;&lt;card musical_scale&gt;&gt;</span>
+<span class="yarn-line">    Jouez les notes pour me débloquer !</span> <span class="yarn-meta">#line:0622e7b </span>
     <span class="yarn-cmd">&lt;&lt;activity activity_7 activity_7_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Elle est verrouillée. Trouvez une clé en or !</span> <span class="yarn-meta">#shadow:locked</span>
@@ -1613,7 +1815,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_7&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_conductor add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_7 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_7 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_7_done = true&gt;&gt;</span>
@@ -1688,7 +1890,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Tous les nains de la Tour Céleste sont libres !</span> <span class="yarn-meta">#line:08a24f3 </span>
 <span class="yarn-line">    L'ascenseur est maintenant ouvert.</span> <span class="yarn-meta">#line:0c540ac </span>
-    <span class="yarn-cmd">&lt;&lt;target elevator&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target ll_elevator&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -1710,9 +1912,10 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_8"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_8&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Une célèbre écrivaine du nom d'Olga Tokarczuk a vécu près d'ici !</span> <span class="yarn-meta">#line:0474fb4 </span>
+    <span class="yarn-cmd">&lt;&lt;detour info_8&gt;&gt;</span>
 <span class="yarn-line">    Aidez le nain écrivain.</span> <span class="yarn-meta">#line:0ac8824 </span>
-<span class="yarn-line">    Il adore les histoires, les livres et les coins tranquilles.</span> <span class="yarn-meta">#line:082386e </span>
+<span class="yarn-line">    Il adore les histoires, les livres et… les bibliothèques.</span> <span class="yarn-meta">#line:082386e </span>
+<span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
     <span class="yarn-cmd">&lt;&lt;task_start dwarf_8&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive key_8 true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -1731,8 +1934,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card olga_tokarczuk&gt;&gt;</span>
-<span class="yarn-line">Olga Tokarczuk est une écrivaine polonaise qui a remporté un prix prestigieux pour ses livres !</span> <span class="yarn-meta">#line:info_8a</span>
-<span class="yarn-line">Vous trouverez peut-être une histoire amusante à lire à la bibliothèque.</span> <span class="yarn-meta">#line:info_8b</span>
+<span class="yarn-line">La célèbre écrivaine Olga Tokarczuk a vécu près d'ici !</span> <span class="yarn-meta">#line:0474fb4 </span>
+<span class="yarn-line">Elle a reçu un prix prestigieux pour ses livres : le prix Nobel !</span> <span class="yarn-meta">#line:info_8a</span>
+<span class="yarn-line">Peut-être pourriez-vous lire un livre à la bibliothèque ?</span> <span class="yarn-meta">#line:info_8b</span>
 
 </code>
 </pre>
@@ -1747,7 +1951,6 @@ hide:
 <span class="yarn-header-dim">group: skytower</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La clé se trouve près du coin lecture !</span> <span class="yarn-meta">#line:0d82e66 </span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_8 true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target key_8&gt;&gt;</span>
 
 </code>
@@ -1764,6 +1967,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_8&gt;&gt;</span>
 
 </code>
@@ -1807,7 +2011,7 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_8&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_writer add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_8 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_8 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_8_done = true&gt;&gt;</span>
@@ -1856,9 +2060,12 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_9"&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump hint_9&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Cette place est un endroit animé de la Sky Tower.</span> <span class="yarn-meta">#line:info_017</span>
-<span class="yarn-line">    Débloquez le nain voyageur !</span> <span class="yarn-meta">#line:07cb84f </span>
-<span class="yarn-line">    Il adore visiter de nouveaux endroits.</span> <span class="yarn-meta">#line:02172f2 </span>
+    <span class="yarn-cmd">&lt;&lt;detour info_9&gt;&gt;</span>
+<span class="yarn-line">    Notre nain voyageur adore visiter de nouveaux endroits.</span> <span class="yarn-meta">#line:info_017</span>
+<span class="yarn-line">    Mais il s'est perdu dans un labyrinthe.</span> <span class="yarn-meta">#line:02172f2</span>
+<span class="yarn-line">    Trouvez et sauvez le Nain Voyageur !</span> <span class="yarn-meta">#line:07cb84f </span>
+<span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
+    <span class="yarn-cmd">&lt;&lt;camera_map_distance 30&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start dwarf_9&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive key_9 true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -1893,9 +2100,16 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: skytower</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">La clé se trouve sous un banc sur la place.</span> <span class="yarn-meta">#line:0acc3e1 </span>
-<span class="yarn-cmd">&lt;&lt;SetActive key_9 true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;target key_9&gt;&gt;</span>
+<span class="yarn-line">Comment puis-je vous aider ?</span> <span class="yarn-meta">#shadow:how_can_help </span>
+<span class="yarn-choice">-&gt; Comment puis-je libérer le Nain ?</span> <span class="yarn-meta">#shadow:how_free_dwarf</span>
+<span class="yarn-line">   Prenez la clé qui se trouve au-dessus des livres.</span> <span class="yarn-meta">#line:07430fb </span>
+<span class="yarn-choice">-&gt; Où est la clé ?</span> <span class="yarn-meta">#shadow:where_key</span>
+    <span class="yarn-cmd">&lt;&lt;target key_9&gt;&gt;</span>
+<span class="yarn-line">    Déplacez-vous et sautez par-dessus les étagères pour l'attraper.</span> <span class="yarn-meta">#line:0acc3e1</span>
+<span class="yarn-choice">-&gt; Où est le nain ?</span> <span class="yarn-meta">#shadow:where_dwarf </span>
+    <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_9 on&gt;&gt;</span>
+<span class="yarn-line">    Regardez l'étoile sur la carte.</span> <span class="yarn-meta">#shadow:02da44a</span>
+<span class="yarn-choice">-&gt; Au revoir</span> <span class="yarn-meta">#shadow:goodbye</span>
 
 </code>
 </pre>
@@ -1911,6 +2125,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_9&gt;&gt;</span>
 
 </code>
@@ -1954,9 +2169,10 @@ hide:
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
     <span class="yarn-cmd">&lt;&lt;task_end dwarf_9&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_traveler add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_9 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_9 done&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;camera_map_distance -1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_9_done = true&gt;&gt;</span>
 <span class="yarn-line">    Merci ! Vous m'avez sauvé !</span> <span class="yarn-meta">#shadow:dwarf_saved</span>
     <span class="yarn-cmd">&lt;&lt;jump dwarf_9&gt;&gt;</span>
@@ -2004,10 +2220,12 @@ hide:
     <span class="yarn-cmd">&lt;&lt;jump hint_10&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;if $dwarf_8_done and $dwarf_9_done&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;detour info_10&gt;&gt;</span>
 <span class="yarn-line">        Le dernier round !</span> <span class="yarn-meta">#line:0e6a977 </span>
-<span class="yarn-line">        Déverrouillez le Maître des Clés !</span> <span class="yarn-meta">#line:0e72fd8 </span>
-        <span class="yarn-cmd">&lt;&lt;task_start dwarf_10&gt;&gt;</span>
-        <span class="yarn-cmd">&lt;&lt;SetActive key_10 true&gt;&gt;</span>
+<span class="yarn-line">        Le Maître des Clés a besoin des 10 Clés Naines !</span> <span class="yarn-meta">#line:0e72fd8</span>
+<span class="yarn-line">        N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
+        <span class="yarn-cmd">&lt;&lt;camera_map_distance 30&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;task_start dwarf_10 task_10_done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">        Débloquez d'abord les deux autres nains ici, puis revenez.</span> <span class="yarn-meta">#line:0a8844b </span>
         <span class="yarn-cmd">&lt;&lt;if !$dwarf_8_done&gt;&gt;</span>
@@ -2017,6 +2235,21 @@ hide:
         <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-10-done"></a>
+
+## task_10_done
+
+<div class="yarn-node" data-title="task_10_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: centennial</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Allez voir le Maître Nain !</span> <span class="yarn-meta">#line:06bc72f </span>
+<span class="yarn-cmd">&lt;&lt;target dwarf_10&gt;&gt;</span>
 
 </code>
 </pre>
@@ -2032,8 +2265,10 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wroclaw_sky_tower&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;camera_focus camera_skytower_roof&gt;&gt;</span>
 <span class="yarn-line">La Sky Tower est l'un des plus hauts bâtiments de Wrocław.</span> <span class="yarn-meta">#line:info_10a</span>
 <span class="yarn-line">Du sommet, on peut voir presque toute la ville !</span> <span class="yarn-meta">#line:info_10b</span>
+<span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
 
 </code>
 </pre>
@@ -2065,6 +2300,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
+<span class="yarn-line">Vous pouvez maintenant débloquer le nain !</span> <span class="yarn-meta">#shadow:unlock_dwarf</span>
 <span class="yarn-cmd">&lt;&lt;target dwarf_10&gt;&gt;</span>
 
 </code>
@@ -2085,7 +2321,7 @@ hide:
 <span class="yarn-line">    Je peux enfin surveiller toutes les serrures à nouveau !</span> <span class="yarn-meta">#line:dwarf10_001</span>
 <span class="yarn-line">    Je vais vous déverrouiller l'ascenseur.</span> <span class="yarn-meta">#line:0c6f241</span>
     <span class="yarn-cmd">&lt;&lt;jump check_area_skytower&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;elseif has_item("key_gold")&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("dwarf_10") &gt;&gt;</span>
 <span class="yarn-line">    Pour déverrouiller la cage, résolvez cette énigme !</span> <span class="yarn-meta">#shadow:solve_to_unlock</span>
     <span class="yarn-cmd">&lt;&lt;activity activity_10 activity_10_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -2106,9 +2342,8 @@ hide:
 <span class="yarn-header-dim">color:</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
-    <span class="yarn-cmd">&lt;&lt;task_end dwarf_10&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;inventory dwarf_keymaster add&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_10 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_10 done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_10_done = true&gt;&gt;</span>
@@ -2142,39 +2377,45 @@ hide:
 </pre>
 </div>
 
-<a id="ys-node-elevator"></a>
+<a id="ys-node-ll-elevator"></a>
 
-## elevator
+## ll_elevator
 
-<div class="yarn-node" data-title="elevator">
+<div class="yarn-node" data-title="ll_elevator">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
 <span class="yarn-header-dim">// SKY TOWER TOP AND FINALE</span>
 <span class="yarn-header-dim">group: finale</span>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $dwarf_10_done&gt;&gt;</span>
 <span class="yarn-line">Veux-tu monter sur le toit ?</span> <span class="yarn-meta">#line:088ccf1 </span>
 <span class="yarn-choice">-&gt; Oui</span> <span class="yarn-meta">#line:yes</span>
 <span class="yarn-line">    En route pour le sommet de la Sky Tower !</span> <span class="yarn-meta">#line:0bca140</span>
-    <span class="yarn-cmd">&lt;&lt;action activate_elevator&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;SetInteractable elevatore_level true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;trigger elevator&gt;&gt;</span>
+<span class="yarn-comment">    // &lt;&lt;action activate_elevator&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#line:no </span>
-<span class="yarn-line">    Revenez quand vous serez prêt(e).</span> <span class="yarn-meta">#line:0b51799 </span>
+<span class="yarn-line">    Revenez quand vous serez prêt(e).</span> <span class="yarn-meta">#line:0b51799</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">L'ascenseur ne fonctionne pas !</span> <span class="yarn-meta">#line:0a94351 </span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-ll-roof"></a>
+<a id="ys-node-npc-roof"></a>
 
-## ll_roof
+## npc_roof
 
-<div class="yarn-node" data-title="ll_roof">
+<div class="yarn-node" data-title="npc_roof">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: finale</span>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La ville est magnifique vue d'ici !</span> <span class="yarn-meta">#line:035a519</span>
-<span class="yarn-line">Et regardez, Antura est là aussi !</span> <span class="yarn-meta">#line:05950e6 </span>
+<span class="yarn-line">Et regardez... Antura est là aussi !</span> <span class="yarn-meta">#line:05950e6 </span>
 <span class="yarn-line">Souhaitez-vous répondre à quelques questions pour terminer cette quête ?</span> <span class="yarn-meta">#line:071d502 </span>
 <span class="yarn-choice">-&gt; Oui</span> <span class="yarn-meta">#shadow:yes</span>
     <span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
@@ -2201,7 +2442,7 @@ hide:
 <span class="yarn-choice">-&gt; Un nain</span> <span class="yarn-meta">#line:0b73e95 </span>
 <span class="yarn-line">    Oui, c'est exact !</span> <span class="yarn-meta">#line:yes_right </span>
     <span class="yarn-cmd">&lt;&lt;jump assessment_q2&gt;&gt;</span>
-<span class="yarn-choice">-&gt; À travers</span> <span class="yarn-meta">#line:0c5d850 </span>
+<span class="yarn-choice">-&gt; Une clé</span> <span class="yarn-meta">#line:0c5d850 </span>
 <span class="yarn-line">    Non. Réessayez !</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump assessment_q1&gt;&gt;</span>
 
@@ -2266,8 +2507,28 @@ hide:
 <span class="yarn-header-dim">group: finale</span>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bravo ! Vous avez exploré Wrocław et libéré tous les nains.</span> <span class="yarn-meta">#line:0cedfa4 </span>
+<span class="yarn-line">Excellent travail ! Vous avez exploré Wrocław et libéré tous les nains.</span> <span class="yarn-meta">#line:0cedfa4 </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-arcade"></a>
+
+## arcade
+
+<div class="yarn-node" data-title="arcade">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">group: activities</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Tu veux jouer à un jeu ?</span> <span class="yarn-meta">#line:08e8a18 </span>
+<span class="yarn-choice">-&gt; Mémoire</span> <span class="yarn-meta">#line:game_memory </span>
+    <span class="yarn-cmd">&lt;&lt;activity activity_9 arcade normal&gt;&gt;</span>
+<span class="yarn-choice">-&gt; Puzzle</span> <span class="yarn-meta">#line:game_jigsaw</span>
+    <span class="yarn-cmd">&lt;&lt;activity activity_6 arcade normal&gt;&gt;</span>
+<span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#shadow:no</span>
 
 </code>
 </pre>

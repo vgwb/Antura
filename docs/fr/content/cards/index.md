@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **394**
+Total found: **395**
 
 ## International
 
@@ -919,6 +919,18 @@ Une fusée qui va dans l'espace.
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
+### Gamme musicale {#musical_scale}
+![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ loading=lazy }
+
+Les sept notes jouées dans l'ordre
+
+- Type: Concept
+- Country: International
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC0
 
 ---
 
@@ -4697,7 +4709,7 @@ La place principale de la vieille ville, pleine de vie.
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
+- Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Breslau-Rynek-38-Panorama-2014-gje.jpg)
 - Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
 
 ---

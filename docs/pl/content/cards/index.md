@@ -9,7 +9,7 @@ hide:
 > **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **394**
+Total found: **395**
 
 ## International
 
@@ -1828,6 +1828,18 @@ Mały pojazd przeznaczony do jazdy po drogach.
 
 ---
 
+### Skala muzyczna {#musical_scale}
+![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ loading=lazy }
+
+Siedem nut granych w kolejności
+
+- Type: Concept
+- Country: International
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC0
+
+---
+
 ### Sprzedawca artykułów spożywczych {#person_grocer}
 ![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ loading=lazy }
 
@@ -2080,7 +2092,7 @@ Ogromne zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądz
 
 ---
 
-### Tram {#tram}
+### Tramwaj {#tram}
 ![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
 
 Pojazd miejski poruszający się po torach.
@@ -3722,6 +3734,20 @@ Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
 
 ---
 
+### Biskup Krasnolud {#dwarf_bishop}
+![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
+
+Posąg karła zadającego pytanie kościelne.
+
+- Type: Object
+- Subjects: Culture, History
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Bursztyn {#amber}
 ![preview amber](../../../assets/img/content/cards/amber.jpg){ loading=lazy }
 
@@ -3839,20 +3865,6 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
 - Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
-
----
-
-### Expert nain {#dwarf_expert}
-![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
-
-Przyjazny przewodnik, który wie wszystko o krasnoludkach.
-
-- Type: Object
-- Subjects: Education, Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4021,6 +4033,20 @@ Mała łódka napędzana wiosłami.
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | 0x010C
 - Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Krasnal Ekspert {#dwarf_expert}
+![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ loading=lazy }
+
+Przyjazny przewodnik, który wie wszystko o krasnoludkach.
+
+- Type: Object
+- Subjects: Education, Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC_BY | Tomasz Gąsior | [source](https://commons.wikimedia.org/wiki/File:Kaczmaruś_dwarf_02.jpg)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4465,20 +4491,6 @@ Osoba opiekująca się zwierzętami w zoo.
 
 ---
 
-### Origine Nain {#dwarf_origin}
-![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
-
-Klasyczna wrocławska figura krasnala w spiczastym kapeluszu i solidnych butach.
-
-- Type: Object
-- Subjects: Culture
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC0
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Panorama Racławicka {#panorama_racawicka}
 ![preview panorama_racawicka](../../../assets/img/content/cards/panorama_racawicka.jpg){ loading=lazy }
 
@@ -4561,6 +4573,20 @@ Budynek, w którym można oglądać niebo i gwiazdy.
 Bernhard Müller († 1930)
 Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://commons.wikimedia.org/wiki/File:Planetarium_Pfaffendorfer_Strasse_Leipzig_um_1927.jpg)
 - Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Pochodzenie Krasnoluda {#dwarf_origin}
+![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ loading=lazy }
+
+Klasyczna wrocławska figura krasnala w spiczastym kapeluszu i solidnych butach.
+
+- Type: Object
+- Subjects: Culture
+- Country: Poland
+- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -4828,6 +4854,19 @@ Symbolem miasta jest odważna syrena z mieczem i tarczą. Jej posąg stoi nad Wi
 
 ---
 
+### Szkoła Podstawowa Leonarda da Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+To przyjazne miejsce, w którym dzieci uczą się, tworzą i odkrywają naukę i sztukę, kierując się ciekawością.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Słoniątko {#animal_elephant_baby}
 ![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
 
@@ -4950,20 +4989,6 @@ Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warsz
 
 ---
 
-### Wroclaw : Cathédrale {#wroclaw_cathedral}
-![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
-
-Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
-
-- Type: Place
-- Subjects: History, Culture
-- Country: Poland
-- Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Wrocław {#wroclaw}
 ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
 
@@ -4975,6 +5000,20 @@ Miasto w Polsce z rzekami, mostami i pięknymi zabytkami.
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Wrocław: Katedra {#wroclaw_cathedral}
+![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ loading=lazy }
+
+Duży, ważny kościół, w którym ludzie sie modlą, Można wspiąć sie na jego wieżę i podziwiać widoki.
+
+- Type: Place
+- Subjects: History, Culture
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC0 | [source](https://it.m.wikipedia.org/wiki/File:Wroclaw-Archicathedral-116.JPG)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -5015,7 +5054,7 @@ Główny plac Starego Miasta, pełen życia.
 - Subjects: Geography, Culture, Community, History
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2016_Wrocław,_Rynek_49.jpg)
+- Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Breslau-Rynek-38-Panorama-2014-gje.jpg)
 - Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -5100,33 +5139,6 @@ Tablica z prostymi faktami, które pomogą Ci się uczyć.
 - Country: Poland
 - Image credit: CC_BY_SA | Frank Schulenburg | [source](https://commons.wikimedia.org/wiki/File:Railroad_Park_Resort_in_Dunsmuir,_June_2021.jpg)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-To przyjazne miejsce, w którym dzieci uczą się, tworzą i odkrywają naukę i sztukę, kierując się ciekawością.
-
-- Type: Place
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Évêque Nain {#dwarf_bishop}
-![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
-
-Posąg karła zadającego pytanie kościelne.
-
-- Type: Object
-- Subjects: Culture, History
-- Country: Poland
-- Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
-- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
