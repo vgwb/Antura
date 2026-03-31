@@ -166,6 +166,7 @@ color: red
 <<declare $area_centennial_done = false>>
 <<declare $secret_0_done = false>>
 
+// hide all the keys
 <<SetActive key_0 false>>
 <<SetActive key_1 false>>
 <<SetActive key_2 false>>
@@ -495,12 +496,7 @@ color: yellow
     <<target driver_tram_cathedral>>
 <<elseif GetCurrentTask() == "dwarf_1">>
 <<else>>
-    <<card wroclaw_cathedral>>
-    This is the Wrocław Cathedral. #line:0eb59b5 
-    <<camera_focus camera_cathedral>>
-    It has tall towers and beautiful windows. #line:07f68f0 
-    <<camera_reset>>
-    People come here to pray and sit quietly. #line:0141f95 
+    <<detour info_1>>
     <<card dwarf_bishop>>
     The Bishop Dwarf is locked nearby. #line:0769945 
     Find the Cathedral key and free him! #task:dwarf_1 #line:0ebb3bc 
@@ -515,8 +511,12 @@ group: cathedral
 color: purple
 ---
 <<card wroclaw_cathedral>>
+This is the Wrocław Cathedral. #line:0eb59b5
 The Cathedral is in one of the oldest parts of Wrocław. #line:info_1a
 People come here to pray and think quietly. #line:info_1b
+<<camera_focus camera_cathedral>>
+It has tall towers and beautiful windows. #line:07f68f0 
+<<camera_reset>>
 ===
 
 title: hint_1
@@ -671,6 +671,7 @@ color: yellow
 <<elseif GetCurrentTask() == "dwarf_2">>
     <<jump hint_2>>
 <<else>>
+    <<detour info_2>>
     Wrocław is famous for its little dwarves. #line:05b17f6 
     They have tiny hats and tiny boots! #line:0f0ca08 
     Free the Origin Dwarf. #task:dwarf_2 #line:04fde74 
@@ -786,6 +787,7 @@ color: yellow
     Go to the Dwarf with the key! #line:go_dwarf_key
     <<target dwarf_3>>
 <<else>>
+    <<detour info_3>>
     Here in the Old Town Hall we keep the laws of the city. #line:0de0a2f 
     But our Councilor Dwarf has lost all his books! #line:04f7a17 
     Please find all Dwarf books! #task:dwarf_3 #line:02ba9a9 
@@ -916,7 +918,8 @@ color: yellow
     Go to the Dwarf with the key! #shadow:go_dwarf_key
     <<target dwarf_4>>
 <<else>>
-    Help! Our Painter Dwarf has lost all his colors! #line:07177c7 
+    <<detour info_4>>
+    Our Painter Dwarf has lost all his colors! #line:07177c7 
     Find all the colors! #task:dwarf_4 #line:0737a2f
     Talk to me if you need help. #shadow:talk_4_help
     <<camera_map_distance 30>>
@@ -1072,8 +1075,9 @@ color: yellow
     <<jump hint_5>>
 <<elseif HasCompletedTask("dwarf_5") >>
     Go to the Dwarf with the key! #shadow:go_dwarf_key
-    <<target dwarf_4>>
+    <<target dwarf_5>>
 <<else>>
+    <<detour info_5>>
     Our Animal Lover Dwarf loves all the animals #line:048c7ab 
     But they ran away when a big blue dog came by! #line:05deab1 
     Find all the animals and free the Dwarf! #task:dwarf_5 #line:09b7b40 
@@ -1202,6 +1206,7 @@ color: yellow
 <<elseif GetCurrentTask() == "dwarf_6">>
     <<jump hint_6>>
 <<else>>
+    <<detour info_6>>
     Help! Our Architect Dwarf has disappeared! #line:0c3a081 
     We need him to improve the buildings #line:088d0bd 
     Find and save the Architect Dwarf! #task:dwarf_6 #line:092e472
@@ -1325,6 +1330,7 @@ color: yellow
     Go to the Dwarf with the key! #shadow:go_dwarf_key
     <<target dwarf_7>>
 <<else>>
+    <<detour info_7>>
     Our Dwarf used to conduct the fountain show. #line:01d8fa1 
     But now he has lost all the notes! #line:0f05296 
     Find the music and save the Conductor Dwarf! #task:dwarf_7 #line:041a696 
@@ -1435,7 +1441,6 @@ group: centennial
 ===
 
 
-
 // -----------------------------------------------------------------------------
 // AREA SKY TOWER
 
@@ -1483,9 +1488,10 @@ color: yellow
 <<elseif GetCurrentTask() == "dwarf_8">>
     <<jump hint_8>>
 <<else>>
-    A famous writer named Olga Tokarczuk lived near here! #line:0474fb4 
+    <<detour info_8>>
     Help the Writer Dwarf. #task:dwarf_8 #line:0ac8824 
     He loves stories, books, and ... libraries. #line:082386e 
+    Talk to me if you need help. #shadow:talk_4_help
     <<task_start dwarf_8>>
     <<SetActive key_8 true>>
 <<endif>>
@@ -1497,8 +1503,9 @@ group: skytower
 color: purple
 ---
 <<card olga_tokarczuk>>
-Olga Tokarczuk is a Polish writer who won a big prize for her books! #line:info_8a
-Maybe you can find a fun story to read in the library. #line:info_8b
+The famous writer named Olga Tokarczuk lived near here! #line:0474fb4 
+She who a big prize for her books. The Nobel Prize! #line:info_8a
+Maybe you can read a book in the library? #line:info_8b
 ===
 
 title: hint_8
@@ -1582,9 +1589,11 @@ color: yellow
 <<elseif GetCurrentTask() == "dwarf_9">>
     <<jump hint_9>>
 <<else>>
-    This plaza is a busy place in the Sky Tower. #line:info_017
-    Unlock the Traveler Dwarf! #task:dwarf_9 #line:07cb84f 
-    He loves visiting new places. #line:02172f2
+    <<detour info_9>>
+    Our Traveler Dwarf loves visiting new places. #line:info_017
+    But he got lost in a labyrinth. #line:02172f2
+    Find and save the Traveler Dwarf! #task:dwarf_9 #line:07cb84f 
+    Talk to me if you need help. #shadow:talk_4_help
     <<camera_map_distance 30>>
     <<task_start dwarf_9>>
     <<SetActive key_9 true>>
@@ -1693,6 +1702,7 @@ color: yellow
     <<jump hint_10>>
 <<else>>
     <<if $dwarf_8_done and $dwarf_9_done>>
+        <<detour info_10>>
         The final round! #line:0e6a977 
         The Keymaster needs the 10 Dwarf Keys! #task:dwarf_10 #line:0e72fd8
         Talk to me if you need help. #shadow:talk_4_help
@@ -1724,8 +1734,10 @@ group: skytower
 color: purple
 ---
 <<card wroclaw_sky_tower>>
+<<camera_focus camera_skytower_roof>>
 Sky Tower is one of the tallest buildings in Wrocław. #line:info_10a
 From the top, you can see almost the whole city! #line:info_10b
+<<camera_reset>>
 ===
 
 title: hint_10
@@ -1845,7 +1857,7 @@ What is a famous symbol of Wrocław? #line:0509f87
 -> A dwarf #line:0b73e95 
     Yes, that is right! #line:yes_right 
     <<jump assessment_q2>>
--> A cross #line:0c5d850 
+-> A key #line:0c5d850 
     No. Try again! #shadow:try_again
     <<jump assessment_q1>>
 ===

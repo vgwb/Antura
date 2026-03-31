@@ -11180,7 +11180,7 @@ MonoBehaviour:
     DebugNode:
       project: {fileID: 0}
       nodeName: 
-    DebugSpawnPoint: {fileID: 5488398453619188005}
+    DebugSpawnPoint: {fileID: 4733414719841319832}
     showInteractableLabels: 0
     TalkToPlayerMode: 1
     NativeLanguage:
@@ -41304,7 +41304,7 @@ PrefabInstance:
     - target: {fileID: 1492696317617342247, guid: e200c2cceb3aa4784ba820421fe9dd3f,
         type: 3}
       propertyPath: distance
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1492696317617342247, guid: e200c2cceb3aa4784ba820421fe9dd3f,
         type: 3}
@@ -41319,7 +41319,7 @@ PrefabInstance:
     - target: {fileID: 6302528880460762498, guid: e200c2cceb3aa4784ba820421fe9dd3f,
         type: 3}
       propertyPath: Commands.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6302528880460762498, guid: e200c2cceb3aa4784ba820421fe9dd3f,
         type: 3}
@@ -41329,7 +41329,7 @@ PrefabInstance:
     - target: {fileID: 6302528880460762498, guid: e200c2cceb3aa4784ba820421fe9dd3f,
         type: 3}
       propertyPath: Commands.Array.data[0].Parameter
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6302528880460762498, guid: e200c2cceb3aa4784ba820421fe9dd3f,
         type: 3}
@@ -47416,18 +47416,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02c441c47a029418f9fe519bcfc24380, type: 3}
---- !u!114 &5488398453619188005 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 858601168500679317, guid: 02c441c47a029418f9fe519bcfc24380,
-    type: 3}
-  m_PrefabInstance: {fileID: 5170387897575113648}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
 --- !u!4 &8280440623223749811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
@@ -48782,6 +48770,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02c441c47a029418f9fe519bcfc24380, type: 3}
+--- !u!114 &4733414719841319832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 858601168500679317, guid: 02c441c47a029418f9fe519bcfc24380,
+    type: 3}
+  m_PrefabInstance: {fileID: 5357641630613035277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
 --- !u!4 &9183061928280221198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
@@ -53752,7 +53752,7 @@ MonoBehaviour:
   Id: key_2
   IsInteractable: 0
   IsHiddenAtStart: 1
-  NearbyAutoActivate: 1
+  NearbyAutoActivate: 0
   IconType: 4
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -70236,7 +70236,7 @@ MonoBehaviour:
   Id: key_9
   IsInteractable: 1
   IsHiddenAtStart: 1
-  NearbyAutoActivate: 0
+  NearbyAutoActivate: 1
   IconType: 4
   IconTransform: {fileID: 0}
   ShowOnMap: 0

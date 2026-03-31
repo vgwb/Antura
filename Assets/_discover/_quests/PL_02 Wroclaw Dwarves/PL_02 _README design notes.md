@@ -26,24 +26,24 @@ Explore Wrocław to rescue Antura from the top of the Sky Tower. To get there, t
 
 - **NPC Introduction:** Each dwarf starts with an NPC or landmark fact.
 - It gives hints if needed
-- **Hidden Key:** Each magical cage needs a gold key.
-- **Protected Key:** The key alone is not enough; it must be used through a local challenge.
+- **Hidden Key:** Each magical cage needs a gold key
+- **Protected Key:** The key alone is not enough; it must be used through a local challenge
 - **Living Letter Info:** A living letter gives some info on the location
-- **Puzzle Gate:** After finding the key, the player solves a short puzzle, quiz, or interaction.
-- **Rescue Payoff:** Unlock the cage, free the dwarf, and talk to it.
-- **Hub Travel:** Trams connect the main zones.
-- **Progressive Unlocking:** The city opens area by area after the tutorial.
+- **Puzzle Gate:** After finding the key, the player solves a short puzzle, quiz, or interaction
+- **Rescue Payoff:** Unlock the cage, free the dwarf, and talk to it
+- **Hub Travel:** Trams connect the main zones
+- **Progressive Unlocking:** The city opens area by area after the tutorial
 
 **Per-Dwarf Loop**
 
-1. Talk to the NPC connected to that dwarf.
-2. Learn one short fact about the place.
-3. Search for the hidden key.
-4. If needed, ask the NPC for a hint.
-5. Bring the key to the cage.
-6. Solve the challenge that let unlock the dwarf's cage.
-7. Talk to the rescued dwarf.
-8. Add the dwarf to the collection and unlock the next zone.
+1. Talk to the NPC connected to that dwarf
+2. Learn one short fact about the place
+3. Search for the hidden key
+4. If needed, ask the NPC for a hint
+5. Bring the key to the cage
+6. Solve the challenge that let unlock the dwarf's cage
+7. Talk to the rescued dwarf
+8. Add the dwarf to the collection and unlock the next zone
 
 **Key Protection Variants**
 
@@ -170,13 +170,3 @@ The Sky Tower unlocks only after both the **Center Hub** and the **Centennial Hu
 - **A writer**
 - A politician
 - A scientist
-
-
-0 DONE
-1 DONE
-2 DONE
-3 DONE
-4 DONE
-5 DONE
-6 DONE
-
