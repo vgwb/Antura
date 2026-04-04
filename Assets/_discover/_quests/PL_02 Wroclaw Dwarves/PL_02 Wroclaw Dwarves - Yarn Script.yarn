@@ -1213,6 +1213,7 @@ color: yellow
     Talk to me if you need help. #shadow:talk_4_help
     <<task_start dwarf_6>>
     <<SetActive key_6 true>>
+    <<SetInteractable iglica_lever true>>
 <<endif>>
 ===
 
@@ -1252,6 +1253,7 @@ group: centennial
 <<camera_focus camera_centennial_iglica>>
 <<wait 3>>
 <<camera_reset>>
+<<target key_6>>
 Here is your key! #shadow:a_key
 ===
 
