@@ -1,96 +1,145 @@
 ## Game Design Notes
 
-Complete Warsaw exploration following Antura through capital landmarks. Meet Mermaid of Warsaw, experience Chopin's music, learn Wars & Sawa legend, visit parliament, encounter Maria Curie at Palace of Culture, and conclude at National Stadium with sports activities.
+**Mission Objective**
+Explore Warsaw, collect **7 landmark cards**, and follow Antura's trail to recover the **Mermaid's sword**.
+Each NPC has a local problem caused by Antura, and helping them opens that place's chest, revealing next step
 
-### Knowledge Content
-Buildings:
+**Characters**
 
-- Mermaid of Warsaw
-- Palace of Culture and Science
-- Royal Castle
-- Polish Houses of Parliament
-- National Stadium
-- Chopin Monument
-- King Sigismund’s Column
-- Wars and Sawa statue (and legend)
-- Nicolaus Copernicus Monument
-- Presidential Palace
-Polish flag, złoty
-The river Wisła
+- **Local NPCs:** The Mermaid, Fryderyk Chopin, Wars and Sawa, King Sigismund, a Parliamentarian or President, Maria Skłodowska-Curie, and Robert Lewandowski.
 
-Music:
+### Learning Goals
 
-- National anthem “Mazurek Dąbrowskiego”
-- a Chopin’s music piece  or a polish folk song like “Czerwone Jabłuszko”/”Mam chusteczkę haftowaną” 
+- **City Identity:** Warsaw is the **capital of Poland**.
+- **Landmarks:** Recognize the **Mermaid of Warsaw**, **Chopin Monument**, **Wars and Sawa statue**, **King Sigismund's Column**, **Polish Houses of Parliament**, **Palace of Culture and Science**, and **National Stadium**.
+- **Symbols and History:**
+	- The Mermaid is a symbol of Warsaw.
+	- The **Wisła** is the longest river in Poland.
+	- King Sigismund moved the capital to Warsaw.
+	- Poland's flag is **white and red**.
+	- The **Constitution of 3 May** and **Independence Day** are important Polish celebrations.
+- **People:**
+	- **Fryderyk Chopin** is a famous Polish composer.
+	- **Maria Skłodowska-Curie** is a famous Polish scientist.
+- **Vocabulary:**
+	- **Transport:** tram, bus, train, car, bike
+	- **Sport:** football, ball, goal, soccer field
+	- **Currency:** złoty
 
-Constitution of 3 May, Independence day
-Maria Curie-Skłodowska
+### Gameplay Structure
 
-Vocabulary:  sport: football (soccer), ball, goal/gate, soccer field
-Transport: train, tram, bus, car, bike
+- **One NPC per place:** Each place has one character who explains the landmark and the local problem.
+- **One short mission:** A simple collect task, reunion task, or small local challenge.
+- **Chest reward:** Completing the mission opens the chest of that place and gives the landmark card.
+- **One story thread:** The Mermaid's missing sword connects Mermaid -> Chopin -> Wars and Sawa -> Sigismund -> Parliament -> Mermaid return.
+- **Only NPC conversations:** The player always progresses by talking directly to landmark NPCs.
+- **Linear progression:** Each completed place unlocks the next place.
+- **Movement:** We can walk or take trams.
 
-### Flow
+### Progression
 
-You are greeted in Warsaw, the capital of Poland by the Guide. He asks you for your help. It seems that Antura has been creating chaos since it arrived here and somebody needs to stop it and fix it. He points you in the direction of the Mermaid of Warsaw.
+- **Place 1:** Mermaid of Warsaw
+- **Place 2:** Chopin Monument
+- **Place 3:** Wars and Sawa by the Wisła
+- **Place 4:** King Sigismund's Column
+- **Place 5:** Houses of Parliament
+- **Place 6:** Palace of Culture and Science
+- **Place 7:** National Stadium
+- **End:** Return the sword to the Mermaid for final quiz and outro
 
-**Mermaid of Warsaw**  
-You meet with the Mermaid of Warsaw, who is missing her sword. She tells you that she saw Antura disturb other monuments of Warsaw and tried to stop him but in the process he managed to take her sword away. She asks you to retrieve it, and help other monuments while you follow Antura’s trail. She points you to the Chopin Monument. She also asks you if you know how the transportation works in Warsaw and explains the vocabulary and types of transport.
+### Places
 
-**Chopin Monument**  
-Once you find the Chopin Monument, you can see that it seems the music notes to his music piece are missing. To get them back, you have to recreate the melody. 
-[Activity Piano]
-When you do, Chopin’s statue thanks you and tells you about himself.  He also tells you that he saw Antura with the Mermaid’s sword going in the direction of Nicolaus Copernicus’ Monument.
-—-
+#### Place 1: Mermaid of Warsaw
 
-**Wars and Sawa statue**  
-Once you get there, you meet with Wars. Apparently Sawa seems to be missing and he is asking you to find her. Once you follow her trail, you can see her by the Wisła river. You learn about the river from Sawa and convince her to go back to Wars. She says they got separated during the chaos that Antura was creating. Once you go back with her, they tell you the legend about them and the origin of the city. They also say that you should head in the direction of King Sigismund’s Column.
+- **NPC:** Mermaid of Warsaw
+- **Story:** Antura took the Mermaid's sword while she was trying to stop him.
+- **Fact:** The Mermaid is one of the best-known symbols of Warsaw.
+- **Mission:** Help around the square and learn how people move around Warsaw: tram, bus, train, car, and bike.
+- **Reward Chest:** Mermaid of Warsaw card
+- **Unlocks:** Chopin Monument
+- **Clue:** The Mermaid saw Antura go toward the Chopin Monument.
 
-**King Sigismund’s Column**
-When you go to King Sigismund’s Column, he greets you and introduces himself. He explains that he used to be a king of Poland and tells you about the Royal Castle, later mentioning that right now the country is governed by the Parliament. He asks you to find his missing crown [task] which has been knocked off his head while Antura was running by. It is not far from him. Once you complete the task, he tells you to go to the Sejm, since apparently that is where the Mermaid’s Sword has been left.
+#### Place 2: Chopin Monument
 
-**President and Houses of Parliament**  
-Once you go there, you meet the President who explains what the Polish Houses of Parliament are and tells you about the Presidential Palace. He says he has the Mermaid’s sword, but before you go to give it back to her, he asks you to help with a little thing. Apparently Antura stole the colours from the Polish flag and needs you to give them back. You then learn how the Polish flag looks and need to choose the correct colours for the flag. The President thanks you for your help.  He wants to share some more facts with you and asks you if you know about the 3 May Constitution Day in Poland. He then explains what it means. 
+- **NPC:** Fryderyk Chopin
+- **Story:** Antura scattered the music notes from Chopin's melody.
+- **Fact:** Chopin was a famous Polish composer, and his monument is one of Warsaw's cultural landmarks.
+- **Mission:** Recover the missing notes and recreate the melody.
+- **Reward Chest:** Chopin card
+- **Unlocks:** Wars and Sawa
+- **Clue:** Chopin saw Antura with the Mermaid's sword going past the Copernicus area and toward the river.
 
-**Mermaid of Warsaw**
-You go back to the Mermaid of Warsaw and you give back her sword. She tells you, she is a symbol of Warsaw and tells you about herself. Then she says that she has heard Antura has also messed with a few other places. She points you to the Palace of Culture and Science. 
+#### Place 3: Wars and Sawa
 
-**Palace of Culture and Science and Maria Skłodowska-Curie**
-Once you get there, you meet Maria Skłodowska-Curie. She explains that although she is not associated with this place, it is called The Palace of Culture and Science and she herself is connected to scientific fields. She explains its role today and tells a little bit about herself. She also asks you for a favor. Antura seems to have misplaced her wallet. She asks you to retrieve it and you need to follow the trail of coins that are polish złoty until you find it and bring it back. She thanks you and explains that in Poland this is the currency. She also says that she has heard some commotion at the National Stadium.
+- **NPC:** Wars and Sawa
+- **Story:** Wars and Sawa got separated during the chaos caused by Antura.
+- **Fact:** The Wisła is the longest river in Poland, and Wars and Sawa are linked to a legend about Warsaw.
+- **Mission:** Find Sawa by the river and bring her back to Wars.
+- **Reward Chest:** Wars and Sawa card
+- **Unlocks:** King Sigismund's Column
+- **Clue:** After reuniting, they point the player toward King Sigismund's Column.
 
-**National Stadium and national anthem**
-You go to the  National Stadium, where you meet Robert Lewandowski. He tells you a little about the Stadium and you are challenged by him to score 5 goals (minigame) to cheer everybody up after Antura’s visit. 
+#### Place 4: King Sigismund's Column
 
-When you manage to do it, he explains to you some vocabulary associated with sport. The people at the stadium also sing the national anthem and Robert Lewandowski tells you about the Independence Day in Poland that takes place on the 11th of November. 
-Then the Guide comes and he says that you have managed to clear the commotion that Antura left behind him. In the meantime Antura seems to have left the city. 
+- **NPC:** King Sigismund
+- **Story:** Antura knocked the king's crown off while running through the square.
+- **Fact:** King Sigismund moved the capital from Kraków to Warsaw. The Royal Castle is nearby, and Poland is now governed by Parliament.
+- **Mission:** Find the missing crown pieces.
+- **Reward Chest:** King Sigismund's Column card
+- **Unlocks:** Houses of Parliament
+- **Clue:** Sigismund says the Mermaid's sword has been left at the Sejm.
 
-**Final Assessment**
-Question 1: How does the polish flag look? (with a few pictures to choose from)
-Question 2: Math the picture with words (the vocabulary)
+#### Place 5: Houses of Parliament
 
-### Resources
-**Palace of Culture and Science**
-A tall, historic skyscraper in Warsaw built in the 1950s as a gift from the Soviet Union. Today it houses theaters, museums, offices, and a viewing terrace.
+- **NPC:** Parliamentarian or President
+- **Story:** The Parliamentarian has the Mermaid's sword, but first needs help fixing the Polish flag after Antura scattered its colors.
+- **Fact:** The Houses of Parliament are where laws are discussed in Poland. The Polish flag is white and red.
+- **Mission:** Restore the flag colors in the correct order.
+- **Knowledge Add-on:** Short mention of the Constitution of 3 May and the Presidential Palace.
+- **Reward Chest:** Polish Houses of Parliament card
+- **Story Reward:** Receive the Mermaid's sword and keep it safe until the end
+- **Unlocks:** Palace of Culture and Science
 
-**Royal Castle**
-The Royal Castle in Warsaw was once the official residence of Polish kings and is now a museum. It was rebuilt after World War II and features grand halls, royal paintings, and historic furniture.
+#### Place 6: Palace of Culture and Science
 
-**Polish Houses of Parliament**
-The main government buildings in Warsaw where Polish laws are debated and passed. The complex includes both chambers of Parliament: the Sejm and the Senate.	
+- **NPC:** Maria Skłodowska-Curie
+- **Story:** Maria is not directly linked to the building, but she fits the theme of culture and science.
+- **Fact:** The Palace of Culture is one of Warsaw's biggest landmarks. Maria Skłodowska-Curie was a famous Polish scientist. The Polish currency is the złoty.
+- **Mission:** Follow a trail of złoty coins to find Maria's lost wallet.
+- **Reward Chest:** Palace of Culture and Science card
+- **Unlocks:** National Stadium
 
-**National Stadium**
-A modern sports arena in Warsaw built for the 2012 UEFA European Championship. It hosts football matches, concerts, and public events.
+#### Place 7: National Stadium
 
-**Chopin Monument**
-A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin, Poland’s most famous composer. It’s also the site of popular open-air piano concerts in summer. (the special tree he is sitting under is a typical polish.. Willow )
+- **NPC:** Robert Lewandowski
+- **Story:** The stadium is the final place disturbed by Antura.
+- **Fact:** The National Stadium is a famous sports venue in Warsaw. It is linked to football, public events, and national celebrations.
+- **Mission:** Score 5 goals to cheer everyone up after Antura's visit.
+- **Vocabulary:** football, ball, goal, soccer field
+- **Knowledge Add-on:** Short mention of the national anthem and Independence Day on 11 November.
+- **Reward Chest:** National Stadium card
+- **Unlocks:** Return to the Mermaid
 
-**King Sigismund’s Column,**
-A tall monument in Castle Square honoring the Polish king who moved the capital from Kraków to Warsaw. It’s one of the city’s oldest and most famous landmarks.
+#### End: Return to the Mermaid
 
-**Wars and Siwa statue**
-The statue is based on a local legend about a fisherman named Wars who lived by the Vistula River. One night, he discovered a mysterious mermaid named Sawa singing by the shore; they became friends, and the city that grew nearby was named after them — Warsawa, now Warsaw.
+- **NPC:** Mermaid of Warsaw
+- **Story:** After helping all the places in Warsaw, the player finally returns the sword to the Mermaid.
+- **Fact:** She is a symbol of Warsaw and protects the city.
+- **Reward:** The Mermaid thanks the player, closes the main story loop, gives the outro, and starts the final quiz.
 
-**Mermaid of Warsaw**
-The mermaid is a symbol of Warsaw and appears on the city’s coat of arms. A statue of her stands by the river, holding a sword and shield to protect the city.
+### Final Assessment
 
-**Presidential Palace**
-The Presidential Palace in Warsaw is the official residence of the President of Poland. It’s a historic building with elegant architecture, often used for important ceremonies and state events.
+1. **Which colors are on the Polish flag?**
+	- **White and red**
+	- Blue and red
+	- Green and white
+
+2. **Who was Chopin?**
+	- **A composer**
+	- A football player
+	- A king
+
+3. **What is the Wisła?**
+	- **A river**
+	- A palace
+	- A stadium
