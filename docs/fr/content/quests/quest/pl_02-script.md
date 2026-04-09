@@ -114,7 +114,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $area_center_done and $area_centennial_done&gt;&gt;</span>
-<span class="yarn-line">    Vous pouvez maintenant vous rendre à la Sky Tower !</span> <span class="yarn-meta">#line:042161c </span>
+<span class="yarn-line">    Vous pouvez maintenant vous rendre à la Sky Tower !</span> <span class="yarn-meta">#line:042161c</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Où veux-tu aller ?</span> <span class="yarn-meta">#line:where_to_go</span>
 -&gt; School <span class="yarn-cmd">&lt;&lt;if $current_place == "cathedral"&gt;&gt;</span>  <span class="yarn-meta">#line:0d0e53a </span>
@@ -1517,6 +1517,7 @@ hide:
 <span class="yarn-line">    N'hésitez pas à me contacter si vous avez besoin d'aide.</span> <span class="yarn-meta">#shadow:talk_4_help</span>
     <span class="yarn-cmd">&lt;&lt;task_start dwarf_6&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive key_6 true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;SetInteractable iglica_lever true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -1577,6 +1578,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_centennial_iglica&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;wait 3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;target key_6&gt;&gt;</span>
 <span class="yarn-line">Voici votre clé !</span> <span class="yarn-meta">#shadow:a_key</span>
 
 </code>
