@@ -496,6 +496,7 @@ color: yellow
     Use the tram to choose your next stop. #line:03991b3 
     <<target driver_tram_cathedral>>
 <<elseif GetCurrentTask() == "dwarf_1">>
+    <<jump hint_1>>
 <<else>>
     <<detour info_1>>
     <<card dwarf_bishop>>
@@ -1672,7 +1673,7 @@ color:
     <<inventory wroclaw_dwarf_statue add>>
     <<SetActive cage_9 false>>
     <<SetMapIcon dwarf_9 done>>
-    <<camera_map_distance -1>>
+//    <<camera_map_distance -1>>
     <<set $dwarf_9_done = true>>
     Thank you! You saved me! #shadow:dwarf_saved
     <<jump dwarf_9>>
