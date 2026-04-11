@@ -77,11 +77,17 @@ namespace Antura.Discover
 
         public void StartDialogue(string nodeName)
         {
+            StartDialogueAsync(nodeName).Forget();
+        }
+
+        private async YarnTask StartDialogueAsync(string nodeName)
+        {
             if (runner == null || string.IsNullOrEmpty(nodeName))
                 return;
+
             if (!runner.IsDialogueRunning)
             {
-                runner.StartDialogue(nodeName);
+                await runner.StartDialogue(nodeName);
             }
             else
             {
@@ -91,11 +97,21 @@ namespace Antura.Discover
 
         public void StartDialogueAgain(string nodeName)
         {
+            StartDialogueAgainAsync(nodeName).Forget();
+        }
+
+        private async YarnTask StartDialogueAgainAsync(string nodeName)
+        {
             //Debug.Log($"YarnAnturaManager: StartDialogue '{nodeName}' and runner is running: {runner.IsDialogueRunning}");
             if (runner == null || string.IsNullOrEmpty(nodeName))
                 return;
-            runner.Stop();
-            runner.StartDialogue(nodeName);
+
+            if (runner.IsDialogueRunning)
+            {
+                await runner.Stop();
+            }
+
+            await runner.StartDialogue(nodeName);
         }
 
         /// <summary>

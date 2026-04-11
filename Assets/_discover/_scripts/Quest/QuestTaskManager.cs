@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using Antura;
 
 namespace Antura.Discover
 {
@@ -18,6 +20,7 @@ namespace Antura.Discover
 
         public string CurrentTaskCode => CurrentTask != null ? CurrentTask.Code : string.Empty;
         private string EndTaskNodeToRun = "";
+        private Coroutine pendingEndTaskNodeCoroutine;
 
         public void RegisterTasks(IEnumerable<QuestTask> tasks)
         {
@@ -65,6 +68,18 @@ namespace Antura.Discover
 
             CurrentTask = task;
             EndTaskNodeToRun = "";
+
+            if (task.InfoNode == null)
+            {
+                Debug.LogError($"QuestTaskManager.StartTask: task '{taskCode}' does not have an InfoNode set. Task description will not be shown.");
+                task.InfoNode = new QuestNode
+                {
+                    Type = NodeType.TEXT,
+                    Content = $"Task: {task.Code}",
+                    ContentNative = $"Task: {task.Code}"
+                };
+            }
+
             task.Begin(nodeReturn);
 
             // Activate task content; QuestTask.Activate handles showing TaskDisplay appropriately
@@ -144,13 +159,26 @@ namespace Antura.Discover
         public void CheckAndRunEndTaskNode()
         {
             Debug.Log($"QuestTaskManager: CheckAndRunEndTaskNode called, EndTaskNodeToRun is '{EndTaskNodeToRun}'");
-            if (!string.IsNullOrEmpty(EndTaskNodeToRun))
-            {
-                var nodeToRun = EndTaskNodeToRun;
-                EndTaskNodeToRun = "";
-                InteractionManager.I.StartDialogue(null);
-                YarnAnturaManager.I?.StartDialogueAgain(nodeToRun);
-            }
+            if (string.IsNullOrEmpty(EndTaskNodeToRun) || pendingEndTaskNodeCoroutine != null)
+                return;
+
+            CoroutineRunner.RestartCoroutine(ref pendingEndTaskNodeCoroutine, CO_RunEndTaskNode());
+        }
+
+        private IEnumerator CO_RunEndTaskNode()
+        {
+            // Let Yarn finish firing its completion callbacks before starting the next node.
+            yield return null;
+
+            var nodeToRun = EndTaskNodeToRun;
+            EndTaskNodeToRun = "";
+            pendingEndTaskNodeCoroutine = null;
+
+            if (string.IsNullOrEmpty(nodeToRun))
+                yield break;
+
+            InteractionManager.I?.StartDialogue(null);
+            YarnAnturaManager.I?.StartDialogue(nodeToRun);
         }
 
         public void OnReachTarget(string taskCode)

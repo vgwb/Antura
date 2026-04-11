@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2026.04.11
+
+**Added**  
+- Quest PL_02: Wroclaw Dwarves
+
+**Changed**  
+- Yarn Spinner package v3.2.1
+
+**Development**
+- Quest PL_01: Warsaw
+
 ## 2026.03.15
 
 **Added**  
