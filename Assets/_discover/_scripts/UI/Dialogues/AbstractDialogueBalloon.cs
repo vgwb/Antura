@@ -75,14 +75,6 @@ namespace Antura.Discover
             continueHintTween?.Kill();
         }
 
-        void Update()
-        {
-            // if (Input.GetKeyDown(KeyCode.E) && bt.IsInteractable() && !UIManager.I.dialogues.IsPostcardOpen && InteractionManager.I.LastActionFrame != Time.frameCount)
-            // {
-            //     OnBalloonClicked.Dispatch();
-            // }
-        }
-
         #endregion
 
         #region Public Methods

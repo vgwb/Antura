@@ -41,10 +41,6 @@ namespace Antura.Minigames.Maze
             isShownOnce = false;
         }
 
-        void Update()
-        {
-        }
-
         public void showCurrentTutorial()
         {
             if (startingPosition.x != -1 && startingPosition.y != -1 && startingPosition.z != -1)

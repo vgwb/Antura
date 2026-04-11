@@ -12,10 +12,5 @@ namespace Antura.Minigames.Maze
             letter = GetComponent<LivingLetterController>();
             letter.SetState(LLAnimationStates.LL_rocketing);
         }
-
-        void Update()
-        {
-
-        }
     }
 }

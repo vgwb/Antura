@@ -15,11 +15,6 @@ namespace Antura.Minigames.ThrowBalls
         void Start()
         {
         }
-
-        void Update()
-        {
-        }
-
         public void OnSwerveUpdate(CrateController crate, float rotateByAngle, Vector3 rotationPivot, Vector3 zVector)
         {
             if (crate == topCrate)
