@@ -221,9 +221,6 @@ Draw your favorite Wrocław dwarf and the place where you found it. #line:00d7df
 title: teleport
 position: -86,1066
 ---
-<<if $area_center_done and $area_centennial_done>>
-    You can now go to the Sky Tower! #line:042161c
-<<endif>>
 Where do you want to go? #line:where_to_go
 -> School <<if $current_place == "cathedral">> #line:0d0e53a 
     <<teleport tram_school>>
@@ -245,10 +242,14 @@ Where do you want to go? #line:where_to_go
     <<teleport tram_centennial_hall>>
     <<wait 4>>
     <<jump intro_area_centennial>>
--> Sky Tower <<if $area_centennial_done and $area_center_done and $current_place != "skytower">> #line:012413f 
-    <<teleport tram_skytower>>
-    <<wait 4>>
-    <<jump intro_area_skytower>>
+-> Sky Tower <<if $current_place != "skytower" and $current_place != "cathedral">> #line:012413f 
+    <<if $area_center_done and $area_centennial_done>>
+        <<teleport tram_skytower>>
+        <<wait 4>>
+        <<jump intro_area_skytower>>
+    <<else>>
+        You can't go to the Sky Tower yet. #line:042161c
+    <<endif>>
 -> Stay here #line:stay_here #highlight
 ===
 
@@ -655,6 +656,7 @@ color: blue
     <<target npc_4>>
 <<else>>
     The Center area is done! #line:center_area_done
+    Use the tram to choose your next stop. #shadow:03991b3
     <<set $area_center_done = true>>
     <<target driver_tram_center>>
 <<endif>>
@@ -728,8 +730,8 @@ color: yellow
     <<card dwarf_origin>>
     I am one of the oldest dwarves in town! I first appeared in 2005. #line:025f12a
     There are over 800 dwarves in town! #line:08150b1 
-    Will you find all of us? #line:09ff330 
-    <<target npc_2>>
+    Will you find all of us? #line:09ff330
+    <<jump check_area_center>>
 <<elseif has_item("key_gold")>>
     To unlock the cage, solve this puzzle! #shadow:solve_to_unlock
     <<activity activity_2 activity_2_done>>
@@ -852,7 +854,7 @@ color: yellow
     <<card dwarf_councilor>>
     I am the Councilor Dwarf. I help the City Mayor! #line:0851c6f 
     My family has lived here for a long, long time! #line:06002b8 
-    <<target npc_4>>
+    <<jump check_area_center>>
 <<elseif has_item("key_gold")>>
     To unlock the cage, solve this puzzle! #shadow:solve_to_unlock
     <<activity activity_3 activity_3_done>>
@@ -981,6 +983,7 @@ color: yellow
     <<card dwarf_painter>>
     I paint the history of Wrocław for everyone to see. #line:dwarf4_003
     I love bright colors and giant pictures! #line:dwarf4_004
+    <<jump check_area_center>>
 <<elseif has_item("key_gold")>>
     To unlock the cage, solve this puzzle! #shadow:solve_to_unlock
     <<activity activity_4 activity_4_done>>
@@ -1057,6 +1060,7 @@ color: blue
 <<else>>
     <<set $area_centennial_done = true>>
     The Centennial Hall area is done! #line:0d209ba 
+    Use the tram to choose your next stop. #shadow:03991b3
     <<target driver_tram_centennial>>
 <<endif>>
 ===
