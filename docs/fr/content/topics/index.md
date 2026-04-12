@@ -328,10 +328,10 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Partition musicale](../cards/index.md#musical_score)**
-    Les notes écrites et les paroles d'une chanson.
+    - **[Gamme musicale](../cards/index.md#musical_scale)**
+    Les sept notes jouées dans l'ordre
 
-    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+    ![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ width="200" }
 
 - Connected cards:
     - **[Piano](../cards/index.md#piano)** (RelatedTo)
@@ -339,42 +339,47 @@ Credits:
 
     ![preview piano](../../../assets/img/content/cards/piano.jpg){ width="200" }
 
-    - **[La](../cards/index.md#note_la)** (RelatedTo)
-    Une note de musique.
-
-    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
-
-    - **[Fa](../cards/index.md#note_fa)** (RelatedTo)
-    Une note de musique.
-
-    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
-
-    - **[Si](../cards/index.md#note_si)** (RelatedTo)
-    Une note de musique.
-
-    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
-
-    - **[Sol](../cards/index.md#note_sol)** (RelatedTo)
-    Une note de musique.
-
-    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
-
-    - **[Ut](../cards/index.md#note_do)** (RelatedTo)
+    - **[Do](../cards/index.md#note_do)** (RelatedTo)
     Une note de musique.
 
     ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ width="200" }
+
+    - **[Ré](../cards/index.md#note_re)** (RelatedTo)
+    Une note de musique.
+
+    ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
 
     - **[Mi](../cards/index.md#note_mi)** (RelatedTo)
     Une note de musique.
 
     ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
 
-    - **[Concernant](../cards/index.md#note_re)** (RelatedTo)
+    - **[Fa](../cards/index.md#note_fa)** (RelatedTo)
     Une note de musique.
 
-    ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
+    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
 
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
+    - **[Sol](../cards/index.md#note_sol)** (RelatedTo)
+    Une note de musique.
+
+    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
+
+    - **[La](../cards/index.md#note_la)** (RelatedTo)
+    Une note de musique.
+
+    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
+
+    - **[Si](../cards/index.md#note_si)** (RelatedTo)
+    Une note de musique.
+
+    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
+
+    - **[Partition musicale](../cards/index.md#musical_score)** (RelatedTo)
+    Les notes écrites et les paroles d'une chanson.
+
+    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+
+- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md), [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -555,6 +560,11 @@ Credits:
     Un gros animal avec une trompe. Les éléphants sont les plus grands animaux terrestres. Ils ont de grandes oreilles et adorent arroser !
 
     ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ width="200" }
+
+    - **[Chimpanzé](../cards/index.md#animal_chimpanzee)** (RelatedTo)
+    Intelligent et joueur, il adore grimper aux arbres. Il utilise des bâtons et des pierres comme de petits outils !
+
+    ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ width="200" }
 
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 

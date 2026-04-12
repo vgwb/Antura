@@ -77,9 +77,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;elseif $activity1_done ==true &gt;&gt;</span>
 <span class="yarn-line">        [MISSING TRANSLATION:         We're gonna play soon!]</span> <span class="yarn-meta">#line:0ef876c </span>
 <span class="yarn-line">        [MISSING TRANSLATION:         Do you wanna try to order them again?]</span> <span class="yarn-meta">#line:08ae1b5 </span>
-<span class="yarn-line">        [MISSING TRANSLATION:         -&gt; Yes]</span> <span class="yarn-meta">#line:0a1e74f </span>
+<span class="yarn-choice">                -&gt; [MISSING TRANSLATION: Yes]</span> <span class="yarn-meta">#line:0a1e74f </span>
         <span class="yarn-cmd">&lt;&lt;activity order_Musical_notes band_member&gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         -&gt; No]</span> <span class="yarn-meta">#line:05d9168 </span>
+<span class="yarn-choice">                -&gt; [MISSING TRANSLATION: No]</span> <span class="yarn-meta">#line:05d9168 </span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">Cześć! Jesteśmy częścią zespołu. Jesteśmy muzykami.</span> <span class="yarn-meta">#line:09a50f8 </span>
@@ -169,13 +169,13 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $quest2_done = true&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: These are the words of la Marseillaise!]</span> <span class="yarn-meta">#line:08ea860 </span>
 <span class="yarn-line">[MISSING TRANSLATION: The first part.]</span> <span class="yarn-meta">#line:0f8bb5a </span>
-<span class="yarn-cmd">&lt;&lt;card  marseillaise_1 zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_1 zoom&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: The second part.]</span> <span class="yarn-meta">#line:0f1831e </span>
-<span class="yarn-cmd">&lt;&lt;card  marseillaise_2 zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_2 zoom&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: The third part.]</span> <span class="yarn-meta">#line:018f56a </span>
-<span class="yarn-cmd">&lt;&lt;card  marseillaise_3 zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_3 zoom&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: The last part.]</span> <span class="yarn-meta">#line:050d937 </span>
-<span class="yarn-cmd">&lt;&lt;card  marseillaise_4 zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card marseillaise_4 zoom&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: Now go talk with Jean!]</span> <span class="yarn-meta">#line:0a28908 </span>
 <span class="yarn-cmd">&lt;&lt;target Jean_MJ&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_end find_the_words&gt;&gt;</span>

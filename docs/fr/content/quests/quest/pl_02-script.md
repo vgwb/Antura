@@ -113,9 +113,6 @@ hide:
 <div class="yarn-node" data-title="teleport">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $area_center_done and $area_centennial_done&gt;&gt;</span>
-<span class="yarn-line">    Vous pouvez maintenant vous rendre à la Sky Tower !</span> <span class="yarn-meta">#line:042161c</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-line">Où veux-tu aller ?</span> <span class="yarn-meta">#line:where_to_go</span>
 -&gt; School <span class="yarn-cmd">&lt;&lt;if $current_place == "cathedral"&gt;&gt;</span>  <span class="yarn-meta">#line:0d0e53a </span>
     <span class="yarn-cmd">&lt;&lt;teleport tram_school&gt;&gt;</span>
@@ -137,10 +134,14 @@ hide:
     <span class="yarn-cmd">&lt;&lt;teleport tram_centennial_hall&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;wait 4&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump intro_area_centennial&gt;&gt;</span>
--&gt; Sky Tower <span class="yarn-cmd">&lt;&lt;if $area_centennial_done and $area_center_done and $current_place != "skytower"&gt;&gt;</span>  <span class="yarn-meta">#line:012413f </span>
-    <span class="yarn-cmd">&lt;&lt;teleport tram_skytower&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;wait 4&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;jump intro_area_skytower&gt;&gt;</span>
+-&gt; Sky Tower <span class="yarn-cmd">&lt;&lt;if $current_place != "skytower" and $current_place != "cathedral"&gt;&gt;</span>  <span class="yarn-meta">#line:012413f </span>
+    <span class="yarn-cmd">&lt;&lt;if $area_center_done and $area_centennial_done&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;teleport tram_skytower&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;wait 4&gt;&gt;</span>
+        <span class="yarn-cmd">&lt;&lt;jump intro_area_skytower&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">        Vous ne pouvez pas encore aller à la Sky Tower.</span> <span class="yarn-meta">#line:042161c</span>
+    <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Restez ici</span> <span class="yarn-meta">#line:stay_here #highlight</span>
 
 </code>
@@ -495,6 +496,7 @@ hide:
 <span class="yarn-line">    Utilisez le tram pour choisir votre prochain arrêt.</span> <span class="yarn-meta">#line:03991b3 </span>
     <span class="yarn-cmd">&lt;&lt;target driver_tram_cathedral&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "dwarf_1"&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump hint_1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;detour info_1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card dwarf_bishop&gt;&gt;</span>
@@ -715,6 +717,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;target npc_4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    La zone centrale est terminée !</span> <span class="yarn-meta">#line:center_area_done</span>
+<span class="yarn-line">    Utilisez le tram pour choisir votre prochain arrêt.</span> <span class="yarn-meta">#shadow:03991b3</span>
     <span class="yarn-cmd">&lt;&lt;set $area_center_done = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target driver_tram_center&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -822,8 +825,8 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card dwarf_origin&gt;&gt;</span>
 <span class="yarn-line">    Je suis l'un des plus vieux nains de la ville ! Je suis apparu pour la première fois en 2005.</span> <span class="yarn-meta">#line:025f12a</span>
 <span class="yarn-line">    Il y a plus de 800 nains en ville !</span> <span class="yarn-meta">#line:08150b1 </span>
-<span class="yarn-line">    Nous retrouverez-vous tous ?</span> <span class="yarn-meta">#line:09ff330 </span>
-    <span class="yarn-cmd">&lt;&lt;target npc_2&gt;&gt;</span>
+<span class="yarn-line">    Nous retrouverez-vous tous ?</span> <span class="yarn-meta">#line:09ff330</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_area_center&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif has_item("key_gold")&gt;&gt;</span>
 <span class="yarn-line">    Pour déverrouiller la cage, résolvez cette énigme !</span> <span class="yarn-meta">#shadow:solve_to_unlock</span>
     <span class="yarn-cmd">&lt;&lt;activity activity_2 activity_2_done&gt;&gt;</span>
@@ -1001,7 +1004,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card dwarf_councilor&gt;&gt;</span>
 <span class="yarn-line">    Je suis le conseiller nain. J'assiste le maire de la ville !</span> <span class="yarn-meta">#line:0851c6f </span>
 <span class="yarn-line">    Ma famille vit ici depuis très, très longtemps !</span> <span class="yarn-meta">#line:06002b8 </span>
-    <span class="yarn-cmd">&lt;&lt;target npc_4&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_area_center&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif has_item("key_gold")&gt;&gt;</span>
 <span class="yarn-line">    Pour déverrouiller la cage, résolvez cette énigme !</span> <span class="yarn-meta">#shadow:solve_to_unlock</span>
     <span class="yarn-cmd">&lt;&lt;activity activity_3 activity_3_done&gt;&gt;</span>
@@ -1193,6 +1196,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card dwarf_painter&gt;&gt;</span>
 <span class="yarn-line">    Je peins l'histoire de Wrocław pour que tout le monde puisse la voir.</span> <span class="yarn-meta">#line:dwarf4_003</span>
 <span class="yarn-line">    J'adore les couleurs vives et les grands tableaux !</span> <span class="yarn-meta">#line:dwarf4_004</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_area_center&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif has_item("key_gold")&gt;&gt;</span>
 <span class="yarn-line">    Pour déverrouiller la cage, résolvez cette énigme !</span> <span class="yarn-meta">#shadow:solve_to_unlock</span>
     <span class="yarn-cmd">&lt;&lt;activity activity_4 activity_4_done&gt;&gt;</span>
@@ -1296,6 +1300,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $area_centennial_done = true&gt;&gt;</span>
 <span class="yarn-line">    Le secteur du Centennial Hall est terminé !</span> <span class="yarn-meta">#line:0d209ba </span>
+<span class="yarn-line">    Utilisez le tram pour choisir votre prochain arrêt.</span> <span class="yarn-meta">#shadow:03991b3</span>
     <span class="yarn-cmd">&lt;&lt;target driver_tram_centennial&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -2174,7 +2179,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;inventory wroclaw_dwarf_statue add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive cage_9 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetMapIcon dwarf_9 done&gt;&gt;</span>
-    <span class="yarn-cmd">&lt;&lt;camera_map_distance -1&gt;&gt;</span>
+<span class="yarn-comment">//    &lt;&lt;camera_map_distance -1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $dwarf_9_done = true&gt;&gt;</span>
 <span class="yarn-line">    Merci ! Vous m'avez sauvé !</span> <span class="yarn-meta">#shadow:dwarf_saved</span>
     <span class="yarn-cmd">&lt;&lt;jump dwarf_9&gt;&gt;</span>

@@ -477,6 +477,7 @@ Smart and playful, it loves to climb trees. It uses sticks and stones like littl
 
 - Type: None
 - Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -4232,19 +4233,6 @@ A clear piece of glass or plastic that bends light.
 
 ---
 
-### Leonardo da Vinci Primary School {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
-
-- Type: Place
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Main Town Hall {#main_town_hall}
 ![preview main_town_hall](../../../assets/img/content/cards/main_town_hall.jpg){ loading=lazy }
 
@@ -4744,6 +4732,19 @@ The Sun and the eight planets that travel around it.
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Originally uploaded from NASA by Bricktop; edited by Deuar, KFP, TotoBaggins, City303, JCPagc2015 | [source](https://commons.wikimedia.org/wiki/File:Moons_of_solar_system_v7.jpg)
 - Quests: [Copernicus and the Solar System (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Szkoła Podstawowa Leonarda da Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+It’s a friendly place where children learn, create, and explore guided by curiosity, art, and science.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 

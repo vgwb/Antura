@@ -380,7 +380,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seagull&gt;&gt;</span>
 <span class="yarn-line">Sì! La missione è compiuta!</span> <span class="yarn-meta">#line:0283435 </span>
-<span class="yarn-line">Parole di revisione</span> <span class="yarn-meta">#line:0322b5e </span>
+<span class="yarn-choice">-&gt; Parole di revisione</span> <span class="yarn-meta">#line:0322b5e </span>
     <span class="yarn-cmd">&lt;&lt;jump RECAP_MEMORY&gt;&gt;</span>
 
 </code>
@@ -449,9 +449,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card baltic_sea&gt;&gt;</span>
 <span class="yarn-line">Quale mare si trova vicino a DANZICA?</span> <span class="yarn-meta">#line:034eda7 </span>
-<span class="yarn-line">MAR BALTICO</span> <span class="yarn-meta">#line:04bbc7e </span>
+<span class="yarn-choice">-&gt; MAR BALTICO</span> <span class="yarn-meta">#line:04bbc7e </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
-<span class="yarn-line">MAR NERO</span> <span class="yarn-meta">#line:046b853 </span>
+<span class="yarn-choice">-&gt; MAR NERO</span> <span class="yarn-meta">#line:046b853 </span>
 <span class="yarn-line">    Non quello. Riprova!</span> <span class="yarn-meta">#line:0cfee89 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q1&gt;&gt;</span>
 
@@ -470,9 +470,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card amber&gt;&gt;</span>
 <span class="yarn-line">Cos'è BALTIC GOLD?</span> <span class="yarn-meta">#line:039b452 </span>
-<span class="yarn-line">AMBRA</span> <span class="yarn-meta">#line:0bcd01f </span>
+<span class="yarn-choice">-&gt; AMBRA</span> <span class="yarn-meta">#line:0bcd01f </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
-<span class="yarn-line">SABBIA</span> <span class="yarn-meta">#line:0af46f3 </span>
+<span class="yarn-choice">-&gt; SABBIA</span> <span class="yarn-meta">#line:0af46f3 </span>
 <span class="yarn-line">    Non SABBIA. Riprova!</span> <span class="yarn-meta">#line:005cc14 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
 
@@ -491,9 +491,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gdansk_lighthouse&gt;&gt;</span>
 <span class="yarn-line">Cosa fa un FARO?</span> <span class="yarn-meta">#line:02e4c51 </span>
-<span class="yarn-line">Aiuta le NAVI</span> <span class="yarn-meta">#line:0822992 </span>
+<span class="yarn-choice">-&gt; Aiuta le NAVI</span> <span class="yarn-meta">#line:0822992 </span>
     <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-<span class="yarn-line">Cattura pesci</span> <span class="yarn-meta">#line:072458e </span>
+<span class="yarn-choice">-&gt; Cattura pesci</span> <span class="yarn-meta">#line:072458e </span>
 <span class="yarn-line">    No. Guida le NAVI. Riprova!</span> <span class="yarn-meta">#line:04b2bb3 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
 

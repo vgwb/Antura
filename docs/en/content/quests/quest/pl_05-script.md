@@ -380,7 +380,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seagull&gt;&gt;</span>
 <span class="yarn-line">Yes! The quest is done!</span> <span class="yarn-meta">#line:0283435 </span>
-<span class="yarn-line">Review words</span> <span class="yarn-meta">#line:0322b5e </span>
+<span class="yarn-choice">-&gt; Review words</span> <span class="yarn-meta">#line:0322b5e </span>
     <span class="yarn-cmd">&lt;&lt;jump RECAP_MEMORY&gt;&gt;</span>
 
 </code>
@@ -449,9 +449,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card baltic_sea&gt;&gt;</span>
 <span class="yarn-line">What sea is near GDAŃSK?</span> <span class="yarn-meta">#line:034eda7 </span>
-<span class="yarn-line">BALTIC SEA</span> <span class="yarn-meta">#line:04bbc7e </span>
+<span class="yarn-choice">-&gt; BALTIC SEA</span> <span class="yarn-meta">#line:04bbc7e </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
-<span class="yarn-line">BLACK SEA</span> <span class="yarn-meta">#line:046b853 </span>
+<span class="yarn-choice">-&gt; BLACK SEA</span> <span class="yarn-meta">#line:046b853 </span>
 <span class="yarn-line">    Not that one. Try again!</span> <span class="yarn-meta">#line:0cfee89 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q1&gt;&gt;</span>
 
@@ -470,9 +470,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card amber&gt;&gt;</span>
 <span class="yarn-line">What is BALTIC GOLD?</span> <span class="yarn-meta">#line:039b452 </span>
-<span class="yarn-line">AMBER</span> <span class="yarn-meta">#line:0bcd01f </span>
+<span class="yarn-choice">-&gt; AMBER</span> <span class="yarn-meta">#line:0bcd01f </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
-<span class="yarn-line">SAND</span> <span class="yarn-meta">#line:0af46f3 </span>
+<span class="yarn-choice">-&gt; SAND</span> <span class="yarn-meta">#line:0af46f3 </span>
 <span class="yarn-line">    Not SAND. Try again!</span> <span class="yarn-meta">#line:005cc14 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
 
@@ -491,9 +491,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gdansk_lighthouse&gt;&gt;</span>
 <span class="yarn-line">What does a LIGHTHOUSE do?</span> <span class="yarn-meta">#line:02e4c51 </span>
-<span class="yarn-line">Helps SHIPS</span> <span class="yarn-meta">#line:0822992 </span>
+<span class="yarn-choice">-&gt; Helps SHIPS</span> <span class="yarn-meta">#line:0822992 </span>
     <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-<span class="yarn-line">Catches fish</span> <span class="yarn-meta">#line:072458e </span>
+<span class="yarn-choice">-&gt; Catches fish</span> <span class="yarn-meta">#line:072458e </span>
 <span class="yarn-line">    No. It guides SHIPS. Try again!</span> <span class="yarn-meta">#line:04b2bb3 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
 

@@ -18,41 +18,29 @@ hide:
 <pre class="yarn-code" style="--node-color:red"><code>
 <span class="yarn-header-dim">// pl_01 | Warsaw</span>
 <span class="yarn-header-dim">// </span>
-<span class="yarn-header-dim">// WANTED:</span>
-<span class="yarn-header-dim">// Cards:</span>
-<span class="yarn-header-dim">// - MermaidOfWarsaw (cultural symbol)</span>
-<span class="yarn-header-dim">// - warsaw_chopin_monument (musical heritage)</span>
-<span class="yarn-header-dim">// - FryderykChopin (historical figure)</span>
-<span class="yarn-header-dim">// - warsaw_wars_statue (legendary figure)</span>
-<span class="yarn-header-dim">// - WarsAndSawa (city legend)</span>
-<span class="yarn-header-dim">// - warsaw_wisla_river (geographical feature)</span>
-<span class="yarn-header-dim">// - RiverWisla (major river)</span>
-<span class="yarn-header-dim">// - KingSigismund (historical figure)</span>
-<span class="yarn-header-dim">// - warsaw_sejm (government building)</span>
-<span class="yarn-header-dim">// - President (political figure)</span>
-<span class="yarn-header-dim">// - warsaw_palace_culture (cultural landmark)</span>
-<span class="yarn-header-dim">// - MariaCurie (scientific figure)</span>
-<span class="yarn-header-dim">// - MoneyZloty (currency education)</span>
-<span class="yarn-header-dim">// - warsaw_national_stadium (sports venue)</span>
-<span class="yarn-header-dim">//</span>
-<span class="yarn-header-dim">// Tasks:</span>
-<span class="yarn-header-dim">// - Return Mermaid's sword after parliament visit</span>
-<span class="yarn-header-dim">// - Help Wars find Sawa by the river</span>
-<span class="yarn-header-dim">// - Find King Sigismund's crown</span>
-<span class="yarn-header-dim">// - Follow Maria Curie's coin trail</span>
-<span class="yarn-header-dim">//</span>
-<span class="yarn-header-dim">// Activities:</span>
-<span class="yarn-header-dim">// - piano chopin_melody (musical activity)</span>
-<span class="yarn-header-dim">// - quiz polish_flag_colors (civic education)</span>
-<span class="yarn-header-dim">// - quiz warsaw_basics (comprehensive review)</span>
-<span class="yarn-header-dim">//</span>
-<span class="yarn-header-dim">// Words used: TRANSPORT (TRAIN, TRAM, BUS, CAR, BIKE), SPORT (FOOTBALL, BALL, GOAL, FIELD), FLAG, ZŁOTY, MERMAID OF WARSAW, CHOPIN, WARS &amp; SAWA, KING SIGISMUND, PRESIDENT/SEJM, PALACE OF CULTURE AND SCIENCE, MARIA SKŁODOWSKA-CURIE, NATIONAL STADIUM, COPERNICUS</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
-<span class="yarn-line">Welcome to WARSAW, the capital of POLAND.</span> <span class="yarn-meta">#line:0b126ba </span>
+<span class="yarn-cmd">&lt;&lt;declare $mermaid_started = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $mermaid_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $chopin_started = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $chopin_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $wars_started = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $sawa_met = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $wars_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $sigismund_started = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $sigismund_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $parliament_started = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $parliament_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $sword_found = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $sword_returned = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $palace_started = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $palace_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $stadium_started = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $stadium_done = false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $quiz_score = 0&gt;&gt;</span>
+Welcome to Warsaw, the capital of Poland.
+Go first to the Mermaid of Warsaw by the river.
 
 </code>
 </pre>
@@ -67,17 +55,22 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Great! You explored Warsaw.</span> <span class="yarn-meta">#line:0f168cb </span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_mermaid_plaza&gt;&gt;</span>
-<span class="yarn-line">You met the Mermaid, Wars and Sawa.</span> <span class="yarn-meta">#line:07b58db </span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_chopin_monument&gt;&gt;</span>
-<span class="yarn-line">You heard about Chopin and Maria Skłodowska‑Curie.</span> <span class="yarn-meta">#line:0421ca8 </span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_palace_culture&gt;&gt;</span>
-<span class="yarn-line">You visited the Parliament and the Palace of Culture.</span> <span class="yarn-meta">#line:06ad318 </span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_wisla_river&gt;&gt;</span>
-<span class="yarn-line">You saw the river, the stadium, and a tall column.</span> <span class="yarn-meta">#line:07661f8 </span>
-<span class="yarn-line">You learned flag colors and some transport words.</span> <span class="yarn-meta">#line:03f7300 </span>
-<span class="yarn-line">Warsaw mixes history, science, music, and sport.</span> <span class="yarn-meta">#line:063523b </span>
+Great work. You explored Warsaw from the river to the stadium.
+<span class="yarn-cmd">&lt;&lt;card mermaid_of_warsaw&gt;&gt;</span>
+The Mermaid started your trip and got her sword back.
+<span class="yarn-cmd">&lt;&lt;card fryderyk_chopin&gt;&gt;</span>
+Chopin showed you where to go next.
+<span class="yarn-cmd">&lt;&lt;card wars_and_sawa&gt;&gt;</span>
+Wars and Sawa told you their river story.
+<span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
+King Sigismund sent you to Parliament.
+<span class="yarn-cmd">&lt;&lt;card polish_houses_of_parliament&gt;&gt;</span>
+At Parliament, you fixed the flag and got the sword.
+<span class="yarn-cmd">&lt;&lt;card palace_of_culture_and_science&gt;&gt;</span>
+At the Palace, you helped Maria find her wallet.
+<span class="yarn-cmd">&lt;&lt;card national_stadium_warsaw&gt;&gt;</span>
+At the Stadium, you helped make the city happy again.
+You gave the Mermaid her sword, opened seven chests, and learned about Warsaw.
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -94,8 +87,8 @@ hide:
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Draw the Polish flag, white on top, red below.</span> <span class="yarn-meta">#line:0a4ef13 </span>
-<span class="yarn-line">Point to Warsaw on a map of Poland.</span> <span class="yarn-meta">#line:056b063 </span>
+Draw your favorite place in Warsaw and the chest you opened there.
+Then draw the Polish flag with white on top and red below.
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -109,12 +102,10 @@ hide:
 <div class="yarn-node" data-title="GUIDE_INTRO">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">group: intro</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_city_gate&gt;&gt;</span>
-<span class="yarn-line">Antura ran through the city and made a mess.</span> <span class="yarn-meta">#line:0f4026d </span>
-<span class="yarn-line">Can you help us fix things?</span> <span class="yarn-meta">#line:0e40172 </span>
-<span class="yarn-line">Start with the Mermaid of Warsaw by the river.</span> <span class="yarn-meta">#line:0303973 </span>
+Warsaw's story starts with the Mermaid, not with me.
+Talk to the people in each place to keep going.
 
 </code>
 </pre>
@@ -126,18 +117,113 @@ hide:
 
 <div class="yarn-node" data-title="MERMAID_SQUARE">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// PLACE 1 | MERMAID OF WARSAW</span>
+<span class="yarn-header-dim">group: mermaid</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_mermaid_plaza&gt;&gt;</span>
-<span class="yarn-line">Hello. I am the Mermaid of Warsaw.</span> <span class="yarn-meta">#line:048b274 </span>
-<span class="yarn-line">Antura took my sword while I tried to stop him.</span> <span class="yarn-meta">#line:03284c1 </span>
-<span class="yarn-line">Please find it and help other places on his trail.</span> <span class="yarn-meta">#line:0b37c7e </span>
-<span class="yarn-line">Do you know how people move in Warsaw?</span> <span class="yarn-meta">#line:014ebd5 </span>
-<span class="yarn-line">You can ride a tram, take a bus, or a train.</span> <span class="yarn-meta">#line:0f69ca8 </span>
-<span class="yarn-line">You can also go by car or bike.</span> <span class="yarn-meta">#line:01b35cc </span>
-<span class="yarn-line">I saw Antura near the Chopin Monument.</span> <span class="yarn-meta">#line:016885a </span>
-<span class="yarn-line">Follow the music.</span> <span class="yarn-meta">#line:00591a8 </span>
+<span class="yarn-cmd">&lt;&lt;if !$mermaid_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif !$mermaid_done&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_1_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-1"></a>
+
+## npc_1
+
+<div class="yarn-node" data-title="npc_1">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: mermaid</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $mermaid_done&gt;&gt;</span>
+		You already helped me, thank you! The chest is waiting for you here.
+	<span class="yarn-cmd">&lt;&lt;jump chest_1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $mermaid_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_1_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;detour info_1&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card mermaid_of_warsaw&gt;&gt;</span>
+		I am the Mermaid of Warsaw. I am a symbol of the city.
+		Antura stole my sword while I was trying to stop him.
+		Help me here at the square by sorting the ways people move around Warsaw.
+		People travel by tram, bus, train, car, and bike.
+		When you are done, go to the Chopin Monument. I saw Antura run that way.
+	<span class="yarn-cmd">&lt;&lt;set $mermaid_started = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_1_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-1-done"></a>
+
+## task_1_done
+
+<div class="yarn-node" data-title="task_1_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: mermaid</span>
+<span class="yarn-header-dim">---</span>
+Let us sort the ways people move around Warsaw!
+<span class="yarn-choice">-&gt; I need help. What should I sort?</span>
+		Think about tram, bus, car, and bike.
+		Put the transport cards in the right order.
+<span class="yarn-choice">-&gt; I am ready to sort! #highlight</span>
+	<span class="yarn-cmd">&lt;&lt;activity order activity_1_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-1-done"></a>
+
+## activity_1_done
+
+<div class="yarn-node" data-title="activity_1_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: mermaid</span>
+<span class="yarn-header-dim">---</span>
+&lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
+	<span class="yarn-cmd">&lt;&lt;card tram&gt;&gt;</span>
+		Many people ride the tram in Warsaw.
+	<span class="yarn-cmd">&lt;&lt;card bus&gt;&gt;</span>
+		Many people ride the bus too.
+	<span class="yarn-cmd">&lt;&lt;card bike&gt;&gt;</span>
+		Some people ride a bike around the city.
+	<span class="yarn-cmd">&lt;&lt;set $mermaid_done = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_1&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+		Good try! Come back and sort the transport words again.
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-1"></a>
+
+## chest_1
+
+<div class="yarn-node" data-title="chest_1">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: mermaid</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;trigger chest_1_open&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetInteractable chest_1 false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card mermaid_of_warsaw&gt;&gt;</span>
+The Mermaid chest is open now.
+Take the card and go south to the Chopin Monument in the park. Keep looking for my sword.
 
 </code>
 </pre>
@@ -149,18 +235,111 @@ hide:
 
 <div class="yarn-node" data-title="CHOPIN_MONUMENT">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// PLACE 2 | CHOPIN MONUMENT</span>
+<span class="yarn-header-dim">group: chopin</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_chopin_monument&gt;&gt;</span>
-<span class="yarn-line">Hello. I am Fryderyk Chopin.</span> <span class="yarn-meta">#line:05e23dd </span>
-<span class="yarn-line">My music notes flew away.</span> <span class="yarn-meta">#line:0c2dc21 </span>
-<span class="yarn-line">Please recreate the melody.</span> <span class="yarn-meta">#line:0cd9161 </span>
-<span class="yarn-cmd">&lt;&lt;activity piano chopin_melody tutorial&gt;&gt;</span>
-<span class="yarn-line">Beautiful. Thank you.</span> <span class="yarn-meta">#line:0588964 </span>
-<span class="yarn-line">I wrote many pieces for piano.</span> <span class="yarn-meta">#line:02f0cb6 </span>
-<span class="yarn-line">I saw Antura run toward Copernicus.</span> <span class="yarn-meta">#line:0d0dfb2 </span>
-<span class="yarn-line">Keep going. The Mermaid needs her sword back.</span> <span class="yarn-meta">#line:0f18f1a </span>
+<span class="yarn-cmd">&lt;&lt;if !$mermaid_done&gt;&gt;</span>
+		Help the Mermaid first, then come to my monument.
+<span class="yarn-cmd">&lt;&lt;elseif !$chopin_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_2&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif !$chopin_done&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_2_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_2&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-2"></a>
+
+## npc_2
+
+<div class="yarn-node" data-title="npc_2">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: chopin</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $chopin_done&gt;&gt;</span>
+		The melody is restored. The chest is yours.
+	<span class="yarn-cmd">&lt;&lt;jump chest_2&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $chopin_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_2_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;detour info_2&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card chopin_monument&gt;&gt;</span>
+		I am Fryderyk Chopin. My music is part of Warsaw.
+		Antura scattered the notes of my melody around the monument.
+		Come back and play the melody on the piano to restore it.
+	<span class="yarn-cmd">&lt;&lt;set $chopin_started = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_2_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-2-done"></a>
+
+## task_2_done
+
+<div class="yarn-node" data-title="task_2_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: chopin</span>
+<span class="yarn-header-dim">---</span>
+The notes are scattered around my monument.
+Can you play the melody and bring them back?
+<span class="yarn-choice">-&gt; How do I play the melody?</span>
+		Listen carefully and watch the keys light up.
+		Then tap them in the same order.
+<span class="yarn-choice">-&gt; I am ready to play! #highlight</span>
+	<span class="yarn-cmd">&lt;&lt;activity piano activity_2_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-2-done"></a>
+
+## activity_2_done
+
+<div class="yarn-node" data-title="activity_2_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: chopin</span>
+<span class="yarn-header-dim">---</span>
+&lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
+	<span class="yarn-cmd">&lt;&lt;card fryderyk_chopin&gt;&gt;</span>
+		I was a Polish composer. This is a famous place in Warsaw.
+	<span class="yarn-cmd">&lt;&lt;card nicolaus_copernicus_monument_warsaw&gt;&gt;</span>
+		I saw Antura run past Copernicus and toward the river with the Mermaid's sword.
+	<span class="yarn-cmd">&lt;&lt;set $chopin_done = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_2&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+		Good try! Come back and play the melody again.
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-2"></a>
+
+## chest_2
+
+<div class="yarn-node" data-title="chest_2">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: chopin</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;trigger chest_2_open&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetInteractable chest_2 false&gt;&gt;</span>
+The Chopin chest is open now.
+Go north-east and help Wars and Sawa by the Wisla.
 
 </code>
 </pre>
@@ -172,13 +351,52 @@ hide:
 
 <div class="yarn-node" data-title="WARS_AND_SAWA">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// PLACE 3 | WARS AND SAWA BY THE WISLA</span>
+<span class="yarn-header-dim">group: wars_sawa</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_wars_statue&gt;&gt;</span>
-<span class="yarn-line">Have you seen Sawa? We got separated.</span> <span class="yarn-meta">#line:0f91d02 </span>
-<span class="yarn-line">Antura caused trouble. Sawa ran toward the river.</span> <span class="yarn-meta">#line:0d21844 </span>
-<span class="yarn-line">Please bring her back.</span> <span class="yarn-meta">#line:0fac801 </span>
+<span class="yarn-cmd">&lt;&lt;if !$chopin_done&gt;&gt;</span>
+		Chopin needs help first. Then come to the river.
+<span class="yarn-cmd">&lt;&lt;elseif !$wars_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif !$sawa_met&gt;&gt;</span>
+		Sawa is waiting by the river bend. Speak with her, then come back to Wars.
+<span class="yarn-cmd">&lt;&lt;elseif !$wars_done&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_3_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-3"></a>
+
+## npc_3
+
+<div class="yarn-node" data-title="npc_3">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: wars_sawa</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $wars_done&gt;&gt;</span>
+		We are together again. Thank you! The chest is open.
+	<span class="yarn-cmd">&lt;&lt;jump chest_3&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $sawa_met&gt;&gt;</span>
+		Sawa is back! Talk to us both to hear the rest of our story.
+	<span class="yarn-cmd">&lt;&lt;jump task_3_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $wars_started&gt;&gt;</span>
+		Sawa is still at the river bend. Please find her.
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;detour info_3&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card wars_and_sawa_statue&gt;&gt;</span>
+		I am Wars. Antura caused chaos here too, and Sawa got separated from me.
+		Please find her at the bend of the Wisła and bring her back to me.
+	<span class="yarn-cmd">&lt;&lt;set $wars_started = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -191,12 +409,19 @@ hide:
 <div class="yarn-node" data-title="SAWA_BY_WISLA">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">group: wars_sawa</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_wisla_river&gt;&gt;</span>
-<span class="yarn-line">Hello. I am by the Wisła River.</span> <span class="yarn-meta">#line:057d461 </span>
-<span class="yarn-line">The Wisła is the longest river in Poland.</span> <span class="yarn-meta">#line:0345857 </span>
-<span class="yarn-line">Let’s go back to Wars.</span> <span class="yarn-meta">#line:071d7d4 </span>
+<span class="yarn-cmd">&lt;&lt;if !$wars_started&gt;&gt;</span>
+		Wars is looking for me. Please speak with him first.
+<span class="yarn-cmd">&lt;&lt;elseif !$sawa_met&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card wars_and_sawa&gt;&gt;</span>
+		I am Sawa. The Wisła is the longest river in Poland and this is our home.
+		Antura ran through here too and separated me from Wars.
+		Please walk back to Wars. We will tell you the rest of our story together.
+	<span class="yarn-cmd">&lt;&lt;set $sawa_met = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+		Return to Wars. We are both ready.
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -208,13 +433,63 @@ hide:
 
 <div class="yarn-node" data-title="WARS_SAWA_LEGEND">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">group: wars_sawa</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_wars_sawa_back&gt;&gt;</span>
-<span class="yarn-line">Thank you. We are together again.</span> <span class="yarn-meta">#line:099f978 </span>
-<span class="yarn-line">We are Wars and Sawa. This is a Warsaw legend.</span> <span class="yarn-meta">#line:012d571 </span>
-<span class="yarn-line">Find King Sigismund’s column next.</span> <span class="yarn-meta">#line:023e2de </span>
+<span class="yarn-cmd">&lt;&lt;jump task_3_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-3-done"></a>
+
+## task_3_done
+
+<div class="yarn-node" data-title="task_3_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: wars_sawa</span>
+<span class="yarn-header-dim">---</span>
+We are together again. Thank you.
+Our story is one of the old stories of Warsaw.
+<span class="yarn-cmd">&lt;&lt;jump activity_3_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-3-done"></a>
+
+## activity_3_done
+
+<div class="yarn-node" data-title="activity_3_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: wars_sawa</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card wars_and_sawa&gt;&gt;</span>
+The Wisla flows through Warsaw, and our story is part of the city.
+Antura passed toward King Sigismund's Column in the old town.
+<span class="yarn-cmd">&lt;&lt;set $wars_done = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump chest_3&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-3"></a>
+
+## chest_3
+
+<div class="yarn-node" data-title="chest_3">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: wars_sawa</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;trigger chest_3_open&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetInteractable chest_3 false&gt;&gt;</span>
+Our chest is open now.
+Go west to the old town square and speak with King Sigismund. He may know where the sword was left.
 
 </code>
 </pre>
@@ -226,17 +501,107 @@ hide:
 
 <div class="yarn-node" data-title="SIGISMUND_COLUMN">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: SENIOR_M</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// PLACE 4 | KING SIGISMUND'S COLUMN</span>
+<span class="yarn-header-dim">group: sigismund</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_sigismund_column&gt;&gt;</span>
-<span class="yarn-line">Greetings. I am King Sigismund.</span> <span class="yarn-meta">#line:0735d68 </span>
-<span class="yarn-line">My crown fell when Antura ran past!</span> <span class="yarn-meta">#line:06acced </span>
-<span class="yarn-line">It should be nearby. Please find it.</span> <span class="yarn-meta">#line:0a6c3f8 </span>
-<span class="yarn-comment">// Task hint</span>
-<span class="yarn-comment">// task=find_crown, action=HighlightCrown could be handled by scene logic if needed</span>
-<span class="yarn-line">Well done. My crown is back.</span> <span class="yarn-meta">#line:0853f81 </span>
-<span class="yarn-line">Go to the Parliament. The Mermaid’s sword is there.</span> <span class="yarn-meta">#line:0fe293d </span>
+<span class="yarn-cmd">&lt;&lt;if !$wars_done&gt;&gt;</span>
+		Help Wars and Sawa first, then come to my square.
+<span class="yarn-cmd">&lt;&lt;elseif !$sigismund_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_4&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif !$sigismund_done&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_4_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_4&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-4"></a>
+
+## npc_4
+
+<div class="yarn-node" data-title="npc_4">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">group: sigismund</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $sigismund_done&gt;&gt;</span>
+		My crown is restored. The chest is yours.
+	<span class="yarn-cmd">&lt;&lt;jump chest_4&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $sigismund_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_4_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;detour info_4&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
+		I am King Sigismund. My column stands in the old town near the Royal Castle.
+		I moved the capital to Warsaw long ago. Today, Parliament leads Poland.
+		Antura knocked three pieces of my crown off. Find them and bring them back.
+	<span class="yarn-cmd">&lt;&lt;set $sigismund_started = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_4_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-4-done"></a>
+
+## task_4_done
+
+<div class="yarn-node" data-title="task_4_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">group: sigismund</span>
+<span class="yarn-header-dim">---</span>
+Have you found all three crown pieces?
+<span class="yarn-choice">-&gt; Not yet. Where should I look?</span>
+		Search the corners of the old town square near my column.
+		The three golden pieces are glowing.
+<span class="yarn-choice">-&gt; Yes, I have all three! #highlight</span>
+		Excellent. My crown is complete again.
+		Now I can tell you where the sword went next.
+	<span class="yarn-cmd">&lt;&lt;jump activity_4_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-4-done"></a>
+
+## activity_4_done
+
+<div class="yarn-node" data-title="activity_4_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: SENIOR_M</span>
+<span class="yarn-header-dim">group: sigismund</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card person_king_sigismund&gt;&gt;</span>
+People remember me because the capital moved to Warsaw.
+I heard the Mermaid's sword was left at the Houses of Parliament.
+<span class="yarn-cmd">&lt;&lt;set $sigismund_done = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump chest_4&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-4"></a>
+
+## chest_4
+
+<div class="yarn-node" data-title="chest_4">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: sigismund</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;trigger chest_4_open&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetInteractable chest_4 false&gt;&gt;</span>
+My chest is open now.
+Continue east to the Houses of Parliament.
 
 </code>
 </pre>
@@ -248,38 +613,111 @@ hide:
 
 <div class="yarn-node" data-title="PRESIDENT_PARLIAMENT">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// PLACE 5 | HOUSES OF PARLIAMENT</span>
+<span class="yarn-header-dim">group: parliament</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_sejm&gt;&gt;</span>
-<span class="yarn-line">Welcome to the Polish Houses of Parliament.</span> <span class="yarn-meta">#line:049ead5 </span>
-<span class="yarn-line">I also work at the Presidential Palace.</span> <span class="yarn-meta">#line:0bd4bf9 </span>
-<span class="yarn-line">I have the Mermaid’s sword.</span> <span class="yarn-meta">#line:0a0d570 </span>
-<span class="yarn-line">But first, help me fix the Polish flag.</span> <span class="yarn-meta">#line:08e2833 </span>
-<span class="yarn-line">Choose the correct colors.</span> <span class="yarn-meta">#line:0b6a50a </span>
-<span class="yarn-cmd">&lt;&lt;activity quiz polish_flag_colors tutorial&gt;&gt;</span>
-<span class="yarn-line">Thank you. The flag is white and red.</span> <span class="yarn-meta">#line:0c1be80 </span>
-<span class="yarn-line">We also celebrate the 3 May Constitution Day.</span> <span class="yarn-meta">#line:0691d35 </span>
-<span class="yarn-line">Here is the Mermaid’s sword. Please return it.</span> <span class="yarn-meta">#line:09a7cf5 </span>
+<span class="yarn-cmd">&lt;&lt;if !$sigismund_done&gt;&gt;</span>
+		Please visit King Sigismund first.
+<span class="yarn-cmd">&lt;&lt;elseif !$parliament_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_5&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif !$parliament_done&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_5_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_5&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
 </div>
 
-<a id="ys-node-mermaid-return"></a>
+<a id="ys-node-npc-5"></a>
 
-## MERMAID_RETURN
+## npc_5
 
-<div class="yarn-node" data-title="MERMAID_RETURN">
-<pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<div class="yarn-node" data-title="npc_5">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: parliament</span>
+<span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_mermaid_sword&gt;&gt;</span>
-<span class="yarn-line">You found my sword. Thank you.</span> <span class="yarn-meta">#line:0098677 </span>
-<span class="yarn-line">I am a symbol of Warsaw.</span> <span class="yarn-meta">#line:02279a9 </span>
-<span class="yarn-line">Antura also reached the Palace of Culture and Science.</span> <span class="yarn-meta">#line:03d0b7a </span>
-<span class="yarn-line">Please check it.</span> <span class="yarn-meta">#line:0c28f2d </span>
+<span class="yarn-cmd">&lt;&lt;if $parliament_done&gt;&gt;</span>
+		You fixed the flag and have the sword. The chest is yours.
+	<span class="yarn-cmd">&lt;&lt;jump chest_5&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $parliament_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_5_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;detour info_5&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card polish_houses_of_parliament&gt;&gt;</span>
+		Welcome to the Polish Houses of Parliament. Important laws are made here.
+		I also work near the Presidential Palace, and yes, I have the Mermaid's sword.
+		But first, the flag pieces were scattered. Sort the white and red parts back in the right order.
+	<span class="yarn-cmd">&lt;&lt;set $parliament_started = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_5_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-5-done"></a>
+
+## task_5_done
+
+<div class="yarn-node" data-title="task_5_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: parliament</span>
+<span class="yarn-header-dim">---</span>
+The flag pieces are scattered. Put them in the correct order!
+<span class="yarn-choice">-&gt; I need a hint.</span>
+		White is on top like snow. Red is below like a red carpet.
+		Put them in that order.
+<span class="yarn-choice">-&gt; Let us sort the flag now! #highlight</span>
+	<span class="yarn-cmd">&lt;&lt;activity order activity_5_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-5-done"></a>
+
+## activity_5_done
+
+<div class="yarn-node" data-title="activity_5_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: parliament</span>
+<span class="yarn-header-dim">---</span>
+&lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
+	<span class="yarn-cmd">&lt;&lt;card constitution_of_3_may&gt;&gt;</span>
+		The Constitution of 3 May is an important day in Poland.
+	<span class="yarn-cmd">&lt;&lt;card mermaids_sword&gt;&gt;</span>
+		Here is the Mermaid's sword. Keep it safe and finish helping the city before you return it.
+	<span class="yarn-cmd">&lt;&lt;set $sword_found = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;set $parliament_done = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_5&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+		Not quite right. The Polish flag has white on top and red below. Try again!
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-5"></a>
+
+## chest_5
+
+<div class="yarn-node" data-title="chest_5">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: parliament</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;trigger chest_5_open&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetInteractable chest_5 false&gt;&gt;</span>
+The Parliament chest is open now.
+You have the sword now. Continue to the Palace of Culture and Science.
 
 </code>
 </pre>
@@ -291,17 +729,107 @@ hide:
 
 <div class="yarn-node" data-title="PALACE_CULTURE_MARIA">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_F</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// PLACE 6 | PALACE OF CULTURE AND SCIENCE</span>
+<span class="yarn-header-dim">group: palace</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_palace_culture&gt;&gt;</span>
-<span class="yarn-line">Hello. I am Maria Skłodowska‑Curie.</span> <span class="yarn-meta">#line:0d43ca0 </span>
-<span class="yarn-line">This is the Palace of Culture and Science.</span> <span class="yarn-meta">#line:02b3d6b </span>
-<span class="yarn-line">Antura misplaced my wallet.</span> <span class="yarn-meta">#line:0666af3 </span>
-<span class="yarn-line">Follow the coin trail. Our currency is the złoty.</span> <span class="yarn-meta">#line:00a545d </span>
-<span class="yarn-cmd">&lt;&lt;activity order curie_coin_trail tutorial&gt;&gt;</span>
-<span class="yarn-line">You found it. Thank you.</span> <span class="yarn-meta">#line:0585b5a </span>
-<span class="yarn-line">I heard noise at the National Stadium.</span> <span class="yarn-meta">#line:0762923 </span>
+<span class="yarn-cmd">&lt;&lt;if !$parliament_done&gt;&gt;</span>
+		Visit Parliament first, then come to the city center.
+<span class="yarn-cmd">&lt;&lt;elseif !$palace_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_6&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif !$palace_done&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_6_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_6&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-6"></a>
+
+## npc_6
+
+<div class="yarn-node" data-title="npc_6">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: palace</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $palace_done&gt;&gt;</span>
+		You found my wallet. The chest is open. Thank you!
+	<span class="yarn-cmd">&lt;&lt;jump chest_6&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $palace_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_6_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;detour info_6&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card palace_of_culture_and_science&gt;&gt;</span>
+		I am Maria Skłodowska-Curie. I am a Polish scientist and this grand building fits my story.
+		Antura scattered six złoty coins around here and my wallet is missing!
+		Follow the trail of coins to find it. In Poland, the złoty is the currency we use.
+	<span class="yarn-cmd">&lt;&lt;set $palace_started = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_6_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-6-done"></a>
+
+## task_6_done
+
+<div class="yarn-node" data-title="task_6_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: palace</span>
+<span class="yarn-header-dim">---</span>
+Did you follow all six coins and find my wallet?
+<span class="yarn-choice">-&gt; Not yet. Where should I look?</span>
+		Follow the złoty coins from this spot. Each coin leads to the next.
+		The last coin is right next to my wallet.
+<span class="yarn-choice">-&gt; Yes, I found your wallet! #highlight</span>
+		You found my wallet. Thank you so much!
+	<span class="yarn-cmd">&lt;&lt;jump activity_6_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-6-done"></a>
+
+## activity_6_done
+
+<div class="yarn-node" data-title="activity_6_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: palace</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
+I was a Polish scientist.
+<span class="yarn-cmd">&lt;&lt;card zoty_coins&gt;&gt;</span>
+The złoty is the currency used in Poland.
+<span class="yarn-cmd">&lt;&lt;set $palace_done = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump chest_6&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-6"></a>
+
+## chest_6
+
+<div class="yarn-node" data-title="chest_6">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: palace</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;trigger chest_6_open&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetInteractable chest_6 false&gt;&gt;</span>
+The Palace chest is open now.
+Cross the river and go to the National Stadium.
 
 </code>
 </pre>
@@ -313,17 +841,180 @@ hide:
 
 <div class="yarn-node" data-title="NATIONAL_STADIUM">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: ADULT_M</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// PLACE 7 | NATIONAL STADIUM</span>
+<span class="yarn-header-dim">group: stadium</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_national_stadium&gt;&gt;</span>
-<span class="yarn-line">This is the National Stadium.</span> <span class="yarn-meta">#line:0bb0aa5 </span>
-<span class="yarn-line">Can you score 5 goals?</span> <span class="yarn-meta">#line:09126e5 </span>
-<span class="yarn-cmd">&lt;&lt;activity order score_5_goals tutorial&gt;&gt;</span>
-<span class="yarn-line">Great shots!</span> <span class="yarn-meta">#line:0c55643 </span>
-<span class="yarn-line">Sport words: football, ball, goal, field.</span> <span class="yarn-meta">#line:06ef367 </span>
-<span class="yarn-line">People sing our national anthem here.</span> <span class="yarn-meta">#line:0b65eb8 </span>
-<span class="yarn-line">Independence Day is on 11 November.</span> <span class="yarn-meta">#line:09c2e0c </span>
+<span class="yarn-cmd">&lt;&lt;if !$palace_done&gt;&gt;</span>
+		Visit the Palace of Culture first, then come to the stadium.
+<span class="yarn-cmd">&lt;&lt;elseif !$stadium_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_7&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif !$stadium_done&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_7_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_7&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-7"></a>
+
+## npc_7
+
+<div class="yarn-node" data-title="npc_7">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: stadium</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if $stadium_done&gt;&gt;</span>
+		You scored all the goals! The chest is yours.
+	<span class="yarn-cmd">&lt;&lt;jump chest_7&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;elseif $stadium_started&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_7_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;detour info_7&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;card national_stadium_warsaw&gt;&gt;</span>
+		I am Robert Lewandowski. Welcome to the National Stadium!
+		Antura made a big mess here and everyone is sad.
+		Score five goals to cheer up the crowd, then prove you know your sport words.
+	<span class="yarn-cmd">&lt;&lt;card robert_lewandowski&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;set $stadium_started = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump task_7_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-task-7-done"></a>
+
+## task_7_done
+
+<div class="yarn-node" data-title="task_7_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: stadium</span>
+<span class="yarn-header-dim">---</span>
+Great goals! Now show me how well you know your football words.
+<span class="yarn-choice">-&gt; I need a hint.</span>
+		Think about the ball, the field, the players, and the goal.
+<span class="yarn-choice">-&gt; Take the sport quiz! #highlight</span>
+	<span class="yarn-cmd">&lt;&lt;activity quiz activity_7_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-7-done"></a>
+
+## activity_7_done
+
+<div class="yarn-node" data-title="activity_7_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">group: stadium</span>
+<span class="yarn-header-dim">---</span>
+&lt;&lt;if GetActivityResult("") &gt; 0&gt;&gt;
+	<span class="yarn-cmd">&lt;&lt;card football_soccer&gt;&gt;</span>
+		Football is one of the most popular sports played here.
+	<span class="yarn-cmd">&lt;&lt;card ball&gt;&gt;</span>
+		The ball is what players kick across the field.
+	<span class="yarn-cmd">&lt;&lt;card goal&gt;&gt;</span>
+		The goal is where players try to score.
+	<span class="yarn-cmd">&lt;&lt;card soccer_field&gt;&gt;</span>
+		The soccer field is the place where the match is played.
+	<span class="yarn-cmd">&lt;&lt;card mazurek_dabrowskiego&gt;&gt;</span>
+		Mazurek Dąbrowskiego is Poland's national anthem.
+	<span class="yarn-cmd">&lt;&lt;card independence_day_poland&gt;&gt;</span>
+		Poland celebrates Independence Day on 11 November.
+	<span class="yarn-cmd">&lt;&lt;set $stadium_done = true&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump chest_7&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+		Good effort! Come back and try the sport quiz again.
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-chest-7"></a>
+
+## chest_7
+
+<div class="yarn-node" data-title="chest_7">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: stadium</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;trigger chest_7_open&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;SetInteractable chest_7 false&gt;&gt;</span>
+The stadium chest is open now.
+Return to the Mermaid and give her back the sword.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-mermaid-return"></a>
+
+## MERMAID_RETURN
+
+<div class="yarn-node" data-title="MERMAID_RETURN">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// FINALE | RETURN TO THE MERMAID</span>
+<span class="yarn-header-dim">group: finale</span>
+<span class="yarn-header-dim">type: panel</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;if !$sword_found&gt;&gt;</span>
+		Please follow Antura's trail and bring my sword back when the city is calm again.
+<span class="yarn-cmd">&lt;&lt;elseif !$stadium_done&gt;&gt;</span>
+		You found my sword. Thank you. Keep it safe a little longer and finish helping the other places first.
+<span class="yarn-cmd">&lt;&lt;elseif !$sword_returned&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump npc_final&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump GUIDE_OUTRO&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-npc-final"></a>
+
+## npc_final
+
+<div class="yarn-node" data-title="npc_final">
+<pre class="yarn-code" style="--node-color:yellow"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: finale</span>
+<span class="yarn-header-dim">color: yellow</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card mermaids_sword&gt;&gt;</span>
+You found my sword. Thank you.
+I am a symbol of Warsaw, and I protect the city.
+Now the city is calm again, and I can take it back.
+<span class="yarn-cmd">&lt;&lt;set $sword_returned = true&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;jump activity_final_done&gt;&gt;</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-activity-final-done"></a>
+
+## activity_final_done
+
+<div class="yarn-node" data-title="activity_final_done">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">actor: ADULT_F</span>
+<span class="yarn-header-dim">group: finale</span>
+<span class="yarn-header-dim">---</span>
+Stay with me for the final quiz and the ending.
+<span class="yarn-cmd">&lt;&lt;jump GUIDE_OUTRO&gt;&gt;</span>
 
 </code>
 </pre>
@@ -335,14 +1026,13 @@ hide:
 
 <div class="yarn-node" data-title="GUIDE_OUTRO">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">type: panel</span>
-<span class="yarn-header-dim">group: Warsaw</span>
+<span class="yarn-header-dim">group: finale</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_city_sunset&gt;&gt;</span>
-<span class="yarn-line">You helped the city. Antura left Warsaw.</span> <span class="yarn-meta">#line:0afa91b </span>
-<span class="yarn-line">The Mermaid, Chopin, and friends say thank you.</span> <span class="yarn-meta">#line:0be619e </span>
-<span class="yarn-line">Keep exploring Poland!</span> <span class="yarn-meta">#line:0aeb8fb </span>
+You finished the trip, returned the sword, and helped the city.
+Now let us see what you remember.
+<span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
 
 </code>
 </pre>
@@ -354,17 +1044,48 @@ hide:
 
 <div class="yarn-node" data-title="FINAL_QUIZ">
 <pre class="yarn-code"><code>
-<span class="yarn-header-dim">actor: NARRATOR</span>
+<span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">type: quiz</span>
-<span class="yarn-header-dim">group: Quiz</span>
+<span class="yarn-header-dim">group: finale</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_quiz&gt;&gt;</span>
-<span class="yarn-line">Final questions.</span> <span class="yarn-meta">#line:01faf50 </span>
-<span class="yarn-comment">// Q1: How does the POLISH FLAG look? (image choices handled in activity content)</span>
-<span class="yarn-comment">// Q2: Match picture with words (TRANSPORT/SPORT vocabulary)</span>
-<span class="yarn-cmd">&lt;&lt;activity quiz warsaw_basics tutorial&gt;&gt;</span>
-<span class="yarn-line">Well done!</span> <span class="yarn-meta">#line:08f99a0 </span>
-<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if !$sword_returned&gt;&gt;</span>
+		Return the sword to the Mermaid before taking the final quiz.
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;set $quiz_score = 0&gt;&gt;</span>
+		Final question one: which colors are on the Polish flag?
+<span class="yarn-choice">		-&gt; White and red.</span>
+		<span class="yarn-cmd">&lt;&lt;set $quiz_score = $quiz_score + 1&gt;&gt;</span>
+				Correct.
+<span class="yarn-choice">		-&gt; Blue and red.</span>
+				Not this time. The Polish flag is white and red.
+<span class="yarn-choice">		-&gt; Green and white.</span>
+				Not this time. The Polish flag is white and red.
+
+		Final question two: who was Chopin?
+<span class="yarn-choice">		-&gt; A composer.</span>
+		<span class="yarn-cmd">&lt;&lt;set $quiz_score = $quiz_score + 1&gt;&gt;</span>
+				Correct.
+<span class="yarn-choice">		-&gt; A football player.</span>
+				Not this time. Chopin was a composer.
+<span class="yarn-choice">		-&gt; A king.</span>
+				Not this time. Chopin was a composer.
+
+		Final question three: what is the Wisla?
+<span class="yarn-choice">		-&gt; A river.</span>
+		<span class="yarn-cmd">&lt;&lt;set $quiz_score = $quiz_score + 1&gt;&gt;</span>
+				Correct.
+<span class="yarn-choice">		-&gt; A palace.</span>
+				Not this time. The Wisla is a river.
+<span class="yarn-choice">		-&gt; A stadium.</span>
+				Not this time. The Wisla is a river.
+
+	&lt;&lt;if $quiz_score &gt;= 2&gt;&gt;
+				Well done. You know a lot about Warsaw.
+	<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+				Good try. You can explore the city again and learn more.
+	<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
+	<span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -376,16 +1097,18 @@ hide:
 
 <div class="yarn-node" data-title="FACTS_TRANSPORT">
 <pre class="yarn-code" style="--node-color:purple"><code>
-<span class="yarn-header-dim">// FACT NODES</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card tram&gt;&gt;</span>
-<span class="yarn-line">Trams and buses help people move.</span> <span class="yarn-meta">#line:07888ab </span>
+Trams are a common way to move around Warsaw.
 <span class="yarn-cmd">&lt;&lt;card bus&gt;&gt;</span>
+Buses help people travel across the city too.
+<span class="yarn-cmd">&lt;&lt;card car&gt;&gt;</span>
+Cars also move through the city streets every day.
 <span class="yarn-cmd">&lt;&lt;card bike&gt;&gt;</span>
-<span class="yarn-line">You can also ride a bike.</span> <span class="yarn-meta">#line:0a01a9a </span>
+Bikes are a simple way to move from place to place.
 
 </code>
 </pre>
@@ -401,10 +1124,12 @@ hide:
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_sigismund_column&gt;&gt;</span>
-<span class="yarn-line">King Sigismund’s column is a city symbol.</span> <span class="yarn-meta">#line:0507774 </span>
+<span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
+King Sigismund's Column is a famous place in Warsaw.
+<span class="yarn-cmd">&lt;&lt;card royal_castle_warsaw&gt;&gt;</span>
+The Royal Castle stands close to the old town square.
 <span class="yarn-cmd">&lt;&lt;card constitution_of_3_may&gt;&gt;</span>
-<span class="yarn-line">May 3 is a special day.</span> <span class="yarn-meta">#line:0d4bfcd </span>
+The Constitution of 3 May is an important day in Polish history.
 
 </code>
 </pre>
@@ -421,9 +1146,11 @@ hide:
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
-<span class="yarn-line">Maria studied science and won prizes.</span> <span class="yarn-meta">#line:072ab93 </span>
+Maria Skłodowska-Curie was a famous scientist from Poland.
+<span class="yarn-cmd">&lt;&lt;card palace_of_culture_and_science&gt;&gt;</span>
+The Palace of Culture and Science is a famous building in Warsaw.
 <span class="yarn-cmd">&lt;&lt;card nicolaus_copernicus_monument_warsaw&gt;&gt;</span>
-<span class="yarn-line">Copernicus studied the sky.</span> <span class="yarn-meta">#line:057e76e </span>
+Copernicus is another famous person you can learn about in Warsaw.
 
 </code>
 </pre>
@@ -439,12 +1166,12 @@ hide:
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">group: Warsaw</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_mermaid_plaza&gt;&gt;</span>
-<span class="yarn-line">The Mermaid protects the city.</span> <span class="yarn-meta">#line:014ff09 </span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_wisla_river&gt;&gt;</span>
-<span class="yarn-line">The Wisła River crosses Warsaw.</span> <span class="yarn-meta">#line:057e3a3 </span>
-<span class="yarn-cmd">&lt;&lt;card warsaw_palace_culture&gt;&gt;</span>
-<span class="yarn-line">This tall building has museums.</span> <span class="yarn-meta">#line:034f607 </span>
+<span class="yarn-cmd">&lt;&lt;card mermaid_of_warsaw&gt;&gt;</span>
+The Mermaid is one of the main symbols of Warsaw.
+<span class="yarn-cmd">&lt;&lt;card wars_and_sawa&gt;&gt;</span>
+Wars and Sawa are part of an old story about the city.
+<span class="yarn-cmd">&lt;&lt;card polish_houses_of_parliament&gt;&gt;</span>
+Warsaw has symbols, history, and important buildings.
 
 </code>
 </pre>
@@ -457,17 +1184,14 @@ hide:
 <div class="yarn-node" data-title="spawned_warsaw_local">
 <pre class="yarn-code" style="--node-color:purple"><code>
 <span class="yarn-header-dim">///////// NPCs SPAWNED IN THE SCENE //////////</span>
-<span class="yarn-header-dim">// these npc are spawn automatically in the scene</span>
-<span class="yarn-header-dim">// use these to add random facts. everythime you meet them</span>
-<span class="yarn-header-dim">// they will say one of these lines randomly</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: warsaw_locals</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Warsaw has the Wisła River.</span> <span class="yarn-meta">#line:004922a </span>
-<span class="yarn-line">The flag is white and red.</span> <span class="yarn-meta">#line:01536e4 </span>
-<span class="yarn-line">I like to ride the tram.</span> <span class="yarn-meta">#line:028722e </span>
-<span class="yarn-line">The Palace of Culture is very tall.</span> <span class="yarn-meta">#line:06fa7a6 </span>
+=&gt; The Wisla River flows through Warsaw.
+=&gt; The Mermaid is a symbol of the city.
+=&gt; I use the tram to move around Warsaw.
+=&gt; The stadium is across the river.
 
 </code>
 </pre>
@@ -483,10 +1207,10 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: warsaw_guides</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Chopin wrote piano music.</span> <span class="yarn-meta">#line:0016e94 </span>
-<span class="yarn-line">Maria Curie studied science.</span> <span class="yarn-meta">#line:0c899ce </span>
-<span class="yarn-line">King Sigismund stands on a column.</span> <span class="yarn-meta">#line:0582b47 </span>
-<span class="yarn-line">The Mermaid is on the coat of arms.</span> <span class="yarn-meta">#line:0a5a892 </span>
+=&gt; Chopin was a famous Polish composer.
+=&gt; King Sigismund moved the capital to Warsaw.
+=&gt; The Palace of Culture stands in the city center.
+=&gt; Parliament is where laws are discussed.
 
 </code>
 </pre>
@@ -502,10 +1226,155 @@ hide:
 <span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">spawn_group: warsaw_students</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">I learn about Copernicus in school.</span> <span class="yarn-meta">#line:08a617b </span>
-<span class="yarn-line">We play football at the stadium.</span> <span class="yarn-meta">#line:0eeafaf </span>
-<span class="yarn-line">Independence Day is in November.</span> <span class="yarn-meta">#line:0f85b89 </span>
-<span class="yarn-line">I can name all tram colors!</span> <span class="yarn-meta">#line:05fa279 </span>
+=&gt; The Polish flag is white and red.
+=&gt; Maria Skłodowska-Curie was a scientist.
+=&gt; We play football at the National Stadium.
+=&gt; Independence Day is on 11 November.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-info-1"></a>
+
+## info_1
+
+<div class="yarn-node" data-title="info_1">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">// -----------------------------------------------------------------------------</span>
+<span class="yarn-header-dim">// INFO DETOURS (shown once on first NPC visit via &lt;&lt;detour info_X&gt;&gt;)</span>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: mermaid</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card mermaid_of_warsaw&gt;&gt;</span>
+The Mermaid of Warsaw is called the Syrenka.
+She is half woman, half fish, and carries a sword and a shield.
+You can find her on the city coat of arms and all over Warsaw.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-info-2"></a>
+
+## info_2
+
+<div class="yarn-node" data-title="info_2">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: chopin</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card chopin_monument&gt;&gt;</span>
+This monument stands in Łazienki Park in Warsaw.
+Every summer, free piano concerts are held here on Sundays.
+<span class="yarn-cmd">&lt;&lt;card fryderyk_chopin&gt;&gt;</span>
+Fryderyk Chopin was born near Warsaw in 1810.
+He is one of the most famous composers in the world.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-info-3"></a>
+
+## info_3
+
+<div class="yarn-node" data-title="info_3">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: wars_sawa</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card wars_and_sawa_statue&gt;&gt;</span>
+Wars and Sawa are characters from an old legend about Warsaw.
+Their names are said to be hidden inside the name "Warszawa."
+The Wisła flows through Warsaw all the way to the Baltic Sea.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-info-4"></a>
+
+## info_4
+
+<div class="yarn-node" data-title="info_4">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: sigismund</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
+King Sigismund III Vasa moved the capital of Poland from Kraków to Warsaw in 1596.
+His column on Castle Square is one of the oldest secular monuments in Warsaw.
+<span class="yarn-cmd">&lt;&lt;card royal_castle_warsaw&gt;&gt;</span>
+The Royal Castle stands right next to the column.
+It was destroyed in World War II and fully rebuilt by 1984.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-info-5"></a>
+
+## info_5
+
+<div class="yarn-node" data-title="info_5">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: parliament</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card polish_houses_of_parliament&gt;&gt;</span>
+The Polish parliament is called the Sejm and the Senate.
+It meets in Warsaw and votes on the laws of Poland.
+<span class="yarn-cmd">&lt;&lt;card presidential_palace&gt;&gt;</span>
+The Presidential Palace is nearby on Krakowskie Przedmieście.
+It is where the President of Poland works.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-info-6"></a>
+
+## info_6
+
+<div class="yarn-node" data-title="info_6">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: palace</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card palace_of_culture_and_science&gt;&gt;</span>
+The Palace of Culture and Science is the tallest building in Poland.
+It was built in the 1950s and has a viewing terrace at the top.
+<span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
+Maria Skłodowska-Curie was born in Warsaw in 1867.
+She was the first woman to win a Nobel Prize, and she won it twice.
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-info-7"></a>
+
+## info_7
+
+<div class="yarn-node" data-title="info_7">
+<pre class="yarn-code" style="--node-color:purple"><code>
+<span class="yarn-header-dim">color: purple</span>
+<span class="yarn-header-dim">actor: GUIDE_F</span>
+<span class="yarn-header-dim">group: stadium</span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-cmd">&lt;&lt;card national_stadium_warsaw&gt;&gt;</span>
+The PGE Narodowy stands on the right bank of the Wisła.
+It opened in 2012 and hosted matches during UEFA Euro 2012.
+<span class="yarn-cmd">&lt;&lt;card robert_lewandowski&gt;&gt;</span>
+Robert Lewandowski is one of Poland's most famous footballers.
+He has scored hundreds of goals for club and country.
 
 </code>
 </pre>

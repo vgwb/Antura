@@ -380,7 +380,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seagull&gt;&gt;</span>
 <span class="yarn-line">Tak! Zadanie wykonane!</span> <span class="yarn-meta">#line:0283435 </span>
-<span class="yarn-line">Powtórz słowa</span> <span class="yarn-meta">#line:0322b5e </span>
+<span class="yarn-choice">-&gt; Powtórz słowa</span> <span class="yarn-meta">#line:0322b5e </span>
     <span class="yarn-cmd">&lt;&lt;jump RECAP_MEMORY&gt;&gt;</span>
 
 </code>
@@ -449,9 +449,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card baltic_sea&gt;&gt;</span>
 <span class="yarn-line">Jakie morze jest blisko GDAŃSKA?</span> <span class="yarn-meta">#line:034eda7 </span>
-<span class="yarn-line">MORZE BAŁTYCKIE</span> <span class="yarn-meta">#line:04bbc7e </span>
+<span class="yarn-choice">-&gt; MORZE BAŁTYCKIE</span> <span class="yarn-meta">#line:04bbc7e </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
-<span class="yarn-line">MORZE CZARNE</span> <span class="yarn-meta">#line:046b853 </span>
+<span class="yarn-choice">-&gt; MORZE CZARNE</span> <span class="yarn-meta">#line:046b853 </span>
 <span class="yarn-line">    Nie ten. Spróbuj jeszcze raz!</span> <span class="yarn-meta">#line:0cfee89 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q1&gt;&gt;</span>
 
@@ -470,9 +470,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card amber&gt;&gt;</span>
 <span class="yarn-line">Czym jest BALTIC GOLD?</span> <span class="yarn-meta">#line:039b452 </span>
-<span class="yarn-line">BURSZTYN</span> <span class="yarn-meta">#line:0bcd01f </span>
+<span class="yarn-choice">-&gt; BURSZTYN</span> <span class="yarn-meta">#line:0bcd01f </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
-<span class="yarn-line">PIASEK</span> <span class="yarn-meta">#line:0af46f3 </span>
+<span class="yarn-choice">-&gt; PIASEK</span> <span class="yarn-meta">#line:0af46f3 </span>
 <span class="yarn-line">    Nie PIASEK. Spróbuj ponownie!</span> <span class="yarn-meta">#line:005cc14 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
 
@@ -491,9 +491,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gdansk_lighthouse&gt;&gt;</span>
 <span class="yarn-line">Co robi LATARNIA MORSKA?</span> <span class="yarn-meta">#line:02e4c51 </span>
-<span class="yarn-line">Pomaga STATKOM</span> <span class="yarn-meta">#line:0822992 </span>
+<span class="yarn-choice">-&gt; Pomaga STATKOM</span> <span class="yarn-meta">#line:0822992 </span>
     <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-<span class="yarn-line">Łapie ryby</span> <span class="yarn-meta">#line:072458e </span>
+<span class="yarn-choice">-&gt; Łapie ryby</span> <span class="yarn-meta">#line:072458e </span>
 <span class="yarn-line">    Nie. On kieruje STATKAMI. Spróbuj ponownie!</span> <span class="yarn-meta">#line:04b2bb3 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
 

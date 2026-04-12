@@ -2032,6 +2032,7 @@ Sprytny i wesoły, uwielbia wspinać się na drzewa. Używa patyków i kamieni j
 
 - Type: None
 - Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -2421,6 +2422,19 @@ Wyścig samochodowy trwający 24 godziny. Zespoły ścigają się dniem i nocą.
 
 ---
 
+### A {#note_la}
+![preview note_la](../../../assets/img/content/cards/note_la.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Karst_peaks_and_green_paddy_fields_under_a_stormy_sky,_South_view_from_Mount_Nam_Xay,_Vang_Vieng,_Laos.jpg)
+
+---
+
 ### Allons enfants {#marseillaise_1}
 ![preview marseillaise_1](../../../assets/img/content/cards/marseillaise_1.jpg){ loading=lazy }
 
@@ -2493,6 +2507,19 @@ Buty przeznaczone do tańca na sali balowej.
 
 ---
 
+### C {#note_do}
+![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
+
+---
+
 ### Collège we Francji {#education_college_fr}
 ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
 
@@ -2509,6 +2536,19 @@ Gimnazjum we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wi
 
 ---
 
+### D {#note_re}
+![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Youlaus | [source](https://commons.wikimedia.org/wiki/File:Nota_Ré_4_(Piano).png)
+
+---
+
 ### De la patrie {#marseillaise_2}
 ![preview marseillaise_2](../../../assets/img/content/cards/marseillaise_2.jpg){ loading=lazy }
 
@@ -2521,19 +2561,6 @@ Słowa z pierwszego wersu hymnu.
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
-
----
-
-### Do {#note_do}
-![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
 
 ---
 
@@ -2576,6 +2603,19 @@ Słowa z pierwszego wersu hymnu.
 
 ---
 
+### E {#note_mi}
+![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY | Dwight Burdette | [source](https://commons.wikimedia.org/wiki/File:Lenawee_County_Courthouse_Adrian_Michigan.JPG)
+
+---
+
 ### Est Arrivé {#marseillaise_4}
 ![preview marseillaise_4](../../../assets/img/content/cards/marseillaise_4.jpg){ loading=lazy }
 
@@ -2591,7 +2631,7 @@ Słowa z pierwszego wersu hymnu.
 
 ---
 
-### Fa {#note_fa}
+### F {#note_fa}
 ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -2699,6 +2739,19 @@ Odważni żeglarze, którzy żeglowali po morzach dla króla Francji. Nazywano i
 
 ---
 
+### G {#note_sol}
+![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | kallerna | [source](https://commons.wikimedia.org/wiki/File:Sol_de_Mañana_2018.jpg)
+
+---
+
 ### Gargulec {#gargoyle}
 ![preview gargoyle](../../../assets/img/content/cards/gargoyle.jpg){ loading=lazy }
 
@@ -2724,6 +2777,19 @@ Inżynier, który zbudował Wieżę Eiffla! Uwielbiał konstruować z żelaza i 
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### H {#note_si}
+![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Bureau international des poids et mesures, International Bureau of Weights and Measures (BIPM) | [source](https://commons.wikimedia.org/wiki/File:SI_Logo_with_defining_constants.png)
 
 ---
 
@@ -2923,19 +2989,6 @@ Instrument ze sztabkami, w które uderza się, aby uzyskać dźwięki.
 
 ---
 
-### La {#note_la}
-![preview note_la](../../../assets/img/content/cards/note_la.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Karst_peaks_and_green_paddy_fields_under_a_stormy_sky,_South_view_from_Mount_Nam_Xay,_Vang_Vieng,_Laos.jpg)
-
----
-
 ### Le Mans {#le_mans}
 ![preview le_mans](../../../assets/img/content/cards/le_mans.jpg){ loading=lazy }
 
@@ -3047,19 +3100,6 @@ Maska na imprezy i bale.
 
 ---
 
-### Mi {#note_mi}
-![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY | Dwight Burdette | [source](https://commons.wikimedia.org/wiki/File:Lenawee_County_Courthouse_Adrian_Michigan.JPG)
-
----
-
 ### Miecz {#sword}
 ![preview sword](../../../assets/img/content/cards/sword.jpg){ loading=lazy }
 
@@ -3108,19 +3148,6 @@ Słynna starożytna rzeźba przedstawiająca boginię ze skrzydłami.
 - Country: France
 - Image credit: CC_BY_SA | Rijin | [source](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_(1).jpg)
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Odnośnie {#note_re}
-![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Youlaus | [source](https://commons.wikimedia.org/wiki/File:Nota_Ré_4_(Piano).png)
 
 ---
 
@@ -3362,19 +3389,6 @@ Rzeka o długości 777 kilometrów w północnej Francji
 
 ---
 
-### Si {#note_si}
-![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Bureau international des poids et mesures, International Bureau of Weights and Measures (BIPM) | [source](https://commons.wikimedia.org/wiki/File:SI_Logo_with_defining_constants.png)
-
----
-
 ### Siedzący skryba {#the_seated_scribe}
 ![preview the_seated_scribe](../../../assets/img/content/cards/the_seated_scribe.jpg){ loading=lazy }
 
@@ -3397,19 +3411,6 @@ Mały dwukołowy skuter (trottinette).
 - Subjects: Transportation, Recreation, Safety
 - Country: France
 - Image credit: CC_BY_SA | Spurzem - Lothar Spurzem | [source](https://commons.wikimedia.org/wiki/File:Zündapp_Bella_R_154_(2008-05-21)_Seitenansicht_ret.jpg)
-
----
-
-### Sol {#note_sol}
-![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | kallerna | [source](https://commons.wikimedia.org/wiki/File:Sol_de_Mañana_2018.jpg)
 
 ---
 

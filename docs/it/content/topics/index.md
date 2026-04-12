@@ -328,10 +328,10 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Spartito musicale](../cards/index.md#musical_score)**
-    Le note scritte e le parole di una canzone.
+    - **[Scala musicale](../cards/index.md#musical_scale)**
+    Le sette note suonate in ordine
 
-    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+    ![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ width="200" }
 
 - Connected cards:
     - **[Pianoforte](../cards/index.md#piano)** (RelatedTo)
@@ -339,42 +339,47 @@ Credits:
 
     ![preview piano](../../../assets/img/content/cards/piano.jpg){ width="200" }
 
-    - **[La](../cards/index.md#note_la)** (RelatedTo)
-    Una nota musicale.
-
-    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
-
-    - **[Fa](../cards/index.md#note_fa)** (RelatedTo)
-    Una nota musicale.
-
-    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
-
-    - **[Sì](../cards/index.md#note_si)** (RelatedTo)
-    Una nota musicale.
-
-    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
-
-    - **[Sol](../cards/index.md#note_sol)** (RelatedTo)
-    Una nota musicale.
-
-    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
-
     - **[Do](../cards/index.md#note_do)** (RelatedTo)
     Una nota musicale.
 
     ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ width="200" }
+
+    - **[Re](../cards/index.md#note_re)** (RelatedTo)
+    Una nota musicale.
+
+    ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
 
     - **[Mi](../cards/index.md#note_mi)** (RelatedTo)
     Una nota musicale.
 
     ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
 
-    - **[Rif](../cards/index.md#note_re)** (RelatedTo)
+    - **[Fa](../cards/index.md#note_fa)** (RelatedTo)
     Una nota musicale.
 
-    ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
+    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
 
-- Quests: [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
+    - **[Sol](../cards/index.md#note_sol)** (RelatedTo)
+    Una nota musicale.
+
+    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
+
+    - **[La](../cards/index.md#note_la)** (RelatedTo)
+    Una nota musicale.
+
+    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
+
+    - **[Si](../cards/index.md#note_si)** (RelatedTo)
+    Una nota musicale.
+
+    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
+
+    - **[Spartito musicale](../cards/index.md#musical_score)** (RelatedTo)
+    Le note scritte e le parole di una canzone.
+
+    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md), [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -555,6 +560,11 @@ Credits:
     Un grosso animale con una proboscide. Gli elefanti sono gli animali più grandi che camminano sulla terraferma. Hanno grandi orecchie e amano spruzzare acqua!
 
     ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ width="200" }
+
+    - **[Scimpanzé](../cards/index.md#animal_chimpanzee)** (RelatedTo)
+    Intelligente e giocoso, ama arrampicarsi sugli alberi. Usa bastoni e pietre come piccoli utensili!
+
+    ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ width="200" }
 
 - Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -1646,8 +1656,8 @@ Credits:
 
     ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ width="200" }
 
-    - **[Wroclaw : Cathédrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
-    Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+    - **[Breslavia: Cattedrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
+    Una chiesa grande e importante, dove la gente prega. È possibile salire sulla torre per ammirare il panorama.
 
     ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ width="200" }
 
@@ -1718,7 +1728,7 @@ Credits:
 
     ![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ width="200" }
 
-    - **[Évêque Nain](../cards/index.md#dwarf_bishop)** (RelatedTo)
+    - **[Vescovo Nano](../cards/index.md#dwarf_bishop)** (RelatedTo)
     Una statua di nano che pone una domanda a una chiesa.
 
     ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ width="200" }
@@ -1733,7 +1743,7 @@ Credits:
 
     ![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ width="200" }
 
-    - **[Expert nain](../cards/index.md#dwarf_expert)** (RelatedTo)
+    - **[Esperto di nani](../cards/index.md#dwarf_expert)** (RelatedTo)
     Una guida amichevole che sa tutto sui nani.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
@@ -1743,7 +1753,7 @@ Credits:
 
     ![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ width="200" }
 
-    - **[Origine Nain](../cards/index.md#dwarf_origin)** (LocatedIn)
+    - **[Nano d'origine](../cards/index.md#dwarf_origin)** (LocatedIn)
     Una classica statua di un nano di Breslavia con cappello a punta e robusti stivali.
 
     ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ width="200" }

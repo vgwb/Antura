@@ -443,6 +443,7 @@ Intelligent et joueur, il adore grimper aux arbres. Il utilise des bâtons et de
 
 - Type: None
 - Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -2741,19 +2742,6 @@ Collège en France pour les enfants de 11 à 15 ans. Les élèves apprennent de 
 
 ---
 
-### Concernant {#note_re}
-![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
-
-Une note de musique.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Youlaus | [source](https://commons.wikimedia.org/wiki/File:Nota_Ré_4_(Piano).png)
-
----
-
 ### Couronnement de Napoléon (David) {#coronation_of_napoleon_david}
 ![preview coronation_of_napoleon_david](../../../assets/img/content/cards/coronation_of_napoleon_david.jpg){ loading=lazy }
 
@@ -2794,6 +2782,19 @@ Un livre de Jules Verne sur la Lune dans un grand canon ! Il a été écrit ava
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
+### Do {#note_do}
+![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
+
+Une note de musique.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
 
 ---
 
@@ -3426,6 +3427,19 @@ Un grand vitrail rond qui raconte des histoires avec la lumière.
 
 ---
 
+### Ré {#note_re}
+![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
+
+Une note de musique.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Youlaus | [source](https://commons.wikimedia.org/wiki/File:Nota_Ré_4_(Piano).png)
+
+---
+
 ### Révolution française {#french_revolution}
 ![preview french_revolution](../../../assets/img/content/cards/french_revolution.jpg){ loading=lazy }
 
@@ -3530,19 +3544,6 @@ Une haute tour, symbole de Paris. Construite en fer, elle mesure 300 mètres de 
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
 - Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Ut {#note_do}
-![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
-
-Une note de musique.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
 
 ---
 
@@ -4966,6 +4967,19 @@ Le Soleil et les huit planètes qui tournent autour de lui.
 
 ---
 
+### Szkoła Podstawowa Leonarda da Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+C'est un lieu convivial où les enfants apprennent, créent et explorent guidés par la curiosité, l'art et la science.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
+- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
+
+---
+
 ### Terre {#earth}
 ![preview earth](../../../assets/img/content/cards/earth.jpg){ loading=lazy }
 
@@ -5088,19 +5102,6 @@ Un grand zoo à Wrocław avec de nombreux animaux à découvrir.
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [wroclaw zoo](../topics/index.md#wroclaw_zoo)
 - Image credit: CC_BY | Palickap | [source](https://commons.wikimedia.org/wiki/File:Zoo_Wrocław,_plan.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### École primaire Léonard de Vinci {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-C'est un lieu convivial où les enfants apprennent, créent et explorent guidés par la curiosité, l'art et la science.
-
-- Type: Place
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
 
 ---
 

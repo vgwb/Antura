@@ -114,7 +114,7 @@ hide:
 <span class="yarn-line">Cześć! Jestem MIKOŁAJ KOPERNIK.</span> <span class="yarn-meta">#line:0c5050d </span>
 <span class="yarn-line">Mogę pomóc ci uratować ANTURĘ.</span> <span class="yarn-meta">#line:0a41815 </span>
 <span class="yarn-line">Najpierw muszę naprawić mapę Układu Słonecznego.</span> <span class="yarn-meta">#line:0f17151 </span>
-<span class="yarn-line">Pomoc z planetami</span> <span class="yarn-meta">#line:07bdf91 </span>
+<span class="yarn-choice">-&gt; Pomoc z planetami</span> <span class="yarn-meta">#line:07bdf91 </span>
 
 </code>
 </pre>
@@ -238,7 +238,7 @@ hide:
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity memory telescope_parts tutorial&gt;&gt;</span>
-<span class="yarn-line">Pamięć fortepianowa</span> <span class="yarn-meta">#line:0db50a7 </span>
+<span class="yarn-choice">-&gt; Pamięć fortepianowa</span> <span class="yarn-meta">#line:0db50a7 </span>
     <span class="yarn-cmd">&lt;&lt;jump PIANO_INTRO&gt;&gt;</span>
 
 <span class="yarn-comment">//--------------------------------------------</span>
@@ -261,7 +261,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Muzyka wspomaga pamięć.</span> <span class="yarn-meta">#line:08d3111 </span>
 <span class="yarn-line">Zagraj melodię PLANET.</span> <span class="yarn-meta">#line:0471676 </span>
-<span class="yarn-line">Grać</span> <span class="yarn-meta">#line:0f08a91 </span>
+<span class="yarn-choice">-&gt; Grać</span> <span class="yarn-meta">#line:0f08a91 </span>
 
 
 </code>
@@ -278,7 +278,7 @@ hide:
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity piano planet_order_song tutorial&gt;&gt;</span>
-<span class="yarn-line">Znajdź PLANETY</span> <span class="yarn-meta">#line:013de52 </span>
+<span class="yarn-choice">-&gt; Znajdź PLANETY</span> <span class="yarn-meta">#line:013de52 </span>
 
 <span class="yarn-comment">//--------------------------------------------</span>
 <span class="yarn-comment">// DISCOVER THE PLANETS</span>
@@ -301,7 +301,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card astronomy&gt;&gt;</span>
 <span class="yarn-line">Odwiedźmy każdą PLANETĘ.</span> <span class="yarn-meta">#line:0b015a8 </span>
 <span class="yarn-line">Pojawiają się w modelu po ich znalezieniu.</span> <span class="yarn-meta">#line:00d6fdf </span>
-<span class="yarn-line">Zacznij od MERCURY</span> <span class="yarn-meta">#line:04ba61d </span>
+<span class="yarn-choice">-&gt; Zacznij od MERCURY</span> <span class="yarn-meta">#line:04ba61d </span>
 
 <span class="yarn-comment">// MERCURY</span>
 
@@ -417,7 +417,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_jupiter tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Jupiter to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">Następny jest SATURN</span> <span class="yarn-meta">#line:07229a6 </span>
+<span class="yarn-choice">-&gt; Następny jest SATURN</span> <span class="yarn-meta">#line:07229a6 </span>
     <span class="yarn-cmd">&lt;&lt;jump PLANET_SATURN&gt;&gt;</span>
 
 <span class="yarn-comment">// SATURN</span>
@@ -442,7 +442,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;activity jigsawpuzzle planet_saturn tutorial&gt;&gt;</span>
 <span class="yarn-comment">// Add Saturn to the model (handled by activity)</span>
 <span class="yarn-cmd">&lt;&lt;set $planets_found += 1&gt;&gt;</span>
-<span class="yarn-line">Następny jest URAN</span> <span class="yarn-meta">#line:09ba1f7 </span>
+<span class="yarn-choice">-&gt; Następny jest URAN</span> <span class="yarn-meta">#line:09ba1f7 </span>
     <span class="yarn-cmd">&lt;&lt;jump PLANET_URANUS&gt;&gt;</span>
 
 <span class="yarn-comment">// URANUS</span>

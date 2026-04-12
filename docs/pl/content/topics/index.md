@@ -327,10 +327,10 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Partytura muzyczna](../cards/index.md#musical_score)**
-    Zapis nutowy i słowa piosenki.
+    - **[Skala muzyczna](../cards/index.md#musical_scale)**
+    Siedem nut granych w kolejności
 
-    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+    ![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ width="200" }
 
 - Connected cards:
     - **[Fortepian](../cards/index.md#piano)** (RelatedTo)
@@ -338,42 +338,47 @@ Credits:
 
     ![preview piano](../../../assets/img/content/cards/piano.jpg){ width="200" }
 
-    - **[La](../cards/index.md#note_la)** (RelatedTo)
-    Nuta muzyczna.
-
-    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
-
-    - **[Fa](../cards/index.md#note_fa)** (RelatedTo)
-    Nuta muzyczna.
-
-    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
-
-    - **[Si](../cards/index.md#note_si)** (RelatedTo)
-    Nuta muzyczna.
-
-    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
-
-    - **[Sol](../cards/index.md#note_sol)** (RelatedTo)
-    Nuta muzyczna.
-
-    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
-
-    - **[Do](../cards/index.md#note_do)** (RelatedTo)
+    - **[C](../cards/index.md#note_do)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ width="200" }
 
-    - **[Mi](../cards/index.md#note_mi)** (RelatedTo)
-    Nuta muzyczna.
-
-    ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
-
-    - **[Odnośnie](../cards/index.md#note_re)** (RelatedTo)
+    - **[D](../cards/index.md#note_re)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
 
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
+    - **[E](../cards/index.md#note_mi)** (RelatedTo)
+    Nuta muzyczna.
+
+    ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
+
+    - **[F](../cards/index.md#note_fa)** (RelatedTo)
+    Nuta muzyczna.
+
+    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
+
+    - **[G](../cards/index.md#note_sol)** (RelatedTo)
+    Nuta muzyczna.
+
+    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
+
+    - **[A](../cards/index.md#note_la)** (RelatedTo)
+    Nuta muzyczna.
+
+    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
+
+    - **[H](../cards/index.md#note_si)** (RelatedTo)
+    Nuta muzyczna.
+
+    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
+
+    - **[Partytura muzyczna](../cards/index.md#musical_score)** (RelatedTo)
+    Zapis nutowy i słowa piosenki.
+
+    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+
+- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -554,6 +559,11 @@ Credits:
     Ogromne zwierzę z trąbą. Słonie to największe zwierzęta chodzące po lądzie. Mają duże uszy i uwielbiają pryskać wodą!
 
     ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ width="200" }
+
+    - **[Szympans](../cards/index.md#animal_chimpanzee)** (RelatedTo)
+    Sprytny i wesoły, uwielbia wspinać się na drzewa. Używa patyków i kamieni jak małych narzędzi!
+
+    ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ width="200" }
 
 - Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -1644,8 +1654,8 @@ Credits:
 
     ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ width="200" }
 
-    - **[Wroclaw : Cathédrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
-    Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+    - **[Wrocław: Katedra](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
+    Duży, ważny kościół, w którym ludzie sie modlą, Można wspiąć sie na jego wieżę i podziwiać widoki.
 
     ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ width="200" }
 
@@ -1716,7 +1726,7 @@ Credits:
 
     ![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ width="200" }
 
-    - **[Évêque Nain](../cards/index.md#dwarf_bishop)** (RelatedTo)
+    - **[Biskup Krasnolud](../cards/index.md#dwarf_bishop)** (RelatedTo)
     Posąg karła zadającego pytanie kościelne.
 
     ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ width="200" }
@@ -1731,7 +1741,7 @@ Credits:
 
     ![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ width="200" }
 
-    - **[Expert nain](../cards/index.md#dwarf_expert)** (RelatedTo)
+    - **[Krasnal Ekspert](../cards/index.md#dwarf_expert)** (RelatedTo)
     Przyjazny przewodnik, który wie wszystko o krasnoludkach.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
@@ -1741,7 +1751,7 @@ Credits:
 
     ![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ width="200" }
 
-    - **[Origine Nain](../cards/index.md#dwarf_origin)** (LocatedIn)
+    - **[Pochodzenie Krasnoluda](../cards/index.md#dwarf_origin)** (LocatedIn)
     Klasyczna wrocławska figura krasnala w spiczastym kapeluszu i solidnych butach.
 
     ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ width="200" }

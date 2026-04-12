@@ -380,7 +380,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seagull&gt;&gt;</span>
 <span class="yarn-line">Oui ! La quête est terminée !</span> <span class="yarn-meta">#line:0283435 </span>
-<span class="yarn-line">Mots de révision</span> <span class="yarn-meta">#line:0322b5e </span>
+<span class="yarn-choice">-&gt; Mots de révision</span> <span class="yarn-meta">#line:0322b5e </span>
     <span class="yarn-cmd">&lt;&lt;jump RECAP_MEMORY&gt;&gt;</span>
 
 </code>
@@ -449,9 +449,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card baltic_sea&gt;&gt;</span>
 <span class="yarn-line">Quelle mer se trouve près de GDAŃSK ?</span> <span class="yarn-meta">#line:034eda7 </span>
-<span class="yarn-line">MER BALTIQUE</span> <span class="yarn-meta">#line:04bbc7e </span>
+<span class="yarn-choice">-&gt; MER BALTIQUE</span> <span class="yarn-meta">#line:04bbc7e </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
-<span class="yarn-line">MER NOIRE</span> <span class="yarn-meta">#line:046b853 </span>
+<span class="yarn-choice">-&gt; MER NOIRE</span> <span class="yarn-meta">#line:046b853 </span>
 <span class="yarn-line">    Pas celui-là. Réessayez !</span> <span class="yarn-meta">#line:0cfee89 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q1&gt;&gt;</span>
 
@@ -470,9 +470,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card amber&gt;&gt;</span>
 <span class="yarn-line">Qu'est-ce que BALTIC GOLD ?</span> <span class="yarn-meta">#line:039b452 </span>
-<span class="yarn-line">AMBRE</span> <span class="yarn-meta">#line:0bcd01f </span>
+<span class="yarn-choice">-&gt; AMBRE</span> <span class="yarn-meta">#line:0bcd01f </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
-<span class="yarn-line">SABLE</span> <span class="yarn-meta">#line:0af46f3 </span>
+<span class="yarn-choice">-&gt; SABLE</span> <span class="yarn-meta">#line:0af46f3 </span>
 <span class="yarn-line">    Pas de SABLE. Réessayez !</span> <span class="yarn-meta">#line:005cc14 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
 
@@ -491,9 +491,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gdansk_lighthouse&gt;&gt;</span>
 <span class="yarn-line">Que fait un PHARE ?</span> <span class="yarn-meta">#line:02e4c51 </span>
-<span class="yarn-line">Aide les NAVIRES</span> <span class="yarn-meta">#line:0822992 </span>
+<span class="yarn-choice">-&gt; Aide les NAVIRES</span> <span class="yarn-meta">#line:0822992 </span>
     <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
-<span class="yarn-line">Attrape du poisson</span> <span class="yarn-meta">#line:072458e </span>
+<span class="yarn-choice">-&gt; Attrape du poisson</span> <span class="yarn-meta">#line:072458e </span>
 <span class="yarn-line">    Non. Il guide les NAVIRES. Réessayez !</span> <span class="yarn-meta">#line:04b2bb3 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
 

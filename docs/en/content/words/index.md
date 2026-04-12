@@ -21,7 +21,7 @@ hide:
 | <span class="word-icon">ř</span> | CROCODILE | CROCODILE | KROKODYL | CROCODIL | КРОКОДИЛ | COCCODRILLO |
 | <span class="word-icon">k</span> | DOG | CHIEN | PIES | CÂINE | СОБАКА | CANE |
 | <span class="word-icon">1</span> | DUCK | CANARD | KACZKA | RAȚĂ | КАЧКА | ANATRA |
-| <span class="word-icon">m</span> | EAGLE | AIGLE | EAGLE | EAGLE | EAGLE | EAGLE |
+| <span class="word-icon">m</span> | EAGLE | AIGLE | ORZEŁ | VULTUR | ОРЕЛ | AQUILA |
 | <span class="word-icon">o</span> | ELEPHANT | ÉLÉPHANT | SŁOŃ | ELEFANT | СЛОН | ELEFANTE |
 | <span class="word-icon">Ľ</span> | FOX | RENARD | LIS | VULPE | ЛИСИЦЯ | VOLPE |
 | <span class="word-icon">Ļ</span> | FROG | GRENOUILLE | ŻABA | BROASCĂ | ЖАБА | RANA |
@@ -97,7 +97,7 @@ hide:
 | <span class="word-icon">↗</span> | STATION | STATION | DWORZEC | STAȚIE | СТАНЦІЯ | STAZIONE |
 | <span class="word-icon">ı</span> | STREET | RUE | ULICA | STRADĂ | ВУЛИЦЯ | VIA |
 | <span class="word-icon">İ</span> | THEATRE | THÉÂTRE | KINO | TEATRU | ТЕАТР | TEATRO |
-| <span class="word-icon">ú</span> | tower | tour | tower | tower | tower | tower |
+| <span class="word-icon">ú</span> | TOWER | TOUR | WIEŻA | TURN | ВЕЖА | TORRE |
 | <span class="word-icon">ș</span> | TOWN | VILLAGE | MIASTECZKO | ORAȘ | МІСТЕЧКО | CITTADINA |
 | <span class="word-icon">Ț</span> | TRAIN | TRAIN | POCIĄG | TREN | ПОТЯГ | TRENO |
 | <span class="word-icon">ń</span> | TRUCK | CAMION | CIĘŻARÓWKA | CAMION | ВАНТАЖІВКА | CAMION |
@@ -230,7 +230,7 @@ hide:
 
 | icon | en | fr | pl | ro | uk | it |
 |---|---|---|---|---|---|---|
-| <span class="word-icon">j</span> | DOCTOR | MÉDECIN | DOCTOR | DOCTOR | DOCTOR | DOCTOR |
+| <span class="word-icon">j</span> | DOCTOR | MÉDECIN | LEKARZ | DOCTOR | ЛІКАР | MEDICO |
 
 ## Math
 
@@ -315,6 +315,7 @@ hide:
 | <span class="word-icon">N</span> | BOOK | LIVRE | KSIĄŻKA | CARTE | КНИГА | LIBRO |
 | <span class="word-icon">P</span> | BOX | BOÎTE | PUDEŁKO | CUTIE | КОРОБКА | SCATOLA |
 | <span class="word-icon">ō</span> | DOLL | POUPÉE | LALKA | PĂPUȘĂ | ЛЯЛЬКА | BAMBOLA |
+|  | KEY | CLÉ | KLAWISZ | CHEIE | КЛЮЧ | CHIAVE |
 | <span class="word-icon">Þ</span> | NEEDLE | AIGUILLE | IGŁA | AC | ГОЛКА | AGO |
 | <span class="word-icon">ű</span> | PAPER | PAPIER | PAPIER | HÂRTIE | ПАПІР | CARTA |
 | <span class="word-icon">å</span> | PENCIL | CRAYON | OŁÓWEK | CREION | ОЛІВЕЦЬ | MATITA |

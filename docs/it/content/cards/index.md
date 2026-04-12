@@ -2015,6 +2015,7 @@ Intelligente e giocoso, ama arrampicarsi sugli alberi. Usa bastoni e pietre come
 
 - Type: None
 - Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
 - Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -3391,7 +3392,7 @@ Un ponte che si solleva per proteggere l'ingresso di un castello.
 
 ---
 
-### Rif {#note_re}
+### Re {#note_re}
 ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
 
 Una nota musicale.
@@ -3549,6 +3550,19 @@ Un fiume lungo 777 chilometri nel nord della Francia
 
 ---
 
+### Si {#note_si}
+![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
+
+Una nota musicale.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Bureau international des poids et mesures, International Bureau of Weights and Measures (BIPM) | [source](https://commons.wikimedia.org/wiki/File:SI_Logo_with_defining_constants.png)
+
+---
+
 ### Sol {#note_sol}
 ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
 
@@ -3610,19 +3624,6 @@ La stazione dove prendi il treno per tornare a casa.
 - Subjects: Geography, Transportation, Community
 - Country: France
 - Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Man_at_Dundas_subway_station,_Toronto,_2008-05-06.jpg)
-
----
-
-### Sì {#note_si}
-![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
-
-Una nota musicale.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Bureau international des poids et mesures, International Bureau of Weights and Measures (BIPM) | [source](https://commons.wikimedia.org/wiki/File:SI_Logo_with_defining_constants.png)
 
 ---
 
@@ -3760,20 +3761,6 @@ Un veicolo che si muove sull'acqua.
 - Country: Poland
 - Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
 - Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Breslavia {#wroclaw}
-![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
-
-Una città in Polonia con fiumi, ponti e storia.
-
-- Type: Place
-- Subjects: Geography, History, Culture
-- Country: Poland
-- Topics: [Wroclaw](../topics/index.md#wroclaw)
-- Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
-- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4952,19 +4939,6 @@ Un pianeta gigante con anelli luminosi e numerose lune.
 
 ---
 
-### Scuola Primaria Leonardo da Vinci {#primary_school_leonardo_da_vinci}
-![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
-
-È un luogo accogliente dove i bambini imparano, creano ed esplorano guidati dalla curiosità, dall'arte e dalla scienza.
-
-- Type: Place
-- Subjects: Education
-- Country: Poland
-- Image credit: CC0
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
-
----
-
 ### Sirena di Varsavia {#mermaid_of_warsaw}
 ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ loading=lazy }
 
@@ -5015,6 +4989,19 @@ Una piccola statua cittadina; i nani sono il simbolo di Breslavia.
 - Subjects: Culture, Community, History
 - Country: Poland
 - Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Szkoła Podstawowa Leonarda da Vinci {#primary_school_leonardo_da_vinci}
+![preview primary_school_leonardo_da_vinci](../../../assets/img/content/cards/primary_school_leonardo_da_vinci.jpg){ loading=lazy }
+
+È un luogo accogliente dove i bambini imparano, creano ed esplorano guidati dalla curiosità, dall'arte e dalla scienza.
+
+- Type: Place
+- Subjects: Education
+- Country: Poland
+- Image credit: CC0
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
 
 ---
@@ -5140,6 +5127,20 @@ Una statua di nano che pone una domanda a una chiesa.
 - Topics: [Wroclaw Dwarves](../topics/index.md#wroclaw_dwarves)
 - Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Wroc%C5%82awiak_2018-04-28_Wroc%C5%82aw_01.jpg)
 - Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+
+---
+
+### Wrocław {#wroclaw}
+![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ loading=lazy }
+
+Una città in Polonia con fiumi, ponti e storia.
+
+- Type: Place
+- Subjects: Geography, History, Culture
+- Country: Poland
+- Topics: [Wroclaw](../topics/index.md#wroclaw)
+- Image credit: CC_BY_SA | Pudelek (Marcin Szala) | [source](https://commons.wikimedia.org/wiki/File:Wrocław_Główny_(Breslau_Hauptbahnhof)_by_night.JPG)
+- Quests: [Lo zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 

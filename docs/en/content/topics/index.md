@@ -328,10 +328,10 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Musical Score](../cards/index.md#musical_score)**
-    The written notes and words for a song.
+    - **[Musical Scale](../cards/index.md#musical_scale)**
+    The seven notes played in order
 
-    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+    ![preview musical_scale](../../../assets/img/content/cards/musical_scale.jpg){ width="200" }
 
 - Connected cards:
     - **[Piano](../cards/index.md#piano)** (RelatedTo)
@@ -339,42 +339,47 @@ Credits:
 
     ![preview piano](../../../assets/img/content/cards/piano.jpg){ width="200" }
 
-    - **[A](../cards/index.md#note_la)** (RelatedTo)
-    A musical note.
-
-    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
-
-    - **[F](../cards/index.md#note_fa)** (RelatedTo)
-    A musical note.
-
-    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
-
-    - **[B](../cards/index.md#note_si)** (RelatedTo)
-    A musical note.
-
-    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
-
-    - **[G](../cards/index.md#note_sol)** (RelatedTo)
-    A musical note.
-
-    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
-
     - **[C](../cards/index.md#note_do)** (RelatedTo)
     A musical note.
 
     ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ width="200" }
-
-    - **[E](../cards/index.md#note_mi)** (RelatedTo)
-    A musical note.
-
-    ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
 
     - **[D](../cards/index.md#note_re)** (RelatedTo)
     A musical note.
 
     ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
 
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
+    - **[E](../cards/index.md#note_mi)** (RelatedTo)
+    A musical note.
+
+    ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
+
+    - **[F](../cards/index.md#note_fa)** (RelatedTo)
+    A musical note.
+
+    ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
+
+    - **[G](../cards/index.md#note_sol)** (RelatedTo)
+    A musical note.
+
+    ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
+
+    - **[A](../cards/index.md#note_la)** (RelatedTo)
+    A musical note.
+
+    ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
+
+    - **[B](../cards/index.md#note_si)** (RelatedTo)
+    A musical note.
+
+    ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
+
+    - **[Musical Score](../cards/index.md#musical_score)** (RelatedTo)
+    The written notes and words for a song.
+
+    ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
+
+- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md), [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -555,6 +560,11 @@ Credits:
     A big animal with a trunk. Elephants are the biggest animals that walk on land. They have big ears and love to spray water!
 
     ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ width="200" }
+
+    - **[Chimpanzee](../cards/index.md#animal_chimpanzee)** (RelatedTo)
+    Smart and playful, it loves to climb trees. It uses sticks and stones like little tools!
+
+    ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ width="200" }
 
 - Quests: [The Zoo (pl_04)](../quests/quest/pl_04.md)
 
@@ -1646,8 +1656,8 @@ Credits:
 
     ![preview town_hall](../../../assets/img/content/cards/town_hall.jpg){ width="200" }
 
-    - **[Wroclaw : Cathédrale](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
-    Une grande et importante église où l'on prie. On peut grimper au clocher pour admirer la vue.
+    - **[Wroclaw: Cathedral](../cards/index.md#wroclaw_cathedral)** (RelatedTo)
+    A big, important church where people pray. You can climb the tower for a view.
 
     ![preview wroclaw_cathedral](../../../assets/img/content/cards/wroclaw_cathedral.jpg){ width="200" }
 
@@ -1718,7 +1728,7 @@ Credits:
 
     ![preview dwarf_architect](../../../assets/img/content/cards/dwarf_architect.jpg){ width="200" }
 
-    - **[Évêque Nain](../cards/index.md#dwarf_bishop)** (RelatedTo)
+    - **[Bishop Dwarf](../cards/index.md#dwarf_bishop)** (RelatedTo)
     A dwarf statue who asks a church question.
 
     ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ width="200" }
@@ -1733,7 +1743,7 @@ Credits:
 
     ![preview dwarf_councilor](../../../assets/img/content/cards/dwarf_councilor.jpg){ width="200" }
 
-    - **[Expert nain](../cards/index.md#dwarf_expert)** (RelatedTo)
+    - **[Dwarf Expert](../cards/index.md#dwarf_expert)** (RelatedTo)
     A friendly guide who knows all about the dwarfs.
 
     ![preview dwarf_expert](../../../assets/img/content/cards/dwarf_expert.jpg){ width="200" }
@@ -1743,7 +1753,7 @@ Credits:
 
     ![preview dwarf_keymaster](../../../assets/img/content/cards/dwarf_keymaster.jpg){ width="200" }
 
-    - **[Origine Nain](../cards/index.md#dwarf_origin)** (LocatedIn)
+    - **[Origin Dwarf](../cards/index.md#dwarf_origin)** (LocatedIn)
     A classic Wroclaw dwarf statue with a pointed hat and strong boots.
 
     ![preview dwarf_origin](../../../assets/img/content/cards/dwarf_origin.jpg){ width="200" }

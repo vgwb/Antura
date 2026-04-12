@@ -211,9 +211,9 @@ hide:
 <span class="yarn-header-dim">actor: GUIDE_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Did you find Antura?</span> <span class="yarn-meta">#line:01003d0 </span>
-<span class="yarn-line">YES</span> <span class="yarn-meta">#line:0d9f509 </span>
+<span class="yarn-choice">-&gt; YES</span> <span class="yarn-meta">#line:0d9f509 </span>
     <span class="yarn-cmd">&lt;&lt;jump guide_done&gt;&gt;</span>
-<span class="yarn-line">NO</span> <span class="yarn-meta">#line:0de6ebb </span>
+<span class="yarn-choice">-&gt; NO</span> <span class="yarn-meta">#line:0de6ebb </span>
     <span class="yarn-cmd">&lt;&lt;jump guide_done&gt;&gt;</span>
 
 </code>
