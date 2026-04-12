@@ -33,12 +33,24 @@ namespace Antura.Discover.Activities
         public float soundCooldown = 0.5f;
         private float lastSoundTime = -999f;
 
-        public void Init(ActivityOrder mgr, CardData data, Transform activityRoot, System.Action<CardData> onClick = null)
+        public void Init(ActivityOrder mgr, CardData data, Transform activityRoot, System.Action<CardData> onClick = null, System.Func<CardData, string> titleResolver = null)
         {
             manager = mgr;
             CardData = data;
             if (Label != null)
-                Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
+            {
+                if (titleResolver != null)
+                {
+                    var resolvedTitle = titleResolver.Invoke(data);
+                    Label.text = !string.IsNullOrEmpty(resolvedTitle)
+                        ? resolvedTitle
+                        : data.Title != null ? data.Title.GetLocalizedString() : data.name;
+                }
+                else
+                {
+                    Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
+                }
+            }
 
             var sprite = ResolveSprite(data);
             if (sprite != null)
@@ -157,6 +169,9 @@ namespace Antura.Discover.Activities
             if (dragging)
                 return;
 
+            if (CardData == null)
+                return;
+
             if (Time.unscaledTime - lastSoundTime < soundCooldown)
                 return;
 
@@ -168,7 +183,14 @@ namespace Antura.Discover.Activities
                 onPlayItemSound?.Invoke(clip);
             }
 
-            onCardClicked?.Invoke(CardData);
+            if (onCardClicked != null)
+            {
+                onCardClicked.Invoke(CardData);
+            }
+            else
+            {
+                DiscoverDataManager.I?.PlayCardTitle(CardData, true);
+            }
 
             // Tutorial hint
             onFlashCorrectSlot?.Invoke(CardData, this);

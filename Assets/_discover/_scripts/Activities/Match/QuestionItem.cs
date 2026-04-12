@@ -118,7 +118,14 @@ namespace Antura.Discover.Activities
                 return;
 
             _lastClickTime = Time.unscaledTime;
-            _onClicked?.Invoke(Data);
+
+            if (_onClicked != null)
+            {
+                _onClicked.Invoke(Data);
+                return;
+            }
+
+            DiscoverDataManager.I?.PlayCardTitle(Data, true);
         }
     }
 }

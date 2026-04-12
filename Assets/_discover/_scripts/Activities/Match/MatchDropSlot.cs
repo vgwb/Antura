@@ -10,7 +10,7 @@ namespace Antura.Discover.Activities
     /// Provides simple highlight helpers used by ActivityMatch.
     /// </summary>
     [DisallowMultipleComponent]
-    public class MatchDropSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+    public class MatchDropSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         public ActivityMatch manager;
         public int slotIndex = -1;
@@ -175,6 +175,14 @@ namespace Antura.Discover.Activities
                 c.a = 0f;
                 _img.color = c;
             }
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (IsPoolArea || Owner == null)
+                return;
+
+            Owner.OnPointerClick(eventData);
         }
 
     }

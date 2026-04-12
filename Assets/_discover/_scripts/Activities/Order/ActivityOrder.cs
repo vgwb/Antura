@@ -78,7 +78,7 @@ namespace Antura.Discover.Activities
                 go.name = it.name;
 
                 var tile = go.GetComponent<DraggableTile>();
-                tile.Init(this, it, this.transform);
+                tile.Init(this, it, this.transform, PlayCardTitleForTile, ResolveLearningTitle);
             }
 
             UpdateSlotHighlights();
@@ -385,6 +385,33 @@ namespace Antura.Discover.Activities
         public void PlayItemSound(AudioClip clip)
         {
             DiscoverAudioManager.I.Play(clip);
+        }
+
+        private void PlayCardTitleForTile(CardData card)
+        {
+            if (card == null)
+                return;
+
+            DiscoverDataManager.I?.PlayCardTitle(card, true);
+        }
+
+        private string ResolveLearningTitle(CardData card)
+        {
+            if (card == null)
+                return string.Empty;
+
+            var dataManager = DiscoverDataManager.I;
+            if (dataManager != null)
+            {
+                var localized = dataManager.GetCardTitle(card);
+                if (!string.IsNullOrEmpty(localized))
+                    return localized;
+            }
+
+            if (card.Title != null)
+                return card.Title.GetLocalizedString();
+
+            return card.name;
         }
 
         private static Sprite ResolveSprite(CardData data)
