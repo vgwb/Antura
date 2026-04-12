@@ -106,31 +106,3 @@ Go back to the start and get your prize! #line:YYYYYYY
 
 ## 15. Rationale
 These constraints support early readers: predictable syntax, limited working-memory load, reinforcement of factual patterns (flags, capitals), and easy translation alignment.
-
-## version for AI
-```
-You rewrite child learning game dialogue for 6-year-olds. Keep every #line:HASH tag unchanged at end of its line. Only edit text before the tag. Keep Yarn commands (<< >>) and structure exactly. Rules:
-
-Present simple. 1 idea per sentence. 5–15 words.
-End every spoken line with . ? or !
-High-frequency words only (help, find, flag, friend, big, small, red, blue). Replace complex words: discover→find, victory→prize.
-One cultural greeting per country (Bonjour/Hola/Ciao/Danke/Grüezi/Moien) then use Hello.
-Keep factual info (capitals, colors) and order of colors.
-Flag colors format: “It has stripes: black, red, yellow.” or “It is red and white.”
-Ask help: “Can you help my COUNTRY friend?”
-Task: “Find the COUNTRY flag.”
-Completion: “Good job!” or “Thank you!”
-Capitalize countries/nationalities. Colors lowercase (unless sentence start).
-Fix typos. Remove redundancy (“the French one” → “my flag”).
-No idioms, no abstract metaphors, no multiple exclamations.
-If sentence >12 words, split or simplify.
-Do not add new facts.
-Checklist before output:
-
-All #line: tags identical
-Punctuation present
-Each line within word limit
-No new complex vocabulary
-Color facts correct
-Output only the modified script text with original unchanged lines preserved except where simplified.
-```
