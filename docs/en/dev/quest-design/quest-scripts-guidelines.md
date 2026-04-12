@@ -4,6 +4,9 @@ title: Quest Script Writing Guidelines
 
 # Quest Script Writing Guidelines
 
+> **Scope:** This guide is for dialogue text editing in **VO recording and localization workflows** — it assumes `#line:` tags are already in the script and a translation team is involved.
+> **English-only developers** building a new quest from scratch don't need this guide yet. Start with the [Quest Design Guide](quest-design.md) and return here when a language team joins.
+
 These rules standardize quest Yarn script text for young learners (~6 years old). Apply them BEFORE translating. Keep all technical markers intact.
 
 ## 1. Do NOT Touch Technical Elements

@@ -1,13 +1,15 @@
 ---
-title: Developer docs
+title: Developer Docs
 ---
-# Developer docs
+# Developer Docs
 
-Here are all the docs for developers and designers.
-
-- [Game Modules / Architecture](./game-modules/index.md)
-- [How to](./how-to/index.md)
+These are the docs for developers and designers. English only.
 
 **How to Develop Discover Quests**  
 
-- [Design Discover Quests](./quest-design/index.md)  
+- [Design & Develop Discover Quests](./quest-design/index.md)  
+
+**General Tecnicals**
+
+- [Game Modules / Architecture](./game-modules/index.md)
+- [How to](./how-to/index.md)

@@ -15,6 +15,7 @@ title: How To
 
 ## Collaboration & Guidelines
 
+- [Commit Messages semantic](./commit-message-semantic.md)
 - [Collaborator](./Collaborator.md) how to collaborate
 - [Developer Guidelines and Tips](./DeveloperGuidelines.md) general guidelines for contributors
 - [Refactoring Guidelines](./RefactoringGuidelines.md)
