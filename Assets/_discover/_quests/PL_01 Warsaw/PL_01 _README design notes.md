@@ -6,7 +6,7 @@ Each NPC has a local problem caused by Antura, and helping them opens that place
 
 **Characters**
 
-- **Local NPCs:** The Mermaid, Fryderyk Chopin, Wars and Sawa, King Sigismund, a Parliamentarian or President, Maria Skłodowska-Curie, and Robert Lewandowski.
+- **Local NPCs:** The Mermaid, Fryderyk Chopin, Wars and Sawa, King Sigismund, a Parliamentarian, Maria Skłodowska-Curie, and Robert Lewandowski.
 
 ### Learning Goals
 
@@ -22,7 +22,7 @@ Each NPC has a local problem caused by Antura, and helping them opens that place
 	- **Fryderyk Chopin** is a famous Polish composer.
 	- **Maria Skłodowska-Curie** is a famous Polish scientist.
 - **Vocabulary:**
-	- **Transport:** tram, bus, train, car, bike
+	- **Transport:** tram, bus
 	- **Sport:** football, ball, goal, soccer field
 	- **Currency:** złoty
 
@@ -125,7 +125,7 @@ Each NPC has a local problem caused by Antura, and helping them opens that place
 - **NPC:** Mermaid of Warsaw
 - **Story:** After helping all the places in Warsaw, the player finally returns the sword to the Mermaid.
 - **Fact:** She is a symbol of Warsaw and protects the city.
-- **Reward:** The Mermaid thanks the player, closes the main story loop, gives the outro, and starts the final quiz.
+- **Reward:** The Mermaid thanks the player and starts the final quiz.
 
 ### Final Assessment
 

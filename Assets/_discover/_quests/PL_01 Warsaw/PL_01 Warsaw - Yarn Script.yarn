@@ -84,7 +84,8 @@ type: panel
 <<declare $stadium_done = false>>
 <<declare $quiz_score = 0>>
 Welcome to Warsaw, the capital of Poland.
-Go first to the Mermaid of Warsaw by the river.
+<<target npc_0>>
+<<area area_intro>>
 ===
 
 title: quest_end
@@ -107,7 +108,6 @@ At Parliament, you fixed the flag and got the sword.
 At the Palace, you helped Maria find her wallet.
 <<card national_stadium_warsaw>>
 At the Stadium, you helped make the city happy again.
-You gave the Mermaid her sword, opened seven chests, and learned about Warsaw.
 <<jump post_quest_activity>>
 ===
 
@@ -117,36 +117,30 @@ color: green
 type: panel
 tags: proposal
 ---
-Draw your favorite place in Warsaw and the chest you opened there.
-Then draw the Polish flag with white on top and red below.
+Draw your favorite place in Warsaw!
 <<quest_end>>
 ===
 
-title: GUIDE_INTRO
+// -----------------------------------------------------------------------------
+// PLACE 0 | INTRO
+
+title: npc_0
 position: 0,320
 actor: GUIDE_F
 group: intro
 ---
-Warsaw's story starts with the Mermaid, not with me.
-Talk to the people in each place to keep going.
+Hallo. Do you know where we are?
+-> In Torun
+-> In Warsaw
+	Good. It's always important to listen and read all dialogs in the game. 
+	Maybe you could help us solving a mystery. Go to the Mermaid!
+	<<target npc_1>>
+	<<area area_mermaid>>
+-> In Wroclaw
 ===
 
 // -----------------------------------------------------------------------------
 // PLACE 1 | MERMAID OF WARSAW
-
-title: MERMAID_SQUARE
-position: 0,600
-group: mermaid
-type: panel
----
-<<if !$mermaid_started>>
-	<<jump npc_1>>
-<<elseif !$mermaid_done>>
-	<<jump task_1_done>>
-<<else>>
-	<<jump chest_1>>
-<<endif>>
-===
 
 title: npc_1
 position: 260,600
@@ -215,24 +209,83 @@ The Mermaid chest is open now.
 Take the card and go south to the Chopin Monument in the park. Keep looking for my sword.
 ===
 
-// -----------------------------------------------------------------------------
-// PLACE 2 | CHOPIN MONUMENT
 
-title: CHOPIN_MONUMENT
-position: 0,900
-group: chopin
-type: panel
+title: npc_final
+position: 260,2700
+actor: ADULT_F
+group: finale
+color: yellow
 ---
-<<if !$mermaid_done>>
-	Help the Mermaid first, then come to my monument.
-<<elseif !$chopin_started>>
-	<<jump npc_2>>
-<<elseif !$chopin_done>>
-	<<jump task_2_done>>
+<<if !$sword_found>>
+	Please follow Antura's trail and bring my sword back when the city is calm again.
 <<else>>
-	<<jump chest_2>>
+	<<card mermaids_sword>>
+	You found my sword! You saved us!
+	I am a symbol of Warsaw, and I protect the city.
+	Now the city is calm again, and I can take it back.
+	<<set $sword_returned = true>>
+	Now let us see what you remember about this adventure
+	<<jump FINAL_QUIZ>>
 <<endif>>
 ===
+
+title: FINAL_QUIZ
+position: 1040,2700
+actor: ADULT_F
+type: quiz
+group: finale
+---
+<<set $quiz_score = 0>>
+Which colors are on the Polish flag?
+-> White and red.
+	<<set $quiz_score = $quiz_score + 1>>
+	Correct.
+-> Blue and red.
+	Not really. The Polish flag is white and red.
+-> Green and white.
+	Not really. The Polish flag is white and red.
+Who was Chopin?
+-> A composer.
+	<<set $quiz_score = $quiz_score + 1>>
+	Correct.
+-> A football player.
+	Not really. Chopin was a composer.
+-> A king.
+	Not really. Chopin was a composer.
+What is the Wisla?
+-> A river.
+	<<set $quiz_score = $quiz_score + 1>>
+	Correct.
+-> A palace.
+	Not really. The Wisla is a river.
+-> A stadium.
+	Not really. The Wisla is a river.
+<<if $quiz_score >= 2>>
+	Well done. You know enough about Warsaw.
+	<<jump quest_end>>
+<<else>>
+	Good try. You can explore the city again and learn more.
+<<endif>>
+===
+
+title: FACTS_TRANSPORT
+position: 1195,-57
+color: purple
+actor: GUIDE_F
+group: Warsaw
+---
+<<card tram>>
+Trams are a common way to move around Warsaw.
+<<card bus>>
+Buses help people travel across the city too.
+<<card car>>
+Cars also move through the city streets every day.
+<<card bike>>
+Bikes are a simple way to move from place to place.
+===
+
+// -----------------------------------------------------------------------------
+// PLACE 2 | CHOPIN MONUMENT
 
 title: npc_2
 position: 260,900
@@ -240,7 +293,9 @@ actor: ADULT_M
 group: chopin
 color: yellow
 ---
-<<if $chopin_done>>
+<<if !$mermaid_done>>
+	Help the Mermaid first, then come to my monument.
+<<elseif $chopin_done>>
 	The melody is restored. The chest is yours.
 	<<jump chest_2>>
 <<elseif $chopin_started>>
@@ -726,123 +781,10 @@ The stadium chest is open now.
 Return to the Mermaid and give her back the sword.
 ===
 
-// -----------------------------------------------------------------------------
-// FINALE | RETURN TO THE MERMAID
 
-title: MERMAID_RETURN
-position: 0,2700
-group: finale
-type: panel
----
-<<if !$sword_found>>
-	Please follow Antura's trail and bring my sword back when the city is calm again.
-<<elseif !$stadium_done>>
-	You found my sword. Thank you. Keep it safe a little longer and finish helping the other places first.
-<<elseif !$sword_returned>>
-	<<jump npc_final>>
-<<else>>
-	<<jump GUIDE_OUTRO>>
-<<endif>>
-===
-
-title: npc_final
-position: 260,2700
-actor: ADULT_F
-group: finale
-color: yellow
----
-<<card mermaids_sword>>
-You found my sword. Thank you.
-I am a symbol of Warsaw, and I protect the city.
-Now the city is calm again, and I can take it back.
-<<set $sword_returned = true>>
-<<jump activity_final_done>>
-===
-
-title: activity_final_done
-position: 520,2700
-actor: ADULT_F
-group: finale
----
-Stay with me for the final quiz and the ending.
-<<jump GUIDE_OUTRO>>
-===
-
-title: GUIDE_OUTRO
-position: 780,2700
-actor: ADULT_F
-type: panel
-group: finale
----
-You finished the trip, returned the sword, and helped the city.
-Now let us see what you remember.
-<<jump FINAL_QUIZ>>
-===
-
-title: FINAL_QUIZ
-position: 1040,2700
-actor: ADULT_F
-type: quiz
-group: finale
----
-<<if !$sword_returned>>
-	Return the sword to the Mermaid before taking the final quiz.
-<<else>>
-	<<set $quiz_score = 0>>
-	Final question one: which colors are on the Polish flag?
-	-> White and red.
-		<<set $quiz_score = $quiz_score + 1>>
-		Correct.
-	-> Blue and red.
-		Not this time. The Polish flag is white and red.
-	-> Green and white.
-		Not this time. The Polish flag is white and red.
-
-	Final question two: who was Chopin?
-	-> A composer.
-		<<set $quiz_score = $quiz_score + 1>>
-		Correct.
-	-> A football player.
-		Not this time. Chopin was a composer.
-	-> A king.
-		Not this time. Chopin was a composer.
-
-	Final question three: what is the Wisla?
-	-> A river.
-		<<set $quiz_score = $quiz_score + 1>>
-		Correct.
-	-> A palace.
-		Not this time. The Wisla is a river.
-	-> A stadium.
-		Not this time. The Wisla is a river.
-
-	<<if $quiz_score >= 2>>
-		Well done. You know a lot about Warsaw.
-	<<else>>
-		Good try. You can explore the city again and learn more.
-	<<endif>>
-	<<jump quest_end>>
-<<endif>>
-===
-
-title: FACTS_TRANSPORT
-position: 1200,0
-color: purple
-actor: GUIDE_F
-group: Warsaw
----
-<<card tram>>
-Trams are a common way to move around Warsaw.
-<<card bus>>
-Buses help people travel across the city too.
-<<card car>>
-Cars also move through the city streets every day.
-<<card bike>>
-Bikes are a simple way to move from place to place.
-===
 
 title: FACTS_HISTORY
-position: 1200,120
+position: 1198,93
 color: purple
 actor: GUIDE_F
 group: Warsaw
@@ -856,7 +798,7 @@ The Constitution of 3 May is an important day in Polish history.
 ===
 
 title: FACTS_SCIENCE
-position: 1200,240
+position: 1198,226
 color: purple
 actor: GUIDE_F
 group: Warsaw
@@ -893,8 +835,6 @@ spawn_group: warsaw_locals
 ---
 => The Wisla River flows through Warsaw.
 => The Mermaid is a symbol of the city.
-=> I use the tram to move around Warsaw.
-=> The stadium is across the river.
 ===
 
 title: spawned_warsaw_guide
@@ -905,7 +845,6 @@ spawn_group: warsaw_guides
 ---
 => Chopin was a famous Polish composer.
 => King Sigismund moved the capital to Warsaw.
-=> The Palace of Culture stands in the city center.
 => Parliament is where laws are discussed.
 ===
 
@@ -917,12 +856,8 @@ spawn_group: warsaw_students
 ---
 => The Polish flag is white and red.
 => Maria Skłodowska-Curie was a scientist.
-=> We play football at the National Stadium.
 => Independence Day is on 11 November.
 ===
-
-// -----------------------------------------------------------------------------
-// INFO DETOURS (shown once on first NPC visit via <<detour info_X>>)
 
 title: info_1
 position: 1300,600
