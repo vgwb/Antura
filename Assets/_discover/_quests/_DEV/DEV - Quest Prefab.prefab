@@ -134,6 +134,7 @@ MonoBehaviour:
   IconType: 1
   IconTransform: {fileID: 8073056527977943957}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
@@ -699,6 +700,7 @@ MonoBehaviour:
   IconType: 4
   IconTransform: {fileID: 6695178580818839957}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
@@ -782,9 +784,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHiddenAtStart: 0
   AutoCollect: 0
   Type: 3
   ItemTag: ingredients
+  AddToInventory: 0
   particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
     type: 3}
   enableRotation: 1
@@ -946,6 +950,7 @@ MonoBehaviour:
   IconType: 1
   IconTransform: {fileID: 3165526689393668383}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
@@ -1172,6 +1177,7 @@ MonoBehaviour:
   IconType: 4
   IconTransform: {fileID: 5189903706073103468}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
@@ -1255,9 +1261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHiddenAtStart: 0
   AutoCollect: 0
   Type: 3
   ItemTag: ingredients
+  AddToInventory: 0
   particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
     type: 3}
   enableRotation: 1
@@ -1419,13 +1427,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentQuest: {fileID: 11400000, guid: d18b0b80b09374f6db671c77b4ab5b64, type: 2}
-  DebugMode: 1
+  DebugMode: 0
   DebugConfig:
     DebugNode:
       project: {fileID: 7545569452688597077, guid: 1bb60ef48b2f64a0b9777022755c1877,
         type: 3}
       nodeName: task_collect_ingredients
     DebugSpawnPoint: {fileID: 0}
+    showInteractableLabels: 0
     TalkToPlayerMode: 3
     NativeLanguage:
       code: 
@@ -1864,6 +1873,7 @@ MonoBehaviour:
   IconType: 1
   IconTransform: {fileID: 6285479307988896564}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
@@ -5697,9 +5707,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHiddenAtStart: 0
   AutoCollect: 0
   Type: 3
   ItemTag: 
+  AddToInventory: 0
   particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
     type: 3}
   enableRotation: 1
@@ -11126,6 +11138,7 @@ MonoBehaviour:
   IconType: 4
   IconTransform: {fileID: 1111321478377358099}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}

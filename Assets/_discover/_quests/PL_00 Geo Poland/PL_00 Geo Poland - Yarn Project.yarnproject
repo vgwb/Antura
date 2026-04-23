@@ -1,15 +1,15 @@
 {
-  "projectFileVersion": 3,
+  "projectFileVersion": 4,
   "sourceFiles": [
-    "**/*.yarn",
-    "../_common**.yarn"
+    "*.yarn",
+    "../_common script.yarn"
   ],
   "excludeFiles": [
-    "**/*~/*",
-    "./Samples/Yarn Spinner*/*"
   ],
   "localisation": {},
   "baseLanguage": "en",
   "compilerOptions": {},
-  "definitionsFiles": []
+    "definitions": [
+        "../../../../ProjectSettings/Packages/dev.yarnspinner/Assembly-CSharp-generated.ysls.json"
+    ]
 }

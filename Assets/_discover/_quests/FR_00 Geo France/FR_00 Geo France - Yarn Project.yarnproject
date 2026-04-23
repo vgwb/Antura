@@ -1,15 +1,20 @@
 {
-  "projectFileVersion": 3,
-  "sourceFiles": [
-    "**/*.yarn",
-    "../_common**.yarn"
-  ],
-  "excludeFiles": [
-    "**/*~/*",
-    "./Samples/Yarn Spinner*/*"
-  ],
-  "localisation": {},
-  "baseLanguage": "en",
-  "compilerOptions": {},
-  "definitionsFiles": []
+    "projectFileVersion": 4,
+    "sourceFiles": [
+        "../_common script.yarn",
+        "*.yarn"
+    ],
+    "excludeFiles": [],
+    "localisation": {},
+    "baseLanguage": "en",
+    "editorOptions": {
+        "yarnScriptEditor": {
+            "startNode": "quest_start"
+        }
+    },
+    "compilerOptions": {},
+    "projectName": "FR_00",
+    "definitions": [
+        "../../../../ProjectSettings/Packages/dev.yarnspinner/Assembly-CSharp-generated.ysls.json"
+    ]
 }

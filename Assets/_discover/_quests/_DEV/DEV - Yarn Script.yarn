@@ -526,7 +526,7 @@ color: green
 <<if HasCompletedTask("open_chest")>>
     Thanks you! I needed that #line:073d718 
 <<else>>
-    Reach and open that chest! #line:0c31fab 
+    Reach and open that chest! #line:0c31fab
     <<area off>>
     <<target target_chest>>
     <<task_start open_chest task_open_chest_done>>

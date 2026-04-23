@@ -4,62 +4,49 @@
 // in the Unity scene these elements are ready to be used in this script:
 // TOPICS
 //   - TODO solar_system
-//   - TODO telescope
+//   - TODO planets
 // CARDS
-// - astronomy
 // - earth
 // - heliocentric_model
 // - jupiter
-// - lens
 // - mars
 // - mercury
 // - neptune
 // - nicolaus_copernicus
 // - nicolaus_copernicus_house
-// - planetarium
 // - saturn
 // - solar_system
-// - telescope
 // - torun
 // - uranus
 // - venus
-//   - TODO eyepiece
+//   - TODO ice_crystal
+//   - TODO ring_fragment
+//   - TODO storm_bolt
+//   - TODO sun_rock
+//   - TODO water_drop
 // TASKS
 // - (none)
 // ACTIVITIES
-//   - BROKEN cleancanvas
-//   - BROKEN jigsawpuzzle
-//   - BROKEN memory
 //   - BROKEN order
-//   - BROKEN piano
+//   - BROKEN cleancanvas
+//   - BROKEN memory
 //   - BROKEN quiz
 // ACTABLE
 // WORDS: (none)
 // </scene_data>
 
 // WANTED:
-// Cards:
-// - NicolausCopernicus (scientific figure)
-// - planet_mercury (planetary education)
-// - planet_venus (planetary education)
-// - planet_earth (planetary education)
-// - planet_mars (planetary education)
-// - planet_jupiter (planetary education)
-// - planet_saturn (planetary education)
-// - planet_uranus (planetary education)
-// - planet_neptune (planetary education)
-// - telescope (scientific instrument)
-// - planetarium (educational facility)
-// Tasks:
-// - Fix solar system map with correct planetary order
-// - Clean and learn about telescope parts
-// - Visit each planet in order with individual activities
 // Activities:
-// - order planets_order (arrange 8 planets from Sun)
-// - piano planet_order_song (musical mnemonic for planet order)
-// - cleancanvas telescope_lens_clean (clean telescope lens)
-// - memory telescope_parts (match telescope components)
-// - jigsawpuzzle planet_mercury through planet_neptune (8 individual planet jigsaws)
+// - order planets_order              (arrange 8 planets from Sun)
+// - cleancanvas collect_mercury_1    (find 1 sun-heated rock)
+// - cleancanvas collect_venus_2      (find 2 hot clouds)
+// - cleancanvas collect_earth_3      (find 3 water drops)
+// - cleancanvas collect_mars_4       (find 4 red dust grains)
+// - cleancanvas collect_jupiter_5    (find 5 storm bolts)
+// - cleancanvas collect_saturn_6     (find 6 ring fragments)
+// - cleancanvas collect_uranus_7     (find 7 ice crystals)
+// - memory neptune_facts             (match: deep blue / farthest / Triton / strong winds)
+// - quiz copernicus_basics           (3 questions: center, first planet, rings)
 
 title: quest_start
 position: 0,0
@@ -69,29 +56,25 @@ image: torun_street
 color: red
 type: panel
 ---
-<<declare $planets_found = 0>>
-<<declare $planets_needed = 8>>
+<<declare $planets_placed = 0>>
 <<card torun>>
-Welcome to TORUŃ in POLAND. #line:0673aff 
+Welcome to TORUN in POLAND. #line:2a00001
 <<card nicolaus_copernicus>>
-COPERNICUS was born here. #line:00fe710 
+NICOLAUS COPERNICUS was born here. #line:2a00002
 <<card nicolaus_copernicus_house>>
-ANTURA is stuck in his house! #line:00589bc 
-Let's ask COPERNICUS for help. #line:031963d 
+ANTURA sneaked into his model room! #line:2a00003
+Let's ask COPERNICUS for help. #line:2a00004
 ===
-
 
 title: quest_end
 position: 234,7
 type: panel_endgame
 color: green
 actor: NARRATOR
-
 ---
-Great work on this quest. #line:0a0a2ce 
+Great work! #line:2a00005
 <<card solar_system>>
-Today we learned the SOLAR SYSTEM. #line:0cce3a4 
-
+Today we learned the 8 PLANETS of the SOLAR SYSTEM. #line:2a00006
 <<jump post_quest_activity>>
 ===
 
@@ -102,349 +85,463 @@ color: green
 tags: proposal
 actor: NARRATOR
 ---
-Draw the 8 PLANETS with the SUN in center. #line:064c54e 
+Draw the 7 PLANETS around the SUN in order. #line:2a00007
 <<quest_end>>
 ===
 
 
-
-// LEt'S MEET COPERNICUS
+// --- MEET COPERNICUS ---
 
 title: COPERNICUS_OUTSIDE
-position: 162,-138
+position: 200,-180
 group: Intro
 actor: SENIOR_M
 ---
-<<action card nicolaus_copernicus_house>>
-Hello! I am NICOLAUS COPERNICUS. #line:0c5050d 
-I can help you rescue ANTURA. #line:0a41815 
-First, fix my SOLAR SYSTEM map. #line:0f17151 
--> Help with planets #line:07bdf91 
+<<card nicolaus_copernicus_house>>
+Hello! I am NICOLAUS COPERNICUS. #line:2a00010
+ANTURA is trapped in my model room! #line:2a00011
+Help me fix the SOLAR SYSTEM model. #line:2a00012
+I will tell you about each PLANET. #line:2a00013
+-> Let's fix it! #line:2a00014
+    <<jump PLANETS_ORDER_INTRO>>
 ===
 
-// ACTIVITY – ORDER THE PLANETS
+
+// --- ORDER ACTIVITY ---
+
+title: PLANETS_ORDER_INTRO
+position: 400,-180
+group: Order
+actor: SENIOR_M
+---
+First — can you put the PLANETS in order? #line:2a00020
+All 8, from the SUN outward! #line:2a00021
+-> I will try! #line:2a00022
+===
 
 title: PLANETS_ORDER
-position: 400,0
-group: SolarSystem
-tags:
+position: 600,-180
+group: Order
 ---
 <<activity order planets_order AFTER_PLANETS_ORDER>>
 ===
 
 title: AFTER_PLANETS_ORDER
-position: 600,0
-group: SolarSystem
+position: 800,-180
+group: Order
 actor: SENIOR_M
 ---
-Well done! #line:06ea147 
-Long ago, people put EARTH in the center. #line:0af451b 
+Well done! #line:2a00030
 <<card heliocentric_model>>
-I found the SUN is in the center. #line:0392dfd 
-===
-
-title: INSIDE_MUSEUM
-position: 800,0
-group: Museum
-actor: GUIDE_F
-image: museum_hall
----
-<<card solar_system>>
-Here is a 3D SOLAR SYSTEM. #line:0069f70 
-It spins in the hall. #line:04de41d 
-Find PLANETS to add them here. #line:01e7dda 
-Clean the TELESCOPE. #line:0c22e2c 
-
-===
-
-// ACTIVITY – CLEAN THE TELESCOPE LENS
-
-title: TELESCOPE_DIRTY
-position: 1000,0
-group: Museum
-actor: NARRATOR
-image: telescope_lens_dirty
----
-<<activity cleancanvas telescope_lens_clean tutorial>>
+The SUN is at the center. #line:2a00031
+Long ago, people put EARTH in the center. #line:2a00032
+I proved the SUN should be there! #line:2a00033
+Now let's visit each PLANET and collect its treasures. #line:2a00034
+-> Start with MERCURY #line:2a00035
+    <<jump PLANET_MERCURY_INTRO>>
 ===
 
 
-title: telescope_lens_clean_done
-position: 1000,0
-group: Museum
-actor: NARRATOR
----
-Great job cleaning the lens!  #line:06ba2c4 
-Now we can see the planets better. #line:0dd17cf 
-===
+// --- MERCURY  (1st — collect 1 sun-heated rock) ---
 
-
-title: TELESCOPE_EXPLAIN
-position: 1200,0
-group: Museum
+title: PLANET_MERCURY_INTRO
+position: 0,200
+group: Mercury
 actor: SENIOR_M
----
-<<card telescope>>
-A TELESCOPE helps us see far. #line:0314ed5 
-<<card lens>>
-It has a LENS and an EYEPIECE. #line:062693e 
-<<card planetarium>>
-A PLANETARIUM shows the sky indoors. #line:0cab30b 
-===
-
-title: TELESCOPE_PARTS
-position: 1400,0
-group: Museum
-actor: NARRATOR
----
-<<activity memory telescope_parts tutorial>>
--> Piano memory #line:0db50a7 
-    <<jump PIANO_INTRO>>
-
-//--------------------------------------------
-// PIANO – PLANET ORDER SONG
-//--------------------------------------------
-===
-title: PIANO_INTRO
-position: 1600,0
-group: Museum
-actor: SENIOR_M
-image: planet_piano_card
----
-Music helps memory. #line:08d3111 
-Play the PLANET order tune. #line:0471676 
--> Play #line:0f08a91 
-
-===
-title: PIANO_PLAY
-position: 1800,0
-group: Museum
-actor: NARRATOR
----
-<<activity piano planet_order_song tutorial>>
--> Find PLANETS #line:013de52 
-
-//--------------------------------------------
-// DISCOVER THE PLANETS
-//--------------------------------------------
-===
-title: FIND_PLANETS
-position: 0,220
-group: SolarSystem
-actor: GUIDE_F
-image: solar_model_center
----
-<<card astronomy>>
-Let's visit each PLANET. #line:0b015a8 
-They appear in the model when found. #line:00d6fdf 
--> Start with MERCURY #line:04ba61d 
-
-// MERCURY
-===
-title: PLANET_MERCURY
-position: 200,220
-group: SolarSystem
-actor: GUIDE_F
 image: planet_mercury
 ---
 <<card mercury>>
-MERCURY is closest to the SUN. #line:0235ac2 
-It goes around very fast. #line:03c1c86 
-<<activity jigsawpuzzle planet_mercury tutorial>>
-// Add Mercury to the model (handled by activity)
-<<set $planets_found += 1>>
-
-// VENUS
+MERCURY is the closest PLANET to the SUN. #line:2a00040
+It has no air and is covered in CRATERS. #line:2a00041
+The SUN bakes its rocks red-hot! #line:2a00042
+Find the 1 SUN-HEATED ROCK to add it to the model. #line:2a00043
 ===
-title: PLANET_VENUS
-position: 400,220
-group: SolarSystem
-actor: GUIDE_F
+
+title: PLANET_MERCURY_COLLECT
+position: 200,200
+group: Mercury
+---
+<<activity cleancanvas collect_mercury_1 PLANET_MERCURY_DONE>>
+===
+
+title: PLANET_MERCURY_DONE
+position: 400,200
+group: Mercury
+actor: SENIOR_M
+---
+Great! MERCURY is now in the model. #line:2a00050
+<<set $planets_placed += 1>>
+-> Next: VENUS #line:2a00051
+    <<jump PLANET_VENUS_INTRO>>
+===
+
+
+// --- VENUS  (2nd — collect 2 hot clouds) ---
+
+title: PLANET_VENUS_INTRO
+position: 600,200
+group: Venus
+actor: SENIOR_M
 image: planet_venus
 ---
 <<card venus>>
-VENUS is very hot. #line:0fbc89d 
-Thick clouds cover it. #line:0244228 
-<<activity jigsawpuzzle planet_venus tutorial>>
-// Add Venus to the model (handled by activity)
-<<set $planets_found += 1>>
-
-// EARTH
+VENUS is the second PLANET from the SUN. #line:2a00060
+It is wrapped in thick, hot CLOUDS. #line:2a00061
+It is the hottest PLANET of all! #line:2a00062
+Find 2 HOT CLOUDS to add it to the model. #line:2a00063
 ===
-title: PLANET_EARTH
-position: 600,220
-group: SolarSystem
-actor: GUIDE_F
+
+title: PLANET_VENUS_COLLECT
+position: 800,200
+group: Venus
+---
+<<activity cleancanvas collect_venus_2 PLANET_VENUS_DONE>>
+===
+
+title: PLANET_VENUS_DONE
+position: 1000,200
+group: Venus
+actor: SENIOR_M
+---
+Well done! VENUS joins the model. #line:2a00070
+<<set $planets_placed += 1>>
+-> Next: EARTH #line:2a00071
+    <<jump PLANET_EARTH_INTRO>>
+===
+
+
+// --- EARTH  (3rd — collect 3 water drops) ---
+
+title: PLANET_EARTH_INTRO
+position: 1200,200
+group: Earth
+actor: SENIOR_M
 image: planet_earth
 ---
 <<card earth>>
-EARTH is our home. #line:01002c7 
-It has land, air, and seas. #line:032ae50 
-<<activity jigsawpuzzle planet_earth tutorial>>
-// Add Earth to the model (handled by activity)
-<<set $planets_found += 1>>
-
-
-// MARS
+EARTH is the third PLANET from the SUN. #line:2a00080
+It is our home — full of WATER and LIFE. #line:2a00081
+No other PLANET has OCEANS like ours! #line:2a00082
+Find 3 WATER DROPS to add it to the model. #line:2a00083
 ===
-title: PLANET_MARS
-position: 800,220
-group: SolarSystem
-actor: GUIDE_F
+
+title: PLANET_EARTH_COLLECT
+position: 1400,200
+group: Earth
+---
+<<activity cleancanvas collect_earth_3 PLANET_EARTH_DONE>>
+===
+
+title: PLANET_EARTH_DONE
+position: 1600,200
+group: Earth
+actor: SENIOR_M
+---
+Wonderful! EARTH joins the model. #line:2a00090
+<<set $planets_placed += 1>>
+-> Next: MARS #line:2a00091
+    <<jump PLANET_MARS_INTRO>>
+===
+
+
+// --- MARS  (4th — collect 4 red dust grains) ---
+
+title: PLANET_MARS_INTRO
+position: 0,400
+group: Mars
+actor: SENIOR_M
 image: planet_mars
 ---
 <<card mars>>
-MARS is red and dusty. #line:007f580 
-It has big volcanoes. #line:0bc9c83 
-<<activity jigsawpuzzle planet_mars tutorial>>
-// Add Mars to the model (handled by activity)
-<<set $planets_found += 1>>
+MARS is the fourth PLANET from the SUN. #line:2a00100
+Its surface is covered in red DUST and rocks. #line:2a00101
+It has the tallest VOLCANO in the SOLAR SYSTEM! #line:2a00102
+Find 4 RED DUST GRAINS to add it to the model. #line:2a00103
 ===
 
-// JUPITER
+title: PLANET_MARS_COLLECT
+position: 200,400
+group: Mars
+---
+<<activity cleancanvas collect_mars_4 PLANET_MARS_DONE>>
+===
+
+title: PLANET_MARS_DONE
+position: 400,400
+group: Mars
+actor: SENIOR_M
+---
+Excellent! MARS joins the model. #line:2a00110
+<<set $planets_placed += 1>>
+-> Next: JUPITER #line:2a00111
+    <<jump PLANET_JUPITER_INTRO>>
+===
 
 
-title: PLANET_JUPITER
-position: 1000,220
-group: SolarSystem
-actor: GUIDE_F
+// --- JUPITER  (5th — collect 5 storm bolts) ---
+
+title: PLANET_JUPITER_INTRO
+position: 600,400
+group: Jupiter
+actor: SENIOR_M
 image: planet_jupiter
 ---
 <<card jupiter>>
-JUPITER is the biggest PLANET. #line:06e72b3 
-It has a Great Red Spot. #line:094d7dd 
-<<activity jigsawpuzzle planet_jupiter tutorial>>
-// Add Jupiter to the model (handled by activity)
-<<set $planets_found += 1>>
--> Next is SATURN #line:07229a6 
-    <<jump PLANET_SATURN>>
-
-// SATURN
+JUPITER is the fifth PLANET and the biggest! #line:2a00120
+It has a giant STORM called the Great Red Spot. #line:2a00121
+It has at least 95 MOONS! #line:2a00122
+Find 5 STORM BOLTS to add it to the model. #line:2a00123
 ===
-title: PLANET_SATURN
-position: 1200,220
-group: SolarSystem
-actor: GUIDE_F
+
+title: PLANET_JUPITER_COLLECT
+position: 800,400
+group: Jupiter
+---
+<<activity cleancanvas collect_jupiter_5 PLANET_JUPITER_DONE>>
+===
+
+title: PLANET_JUPITER_DONE
+position: 1000,400
+group: Jupiter
+actor: SENIOR_M
+---
+Amazing! JUPITER joins the model. #line:2a00130
+<<set $planets_placed += 1>>
+-> Next: SATURN #line:2a00131
+    <<jump PLANET_SATURN_INTRO>>
+===
+
+
+// --- SATURN  (6th — collect 6 ring fragments) ---
+
+title: PLANET_SATURN_INTRO
+position: 1200,400
+group: Saturn
+actor: SENIOR_M
 image: planet_saturn
 ---
 <<card saturn>>
-SATURN has bright RINGS. #line:0e6de7d 
-Many MOONS orbit it. #line:00a70f4 
-<<activity jigsawpuzzle planet_saturn tutorial>>
-// Add Saturn to the model (handled by activity)
-<<set $planets_found += 1>>
--> Next is URANUS #line:09ba1f7 
-    <<jump PLANET_URANUS>>
-
-// URANUS
+SATURN is the sixth PLANET. #line:2a00140
+It has beautiful RINGS made of ice and rock. #line:2a00141
+Its rings stretch thousands of kilometers wide! #line:2a00142
+Find 6 RING FRAGMENTS to add it to the model. #line:2a00143
 ===
-title: PLANET_URANUS
-position: 1400,220
-group: SolarSystem
-actor: GUIDE_F
+
+title: PLANET_SATURN_COLLECT
+position: 1400,400
+group: Saturn
+---
+<<activity cleancanvas collect_saturn_6 PLANET_SATURN_DONE>>
+===
+
+title: PLANET_SATURN_DONE
+position: 1600,400
+group: Saturn
+actor: SENIOR_M
+---
+Beautiful! SATURN joins the model. #line:2a00150
+<<set $planets_placed += 1>>
+-> Next: URANUS #line:2a00151
+    <<jump PLANET_URANUS_INTRO>>
+===
+
+
+// --- URANUS  (7th — collect 7 ice crystals) ---
+
+title: PLANET_URANUS_INTRO
+position: 0,600
+group: Uranus
+actor: SENIOR_M
 image: planet_uranus
 ---
 <<card uranus>>
-URANUS spins on its side. #line:04df973 
-It looks blue‑green. #line:01e724d 
-<<activity jigsawpuzzle planet_uranus tutorial>>
-// Add Uranus to the model (handled by activity)
-<<set $planets_found += 1>>
-
-
-// NEPTUNE
+URANUS is the seventh PLANET. #line:2a00160
+It is an icy blue-green GIANT. #line:2a00161
+It spins on its side — like a rolling ball! #line:2a00162
+Find 7 ICE CRYSTALS to add it to the model. #line:2a00163
 ===
-title: PLANET_NEPTUNE
-position: 1600,220
-group: SolarSystem
-actor: GUIDE_F
+
+title: PLANET_URANUS_COLLECT
+position: 200,600
+group: Uranus
+---
+<<activity cleancanvas collect_uranus_7 PLANET_URANUS_DONE>>
+===
+
+title: PLANET_URANUS_DONE
+position: 400,600
+group: Uranus
+actor: SENIOR_M
+---
+Incredible! URANUS joins the model. #line:2a00170
+<<set $planets_placed += 1>>
+-> Now for the last PLANET! #line:2a00171
+    <<jump PLANET_NEPTUNE_INTRO>>
+===
+
+
+// --- NEPTUNE  (8th — memory game, introduced by boatswain) ---
+
+title: PLANET_NEPTUNE_INTRO
+position: 400,600
+group: Neptune
+actor: SENIOR_M
 image: planet_neptune
 ---
 <<card neptune>>
-NEPTUNE is far and windy. #line:0191651 
-It is deep blue. #line:0584147 
-<<activity jigsawpuzzle planet_neptune tutorial>>
-// Add Neptune to the model (handled by activity)
-<<set $planets_found += 1>>
-
-<<jump ALL_PLANETS_FOUND>>
-
-// ALL PLANETS FOUND
+Ah — one more! I am an old SAILOR. #line:2a00300
+NEPTUNE is the farthest PLANET. #line:2a00301
+It is deep blue and has the strongest WINDS in the SOLAR SYSTEM. #line:2a00302
+Its biggest MOON is called TRITON. #line:2a00303
+Can you match the NEPTUNE facts? #line:2a00304
 ===
-title: ALL_PLANETS_FOUND
-position: 1800,220
-group: SolarSystem
+
+title: PLANET_NEPTUNE_MEMORY
+position: 600,600
+group: Neptune
+---
+<<activity memory neptune_facts PLANET_NEPTUNE_DONE>>
+===
+
+title: PLANET_NEPTUNE_DONE
+position: 800,600
+group: Neptune
+actor: SENIOR_M
+---
+Well done! NEPTUNE joins the model. #line:2a00310
+<<set $planets_placed += 1>>
+-> Now the model is complete! #line:2a00311
+    <<jump ALL_PLANETS_PLACED>>
+===
+
+
+// --- MODEL COMPLETE ---
+
+title: ALL_PLANETS_PLACED
+position: 1000,600
+group: Finale
 actor: SENIOR_M
 image: solar_model_finale
 ---
-You found all 8 PLANETS. #line:0d91787 
-The model is complete. #line:0d9ce49 
-Now rescue ANTURA! #line:0896149 
+You placed all 8 PLANETS in the model! #line:2a00180
+Now the SOLAR SYSTEM is complete. #line:2a00181
+<<card heliocentric_model>>
+The SUN is in the center — just as I discovered! #line:2a00182
+Now let's rescue ANTURA! #line:2a00183
 ===
 
-title: RESCUE_ANTURA_GUIDE
-position: 1726,713
+
+// --- RESCUE ANTURA ---
+
+title: RESCUE_ANTURA
+position: 1200,600
 group: Finale
 actor: GUIDE_F
-image: antura_trail
-
----
-ANTURA is free! #line:0294715 
-
-===
-title: RESCUE_ANTURA_COP
-position: -21,1066
-group: End
-actor: SENIOR_M
 image: antura_rescued
 ---
-Thank you for your help. #line:0d7e5be 
-Remember that the SUN is in the center. #line:0b0e4bf 
+ANTURA is free! #line:2a00190
+He was hiding behind NEPTUNE's model! #line:2a00191
 ===
+
+title: COPERNICUS_FAREWELL
+position: 1400,600
+group: Finale
+actor: SENIOR_M
+---
+Thank you for your help! #line:2a00200
+Remember: the SUN is at the center. #line:2a00201
+EARTH is the third PLANET. #line:2a00202
+<<jump FINAL_QUIZ>>
+===
+
+
+// --- FINAL QUIZ ---
 
 title: FINAL_QUIZ
-position: 372,1108
+position: 1600,600
 group: End
 actor: NARRATOR
-image: quiz_solar_system
 ---
-Answer the questions. #line:08bea58 
-<<activity quiz copernicus_basics tutorial>>
-// Suggested questions in preset:
-// 1) Who is in the center of the SOLAR SYSTEM? a) EARTH  b) SUN ✅  c) MOON
-// 2) How many PLANETS are there?             a) 7  b) 8 ✅  c) 9
-// 3) COPERNICUS was from which country?       a) POLAND ✅  b) ITALY  c) FRANCE
-
-<<jump QUEST_COMPLETE>>
-
+Let's test what you learned! #line:2a00210
+<<jump QUIZ_Q1>>
 ===
-title: QUEST_COMPLETE
-position: 727,1084
+
+title: QUIZ_Q1
+position: 1600,700
 group: End
-color: red
+actor: NARRATOR
 ---
-Well done! #line:03529aa 
+<<card solar_system>>
+What is at the center of the SOLAR SYSTEM? #line:2a00220
+-> The SUN #line:2a00221
+    <<jump QUIZ_Q2>>
+-> The EARTH #line:2a00222
+    No — the SUN is in the center! #line:2a00223
+    <<jump QUIZ_Q1>>
 ===
-///////// NPCs SPAWNED IN THE SCENE //////////
-// these npc are spawn automatically in the scene
-// use these to add random facts. everythime you meet them
-// they will say one of these lines randomly
+
+title: QUIZ_Q2
+position: 1800,700
+group: End
+actor: NARRATOR
+---
+<<card mercury>>
+Which PLANET is closest to the SUN? #line:2a00230
+-> MERCURY #line:2a00231
+    <<jump QUIZ_Q3>>
+-> VENUS #line:2a00232
+    VENUS is second — MERCURY is first! #line:2a00233
+    <<jump QUIZ_Q2>>
+===
+
+title: QUIZ_Q3
+position: 2000,700
+group: End
+actor: NARRATOR
+---
+<<card saturn>>
+Which PLANET has beautiful RINGS? #line:2a00240
+-> SATURN #line:2a00241
+    <<jump QUEST_COMPLETE>>
+-> JUPITER #line:2a00242
+    JUPITER has storms — SATURN has RINGS! #line:2a00243
+    <<jump QUIZ_Q3>>
+===
+
+title: QUEST_COMPLETE
+position: 2200,700
+group: End
+---
+You know the SOLAR SYSTEM! #line:2a00250
+<<jump quest_end>>
+===
+
+
+// --- SPAWNED NPCs ---
 
 title: spawned_child
-position: 900,1400
+position: 400,900
 group: Spawned
 actor: KID_M
 ---
-=> I saw blue NEPTUNE. #line:0db085c 
-=> Rings on SATURN shine. #line:0a7ab40 
+=> SATURN has rings around it. #line:2a00260
+=> NEPTUNE is the farthest PLANET. #line:2a00262
 ===
 
 title: spawned_student
-position: 1080,1400
+position: 600,900
 group: Spawned
 actor: KID_F
 ---
-=> Planets move around SUN. #line:0275852 
-=> the MOON is our satellite. #line:07430b2 
+=> MERCURY is closest to the SUN. #line:2a00270
+=> EARTH is the third PLANET. #line:2a00271
 ===
 
+title: spawned_local
+position: 800,900
+group: Spawned
+actor: ADULT_M
+---
+=> NEPTUNE has the strongest WINDS. #line:2a00280
+=> MARS is red and dusty. #line:2a00281
+===
