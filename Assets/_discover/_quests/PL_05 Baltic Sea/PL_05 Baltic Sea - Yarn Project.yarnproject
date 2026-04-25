@@ -1,15 +1,22 @@
 {
-  "projectFileVersion": 4,
-  "sourceFiles": [
-    "*.yarn",
-    "../_common script.yarn"
-  ],
-  "excludeFiles": [
-  ],
-  "localisation": {},
-  "baseLanguage": "en",
-  "compilerOptions": {},
+    "projectFileVersion": 4,
+    "sourceFiles": [
+        "*.yarn",
+        "../_common script.yarn"
+    ],
+    "excludeFiles": [],
+    "localisation": {},
+    "baseLanguage": "en",
+    "compilerOptions": {},
     "definitions": [
         "../../../../ProjectSettings/Packages/dev.yarnspinner/Assembly-CSharp-generated.ysls.json"
-    ]
+    ],
+    "editorOptions": {
+        "yarnScriptEditor": {
+            "spellcheck": {
+                "enable": false,
+                "words": []
+            }
+        }
+    }
 }
