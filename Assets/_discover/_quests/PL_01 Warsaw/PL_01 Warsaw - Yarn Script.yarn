@@ -65,8 +65,10 @@ position: 0,0
 color: red
 type: panel
 ---
-<<declare $mermaid_started = false>>
-<<declare $mermaid_done = false>>
+<<declare $current_place = "center">>
+<<declare $sword_pieces = 0>>
+<<declare $chest_1_done = false>>
+
 <<declare $chopin_started = false>>
 <<declare $chopin_done = false>>
 <<declare $wars_started = false>>
@@ -76,8 +78,6 @@ type: panel
 <<declare $sigismund_done = false>>
 <<declare $parliament_started = false>>
 <<declare $parliament_done = false>>
-<<declare $sword_found = false>>
-<<declare $sword_returned = false>>
 <<declare $palace_started = false>>
 <<declare $palace_done = false>>
 <<declare $stadium_started = false>>
@@ -89,30 +89,30 @@ Welcome to Warsaw, the capital of Poland.
 ===
 
 title: quest_end
-position: 234,7
+position: 876,267
 color: green
 type: panel_endgame
 ---
-Great work. You explored Warsaw from the river to the stadium.
+Great work. You explored Warsaw and reassembled the Mermaid's sword!
 <<card mermaid_of_warsaw>>
-The Mermaid started your trip and got her sword back.
-<<card fryderyk_chopin>>
-Chopin showed you where to go next.
+The Mermaid told you about the sword and gave you the first piece.
 <<card wars_and_sawa>>
-Wars and Sawa told you their river story.
+Wars and Sawa told you their river story and gave you the second piece.
 <<card king_sigismunds_column>>
-King Sigismund sent you to Parliament.
+King Sigismund gave you the third piece.
 <<card polish_houses_of_parliament>>
-At Parliament, you fixed the flag and got the sword.
+At Parliament, you found the fourth piece.
+<<card fryderyk_chopin>>
+Chopin gave you the fifth piece.
 <<card palace_of_culture_and_science>>
-At the Palace, you helped Maria find her wallet.
+At the Palace, you helped Maria and found the sixth piece.
 <<card national_stadium_warsaw>>
-At the Stadium, you helped make the city happy again.
+At the Stadium, you collected the last piece.
 <<jump post_quest_activity>>
 ===
 
 title: post_quest_activity
-position: 236,184
+position: 1159,274
 color: green
 type: panel
 tags: proposal
@@ -121,22 +121,106 @@ Draw your favorite place in Warsaw!
 <<quest_end>>
 ===
 
+
+title: quiz_final
+position: 588,265
+type: quiz
+group: finale
+---
+<<set $quiz_score = 0>>
+Which colors are on the Polish flags?
+-> Blue and red.
+	Are you sure? #line:are_you_sure
+-> White and red.
+	<<set $quiz_score = $quiz_score + 1>>
+	Correct. #line:correct
+-> Green and white.
+	Are you sure? #shadow:are_you_sure
+Who was Chopin?
+-> A football player.
+	Are you sure? #shadow:are_you_sure
+-> A king.
+	Are you sure? #shadow:are_you_sure
+-> A composer.
+	<<set $quiz_score = $quiz_score + 1>>
+	Correct. #shadow:correct
+What is the Wisla?
+-> A palace.
+	Are you sure? #shadow:are_you_sure
+-> A stadium.
+	Are you sure? #shadow:are_you_sure
+-> A river.
+	<<set $quiz_score = $quiz_score + 1>>
+	Correct. #shadow:correct
+<<if $quiz_score >= 2>>
+	Well done. You know enough about Warsaw.
+	<<jump quest_end>>
+<<else>>
+	Good try. You can explore the city again and learn more.
+<<endif>>
+===
+
+title: teleport
+position: -86,1066
+---
+Where do you want to go? #line:where_to_go
+-> Center <<if $current_place == "stadium" or $current_place == "parliament">> #line:tram_center
+    <<teleport tram_center>>
+    <<wait 4>>
+    <<jump intro_area_center>>
+-> Parliament <<if $current_place == "center" or $current_place == "chopin">> #line:tram_parliament
+    <<teleport tram_parliament>>
+    <<wait 4>>
+    <<jump intro_area_parliament>>
+-> Chopin <<if $current_place == "parliament" or $current_place == "palace_culture">> #line:tram_chopin
+    <<teleport tram_chopin>>
+    <<wait 4>>
+    <<jump intro_area_chopin>>
+-> Culture Palace <<if $current_place == "chopin" or $current_place == "stadium">> #line:tram_palace
+    <<teleport tram_palace_culture>>
+    <<wait 4>>
+    <<jump intro_area_palace_culture>>
+-> Stadium <<if $current_place == "palace_culture" >> #line:tram_stadium
+    <<teleport tram_stadium>>
+    <<wait 4>>
+    <<jump intro_area_stadium>>
+-> Stay here #line:stay_here #highlight
+===
+
+
 // -----------------------------------------------------------------------------
 // PLACE 0 | INTRO
 
 title: npc_0
-position: 0,320
-actor: GUIDE_F
+position: 271,31
 group: intro
 ---
 Hallo. Do you know where we are?
 -> In Torun
 -> In Warsaw
-	Good. It's always important to listen and read all dialogs in the game. 
-	Maybe you could help us solving a mystery. Go to the Mermaid!
+	Yes! It's important to listen and read all dialogs in this game.
+	<<camera_focus camera_mermaid>>
+	We have a problem to solve. Go to the Mermaid!
+	<<camera_reset>>
 	<<target npc_1>>
-	<<area area_mermaid>>
+	<<area area_center>>
 -> In Wroclaw
+-> I don't know #highlight
+===
+
+// -----------------------------------------------------------------------------
+// AREA CENTER
+
+title: intro_area_center
+position: 447,-247
+group: center
+type: panel
+color: blue
+---
+<<set $current_place = "center">>
+<<area area_center>>
+//<<target npc_0>>
+We are at town center
 ===
 
 // -----------------------------------------------------------------------------
@@ -148,247 +232,110 @@ actor: ADULT_F
 group: mermaid
 color: yellow
 ---
-<<if $mermaid_done>>
-	You already helped me, thank you! The chest is waiting for you here.
-	<<jump chest_1>>
-<<elseif $mermaid_started>>
-	<<jump task_1_done>>
+<<if $sword_pieces >= 7>>
+	<<card mermaids_sword>>
+	You collected all pieces of my sword! Now I can make it whole again!
+	I am a symbol of Warsaw, and I protect the city.
+	Now let us see what you remember about this adventure
+	<<jump quiz_final>>
+<<elseif $chest_1_done>>
+    Explore Warsaw and find all pieces of the sword! #line:explore
+    <<jump next_1>>
+<<elseif GetCurrentTask() == "task_1">>
+    Come back when you finished the task #line:finish_task
+<<elseif HasCompletedTask("task_1")>>
+	<<SetActive key_1 true>>
+    <<target key_1>>
+    Get the key and open the chest!
 <<else>>
-	<<detour info_1>>
-	<<card mermaid_of_warsaw>>
-	I am the Mermaid of Warsaw. I am a symbol of the city.
-	Antura stole my sword while I was trying to stop him.
-	Help me here at the square by sorting the ways people move around Warsaw.
-	People travel by tram, bus, train, car, and bike.
-	When you are done, go to the Chopin Monument. I saw Antura run that way.
-	<<set $mermaid_started = true>>
-	<<jump task_1_done>>
+    // <<detour info_1>>
+    <<card mermaid_of_warsaw>>
+	Antura broke my sword into 7 pieces and locked each one in a chest across Warsaw!
+	Find all keys to open the chest #line:find_all_keys #task:task_1
+    <<task_start task_1 task_1_done>>
 <<endif>>
 ===
 
 title: task_1_done
-position: 520,600
-actor: ADULT_F
+position: 1528,195
 group: mermaid
 ---
-Let us sort the ways people move around Warsaw!
--> I need help. What should I sort?
-	Think about tram, bus, car, and bike.
-	Put the transport cards in the right order.
--> I am ready to sort! #highlight
-	<<activity order activity_1_done>>
+<<target chest_1>>
+You found all keys! Now go and unlock the chest! #line:key_found
 ===
 
-title: activity_1_done
-position: 780,600
-actor: ADULT_F
+title: info_1
+position: 1300,600
+color: purple
+actor: GUIDE_F
 group: mermaid
 ---
-<<if GetActivityResult("") > 0>>
-	<<card tram>>
-	Many people ride the tram in Warsaw.
-	<<card bus>>
-	Many people ride the bus too.
-	<<card bike>>
-	Some people ride a bike around the city.
-	<<set $mermaid_done = true>>
-	<<jump chest_1>>
-<<else>>
-	Good try! Come back and sort the transport words again.
-<<endif>>
+<<card mermaid_of_warsaw>>
+The Mermaid of Warsaw is called the Syrenka.
+She is half woman, half fish, and carries a sword and a shield.
+You can find her on the city sign and all over Warsaw.
 ===
 
 title: chest_1
 position: 1040,600
 group: mermaid
 ---
-<<trigger chest_1_open>>
-<<SetInteractable chest_1 false>>
-<<card mermaid_of_warsaw>>
-The Mermaid chest is open now.
-Take the card and go south to the Chopin Monument in the park. Keep looking for my sword.
-===
-
-
-title: npc_final
-position: 260,2700
-actor: ADULT_F
-group: finale
-color: yellow
----
-<<if !$sword_found>>
-	Please follow Antura's trail and bring my sword back when the city is calm again.
+<<if $chest_1_done>>
+    The chest is empty. #line:chest_empty
+<<elseif has_item_at_least("key_gold", 3)>>
+    To open the chest, solve this puzzle! #line:solve_to_unlock
+    <<activity activity_1 activity_1_done>>
 <<else>>
-	<<card mermaids_sword>>
-	You found my sword! You saved us!
-	I am a symbol of Warsaw, and I protect the city.
-	Now the city is calm again, and I can take it back.
-	<<set $sword_returned = true>>
-	Now let us see what you remember about this adventure
-	<<jump FINAL_QUIZ>>
+    It is locked. You need 3 keys! #line:chest_locked_3
 <<endif>>
 ===
 
-title: FINAL_QUIZ
-position: 1040,2700
-actor: ADULT_F
-type: quiz
-group: finale
----
-<<set $quiz_score = 0>>
-Which colors are on the Polish flags?
--> White and red.
-	<<set $quiz_score = $quiz_score + 1>>
-	Correct.
--> Blue and red.
-	Not really. The Polish flag is white and red.
--> Green and white.
-	Not really. The Polish flag is white and red.
-Who was Chopin?
--> A composer.
-	<<set $quiz_score = $quiz_score + 1>>
-	Correct.
--> A football player.
-	Not really. Chopin was a composer.
--> A king.
-	Not really. Chopin was a composer.
-What is the Wisla?
--> A river.
-	<<set $quiz_score = $quiz_score + 1>>
-	Correct.
--> A palace.
-	Not really. The Wisla is a river.
--> A stadium.
-	Not really. The Wisla is a river.
-<<if $quiz_score >= 2>>
-	Well done. You know enough about Warsaw.
-	<<jump quest_end>>
-<<else>>
-	Good try. You can explore the city again and learn more.
-<<endif>>
-===
-
-title: FACTS_TRANSPORT
-position: 1195,-57
-color: purple
-actor: GUIDE_F
-group: Warsaw
----
-<<card tram>>
-Trams are a common way to move around Warsaw.
-<<card bus>>
-Buses help people travel across the city too.
-<<card car>>
-Cars also move through the city streets every day.
-<<card bike>>
-Bikes are a simple way to move from place to place.
-===
-
-// -----------------------------------------------------------------------------
-// PLACE 2 | CHOPIN MONUMENT
-
-title: npc_2
-position: 260,900
-actor: ADULT_M
-group: chopin
-color: yellow
----
-<<if !$mermaid_done>>
-	Help the Mermaid first, then come to my monument.
-<<elseif $chopin_done>>
-	The melody is restored. The chest is yours.
-	<<jump chest_2>>
-<<elseif $chopin_started>>
-	<<jump task_2_done>>
-<<else>>
-	<<detour info_2>>
-	<<card chopin_monument>>
-	I am Fryderyk Chopin. My music is part of Warsaw.
-	Antura scattered the notes of my melody around the monument.
-	Come back and play the melody on the piano to restore it.
-	<<set $chopin_started = true>>
-	<<jump task_2_done>>
-<<endif>>
-===
-
-title: task_2_done
-position: 520,900
-actor: ADULT_M
-group: chopin
----
-The notes are scattered around my monument.
-Can you play the melody and bring them back?
--> How do I play the melody?
-	Listen carefully and watch the keys light up.
-	Then tap them in the same order.
--> I am ready to play! #highlight
-	<<activity piano activity_2_done>>
-===
-
-title: activity_2_done
-position: 780,900
-actor: ADULT_M
-group: chopin
+title: activity_1_done
+position: 780,600
+group: mermaid
 ---
 <<if GetActivityResult("") > 0>>
-	<<card fryderyk_chopin>>
-	I was a Polish composer. This is a famous place in Warsaw.
-	<<card nicolaus_copernicus_monument_warsaw>>
-	I saw Antura run past Copernicus and toward the river with the Mermaid's sword.
-	<<set $chopin_done = true>>
-	<<jump chest_2>>
+	<<if $chest_1_done == false>>
+		<<trigger chest_1_open>>
+		<<SetInteractable chest_1 false>>
+		<<inventory key_gold remove 3>>
+		<<inventory mermaids_sword add>>
+		<<set $sword_pieces = $sword_pieces + 1>>
+		You found a piece of the sword! #line:pieace_sword
+		<<set $chest_1_done = true>>
+		<<jump next_1>>
+	<<endif>>
 <<else>>
-	Good try! Come back and play the melody again.
+	Try again!
 <<endif>>
 ===
 
-title: chest_2
-position: 1040,900
-group: chopin
+title: next_1
+position: 780,600
+group: mermaid
 ---
-<<trigger chest_2_open>>
-<<SetInteractable chest_2 false>>
-The Chopin chest is open now.
-Go north-east and help Wars and Sawa by the Wisla.
+Go the Wars and Sawa statue by the Wisła river.
+<<target npc_2>>
 ===
-
 // -----------------------------------------------------------------------------
-// PLACE 3 | WARS AND SAWA BY THE WISLA
+// PLACE 2 | WARS AND SAWA BY THE WISLA
 
-title: WARS_AND_SAWA
-position: 0,1200
-group: wars_sawa
-type: panel
----
-<<if !$chopin_done>>
-	Chopin needs help first. Then come to the river.
-<<elseif !$wars_started>>
-	<<jump npc_3>>
-<<elseif !$sawa_met>>
-	Sawa is waiting by the river bend. Speak with her, then come back to Wars.
-<<elseif !$wars_done>>
-	<<jump task_3_done>>
-<<else>>
-	<<jump chest_3>>
-<<endif>>
-===
-
-title: npc_3
-position: 260,1200
+title: npc_2
+position: 521,1199
 actor: ADULT_M
 group: wars_sawa
 color: yellow
 ---
 <<if $wars_done>>
 	We are together again. Thank you! The chest is open.
-	<<jump chest_3>>
+	<<jump chest_2>>
 <<elseif $sawa_met>>
 	Sawa is back! Talk to us both to hear the rest of our story.
-	<<jump task_3_done>>
+	<<jump task_2_done>>
 <<elseif $wars_started>>
 	Sawa is still at the river bend. Please find her.
 <<else>>
-	<<detour info_3>>
+	<<detour info_2>>
 	<<card wars_and_sawa_statue>>
 	I am Wars. Antura caused chaos here too, and Sawa got separated from me.
 	Please find her at the bend of the Wisła and bring her back to me.
@@ -396,44 +343,30 @@ color: yellow
 <<endif>>
 ===
 
-title: SAWA_BY_WISLA
-position: 520,1200
-actor: ADULT_F
+title: info_2
+position: 1561,1199
+color: purple
+actor: GUIDE_F
 group: wars_sawa
 ---
-<<if !$wars_started>>
-	Wars is looking for me. Please speak with him first.
-<<elseif !$sawa_met>>
-	<<card wars_and_sawa>>
-	I am Sawa. The Wisła is the longest river in Poland and this is our home.
-	Antura ran through here too and separated me from Wars.
-	Please walk back to Wars. We will tell you the rest of our story together.
-	<<set $sawa_met = true>>
-<<else>>
-	Return to Wars. We are both ready.
-<<endif>>
+<<card wars_and_sawa_statue>>
+Wars and Sawa are characters from an old legend about Warsaw.
+Their names are said to be hidden inside the name "Warszawa."
+The Wisła flows through Warsaw all the way to the Baltic Sea.
 ===
 
-title: WARS_SAWA_LEGEND
-position: 780,1200
-group: wars_sawa
-type: panel
----
-<<jump task_3_done>>
-===
-
-title: task_3_done
-position: 1040,1200
+title: task_2_done
+position: 1301,1199
 actor: ADULT_M
 group: wars_sawa
 ---
 We are together again. Thank you.
 Our story is one of the old stories of Warsaw.
-<<jump activity_3_done>>
+<<jump activity_2_done>>
 ===
 
-title: activity_3_done
-position: 1300,1200
+title: activity_2_done
+position: 1561,1199
 actor: ADULT_M
 group: wars_sawa
 ---
@@ -441,62 +374,63 @@ group: wars_sawa
 The Wisla flows through Warsaw, and our story is part of the city.
 Antura passed toward King Sigismund's Column in the old town.
 <<set $wars_done = true>>
-<<jump chest_3>>
 ===
 
-title: chest_3
-position: 1560,1200
+title: chest_2
+position: 1821,1199
 group: wars_sawa
 ---
-<<trigger chest_3_open>>
-<<SetInteractable chest_3 false>>
-Our chest is open now.
-Go west to the old town square and speak with King Sigismund. He may know where the sword was left.
+<<trigger chest_2_open>>
+<<SetInteractable chest_2 false>>
+<<set $sword_pieces = $sword_pieces + 1>>
+The second sword piece is yours!
+Go west to the old town square and speak with King Sigismund.
 ===
 
 // -----------------------------------------------------------------------------
-// PLACE 4 | KING SIGISMUND'S COLUMN
+// PLACE 3 | KING SIGISMUND'S COLUMN
 
-title: SIGISMUND_COLUMN
-position: 0,1500
-group: sigismund
-type: panel
----
-<<if !$wars_done>>
-	Help Wars and Sawa first, then come to my square.
-<<elseif !$sigismund_started>>
-	<<jump npc_4>>
-<<elseif !$sigismund_done>>
-	<<jump task_4_done>>
-<<else>>
-	<<jump chest_4>>
-<<endif>>
-===
-
-title: npc_4
-position: 260,1500
+title: npc_3
+position: 498,1491
 actor: SENIOR_M
 group: sigismund
 color: yellow
 ---
 <<if $sigismund_done>>
 	My crown is restored. The chest is yours.
-	<<jump chest_4>>
+	<<jump chest_3>>
 <<elseif $sigismund_started>>
-	<<jump task_4_done>>
+	<<jump task_3_done>>
 <<else>>
-	<<detour info_4>>
+	<<detour info_3>>
 	<<card king_sigismunds_column>>
 	I am King Sigismund. My column stands in the old town near the Royal Castle.
 	I moved the capital to Warsaw long ago. Today, Parliament leads Poland.
 	Antura knocked three pieces of my crown off. Find them and bring them back.
 	<<set $sigismund_started = true>>
-	<<jump task_4_done>>
+	<<jump task_3_done>>
 <<endif>>
 ===
 
-title: task_4_done
-position: 520,1500
+
+
+title: info_3
+position: 1538,1491
+color: purple
+actor: GUIDE_F
+group: sigismund
+---
+<<card king_sigismunds_column>>
+King Sigismund III Vasa moved the capital of Poland from Kraków to Warsaw in 1596.
+His column on Castle Square is one of the oldest secular monuments in Warsaw.
+<<card royal_castle_warsaw>>
+The Royal Castle stands right next to the column.
+It was destroyed in World War II and fully rebuilt by 1984.
+===
+
+
+title: task_3_done
+position: 758,1491
 actor: SENIOR_M
 group: sigismund
 ---
@@ -507,11 +441,11 @@ Have you found all three crown pieces?
 -> Yes, I have all three! #highlight
 	Excellent. My crown is complete again.
 	Now I can tell you where the sword went next.
-	<<jump activity_4_done>>
+	<<jump activity_3_done>>
 ===
 
-title: activity_4_done
-position: 780,1500
+title: activity_3_done
+position: 1018,1491
 actor: SENIOR_M
 group: sigismund
 ---
@@ -519,62 +453,77 @@ group: sigismund
 People remember me because the capital moved to Warsaw.
 I heard the Mermaid's sword was left at the Houses of Parliament.
 <<set $sigismund_done = true>>
-<<jump chest_4>>
+<<jump chest_3>>
 ===
 
-title: chest_4
-position: 1040,1500
+title: chest_3
+position: 1278,1491
 group: sigismund
 ---
-<<trigger chest_4_open>>
-<<SetInteractable chest_4 false>>
-My chest is open now.
+<<trigger chest_3_open>>
+<<SetInteractable chest_3 false>>
+<<set $sword_pieces = $sword_pieces + 1>>
+The third sword piece is yours!
 Continue east to the Houses of Parliament.
 ===
 
 // -----------------------------------------------------------------------------
-// PLACE 5 | HOUSES OF PARLIAMENT
+// AREA PARLIAMENT
 
-title: PRESIDENT_PARLIAMENT
-position: 0,1800
-group: parliament
+title: intro_area_parliament
+position: 447,-247
+group: center
 type: panel
+color: blue
 ---
-<<if !$sigismund_done>>
-	Please visit King Sigismund first.
-<<elseif !$parliament_started>>
-	<<jump npc_5>>
-<<elseif !$parliament_done>>
-	<<jump task_5_done>>
-<<else>>
-	<<jump chest_5>>
-<<endif>>
+<<set $current_place = "parliament">>
+<<area area_parliament>>
+//<<target npc_0>>
+We are in front of the Parliment
 ===
 
-title: npc_5
-position: 260,1800
+// -----------------------------------------------------------------------------
+// PLACE 4 | HOUSES OF PARLIAMENT
+
+title: npc_4
+position: 498,1791
 actor: ADULT_M
 group: parliament
 color: yellow
 ---
 <<if $parliament_done>>
-	You fixed the flag and have the sword. The chest is yours.
-	<<jump chest_5>>
+	You fixed the flag. The chest is yours.
+	<<jump chest_4>>
 <<elseif $parliament_started>>
-	<<jump task_5_done>>
+	<<jump task_4_done>>
 <<else>>
-	<<detour info_5>>
+	<<detour info_4>>
 	<<card polish_houses_of_parliament>>
 	Welcome to the Polish Houses of Parliament. Important laws are made here.
-	I also work near the Presidential Palace, and yes, I have the Mermaid's sword.
-	But first, the flag pieces were scattered. Sort the white and red parts back in the right order.
+	I also work near the Presidential Palace.
+	Antura scattered the flag pieces! Sort the white and red parts back in the right order.
 	<<set $parliament_started = true>>
-	<<jump task_5_done>>
+	<<jump task_4_done>>
 <<endif>>
 ===
 
-title: task_5_done
-position: 520,1800
+title: info_4
+position: 1538,1791
+color: purple
+actor: GUIDE_F
+group: parliament
+---
+<<card polish_houses_of_parliament>>
+The Polish parliament is called the Sejm and the Senate.
+It meets in Warsaw and votes on the laws of Poland.
+<<card presidential_palace>>
+The Presidential Palace is nearby on Krakowskie Przedmieście.
+It is where the President of Poland works.
+===
+
+
+title: task_4_done
+position: 758,1791
 actor: ADULT_M
 group: parliament
 ---
@@ -583,58 +532,155 @@ The flag pieces are scattered. Put them in the correct order!
 	White is on top like snow. Red is below like a red carpet.
 	Put them in that order.
 -> Let us sort the flag now! #highlight
-	<<activity order activity_5_done>>
+	<<activity order activity_4_done>>
 ===
 
-title: activity_5_done
-position: 780,1800
+title: activity_4_done
+position: 1018,1791
 actor: ADULT_M
 group: parliament
 ---
 <<if GetActivityResult("") > 0>>
 	<<card constitution_of_3_may>>
 	The Constitution of 3 May is an important day in Poland.
-	<<card mermaids_sword>>
-	Here is the Mermaid's sword. Keep it safe and finish helping the city before you return it.
-	<<set $sword_found = true>>
 	<<set $parliament_done = true>>
-	<<jump chest_5>>
+	<<jump chest_4>>
 <<else>>
 	Not quite right. The Polish flag has white on top and red below. Try again!
 <<endif>>
 ===
 
-title: chest_5
-position: 1040,1800
+title: chest_4
+position: 1278,1791
 group: parliament
+---
+<<trigger chest_4_open>>
+<<SetInteractable chest_4 false>>
+<<set $sword_pieces = $sword_pieces + 1>>
+The fourth sword piece is yours!
+Continue to the Chopin Monument.
+===
+
+// -----------------------------------------------------------------------------
+// AREA CHOPIN
+
+title: intro_area_chopin
+position: 447,-247
+group: center
+type: panel
+color: blue
+---
+<<set $current_place = "chopin">>
+<<area area_chopin>>
+<<target npc_5>>
+We are at Chopin Park
+===
+
+// -----------------------------------------------------------------------------
+// PLACE 5 | CHOPIN MONUMENT
+
+title: npc_5
+position: 260,900
+actor: ADULT_M
+group: chopin
+color: yellow
+---
+<<if !$parliament_done>>
+	Help at Parliament first, then come to my monument.
+<<elseif $chopin_done>>
+	The melody is restored. The chest is yours.
+	<<jump chest_5>>
+<<elseif $chopin_started>>
+	<<jump task_5_done>>
+<<else>>
+	<<detour info_5>>
+	<<card chopin_monument>>
+	I am Fryderyk Chopin. My music is part of Warsaw.
+	Antura scattered the notes of my melody around the monument.
+	Come back and play the melody on the piano to restore it.
+	<<set $chopin_started = true>>
+	<<jump task_5_done>>
+<<endif>>
+===
+
+
+title: info_5
+position: 1300,900
+color: purple
+actor: GUIDE_F
+group: chopin
+---
+<<card chopin_monument>>
+This monument stands in Łazienki Park in Warsaw.
+Every summer, free piano concerts are held here on Sundays.
+<<card fryderyk_chopin>>
+Fryderyk Chopin was born near Warsaw in 1810.
+He is one of the most famous composers in the world.
+===
+
+
+
+title: task_5_done
+position: 520,900
+actor: ADULT_M
+group: chopin
+---
+The notes are scattered around my monument.
+Can you play the melody and bring them back?
+-> How do I play the melody?
+	Listen carefully and watch the keys light up.
+	Then tap them in the same order.
+-> I am ready to play! #highlight
+	<<activity piano activity_5_done>>
+===
+
+title: activity_5_done
+position: 780,900
+actor: ADULT_M
+group: chopin
+---
+<<if GetActivityResult("") > 0>>
+	<<card fryderyk_chopin>>
+	I was a Polish composer. This is a famous place in Warsaw.
+	<<set $chopin_done = true>>
+	<<jump chest_5>>
+<<else>>
+	Good try! Come back and play the melody again.
+<<endif>>
+===
+
+title: chest_5
+position: 1040,900
+group: chopin
 ---
 <<trigger chest_5_open>>
 <<SetInteractable chest_5 false>>
-The Parliament chest is open now.
-You have the sword now. Continue to the Palace of Culture and Science.
+<<set $sword_pieces = $sword_pieces + 1>>
+The fifth sword piece is yours!
+Now go to the Palace of Culture and Science.
+===
+
+// -----------------------------------------------------------------------------
+// AREA CULTURE PALACE
+
+title: intro_area_palace_culture
+position: 447,-247
+group: center
+type: panel
+color: blue
+---
+<<set $current_place = "palace_culture">>
+<<area area_palace_culture>>
+//<<target npc_0>>
+We are at Culture Palace
 ===
 
 // -----------------------------------------------------------------------------
 // PLACE 6 | PALACE OF CULTURE AND SCIENCE
 
-title: PALACE_CULTURE_MARIA
-position: 0,2100
-group: palace
-type: panel
----
-<<if !$parliament_done>>
-	Visit Parliament first, then come to the city center.
-<<elseif !$palace_started>>
-	<<jump npc_6>>
-<<elseif !$palace_done>>
-	<<jump task_6_done>>
-<<else>>
-	<<jump chest_6>>
-<<endif>>
-===
 
 title: npc_6
-position: 260,2100
+position: 498,2091
 actor: ADULT_F
 group: palace
 color: yellow
@@ -655,8 +701,23 @@ color: yellow
 <<endif>>
 ===
 
+title: info_6
+position: 1538,2091
+color: purple
+actor: GUIDE_F
+group: palace
+---
+<<card palace_of_culture_and_science>>
+The Palace of Culture and Science is the tallest building in Poland.
+It was built in the 1950s and has a viewing terrace at the top.
+<<card maria_skodowskacurie>>
+Maria Skłodowska-Curie was born in Warsaw in 1867.
+She was the first woman to win a Nobel Prize, and she won it twice.
+===
+
+
 title: task_6_done
-position: 520,2100
+position: 758,2091
 actor: ADULT_F
 group: palace
 ---
@@ -670,7 +731,7 @@ Did you follow all six coins and find my wallet?
 ===
 
 title: activity_6_done
-position: 780,2100
+position: 1018,2091
 actor: ADULT_F
 group: palace
 ---
@@ -683,36 +744,36 @@ The złoty is the currency used in Poland.
 ===
 
 title: chest_6
-position: 1040,2100
+position: 1278,2091
 group: palace
 ---
 <<trigger chest_6_open>>
 <<SetInteractable chest_6 false>>
-The Palace chest is open now.
+<<set $sword_pieces = $sword_pieces + 1>>
+The sixth sword piece is yours!
 Cross the river and go to the National Stadium.
+===
+
+// -----------------------------------------------------------------------------
+// AREA STADIUM
+
+title: intro_area_stadium
+position: 447,-247
+group: center
+type: panel
+color: blue
+---
+<<set $current_place = "stadium">>
+<<area area_stadium>>
+//<<target npc_0>>
+We are at the Stadium
 ===
 
 // -----------------------------------------------------------------------------
 // PLACE 7 | NATIONAL STADIUM
 
-title: NATIONAL_STADIUM
-position: 0,2400
-group: stadium
-type: panel
----
-<<if !$palace_done>>
-	Visit the Palace of Culture first, then come to the stadium.
-<<elseif !$stadium_started>>
-	<<jump npc_7>>
-<<elseif !$stadium_done>>
-	<<jump task_7_done>>
-<<else>>
-	<<jump chest_7>>
-<<endif>>
-===
-
 title: npc_7
-position: 260,2400
+position: 498,2391
 actor: ADULT_M
 group: stadium
 color: yellow
@@ -734,8 +795,23 @@ color: yellow
 <<endif>>
 ===
 
+title: info_7
+position: 1538,2391
+color: purple
+actor: GUIDE_F
+group: stadium
+---
+<<card national_stadium_warsaw>>
+The PGE Narodowy stands on the right bank of the Wisła.
+It opened in 2012 and hosted matches during UEFA Euro 2012.
+<<card robert_lewandowski>>
+Robert Lewandowski is one of Poland's most famous footballers.
+He has scored hundreds of goals for club and country.
+===
+
+
 title: task_7_done
-position: 520,2400
+position: 758,2391
 actor: ADULT_M
 group: stadium
 ---
@@ -747,7 +823,7 @@ Great goals! Now show me how well you know your football words.
 ===
 
 title: activity_7_done
-position: 780,2400
+position: 1018,2391
 actor: ADULT_M
 group: stadium
 ---
@@ -772,19 +848,20 @@ group: stadium
 ===
 
 title: chest_7
-position: 1040,2400
+position: 1278,2391
 group: stadium
 ---
 <<trigger chest_7_open>>
 <<SetInteractable chest_7 false>>
-The stadium chest is open now.
-Return to the Mermaid and give her back the sword.
+<<set $sword_pieces = $sword_pieces + 1>>
+The seventh sword piece is yours! You have all 7 pieces!
+Return to the Mermaid so she can reassemble her sword.
 ===
 
 
 
 title: FACTS_HISTORY
-position: 1198,93
+position: -286,755
 color: purple
 actor: GUIDE_F
 group: Warsaw
@@ -797,8 +874,25 @@ The Royal Castle stands close to the old town square.
 The Constitution of 3 May is an important day in Polish history.
 ===
 
+title: FACTS_TRANSPORT
+position: -289,605
+color: purple
+actor: GUIDE_F
+group: Warsaw
+---
+<<card tram>>
+Trams are a common way to move around Warsaw.
+<<card bus>>
+Buses help people travel across the city too.
+<<card car>>
+Cars also move through the city streets every day.
+<<card bike>>
+Bikes are a simple way to move from place to place.
+===
+
+
 title: FACTS_SCIENCE
-position: 1198,226
+position: -286,888
 color: purple
 actor: GUIDE_F
 group: Warsaw
@@ -812,7 +906,7 @@ Copernicus is another famous person you can learn about in Warsaw.
 ===
 
 title: FACTS_SYMBOLS
-position: 1200,360
+position: -284,1022
 color: purple
 actor: GUIDE_F
 group: Warsaw
@@ -838,7 +932,7 @@ spawn_group: warsaw_locals
 ===
 
 title: spawned_warsaw_guide
-position: -300,140
+position: -300,212
 color: purple
 actor: ADULT_M
 spawn_group: warsaw_guides
@@ -849,7 +943,7 @@ spawn_group: warsaw_guides
 ===
 
 title: spawned_warsaw_student
-position: -300,230
+position: -300,388
 color: purple
 actor: KID_F
 spawn_group: warsaw_students
@@ -857,98 +951,4 @@ spawn_group: warsaw_students
 => The Polish flag is white and red.
 => Maria Skłodowska-Curie was a scientist.
 => Independence Day is on 11 November.
-===
-
-title: info_1
-position: 1300,600
-color: purple
-actor: GUIDE_F
-group: mermaid
----
-<<card mermaid_of_warsaw>>
-The Mermaid of Warsaw is called the Syrenka.
-She is half woman, half fish, and carries a sword and a shield.
-You can find her on the city coat of arms and all over Warsaw.
-===
-
-title: info_2
-position: 1300,900
-color: purple
-actor: GUIDE_F
-group: chopin
----
-<<card chopin_monument>>
-This monument stands in Łazienki Park in Warsaw.
-Every summer, free piano concerts are held here on Sundays.
-<<card fryderyk_chopin>>
-Fryderyk Chopin was born near Warsaw in 1810.
-He is one of the most famous composers in the world.
-===
-
-title: info_3
-position: 1300,1200
-color: purple
-actor: GUIDE_F
-group: wars_sawa
----
-<<card wars_and_sawa_statue>>
-Wars and Sawa are characters from an old legend about Warsaw.
-Their names are said to be hidden inside the name "Warszawa."
-The Wisła flows through Warsaw all the way to the Baltic Sea.
-===
-
-title: info_4
-position: 1300,1500
-color: purple
-actor: GUIDE_F
-group: sigismund
----
-<<card king_sigismunds_column>>
-King Sigismund III Vasa moved the capital of Poland from Kraków to Warsaw in 1596.
-His column on Castle Square is one of the oldest secular monuments in Warsaw.
-<<card royal_castle_warsaw>>
-The Royal Castle stands right next to the column.
-It was destroyed in World War II and fully rebuilt by 1984.
-===
-
-title: info_5
-position: 1300,1800
-color: purple
-actor: GUIDE_F
-group: parliament
----
-<<card polish_houses_of_parliament>>
-The Polish parliament is called the Sejm and the Senate.
-It meets in Warsaw and votes on the laws of Poland.
-<<card presidential_palace>>
-The Presidential Palace is nearby on Krakowskie Przedmieście.
-It is where the President of Poland works.
-===
-
-title: info_6
-position: 1300,2100
-color: purple
-actor: GUIDE_F
-group: palace
----
-<<card palace_of_culture_and_science>>
-The Palace of Culture and Science is the tallest building in Poland.
-It was built in the 1950s and has a viewing terrace at the top.
-<<card maria_skodowskacurie>>
-Maria Skłodowska-Curie was born in Warsaw in 1867.
-She was the first woman to win a Nobel Prize, and she won it twice.
-===
-
-title: info_7
-position: 1300,2400
-color: purple
-actor: GUIDE_F
-group: stadium
----
-<<card national_stadium_warsaw>>
-The PGE Narodowy stands on the right bank of the Wisła.
-It opened in 2012 and hosted matches during UEFA Euro 2012.
-<<card robert_lewandowski>>
-Robert Lewandowski is one of Poland's most famous footballers.
-He has scored hundreds of goals for club and country.
 ===

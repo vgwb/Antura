@@ -1,8 +1,8 @@
 ## Game Design Notes
 
 **Mission Objective**
-Explore Warsaw, collect **7 landmark cards**, and follow Antura's trail to recover the **Mermaid's sword**.
-Each NPC has a local problem caused by Antura, and helping them opens that place's chest, revealing next step
+Explore Warsaw, collect **7 landmark cards**, and reassemble the **Mermaid's sword**.
+Antura broke the sword into **7 pieces** and locked each one inside a chest across the city. Each NPC has a local problem caused by Antura — helping them earns a **key** to open that place's chest, which contains a **sword piece** and a **landmark card**.
 
 **Characters**
 
@@ -29,20 +29,20 @@ Each NPC has a local problem caused by Antura, and helping them opens that place
 ### Gameplay Structure
 
 - **One NPC per place:** Each place has one character who explains the landmark and the local problem.
-- **One short mission:** A simple collect task, reunion task, or small local challenge.
-- **Chest reward:** Completing the mission opens the chest of that place and gives the landmark card.
-- **One story thread:** The Mermaid's missing sword connects Mermaid -> Chopin -> Wars and Sawa -> Sigismund -> Parliament -> Mermaid return.
-- **Only NPC conversations:** The player always progresses by talking directly to landmark NPCs.
+- **One short mission:** A simple collect task or small local challenge.
+- **Key:** Completing the mission earns a key.
+- **Chest reward:** The key opens the chest at that place, revealing a **sword piece** and the **landmark card**.
+- **One story thread:** Antura broke the Mermaid's sword into 7 pieces and hid each one in a locked chest across Warsaw. Mermaid -> Wars and Sawa -> Sigismund -> Parliament -> Chopin -> Palace of Culture -> Stadium -> reassemble the sword at the Mermaid.
 - **Linear progression:** Each completed place unlocks the next place.
 - **Movement:** We can walk or take trams.
 
 ### Progression
 
 - **Place 1:** Mermaid of Warsaw
-- **Place 2:** Chopin Monument
-- **Place 3:** Wars and Sawa by the Wisła
-- **Place 4:** King Sigismund's Column
-- **Place 5:** Houses of Parliament
+- **Place 2:** Wars and Sawa by the Wisła
+- **Place 3:** King Sigismund's Column
+- **Place 4:** Houses of Parliament
+- **Place 5:** Chopin Monument
 - **Place 6:** Palace of Culture and Science
 - **Place 7:** National Stadium
 - **End:** Return the sword to the Mermaid for final quiz and outro
@@ -52,78 +52,83 @@ Each NPC has a local problem caused by Antura, and helping them opens that place
 #### Place 1: Mermaid of Warsaw
 
 - **NPC:** Mermaid of Warsaw
-- **Story:** Antura took the Mermaid's sword while she was trying to stop him.
+- **Story:** Antura broke the sword and scattered the pieces across Warsaw. The first piece is locked in the chest here.
 - **Fact:** The Mermaid is one of the best-known symbols of Warsaw.
 - **Mission:** Help around the square and learn how people move around Warsaw: tram, bus, train, car, and bike.
-- **Reward Chest:** Mermaid of Warsaw card
-- **Unlocks:** Chopin Monument
-- **Clue:** The Mermaid saw Antura go toward the Chopin Monument.
+- **Key reward:** Completing the mission earns the key to this chest.
+- **Reward Chest:** Sword piece 1 + Mermaid of Warsaw card
+- **Unlocks:** Wars and Sawa by the Wisła
+- **Clue:** The Mermaid saw Antura run toward the river and the Wars and Sawa statue.
 
-#### Place 2: Chopin Monument
-
-- **NPC:** Fryderyk Chopin
-- **Story:** Antura scattered the music notes from Chopin's melody.
-- **Fact:** Chopin was a famous Polish composer, and his monument is one of Warsaw's cultural landmarks.
-- **Mission:** Recover the missing notes and recreate the melody.
-- **Reward Chest:** Chopin card
-- **Unlocks:** Wars and Sawa
-- **Clue:** Chopin saw Antura with the Mermaid's sword going past the Copernicus area and toward the river.
-
-#### Place 3: Wars and Sawa
+#### Place 2: Wars and Sawa
 
 - **NPC:** Wars and Sawa
-- **Story:** Wars and Sawa got separated during the chaos caused by Antura.
+- **Story:** Wars and Sawa got separated during the chaos caused by Antura, and the second sword piece is locked in the chest here.
 - **Fact:** The Wisła is the longest river in Poland, and Wars and Sawa are linked to a legend about Warsaw.
 - **Mission:** Find Sawa by the river and bring her back to Wars.
-- **Reward Chest:** Wars and Sawa card
+- **Key reward:** Completing the mission earns the key to this chest.
+- **Reward Chest:** Sword piece 2 + Wars and Sawa card
 - **Unlocks:** King Sigismund's Column
 - **Clue:** After reuniting, they point the player toward King Sigismund's Column.
 
-#### Place 4: King Sigismund's Column
+#### Place 3: King Sigismund's Column
 
 - **NPC:** King Sigismund
-- **Story:** Antura knocked the king's crown off while running through the square.
+- **Story:** Antura knocked the king's crown off while running through the square, and the third sword piece is locked in the chest here.
 - **Fact:** King Sigismund moved the capital from Kraków to Warsaw. The Royal Castle is nearby, and Poland is now governed by Parliament.
 - **Mission:** Find the missing crown pieces.
-- **Reward Chest:** King Sigismund's Column card
+- **Key reward:** Completing the mission earns the key to this chest.
+- **Reward Chest:** Sword piece 3 + King Sigismund's Column card
 - **Unlocks:** Houses of Parliament
-- **Clue:** Sigismund says the Mermaid's sword has been left at the Sejm.
+- **Clue:** Sigismund points the player toward the Sejm, where another sword piece is hidden.
 
-#### Place 5: Houses of Parliament
+#### Place 4: Houses of Parliament
 
 - **NPC:** Parliamentarian or President
-- **Story:** The Parliamentarian has the Mermaid's sword, but first needs help fixing the Polish flag after Antura scattered its colors.
+- **Story:** Antura scattered the colors of the Polish flag during his escape, and the fourth sword piece is locked in the chest here.
 - **Fact:** The Houses of Parliament are where laws are discussed in Poland. The Polish flag is white and red.
 - **Mission:** Restore the flag colors in the correct order.
 - **Knowledge Add-on:** Short mention of the Constitution of 3 May and the Presidential Palace.
-- **Reward Chest:** Polish Houses of Parliament card
-- **Story Reward:** Receive the Mermaid's sword and keep it safe until the end
+- **Key reward:** Completing the mission earns the key to this chest.
+- **Reward Chest:** Sword piece 4 + Polish Houses of Parliament card
+- **Unlocks:** Chopin Monument
+
+#### Place 5: Chopin Monument
+
+- **NPC:** Fryderyk Chopin
+- **Story:** Antura scattered the music notes from Chopin's melody, and the fifth sword piece is locked in the chest here.
+- **Fact:** Chopin was a famous Polish composer, and his monument is one of Warsaw's cultural landmarks.
+- **Mission:** Recover the missing notes and recreate the melody.
+- **Key reward:** Completing the mission earns the key to this chest.
+- **Reward Chest:** Sword piece 5 + Chopin card
 - **Unlocks:** Palace of Culture and Science
 
 #### Place 6: Palace of Culture and Science
 
 - **NPC:** Maria Skłodowska-Curie
-- **Story:** Maria is not directly linked to the building, but she fits the theme of culture and science.
+- **Story:** Antura stole Maria's wallet during his escape, and the sixth sword piece is locked in the chest here.
 - **Fact:** The Palace of Culture is one of Warsaw's biggest landmarks. Maria Skłodowska-Curie was a famous Polish scientist. The Polish currency is the złoty.
 - **Mission:** Follow a trail of złoty coins to find Maria's lost wallet.
-- **Reward Chest:** Palace of Culture and Science card
+- **Key reward:** Completing the mission earns the key to this chest.
+- **Reward Chest:** Sword piece 6 + Palace of Culture and Science card
 - **Unlocks:** National Stadium
 
 #### Place 7: National Stadium
 
 - **NPC:** Robert Lewandowski
-- **Story:** The stadium is the final place disturbed by Antura.
+- **Story:** Antura disrupted the match at the stadium, and the seventh and final sword piece is locked in the chest here.
 - **Fact:** The National Stadium is a famous sports venue in Warsaw. It is linked to football, public events, and national celebrations.
 - **Mission:** Score 5 goals to cheer everyone up after Antura's visit.
 - **Vocabulary:** football, ball, goal, soccer field
 - **Knowledge Add-on:** Short mention of the national anthem and Independence Day on 11 November.
-- **Reward Chest:** National Stadium card
+- **Key reward:** Completing the mission earns the key to this chest.
+- **Reward Chest:** Sword piece 7 + National Stadium card
 - **Unlocks:** Return to the Mermaid
 
 #### End: Return to the Mermaid
 
 - **NPC:** Mermaid of Warsaw
-- **Story:** After helping all the places in Warsaw, the player finally returns the sword to the Mermaid.
+- **Story:** With all 7 sword pieces collected, the player returns to the Mermaid, who reassembles the sword.
 - **Fact:** She is a symbol of Warsaw and protects the city.
 - **Reward:** The Mermaid thanks the player and starts the final quiz.
 
