@@ -98,7 +98,6 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
             { text: 'Quest Design', link: 'quest-design/quest-design' },
             { text: 'Quest Development', link: 'quest-design/quest-development' },
             { text: 'Quest Scripts Guidelines', link: 'quest-design/quest-scripts-guidelines' },
-            { text: 'Commit message semantic', link: 'quest-design/commit-message-semantic' },
           ]
         },
         {
@@ -129,12 +128,13 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
           link: 'how-to/',
           collapsed: true,
           items: [
+            // Setup & Build
+            { text: 'Install', link: 'how-to/INSTALL' },
+            { text: 'Commit message semantic', link: 'how-to/CommitMessageSemantic' },
+            { text: 'Build from sources', link: 'how-to/Build' },
             // User & Tester
             { text: 'Debug Shortcuts', link: 'how-to/DebugShortcuts' },
             { text: 'Export Player Database', link: 'how-to/ExportPlayerDatabase' },
-            // Setup & Build
-            { text: 'Install', link: 'how-to/INSTALL' },
-            { text: 'Build from sources', link: 'how-to/Build' },
             // Collaboration & Guidelines
             { text: 'Collaborator', link: 'how-to/Collaborator' },
             { text: 'Developer Guidelines', link: 'how-to/DeveloperGuidelines' },
