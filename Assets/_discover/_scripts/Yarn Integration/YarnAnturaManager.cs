@@ -488,19 +488,19 @@ namespace Antura.Discover
         /// Usage: <<inventory "ITEM_CODE" "add">> or <<inventory "ITEM_CODE" "remove">>
         /// </summary>
         [YarnCommand("inventory")]
-        public static void CommandInventory(string itemCode, string action = "add")
+        public static void CommandInventory(string itemCode, string action = "add", int quantity = 1)
         {
-            Debug.Log($"ActionManager: ResolveNodeCommandInventory: {itemCode} {action}");
+            Debug.Log($"ActionManager: ResolveNodeCommandInventory: {itemCode} {action} {quantity}");
             if (string.IsNullOrEmpty(itemCode))
                 return;
 
             if (action == "add")
             {
-                QuestManager.I.Inventory.CollectItem(itemCode);
+                QuestManager.I.Inventory.CollectItem(itemCode, quantity);
             }
             else if (action == "remove")
             {
-                QuestManager.I.Inventory.RemoveItem(itemCode);
+                QuestManager.I.Inventory.RemoveItem(itemCode, quantity);
             }
             else
             {

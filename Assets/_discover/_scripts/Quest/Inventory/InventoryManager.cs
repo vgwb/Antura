@@ -123,7 +123,7 @@ namespace Antura.Discover
 
         }
 
-        public bool RemoveItem(string itemCode)
+        public bool RemoveItem(string itemCode, int quantity = 1)
         {
             if (string.IsNullOrEmpty(itemCode))
                 return false;
@@ -133,7 +133,7 @@ namespace Antura.Discover
                 return false;
             }
 
-            entry.Quantity--;
+            entry.Quantity -= quantity;
             if (entry.Quantity <= 0)
             {
                 Items.Remove(entry);
