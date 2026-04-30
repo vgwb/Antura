@@ -63,7 +63,7 @@ Antura broke the sword into **7 pieces** and locked each one inside a chest acro
 #### Place 2: Wars and Sawa
 
 - **NPC:** Wars and Sawa
-- **Story:** Wars and Sawa got separated during the chaos caused by Antura, and the second sword piece is locked in the chest here.
+- **Story:** Wars and Sawa got separated during the chaos caused by Antura
 - **Fact:** The Wisła is the longest river in Poland, and Wars and Sawa are linked to a legend about Warsaw.
 - **Mission:** Find Sawa by the river and bring her back to Wars.
 - **Key reward:** Completing the mission earns the key to this chest.

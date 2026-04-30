@@ -45,7 +45,6 @@ PlayerSettings:
   - logo: {fileID: 21300000, guid: d8f1058f284d0ff45bbc8d712848f28b, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
-  m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
   defaultScreenWidthWeb: 960
@@ -154,12 +153,10 @@ PlayerSettings:
   - {fileID: -944628639613478452, guid: 8c34bd7253a2a4f71bace394c767e9f9, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
-  m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
   xboxOneEnable7thCore: 0
   vrSettings:
     enable360StereoCapture: 0
-  isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
   enableOpenGLProfilerGPURecorders: 1
   allowHDRDisplaySupport: 0
@@ -953,9 +950,11 @@ PlayerSettings:
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
+    Kepler: DOTWEEN
     LinuxHeadlessSimulation: DOTWEEN
     Lumin: CT_RTV
     Nintendo Switch: CT_RTV;DOTWEEN
+    Nintendo Switch 2: DOTWEEN
     PS4: CT_RTV;DOTWEEN
     PS5: DOTWEEN
     QNX: DOTWEEN
@@ -1105,6 +1104,7 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
+  enableDirectStorage: 0
   cloudProjectId: ca7a3389-ec6c-44b1-a44d-aa0da4930165
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
