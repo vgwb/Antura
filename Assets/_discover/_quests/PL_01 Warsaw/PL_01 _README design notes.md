@@ -52,13 +52,12 @@ Antura broke the sword into **7 pieces** and locked each one inside a chest acro
 #### Place 1: Mermaid of Warsaw
 
 - **NPC:** Mermaid of Warsaw
-- **Story:** Antura broke the sword and scattered the pieces across Warsaw. The first piece is locked in the chest here.
+- **Story:** Antura broke the sword and scattered the 7 pieces across Warsaw. The first piece is locked in the chest here.
 - **Fact:** The Mermaid is one of the best-known symbols of Warsaw.
-- **Mission:** Help around the square and learn how people move around Warsaw: tram, bus, train, car, and bike.
-- **Key reward:** Completing the mission earns the key to this chest.
-- **Reward Chest:** Sword piece 1 + Mermaid of Warsaw card
+- **Mission:** Talk to all red & yellow people to learn how they move around Warsaw: tram, bus, train, car, and bike.
+- **Key reward:** Completing the mission earns the keys to open the chest
+- **Reward Chest:** Sword piece
 - **Unlocks:** Wars and Sawa by the Wisła
-- **Clue:** The Mermaid saw Antura run toward the river and the Wars and Sawa statue.
 
 #### Place 2: Wars and Sawa
 
@@ -148,3 +147,65 @@ Antura broke the sword into **7 pieces** and locked each one inside a chest acro
 	- **A river**
 	- A palace
 	- A stadium
+
+---
+
+
+title: FACTS_HISTORY
+position: -286,755
+color: purple
+actor: GUIDE_F
+group: Warsaw
+---
+<<card king_sigismunds_column>>
+King Sigismund's Column is a famous place in Warsaw.
+<<card royal_castle_warsaw>>
+The Royal Castle stands close to the old town square.
+<<card constitution_of_3_may>>
+The Constitution of 3 May is an important day in Polish history.
+===
+
+title: FACTS_TRANSPORT
+position: -289,605
+color: purple
+actor: GUIDE_F
+group: Warsaw
+---
+<<card tram>>
+Trams are a common way to move around Warsaw.
+<<card bus>>
+Buses help people travel across the city too.
+<<card car>>
+Cars also move through the city streets every day.
+<<card bike>>
+Bikes are a simple way to move from place to place.
+===
+
+
+title: FACTS_SCIENCE
+position: -286,888
+color: purple
+actor: GUIDE_F
+group: Warsaw
+---
+<<card maria_skodowskacurie>>
+Maria Skłodowska-Curie was a famous scientist from Poland.
+<<card palace_of_culture_and_science>>
+The Palace of Culture and Science is a famous building in Warsaw.
+<<card nicolaus_copernicus_monument_warsaw>>
+Copernicus is another famous person you can learn about in Warsaw.
+===
+
+title: FACTS_SYMBOLS
+position: -284,1022
+color: purple
+actor: GUIDE_F
+group: Warsaw
+---
+<<card mermaid_of_warsaw>>
+The Mermaid is one of the main symbols of Warsaw.
+<<card wars_and_sawa>>
+Wars and Sawa are part of an old story about the city.
+<<card polish_houses_of_parliament>>
+Warsaw has symbols, history, and important buildings.
+===
