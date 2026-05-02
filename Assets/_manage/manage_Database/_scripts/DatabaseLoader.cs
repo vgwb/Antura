@@ -189,8 +189,6 @@ namespace Antura.Database.Management
         }
         #endregion
 
-#if UNITY_EDITOR
-
         [DeMethodButton("Import from Google Sheets")]
         public void Import()
         {
@@ -230,7 +228,6 @@ namespace Antura.Database.Management
             }
         }
 
-#endif
     }
 }
 #endif
