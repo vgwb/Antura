@@ -193,7 +193,7 @@ What is the Wisła River? #line:0e17c6d
 -> A river. #line:038bb24 
 	<<set $quiz_score = $quiz_score + 1>>
 	Correct. #shadow:correct
-<<if $quiz_score >= 2>>
+<<if $quiz_score >= 3>>
 	Well done. You know enough about Warsaw. #line:0c03be3 
 	<<jump quest_end>>
 <<else>>
@@ -405,7 +405,7 @@ group: mermaid
 		<<set $chest_1_done = true>>
 		<<trigger chest_1_open>>
 		<<SetInteractable chest_1 false>>
-		<<inventory key_gold remove 3>>
+		<<inventory key_gold remove 5>>
 		<<inventory mermaids_sword add>>
 		You found a piece of the sword! #line:pieace_sword	
 		<<jump next_1>>
@@ -823,7 +823,7 @@ group: parliament
 ---
 <<if $chest_4_done>>
 	The chest is empty. #shadow:chest_empty
-<<elseif has_item_at_least("key_gold", 3)>>
+<<elseif has_item_at_least("key_gold", 4)>>
 	To open the chest, solve this puzzle! #shadow:solve_to_unlock
 	<<activity activity_4 activity_4_done>>
 <<else>>
@@ -843,7 +843,7 @@ group: parliament
 		The Constitution of 3 May is an important day in Poland. #line:0bb8e27 
 		<<trigger chest_4_open>>
 		<<SetInteractable chest_4 false>>
-		<<inventory key_gold remove 3>>
+		<<inventory key_gold remove 4>>
 		<<inventory mermaids_sword add>>
 		You found a piece of the sword! #shadow:pieace_sword
 		<<jump next_4>>
