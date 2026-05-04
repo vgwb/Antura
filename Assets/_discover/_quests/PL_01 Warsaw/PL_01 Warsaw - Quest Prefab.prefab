@@ -7489,7 +7489,7 @@ MonoBehaviour:
     DebugNode:
       project: {fileID: 0}
       nodeName: 
-    DebugSpawnPoint: {fileID: 6215087217204804868}
+    DebugSpawnPoint: {fileID: 3452352434083265297}
     showInteractableLabels: 0
     TalkToPlayerMode: 1
     NativeLanguage:
@@ -7498,17 +7498,17 @@ MonoBehaviour:
       code: 
   ActivityConfigs:
   - Code: activity_1
-    ActivitySettings: {fileID: 11400000, guid: 43d83ac684c9443d0865ee38658941d5, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: 2afd906456b8b48ca98253883229dfa4, type: 2}
   - Code: activity_2
     ActivitySettings: {fileID: 11400000, guid: c8531a3cb47864e829368511f85cd23b, type: 2}
   - Code: activity_3
-    ActivitySettings: {fileID: 11400000, guid: 67dd1347205364020a006ed06062ceb6, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: 45971dfeaf96d43c99add909c7f80666, type: 2}
   - Code: activity_4
     ActivitySettings: {fileID: 11400000, guid: 677545a36d28a4ced9ab4690a33199f9, type: 2}
   - Code: activity_5
     ActivitySettings: {fileID: 11400000, guid: 7d12f035428884b92bb0a4e915a1d469, type: 2}
   - Code: activity_6
-    ActivitySettings: {fileID: 11400000, guid: a079bb3d1035440a680b689ed41e0887, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: 952b84aab922d4e00865f6760d9da5aa, type: 2}
   - Code: activity_7
     ActivitySettings: {fileID: 11400000, guid: 367fac78a1d6f47bd9d15107b575eb66, type: 2}
   QuestTasks:
@@ -19354,6 +19354,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2595028903597382020}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3452352434083265297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 858601168500679317, guid: 02c441c47a029418f9fe519bcfc24380,
+    type: 3}
+  m_PrefabInstance: {fileID: 2595028903597382020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
 --- !u!1001 &2602144564586909070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19755,7 +19767,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Card
       value: 
-      objectReference: {fileID: 11400000, guid: f67c90ab2cc5649fbaa887d5909c74e8,
+      objectReference: {fileID: 11400000, guid: 1936c6d8290fe4136b54b1eeee720c63,
         type: 2}
     - target: {fileID: 3970012676992426316, guid: aec78715485724438a97aa3feb338050,
         type: 3}
@@ -30251,18 +30263,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02c441c47a029418f9fe519bcfc24380, type: 3}
---- !u!114 &6215087217204804868 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 858601168500679317, guid: 02c441c47a029418f9fe519bcfc24380,
-    type: 3}
-  m_PrefabInstance: {fileID: 6749261776319668113}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdfcb3c8749ec491c92dd2582d1c9f76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerPoint
 --- !u!4 &7530248743097032850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
