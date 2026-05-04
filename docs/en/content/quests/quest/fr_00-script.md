@@ -449,7 +449,7 @@ hide:
 <span class="yarn-line">    We also speak French!</span> <span class="yarn-meta">#line:0b18893 </span>
     <span class="yarn-cmd">&lt;&lt;jump task_belgium&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Remember: my flag has stripes: black, yellow, red.</span> <span class="yarn-meta">#line:0141a13 </span>
+<span class="yarn-line">    Remember\: my flag has stripes black, yellow, red.</span> <span class="yarn-meta">#line:0141a13 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>

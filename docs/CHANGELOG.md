@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2026.05.04
+
+**Added**  
+- Quest PL_01: Warsaw
+
 ## 2026.04.11
 
 **Added**  

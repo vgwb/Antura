@@ -947,7 +947,7 @@ Credits:
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
-    - **[Treno](../cards/index.md#train)** (RelatedTo)
+    - **[Pociąg](../cards/index.md#train)** (RelatedTo)
     I treni trasportano rapidamente persone e merci in tutto il Paese.
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
@@ -1571,7 +1571,7 @@ Credits:
     ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ width="200" }
 
 - Connected cards:
-    - **[Bandiera della Polonia](../cards/index.md#flag_poland)** (CulturalContext)
+    - **[Flaga Polski](../cards/index.md#flag_poland)** (CulturalContext)
     La bandiera della Polonia è a strisce orizzontali bianche e rosse. La Polonia è famosa per scienziati come Copernico e per i deliziosi pierogi!
 
     ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ width="200" }
@@ -1589,14 +1589,14 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Monumento a Chopin](../cards/index.md#chopin_monument)**
+    - **[Chopin Monument](../cards/index.md#chopin_monument)**
     Una grande statua nel Parco Łazienki di Varsavia, dedicata a Frédéric Chopin. È anche sede di popolari concerti di pianoforte all'aperto in estate. (L'albero speciale sotto cui è seduto è un tipico salice polacco)
 
 
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }
 
 - Connected cards:
-    - **[Sirena di Varsavia](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
+    - **[Syrenka Warszawska](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
     Il simbolo della città è una coraggiosa sirena con spada e scudo. La sua statua è visibile lungo il fiume.
 
     ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ width="200" }
@@ -1620,7 +1620,7 @@ Credits:
 - Subjects: Geography, Community  
 - Target Age: Ages6to10
 - Core card:
-    - **[Wrocław](../cards/index.md#wroclaw)**
+    - **[Breslavia](../cards/index.md#wroclaw)**
     Una città in Polonia con fiumi, ponti e storia.
 
     ![preview wroclaw](../../../assets/img/content/cards/wroclaw.jpg){ width="200" }

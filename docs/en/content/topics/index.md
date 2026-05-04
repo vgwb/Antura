@@ -947,7 +947,7 @@ Credits:
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
-    - **[Train](../cards/index.md#train)** (RelatedTo)
+    - **[Pociąg](../cards/index.md#train)** (RelatedTo)
     Trains carry people and goods fast across the country.
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
@@ -1571,7 +1571,7 @@ Credits:
     ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ width="200" }
 
 - Connected cards:
-    - **[Flag of Poland](../cards/index.md#flag_poland)** (CulturalContext)
+    - **[Flaga Polski](../cards/index.md#flag_poland)** (CulturalContext)
     The flag of Poland has white and red horizontal stripes. Poland is famous for scientists like Copernicus and delicious pierogi!
 
     ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ width="200" }
@@ -1596,7 +1596,7 @@ Credits:
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }
 
 - Connected cards:
-    - **[Mermaid of Warsaw](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
+    - **[Syrenka Warszawska](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
     The city’s symbol is a brave mermaid with a sword and shield. You can see her statue by the river.
 
     ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ width="200" }

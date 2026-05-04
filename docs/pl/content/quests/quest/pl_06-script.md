@@ -132,7 +132,7 @@ hide:
 <span class="yarn-header-dim">group: cook</span>
 <span class="yarn-header-dim">tags: task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card  currency_zloty&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card currency_zloty&gt;&gt;</span>
 <span class="yarn-line">Proszę wziąć te pieniądze</span> <span class="yarn-meta">#line:0ff272d </span>
 <span class="yarn-cmd">&lt;&lt;card market_traders&gt;&gt;</span>
 <span class="yarn-line">Idź na TARG.</span> <span class="yarn-meta">#line:0c35a9c</span>
