@@ -25,5 +25,6 @@
 
         Discover_France = 1001,
         Discover_Poland = 1002,
+        Discover_Italy = 1003,
     }
 }

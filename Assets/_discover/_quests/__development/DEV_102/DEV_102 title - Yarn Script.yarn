@@ -1,0 +1,43 @@
+﻿// DEV_102 - quest title
+
+title: quest_start
+position: 0,0
+tags: Start
+color: red
+type: panel
+---
+Welcome to this quest #line:05f01a9 
+===
+
+title: quest_end
+position: 0,150
+type: panel_endgame
+color: red
+---
+The quest is complete. #line:08de9d9 
+<<jump post_quest_activity>>
+===
+
+title: post_quest_activity
+position: 0,300
+type: panel
+color: red
+tags: proposal
+---
+Why don't you do this homework? #line:02d720b 
+<<quest_end>>
+===
+
+
+title: npc_intro
+position: 263,2
+---
+Hallo #line:07692b7 
+===
+
+
+title: ll_tourist
+position: 262,294
+---
+I'm a Living Letter tourist #line:0279a5f 
+===

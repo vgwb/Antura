@@ -662,6 +662,7 @@ namespace Antura.Database
         Variation_phrases_badge = 737,
         Variation_words_badge = 738,
         Discover_France = 742,
+        Discover_Italy = 746,
         Discover_Country_Intro = 743,
         Discover_Poland = 744,
         UI_Assessment_Skip = 745,

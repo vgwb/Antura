@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: DEV_110 Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: DEV_110
+  m_TableCollectionNameGuidString: 2ac10e91397e64a9591e4a0b86c6a533
+  m_Entries:
+  - m_Id: 1810394767360
+    m_Key: line:001e374
+    m_Metadata:
+      m_Items:
+      - rid: 1920740425963143566
+  - m_Id: 1810394767361
+    m_Key: line:0d43527
+    m_Metadata:
+      m_Items:
+      - rid: 1920740425963143567
+  - m_Id: 1810394767362
+    m_Key: line:09d3dd4
+    m_Metadata:
+      m_Items:
+      - rid: 1920740425963143568
+  - m_Id: 1810394767363
+    m_Key: line:07c2f74
+    m_Metadata:
+      m_Items:
+      - rid: 1920740425963143569
+  - m_Id: 1810394767364
+    m_Key: line:0f64d51
+    m_Metadata:
+      m_Items:
+      - rid: 1920740425963143570
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1920740425963143535
+  references:
+    version: 2
+    RefIds:
+    - rid: 1920740425963143535
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1778560124652
+    - rid: 1920740425963143566
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: quest_start
+        tags: []
+    - rid: 1920740425963143567
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: quest_end
+        tags: []
+    - rid: 1920740425963143568
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: post_quest_activity
+        tags: []
+    - rid: 1920740425963143569
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: npc_intro
+        tags: []
+    - rid: 1920740425963143570
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_tourist
+        tags: []
