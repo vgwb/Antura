@@ -1150,6 +1150,61 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1920740246077309177
+  - m_Id: 3917544074240000
+    m_Key: line:sh_af472237
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347776
+  - m_Id: 3917544153931776
+    m_Key: line:sh_66a7689b
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347777
+  - m_Id: 3917544153931777
+    m_Key: line:sh_2c471a91
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347778
+  - m_Id: 3917544153931778
+    m_Key: line:sh_dc878e57
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347779
+  - m_Id: 3917544153931779
+    m_Key: line:sh_6a39e105
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347780
+  - m_Id: 3917544153931780
+    m_Key: line:sh_a8f75af9
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347781
+  - m_Id: 3917544153931781
+    m_Key: line:sh_f83585a8
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347782
+  - m_Id: 3917544153931782
+    m_Key: line:sh_6d6c5cdb
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347783
+  - m_Id: 3917544153931783
+    m_Key: line:sh_fc5e5ed1
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347784
+  - m_Id: 3917544153931784
+    m_Key: line:sh_fab04664
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347785
+  - m_Id: 3917544153931785
+    m_Key: line:sh_8f967193
+    m_Metadata:
+      m_Items:
+      - rid: 1920740490262347786
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -2306,13 +2361,13 @@ MonoBehaviour:
       data:
         nodeName: chest_6
         tags:
-        - shadow:solve_to_unlock
+        - shadow:chest_empty
     - rid: 1920740246077309166
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: chest_6
         tags:
-        - shadow:chest_locked
+        - shadow:solve_to_unlock
     - rid: 1920740246077309167
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -2324,7 +2379,7 @@ MonoBehaviour:
       data:
         nodeName: activity_6_done
         tags:
-        - shadow:try_again
+        - shadow:pieace_sword
     - rid: 1920740246077309169
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -2366,14 +2421,80 @@ MonoBehaviour:
       data:
         nodeName: chest_7
         tags:
-        - shadow:solve_to_unlock
+        - shadow:chest_empty
     - rid: 1920740246077309176
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: chest_7
         tags:
-        - shadow:chest_locked
+        - shadow:solve_to_unlock
     - rid: 1920740246077309177
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: activity_7_done
+        tags:
+        - shadow:try_again
+    - rid: 1920740490262347776
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_key_6_3
+        tags:
+        - shadow:pieace_sword
+    - rid: 1920740490262347777
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_6_done
+        tags:
+        - shadow:key_found
+    - rid: 1920740490262347778
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_6
+        tags:
+        - shadow:chest_locked
+    - rid: 1920740490262347779
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: activity_6_done
+        tags:
+        - shadow:try_again
+    - rid: 1920740490262347780
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_key_7_1
+        tags:
+        - shadow:your_key
+    - rid: 1920740490262347781
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_key_7_2
+        tags:
+        - shadow:your_key
+    - rid: 1920740490262347782
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_key_7_3
+        tags:
+        - shadow:your_key
+    - rid: 1920740490262347783
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: ll_key_7_4
+        tags:
+        - shadow:your_key
+    - rid: 1920740490262347784
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: task_7_done
+        tags:
+        - shadow:key_found
+    - rid: 1920740490262347785
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: chest_7
+        tags:
+        - shadow:chest_locked
+    - rid: 1920740490262347786
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: activity_7_done
