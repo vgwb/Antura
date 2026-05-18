@@ -1,43 +1,105 @@
-﻿// DEV_105 - quest title
-
-title: quest_start
-position: 0,0
-tags: Start
+﻿// DEV_105 - Running The Plague
+===
+title: Start
+color: green
+position: 10,-241
+---
+Hello kitty, welcome in Florence, it's 1348 and the Plague is spreading across Italy
+-> Oh, OK!
+<<jump Start_2>>
+===
+title: Start_2
+color: green
+position: 10,-114
+---
+I heard someone is begging for help in front of the Palazzo Vecchio.
+-> Count on me!
+===
+title: Boccaccio_00
+color: purple
+position: 306,-238
+---
+Oh Kitty, I am desperate, could you help me ?
+-> Yeah, sure! What's the matter?
+<<jump Boccaccio_01>>
+===
+title: Boccaccio_01
+color: purple
+position: 308,-110
+---
+I wrote this book in the last days, I called it "Decameron", I need someone who can copy it...
+->And how can I help you
+<<jump Boccaccio_02>>
+===
+title: Boccaccio_02
+color: purple
+position: 347,99
+---
+As you can see, the Plague made everyone crazy traveling it's dangerous. Could you bring me to San Marco's Convent?
+-> Yeah no problem, follow me!
+===
+title: Rats
+color: blue
+position: 589,-239
+---
+STOP Kitty! Those are rats!
+-> Yes and I am a cat, so?
+<<jump Rats2>>
+-> AAAH rats, I'm scared!
+<<jump Rats2>>
+===
+title: Rats2
+color: blue
+position: 591,-113
+---
+You better be scared, your history teacher didn't tell you? THEY CARRY THE PLAGUE.
+-> Perfect, let's kill them!
+<<jump Rats3>>
+===
+title: Rats3
+color: blue
+position: 593,13
+---
+Oh my! No way I'm getting closer...
+->Fine, wait here!
+->Well, let's turn right...
+===
+title: Federico00
 color: red
-type: panel
+position: 19,135
 ---
-Welcome to this quest #line:02d825b 
+Oh kitty,thank God you are here.
+->Ehm...Who are you?
+<<jump Federico01>>
 ===
-
-title: quest_end
-position: 0,150
-type: panel_endgame
+title: Federico01
 color: red
+position: 21,263
 ---
-The quest is complete. #line:01c256d 
-<<jump post_quest_activity>>
+I am Federico of Alberighi, nobleman driven by love.
+-> So?
+<<jump Federico02>> 
 ===
-
-title: post_quest_activity
-position: 0,300
-type: panel
+title: Federico02
 color: red
-tags: proposal
+position: 23,389
 ---
-Why don't you do this homework? #line:07b3a51 
-<<quest_end>>
+What a Kitten...I lost my beloved wedding ring, could you help me?
+->Sure Kinght!
+<<jump Federico03Yes>>
+->Why should I?
+<<jump Federico03No>>
 ===
-
-
-title: npc_intro
-position: 263,2
+title: Federico03Yes
+color: red
+position: -93,578
 ---
-Hallo #line:0c96b67 
+Thank you, my dear, it may be near the little fountain next to the well.
 ===
-
-
-title: ll_tourist
-position: 262,294
+title: Federico03No
+color: red
+position: 141,570
 ---
-I'm a Living Letter tourist #line:099c141 
+Oh, you should, i lost it near a fountain, you can clean yourself up there.
+-> Well, fine, I stink a bit...
 ===
