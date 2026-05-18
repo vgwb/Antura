@@ -1,5 +1,4 @@
 ﻿// DEV_105 - Running The Plague
-===
 title: Start
 color: green
 position: 1112,12
@@ -24,7 +23,7 @@ position: 12,12
 Hi, I am Giovanni Boccaccio, writer
 //card here
 ->Hello!
-<<jump Boccaccio00>>
+<<jump Boccaccio_00>>
 ===
 title: Boccaccio_00
 color: purple
@@ -121,8 +120,9 @@ Oh, you should, i lost it near a fountain, you can clean yourself up there.
 title: federicoCompleted
 position: 232,12
 ---
-<<if ring>>
+//if ring
 You'll be blesed Kitty. Take care!!!
+
 ===
 title: Dome00
 color: yellow
@@ -219,7 +219,8 @@ AH! I knew it! Felines can't be trusted... BE GONE!!!
 title: calandrinocompleted
 position: 1552,12
 ---
-<<if $purse:true>>
+
+//<<if $purse true>>
 Oh you brave kitten, you fought the evil man
 ->It was on a bench...
 <<jump calandrinocompleted1>>>>
@@ -259,5 +260,5 @@ So Kitty, here we part ways, it was a pleasure to meet you..
 title: questEnded1
 position: 1772,237
 ---
-I hope you will hear about me in the future...
-I am Giovanni Boccaccio the man who tald the Plague
+I hope you will hear about me in the future...I am Giovanni Boccaccio the man who tald the Plague
+===
