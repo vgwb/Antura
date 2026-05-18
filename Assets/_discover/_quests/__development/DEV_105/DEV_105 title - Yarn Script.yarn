@@ -2,22 +2,33 @@
 ===
 title: Start
 color: green
-position: 10,-241
+position: 1112,12
 ---
 Hello kitty, welcome in Florence, it's 1348 and the Plague is spreading across Italy
+//card here
 -> Oh, OK!
 <<jump Start_2>>
 ===
 title: Start_2
 color: green
-position: 10,-114
+position: 1112,237
 ---
 I heard someone is begging for help in front of the Palazzo Vecchio.
 -> Count on me!
+//card here
+//card here
+===
+title: Boccaccio
+position: 12,12
+---
+Hi, I am Giovanni Boccaccio, writer
+//card here
+->Hello!
+<<jump Boccaccio00>>
 ===
 title: Boccaccio_00
 color: purple
-position: 306,-238
+position: 12,382
 ---
 Oh Kitty, I am desperate, could you help me ?
 -> Yeah, sure! What's the matter?
@@ -25,24 +36,25 @@ Oh Kitty, I am desperate, could you help me ?
 ===
 title: Boccaccio_01
 color: purple
-position: 308,-110
+position: 12,607
 ---
 I wrote this book in the last days, I called it "Decameron", I need someone who can copy it...
-->And how can I help you
+->How can I help you?
 <<jump Boccaccio_02>>
 ===
 title: Boccaccio_02
 color: purple
-position: 347,99
+position: 12,832
 ---
 As you can see, the Plague made everyone crazy traveling it's dangerous. Could you bring me to San Marco's Convent?
 -> Yeah no problem, follow me!
 ===
 title: Rats
 color: blue
-position: 589,-239
+position: 232,382
 ---
 STOP Kitty! Those are rats!
+//card here
 -> Yes and I am a cat, so?
 <<jump Rats2>>
 -> AAAH rats, I'm scared!
@@ -50,7 +62,7 @@ STOP Kitty! Those are rats!
 ===
 title: Rats2
 color: blue
-position: 591,-113
+position: 232,607
 ---
 You better be scared, your history teacher didn't tell you? THEY CARRY THE PLAGUE.
 -> Perfect, let's kill them!
@@ -58,7 +70,7 @@ You better be scared, your history teacher didn't tell you? THEY CARRY THE PLAGU
 ===
 title: Rats3
 color: blue
-position: 593,13
+position: 232,832
 ---
 Oh my! No way I'm getting closer...
 ->Fine, wait here!
@@ -66,7 +78,7 @@ Oh my! No way I'm getting closer...
 ===
 title: Federico00
 color: red
-position: 19,135
+position: 985,382
 ---
 Oh kitty,thank God you are here.
 ->Ehm...Who are you?
@@ -74,15 +86,16 @@ Oh kitty,thank God you are here.
 ===
 title: Federico01
 color: red
-position: 21,263
+position: 985,607
 ---
 I am Federico of Alberighi, nobleman driven by love.
+//card
 -> So?
 <<jump Federico02>> 
 ===
 title: Federico02
 color: red
-position: 23,389
+position: 985,832
 ---
 What a Kitten...I lost my beloved wedding ring, could you help me?
 ->Sure Kinght!
@@ -92,14 +105,159 @@ What a Kitten...I lost my beloved wedding ring, could you help me?
 ===
 title: Federico03Yes
 color: red
-position: -93,578
+position: 952,1057
 ---
-Thank you, my dear, it may be near the little fountain next to the well.
+Thank you, my dear, it could be near the little fountain next to the well at the centre of the square
+//card here
 ===
 title: Federico03No
 color: red
-position: 141,570
+position: 1232,1057
 ---
 Oh, you should, i lost it near a fountain, you can clean yourself up there.
 -> Well, fine, I stink a bit...
+->I don't care, bye!
 ===
+title: federicoCompleted
+position: 232,12
+---
+<<if ring>>
+You'll be blesed Kitty. Take care!!!
+===
+title: Dome00
+color: yellow
+position: 1332,12
+---
+See, that's the new cathedral, it's still in construction
+-> Wow it's huge
+<<jump Dome01>>
+===
+title: Dome01
+color: yellow
+position: 1332,237
+---
+Yeah, if you go close you can see how it will be...
+//card here
+===
+
+title: Crowds
+position: 485,382
+---
+Wait kitty, that's a lot of people, let's see what are they doing...
+//Card here
+->NO GIOVANNI!!!
+<<jump Crowds1no>>
+->Yeah, why not!
+<<jump Crowds1yes>>
+===
+title: Crowds1no
+position: 452,607
+---
+Oh right! They might be contagious!
+->Exactly!
+<<jump Crowds2no>>
+===
+title: Crowds2no
+position: 452,832
+---
+We are lucky, they kept walking! Let's keep going...
+===
+title: Crowds1yes
+position: 732,607
+---
+Hi kitty, we all got ill and decided to walk together praying God for help!
+->Giovanni, we leave...NOW!!
+<<jump Crowd2Yes>>
+===
+title: Crowd2Yes
+position: 732,832
+---
+We made a mistake, I'm hoping we will found a fountain to clean ourselves
+===
+title: calandrino00
+position: 1452,382
+---
+What a kitty!! And Giovanni too...
+->Who are you?
+<<jump calandrino01>>
+===
+title: calandrino01
+position: 1452,607
+---
+I am Calandrino, the smartest and most clever man in Florence.
+->So you don't need help, right?
+<<jump calandrino02>>
+===
+title: calandrino02
+position: 1452,832
+---
+Oh no, wait! See, some evil man stole my purse, it happened in the square left from here.
+->And... How ?
+<<jump calandrino03>>
+->OK, we'll help
+<<jump calandrino04yes>>
+===
+title: calandrino03
+position: 1699,1057
+---
+It must have been an evil plot, they tied me up...
+->ok, we'll help
+<<jump calandrino04yes>>
+->You are lying...
+<<jump calandrino04no>>
+===
+title: calandrino04yes
+position: 1452,1282
+---
+Oh thank you! I'll be waiting here...
+===
+title: calandrino04no
+position: 1732,1282
+---
+AH! I knew it! Felines can't be trusted... BE GONE!!!
+===
+title: calandrinocompleted
+position: 1552,12
+---
+<<if $purse:true>>
+Oh you brave kitten, you fought the evil man
+->It was on a bench...
+<<jump calandrinocompleted1>>>>
+===
+title: calandrinocompleted1
+position: 1552,237
+---
+Sorry for lying... I am a bit naive, and surely not that smart
+->I noticed, bye...
+->I am curios, who you really are? //card
+===
+
+title: Sanlorenzo00
+position: 452,12
+---
+Look San Lorenzo! This is the cathedral, until the Dome is completed.
+//card here
+=== 
+title: Purse00
+position: 672,12
+---
+What a clown... He forgot the purse on the bench...Let's go back 
+===
+title: Convent
+position: 892,12
+---
+That's San marco kitten let's go...
+-> follow him
+===
+title: questEnded
+position: 1772,12
+---
+So Kitty, here we part ways, it was a pleasure to meet you..
+-> Same, Giovanni...
+<<jump questEnded1>>
+===
+title: questEnded1
+position: 1772,237
+---
+I hope you will hear about me in the future...
+I am Giovanni Boccaccio the man who tald the Plague
