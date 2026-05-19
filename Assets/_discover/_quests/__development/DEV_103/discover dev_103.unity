@@ -537,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.017866582
+      value: -0.18208608
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -547,7 +547,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2208058
+      value: 1.2630007
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -587,10 +587,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1008660019393999729, guid: 97391b5f3db2d41f4950a49ed4101319,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008660019393999729, guid: 97391b5f3db2d41f4950a49ed4101319,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.17
+      objectReference: {fileID: 0}
     - target: {fileID: 4574598919450440142, guid: 97391b5f3db2d41f4950a49ed4101319,
         type: 3}
       propertyPath: m_Name
       value: DEV_103 title - Quest Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170626815077388131, guid: 97391b5f3db2d41f4950a49ed4101319,
+        type: 3}
+      propertyPath: NearbyAutoActivate
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5512520045871801754, guid: 97391b5f3db2d41f4950a49ed4101319,
         type: 3}
@@ -644,13 +659,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 658226908727109236, guid: 97391b5f3db2d41f4950a49ed4101319,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1989512650}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8003412269525124127, guid: 97391b5f3db2d41f4950a49ed4101319,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 97391b5f3db2d41f4950a49ed4101319, type: 3}
+--- !u!4 &701722665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 658226908727109236, guid: 97391b5f3db2d41f4950a49ed4101319,
+    type: 3}
+  m_PrefabInstance: {fileID: 701722664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919879652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1187,94 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39f710d285d38544bc283f5e522411a, type: 3}
+--- !u!1 &1989512649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989512650}
+  - component: {fileID: 1989512652}
+  - component: {fileID: 1989512651}
+  m_Layer: 0
+  m_Name: PortaCampanile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989512650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989512649}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.81, y: 0, z: 5.51}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 701722665}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1989512651
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989512649}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: 0.02, y: 0, z: 0}
+--- !u!114 &1989512652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989512649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: PortaCampanile
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: 234b7a47dd87542d8959a70d30a1cf29,
+      type: 3}
+    nodeName: ll_tourist
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
