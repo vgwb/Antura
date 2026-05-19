@@ -63,9 +63,9 @@ group: campanile
 actor: ADULT_M
 ---
 La chiave ce l'ha Giotto! #line:it01_giottoinfo_1
+<<camera_focus camera_bancarella>>
 L'ho visto alla bancarella laggiù. #line:it01_giottoinfo_2
 <<task_start task_trova_giotto>>
-<<camera_focus camera_bancarella>>
 <<camera_reset>>
 <<target coloraio>>
 ===
@@ -124,8 +124,8 @@ color: blue
 group: bancarella
 actor: SENIOR_M
 ---
-È un pittore famosissimo. #line:it01_cgiotto3_1
 <<card giotto_di_bondone>>
+È un pittore famosissimo. #line:it01_cgiotto3_1
 Le sue figure sembrano persone vere! #line:it01_cgiotto3_2
 Guarda qui, ho un suo quadro. #line:it01_cgiotto3_3
 Ma è pieno di polvere... #line:it01_cgiotto3_4
@@ -166,9 +166,9 @@ actor: SENIOR_M
 Ottimo lavoro! Il quadro si vede benissimo. #line:it01_ok_1
 <<card TODO_il_bacio_di_giuda collect>>
 Non so dove sia andato Giotto... #line:it01_ok_2
+<<camera_focus camera_pittura>>
 Ha lasciato una scia di colore! #line:it01_ok_3
 Forse puoi seguirla. #line:it01_ok_4
-<<camera_focus camera_scia_colore>>
 <<camera_reset>>
 <<target bambina>>
 ===
