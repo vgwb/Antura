@@ -1,43 +1,55 @@
-﻿// dev_110
-
-title: quest_start
-position: 0,0
-tags: Start
-color: red
-type: panel
+﻿title: Introduction
 ---
-Welcome to this quest #line:001e374 
+Antura you have a quest :
+Guide Dante and protect him from evil!
+===
+title: Dante_Introduction
+---
+<<party_join dante>>
+Dante : When I had journeyed half of our life's way,
+I found myself within a shadowed forest,
+for I had lost the path that does not stray.
+Watch over him, the darkness of the forest: ready to swallow Dante but kept at bay thanks to your help. #task:reach_top
+===
+title: Hilltop
+---
+//time night
+<<task_start reach_top>> 
+<<target Hilltop>>
+===
+title: Lynx
+---
+A lynx stops Dante in his tracks, forcing him to backtrack.
+<<task_start Run>>
+<<target Hideout>>
+
+//time day
+The morning sun shines on Dante, he was not out of danger yet...
+===
+title: Lion_and_Wolf
+---
+Quest Goal - Flee from the Lion and Wolf. #task:flee
+
+===
+title: Virgil_Introduction
+---
+Dante : "Have pity on me, whatever you may be, a shade, a man."
+
+Shade : "Not man; I once was man. Both of my parents came from Lombardy, and both claimed Mantua as native city. I was a poet, born under false and lying gods."
+
+Dante : "Could you be Virgil? The fountain that freely pours so rich a stream of speech!"
+As Dante is speaking the unbearable pressure of the shadowed forest numbs his mind, as God asked you, you step in to help clear his mind.
+
+Virgil : "We cannot talk now, the beasts will get to us, let's get moving!"
+Activity - Small task to fill-in some words that are also **Cards** (These are unlocks for Dante's and Virgil's skill set and they give more background info for both).
+
+<<task_start Escape Fight>>
 ===
 
-title: quest_end
-position: 0,150
-type: panel_endgame
-color: red
+title: Fight
 ---
-The quest is complete. #line:0d43527 
-<<jump post_quest_activity>>
+
+Activity - Small "fight" in turn based to get back player's attention and give him a fun way to get out of the situation using what he has learned.
+
 ===
-
-title: post_quest_activity
-position: 0,300
-type: panel
-color: red
-tags: proposal
----
-Why don't you do this homework? #line:09d3dd4 
-<<quest_end>>
-===
-
-
-title: npc_intro
-position: 263,2
----
-Hallo #line:07c2f74 
-===
-
-
-title: ll_tourist
-position: 262,294
----
-I'm a Living Letter tourist #line:0f64d51 
-===
+// Dante - Skills : Clarity - Courage - Virgil's Help 

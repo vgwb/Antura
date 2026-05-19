@@ -6,6 +6,22 @@ tags: Start
 color: red
 type: panel
 ---
+<<set $EASY_MODE = false>>
+<<set $IS_DESKTOP = false>>
+<<set $TOTAL_COINS = 0>>
+<<set $COLLECTED_ITEMS = 0>>
+<<set $MAX_PROGRESS = 0>>
+<<set $CURRENT_PROGRESS = 0>>
+<<set $CURRENT_ITEM = "">>
+<<declare $pezzi = 0>>
+<<declare $stibbert_ingresso_met = false>>
+<<declare $stibbert_parata_met = false>>
+<<declare $stibbert_armature_met = false>>
+<<declare $armatura_done = false>>
+<<declare $quadri_done = false>>
+<<declare $armature_done = false>>
+<<declare $costumi_done = false>>
+<<declare $armature_placed = 0>>
 Welcome to this quest #line:06e8b3b 
 ===
 
@@ -28,16 +44,271 @@ Why don't you do this homework? #line:008557d
 <<quest_end>>
 ===
 
-
-title: npc_intro
-position: 263,2
+title: talk_npc_stibbert_ingresso
+position: -10,140
+actor: stibbert_ingresso
+color: purple
 ---
-Hallo #line:0c45229 
+<<if $stibbert_ingresso_met == false>>
+    Fermo, non scappare, non volevo spaventarti!
+    ...e sì, lo so, sono un fantasma, ci ho fatto l'abitudine da più di 100 anni.
+    Poco fa uno strano cane si è intrufolato qua dentro!
+    Ha fatto un tale trambusto che l'ho sentito perfino dalla mia tomba e mi sono precipitato a controllare.
+    Mi aiuteresti a rimettere in ordine?
+    Sai, quando provo ad afferrare qualcosa le mie mani l'attraversano.
+    Però dobbiamo fare in fretta!
+    Al sorgere dell'alba arriverà il guardiano e non posso certo farmi vedere!
+    <<set $stibbert_ingresso_met == true>>
+    <<SetActive ingresso true>>
+<<elseif $stibbert_ingresso_met == true>>
+    Non vedo l'ora che tutti i pezzi tornino a posto...
+    ...sto morendo di sonno!
+<<endif>>
 ===
 
-
-title: ll_tourist
-position: 262,294
+title: talk_npc_stibbert_parata
+position: -10,140
+actor: stibbert_parata
+color: purple
 ---
-I'm a Living Letter tourist #line:0023ea5 
+<<if $stibbert_parata_met == false>>
+    In questa stanza ho ricostruito una parata rinascimentale con alcune armature a mia disposizione.
+    Solo che...
+    ...sbaglio o manca un'armatura?
+    Guarda! Un pezzo si trova in fondo alla stanza!
+    Dove saranno gli altri?
+    <<set $stibbert_parata_met == true>>
+    <<SetActive muro_stanze false>>
+<<elseif $stibbert_parata_met == true>>
+    Dove saranno gli altri pezzi dell'armatura?
+<<elseif $pezzi == 4>>
+    Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente!
+    Ora non resta che assemblarla!
+    Posizionati nel punto dove devi inserirla e ricomponila.
+<<elseif $armatura_done == true>>
+La parata delle armature è finalmente stata ricomposta! Ottimo lavoro!
+<<endif>>
+===
+
+title: interactable_parata
+actor: interactable_parata
+---
+<<if $pezzi < 4>>
+    Torna quando hai tutti i pezzi dell'armatura.
+<<elseif $pezzi == 4>>
+    Assembla l'armatura!
+    <<activity jigsaw_parata jigsaw_parata_result>>
+<<endif>>
+===
+
+title: jigsaw_parata_result
+---
+<<if GetActivityResult ("jigsaw_parata") > 0>>
+    Hai assemblato correttamente l'armatura, complimenti!
+    <<set $armatura_done == true>>
+<<else>>
+    Mmm... non sembra assemblata nel modo corretto.
+<<endif>>
+===
+
+title: talk_npc_stibbert_quadri
+position: -10,140
+actor: stibbert_quadri
+color: purple
+---
+<<if $armatura_done == false>>
+Anche in questa stanza dobbiamo riordinare un po' di cose.
+Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura.
+<<elseif $stibbert_quadri_met == false>>
+    In questa stanza sono esposti diversi quadri e incisioni.
+    Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli!
+    <<activity match_quadri match_quadri_result>>
+<<elseif $quadri_done == true>>
+    I quadri e le incisioni ora sono tornati a posto, ottimo lavoro!
+<<endif>>
+===
+
+title: match_quadri_result
+---
+<<if GetActivityResult ("match_quadri") > 0>>
+    Ora i cartellini descrivono l'opera corretta, complimenti!
+    <<set $quadri_done == true>>
+    Ma... questo cosa ci fa qua? 
+    Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì?
+    MOSTRA CARD SIMBOLI
+    Questo foglio ci sarà molto utile nella prossima stanza.
+<<else>>
+    Mmm... i cartellini non sembrano corretti.
+<<endif>>
+===
+
+title: talk_npc_stibbert_armature
+position: -10,140
+actor: stibbert_quadri
+color: purple
+---
+<<if $armatura_done == false>>
+Anche in questa stanza dobbiamo riordinare un po' di cose.
+Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+<<elseif $quadri_done == false>>
+Anche in questa stanza dobbiamo riordinare un po' di cose.
+Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+<<elseif $armature_placed < 3>>
+    In questa stanza sono esposte delle armature provenienti dalle culture più disparate.
+    Ce ne sono alcune europee, altre islamiche e altre ancora giapponesi.
+    Ma sono tutte sparpagliate per la stanza!
+    Dobbiamo posizionarle sul manichino giusto.
+    Per riconoscere l'origine di un'armatura puoi utilizzare le istruzioni che hai trovato prima.
+    MOSTRA ISTRUZIONI
+<<elseif $stibbert_armature_met == true>>
+    Dobbiamo posizionare le armature, puoi aiutarti con le istruzioni che hai trovato prima.
+    MOSTRA ISTRUZIONI
+<<elseif $armature_placed == 3>>
+    Ora le armature sono tutte posizionate sul manichino corretto. Ottimo lavoro!
+<<endif>>
+===
+
+title:interactable_armatura_islamica
+---
+Quale armatura dovrebbe essere posizionata qua?
+-> Non ho armature da posizionare. <<if has_item("armatura_europea")>>
+-> Quella Europea.
+    Non penso sia l'armatura giusta.
+-> Quella Islamica. <<if has_item("armatura_islamica")>>
+    Esatto!
+    <<set $armature_placed+= 1 >>
+    <<jump check_armature>>
+-> Quella Giapponese. <<if has_item("armatura_giapponese")>>
+    Non penso sia l'armatura giusta.
+===
+
+title:interactable_armatura_giapponese
+---
+Quale armatura dovrebbe essere posizionata qua?
+-> Non ho armature da posizionare. <<if has_item("armatura_europea")>>
+-> Quella Europea.
+    Non penso sia l'armatura giusta.
+-> Quella Islamica. <<if has_item("armatura_islamica")>>
+    Non penso sia l'armatura giusta.
+-> Quella Giapponese. <<if has_item("armatura_giapponese")>>
+    Esatto!
+    <<set $armature_placed+= 1 >>
+    <<jump check_armature>>
+===
+
+title:interactable_armatura_europea
+---
+Quale armatura dovrebbe essere posizionata qua?
+-> Non ho armature da posizionare. <<if has_item("armatura_europea")>>
+-> Quella Europea.
+    Esatto!
+    <<set $armature_placed+= 1 >>
+    <<jump check_armature>>
+-> Quella Islamica. <<if has_item("armatura_islamica")>>
+    Non penso sia l'armatura giusta.
+-> Quella Giapponese. <<if has_item("armatura_giapponese")>>
+    Esatto!
+===
+
+title: check_armature
+---
+<<if $armature_placed<3>>
+    Devo posizionare ancora altre armature.
+<<elseif $armature_placed == 3>>
+    Tutte le armature sono state posizionate!
+    <<set $armatura_done== true>> 
+<<endif>>
+===
+
+title: talk_npc_stibbert_costumi
+---
+<<if $armatura_done false>>
+    Anche in questa stanza dobbiamo riordinare un po' di cose.
+    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+<<elseif $quadri_done == false>>
+    Anche in questa stanza dobbiamo riordinare un po' di cose.
+    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+<<elseif $armature_done == true>>
+    Questa stanza ospita dei costumi indossati da personaggi celebri.
+    Questo è quello di cui vado più orgoglioso.
+    Pensa che Napoleone lo indossò quando venne incoronato re d'Italia!
+    Ammetto che ogni tanto vorrei indossarlo anch'io...
+    ...ma sai, ormai non posso più farlo, per ovvie ragioni.
+    Ad ogni modo, dobbiamo verificare che siano tutti al loro posto.
+    <<activity memory_costumi memory_costumi_result>>
+===
+
+title: memory_costumi_result
+---
+<<if GetActivityResult ("memory_costumi") > 0>>
+    I costumi sono tutti al loro posto, perfetto!
+    <<set $costumi_done == true>>
+<<else>>
+    Mmm... dobbiamo controllare meglio.
+<<endif>>
+===
+
+title: talk_npc_stibbert_piatto
+position: -10,140
+actor: stibbert_quadri
+color: purple
+---
+<<if $armatura_done false>>
+    Anche in questa stanza dobbiamo riordinare un po' di cose.
+    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+<<elseif $quadri_done == false>>
+    Dobbiamo ritrovare una cosa molto importante nel parco.
+    Ma per ora occupiamoci di ciò che ti ho chiesto prima.
+<<elseif $armature_done == false>>
+    Dobbiamo ritrovare una cosa molto importante nel parco.
+    Ma per ora occupiamoci di ciò che ti ho chiesto prima.
+<<elseif $costumi_done == true>>
+    Il mio povero parco ora è pieno di buche!
+    Non so quali cianfrusaglie abbia sotterrato quel cane, ma sicuramente manca una cosa importante.
+    Si tratta di un pregiatissimo piatto della manifattura Ginori.
+    Dobbiamo assolutamente ritrovarlo e dissotterrarlo!
+    Lascio fare a te, io ne ho abbastanza di stare sotto terra!
+<<endif>>
+===
+
+title: interactable_palla
+---
+    <<activity canvas_palla canvas_palla_result>>
+===
+
+title: canvas_palla_result
+---
+<<task_end canvas_palla>>
+<<if GetActivityResult ("canvas_palla") > 0>>
+    Non credo che questo sia il piatto che Stibbert stava cercando...
+    Dobbiamo scavare in un altro punto!
+<<endif>>
+===
+
+title: interactable_osso
+---
+    <<activity canvas_osso canvas_osso_result>>
+===
+
+title: canvas_osso_result
+---
+<<task_end canvas_osso>>
+<<if GetActivityResult ("canvas_osso") > 0>>
+    Non credo che questo sia il piatto che Stibbert stava cercando...
+    Dobbiamo scavare in un altro punto!
+<<endif>>
+===
+
+title: interactable_piatto
+---
+    <<activity canvas_piatto canvas_piatto_result>>
+===
+
+title: canvas_piatto_result
+---
+<<if GetActivityResult ("canvas_osso") > 0>>
+    Trovato! Abbiamo riordinato tutto!
+    <<jump quest_end>>
+<<else>> Devo scavare meglio!
+<<endif>>
 ===

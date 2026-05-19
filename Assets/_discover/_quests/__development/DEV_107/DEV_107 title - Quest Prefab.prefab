@@ -719,8 +719,22 @@ MonoBehaviour:
       code: en
     LearningLanguage:
       code: en
-  ActivityConfigs: []
-  QuestTasks: []
+  ActivityConfigs:
+  - Code: puzzle
+    ActivitySettings: {fileID: 11400000, guid: 747c944b9c5491f4a91b32e093852225, type: 2}
+  QuestTasks:
+  - Code: color_collector
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 0
+    TaskNode:
+      project: {fileID: 0}
+      nodeName: 
+    NodeSuccess: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 3
+    ItemTag: color
+    TargetPoint: {fileID: 0}
 --- !u!114 &3576371439623676379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,7 +1793,7 @@ PrefabInstance:
         type: 3}
       propertyPath: DialogueNode.project
       value: 
-      objectReference: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
+      objectReference: {fileID: 7545569452688597077, guid: 0f94ced785b7247cd9277d7e6092af05,
         type: 3}
     - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
