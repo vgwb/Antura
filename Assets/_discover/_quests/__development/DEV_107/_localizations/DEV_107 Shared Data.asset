@@ -100,6 +100,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 3341616387091857722
+  - m_Id: 2697156066652160
+    m_Key: line:6ecd97e6
+    m_Metadata:
+      m_Items:
+      - rid: 3341616387091857899
+  - m_Id: 2697156133761024
+    m_Key: line:8ecc959b
+    m_Metadata:
+      m_Items:
+      - rid: 3341616387091857900
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -141,13 +151,13 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: npc_intro
-        tags:
-        - lastline
+        tags: []
     - rid: 3341616387091857653
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: npc_intro
-        tags: []
+        tags:
+        - lastline
     - rid: 3341616387091857654
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -198,4 +208,15 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: colore_rosso
+        tags: []
+    - rid: 3341616387091857899
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: accettato
+        tags:
+        - task:color_collector
+    - rid: 3341616387091857900
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: colori_raccolti
         tags: []
