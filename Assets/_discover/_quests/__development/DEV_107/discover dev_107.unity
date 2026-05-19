@@ -210,6 +210,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 292525498}
+    - targetCorrespondingSourceObject: {fileID: -293203802875518696, guid: 5845f4991eaf0ee47831884138874ebc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 292525500}
   m_SourcePrefab: {fileID: -3199799093341109342, guid: 5845f4991eaf0ee47831884138874ebc,
     type: 3}
 --- !u!1001 &107062993
@@ -335,8 +339,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.0628407, y: 4.8741393, z: 1}
+  m_Center: {x: -0.029440721, y: -0.7436444, z: 0.000000105277216}
 --- !u!114 &210769053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +368,7 @@ MonoBehaviour:
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 0f94ced785b7247cd9277d7e6092af05,
       type: 3}
-    nodeName: colore_rosso
+    nodeName: orologio_sx
   NodePermalink: 
   disableAfterAction: 0
   QuestAction: 
@@ -575,8 +579,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.6398344, y: 3.9108264, z: 2.1411939}
+  m_Center: {x: 0.14285414, y: -0.5274554, z: 0.5705987}
 --- !u!114 &292525499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,13 +608,36 @@ MonoBehaviour:
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 0f94ced785b7247cd9277d7e6092af05,
       type: 3}
-    nodeName: colore_rosso
+    nodeName: orologio_sx
   NodePermalink: 
   disableAfterAction: 0
   QuestAction: 
   Commands: []
   triggerChildren: 0
   FaceToPlayerComp: {fileID: 0}
+--- !u!114 &292525500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292525496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
+  IsHiddenAtStart: 0
+  AutoCollect: 0
+  Type: 4
+  ItemTag: color
+  AddToInventory: 0
+  particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+    type: 3}
+  enableRotation: 0
+  rotationSpeed: 100
+  bobbingAmount: 0.1
+  bobbingSpeed: 1
 --- !u!1001 &472281619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1555,54 +1582,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5540215224782808184, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 5540215224782808184, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273401833931527781, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.039997
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273401833931527781, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.9299927
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273401833931527781, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.39409056
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273401833931527781, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9190717
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273401833931527781, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 226.419
-      objectReference: {fileID: 0}
-    - target: {fileID: 8389871001135018075, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
-        type: 3}
-      propertyPath: QuestTasks.Array.data[0].ItemCount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
         type: 3}
       propertyPath: QuestTasks.Array.data[0].ItemsContainer
       value: 
       objectReference: {fileID: 2070561530}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8297434507346899901, guid: 94d8c220ecadb4d9dab484e6da33d6cf, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8003412269525124127, guid: 94d8c220ecadb4d9dab484e6da33d6cf,
