@@ -40,15 +40,12 @@ actor: NARRATOR
 <<declare $attempts_michelangelo = 0>>
 <<declare $attempts_bernini = 0>>
 
-<<card cave_carrara_luogo>>
+<<card cave_carrara_intro>>
 Welcome to the Carrara marble quarries!
 These white mountains are famous all over the world.
 <<area area_square>>
 <<target npc_francesco>>
-<<jump talk_francesco_intro>>
 ===
-
-
 // SCENE A — START
 
 

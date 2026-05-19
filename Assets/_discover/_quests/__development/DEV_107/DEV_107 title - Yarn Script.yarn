@@ -7,6 +7,7 @@ color: red
 type: panel
 ---
 Welcome to this quest #line:001e374 
+<<activity puzzle>>
 ===
 
 title: quest_end
@@ -33,7 +34,36 @@ title: npc_intro
 position: 263,2
 ---
 Hallo #line:07c2f74 
+vuoi aiutarmi?
+->si 
+    <<jump prova>>
+-> no
+    <<card andrea_del_verrocchio_baptism_of_christ>>
+    allora ti spiego questo 
+    aiuaia
+    si si 
+    no no
+    
 ===
+
+
+title: prova
+---
+allora prendimi i colori #task:color_collector
+<<task_start color_collector colori_raccolti>> 
+===
+
+title: colori_raccolti
+---
+bravo
+===
+
+title: colore_rosso
+---
+ti paice il rosso?
+<<collect>>
+===
+
 
 
 title: ll_tourist
