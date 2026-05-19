@@ -33,7 +33,34 @@ title: npc_intro
 position: 263,2
 ---
 Hallo #line:07c2f74 
+stiamo facendo degli esperimenti per viaggiare nel tempo
+vuoi aiutarci a sistemare le ultime modifiche?
+->si che emozione
+    <<jump accettato>>
+-> no
+    allora cercheremo qualcun' altro
+    
 ===
+
+
+title: accettato
+---
+allora aggiusta la data di dove andremo #task:color_collector
+<<task_start color_collector colori_raccolti>> 
+===
+
+title: colori_raccolti
+---
+grazie adesso andiamo a vedere il Rinascimento
+===
+
+title: colore_rosso
+---
+<<activity puzzle>>
+<<card andrea_del_verrocchio_baptism_of_christ>>
+<<collect>>
+===
+
 
 
 title: ll_tourist
