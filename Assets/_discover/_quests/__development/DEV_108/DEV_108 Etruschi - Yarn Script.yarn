@@ -1,0 +1,289 @@
+﻿// dev_108
+title: quest_start
+tags: 
+type: panel
+position: 16.54715061187744,-65.30155181884766
+---
+<<declare $statues_task_state = 0>>
+<<declare $canvas_completed = false>>
+<<declare $puzzle_completed = false>>
+<<declare $talked_to_manager = false>>
+<<declare $talked_to_old_man = false>>
+<<declare $task_completed = -1>>
+Benvenuto a San Casciano Val di Pesa.
+In questo piccolo paese, scopriremo chi erano gli etruschi. #line:0e00f81 
+//Card iniziali
+===
+
+title: mr_baffo
+tags: 
+position: 226.6949920654297,-64.54368591308594
+---
+<<if $task_completed == -1>>
+  Buongiorno giovane, avrei bisogno del tuo aiuto. #line:094f708 
+  <<camera_focus archeologo>>
+  Quel vecchio arrabbiato laggiù è da ore che continua a urlare.
+  <<camera_reset>>
+  Per favore aiutami a calmarlo, prima che tutto il quartiere impazzisca! #line:07436c5 
+  <<set $task_completed = 0>>
+  <<target archeologo>>
+<<elseif $task_completed == 4>>
+  Ce l'hai fatta! hai calmato il vecchio! #line:07ab1b8 
+  Ti sarò sempre debitore. #line:00d5e53
+  <<jump quest_end>>
+<<else>>
+  Per favore, aiutami a calmare quel vecchio isterico. #line:06cc9dd 
+<<endif>>
+===
+
+title: archeologo
+position: 72,527
+---
+<<if $talked_to_old_man == false>>
+  <<set $talked_to_old_man = true>>
+  <<jump archeologo_start>>
+<<else>>
+  <<if $task_completed < 3>>
+    <<jump archeologo_not_ready>>
+  <<elseif $task_completed == 4>>
+    <<jump archeologo_end>>
+  <<else>>
+    <<jump archeologo_quiz>>
+  <<endif>>
+<<endif>>
+===
+
+title: archeologo_start
+position: 572,752
+---
+COME È POSSIBILE! NON È GIUSTO!
+-> Signore, si sente bene? #line:0db3a4b 
+  NO, NON STO AFFATTO BENE! #line:0248a1a 
+  Il solo pensiero che i giovani di oggi non conoscano gli etruschi è insopportabile! #line:0997c14 
+-> Buongiorno. #line:09a98e8 
+  UN ALTRO GIORNO SENZA CONOSCERE GLI ETRUSCHI NON PUÒ ESSERE UN BUON GIORNO! #line:0e74406 
+-> Scusi, c'è qualche problema? #line:032dcee 
+  DECISAMENTE! I giovani di oggi non hanno la minima idea di chi fossero gli etruschi! #line:0c5fd85 
+  PERCHÉ TUTTI AMANO I ROMANI MA A NESSUNO PIACCIONO GLI ETRUSCHI?! #line:0d5f515 
+
+-> Chi sono gli etruschi? #line:00394ab 
+  ECCO! Un altro giovane che non sa chi fossero gli etruschi! #line:0350afd 
+  -> Per piacere, si calmi. #line:0382ab6 
+    Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0d3c669 
+    Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0f82ef5 
+-> Per piacere, si calmi. #line:0fa9756 
+  Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0c0e4b3 
+  Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0ee6a3a 
+
+//Set target sul manager
+//Update area
+===
+
+title: archeologo_not_ready
+position: 852,752
+---
+Non hai imparato abbastanza! #line:0373b3f 
+
+VISITA IL MUSEO! #line:0993d71 
+===
+
+title: archeologo_quiz
+position: 292,752
+---
+Dunque pensi di saperne abbastanza sugli etruschi. #line:070db0e 
+Se risponderai correttamente a tutte le mie domande, potrai dire a tutti di aver studiato gli etruschi! #line:0d39c77 
+Sei pronto? #line:0b81494 
+-> Sì #line:0674ee7 
+  ALLORA INIZIAMO! #line:0e271eb 
+-> No  #line:0005ad9 //Rosso
+  ALLORA TORNA A STUDIARE! #line:059544e 
+  //Fine dialogo
+
+Dove vissero gli etruschi? #line:05c1e99 
+-> Italia centrale #line:07719ba 
+  CORRETTO! #line:063525b 
+-> Grecia #line:053eb0f 
+  SBAGLIATO! TORNA A STUDIARE! #line:01bdb66 
+  //Fine dialogo
+-> Spagna #line:0aa294e 
+  SBAGLIATO! TORNA A STUDIARE! #line:06334ba 
+  //Fine dialogo
+-> Italia del Nord #line:036ef1c 
+  SBAGLIATO! TORNA A STUDIARE! #line:0856d91 
+  //Fine dialogo
+
+Cosa hanno imparato i romani dagli etruschi? #line:02df423 
+-> Agricoltura e allevamento #line:00e7ae4 
+  SBAGLIATO! TORNA A STUDIARE! #line:0bdcd88 
+  //Fine dialogo
+-> Commercio #line:0e341ce 
+  SBAGLIATO! TORNA A STUDIARE! #line:0e6f217 
+  //Fine dialogo
+-> Lavorazione dei metalli #line:057532f 
+  SBAGLIATO! TORNA A STUDIARE! #line:06d73d6 
+  //Fine dialogo
+-> Costruzione di mura, strade, e acquedotti #line:07716b0 
+  CORRETTO! #line:0d80cac 
+
+Cosa facevano gli etruschi in onore dei morti? #line:0a62eb1 
+-> Giornate di rituali #line:0a67247 
+  SBAGLIATO! TORNA A STUDIARE! #line:0b6284f 
+  //Fine dialogo
+-> Costruivano case per i morti #line:04a5c14 
+  CORRETTO! #line:0e5782a 
+-> Piccole feste in famiglia #line:0d41254 
+  SBAGLIATO! TORNA A STUDIARE! #line:0e37443 
+  //Fine dialogo
+-> Costruivano barche per i morti #line:0d5e208 
+  SBAGLIATO! TORNA A STUDIARE! #line:0daf954 
+  //Fine dialogo
+
+ULTIMA DOMANDA! Che cosa erano particolarmente bravi a lavorare gli etruschi? #line:009d6a9 
+-> Legno e pietra #line:039c1dc 
+  SBAGLIATO! TORNA A STUDIARE! #line:0b4b548 
+  //Fine dialogo
+-> Ferro e bronzo #line:073eb64 
+  ESATTO! E se la cavavano bene anche con la ceramica! #line:042182e 
+-> Stoffa e oro #line:099213b 
+  SBAGLIATO! TORNA A STUDIARE! #line:0414499 
+  //Fine dialogo
+-> Legno e rame #line:08b256c 
+  SBAGLIATO! TORNA A STUDIARE! #line:0bbc334 
+  //Fine dialogo
+
+Mi sbagliavo su di te, e forse i giovani hanno qualche speranza. #line:062ab29 
+Gli etruschi non sono stati dimenticati, dunque non ho motivo di essere arrabbiato. #line:0820a06 
+Direi che abbiamo entrambi imparato qualcosa oggi, e per questo ti sono grato. #line:0e7b945 
+//Set active pesci
+//Set target su MrBaffo
+<<set $task_completed = 4>>
+===
+
+title: archeologo_end
+position: 12,752
+---
+=> Buona fortuna, giovane! #line:08ae1af 
+=> Grazie per la lezione. #line:0d4f5fc 
+=> Tu sì che sei un vero fan degli etruschi! #line:09cd74c 
+===
+
+title: museum_manager
+tags: 
+position: 442.90570068359375,-64.54369354248047
+---
+<<if $talked_to_manager == true>>
+  => La sezione archeologica è più avanti. #line:072c163 
+  => Spero tu riesca veramente a calmare quel signore.  #line:0cca332 //Stampa card archeologia
+  => Buona giornata. #line:0b269cf 
+<<else>>
+  Buongiorno, accedere al museo costa 5€.  #line:0309cb2 //Stampa card museo
+
+  //AVVIA MINIGIOCO
+  <<set $talked_to_manager = true>>
+
+  Ottimo, la sezione archeologica è più avanti.  #line:053f971 //Stampa card archeologia
+  Buona giornata. #line:0b24b59 
+  //Set target sulle 3 nuove task
+<<endif>>
+===
+
+title: random_dude
+tags: 
+position: 661.3900146484375,-62.270111083984375
+---
+=> Vedere oggetti antichi dal vivo è tutta un'altra storia! #line:01987df 
+=> Ogni volta che visito un museo imparo qualcosa di nuovo. #line:06628a0 
+=> L'archeologia è una scienza davvero affascinante. #line:040fde4 
+=> Etruschi... Non me li ricordavo così. #line:08f423b 
+===
+
+title: statues_manager
+tags: 
+position: 880.682861328125,-63.73790740966797
+---
+<<if $statues_task_state == 0>>
+  Abbiamo un problema! #line:03c433a 
+  Un cane blu è passato di qui poco fa e ha sparso le statuine di bronzo in giro per il museo. #line:059e891 
+  Per piacere, aiutaci a recuperarle. #line:0a32bfe 
+  <<set $statues_task_state = 1>>; #line:011c285 
+  //Update task
+<<elseif $statues_task_state == 1>>
+  => Mancano ancora delle statue. #line:091a18f 
+  => Ci sei quasi. #line:08f4006 
+<<elseif $statues_task_state == 2>>
+  Grazie mille! #line:0cf2ffa 
+  Ora possiamo finalmente rimettere le statue al loro posto. #line:0595e10
+  <<set $statues_task_state = 3>>
+<<else>>
+  => Grazie ancora per il tuo aiuto. #line:07076cb 
+  => Spero che il cane blu non si faccia più rivedere. #line:045f95d 
+<<endif>>
+===
+
+title: statues_task_end
+position: 891,157
+---
+Hai recuperato tutte le statue, torna dal signore del museo.
+<<set $statues_task_state = 2>>
+===
+
+title: canvas_manager
+position: 452,157
+---
+  <<if $canvas_completed == false>>
+    <<jump canvas_start>>
+  <<else>>
+    <<card architettura_etrusca zoom>>
+  <<endif>>
+===
+
+title: canvas_start
+position: 452,382
+---
+Cosa c'è in questa immagine? #line:0fd2d3f
+<<activity canvas_architettura_etrusca canvas_end>>
+===
+
+title: canvas_end
+tags: 
+position: 451,527
+---
+<<if GetActivityResult("canvas_architettura_etrusca") > 0>>
+  <<set $canvas_completed = true>>
+  <<card architettura_etrusca zoom>>
+  Complimenti! #card:architettura_etrusca
+  <<card architettura_etrusca zoom>>
+<<else>>
+  Peccato, riprova.
+<<endif>>
+===
+
+title: puzzle_manager
+position: 672,157
+---
+  <<if $puzzle_completed == false>>
+    <<jump puzzle_start>>
+  <<else>>
+    //Mostra la card
+  <<endif>>
+===
+
+title: puzzle_start
+position: 672,382
+---
+Cos'è questa strana struttura in pietra? #line:0d0b849 
+//Avvia activity
+===
+
+title: puzzle_end
+position: 675,527
+---
+//Controlla il risultato dell'activity
+===
+
+title: quest_end
+type: panel
+position: 20,75
+---
+Gioco completato! Congratulazioni! #line:0ba08bf 
+===
