@@ -20,6 +20,9 @@ Guido d'Arezzo
 
 ### Places
 
+Arezzo Map Coords
+11.87446,43.45976,11.88862,43.46768
+
 
 
 ### Final Assessment
