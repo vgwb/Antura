@@ -1,43 +1,614 @@
-﻿// dev_111
+﻿//title:The Carrara Quarries
+
+// <scene_data>
+// TOPICS
+// - carrara_quarries_history
+// - marble_extraction
+// CARDS
+// - cave_carrara_luogo       ← TODO
+// - marmo_proprieta          ← TODO
+// - estrazione_romana        ← TODO
+// - lizzatura                ← TODO
+// - filo_diamantato          ← TODO
+// - nicola_pisano            ← TODO
+// - michelangelo_carrara     ← TODO
+// - bernini_apollo           ← TODO
+// - carrara_oggi             ← TODO
+// TASKS
+// - collect_pieces
+// ACTIVITIES
+// - match_techniques_eras
+// - seekfind_tools
+// - jigsaw_apollo_daphne
+// - quiz_final_quarry
+// </scene_data>
+
+// QUEST START
 
 title: quest_start
 position: 0,0
-tags: Start
 color: red
 type: panel
+actor: NARRATOR
 ---
-Welcome to this quest #line:001e374 
+<<quest_start>>
+<<set $TOTAL_COINS = 0>>
+<<set $COLLECTED_ITEMS = 0>>
+<<declare $piece_nicola = false>>
+<<declare $piece_michelangelo = false>>
+<<declare $piece_bernini = false>>
+<<declare $attempts_nicola = 0>>
+<<declare $attempts_michelangelo = 0>>
+<<declare $attempts_bernini = 0>>
+
+<<card cave_carrara_luogo>>
+Welcome to the Carrara marble quarries!
+These white mountains are famous all over the world.
+<<area area_square>>
+<<target npc_francesco>>
+<<jump talk_francesco_intro>>
 ===
+
+
+// SCENE A — START
+
+
+title: talk_francesco_intro
+position: 300,0
+group: Francesco
+color: blue
+actor: ADULT_M
+---
+<<card marmo_proprieta>>
+Hi! I'm Francesco, a quarry worker.
+Today I'll show you how marble is extracted.
+Take a look at this machine — it's incredibly powerful!
+<<action show_machine>>
+Let me start it up...
+<<action start_machine_fail>>
+Wait... it's not working!
+Something's wrong.
+<<jump talk_antura_guilty>>
+===
+
+title: talk_antura_guilty
+position: 600,0
+group: francesco
+color: blue
+actor: ADULT_M
+---
+<<SetActive antura_guilty true>>
+Antura! Was it you?
+Look what you've done!
+Three parts of the machine have fallen into the quarry.
+<<action antura_shame>>
+You need to find them!
+Go and look for them.
+Maybe the spirits of the quarry will help you.
+<<task_start collect_pieces>>
+<<area area_open_quarry>>
+<<SetMapIcon npc_nicola "on">>
+<<SetMapIcon npc_michelangelo "on">>
+<<SetMapIcon npc_bernini "on">>
+<<target npc_nicola>>
+===
+
+// SCENE B1 — SPIRIT OF NICOLA PISANO
+
+title: talk_nicola
+position: 300,300
+group: nicola
+color: blue
+actor: SENIOR_M
+---
+<<if $piece_nicola>>
+    Well done! You already have my piece.
+    Go find the other spirits.
+<<else>>
+    I am Nicola Pisano, a medieval sculptor.
+    It was the year 1260 when I first came here.
+    <<card nicola_pisano>>
+    I chose this marble for the Baptistery of Pisa.
+    But before making art... you need to extract the marble!
+    Let me explain how it has been done through the centuries.
+    <<jump nicola_explain_techniques>>
+<<endif>>
+===
+
+title: nicola_explain_techniques
+position: 450,300
+group: nicola
+color: blue
+actor: SENIOR_M
+---
+First technique: the wooden wedge.
+The Romans pushed fig-wood wedges into cracks in the rock.
+<<card estrazione_romana>>
+Then they soaked the wood — as it swelled, it split the stone!
+Clever, wasn't it?
+<<jump nicola_technique_2>>
+===
+
+title: nicola_technique_2
+position: 450,400
+group: nicola
+color: blue
+actor: SENIOR_M
+---
+Second technique: explosives.
+From 1600 onwards, workers used gunpowder in the quarries.
+They blasted the mountainside to break off the blocks.
+It was fast, but it destroyed a lot of marble.
+And the damage to the environment was enormous.
+<<jump nicola_technique_3>>
+===
+
+title: nicola_technique_3
+position: 450,500
+group: nicola
+color: blue
+actor: SENIOR_M
+---
+Third technique: the diamond wire.
+<<card filo_diamantato>>
+Since 1970, a steel wire coated in industrial diamonds has been used.
+It cuts the rock with perfect precision and no waste.
+In one day, you can cut what once took three whole months!
+Now tell me: can you match each technique to the right era?
+<<jump nicola_activity_intro>>
+===
+
+title: nicola_activity_intro
+position: 600,300
+group: nicola
+color: purple
+actor: SENIOR_M
+---
+Match each technique to its correct era.
+You can do it!
+<<activity match_techniques_eras nicola_activity_result normal>>
+===
+
+title: nicola_activity_result
+position: 900,300
+group: nicola
+color: purple
+actor: SENIOR_M
+---
+<<set $attempts_nicola = $attempts_nicola + 1>>
+<<if GetActivityResult("match_techniques_eras") > 0>>
+    <<jump nicola_success>>
+<<else>>
+    <<jump nicola_fail>>
+<<endif>>
+===
+
+title: nicola_fail
+position: 900,400
+group: nicola
+color: purple
+actor: SENIOR_M
+---
+Almost! Try again.
+Wooden wedge... diamond wire... explosives.
+<<if $attempts_nicola >= 2>>
+    <<jump nicola_skip>>
+<<else>>
+    <<jump nicola_activity_intro>>
+<<endif>>
+===
+
+title: nicola_skip
+position: 1100,400
+group: nicola
+color: purple
+actor: SENIOR_M
+---
+All right, let me help you a little.
+The Romans used the wooden wedge.
+In the 1600s they used explosives.
+Today we use the diamond wire.
+<<cookies_add 1>>
+<<jump nicola_success>>
+===
+
+title: nicola_success
+position: 1200,300
+group: nicola
+color: blue
+actor: SENIOR_M
+---
+Excellent! You've understood it well.
+Take this piece of the machine.
+<<collect piece_nicola>>
+<<set $piece_nicola = true>>
+<<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+<<cookies_add 2>>
+<<SetMapIcon npc_nicola "done">>
+<<if $COLLECTED_ITEMS >= 3>>
+    <<jump check_all_pieces>>
+<<else>>
+    Now go find the other spirits.
+    <<target npc_michelangelo>>
+<<endif>>
+===
+
+// SCENE B2 — SPIRIT OF MICHELANGELO
+
+title: talk_michelangelo
+position: 300,600
+group: michelangelo
+color: blue
+actor: SENIOR_M
+---
+<<if $piece_michelangelo>>
+    You already have my piece. Good!
+    Go find the other spirit.
+<<else>>
+    I am Michelangelo Buonarroti.
+    Perhaps the greatest sculptor who ever lived.
+    <<card michelangelo_carrara>>
+    I came to Carrara in person to choose my blocks.
+    I spent eight months in these quarries just for the Tomb of Julius II.
+    I trusted no one else to choose the marble for me.
+    <<jump michelangelo_explain_sculpture>>
+<<endif>>
+===
+
+title: michelangelo_explain_sculpture
+position: 450,600
+group: michelangelo
+color: blue
+actor: SENIOR_M
+---
+Marble is not just a rock.
+It is the most living material in existence.
+The sculpture is already inside the block.
+My work is to remove the excess marble and set it free.
+With this marble I carved the Pieta, the David and the Moses.
+Works that will last for thousands of years.
+<<jump michelangelo_explain_lizzatura>>
+===
+
+title: michelangelo_explain_lizzatura
+position: 450,700
+group: michelangelo
+color: blue
+actor: SENIOR_M
+---
+<<card lizzatura>>
+But do you know how the marble reached Florence or Rome?
+These blocks weigh as much as ten cars.
+There were no trucks, no trains.
+They used the lizzatura: a wooden sled called a lizza.
+The quarrymen slid it down incredibly steep slopes.
+They controlled the speed using thick hemp ropes.
+It was the most dangerous job that existed.
+Many quarrymen lost their lives doing it.
+Now I ask you to find the tools they used.
+<<jump michelangelo_activity_intro>>
+===
+
+title: michelangelo_activity_intro
+position: 600,600
+group: michelangelo
+color: purple
+actor: SENIOR_M
+---
+Find the five quarry tools.
+Look carefully around you!
+<<activity seekfind_tools michelangelo_activity_result normal>>
+===
+
+title: michelangelo_activity_result
+position: 900,600
+group: michelangelo
+color: purple
+actor: SENIOR_M
+---
+<<set $attempts_michelangelo = $attempts_michelangelo + 1>>
+<<if GetActivityResult("seekfind_tools") > 0>>
+    <<jump michelangelo_success>>
+<<else>>
+    <<jump michelangelo_fail>>
+<<endif>>
+===
+
+title: michelangelo_fail
+position: 900,700
+group: michelangelo
+color: purple
+actor: SENIOR_M
+---
+You haven't found everything. Keep looking.
+The tools are hidden somewhere in this area.
+<<if $attempts_michelangelo >= 2>>
+    <<jump michelangelo_skip>>
+<<else>>
+    <<jump michelangelo_activity_intro>>
+<<endif>>
+===
+
+title: michelangelo_skip
+position: 1100,700
+group: michelangelo
+color: purple
+actor: SENIOR_M
+---
+Let me show you where to look.
+<<action hint_tools>>
+Look for the wedge, the mallet and the lizza.
+Then the wire saw and the diamond wire.
+<<cookies_add 1>>
+<<jump michelangelo_success>>
+===
+
+title: michelangelo_success
+position: 1200,600
+group: michelangelo
+color: blue
+actor: SENIOR_M
+---
+Well done! You found everything.
+You know the quarrymen's tools.
+Take this piece of the machine.
+<<collect piece_michelangelo>>
+<<set $piece_michelangelo = true>>
+<<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+<<cookies_add 2>>
+<<SetMapIcon npc_michelangelo "done">>
+<<if $COLLECTED_ITEMS >= 3>>
+    <<jump check_all_pieces>>
+<<else>>
+    Now go find Bernini.
+    <<target npc_bernini>>
+<<endif>>
+===
+
+// SCENE B3 — SPIRIT OF BERNINI
+
+title: talk_bernini
+position: 300,900
+group: bernini
+color: blue
+actor: ADULT_M
+---
+<<if $piece_bernini>>
+    You already have my piece! Well done, young artist.
+    Go back to Francesco now.
+<<else>>
+    I am Gian Lorenzo Bernini!
+    Sculptor, architect, painter.
+    I changed the way marble was used forever.
+    <<card bernini_apollo>>
+    Look at Apollo and Daphne — I carved it between 1622 and 1625.
+    I was only twenty-three years old when I began!
+    <<jump bernini_explain_apollo>>
+<<endif>>
+===
+
+title: bernini_explain_apollo
+position: 450,900
+group: bernini
+color: blue
+actor: ADULT_M
+---
+This sculpture captures the exact moment Daphne transforms into a laurel tree.
+Her fingers become branches, her feet roots, her skin bark.
+All of this in marble — a rock as hard as iron!
+No one before me had dared to attempt such a thing.
+People believed marble could never look soft.
+I proved them wrong.
+<<jump bernini_explain_wire>>
+===
+
+title: bernini_explain_wire
+position: 450,1000
+group: bernini
+color: blue
+actor: ADULT_M
+---
+<<card filo_diamantato>>
+In my time, marble was cut with chisels and mallets.
+Every millimetre was sweat and effort.
+Today there is the diamond wire: a steel wire coated in industrial diamonds.
+It runs at hundreds of metres per minute.
+It slices through marble like butter, with no waste at all.
+In a single day you can do the work that in my time took three months.
+I wish I had had such a tool!
+But enough talking — put my sculpture back together!
+<<jump bernini_activity_intro>>
+===
+
+title: bernini_activity_intro
+position: 600,900
+group: bernini
+color: purple
+actor: ADULT_M
+---
+Reassemble the pieces of Apollo and Daphne.
+Four pieces. You can do it!
+<<activity jigsaw_apollo_daphne bernini_activity_result normal>>
+===
+
+title: bernini_activity_result
+position: 900,900
+group: bernini
+color: purple
+actor: ADULT_M
+---
+<<set $attempts_bernini = $attempts_bernini + 1>>
+<<if GetActivityResult("jigsaw_apollo_daphne") > 0>>
+    <<jump bernini_success>>
+<<else>>
+    <<jump bernini_fail>>
+<<endif>>
+===
+
+title: bernini_fail
+position: 900,1000
+group: bernini
+color: purple
+actor: ADULT_M
+---
+Not yet! Try again.
+Look at the shape of each piece.
+<<if $attempts_bernini >= 2>>
+    <<jump bernini_skip>>
+<<else>>
+    <<jump bernini_activity_intro>>
+<<endif>>
+===
+
+title: bernini_skip
+position: 1100,1000
+group: bernini
+color: purple
+actor: ADULT_M
+---
+I'll give you a little help this time.
+Start with the largest piece.
+<<cookies_add 1>>
+<<jump bernini_success>>
+===
+
+title: bernini_success
+position: 1200,900
+group: bernini
+color: blue
+actor: ADULT_M
+---
+Magnificent! The work is whole again!
+Carrara marble is unique in all the world.
+Take the last piece of the machine.
+<<collect piece_bernini>>
+<<set $piece_bernini = true>>
+<<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
+<<cookies_add 2>>
+<<SetMapIcon npc_bernini "done">>
+<<jump check_all_pieces>>
+===
+
+// CHECK — ALL PIECES COLLECTED
+
+title: check_all_pieces
+position: 1500,500
+group: finale
+color: green
+actor: NARRATOR
+---
+<<task_end collect_pieces>>
+<<target npc_francesco>>
+<<area area_square>>
+You have all three pieces!
+Go back to Francesco.
+===
+
+// SCENE C — USE WHAT YOU'VE LEARNED
+
+title: talk_francesco_finale
+position: 1800,0
+group: finale
+color: blue
+actor: ADULT_M
+---
+You found all the pieces! Thank you so much!
+<<action reassemble_machine>>
+I'm putting the machine back together...
+There we go! Let's try it now.
+<<action start_machine_success>>
+It works! Can you hear the wire?
+<<card carrara_oggi>>
+Today Carrara has 165 active quarries.
+The marble leaves by ship from the port to the whole world.
+Tell me: what is the technique we use today?
+-> The diamond wire.
+    <<jump answer_correct_technique>>
+-> Explosives.
+    <<jump answer_wrong_technique>>
+===
+
+title: answer_correct_technique
+position: 2100,0
+group: finale
+color: blue
+actor: ADULT_M
+---
+Exactly! It cuts like butter.
+And it does far less damage to the environment.
+You're really smart!
+<<jump francesco_closing>>
+===
+
+title: answer_wrong_technique
+position: 2100,100
+group: finale
+color: blue
+actor: ADULT_M
+---
+We used that in the old days.
+It was fast, but it destroyed too much marble.
+Today we use the diamond wire.
+<<jump francesco_closing>>
+===
+
+title: francesco_closing
+position: 2400,0
+group: finale
+color: blue
+actor: ADULT_M
+---
+You've learned so much today.
+Are you ready for the final test?
+Let's see what you remember!
+<<jump activity_quiz_finale>>
+===
+
+// SCENE D — WRAP: FINAL ASSESSMENT
+
+title: activity_quiz_finale
+position: 2700,0
+group: finale
+color: purple
+actor: ADULT_M
+---
+Time to answer the questions about the quarries.
+<<activity quiz_final_quarry quest_end_check normal>>
+===
+
+title: quest_end_check
+position: 3000,0
+group: finale
+color: green
+actor: NARRATOR
+---
+<<if GetActivityResult("quiz_final_quarry") > 0>>
+    <<jump quest_end>>
+<<else>>
+    <<jump quiz_retry>>
+<<endif>>
+===
+
+title: quiz_retry
+position: 3000,100
+group: finale
+color: purple
+actor: ADULT_M
+---
+Try again! Use what you have learned.
+<<activity quiz_final_quarry quest_end normal>>
+===
+
+// QUEST END
 
 title: quest_end
-position: 0,150
+position: 3300,0
+color: green
 type: panel_endgame
-color: red
+actor: NARRATOR
 ---
-The quest is complete. #line:0d43527 
-<<jump post_quest_activity>>
-===
-
-title: post_quest_activity
-position: 0,300
-type: panel
-color: red
-tags: proposal
----
-Why don't you do this homework? #line:09d3dd4 
+You fixed the machine!
+You met three great artists.
+Now you know how Carrara marble is born.
 <<quest_end>>
-===
-
-
-title: npc_intro
-position: 263,2
----
-Hallo #line:07c2f74 
-===
-
-
-title: ll_tourist
-position: 262,294
----
-I'm a Living Letter tourist #line:0f64d51 
 ===
