@@ -84,17 +84,15 @@
         "**/node_modules/**": true
     },
     "files.associations": {
-        //"*.asset": "yaml",
         "*.meta": "yaml",
-        // "*.prefab": "yaml",
-        "*.unity": "yaml",
+        "*.unity": "yaml"
     },
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
-        "*.slnx": "*.csproj",
+        "*.slnx": "*.csproj"
     },
     "git.ignoreLimitWarning": true,
-    "dotnet.defaultSolution": "Antura_Unity.slnx",
+    "dotnet.defaultSolution": "Antura.slnx",
     "dotnet.projects.enableFileBasedPrograms": false,
     "cSpell.enableFiletypes": [
         "yarnspinner"
@@ -152,5 +150,17 @@
                 "yarn-comments"
             ]
         }
+    ],
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/{info,lfs,logs,refs,objects}/**",
+        ".git/{index,*refs,*HEAD}",
+        ".vscode",
+        ".vscode-insiders",
+        "Assets/_discover/_quests/PL_01 Warsaw/**/*.yarn",
+        "Assets/_discover/_quests/PL_05 Baltic Sea/**/*.yarn",
+        "Assets/_discover/_templates/_quest_template/**/*.yarn"
     ]
 }
