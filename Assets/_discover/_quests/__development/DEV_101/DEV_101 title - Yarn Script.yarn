@@ -1,16 +1,66 @@
-﻿// DEV_101 - quest title
+﻿// DEV_101 - Le basi della musica
 
 title: quest_start
-position: 0,0
+position: -56,-710
 tags: Start
 color: red
 type: panel
 ---
-Welcome to this quest #line:001e374 
+<<declare $page_pentagramma_collected = false>>
+<<declare $page_do_collected = false>>
+<<declare $page_chiave_collected = false>>
+<<declare $page_mi_collected = false>>
+<<declare $page_fa_collected = false>>
+<<declare $page_re_collected = false>>
+<<declare $page_sol_collected = false>>
+<<declare $page_la_collected = false>>
+<<declare $page_si_collected = false>>
+<<declare $riddle_vasari_done = false>>
+Benvenuto ad Arezzo!
+Antura ha combinato un disastro!
+Esplora e risolvi i problemi nella città. #line:001e374 
+===
+
+title: guido_encounter
+position: -92,-502
+---
+Benvenuto in città!
+Io sono Guido d'Arezzo, monaco e musicista.
+Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
+Ma oggi è un giorno molto triste...
+Quel birbante di Antura ha sparpagliato le pagine del nostro spartito per tutta Arezzo!
+Senza di loro, il coro della Cattedrale non può cantare.
+<<jump guido_choice>>
+===
+
+title: guido_choice
+position: -85,-278
+---
+Mi accompagni a cercarle?
+-> Sì!
+    <<party_join guido>>
+-> No.
+    <<jump guido_rifiuto>>
+===
+
+title: guido_accetta
+position: -309,-35
+---
+Grazie mille!
+Sarò la tua guida in città.
+Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
+Andiamo!
+===
+
+title: guido_rifiuto
+position: 112,14
+---
+Ti prego, ho davvero bisogno di aiuto!
+<<jump guido_choice>>
 ===
 
 title: quest_end
-position: 0,150
+position: -340,477
 type: panel_endgame
 color: red
 ---
@@ -19,7 +69,7 @@ The quest is complete. #line:0d43527
 ===
 
 title: post_quest_activity
-position: 0,300
+position: -340,670
 type: panel
 color: red
 tags: proposal
@@ -30,14 +80,27 @@ Why don't you do this homework? #line:09d3dd4
 
 
 title: npc_intro
-position: 263,2
+position: 474,-18
 ---
 Hallo #line:07c2f74 
 ===
 
 
 title: ll_tourist
-position: 262,294
+position: -90,684
 ---
 I'm a Living Letter tourist #line:0f64d51 
+===
+
+
+title: npc_join_party
+position: 500,2024
+group: party
+---
+Do you want to join my party? #line:0b1f3e1 
+-> Yes #line:0d1f4e3 
+    <<party_join ciccio>>
+    Now i'm following you! #line:019353a 
+-> No #line:0a8e1c3 
+    ok #line:0c4e4ec 
 ===
