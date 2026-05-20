@@ -22,6 +22,9 @@ type: panel
 actor: NARRATOR
 ---
 <<declare $MET_GUARDIA = false>>
+<<declare $GUARDIA_DONE = false>>
+<<declare $COLORAIO_DONE = false>>
+<<declare $BAMBINA_DONE = false>>
 <<card TODO_firenze_citta>>
 Siamo a Firenze! #line:it01_start_1
 <<card TODO_campanile_giotto>>
@@ -38,7 +41,7 @@ actor: NARRATOR
 ---
 La porta è chiusa. #line:it01_porta_1
 <<SetInteractable porta_campanile false>>
-<<target guardia_torre>>
+<<target guardiadellatorre>>
 ===
 
 title: GuardiaTorre
@@ -47,6 +50,9 @@ color: blue
 group: campanile
 actor: ADULT_M
 ---
+<<if $GUARDIA_DONE>>
+    <<jump GuardiaTorre_Repeat>>
+<<endif>>
 <<set $MET_GUARDIA = true>>
 Il Campanile oggi è chiuso. #line:it01_guardia_1
 Non ho la chiave per aprirlo. #line:it01_guardia_2
@@ -54,6 +60,15 @@ Non ho la chiave per aprirlo. #line:it01_guardia_2
     <<jump GiottoInfo>>
 -> Sai chi la possiede? #line:it01_guardia_opt2
     <<jump GiottoInfo>>
+===
+
+title: GuardiaTorre_Repeat
+position: 400,200
+color: blue
+group: campanile
+actor: ADULT_M
+---
+L'ho visto alla bancarella laggiù. 
 ===
 
 title: GiottoInfo
@@ -64,7 +79,8 @@ actor: ADULT_M
 ---
 La chiave ce l'ha Giotto! #line:it01_giottoinfo_1
 <<camera_focus camera_bancarella>>
-L'ho visto alla bancarella laggiù. #line:it01_giottoinfo_2
+L'ho visto alla bancarella laggiù. 
+<<set $GUARDIA_DONE = true>>
 <<task_start task_trova_giotto>>
 <<camera_reset>>
 <<target coloraio>>
@@ -76,6 +92,9 @@ color: blue
 group: bancarella
 actor: SENIOR_M
 ---
+<<if $COLORAIO_DONE>>
+    <<jump Coloraio_Repeat>>
+<<endif>>
 Buongiorno! Hai bisogno di qualcosa? #line:it01_coloraio_1
 <<if $MET_GUARDIA>>
     <<task_end task_trova_giotto>>
@@ -87,6 +106,15 @@ Buongiorno! Hai bisogno di qualcosa? #line:it01_coloraio_1
     -> Niente, grazie. #line:it01_coloraio_opt_none #highlight
         <<jump Coloraio_Congedo>>
 <<endif>>
+===
+
+title: Coloraio_Repeat
+position: 800,400
+color: blue
+group: bancarella
+actor: SENIOR_M
+---
+Forse puoi seguirla. 
 ===
 
 title: Coloraio_Congedo
@@ -169,6 +197,114 @@ Non so dove sia andato Giotto... #line:it01_ok_2
 <<camera_focus camera_pittura>>
 Ha lasciato una scia di colore! #line:it01_ok_3
 Forse puoi seguirla. #line:it01_ok_4
+<<set $COLORAIO_DONE = true>>
 <<camera_reset>>
 <<target bambina>>
+<<area area_bambina>>
+===
+title: Bambina
+position: 0,0
+color: blue
+group: bambina
+actor: KID_F
+---
+<<if $BAMBINA_DONE>>
+    <<jump Bambina_Repeat>>
+<<endif>>
+Ciao! #line:it01_bambina_1
+<<camera_focus camera_Q1>>
+Sto guardando questi due quadri. #line:it01_bambina_2
+Quello di destra ha qualcosa in più... #line:it01_bambina_3
+Non riesco a capire perché. #line:it01_bambina_4
+<<camera_reset>>
+-> Perché ha usato colori più forti #line:it01_bambina_opt1
+    <<jump RispostaSbagliata>>
+-> Perché le persone sembrano più vere #line:it01_bambina_opt2
+    <<jump RispostaCorretta>>
+-> Non lo so #line:it01_bambina_opt3
+    <<jump RispostaNonLoSo>>
+===
+
+title: Bambina_Repeat
+position: 0,200
+color: blue
+group: bambina
+actor: KID_F
+---
+Forse quella persona sa dove trovarlo. #line:it01_bambina_end_2
+===
+
+title: RispostaSbagliata
+position: 200,200
+color: blue
+group: bambina
+actor: KID_F
+---
+Non penso sia quello il motivo. #line:it01_bambina_sbag_1
+Vuoi provare ancora? #line:it01_bambina_sbag_2
+<<jump Bambina>>
+===
+
+title: RispostaNonLoSo
+position: 200,-200
+color: blue
+group: bambina
+actor: KID_F
+---
+Guarda bene i personaggi nei due quadri! #line:it01_bambina_ns_1
+<<jump Bambina>>
+===
+
+title: RispostaCorretta
+position: 400,0
+color: blue
+group: bambina
+actor: KID_F
+---
+Sì! Hai ragione! #line:it01_bambina_corr_1
+Le persone sembrano più vere e realistiche. #line:it01_bambina_corr_2
+Mi aiuteresti a capirlo meglio? #line:it01_bambina_corr_3
+<<activity match_quadri_realistici abbinamento_result>>
+===
+
+title: abbinamento_result
+position: 600,0
+color: green
+group: bambina
+actor: KID_F
+---
+<<if GetActivityResult("match_quadri_realistici") > 0>>
+    <<jump AbbinamentoCorretto>>
+<<else>>
+    <<jump AbbinamentoSbagliato>>
+<<endif>>
+===
+
+title: AbbinamentoSbagliato
+position: 600,200
+color: blue
+group: bambina
+actor: KID_F
+---
+Alcuni collegamenti sono sbagliati. #line:it01_abbinamento_sbag_1
+Riproviamo! #line:it01_abbinamento_sbag_2
+<<activity match_quadri_realistici abbinamento_result>>
+===
+
+title: AbbinamentoCorretto
+position: 800,0
+color: green
+group: bambina
+actor: KID_F
+---
+Ora ho capito! #line:it01_abbinamento_ok_1
+Giotto rendeva le persone molto più vere. #line:it01_abbinamento_ok_2
+<<card maesta_di_santa_trinita collect>>
+-> Hai visto dove è andato Giotto? #line:it01_abbinamento_opt1
+    Sì! Poco fa era laggiù. #line:it01_bambina_end_1
+    <<camera_focus camera_messaggero>>
+    Forse quella persona sa dove trovarlo. 
+    <<set $BAMBINA_DONE = true>>
+    <<camera_reset>>
+    <<target messaggero>>
 ===
