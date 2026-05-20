@@ -58,7 +58,7 @@ color: purple
     Sai, quando provo ad afferrare qualcosa le mie mani l'attraversano.
     Però dobbiamo fare in fretta!
     Al sorgere dell'alba arriverà il guardiano e non posso certo farmi vedere!
-    <<set $stibbert_ingresso_met == true>>
+    <<set $stibbert_ingresso_met = true>>
     <<SetActive ingresso true>>
 <<elseif $stibbert_ingresso_met == true>>
     Non vedo l'ora che tutti i pezzi tornino a posto...
@@ -77,7 +77,7 @@ color: purple
     ...sbaglio o manca un'armatura?
     Guarda! Un pezzo si trova in fondo alla stanza!
     Dove saranno gli altri?
-    <<set $stibbert_parata_met == true>>
+    <<set $stibbert_parata_met = true>>
     <<SetActive muro_stanze false>>
 <<elseif $stibbert_parata_met == true>>
     Dove saranno gli altri pezzi dell'armatura?
@@ -105,7 +105,7 @@ title: jigsaw_parata_result
 ---
 <<if GetActivityResult ("jigsaw_parata") > 0>>
     Hai assemblato correttamente l'armatura, complimenti!
-    <<set $armatura_done == true>>
+    <<set $armatura_done = true>>
 <<else>>
     Mmm... non sembra assemblata nel modo corretto.
 <<endif>>
@@ -132,7 +132,7 @@ title: match_quadri_result
 ---
 <<if GetActivityResult ("match_quadri") > 0>>
     Ora i cartellini descrivono l'opera corretta, complimenti!
-    <<set $quadri_done == true>>
+    <<set $quadri_done = true>>
     Ma... questo cosa ci fa qua? 
     Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì?
     MOSTRA CARD SIMBOLI
@@ -216,13 +216,13 @@ title: check_armature
     Devo posizionare ancora altre armature.
 <<elseif $armature_placed == 3>>
     Tutte le armature sono state posizionate!
-    <<set $armatura_done== true>> 
+    <<set $armatura_done= true>> 
 <<endif>>
 ===
 
 title: talk_npc_stibbert_costumi
 ---
-<<if $armatura_done false>>
+<<if $armatura_done == false>>
     Anche in questa stanza dobbiamo riordinare un po' di cose.
     Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
 <<elseif $quadri_done == false>>
@@ -236,13 +236,14 @@ title: talk_npc_stibbert_costumi
     ...ma sai, ormai non posso più farlo, per ovvie ragioni.
     Ad ogni modo, dobbiamo verificare che siano tutti al loro posto.
     <<activity memory_costumi memory_costumi_result>>
+<<endif>>
 ===
 
 title: memory_costumi_result
 ---
 <<if GetActivityResult ("memory_costumi") > 0>>
     I costumi sono tutti al loro posto, perfetto!
-    <<set $costumi_done == true>>
+    <<set $costumi_done = true>>
 <<else>>
     Mmm... dobbiamo controllare meglio.
 <<endif>>
@@ -253,7 +254,7 @@ position: -10,140
 actor: stibbert_quadri
 color: purple
 ---
-<<if $armatura_done false>>
+<<if $armatura_done == false>>
     Anche in questa stanza dobbiamo riordinare un po' di cose.
     Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
 <<elseif $quadri_done == false>>
