@@ -6,6 +6,10 @@ tags: Start
 color: red
 type: panel
 ---
+<<declare $verrocchio = false>>
+<<set $verrocchio = false>>
+<<declare $Leonardo_1 = false>>
+<<set $Leonardo_1= false>>
 Welcome to this quest #line:001e374 
 ===
 
@@ -51,6 +55,7 @@ allora aggiusta la data di dove andremo #task:color_collector
 
 title: colori_raccolti
 ---
+<<camera_focus cielo>>
 grazie adesso andiamo a vedere il Rinascimento
 ===
 
@@ -65,6 +70,83 @@ title: orologio_sx_done
 Ecco la carta che ti mancava
 <<collect andrea_del_verrocchio_baptism_of_christ>>
 ===
+
+title: verrocchio
+---
+<<if $verrocchio == true>>
+grazie mille
+Leonardo si trova dentro la mia bottega
+è quella qui dietro entra pure
+<<endif>>
+<<if $verrocchio == false>>
+ciao piccolo gattino che ci fai qui?
+-> conosci Leonardo Da Vinci?
+    si che lo conosco è un mio allievo
+    se vuoi incontrarlo devi prima aiutarmi
+    -> va bene
+        trovami un uccello
+        deve essere bianco mi serve come modello per la mia opera
+        <<task_start colomba_bianca verrocchio_completato>>
+    -> miao
+        sei un gatto molto strano
+->miao
+    sei un gatto effettivamente
+    non esistono gatti parlanti
+<<endif>>
+===
+
+title: colomba_sbagliata
+---
+no mi serve di colore bianco
+perchè il bianco significa purezza
+e la colomba raffigura Dio
+quando vedi un elemento in un opera di colore bianco
+molto spesso significa la purezza
+===
+
+title: verrocchio_completato
+---
+<<camera_focus verrocchio>>
+<<set $verrocchio= true>>
+bravo adesso portamela qui 
+===
+
+title: Leonardo_Da_Vinci
+---
+qui nessuno capisce il mio genio
+il maestro ci sta usando per le sue opere
+noi le facciamo e lui si prende i meriti
+oh ciao piccolo gattino che cosa ci fai qui?
+-> mi serve il tuo aiuto
+    prima di aiutarti devi riuscire a convincere i miei compagni
+    non capiscono il mio genio vai a convincerli 
+    -> che devo fare?
+        <<set $Leonardo_1 = true>>
+        risolvi i loro problemi dicendo che ti ho detto io come fare
+
+    -> miao
+        perchè sto parlando con un gatto
+-> miao
+che gatto particolare
+===
+
+title: Botticelli
+---
+accidenti a quel Leonardo
+mi ha rovinato tutto
+->ciao scusa cos'è successo?
+    Leonardo mi ha appena distrutto la frutta che dovevo usare
+    mi serviva come modello per la mia opera
+    ma lui è arrivato ha distrutto tutto e se l'è portata via
+    puoi trovarmi altri soggetti?
+    -> va bene
+        <<task_start Botticelli>>
+    -> no miao
+        troverò un altro modo
+->miao?
+    che carino
+===
+
 
 
 title: ll_tourist
