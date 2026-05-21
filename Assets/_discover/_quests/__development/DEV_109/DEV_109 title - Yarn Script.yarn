@@ -33,6 +33,83 @@ title: npc_intro
 position: 263,2
 ---
 Hallo #line:07c2f74 
+<<task_start AiutaLeApi>>
+===
+
+title: Inizio
+tags:
+---
+<<set $nome_giocatore = "Piccolo Aiutante">>
+Oh, ciao! Sei proprio un bel micino tenero tenero!
+Io sono la Duchessa Eleonora. 
+Ho un grandissimo problema e ho bisogno del tuo aiuto!
+-> Certo! Che succede?
+    Meno male che ci sei tu! Guarda i fiori... sono tutti tristi.
+    <<jump IlProblema>>
+-> Chi sei?
+    Sono la Duchessa Eleonora di Toledo, la madre di questo splendido giardino! 
+    Ma oggi sono troppo preoccupata per autocelebrarmi...
+    <<jump IlProblema>>
+-> Giochiamo a nascondino?
+    Oh, potremo giocare dopo, promesso! 
+    Ma prima dobbiamo risolvere un mistero!
+    <<jump IlProblema>>
+===
+
+title: IlProblema
+tags:
+---
+È successa una cosa terribile nel Giardino di Boboli... 
+Tutte le api sono sparite! 
+Non se ne vede più nemmeno una. Zero ronzii!
+-> Perché è un problema?
+    <<jump SpiegazioneProblema>>
+-> Magari sono andate a fare un pisolino?
+    Magari! Sono sparite da troppi giorni. Ed è un grandissimo problema!
+    <<jump SpiegazioneProblema>>
+-> Non è meglio? Così non mi pungono!
+    Capisco che quel "bzzz" possa fare paura, ma fidati! 
+    La loro assenza è un guaio grandissimo!
+    <<jump SpiegazioneProblema>>
+    
+===
+
+title: SpiegazioneProblema
+tags:
+---
+Vedi, le api sono come i postini magici della natura. 
+Volano da un fiore a un altro e portano il polline,
+così fanno nascere frutti e nuove piantine.
+Senza di loro, il nostro bellissimo giardino appassirà...
+...e non avremo più arance o altri frutti buonissimi!
+-> Oh no! Niente più arance?! Dobbiamo salvarle!
+    Esatto! Sapevo che avresti capito l'importanza delle nostre arance tipiche!
+    <<jump Missione>>
+-> E ora come facciamo?
+    Non disperare, la tua Duchessa ha una pista!
+    <<jump Missione>>
+-> Ma i fiori non possono fare da soli?
+    Purtroppo no, il vento non basta sempre a trasportare il polline! 
+    Ma possiamo rimediare.
+    <<jump Missione>>
+===
+
+title: Missione
+tags:
+---
+Le api non possono essere svanite, i loro alveari sono ancora in zona. 
+Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai?
+-> Salverò il giardino!!
+    Fantastico! Prendi questa mappa, ti aiuterà!
+    <<task_start AiutaLeApi>>
+    <<asset_hide>>
+-> Mi fanno paura le api...
+    Non temere! Le api sono nostre amiche. 
+    Se noi siamo gentili, loro pensano solo a lavorare sui fiori. Ci stai?
+    -> Va bene, ti aiuto!
+        Grazie di cuore! Prendi la mappa, ti aiuterà!
+        <<task_start AiutaLeApi>>
+        <<asset_hide>>>>
 ===
 
 
