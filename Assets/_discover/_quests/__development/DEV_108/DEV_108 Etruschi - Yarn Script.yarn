@@ -7,9 +7,10 @@ position: 16.54715061187744,-65.30155181884766
 <<declare $statues_task_state = 0>>
 <<declare $canvas_completed = false>>
 <<declare $puzzle_completed = false>>
-<<declare $talked_to_manager = false>>
+<<declare $talked_to_secretary = false>>
 <<declare $talked_to_old_man = false>>
 <<declare $task_completed = -1>>
+<<declare $random_index = 1>>
 Benvenuto a San Casciano Val di Pesa.
 In questo piccolo paese, scopriremo chi erano gli etruschi. #line:0e00f81 
 //Card iniziali
@@ -21,12 +22,12 @@ position: 226.6949920654297,-64.54368591308594
 ---
 <<if $task_completed == -1>>
   Buongiorno giovane, avrei bisogno del tuo aiuto. #line:094f708 
-  <<camera_focus archeologo>>
+  <<camera_focus archeologist>>
   Quel vecchio arrabbiato laggiù è da ore che continua a urlare.
   <<camera_reset>>
   Per favore aiutami a calmarlo, prima che tutto il quartiere impazzisca! #line:07436c5 
   <<set $task_completed = 0>>
-  <<target archeologo>>
+  <<target archeologist>>
 <<elseif $task_completed == 4>>
   Ce l'hai fatta! hai calmato il vecchio! #line:07ab1b8 
   Ti sarò sempre debitore. #line:00d5e53
@@ -36,24 +37,24 @@ position: 226.6949920654297,-64.54368591308594
 <<endif>>
 ===
 
-title: archeologo
+title: archeologist
 position: 72,527
 ---
 <<if $talked_to_old_man == false>>
   <<set $talked_to_old_man = true>>
-  <<jump archeologo_start>>
+  <<jump archeologist_start>>
 <<else>>
   <<if $task_completed < 3>>
-    <<jump archeologo_not_ready>>
+    <<jump archeologist_not_ready>>
   <<elseif $task_completed == 4>>
-    <<jump archeologo_end>>
+    <<jump archeologist_end>>
   <<else>>
-    <<jump archeologo_quiz>>
+    <<jump archeologist_quiz>>
   <<endif>>
 <<endif>>
 ===
 
-title: archeologo_start
+title: archeologist_start
 position: 572,752
 ---
 COME È POSSIBILE! NON È GIUSTO!
@@ -62,24 +63,27 @@ COME È POSSIBILE! NON È GIUSTO!
   Il solo pensiero che i giovani di oggi non conoscano gli etruschi è insopportabile! #line:0997c14 
 -> Buongiorno. #line:09a98e8 
   UN ALTRO GIORNO SENZA CONOSCERE GLI ETRUSCHI NON PUÒ ESSERE UN BUON GIORNO! #line:0e74406 
--> Scusi, c'è qualche problema? #line:032dcee 
+-> C'è qualche problema? #line:032dcee 
   DECISAMENTE! I giovani di oggi non hanno la minima idea di chi fossero gli etruschi! #line:0c5fd85 
   PERCHÉ TUTTI AMANO I ROMANI MA A NESSUNO PIACCIONO GLI ETRUSCHI?! #line:0d5f515 
 
 -> Chi sono gli etruschi? #line:00394ab 
   ECCO! Un altro giovane che non sa chi fossero gli etruschi! #line:0350afd 
   -> Per piacere, si calmi. #line:0382ab6 
-    Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0d3c669 
-    Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0f82ef5 
+    Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0d3c669
+    <<camera_focus museum>> 
+    Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0f82ef5
+    <<camera_reset>>
 -> Per piacere, si calmi. #line:0fa9756 
-  Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0c0e4b3 
+  Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0c0e4b3
+  <<camera_focus museum>>
   Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0ee6a3a 
-
-//Set target sul manager
+  <<camera_reset>>
+<<target museum_manager>>
 //Update area
 ===
 
-title: archeologo_not_ready
+title: archeologist_not_ready
 position: 852,752
 ---
 Non hai imparato abbastanza! #line:0373b3f 
@@ -87,7 +91,7 @@ Non hai imparato abbastanza! #line:0373b3f
 VISITA IL MUSEO! #line:0993d71 
 ===
 
-title: archeologo_quiz
+title: archeologist_quiz
 position: 292,752
 ---
 Dunque pensi di saperne abbastanza sugli etruschi. #line:070db0e 
@@ -159,7 +163,7 @@ Direi che abbiamo entrambi imparato qualcosa oggi, e per questo ti sono grato. #
 <<set $task_completed = 4>>
 ===
 
-title: archeologo_end
+title: archeologist_end
 position: 12,752
 ---
 => Buona fortuna, giovane! #line:08ae1af 
@@ -167,24 +171,30 @@ position: 12,752
 => Tu sì che sei un vero fan degli etruschi! #line:09cd74c 
 ===
 
-title: museum_manager
+title: secretary
 tags: 
 position: 442.90570068359375,-64.54369354248047
 ---
-<<if $talked_to_manager == true>>
+<<if $talked_to_secretary == true>>
   => La sezione archeologica è più avanti. #line:072c163 
   => Spero tu riesca veramente a calmare quel signore.  #line:0cca332 //Stampa card archeologia
   => Buona giornata. #line:0b269cf 
 <<else>>
   Buongiorno, accedere al museo costa 5€.  #line:0309cb2 //Stampa card museo
-
-  //AVVIA MINIGIOCO
-  <<set $talked_to_manager = true>>
-
-  Ottimo, la sezione archeologica è più avanti.  #line:053f971 //Stampa card archeologia
-  Buona giornata. #line:0b24b59 
-  //Set target sulle 3 nuove task
+  <<activity museum_payment secretary_activity_end>>
 <<endif>>
+===
+
+title: secretary_activity_end
+---
+  <<if GetActivityResult("museum_payment") > 0>>
+    Ottimo, la sezione archeologica è più avanti.  #line:053f971 //Stampa card archeologia
+    <<set $talked_to_secretary = true>>
+    Buona giornata. #line:0b24b59 
+    //Set target sulle nuove task
+  <<else>>
+    Spiacente, non è la corretta somma di denaro.
+  <<endif>>
 ===
 
 title: random_dude
@@ -195,6 +205,22 @@ position: 661.3900146484375,-62.270111083984375
 => Ogni volta che visito un museo imparo qualcosa di nuovo. #line:06628a0 
 => L'archeologia è una scienza davvero affascinante. #line:040fde4 
 => Etruschi... Non me li ricordavo così. #line:08f423b 
+===
+
+title: antura
+---
+<<set $random_index = random_range(1, 100)>>
+<<if $random_index > 1>>
+  Bau! Bau!
+<<else>>
+  Non mi troveranno mai.
+  -> Tu parli?
+    Esatto, e se provi a spargere la voce nessuno ti crederà.
+  -> Ti sei comportato male.
+    Non hai la minima idea di cosa io sia capace...
+  -> Intendi le guardie del museo?
+    Tu stanne fuori.
+<<endif>>
 ===
 
 title: statues_manager
@@ -228,6 +254,7 @@ Hai recuperato tutte le statue, torna dal signore del museo.
 ===
 
 title: canvas_manager
+tags: not_repeat_last_line
 position: 452,157
 ---
   <<if $canvas_completed == false>>
@@ -245,13 +272,11 @@ Cosa c'è in questa immagine? #line:0fd2d3f
 ===
 
 title: canvas_end
-tags: 
+tags: not_repeat_last_line
 position: 451,527
 ---
 <<if GetActivityResult("canvas_architettura_etrusca") > 0>>
   <<set $canvas_completed = true>>
-  <<card architettura_etrusca zoom>>
-  Complimenti! #card:architettura_etrusca
   <<card architettura_etrusca zoom>>
 <<else>>
   Peccato, riprova.
@@ -276,6 +301,7 @@ Cos'è questa strana struttura in pietra? #line:0d0b849
 ===
 
 title: puzzle_end
+tags: not_repeat_last_line
 position: 675,527
 ---
 //Controlla il risultato dell'activity
