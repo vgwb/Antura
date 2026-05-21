@@ -22,6 +22,7 @@ Aiuta Guido a ritrovarle tutte così il coro potrà cantare di nuovo!
 
 
 title: guido_encounter
+position: 740,-138
 ---
 Ti do il benvenuto in città!
 Io sono Guido d'Arezzo, monaco e musicista.
@@ -33,6 +34,7 @@ Senza di loro, il coro della Cattedrale non può cantare.
 ===
 
 title: guido_choice
+position: 278,-183
 ---
 Mi aiuti a cercarle?
 -> Sì!
@@ -42,6 +44,7 @@ Mi aiuti a cercarle?
 ===
 
 title: guido_accetta
+position: 591,-376
 ---
 Grazie mille!
 Sarò la tua guida in città.
@@ -52,11 +55,14 @@ Andiamo!
 ===
 
 title: pagine_da_raccogliere
+position: -56,-42
+type: task
 ---
-Raccogli 9 pagine.
+Raccogli tutte le pagine.
 ===
 
 title: guido_rifiuto
+position: -11,-263
 ---
 Ti prego, ho davvero bisogno di aiuto!
 <<jump guido_choice>>
