@@ -1,12 +1,65 @@
-﻿// DEV_101 - quest title
+﻿////////// INIZIO //////////
 
 title: quest_start
-position: 0,0
-tags: Start
-color: red
 type: panel
 ---
-Welcome to this quest #line:001e374 
+<<declare $page_pentagramma_collected = false>>
+<<declare $page_do_collected = false>>
+<<declare $page_chiave_collected = false>>
+<<declare $page_mi_collected = false>>
+<<declare $page_fa_collected = false>>
+<<declare $page_re_collected = false>>
+<<declare $page_sol_collected = false>>
+<<declare $page_la_collected = false>>
+<<declare $page_si_collected = false>>
+<<declare $riddle_vasari_done = false>>
+Ti diamo il bevenuto ad Arezzo!
+Antura ha combinato un disastro!
+Ha sparpagliato le pagine dello spartito del coro per tutta la città.
+Aiuta Guido a ritrovarle tutte così il coro potrà cantare di nuovo!
+===
+
+
+
+title: guido_encounter
+---
+Ti do il benvenuto in città!
+Io sono Guido d'Arezzo, monaco e musicista.
+Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
+Ma oggi è un giorno molto triste...
+Quel birbante di Antura ha sparpagliato le pagine del nostro spartito per tutta Arezzo!
+Senza di loro, il coro della Cattedrale non può cantare.
+<<jump guido_choice>>
+===
+
+title: guido_choice
+---
+Mi aiuti a cercarle?
+-> Sì!
+    <<jump guido_accetta>>
+-> No.
+    <<jump guido_rifiuto>>
+===
+
+title: guido_accetta
+---
+Grazie mille!
+Sarò la tua guida in città.
+Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
+Andiamo!
+<<party_join guido>>
+<<task_start collect_pages pagine_da_raccogliere>>
+===
+
+title: pagine_da_raccogliere
+---
+Raccogli 9 pagine.
+===
+
+title: guido_rifiuto
+---
+Ti prego, ho davvero bisogno di aiuto!
+<<jump guido_choice>>
 ===
 
 title: quest_end
