@@ -41,6 +41,7 @@ Hallo #line:07c2f74
 title: Inizio
 tags:
 ---
+<<SetActive gate true>>
 <<set $nome_giocatore = "Piccolo Aiutante">>
 Oh, ciao! Sei proprio un bel micino tenero tenero!
 Io sono la Duchessa Eleonora. 
@@ -115,9 +116,40 @@ Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai?
 
 ===
 
+title: Ape1
+tags: 
 
-title: ll_tourist
-position: 262,294
 ---
-I'm a Living Letter tourist #line:0f64d51 
+
+
+Bzzzz... Oh... Che fame! Che sfinimento!
+
+-> Ecco un'ape! Tutto bene?
+    Mica tanto! Ho le ali stanche e la pancia vuota! *Bzz-zuff...*
+
+Ascolta, signor micio... hai visto un fiore di salvia qui intorno? Ne ho un bisogno disperato! Il loro nettare mi salverebbe!
+
+-> Ne cerco subito uno attaccato alla pianta!
+    Aspetta, aspetta! No, fermati! Non farlo! 
+    <<shake_screen>>
+-> Posso coglierne uno per te?
+    Oh, no, per carità! Ti ringrazio, ma cogliere i fiori è un pasticcio!
+
+Vedi, se stacchi un fiore intero dalla pianta, la pianta ci rimarrà male e gli altri insetti non avranno più il loro cibo. 
+
+Devi cercare un fiore di salvia che sia già caduto a terra. 
+
+Così nessuno si farà male, la pianta resterà felice e io potrò saziarmi! Mi darai una zampa?
+
+-> Va bene, mi metto a cercare!
+    Grazie mille!
+    
+    
+===
+
+title: Fiore_Trovato
+---
+Ape Bzz: *SLURP!* Che delizia! Che salvia dolce! 
+Ape Bzz: Grazie mille, mi hai salvato senza fare del male a nessuno! Volo all'alveare! BZZZZZZ!
+
 ===
