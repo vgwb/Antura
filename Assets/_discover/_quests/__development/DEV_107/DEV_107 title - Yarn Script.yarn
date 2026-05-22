@@ -77,8 +77,10 @@ title: verrocchio
 grazie mille
 Leonardo si trova dentro la mia bottega
 è quella qui dietro entra pure
+<<area bottega>>
 <<endif>>
 <<if $verrocchio == false>>
+<<SetActive porta true>>
 ciao piccolo gattino che ci fai qui?
 -> conosci Leonardo Da Vinci?
     si che lo conosco è un mio allievo
