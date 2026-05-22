@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MrBaffoRendererActivator : MonoBehaviour
+public class SpriteRendererActivator : MonoBehaviour
 {
     private SpriteRenderer _renderer;
 
