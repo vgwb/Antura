@@ -7,7 +7,19 @@ color: red
 type: panel
 ---
 Welcome to this quest #line:001e374 
+<<declare $fogli = false>>
+<<set $fogli =false>>
 ===
+title: quest_carista
+---
+carista: Ma che è succeso tutti i progetti dove sono ora come facio?
+Mi potresti aiutare a trovare i miei progetti, sono 5 fogli dove sarano andati? 
+
+carista: Ottimo grazie del aiuto. Ti va di aiutarmi per prendere gli ultimi oggeti per creare il mio carro che per colpa di quella libeciatta gli oggetti sono sparpagliati in giro
+
+===
+
+
 
 title: quest_end
 position: 0,150
@@ -32,9 +44,27 @@ Why don't you do this homework? #line:09d3dd4
 title: npc_intro
 position: 263,2
 ---
-Hallo #line:07c2f74 
+<<if $fogli==false>>
+
+Ma che è succeso tutti i progetti dove sono ora come facio?
+Mi potresti aiutare a trovare i miei progetti, sono 5 fogli dove sarano andati? #line:07c2f74 
+<<task_start Racolta_fogli >>
+
+<<endif>>
+<<if $fogli ==true>>
+Ottimo grazie del aiuto.
+Ti va di aiutarmi per prendere gli ultimi oggeti per creare il mio carro 
+che per colpa di quella libeciatta gli oggetti sono sparpagliati in giro
+<<endif>>
 ===
 
+title: finito
+--- 
+Ottimo grazie del aiuto.
+Ti va di aiutarmi per prendere gli ultimi oggeti per creare il mio carro 
+che per colpa di quella libeciatta gli oggetti sono sparpagliati in giro
+<<set $fogli  =true>>
+===
 
 title: ll_tourist
 position: 262,294
