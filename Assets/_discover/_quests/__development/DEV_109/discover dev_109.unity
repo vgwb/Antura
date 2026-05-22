@@ -672,95 +672,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 517d2acc735dd5b4683a252a2b4fe05c, type: 3}
---- !u!1 &680333712 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
-    type: 3}
-  m_PrefabInstance: {fileID: 1587481293}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &680333713 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-    type: 3}
-  m_PrefabInstance: {fileID: 1587481293}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &680333714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680333712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
-  Id: Azalea
-  IsInteractable: 1
-  IsHiddenAtStart: 0
-  NearbyAutoActivate: 1
-  IconType: 1
-  IconTransform: {fileID: 0}
-  ShowOnMap: 0
-  MapIcon: 0
-  ShowIconAlways: 0
-  FocusCameraOnInteract: 0
-  CameraFocusData: {fileID: 0}
-  FaceToPlayer: 0
-  DialogueNode:
-    project: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
-      type: 3}
-    nodeName: 
-  NodePermalink: 
-  disableAfterAction: 0
-  QuestAction: 
-  Commands: []
-  triggerChildren: 0
-  FaceToPlayerComp: {fileID: 0}
---- !u!114 &680333715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680333712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
-  IsHiddenAtStart: 0
-  AutoCollect: 1
-  Type: 3
-  ItemTag: Flowers
-  AddToInventory: 0
-  particleEffectPrefab: {fileID: 0}
-  enableRotation: 1
-  rotationSpeed: 100
-  bobbingAmount: 0.1
-  bobbingSpeed: 1
---- !u!65 &680333716
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680333712}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &919879652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,93 +1183,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39f710d285d38544bc283f5e522411a, type: 3}
---- !u!1001 &1587481293
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1934697332}
-    m_Modifications:
-    - target: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_Name
-      value: cauliflower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7485019932739178731, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7192415596403208298, guid: a1ef776e69f844b25862b22aa0fe0705, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 8998435633903743294, guid: a1ef776e69f844b25862b22aa0fe0705, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 680333716}
-    - targetCorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 680333715}
-    - targetCorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 680333714}
-  m_SourcePrefab: {fileID: 100100000, guid: a1ef776e69f844b25862b22aa0fe0705, type: 3}
 --- !u!1001 &1670434582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1367,17 +1191,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3873830202348125053, guid: 150035a49d5f84c799fa54eff6e2e610,
-        type: 3}
-      propertyPath: DialogueNode.project
-      value: 
-      objectReference: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
-        type: 3}
-    - target: {fileID: 3873830202348125053, guid: 150035a49d5f84c799fa54eff6e2e610,
-        type: 3}
-      propertyPath: DialogueNode.nodeName
-      value: Ape1
-      objectReference: {fileID: 0}
     - target: {fileID: 4574598919450440142, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
       propertyPath: m_Name
@@ -1435,9 +1248,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
-      propertyPath: QuestTasks.Array.data[0].ItemsContainer
-      value: 
-      objectReference: {fileID: 1934697331}
+      propertyPath: QuestTasks.Array.data[1].ItemTag
+      value: Salvia
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1530,38 +1343,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cda05f1090a52c64e9792863a069b77a, type: 3}
---- !u!1 &1934697331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1934697332}
-  m_Layer: 0
-  m_Name: Bees
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1934697332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934697331}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.22806, y: -0, z: 4.38465}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 680333713}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1577,5 +1358,4 @@ SceneRoots:
   - {fileID: 1445533664}
   - {fileID: 1670434582}
   - {fileID: 335163857}
-  - {fileID: 1934697332}
   - {fileID: 1828757794}

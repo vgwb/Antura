@@ -7,7 +7,7 @@ tags: Start
 color: red
 type: panel
 ---
-
+<<SetActive Salvia false>>
 Welcome to this quest #line:001e374 
 ===
 
@@ -35,7 +35,7 @@ title: npc_intro
 position: 263,2
 ---
 Hallo #line:07c2f74 
-<<task_start AiutaLeApi>>
+
 ===
 
 title: Inizio
@@ -104,14 +104,14 @@ Le api non possono essere svanite, i loro alveari sono ancora in zona.
 Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai?
 -> Salverò il giardino!!
     Fantastico! Prendi questa mappa, ti aiuterà!
-    <<task_start AiutaLeApi>>
+    <<task_start TrovaUnApe>>
     <<SetActive gate false>>
 -> Mi fanno paura le api...
     Non temere! Le api sono nostre amiche. 
     Se noi siamo gentili, loro pensano solo a lavorare sui fiori. Ci stai?
     -> Va bene, ti aiuto!
         Grazie di cuore! Prendi la mappa, ti aiuterà!
-        <<task_start AiutaLeApi>>
+        <<task_start TrovaUnApe>>
         <<SetActive gate false>>
 
 ===
@@ -131,7 +131,7 @@ Ascolta, signor micio... hai visto un fiore di salvia qui intorno? Ne ho un biso
 
 -> Ne cerco subito uno attaccato alla pianta!
     Aspetta, aspetta! No, fermati! Non farlo! 
-    <<shake_screen>>
+    
 -> Posso coglierne uno per te?
     Oh, no, per carità! Ti ringrazio, ma cogliere i fiori è un pasticcio!
 
@@ -143,7 +143,7 @@ Così nessuno si farà male, la pianta resterà felice e io potrò saziarmi! Mi 
 
 -> Va bene, mi metto a cercare!
     Grazie mille!
-    
+    <<SetActive Salvia true>>
     
 ===
 
