@@ -3,23 +3,12 @@
 title: quest_start
 type: panel
 ---
-<<declare $page_pentagramma_collected = false>>
-<<declare $page_do_collected = false>>
-<<declare $page_chiave_collected = false>>
-<<declare $page_mi_collected = false>>
-<<declare $page_fa_collected = false>>
-<<declare $page_re_collected = false>>
-<<declare $page_sol_collected = false>>
-<<declare $page_la_collected = false>>
-<<declare $page_si_collected = false>>
-<<declare $riddle_vasari_done = false>>
+<<SetActive collect_sol false>>
 Ti diamo il bevenuto ad Arezzo!
 Antura ha combinato un disastro!
 Ha sparpagliato le pagine dello spartito del coro per tutta la città.
 Aiuta Guido a ritrovarle tutte così il coro potrà cantare di nuovo!
 ===
-
-
 
 title: guido_encounter
 position: 740,-138
@@ -66,6 +55,31 @@ position: -11,-263
 ---
 Ti prego, ho davvero bisogno di aiuto!
 <<jump guido_choice>>
+===
+
+title: turista_indovinello
+---
+Il simbolo all'inizio del pentagramma si chiama...
+->Chiave di Violino
+    <<jump turista_corretto>>
+->Chiave inglese
+    <<jump turista_sbagliato>>
+->Punto musicale
+    <<jump turista_sbagliato>>
+===
+
+
+title: turista_corretto
+---
+Sì! La Chiave di Violino, esatto!
+Me lo ha spiegato proprio lui, Guido d'Arezzo!
+Prendi pure il foglio!
+<<SetActive collect_sol true>>
+===
+
+title: turista_sbagliato
+---
+Mmm, non è questa! Riprova.
 ===
 
 title: quest_end
