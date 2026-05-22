@@ -14,6 +14,9 @@
 // ACTIVITIES
 //   - minigame_bacio_giuda
 // </scene_data>
+// ACTIVITIES
+//   - placeholder_raccogliOggetti
+//   - placeholder_cerchio_perfetto
 
 title: quest_start
 position: 0,0
@@ -25,6 +28,8 @@ actor: NARRATOR
 <<declare $GUARDIA_DONE = false>>
 <<declare $COLORAIO_DONE = false>>
 <<declare $BAMBINA_DONE = false>>
+<<declare $MESSAGGERO_DONE = false>>
+<<declare $LETTERE_SPIEGATE = false>>
 <<card TODO_firenze_citta>>
 Siamo a Firenze! #line:it01_start_1
 <<card TODO_campanile_giotto>>
@@ -200,7 +205,6 @@ Ha lasciato una scia di colore! #line:it01_ok_3
 Forse puoi seguirla. #line:it01_ok_4
 <<set $COLORAIO_DONE = true>>
 <<camera_reset>>
-<<target bambina>>
 <<area area_bambina>>
 ===
 title: Bambina
@@ -309,3 +313,135 @@ Giotto rendeva le persone molto più vere. #line:it01_abbinamento_ok_2
     <<camera_reset>>
     <<target messaggero>>
 ===
+title: Messaggero
+position: 0,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+<<if $MESSAGGERO_DONE>>
+    <<jump Messaggero_Repeat>>
+<<endif>>
+Salve! Hai bisogno di qualcosa? #line:it01_msg_1
+<<if $BAMBINA_DONE>>
+    -> Sto cercando Giotto, lo hai visto? #line:it01_msg_opt1
+        <<jump Visto_Ma_Aiuto>>
+    -> Cosa stai facendo? #line:it01_msg_opt2
+        <<jump CosaStaiFacendo>>
+<<else>>
+    -> Niente, grazie. #line:it01_msg_opt_none #highlight
+        <<jump Messaggero_Congedo>>
+<<endif>>
+===
+
+title: Messaggero_Congedo
+position: 0,200
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Prego! A presto. #line:it01_msg_congedo_1
+===
+
+title: Messaggero_Repeat
+position: 0,400
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Sarà già tornato al suo campanile. #line:it01_msg_repeat_1
+===
+
+title: CosaStaiFacendo
+position: 200,200
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+<<set $LETTERE_SPIEGATE = true>>
+Le mie lettere sono cadute per terra! #line:it01_cosafai_1
+È una giornata proprio storta. #line:it01_cosafai_2
+<<jump Visto_Ma_Aiuto>>
+===
+
+title: Visto_Ma_Aiuto
+position: 400,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Sì, è venuto da me poco fa. #line:it01_visto_1
+<<if not $LETTERE_SPIEGATE>>
+    Le mie lettere sono cadute per terra... #line:it01_visto_2
+<<endif>>
+Non è che mi aiuteresti a cercarle? #line:it01_visto_3
+<<activity placeholder_cerchio_perfetto>>
+===
+
+title: lettere_result
+position: 600,0
+color: green
+group: messaggero
+actor: ADULT_M
+---
+<<if GetActivityResult("placeholder_raccogliOggetti") > 0>>
+    <<jump Messaggero_DopoLettere>>
+<<else>>
+    <<jump Lettere_Fallimento>>
+<<endif>>
+===
+
+title: Lettere_Fallimento
+position: 600,200
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Ne mancano ancora alcune! #line:it01_lettere_fail_1
+Riproviamo! #line:it01_lettere_fail_2
+<<activity placeholder_cerchio_perfetto>>
+===
+
+title: Messaggero_DopoLettere
+position: 800,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Grazie mille! #line:it01_dopo_1
+Stavo consegnando lettere proprio a Giotto. #line:it01_dopo_2
+È molto cercato da tutta Italia! #line:it01_dopo_3
+Il Papa in persona lo mise alla prova. #line:it01_dopo_4
+Voleva testare le sue capacità. #line:it01_dopo_5
+Sai cosa fece Giotto? #line:it01_dopo_6
+<<card il_cerchio_perfetto collect>>
+Disegnò un cerchio perfetto a mano libera! #line:it01_dopo_7
+Senza righello né compasso. #line:it01_dopo_8
+Prova anche tu... non è facile! #line:it01_dopo_9
+<<activity placeholder_cerchio_perfetto>>
+===
+
+title: cerchio_result
+position: 1000,0
+color: green
+group: messaggero
+actor: ADULT_M
+---
+<<jump DopoMinigiocoGiotto>>
+===
+
+title: DopoMinigiocoGiotto
+position: 1200,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Visto? Non era così facile! #line:it01_dopo_cerchio_1
+Giotto ci riuscì al primo colpo. #line:it01_dopo_cerchio_2
+Roba da non credere! #line:it01_dopo_cerchio_3
+Se lo cerchi, sarà già tornato al campanile. 
+<<set $MESSAGGERO_DONE = true>>
+<<camera_focus camera_campanile>>
+<<camera_reset>>
+<<target giotto>>
+=== 
