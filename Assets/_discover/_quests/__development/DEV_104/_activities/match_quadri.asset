@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522986d1bf14a4377939400a4b220bb6, type: 3}
+  m_Name: match_quadri
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.MatchSettingsData
+  Id: match_quadri
+  ActivityCode: 2
+  Difficulty: 0
+  MinRounds: 1
+  MaxRounds: 1
+  HasTimer: 1
+  TimerSeconds: 120
+  PointsFail: -1
+  PointsEasy: 1
+  PointsNormal: 2
+  PointsExpert: 3
+  MainTopic: {fileID: 0}
+  SelectionMode: 0
+  GroupsData:
+  - Question: {fileID: 11400000, guid: 963e15fb53c86074e83f6ffea105050e, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: a7132b0736f7c415784fb54bd2bc1b95, type: 2}
+  - Question: {fileID: 11400000, guid: 62e1fa0b9d95b874bb27828ea594a6e1, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: 256afac2faad1c744bd3d5db908ee069, type: 2}

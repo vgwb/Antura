@@ -13,8 +13,9 @@ type: panel
 <<set $MAX_PROGRESS = 0>>
 <<set $CURRENT_PROGRESS = 0>>
 <<set $CURRENT_ITEM = "">>
-<<declare $pezzi = 0>>
 <<declare $stibbert_ingresso_met = false>>
+<<declare $collect_armatura_parata_state = 0>>
+<<declare $stibbert_quadri_met = false>>
 <<declare $stibbert_parata_met = false>>
 <<declare $stibbert_armature_met = false>>
 <<declare $armatura_done = false>>
@@ -59,7 +60,7 @@ color: purple
     Però dobbiamo fare in fretta!
     Al sorgere dell'alba arriverà il guardiano e non posso certo farmi vedere!
     <<set $stibbert_ingresso_met = true>>
-    <<SetActive ingresso true>>
+    <<SetActive ingresso false>>
 <<elseif $stibbert_ingresso_met == true>>
     Non vedo l'ora che tutti i pezzi tornino a posto...
     ...sto morendo di sonno!
@@ -80,26 +81,36 @@ color: purple
     Guarda! Un pezzo si trova in fondo alla stanza!
     Dove saranno gli altri?
     <<set $stibbert_parata_met = true>>
+    <<task_start collect_armatura_parata collect_armatura_parata_end>>
+    <<set $collect_armatura_parata_state = 1>>
     <<SetActive muro_stanze false>>
-<<elseif $stibbert_parata_met == true>>
-    Dove saranno gli altri pezzi dell'armatura?
-<<elseif $pezzi == 4>>
+<<elseif $armatura_done == true>>
+<<elseif HasCompletedTask("collect_armatura_parata")>>
     Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente!
     Ora non resta che assemblarla!
     Posizionati nel punto dove devi inserirla e ricomponila.
-<<elseif $armatura_done == true>>
+<<elseif $stibbert_parata_met == true>>
+    Dove saranno gli altri pezzi dell'armatura?
 La parata delle armature è finalmente stata ricomposta! Ottimo lavoro!
 <<endif>>
+===
+
+title: collect_armatura_parata_end
+---
+<<set $collect_armatura_parata_state= 2>>
+    Hai tutti i pezzi dell'armatura!
 ===
 
 title: interactable_parata
 actor: interactable_parata
 ---
-<<if $pezzi < 4>>
-    Torna quando hai tutti i pezzi dell'armatura.
-<<elseif $pezzi == 4>>
+<<if HasCompletedTask("collect_armatura_parata")>>
     Assembla l'armatura!
     <<activity jigsaw_parata jigsaw_parata_result>>
+<<elseif $collect_armatura_parata_state == 1>>
+    Torna quando hai tutti i pezzi dell'armatura.
+<<elseif $collect_armatura_parata_state == 0>>
+    Torna quando hai tutti i pezzi dell'armatura.
 <<endif>>
 ===
 
@@ -121,7 +132,7 @@ color: purple
 <<if $armatura_done == false>>
 Anche in questa stanza dobbiamo riordinare un po' di cose.
 Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura.
-<<elseif $stibbert_quadri_met == false>>
+<<elseif $stibbert_quadri_met == true>>
     In questa stanza sono esposti diversi quadri e incisioni.
     Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli!
     <<activity match_quadri match_quadri_result>>
@@ -137,7 +148,7 @@ title: match_quadri_result
     <<set $quadri_done = true>>
     Ma... questo cosa ci fa qua? 
     Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì?
-    MOSTRA CARD SIMBOLI
+    <<card istruzioni_card>>
     Questo foglio ci sarà molto utile nella prossima stanza.
 <<else>>
     Mmm... i cartellini non sembrano corretti.
