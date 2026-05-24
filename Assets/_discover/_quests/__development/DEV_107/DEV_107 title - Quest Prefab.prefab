@@ -743,8 +743,8 @@ Transform:
   m_GameObject: {fileID: 2007158660324456160}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 121, z: -0.26}
-  m_LocalScale: {x: 2.3734162, y: 2.3734162, z: 2.3734162}
+  m_LocalPosition: {x: 0.26, y: 119.82, z: -0.26}
+  m_LocalScale: {x: 6.883619, y: 6.883619, z: 6.883619}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5512520045871801754}
@@ -1229,18 +1229,18 @@ MonoBehaviour:
   - Code: puzzle
     ActivitySettings: {fileID: 11400000, guid: 747c944b9c5491f4a91b32e093852225, type: 2}
   QuestTasks:
-  - Code: color_collector
+  - Code: chiave
     Type: 1
     InteractGO: {fileID: 905209907427848565}
     ProgressPoints: 0
     TaskNode:
       project: {fileID: 7545569452688597077, guid: 0f94ced785b7247cd9277d7e6092af05,
         type: 3}
-      nodeName: accettato
+      nodeName: Perugino
     NodeSuccess: 
-    ItemsContainer: {fileID: 905209907427848565}
-    ItemCount: 2
-    ItemTag: color
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: key
     TargetPoint: {fileID: 0}
   - Code: color_collector
     Type: 1
@@ -1254,11 +1254,24 @@ MonoBehaviour:
     ItemsContainer: {fileID: 905209907427848565}
     ItemCount: 2
     ItemTag: color
+    TargetPoint: {fileID: 0}
+  - Code: colomba_bianca
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 0
+    TaskNode:
+      project: {fileID: 7545569452688597077, guid: 0f94ced785b7247cd9277d7e6092af05,
+        type: 3}
+      nodeName: verrocchio_completato
+    NodeSuccess: 
+    ItemsContainer: {fileID: 6435230418950302309}
+    ItemCount: 1
+    ItemTag: colomba_bianca
     TargetPoint: {fileID: 0}
   - Code: Botticelli
     Type: 1
     InteractGO: {fileID: 0}
-    ProgressPoints: 0
+    ProgressPoints: 4
     TaskNode:
       project: {fileID: 7545569452688597077, guid: 0f94ced785b7247cd9277d7e6092af05,
         type: 3}
@@ -2653,8 +2666,8 @@ Transform:
   m_GameObject: {fileID: 8074773719586517675}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32017, y: 123.07, z: -0.40024}
-  m_LocalScale: {x: 0.19953404, y: 0.19953404, z: 0.19953404}
+  m_LocalPosition: {x: 0.20166, y: 121.62, z: -0.25208}
+  m_LocalScale: {x: 0.49582213, y: 0.49582213, z: 0.49582213}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1812892527167074013}
@@ -3793,7 +3806,8 @@ MonoBehaviour:
   Type: 3
   ItemTag: colomba_bianca
   AddToInventory: 0
-  particleEffectPrefab: {fileID: 0}
+  particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+    type: 3}
   enableRotation: 1
   rotationSpeed: 100
   bobbingAmount: 0.1
@@ -4155,7 +4169,7 @@ PrefabInstance:
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 121.2
+      value: 119.84
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -4352,12 +4366,12 @@ PrefabInstance:
     - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: DialogueNode.nodeName
-      value: npc_intro
+      value: Perugino
       objectReference: {fileID: 0}
     - target: {fileID: 6383701241047510736, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_Name
-      value: npc_intro.4
+      value: NPC_perugino
       objectReference: {fileID: 0}
     - target: {fileID: 8060139817133894495, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -4372,17 +4386,17 @@ PrefabInstance:
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.18
+      value: 6.501
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 121.2
+      value: 119.84
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.04
+      value: 5.018
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -4910,7 +4924,7 @@ PrefabInstance:
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 121.2
+      value: 119.84
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -5078,7 +5092,7 @@ MonoBehaviour:
   Type: 3
   ItemTag: colomba_rossa
   AddToInventory: 0
-  particleEffectPrefab: {fileID: 0}
+  particleEffectPrefab: {fileID: 100000, guid: 8bfb4e41c7e29474ca14336c9385cf40, type: 3}
   enableRotation: 1
   rotationSpeed: 100
   bobbingAmount: 0.1
@@ -5256,7 +5270,7 @@ PrefabInstance:
     - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 121.4
+      value: 119.78
       objectReference: {fileID: 0}
     - target: {fileID: 3831121299884130051, guid: 02c441c47a029418f9fe519bcfc24380,
         type: 3}
@@ -5857,7 +5871,7 @@ PrefabInstance:
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 121.2
+      value: 119.84
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -6662,7 +6676,7 @@ MonoBehaviour:
   Type: 3
   ItemTag: colomba_verde
   AddToInventory: 0
-  particleEffectPrefab: {fileID: 0}
+  particleEffectPrefab: {fileID: 100000, guid: 8bfb4e41c7e29474ca14336c9385cf40, type: 3}
   enableRotation: 1
   rotationSpeed: 100
   bobbingAmount: 0.1

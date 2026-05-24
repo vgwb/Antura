@@ -16,6 +16,8 @@ type: panel
 <<set $Leonardo_1= false>>
 <<declare  $botticelli= false>>
 <<set $botticelli= false>>
+<<declare  $perugino= false>>
+<<set $perugino= false>>
 <<SetActive  pesci1 false>>
 <<SetActive  pesci2 false>>
 <<SetActive  pesci3 false>>
@@ -30,6 +32,7 @@ type: panel
 <<SetActive  scatole6 false>>
 <<SetActive  scatole7 false>>
 Welcome to this quest #line:001e374 
+<<teleport bottega>>
 ===
 
 title: quest_end
@@ -119,7 +122,6 @@ ti aiuterò a cercare leonardo
 grazie mille
 Leonardo si trova dentro la mia bottega
 è quella qui dietro entra pure
-<<area bottega>>
 <<teleport bottega>>
 <<endif>>
 <<if $verrocchio == false>>
@@ -167,13 +169,13 @@ oh ciao piccolo gattino che cosa ci fai qui?
     prima di aiutarti devi riuscire a convincere i miei compagni
     non capiscono il mio genio vai a convincerli 
     -> che devo fare?
-        <<set $Leonardo_1 = true>>
         risolvi i loro problemi dicendo che ti ho detto io come fare
+        <<set $Leonardo_1 = true>>
 
     -> miao
         perchè sto parlando con un gatto
 -> miao
-che gatto particolare
+    che gatto particolare
 ===
 
 title: Botticelli
@@ -249,13 +251,13 @@ mi ha rovinato tutto
     ma lui è arrivato ha distrutto tutto e se l'è portata via
     puoi trovarmi altri soggetti?
     -> va bene
-        <<task_start Botticelli Botticelli_completato>>
+        <<task_start chiave>>
     -> no miao
         troverò un altro modo
 ->miao?
     che carino
 <<endif>>
-<<if $botticelli== true>>
+<<if $perugino== true>>
 grazie gattino adesso posso completare la mia primavera
 -> Leonardo mi ha detto di dirti che gli dispiace
     oh scuse accettate
