@@ -4,15 +4,23 @@ title: quest_start
 type: panel
 ---
 <<SetActive collect_sol false>>
-Ti diamo il bevenuto ad Arezzo!
+Eccoci ad Arezzo.
 Antura ha combinato un disastro!
-Ha sparpagliato le pagine dello spartito del coro per tutta la città.
-Aiuta Guido a ritrovarle tutte così il coro potrà cantare di nuovo!
+Risolvi i problemi in città.
+<<task_start incontra_guido incontra_guido_task>>
+<<target guido>>
+===
+
+title: incontra_guido_task
+type: task
+---
+Incontra Guido d'Arezzo!
 ===
 
 title: guido_encounter
 position: 740,-138
 ---
+<<task_end incontra_guido>>
 Ti do il benvenuto in città!
 Io sono Guido d'Arezzo, monaco e musicista.
 Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
@@ -39,12 +47,10 @@ Grazie mille!
 Sarò la tua guida in città.
 Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
 Andiamo!
-<<party_join guido>>
-<<task_start collect_pages pagine_da_raccogliere>>
+<<party_join guido>> <<task_start collect_pages pagine_da_raccogliere>>
 ===
 
 title: pagine_da_raccogliere
-position: -56,-42
 type: task
 ---
 Raccogli tutte le pagine.
