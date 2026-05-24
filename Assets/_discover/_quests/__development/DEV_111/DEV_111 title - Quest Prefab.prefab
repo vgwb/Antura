@@ -719,8 +719,28 @@ MonoBehaviour:
       code: en
     LearningLanguage:
       code: en
-  ActivityConfigs: []
-  QuestTasks: []
+  ActivityConfigs:
+  - Code: match_the_technique
+    ActivitySettings: {fileID: 11400000, guid: 522d1741c5f68f24aa0aab74d0495a9d, type: 2}
+  - Code: canvas_michelangelo
+    ActivitySettings: {fileID: 11400000, guid: 132835e308898a54cb030141d5328649, type: 2}
+  - Code: berninijigsaw
+    ActivitySettings: {fileID: 11400000, guid: 3456bcf17c0e18b42ac18fe2972b995e, type: 2}
+  - Code: finalquiz
+    ActivitySettings: {fileID: 11400000, guid: 7dfe83055bacc564383c372bc61523c4, type: 2}
+  QuestTasks:
+  - Code: collect_pieces
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    TaskNode:
+      project: {fileID: 0}
+      nodeName:
+    NodeSuccess:
+    ItemsContainer: {fileID: 0}
+    ItemCount: 3
+    ItemTag:
+    TargetPoint: {fileID: 0}
 --- !u!114 &3576371439623676379
 MonoBehaviour:
   m_ObjectHideFlags: 0

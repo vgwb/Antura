@@ -3,27 +3,24 @@
 title: quest_start
 type: panel
 ---
-<<declare $page_pentagramma_collected = false>>
-<<declare $page_do_collected = false>>
-<<declare $page_chiave_collected = false>>
-<<declare $page_mi_collected = false>>
-<<declare $page_fa_collected = false>>
-<<declare $page_re_collected = false>>
-<<declare $page_sol_collected = false>>
-<<declare $page_la_collected = false>>
-<<declare $page_si_collected = false>>
-<<declare $riddle_vasari_done = false>>
-Ti diamo il bevenuto ad Arezzo!
+<<SetActive collect_sol false>>
+Eccoci ad Arezzo.
 Antura ha combinato un disastro!
-Ha sparpagliato le pagine dello spartito del coro per tutta la città.
-Aiuta Guido a ritrovarle tutte così il coro potrà cantare di nuovo!
+Risolvi i problemi in città.
+<<task_start incontra_guido incontra_guido_task>>
+<<target guido>>
 ===
 
-
+title: incontra_guido_task
+type: task
+---
+Incontra Guido d'Arezzo!
+===
 
 title: guido_encounter
 position: 740,-138
 ---
+<<task_end incontra_guido>>
 Ti do il benvenuto in città!
 Io sono Guido d'Arezzo, monaco e musicista.
 Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
@@ -50,12 +47,10 @@ Grazie mille!
 Sarò la tua guida in città.
 Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
 Andiamo!
-<<party_join guido>>
-<<task_start collect_pages pagine_da_raccogliere>>
+<<party_join guido>> <<task_start collect_pages pagine_da_raccogliere>>
 ===
 
 title: pagine_da_raccogliere
-position: -56,-42
 type: task
 ---
 Raccogli tutte le pagine.
@@ -66,6 +61,37 @@ position: -11,-263
 ---
 Ti prego, ho davvero bisogno di aiuto!
 <<jump guido_choice>>
+===
+
+title: turista_indovinello
+---
+Il simbolo all'inizio del pentagramma si chiama...
+->Chiave di Violino
+    <<jump turista_corretto>>
+->Chiave inglese
+    <<jump turista_sbagliato>>
+->Punto musicale
+    <<jump turista_sbagliato>>
+===
+
+
+title: turista_corretto
+---
+Sì! La Chiave di Violino, esatto!
+Me lo ha spiegato proprio lui, Guido d'Arezzo!
+Prendi pure il foglio!
+<<SetActive collect_sol true>>
+===
+
+title: reoder
+---
+hallo
+<<activity reorder>>
+===
+
+title: turista_sbagliato
+---
+Mmm, non è questa! Riprova.
 ===
 
 title: quest_end
