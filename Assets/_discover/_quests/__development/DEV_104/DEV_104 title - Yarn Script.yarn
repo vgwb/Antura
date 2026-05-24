@@ -132,7 +132,7 @@ color: purple
 <<if $armatura_done == false>>
 Anche in questa stanza dobbiamo riordinare un po' di cose.
 Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura.
-<<elseif $stibbert_quadri_met == true>>
+<<elseif $armatura_done == true>>
     In questa stanza sono esposti diversi quadri e incisioni.
     Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli!
     <<activity match_quadri match_quadri_result>>
@@ -167,69 +167,80 @@ Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
 Anche in questa stanza dobbiamo riordinare un po' di cose.
 Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
 <<elseif $armature_placed < 3>>
-    In questa stanza sono esposte delle armature provenienti dalle culture più disparate.
-    Ce ne sono alcune europee, altre islamiche e altre ancora giapponesi.
+    In questa stanza sono esposte delle spade provenienti dalle culture più disparate.
+    Ce ne sono alcune europee, altre arabe e altre ancora giapponesi.
     Ma sono tutte sparpagliate per la stanza!
     Dobbiamo posizionarle sul manichino giusto.
-    Per riconoscere l'origine di un'armatura puoi utilizzare le istruzioni che hai trovato prima.
-    MOSTRA ISTRUZIONI
+    <<card istruzioni_card>>
+    <<SetActive armi_container true>>
+    <<task_start collect_armi collect_armi_end>>
+    Per riconoscere l'origine di una spada puoi utilizzare le istruzioni che hai trovato prima.
 <<elseif $stibbert_armature_met == true>>
-    Dobbiamo posizionare le armature, puoi aiutarti con le istruzioni che hai trovato prima.
-    MOSTRA ISTRUZIONI
+    <<card istruzioni_card>>
+    Dobbiamo posizionare le spade, puoi aiutarti con le istruzioni che hai trovato prima.
 <<elseif $armature_placed == 3>>
-    Ora le armature sono tutte posizionate sul manichino corretto. Ottimo lavoro!
+    Ora le spade sono tutte posizionate sul manichino corretto. Ottimo lavoro!
 <<endif>>
+===
+
+title: collect_armi_end
+---
+    Hai posizionato tutte le armi, complimenti!
+    <<SetActive interactable_armi_container false>>
 ===
 
 title:interactable_armatura_islamica
 ---
-Quale armatura dovrebbe essere posizionata qua?
--> Non ho armature da posizionare. <<if has_item("armatura_europea")>>
--> Quella Europea.
-    Non penso sia l'armatura giusta.
--> Quella Islamica. <<if has_item("armatura_islamica")>>
+Quale spada dovrebbe essere posizionata qua?
+-> Non ho la spada giusta.
+-> Quella Europea. <<if has_item("armatura_europea")>>
+    Non penso sia la spada giusta.
+-> Quella Araba. <<if has_item("armatura_islamica")>>
     Esatto!
     <<set $armature_placed+= 1 >>
+    <<inventory armatura_islamica remove>>
     <<jump check_armature>>
 -> Quella Giapponese. <<if has_item("armatura_giapponese")>>
-    Non penso sia l'armatura giusta.
+    Non penso sia la spada giusta.
 ===
 
 title:interactable_armatura_giapponese
 ---
-Quale armatura dovrebbe essere posizionata qua?
--> Non ho armature da posizionare. <<if has_item("armatura_europea")>>
--> Quella Europea.
-    Non penso sia l'armatura giusta.
--> Quella Islamica. <<if has_item("armatura_islamica")>>
-    Non penso sia l'armatura giusta.
+Quale spada dovrebbe essere posizionata qua?
+-> Non ho la spada giusta.
+-> Quella Europea. <<if has_item("armatura_europea")>>
+    Non penso sia la spada giusta.
+-> Quella Araba. <<if has_item("armatura_islamica")>>
+    Non penso sia la spada giusta.
 -> Quella Giapponese. <<if has_item("armatura_giapponese")>>
     Esatto!
     <<set $armature_placed+= 1 >>
+    <<inventory armatura_giapponese remove>>
     <<jump check_armature>>
 ===
 
 title:interactable_armatura_europea
 ---
-Quale armatura dovrebbe essere posizionata qua?
--> Non ho armature da posizionare. <<if has_item("armatura_europea")>>
--> Quella Europea.
+Quale spada dovrebbe essere posizionata qua?
+-> Non ho la spada giusta.
+-> Quella Europea. <<if has_item("armatura_europea")>>
     Esatto!
     <<set $armature_placed+= 1 >>
+    <<inventory armatura_europea remove>>
     <<jump check_armature>>
--> Quella Islamica. <<if has_item("armatura_islamica")>>
-    Non penso sia l'armatura giusta.
+-> Quella Araba. <<if has_item("armatura_islamica")>>
+    Non penso sia la spada giusta.
 -> Quella Giapponese. <<if has_item("armatura_giapponese")>>
-    Esatto!
+    Non penso sia la spada giusta.
 ===
 
 title: check_armature
 ---
 <<if $armature_placed<3>>
-    Devo posizionare ancora altre armature.
+    Devo posizionare ancora altre spade.
 <<elseif $armature_placed == 3>>
-    Tutte le armature sono state posizionate!
-    <<set $armatura_done= true>> 
+    <<set $armature_done= true>> 
+    <<task_end collect_armi>>
 <<endif>>
 ===
 
@@ -248,17 +259,15 @@ title: talk_npc_stibbert_costumi
     Ammetto che ogni tanto avrei voluto indossarlo anch'io...
     ...beh, ormai è troppo tardi, sai.
     Ad ogni modo, dobbiamo verificare che tutti i pezzi siano al loro posto.
-    <<activity memory_costumi memory_costumi_result>>
+    <<activity memory_costume memory_costume_result>>
 <<endif>>
 ===
 
-title: memory_costumi_result
+title: memory_costume_result
 ---
 <<if GetActivityResult ("memory_costumi") > 0>>
     I costumi sono tutti al loro posto, perfetto!
     <<set $costumi_done = true>>
-<<else>>
-    Mmm... dobbiamo controllare meglio.
 <<endif>>
 ===
 
@@ -267,21 +276,16 @@ position: -10,140
 actor: stibbert_quadri
 color: purple
 ---
-<<if $armatura_done == false>>
-    Anche in questa stanza dobbiamo riordinare un po' di cose.
-    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
-<<elseif $quadri_done == false>>
-    Dobbiamo ritrovare una cosa molto importante nel parco.
-    Ma per ora occupiamoci di ciò che ti ho chiesto prima.
-<<elseif $armature_done == false>>
-    Dobbiamo ritrovare una cosa molto importante nel parco.
-    Ma per ora occupiamoci di ciò che ti ho chiesto prima.
-<<elseif $costumi_done == true>>
+<<if $costumi_done == true>>
     Il mio povero parco ora è pieno di buche!
     Non so quali cianfrusaglie abbia sotterrato quel cane, ma sicuramente manca una cosa importante.
     Si tratta di un pregiatissimo piatto della manifattura Ginori.
     Dobbiamo assolutamente ritrovarlo e dissotterrarlo!
     Lascio fare a te, io ne ho abbastanza di stare sotto terra!
+    <<SetActive interactable_palla true>>
+<<elseif $costumi_done == false>>
+    Anche in questa stanza dobbiamo riordinare un po' di cose.
+    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
 <<endif>>
 ===
 
@@ -292,10 +296,11 @@ title: interactable_palla
 
 title: canvas_palla_result
 ---
-<<task_end canvas_palla>>
 <<if GetActivityResult ("canvas_palla") > 0>>
     Non credo che questo sia il piatto che Stibbert stava cercando...
     Dobbiamo scavare in un altro punto!
+    <<SetActive interactable_osso true>>
+    <<SetActive interactable_palla false>>
 <<endif>>
 ===
 
@@ -306,10 +311,11 @@ title: interactable_osso
 
 title: canvas_osso_result
 ---
-<<task_end canvas_osso>>
 <<if GetActivityResult ("canvas_osso") > 0>>
     Non credo che questo sia il piatto che Stibbert stava cercando...
     Dobbiamo scavare in un altro punto!
+    <<SetActive interactable_piatto true>>
+    <<SetActive interactable_osso false>>
 <<endif>>
 ===
 
@@ -323,6 +329,5 @@ title: canvas_piatto_result
 <<if GetActivityResult ("canvas_osso") > 0>>
     Trovato! Abbiamo riordinato tutto!
     <<jump quest_end>>
-<<else>> Devo scavare meglio!
 <<endif>>
 ===
