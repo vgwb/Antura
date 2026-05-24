@@ -6,10 +6,29 @@ tags: Start
 color: red
 type: panel
 ---
+<<declare $parlato_npc = false>>
+<<set $parlato_npc = false>>
+<<declare $parlato_verrocchio = false>>
+<<set $parlato_verrocchio = false>>
 <<declare $verrocchio = false>>
 <<set $verrocchio = false>>
 <<declare $Leonardo_1 = false>>
 <<set $Leonardo_1= false>>
+<<declare  $botticelli= false>>
+<<set $botticelli= false>>
+<<SetActive  pesci1 false>>
+<<SetActive  pesci2 false>>
+<<SetActive  pesci3 false>>
+<<SetActive  pesci4 false>>
+<<SetActive  verrocchio false>>
+<<SetActive  scatole false>>
+<<SetActive  scatole1 false>>
+<<SetActive  scatole2 false>>
+<<SetActive  scatole3 false>>
+<<SetActive  scatole4 false>>
+<<SetActive  scatole5 false>>
+<<SetActive  scatole6 false>>
+<<SetActive  scatole7 false>>
 Welcome to this quest #line:001e374 
 ===
 
@@ -36,27 +55,46 @@ Why don't you do this homework? #line:09d3dd4
 title: npc_intro
 position: 263,2
 ---
+<<if $parlato_npc== true>>
+sistema gli orologi della macchina
+<<endif>>
+<<if $parlato_npc == false>>
 Hallo #line:07c2f74 
 stiamo facendo degli esperimenti per viaggiare nel tempo
 vuoi aiutarci a sistemare le ultime modifiche?
 ->si che emozione
     <<jump accettato>>
+    <<set $parlato_npc = true>>
 -> no
     allora cercheremo qualcun' altro
-    
+<<endif>>
 ===
 
 
 title: accettato
 ---
 allora aggiusta la data di dove andremo #task:color_collector
-<<task_start color_collector colori_raccolti>> 
+<<task_start color_collector colori_raccolti>>
+<<set $parlato_npc= true>>
 ===
 
 title: colori_raccolti
 ---
 <<camera_focus cielo>>
 grazie adesso andiamo a vedere il Rinascimento
+<<SetActive  pesci1 true>>
+<<SetActive  pesci2 true>>
+<<SetActive  pesci3 true>>
+<<SetActive  pesci4 true>>
+<<SetActive  verrocchio true>>
+<<SetActive  scatole true>>
+<<SetActive  scatole1 true>>
+<<SetActive  scatole2 true>>
+<<SetActive  scatole3 true>>
+<<SetActive  scatole4 true>>
+<<SetActive  scatole5 true>>
+<<SetActive  scatole6 true>>
+<<SetActive  scatole7 true>>
 ===
 
 title: orologio_sx
@@ -73,12 +111,16 @@ Ecco la carta che ti mancava
 
 title: verrocchio
 ---
+<<if $parlato_verrocchio== true>>
+raccogli la colomba bianca e portamela
+ti aiuterò a cercare leonardo
+<<endif>>
 <<if $verrocchio == true>>
-<<area bottega>>
-<<teleport bottega>>
 grazie mille
 Leonardo si trova dentro la mia bottega
 è quella qui dietro entra pure
+<<area bottega>>
+<<teleport bottega>>
 <<endif>>
 <<if $verrocchio == false>>
 <<SetActive porta true>>
@@ -90,7 +132,7 @@ ciao piccolo gattino che ci fai qui?
         trovami un uccello
         deve essere bianco mi serve come modello per la mia opera
         <<task_start colomba_bianca verrocchio_completato>>
-        <<SetActive porta false>>
+        <<set $parlato_verrocchio = true>>
     -> miao
         sei un gatto molto strano
 ->miao
@@ -136,6 +178,22 @@ che gatto particolare
 
 title: Botticelli
 ---
+<<if $Leonardo_1 == false>>
+ciao gattino
+-> sai dove posso trovare Leonardo Da Vinci?
+    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
+    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+-> chi sei?
+    sono Sandro Botticelli
+    se non fosse per quel Leonardo sarei già a buon punto con la mia opera
+    -> sai dove si trova?
+        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    -> che cosa ha fatto?
+        fattelo raccontare da lui si trova a sinistra dell' entrata
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+<<endif>>
+<<if $Leonardo_1== true>>
 accidenti a quel Leonardo
 mi ha rovinato tutto
 ->ciao scusa cos'è successo?
@@ -144,13 +202,66 @@ mi ha rovinato tutto
     ma lui è arrivato ha distrutto tutto e se l'è portata via
     puoi trovarmi altri soggetti?
     -> va bene
-        <<task_start Botticelli>>
+        <<task_start Botticelli Botticelli_completato>>
     -> no miao
         troverò un altro modo
 ->miao?
     che carino
+<<endif>>
+<<if $botticelli== true>>
+grazie gattino adesso posso completare la mia primavera
+-> Leonardo mi ha detto di dirti che gli dispiace
+    oh scuse accettate
+    solo la prossima volta me lo può semplicemente chiedere
+<<endif>>
 ===
 
+title: Botticelli_completato
+---
+<<camera_focus botticelli>>
+grazie mille porta qui tutto quello che hai trovato
+<<set $botticelli= true>>
+===
+
+title: Perugino
+---
+<<if $Leonardo_1 == false>>
+ciao gattino
+-> sai dove posso trovare Leonardo Da Vinci?
+    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
+    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+-> chi sei?
+    sono Pietro Perugino
+    se non fosse per quel Leonardo sarei già a buon punto con la mia opera
+    -> sai dove si trova?
+        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    -> che cosa ha fatto?
+        fattelo raccontare da lui si trova a sinistra dell' entrata
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+<<endif>>
+<<if $Leonardo_1== true>>
+accidenti a quel Leonardo
+mi ha rovinato tutto
+->ciao scusa cos'è successo?
+    Leonardo mi ha appena distrutto la frutta che dovevo usare
+    mi serviva come modello per la mia opera
+    ma lui è arrivato ha distrutto tutto e se l'è portata via
+    puoi trovarmi altri soggetti?
+    -> va bene
+        <<task_start Botticelli Botticelli_completato>>
+    -> no miao
+        troverò un altro modo
+->miao?
+    che carino
+<<endif>>
+<<if $botticelli== true>>
+grazie gattino adesso posso completare la mia primavera
+-> Leonardo mi ha detto di dirti che gli dispiace
+    oh scuse accettate
+    solo la prossima volta me lo può semplicemente chiedere
+<<endif>>
+===
 
 
 title: ll_tourist
