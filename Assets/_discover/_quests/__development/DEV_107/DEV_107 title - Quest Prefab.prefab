@@ -2424,6 +2424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439490989697910806}
+  - component: {fileID: 1958691601133421183}
   m_Layer: 0
   m_Name: area_init
   m_TagString: Untagged
@@ -2447,6 +2448,19 @@ Transform:
   - {fileID: 8490433867338440522}
   m_Father: {fileID: 6748482415314699827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1958691601133421183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080656740394833043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4e655fb3cc74aeeafee8b9709f5c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interaction.Area
+  Id: inizio
 --- !u!1 &7561383651337417933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,6 +2624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5697356520323552648}
+  - component: {fileID: 8861456280076327670}
   m_Layer: 0
   m_Name: area_bottega
   m_TagString: Untagged
@@ -2633,6 +2648,19 @@ Transform:
   - {fileID: 1812892527167074013}
   m_Father: {fileID: 6748482415314699827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8861456280076327670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074773719586517675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4e655fb3cc74aeeafee8b9709f5c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interaction.Area
+  Id: bottega
 --- !u!1 &8185581961021846053
 GameObject:
   m_ObjectHideFlags: 0

@@ -74,10 +74,11 @@ Ecco la carta che ti mancava
 title: verrocchio
 ---
 <<if $verrocchio == true>>
+<<area bottega>>
+<<teleport bottega>>
 grazie mille
 Leonardo si trova dentro la mia bottega
 è quella qui dietro entra pure
-<<area bottega>>
 <<endif>>
 <<if $verrocchio == false>>
 <<SetActive porta true>>
@@ -111,7 +112,7 @@ title: verrocchio_completato
 ---
 <<camera_focus verrocchio>>
 <<set $verrocchio= true>>
-bravo adesso portamela qui 
+bravo adesso portamela qui
 ===
 
 title: Leonardo_Da_Vinci
