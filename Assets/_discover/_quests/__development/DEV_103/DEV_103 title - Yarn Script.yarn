@@ -9,14 +9,16 @@
 //   - TODO campanile_giotto
 //   - giotto_di_bondone
 //   - TODO il_bacio_di_giuda
+//   - il_cerchio_perfetto
+//   - maesta_di_santa_trinita
 // TASKS
 //   - task_trova_giotto
+//   - task_raccogli_lettere
 // ACTIVITIES
 //   - minigame_bacio_giuda
-// </scene_data>
-// ACTIVITIES
-//   - placeholder_raccogliOggetti
+//   - match_quadri_realistici
 //   - placeholder_cerchio_perfetto
+// </scene_data>
 
 title: quest_start
 position: 0,0
@@ -73,7 +75,7 @@ color: blue
 group: campanile
 actor: ADULT_M
 ---
-L'ho visto alla bancarella laggiù. 
+L'ho visto alla bancarella laggiù. #line:it01_guardia_repeat_1
 ===
 
 title: GiottoInfo
@@ -84,7 +86,7 @@ actor: ADULT_M
 ---
 La chiave ce l'ha Giotto! #line:it01_giottoinfo_1
 <<camera_focus camera_bancarella>>
-L'ho visto alla bancarella laggiù. 
+L'ho visto alla bancarella laggiù. #line:it01_giottoinfo_2
 <<set $GUARDIA_DONE = true>>
 <<task_start task_trova_giotto>>
 <<camera_reset>>
@@ -119,7 +121,7 @@ color: blue
 group: bancarella
 actor: SENIOR_M
 ---
-Forse puoi seguirla. 
+Forse puoi seguirla. #line:it01_coloraio_repeat_1
 ===
 
 title: Coloraio_Congedo
@@ -207,6 +209,7 @@ Forse puoi seguirla. #line:it01_ok_4
 <<camera_reset>>
 <<area area_bambina>>
 ===
+
 title: Bambina
 position: 0,0
 color: blue
@@ -236,7 +239,7 @@ color: blue
 group: bambina
 actor: KID_F
 ---
-Forse quella persona sa dove trovarlo. #line:it01_bambina_end_2
+Forse quella persona sa dove trovarlo. #line:it01_bambina_repeat_1
 ===
 
 title: RispostaSbagliata
@@ -308,11 +311,12 @@ Giotto rendeva le persone molto più vere. #line:it01_abbinamento_ok_2
 -> Hai visto dove è andato Giotto? #line:it01_abbinamento_opt1
     Sì! Poco fa era laggiù. #line:it01_bambina_end_1
     <<camera_focus camera_messaggero>>
-    Forse quella persona sa dove trovarlo. 
+    Forse quella persona sa dove trovarlo. #line:it01_bambina_end_2
     <<set $BAMBINA_DONE = true>>
     <<camera_reset>>
     <<target messaggero>>
 ===
+
 title: Messaggero
 position: 0,0
 color: blue
@@ -375,7 +379,7 @@ Sì, è venuto da me poco fa. #line:it01_visto_1
     Le mie lettere sono cadute per terra... #line:it01_visto_2
 <<endif>>
 Non è che mi aiuteresti a cercarle? #line:it01_visto_3
-<<activity placeholder_cerchio_perfetto>>
+<<task_start task_raccogli_lettere lettere_result>>
 ===
 
 title: lettere_result
@@ -384,22 +388,7 @@ color: green
 group: messaggero
 actor: ADULT_M
 ---
-<<if GetActivityResult("placeholder_raccogliOggetti") > 0>>
-    <<jump Messaggero_DopoLettere>>
-<<else>>
-    <<jump Lettere_Fallimento>>
-<<endif>>
-===
-
-title: Lettere_Fallimento
-position: 600,200
-color: blue
-group: messaggero
-actor: ADULT_M
----
-Ne mancano ancora alcune! #line:it01_lettere_fail_1
-Riproviamo! #line:it01_lettere_fail_2
-<<activity placeholder_cerchio_perfetto>>
+<<jump Messaggero_DopoLettere>>
 ===
 
 title: Messaggero_DopoLettere
@@ -418,7 +407,7 @@ Sai cosa fece Giotto? #line:it01_dopo_6
 Disegnò un cerchio perfetto a mano libera! #line:it01_dopo_7
 Senza righello né compasso. #line:it01_dopo_8
 Prova anche tu... non è facile! #line:it01_dopo_9
-<<activity placeholder_cerchio_perfetto>>
+<<activity placeholder_cerchio_perfetto cerchio_result>>
 ===
 
 title: cerchio_result
@@ -439,9 +428,9 @@ actor: ADULT_M
 Visto? Non era così facile! #line:it01_dopo_cerchio_1
 Giotto ci riuscì al primo colpo. #line:it01_dopo_cerchio_2
 Roba da non credere! #line:it01_dopo_cerchio_3
-Se lo cerchi, sarà già tornato al campanile. 
+Se lo cerchi, sarà già tornato al campanile. #line:it01_dopo_cerchio_4
 <<set $MESSAGGERO_DONE = true>>
 <<camera_focus camera_campanile>>
 <<camera_reset>>
 <<target giotto>>
-=== 
+===
