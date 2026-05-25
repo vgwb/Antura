@@ -12,17 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522986d1bf14a4377939400a4b220bb6, type: 3}
   m_Name: match_quadri_realistici
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.MatchSettingsData
-  Id: 
+  Id: match_quadri_realistici
   ActivityCode: 2
   Difficulty: 3
   MinRounds: 1
   MaxRounds: 1
   HasTimer: 1
-  TimerSeconds: 60
+  TimerSeconds: 120
   PointsFail: -1
   PointsEasy: 1
   PointsNormal: 2
   PointsExpert: 3
   MainTopic: {fileID: 0}
   SelectionMode: 0
-  GroupsData: []
+  GroupsData:
+  - Question: {fileID: 11400000, guid: d3bd9e5ef077c2b4fab3da075563d0a6, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: ddca027a89926664d9111ec2fe4e7481, type: 2}
+  - Question: {fileID: 11400000, guid: bcf32b64137c82f4f85ccdac649b312e, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: 20ff446700148f840b13e7134e8af11a, type: 2}
+  - Question: {fileID: 11400000, guid: 004c10a00c50609498683f7bc9a9a17a, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: ddca027a89926664d9111ec2fe4e7481, type: 2}
+  - Question: {fileID: 11400000, guid: 3db447a7e940e5146954aa0c4f767143, type: 2}
+    Answers:
+    - {fileID: 11400000, guid: 20ff446700148f840b13e7134e8af11a, type: 2}

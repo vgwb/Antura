@@ -3,26 +3,19 @@
 title: quest_start
 type: panel
 ---
-<<declare $page_pentagramma_collected = false>>
-<<declare $page_do_collected = false>>
-<<declare $page_chiave_collected = false>>
-<<declare $page_mi_collected = false>>
-<<declare $page_fa_collected = false>>
-<<declare $page_re_collected = false>>
-<<declare $page_sol_collected = false>>
-<<declare $page_la_collected = false>>
-<<declare $page_si_collected = false>>
-<<declare $riddle_vasari_done = false>>
-Ti diamo il bevenuto ad Arezzo!
+<<SetActive collect_sol false>>
+Eccoci ad Arezzo.
 Antura ha combinato un disastro!
-Ha sparpagliato le pagine dello spartito del coro per tutta la città.
-Aiuta Guido a ritrovarle tutte così il coro potrà cantare di nuovo!
+Risolvi i problemi in città.
+<<task_start incontra_guido >>
+<<target guido>>
 ===
 
 
-
 title: guido_encounter
+position: 740,-138
 ---
+<<task_end incontra_guido>>
 Ti do il benvenuto in città!
 Io sono Guido d'Arezzo, monaco e musicista.
 Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
@@ -33,6 +26,7 @@ Senza di loro, il coro della Cattedrale non può cantare.
 ===
 
 title: guido_choice
+position: 278,-183
 ---
 Mi aiuti a cercarle?
 -> Sì!
@@ -42,24 +36,119 @@ Mi aiuti a cercarle?
 ===
 
 title: guido_accetta
+position: 591,-376
 ---
 Grazie mille!
 Sarò la tua guida in città.
 Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
 Andiamo!
-<<party_join guido>>
-<<task_start collect_pages pagine_da_raccogliere>>
+<<party_join guido>> <<task_start collect_pages pages_collected>>
+<<target page_do>> <<target turista>>
 ===
 
 title: pagine_da_raccogliere
+type: task
 ---
-Raccogli 9 pagine.
+Raccogli tutte le pagine.
 ===
 
 title: guido_rifiuto
+position: -11,-263
 ---
 Ti prego, ho davvero bisogno di aiuto!
 <<jump guido_choice>>
+===
+
+title: pages_collected
+---
+<<if HasCompletedTask ("collect_pages")>>
+Hai raccolto tutte le pagine!
+Andiamo al duomo e consegnamole al coro.
+<<task_start give_pages>>
+<<target cantore>>
+<<endif>>
+===
+
+///////// PIAZZA GUIDO MONACO //////////
+
+title: piazza_guido
+---
+<<if visited("piazza_guido")>>
+    <<stop>>
+<<else>>
+<<card piazzaguido>>
+Questa è Piazza Guido Monaco, la piazza che porta il mio nome!
+E quella statua che vedi sono io.
+Mi hanno fatto più bello di quanto non sono!
+<<endif>>
+===
+
+
+
+///////// ANFITEATRO ROMANO //////////
+
+title: anfiteatroromano
+---
+<<if visited("anfiteatroromano")>>
+    <<stop>>
+<<else>>
+<<card anfiteatroromano>>
+Questo è l'Anfiteatro Romano di Arezzo, costruito tantissimo tempo fa.
+Qui i romani venivano a guardare recite e opere teatrali.
+<<endif>>
+===
+
+
+title: cantore
+---
+<<task_end give_pages>>
+Grazie mille ora possiamo tornare a cantare!
+===
+
+title: page_do
+---
+<<card do>>
+Hai trovato il Do!
+È la prima nota della scala.
+Sta sotto il pentagramma, su una piccola linea tutta sua.
+<<collect>>
+===
+
+
+
+title: turista_indovinello
+position: -983,235
+---
+Il simbolo all'inizio del pentagramma si chiama...
+->Chiave di Violino
+    <<jump turista_corretto>>
+->Chiave inglese
+    <<jump turista_sbagliato>>
+->Punto musicale
+    <<jump turista_sbagliato>>
+===
+
+
+title: turista_corretto
+position: 139,377
+---
+Sì! La Chiave di Violino, esatto!
+Me lo ha spiegato proprio lui, Guido d'Arezzo!
+Prendi pure il foglio!
+<<SetActive collect_sol true>>
+===
+
+title: reoder
+position: 8,590
+---
+hallo
+<<activity reorder>>
+===
+
+title: turista_sbagliato
+position: 189,205
+---
+Mmm, non è questa! Riprova.
 ===
 
 title: quest_end

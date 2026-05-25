@@ -1,4 +1,5 @@
 using Antura.Audio;
+using Antura.Discover.Interaction;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -118,6 +119,12 @@ namespace Antura.Discover
         #region Command Resolvers
         public void ResolveAreaCommand(string areaCode)
         {
+            if (string.IsNullOrWhiteSpace(areaCode))
+            {
+                Debug.LogWarning("Area code is null or empty.");
+                return;
+            }
+
             areaCode = areaCode.ToLower();
 
             if (areaCode == "off")
@@ -127,6 +134,13 @@ namespace Antura.Discover
                     currentArea.SetActive(false);
                     currentArea = null;
                 }
+                return;
+            }
+
+            var area = FindAreaInChildren(areaCode);
+            if (area != null)
+            {
+                ChangeArea(area.gameObject);
                 return;
             }
 
@@ -454,6 +468,19 @@ namespace Antura.Discover
         private Interactable FindInteractableInChildren(string name)
         {
             var list = GetComponentsInChildren<Interactable>(includeInactive: true);
+            if (list == null || list.Length == 0)
+                return null;
+
+            if (string.IsNullOrEmpty(name))
+                return list.FirstOrDefault();
+
+            return list.FirstOrDefault(t => string.Equals(t.Id, name, StringComparison.OrdinalIgnoreCase)
+                                        || string.Equals(t.gameObject.name, name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        private Area FindAreaInChildren(string name)
+        {
+            var list = GetComponentsInChildren<Area>(includeInactive: true);
             if (list == null || list.Length == 0)
                 return null;
 

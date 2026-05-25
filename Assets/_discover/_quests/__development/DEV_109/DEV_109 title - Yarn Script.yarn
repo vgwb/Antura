@@ -1,11 +1,13 @@
 ﻿// dev_109
 
 title: quest_start
+
 position: 0,0
 tags: Start
 color: red
 type: panel
 ---
+<<SetActive Salvia false>>
 Welcome to this quest #line:001e374 
 ===
 
@@ -33,12 +35,13 @@ title: npc_intro
 position: 263,2
 ---
 Hallo #line:07c2f74 
-<<task_start AiutaLeApi>>
+
 ===
 
 title: Inizio
 tags:
 ---
+<<SetActive gate true>>
 <<set $nome_giocatore = "Piccolo Aiutante">>
 Oh, ciao! Sei proprio un bel micino tenero tenero!
 Io sono la Duchessa Eleonora. 
@@ -101,20 +104,52 @@ Le api non possono essere svanite, i loro alveari sono ancora in zona.
 Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai?
 -> Salverò il giardino!!
     Fantastico! Prendi questa mappa, ti aiuterà!
-    <<task_start AiutaLeApi>>
-    <<asset_hide>>
+    <<task_start TrovaUnApe>>
+    <<SetActive gate false>>
 -> Mi fanno paura le api...
     Non temere! Le api sono nostre amiche. 
     Se noi siamo gentili, loro pensano solo a lavorare sui fiori. Ci stai?
     -> Va bene, ti aiuto!
         Grazie di cuore! Prendi la mappa, ti aiuterà!
-        <<task_start AiutaLeApi>>
-        <<asset_hide>>>>
+        <<task_start TrovaUnApe>>
+        <<SetActive gate false>>
+
 ===
 
+title: Ape1
+tags: 
 
-title: ll_tourist
-position: 262,294
 ---
-I'm a Living Letter tourist #line:0f64d51 
+
+
+Bzzzz... Oh... Che fame! Che sfinimento!
+
+-> Ecco un'ape! Tutto bene?
+    Mica tanto! Ho le ali stanche e la pancia vuota! *Bzz-zuff...*
+
+Ascolta, signor micio... hai visto un fiore di salvia qui intorno? Ne ho un bisogno disperato! Il loro nettare mi salverebbe!
+
+-> Ne cerco subito uno attaccato alla pianta!
+    Aspetta, aspetta! No, fermati! Non farlo! 
+    
+-> Posso coglierne uno per te?
+    Oh, no, per carità! Ti ringrazio, ma cogliere i fiori è un pasticcio!
+
+Vedi, se stacchi un fiore intero dalla pianta, la pianta ci rimarrà male e gli altri insetti non avranno più il loro cibo. 
+
+Devi cercare un fiore di salvia che sia già caduto a terra. 
+
+Così nessuno si farà male, la pianta resterà felice e io potrò saziarmi! Mi darai una zampa?
+
+-> Va bene, mi metto a cercare!
+    Grazie mille!
+    <<SetActive Salvia true>>
+    
+===
+
+title: Fiore_Trovato
+---
+Ape Bzz: *SLURP!* Che delizia! Che salvia dolce! 
+Ape Bzz: Grazie mille, mi hai salvato senza fare del male a nessuno! Volo all'alveare! BZZZZZZ!
+
 ===

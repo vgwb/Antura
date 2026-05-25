@@ -9,10 +9,15 @@
 //   - TODO campanile_giotto
 //   - giotto_di_bondone
 //   - TODO il_bacio_di_giuda
+//   - il_cerchio_perfetto
+//   - maesta_di_santa_trinita
 // TASKS
 //   - task_trova_giotto
+//   - task_raccogli_lettere
 // ACTIVITIES
 //   - minigame_bacio_giuda
+//   - match_quadri_realistici
+//   - placeholder_cerchio_perfetto
 // </scene_data>
 
 title: quest_start
@@ -24,7 +29,13 @@ actor: NARRATOR
 <<declare $MET_GUARDIA = false>>
 <<declare $GUARDIA_DONE = false>>
 <<declare $COLORAIO_DONE = false>>
+<<declare $COLORAIO_PROPOSTO = false>>
 <<declare $BAMBINA_DONE = false>>
+<<declare $QUIZ_PROPOSTO = false>>
+<<declare $MESSAGGERO_DONE = false>>
+<<declare $CERCHIO_PROPOSTO = false>>
+<<declare $KEY_OBTAINED = false>>
+<<declare $GIOTTO_DONE = false>>
 <<card TODO_firenze_citta>>
 Siamo a Firenze! #line:it01_start_1
 <<card TODO_campanile_giotto>>
@@ -50,7 +61,9 @@ color: blue
 group: campanile
 actor: ADULT_M
 ---
-<<if $GUARDIA_DONE>>
+<<if $KEY_OBTAINED>>
+    <<jump TorreAperta>>
+<<elseif $GUARDIA_DONE>>
     <<jump GuardiaTorre_Repeat>>
 <<endif>>
 <<set $MET_GUARDIA = true>>
@@ -68,7 +81,7 @@ color: blue
 group: campanile
 actor: ADULT_M
 ---
-L'ho visto alla bancarella laggiù. 
+L'ho visto alla bancarella laggiù. #line:it01_guardia_repeat_1
 ===
 
 title: GiottoInfo
@@ -79,7 +92,7 @@ actor: ADULT_M
 ---
 La chiave ce l'ha Giotto! #line:it01_giottoinfo_1
 <<camera_focus camera_bancarella>>
-L'ho visto alla bancarella laggiù. 
+L'ho visto alla bancarella laggiù. #line:it01_giottoinfo_2
 <<set $GUARDIA_DONE = true>>
 <<task_start task_trova_giotto>>
 <<camera_reset>>
@@ -94,6 +107,9 @@ actor: SENIOR_M
 ---
 <<if $COLORAIO_DONE>>
     <<jump Coloraio_Repeat>>
+<<endif>>
+<<if $COLORAIO_PROPOSTO>>
+    <<jump Coloraio_Conferma_Quadro>>
 <<endif>>
 Buongiorno! Hai bisogno di qualcosa? #line:it01_coloraio_1
 <<if $MET_GUARDIA>>
@@ -114,7 +130,7 @@ color: blue
 group: bancarella
 actor: SENIOR_M
 ---
-Forse puoi seguirla. 
+Forse puoi seguirla. #line:it01_coloraio_repeat_1
 ===
 
 title: Coloraio_Congedo
@@ -155,10 +171,23 @@ actor: SENIOR_M
 <<card giotto_di_bondone>>
 È un pittore famosissimo. #line:it01_cgiotto3_1
 Le sue figure sembrano persone vere! #line:it01_cgiotto3_2
+<<card_hide>>
 Guarda qui, ho un suo quadro. #line:it01_cgiotto3_3
 Ma è pieno di polvere... #line:it01_cgiotto3_4
+<<set $COLORAIO_PROPOSTO = true>>
 Puoi aiutarmi a pulirlo? #line:it01_cgiotto3_5
-<<activity minigame_bacio_giuda quadro_result>>
+<<jump Coloraio_Conferma_Quadro>>
+===
+
+title: Coloraio_Conferma_Quadro
+position: 1200,200
+color: blue
+group: bancarella
+actor: SENIOR_M
+---
+-> Sì, ci provo! #line:it01_conf_quadro_si
+    <<activity minigame_bacio_giuda quadro_result>>
+-> Non ora. #line:it01_conf_quadro_no #highlight
 ===
 
 title: quadro_result
@@ -191,10 +220,12 @@ color: green
 group: bancarella
 actor: SENIOR_M
 ---
+<<card bacio_giuda>>
 Ottimo lavoro! Il quadro si vede benissimo. #line:it01_ok_1
 <<card TODO_il_bacio_di_giuda collect>>
+<<card_hide>>
 Non so dove sia andato Giotto... #line:it01_ok_2
-<<SetActive tracce_giotto true>>
+<<SetActive tracce_giotto>>
 <<camera_focus camera_pittura>>
 Ha lasciato una scia di colore! #line:it01_ok_3
 Forse puoi seguirla. #line:it01_ok_4
@@ -203,6 +234,7 @@ Forse puoi seguirla. #line:it01_ok_4
 <<target bambina>>
 <<area area_bambina>>
 ===
+
 title: Bambina
 position: 0,0
 color: blue
@@ -211,6 +243,9 @@ actor: KID_F
 ---
 <<if $BAMBINA_DONE>>
     <<jump Bambina_Repeat>>
+<<endif>>
+<<if $QUIZ_PROPOSTO>>
+    <<jump Bambina_Conferma_Quiz>>
 <<endif>>
 Ciao! #line:it01_bambina_1
 <<camera_focus camera_Q1>>
@@ -232,7 +267,7 @@ color: blue
 group: bambina
 actor: KID_F
 ---
-Forse quella persona sa dove trovarlo. #line:it01_bambina_end_2
+Forse quella persona sa dove trovarlo. #line:it01_bambina_repeat_1
 ===
 
 title: RispostaSbagliata
@@ -264,8 +299,20 @@ actor: KID_F
 ---
 Sì! Hai ragione! #line:it01_bambina_corr_1
 Le persone sembrano più vere e realistiche. #line:it01_bambina_corr_2
+<<set $QUIZ_PROPOSTO = true>>
 Mi aiuteresti a capirlo meglio? #line:it01_bambina_corr_3
-<<activity match_quadri_realistici abbinamento_result>>
+<<jump Bambina_Conferma_Quiz>>
+===
+
+title: Bambina_Conferma_Quiz
+position: 400,200
+color: blue
+group: bambina
+actor: KID_F
+---
+-> Sì, proviamo! #line:it01_conf_quiz_si
+    <<activity match_quadri_realistici abbinamento_result>>
+-> Non ora. #line:it01_conf_quiz_no #highlight
 ===
 
 title: abbinamento_result
@@ -299,13 +346,340 @@ group: bambina
 actor: KID_F
 ---
 Ora ho capito! #line:it01_abbinamento_ok_1
+<<card cristo_morto>>
 Giotto rendeva le persone molto più vere. #line:it01_abbinamento_ok_2
 <<card maesta_di_santa_trinita collect>>
 -> Hai visto dove è andato Giotto? #line:it01_abbinamento_opt1
     Sì! Poco fa era laggiù. #line:it01_bambina_end_1
     <<camera_focus camera_messaggero>>
-    Forse quella persona sa dove trovarlo. 
+    Forse quella persona sa dove trovarlo. #line:it01_bambina_end_2
     <<set $BAMBINA_DONE = true>>
     <<camera_reset>>
     <<target messaggero>>
+===
+
+title: Messaggero
+position: 0,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+<<if $MESSAGGERO_DONE>>
+    <<jump Messaggero_Repeat>>
+<<endif>>
+<<if $CERCHIO_PROPOSTO>>
+    <<jump Messaggero_Conferma_Cerchio>>
+<<endif>>
+Salve! Hai bisogno di qualcosa? #line:it01_msg_1
+<<if $BAMBINA_DONE>>
+    -> Sto cercando Giotto, lo hai visto? #line:it01_msg_opt1
+        <<jump Visto_Ma_Aiuto>>
+    -> Cosa stai facendo? #line:it01_msg_opt2
+        <<jump CosaStaiFacendo>>
+<<else>>
+    -> Niente, grazie. #line:it01_msg_opt_none #highlight
+        <<jump Messaggero_Congedo>>
+<<endif>>
+===
+
+title: Messaggero_Congedo
+position: 0,200
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Prego! A presto. #line:it01_msg_congedo_1
+===
+
+title: Messaggero_Repeat
+position: 0,400
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Sarà già tornato al suo campanile. #line:it01_msg_repeat_1
+===
+
+title: CosaStaiFacendo
+position: 200,200
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Le mie lettere sono cadute per terra! #line:it01_cosafai_1
+È una giornata proprio storta. #line:it01_cosafai_2
+-> Posso aiutarti a raccoglierle? #line:it01_cosafai_opt1
+    <<jump Aiuta_Lettere>>
+-> Hai visto passare Giotto? #line:it01_cosafai_opt2
+    <<jump CosaStaiFacendo_Giotto>>
+===
+
+title: CosaStaiFacendo_Giotto
+position: 200,400
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Sì! È passato poco fa. #line:it01_cfgiotto_1
+Ho però ancora questo problema... #line:it01_cfgiotto_2
+Potresti aiutarmi prima? #line:it01_cfgiotto_3
+<<task_start task_raccogli_lettere lettere_result>>
+===
+
+title: Aiuta_Lettere
+position: 400,400
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Grazie! Sono sparite qui intorno. #line:it01_aiuta_1
+<<task_start task_raccogli_lettere lettere_result>>
+===
+
+title: Visto_Ma_Aiuto
+position: 400,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Sì, è venuto da me poco fa. #line:it01_visto_1
+Ho però un problema... #line:it01_visto_1b
+Le mie lettere sono cadute per terra! #line:it01_visto_2
+Non è che mi aiuteresti a cercarle? #line:it01_visto_3
+<<task_start task_raccogli_lettere lettere_result>>
+===
+
+title: lettera_item
+tags: item
+position: -200,0
+color: yellow
+group: messaggero
+actor: NARRATOR
+---
+Una lettera del messaggero! #line:it01_lettera_1
+<<collect>>
+===
+
+title: lettere_result
+position: 600,0
+color: green
+group: messaggero
+actor: ADULT_M
+---
+<<jump Messaggero_DopoLettere>>
+===
+
+title: Messaggero_DopoLettere
+position: 800,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Grazie mille! #line:it01_dopo_1
+Stavo consegnando lettere proprio a Giotto. #line:it01_dopo_2
+È molto cercato da tutta Italia! #line:it01_dopo_3
+Il Papa in persona lo mise alla prova. #line:it01_dopo_4
+Voleva testare le sue capacità. #line:it01_dopo_5
+Sai cosa fece Giotto? #line:it01_dopo_6
+<<card il_cerchio_perfetto collect>>
+<<card cerchio_perfetto>>
+Disegnò un cerchio perfetto a mano libera! #line:it01_dopo_7
+Senza righello né compasso. #line:it01_dopo_8
+<<set $CERCHIO_PROPOSTO = true>>
+Prova anche tu... non è facile! #line:it01_dopo_9
+<<jump Messaggero_Conferma_Cerchio>>
+===
+
+title: Messaggero_Conferma_Cerchio
+position: 800,200
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+-> Ci provo! #line:it01_conf_cerchio_si
+    <<activity placeholder_cerchio_perfetto cerchio_result>>
+-> Non ora. #line:it01_conf_cerchio_no #highlight
+===
+
+title: cerchio_result
+position: 1000,0
+color: green
+group: messaggero
+actor: ADULT_M
+---
+<<jump DopoMinigiocoGiotto>>
+===
+
+title: DopoMinigiocoGiotto
+position: 1200,0
+color: blue
+group: messaggero
+actor: ADULT_M
+---
+Visto? Non era così facile! #line:it01_dopo_cerchio_1
+<<card cerchio_perfetto>>
+Giotto ci riuscì al primo colpo. #line:it01_dopo_cerchio_2
+Roba da non credere! #line:it01_dopo_cerchio_3
+<<card_hide>>
+Se lo cerchi, sarà già tornato al campanile. #line:it01_dopo_cerchio_4
+<<set $MESSAGGERO_DONE = true>>
+<<SetActive giotto true>>
+<<camera_focus camera_campanile>>
+<<camera_reset>>
+<<target giotto>>
+===
+
+title: IncontroGiotto
+position: 0,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+<<if $GIOTTO_DONE>>
+    <<jump Giotto_Repeat>>
+<<endif>>
+Oh, sei tu! #line:it01_giotto_1
+La guardia mi ha detto che cercavi la chiave. #line:it01_giotto_2
+Non la do a chiunque, sai. #line:it01_giotto_3
+Prima voglio capire se meriti di salire. #line:it01_giotto_4
+Ti farò due domande su di me. #line:it01_giotto_5
+Se rispondi bene... le chiavi sono tue! #line:it01_giotto_6
+-> Sono pronto! #line:it01_giotto_opt1
+    <<jump Giotto_Domanda1>>
+===
+
+title: Giotto_Repeat
+position: 0,200
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Le chiavi le hai guadagnate. Buona salita! #line:it01_giotto_repeat_1
+===
+
+title: Giotto_Domanda1
+position: 200,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Prima domanda! #line:it01_gd1_1
+Cosa rende i miei dipinti speciali? #line:it01_gd1_2
+-> Le persone sembrano più vere #line:it01_gd1_opt1
+    <<jump Giotto_D1_Corretta>>
+-> Usi colori più brillanti #line:it01_gd1_opt2
+    <<jump Giotto_D1_Sbagliata>>
+-> I tuoi quadri sono più grandi #line:it01_gd1_opt3
+    <<jump Giotto_D1_Sbagliata>>
+===
+
+title: Giotto_D1_Sbagliata
+position: 200,200
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Mmm... non direi! #line:it01_gd1_sbag_1
+Pensa ai due quadri che hai visto prima. #line:it01_gd1_sbag_2
+Cosa notavi nelle persone? #line:it01_gd1_sbag_3
+<<jump Giotto_Domanda1>>
+===
+
+title: Giotto_D1_Corretta
+position: 400,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Esatto! Le mie figure hanno emozioni vere. #line:it01_gd1_corr_1
+È quello che ho sempre cercato di fare. #line:it01_gd1_corr_2
+Bene, passiamo alla seconda domanda! #line:it01_gd1_corr_3
+<<jump Giotto_Domanda2>>
+===
+
+title: Giotto_Domanda2
+position: 600,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Seconda domanda! #line:it01_gd2_1
+Cosa feci quando il Papa mi mise alla prova? #line:it01_gd2_2
+-> Disegnasti un cerchio perfetto a mano libera #line:it01_gd2_opt1
+    <<jump Giotto_D2_Corretta>>
+-> Dipingesti un ritratto del Papa #line:it01_gd2_opt2
+    <<jump Giotto_D2_Sbagliata>>
+-> Costruisti un modello del campanile #line:it01_gd2_opt3
+    <<jump Giotto_D2_Sbagliata>>
+===
+
+title: Giotto_D2_Sbagliata
+position: 600,200
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+No no! Ricordi la prova che hai fatto tu? #line:it01_gd2_sbag_1
+Il messaggero te lo ha già raccontato! #line:it01_gd2_sbag_2
+<<jump Giotto_Domanda2>>
+===
+
+title: Giotto_D2_Corretta
+position: 800,0
+color: green
+group: giotto
+actor: SENIOR_M
+---
+<<card cerchio_perfetto>>
+Proprio così! A mano libera, senza righello. #line:it01_gd2_corr_1
+Il Papa rimase a bocca aperta! #line:it01_gd2_corr_2
+<<if not card_unlocked("il_cerchio_perfetto")>>
+    <<card il_cerchio_perfetto collect>>
+<<else>>
+    <<card il_cerchio_perfetto>>
+<<endif>>
+Bene! Hai dimostrato di sapere chi sono. #line:it01_gd2_corr_3
+Le chiavi le hai guadagnate! #line:it01_gd2_corr_4
+<<set $KEY_OBTAINED = true>>
+<<set $GIOTTO_DONE = true>>
+<<camera_focus camera_campanile>>
+<<camera_reset>>
+<<target guardiadellatorre>>
+===
+
+title: TorreAperta
+position: 1000,0
+color: green
+group: giotto
+actor: ADULT_M
+---
+Alla fine lo hai trovato! #line:it01_torre_1
+<<card campanile_giotto>>
+Benvenuto nel Campanile di Giotto! #line:it01_torre_2
+Da quassù puoi vedere tutta Firenze. #line:it01_torre_3
+Proprio come la vedeva lui. #line:it01_torre_4
+Era un grande pittore e anche un architetto. #line:it01_torre_5
+Questo campanile è il suo capolavoro! #line:it01_torre_6
+<<jump quest_end>>
+===
+
+title: quest_end
+position: 1200,0
+type: panel_endgame
+color: green
+actor: NARRATOR
+---
+Hai scoperto Giotto e salito il suo campanile! #line:it01_questend_1
+<<jump post_quest_activity>>
+===
+
+title: post_quest_activity
+position: 1200,160
+type: panel
+color: green
+tags: proposal
+actor: NARRATOR
+---
+Disegna il campanile di Giotto! #line:it01_proposal_1
+<<quest_end>>
 ===
