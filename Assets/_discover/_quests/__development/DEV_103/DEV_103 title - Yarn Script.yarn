@@ -171,6 +171,7 @@ actor: SENIOR_M
 <<card giotto_di_bondone>>
 È un pittore famosissimo. #line:it01_cgiotto3_1
 Le sue figure sembrano persone vere! #line:it01_cgiotto3_2
+<<card_hide>>
 Guarda qui, ho un suo quadro. #line:it01_cgiotto3_3
 Ma è pieno di polvere... #line:it01_cgiotto3_4
 <<set $COLORAIO_PROPOSTO = true>>
@@ -219,8 +220,10 @@ color: green
 group: bancarella
 actor: SENIOR_M
 ---
+<<card bacio_giuda>>
 Ottimo lavoro! Il quadro si vede benissimo. #line:it01_ok_1
 <<card TODO_il_bacio_di_giuda collect>>
+<<card_hide>>
 Non so dove sia andato Giotto... #line:it01_ok_2
 <<SetActive tracce_giotto>>
 <<camera_focus camera_pittura>>
@@ -343,6 +346,7 @@ group: bambina
 actor: KID_F
 ---
 Ora ho capito! #line:it01_abbinamento_ok_1
+<<card cristo_morto>>
 Giotto rendeva le persone molto più vere. #line:it01_abbinamento_ok_2
 <<card maesta_di_santa_trinita collect>>
 -> Hai visto dove è andato Giotto? #line:it01_abbinamento_opt1
@@ -478,6 +482,7 @@ Il Papa in persona lo mise alla prova. #line:it01_dopo_4
 Voleva testare le sue capacità. #line:it01_dopo_5
 Sai cosa fece Giotto? #line:it01_dopo_6
 <<card il_cerchio_perfetto collect>>
+<<card cerchio_perfetto>>
 Disegnò un cerchio perfetto a mano libera! #line:it01_dopo_7
 Senza righello né compasso. #line:it01_dopo_8
 <<set $CERCHIO_PROPOSTO = true>>
@@ -512,8 +517,10 @@ group: messaggero
 actor: ADULT_M
 ---
 Visto? Non era così facile! #line:it01_dopo_cerchio_1
+<<card cerchio_perfetto>>
 Giotto ci riuscì al primo colpo. #line:it01_dopo_cerchio_2
 Roba da non credere! #line:it01_dopo_cerchio_3
+<<card_hide>>
 Se lo cerchi, sarà già tornato al campanile. #line:it01_dopo_cerchio_4
 <<set $MESSAGGERO_DONE = true>>
 <<SetActive giotto true>>
@@ -623,6 +630,7 @@ color: green
 group: giotto
 actor: SENIOR_M
 ---
+<<card cerchio_perfetto>>
 Proprio così! A mano libera, senza righello. #line:it01_gd2_corr_1
 Il Papa rimase a bocca aperta! #line:it01_gd2_corr_2
 <<if not card_unlocked("il_cerchio_perfetto")>>
@@ -646,6 +654,7 @@ group: giotto
 actor: ADULT_M
 ---
 Alla fine lo hai trovato! #line:it01_torre_1
+<<card campanile_giotto>>
 Benvenuto nel Campanile di Giotto! #line:it01_torre_2
 Da quassù puoi vedere tutta Firenze. #line:it01_torre_3
 Proprio come la vedeva lui. #line:it01_torre_4
