@@ -20,6 +20,8 @@ type: panel
 <<set $perugino= false>>
 <<declare  $ghirlandaio= false>>
 <<set $ghirlandaio= false>>
+<<declare $completati= 0>>
+<<set $completati = 0>>
 <<SetActive  pesci1 false>>
 <<SetActive  pesci2 false>>
 <<SetActive  pesci3 false>>
@@ -89,7 +91,6 @@ title: colori_raccolti
 grazie adesso andiamo a vedere il Rinascimento
 no aspetta che stai facendo Antura?
 FERMOOOOO!!!!
-<<screen_shake 5>>
 <<SetActive  pesci1 true>>
 <<SetActive  pesci2 true>>
 <<SetActive  pesci3 true>>
@@ -171,6 +172,12 @@ bravo adesso portamela qui
 
 title: Leonardo_Da_Vinci
 ---
+<<if $completati == 3>>
+grazie mille adesso tutti sono felici
+verrò ad aiutarti con il tuo problema andiamo
+<<area inizio>>
+<<endif>>
+<<if $completati > 3 >>
 qui nessuno capisce il mio genio
 il maestro ci sta usando per le sue opere
 noi le facciamo e lui si prende i meriti
@@ -186,6 +193,7 @@ oh ciao piccolo gattino che cosa ci fai qui?
         perchè sto parlando con un gatto
 -> miao
     che gatto particolare
+<<endif>>
 ===
 
 title: Botticelli
@@ -233,6 +241,7 @@ title: Botticelli_completato
 <<camera_focus botticelli>>
 grazie mille porta qui tutto quello che hai trovato
 <<set $botticelli= true>>
+<<set $completati = $completati + 1>>
 ===
 
 title: Perugino
@@ -281,6 +290,7 @@ title: Perugino_completato
 <<camera_focus perugino>>
 grazie mille porta qui tutto quello che hai trovato
 <<set $perugino= true>>
+<<set $completati = $completati + 1>>
 ===
 
 title: Ghirlandaio 
@@ -328,6 +338,7 @@ title: Ghirlandaio_completato
 <<camera_focus ghirlandaio>>
 grazie mille porta qui tutto quello che hai trovato
 <<set $ghirlandaio= true>>
+<<set $completati = $completati + 1>>
 ===
 
 title: ll_tourist
