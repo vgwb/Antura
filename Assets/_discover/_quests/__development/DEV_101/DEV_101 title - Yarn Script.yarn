@@ -7,15 +7,10 @@ type: panel
 Eccoci ad Arezzo.
 Antura ha combinato un disastro!
 Risolvi i problemi in città.
-<<task_start incontra_guido incontra_guido_task>>
+<<task_start incontra_guido >>
 <<target guido>>
 ===
 
-title: incontra_guido_task
-type: task
----
-Incontra Guido d'Arezzo!
-===
 
 title: guido_encounter
 position: 740,-138
@@ -47,7 +42,8 @@ Grazie mille!
 Sarò la tua guida in città.
 Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
 Andiamo!
-<<party_join guido>> <<task_start collect_pages pagine_da_raccogliere>>
+<<party_join guido>> <<task_start collect_pages pages_collected>>
+<<target page_do>> <<target turista>>
 ===
 
 title: pagine_da_raccogliere
@@ -63,7 +59,65 @@ Ti prego, ho davvero bisogno di aiuto!
 <<jump guido_choice>>
 ===
 
+title: pages_collected
+---
+<<if HasCompletedTask ("collect_pages")>>
+Hai raccolto tutte le pagine!
+Andiamo al duomo e consegnamole al coro.
+<<task_start give_pages>>
+<<target cantore>>
+<<endif>>
+===
+
+///////// PIAZZA GUIDO MONACO //////////
+
+title: piazza_guido
+---
+<<if visited("piazza_guido")>>
+    <<stop>>
+<<else>>
+<<card piazzaguido>>
+Questa è Piazza Guido Monaco, la piazza che porta il mio nome!
+E quella statua che vedi sono io.
+Mi hanno fatto più bello di quanto non sono!
+<<endif>>
+===
+
+
+
+///////// ANFITEATRO ROMANO //////////
+
+title: anfiteatroromano
+---
+<<if visited("anfiteatroromano")>>
+    <<stop>>
+<<else>>
+<<card anfiteatroromano>>
+Questo è l'Anfiteatro Romano di Arezzo, costruito tantissimo tempo fa.
+Qui i romani venivano a guardare recite e opere teatrali.
+<<endif>>
+===
+
+
+title: cantore
+---
+<<task_end give_pages>>
+Grazie mille ora possiamo tornare a cantare!
+===
+
+title: page_do
+---
+<<card do>>
+Hai trovato il Do!
+È la prima nota della scala.
+Sta sotto il pentagramma, su una piccola linea tutta sua.
+<<collect>>
+===
+
+
+
 title: turista_indovinello
+position: -983,235
 ---
 Il simbolo all'inizio del pentagramma si chiama...
 ->Chiave di Violino
@@ -76,6 +130,7 @@ Il simbolo all'inizio del pentagramma si chiama...
 
 
 title: turista_corretto
+position: 139,377
 ---
 Sì! La Chiave di Violino, esatto!
 Me lo ha spiegato proprio lui, Guido d'Arezzo!
@@ -84,12 +139,14 @@ Prendi pure il foglio!
 ===
 
 title: reoder
+position: 8,590
 ---
 hallo
 <<activity reorder>>
 ===
 
 title: turista_sbagliato
+position: 189,205
 ---
 Mmm, non è questa! Riprova.
 ===

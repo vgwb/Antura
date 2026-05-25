@@ -93,7 +93,6 @@ color: blue
 position: 2,519
 ---
 Non hai imparato abbastanza! #line:0373b3f 
-
 VISITA IL MUSEO! #line:0993d71 
 ===
 
@@ -108,65 +107,65 @@ Sei pronto? #line:0b81494
   ALLORA INIZIAMO! #line:0e271eb 
 -> No  #line:0005ad9 //Rosso
   ALLORA TORNA A STUDIARE! #line:059544e 
-  //Fine dialogo
+  <<stop>>
 
 Dove vissero gli etruschi? #line:05c1e99 
 -> Italia centrale #line:07719ba 
   CORRETTO! #line:063525b 
 -> Grecia #line:053eb0f 
   SBAGLIATO! TORNA A STUDIARE! #line:01bdb66 
-  //Fine dialogo
+  <<stop>>
 -> Spagna #line:0aa294e 
   SBAGLIATO! TORNA A STUDIARE! #line:06334ba 
-  //Fine dialogo
+  <<stop>>
 -> Italia del Nord #line:036ef1c 
   SBAGLIATO! TORNA A STUDIARE! #line:0856d91 
-  //Fine dialogo
+  <<stop>>
 
 Cosa hanno imparato i romani dagli etruschi? #line:02df423 
 -> Agricoltura e allevamento #line:00e7ae4 
   SBAGLIATO! TORNA A STUDIARE! #line:0bdcd88 
-  //Fine dialogo
+  <<stop>>
 -> Commercio #line:0e341ce 
   SBAGLIATO! TORNA A STUDIARE! #line:0e6f217 
-  //Fine dialogo
+  <<stop>>
 -> Lavorazione dei metalli #line:057532f 
   SBAGLIATO! TORNA A STUDIARE! #line:06d73d6 
-  //Fine dialogo
+  <<stop>>
 -> Costruzione di mura, strade, e acquedotti #line:07716b0 
   CORRETTO! #line:0d80cac 
 
 Cosa facevano gli etruschi in onore dei morti? #line:0a62eb1 
 -> Giornate di rituali #line:0a67247 
   SBAGLIATO! TORNA A STUDIARE! #line:0b6284f 
-  //Fine dialogo
+  <<stop>>
 -> Costruivano case per i morti #line:04a5c14 
   CORRETTO! #line:0e5782a 
 -> Piccole feste in famiglia #line:0d41254 
   SBAGLIATO! TORNA A STUDIARE! #line:0e37443 
-  //Fine dialogo
+  <<stop>>
 -> Costruivano barche per i morti #line:0d5e208 
   SBAGLIATO! TORNA A STUDIARE! #line:0daf954 
-  //Fine dialogo
+  <<stop>>
 
 ULTIMA DOMANDA! Che materiali lavoravano bene gli etruschi? #line:009d6a9
 -> Legno e pietra #line:039c1dc 
   SBAGLIATO! TORNA A STUDIARE! #line:0b4b548 
-  //Fine dialogo
+  <<stop>>
 -> Ferro e bronzo #line:073eb64 
   ESATTO! E se la cavavano bene anche con la ceramica! #line:042182e 
 -> Stoffa e oro #line:099213b 
   SBAGLIATO! TORNA A STUDIARE! #line:0414499 
-  //Fine dialogo
+  <<stop>>
 -> Legno e rame #line:08b256c 
   SBAGLIATO! TORNA A STUDIARE! #line:0bbc334 
-  //Fine dialogo
+  <<stop>>
 
 Mi sbagliavo su di te, e forse i giovani hanno qualche speranza. #line:062ab29 
 Gli etruschi non sono stati dimenticati, dunque non ho motivo di essere arrabbiato. #line:0820a06 
 Direi che abbiamo entrambi imparato qualcosa oggi, e per questo ti sono grato. #line:0e7b945 
-//Set active pesci
-//Set target su MrBaffo
+//<<SetActive pesci true>>
+<<target mr_baffo>>
 <<set $task_completed = 5>>
 <<target mr_baffo>>
 ===
@@ -409,10 +408,53 @@ position: 675,527
 <<endif>>
 ===
 
-title: museum_billboard
+title: card_archeologia
 position: 1471,101
 tags: not_repeat_last_line
 ---
+<<card archeologia zoom>>
+PLACEHOLDER
+===
+
+title: card_territorio_etrusco
+tags: not_repeat_last_line
+---
+<<card territorio_etrusco zoom>>
+PLACEHOLDER
+===
+
+title: card_commercio_etrusco
+tags: not_repeat_last_line
+---
+<<card commercio_etrusco zoom>>
+PLACEHOLDER
+===
+
+title: card_donne_etrusche
+tags: not_repeat_last_line
+---
+<<card donne_etrusche zoom>>
+PLACEHOLDER
+===
+
+title: card_museo
+tags: not_repeat_last_line
+---
+<<card museo zoom>>
+PLACEHOLDER
+===
+
+title: card_religione_etrusca
+tags: not_repeat_last_line
+---
+<<card religione_etrusca zoom>>
+PLACEHOLDER
+===
+
+title: card_scrittura_etrusca
+tags: not_repeat_last_line
+---
+<<card scrittura_etrusca zoom>>
 PLACEHOLDER
 ===
 
