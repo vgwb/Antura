@@ -11,9 +11,9 @@ public class ImageDataRenderer : MonoBehaviour
     private void Awake()
     {
         _image = GetComponent<Image>();
-        if (_assetData != null && _assetData.ImageReference != null && _assetData.ImageReference.Asset)
+        if (_assetData != null && _assetData.Image != null)
         {
-            _image.sprite = _assetData.ImageReference.Asset as Sprite;
+            _image.sprite = _assetData.Image;
         }
     }
 }
