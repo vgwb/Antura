@@ -41,8 +41,9 @@ type: panel
 <<SetActive  scatole9 false>>
 <<SetActive  scatole10 false>>
 <<SetActive  scatole11 false>>
-Welcome to this quest #line:001e374 
-<<teleport bottega>>
+Siamo a Firenze. Oggi. #line:001e374 
+<<target npc_intro>>
+//<<teleport bottega>>
 ===
 
 title: quest_end
@@ -50,7 +51,7 @@ position: 0,150
 type: panel_endgame
 color: red
 ---
-The quest is complete. #line:0d43527 
+hai completato la quest sugli artisti della bottega del Verrocchio. #line:0d43527 
 <<jump post_quest_activity>>
 ===
 
@@ -72,7 +73,7 @@ position: 263,2
 sistema gli orologi della macchina
 <<endif>>
 <<if $parlato_npc == false>>
-Hallo #line:07c2f74 
+Ciao siamo un gruppo di scienziati
 stiamo facendo degli esperimenti per viaggiare nel tempo
 vuoi aiutarci a sistemare le ultime modifiche?
 ->si che emozione
@@ -84,6 +85,7 @@ vuoi aiutarci a sistemare le ultime modifiche?
 <<if $Leonardo_1== true>>
 grazie per aver trovato Leonardo
 adesso possiamo tornare indietro
+<<jump quest_end>>
 <<endif>>
 ===
 
@@ -116,9 +118,11 @@ FERMOOOOO!!!!
 <<SetActive  scatole11 true>>
 <<camera_reset>>
 oh no accidenti la macchina si è rotta
+siamo rimasti bloccati nel XV secolo 
 dobbiamo trovare qualcuno che ci aiuti a ripararla
 dovrebbe esserci Leonardo Da Vinci da queste parti
 cercalo mi deve aiutare a riparare la macchina sennò rimaremo bloccati qui per sempre
+<<target NPCverrocchio>>
 ===
 
 title: orologio_sx
@@ -137,10 +141,18 @@ title: verrocchio
 ---
 <<if $parlato_verrocchio== true>>
 raccogli la colomba bianca e portamela
-ti aiuterò a cercare leonardo
+ti aiuterò a cercare Leonardo
 <<endif>>
 <<if $verrocchio == true>>
 grazie mille
+<<card andrea_del_verrocchio_baptism_of_christ>>
+mi serviva per completare la mia opera
+per farla mi hanno aiutato i miei alievi
+Leonardo Da Vinci
+Domenico Ghirlandaio
+Sandro Botticelli
+Pietro Perugino
+sono i miei alievi più dotati
 Leonardo si trova dentro la mia bottega
 è quella qui dietro entra pure
 <<teleport bottega>>
@@ -148,20 +160,29 @@ Leonardo si trova dentro la mia bottega
 <<if $verrocchio == false>>
 <<SetActive porta true>>
 ciao piccolo gattino che ci fai qui?
--> conosci Leonardo Da Vinci?
-    si che lo conosco è un mio allievo
-    se vuoi incontrarlo devi prima aiutarmi
-    -> va bene
-        trovami un uccello
-        deve essere bianco mi serve come modello per la mia opera
-        <<task_start colomba_bianca verrocchio_completato>>
-        <<set $parlato_verrocchio = true>>
-        <<SetActive  pesci1 true>>
-        <<SetActive  pesci2 true>>
-        <<SetActive  pesci3 true>>
-        <<SetActive  pesci4 true>>
-        <<SetActive  pesci5 true>>
-        <<SetActive  pesci6 true>>
+-> chi sei?
+    Sono Verrocchio un artista
+    la mia bottega è la più importante di tutta Firenze
+    di recente mi hanno commissionato un quadro
+    per il monastero di San Salvi
+    ma devo ancora completarla
+    -> conosci Leonardo Da Vinci?
+        si che lo conosco è un mio allievo
+        se vuoi incontrarlo devi prima aiutarmi
+        -> va bene
+            trovami una colomba bianca
+            deve essere bianca mi serve come modello per la mia opera
+            <<task_start colomba_bianca verrocchio_completato>>
+            <<set $parlato_verrocchio = true>>
+            <<SetActive  pesci1 true>>
+            <<SetActive  pesci2 true>>
+            <<SetActive  pesci3 true>>
+            <<SetActive  pesci4 true>>
+            <<SetActive  pesci5 true>>
+            <<SetActive  pesci6 true>>
+        -> magari dopo miao
+            va bene gatto parlante
+            
     -> miao
         sei un gatto molto strano
 ->miao
@@ -174,9 +195,10 @@ title: colomba_sbagliata
 ---
 no mi serve di colore bianco
 perchè il bianco significa purezza
-e la colomba raffigura Dio
+e la colomba raffigura lo spirito santo
 quando vedi un elemento in un opera di colore bianco
 molto spesso significa la purezza
+puro come lo spirito santo
 ===
 
 title: verrocchio_completato
@@ -184,6 +206,7 @@ title: verrocchio_completato
 <<camera_focus verrocchio>>
 <<set $verrocchio= true>>
 bravo adesso portamela qui
+<<target verrocchio>>
 ===
 
 title: Leonardo_firenze
@@ -193,7 +216,7 @@ stavo finendo questo progetto
 sto studiando il corpo umano con tutte le sue proporzioni 
 mi piace molto studiare il corpo umano
 molte delle mie opere le puoi riconoscere solo dalle mani
-come nella monnalisa 
+come nella monnalisa
 <<card_hide>>
 <<card mona_lisa_by_leonardo_da_vinci>>
 se guardi le sue mani sono in posizione incrociate
@@ -208,11 +231,10 @@ adesso andiamo ad aiutare il tuo amico
 title: Leonardo_Da_Vinci
 ---
 <<if $completati >= 3>>
-grazie mille adesso tutti sono felici
-verrò ad aiutarti con il tuo problema andiamo
 <<jump Leonardo_firenze>>
 <<endif>>
 <<if $completati < 3 >>
+<<if $Leonardo_1== false>>
 qui nessuno capisce il mio genio
 il maestro ci sta usando per le sue opere
 noi le facciamo e lui si prende i meriti
@@ -227,6 +249,11 @@ oh ciao piccolo gattino che cosa ci fai qui?
         perchè sto parlando con un gatto
 -> miao
     che gatto particolare
+<<endif>><<endif>>
+<<if $Leonardo_1 == true>>
+cerca di convincere gli altri a perdonarmi
+se lo fai ti aiuterò
+-> miao
 <<endif>>
 ===
 
@@ -240,12 +267,11 @@ ciao gattino
 -> chi sei?
     sono Sandro Botticelli
     se non fosse per quel Leonardo sarei già a buon punto con la mia opera
-    -> sai dove si trova?
-        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
-        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
     -> che cosa ha fatto?
         fattelo raccontare da lui si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    -> miao 
+        credo che tu abbia appena parlato
 <<endif>>
 <<if $Leonardo_1== true>>
 <<if $botticelli== false>>
@@ -258,11 +284,21 @@ mi ha rovinato tutto
     puoi trovarmi altri soggetti?
     -> va bene
         <<task_start Botticelli Botticelli_completato>>
+        <<target agrumi_botticelli>>
     -> no miao
         troverò un altro modo
-->miao?
-    che carino
+->chi sei?
+    sono Sandro Botticelli
+    e per colpa di quel Leonardo non posso finire la mia opera
+    -> cos'è successo?
+        Leonardo mi ha appena distrutto la frutta che dovevo usare
+        mi serviva come modello per la mia opera
+        ma lui è arrivato ha distrutto tutto e se l'è portata via
+        puoi trovarmi altri soggetti?
+    -> miao!!!
+        wooo ti sei emozionato
 <<endif>><<endif>>
+
 <<if $botticelli== true>>
 <<card primavera_botticelli>>
 grazie gattino adesso posso completare la mia primavera
@@ -282,6 +318,7 @@ title: Botticelli_completato
 grazie mille porta qui tutto quello che hai trovato
 <<set $botticelli= true>>
 <<set $completati = $completati + 1>>
+<<target NPCbotticelli>>
 ===
 
 title: Perugino
@@ -294,6 +331,8 @@ che carino cosa ci fai qui?
 -> chi sei?
     sono Pietro Perugino
     per colpa di quel Leonardo sto impazzendo
+    mentre stavo completando il mio quadro
+    mi ha fatto uno scherzo di poco gusto
     -> sai dove si trova?
         si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
@@ -315,12 +354,32 @@ dove l'avrà mai messa
         <<task_start chiave>>
     -> no miao
         va bene grazie comunque
-->miao?
-    che carino
+->chi sei?
+    sono Pietro Perugino
+    e per colpa di quel Leonardo non posso tornare a casa
+    ->cos'è successo?
+        Leonardo mi ha nascosto le chiavi di casa
+        senza quelle non posso andare a casa
+        mi puoi aiutare a trovarle?
+    -> va bene
+        mi ha dato solo un indizio di dove l'ha nascosta
+        qualcosa riguardo ad uno dei miei quadri
+        <<task_start chiave>>
+    -> no miao
+        va bene grazie comunque
 <<endif>><<endif>>
 <<if $perugino== true>>
 grazie gattino adesso posso finalmente tornare a casa
+me le ha nascoste mentre stavo completando il mio quadro
+per la famosa Cappella Sistina
+<<card perugino_consegna_delle_chiavi_01>>
+in questo quadro commissionatomi da Papa Sisto IV
+dovevo rappresentare la sua importanza
+così ho fatto gesù che gli consegna le chiavi della chiesa
+il soggetto inginocchiato è San Pietro 
+ma vuole rappresentare Papa Sisto IV
 -> Leonardo mi ha detto di dirti che gli dispiace
+    <<card_hide>>
     oh scuse accettate
     solo la prossima volta me le nasconda in modo più visibile
 <<endif>>
@@ -364,11 +423,28 @@ come farò adesso?!
         <<task_start ghirlandaio Ghirlandaio_completato>>
     -> no miao
         va bene grazie comunque
-->miao?
-    che carino
+->chi sei?
+    sono Domenico Ghirlandaio
+    e per colpa di quel Leonardo non posso finire il mio quadro
+    ->cos'è successo?
+        Leonardo mi ha mescolato tutti i miei colori
+        aiutami a trovarne altri
+        -> va bene
+            mi ha dato solo un indizio di dove l'ha nascosta
+            qualcosa riguardo ad uno dei miei quadri
+            <<task_start ghirlandaio Ghirlandaio_completato>>
+        -> no miao
+            va bene grazie comunque
 <<endif>><<endif>>
 <<if $ghirlandaio== true>>
-grazie gattino adesso posso finalmente tornare a casa
+grazie gattino adesso posso finalmente finire la mia opera
+stavo finendo la mia opera
+<<card anbetung_der_hirten>>
+me l'ha commissionato Francesco Sassetti
+il prete della basilica di Santa trinita
+per rappresentare la famiglia Sassetti ho aggiunto 3 sassi in primissimo piano
+ai piedi di Maria e Gesù bambino
+quest' opera rappresenta il cambiamento dal paganesimo al cristianesimo
 -> Leonardo mi ha detto di dirti che gli dispiace
     oh scuse accettate
     digli che però la prossima volta deve stare più attento

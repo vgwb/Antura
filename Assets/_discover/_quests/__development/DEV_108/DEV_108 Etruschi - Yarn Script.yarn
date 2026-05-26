@@ -13,6 +13,8 @@ position: -542,428
 <<declare $talked_to_old_man = false>>
 <<declare $task_completed = -1>>
 <<declare $random_index = 1>>
+<<declare $quiz_checkpoint = 0>>
+<<camera_map_distance 40>>
 Benvenuto a San Casciano Val di Pesa.
 In questo piccolo paese, scopriremo chi erano gli etruschi. #line:0e00f81 
 <<target mr_baffo>>
@@ -53,7 +55,7 @@ position: 3,165
   <<elseif $task_completed == 5>>
     <<jump archeologist_end>>
   <<else>>
-    <<jump archeologist_quiz>>
+    <<jump archeologist_quiz0>>
   <<endif>>
 <<endif>>
 ===
@@ -77,12 +79,12 @@ COME È POSSIBILE! NON È GIUSTO!
   -> Per piacere, si calmi. #line:0382ab6 
     Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0d3c669
     <<camera_focus museum>> 
-    Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0f82ef5
+    Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0f82ef5 #card:museo
     <<camera_reset>>
 -> Per piacere, si calmi. #line:0fa9756 
   Mi calmerò solo quando qualcuno mi dimostrerà di conoscere veramente gli etruschi! #line:0c0e4b3
   <<camera_focus museum>>
-  Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0ee6a3a 
+  Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0ee6a3a #card:museo
   <<camera_reset>>
 <<target secretary>>
 //Update area
@@ -93,78 +95,124 @@ color: blue
 position: 2,519
 ---
 Non hai imparato abbastanza! #line:0373b3f 
-VISITA IL MUSEO! #line:0993d71 
+VISITA IL MUSEO! #line:0993d71 #card:museo
 ===
 
-title: archeologist_quiz
+title: archeologist_quiz0
 color: blue
 position: 1380,464
 ---
-Dunque pensi di saperne abbastanza sugli etruschi. #line:070db0e 
-Allora ti sottoporrò ad un quiz sugli etruschi! #line:0d39c77 
-Sei pronto? #line:0b81494 
--> Sì #line:0674ee7 
-  ALLORA INIZIAMO! #line:0e271eb 
--> No  #line:0005ad9 //Rosso
-  ALLORA TORNA A STUDIARE! #line:059544e 
-  <<stop>>
+<<if $quiz_checkpoint == 0>>
+  Dunque pensi di saperne abbastanza sugli etruschi. #line:070db0e 
+  Allora ti sottoporrò ad un quiz! #line:0d39c77 
+  Siamo pronti? #line:0b81494 
+  -> Sì #line:0674ee7 
+    ALLORA INIZIAMO! #line:0e271eb 
+    <<jump archeologist_quiz1>>
+  -> No  #line:0005ad9 #highlight
+    ALLORA TORNA A STUDIARE! #line:059544e 
+    <<stop>>
+<<else>>
+  Te la senti di riprovare il quiz?
+  -> Sì
+    OTTIMO, CONTINUIAMO!
+  -> No  #highlight
+    ALLORA TORNA A STUDIARE!
+    <<stop>>
+  <<if $quiz_checkpoint == 1>>
+    <<jump archeologist_quiz1>>
+  <<elseif $quiz_checkpoint == 2>>
+    <<jump archeologist_quiz2>>
+  <<elseif $quiz_checkpoint == 3>>
+    <<jump archeologist_quiz3>>
+  <<elseif $quiz_checkpoint == 4>>
+    <<jump archeologist_quiz4>>
+  <<endif>>
+<<endif>>
+===
 
+title: archeologist_quiz1
+position: 1380,636
+color: blue
+---
+<<set $quiz_checkpoint = 1>>
 Dove vissero gli etruschi? #line:05c1e99 
 -> Italia centrale #line:07719ba 
   CORRETTO! #line:063525b 
+  <<jump archeologist_quiz2>>
 -> Grecia #line:053eb0f 
-  SBAGLIATO! TORNA A STUDIARE! #line:01bdb66 
+  SBAGLIATO! TORNA A STUDIARE! #line:01bdb66 #card:etruschi
   <<stop>>
 -> Spagna #line:0aa294e 
-  SBAGLIATO! TORNA A STUDIARE! #line:06334ba 
+  SBAGLIATO! TORNA A STUDIARE! #line:06334ba #card:etruschi
   <<stop>>
 -> Italia del Nord #line:036ef1c 
-  SBAGLIATO! TORNA A STUDIARE! #line:0856d91 
+  SBAGLIATO! TORNA A STUDIARE! #line:0856d91 #card:etruschi
   <<stop>>
+===
 
+title: archeologist_quiz2
+position: 1379,807
+color: blue
+---
+<<set $quiz_checkpoint = 2>>
 Cosa hanno imparato i romani dagli etruschi? #line:02df423 
 -> Agricoltura e allevamento #line:00e7ae4 
-  SBAGLIATO! TORNA A STUDIARE! #line:0bdcd88 
+  SBAGLIATO! TORNA A STUDIARE! #line:0bdcd88 #card:architettura_etrusca
   <<stop>>
 -> Commercio #line:0e341ce 
-  SBAGLIATO! TORNA A STUDIARE! #line:0e6f217 
+  SBAGLIATO! TORNA A STUDIARE! #line:0e6f217 #card:architettura_etrusca
   <<stop>>
 -> Lavorazione dei metalli #line:057532f 
-  SBAGLIATO! TORNA A STUDIARE! #line:06d73d6 
+  SBAGLIATO! TORNA A STUDIARE! #line:06d73d6 #card:architettura_etrusca
   <<stop>>
 -> Costruzione di mura, strade, e acquedotti #line:07716b0 
   CORRETTO! #line:0d80cac 
+  <<jump archeologist_quiz3>>
+===
 
+title: archeologist_quiz3
+position: 1381,982
+color: blue
+---
+<<set $quiz_checkpoint = 3>>
 Cosa facevano gli etruschi in onore dei morti? #line:0a62eb1 
 -> Giornate di rituali #line:0a67247 
-  SBAGLIATO! TORNA A STUDIARE! #line:0b6284f 
+  SBAGLIATO! TORNA A STUDIARE! #line:0b6284f #card:necropoli
   <<stop>>
--> Costruivano case per i morti #line:04a5c14 
+-> Costruivano case #line:04a5c14 
   CORRETTO! #line:0e5782a 
+  <<jump archeologist_quiz4>>
 -> Piccole feste in famiglia #line:0d41254 
-  SBAGLIATO! TORNA A STUDIARE! #line:0e37443 
+  SBAGLIATO! TORNA A STUDIARE! #line:0e37443 #card:necropoli
   <<stop>>
--> Costruivano barche per i morti #line:0d5e208 
-  SBAGLIATO! TORNA A STUDIARE! #line:0daf954 
+-> Costruivano barche #line:0d5e208 
+  SBAGLIATO! TORNA A STUDIARE! #line:0daf954 #card:necropoli
   <<stop>>
+===
 
+title: archeologist_quiz4
+position: 1380,1155
+color: blue
+---
+<<set $quiz_checkpoint = 4>>
 ULTIMA DOMANDA! Che materiali lavoravano bene gli etruschi? #line:009d6a9
 -> Legno e pietra #line:039c1dc 
-  SBAGLIATO! TORNA A STUDIARE! #line:0b4b548 
+  SBAGLIATO! TORNA A STUDIARE! #line:0b4b548 #card:metalli_etruschi
   <<stop>>
 -> Ferro e bronzo #line:073eb64 
   ESATTO! E se la cavavano bene anche con la ceramica! #line:042182e 
 -> Stoffa e oro #line:099213b 
-  SBAGLIATO! TORNA A STUDIARE! #line:0414499 
+  SBAGLIATO! TORNA A STUDIARE! #line:0414499 #card:metalli_etruschi
   <<stop>>
 -> Legno e rame #line:08b256c 
-  SBAGLIATO! TORNA A STUDIARE! #line:0bbc334 
+  SBAGLIATO! TORNA A STUDIARE! #line:0bbc334 #card:metalli_etruschi
   <<stop>>
 
 Mi sbagliavo su di te, e forse i giovani hanno qualche speranza. #line:062ab29 
-Gli etruschi non sono stati dimenticati, dunque non ho motivo di essere arrabbiato. #line:0820a06 
+Sono felice che gli etruschi non siano stati dimenticati. #line:0820a06 
 Direi che abbiamo entrambi imparato qualcosa oggi, e per questo ti sono grato. #line:0e7b945 
-//<<SetActive pesci true>>
+<<SetActive fishes true>>
 <<target mr_baffo>>
 <<set $task_completed = 5>>
 <<target mr_baffo>>
@@ -186,7 +234,7 @@ position: 233,163
 ---
 <<if $talked_to_secretary == true>>
   <<if $task_completed < 5>>
-    => La sezione archeologica è più avanti. #line:072c163 //Stampa card archeologia
+    => La sezione archeologica è più avanti. #line:072c163 #card:archeologia
     => Spero tu riesca veramente a calmare quel signore.  #line:0cca332
     => Buona giornata. #line:0b269cf
   <<else>>
@@ -194,7 +242,7 @@ position: 233,163
     => Buona giornata.
   <<endif>>
 <<else>>
-  Buongiorno, accedere al museo costa 5€.  #line:0309cb2 //Stampa card museo
+  Buongiorno, accedere al museo costa 5€.  #line:0309cb2 #card:museo
   <<activity museum_payment secretary_activity_end>>
 <<endif>>
 ===
@@ -204,7 +252,7 @@ color: purple
 position: 234,310
 ---
   <<if GetActivityResult("museum_payment") > 0>>
-    Ottimo, la sezione archeologica è più avanti.  #line:053f971 //Stampa card archeologia
+    Ottimo, la sezione archeologica è più avanti.  #line:053f971 #card:archeologia
     <<set $talked_to_secretary = true>>
     Buona giornata. #line:0b24b59 
     <<target canvas2_manager>>
@@ -219,14 +267,14 @@ position: 1553,-62
 ---
 <<if $task_completed == 5>>
   => Vedere oggetti antichi dal vivo è tutta un'altra storia!
-  => Ogni volta che visito un museo imparo qualcosa di nuovo. //stampa card museo
-  => L'archeologia è una scienza davvero affascinante. //stampa card archeologia
-  => Etruschi... Non me li ricordavo così. #line:08f423b
+  => Ogni volta che visito un museo imparo qualcosa di nuovo. #card:museo
+  => L'archeologia è una scienza davvero affascinante. #card:archeologia
+  => Etruschi... Non me li ricordavo così. #line:08f423b #card:etruschi
 <<else>>
   => Vedere oggetti antichi dal vivo è tutta un'altra storia!
-  => Ogni volta che visito un museo imparo qualcosa di nuovo. //stampa card museo
-  => L'archeologia è una scienza davvero affascinante. //stampa card archeologia
-  => Etruschi... Non me li ricordavo così.
+  => Ogni volta che visito un museo imparo qualcosa di nuovo. #card:museo
+  => L'archeologia è una scienza davvero affascinante. #card:archeologia
+  => Etruschi... Non me li ricordavo così. #card:etruschi
   => È una mia impressione o qualcuno sta urlando?
 <<endif>>
 ===
@@ -272,7 +320,7 @@ position: 1128,159
   Un cane blu è passato di qui poco fa e ha sparso dei reperti in giro per il museo. #line:059e891 
   Per piacere, aiutaci a recuperarli. #line:0a32bfe 
   <<set $statues_task_state = 1>>
-  Raccogli 6 statuette di bronzo. #task:statues_collection
+  Raccogli 6 statuette di bronzo. #task:statues_collection //STAMPA_IMMAGINE_STATUA
   <<task_start statues_collection statues_task_end>>
 <<elseif $statues_task_state == 1>>
   => Mancano ancora delle statue. #line:091a18f 
@@ -417,6 +465,7 @@ PLACEHOLDER
 ===
 
 title: card_territorio_etrusco
+position: 2019,-63
 tags: not_repeat_last_line
 ---
 <<card territorio_etrusco zoom>>
@@ -424,6 +473,7 @@ PLACEHOLDER
 ===
 
 title: card_commercio_etrusco
+position: 1832,-223
 tags: not_repeat_last_line
 ---
 <<card commercio_etrusco zoom>>
@@ -431,6 +481,7 @@ PLACEHOLDER
 ===
 
 title: card_donne_etrusche
+position: 1598,-223
 tags: not_repeat_last_line
 ---
 <<card donne_etrusche zoom>>
@@ -438,6 +489,7 @@ PLACEHOLDER
 ===
 
 title: card_museo
+position: 1369,-215
 tags: not_repeat_last_line
 ---
 <<card museo zoom>>
@@ -445,6 +497,7 @@ PLACEHOLDER
 ===
 
 title: card_religione_etrusca
+position: 1785,-64
 tags: not_repeat_last_line
 ---
 <<card religione_etrusca zoom>>
@@ -452,6 +505,7 @@ PLACEHOLDER
 ===
 
 title: card_scrittura_etrusca
+position: 1715,97
 tags: not_repeat_last_line
 ---
 <<card scrittura_etrusca zoom>>
