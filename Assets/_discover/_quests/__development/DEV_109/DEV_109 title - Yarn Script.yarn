@@ -6,7 +6,6 @@ tags: Start
 color: red
 type: panel
 ---
-<<SetActive Salvia false>>
 Welcome to this quest #line:001e374 
 ===
 
@@ -117,10 +116,8 @@ Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai?
 
 title: Ape1
 tags: 
-
 ---
-
-
+<<if !HasCompletedTask("AiutaBzz") >>
 Bzzzz... Oh... Che fame! Che sfinimento!
 
 -> Ecco un'ape! Tutto bene?
@@ -129,35 +126,37 @@ Bzzzz... Oh... Che fame! Che sfinimento!
 Hai visto un fiore di salvia qui intorno? Ne ho un bisogno disperato! Il loro nettare mi salverebbe!
 
 -> Ne cerco subito uno attaccato alla pianta!
-    Aspetta, aspetta! No, fermati! Non farlo! 
-    
+    Aspetta, aspetta! No, fermati! Non farlo!   
 -> Posso coglierne uno per te?
     Oh, no, per carità! Ti ringrazio, ma cogliere i fiori è un pasticcio!
 
 Vedi, se stacchi un fiore intero dalla pianta, la pianta ci rimarrà male e gli altri insetti non avranno più il loro cibo. 
 
-Devi cercare un fiore di salvia che sia già caduto a terra. 
+Devi cercare un fiore di salvia che sia già caduto a terra. task:AiutaBzz
 
 Così nessuno si farà male, la pianta resterà felice e io potrò saziarmi! Mi darai una zampa?
 
 -> Va bene, mi metto a cercare!
     Grazie mille!
-    <<SetActive Salvia true>>
-    
+    <<task_start AiutaBzz salvia_trovata>>
+<<else>>
+    *SLURP!* Che delizia! Che salvia dolce! 
+    Grazie mille, mi hai salvato senza fare del male a nessuno! Volo all'alveare! BZZZZZZ!
+    <<task_start TrovaUnAltraApe>>
+<<endif>>
 ===
 
-title: Fiore_Trovato
+title: salvia_trovata
 ---
-Ape Bzz: *SLURP!* Che delizia! Che salvia dolce! 
-Ape Bzz: Grazie mille, mi hai salvato senza fare del male a nessuno! Volo all'alveare! BZZZZZZ!
+Hai trovato il fiore. torna dall'ape
+<<target Bzz>>
 
 ===
-
 title: Ape2
 tags: 
 
 ---
-
+<<if !HasCompletedTask("AiutaZrr") >>
 
 F... Faaameeeeee... Zzr...
 
@@ -177,53 +176,47 @@ Per favore!
 
 -> In arrivo!
     Grazie...!
-    
-   
-===
-
-title: Fiore_Trovato1
----
+    <<task_start AiutaZrr salvia_trovata>>  
+<<else>>
 Slurp! 
 Finalmente! Riesco a volare!
 Grazie, gentile straniero!
+<<task_start TrovaLUltimaApe>>
+<<endif>>
 
 ===
 title: Incontro_Con_Bzz
 tags: 
 
 ---
-<<declare $ha_trovato_fiore = false as bool>>
+<<if !HasCompletedTask("AiutaTzz") >>
 
-Ape Tzz: Tzzz... Ehi... Ho visto che hai aiutato gli altri!
+Tzzz... Ehi... Ho visto che hai aiutato gli altri!
 
 -> Serve un fiore anche a te?
-    Ape Tzz: Hai indovinato!
+    Hai indovinato!
 
-Ape Tzz: Conosci l'azalea? è una bellissima pianta ornamentale...
+Conosci l'azalea? è una bellissima pianta ornamentale...
 
 -> cerco
-    Ape Tzz: grz
+    grz
     
 -> cerco
-    Ape Tzz: grz
+    grz
 
-Ape Tzz: non staccarla 
+non staccarla 
 
-Ape Tzz: trovane uno caduto
+trovane uno caduto
 
-Ape Tzz: pls
+pls
 
 -> Va bene, mi metto a cercare!
-    Ape Tzz: Grazie mille!
-    <<set $ha_trovato_fiore = true>>
-    <<jump Fiore_Trovato>>
-===
-
-title: Fiore_Trovato2
----
-Ape Tzz: om nom nom 
-Ape Tzz: c'è un bambino che rompe
-
+    Grazie mille! 
+    <<task_start AiutaTzz salvia_trovata>>
+<<else>>
+om nom nom 
+c'è un bambino che rompe
+<<endif>>
 ===
 title: Incontro_Con_Bimbo
 tags: 
@@ -232,7 +225,7 @@ tags:
 
 Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
 
--> Ehi! Che cosa stai facendo con quel bastone?
+-> Ehi! Che fai con quel bastone?
     Oh, ciao! Sto facendo l'eroe! Sto scacciando tutte le api prima che pungano qualcuno! 
 -> Fermati! Così spaventi tutte le api!
     Ma io voglio spaventarle! Sono un cavaliere e sto proteggendo il prato dalle bestie feroci!
