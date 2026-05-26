@@ -47,8 +47,8 @@ actor: NARRATOR
 <<declare $quest_complete = false>>
 
 <<card cave_carrara_intro_Card>>
-Welcome to the Carrara marble quarries!
-These white mountains are famous all over the world.
+Welcome to the Carrara marble quarries! #line:08710be 
+These white mountains are famous all over the world. #line:079ae9f 
 
 <<target npc_francesco>>
 
@@ -65,26 +65,26 @@ color: blue
 actor: ADULT_M
 ---
 <<if $quest_complete>>
-    Great work today! The quarry is running again.
-    You will never forget the secrets of the white mountain!
+    Great work today! The quarry is running again. #line:0d1498d 
+    You will never forget the secrets of the white mountain! #line:0e773c5 
 <<elseif $talked_to_francesco and $COLLECTED_ITEMS >= 3>>
-    You found all the pieces! Come here, let me fix the machine.
+    You found all the pieces! Come here, let me fix the machine. #line:07063f1 
     <<jump talk_francesco_finale>>
 <<elseif $talked_to_francesco>>
-    The machine is still broken.
-    Please help me find the pieces.
-    Go ask the spirits of the quarry!
+    The machine is still broken. #line:0f08ddd 
+    Please help me find the pieces. #line:0b91103 
+    Go ask the spirits of the quarry! #line:0492a6d 
     <<target npc_nicola>>
 <<else>>
     <<card cave>>
-    Hi! I'm Francesco, a quarry worker.
-    Today I'll show you how marble is extracted.
-    Take a look at this machine — it's incredibly powerful!
+    Hi! I'm Francesco, a quarry worker. #line:03dbd8e 
+    Today I'll show you how marble is extracted. #line:0b50ec7 
+    Take a look at this machine — it's incredibly powerful! #line:0202299 
     <<action show_machine>>
-    Let me start it up...
+    Let me start it up... #line:06980c3 
     <<action start_machine_fail>>
-    Wait... it's not working!
-    Something's wrong.
+    Wait... it's not working! #line:077ddae 
+    Something's wrong. #line:0b1a838 
     <<jump talk_antura_guilty>>
 <<endif>>
 ===
@@ -96,13 +96,13 @@ color: blue
 actor: ADULT_M
 ---
 <<SetActive antura_guilty true>>
-Antura! Was it you?
-Look what you've done!
-Three parts of the machine have fallen into the quarry.
+Antura! Was it you? #line:005bef9 
+Look what you've done! #line:0ba619a 
+Three parts of the machine have fallen into the quarry. #line:098063f 
 <<action antura_shame>>
-You need to find them!
-Go and look for them.
-Maybe the spirits of the quarry will help you.
+You need to find them! #line:017a10e 
+Go and look for them. #line:085782c 
+Maybe the spirits of the quarry will help you. #line:047b4f4 
 <<set $talked_to_francesco = true>>
 <<task_start collect_pieces>>
 <<area area_open_quarry>>
@@ -123,19 +123,19 @@ color: blue
 actor: SENIOR_M
 ---
 <<if not $talked_to_francesco>>
-    The spirits of the quarry are not yet ready to speak.
-    Go find Francesco first.
+    The spirits of the quarry are not yet ready to speak. #line:0698a03 
+    Go find Francesco first. #line:0f04c15 
     <<target npc_francesco>>
 <<elseif $piece_nicola>>
-    You already have my piece.
-    Go find the other spirits.
+    You already have my piece. #line:0c62422 
+    Go find the other spirits. #line:0e334e8 
 <<else>>
-    I am Nicola Pisano, a medieval sculptor.
-    It was the year 1260 when I first came here.
+    I am Nicola Pisano, a medieval sculptor. #line:0126c77 
+    It was the year 1260 when I first came here. #line:03e7256 
     <<card pisano>>
-    I chose this marble for the Baptistery of Pisa.
-    But before making art... you need to extract the marble!
-    Let me explain how it has been done through the centuries.
+    I chose this marble for the Baptistery of Pisa. #line:0668c76 
+    But before making art... you need to extract the marble! #line:088bd28 
+    Let me explain how it has been done through the centuries. #line:04ad8a3 
     <<jump nicola_explain_techniques>>
 <<endif>>
 ===
@@ -147,10 +147,10 @@ color: blue
 actor: SENIOR_M
 ---
 <<card cava_romana>>
-First technique: the wooden wedge.
-The Romans pushed fig-wood wedges into cracks in the rock.
-Then they soaked the wood — as it swelled, it split the stone!
-Clever, wasn't it?
+First technique: the wooden wedge. #line:0a9cd74 
+The Romans pushed fig-wood wedges into cracks in the rock. #line:03c8513 
+Then they soaked the wood — as it swelled, it split the stone! #line:06bf733 
+Clever, wasn't it? #line:03ebc01 
 <<jump nicola_technique_2>>
 ===
 
@@ -161,11 +161,11 @@ color: blue
 actor: SENIOR_M
 ---
 <<card esplosivi_cave>>
-Second technique: explosives.
-From 1600 onwards, workers used gunpowder in the quarries.
-They blasted the mountainside to break off the blocks.
-It was fast, but it destroyed a lot of marble.
-And the damage to the environment was enormous.
+Second technique: explosives. #line:0317894 
+From 1600 onwards, workers used gunpowder in the quarries. #line:01e6420 
+They blasted the mountainside to break off the blocks. #line:08716ce 
+It was fast, but it destroyed a lot of marble. #line:01660f7 
+And the damage to the environment was enormous. #line:0651468 
 <<jump nicola_technique_3>>
 ===
 
@@ -175,12 +175,12 @@ group: nicola
 color: blue
 actor: SENIOR_M
 ---
-Third technique: the diamond wire.
+Third technique: the diamond wire. #line:0b0e7e9 
 <<card macchinari_moderni>>
-Since 1970, a steel wire coated in industrial diamonds has been used.
-It cuts the rock with perfect precision and no waste.
-In one day, you can cut what once took three whole months!
-Now tell me: can you match each technique to the right era?
+Since 1970, a steel wire coated in industrial diamonds has been used. #line:0c86963 
+It cuts the rock with perfect precision and no waste. #line:09dc937 
+In one day, you can cut what once took three whole months! #line:0868d02 
+Now tell me: can you match each technique to the right era? #line:05c7e3d 
 <<jump nicola_activity_intro>>
 ===
 
@@ -190,9 +190,9 @@ group: nicola
 color: purple
 actor: SENIOR_M
 ---
-Match each technique to its correct era.
-You can do it!
-<<activity Match the technique nicola_activity_result normal>>
+Match each technique to its correct era. #line:0f130bc 
+You can do it! #line:0903f65 
+<<activity match_the_technique nicola_activity_result>>
 ===
 
 title: nicola_activity_result
@@ -202,7 +202,7 @@ color: purple
 actor: SENIOR_M
 ---
 <<set $attempts_nicola = $attempts_nicola + 1>>
-<<if GetActivityResult("Match the technique") > 0>>
+<<if GetActivityResult("match_the_technique") > 0>>
     <<jump nicola_success>>
 <<else>>
     <<jump nicola_fail>>
@@ -215,8 +215,8 @@ group: nicola
 color: purple
 actor: SENIOR_M
 ---
-Almost! Try again.
-Wooden wedge... explosives... diamond wire.
+Almost! Try again. #line:03cd394 
+Wooden wedge... explosives... diamond wire. #line:03ee015 
 <<if $attempts_nicola >= 2>>
     <<jump nicola_skip>>
 <<else>>
@@ -230,10 +230,10 @@ group: nicola
 color: purple
 actor: SENIOR_M
 ---
-All right, let me help you a little.
-The Romans used the wooden wedge.
-In the 1600s they used explosives.
-Today we use the diamond wire.
+All right, let me help you a little. #line:050a87e 
+The Romans used the wooden wedge. #line:0c9bb2e 
+In the 1600s they used explosives. #line:0d733fa 
+Today we use the diamond wire. #line:034e203 
 <<jump nicola_success>>
 ===
 
@@ -243,8 +243,8 @@ group: nicola
 color: blue
 actor: SENIOR_M
 ---
-Excellent! You've understood it well.
-Take this piece of the machine.
+Excellent! You've understood it well. #line:0fff9e5 
+Take this piece of the machine. #line:0abcb34 
 <<collect piece_nicola>>
 <<set $piece_nicola = true>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
@@ -252,7 +252,7 @@ Take this piece of the machine.
 <<if $COLLECTED_ITEMS >= 3>>
     <<jump check_all_pieces>>
 <<else>>
-    Now go find the other spirits.
+    Now go find the other spirits. #line:0649658 
     <<target npc_michelangelo>>
 <<endif>>
 ===
@@ -268,19 +268,19 @@ color: blue
 actor: SENIOR_M
 ---
 <<if not $talked_to_francesco>>
-    The spirits of the quarry are not yet ready to speak.
-    Go find Francesco first.
+    The spirits of the quarry are not yet ready to speak. #line:0f18cb9 
+    Go find Francesco first. #line:096c4a9 
     <<target npc_francesco>>
 <<elseif $piece_michelangelo>>
-    You already have my piece. Good!
-    Go find the other spirit.
+    You already have my piece. Good! #line:0b38a7c 
+    Go find the other spirit. #line:0ee14a4 
 <<else>>
-    I am Michelangelo Buonarroti.
-    Perhaps the greatest sculptor who ever lived.
+    I am Michelangelo Buonarroti. #line:0d5074d 
+    Perhaps the greatest sculptor who ever lived. #line:031f19a 
     <<card michelangelo>>
-    I came to Carrara in person to choose my blocks.
-    I spent eight months in these quarries just for the Tomb of Julius II.
-    I trusted no one else to choose the marble for me.
+    I came to Carrara in person to choose my blocks. #line:08a0167 
+    I spent eight months in these quarries just for the Tomb of Julius II. #line:03053db 
+    I trusted no one else to choose the marble for me. #line:0fe51ca 
     <<jump michelangelo_explain_sculpture>>
 <<endif>>
 ===
@@ -291,12 +291,12 @@ group: michelangelo
 color: blue
 actor: SENIOR_M
 ---
-Marble is not just a rock.
-It is the most living material in existence.
-The sculpture is already inside the block.
-My work is to remove the excess marble and set it free.
-With this marble I carved the Pieta, the David and the Moses.
-Works that will last for thousands of years.
+Marble is not just a rock. #line:093f019 
+It is the most living material in existence. #line:07889b4 
+The sculpture is already inside the block. #line:0b42b65 
+My work is to remove the excess marble and set it free. #line:02ac4c1 
+With this marble I carved the Pieta, the David and the Moses. #line:0466519 
+Works that will last for thousands of years. #line:0934417 
 <<jump michelangelo_explain_lizzatura>>
 ===
 
@@ -307,15 +307,15 @@ color: blue
 actor: SENIOR_M
 ---
 <<card lizzatura>>
-But do you know how the marble reached Florence or Rome?
-These blocks weigh as much as ten cars.
-There were no trucks, no trains.
-They used the lizzatura: a wooden sled called a lizza.
-The quarrymen slid it down incredibly steep slopes.
-They controlled the speed using thick hemp ropes.
-It was the most dangerous job that existed.
-Many quarrymen lost their lives doing it.
-Now I ask you to draw what you have learned.
+But do you know how the marble reached Florence or Rome? #line:07ea82b 
+These blocks weigh as much as ten cars. #line:0a400a2 
+There were no trucks, no trains. #line:032f1d7 
+They used the lizzatura: a wooden sled called a lizza. #line:066b925 
+The quarrymen slid it down incredibly steep slopes. #line:0bd0ec9 
+They controlled the speed using thick hemp ropes. #line:0a9ebbc 
+It was the most dangerous job that existed. #line:0e2fd00 
+Many quarrymen lost their lives doing it. #line:093cdd8 
+Now I ask you to draw what you have learned. #line:0d4f366 
 <<jump michelangelo_activity_intro>>
 ===
 
@@ -325,8 +325,8 @@ group: michelangelo
 color: purple
 actor: SENIOR_M
 ---
-Draw the lizza on the canvas.
-Show me you understood!
+Draw the lizza on the canvas. #line:052f583 
+Show me you understood! #line:0d598e2 
 <<activity Canvas_michelangelo michelangelo_activity_result normal>>
 ===
 
@@ -350,8 +350,8 @@ group: michelangelo
 color: purple
 actor: SENIOR_M
 ---
-Not quite right. Try again!
-Remember: a sled on a steep slope, with ropes.
+Not quite right. Try again! #line:0ff9240 
+Remember: a sled on a steep slope, with ropes. #line:015e3f7 
 <<if $attempts_michelangelo >= 2>>
     <<jump michelangelo_skip>>
 <<else>>
@@ -365,8 +365,8 @@ group: michelangelo
 color: purple
 actor: SENIOR_M
 ---
-Let me show you. A wooden sled on steep rock.
-Thick ropes holding it back.
+Let me show you. A wooden sled on steep rock. #line:0bf01f9 
+Thick ropes holding it back. #line:073a4a8 
 <<jump michelangelo_success>>
 ===
 
@@ -376,8 +376,8 @@ group: michelangelo
 color: blue
 actor: SENIOR_M
 ---
-Magnificent! You understand the lizzatura.
-Take this piece of the machine.
+Magnificent! You understand the lizzatura. #line:074eb70 
+Take this piece of the machine. #line:03c8b2d 
 <<collect piece_michelangelo>>
 <<set $piece_michelangelo = true>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
@@ -385,7 +385,7 @@ Take this piece of the machine.
 <<if $COLLECTED_ITEMS >= 3>>
     <<jump check_all_pieces>>
 <<else>>
-    Now go find Bernini.
+    Now go find Bernini. #line:0c02bff 
     <<target npc_bernini>>
 <<endif>>
 ===
@@ -401,20 +401,20 @@ color: blue
 actor: ADULT_M
 ---
 <<if not $talked_to_francesco>>
-    The spirits of the quarry are not yet ready to speak.
-    Go find Francesco first.
+    The spirits of the quarry are not yet ready to speak. #line:0da25a8 
+    Go find Francesco first. #line:03febda 
     <<target npc_francesco>>
 <<elseif $piece_bernini>>
-    You already have my piece! Well done, young artist.
-    Go back to Francesco now.
+    You already have my piece! Well done, young artist. #line:0879f77 
+    Go back to Francesco now. #line:0d38c52 
     <<target npc_francesco>>
 <<else>>
-    I am Gian Lorenzo Bernini!
-    Sculptor, architect, painter.
-    I changed the way marble was used forever.
+    I am Gian Lorenzo Bernini! #line:0284c52 
+    Sculptor, architect, painter. #line:0900d1a 
+    I changed the way marble was used forever. #line:07ef64e 
     <<card apollo_e_dafne_bernini>>
-    Look at Apollo and Daphne — I carved it between 1622 and 1625.
-    I was only twenty-three years old when I began!
+    Look at Apollo and Daphne — I carved it between 1622 and 1625. #line:03e67fb 
+    I was only twenty-three years old when I began! #line:06d755c 
     <<jump bernini_explain_apollo>>
 <<endif>>
 ===
@@ -425,12 +425,12 @@ group: bernini
 color: blue
 actor: ADULT_M
 ---
-This sculpture captures the exact moment Daphne transforms into a laurel tree.
-Her fingers become branches, her feet roots, her skin bark.
-All of this in marble — a rock as hard as iron!
-No one before me had dared to attempt such a thing.
-People believed marble could never look soft.
-I proved them wrong.
+This sculpture captures the exact moment Daphne transforms into a laurel tree. #line:0883b38 
+Her fingers become branches, her feet roots, her skin bark. #line:0c88e23 
+All of this in marble — a rock as hard as iron! #line:078a707 
+No one before me had dared to attempt such a thing. #line:0dc1400 
+People believed marble could never look soft. #line:0120ed2 
+I proved them wrong. #line:0f87afc 
 <<jump bernini_explain_wire>>
 ===
 
@@ -441,14 +441,14 @@ color: blue
 actor: ADULT_M
 ---
 <<card macchinari_moderni>>
-In my time, marble was cut with chisels and mallets.
-Every millimetre was sweat and effort.
-Today there is the diamond wire: a steel wire coated in industrial diamonds.
-It runs at hundreds of metres per minute.
-It slices through marble like butter, with no waste at all.
-In a single day you can do the work that in my time took three months.
-I wish I had had such a tool!
-But enough talking — put my sculpture back together!
+In my time, marble was cut with chisels and mallets. #line:0bd6466 
+Every millimetre was sweat and effort. #line:04b1303 
+Today there is the diamond wire: a steel wire coated in industrial diamonds. #line:0333357 
+It runs at hundreds of metres per minute. #line:001f02c 
+It slices through marble like butter, with no waste at all. #line:09940bf 
+In a single day you can do the work that in my time took three months. #line:0eebc6b 
+I wish I had had such a tool! #line:0baaa9b 
+But enough talking — put my sculpture back together! #line:00e8fb9 
 <<jump bernini_activity_intro>>
 ===
 
@@ -458,8 +458,8 @@ group: bernini
 color: purple
 actor: ADULT_M
 ---
-Reassemble the pieces of Apollo and Daphne.
-Four pieces. You can do it!
+Reassemble the pieces of Apollo and Daphne. #line:002f6d1 
+Four pieces. You can do it! #line:0de9715 
 <<activity BerniniJigsaw bernini_activity_result normal>>
 ===
 
@@ -483,8 +483,8 @@ group: bernini
 color: purple
 actor: ADULT_M
 ---
-Not yet! Try again.
-Look at the shape of each piece.
+Not yet! Try again. #line:09b1f21 
+Look at the shape of each piece. #line:0ff6e6b 
 <<if $attempts_bernini >= 2>>
     <<jump bernini_skip>>
 <<else>>
@@ -498,8 +498,8 @@ group: bernini
 color: purple
 actor: ADULT_M
 ---
-I'll give you a little help this time.
-Start with the largest piece.
+I'll give you a little help this time. #line:0325f5a 
+Start with the largest piece. #line:0741d70 
 <<jump bernini_success>>
 ===
 
@@ -509,9 +509,9 @@ group: bernini
 color: blue
 actor: ADULT_M
 ---
-Magnificent! The work is whole again!
-Carrara marble is unique in all the world.
-Take the last piece of the machine.
+Magnificent! The work is whole again! #line:07151e2 
+Carrara marble is unique in all the world. #line:08aad21 
+Take the last piece of the machine. #line:01f04a9 
 <<collect piece_bernini>>
 <<set $piece_bernini = true>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
@@ -535,8 +535,8 @@ actor: NARRATOR
 <<SetMapIcon npc_bernini "off">>
 <<target npc_francesco>>
 <<area area_square>>
-You have all three pieces!
-Go back to Francesco.
+You have all three pieces! #line:03bfe86 
+Go back to Francesco. #line:0f3ff66 
 ===
 
 // ═══════════════════════════════════════════════════════════
@@ -549,19 +549,19 @@ group: finale
 color: blue
 actor: ADULT_M
 ---
-You found all the pieces! Thank you so much!
+You found all the pieces! Thank you so much! #line:0509f19 
 <<action reassemble_machine>>
-I'm putting the machine back together...
-There we go! Let's try it now.
+I'm putting the machine back together... #line:006793e 
+There we go! Let's try it now. #line:00ba4a0 
 <<action start_machine_success>>
-It works! Can you hear the wire?
+It works! Can you hear the wire? #line:0ab1bd8 
 <<card cave_notte>>
-Today Carrara has 165 active quarries.
-The marble leaves by ship from the port to the whole world.
-Tell me: what is the technique we use today?
--> The diamond wire.
+Today Carrara has 165 active quarries. #line:07bb450 
+The marble leaves by ship from the port to the whole world. #line:0a2e4bc 
+Tell me: what is the technique we use today? #line:0e7c2d7 
+-> The diamond wire. #line:07ea6cd 
     <<jump answer_correct_technique>>
--> Explosives.
+-> Explosives. #line:03c7660 
     <<jump answer_wrong_technique>>
 ===
 
@@ -571,9 +571,9 @@ group: finale
 color: blue
 actor: ADULT_M
 ---
-Exactly! It cuts like butter.
-And it does far less damage to the environment.
-You're really smart!
+Exactly! It cuts like butter. #line:05ac1c7 
+And it does far less damage to the environment. #line:0cb3fb4 
+You're really smart! #line:05c4c5e 
 <<jump francesco_closing>>
 ===
 
@@ -583,9 +583,9 @@ group: finale
 color: blue
 actor: ADULT_M
 ---
-We used that in the old days.
-It was fast, but it destroyed too much marble.
-Today we use the diamond wire.
+We used that in the old days. #line:076e182 
+It was fast, but it destroyed too much marble. #line:0c38a10 
+Today we use the diamond wire. #line:0071744 
 <<jump francesco_closing>>
 ===
 
@@ -595,9 +595,9 @@ group: finale
 color: blue
 actor: ADULT_M
 ---
-You've learned so much today.
-Are you ready for the final test?
-Let's see what you remember!
+You've learned so much today. #line:0587f90 
+Are you ready for the final test? #line:073eef5 
+Let's see what you remember! #line:0407151 
 <<jump activity_quiz_finale>>
 ===
 
@@ -611,7 +611,7 @@ group: finale
 color: purple
 actor: ADULT_M
 ---
-Time to answer the questions about the quarries.
+Time to answer the questions about the quarries. #line:072fb44 
 <<activity Finalquiz quest_end_check normal>>
 ===
 
@@ -634,7 +634,7 @@ group: finale
 color: purple
 actor: ADULT_M
 ---
-Try again! Use what you have learned.
+Try again! Use what you have learned. #line:0a34a6d 
 <<activity Finalquiz quest_end_check normal>>
 ===
 
@@ -649,9 +649,9 @@ type: panel_endgame
 actor: NARRATOR
 ---
 <<set $quest_complete = true>>
-You fixed the machine!
-You met three great artists.
-Now you know how Carrara marble is born.
+You fixed the machine! #line:0d16f94 
+You met three great artists. #line:01f7b0c 
+Now you know how Carrara marble is born. #line:0315c21 
 <<jump post_quest_activity>>
 ===
 
@@ -662,8 +662,8 @@ type: panel
 tags: proposal
 actor: NARRATOR
 ---
-Draw your own marble block.
-What would you sculpt?
-Tell someone at home where Carrara marble comes from.
+Draw your own marble block. #line:084a8a6 
+What would you sculpt? #line:0f4f53d 
+Tell someone at home where Carrara marble comes from. #line:08d2d30 
 <<quest_end>>
 ===
