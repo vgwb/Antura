@@ -28,11 +28,9 @@ actor: NARRATOR
 ---
 <<declare $CARISTA_FOGLI_DONE = false>>
 <<declare $FOGLI_PROPOSTI = false>>
-<<declare $CARISTA2_DONE = false>>
-<<declare $LEONE_PROPOSTO = false>>
-<<declare $CARISTA_OGGETTI_DONE = false>>
 <<declare $leone= false>>
-<<set $leone = false>>
+<<declare $CARISTA2_DONE = false>>
+<<declare $CARISTA_OGGETTI_DONE = false>>
 <<declare $CARISTA3_DONE = false>>
 <<declare $TIMER_PROPOSTO = false>>
 <<declare $timer= false>>
@@ -41,14 +39,14 @@ actor: NARRATOR
 Siamo a Viareggio! #line:dev112_start_1
 È il periodo del Carnevale! #line:dev112_start_2
 <<area area_piazza>>
-<<target carista>>
+<<target carista1>>
 ===
 
 // =====================
 // CARISTA 1 - PRIMO INCONTRO (raccolta fogli)
 // =====================
 
-title: npc_intro
+title: npc_carista1
 position: 200,0
 color: blue
 group: carista
@@ -121,8 +119,7 @@ actor: NARRATOR
 Hai trovato tutti i disegni! #line:dev112_fogli_ok_1
 Torna dal carista. #line:dev112_fogli_ok_2
 <<SetMapIcon carista "on">>
-<<target carista>>
-<<jump Carista_SecondaFase>>
+<<target carista1>>
 ===
 
 // =====================
@@ -167,23 +164,19 @@ color: blue
 group: carista2
 actor: ADULT_M
 ---
-<<if $leone == true>>
-<<jump Carista2_DopoLeone>>
-<<endif>>
 <<if $CARISTA2_DONE>>
     <<jump Carista2_Repeat>>
-<<elseif $LEONE_PROPOSTO>>
-    <<jump Carista2_Conferma_Leone>>
+<<elseif $leone == true>>
+    <<jump Carista2_DopoLeone>>
 <<endif>>
 Oh ciao! Sei un amico del mio collega? #line:dev112_carista2_1
 Ho un problema grande! #line:dev112_carista2_2
 <<camera_focus camera_leone>>
-Ho perso il mio leone di cartapesta. #line:dev112_carista2_3
+Ho perso il mio leone di cartapesta. #line:dev112_carista2_3 #task:task_trova_leone
 <<camera_reset>>
 <<card TODO_leone_cartapesta>>
 <<card TODO_cartapesta>>
 È il pezzo più importante del mio carro! #line:dev112_carista2_4
-<<set $LEONE_PROPOSTO = true>>
 Ti prego, mi aiuti a trovarlo? #line:dev112_carista2_5
 <<jump Carista2_Conferma_Leone>>
 ===
@@ -214,30 +207,17 @@ Il mio carro è bellissimo adesso. #line:dev112_carista2_rep_2
 // ITEM - LEONE DI CARTAPESTA
 // =====================
 
-title: leone_item
-tags: item
-position: -200,0
-color: yellow
-group: leone
-actor: NARRATOR
----
-Il leone di cartapesta del carista! #line:dev112_leone_1
-<<set $leone = true>>
-<<collect>>
-===
-
 title: leone_raccolto
 position: 200,0
 color: green
 group: leone
 actor: NARRATOR
 ---
-<<set $CARISTA2_DONE = true>>
-Hai trovato il leone! #line:dev112_leone_ok_1
+<<set $leone = true>>
+Hai trovato il leone di cartapesta del carista! #line:dev112_leone_ok_1
 Torna dal carista. #line:dev112_leone_ok_2
 <<SetMapIcon carista2 "done">>
 <<target carista2>>
-<<jump Carista2_DopoLeone>>
 ===
 
 title: Carista2_DopoLeone
@@ -254,9 +234,9 @@ un'immersione spettacolare nei misteri #line:dev112_carista2_dopo_5
 e nell'energia primordiale della savana e delle giungle africane. #line:dev112_carista2_dopo_6
 Adesso cerca glialtri colleghi. #line:dev112_carista2_dopo_7
 Hanno ancora bisogno di te! #line:dev112_carista2_dopo_8
-<<SetMapIcon carista "on">>
-<<target carista>>
-<<area area_piazza>>
+<<SetMapIcon carista2 "on">>
+<<target carista3>>
+<<set $CARISTA2_DONE= true>>
 ===
 
 // =====================
@@ -269,20 +249,17 @@ color: blue
 group: carista2
 actor: ADULT_M
 ---
-<<if $timer == true>>
-<<jump Carista3_DopoTimer>>
-<<endif>>
 <<if $CARISTA3_DONE>>
     <<jump Carista3_Repeat>>
-<<elseif $Timer_PROPOSTO>>
-    <<jump Carista3_Conferma_Timer>>
+<<elseif $timer == true>>
+    <<jump Carista3_DopoTimer>>
 <<endif>>
 Oh ciao! Sei un amico del mio collega? #line:dev112_carista3_1
 Ho un problema grande! #line:dev112_carista3_2
 <<camera_focus camera_timer>>
-Ho perso il mio timer di cartapesta. #line:dev112_carista3_3
+Ho perso il mio timer di cartapesta. #line:dev112_carista3_3 #task:task_trova_timer
 <<camera_reset>>
-<<card TODO_timer_cartapesta>>
+<<card foto_8>>
 <<card TODO_cartapesta>>
 È il pezzo più importante del mio carro! #line:dev112_carista3_4
 <<set $TIMER_PROPOSTO = true>>
@@ -316,30 +293,17 @@ Il mio carro è bellissimo adesso. #line:dev112_carista3_rep_2
 // ITEM - TIMER DI CARTAPESTA
 // =====================
 
-title: timer_item
-tags: item
-position: -200,0
-color: yellow
-group: timer
-actor: NARRATOR
----
-Il timer di cartapesta del carista! #line:dev112_timer_1
-<<set $timer = true>>
-<<collect>>
-===
-
 title: timer_raccolto
 position: 200,0
 color: green
 group: leone
 actor: NARRATOR
 ---
-<<set $CARISTA3_DONE = true>>
-Hai trovato il timer! #line:dev112_timer_ok_1
+<<set $timer = true>>
+Hai trovato il timer di cartapesta del carista! #line:dev112_timer_ok_1
 Torna dal carista. #line:dev112_timer_ok_2
 <<SetMapIcon carista3 "done">>
 <<target carista3>>
-<<jump Carista3_DopoTimer>>
 ===
 
 title: Carista3_DopoTimer
@@ -359,6 +323,5 @@ prima di arrivare al punto di non ritorno.#line:dev112_carista3_dopo_8
 Adesso cerca glialtri colleghi. #line:dev112_carista3_dopo_9
 Hanno ancora bisogno di te! #line:dev112_carista3_dopo_10
 <<SetMapIcon carista "on">>
-<<target carista>>
-<<area area_piazza>>
+<<set $CARISTA3_DONE = true>>
 ===
