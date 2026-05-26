@@ -19,6 +19,7 @@ type: panel
 <<declare $stibbert_parata_met = false>>
 <<declare $stibbert_armature_met = false>>
 <<declare $armatura_done = false>>
+<<declare $armatura_completed = false>>
 <<declare $quadri_done = false>>
 <<declare $armature_done = false>>
 <<declare $costumi_done = false>>
@@ -88,13 +89,13 @@ color: purple
     <<SetActive muro_stanze false>>
     <<SetActive armatura_parata_container true>>
 <<elseif $armatura_done == true>>
+    L'armatura è stata riassemblata, passiamo alla prossima stanza!
 <<elseif HasCompletedTask("collect_armatura_parata")>>
     Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente!
     Ora non resta che assemblarla!
     Posizionati nel punto dove devi inserirla e ricomponila.
 <<elseif $stibbert_parata_met == true>>
     Dove saranno gli altri pezzi dell'armatura?
-La parata delle armature è finalmente stata ricomposta! Ottimo lavoro!
 <<endif>>
 ===
 
@@ -102,6 +103,7 @@ title: collect_armatura_parata_end
 ---
 <<set $collect_armatura_parata_state= 2>>
     Hai tutti i pezzi dell'armatura!
+    <<set $armatura_collected = true>>
 ===
 
 title: interactable_parata
@@ -122,7 +124,8 @@ title: jigsaw_parata_result
 <<if GetActivityResult ("jigsaw_parata") > 0>>
     Hai assemblato correttamente l'armatura, complimenti!
     <<set $armatura_done = true>>
-<<else>>
+    <<SetActive interactable_parata false>>
+<<elseif GetActivityResult ("jigsaw_parata") < 0>>
     Mmm... non sembra assemblata nel modo corretto.
 <<endif>>
 ===
