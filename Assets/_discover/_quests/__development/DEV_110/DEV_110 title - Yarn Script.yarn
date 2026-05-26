@@ -1,24 +1,26 @@
 ﻿title: quest_start
+type: panel
 ---
 Player you have a quest :
 Guide Dante and protect him from evil!
-Go speak to Dante. #task:meet_dante
-<<task_start meet_dante>>
+Go speak to Dante.
 <<target Dante>>
 ===
 title: Dante_Intro
 ---
 <<party_join Dante>>
 When I had journeyed half of our life's way, #card:Dante
-I found myself within a shadowed forest,
-for I had lost the path that does not stray. #task:Hilltop
+I found myself within a shadowed forest, 
+for I had lost the path that does not stray.
 <<target Hilltop>>
-<<SetActive false area_init>>
-<<SetActive true area_hilltop>>
+<<SetActive area_init false>>
+<<SetActive area_hilltop true>>
+<<detour NextStep>>
 ===
-title: Hilltop
+title: Top
 ---
 //time night
+<<camera_focus Hilltop_camera>>
 <<task_start reach_top>> 
 <<target Hilltop>>
 ===
@@ -27,8 +29,8 @@ title: Lynx
 A lynx stops Dante in his tracks, forcing him to backtrack.
 <<task_start Run>>
 <<target Hideout>>
-<<setActive false area_hilltop>>
-<<setActive true area_lion>>
+<<SetActive false area_hilltop>>
+<<SetActive true area_lion>>
 
 //time day
 The morning sun shines on Dante, he was not out of danger yet...
@@ -59,7 +61,7 @@ title: Fight
 Activity - Small "fight" in turn based to get back player's attention and give him a fun way to get out of the situation using what he has learned.
 // Dante - Skills : Clarity - Courage - Virgil's Help 
 ===
-
-title: meet_dante
+title: NextStep
 ---
+We need to go deeper...
 ===
