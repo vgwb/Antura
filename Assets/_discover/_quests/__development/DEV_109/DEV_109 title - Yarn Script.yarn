@@ -1,7 +1,6 @@
 ﻿// dev_109
 
 title: quest_start
-
 position: 0,0
 tags: Start
 color: red
@@ -127,7 +126,7 @@ Bzzzz... Oh... Che fame! Che sfinimento!
 -> Ecco un'ape! Tutto bene?
     Mica tanto! Ho le ali stanche e la pancia vuota! *Bzz-zuff...*
 
-Ascolta, signor micio... hai visto un fiore di salvia qui intorno? Ne ho un bisogno disperato! Il loro nettare mi salverebbe!
+Hai visto un fiore di salvia qui intorno? Ne ho un bisogno disperato! Il loro nettare mi salverebbe!
 
 -> Ne cerco subito uno attaccato alla pianta!
     Aspetta, aspetta! No, fermati! Non farlo! 
@@ -152,4 +151,110 @@ title: Fiore_Trovato
 Ape Bzz: *SLURP!* Che delizia! Che salvia dolce! 
 Ape Bzz: Grazie mille, mi hai salvato senza fare del male a nessuno! Volo all'alveare! BZZZZZZ!
 
+===
+
+title: Ape2
+tags: 
+
+---
+
+
+F... Faaameeeeee... Zzr...
+
+-> Fame?
+    Fame!
+
+Ti prego... Peonia...
+
+-> Cos'è Peonia?
+    Un fiore... Di peonia... Per favore... 
+-> Ti serve un fiore?
+    Sì... Nettare... Di peonia...!
+
+Cresce... Qui vicino... 
+
+Per favore!
+
+-> In arrivo!
+    Grazie...!
+    
+   
+===
+
+title: Fiore_Trovato1
+---
+Slurp! 
+Finalmente! Riesco a volare!
+Grazie, gentile straniero!
+
+===
+title: Incontro_Con_Bzz
+tags: 
+
+---
+<<declare $ha_trovato_fiore = false as bool>>
+
+Ape Tzz: Tzzz... Ehi... Ho visto che hai aiutato gli altri!
+
+-> Serve un fiore anche a te?
+    Ape Tzz: Hai indovinato!
+
+Ape Tzz: Conosci l'azalea? è una bellissima pianta ornamentale...
+
+-> cerco
+    Ape Tzz: grz
+    
+-> cerco
+    Ape Tzz: grz
+
+Ape Tzz: non staccarla 
+
+Ape Tzz: trovane uno caduto
+
+Ape Tzz: pls
+
+-> Va bene, mi metto a cercare!
+    Ape Tzz: Grazie mille!
+    <<set $ha_trovato_fiore = true>>
+    <<jump Fiore_Trovato>>
+===
+
+title: Fiore_Trovato2
+---
+Ape Tzz: om nom nom 
+Ape Tzz: c'è un bambino che rompe
+
+===
+title: Incontro_Con_Bimbo
+tags: 
+---
+<<declare $bambino_ha_capito = false>>
+
+Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
+
+-> Ehi! Che cosa stai facendo con quel bastone?
+    Oh, ciao! Sto facendo l'eroe! Sto scacciando tutte le api prima che pungano qualcuno! 
+-> Fermati! Così spaventi tutte le api!
+    Ma io voglio spaventarle! Sono un cavaliere e sto proteggendo il prato dalle bestie feroci!
+
+-> Guarda che le api non sono cattive, sono amiche dei fiori!
+    Amiche? Ma hanno un pungiglione e fanno male!
+-> Se le scacci, i fiori rimarranno tristi e non nasceranno i frutti...
+    I frutti? E cosa c'entrano le api con la frutta? Loro fanno solo "bzzz"!
+
+-> C'entrano! Portano il polline da un fiore all'altro per farlo crescere!
+    Davvero? Quindi aiutano le piante a nascere?
+-> Senza di loro non avremmo più le arance!
+    Aspetta... quindi niente spremuta?
+
+Ahh... allora non sono un eroe, sto combinando un pasticcio! Io adoro la spremuta!
+
+-> Esatto! Le api pungono solo se hanno paura. Dobbiamo proteggerle!
+    Gulp... Hai ragione. Mi dispiace di averle spaventate.
+
+Mi sa che ho fatto un guaio...
+
+-> Perché non cambi missione e le proteggi?
+    <<set $bambino_ha_capito = true>>
+    Hai ragione!!
 ===
