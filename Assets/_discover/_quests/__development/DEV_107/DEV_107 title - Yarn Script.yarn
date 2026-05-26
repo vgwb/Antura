@@ -26,6 +26,8 @@ type: panel
 <<SetActive  pesci2 false>>
 <<SetActive  pesci3 false>>
 <<SetActive  pesci4 false>>
+<<SetActive  pesci5 false>>
+<<SetActive  pesci6 false>>
 <<SetActive  verrocchio false>>
 <<SetActive  scatole false>>
 <<SetActive  scatole1 false>>
@@ -35,6 +37,10 @@ type: panel
 <<SetActive  scatole5 false>>
 <<SetActive  scatole6 false>>
 <<SetActive  scatole7 false>>
+<<SetActive  scatole8 false>>
+<<SetActive  scatole9 false>>
+<<SetActive  scatole10 false>>
+<<SetActive  scatole11 false>>
 Welcome to this quest #line:001e374 
 <<teleport bottega>>
 ===
@@ -91,10 +97,6 @@ title: colori_raccolti
 grazie adesso andiamo a vedere il Rinascimento
 no aspetta che stai facendo Antura?
 FERMOOOOO!!!!
-<<SetActive  pesci1 true>>
-<<SetActive  pesci2 true>>
-<<SetActive  pesci3 true>>
-<<SetActive  pesci4 true>>
 <<SetActive  verrocchio true>>
 <<SetActive  scatole true>>
 <<SetActive  scatole1 true>>
@@ -104,6 +106,10 @@ FERMOOOOO!!!!
 <<SetActive  scatole5 true>>
 <<SetActive  scatole6 true>>
 <<SetActive  scatole7 true>>
+<<SetActive  scatole8 true>>
+<<SetActive  scatole9 true>>
+<<SetActive  scatole10 true>>
+<<SetActive  scatole11 true>>
 <<camera_reset>>
 oh no accidenti la macchina si è rotta
 dobbiamo trovare qualcuno che ci aiuti a ripararla
@@ -146,6 +152,12 @@ ciao piccolo gattino che ci fai qui?
         deve essere bianco mi serve come modello per la mia opera
         <<task_start colomba_bianca verrocchio_completato>>
         <<set $parlato_verrocchio = true>>
+        <<SetActive  pesci1 true>>
+        <<SetActive  pesci2 true>>
+        <<SetActive  pesci3 true>>
+        <<SetActive  pesci4 true>>
+        <<SetActive  pesci5 true>>
+        <<SetActive  pesci6 true>>
     -> miao
         sei un gatto molto strano
 ->miao
@@ -170,14 +182,26 @@ title: verrocchio_completato
 bravo adesso portamela qui
 ===
 
+title: firenze
+---
+<<teleport firenze>>
+===
+
+title: Leonardo_firenze
+---
+prima di tutto mi serve che mi porti i miei attrezzi
+si trovano da qualche parte
+non ricordo dove li ho messi
+===
+
 title: Leonardo_Da_Vinci
 ---
-<<if $completati == 3>>
+<<if $completati >= 3>>
 grazie mille adesso tutti sono felici
 verrò ad aiutarti con il tuo problema andiamo
-<<area inizio>>
+<<jump Leonardo_firenze>>
 <<endif>>
-<<if $completati > 3 >>
+<<if $completati < 3 >>
 qui nessuno capisce il mio genio
 il maestro ci sta usando per le sue opere
 noi le facciamo e lui si prende i meriti
@@ -188,7 +212,6 @@ oh ciao piccolo gattino che cosa ci fai qui?
     -> che devo fare?
         risolvi i loro problemi dicendo che ti ho detto io come fare
         <<set $Leonardo_1 = true>>
-
     -> miao
         perchè sto parlando con un gatto
 -> miao
@@ -214,6 +237,7 @@ ciao gattino
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
 <<endif>>
 <<if $Leonardo_1== true>>
+<<if $botticelli== false>>
 accidenti a quel Leonardo
 mi ha rovinato tutto
 ->ciao scusa cos'è successo?
@@ -227,9 +251,14 @@ mi ha rovinato tutto
         troverò un altro modo
 ->miao?
     che carino
-<<endif>>
+<<endif>><<endif>>
 <<if $botticelli== true>>
+<<card primavera_botticelli>>
 grazie gattino adesso posso completare la mia primavera
+vedi mi è stata commissionata dal cugino di Lorenzo il Magnifico
+come dice il nome rappresenta la primavera
+ogni figura in questo quadro rappresenta una divinità greca collegata alla primavera
+come Mercuirio a destra che scaccia le nuvole cariche di pioggia
 -> Leonardo mi ha detto di dirti che gli dispiace
     oh scuse accettate
     solo la prossima volta me lo può semplicemente chiedere
@@ -319,7 +348,7 @@ come farò adesso?!
     -> va bene
         dovrebbero esserci dei secchio di colore a giro per la bottega
         mi bastano quelli per ricreare i miei colori
-        <<task_start ghirlandaio>>
+        <<task_start ghirlandaio Ghirlandaio_completato>>
     -> no miao
         va bene grazie comunque
 ->miao?
