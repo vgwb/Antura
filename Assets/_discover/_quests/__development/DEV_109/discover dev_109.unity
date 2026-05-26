@@ -630,7 +630,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.18313497
+      value: -0.25464833
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -640,7 +640,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2632703
+      value: 1.281645
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -1265,6 +1265,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1146628727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146628728}
+  m_Layer: 0
+  m_Name: Bambino
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1146628728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146628727}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.22806, y: 0, z: 4.38465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1869558649}
+  m_Father: {fileID: 1786252495}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1445533663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1586,92 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39f710d285d38544bc283f5e522411a, type: 3}
+--- !u!1001 &1659478906
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1146628728}
+    m_Modifications:
+    - target: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_Name
+      value: cauliflower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.302
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485019932739178731, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7192415596403208298, guid: a1ef776e69f844b25862b22aa0fe0705, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1869558652}
+    - targetCorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1869558651}
+    - targetCorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1869558650}
+  m_SourcePrefab: {fileID: 100100000, guid: a1ef776e69f844b25862b22aa0fe0705, type: 3}
 --- !u!1001 &1670434582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1562,6 +1680,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2405692724918401228, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
+        type: 3}
+    - target: {fileID: 2405692724918401228, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: Incontro_Con_Bzz
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470635541147328224, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
+        type: 3}
+    - target: {fileID: 2470635541147328224, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: Ape2
+      objectReference: {fileID: 0}
     - target: {fileID: 4134891310058005963, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1622,6 +1762,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7950868484977537964, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
+        type: 3}
+    - target: {fileID: 7950868484977537964, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: Incontro_Con_Bimbo
+      objectReference: {fileID: 0}
     - target: {fileID: 8036683522627513421, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1630,7 +1781,7 @@ PrefabInstance:
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
       propertyPath: QuestTasks.Array.size
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
@@ -1654,6 +1805,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
+      propertyPath: QuestTasks.Array.data[4].Code
+      value: TrovaLUltimaApe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[4].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[5].Code
+      value: AiutaTzz
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[5].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[6].Code
+      value: TrovaIlBambino
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[6].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
       propertyPath: QuestTasks.Array.data[1].ItemTag
       value: Salvia
       objectReference: {fileID: 0}
@@ -1669,12 +1850,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
+      propertyPath: QuestTasks.Array.data[4].ItemTag
+      value: Flowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[5].ItemTag
+      value: Flowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[6].ItemTag
+      value: Bimbo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
       propertyPath: QuestTasks.Array.data[2].ItemCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
       propertyPath: QuestTasks.Array.data[3].ItemCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[4].ItemCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[5].ItemCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[6].ItemCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
@@ -1686,7 +1897,22 @@ PrefabInstance:
         type: 3}
       propertyPath: QuestTasks.Array.data[3].ItemsContainer
       value: 
-      objectReference: {fileID: 675511967}
+      objectReference: {fileID: 2073023110}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[4].ItemsContainer
+      value: 
+      objectReference: {fileID: 617285973}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[5].ItemsContainer
+      value: 
+      objectReference: {fileID: 1757767861}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[6].ItemsContainer
+      value: 
+      objectReference: {fileID: 1146628727}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
       propertyPath: QuestTasks.Array.data[2].TaskNode.project
@@ -1701,13 +1927,51 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
+      propertyPath: QuestTasks.Array.data[4].TaskNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
+        type: 3}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[5].TaskNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
+        type: 3}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[6].TaskNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
+        type: 3}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[0].TaskNode.nodeName
+      value: Missione
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
       propertyPath: QuestTasks.Array.data[2].TaskNode.nodeName
-      value: Ape1
+      value: Fiore_Trovato
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
       propertyPath: QuestTasks.Array.data[3].TaskNode.nodeName
-      value: Ape1
+      value: Ape2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[4].TaskNode.nodeName
+      value: Fiore_Trovato1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[5].TaskNode.nodeName
+      value: Incontro_Con_Bzz
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389871001135018075, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[6].TaskNode.nodeName
+      value: Fiore_Trovato2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1728,6 +1992,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 617285974}
+    - targetCorrespondingSourceObject: {fileID: 5512520045871801754, guid: 150035a49d5f84c799fa54eff6e2e610,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1146628728}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8003412269525124127, guid: 150035a49d5f84c799fa54eff6e2e610,
         type: 3}
@@ -1760,7 +2028,7 @@ Transform:
   m_GameObject: {fileID: 1757767861}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.26, y: 0.16, z: -14.54}
+  m_LocalPosition: {x: 16.25, y: 0.16, z: -17.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2022,6 +2290,95 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cda05f1090a52c64e9792863a069b77a, type: 3}
+--- !u!1 &1869558648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5737915434267749187, guid: a1ef776e69f844b25862b22aa0fe0705,
+    type: 3}
+  m_PrefabInstance: {fileID: 1659478906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1869558649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6287399376107744417, guid: a1ef776e69f844b25862b22aa0fe0705,
+    type: 3}
+  m_PrefabInstance: {fileID: 1659478906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1869558650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869558648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: Bimbo
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 1
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: fc1d975ae728c44448f9db436d9f1944,
+      type: 3}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
+--- !u!114 &1869558651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869558648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
+  IsHiddenAtStart: 0
+  AutoCollect: 1
+  Type: 3
+  ItemTag: Bimbo
+  AddToInventory: 0
+  particleEffectPrefab: {fileID: 0}
+  enableRotation: 1
+  rotationSpeed: 100
+  bobbingAmount: 0.1
+  bobbingSpeed: 1
+--- !u!65 &1869558652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869558648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1872871018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2223,7 +2580,7 @@ Transform:
   m_GameObject: {fileID: 2073023110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.26, y: 0.16, z: -14.54}
+  m_LocalPosition: {x: 19.3, y: 0.16, z: -14.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
