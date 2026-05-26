@@ -44,8 +44,9 @@ actor: NARRATOR
 <<declare $attempts_michelangelo = 0>>
 <<declare $attempts_bernini = 0>>
 <<declare $talked_to_francesco = false>>
+<<declare $quest_complete = false>>
 
-<<card cave_carrara_intro>>
+<<card cave_carrara_intro_Card>>
 Welcome to the Carrara marble quarries!
 These white mountains are famous all over the world.
 
@@ -63,16 +64,29 @@ group: francesco
 color: blue
 actor: ADULT_M
 ---
-<<card cave>>
-Hi! I'm Francesco, a quarry worker.
-Today I'll show you how marble is extracted.
-Take a look at this machine — it's incredibly powerful!
-<<action show_machine>>
-Let me start it up...
-<<action start_machine_fail>>
-Wait... it's not working!
-Something's wrong.
-<<jump talk_antura_guilty>>
+<<if $quest_complete>>
+    Great work today! The quarry is running again.
+    You will never forget the secrets of the white mountain!
+<<elseif $talked_to_francesco and $COLLECTED_ITEMS >= 3>>
+    You found all the pieces! Come here, let me fix the machine.
+    <<jump talk_francesco_finale>>
+<<elseif $talked_to_francesco>>
+    The machine is still broken.
+    Please help me find the pieces.
+    Go ask the spirits of the quarry!
+    <<target npc_nicola>>
+<<else>>
+    <<card cave>>
+    Hi! I'm Francesco, a quarry worker.
+    Today I'll show you how marble is extracted.
+    Take a look at this machine — it's incredibly powerful!
+    <<action show_machine>>
+    Let me start it up...
+    <<action start_machine_fail>>
+    Wait... it's not working!
+    Something's wrong.
+    <<jump talk_antura_guilty>>
+<<endif>>
 ===
 
 title: talk_antura_guilty
@@ -97,16 +111,7 @@ Maybe the spirits of the quarry will help you.
 <<SetMapIcon npc_bernini "on">>
 <<target npc_nicola>>
 ===
-title: Talk_francesco_quest_given
-group: francesco
-color:blue
----
-<<if $talked_to_francesco>>
-The machine is still broken.
-please help me fine the pieces
-go ask the spirits of the quarry!
-<<endif>>
-===
+
 // ═══════════════════════════════════════════════════════════
 // SCENE B1 — SPIRIT OF NICOLA PISANO
 // ═══════════════════════════════════════════════════════════
@@ -122,12 +127,12 @@ actor: SENIOR_M
     Go find Francesco first.
     <<target npc_francesco>>
 <<elseif $piece_nicola>>
-    Well done! You already have my piece.
+    You already have my piece.
     Go find the other spirits.
 <<else>>
     I am Nicola Pisano, a medieval sculptor.
     It was the year 1260 when I first came here.
-    <<card pisano_Card>>
+    <<card pisano>>
     I chose this marble for the Baptistery of Pisa.
     But before making art... you need to extract the marble!
     Let me explain how it has been done through the centuries.
@@ -141,9 +146,9 @@ group: nicola
 color: blue
 actor: SENIOR_M
 ---
+<<card cava_romana>>
 First technique: the wooden wedge.
 The Romans pushed fig-wood wedges into cracks in the rock.
-<<card cava_romana_Card>>
 Then they soaked the wood — as it swelled, it split the stone!
 Clever, wasn't it?
 <<jump nicola_technique_2>>
@@ -155,8 +160,8 @@ group: nicola
 color: blue
 actor: SENIOR_M
 ---
+<<card esplosivi_cave>>
 Second technique: explosives.
-<<card esplosivi_cave_Card>>
 From 1600 onwards, workers used gunpowder in the quarries.
 They blasted the mountainside to break off the blocks.
 It was fast, but it destroyed a lot of marble.
@@ -171,7 +176,7 @@ color: blue
 actor: SENIOR_M
 ---
 Third technique: the diamond wire.
-<<card macchinari_moderni_Card>>
+<<card macchinari_moderni>>
 Since 1970, a steel wire coated in industrial diamonds has been used.
 It cuts the rock with perfect precision and no waste.
 In one day, you can cut what once took three whole months!
@@ -187,7 +192,7 @@ actor: SENIOR_M
 ---
 Match each technique to its correct era.
 You can do it!
-<<activity match_the_technique nicola_activity_result normal>>
+<<activity Match the technique nicola_activity_result normal>>
 ===
 
 title: nicola_activity_result
@@ -197,7 +202,7 @@ color: purple
 actor: SENIOR_M
 ---
 <<set $attempts_nicola = $attempts_nicola + 1>>
-<<if GetActivityResult("match_the_technique") > 0>>
+<<if GetActivityResult("Match the technique") > 0>>
     <<jump nicola_success>>
 <<else>>
     <<jump nicola_fail>>
@@ -211,7 +216,7 @@ color: purple
 actor: SENIOR_M
 ---
 Almost! Try again.
-Wooden wedge... diamond wire... explosives.
+Wooden wedge... explosives... diamond wire.
 <<if $attempts_nicola >= 2>>
     <<jump nicola_skip>>
 <<else>>
@@ -229,7 +234,6 @@ All right, let me help you a little.
 The Romans used the wooden wedge.
 In the 1600s they used explosives.
 Today we use the diamond wire.
-<<cookies_add 1>>
 <<jump nicola_success>>
 ===
 
@@ -244,7 +248,6 @@ Take this piece of the machine.
 <<collect piece_nicola>>
 <<set $piece_nicola = true>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
-<<cookies_add 2>>
 <<SetMapIcon npc_nicola "done">>
 <<if $COLLECTED_ITEMS >= 3>>
     <<jump check_all_pieces>>
@@ -274,7 +277,7 @@ actor: SENIOR_M
 <<else>>
     I am Michelangelo Buonarroti.
     Perhaps the greatest sculptor who ever lived.
-    <<card michelangelo_Card>>
+    <<card michelangelo>>
     I came to Carrara in person to choose my blocks.
     I spent eight months in these quarries just for the Tomb of Julius II.
     I trusted no one else to choose the marble for me.
@@ -303,7 +306,7 @@ group: michelangelo
 color: blue
 actor: SENIOR_M
 ---
-<<card lizzatura_Card>>
+<<card lizzatura>>
 But do you know how the marble reached Florence or Rome?
 These blocks weigh as much as ten cars.
 There were no trucks, no trains.
@@ -324,7 +327,7 @@ actor: SENIOR_M
 ---
 Draw the lizza on the canvas.
 Show me you understood!
-<<activity canvas_michelangelo michelangelo_activity_result normal>>
+<<activity Canvas_michelangelo michelangelo_activity_result normal>>
 ===
 
 title: michelangelo_activity_result
@@ -334,7 +337,7 @@ color: purple
 actor: SENIOR_M
 ---
 <<set $attempts_michelangelo = $attempts_michelangelo + 1>>
-<<if GetActivityResult("canvas_michelangelo") > 0>>
+<<if GetActivityResult("Canvas_michelangelo") > 0>>
     <<jump michelangelo_success>>
 <<else>>
     <<jump michelangelo_fail>>
@@ -373,13 +376,11 @@ group: michelangelo
 color: blue
 actor: SENIOR_M
 ---
-Well done! You found everything.
-You know the quarrymen's tools.
+Magnificent! You understand the lizzatura.
 Take this piece of the machine.
 <<collect piece_michelangelo>>
 <<set $piece_michelangelo = true>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
-<<cookies_add 2>>
 <<SetMapIcon npc_michelangelo "done">>
 <<if $COLLECTED_ITEMS >= 3>>
     <<jump check_all_pieces>>
@@ -406,11 +407,12 @@ actor: ADULT_M
 <<elseif $piece_bernini>>
     You already have my piece! Well done, young artist.
     Go back to Francesco now.
+    <<target npc_francesco>>
 <<else>>
     I am Gian Lorenzo Bernini!
     Sculptor, architect, painter.
     I changed the way marble was used forever.
-    <<card apollo_e_dafne_bernini_Card>>
+    <<card apollo_e_dafne_bernini>>
     Look at Apollo and Daphne — I carved it between 1622 and 1625.
     I was only twenty-three years old when I began!
     <<jump bernini_explain_apollo>>
@@ -438,7 +440,7 @@ group: bernini
 color: blue
 actor: ADULT_M
 ---
-<<card macchinari_moderni_Card>>
+<<card macchinari_moderni>>
 In my time, marble was cut with chisels and mallets.
 Every millimetre was sweat and effort.
 Today there is the diamond wire: a steel wire coated in industrial diamonds.
@@ -458,7 +460,7 @@ actor: ADULT_M
 ---
 Reassemble the pieces of Apollo and Daphne.
 Four pieces. You can do it!
-<<activity berninijigsaw bernini_activity_result normal>>
+<<activity BerniniJigsaw bernini_activity_result normal>>
 ===
 
 title: bernini_activity_result
@@ -468,7 +470,7 @@ color: purple
 actor: ADULT_M
 ---
 <<set $attempts_bernini = $attempts_bernini + 1>>
-<<if GetActivityResult("berninijigsaw") > 0>>
+<<if GetActivityResult("BerniniJigsaw") > 0>>
     <<jump bernini_success>>
 <<else>>
     <<jump bernini_fail>>
@@ -498,7 +500,6 @@ actor: ADULT_M
 ---
 I'll give you a little help this time.
 Start with the largest piece.
-<<cookies_add 1>>
 <<jump bernini_success>>
 ===
 
@@ -514,7 +515,6 @@ Take the last piece of the machine.
 <<collect piece_bernini>>
 <<set $piece_bernini = true>>
 <<set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1>>
-<<cookies_add 2>>
 <<SetMapIcon npc_bernini "done">>
 <<jump check_all_pieces>>
 ===
@@ -530,6 +530,9 @@ color: green
 actor: NARRATOR
 ---
 <<task_end collect_pieces>>
+<<SetMapIcon npc_nicola "off">>
+<<SetMapIcon npc_michelangelo "off">>
+<<SetMapIcon npc_bernini "off">>
 <<target npc_francesco>>
 <<area area_square>>
 You have all three pieces!
@@ -552,7 +555,7 @@ I'm putting the machine back together...
 There we go! Let's try it now.
 <<action start_machine_success>>
 It works! Can you hear the wire?
-<<card cave_notte_Card>>
+<<card cave_notte>>
 Today Carrara has 165 active quarries.
 The marble leaves by ship from the port to the whole world.
 Tell me: what is the technique we use today?
@@ -609,7 +612,7 @@ color: purple
 actor: ADULT_M
 ---
 Time to answer the questions about the quarries.
-<<activity finalquiz quest_end_check normal>>
+<<activity Finalquiz quest_end_check normal>>
 ===
 
 title: quest_end_check
@@ -618,7 +621,7 @@ group: finale
 color: green
 actor: NARRATOR
 ---
-<<if GetActivityResult("finalquiz") > 0>>
+<<if GetActivityResult("Finalquiz") > 0>>
     <<jump quest_end>>
 <<else>>
     <<jump quiz_retry>>
@@ -632,7 +635,7 @@ color: purple
 actor: ADULT_M
 ---
 Try again! Use what you have learned.
-<<activity finalquiz quest_end_check normal>>
+<<activity Finalquiz quest_end_check normal>>
 ===
 
 // ═══════════════════════════════════════════════════════════
@@ -645,6 +648,7 @@ color: green
 type: panel_endgame
 actor: NARRATOR
 ---
+<<set $quest_complete = true>>
 You fixed the machine!
 You met three great artists.
 Now you know how Carrara marble is born.
