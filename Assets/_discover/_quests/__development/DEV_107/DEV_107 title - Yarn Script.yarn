@@ -18,6 +18,10 @@ type: panel
 <<set $botticelli= false>>
 <<declare  $perugino= false>>
 <<set $perugino= false>>
+<<declare  $ghirlandaio= false>>
+<<set $ghirlandaio= false>>
+<<declare $completati= 0>>
+<<set $completati = 0>>
 <<SetActive  pesci1 false>>
 <<SetActive  pesci2 false>>
 <<SetActive  pesci3 false>>
@@ -85,6 +89,8 @@ title: colori_raccolti
 ---
 <<camera_focus cielo>>
 grazie adesso andiamo a vedere il Rinascimento
+no aspetta che stai facendo Antura?
+FERMOOOOO!!!!
 <<SetActive  pesci1 true>>
 <<SetActive  pesci2 true>>
 <<SetActive  pesci3 true>>
@@ -98,6 +104,11 @@ grazie adesso andiamo a vedere il Rinascimento
 <<SetActive  scatole5 true>>
 <<SetActive  scatole6 true>>
 <<SetActive  scatole7 true>>
+<<camera_reset>>
+oh no accidenti la macchina si è rotta
+dobbiamo trovare qualcuno che ci aiuti a ripararla
+dovrebbe esserci Leonardo Da Vinci da queste parti
+cercalo mi deve aiutare a riparare la macchina sennò rimaremo bloccati qui per sempre
 ===
 
 title: orologio_sx
@@ -161,6 +172,12 @@ bravo adesso portamela qui
 
 title: Leonardo_Da_Vinci
 ---
+<<if $completati == 3>>
+grazie mille adesso tutti sono felici
+verrò ad aiutarti con il tuo problema andiamo
+<<area inizio>>
+<<endif>>
+<<if $completati > 3 >>
 qui nessuno capisce il mio genio
 il maestro ci sta usando per le sue opere
 noi le facciamo e lui si prende i meriti
@@ -176,6 +193,7 @@ oh ciao piccolo gattino che cosa ci fai qui?
         perchè sto parlando con un gatto
 -> miao
     che gatto particolare
+<<endif>>
 ===
 
 title: Botticelli
@@ -223,18 +241,19 @@ title: Botticelli_completato
 <<camera_focus botticelli>>
 grazie mille porta qui tutto quello che hai trovato
 <<set $botticelli= true>>
+<<set $completati = $completati + 1>>
 ===
 
 title: Perugino
 ---
 <<if $Leonardo_1 == false>>
-ciao gattino
+che carino cosa ci fai qui?
 -> sai dove posso trovare Leonardo Da Vinci?
     si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
     non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
 -> chi sei?
     sono Pietro Perugino
-    se non fosse per quel Leonardo sarei già a buon punto con la mia opera
+    per colpa di quel Leonardo sto impazzendo
     -> sai dove si trova?
         si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
@@ -244,27 +263,83 @@ ciao gattino
 <<endif>>
 <<if $Leonardo_1== true>>
 accidenti a quel Leonardo
-mi ha rovinato tutto
+dove l'avrà mai messa
 ->ciao scusa cos'è successo?
-    Leonardo mi ha appena distrutto la frutta che dovevo usare
-    mi serviva come modello per la mia opera
-    ma lui è arrivato ha distrutto tutto e se l'è portata via
-    puoi trovarmi altri soggetti?
+    Leonardo mi ha nascosto le chiavi di casa
+    senza quelle non posso andare a casa
+    mi puoi aiutare a trovarle?
     -> va bene
+        mi ha dato solo un indizio di dove l'ha nascosta
+        qualcosa riguardo ad uno dei miei quadri
         <<task_start chiave>>
     -> no miao
-        troverò un altro modo
+        va bene grazie comunque
 ->miao?
     che carino
 <<endif>>
 <<if $perugino== true>>
-grazie gattino adesso posso completare la mia primavera
+grazie gattino adesso posso finalmente tornare a casa
 -> Leonardo mi ha detto di dirti che gli dispiace
     oh scuse accettate
-    solo la prossima volta me lo può semplicemente chiedere
+    solo la prossima volta me le nasconda in modo più visibile
 <<endif>>
 ===
 
+title: Perugino_completato
+---
+<<camera_focus perugino>>
+grazie mille porta qui tutto quello che hai trovato
+<<set $perugino= true>>
+<<set $completati = $completati + 1>>
+===
+
+title: Ghirlandaio 
+---
+<<if $Leonardo_1 == false>>
+che carino cosa ci fai qui?
+-> sai dove posso trovare Leonardo Da Vinci?
+    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
+    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+-> chi sei?
+    sono Domenico Ghirlandaio
+    per colpa di quel Leonardo non riesco più a disegnare
+    -> sai dove si trova?
+        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    -> che cosa ha fatto?
+        fattelo raccontare da lui si trova a sinistra dell' entrata
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+<<endif>>
+<<if $Leonardo_1== true>>
+accidenti a quel Leonardo
+come farò adesso?!
+->ciao scusa cos'è successo?
+    Leonardo mi ha rovinato i colori che dovevo usare
+    mi puoi aiutare a ritrovarli?
+    -> va bene
+        dovrebbero esserci dei secchio di colore a giro per la bottega
+        mi bastano quelli per ricreare i miei colori
+        <<task_start ghirlandaio>>
+    -> no miao
+        va bene grazie comunque
+->miao?
+    che carino
+<<endif>>
+<<if $perugino== true>>
+grazie gattino adesso posso finalmente tornare a casa
+-> Leonardo mi ha detto di dirti che gli dispiace
+    oh scuse accettate
+    digli che però la prossima volta deve stare più attento
+<<endif>>
+===
+
+title: Ghirlandaio_completato
+---
+<<camera_focus ghirlandaio>>
+grazie mille porta qui tutto quello che hai trovato
+<<set $ghirlandaio= true>>
+<<set $completati = $completati + 1>>
+===
 
 title: ll_tourist
 position: 262,294

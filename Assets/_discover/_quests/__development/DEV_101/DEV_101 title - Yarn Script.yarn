@@ -11,10 +11,13 @@ Risolvi i problemi in città.
 <<target guido>>
 ===
 
-
 title: guido_encounter
 position: 740,-138
 ---
+<<if visited("guido_encounter")>>
+Andiamo!
+Non c'è tempo da perdere.
+<<else>>
 <<task_end incontra_guido>>
 Ti do il benvenuto in città!
 Io sono Guido d'Arezzo, monaco e musicista.
@@ -23,6 +26,7 @@ Ma oggi è un giorno molto triste...
 Quel birbante di Antura ha sparpagliato le pagine del nostro spartito per tutta Arezzo!
 Senza di loro, il coro della Cattedrale non può cantare.
 <<jump guido_choice>>
+<<endif>>
 ===
 
 title: guido_choice
@@ -42,8 +46,7 @@ Grazie mille!
 Sarò la tua guida in città.
 Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
 Andiamo!
-<<party_join guido>> <<task_start collect_pages pages_collected>>
-<<target page_do>> <<target turista>>
+<<party_join guido>> <<task_start collect_pages pages_collected>> 
 ===
 
 title: pagine_da_raccogliere
@@ -62,7 +65,9 @@ Ti prego, ho davvero bisogno di aiuto!
 title: pages_collected
 ---
 <<if HasCompletedTask ("collect_pages")>>
+Do, Re, Mi, Fa, Sol, La, Si... 
 Hai raccolto tutte le pagine!
+Grazie mille!
 Andiamo al duomo e consegnamole al coro.
 <<task_start give_pages>>
 <<target cantore>>
@@ -74,7 +79,6 @@ Andiamo al duomo e consegnamole al coro.
 title: piazza_guido
 ---
 <<if visited("piazza_guido")>>
-    <<stop>>
 <<else>>
 <<card piazzaguido>>
 Questa è Piazza Guido Monaco, la piazza che porta il mio nome!
@@ -83,26 +87,63 @@ Mi hanno fatto più bello di quanto non sono!
 <<endif>>
 ===
 
+title: npc_piazza_guido
+---
+Hai visto la statua?
+È uno degli aretini più famosi della storia.
+Grazie a lui oggi possiamo leggere e scrivere la musica!
+===
 
+title: page_pentagramma
+---
+<<card pentagramma_vuoto_changed>>
+Hai trovato il Pentagramma!
+È il foglio su cui si scrivono le note.
+Ha 5 righe e 4 spazi. Le note si posizionano su queste righe e spazi.
+Ma è ancora vuoto... dobbiamo trovare le note!
+<<collect>>
+===
 
 ///////// ANFITEATRO ROMANO //////////
 
 title: anfiteatroromano
 ---
 <<if visited("anfiteatroromano")>>
-    <<stop>>
 <<else>>
 <<card anfiteatroromano>>
 Questo è l'Anfiteatro Romano di Arezzo, costruito tantissimo tempo fa.
 Qui i romani venivano a guardare recite e opere teatrali.
+Cerchiamo tra le rovine, forse una pagina è nascosta qui!
 <<endif>>
 ===
 
-
-title: cantore
+title: turista_chimera
 ---
-<<task_end give_pages>>
-Grazie mille ora possiamo tornare a cantare!
+Lo sapevi?
+Proprio qui vicino, fu trovata la Chimera di Arezzo, una statua di bronzo con la testa di leone e la coda di serpente.
+Ora è conservata a Firenze.
+===
+
+title: chiave_di_sol
+---
+<<card chiave_di_violino>>
+Hai trovato la Chiave di Violino!
+Si chiama anche Chiave di Sol.
+Sta sempre all'inizio del pentagramma e ci dice dove leggere le note.
+Senza di lei non sapremmo da dove cominciare!
+<<collect>>
+===
+
+
+////////// BASILICA DI S. FRANCESCO //////////
+
+title: piazza_san_francesco
+---
+<<if visited("piazza_san_francesco")>>
+<<else>>
+Eccoci alla Piazza di San Francesco!
+È lì di fronte c'è la Basilica.
+<<endif>>
 ===
 
 title: page_do
@@ -114,7 +155,48 @@ Sta sotto il pentagramma, su una piccola linea tutta sua.
 <<collect>>
 ===
 
+////////// SANTISSIMA ANNUNZIATA e CASA VASARI //////////
 
+title: annunziata
+---
+<<if visited("annunziata")>>
+<<else>>
+Ecco la Basilica della Santissima Annunziata!
+È una delle chiese più antiche di Arezzo.
+C'è qualcosa di strano nascosto qui vicino...
+<<endif>>
+===
+
+title: casa_vasari
+---
+<<if visited("casa_vasario")>>
+<<else>>
+Questa è la Casa del Vasari!
+Giorgio Vasari era un pittore e architetto aretino del Cinquecento.
+Ha decorato lui stesso le stanze con affreschi bellissimi!
+C'è una turista qui fuori che dice di aver trovato qualcosa di strano... parliamole.
+<<endif>>
+===
+
+title: page_re
+---
+<<card re>>
+Hai trovato il Re!
+È la seconda nota della scala.
+Sul pentagramma si trova nel primo spazio, proprio sotto la prima riga.
+<<collect>>
+===
+
+title: turista_benvenuto
+---
+<<if visited("turista_benvenuto")>>
+Ti una buona giornata in città!
+<<else>>
+Oh, ciao! Stavo visitando la casa del Vasari e ho trovato questo foglio per terra.
+Ha un simbolo strano all'inizio... sai come si chiama?
+<<jump turista_indovinello>>
+<<endif>>
+===
 
 title: turista_indovinello
 position: -983,235
@@ -128,6 +210,11 @@ Il simbolo all'inizio del pentagramma si chiama...
     <<jump turista_sbagliato>>
 ===
 
+title: turista_sbagliato
+position: 189,205
+---
+Mmm, non è questa! Riprova.
+===
 
 title: turista_corretto
 position: 139,377
@@ -138,17 +225,90 @@ Prendi pure il foglio!
 <<SetActive collect_sol true>>
 ===
 
-title: reoder
-position: 8,590
+title: page_sol
 ---
-hallo
-<<activity reorder>>
+<<card sol>>
+Hai trovato il Sol!
+È la quinta nota della scala.
+Sul pentagramma si trova sulla seconda riga.
+<<collect>>
 ===
 
-title: turista_sbagliato
-position: 189,205
+////////// SANT'AGOSTINO //////////
+
+title: santagostino
 ---
-Mmm, non è questa! Riprova.
+<<if visited("santagostino")>>
+<<else>>
+Questa è la chiesa di Sant'Agostino!
+È un bel edificio medievale nel cuore della città.
+<<endif>>
+===
+
+title: page_mi
+---
+<<card mi>>
+Hai trovato il Mi!
+È la terza nota della scala.
+Sul pentagramma si trova sulla prima riga.
+<<collect>>
+===
+
+////////// PIAZZA GRANDE //////////
+title: piazzagrande
+---
+<<if visited("piazzagrande")>>
+<<else>>
+Che bella piazza! Questa è Piazza Grande, il cuore di Arezzo.
+Ogni anno qui si svolge la Giostra del Saracino, i cavalieri si sfidano con la lancia!
+<<endif>>
+===
+
+title: page_fa
+---
+<<card fa>>
+Hai trovato il Fa!
+È la quarta nota della scala.
+Sul pentagramma si trova nel secondo spazio
+<<collect>>
+===
+
+
+title: page_la
+---
+<<card la>>
+Incredibile, hai trovato il La!
+È la sesta nota della scala.
+Sul pentagramma si trova nel terzo spazio.
+<<collect>>
+===
+
+////////// FORTEZZA MEDICEA //////////
+title: fortezza
+---
+<<if visited("fortezza")>>
+<<else>>
+Che muri incredibili!
+Questa è la Fortezza Medicea, costruita dalla famiglia dei Medici.
+Da qui si vede tutta Arezzo... e anche il Duomo lassù!
+<<endif>>
+===
+
+title: page_si
+---
+<<card si>>
+Il Si! L'ultima nota della scala!
+Sul pentagramma si trova sulla terza riga.
+<<collect>>
+===
+
+////////// DUOMO //////////
+
+title: cantore
+---
+<<task_end give_pages>>
+Grazie mille ora possiamo tornare a cantare!
+<<jump quest_end>>
 ===
 
 title: quest_end
@@ -171,15 +331,12 @@ Why don't you do this homework? #line:09d3dd4
 ===
 
 
-title: npc_intro
-position: 263,2
+title: reoder
+position: 8,590
 ---
-Hallo #line:07c2f74 
+hallo
+<<activity reorder>>
 ===
 
 
-title: ll_tourist
-position: 262,294
----
-I'm a Living Letter tourist #line:0f64d51 
-===
+
