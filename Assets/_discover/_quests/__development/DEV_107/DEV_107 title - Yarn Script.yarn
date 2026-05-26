@@ -81,6 +81,10 @@ vuoi aiutarci a sistemare le ultime modifiche?
 -> no
     allora cercheremo qualcun' altro
 <<endif>>
+<<if $Leonardo_1== true>>
+grazie per aver trovato Leonardo
+adesso possiamo tornare indietro
+<<endif>>
 ===
 
 
@@ -182,16 +186,23 @@ title: verrocchio_completato
 bravo adesso portamela qui
 ===
 
-title: firenze
----
-<<teleport firenze>>
-===
-
 title: Leonardo_firenze
 ---
-prima di tutto mi serve che mi porti i miei attrezzi
-si trovano da qualche parte
-non ricordo dove li ho messi
+stavo finendo questo progetto
+<<card da_vinci_vitruviano>>
+sto studiando il corpo umano con tutte le sue proporzioni 
+mi piace molto studiare il corpo umano
+molte delle mie opere le puoi riconoscere solo dalle mani
+come nella monnalisa 
+<<card_hide>>
+<<card mona_lisa_by_leonardo_da_vinci>>
+se guardi le sue mani sono in posizione incrociate
+con un anatomia accurata
+quest'opera però la lascierò in Francia che sono diventato amico del re di francia
+<<card_hide>>
+adesso andiamo ad aiutare il tuo amico
+<<teleport firenze>>
+<<SetActive verrocchio false>>
 ===
 
 title: Leonardo_Da_Vinci
@@ -290,7 +301,8 @@ che carino cosa ci fai qui?
         fattelo raccontare da lui si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
 <<endif>>
-<<if $Leonardo_1== true>>
+<<if $Leonardo_1 == true>>
+<<if $perugino== false>>
 accidenti a quel Leonardo
 dove l'avrà mai messa
 ->ciao scusa cos'è successo?
@@ -305,7 +317,7 @@ dove l'avrà mai messa
         va bene grazie comunque
 ->miao?
     che carino
-<<endif>>
+<<endif>><<endif>>
 <<if $perugino== true>>
 grazie gattino adesso posso finalmente tornare a casa
 -> Leonardo mi ha detto di dirti che gli dispiace
@@ -340,6 +352,7 @@ che carino cosa ci fai qui?
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
 <<endif>>
 <<if $Leonardo_1== true>>
+<<if $ghirlandaio== false>>
 accidenti a quel Leonardo
 come farò adesso?!
 ->ciao scusa cos'è successo?
@@ -353,8 +366,8 @@ come farò adesso?!
         va bene grazie comunque
 ->miao?
     che carino
-<<endif>>
-<<if $perugino== true>>
+<<endif>><<endif>>
+<<if $ghirlandaio== true>>
 grazie gattino adesso posso finalmente tornare a casa
 -> Leonardo mi ha detto di dirti che gli dispiace
     oh scuse accettate

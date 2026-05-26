@@ -16403,7 +16403,7 @@ PrefabInstance:
     - target: {fileID: 7774664341066101531, guid: 85e7195b7b6e443c2985f3698f1df08b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.31601
+      value: 54.617
       objectReference: {fileID: 0}
     - target: {fileID: 7774664341066101531, guid: 85e7195b7b6e443c2985f3698f1df08b,
         type: 3}
@@ -16413,7 +16413,7 @@ PrefabInstance:
     - target: {fileID: 7774664341066101531, guid: 85e7195b7b6e443c2985f3698f1df08b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -140.38551
+      value: -140.614
       objectReference: {fileID: 0}
     - target: {fileID: 7774664341066101531, guid: 85e7195b7b6e443c2985f3698f1df08b,
         type: 3}
@@ -58246,67 +58246,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4577e3a28d2f2c74484d47df4f44a050, type: 3}
---- !u!1 &1676711304 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4416368749752609272, guid: 545b25ea5de2a4a8991a417d150ec539,
-    type: 3}
-  m_PrefabInstance: {fileID: 2145708031}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1676711308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676711304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
-  Id: 
-  IsInteractable: 1
-  IsHiddenAtStart: 0
-  NearbyAutoActivate: 0
-  IconType: 4
-  IconTransform: {fileID: 0}
-  ShowOnMap: 0
-  MapIcon: 0
-  ShowIconAlways: 0
-  FocusCameraOnInteract: 0
-  CameraFocusData: {fileID: 0}
-  FaceToPlayer: 0
-  DialogueNode:
-    project: {fileID: 7545569452688597077, guid: 0f94ced785b7247cd9277d7e6092af05,
-      type: 3}
-    nodeName: firenze
-  NodePermalink: 
-  disableAfterAction: 0
-  QuestAction: 
-  Commands: []
-  triggerChildren: 0
-  FaceToPlayerComp: {fileID: 0}
---- !u!65 &1676711309
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676711304}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.27712694, y: 0.75, z: 0.9055603}
-  m_Center: {x: -0.1135634, y: 0.375, z: 0.19095817}
 --- !u!1001 &1678180229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74811,6 +74750,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5795994881424933532, guid: 545b25ea5de2a4a8991a417d150ec539,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9010305785195534667, guid: 545b25ea5de2a4a8991a417d150ec539,
         type: 3}
       propertyPath: m_Name
@@ -74819,15 +74763,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4416368749752609272, guid: 545b25ea5de2a4a8991a417d150ec539,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1676711309}
-    - targetCorrespondingSourceObject: {fileID: 4416368749752609272, guid: 545b25ea5de2a4a8991a417d150ec539,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1676711308}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 545b25ea5de2a4a8991a417d150ec539, type: 3}
 --- !u!4 &2146934420 stripped
 Transform:
