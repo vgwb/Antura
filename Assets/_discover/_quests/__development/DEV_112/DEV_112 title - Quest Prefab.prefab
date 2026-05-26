@@ -720,7 +720,20 @@ MonoBehaviour:
     LearningLanguage:
       code: en
   ActivityConfigs: []
-  QuestTasks: []
+  QuestTasks:
+  - Code: Racolta_fogli
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 0
+    TaskNode:
+      project: {fileID: 7545569452688597077, guid: 4e0ec805e8d28484d8ae997f511c9b39,
+        type: 3}
+      nodeName: quest_carista
+    NodeSuccess: finito
+    ItemsContainer: {fileID: 0}
+    ItemCount: 5
+    ItemTag: fogli
+    TargetPoint: {fileID: 0}
 --- !u!114 &3576371439623676379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,14 +1282,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7080656740394833043}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: -0, y: -0.04435284, z: -0, w: 0.9990159}
+  m_LocalPosition: {x: 23.4, y: -0.00000023841858, z: -34.1}
+  m_LocalScale: {x: 7, y: 1, z: 2.17}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8490433867338440522}
   m_Father: {fileID: 6748482415314699827}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -5.084, z: 0}
 --- !u!1 &7561383651337417933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,12 +1792,12 @@ PrefabInstance:
         type: 3}
       propertyPath: DialogueNode.project
       value: 
-      objectReference: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
+      objectReference: {fileID: 7545569452688597077, guid: 4e0ec805e8d28484d8ae997f511c9b39,
         type: 3}
     - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: DialogueNode.nodeName
-      value: npc_intro
+      value: Carista
       objectReference: {fileID: 0}
     - target: {fileID: 6383701241047510736, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -1879,7 +1892,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Card
       value: 
-      objectReference: {fileID: 11400000, guid: fdbff4040e49140e6b5ace73b85571f3,
+      objectReference: {fileID: 11400000, guid: e3556ffd0257823499cfd66226e51e21,
         type: 2}
     - target: {fileID: 3970012676992426316, guid: aec78715485724438a97aa3feb338050,
         type: 3}
@@ -1944,7 +1957,9 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: "\xC9cole Maternelle"
+      value: 'Balata selvaggia Il Tema: un''ode trionfale all''esotico, un''immersione
+        spettacolare nei misteri e nell''energia primordiale della savana e delle
+        giungle africane.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
