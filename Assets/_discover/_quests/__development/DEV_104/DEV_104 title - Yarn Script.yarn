@@ -16,6 +16,9 @@ type: panel
 <<declare $stibbert_ingresso_met = false>>
 <<declare $collect_armatura_parata_state = 0>>
 <<declare $stibbert_quadri_met = false>>
+<<declare $quadro_seen = false>>
+<<declare $incisione_seen = false>>
+<<declare $quadro_incisione_seen = 0>>
 <<declare $stibbert_parata_met = false>>
 <<declare $stibbert_armature_met = false>>
 <<declare $armatura_done = false>>
@@ -102,8 +105,9 @@ color: purple
 title: collect_armatura_parata_end
 ---
 <<set $collect_armatura_parata_state= 2>>
-    Hai tutti i pezzi dell'armatura!
-    <<set $armatura_collected = true>>
+<<card armatura_parata_card>>  
+Hai tutti i pezzi dell'armatura!
+<<set $armatura_collected = true>>
 ===
 
 title: interactable_parata
@@ -138,12 +142,61 @@ color: purple
 <<if $armatura_done == false>>
 Anche in questa stanza dobbiamo riordinare un po' di cose.
 Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura.
+<<elseif $quadri_done == true>>
+    I quadri e le incisioni ora sono tornati a posto, ottimo lavoro!
+<<elseif $quadro_incisione_seen == 2>>
+    Vedo che hai esaminato le opere!
+    Ora non ci resta che riordinare i cartellini!
+    <<activity match_quadri match_quadri_result>>
 <<elseif $armatura_done == true>>
     In questa stanza sono esposti diversi quadri e incisioni.
     Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli!
-    <<activity match_quadri match_quadri_result>>
-<<elseif $quadri_done == true>>
-    I quadri e le incisioni ora sono tornati a posto, ottimo lavoro!
+    Conviene che prima esamini le opere esposte per capire come sono state realizzate.
+    Torna da me quando le hai osservate attentamente!
+<<endif>>
+===
+
+title: talk_LL_quadro
+---
+<<if $quadro_seen == true>>
+    <<card quadro_card>>
+    Questa Madonna col bambino è stata realizzata da Sandro Botticelli.
+    Essendo un quadro...
+    ...non può che essere stata realizzata con pennello, tavolozza e colori!
+<<elseif $quadro_incisione_seen < 2>>
+    <<card quadro_card>>
+    Questa Madonna col bambino è stata realizzata da Sandro Botticelli.
+    Essendo un quadro...
+    ...non può che essere stata realizzata con pennello, tavolozza e colori!
+    <<set $quadro_seen = true>>
+    <<set $quadro_incisione_seen += 1>>
+<<elseif $quadro_incisione_seen == 2>>
+    <<card quadro_card>>
+    Questa Madonna col bambino è stata realizzata da Sandro Botticelli.
+    Essendo un quadro...
+    ...non può che essere stata realizzata con pennello, tavolozza e colori!
+<<endif>>
+===
+
+title: talk_LL_incisione
+---
+<<if $incisione_seen == true>>
+    <<card incisione_card>>
+    Questa incisione è stata realizzada da Albrecht Dürer.
+    Per realizzare un'incisione servono numerose e complicate attrezzature...
+    ...ma sicuramente è impossibile farlo senza un torchio!
+<<elseif $quadro_incisione_seen < 2>>
+    <<card incisione_card>>
+    Questa incisione è stata realizzada da Albrecht Dürer.
+    Per realizzare un'incisione servono numerose e complicate attrezzature...
+    ...ma sicuramente è impossibile farlo senza un torchio!
+    <<set $incisione_seen = true>>
+    <<set $quadro_incisione_seen += 1>>
+<<elseif $quadro_incisione_seen == 2>>
+   <<card incisione_card>>
+   Questa incisione è stata realizzada da Albrecht Dürer.
+    Per realizzare un'incisione servono numerose e complicate attrezzature...
+    ...ma sicuramente è impossibile farlo senza un torchio!
 <<endif>>
 ===
 
@@ -152,9 +205,9 @@ title: match_quadri_result
 <<if GetActivityResult ("match_quadri") > 0>>
     Ora i cartellini descrivono l'opera corretta, complimenti!
     <<set $quadri_done = true>>
-    Ma... questo cosa ci fa qua? 
-    Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì?
+    Ma... questo cosa ci fa qua?
     <<card istruzioni_card>>
+    Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì?
     Questo foglio ci sarà molto utile nella prossima stanza.
 <<else>>
     Mmm... i cartellini non sembrano corretti.
@@ -284,11 +337,11 @@ title: talk_npc_stibbert_costumi
     Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
 <<elseif $armature_done == true>>
     Questa stanza ospita dei costumi indossati da personaggi celebri.
-    Questo è quello di cui vado più orgoglioso.
-    Pensa che Napoleone lo indossò quando venne incoronato re d'Italia!
+    <<card napoleone_card_104>>
+    Pensa che uno di questi venne indossato da Napoleone quando venne incoronato re d'Italia!
     Ammetto che ogni tanto avrei voluto indossarlo anch'io...
     ...beh, ormai è troppo tardi, sai.
-    Ad ogni modo, dobbiamo verificare che tutti i pezzi siano al loro posto.
+    Ad ogni modo, dobbiamo verificare che tutti i pezzi dell'abito siano al loro posto.
     <<activity memory_costume memory_costume_result>>
 <<endif>>
 ===
