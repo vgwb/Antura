@@ -10,8 +10,10 @@
 //   - TODO libeccio_vento
 //   - TODO maschera_carnevale
 //   - TODO cartapesta
+//   - TODO leone_cartapesta
 // TASKS
 //   - task_raccogli_fogli
+//   - task_trova_leone
 //   - task_raccogli_oggetti
 // ACTIVITIES
 //   - TODO minigame_assembla_carro
@@ -26,10 +28,15 @@ actor: NARRATOR
 ---
 <<declare $CARISTA_FOGLI_DONE = false>>
 <<declare $FOGLI_PROPOSTI = false>>
+<<declare $CARISTA2_DONE = false>>
+<<declare $LEONE_PROPOSTO = false>>
 <<declare $CARISTA_OGGETTI_DONE = false>>
-<<declare $OGGETTI_PROPOSTI = false>>
-<<declare $QUIZ_PROPOSTO = false>>
-<<declare $TURISTA_DONE = false>>
+<<declare $leone= false>>
+<<set $leone = false>>
+<<declare $CARISTA3_DONE = false>>
+<<declare $TIMER_PROPOSTO = false>>
+<<declare $timer= false>>
+<<set $timer = false>>
 <<card TODO_viareggio_citta>>
 Siamo a Viareggio! #line:dev112_start_1
 È il periodo del Carnevale! #line:dev112_start_2
@@ -38,7 +45,7 @@ Siamo a Viareggio! #line:dev112_start_1
 ===
 
 // =====================
-// CARISTA - PRIMO INCONTRO (raccolta fogli)
+// CARISTA 1 - PRIMO INCONTRO (raccolta fogli)
 // =====================
 
 title: npc_intro
@@ -49,6 +56,8 @@ actor: ADULT_M
 ---
 <<if $CARISTA_OGGETTI_DONE>>
     <<jump Carista_Repeat_Fine>>
+<<elseif $CARISTA2_DONE>>
+    <<jump Carista_TerzaFase>>
 <<elseif $CARISTA_FOGLI_DONE>>
     <<jump Carista_SecondaFase>>
 <<elseif $FOGLI_PROPOSTI>>
@@ -117,7 +126,7 @@ Torna dal carista. #line:dev112_fogli_ok_2
 ===
 
 // =====================
-// CARISTA - SECONDA FASE (raccolta oggetti)
+// CARISTA 1 - SECONDA FASE (manda dai colleghi)
 // =====================
 
 title: Carista_SecondaFase
@@ -126,257 +135,230 @@ color: blue
 group: carista
 actor: ADULT_M
 ---
-<<if $OGGETTI_PROPOSTI>>
-    <<jump Carista_Conferma_Oggetti>>
-<<endif>>
-Grazie mille per i disegni! #line:dev112_carista_sf_1
-Ma c'è ancora un problema... #line:dev112_carista_sf_2
-<<card TODO_carro_carnevalesco>>
-Il mio carro non è ancora pronto. #line:dev112_carista_sf_3
-Il libeccio ha portato via i pezzi! #line:dev112_carista_sf_4
-<<card TODO_libeccio_vento>>
-Il libeccio è un vento forte del mare. #line:dev112_carista_sf_5
-<<set $OGGETTI_PROPOSTI = true>>
-Puoi raccogliere i pezzi del carro? #line:dev112_carista_sf_6
-<<jump Carista_Conferma_Oggetti>>
+Grazie del aiuto! #line:dev112_carista_sf_1
+Ti va di aiutare i miei colleghi? #line:dev112_carista_sf_2
+<<camera_focus camera_cartelloni>>
+Sono dove ci sono i cartelloni dei carri. #line:dev112_carista_sf_3
+<<camera_reset>>
+Il vento di Antura ha creato il caos! #line:dev112_carista_sf_4
+Hanno perso dei pezzi dei loro carri. #line:dev112_carista_sf_5
+<<SetMapIcon carista2 "on">>
+<<target carista2>>
+<<area area_cartelloni>>
 ===
 
-title: Carista_Conferma_Oggetti
+title: Carista_Repeat_Colleghi
 position: 600,200
 color: blue
 group: carista
 actor: ADULT_M
 ---
--> Sì, li cerco! #line:dev112_conf_oggetti_si
-    <<task_start task_raccogli_oggetti oggetti_raccolti>>
-    <<target off>>
-    <<area area_oggetti>>
--> Non ora. #line:dev112_conf_oggetti_no #highlight
+I miei colleghi ti aspettano! #line:dev112_carista_rep_colleghi_1
+Sono vicino ai cartelloni dei carri. #line:dev112_carista_rep_colleghi_2
 ===
 
-title: Carista_Repeat_Fine
-position: 600,400
+// =====================
+// CARISTA 2 - NPC VICINO AL CARTELLONE (leone)
+// =====================
+
+title: npc_carista2
+position: 0,0
 color: blue
-group: carista
+group: carista2
 actor: ADULT_M
 ---
-Il carro è quasi pronto! #line:dev112_carista_rep_fine_1
-Manca solo l'ultimo pezzo. #line:dev112_carista_rep_fine_2
+<<if $leone == true>>
+<<jump Carista2_DopoLeone>>
+<<endif>>
+<<if $CARISTA2_DONE>>
+    <<jump Carista2_Repeat>>
+<<elseif $LEONE_PROPOSTO>>
+    <<jump Carista2_Conferma_Leone>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carista2_1
+Ho un problema grande! #line:dev112_carista2_2
+<<camera_focus camera_leone>>
+Ho perso il mio leone di cartapesta. #line:dev112_carista2_3
+<<camera_reset>>
+<<card TODO_leone_cartapesta>>
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carista2_4
+<<set $LEONE_PROPOSTO = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carista2_5
+<<jump Carista2_Conferma_Leone>>
+===
+
+title: Carista2_Conferma_Leone
+position: 0,200
+color: blue
+group: carista2
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_leone_si
+    <<task_start task_trova_leone leone_raccolto>>
+    <<target off>>
+-> Non ora. #line:dev112_conf_leone_no #highlight
+===
+
+title: Carista2_Repeat
+position: 0,400
+color: blue
+group: carista2
+actor: ADULT_M
+---
+Grazie ancora per il leone! #line:dev112_carista2_rep_1
+Il mio carro è bellissimo adesso. #line:dev112_carista2_rep_2
 ===
 
 // =====================
-// ITEMS - PEZZI DEL CARRO
+// ITEM - LEONE DI CARTAPESTA
 // =====================
 
-title: pezzo_item
+title: leone_item
 tags: item
-position: -200,200
+position: -200,0
 color: yellow
-group: oggetti
+group: leone
 actor: NARRATOR
 ---
-Un pezzo del carro di carnevale! #line:dev112_pezzo_1
+Il leone di cartapesta del carista! #line:dev112_leone_1
+<<set $leone = true>>
 <<collect>>
 ===
 
-title: oggetti_raccolti
-position: 800,0
-color: green
-group: oggetti
-actor: NARRATOR
----
-<<set $CARISTA_OGGETTI_DONE = true>>
-Hai trovato tutti i pezzi! #line:dev112_oggetti_ok_1
-Torna dal carista. #line:dev112_oggetti_ok_2
-<<SetMapIcon carista "done">>
-<<target carista>>
-<<jump Carista_DopoOggetti>>
-===
-
-// =====================
-// CARISTA - FASE FINALE (assembla il carro)
-// =====================
-
-title: Carista_DopoOggetti
-position: 1000,0
-color: blue
-group: carista
-actor: ADULT_M
----
-Ottimo! Hai trovato tutto! #line:dev112_carista_dopo_1
-Adesso dobbiamo assemblare il carro. #line:dev112_carista_dopo_2
-Sei pronto ad aiutarmi? #line:dev112_carista_dopo_3
--> Sì, proviamo! #line:dev112_carista_dopo_opt1
-    <<activity minigame_assembla_carro carro_result>>
--> Non ora. #line:dev112_carista_dopo_opt2 #highlight
-===
-
-title: carro_result
-position: 1200,0
-color: green
-group: carista
-actor: ADULT_M
----
-<<if GetActivityResult("minigame_assembla_carro") > 0>>
-    <<jump Carro_Successo>>
-<<else>>
-    <<jump Carro_Fallimento>>
-<<endif>>
-===
-
-title: Carro_Fallimento
-position: 1200,200
-color: blue
-group: carista
-actor: ADULT_M
----
-Quasi! Proviamo ancora una volta. #line:dev112_carro_fail_1
-<<activity minigame_assembla_carro carro_result>>
-===
-
-title: Carro_Successo
-position: 1400,0
-color: green
-group: carista
-actor: ADULT_M
----
-Fantastico! Il carro è pronto! #line:dev112_carro_ok_1
-<<card TODO_carro_carnevalesco collect>>
-I carri del Carnevale di Viareggio sono famosi. #line:dev112_carro_ok_2
-Sono fatti di cartapesta. #line:dev112_carro_ok_3
-<<card TODO_cartapesta collect>>
-Ora vai a vedere la sfilata! #line:dev112_carro_ok_4
-<<camera_focus camera_sfilata>>
-<<camera_reset>>
-<<target turista>>
-<<area area_sfilata>>
-===
-
-// =====================
-// TURISTA - NPC SECONDARIO
-// =====================
-
-title: Turista
-position: 0,0
-color: blue
-group: turista
-actor: ADULT_F
----
-<<if $TURISTA_DONE>>
-    <<jump Turista_Repeat>>
-<<endif>>
-<<if $QUIZ_PROPOSTO>>
-    <<jump Turista_Conferma_Quiz>>
-<<endif>>
-Ciao! Sei qui per il Carnevale? #line:dev112_turista_1
-Guarda che belle maschere! #line:dev112_turista_2
-<<camera_focus camera_maschere>>
-Sai riconoscere le maschere tradizionali? #line:dev112_turista_3
-<<camera_reset>>
-<<set $QUIZ_PROPOSTO = true>>
-Facciamo un gioco? #line:dev112_turista_4
-<<jump Turista_Conferma_Quiz>>
-===
-
-title: Turista_Conferma_Quiz
-position: 0,200
-color: blue
-group: turista
-actor: ADULT_F
----
--> Sì, giochiamo! #line:dev112_conf_quiz_si
-    <<activity match_maschere_carnevale quiz_maschere_result>>
--> Non ora. #line:dev112_conf_quiz_no #highlight
-===
-
-title: Turista_Repeat
-position: 0,400
-color: blue
-group: turista
-actor: ADULT_F
----
-Hai visto com'è bello il carro? #line:dev112_turista_rep_1
-===
-
-title: quiz_maschere_result
+title: leone_raccolto
 position: 200,0
 color: green
-group: turista
-actor: ADULT_F
+group: leone
+actor: NARRATOR
 ---
-<<if GetActivityResult("match_maschere_carnevale") > 0>>
-    <<jump Quiz_Successo>>
-<<else>>
-    <<jump Quiz_Fallimento>>
-<<endif>>
+<<set $CARISTA2_DONE = true>>
+Hai trovato il leone! #line:dev112_leone_ok_1
+Torna dal carista. #line:dev112_leone_ok_2
+<<SetMapIcon carista2 "done">>
+<<target carista2>>
+<<jump Carista2_DopoLeone>>
 ===
 
-title: Quiz_Fallimento
-position: 200,200
-color: blue
-group: turista
-actor: ADULT_F
----
-Quasi! Guarda bene le maschere. #line:dev112_quiz_fail_1
-Riproviamo! #line:dev112_quiz_fail_2
-<<activity match_maschere_carnevale quiz_maschere_result>>
-===
-
-title: Quiz_Successo
+title: Carista2_DopoLeone
 position: 400,0
-color: green
-group: turista
-actor: ADULT_F
----
-Bravissimo! Conosci bene le maschere! #line:dev112_quiz_ok_1
-<<if not card_unlocked("TODO_maschera_carnevale")>>
-    <<card TODO_maschera_carnevale collect>>
-<<else>>
-    <<card TODO_maschera_carnevale>>
-<<endif>>
-Il Carnevale di Viareggio è famoso in tutto il mondo. #line:dev112_quiz_ok_2
-<<set $TURISTA_DONE = true>>
-<<jump quest_end>>
-===
-
-// =====================
-// NPC AMBIENTALI (spawn)
-// =====================
-
-title: npc_spettatore
-position: -400,0
-color: purple
-group: spawn_piazza
+color: blue
+group: carista2
 actor: ADULT_M
-spawn_group: spettatori_piazza
 ---
-=> Il Carnevale di Viareggio dura un mese! #line:dev112_spett_1
-=> I carri sono alti come un palazzo. #line:dev112_spett_2
-=> La cartapesta si fa con carta e colla. #line:dev112_spett_3
-=> Il libeccio è il vento del mare. #line:dev112_spett_4
+Il mio leone! Grazie mille! #line:dev112_carista2_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carista2_dopo_2
+Guarda comè ora il carro, ed ecco a te #line:dev112_carista2_dopo_3
+La Ballata selvaggia ha come Tema un'ode trionfale all'esotico, #line:dev112_carista2_dopo_4
+un'immersione spettacolare nei misteri #line:dev112_carista2_dopo_5
+e nell'energia primordiale della savana e delle giungle africane. #line:dev112_carista2_dopo_6
+Adesso cerca glialtri colleghi. #line:dev112_carista2_dopo_7
+Hanno ancora bisogno di te! #line:dev112_carista2_dopo_8
+<<SetMapIcon carista "on">>
+<<target carista>>
+<<area area_piazza>>
 ===
 
 // =====================
-// FINE QUEST
+// CARISTA 3 - NPC VICINO AL CARTELLONE (timer)
 // =====================
 
-title: quest_end
-position: 600,0
-color: green
-type: panel_endgame
-actor: NARRATOR
+title: npc_carista3
+position: 0,0
+color: blue
+group: carista2
+actor: ADULT_M
 ---
-Hai aiutato il carista e visto la sfilata! #line:dev112_questend_1
-<<jump post_quest_activity>>
+<<if $timer == true>>
+<<jump Carista3_DopoTimer>>
+<<endif>>
+<<if $CARISTA3_DONE>>
+    <<jump Carista3_Repeat>>
+<<elseif $Timer_PROPOSTO>>
+    <<jump Carista3_Conferma_Timer>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carista3_1
+Ho un problema grande! #line:dev112_carista3_2
+<<camera_focus camera_timer>>
+Ho perso il mio timer di cartapesta. #line:dev112_carista3_3
+<<camera_reset>>
+<<card TODO_timer_cartapesta>>
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carista3_4
+<<set $TIMER_PROPOSTO = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carista3_5
+<<jump Carista3_Conferma_Timer>>
 ===
 
-title: post_quest_activity
-position: 600,160
-color: green
-type: panel
-tags: proposal
+title: Carista3_Conferma_Timer
+position: 0,200
+color: blue
+group: carista2
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_timer_si
+    <<task_start task_trova_timer timer_raccolto>>
+    <<target off>>
+-> Non ora. #line:dev112_conf_timer_no #highlight
+===
+
+title: Carista3_Repeat
+position: 0,400
+color: blue
+group: carista2
+actor: ADULT_M
+---
+Grazie ancora per il timer! #line:dev112_carista3_rep_1
+Il mio carro è bellissimo adesso. #line:dev112_carista3_rep_2
+===
+
+// =====================
+// ITEM - TIMER DI CARTAPESTA
+// =====================
+
+title: timer_item
+tags: item
+position: -200,0
+color: yellow
+group: timer
 actor: NARRATOR
 ---
-Disegna la tua maschera di carnevale! #line:dev112_proposal_1
-<<quest_end>>
+Il timer di cartapesta del carista! #line:dev112_timer_1
+<<set $timer = true>>
+<<collect>>
+===
+
+title: timer_raccolto
+position: 200,0
+color: green
+group: leone
+actor: NARRATOR
+---
+<<set $CARISTA3_DONE = true>>
+Hai trovato il timer! #line:dev112_timer_ok_1
+Torna dal carista. #line:dev112_timer_ok_2
+<<SetMapIcon carista3 "done">>
+<<target carista3>>
+<<jump Carista3_DopoTimer>>
+===
+
+title: Carista3_DopoTimer
+position: 400,0
+color: blue
+group: carista2
+actor: ADULT_M
+---
+Il mio timer! Grazie mille! #line:dev112_carista3_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carista3_dopo_2
+Guarda comè ora il carro, ed ecco a te #line:dev112_carista3_dopo_3
+Reset - Si riparte da sottozero #line:dev112_carista3_dopo_4
+parla del collasso ambientale e la crisi climatica #line:dev112_carista3_dopo_5
+Davanti all'orsa, sul ghiaccio, c'è un grande pulsante rosso per il "reset". #line:dev112_carista3_dopo_6
+I potenti della Terra hanno perso tempo prezioso senza azionarlo #line:dev112_carista3_dopo_7
+prima di arrivare al punto di non ritorno.#line:dev112_carista3_dopo_8
+Adesso cerca glialtri colleghi. #line:dev112_carista3_dopo_9
+Hanno ancora bisogno di te! #line:dev112_carista3_dopo_10
+<<SetMapIcon carista "on">>
+<<target carista>>
+<<area area_piazza>>
 ===
