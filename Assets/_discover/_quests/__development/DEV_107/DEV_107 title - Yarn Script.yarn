@@ -122,6 +122,7 @@ siamo rimasti bloccati nel XV secolo
 dobbiamo trovare qualcuno che ci aiuti a ripararla
 dovrebbe esserci Leonardo Da Vinci da queste parti
 cercalo mi deve aiutare a riparare la macchina sennò rimaremo bloccati qui per sempre
+<<target NPCverrocchio>>
 ===
 
 title: orologio_sx
@@ -205,6 +206,7 @@ title: verrocchio_completato
 <<camera_focus verrocchio>>
 <<set $verrocchio= true>>
 bravo adesso portamela qui
+<<target verrocchio>>
 ===
 
 title: Leonardo_firenze
@@ -282,6 +284,7 @@ mi ha rovinato tutto
     puoi trovarmi altri soggetti?
     -> va bene
         <<task_start Botticelli Botticelli_completato>>
+        <<target agrumi_botticelli>>
     -> no miao
         troverò un altro modo
 ->chi sei?
@@ -315,6 +318,7 @@ title: Botticelli_completato
 grazie mille porta qui tutto quello che hai trovato
 <<set $botticelli= true>>
 <<set $completati = $completati + 1>>
+<<target NPCbotticelli>>
 ===
 
 title: Perugino
