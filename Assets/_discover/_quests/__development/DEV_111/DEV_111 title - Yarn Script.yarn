@@ -97,7 +97,16 @@ Maybe the spirits of the quarry will help you.
 <<SetMapIcon npc_bernini "on">>
 <<target npc_nicola>>
 ===
-
+title: Talk_francesco_quest_given
+group: francesco
+color:blue
+---
+<<if $talked_to_francesco>>
+The machine is still broken.
+please help me fine the pieces
+go ask the spirits of the quarry!
+<<endif>>
+===
 // ═══════════════════════════════════════════════════════════
 // SCENE B1 — SPIRIT OF NICOLA PISANO
 // ═══════════════════════════════════════════════════════════
