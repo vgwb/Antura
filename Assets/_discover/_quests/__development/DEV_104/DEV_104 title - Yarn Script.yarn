@@ -19,6 +19,7 @@ type: panel
 <<declare $stibbert_parata_met = false>>
 <<declare $stibbert_armature_met = false>>
 <<declare $armatura_done = false>>
+<<declare $armatura_completed = false>>
 <<declare $quadri_done = false>>
 <<declare $armature_done = false>>
 <<declare $costumi_done = false>>
@@ -52,7 +53,9 @@ color: purple
 ---
 <<if $stibbert_ingresso_met == false>>
     Fermo, non scappare, non volevo spaventarti!
+    Mi chiamo Frederick Stibbert e...
     ...e sì, lo so, sono un fantasma, ci ho fatto l'abitudine da più di 100 anni.
+    <<card frederick_stibbert_card>>
     Poco fa uno strano cane si è intrufolato qua dentro!
     Ha fatto un tale trambusto che l'ho sentito perfino dalla mia tomba e mi sono precipitato a controllare.
     Mi aiuteresti a rimettere in ordine?
@@ -84,14 +87,15 @@ color: purple
     <<task_start collect_armatura_parata collect_armatura_parata_end>>
     <<set $collect_armatura_parata_state = 1>>
     <<SetActive muro_stanze false>>
+    <<SetActive armatura_parata_container true>>
 <<elseif $armatura_done == true>>
+    L'armatura è stata riassemblata, passiamo alla prossima stanza!
 <<elseif HasCompletedTask("collect_armatura_parata")>>
     Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente!
     Ora non resta che assemblarla!
     Posizionati nel punto dove devi inserirla e ricomponila.
 <<elseif $stibbert_parata_met == true>>
     Dove saranno gli altri pezzi dell'armatura?
-La parata delle armature è finalmente stata ricomposta! Ottimo lavoro!
 <<endif>>
 ===
 
@@ -99,6 +103,7 @@ title: collect_armatura_parata_end
 ---
 <<set $collect_armatura_parata_state= 2>>
     Hai tutti i pezzi dell'armatura!
+    <<set $armatura_collected = true>>
 ===
 
 title: interactable_parata
@@ -119,7 +124,8 @@ title: jigsaw_parata_result
 <<if GetActivityResult ("jigsaw_parata") > 0>>
     Hai assemblato correttamente l'armatura, complimenti!
     <<set $armatura_done = true>>
-<<else>>
+    <<SetActive interactable_parata false>>
+<<elseif GetActivityResult ("jigsaw_parata") < 0>>
     Mmm... non sembra assemblata nel modo corretto.
 <<endif>>
 ===
@@ -187,6 +193,30 @@ title: collect_armi_end
 ---
     Hai posizionato tutte le armi, complimenti!
     <<SetActive interactable_armi_container false>>
+===
+
+title: collect_spada_europea
+---
+<<card armatura_europea_card>>
+Hai ritrovato una spada!
+Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla.
+<<collect>>
+===
+
+title: collect_spada_giapponese
+---
+<<card armatura_giapponese_card>>
+Hai ritrovato una spada!
+Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla.
+<<collect>>
+===
+
+title: collect_spada_araba
+---
+<<card armatura_islamica_card>>
+Hai ritrovato una spada!
+Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla.
+<<collect>>
 ===
 
 title:interactable_armatura_islamica
@@ -265,7 +295,7 @@ title: talk_npc_stibbert_costumi
 
 title: memory_costume_result
 ---
-<<if GetActivityResult ("memory_costumi") > 0>>
+<<if GetActivityResult ("memory_costume") > 0>>
     I costumi sono tutti al loro posto, perfetto!
     <<set $costumi_done = true>>
 <<endif>>
@@ -283,6 +313,8 @@ color: purple
     Dobbiamo assolutamente ritrovarlo e dissotterrarlo!
     Lascio fare a te, io ne ho abbastanza di stare sotto terra!
     <<SetActive interactable_palla true>>
+    <<SetActive interactable_osso true>>
+    <<SetActive interactable_piatto true>>
 <<elseif $costumi_done == false>>
     Anche in questa stanza dobbiamo riordinare un po' di cose.
     Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
@@ -299,8 +331,6 @@ title: canvas_palla_result
 <<if GetActivityResult ("canvas_palla") > 0>>
     Non credo che questo sia il piatto che Stibbert stava cercando...
     Dobbiamo scavare in un altro punto!
-    <<SetActive interactable_osso true>>
-    <<SetActive interactable_palla false>>
 <<endif>>
 ===
 
@@ -314,8 +344,6 @@ title: canvas_osso_result
 <<if GetActivityResult ("canvas_osso") > 0>>
     Non credo che questo sia il piatto che Stibbert stava cercando...
     Dobbiamo scavare in un altro punto!
-    <<SetActive interactable_piatto true>>
-    <<SetActive interactable_osso false>>
 <<endif>>
 ===
 

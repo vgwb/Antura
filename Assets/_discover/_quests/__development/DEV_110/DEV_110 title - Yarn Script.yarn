@@ -1,15 +1,20 @@
-﻿title: Introduction
+﻿title: quest_start
 ---
-Antura you have a quest :
+Player you have a quest :
 Guide Dante and protect him from evil!
+Go speak to Dante. #task:meet_dante
+<<task_start meet_dante>>
+<<target Dante>>
 ===
-title: Dante_Introduction
+title: Dante_Intro
 ---
-<<party_join dante>>
-Dante : When I had journeyed half of our life's way,
+<<party_join Dante>>
+When I had journeyed half of our life's way, #card:Dante
 I found myself within a shadowed forest,
-for I had lost the path that does not stray.
-Watch over him, the darkness of the forest: ready to swallow Dante but kept at bay thanks to your help. #task:reach_top
+for I had lost the path that does not stray. #task:Hilltop
+<<target Hilltop>>
+<<SetActive false area_init>>
+<<SetActive true area_hilltop>>
 ===
 title: Hilltop
 ---
@@ -22,6 +27,8 @@ title: Lynx
 A lynx stops Dante in his tracks, forcing him to backtrack.
 <<task_start Run>>
 <<target Hideout>>
+<<setActive false area_hilltop>>
+<<setActive true area_lion>>
 
 //time day
 The morning sun shines on Dante, he was not out of danger yet...
@@ -50,6 +57,9 @@ title: Fight
 ---
 
 Activity - Small "fight" in turn based to get back player's attention and give him a fun way to get out of the situation using what he has learned.
-
-===
 // Dante - Skills : Clarity - Courage - Virgil's Help 
+===
+
+title: meet_dante
+---
+===
