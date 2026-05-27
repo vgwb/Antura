@@ -22,7 +22,7 @@
 // - Match the technique
 // - Canvas_michelangelo
 // - BerniniJigsaw
-// - Finalquiz
+// - finalquiz
 // </scene_data>
 
 // ═══════════════════════════════════════════════════════════
@@ -612,7 +612,7 @@ color: purple
 actor: ADULT_M
 ---
 Time to answer the questions about the quarries. #line:072fb44 
-<<activity Finalquiz quest_end_check normal>>
+<<activity finalquiz quest_end_check normal>>
 ===
 
 title: quest_end_check
@@ -621,7 +621,7 @@ group: finale
 color: green
 actor: NARRATOR
 ---
-<<if GetActivityResult("Finalquiz") > 0>>
+<<if GetActivityResult("finalquiz") > 0>>
     <<jump quest_end>>
 <<else>>
     <<jump quiz_retry>>
@@ -635,7 +635,7 @@ color: purple
 actor: ADULT_M
 ---
 Try again! Use what you have learned. #line:0a34a6d 
-<<activity Finalquiz quest_end_check normal>>
+<<activity finalquiz quest_end_check normal>>
 ===
 
 // ═══════════════════════════════════════════════════════════
