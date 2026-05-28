@@ -85,6 +85,31 @@ vuoi aiutarci a sistemare le ultime modifiche?
 <<if $Leonardo_1== true>>
 grazie per aver trovato Leonardo
 adesso possiamo tornare indietro
+<<SetActive  pesci1 false>>
+<<SetActive  pesci2 false>>
+<<SetActive  pesci3 false>>
+<<SetActive  pesci4 false>>
+<<SetActive  pesci5 false>>
+<<SetActive  pesci6 false>>
+<<SetActive  verrocchio false>>
+<<SetActive  scatole false>>
+<<SetActive  scatole1 false>>
+<<SetActive  scatole2 false>>
+<<SetActive  scatole3 false>>
+<<SetActive  scatole4 false>>
+<<SetActive  scatole5 false>>
+<<SetActive  scatole6 false>>
+<<SetActive  scatole7 false>>
+<<SetActive  scatole8 false>>
+<<SetActive  scatole9 false>>
+<<SetActive  scatole10 false>>
+<<SetActive  scatole11 false>>
+<<camera_focus cielo>>
+siamo finalmente tornati hai giorni moderni
+<<camera_reset>>
+è stata una bella avventura
+abbiamo incontrato personaggi famosi dell'epoca
+
 <<jump quest_end>>
 <<endif>>
 ===
@@ -253,7 +278,6 @@ oh ciao piccolo gattino che cosa ci fai qui?
 <<if $Leonardo_1 == true>>
 cerca di convincere gli altri a perdonarmi
 se lo fai ti aiuterò
--> miao
 <<endif>>
 ===
 
@@ -264,12 +288,14 @@ ciao gattino
 -> sai dove posso trovare Leonardo Da Vinci?
     si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
     non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    <<target NPCLeonardo>>
 -> chi sei?
     sono Sandro Botticelli
     se non fosse per quel Leonardo sarei già a buon punto con la mia opera
     -> che cosa ha fatto?
         fattelo raccontare da lui si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+        <<target NPCLeonardo>>
     -> miao 
         credo che tu abbia appena parlato
 <<endif>>
@@ -328,6 +354,7 @@ che carino cosa ci fai qui?
 -> sai dove posso trovare Leonardo Da Vinci?
     si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
     non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    <<target NPCLeonardo>>
 -> chi sei?
     sono Pietro Perugino
     per colpa di quel Leonardo sto impazzendo
@@ -336,9 +363,11 @@ che carino cosa ci fai qui?
     -> sai dove si trova?
         si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+        <<target NPCLeonardo>>
     -> che cosa ha fatto?
         fattelo raccontare da lui si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+        <<target NPCLeonardo>>
 <<endif>>
 <<if $Leonardo_1 == true>>
 <<if $perugino== false>>
@@ -364,6 +393,7 @@ dove l'avrà mai messa
     -> va bene
         mi ha dato solo un indizio di dove l'ha nascosta
         qualcosa riguardo ad uno dei miei quadri
+        sono quelli accanto a me
         <<task_start chiave>>
     -> no miao
         va bene grazie comunque
@@ -400,15 +430,18 @@ che carino cosa ci fai qui?
 -> sai dove posso trovare Leonardo Da Vinci?
     si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
     non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    <<target NPCLeonardo>>
 -> chi sei?
     sono Domenico Ghirlandaio
     per colpa di quel Leonardo non riesco più a disegnare
     -> sai dove si trova?
         si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+        <<target NPCLeonardo>>
     -> che cosa ha fatto?
         fattelo raccontare da lui si trova a sinistra dell' entrata
         non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+        <<target NPCLeonardo>>
 <<endif>>
 <<if $Leonardo_1== true>>
 <<if $ghirlandaio== false>>
@@ -421,6 +454,7 @@ come farò adesso?!
         dovrebbero esserci dei secchio di colore a giro per la bottega
         mi bastano quelli per ricreare i miei colori
         <<task_start ghirlandaio Ghirlandaio_completato>>
+        <<target ghirlandaio>>
     -> no miao
         va bene grazie comunque
 ->chi sei?
@@ -433,6 +467,7 @@ come farò adesso?!
             mi ha dato solo un indizio di dove l'ha nascosta
             qualcosa riguardo ad uno dei miei quadri
             <<task_start ghirlandaio Ghirlandaio_completato>>
+            <<target ghirlandaio>>
         -> no miao
             va bene grazie comunque
 <<endif>><<endif>>
@@ -462,5 +497,29 @@ grazie mille porta qui tutto quello che hai trovato
 title: ll_tourist
 position: 262,294
 ---
-I'm a Living Letter tourist #line:0f64d51 
+ci troviamo in una bottega del Rinascimento
+erano luoghi dove i giovani imparavano a dipingere o scolpire
+erano luoghi mediamente piccoli dove i figli di artisti venivano mandati
+per imparare a fare arte
+===
+
+title: ll_tourist1
+---
+questa è la bottega del Verrocchio
+era la bottega più famosa di tutta Firenze
+probabilmente di tutta Italia
+anche se a quel tempo non si parla ancora di Itala
+nel XV secolo l' Italia che conosciamo oggi non esisteva ancora
+era divisa in molti parti a comando c'erano i Ducati o le Repubbliche
+la Repubblica di Firenze era governata dai Medici
+===
+
+title:ll_turist2
+---
+non erano un luogo molto facile
+tutti i giovani apprendisti erano sotto regole ferree
+ma non erano famose solo per questo
+infatti non si insetgnava solo l'arte fisica
+ma anche quella della mente
+si imparava anche la filosofia e la letteratura
 ===
