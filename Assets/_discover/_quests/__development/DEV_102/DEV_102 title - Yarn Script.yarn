@@ -27,14 +27,13 @@ color: red
 type: panel
 actor: NARRATOR
 ---
+<<declare $pages_task_state = 0>>
 <<declare $MinigameAntura = false>>
 <<declare $LucignoloDone = false>>
 <<declare $GeppettoDone = false>>
-<<card TODO_collodi_citta>>
 Benvenuti a Collodi! #line:itco_start_1
 Oggi esploreremo il Parco di Pinocchio. #line:itco_start_2
-<<area area_ingresso>>
-<<target grillo>>
+<<target Grillo>>
 ===
 
 title: quest_end
@@ -69,10 +68,31 @@ color: blue
 group: ingresso
 actor: KID_M
 ---
-Oh cielo! Come farò? #line:itco_grillo_1
-Quel cane blu ha strappato le pagine del mio diario! #line:itco_grillo_2
-Pinocchio, siamo spacciati! #line:itco_grillo_3
-<<jump Pinocchio>>
+<<if $pages_task_state == 0>>
+    Oh cielo! Come farò? #line:itco_grillo_1
+    Quel cane blu ha strappato le pagine del mio diario! #line:itco_grillo_2
+    Pinocchio, siamo spacciati! #line:itco_grillo_3
+    <<jump Pinocchio>>
+    
+<<elseif $pages_task_state == 1>>
+    => Mancano ancora delle pagine.
+    => Ci sei quasi.
+<<elseif $pages_task_state == 2>>
+    Grazie mille!
+    Ora possiamo finalmente conoscere la storia di Collodi.
+    <<set $pages_task_state = 3>>
+    //<<SetActive bronze_statues true>>
+    <<target bronze_statues>>
+<<else>>
+    Grazie ancora gattino per averci dato una zampa.
+<<endif>>
+===
+title: pages_task_end
+color: green
+position: 1132,385
+---
+Hai recuperato tutte le pagine, torna dal Grillo Parlante!
+<<set $pages_task_state = 2>>
 ===
 
 title: Pinocchio
@@ -118,9 +138,11 @@ actor: KID_M
 Grazie mille! #line:itco_certo_1
 L'ultima volta ho visto quel cane verso il parco. #line:itco_certo_2
 Prova a cercare lì dentro! #line:itco_certo_3
-<<task_start task_trova_antura>>
-<<area area_parco>>
-<<target lucignolo>>
+<<set $pages_task_state = 1>>
+Raccogli le 3 pagine di diario. #task:pages_collection
+<<task_start pages_collection pages_task_end>>
+<<camera_focus camera_parco>>
+<<target Lucignolo>>
 ===
 
 // ---------------------------------------------------------------------------
@@ -161,7 +183,7 @@ group: parco_lucignolo
 actor: KID_M
 ---
 Oh... capisco. Cercherò di farcela da solo. #line:itco_lucig_rif_1
-<<target lucignolo>>
+<<target Lucignolo>>
 ===
 
 title: Carlo_Collodi
@@ -203,6 +225,7 @@ color: green
 group: parco_lucignolo
 actor: KID_M
 ---
+<<SetActive page_1 true>>
 È Carlo Collodi! #line:itco_carlo_ok_1
 <<card TODO_carlo_collodi collect>>
 È lui che ha scritto la storia di Pinocchio! #line:itco_carlo_ok_2
@@ -211,7 +234,7 @@ actor: KID_M
 È andato di là. Attento, c'è il pescecane! #line:itco_carlo_ok_3
     <<camera_focus camera_geppetto>>
     <<camera_reset>>
-    <<target geppetto>>
+    <<target Geppetto>>
 ===
 
 // ---------------------------------------------------------------------------
@@ -251,7 +274,7 @@ group: parco_geppetto
 actor: SENIOR_M
 ---
 Oh, fa niente. Ci proverò io. #line:itco_geppetto_rif_1
-<<target geppetto>>
+<<target Geppetto>>
 ===
 
 title: Villa_Garzoni
@@ -293,6 +316,7 @@ color: green
 group: parco_geppetto
 actor: SENIOR_M
 ---
+<<SetActive page_2 true>>
 Ah, che bella la Villa Garzoni! #line:itco_villa_ok_1
 <<card TODO_villa_garzoni collect>>
 Che ricordi... #line:itco_villa_ok_2
@@ -301,7 +325,7 @@ Che ricordi... #line:itco_villa_ok_2
 Una figura blu è scappata verso il labirinto! #line:itco_villa_ok_3
     <<camera_focus camera_labirinto>>
     <<camera_reset>>
-    <<target fata>>
+    <<target Fata>>
 ===
 
 // ---------------------------------------------------------------------------
@@ -318,10 +342,8 @@ Buongiorno, gattino. Ti sei perso? #line:itco_fata_1
 <<if $MinigameAntura == false>>
     -> Sto cercando le pagine di un diario. #line:itco_fata_opt1
         <<jump Fata_Cercare>>
-    -> Mi sono perso. #line:itco_fata_opt2
-        <<jump Fata_Perso>>
 <<else>>
-    -> Mi sono perso. #line:itco_fata_opt3
+    -> Voglio tornare all'ingresso. #line:itco_fata_opt3
         <<jump Fata_Perso>>
 <<endif>>
 ===
@@ -334,7 +356,8 @@ actor: ADULT_F
 ---
 Con la mia magia ti riporterò all'ingresso! #line:itco_fata_perso_1
 -> Va bene, grazie! #line:itco_fata_perso_opt1
-    <<teleport spawn_ingresso>>
+    <<teleport spawn>>
+    <<target Grillo>>
 -> No grazie, resto qui. #line:itco_fata_perso_opt2 #highlight
     <<jump Fata>>
 ===
@@ -347,8 +370,7 @@ actor: ADULT_F
 ---
 Ecco cosa aveva quel cane tra i denti! #line:itco_fata_cer_1
 È scappato dentro al labirinto. #line:itco_fata_cer_2
-<<target antura>>
-<<jump Antura>>
+<<target Antura>>
 ===
 
 // ---------------------------------------------------------------------------
@@ -382,7 +404,7 @@ color: green
 group: labirinto
 actor: SILENT
 ---
-<<if GetActivityResult("minigame_match_pinocchi") > 0>>
+<<if GetActivityResult("minigame_order_pinocchi") > 0>>
     <<jump Pinocchi_Successo>>
 <<else>>
     <<jump Pinocchi_Fallimento>>
@@ -405,12 +427,11 @@ color: green
 group: labirinto
 actor: KID_M
 ---
+<<SetActive page_3 true>>
 <<card TODO_pinocchi_del_mondo collect>>
 <<set $MinigameAntura = true>>
-<<action antura_scappa>>
 Grazie Antura! #line:itco_pinocchi_ok_1
-<<target grillo>>
-<<jump Grillo_Finale>>
+<<target Fata>>
 ===
 
 // ---------------------------------------------------------------------------
