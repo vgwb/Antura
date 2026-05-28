@@ -32,6 +32,8 @@ position: -215,169
   <<camera_reset>>
   Per favore aiutami a calmarlo, prima che tutto il quartiere impazzisca! #line:07436c5 
   <<set $task_completed = 0>>
+  <<SetActive mrbaffo_area false>>
+  <<SetActive archeologist_area true>>
   <<target archeologist>>
 <<elseif $task_completed == 5>>
   Ce l'hai fatta! hai calmato il vecchio! #line:07ab1b8 
@@ -86,6 +88,8 @@ COME È POSSIBILE! NON È GIUSTO!
   <<camera_focus museum>>
   Fino ad allora, ti consiglio di imparare qualcosa visitando il museo! #line:0ee6a3a #card:museo
   <<camera_reset>>
+<<SetActive archeologist_area false>>
+<<SetActive secretary_area true>>
 <<target secretary>>
 //Update area
 ===
@@ -253,6 +257,8 @@ position: 234,310
 ---
   <<if GetActivityResult("museum_payment") > 0>>
     Ottimo, la sezione archeologica è più avanti.  #line:053f971 #card:archeologia
+    <<SetActive secretary_area false>>
+    <<SetActive canvas1_area true>>
     <<set $talked_to_secretary = true>>
     Buona giornata. #line:0b24b59 
     <<target canvas2_manager>>
@@ -320,6 +326,7 @@ position: 1128,159
   Un cane blu è passato di qui poco fa e ha sparso dei reperti in giro per il museo. #line:059e891 
   Per piacere, aiutaci a recuperarli. #line:0a32bfe 
   <<set $statues_task_state = 1>>
+  <<SetActive statues_area false>>
   Raccogli 6 statuette di bronzo. #task:statues_collection //STAMPA_IMMAGINE_STATUA
   <<task_start statues_collection statues_task_end>>
 <<elseif $statues_task_state == 1>>
@@ -375,6 +382,10 @@ position: 451,527
 <<if GetActivityResult("canvas_necropoli_etrusca") > 0>>
   <<set $canvas_completed = true>>
   <<set $task_completed = 3>>
+  <<SetActive canvas2_area false>>
+  <<SetActive statues_area true>>
+  <<SetActive canvas_empty_image false>>
+  <<SetActive canvas_image true>>
   <<card necropoli zoom>>
   Quest'informazione potrebbe servirti per convincere il vecchio.
   <<target statues_manager>>
@@ -412,6 +423,10 @@ position: 901,531
 <<if GetActivityResult("canvas_intro_etruschi") > 0>>
   <<set $canvas2_completed = true>>
   <<set $task_completed = 1>>
+  <<SetActive canvas1_area false>>
+  <<SetActive puzzle_area true>>
+  <<SetActive canvas2_empty_image false>>
+  <<SetActive canvas2_image true>>
   <<card etruschi zoom>>
   Quest'informazione potrebbe servirti per convincere il vecchio.
   <<target puzzle_manager>>
@@ -448,6 +463,10 @@ position: 675,527
 <<if GetActivityResult("puzzle_architettura_etrusca") > 0>>
   <<set $puzzle_completed = true>>
   <<set $task_completed = 2>>
+  <<SetActive puzzle_area false>>
+  <<SetActive canvas2_area true>>
+  <<SetActive puzzle_empty_image false>>
+  <<SetActive puzzle_image true>>
   <<card architettura_etrusca zoom>>
   Quest'informazione potrebbe servirti per convincere il vecchio.
   <<target canvas_manager>>
