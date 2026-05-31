@@ -14,11 +14,8 @@
 // TASKS
 //   - task_raccogli_fogli
 //   - task_trova_leone
-//   - task_raccogli_oggetti
-// ACTIVITIES
-//   - TODO minigame_assembla_carro
-//   - TODO match_maschere_carnevale
-// </scene_data>
+//   - task_trova_oroogio
+//   - task_trova_colomba
 
 title: quest_start
 position: 0,0
@@ -26,72 +23,83 @@ color: red
 type: panel
 actor: NARRATOR
 ---
-<<declare $CARISTA_FOGLI_DONE = false>>
+<<declare $CARRISTA_FOGLI_STATE = 0>>
 <<declare $FOGLI_PROPOSTI = false>>
 <<declare $leone= false>>
-<<declare $CARISTA2_DONE = false>>
-<<declare $CARISTA_OGGETTI_DONE = false>>
-<<declare $CARISTA3_DONE = false>>
-<<declare $TIMER_PROPOSTO = false>>
-<<declare $timer= false>>
-<<set $timer = false>>
+<<declare $CARRISTA2_DONE = false>>
+<<declare $CARRISTA_OGGETTI_DONE = false>>
+<<declare $CARRISTA3_DONE = false>>
+<<declare $OROLOGIO = false>>
+<<declare $orologio= false>>
+<<declare $CARRISTA4_DONE= false>>
+<<declare $COLOMBA=false>>
+<<set $orologio = false>>
+
 <<card TODO_viareggio_citta>>
-Siamo a Viareggio! #line:dev112_start_1
-È il periodo del Carnevale! #line:dev112_start_2
-<<area area_piazza>>
-<<target carista1>>
+Siamo a Viareggio il paese del carnevale! #line:dev112_start_1
+Nel periodo di febbraio almeno prima di 40 giorni dalla pasqua. #line:dev112_start_2
+Nato per la satira contro il governo e i politici dell'epoca #line:dev112_start_3
+e da poco ha compiuto 153 anni  #line:dev112_start_4
+<<target carrista1>>
 ===
 
 // =====================
-// CARISTA 1 - PRIMO INCONTRO (raccolta fogli)
+// CARRISTA 1 - PRIMO INCONTRO (raccolta fogli)
 // =====================
 
-title: npc_carista1
+title: npc_carrista1
 position: 200,0
 color: blue
-group: carista
+group: carrista
 actor: ADULT_M
 ---
-<<if $CARISTA_OGGETTI_DONE>>
-    <<jump Carista_Repeat_Fine>>
-<<elseif $CARISTA2_DONE>>
-    <<jump Carista_TerzaFase>>
-<<elseif $CARISTA_FOGLI_DONE>>
-    <<jump Carista_SecondaFase>>
-<<elseif $FOGLI_PROPOSTI>>
-    <<jump Carista_Conferma_Fogli>>
+//<<if $CARRISTA_OGGETTI_DONE>>
+//<<elseif $CARRISTA2_DONE>>
+//<<elseif $CARRISTA_FOGLI_DONE>>
+//<<elseif $FOGLI_PROPOSTI>>
+//    <<jump Carrista_Conferma_Fogli>>
+//<<endif>>
+<<if $CARRISTA_FOGLI_STATE == 0>>
+    <<set $CARRISTA_FOGLI_STATE = 1>>
+    Ciao! Sono un costruttore di carri. #line:dev112_carrista_1
+    Il vento ha fatto un disastro! #line:dev112_carrista_2
+    <<camera_focus camera_fogli>>
+    I miei disegni sono sparpagliati per la piazza. #line:dev112_carrista_3
+    <<camera_reset>>
+    Ho bisogno di tutti e cinque i fogli. #line:dev112_carrista_4
+    <<set $FOGLI_PROPOSTI = true>>
+    Puoi aiutarmi a raccoglierli? #line:dev112_carrista_5
+    <<jump Carrista_Conferma_Fogli>>
+<<elseif $CARRISTA_FOGLI_STATE == 1>>
+    Mancano ancora dei fogli.
+<<elseif $CARRISTA_FOGLI_STATE == 2>>
+    <<jump Carrista_SecondaFase>>
+<<else>>
+    Grazie ancora del tuo aiuto.
 <<endif>>
-Ciao! Sono un costruttore di carri. #line:dev112_carista_1
-Il vento ha fatto un disastro! #line:dev112_carista_2
-<<camera_focus camera_fogli>>
-I miei disegni sono sparpagliati per la piazza. #line:dev112_carista_3
-<<camera_reset>>
-Ho bisogno di tutti e cinque i fogli. #line:dev112_carista_4
-<<set $FOGLI_PROPOSTI = true>>
-Puoi aiutarmi a raccoglierli? #line:dev112_carista_5
-<<jump Carista_Conferma_Fogli>>
 ===
 
-title: Carista_Conferma_Fogli
+title: Carrista_Conferma_Fogli
 position: 200,200
 color: blue
-group: carista
+group: carrista
 actor: ADULT_M
 ---
 -> Sì, li cerco subito! #line:dev112_conf_fogli_si
+    Raccogli 5 fogli. #task:task_raccogli_fogli
     <<task_start task_raccogli_fogli fogli_raccolti>>
     <<target off>>
     <<area area_fogli>>
 -> Non ora. #line:dev112_conf_fogli_no #highlight
 ===
 
-title: Carista_Repeat_Fogli
+title: Carrista_Repeat_Fogli
 position: 200,400
 color: blue
-group: carista
+group: carrista
 actor: ADULT_M
 ---
-Cerca ancora, mancano ancora dei fogli! #line:dev112_carista_rep_fogli_1
+Cerca ancora, mancano ancora dei fogli! #line:dev112_carrista_rep_fogli_1
 ===
 
 // =====================
@@ -105,7 +113,7 @@ color: yellow
 group: fogli
 actor: NARRATOR
 ---
-Un disegno del carista! #line:dev112_foglio_1
+Un disegno del carrista! #line:dev112_foglio_1
 <<collect>>
 ===
 
@@ -115,76 +123,76 @@ color: green
 group: fogli
 actor: NARRATOR
 ---
-<<set $CARISTA_FOGLI_DONE = true>>
+<<set $CARRISTA_FOGLI_STATE = 2>>
 Hai trovato tutti i disegni! #line:dev112_fogli_ok_1
-Torna dal carista. #line:dev112_fogli_ok_2
-<<SetMapIcon carista "on">>
-<<target carista1>>
+Torna dal carrista. #line:dev112_fogli_ok_2
+<<SetMapIcon carrista "on">>
+<<target carrista1>>
 ===
 
 // =====================
-// CARISTA 1 - SECONDA FASE (manda dai colleghi)
+// CARRISTA 1 - SECONDA FASE (manda dai colleghi)
 // =====================
 
-title: Carista_SecondaFase
+title: Carrista_SecondaFase
 position: 600,0
 color: blue
-group: carista
+group: carrista
 actor: ADULT_M
 ---
-Grazie del aiuto! #line:dev112_carista_sf_1
-Ti va di aiutare i miei colleghi? #line:dev112_carista_sf_2
+Grazie dell'aiuto! #line:dev112_carrista_sf_1
+Ti va di aiutare i miei colleghi? #line:dev112_carrista_sf_2
 <<camera_focus camera_cartelloni>>
-Sono dove ci sono i cartelloni dei carri. #line:dev112_carista_sf_3
+Sono dove ci sono i cartelloni dei carri. #line:dev112_carrista_sf_3
 <<camera_reset>>
-Il vento di Antura ha creato il caos! #line:dev112_carista_sf_4
-Hanno perso dei pezzi dei loro carri. #line:dev112_carista_sf_5
-<<SetMapIcon carista2 "on">>
-<<target carista2>>
+Il vento di Antura ha creato il caos! #line:dev112_carrista_sf_4
+Hanno perso dei pezzi dei loro carri. #line:dev112_carrista_sf_5
+<<SetMapIcon carrista2 "on">>
+<<target carrista2>>
 <<area area_cartelloni>>
 ===
 
-title: Carista_Repeat_Colleghi
+title: Carrista_Repeat_Colleghi
 position: 600,200
 color: blue
-group: carista
+group: carrista
 actor: ADULT_M
 ---
-I miei colleghi ti aspettano! #line:dev112_carista_rep_colleghi_1
-Sono vicino ai cartelloni dei carri. #line:dev112_carista_rep_colleghi_2
+I miei colleghi ti aspettano! #line:dev112_carrista_rep_colleghi_1
+Sono vicino ai cartelloni dei carri. #line:dev112_carrista_rep_colleghi_2
 ===
 
 // =====================
-// CARISTA 2 - NPC VICINO AL CARTELLONE (leone)
+// CARRISTA 2 - NPC VICINO AL CARTELLONE (leone)
 // =====================
 
-title: npc_carista2
+title: npc_carrista2
 position: 0,0
 color: blue
-group: carista2
+group: carrista2
 actor: ADULT_M
 ---
-<<if $CARISTA2_DONE>>
-    <<jump Carista2_Repeat>>
+<<if $CARRISTA2_DONE>>
+    <<jump Carrista2_Repeat>>
 <<elseif $leone == true>>
-    <<jump Carista2_DopoLeone>>
+    <<jump Carrista2_DopoLeone>>
 <<endif>>
-Oh ciao! Sei un amico del mio collega? #line:dev112_carista2_1
-Ho un problema grande! #line:dev112_carista2_2
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista2_1
+Ho un problema grande! #line:dev112_carrista2_2
 <<camera_focus camera_leone>>
-Ho perso il mio leone di cartapesta. #line:dev112_carista2_3 #task:task_trova_leone
+Ho perso il mio leone di cartapesta. #line:dev112_carrista2_3 #task:task_trova_leone
 <<camera_reset>>
 <<card TODO_leone_cartapesta>>
 <<card TODO_cartapesta>>
-È il pezzo più importante del mio carro! #line:dev112_carista2_4
-Ti prego, mi aiuti a trovarlo? #line:dev112_carista2_5
-<<jump Carista2_Conferma_Leone>>
+È il pezzo più importante del mio carro! #line:dev112_carrista2_4
+Ti prego, aiutami a trovarlo? #line:dev112_carrista2_5
+<<jump Carrista2_Conferma_Leone>>
 ===
 
-title: Carista2_Conferma_Leone
+title: Carrista2_Conferma_Leone
 position: 0,200
 color: blue
-group: carista2
+group: carrista2
 actor: ADULT_M
 ---
 -> Sì, lo cerco subito! #line:dev112_conf_leone_si
@@ -193,14 +201,14 @@ actor: ADULT_M
 -> Non ora. #line:dev112_conf_leone_no #highlight
 ===
 
-title: Carista2_Repeat
+title: Carrista2_Repeat
 position: 0,400
 color: blue
-group: carista2
+group: carrista2
 actor: ADULT_M
 ---
-Grazie ancora per il leone! #line:dev112_carista2_rep_1
-Il mio carro è bellissimo adesso. #line:dev112_carista2_rep_2
+Grazie ancora per il leone! #line:dev112_carrista2_rep_1
+Il mio carro è bellissimo adesso. #line:dev112_carrista2_rep_2
 ===
 
 // =====================
@@ -214,114 +222,202 @@ group: leone
 actor: NARRATOR
 ---
 <<set $leone = true>>
-Hai trovato il leone di cartapesta del carista! #line:dev112_leone_ok_1
-Torna dal carista. #line:dev112_leone_ok_2
-<<SetMapIcon carista2 "done">>
-<<target carista2>>
+Hai trovato il leone di cartapesta del carrista! #line:dev112_leone_ok_1
+Torna dal carrista. #line:dev112_leone_ok_2
+<<SetMapIcon carrista2 "done">>
+<<target carrista2>>
 ===
 
-title: Carista2_DopoLeone
+title: Carrista2_DopoLeone
 position: 400,0
 color: blue
-group: carista2
+group: carrista2
 actor: ADULT_M
 ---
-Il mio leone! Grazie mille! #line:dev112_carista2_dopo_1
-Senza di te il mio carro era rovinato. #line:dev112_carista2_dopo_2
-Guarda comè ora il carro, ed ecco a te #line:dev112_carista2_dopo_3
-La Ballata selvaggia ha come Tema un'ode trionfale all'esotico, #line:dev112_carista2_dopo_4
-un'immersione spettacolare nei misteri #line:dev112_carista2_dopo_5
-e nell'energia primordiale della savana e delle giungle africane. #line:dev112_carista2_dopo_6
-Adesso cerca glialtri colleghi. #line:dev112_carista2_dopo_7
-Hanno ancora bisogno di te! #line:dev112_carista2_dopo_8
-<<SetMapIcon carista2 "on">>
-<<target carista3>>
-<<set $CARISTA2_DONE= true>>
-===
-
-// =====================
-// CARISTA 3 - NPC VICINO AL CARTELLONE (timer)
-// =====================
-
-title: npc_carista3
-position: 0,0
-color: blue
-group: carista2
-actor: ADULT_M
----
-<<if $CARISTA3_DONE>>
-    <<jump Carista3_Repeat>>
-<<elseif $timer == true>>
-    <<jump Carista3_DopoTimer>>
-<<endif>>
-Oh ciao! Sei un amico del mio collega? #line:dev112_carista3_1
-Ho un problema grande! #line:dev112_carista3_2
-<<camera_focus camera_timer>>
-Ho perso il mio timer di cartapesta. #line:dev112_carista3_3 #task:task_trova_timer
+Il mio leone! Grazie mille! #line:dev112_carrista2_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista2_dopo_2
+Guarda comè ora il carro, #line:dev112_carrista2_dopo_3
+che si chiama la Ballata selvaggia è come un ballo nella savana #line:dev112_carrista2_dopo_4
 <<camera_reset>>
 <<card foto_8>>
-<<card TODO_cartapesta>>
-È il pezzo più importante del mio carro! #line:dev112_carista3_4
-<<set $TIMER_PROPOSTO = true>>
-Ti prego, mi aiuti a trovarlo? #line:dev112_carista3_5
-<<jump Carista3_Conferma_Timer>>
+in cui partecipano tutte queste belve, #line:dev112_carrista2_dopo_5
+ma un ballo gioioso che invita tutti a ballare insieme umani e animali creando armonia e allegria. #line:dev112_carrista2_dopo_6
+Adesso cerca glialtri colleghi. #line:dev112_carrista2_dopo_7
+Hanno ancora bisogno di te! #line:dev112_carrista2_dopo_8
+<<SetMapIcon carrista2 "on">>
+<<target carrista3>>
+<<set $CARRISTA2_DONE= true>>
 ===
 
-title: Carista3_Conferma_Timer
+// =====================
+// CARRISTA 3 - NPC VICINO AL CARTELLONE (orologio)
+// =====================
+
+title: npc_carrista3
+position: 0,0
+color: blue
+group: carrista3
+actor: ADULT_M
+---
+<<if $CARRISTA3_DONE>>
+    <<jump Carrista3_Repeat>>
+<<elseif $orologio == true>>
+    <<jump Carrista3_DopoOrologio>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista3_1
+Ho un problema grande! #line:dev112_carrista3_2
+<<camera_focus camera_orologio>>
+Ho perso il mio orologio di cartapesta. #line:dev112_carrista3_3 #task:task_trova_orologio
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carrista3_4
+<<set $OROLOGIO = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carrista3_5
+<<jump Carrista3_Conferma_Orologio>>
+===
+
+title: Carrista3_Conferma_Orologio
 position: 0,200
 color: blue
-group: carista2
+group: carrista3
 actor: ADULT_M
 ---
--> Sì, lo cerco subito! #line:dev112_conf_timer_si
-    <<task_start task_trova_timer timer_raccolto>>
+-> Sì, lo cerco subito! #line:dev112_conf_orologio_si
+    <<task_start task_trova_orologio orologio_raccolto>>
     <<target off>>
--> Non ora. #line:dev112_conf_timer_no #highlight
+-> Non ora. #line:dev112_conf_orologio_no #highlight
 ===
 
-title: Carista3_Repeat
+title: Carrista3_Repeat
 position: 0,400
 color: blue
-group: carista2
+group: carrista3
 actor: ADULT_M
 ---
-Grazie ancora per il timer! #line:dev112_carista3_rep_1
-Il mio carro è bellissimo adesso. #line:dev112_carista3_rep_2
+Grazie ancora per il orologio! #line:dev112_carrista3_rep_1
+Il mio carro è bellissimo adesso. #line:dev112_carrista3_rep_2
 ===
 
 // =====================
-// ITEM - TIMER DI CARTAPESTA
+// ITEM - orologio DI CARTAPESTA
 // =====================
 
-title: timer_raccolto
+title: orologio_raccolto
 position: 200,0
 color: green
-group: leone
+group: orologio
 actor: NARRATOR
 ---
-<<set $timer = true>>
-Hai trovato il timer di cartapesta del carista! #line:dev112_timer_ok_1
-Torna dal carista. #line:dev112_timer_ok_2
-<<SetMapIcon carista3 "done">>
-<<target carista3>>
+<<set $orologio = true>>
+Hai trovato l'orologio di cartapesta del carrista! #line:dev112_orologio_ok_1
+Torna dal carrista. #line:dev112_orologio_ok_2
+<<SetMapIcon carrista3 "done">>
+<<target carrista3>>
 ===
 
-title: Carista3_DopoTimer
+title: Carrista3_DopoOrologio
 position: 400,0
 color: blue
-group: carista2
+group: carrista3
 actor: ADULT_M
 ---
-Il mio timer! Grazie mille! #line:dev112_carista3_dopo_1
-Senza di te il mio carro era rovinato. #line:dev112_carista3_dopo_2
-Guarda comè ora il carro, ed ecco a te #line:dev112_carista3_dopo_3
-Reset - Si riparte da sottozero #line:dev112_carista3_dopo_4
-parla del collasso ambientale e la crisi climatica #line:dev112_carista3_dopo_5
-Davanti all'orsa, sul ghiaccio, c'è un grande pulsante rosso per il "reset". #line:dev112_carista3_dopo_6
-I potenti della Terra hanno perso tempo prezioso senza azionarlo #line:dev112_carista3_dopo_7
-prima di arrivare al punto di non ritorno.#line:dev112_carista3_dopo_8
-Adesso cerca glialtri colleghi. #line:dev112_carista3_dopo_9
-Hanno ancora bisogno di te! #line:dev112_carista3_dopo_10
-<<SetMapIcon carista "on">>
-<<set $CARISTA3_DONE = true>>
+Il mio orologio! Grazie mille! #line:dev112_carrista3_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista3_dopo_2
+Guarda comè ora il carro, #line:dev112_carrista3_dopo_3
+che si chiama Reset - Si riparte da sottozero #line:dev112_carrista3_dopo_4
+<<card foto_5>>
+<<camera_reset>>
+Fa vedre un orso polare insieme e un bambino che chiedono aiuto #line:dev112_carrista3_dopo_5
+ai grandel della terra perche facciano qualcosa per fermare questa catastrofe. #line:dev112_carrista3_dopo_6
+Davanti a loro ce un pulsante grande pulsante rosso con scritto Reset #line:dev112_carrista3_dopo_7
+come per indicare da dove ripartire.#line:dev112_carrista3_dopo_8
+Adesso cerca glialtri colleghi. #line:dev112_carrista3_dopo_9
+Hanno ancora bisogno di te! #line:dev112_carrista3_dopo_10
+<<SetMapIcon carrista "on">>
+<<set $CARRISTA3_DONE = true>>
+===
+
+// =====================
+// CARRISTA 4 - NPC VICINO AL CARTELLONE (colomba)
+// =====================
+
+title: npc_carrista4
+position: 0,0
+color: blue
+group: carrista4
+actor: ADULT_M
+---
+<<if $CARRISTA4_DONE>>
+    <<jump Carrista4_Repeat>>
+<<elseif $COLOMBA == true>>
+    <<jump Carrista4_DopoColomba>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista4_1
+Ho un problema grande! #line:dev112_carrista4_2
+<<camera_focus camera_colomba>>
+Ho perso la mia colomba di cartapesta. #line:dev112_carrista4_3 #task:task_trova_colomba
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carrista4_4
+<<set $COLOMBA = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carrista4_5
+<<jump Carrista4_Conferma_Colomba>>
+===
+
+title: Carrista4_Conferma_Colomba
+position: 0,200
+color: blue
+group: carrista4
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_colomba_si
+    <<task_start task_trova_colomba colomba_raccolto>>
+    <<target off>>
+-> Non ora. #line:dev112_conf_colomba_no #highlight
+===
+
+title: Carrista4_Repeat
+position: 0,400
+color: blue
+group: carrista4
+actor: ADULT_M
+---
+Grazie ancora per il orologio! #line:dev112_carrista4_rep_1
+Il mio carro è bellissimo adesso. #line:dev112_carrista4_rep_2
+===
+
+// =====================
+// ITEM - colomba DI CARTAPESTA
+// =====================
+
+title: colomba_raccolto
+position: 200,0
+color: green
+group: colomba
+actor: NARRATOR
+---
+<<set $COLOMBA = true>>
+Hai trovato la colomba di cartapesta del carrista! #line:dev112_colomba_ok_1
+Torna dal carrista. #line:dev112_colomba_ok_2
+<<SetMapIcon carrista4 "done">>
+<<target carrista4>>
+===
+
+title: Carrista4_DopoColomba
+position: 400,0
+color: blue
+group: carrista4
+actor: ADULT_M
+---
+La mia colomba! Grazie mille! #line:dev112_carrista4_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista4_dopo_2
+Guarda comè ora il carro, #line:dev112_carrista4_dopo_3
+che si chiama Peace and Love #line:dev112_carrista4_dopo_4
+<<card foto_3>>
+<<camera_reset>>
+Raffigura i pontente del mondo  #line:dev112_carrista4_dopo_5
+che si contendono il potere #line:dev112_carrista_dopo_6
+uccidendo la colomba della pace. #line:dev112_carrista_dopo_7
+Adesso cerca glialtri colleghi. #line:dev112_carrista4_dopo_8
+Hanno ancora bisogno di te! #line:dev112_carrista4_dopo_9
+<<SetMapIcon carrista "on">>
+<<set $CARRISTA4_DONE = true>>
 ===
