@@ -28,6 +28,7 @@ type: panel
 <<declare $costumi_done = false>>
 <<declare $armature_placed = 0>>
 Welcome to this quest #line:06e8b3b 
+<<target stibbert_ingresso>>
 ===
 
 title: quest_end
@@ -67,6 +68,7 @@ color: purple
     Al sorgere dell'alba arriverà il guardiano e non posso certo farmi vedere!
     <<set $stibbert_ingresso_met = true>>
     <<SetActive ingresso false>>
+    <<target stibbert_parata>>
 <<elseif $stibbert_ingresso_met == true>>
     Non vedo l'ora che tutti i pezzi tornino a posto...
     ...sto morendo di sonno!
@@ -86,6 +88,7 @@ color: purple
     ...sbaglio o manca un'armatura?
     Guarda! Un pezzo si trova in fondo alla stanza!
     Dove saranno gli altri?
+    <<SetActive interactable_parata true>>
     <<set $stibbert_parata_met = true>>
     <<task_start collect_armatura_parata collect_armatura_parata_end>>
     <<set $collect_armatura_parata_state = 1>>
@@ -97,8 +100,10 @@ color: purple
     Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente!
     Ora non resta che assemblarla!
     Posizionati nel punto dove devi inserirla e ricomponila.
+    <<target interactable_parata>>
 <<elseif $stibbert_parata_met == true>>
-    Dove saranno gli altri pezzi dell'armatura?
+    Credo di aver visto almeno un pezzo di armatura in ogni stanza.
+    Inoltre ne ho visto uno addirittura sul tetto del tempietto egizio nel parco!
 <<endif>>
 ===
 
@@ -107,6 +112,7 @@ title: collect_armatura_parata_end
 <<set $collect_armatura_parata_state= 2>>
 <<card armatura_parata_card>>  
 Hai tutti i pezzi dell'armatura!
+<<target interactable_parata>>
 <<set $armatura_collected = true>>
 ===
 
@@ -127,7 +133,10 @@ title: jigsaw_parata_result
 ---
 <<if GetActivityResult ("jigsaw_parata") > 0>>
     Hai assemblato correttamente l'armatura, complimenti!
+    <<target stibbert_quadri>>
     <<set $armatura_done = true>>
+    <<SetActive armatura_mancante false>>
+    <<SetActive armatura_completa true>>
     <<SetActive interactable_parata false>>
 <<elseif GetActivityResult ("jigsaw_parata") < 0>>
     Mmm... non sembra assemblata nel modo corretto.
@@ -153,6 +162,8 @@ Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura.
     Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli!
     Conviene che prima esamini le opere esposte per capire come sono state realizzate.
     Torna da me quando le hai osservate attentamente!
+    <<SetActive LL_quadro true>>
+    <<SetActive LL_incisione true>>
 <<endif>>
 ===
 
@@ -175,6 +186,7 @@ title: talk_LL_quadro
     Questa Madonna col bambino è stata realizzata da Sandro Botticelli.
     Essendo un quadro...
     ...non può che essere stata realizzata con pennello, tavolozza e colori!
+    <<target stibbert_quadri>>
 <<endif>>
 ===
 
@@ -197,6 +209,7 @@ title: talk_LL_incisione
    Questa incisione è stata realizzada da Albrecht Dürer.
     Per realizzare un'incisione servono numerose e complicate attrezzature...
     ...ma sicuramente è impossibile farlo senza un torchio!
+    <<target stibbert_quadri>>
 <<endif>>
 ===
 
@@ -209,6 +222,7 @@ title: match_quadri_result
     <<card istruzioni_card>>
     Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì?
     Questo foglio ci sarà molto utile nella prossima stanza.
+    <<target stibbert_armature>>
 <<else>>
     Mmm... i cartellini non sembrano corretti.
 <<endif>>
@@ -323,6 +337,7 @@ title: check_armature
     Devo posizionare ancora altre spade.
 <<elseif $armature_placed == 3>>
     <<set $armature_done= true>> 
+    <<target stibbert_costumi>>
     <<task_end collect_armi>>
 <<endif>>
 ===
@@ -351,6 +366,7 @@ title: memory_costume_result
 <<if GetActivityResult ("memory_costume") > 0>>
     I costumi sono tutti al loro posto, perfetto!
     <<set $costumi_done = true>>
+    <<target stibbert_piatto>>
 <<endif>>
 ===
 
