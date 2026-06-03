@@ -27,6 +27,9 @@ type: panel
 <<declare $armature_done = false>>
 <<declare $costumi_done = false>>
 <<declare $armature_placed = 0>>
+<<declare $spada_europea_placed = false>>
+<<declare $spada_giapponese_placed = false>>
+<<declare $spada_islamica_placed = false>>
 Welcome to this quest #line:06e8b3b 
 <<target stibbert_ingresso>>
 ===
@@ -309,22 +312,30 @@ Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizion
 
 title:interactable_armatura_islamica
 ---
-Quale spada dovrebbe essere posizionata qua?
+<<if $spada_islamica_placed == true>>
+Ho già posizionato la spada giusta.
+<<elseif $spada_islamica_placed == false>>
+    Quale spada dovrebbe essere posizionata qua?
 -> Non ho la spada giusta.
 -> Quella Europea. <<if has_item("armatura_europea")>>
     Non penso sia la spada giusta.
 -> Quella Araba. <<if has_item("armatura_islamica")>>
     Esatto!
     <<set $armature_placed+= 1 >>
+    <<set $spada_islamica_placed = true>>
     <<inventory armatura_islamica remove>>
     <<jump check_armature>>
 -> Quella Giapponese. <<if has_item("armatura_giapponese")>>
     Non penso sia la spada giusta.
+<<endif>>
 ===
 
 title:interactable_armatura_giapponese
 ---
-Quale spada dovrebbe essere posizionata qua?
+<<if $spada_giapponese_placed == true>>
+Ho già posizionato la spada giusta.
+<<elseif $spada_giapponese_placed == false>>
+    Quale spada dovrebbe essere posizionata qua?
 -> Non ho la spada giusta.
 -> Quella Europea. <<if has_item("armatura_europea")>>
     Non penso sia la spada giusta.
@@ -333,23 +344,30 @@ Quale spada dovrebbe essere posizionata qua?
 -> Quella Giapponese. <<if has_item("armatura_giapponese")>>
     Esatto!
     <<set $armature_placed+= 1 >>
+    <<set $spada_giapponese_placed = true>>
     <<inventory armatura_giapponese remove>>
     <<jump check_armature>>
+<<endif>>
 ===
 
 title:interactable_armatura_europea
 ---
-Quale spada dovrebbe essere posizionata qua?
+<<if $spada_europea_placed == true>>
+Ho già posizionato la spada giusta.
+<<elseif $spada_europea_placed == false>>
+    Quale spada dovrebbe essere posizionata qua?
 -> Non ho la spada giusta.
 -> Quella Europea. <<if has_item("armatura_europea")>>
     Esatto!
     <<set $armature_placed+= 1 >>
+    <<set $spada_europea_placed = true>>
     <<inventory armatura_europea remove>>
     <<jump check_armature>>
 -> Quella Araba. <<if has_item("armatura_islamica")>>
     Non penso sia la spada giusta.
 -> Quella Giapponese. <<if has_item("armatura_giapponese")>>
     Non penso sia la spada giusta.
+<<endif>>
 ===
 
 title: check_armature
