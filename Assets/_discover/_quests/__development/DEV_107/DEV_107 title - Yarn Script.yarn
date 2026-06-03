@@ -41,6 +41,8 @@ type: panel
 <<SetActive  scatole9 false>>
 <<SetActive  scatole10 false>>
 <<SetActive  scatole11 false>>
+<<SetActive backgroud1 true>>
+<<SetActive backgroud2 false>>
 Siamo a Firenze. Oggi. #line:001e374 
 <<target npc_intro>>
 //<<teleport bottega>>
@@ -63,6 +65,14 @@ tags: proposal
 ---
 Why don't you do this homework? #line:09d3dd4 
 <<quest_end>>
+===
+
+title: fine
+---
+bravo hai risposto a tutto correttamente
+e ricordati di non giocare con i viaggi nel tempo
+o almeno con Antura attorno
+<<jump quest_end>>
 ===
 
 
@@ -106,14 +116,67 @@ adesso possiamo tornare indietro
 <<SetActive  scatole11 false>>
 <<camera_focus cielo>>
 siamo finalmente tornati hai giorni moderni
+<<SetActive backgroud1 true>>
+<<SetActive backgroud2 false>>
 <<camera_reset>>
 è stata una bella avventura
 abbiamo incontrato personaggi famosi dell'epoca
-
-<<jump quest_end>>
+ad esempio qual'è l'opera dove hanno lavorato insieme molti artisti?
+->battesimo di Cristo by Verrocchio
+    corretto!!
+    <<jump quiz_1>>
+->urlo by Munch
+    sbagliato, riprova
+->Gioconda by Da Vinci
+    sbagliato, riprova
+->adorazione dei magi by Da Vinci
+    sbagliato, riprova
 <<endif>>
 ===
 
+title: quiz_1
+---
+cosa rappresenta la "primavera" di Botticelli?
+-> la guerra
+-> la nascita del nuovo impero di Firenze
+-> la nascita dell' Italia
+-> la primavera secondo i greci
+    corretto!!
+    <<jump quiz_2>>
+===
+
+title: quiz_2
+---
+Leonardo Da Vinci a chi ha donato i suoi quadri?
+-> Lorenzo dei medici
+-> Giulio Cesare
+-> il re di Francia Luigi XII
+    corretto!!
+    <<jump quiz_3>>
+-> Travis Scott
+===
+
+title: quiz_3
+---
+cosa vuole rappresentare Perugino del quadro "consegna delle chiavi"?
+-> che era un bravo pittore
+-> l'importanza del Papa
+    corretto!!
+    <<jump quiz_4>>
+-> la costruzione di una nuova città
+-> la vittoria di un re in battaglia
+===
+
+title: quiz_4
+---
+il Ghirlandaio come ha rappresentato la famiglia Sassi nell' "adorazione dei pastori"?
+-> aggiungendo persone
+-> aggiungendo dei sassi in primo piano
+    corretto!!
+    <<jump fine>>
+-> mettendo lo stemma della famiglia
+-> miao
+===
 
 title: accettato
 ---
@@ -148,6 +211,8 @@ dobbiamo trovare qualcuno che ci aiuti a ripararla
 dovrebbe esserci Leonardo Da Vinci da queste parti
 cercalo mi deve aiutare a riparare la macchina sennò rimaremo bloccati qui per sempre
 <<target NPCverrocchio>>
+<<SetActive backgroud1 false>>
+<<SetActive backgroud2 true>>
 ===
 
 title: orologio_sx
