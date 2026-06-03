@@ -31,12 +31,12 @@ Welcome to this quest #line:06e8b3b
 <<target stibbert_ingresso>>
 ===
 
-title: quest_end
+title: finale
 position: 0,150
 type: panel_endgame
 color: red
 ---
-The quest is complete. #line:0216d51 
+Complimenti! Il museo è ora in ordine!
 <<jump post_quest_activity>>
 ===
 
@@ -69,6 +69,9 @@ color: purple
     <<set $stibbert_ingresso_met = true>>
     <<SetActive ingresso false>>
     <<target stibbert_parata>>
+    <<SetActive area_init false>>
+    <<SetActive area_gameplay true>>
+    <<camera_reset>>
 <<elseif $stibbert_ingresso_met == true>>
     Non vedo l'ora che tutti i pezzi tornino a posto...
     ...sto morendo di sonno!
@@ -83,11 +86,14 @@ color: purple
 <<if $stibbert_parata_met == false>>
     Mi stai chiedendo come faccio ad essere già qua?
     Beh, sono un fantasma, posso essere ovunque, che discorsi!
+    <<camera_focus camera_parata>>
     Comunque, in questa stanza ho ricostruito una parata rinascimentale con alcune armature a mia disposizione.
     Solo che...
+    <<camera_focus camera_parata_missing>>
     ...sbaglio o manca un'armatura?
     Guarda! Un pezzo si trova in fondo alla stanza!
     Dove saranno gli altri?
+    <<camera_reset>>
     <<SetActive interactable_parata true>>
     <<set $stibbert_parata_met = true>>
     <<task_start collect_armatura_parata collect_armatura_parata_end>>
@@ -99,8 +105,10 @@ color: purple
 <<elseif HasCompletedTask("collect_armatura_parata")>>
     Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente!
     Ora non resta che assemblarla!
+    <<camera_focus camera_parata_missing>>
     Posizionati nel punto dove devi inserirla e ricomponila.
     <<target interactable_parata>>
+    <<camera_reset>>
 <<elseif $stibbert_parata_met == true>>
     Credo di aver visto almeno un pezzo di armatura in ogni stanza.
     Inoltre ne ho visto uno addirittura sul tetto del tempietto egizio nel parco!
@@ -112,6 +120,7 @@ title: collect_armatura_parata_end
 <<set $collect_armatura_parata_state= 2>>
 <<card armatura_parata_card>>  
 Hai tutti i pezzi dell'armatura!
+Ora non resta che assemblarla!
 <<target interactable_parata>>
 <<set $armatura_collected = true>>
 ===
@@ -120,24 +129,34 @@ title: interactable_parata
 actor: interactable_parata
 ---
 <<if HasCompletedTask("collect_armatura_parata")>>
+    <<camera_focus camera_parata_missing>>
     Assembla l'armatura!
     <<activity jigsaw_parata jigsaw_parata_result>>
 <<elseif $collect_armatura_parata_state == 1>>
+    <<camera_focus camera_parata_missing>>
     Torna quando hai tutti i pezzi dell'armatura.
+     <<camera_reset>>
 <<elseif $collect_armatura_parata_state == 0>>
+    <<camera_focus camera_parata_missing>>
     Torna quando hai tutti i pezzi dell'armatura.
+     <<camera_reset>>
 <<endif>>
 ===
 
 title: jigsaw_parata_result
 ---
 <<if GetActivityResult ("jigsaw_parata") > 0>>
+<<SetActive armatura_mancante false>>
+<<SetActive armatura_completa true>>
     Hai assemblato correttamente l'armatura, complimenti!
-    <<target stibbert_quadri>>
-    <<set $armatura_done = true>>
-    <<SetActive armatura_mancante false>>
-    <<SetActive armatura_completa true>>
-    <<SetActive interactable_parata false>>
+<<inventory pezzo_armatura_parata remove>>
+<<inventory pezzo_armatura_parata remove>>
+<<inventory pezzo_armatura_parata remove>>
+<<inventory pezzo_armatura_parata remove>>
+<<camera_reset>>
+<<target stibbert_quadri>>
+ <<set $armatura_done = true>>
+<<SetActive interactable_parata false>>
 <<elseif GetActivityResult ("jigsaw_parata") < 0>>
     Mmm... non sembra assemblata nel modo corretto.
 <<endif>>
@@ -160,10 +179,12 @@ Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura.
 <<elseif $armatura_done == true>>
     In questa stanza sono esposti diversi quadri e incisioni.
     Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli!
-    Conviene che prima esamini le opere esposte per capire come sono state realizzate.
-    Torna da me quando le hai osservate attentamente!
     <<SetActive LL_quadro true>>
     <<SetActive LL_incisione true>>
+    <<camera_focus camera_quadri>>
+    Conviene che prima esamini le opere esposte per capire come sono state realizzate.
+    Torna da me quando le hai osservate attentamente!
+    <<camera_reset>>
 <<endif>>
 ===
 
@@ -345,8 +366,8 @@ title: check_armature
 title: talk_npc_stibbert_costumi
 ---
 <<if $armatura_done == false>>
-    Anche in questa stanza dobbiamo riordinare un po' di cose.
-    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+<<elseif $costumi_done == true>>
+    Ci vediamo nel parco!
 <<elseif $quadri_done == false>>
     Anche in questa stanza dobbiamo riordinare un po' di cose.
     Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
@@ -376,14 +397,18 @@ actor: stibbert_quadri
 color: purple
 ---
 <<if $costumi_done == true>>
-    Il mio povero parco ora è pieno di buche!
-    Non so quali cianfrusaglie abbia sotterrato quel cane, ma sicuramente manca una cosa importante.
-    Si tratta di un pregiatissimo piatto della manifattura Ginori.
-    Dobbiamo assolutamente ritrovarlo e dissotterrarlo!
-    Lascio fare a te, io ne ho abbastanza di stare sotto terra!
+    Oh no!
     <<SetActive interactable_palla true>>
     <<SetActive interactable_osso true>>
     <<SetActive interactable_piatto true>>
+    <<camera_focus camera_piatto>>
+    Il mio povero parco ora è pieno di buche!
+    <<camera_reset>>
+    Non so quali cianfrusaglie abbia sotterrato quel cane, ma sicuramente manca una cosa importante.
+    <<card piatto_card>>
+    Si tratta di un pregiatissimo piatto della manifattura Ginori.
+    Dobbiamo assolutamente ritrovarlo e dissotterrarlo!
+    Lascio fare a te, io ne ho abbastanza di stare sotto terra!
 <<elseif $costumi_done == false>>
     Anche in questa stanza dobbiamo riordinare un po' di cose.
     Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
@@ -423,8 +448,18 @@ title: interactable_piatto
 
 title: canvas_piatto_result
 ---
-<<if GetActivityResult ("canvas_osso") > 0>>
-    Trovato! Abbiamo riordinato tutto!
-    <<jump quest_end>>
+<<if GetActivityResult ("canvas_piatto") > 0>>
+    Trovato!
+<<SetActive stibbert_finale true>>
+<<camera_focus camera_finale>>
+BUH!
+Eheheh, ho sempre desiderato farlo!
+Ad ogni modo, ora dovrebbe essere tutto a posto, grazie infinite!
+Scusami se non sono venuto a salutarti di persona e ti sto parlando telepaticamente, ma...
+...non faccio così tanta attività fisica da più di un secolo e sono stanco morto!
+Beh, torno al mio riposo...
+...e spero che questa volta sia veramente eterno come si dice.
+Addio!
+<<jump finale>>
 <<endif>>
 ===
