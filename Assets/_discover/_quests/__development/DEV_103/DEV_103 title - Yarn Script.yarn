@@ -36,12 +36,23 @@ actor: NARRATOR
 <<declare $CERCHIO_PROPOSTO = false>>
 <<declare $KEY_OBTAINED = false>>
 <<declare $GIOTTO_DONE = false>>
+<<camera_map_distance 20>>
 <<card TODO_firenze_citta>>
-Siamo a Firenze! #line:it01_start_1
+Siamo a Firenze, nel 1359! #line:it01_start_1
+Il Campanile di Giotto è appena stato inaugurato! #line:it01_start_2
+<<card_hide>>
 <<card TODO_campanile_giotto>>
-Vuoi entrare nel Campanile di Giotto? #line:it01_start_2
+Vuoi essere tra i primi a salire lassù? #line:it01_start_3
 <<area area_piazza>>
 <<target porta_campanile>>
+===
+title: avvicina_bambina
+position: -400,0
+color: yellow
+group: bambina
+actor: NARRATOR
+---
+<<target bambina>>
 ===
 
 title: porta_chiusa
@@ -231,7 +242,6 @@ Ha lasciato una scia di colore! #line:it01_ok_3
 Forse puoi seguirla. #line:it01_ok_4
 <<set $COLORAIO_DONE = true>>
 <<camera_reset>>
-<<target bambina>>
 <<area area_bambina>>
 ===
 
@@ -252,7 +262,6 @@ Ciao! #line:it01_bambina_1
 Sto guardando questi due quadri. #line:it01_bambina_2
 Quello di destra ha qualcosa in più... #line:it01_bambina_3
 Non riesco a capire perché. #line:it01_bambina_4
-<<camera_reset>>
 -> Perché ha usato colori più forti #line:it01_bambina_opt1
     <<jump RispostaSbagliata>>
 -> Perché le persone sembrano più vere #line:it01_bambina_opt2
@@ -297,6 +306,7 @@ color: blue
 group: bambina
 actor: KID_F
 ---
+<<camera_reset>>
 Sì! Hai ragione! #line:it01_bambina_corr_1
 Le persone sembrano più vere e realistiche. #line:it01_bambina_corr_2
 <<set $QUIZ_PROPOSTO = true>>
@@ -423,6 +433,7 @@ actor: ADULT_M
 Sì! È passato poco fa. #line:it01_cfgiotto_1
 Ho però ancora questo problema... #line:it01_cfgiotto_2
 Potresti aiutarmi prima? #line:it01_cfgiotto_3
+<<area area_messaggero>>
 <<task_start task_raccogli_lettere lettere_result>>
 ===
 
@@ -433,6 +444,7 @@ group: messaggero
 actor: ADULT_M
 ---
 Grazie! Sono sparite qui intorno. #line:it01_aiuta_1
+<<area area_messaggero>>
 <<task_start task_raccogli_lettere lettere_result>>
 ===
 
@@ -446,6 +458,7 @@ Sì, è venuto da me poco fa. #line:it01_visto_1
 Ho però un problema... #line:it01_visto_1b
 Le mie lettere sono cadute per terra! #line:it01_visto_2
 Non è che mi aiuteresti a cercarle? #line:it01_visto_3
+<<area area_messaggero>>
 <<task_start task_raccogli_lettere lettere_result>>
 ===
 
@@ -475,6 +488,7 @@ color: blue
 group: messaggero
 actor: ADULT_M
 ---
+<<area area_bambina>>
 Grazie mille! #line:it01_dopo_1
 Stavo consegnando lettere proprio a Giotto. #line:it01_dopo_2
 È molto cercato da tutta Italia! #line:it01_dopo_3
@@ -524,6 +538,8 @@ Roba da non credere! #line:it01_dopo_cerchio_3
 Se lo cerchi, sarà già tornato al campanile. #line:it01_dopo_cerchio_4
 <<set $MESSAGGERO_DONE = true>>
 <<SetActive giotto true>>
+<<SetActive guardiafinale true>>
+<<SetActive guardiadellatorre false>>
 <<camera_focus camera_campanile>>
 <<camera_reset>>
 <<target giotto>>
@@ -580,8 +596,10 @@ group: giotto
 actor: SENIOR_M
 ---
 Mmm... non direi! #line:it01_gd1_sbag_1
+<<card cristo_morto>>
 Pensa ai due quadri che hai visto prima. #line:it01_gd1_sbag_2
 Cosa notavi nelle persone? #line:it01_gd1_sbag_3
+<<card_hide>>
 <<jump Giotto_Domanda1>>
 ===
 
@@ -620,7 +638,9 @@ group: giotto
 actor: SENIOR_M
 ---
 No no! Ricordi la prova che hai fatto tu? #line:it01_gd2_sbag_1
+<<card il_cerchio_perfetto>>
 Il messaggero te lo ha già raccontato! #line:it01_gd2_sbag_2
+<<card_hide>>
 <<jump Giotto_Domanda2>>
 ===
 
