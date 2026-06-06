@@ -216,6 +216,7 @@ pls
 <<else>>
 om nom nom 
 c'è un bambino che rompe
+<<task_start TrovaIlBambino>>
 <<endif>>
 ===
 title: Incontro_Con_Bimbo
@@ -223,6 +224,9 @@ tags:
 ---
 <<declare $bambino_ha_capito = false>>
 
+<<if !HasCompletedTask("AiutaTzz") >>
+Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
+<<else>>
 Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
 
 -> Ehi! Che fai con quel bastone?
@@ -250,4 +254,5 @@ Mi sa che ho fatto un guaio...
 -> Perché non cambi missione e le proteggi?
     <<set $bambino_ha_capito = true>>
     Hai ragione!!
+    <<endif>>
 ===
