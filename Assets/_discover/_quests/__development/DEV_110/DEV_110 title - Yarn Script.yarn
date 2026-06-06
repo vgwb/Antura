@@ -4,6 +4,7 @@ type: panel
 Player you have a quest : #line:02f14b2 
 Guide Dante and protect him from evil! #line:0df3c65 
 Go speak to Dante. #line:088cd8b 
+<<fight_start>>
 <<target Dante>>
 ===
 title: Dante_Intro
@@ -46,20 +47,13 @@ Dante : "Have pity on me, whatever you may be, a shade, a man." #line:0fd5718
 
 Shade : "Not man; I once was man. Both of my parents came from Lombardy, and both claimed Mantua as native city. I was a poet, born under false and lying gods." #line:081e541 
 
-Dante : "Could you be Virgil? The fountain that freely pours so rich a stream of speech!" #line:06637f1 
-As Dante is speaking the unbearable pressure of the shadowed forest numbs his mind, as God asked you, you step in to help clear his mind. #line:02f3d2b 
+Dante : "Could you be Virgil? The-" #line:06637f1  
 
 Virgil : "We cannot talk now, the beasts will get to us, let's get moving!" #line:05e67b5 
+
 Activity - Small task to fill-in some words that are also **Cards** (These are unlocks for Dante's and Virgil's skill set and they give more background info for both). #line:0160410 
 
-<<task_start Escape Fight>>
-===
-
-title: Fight
----
-
-Activity - Small "fight" in turn based to get back player's attention and give him a fun way to get out of the situation using what he has learned. #line:0fad6bf 
-// Dante - Skills : Clarity - Courage - Virgil's Help 
+// <<task_start Escape Fight>>
 ===
 title: NextStep
 ---

@@ -1,0 +1,59 @@
+title: Leopard_Start
+---
+A spotted leopard slips between the trees, light-footed and quick. It blocks the path and circles you.
+<<fight_start>>
+===
+
+
+title: Leopard_Study
+---
+You watch the leopard's restless circling, trying to read it.
+It darts in before you finish the thought.
+<<fight_dodge "leopard_pounce">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    You learn its rhythm, but watching alone changes nothing. It paces, waiting.
+    <<fight_menu>>
+<<endif>>
+===
+
+
+title: Leopard_Provoke
+---
+You shout and stamp to drive the beast off.
+The leopard takes it as a game and pounces harder.
+<<fight_dodge "leopard_flurry">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    The provocation only sharpens its excitement. It will not be scared away.
+    <<fight_menu>>
+<<endif>>
+===
+
+
+title: Leopard_MatchPace
+---
+You slow your breathing and let your steps fall into the leopard's own restless rhythm; moving with it, not against it.
+<<fight_dodge "leopard_pounce">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    The frantic circling eases. Curiosity replaces the hunger in its eyes, and it sits, tail flicking.
+    <<fight_spare_enable>>
+    <<fight_menu>>
+<<endif>>
+===
+
+
+title: Leopard_Win
+---
+The leopard dips its head once, then melts back into the green shadow of the wood. The path ahead is clear.
+===
+
+
+title: Leopard_Lose
+---
+The leopard is too quick, too light. Your strength fails and the dark wood closes over you.
+===

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e043f7d659edd4787e50ea2a625e1d, type: 3}
+  m_Name: 09 - Aimed + Rain
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DEV110.ProjectilePattern
+  ReferenceBoxSize: {x: 480, y: 270}
+  Emitters:
+  - Name: Aimed
+    StartTime: 0
+    Bursts: 5
+    BurstInterval: 0.6
+    Shape: 0
+    Count: 3
+    SpreadAngle: 20
+    BaseAngle: 0
+    Edge: 0
+    SpinPerBurst: 0
+    Movement: 0
+    WaveAmplitude: 24
+    WaveFrequency: 3
+    Sprite: {fileID: 0}
+    Color: {r: 1, g: 0.4, b: 0.4, a: 1}
+    Size: 14
+    Speed: 240
+    Damage: 1
+  - Name: Rain
+    StartTime: 0.3
+    Bursts: 10
+    BurstInterval: 0.35
+    Shape: 3
+    Count: 3
+    SpreadAngle: 60
+    BaseAngle: 0
+    Edge: 0
+    SpinPerBurst: 0
+    Movement: 0
+    WaveAmplitude: 24
+    WaveFrequency: 3
+    Sprite: {fileID: 0}
+    Color: {r: 0.6, g: 0.8, b: 1, a: 1}
+    Size: 12
+    Speed: 180
+    Damage: 1
