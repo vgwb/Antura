@@ -1,4 +1,4 @@
-﻿// dev_109
+// dev_109
 
 title: quest_start
 position: 0,0
@@ -226,7 +226,8 @@ tags:
 
 <<if !HasCompletedTask("AiutaTzz") >>
 Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
-<<else>>
+<<elseif !HasCompletedTask("ConvinciIlBambino")>>
+
 Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
 
 -> Ehi! Che fai con quel bastone?
@@ -254,5 +255,8 @@ Mi sa che ho fatto un guaio...
 -> Perché non cambi missione e le proteggi?
     <<set $bambino_ha_capito = true>>
     Hai ragione!!
-    <<endif>>
+<<task_start ConvinciIlBambino>>
+<<else>>
+abababa
+<<endif>>
 ===
