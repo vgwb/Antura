@@ -88,8 +88,7 @@ actor: ADULT_M
 -> Sì, li cerco subito! #line:dev112_conf_fogli_si
     Raccogli 5 fogli. #task:task_raccogli_fogli
     <<task_start task_raccogli_fogli fogli_raccolti>>
-    <<target off>>
-    <<area area_fogli>>
+    <<target fogli>>
 -> Non ora. #line:dev112_conf_fogli_no #highlight
 ===
 
@@ -197,7 +196,7 @@ actor: ADULT_M
 ---
 -> Sì, lo cerco subito! #line:dev112_conf_leone_si
     <<task_start task_trova_leone leone_raccolto>>
-    <<target off>>
+    <<target leone>>
 -> Non ora. #line:dev112_conf_leone_no #highlight
 ===
 
@@ -207,8 +206,7 @@ color: blue
 group: carrista2
 actor: ADULT_M
 ---
-Grazie ancora per il leone! #line:dev112_carrista2_rep_1
-Il mio carro è bellissimo adesso. #line:dev112_carrista2_rep_2
+Cerca ancora! #line:dev112_carrista2_rep_1
 ===
 
 // =====================
@@ -283,7 +281,7 @@ actor: ADULT_M
 ---
 -> Sì, lo cerco subito! #line:dev112_conf_orologio_si
     <<task_start task_trova_orologio orologio_raccolto>>
-    <<target off>>
+    <<target orologio>>
 -> Non ora. #line:dev112_conf_orologio_no #highlight
 ===
 
@@ -293,8 +291,7 @@ color: blue
 group: carrista3
 actor: ADULT_M
 ---
-Grazie ancora per il orologio! #line:dev112_carrista3_rep_1
-Il mio carro è bellissimo adesso. #line:dev112_carrista3_rep_2
+Cerca ancora! #line:dev112_carrista3_rep_1
 ===
 
 // =====================
@@ -333,6 +330,7 @@ come per indicare da dove ripartire.#line:dev112_carrista3_dopo_8
 Adesso cerca glialtri colleghi. #line:dev112_carrista3_dopo_9
 Hanno ancora bisogno di te! #line:dev112_carrista3_dopo_10
 <<SetMapIcon carrista "on">>
+<<target carrista4>>
 <<set $CARRISTA3_DONE = true>>
 ===
 
@@ -370,7 +368,7 @@ actor: ADULT_M
 ---
 -> Sì, lo cerco subito! #line:dev112_conf_colomba_si
     <<task_start task_trova_colomba colomba_raccolto>>
-    <<target off>>
+    <<target colomba>>
 -> Non ora. #line:dev112_conf_colomba_no #highlight
 ===
 
@@ -380,8 +378,7 @@ color: blue
 group: carrista4
 actor: ADULT_M
 ---
-Grazie ancora per il orologio! #line:dev112_carrista4_rep_1
-Il mio carro è bellissimo adesso. #line:dev112_carrista4_rep_2
+Cerca ancora! #line:dev112_carrista4_rep_1
 ===
 
 // =====================
@@ -421,3 +418,4 @@ Hanno ancora bisogno di te! #line:dev112_carrista4_dopo_9
 <<SetMapIcon carrista "on">>
 <<set $CARRISTA4_DONE = true>>
 ===
+
