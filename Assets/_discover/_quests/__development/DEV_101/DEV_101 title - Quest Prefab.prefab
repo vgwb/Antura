@@ -200,94 +200,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1, y: 10, z: 90.50796}
   m_Center: {x: 0, y: 5, z: 0}
---- !u!1 &101567284192205954
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2946276442220891247}
-  - component: {fileID: 3113615189115401900}
-  - component: {fileID: 2313996940751325549}
-  m_Layer: 0
-  m_Name: anfiteatro
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2946276442220891247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101567284192205954}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.34324992, z: 0, w: 0.9392441}
-  m_LocalPosition: {x: -36.72, y: 0.426, z: 36.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5512520045871801754}
-  m_LocalEulerAnglesHint: {x: 0, y: 40.15, z: 0}
---- !u!65 &3113615189115401900
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101567284192205954}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5403955, y: 1.2834408, z: 3.4011655}
-  m_Center: {x: 0.18349734, y: 0.1417206, z: -0.3670571}
---- !u!114 &2313996940751325549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101567284192205954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
-  Id: anfiteatroroman
-  IsInteractable: 1
-  IsHiddenAtStart: 0
-  NearbyAutoActivate: 1
-  IconType: 0
-  IconTransform: {fileID: 0}
-  ShowOnMap: 0
-  MapIcon: 0
-  ShowIconAlways: 0
-  FocusCameraOnInteract: 0
-  CameraFocusData: {fileID: 0}
-  FaceToPlayer: 0
-  DialogueNode:
-    project: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
-      type: 3}
-    nodeName: anfiteatroromano
-  NodePermalink: 
-  disableAfterAction: 0
-  QuestAction: 
-  Commands: []
-  triggerChildren: 0
-  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &122213363034415006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,6 +4136,74 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2944965916285663063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719559565119405995}
+  - component: {fileID: 7879248539825510526}
+  m_Layer: 0
+  m_Name: anfiteatro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719559565119405995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944965916285663063}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37.68729, y: 0.00099, z: 58.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1374977247811346417}
+  - {fileID: 8179721182270275811}
+  - {fileID: 2141421065071995908}
+  m_Father: {fileID: 5512520045871801754}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7879248539825510526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944965916285663063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: anfiteatro
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &3021067749673244864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4259,6 +4239,94 @@ Transform:
   - {fileID: 6211051032845905447}
   m_Father: {fileID: 2063715948697769247}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3021361030534626737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2141421065071995908}
+  - component: {fileID: 3724105626469701991}
+  - component: {fileID: 2886468954222367409}
+  m_Layer: 0
+  m_Name: anfiteatro.5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2141421065071995908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021361030534626737}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.34324995, z: -0, w: 0.93924415}
+  m_LocalPosition: {x: -11.232708, y: 0.42501, z: -13.309998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 719559565119405995}
+  m_LocalEulerAnglesHint: {x: 0, y: 40.15, z: 0}
+--- !u!65 &3724105626469701991
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021361030534626737}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.3006873, y: 1.2834408, z: 2.968906}
+  m_Center: {x: 0.35524872, y: 0.1417206, z: -0.58319116}
+--- !u!114 &2886468954222367409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021361030534626737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: anfiteatroromano
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 1
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
+      type: 3}
+    nodeName: anfiteatroromano
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &3082118722962095829
 GameObject:
   m_ObjectHideFlags: 0
@@ -4913,6 +4981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 478236737058052415}
+  - component: {fileID: 8656788313327765813}
   m_Layer: 0
   m_Name: piazzasanfrancesco
   m_TagString: Untagged
@@ -4940,6 +5009,39 @@ Transform:
   - {fileID: 2188357571317305730}
   m_Father: {fileID: 5512520045871801754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8656788313327765813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3324121076714419096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: piazzasanfrancesco
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &3350173489932803512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6793,14 +6895,13 @@ Transform:
   - {fileID: 3498804924236942075}
   - {fileID: 296170783870674856}
   - {fileID: 9133430842091796352}
-  - {fileID: 2946276442220891247}
-  - {fileID: 6487418254190557785}
-  - {fileID: 3386057407727967779}
+  - {fileID: 719559565119405995}
   - {fileID: 2275329192637495804}
   - {fileID: 478236737058052415}
   - {fileID: 6888268076880247202}
   - {fileID: 1321933142252933147}
   - {fileID: 4655976981702024939}
+  - {fileID: 8605259987989109107}
   - {fileID: 6188811450206917842}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6832,6 +6933,18 @@ MonoBehaviour:
   ActivityConfigs:
   - Code: reorder
     ActivitySettings: {fileID: 11400000, guid: a5e42d8bb5a2e844d8db0b055019dc1b, type: 2}
+  - Code: docanvas
+    ActivitySettings: {fileID: 11400000, guid: 88eec96f8d6334945a08f873b408115f, type: 2}
+  - Code: recanvas
+    ActivitySettings: {fileID: 11400000, guid: b220f585cd225524192d5ff3ce2e741c, type: 2}
+  - Code: micanvas
+    ActivitySettings: {fileID: 11400000, guid: 4d77d78e87788f84ea8d20f83656b16e, type: 2}
+  - Code: facanvas
+    ActivitySettings: {fileID: 11400000, guid: 0167a73bd2195f94f9df52ce66e8c1a2, type: 2}
+  - Code: lacanvas
+    ActivitySettings: {fileID: 11400000, guid: c0970963682c0814cb4f29f6a5ad3d5c, type: 2}
+  - Code: sicanvas
+    ActivitySettings: {fileID: 11400000, guid: b9f901be47d2f2a4bbc8af7112536488, type: 2}
   QuestTasks:
   - Code: incontra_guido
     Type: 2
@@ -8797,7 +8910,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.27392426, z: -0, w: 0.96175134}
   m_LocalPosition: {x: -58.76, y: 0, z: 14.37}
-  m_LocalScale: {x: 0.34102377, y: 0.3180302, z: 0.3180302}
+  m_LocalScale: {x: 0.36042804, y: 0.3180302, z: 0.3180302}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5837092219028076804}
@@ -9258,6 +9371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321933142252933147}
+  - component: {fileID: 4404286591615034342}
   m_Layer: 0
   m_Name: Duomo
   m_TagString: Untagged
@@ -9283,6 +9397,39 @@ Transform:
   - {fileID: 362480051003240436}
   m_Father: {fileID: 5512520045871801754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4404286591615034342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185602357177785738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: duomo
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &6208535963239181721
 GameObject:
   m_ObjectHideFlags: 0
@@ -9960,94 +10107,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &6742244480077938831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6487418254190557785}
-  - component: {fileID: 1239164443417491951}
-  - component: {fileID: 1249727072161965863}
-  m_Layer: 0
-  m_Name: anfiteatro.1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6487418254190557785
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6742244480077938831}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.34324992, z: 0, w: 0.9392441}
-  m_LocalPosition: {x: -48.92, y: 0.426, z: 44.79}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5512520045871801754}
-  m_LocalEulerAnglesHint: {x: 0, y: 40.15, z: 0}
---- !u!65 &1239164443417491951
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6742244480077938831}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.3006873, y: 1.2834408, z: 2.968906}
-  m_Center: {x: 0.35524872, y: 0.1417206, z: -0.58319116}
---- !u!114 &1249727072161965863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6742244480077938831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
-  Id: anfiteatroroman
-  IsInteractable: 1
-  IsHiddenAtStart: 0
-  NearbyAutoActivate: 1
-  IconType: 0
-  IconTransform: {fileID: 0}
-  ShowOnMap: 0
-  MapIcon: 0
-  ShowIconAlways: 0
-  FocusCameraOnInteract: 0
-  CameraFocusData: {fileID: 0}
-  FaceToPlayer: 0
-  DialogueNode:
-    project: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
-      type: 3}
-    nodeName: anfiteatroromano
-  NodePermalink: 
-  disableAfterAction: 0
-  QuestAction: 
-  Commands: []
-  triggerChildren: 0
-  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &6777564925831758169
 GameObject:
   m_ObjectHideFlags: 0
@@ -10755,6 +10814,94 @@ Transform:
   - {fileID: 8490433867338440522}
   m_Father: {fileID: 6748482415314699827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7095039647280778148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8179721182270275811}
+  - component: {fileID: 1293401529484102311}
+  - component: {fileID: 5486607561962224573}
+  m_Layer: 0
+  m_Name: anfiteatro.4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8179721182270275811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095039647280778148}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.34324995, z: -0, w: 0.93924415}
+  m_LocalPosition: {x: -11.232708, y: 0.42501, z: -13.309998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 719559565119405995}
+  m_LocalEulerAnglesHint: {x: 0, y: 40.15, z: 0}
+--- !u!65 &1293401529484102311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095039647280778148}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.3006873, y: 1.2834408, z: 2.968906}
+  m_Center: {x: 0.35524872, y: 0.1417206, z: -0.58319116}
+--- !u!114 &5486607561962224573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095039647280778148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: anfiteatroromano
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 1
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
+      type: 3}
+    nodeName: anfiteatroromano
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &7169252534528929756
 GameObject:
   m_ObjectHideFlags: 0
@@ -10845,6 +10992,182 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7169366578101120163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8605259987989109107}
+  - component: {fileID: 6428393146989572467}
+  - component: {fileID: 403005762204496091}
+  m_Layer: 0
+  m_Name: casavasari
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8605259987989109107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169366578101120163}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.1293767, z: -0, w: 0.9915955}
+  m_LocalPosition: {x: -9.84, y: 0.42, z: -96.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5512520045871801754}
+  m_LocalEulerAnglesHint: {x: 0, y: 14.867, z: 0}
+--- !u!65 &6428393146989572467
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169366578101120163}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.108397, y: 1.2834408, z: 6.4571104}
+  m_Center: {x: 1.3161111, y: 0.1417206, z: -0.32524124}
+--- !u!114 &403005762204496091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169366578101120163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: casavasari
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 1
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
+      type: 3}
+    nodeName: casa_vasari
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
+--- !u!1 &7195338557850042876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1374977247811346417}
+  - component: {fileID: 3077830846422900562}
+  - component: {fileID: 3698073088566052333}
+  m_Layer: 0
+  m_Name: anfiteatro.3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1374977247811346417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195338557850042876}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.34324995, z: -0, w: 0.93924415}
+  m_LocalPosition: {x: 0.967289, y: 0.42501, z: -21.759998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 719559565119405995}
+  m_LocalEulerAnglesHint: {x: 0, y: 40.15, z: 0}
+--- !u!65 &3077830846422900562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195338557850042876}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5403955, y: 1.2834408, z: 3.4011655}
+  m_Center: {x: 0.18349734, y: 0.1417206, z: -0.3670571}
+--- !u!114 &3698073088566052333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195338557850042876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: anfiteatroromano
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 1
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
+      type: 3}
+    nodeName: anfiteatroromano
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &7223606731094571050
 GameObject:
   m_ObjectHideFlags: 0
@@ -12149,94 +12472,6 @@ MonoBehaviour:
   Commands: []
   triggerChildren: 0
   FaceToPlayerComp: {fileID: 0}
---- !u!1 &7882106961915099421
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3386057407727967779}
-  - component: {fileID: 5429626213803458017}
-  - component: {fileID: 7733690057881700590}
-  m_Layer: 0
-  m_Name: anfiteatro.2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3386057407727967779
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882106961915099421}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.34324992, z: 0, w: 0.9392441}
-  m_LocalPosition: {x: -48.92, y: 0.426, z: 44.79}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5512520045871801754}
-  m_LocalEulerAnglesHint: {x: 0, y: 40.15, z: 0}
---- !u!65 &5429626213803458017
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882106961915099421}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.3006873, y: 1.2834408, z: 2.968906}
-  m_Center: {x: 0.35524872, y: 0.1417206, z: -0.58319116}
---- !u!114 &7733690057881700590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882106961915099421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
-  Id: anfiteatroroman
-  IsInteractable: 1
-  IsHiddenAtStart: 0
-  NearbyAutoActivate: 1
-  IconType: 0
-  IconTransform: {fileID: 0}
-  ShowOnMap: 0
-  MapIcon: 0
-  ShowIconAlways: 0
-  FocusCameraOnInteract: 0
-  CameraFocusData: {fileID: 0}
-  FaceToPlayer: 0
-  DialogueNode:
-    project: {fileID: 7545569452688597077, guid: 19acfab1b72ed45fc8867f83392f7561,
-      type: 3}
-    nodeName: anfiteatroromano
-  NodePermalink: 
-  disableAfterAction: 0
-  QuestAction: 
-  Commands: []
-  triggerChildren: 0
-  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &7949261428619455653
 GameObject:
   m_ObjectHideFlags: 0
@@ -12602,6 +12837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6188811450206917842}
+  - component: {fileID: 571341220658886936}
   m_Layer: 0
   m_Name: annunziata
   m_TagString: Untagged
@@ -12626,6 +12862,39 @@ Transform:
   - {fileID: 7368449417552864284}
   m_Father: {fileID: 5512520045871801754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &571341220658886936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996954002708910359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: annunziata
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &8100315551867466783
 GameObject:
   m_ObjectHideFlags: 0
@@ -13166,6 +13435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6888268076880247202}
+  - component: {fileID: 7513240323156638768}
   m_Layer: 0
   m_Name: piazzagrande
   m_TagString: Untagged
@@ -13192,6 +13462,39 @@ Transform:
   - {fileID: 6095487245477342646}
   m_Father: {fileID: 5512520045871801754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7513240323156638768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233596761820325964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: piazzagrande
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &8258506733006762313
 GameObject:
   m_ObjectHideFlags: 0
@@ -13323,6 +13626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655976981702024939}
+  - component: {fileID: 4402232496883511631}
   m_Layer: 0
   m_Name: fortezza
   m_TagString: Untagged
@@ -13346,6 +13650,39 @@ Transform:
   - {fileID: 6934990788027714122}
   m_Father: {fileID: 5512520045871801754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4402232496883511631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370313170409008138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: fortezza
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &8428576562057981454
 GameObject:
   m_ObjectHideFlags: 0
@@ -13946,6 +14283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2275329192637495804}
+  - component: {fileID: 4144682793924976892}
   m_Layer: 0
   m_Name: piazzaAgostino
   m_TagString: Untagged
@@ -13971,6 +14309,39 @@ Transform:
   - {fileID: 7312888126032950737}
   m_Father: {fileID: 5512520045871801754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4144682793924976892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8871410191078717031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: piazzagostino
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &8895085694709663127
 GameObject:
   m_ObjectHideFlags: 0
@@ -14207,7 +14578,7 @@ PrefabInstance:
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07056427
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
@@ -14217,7 +14588,7 @@ PrefabInstance:
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.99067
+      value: -16.08
       objectReference: {fileID: 0}
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
@@ -14634,7 +15005,7 @@ PrefabInstance:
     - target: {fileID: 7136553562754714899, guid: 2772e07492eab47309ef2fc0bccbbb6d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.58
+      value: -2.76
       objectReference: {fileID: 0}
     - target: {fileID: 7136553562754714899, guid: 2772e07492eab47309ef2fc0bccbbb6d,
         type: 3}
@@ -16211,17 +16582,17 @@ PrefabInstance:
     - target: {fileID: 5881465831553121569, guid: a8526a245217d4603a297e8aa7522458,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.127
+      value: -2.875
       objectReference: {fileID: 0}
     - target: {fileID: 5881465831553121569, guid: a8526a245217d4603a297e8aa7522458,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.017
+      value: 0.136
       objectReference: {fileID: 0}
     - target: {fileID: 5881465831553121569, guid: a8526a245217d4603a297e8aa7522458,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.869
+      value: -12.272
       objectReference: {fileID: 0}
     - target: {fileID: 5881465831553121569, guid: a8526a245217d4603a297e8aa7522458,
         type: 3}
@@ -18281,7 +18652,7 @@ PrefabInstance:
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.9
+      value: 6.16
       objectReference: {fileID: 0}
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
@@ -19055,7 +19426,7 @@ PrefabInstance:
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.74
+      value: -22.9
       objectReference: {fileID: 0}
     - target: {fileID: 6654628016881103592, guid: 19bbaca0430ed4246aebecf32db42a2e,
         type: 3}
@@ -19141,7 +19512,7 @@ PrefabInstance:
     - target: {fileID: 7136553562754714899, guid: 2772e07492eab47309ef2fc0bccbbb6d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.505
+      value: 5.78
       objectReference: {fileID: 0}
     - target: {fileID: 7136553562754714899, guid: 2772e07492eab47309ef2fc0bccbbb6d,
         type: 3}
@@ -19151,7 +19522,7 @@ PrefabInstance:
     - target: {fileID: 7136553562754714899, guid: 2772e07492eab47309ef2fc0bccbbb6d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.293
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 7136553562754714899, guid: 2772e07492eab47309ef2fc0bccbbb6d,
         type: 3}

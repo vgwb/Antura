@@ -3,11 +3,12 @@
 title: quest_start
 type: panel
 ---
+<<declare $activity_index = 1>>
 <<SetActive collect_sol false>>
 Eccoci ad Arezzo.
 Antura ha combinato un disastro!
 Incontra Guido d'Arezzo #task:incontra_guido
-e risolvi i problemi in città.
+Risolvi i problemi in città.
 <<task_start incontra_guido >>
 <<target guido>>
 ===
@@ -15,14 +16,20 @@ e risolvi i problemi in città.
 title: guido_encounter
 position: 740,-138
 ---
+<<if visited("guido_encounter")>>
+Andiamo!
+Non c'è tempo da perdere.
+<<else>>
 <<task_end incontra_guido>>
-Ti do il benvenuto in città!
+<<card guidodarezzo>>
+Ti do il benvenuto in città! 
 Io sono Guido d'Arezzo, monaco e musicista.
 Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
 Ma oggi è un giorno molto triste...
-Quel birbante di Antura ha sparpagliato le note del nostro spartito per tutta Arezzo!
+Quel birbante di Antura ha sparpagliato le pagine del nostro spartito per tutta Arezzo!
 Senza di loro, il coro della Cattedrale non può cantare.
 <<jump guido_choice>>
+<<endif>>
 ===
 
 title: guido_choice
@@ -40,9 +47,11 @@ position: 591,-376
 ---
 Grazie mille!
 Sarò la tua guida in città.
-Ho segnato sulla mappa i posti in cui ho visto volare via i pezzi.
+Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
+Raccogliamo le note disperse #task:collect_pages
 Andiamo!
-<<party_join guido>> <<task_start collect_pages pages_collected>>
+<<SetActive guido false>>
+<<task_start collect_pages pages_collected>> 
 ===
 
 title: guido_rifiuto
@@ -55,7 +64,9 @@ Ti prego, ho davvero bisogno di aiuto!
 title: pages_collected
 ---
 <<if HasCompletedTask ("collect_pages")>>
+Do, Re, Mi, Fa, Sol, La, Si... 
 Hai raccolto tutte le pagine!
+Grazie mille!
 Andiamo al duomo e consegnamole al coro.
 <<task_start give_pages>>
 <<target cantore>>
@@ -67,7 +78,6 @@ Andiamo al duomo e consegnamole al coro.
 title: piazza_guido
 ---
 <<if visited("piazza_guido")>>
-    <<stop>>
 <<else>>
 <<card piazzaguido>>
 Questa è Piazza Guido Monaco, la piazza che porta il mio nome!
@@ -90,38 +100,121 @@ Hai trovato il Pentagramma!
 È il foglio su cui si scrivono le note.
 Ha 5 righe e 4 spazi. Le note si posizionano su queste righe e spazi.
 Ma è ancora vuoto... dobbiamo trovare le note!
+<<collect>>
 ===
 
 ///////// ANFITEATRO ROMANO //////////
 
 title: anfiteatroromano
 ---
-<<if visited("anfiteatroromano")>>
-    <<stop>>
-<<else>>
 <<card anfiteatroromano>>
 Questo è l'Anfiteatro Romano di Arezzo, costruito tantissimo tempo fa.
 Qui i romani venivano a guardare recite e opere teatrali.
-<<endif>>
+Cerchiamo tra le rovine, forse una pagina è nascosta qui!
+<<SetActive anfiteatro false>>
 ===
 
-
-title: cantore
+title: turista_chimera
 ---
-<<task_end give_pages>>
-Grazie mille ora possiamo tornare a cantare!
+Lo sapevi?
+Proprio qui vicino, fu trovata la Chimera di Arezzo, una statua di bronzo con la testa di leone e la coda di serpente.
+Ora è conservata a Firenze.
+===
+
+title: chiave_di_sol
+---
+<<card chiave_di_violino>>
+Hai trovato la Chiave di Violino!
+Si chiama anche Chiave di Sol.
+Sta sempre all'inizio del pentagramma e ci dice dove leggere le note.
+Senza di lei non sapremmo da dove cominciare!
+<<collect>>
+===
+
+////////// BASILICA DI S. FRANCESCO //////////
+
+title: piazza_san_francesco
+---
+Eccoci alla Piazza di San Francesco!
+È lì di fronte c'è la Basilica.
+<<SetActive piazzasanfrancesco false>>
 ===
 
 title: page_do
 ---
-<<card do>>
-Hai trovato il Do!
-È la prima nota della scala.
-Sta sotto il pentagramma, su una piccola linea tutta sua.
-<<collect>>
+<<if GetActivityResult("docanvas") > 0>>
+    <<if $activity_index < 6>>
+        <<set $activity_index = $activity_index + 1>>
+    <<endif>>
+    <<card do>>
+    Hai trovato il Do!
+    È la prima nota della scala.
+    Sta sotto il pentagramma, su una piccola linea tutta sua.
+    <<collect>>
+<<else>>
+    Vediamo che cos'è.
+    <<if $activity_index <= 2>>
+        <<activity docanvas page_do easy>>
+    <<elseif $activity_index <= 4>>
+        <<activity docanvas page_do normal>>
+    <<else>>
+        <<activity docanvas page_do expert>>
+    <<endif>>
+<<endif>>
 ===
 
+////////// SANTISSIMA ANNUNZIATA e CASA VASARI //////////
 
+title: annunziata
+---
+Ecco la Basilica della Santissima Annunziata!
+È una delle chiese più antiche di Arezzo.
+C'è qualcosa di strano nascosto qui vicino...
+<<SetActive annunziata false>>
+===
+
+title: casa_vasari
+---
+Questa è la Casa del Vasari!
+Giorgio Vasari era un pittore e architetto aretino del Cinquecento.
+Ha decorato lui stesso le stanze con affreschi bellissimi!
+C'è una turista qui fuori che dice di aver trovato qualcosa di strano... parliamole.
+<<SetActive casavasari false>>
+===
+
+title: page_re
+---
+<<if GetActivityResult("recanvas") > 0>>
+    <<if $activity_index < 6>>
+        <<set $activity_index = $activity_index + 1>>
+    <<endif>>
+    <<card re>>
+    Hai trovato il Re!
+    È la seconda nota della scala.
+    Sul pentagramma si trova nel primo spazio, proprio sotto la prima riga.
+    <<collect>>
+<<else>>
+    Vediamo che cos'è.
+    <<if $activity_index <= 2>>
+        <<activity recanvas page_re easy>>
+    <<elseif $activity_index <= 4>>
+        <<activity recanvas page_re normal>>
+    <<else>>
+        <<activity recanvas page_re expert>>
+    <<endif>>
+<<endif>>
+===
+
+title: turista_benvenuto
+---
+<<if visited("turista_benvenuto")>>
+Ti una buona giornata in città!
+<<else>>
+Oh, ciao! Stavo visitando la casa del Vasari e ho trovato questo foglio per terra.
+Ha un simbolo strano all'inizio... sai come si chiama?
+<<jump turista_indovinello>>
+<<endif>>
+===
 
 title: turista_indovinello
 position: -983,235
@@ -135,6 +228,11 @@ Il simbolo all'inizio del pentagramma si chiama...
     <<jump turista_sbagliato>>
 ===
 
+title: turista_sbagliato
+position: 189,205
+---
+Mmm, non è questa! Riprova.
+===
 
 title: turista_corretto
 position: 139,377
@@ -145,17 +243,147 @@ Prendi pure il foglio!
 <<SetActive collect_sol true>>
 ===
 
-title: reoder
-position: 8,590
+title: page_sol
 ---
-hallo
-<<activity reorder>>
+<<card sol>>
+Hai trovato il Sol!
+È la quinta nota della scala.
+Sul pentagramma si trova sulla seconda riga.
+<<collect>>
 ===
 
-title: turista_sbagliato
-position: 189,205
+////////// SANT'AGOSTINO //////////
+
+title: santagostino
 ---
-Mmm, non è questa! Riprova.
+Questa è la chiesa di Sant'Agostino!
+È un bel edificio medievale nel cuore della città.
+<<SetActive piazzagostino false>>
+===
+
+title: page_mi
+---
+<<if GetActivityResult("micanvas") > 0>>
+    <<if $activity_index < 6>>
+        <<set $activity_index = $activity_index + 1>>
+    <<endif>>
+    <<card mi>>
+    Hai trovato il Mi!
+    È la terza nota della scala.
+    Sul pentagramma si trova sulla prima riga.
+    <<collect>>
+<<else>>
+    Vediamo che cos'è.
+    <<if $activity_index <= 2>>
+        <<activity micanvas page_mi easy>>
+    <<elseif $activity_index <= 4>>
+        <<activity micanvas page_mi normal>>
+    <<else>>
+        <<activity micanvas page_mi expert>>
+    <<endif>>
+<<endif>>
+===
+
+////////// PIAZZA GRANDE //////////
+
+title: piazzagrande
+---
+Che bella piazza! Questa è Piazza Grande, il cuore di Arezzo.
+Ogni anno qui si svolge la Giostra del Saracino, i cavalieri si sfidano con la lancia!
+<<SetActive piazzagrande false>>
+===
+
+title: page_fa
+---
+<<if GetActivityResult("facanvas") > 0>>
+    <<if $activity_index < 6>>
+        <<set $activity_index = $activity_index + 1>>
+    <<endif>>
+    <<card fa>>
+    Hai trovato il Fa!
+    È la quarta nota della scala.
+    Sul pentagramma si trova nel secondo spazio.
+    <<collect>>
+<<else>>
+    Vediamo che cos'è.
+    <<if $activity_index <= 2>>
+        <<activity facanvas page_fa easy>>
+    <<elseif $activity_index <= 4>>
+        <<activity facanvas page_fa normal>>
+    <<else>>
+        <<activity facanvas page_fa expert>>
+    <<endif>>
+<<endif>>
+===
+
+title: page_la
+---
+<<if GetActivityResult("lacanvas") > 0>>
+    <<if $activity_index < 6>>
+        <<set $activity_index = $activity_index + 1>>
+    <<endif>>
+    <<card la>>
+    Incredibile, hai trovato il La!
+    È la sesta nota della scala.
+    Sul pentagramma si trova nel terzo spazio.
+    <<collect>>
+<<else>>
+    Vediamo che cos'è.
+    <<if $activity_index <= 2>>
+        <<activity lacanvas page_la easy>>
+    <<elseif $activity_index <= 4>>
+        <<activity lacanvas page_la normal>>
+    <<else>>
+        <<activity lacanvas page_la expert>>
+    <<endif>>
+<<endif>>
+===
+
+////////// FORTEZZA MEDICEA //////////
+
+title: fortezza
+---
+Che muri incredibili!
+Questa è la Fortezza Medicea, costruita dalla famiglia dei Medici.
+Da qui si vede tutta Arezzo... e anche il Duomo lassù!
+<<SetActive fortezza false>>
+===
+
+title: page_si
+---
+<<if GetActivityResult("sicanvas") > 0>>
+    <<if $activity_index < 6>>
+        <<set $activity_index = $activity_index + 1>>
+    <<endif>>
+    <<card si>>
+    Il Si! L'ultima nota della scala!
+    Sul pentagramma si trova sulla terza riga.
+    <<collect>>
+<<else>>
+    Vediamo che cos'è.
+    <<if $activity_index <= 2>>
+        <<activity sicanvas page_si easy>>
+    <<elseif $activity_index <= 4>>
+        <<activity sicanvas page_si normal>>
+    <<else>>
+        <<activity sicanvas page_si expert>>
+    <<endif>>
+<<endif>>
+===
+
+////////// DUOMO //////////
+
+title:duomo
+---
+
+<<SetActive duomo false>>
+===
+
+title: cantore
+---
+<<task_end give_pages>>
+Grazie mille ora possiamo tornare a cantare!
+<<jump quest_end>>
 ===
 
 title: quest_end
@@ -168,7 +396,7 @@ The quest is complete. #line:0d43527
 ===
 
 title: post_quest_activity
-position: -146,1077
+position: 0,300
 type: panel
 color: red
 tags: proposal
@@ -177,16 +405,9 @@ Why don't you do this homework? #line:09d3dd4
 <<quest_end>>
 ===
 
-
-title: npc_intro
-position: 263,2
+title: reoder
+position: 8,590
 ---
-Hallo #line:07c2f74 
-===
-
-
-title: ll_tourist
-position: 262,294
----
-I'm a Living Letter tourist #line:0f64d51 
+hallo
+<<activity reorder>>
 ===
