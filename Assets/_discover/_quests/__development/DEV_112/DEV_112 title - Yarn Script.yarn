@@ -16,6 +16,11 @@
 //   - task_trova_leone
 //   - task_trova_oroogio
 //   - task_trova_colomba
+//   - task_traova_fungo
+//   - tasck_trovare_fenice
+//   - tasck_trovare_spada
+//   - tasck_trovare_tigre
+//   - task_trova_colomba2
 
 title: quest_start
 position: 0,0
@@ -32,7 +37,17 @@ actor: NARRATOR
 <<declare $OROLOGIO = false>>
 <<declare $orologio= false>>
 <<declare $CARRISTA4_DONE= false>>
-<<declare $COLOMBA=false>>
+<<declare $COLOMBA= false>>
+<<declare $CARRISTA5_DONE= false>>
+<<declare $FUNGO= false>>
+<<declare $CARRISTA6_DONE= false>>
+<<declare $FENICE= false>>
+<<declare $CARRISTA7_DONE= false>>
+<<declare $SPADA= false>>
+<<declare $CARRISTA8_DONE= false>>
+<<declare $TIGRE= false>>
+<<declare $CARRISTA9_DONE= false>>
+<<declare $COLOMBA2= false>>
 <<set $orologio = false>>
 
 <<card TODO_viareggio_citta>>
@@ -406,16 +421,438 @@ actor: ADULT_M
 ---
 La mia colomba! Grazie mille! #line:dev112_carrista4_dopo_1
 Senza di te il mio carro era rovinato. #line:dev112_carrista4_dopo_2
-Guarda comè ora il carro, #line:dev112_carrista4_dopo_3
-che si chiama Peace and Love #line:dev112_carrista4_dopo_4
+Guarda comè ora, #line:dev112_carrista4_dopo_3
+si chiama Peace and Love #line:dev112_carrista4_dopo_4
 <<card foto_3>>
 <<camera_reset>>
-Raffigura i pontente del mondo  #line:dev112_carrista4_dopo_5
+Raffigura i potenti del mondo  #line:dev112_carrista4_dopo_5
 che si contendono il potere #line:dev112_carrista_dopo_6
 uccidendo la colomba della pace. #line:dev112_carrista_dopo_7
-Adesso cerca glialtri colleghi. #line:dev112_carrista4_dopo_8
+Adesso cerca gli altri colleghi. #line:dev112_carrista4_dopo_8
 Hanno ancora bisogno di te! #line:dev112_carrista4_dopo_9
 <<SetMapIcon carrista "on">>
+<<target carrista5>>
 <<set $CARRISTA4_DONE = true>>
 ===
 
+// =====================
+// CARRISTA 5 - NPC VICINO AL CARTELLONE (fungo)
+// =====================
+
+title: npc_carrista5
+position: 0,0
+color: blue
+group: carrista5
+actor: ADULT_M
+---
+<<if $CARRISTA5_DONE>>
+    <<jump Carrista5_Repeat>>
+<<elseif $FUNGO == true>>
+    <<jump Carrista5_DopoFungo>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista5_1
+Ho un problema grande! #line:dev112_carrista5_2
+<<camera_focus camera_fungo>>
+Ho perso il mio fungo di cartapesta. #line:dev112_carrista5_3 #task:task_trova_fungo
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carrista5_4
+<<set $FUNGO = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carrista5_5
+<<jump Carrista5_Conferma_Fungo>>
+===
+
+title: Carrista5_Conferma_Fungo
+position: 0,200
+color: blue
+group: carrista5
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_fungo_si
+    <<task_start task_trova_fungo fungo_raccolto>>
+    <<target fungo>>
+-> Non ora. #line:dev112_conf_fungo_no #highlight
+===
+
+title: Carrista5_Repeat
+position: 0,400
+color: blue
+group: carrista5
+actor: ADULT_M
+---
+Cerca ancora! #line:dev112_carrista5_rep_1
+===
+
+// =====================
+// ITEM - fungo DI CARTAPESTA
+// =====================
+
+title: fungo_raccolto
+position: 200,0
+color: green
+group: fungo
+actor: NARRATOR
+---
+<<set $FUNGO = true>>
+Hai trovato il fungo di cartapesta del carrista! #line:dev112_fungo_ok_1
+Torna dal carrista. #line:dev112_fungo_ok_2
+<<SetMapIcon carrista5 "done">>
+<<target carrista5>>
+===
+
+title: Carrista5_DopoFungo
+position: 400,0
+color: blue
+group: carrista5
+actor: ADULT_M
+---
+Il mio fungo! Grazie mille! #line:dev112_carrista5_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista5_dopo_2
+Guarda comè ora, #line:dev112_carrista5_dopo_3
+si chiama Brucaliffo #line:dev112_carrista5_dopo_4
+<<card foto_1>>
+<<camera_reset>>
+Raffigura il Brucaliffo in chiave ironica #line:dev112_carrista5_dopo_5
+che fuma e con gli anelli di fumo sputa lettere #line:dev112_carrista5_dopo_6
+Adesso cerca glialtri colleghi. #line:dev112_carrista5_dopo_7
+Hanno ancora bisogno di te! #line:dev112_carrista5_dopo_8
+<<SetMapIcon carrista "on">>
+<<target carrista6>>
+<<set $CARRISTA5_DONE = true>>
+===
+// =====================
+// CARRISTA 6 - NPC VICINO AL CARTELLONE (fenice)
+// =====================
+
+title: npc_carrista6
+position: 0,0
+color: blue
+group: carrista6
+actor: ADULT_M
+---
+<<if $CARRISTA6_DONE>>
+    <<jump Carrista6_Repeat>>
+<<elseif $FENICE == true>>
+    <<jump Carrista6_DopoFenice>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista6_1
+Ho un problema grande! #line:dev112_carrista6_2
+<<camera_focus camera_fenice>>
+Ho perso la mia fenice di cartapesta. #line:dev112_carrista6_3 #task:task_trova_fenice
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carrista6_4
+<<set $FENICE = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carrista6_5
+<<jump Carrista6_Conferma_Fenice>>
+===
+
+title: Carrista6_Conferma_Fenice
+position: 0,200
+color: blue
+group: carrista6
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_fenice_si
+    <<task_start task_trova_fenice fenice_raccolto>>
+    <<target fenice>>
+-> Non ora. #line:dev112_conf_fenice_no #highlight
+===
+
+title: Carrista6_Repeat
+position: 0,400
+color: blue
+group: carrista6
+actor: ADULT_M
+---
+Cerca ancora! #line:dev112_carrista6_rep_1
+===
+
+// =====================
+// ITEM - fenice DI CARTAPESTA
+// =====================
+
+title: fenice_raccolto
+position: 200,0
+color: green
+group: fenice
+actor: NARRATOR
+---
+<<set $FENICE = true>>
+Hai trovato la fenice di cartapesta del carrista! #line:dev112_fenice_ok_1
+Torna dal carrista. #line:dev112_fenice_ok_2
+<<SetMapIcon carrista6 "done">>
+<<target carrista6>>
+===
+
+title: Carrista6_DopoFenice
+position: 400,0
+color: blue
+group: carrista6
+actor: ADULT_M
+---
+La mia fenice! Grazie mille! #line:dev112_carrista6_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista6_dopo_2
+Guarda comè ora, #line:dev112_carrista6_dopo_3
+si chiama Rise #line:dev112_carrista6_dopo_4
+<<card foto_6>>
+<<camera_reset>>
+Raffigura la fenice che risorge dalle ceneri #line:dev112_carrista6_dopo_5
+dimostrando che si può rinascere da qualsiasi situazione. #line:dev112_carrista6_dopo_6
+Adesso cerca glialtri colleghi. #line:dev112_carrista6_dopo_7
+Hanno ancora bisogno di te! #line:dev112_carrista6_dopo_8
+<<SetMapIcon carrista "on">>
+<<target carrista7>>
+<<set $CARRISTA6_DONE = true>>
+===
+// =====================
+// CARRISTA 7 - NPC VICINO AL CARTELLONE (spada)
+// =====================
+
+title: npc_carrista7
+position: 0,0
+color: blue
+group: carrista7
+actor: ADULT_M
+---
+<<if $CARRISTA7_DONE>>
+    <<jump Carrista7_Repeat>>
+<<elseif $SPADA == true>>
+    <<jump Carrista7_DopoSpada>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista7_1
+Ho un problema grande! #line:dev112_carrista7_2
+<<camera_focus camera_spada>>
+Ho perso la mia spada di cartapesta. #line:dev112_carrista7_3 #task:task_trova_spada
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carrista7_4
+<<set $SPADA = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carrista7_5
+<<jump Carrista7_Conferma_Spada>>
+===
+
+title: Carrista7_Conferma_Spada
+position: 0,200
+color: blue
+group: carrista7
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_spada_si
+    <<task_start task_trova_spada spada_raccolto>>
+    <<target spada>>
+-> Non ora. #line:dev112_conf_spada_no #highlight
+===
+
+title: Carrista7_Repeat
+position: 0,400
+color: blue
+group: carrista7
+actor: ADULT_M
+---
+Cerca ancora! #line:dev112_carrista7_rep_1
+===
+
+// =====================
+// ITEM - spada DI CARTAPESTA
+// =====================
+
+title: spada_raccolto
+position: 200,0
+color: green
+group: spada
+actor: NARRATOR
+---
+<<set $SPADA = true>>
+Hai trovato la spada di cartapesta del carrista! #line:dev112_spada_ok_1
+Torna dal carrista. #line:dev112_spada_ok_2
+<<SetMapIcon carrista7 "done">>
+<<target carrista7>>
+===
+
+title: Carrista7_DopoSpada
+position: 400,0
+color: blue
+group: carrista7
+actor: ADULT_M
+---
+La mia spada! Grazie mille! #line:dev112_carrista7_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista7_dopo_2
+Guarda comè ora il carro, #line:dev112_carrista7_dopo_3
+che si chiama La Regina del potere #line:dev112_carrista7_dopo_4
+<<card foto_7>>
+<<camera_reset>>
+Raffigura il potere dei soldi, mostrando come la presidentesa della banca #line:dev112_carrista7_dopo_5
+gestisce il patrimonio delle persone metendo al sicuro dagll'inconvenienti, #line:dev112_carrista7_dopo_6
+Adesso cerca glialtri colleghi. #line:dev112_carrista7_dopo_7
+Hanno ancora bisogno di te! #line:dev112_carrista7_dopo_8
+<<SetMapIcon carrista "on">>
+<<target carrista8>>
+<<set $CARRISTA7_DONE = true>>
+===
+// =====================
+// CARRISTA 8 - NPC VICINO AL CARTELLONE (tigre)
+// =====================
+
+title: npc_carrista8
+position: 0,0
+color: blue
+group: carrista8
+actor: ADULT_M
+---
+<<if $CARRISTA8_DONE>>
+    <<jump Carrista8_Repeat>>
+<<elseif $TIGRE == true>>
+    <<jump Carrista8_DopoTigre>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista8_1
+Ho un problema grande! #line:dev112_carrista8_2
+<<camera_focus camera_tigre>>
+Ho perso la mia tigre di cartapesta. #line:dev112_carrista8_3 #task:task_trova_tigre
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carrista8_4
+<<set $TIGRE = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carrista8_5
+<<jump Carrista8_Conferma_Tigre>>
+===
+
+title: Carrista8_Conferma_Tigre
+position: 0,200
+color: blue
+group: carrista8
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_tigre_si
+    <<task_start task_trova_tigre tigre_raccolto>>
+    <<target tigre>>
+-> Non ora. #line:dev112_conf_tigre_no #highlight
+===
+
+title: Carrista8_Repeat
+position: 0,400
+color: blue
+group: carrista8
+actor: ADULT_M
+---
+Cerca ancora! #line:dev112_carrista8_rep_1
+===
+
+// =====================
+// ITEM - tigre DI CARTAPESTA
+// =====================
+
+title: tigre_raccolto
+position: 200,0
+color: green
+group: tigre
+actor: NARRATOR
+---
+<<set $TIGRE = true>>
+Hai trovato la tigre di cartapesta del carrista! #line:dev112_tigre_ok_1
+Torna dal carrista. #line:dev112_tigre_ok_2
+<<SetMapIcon carrista8 "done">>
+<<target carrista8>>
+===
+
+title: Carrista8_DopoTigre
+position: 400,0
+color: blue
+group: carrista8
+actor: ADULT_M
+---
+La mia tigre! Grazie mille! #line:dev112_carrista8_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista8_dopo_2
+Guarda comè ora, #line:dev112_carrista8_dopo_3
+si chiama A caccia di un lieto fine  #line:dev112_carrista8_dopo_4
+<<card foto_2>>
+<<camera_reset>>
+Raffigura 2 tigri pensierose #line:dev112_carrista8_dopo_5
+per il futuro della specie. #line:dev112_carrista8_dopo_6
+Adesso cerca glialtri colleghi. #line:dev112_carrista8_dopo_7
+Hanno ancora bisogno di te! #line:dev112_carrista8_dopo_8
+<<SetMapIcon carrista "on">>
+<<target carrista9>>
+<<set $CARRISTA8_DONE = true>>
+===
+// =====================
+// CARRISTA 9 - NPC VICINO AL CARTELLONE (colomba2)
+// =====================
+
+title: npc_carrista9
+position: 0,0
+color: blue
+group: carrista9
+actor: ADULT_M
+---
+<<if $CARRISTA9_DONE>>
+    <<jump Carrista9_Repeat>>
+<<elseif $COLOMBA2 == true>>
+    <<jump Carrista9_DopoColomba2>>
+<<endif>>
+Oh ciao! Sei un amico del mio collega? #line:dev112_carrista9_1
+Ho un problema grande! #line:dev112_carrista9_2
+<<camera_focus camera_colomba2>>
+Ho perso la mia colomba di cartapesta. #line:dev112_carrista9_3 #task:task_trova_colomba2
+<<card TODO_cartapesta>>
+È il pezzo più importante del mio carro! #line:dev112_carrista9_4
+<<set $COLOMBA2 = true>>
+Ti prego, mi aiuti a trovarlo? #line:dev112_carrista9_5
+<<jump Carrista9_Conferma_Colomba2>>
+===
+
+title: Carrista9_Conferma_Colomba2
+position: 0,200
+color: blue
+group: carrista9
+actor: ADULT_M
+---
+-> Sì, lo cerco subito! #line:dev112_conf_colomba2_si
+    <<task_start task_trova_colomba2 colomba2_raccolto>>
+    <<target colomba2>>
+-> Non ora. #line:dev112_conf_colomba2_no #highlight
+===
+
+title: Carrista9_Repeat
+position: 0,400
+color: blue
+group: carrista9
+actor: ADULT_M
+---
+Cerca ancora! #line:dev112_carrista9_rep_1
+===
+
+// =====================
+// ITEM - colomba2 DI CARTAPESTA
+// =====================
+
+title: colomba2_raccolto
+position: 200,0
+color: green
+group: colomba2
+actor: NARRATOR
+---
+<<set $COLOMBA2 = true>>
+Hai trovato la colomba di cartapesta del carrista! #line:dev112_colomba2_ok_1
+Torna dal carrista. #line:dev112_colomba2_ok_2
+<<SetMapIcon carrista9 "done">>
+<<target carrista9>>
+===
+
+title: Carrista9_DopoColomba2
+position: 400,0
+color: blue
+group: carrista9
+actor: ADULT_M
+---
+La mia colomba! Grazie mille! #line:dev112_carrista9_dopo_1
+Senza di te il mio carro era rovinato. #line:dev112_carrista9_dopo_2
+Guarda comè ora, #line:dev112_carrista9_dopo_3
+si chiama Gli ultimi eroi dell'innocenza #line:dev112_carrista9_dopo_4
+<<card foto_4>>
+<<camera_reset>>
+Raffigura Sauron come segno di distruttore della pace, #line:dev112_carrista9_dopo_5
+la pace raffigurata dalla colomba e dai bambini#line:dev112_carrista9_dopo_6
+provano a scappare perun futuro migliore #line:dev112_carrista9_dopo_7
+Adesso cerca glialtri colleghi. #line:dev112_carrista9_dopo_8
+Hanno ancora bisogno di te! #line:dev112_carrista9_dopo_9
+<<SetMapIcon carrista "on">>
+<<target carrista9>>
+<<set $CARRISTA9_DONE = true>>
+===
