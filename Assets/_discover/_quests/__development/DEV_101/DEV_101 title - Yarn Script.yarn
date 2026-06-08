@@ -1,4 +1,4 @@
-﻿///////// INIZIO //////////
+﻿////////// INIZIO //////////
 
 title: quest_start
 type: panel
@@ -22,7 +22,7 @@ Non c'è tempo da perdere.
 <<else>>
 <<task_end incontra_guido>>
 <<card guidodarezzo>>
-Ti do il benvenuto in città! 
+Ti do il benvenuto in città!
 Io sono Guido d'Arezzo, monaco e musicista.
 Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
 Ma oggi è un giorno molto triste...
@@ -45,12 +45,12 @@ Mi aiuti a cercarle?
 title: guido_accetta
 position: 591,-376
 ---
+<<party_join guido>>
 Grazie mille!
 Sarò la tua guida in città.
 Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
 Raccogliamo le note disperse #task:collect_pages
 Andiamo!
-<<SetActive guido false>>
 <<task_start collect_pages pages_collected>> 
 ===
 
@@ -77,13 +77,11 @@ Andiamo al duomo e consegnamole al coro.
 
 title: piazza_guido
 ---
-<<if visited("piazza_guido")>>
-<<else>>
 <<card piazzaguido>>
 Questa è Piazza Guido Monaco, la piazza che porta il mio nome!
 E quella statua che vedi sono io.
 Mi hanno fatto più bello di quanto non sono!
-<<endif>>
+<<SetActive piazza_guido false>>
 ===
 
 title: npc_piazza_guido
@@ -135,6 +133,7 @@ Senza di lei non sapremmo da dove cominciare!
 
 title: piazza_san_francesco
 ---
+<<card sanfrancesco>>
 Eccoci alla Piazza di San Francesco!
 È lì di fronte c'è la Basilica.
 <<SetActive piazzasanfrancesco false>>
@@ -167,6 +166,7 @@ title: page_do
 
 title: annunziata
 ---
+<<card annunziata>>
 Ecco la Basilica della Santissima Annunziata!
 È una delle chiese più antiche di Arezzo.
 C'è qualcosa di strano nascosto qui vicino...
@@ -175,6 +175,7 @@ C'è qualcosa di strano nascosto qui vicino...
 
 title: casa_vasari
 ---
+<<card casavasari>>
 Questa è la Casa del Vasari!
 Giorgio Vasari era un pittore e architetto aretino del Cinquecento.
 Ha decorato lui stesso le stanze con affreschi bellissimi!
@@ -256,6 +257,7 @@ Sul pentagramma si trova sulla seconda riga.
 
 title: santagostino
 ---
+<<card santagostino>>
 Questa è la chiesa di Sant'Agostino!
 È un bel edificio medievale nel cuore della città.
 <<SetActive piazzagostino false>>
@@ -288,6 +290,7 @@ title: page_mi
 
 title: piazzagrande
 ---
+<<card piazzagrande>>
 Che bella piazza! Questa è Piazza Grande, il cuore di Arezzo.
 Ogni anno qui si svolge la Giostra del Saracino, i cavalieri si sfidano con la lancia!
 <<SetActive piazzagrande false>>
@@ -343,6 +346,7 @@ title: page_la
 
 title: fortezza
 ---
+<<card fortezza>>
 Che muri incredibili!
 Questa è la Fortezza Medicea, costruita dalla famiglia dei Medici.
 Da qui si vede tutta Arezzo... e anche il Duomo lassù!
@@ -372,12 +376,13 @@ title: page_si
 ===
 
 ////////// DUOMO //////////
-
-title:duomo
+title: duomo
 ---
-
+<<card cattedrale>>
+questo è il duomo di arezzo.
 <<SetActive duomo false>>
 ===
+
 
 title: cantore
 ---
