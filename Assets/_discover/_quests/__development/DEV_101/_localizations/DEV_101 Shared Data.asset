@@ -2210,6 +2210,141 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1920740757360345292
+  - m_Id: 9901129695006720
+    m_Key: line:d94a8ad8
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697220
+  - m_Id: 9901129724366848
+    m_Key: line:4f7a8daf
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697221
+  - m_Id: 9901129724366849
+    m_Key: line:de67323f
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697222
+  - m_Id: 9901129724366850
+    m_Key: line:48573548
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697223
+  - m_Id: 9901129724366851
+    m_Key: line:addef228
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697224
+  - m_Id: 9901129724366852
+    m_Key: line:3beef55f
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697225
+  - m_Id: 9901129724366853
+    m_Key: line:81bffcc6
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697226
+  - m_Id: 9901129724366854
+    m_Key: line:178ffbb1
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697227
+  - m_Id: 9901776033058816
+    m_Key: line:3208a0fd
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697234
+  - m_Id: 9901776062418944
+    m_Key: line:a438a78a
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697235
+  - m_Id: 9901776062418945
+    m_Key: line:281242d7
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697236
+  - m_Id: 9901776062418946
+    m_Key: line:f4fddeb1
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697237
+  - m_Id: 9901776062418947
+    m_Key: line:5768ba2f
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697238
+  - m_Id: 9901776062418948
+    m_Key: line:a9e97853
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697239
+  - m_Id: 9901776062418949
+    m_Key: line:3fd97f24
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697240
+  - m_Id: 9901776062418950
+    m_Key: line:c4bb06f4
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697241
+  - m_Id: 9901776062418951
+    m_Key: line:528b0183
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697242
+  - m_Id: 9901776062418952
+    m_Key: line:056b5563
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697243
+  - m_Id: 9901776062418953
+    m_Key: line:058d1894
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697244
+  - m_Id: 9914755701051392
+    m_Key: line:9da203f1
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697251
+  - m_Id: 9914755742994432
+    m_Key: line:c435e802
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697252
+  - m_Id: 9914755742994433
+    m_Key: line:d8389ba4
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697253
+  - m_Id: 9914755742994434
+    m_Key: line:c36577d2
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697254
+  - m_Id: 9914755742994435
+    m_Key: line:1e69ae13
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697255
+  - m_Id: 9914755742994436
+    m_Key: line:be2245a0
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697256
+  - m_Id: 9914755742994437
+    m_Key: line:a6fe31fd
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697257
+  - m_Id: 9914755742994438
+    m_Key: line:93bd1fe3
+    m_Metadata:
+      m_Items:
+      - rid: 2581340122125697258
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -2231,7 +2366,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: quest_start
-        tags: []
+        tags:
+        - task:incontra_guido
     - rid: 74892604639543456
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -2271,7 +2407,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: guido_choice
-        tags: []
+        tags:
+        - lastline
     - rid: 74892604639543464
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -2326,7 +2463,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: pagine_da_raccogliere
-        tags: []
+        tags:
+        - task:collect_pages
     - rid: 74892648147058742
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -2493,7 +2631,8 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: pagine_da_raccogliere
-        tags: []
+        tags:
+        - task:collect_pages
     - rid: 74892677075173486
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -2695,8 +2834,7 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: turista_indovinello
-        tags:
-        - lastline
+        tags: []
     - rid: 74892721002905695
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
@@ -3305,6 +3443,143 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: reoder
+        tags: []
+    - rid: 2581340122125697220
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697221
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697222
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697223
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697224
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697225
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697226
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697227
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_pentagramma
+        tags: []
+    - rid: 2581340122125697234
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: anfiteatroromano
+        tags: []
+    - rid: 2581340122125697235
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: anfiteatroromano
+        tags: []
+    - rid: 2581340122125697236
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: cantore
+        tags: []
+    - rid: 2581340122125697237
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_do
+        tags: []
+    - rid: 2581340122125697238
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: page_do
+        tags: []
+    - rid: 2581340122125697239
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: turista_indovinello
+        tags:
+        - lastline
+    - rid: 2581340122125697240
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: turista_indovinello
+        tags: []
+    - rid: 2581340122125697241
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: turista_corretto
+        tags: []
+    - rid: 2581340122125697242
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: turista_corretto
+        tags: []
+    - rid: 2581340122125697243
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: reoder
+        tags: []
+    - rid: 2581340122125697244
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: turista_sbagliato
+        tags: []
+    - rid: 2581340122125697251
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: incontraguido
+        tags:
+        - task:incontra_guido
+    - rid: 2581340122125697252
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: pages_collected
+        tags: []
+    - rid: 2581340122125697253
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: piazza_guido
+        tags: []
+    - rid: 2581340122125697254
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: npc_piazza_guido
+        tags: []
+    - rid: 2581340122125697255
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: anfiteatroromano
+        tags: []
+    - rid: 2581340122125697256
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: cantore
+        tags: []
+    - rid: 2581340122125697257
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: reoder
+        tags: []
+    - rid: 2581340122125697258
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: turista_sbagliato
         tags: []
     - rid: 5927705266925076925
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
