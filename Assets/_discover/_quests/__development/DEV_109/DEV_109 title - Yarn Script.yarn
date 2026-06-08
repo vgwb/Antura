@@ -236,28 +236,43 @@ Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
 Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
 
 -> Posa il bastone!
-    Oh, ciao! Sto facendo l'eroe! Sto scacciando tutte le api prima che pungano qualcuno! 
+    Oh, ciao! Sono un cavaliere! Caccio le api prima che pungano qualcuno! 
 -> Che fai?
     Sono un cavaliere e sto proteggendo il prato dalle api feroci!
 
--> Le api sono amiche dei fiori!
+-> Le api sono buone!
     Amiche? Ma hanno il pungiglione e fanno male!
     Sono cattive! Lasciami fare il mio lavoro! 
     <<return>>
--> Se le scacci, i fiori rimarranno tristi e non nasceranno i frutti...
-    I frutti? E cosa c'entrano le api con la frutta? Loro fanno solo "bzzz"!
+-> Pensa ai fiori!
+    I fiori? che c'entrano?
 
--> C'entrano! Portano il polline da un fiore all'altro per farlo crescere!
-    Davvero? Quindi aiutano le piante a nascere?
--> Senza di loro non avremmo più le arance!
-    Aspetta... quindi niente spremuta?
+-> Le api li impollinano!
+    Ma che dici?
+-> Le api li annaffiano!
+    Ma non è vero!
+    <<return>>
 
-Ahh... allora non sono un eroe, sto combinando un pasticcio! Io adoro la spremuta!
+Come fanno a trasportare il polline con quelle zampine?
+-> Mangiano il nettare!
+    E quindi?
+-> Ci si rotolano!
+    La smetti di prendermi in giro?
+    <<return>>
 
--> Esatto! Le api pungono solo se hanno paura. Dobbiamo proteggerle!
-    Gulp... Hai ragione. Mi dispiace di averle spaventate.
+Cosa c'entra?
+-> Si sporcano di polline!
+    Ah, e così sporcano anche i fiori...
+-> Nel nettare c'è il polline!
+    Che stupidaggine!
+    <<return>>
 
-Mi sa che ho fatto un guaio...
+Comunque il polline lo porta anche il vento.
+-> Non basta!
+    Non ti credo!
+-> Effettivamente...
+    Te l'ho detto!
+    <<return>>
 
 -> Perché non cambi missione e le proteggi?
     <<set $bambino_ha_capito = true>>

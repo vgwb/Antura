@@ -1311,7 +1311,7 @@ MonoBehaviour:
   IsHiddenAtStart: 0
   AutoCollect: 1
   Type: 3
-  ItemTag: Bimbo
+  ItemTag: Convinto
   AddToInventory: 0
   particleEffectPrefab: {fileID: 0}
   enableRotation: 1
@@ -3625,7 +3625,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.058708996
+      value: -0.043042064
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -3635,7 +3635,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2313
+      value: 1.2272744
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -6066,6 +6066,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3417226552754281088, guid: 6a0574282a943714496a03b9b43cefb9,
+        type: 3}
+      propertyPath: TimeToSit
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417226552754281088, guid: 6a0574282a943714496a03b9b43cefb9,
+        type: 3}
+      propertyPath: TimeToSleep
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7101564007038771914, guid: 6a0574282a943714496a03b9b43cefb9,
         type: 3}
       propertyPath: m_LocalPosition.x
