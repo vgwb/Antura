@@ -355,13 +355,22 @@ namespace Antura.Discover
         public static void PartyJoinById(string id)
         {
             var pm = GetPartyManager();
-            if (pm == null || string.IsNullOrEmpty(id))
+            if (pm == null || string.IsNullOrWhiteSpace(id))
                 return;
 
-            // TODO improve
-            foreach (var m in FindObjectsByType<PartyMember>(FindObjectsSortMode.None))
+            id = id.Trim();
+
+            foreach (var m in FindObjectsByType<PartyMember>(FindObjectsInactive.Include))
             {
-                if (m.GetComponent<Interactable>().Id == id)
+                if (m == null)
+                    continue;
+
+                var interactable = m.GetComponent<Interactable>()
+                                   ?? m.GetComponentInParent<Interactable>()
+                                   ?? m.GetComponentInChildren<Interactable>(true);
+
+                if ((interactable != null && string.Equals(interactable.Id, id, StringComparison.OrdinalIgnoreCase))
+                    || string.Equals(m.Id, id, StringComparison.OrdinalIgnoreCase))
                 {
                     pm.AddMember(m);
                     return;
@@ -376,10 +385,33 @@ namespace Antura.Discover
             var pm = GetPartyManager();
             if (pm == null)
                 return;
+
             if (string.IsNullOrEmpty(id))
+            {
                 pm.RemoveAllFollowers();
-            else
-                pm.RemoveMemberById(id);
+                return;
+            }
+
+            id = id.Trim();
+
+            foreach (var m in pm.Members)
+            {
+                if (m == null)
+                    continue;
+
+                var interactable = m.GetComponent<Interactable>()
+                                   ?? m.GetComponentInParent<Interactable>()
+                                   ?? m.GetComponentInChildren<Interactable>(true);
+
+                if ((interactable != null && string.Equals(interactable.Id, id, StringComparison.OrdinalIgnoreCase))
+                    || string.Equals(m.Id, id, StringComparison.OrdinalIgnoreCase))
+                {
+                    pm.RemoveMember(m);
+                    return;
+                }
+            }
+
+            Debug.LogWarning($"[PartyYarn] party_release: member with id '{id}' not found in current party (checked Interactable.Id and PartyMember.Id).");
         }
 
         [YarnCommand("party_formation")]
