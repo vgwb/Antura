@@ -43,10 +43,10 @@ tags:
 <<if HasCompletedTask("ConvinciIlBambino")>>
 Bravo!!
 <<else>>
-<<set $nome_giocatore = "Piccolo Aiutante">>
-Oh, ciao! Sei proprio un bel micino tenero tenero!
-Io sono la Duchessa Eleonora. 
-Ho un grandissimo problema e ho bisogno del tuo aiuto!
+
+
+Io sono la Duchessa Eleonora. Sei proprio un bel micino tenero!
+Ho un grandissimo problema e ho bisogno di te!
 -> Certo! Che succede?
     Meno male che ci sei tu! Guarda i fiori... sono tutti tristi.
     
@@ -58,35 +58,33 @@ Ho un grandissimo problema e ho bisogno del tuo aiuto!
     Oh, potremo giocare dopo, promesso! 
     Ma prima dobbiamo risolvere un mistero!
   
-È successa una cosa terribile nel Giardino di Boboli... 
-Tutte le api sono sparite! 
-Non se ne vede più nemmeno una. Zero ronzii!
+Tutte le api di Boboli sono sparite!
 -> Perché è un problema?
     Beh...
--> Magari sono andate a fare un pisolino?
+-> Un pisolino forse?
     Magari! Sono sparite da troppi giorni. Ed è un grandissimo problema!
     
--> Non è meglio? Così non mi pungono!
-    Capisco che quel "bzzz" possa fare paura, ma fidati! 
-    La loro assenza è un guaio grandissimo!
+-> Ma chi le vuole?!
+    Capisco che fanno paura, ma fidati! 
+    La loro assenza è un guaio enorme!!
     
 
-Vedi, le api sono come i postini magici della natura. 
-Volano da un fiore a un altro e portano il polline,
+Le Api sono i postini magici della natura. 
+Mangiano il nettare da un fiore, sporcandosi tutte di polline!
+E volando al prossimo fiore, gli portano il polline di quello di prima.
 così fanno nascere frutti e nuove piantine.
-Senza di loro, il nostro bellissimo giardino appassirà...
-...e non avremo più arance o altri frutti buonissimi!
+Senza di loro, i fiori e i frutti sono spacciati!
 -> Oh no! Niente più arance?! Dobbiamo salvarle!
-    Esatto! Sapevo che avresti capito l'importanza delle nostre arance tipiche!
+    Esatto! Le nostre arance tipiche!
     
 -> E ora come facciamo?
     Non disperare, la tua Duchessa ha una pista!
     
 -> Ma i fiori non possono fare da soli?
-    Purtroppo no, il vento non basta sempre a trasportare il polline! 
+    Purtroppo no, il vento non basta sempre a portare il polline! 
     Ma possiamo rimediare.
     
-Le api non possono essere svanite, i loro alveari sono ancora in zona. 
+Le api non sono svanite, i loro alveari sono ancora in zona. 
 Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai?
 -> Salverò il giardino!!
     Fantastico! Prendi questa mappa, ti aiuterà!
@@ -108,39 +106,54 @@ tags:
 <<if !HasCompletedTask("AiutaBzz") >>
 Bzzzz... Oh... Che fame! Che sfinimento!
 
--> Ecco un'ape! Tutto bene?
+-> Tutto bene?
     Mica tanto! Ho le ali stanche e la pancia vuota! *Bzz-zuff...*
 
 <<card salvia>>
-Hai visto un fiore di salvia qui intorno? Ne ho un bisogno disperato! Il loro nettare mi salverebbe!
+Hai visto un fiore di salvia qui intorno? Il nettare mi salverebbe!
 
--> Ne cerco subito uno attaccato alla pianta!
+-> C'è una pianta qui!
     Aspetta, aspetta! No, fermati! Non farlo!   
--> Posso coglierne uno per te?
-    Oh, no, per carità! Ti ringrazio, ma cogliere i fiori è un pasticcio!
+-> Ne raccolgo uno?
+    Oh, no! Grazie, ma cogliere i fiori è un pasticcio!
 
-Vedi, se stacchi un fiore intero dalla pianta, la pianta ci rimarrà male e gli altri insetti non avranno più il loro cibo. 
+Se stacchi un fiore intero dalla pianta, la pianta ci rimarrà male,
+e gli altri insetti non avranno più il loro cibo. 
 
-Devi cercare un fiore di salvia che sia già caduto a terra. task:AiutaBzz
+Cerca una salvia già caduta! task:AiutaBzz
 <<card_hide>>
-Così nessuno si farà male, la pianta resterà felice e io potrò saziarmi! Mi darai una zampa?
+Così nessuno si farà male e io potrò saziarmi! Mi darai una zampa?
 
--> Va bene, mi metto a cercare!
+-> Va bene!
     Grazie mille!
     <<task_start AiutaBzz salvia_trovata>>
 <<else>>
-    *SLURP!* Che delizia! Che salvia dolce! 
-    Grazie mille, mi hai salvato senza fare del male a nessuno! Volo all'alveare! BZZZZZZ!
+    SLURP! Che delizia! Che salvia dolce! 
+    Grazie mille, sei un eroe! Volo all'alveare! BZZZZZZ!
     <<task_start TrovaUnAltraApe>>
 <<endif>>
 ===
 
 title: salvia_trovata
 ---
-Hai trovato il fiore. torna dall'ape
+Hai trovato la salvia. Torna da Bzz!
 <<target Bzz>>
 
 ===
+
+title: peonia_trovata
+---
+Hai trovato la peonia. Torna da Bzz!
+<<target Bzz>>
+
+===
+title: azalea_trovata
+---
+Hai trovato l'azalea. Torna da Bzz!
+<<target Bzz>>
+
+===
+
 title: Ape2
 tags: 
 
@@ -152,6 +165,7 @@ F... Faaameeeeee... Zzr...
 -> Fame?
     Fame!
 
+ <<card peonia>>
 Ti prego... Peonia...
 
 -> Cos'è Peonia?
@@ -161,11 +175,13 @@ Ti prego... Peonia...
 
 Cresce... Qui vicino... 
 
-Per favore!
+Per favore! 
+<<card hide>>
 
 -> In arrivo!
     Grazie...!
-    <<task_start AiutaZrr salvia_trovata>>  
+    
+    <<task_start AiutaZrr peonia_trovata>>  
 <<else>>
 Slurp! 
 Finalmente! Riesco a volare!
@@ -219,27 +235,44 @@ Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
 
 Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
 
--> Ehi! Che fai con quel bastone?
-    Oh, ciao! Sto facendo l'eroe! Sto scacciando tutte le api prima che pungano qualcuno! 
--> Fermati! Così spaventi tutte le api!
-    Ma io voglio spaventarle! Sono un cavaliere e sto proteggendo il prato dalle bestie feroci!
+-> Posa il bastone!
+    Oh, ciao! Sono un cavaliere! Caccio le api prima che pungano qualcuno! 
+-> Che fai?
+    Sono un cavaliere e sto proteggendo il prato dalle api feroci!
 
--> Guarda che le api non sono cattive, sono amiche dei fiori!
-    Amiche? Ma hanno un pungiglione e fanno male!
--> Se le scacci, i fiori rimarranno tristi e non nasceranno i frutti...
-    I frutti? E cosa c'entrano le api con la frutta? Loro fanno solo "bzzz"!
+-> Le api sono buone!
+    Amiche? Ma hanno il pungiglione e fanno male!
+    Sono cattive! Lasciami fare il mio lavoro! 
+    <<return>>
+-> Pensa ai fiori!
+    I fiori? che c'entrano?
 
--> C'entrano! Portano il polline da un fiore all'altro per farlo crescere!
-    Davvero? Quindi aiutano le piante a nascere?
--> Senza di loro non avremmo più le arance!
-    Aspetta... quindi niente spremuta?
+-> Le api li impollinano!
+    Ma che dici?
+-> Le api li annaffiano!
+    Ma non è vero!
+    <<return>>
 
-Ahh... allora non sono un eroe, sto combinando un pasticcio! Io adoro la spremuta!
+Come fanno a trasportare il polline con quelle zampine?
+-> Mangiano il nettare!
+    E quindi?
+-> Ci si rotolano!
+    La smetti di prendermi in giro?
+    <<return>>
 
--> Esatto! Le api pungono solo se hanno paura. Dobbiamo proteggerle!
-    Gulp... Hai ragione. Mi dispiace di averle spaventate.
+Cosa c'entra?
+-> Si sporcano di polline!
+    Ah, e così sporcano anche i fiori...
+-> Nel nettare c'è il polline!
+    Che stupidaggine!
+    <<return>>
 
-Mi sa che ho fatto un guaio...
+Comunque il polline lo porta anche il vento.
+-> Non basta!
+    Non ti credo!
+-> Effettivamente...
+    Te l'ho detto!
+    <<return>>
 
 -> Perché non cambi missione e le proteggi?
     <<set $bambino_ha_capito = true>>
