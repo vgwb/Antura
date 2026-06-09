@@ -83,10 +83,10 @@ position: 263,2
 sistema gli orologi della macchina
 <<endif>>
 <<if $parlato_npc == false>>
-Ciao siamo un gruppo di scienziati
+ciao siamo un gruppo di scienziati
 stiamo facendo degli esperimenti per viaggiare nel tempo
 vuoi aiutarci a sistemare le ultime modifiche?
-->si che emozione
+-> si che emozione
     <<jump accettato>>
     <<set $parlato_npc = true>>
 -> no
