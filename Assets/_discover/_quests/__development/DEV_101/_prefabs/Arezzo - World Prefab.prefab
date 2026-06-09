@@ -1003,6 +1003,7 @@ Terrain:
   m_AllowAutoConnect: 1
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
+  m_EnableHeightmapLODFrustumCulling: 1
   m_TreeMotionVectorModeOverride: 3
 --- !u!154 &5256868395570622287
 TerrainCollider:
@@ -1277,7 +1278,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 61dd8daaed2a8e34581e860f19b3bf5d, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ab66f722df83c41e28402d5c44a8b950, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &4051836394717290414
 GameObject:
@@ -6196,7 +6197,7 @@ PrefabInstance:
     - target: {fileID: -3542852092398272455, guid: cf0452de5c1b8844ab49c451a4ee9232,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: -3500364497632869833, guid: cf0452de5c1b8844ab49c451a4ee9232,
         type: 3}
@@ -6218,6 +6219,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 6c381b927c1176f49ad1357842aca4e7, type: 2}
+    - target: {fileID: -2245623774801616189, guid: cf0452de5c1b8844ab49c451a4ee9232,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8adffe64237cc3d46b63dcf15c567418, type: 2}
+    - target: {fileID: -2245623774801616189, guid: cf0452de5c1b8844ab49c451a4ee9232,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8adffe64237cc3d46b63dcf15c567418, type: 2}
     - target: {fileID: -2245623774801616189, guid: cf0452de5c1b8844ab49c451a4ee9232,
         type: 3}
       propertyPath: 'm_Materials.Array.data[5]'
