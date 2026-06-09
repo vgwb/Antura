@@ -63,14 +63,21 @@ Ti prego, ho davvero bisogno di aiuto!
 
 title: pages_collected
 ---
-<<if HasCompletedTask ("collect_pages")>>
+<<if HasCompletedTask("collect_pages")>>
 Do, Re, Mi, Fa, Sol, La, Si... 
 Hai raccolto tutte le pagine!
 Grazie mille!
 Andiamo al duomo e consegnamole al coro.
-<<task_start give_pages>>
+Parla con il cantore al Duomo! #task:give_pages
+<<task_start give_pages give_pages_task>>
 <<target cantore>>
 <<endif>>
+===
+
+title: give_pages_task
+type: task
+---
+Parla con il cantore al Duomo! #task:give_pages
 ===
 
 ///////// PIAZZA GUIDO MONACO //////////
@@ -105,6 +112,7 @@ Ma è ancora vuoto... dobbiamo trovare le note!
 
 title: anfiteatroromano
 ---
+<<camera_focus cameraanfiteatro>>
 <<card anfiteatroromano>>
 Questo è l'Anfiteatro Romano di Arezzo, costruito tantissimo tempo fa.
 Qui i romani venivano a guardare recite e opere teatrali.
@@ -133,6 +141,7 @@ Senza di lei non sapremmo da dove cominciare!
 
 title: piazza_san_francesco
 ---
+<<camera_focus camerasanfrancesco>>
 <<card sanfrancesco>>
 Eccoci alla Piazza di San Francesco!
 È lì di fronte c'è la Basilica.
@@ -166,6 +175,7 @@ title: page_do
 
 title: annunziata
 ---
+<<camera_focus cameraannunziata>>
 <<card annunziata>>
 Ecco la Basilica della Santissima Annunziata!
 È una delle chiese più antiche di Arezzo.
@@ -175,6 +185,7 @@ C'è qualcosa di strano nascosto qui vicino...
 
 title: casa_vasari
 ---
+<<camera_focus cameracasavasari>>
 <<card casavasari>>
 Questa è la Casa del Vasari!
 Giorgio Vasari era un pittore e architetto aretino del Cinquecento.
@@ -209,7 +220,7 @@ title: page_re
 title: turista_benvenuto
 ---
 <<if visited("turista_benvenuto")>>
-Ti una buona giornata in città!
+Ti auguro una buona giornata in città!
 <<else>>
 Oh, ciao! Stavo visitando la casa del Vasari e ho trovato questo foglio per terra.
 Ha un simbolo strano all'inizio... sai come si chiama?
@@ -257,6 +268,7 @@ Sul pentagramma si trova sulla seconda riga.
 
 title: santagostino
 ---
+<<camera_focus camerasantagostino>>
 <<card santagostino>>
 Questa è la chiesa di Sant'Agostino!
 È un bel edificio medievale nel cuore della città.
@@ -290,6 +302,7 @@ title: page_mi
 
 title: piazzagrande
 ---
+<<camera_focus camerasantamaria>>
 <<card piazzagrande>>
 Che bella piazza! Questa è Piazza Grande, il cuore di Arezzo.
 Ogni anno qui si svolge la Giostra del Saracino, i cavalieri si sfidano con la lancia!
@@ -376,43 +389,75 @@ title: page_si
 ===
 
 ////////// DUOMO //////////
+
 title: duomo
 ---
+<<camera_focus cameraduomo>>
 <<card cattedrale>>
-questo è il duomo di arezzo.
+Questo è il Duomo di Arezzo, la chiesa più grande della città!
+È dedicato ai Santi Donato e Pietro.
+Si vede da quasi ogni angolo della città!
 <<SetActive duomo false>>
 ===
 
+////////// CANTORE //////////
 
 title: cantore
 ---
+<<if HasCompletedTask("collect_pages")>>
+    <<jump cantore_pronto>>
+<<else>>
+    <<jump cantore_non_pronto>>
+<<endif>>
+===
+
+title: cantore_non_pronto
+---
+E ora come facciamo senza spartito...
+Non potremo cantare.
+===
+
+title: cantore_pronto
+---
+<<if GetActivityResult("reorder") > 0>>
+    <<jump cantore_fine>>
+<<else>>
+Oh, hai preso tutte le pagine!
+Ma sono in disordine...
+Così non riusciremo a cantare bene!
+Puoi riordinarle?
+<<jump activity_reorder>>
+<<endif>>
+===
+
+title: activity_reorder
+---
+<<activity reorder cantore_risultato>>
+===
+
+title: cantore_risultato
+---
+<<if GetActivityResult("reorder") > 0>>
+    <<jump cantore_fine>>
+<<else>>
+Riprova, ci riuscirai ne sono sicuro.
+<<jump activity_reorder>>
+<<endif>>
+===
+
+title: cantore_fine
+---
 <<task_end give_pages>>
-Grazie mille ora possiamo tornare a cantare!
+Grazie mille, ora possiamo tornare a cantare!
 <<jump quest_end>>
 ===
+
+////////// FINE QUEST //////////
 
 title: quest_end
 position: 0,150
 type: panel_endgame
 color: red
 ---
-The quest is complete. #line:0d43527 
-<<jump post_quest_activity>>
-===
-
-title: post_quest_activity
-position: 0,300
-type: panel
-color: red
-tags: proposal
----
-Why don't you do this homework? #line:09d3dd4 
-<<quest_end>>
-===
-
-title: reoder
-position: 8,590
----
-hallo
-<<activity reorder>>
+Missione compiuta. #line:0d43527 
 ===
