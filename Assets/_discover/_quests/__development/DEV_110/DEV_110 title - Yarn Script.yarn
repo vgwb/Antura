@@ -1,10 +1,10 @@
 ﻿title: quest_start
 type: panel
 ---
-Player you have a quest : #line:02f14b2 
+We have a quest to complete! #line:02f14b2 
 Guide Dante and protect him from evil! #line:0df3c65 
 Go speak to Dante. #line:088cd8b 
-<<fight_start>>
+//<<fight_start>>
 <<target Dante>>
 ===
 title: Dante_Intro
@@ -14,6 +14,7 @@ When I had journeyed half of our life's way, #card:Dante #line:0a2f478
 I found myself within a shadowed forest,  #line:05aa3b3 
 for I had lost the path that does not stray. #line:0228d43 
 <<target Hilltop>>
+<<camera_focus Hilltop_camera>>
 <<SetActive area_init false>>
 <<SetActive area_hilltop true>>
 <<detour NextStep>>
@@ -43,19 +44,33 @@ Quest Goal - Flee from the Lion and Wolf. #task:flee #line:001f30f
 ===
 title: Virgil_Introduction
 ---
-Dante : "Have pity on me, whatever you may be, a shade, a man." #line:0fd5718 
+"Have pity on me, whatever you may be, a shade, a man." #card:Dante #line:0fd5718 
 
-Shade : "Not man; I once was man. Both of my parents came from Lombardy, and both claimed Mantua as native city. I was a poet, born under false and lying gods." #line:081e541 
+"Not man; I once was man. Both of my parents came from Lombardy, and both claimed Mantua as native city. I was a poet, born under false and lying gods." #line:081e541 
 
-Dante : "Could you be Virgil? The-" #line:06637f1  
+"Could you be Virgil? The-" #card:Dante #line:06637f1  
 
-Virgil : "We cannot talk now, the beasts will get to us, let's get moving!" #line:05e67b5 
+"We cannot talk now, the beasts will get to us, let's get moving!" #line:05e67b5 
 
-Activity - Small task to fill-in some words that are also **Cards** (These are unlocks for Dante's and Virgil's skill set and they give more background info for both). #line:0160410 
-
-// <<task_start Escape Fight>>
+// <<fight_start Escape Fight>>
 ===
 title: NextStep
 ---
 We need to go deeper... #line:09d1b5e 
+<<fight_start >>
+Test fight.
+Dodge this!
+<<fight_dodge "fan">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    You learn its rhythm, but watching alone changes nothing. It paces, waiting.
+    <<fight_menu>>
+<<endif>>
+===
+
+===
+title: Card_DivinaCommedia
+---
+<<card divina_commedia>>
 ===

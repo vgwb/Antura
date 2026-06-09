@@ -7299,10 +7299,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 806948455}
-    - targetCorrespondingSourceObject: {fileID: 3812215885708268291, guid: 7962259d85b624374bc28a72d31547a6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1119961497}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1934818974797609647, guid: 7962259d85b624374bc28a72d31547a6,
         type: 3}
@@ -13725,6 +13721,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 386023778}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &387494860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3236931518328060714, guid: a93ad9540dd0f421b8642146981a973c,
+    type: 3}
+  m_PrefabInstance: {fileID: 434786847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &389053991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14403,6 +14405,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 425549659}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &431503587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3224368748766909727, guid: 92a3e58b10fe448b4bec1ca955f41e82,
+    type: 3}
+  m_PrefabInstance: {fileID: 980496858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &431974574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14844,22 +14852,22 @@ PrefabInstance:
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.575
+      value: 7.807
       objectReference: {fileID: 0}
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.023
+      value: 15.01
       objectReference: {fileID: 0}
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.933
+      value: 46.351
       objectReference: {fileID: 0}
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.038931675
+      value: 0.24446253
       objectReference: {fileID: 0}
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
@@ -14869,7 +14877,7 @@ PrefabInstance:
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9992419
+      value: 0.96965873
       objectReference: {fileID: 0}
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
@@ -14884,7 +14892,7 @@ PrefabInstance:
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -184.462
+      value: -208.3
       objectReference: {fileID: 0}
     - target: {fileID: 3097039447036017285, guid: a93ad9540dd0f421b8642146981a973c,
         type: 3}
@@ -14901,10 +14909,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5277687633114513437, guid: a93ad9540dd0f421b8642146981a973c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277687633114513437, guid: a93ad9540dd0f421b8642146981a973c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277687633114513437, guid: a93ad9540dd0f421b8642146981a973c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.127
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3236931518328060714, guid: a93ad9540dd0f421b8642146981a973c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 434786850}
   m_SourcePrefab: {fileID: 100100000, guid: a93ad9540dd0f421b8642146981a973c, type: 3}
 --- !u!4 &434786848 stripped
 Transform:
@@ -14912,6 +14939,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 434786847}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &434786850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387494860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: Hilltop
+  IsInteractable: 1
+  IsHiddenAtStart: 0
+  NearbyAutoActivate: 0
+  IconType: 1
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  MapIcon: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  CameraFocusData: {fileID: 0}
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 0}
+    nodeName: 
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  triggerChildren: 0
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1001 &435608028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16156,7 +16216,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.08199
+      value: -10.08248
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -16166,7 +16226,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.467023
+      value: -14.466897
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -33470,7 +33530,7 @@ PrefabInstance:
     - target: {fileID: 8389871001135018075, guid: 92a3e58b10fe448b4bec1ca955f41e82,
         type: 3}
       propertyPath: QuestTasks.Array.data[0].TaskNode.nodeName
-      value: Leopard_Start
+      value: quest_start
       objectReference: {fileID: 0}
     - target: {fileID: 8389871001135018075, guid: 92a3e58b10fe448b4bec1ca955f41e82,
         type: 3}
@@ -33505,6 +33565,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1690863112}
+    - targetCorrespondingSourceObject: {fileID: 3224368748766909727, guid: 92a3e58b10fe448b4bec1ca955f41e82,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1256171435}
+    - targetCorrespondingSourceObject: {fileID: 3224368748766909727, guid: 92a3e58b10fe448b4bec1ca955f41e82,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1916332357}
     - targetCorrespondingSourceObject: {fileID: 658226908727109236, guid: 92a3e58b10fe448b4bec1ca955f41e82,
         type: 3}
       insertIndex: -1
@@ -33513,6 +33581,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 434786848}
+    - targetCorrespondingSourceObject: {fileID: 658226908727109236, guid: 92a3e58b10fe448b4bec1ca955f41e82,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1119961497}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7080656740394833043, guid: 92a3e58b10fe448b4bec1ca955f41e82,
         type: 3}
@@ -37608,6 +37680,7 @@ GameObject:
   - component: {fileID: 1119961497}
   - component: {fileID: 1119961498}
   - component: {fileID: 1119961499}
+  - component: {fileID: 1119961500}
   m_Layer: 0
   m_Name: DC_Card
   m_TagString: Untagged
@@ -37623,12 +37696,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119961496}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -12.879, y: 1.258, z: -7.09}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.979, y: 1.258, z: 8.51}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 202389449}
+  m_Father: {fileID: 980496862}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!212 &1119961498
 SpriteRenderer:
@@ -37714,14 +37787,36 @@ MonoBehaviour:
   CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
   DialogueNode:
-    project: {fileID: 0}
-    nodeName: 
+    project: {fileID: 7545569452688597077, guid: 9dfbe4a016a3f4057b8b0549c30e25a3,
+      type: 3}
+    nodeName: Card_DivinaCommedia
   NodePermalink: 
   disableAfterAction: 1
   QuestAction: 
   Commands: []
   triggerChildren: 0
   FaceToPlayerComp: {fileID: 0}
+--- !u!135 &1119961500
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119961496}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 12.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1124582913
 GameObject:
   m_ObjectHideFlags: 0
@@ -42295,8 +42390,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1256171435}
   - component: {fileID: 1256171436}
+  - component: {fileID: 1256171437}
   m_Layer: 0
-  m_Name: Hilltop Camera
+  m_Name: Hilltop_camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42310,12 +42406,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256171434}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05867746, y: -0.89996094, z: 0.23252577, w: 0.36408675}
-  m_LocalPosition: {x: 7.43, y: 23.45, z: 36.56}
+  m_LocalRotation: {x: 0.010766591, y: -0.9483866, z: 0.27868646, w: 0.15093292}
+  m_LocalPosition: {x: 13.887789, y: 28.344555, z: 54.543037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1704030266}
+  m_Father: {fileID: 431503587}
   m_LocalEulerAnglesHint: {x: 27.468, y: -134.941, z: 4.117}
 --- !u!114 &1256171436
 MonoBehaviour:
@@ -42360,6 +42456,21 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1256171437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256171434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d9d4888400d459c906fbf52a5f4e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CameraFocusData
+  Id: Hilltop_camera
+  Origin: {fileID: 1256171435}
+  LookAt: {fileID: 434786848}
 --- !u!1001 &1259215671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56693,9 +56804,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1256171435}
-  - {fileID: 1916332357}
+  m_Children: []
   m_Father: {fileID: 295758857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1704579385
@@ -63207,11 +63316,11 @@ Transform:
   m_GameObject: {fileID: 1916332356}
   serializedVersion: 2
   m_LocalRotation: {x: 0.05867746, y: -0.89996094, z: 0.23252577, w: 0.36408675}
-  m_LocalPosition: {x: 29.91, y: 8.84, z: 47.01}
+  m_LocalPosition: {x: 39.809998, y: 8.84, z: 62.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1704030266}
+  m_Father: {fileID: 431503587}
   m_LocalEulerAnglesHint: {x: 27.468, y: -134.941, z: 4.117}
 --- !u!114 &1916332358
 MonoBehaviour:
