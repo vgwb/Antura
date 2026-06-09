@@ -1,66 +1,102 @@
-﻿title: quest_start
+title: quest_start
 type: panel
 ---
-We have a quest to complete! #line:02f14b2 
-Guide Dante and protect him from evil! #line:0df3c65 
-Go speak to Dante. #line:088cd8b 
+We have a quest to complete! #line:02f14b2
+Guide Dante and protect him from evil! #line:0df3c65
+Go speak to Dante. #line:088cd8b
 //<<fight_start>>
 <<target Dante>>
 ===
 title: Dante_Intro
 ---
 <<party_join Dante>>
-When I had journeyed half of our life's way, #card:Dante #line:0a2f478 
-I found myself within a shadowed forest,  #line:05aa3b3 
-for I had lost the path that does not stray. #line:0228d43 
+When I had journeyed half of our life's way, #card:Dante #line:0a2f478
+I found myself within a shadowed forest,  #line:05aa3b3
+for I had lost the path that does not stray. #line:0228d43
 <<target Hilltop>>
 <<camera_focus Hilltop_camera>>
 <<SetActive area_init false>>
 <<SetActive area_hilltop true>>
-<<detour NextStep>>
 ===
 title: Top
 ---
 //time night
 <<camera_focus Hilltop_camera>>
-<<task_start reach_top>> 
+<<task_start reach_top>>
 <<target Hilltop>>
 ===
 title: Lynx
 ---
-A lynx stops Dante in his tracks, forcing him to backtrack. #line:0cd2934 
+A lynx stops Dante in his tracks, forcing him to backtrack. #line:0cd2934
 <<task_start Run>>
 <<target Hideout>>
 <<SetActive false area_hilltop>>
 <<SetActive true area_lion>>
 
 //time day
-The morning sun shines on Dante, he was not out of danger yet... #line:0ba8eb0 
+The morning sun shines on Dante, he was not out of danger yet... #line:0ba8eb0
 ===
 title: Lion_and_Wolf
 ---
-Quest Goal - Flee from the Lion and Wolf. #task:flee #line:001f30f 
+Quest Goal - Flee from the Lion and Wolf. #task:flee #line:001f30f
 
 ===
 title: Virgil_Introduction
 ---
-"Have pity on me, whatever you may be, a shade, a man." #card:Dante #line:0fd5718 
+"Have pity on me, whatever you may be, a shade, a man." #card:Dante #line:0fd5718
 
-"Not man; I once was man. Both of my parents came from Lombardy, and both claimed Mantua as native city. I was a poet, born under false and lying gods." #line:081e541 
+"Not man; I once was man. Both of my parents came from Lombardy, and both claimed Mantua as native city. I was a poet, born under false and lying gods." #card:virgilio #line:081e541
 
-"Could you be Virgil? The-" #card:Dante #line:06637f1  
+"Could you be Virgil? The-" #card:Dante #line:06637f1
 
-"We cannot talk now, the beasts will get to us, let's get moving!" #line:05e67b5 
-
-// <<fight_start Escape Fight>>
+"We cannot talk now, the beasts will get to us, let's get moving!" #card:virgilio #line:05e67b5
 ===
-title: NextStep
+title: Card_DivinaCommedia
 ---
-We need to go deeper... #line:09d1b5e 
-<<fight_start >>
-Test fight.
-Dodge this!
-<<fight_dodge "fan">>
+The structure of the commedia revolves around the number 3.
+3 is the number for trinity, an holy christian simbol.
+<<card divina_commedia>>
+===
+title: Card_inferno
+---
+The structure of Dante's Inferno.
+Dante starts from the Dark Forest to reach the Limbo.
+<<card inferno>>
+===
+title: Card_lion
+---
+One of the three beasts inside the dark forest.
+Lion sin of pride : one of the seven deadly sins.
+<<card leone>>
+===
+title: Card_lynx
+---
+One of the three beasts inside the dark forest.
+It is the symbol of lust : one of the seven deadly sins.
+<<card lynx>>
+===
+title: Card_shewolf
+---
+One of the three beasts inside the dark forest.
+She is the symbol of avarice : the worst sin among the 3.
+<<card shewolf>>
+===
+title: Card_Selva
+---
+A dark forest where dante drifted off to.
+Its an allegory for sin and cofusion.
+<<card selva_oscura>>
+===
+title: Lynx_Start
+---
+A spotted lynx slips between the trees, light-footed and quick. It blocks the path and circles you.
+<<fight_start>>
+===
+title: Lynx_Study
+---
+You watch the lynx's restless circling, trying to read it.
+It darts in before you finish the thought.
+<<fight_dodge "lynx_pounce">>
 <<if fight_hp() <= 0>>
     <<fight_end "lose">>
 <<else>>
@@ -68,9 +104,157 @@ Dodge this!
     <<fight_menu>>
 <<endif>>
 ===
-
-===
-title: Card_DivinaCommedia
+title: lynx_Provoke
 ---
-<<card divina_commedia>>
+You shout and stamp to drive the beast off.
+The lynx takes it as a game and pounces harder.
+<<fight_dodge "lynx_flurry">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    The provocation only sharpens its excitement. It will not be scared away.
+    <<fight_menu>>
+<<endif>>
+===
+title: lynx_MatchPace
+---
+You slow your breathing and let your steps fall into the lynx's own restless rhythm; moving with it, not against it.
+<<fight_dodge "lynx_pounce">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    The frantic circling eases. Curiosity replaces the hunger in its eyes, and it sits, tail flicking.
+    <<fight_spare_enable>>
+    <<fight_menu>>
+<<endif>>
+===
+title: lynx_Win
+---
+The lynx dips its head once, then melts back into the green shadow of the wood. The path ahead is clear.
+<<camera_focus Hideout_camera>>
+We have to reach an Hideout with Dante, lets jump off I will protect us!
+===
+title: lynx_Lose
+---
+The lynx is too quick, too light. Your strength fails and the dark wood closes over you.
+===
+
+title: Lion_Start
+---
+Sun's rising and with it a new challenge approaches.
+A lion strides from the thicket, head high and mane bristling. 
+It will not yield the road its hunger is for your fear.
+<<fight_start>>
+===
+title: Lion_RoarBack
+---
+You square your shoulders and roar back, daring it to come.
+The lion answers with a charge that shakes the ground.
+<<fight_dodge "lion_charge">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    Pride met with pride only makes it prouder. The lion paws the earth, ready for more.
+    <<fight_menu>>
+<<endif>>
+===
+title: Lion_StandTall
+---
+You hold your ground and refuse to look away.
+The lion takes the challenge and presses you hard.
+<<fight_dodge "lion_roar">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    Standing firm keeps you alive — but a locked gaze is still a challenge to a proud beast.
+    <<fight_menu>>
+<<endif>>
+===
+title: Lion_ShowHumility
+---
+You lower your eyes, bow your head, and make yourself no threat at all.
+<<fight_dodge "lion_roar">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    With no pride to push against, the lion's fury has nowhere to go. Its roar softens to a low, watchful rumble.
+    <<fight_spare_enable>>
+    <<fight_menu>>
+<<endif>>
+===
+title: Lion_Win
+---
+The lion regards you a long moment, then turns aside with regal grace and lets you pass.
+===
+title: Lion_Lose
+---
+The lion's pride is a mountain you cannot climb. It overwhelms you, and the road is lost.
+===
+
+title: Trio_Start
+---
+<<declare $lynx_calm = false>>
+<<declare $lion_calm = false>>
+<<declare $wolf_calm = false>>
+<<set $lynx_calm = false>>
+<<set $lion_calm = false>>
+<<set $wolf_calm = false>>
+The lynx, the lion and the she-wolf step from the wood together and ring you round. Three hungers, one road and no way back.
+Get ready Dante we need to press forward! #card:virgilio
+<<fight_start>>
+===
+title: Trio_Soothelynx
+---
+You turn to the restless lynx and fall into its darting rhythm, moving with it until the frenzy drains away.
+<<fight_dodge "lynx_pounce">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    <<set $lynx_calm = true>>
+    The lynx's circling slows; its curiosity is no longer a threat.
+    <<jump Trio_AfterSoothe>>
+<<endif>>
+===
+title: Trio_SootheLion
+---
+You lower your eyes before the lion and offer it no pride to fight.
+<<fight_dodge "lion_charge">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    <<set $lion_calm = true>>
+    The lion's roar fades to a watchful rumble.
+    <<jump Trio_AfterSoothe>>
+<<endif>>
+===
+title: Trio_SootheWolf
+---
+You meet the she-wolf's bottomless hunger with steady, unhurried resolve — wanting nothing she can take from you.
+<<fight_dodge "wolf_snap">>
+<<if fight_hp() <= 0>>
+    <<fight_end "lose">>
+<<else>>
+    <<set $wolf_calm = true>>
+    The she-wolf's snarl falters; for once, her hunger finds no purchase.
+    <<jump Trio_AfterSoothe>>
+<<endif>>
+===
+title: Trio_AfterSoothe
+---
+<<if $lynx_calm and $lion_calm and $wolf_calm>>
+    The three beasts circle once more, then settle as one. The road they guarded lies open.
+    <<fight_spare_enable>>
+<<else>>
+    One beast is at peace — but the others still pace and snarl, waiting their turn.
+<<endif>>
+<<fight_menu>>
+===
+title: Trio_Win
+---
+The Beasts draw back together, and the dark wood parts to let you through at last.
+Well done Dante, we can proceed further. #card:virgilio
+===
+title: Trio_Lose
+---
+Three hungers are too many for one road. The beasts close in, and the way is lost.
 ===
