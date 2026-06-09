@@ -51,6 +51,7 @@ Sarò la tua guida in città.
 Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
 Raccogliamo le note disperse #task:collect_pages
 Andiamo!
+<<SetMapIcon guido off>>
 <<task_start collect_pages pages_collected>> 
 ===
 
@@ -70,6 +71,7 @@ Grazie mille!
 Andiamo al duomo e consegnamole al coro.
 Parla con il cantore al Duomo! #task:give_pages
 <<task_start give_pages give_pages_task>>
+<<SetMapIcon cantore default>>
 <<target cantore>>
 <<endif>>
 ===
@@ -105,6 +107,7 @@ Hai trovato il Pentagramma!
 È il foglio su cui si scrivono le note.
 Ha 5 righe e 4 spazi. Le note si posizionano su queste righe e spazi.
 Ma è ancora vuoto... dobbiamo trovare le note!
+<<SetMapIcon page_pentagramma off>>
 <<collect>>
 ===
 
@@ -134,6 +137,7 @@ Hai trovato la Chiave di Violino!
 Si chiama anche Chiave di Sol.
 Sta sempre all'inizio del pentagramma e ci dice dove leggere le note.
 Senza di lei non sapremmo da dove cominciare!
+<<SetMapIcon chiave_di_sol off>>
 <<collect>>
 ===
 
@@ -158,6 +162,7 @@ title: page_do
     Hai trovato il Do!
     È la prima nota della scala.
     Sta sotto il pentagramma, su una piccola linea tutta sua.
+    <<SetMapIcon page_do off>>
     <<collect>>
 <<else>>
     Vediamo che cos'è.
@@ -204,6 +209,7 @@ title: page_re
     Hai trovato il Re!
     È la seconda nota della scala.
     Sul pentagramma si trova nel primo spazio, proprio sotto la prima riga.
+    <<SetMapIcon page_re off>>
     <<collect>>
 <<else>>
     Vediamo che cos'è.
@@ -261,6 +267,7 @@ title: page_sol
 Hai trovato il Sol!
 È la quinta nota della scala.
 Sul pentagramma si trova sulla seconda riga.
+<<SetMapIcon page_sol off>>
 <<collect>>
 ===
 
@@ -285,6 +292,7 @@ title: page_mi
     Hai trovato il Mi!
     È la terza nota della scala.
     Sul pentagramma si trova sulla prima riga.
+    <<SetMapIcon page_mi off>>
     <<collect>>
 <<else>>
     Vediamo che cos'è.
@@ -342,6 +350,7 @@ title: page_la
     Incredibile, hai trovato il La!
     È la sesta nota della scala.
     Sul pentagramma si trova nel terzo spazio.
+    <<SetMapIcon page_la off>>
     <<collect>>
 <<else>>
     Vediamo che cos'è.
@@ -375,6 +384,7 @@ title: page_si
     <<card si>>
     Il Si! L'ultima nota della scala!
     Sul pentagramma si trova sulla terza riga.
+    <<SetMapIcon page_si off>>
     <<collect>>
 <<else>>
     Vediamo che cos'è.
