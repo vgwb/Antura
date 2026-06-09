@@ -54,9 +54,7 @@ Ho un grandissimo problema e ho bisogno di te!
     Sono la Duchessa Eleonora di Toledo, la madre di questo splendido giardino! 
     Ma oggi sono troppo preoccupata per autocelebrarmi...
 
--> Giochiamo a nascondino?
-    Oh, potremo giocare dopo, promesso! 
-    Ma prima dobbiamo risolvere un mistero!
+
   
 Tutte le api di Boboli sono sparite!
 -> Perché è un problema?
@@ -74,13 +72,13 @@ Mangiano il nettare da un fiore, sporcandosi tutte di polline!
 E volando al prossimo fiore, gli portano il polline di quello di prima.
 così fanno nascere frutti e nuove piantine.
 Senza di loro, i fiori e i frutti sono spacciati!
--> Oh no! Niente più arance?! Dobbiamo salvarle!
+-> Niente più arance?! Dobbiamo salvarle!
     Esatto! Le nostre arance tipiche!
     
 -> E ora come facciamo?
     Non disperare, la tua Duchessa ha una pista!
     
--> Ma i fiori non possono fare da soli?
+-> I fiori non possono fare da soli?
     Purtroppo no, il vento non basta sempre a portare il polline! 
     Ma possiamo rimediare.
     
@@ -203,31 +201,29 @@ Tzzz... Ehi... Ho visto che hai aiutato gli altri!
 
 Conosci l'azalea? è una bellissima pianta ornamentale...
 
--> cerco
-    grz
+-> Ho capito...
+    Grazie!
     
--> cerco
+-> Te ne cerco uno?
     grz
 
-non staccarla 
-
-trovane uno caduto
-
-pls
+Credo sia vicino la statua di nettuno...
 
 -> Va bene, mi metto a cercare!
     Grazie mille! 
     <<task_start AiutaTzz salvia_trovata>>
 <<else>>
-om nom nom 
-c'è un bambino che rompe
+Che delizia!
+Ah, quel bambino mi ha proprio sfinito...
+Eravamo al giardino del cavaliere...
+e mi ha cacciato con un bastone!
+Forse è ancora lì?
 <<task_start TrovaIlBambino>>
 <<endif>>
 ===
 title: Incontro_Con_Bimbo
 tags: 
 ---
-<<declare $bambino_ha_capito = false>>
 
 <<if !HasCompletedTask("AiutaTzz") >>
 Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
@@ -275,10 +271,9 @@ Comunque il polline lo porta anche il vento.
     <<return>>
 
 -> Perché non cambi missione e le proteggi?
-    <<set $bambino_ha_capito = true>>
     Hai ragione!!
 <<task_start ConvinciIlBambino>>
 <<else>>
-abababa
+Lontani dalle api! Sono i postini della natura!
 <<endif>>
 ===
