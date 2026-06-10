@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e043f7d659edd4787e50ea2a625e1d, type: 3}
+  m_Name: wolf_snap
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DEV110.ProjectilePattern
+  ReferenceBoxSize: {x: 480, y: 270}
+  Emitters:
+  - Name: Snap
+    StartTime: 0
+    Bursts: 2
+    BurstInterval: 1.25
+    Shape: 0
+    Count: 4
+    SpreadAngle: 35
+    BaseAngle: 0
+    Edge: 0
+    SpinPerBurst: 0
+    Movement: 1
+    WaveAmplitude: 45
+    WaveFrequency: 1
+    Origin: 0
+    WarnSeconds: 0
+    Sprite: {fileID: 0}
+    Color: {r: 0.7, g: 0.7, b: 0.85, a: 1}
+    Size: 12
+    Speed: 160
+    Damage: 1
+  - Name: Snarl
+    StartTime: 2
+    Bursts: 2
+    BurstInterval: 1
+    Shape: 4
+    Count: 4
+    SpreadAngle: 35
+    BaseAngle: 0
+    Edge: 0
+    SpinPerBurst: 0
+    Movement: 1
+    WaveAmplitude: 45
+    WaveFrequency: 1
+    Origin: 0
+    WarnSeconds: 0
+    Sprite: {fileID: 0}
+    Color: {r: 0.7, g: 0.7, b: 0.85, a: 1}
+    Size: 12
+    Speed: 90
+    Damage: 1

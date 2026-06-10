@@ -622,7 +622,7 @@ color: green
 actor: NARRATOR
 ---
 <<if GetActivityResult("finalquiz") > 0>>
-    <<jump quest_end>>
+    <<jump activity_quiz2>>
 <<else>>
     <<jump quiz_retry>>
 <<endif>>
@@ -636,6 +636,68 @@ actor: ADULT_M
 ---
 Try again! Use what you have learned. #line:0a34a6d 
 <<activity finalquiz quest_end_check normal>>
+===
+
+title: activity_quiz2
+position: 2700,200
+group: finale
+color: purple
+actor: ADULT_M
+---
+<<activity finalquiz2 quiz2_result normal>>
+===
+
+title: quiz2_result
+position: 3000,200
+group: finale
+color: green
+actor: NARRATOR
+---
+<<if GetActivityResult("finalquiz2") > 0>>
+    <<jump activity_quiz3>>
+<<else>>
+    <<jump quiz2_retry>>
+<<endif>>
+===
+
+title: quiz2_retry
+position: 3000,300
+group: finale
+color: purple
+actor: ADULT_M
+---
+<<activity finalquiz2 quiz2_result normal>>
+===
+
+title: activity_quiz3
+position: 2700,400
+group: finale
+color: purple
+actor: ADULT_M
+---
+<<activity finalquiz3 quiz3_result normal>>
+===
+
+title: quiz3_result
+position: 3000,400
+group: finale
+color: green
+actor: NARRATOR
+---
+<<if GetActivityResult("finalquiz3") > 0>>
+    <<jump quest_end>>
+<<else>>
+    <<jump quiz3_retry>>
+<<endif>>
+===
+
+title: quiz3_retry
+position: 3000,500
+group: finale
+color: purple
+actor: ADULT_M
+---
+<<activity finalquiz3 quiz3_result normal>>
 ===
 
 // ═══════════════════════════════════════════════════════════

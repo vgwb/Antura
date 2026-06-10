@@ -25,6 +25,12 @@ namespace Antura.Discover.DEV110
         Wave      // smooth sine weave perpendicular to travel
     }
 
+    /// <summary>
+    /// Named spawn origin for <see cref="EmitterShape.Aimed"/> and <see cref="EmitterShape.Fan"/> emitters.
+    /// Ring/Spiral always originate from the centre; Stream uses its own <see cref="StreamEdge"/> field.
+    /// </summary>
+    public enum SpawnOrigin { Top, Bottom, Left, Right, Center }
+
     /// <summary>One resolved bullet to spawn: where it starts and the unit direction it travels.</summary>
     public struct Spawn
     {
@@ -71,6 +77,12 @@ namespace Antura.Discover.DEV110
         public float WaveAmplitude = 24f;
         [Tooltip("ZigZag / Wave: weaves per second.")]
         public float WaveFrequency = 3f;
+
+        [Header("Spawn")]
+        [Tooltip("Edge / point bullets originate from (Aimed and Fan only). Ring/Spiral always use the box centre; Stream uses its Edge field.")]
+        public SpawnOrigin Origin = SpawnOrigin.Top;
+        [Tooltip("Seconds before each burst a warning indicator should be shown at the origin. 0 = disabled. (Placeholder — runtime warning not yet implemented.)")]
+        public float WarnSeconds = 0f;
 
         [Header("Appearance")]
         [Tooltip("Leave empty for a plain white square; assign a PNG/Sprite to use art instead.")]
@@ -124,6 +136,22 @@ namespace Antura.Discover.DEV110
     {
         private const float TwoPi = Mathf.PI * 2f;
 
+        /// <summary>
+        /// Converts a <see cref="SpawnOrigin"/> to an anchored position relative to the box centre.
+        /// Use this in emitter cases that need a configurable spawn edge.
+        /// </summary>
+        public static Vector2 GetOriginPos(SpawnOrigin origin, Vector2 half)
+        {
+            switch (origin)
+            {
+                case SpawnOrigin.Bottom: return new Vector2(0f, -half.y);
+                case SpawnOrigin.Left:   return new Vector2(-half.x, 0f);
+                case SpawnOrigin.Right:  return new Vector2(half.x, 0f);
+                case SpawnOrigin.Center: return Vector2.zero;
+                default:                 return new Vector2(0f, half.y); // Top
+            }
+        }
+
         /// <summary>Angle (degrees) to a unit direction. 0 = down, 90 = right, 180 = up, 270 = left.</summary>
         public static Vector2 AngleToDir(float deg)
         {
@@ -172,7 +200,7 @@ namespace Antura.Discover.DEV110
             {
                 case EmitterShape.Aimed:
                 {
-                    Vector2 origin = new Vector2(0f, half.y);
+                    Vector2 origin = GetOriginPos(e.Origin, half);
                     Vector2 aim = (soulPos - origin);
                     aim = aim.sqrMagnitude > 0.0001f ? aim.normalized : Vector2.down;
                     for (int i = 0; i < count; i++)
@@ -184,7 +212,7 @@ namespace Antura.Discover.DEV110
                 }
                 case EmitterShape.Fan:
                 {
-                    Vector2 origin = new Vector2(0f, half.y);
+                    Vector2 origin = GetOriginPos(e.Origin, half);
                     for (int i = 0; i < count; i++)
                     {
                         float off = count == 1 ? 0f : Mathf.Lerp(-e.SpreadAngle * 0.5f, e.SpreadAngle * 0.5f, i / (float)(count - 1));
