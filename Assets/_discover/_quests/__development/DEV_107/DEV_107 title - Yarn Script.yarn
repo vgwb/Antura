@@ -69,9 +69,9 @@ Why don't you do this homework? #line:09d3dd4
 
 title: fine
 ---
-bravo hai risposto a tutto correttamente
-e ricordati di non giocare con i viaggi nel tempo
-o almeno con Antura attorno
+bravo hai risposto a tutto correttamente #line:05eaefd 
+e ricordati di non giocare con i viaggi nel tempo #line:0f663d3 
+o almeno con Antura attorno #line:0e64914 
 <<jump quest_end>>
 ===
 
@@ -80,21 +80,21 @@ title: npc_intro
 position: 263,2
 ---
 <<if $parlato_npc== true>>
-sistema gli orologi della macchina
+sistema gli orologi della macchina #line:06e8606 
 <<endif>>
 <<if $parlato_npc == false>>
-ciao siamo un gruppo di scienziati
-stiamo facendo degli esperimenti per viaggiare nel tempo
-vuoi aiutarci a sistemare le ultime modifiche?
--> si che emozione
+ciao siamo un gruppo di scienziati #line:0a3b56e 
+stiamo facendo degli esperimenti per viaggiare nel tempo #line:0d30107 
+vuoi aiutarci a sistemare le ultime modifiche? #line:09f3517 
+-> si che emozione #line:0295daa 
     <<jump accettato>>
     <<set $parlato_npc = true>>
--> no
-    allora cercheremo qualcun' altro
+-> no #line:065bbf4 
+    allora cercheremo qualcun' altro #line:0582158 
 <<endif>>
 <<if $Leonardo_1== true>>
-grazie per aver trovato Leonardo
-adesso possiamo tornare indietro
+grazie per aver trovato Leonardo #line:0ee1589 
+adesso possiamo tornare indietro #line:05c4b4f 
 <<SetActive  pesci1 false>>
 <<SetActive  pesci2 false>>
 <<SetActive  pesci3 false>>
@@ -115,84 +115,84 @@ adesso possiamo tornare indietro
 <<SetActive  scatole10 false>>
 <<SetActive  scatole11 false>>
 <<camera_focus cielo>>
-siamo finalmente tornati hai giorni moderni
+siamo finalmente tornati hai giorni moderni #line:0f8c4cb 
 <<SetActive backgroud1 true>>
 <<SetActive backgroud2 false>>
 <<camera_reset>>
-è stata una bella avventura
-abbiamo incontrato personaggi famosi dell'epoca
-ad esempio qual'è l'opera dove hanno lavorato insieme molti artisti?
-->battesimo di Cristo by Verrocchio
-    corretto!!
+è stata una bella avventura #line:0cb0080 
+abbiamo incontrato personaggi famosi dell'epoca #line:05709b4 
+ad esempio qual'è l'opera dove hanno lavorato insieme molti artisti? #line:06b17a4 
+->battesimo di Cristo by Verrocchio #line:024ab3e 
+    corretto!! #line:08e08e9 
     <<jump quiz_1>>
-->urlo by Munch
-    sbagliato, riprova
-->Gioconda by Da Vinci
-    sbagliato, riprova
-->adorazione dei magi by Da Vinci
-    sbagliato, riprova
+->urlo by Munch #line:0e671e7 
+    sbagliato, riprova #line:01f0b74 
+->Gioconda by Da Vinci #line:0ac81c3 
+    sbagliato, riprova #line:0850778 
+->adorazione dei magi by Da Vinci #line:0e8b620 
+    sbagliato, riprova #line:087cc89 
 <<endif>>
 ===
 
 title: quiz_1
 ---
-cosa rappresenta la "primavera" di Botticelli?
--> la guerra
-    sbagliato, riprova
--> la nascita del nuovo impero di Firenze
-    sbagliato, riprova
--> la nascita dell' Italia
-    sbagliato, riprova
--> la primavera secondo i greci
-    corretto!!
+cosa rappresenta la "primavera" di Botticelli? #line:0fa02a3 
+-> la guerra #line:04ddb00 
+    sbagliato, riprova #line:0e49704 
+-> la nascita del nuovo impero di Firenze #line:0c8b2a9 
+    sbagliato, riprova #line:0b36f3f 
+-> la nascita dell' Italia #line:0cb138e 
+    sbagliato, riprova #line:05ac331 
+-> la primavera secondo i greci #line:05cc732 
+    corretto!! #line:0810560 
     <<jump quiz_2>>
 ===
 
 title: quiz_2
 ---
-Leonardo Da Vinci a chi ha donato i suoi quadri?
--> Lorenzo dei medici
-    sbagliato, riprova
--> Giulio Cesare
-    sbagliato, riprova
--> il re di Francia Luigi XII
-    corretto!!
+Leonardo Da Vinci a chi ha donato i suoi quadri? #line:005ffcf 
+-> Lorenzo dei medici #line:0665feb 
+    sbagliato, riprova #line:0e56c5b 
+-> Giulio Cesare #line:0f04fbf 
+    sbagliato, riprova #line:05071c8 
+-> il re di Francia Luigi XII #line:095434a 
+    corretto!! #line:09240af 
     <<jump quiz_3>>
--> Travis Scott
-    sbagliato, riprova
+-> Travis Scott #line:01c4eac 
+    sbagliato, riprova #line:0e3381e 
 ===
 
 title: quiz_3
 ---
-cosa vuole rappresentare Perugino del quadro "consegna delle chiavi"?
--> che era un bravo pittore
-    sbagliato, riprova
--> l'importanza del Papa
-    corretto!!
+cosa vuole rappresentare Perugino del quadro "consegna delle chiavi"? #line:031a292 
+-> che era un bravo pittore #line:0e69118 
+    sbagliato, riprova #line:041bbdd 
+-> l'importanza del Papa #line:0b9ef36 
+    corretto!! #line:0574060 
     <<jump quiz_4>>
--> la costruzione di una nuova città
-    sbagliato, riprova
--> la vittoria di un re in battaglia
-    sbagliato, riprova
+-> la costruzione di una nuova città #line:0da73ef 
+    sbagliato, riprova #line:0aa158b 
+-> la vittoria di un re in battaglia #line:0da5b8f 
+    sbagliato, riprova #line:05223d4 
 ===
 
 title: quiz_4
 ---
-il Ghirlandaio come ha rappresentato la famiglia Sassi nell' "adorazione dei pastori"?
--> aggiungendo persone
-    sbagliato, riprova
--> aggiungendo dei sassi in primo piano
-    corretto!!
+il Ghirlandaio come ha rappresentato la famiglia Sassi nell' "adorazione dei pastori"? #line:0dfe7eb 
+-> aggiungendo persone #line:07b6eb7 
+    sbagliato, riprova #line:075338d 
+-> aggiungendo dei sassi in primo piano #line:01f7b39 
+    corretto!! #line:0d9a785 
     <<jump fine>>
--> mettendo lo stemma della famiglia
-    sbagliato, riprova
--> miao
-    sbagliato, riprova
+-> mettendo lo stemma della famiglia #line:00dadb2 
+    sbagliato, riprova #line:05e7c8a 
+-> miao #line:0748362 
+    sbagliato, riprova #line:055da6e 
 ===
 
 title: accettato
 ---
-allora aggiusta la data di dove andremo #task:color_collector
+allora aggiusta la data di dove andremo #task:color_collector #line:0ee6a02 
 <<task_start color_collector colori_raccolti>>
 <<set $parlato_npc= true>>
 ===
@@ -200,9 +200,9 @@ allora aggiusta la data di dove andremo #task:color_collector
 title: colori_raccolti
 ---
 <<camera_focus cielo>>
-grazie adesso andiamo a vedere il Rinascimento
-no aspetta che stai facendo Antura?
-FERMOOOOO!!!!
+grazie adesso andiamo a vedere il Rinascimento #line:0d6826d 
+no aspetta che stai facendo Antura? #line:075ee6b 
+FERMOOOOO!!!! #line:09aa866 
 <<SetActive  verrocchio true>>
 <<SetActive  scatole true>>
 <<SetActive  scatole1 true>>
@@ -217,11 +217,11 @@ FERMOOOOO!!!!
 <<SetActive  scatole10 true>>
 <<SetActive  scatole11 true>>
 <<camera_reset>>
-oh no accidenti la macchina si è rotta
-siamo rimasti bloccati nel XV secolo 
-dobbiamo trovare qualcuno che ci aiuti a ripararla
-dovrebbe esserci Leonardo Da Vinci da queste parti
-cercalo mi deve aiutare a riparare la macchina sennò rimaremo bloccati qui per sempre
+oh no accidenti la macchina si è rotta #line:0fd5e27 
+siamo rimasti bloccati nel XV secolo  #line:0914e57 
+dobbiamo trovare qualcuno che ci aiuti a ripararla #line:0db45ef 
+dovrebbe esserci Leonardo Da Vinci da queste parti #line:0f2c4fb 
+cercalo mi deve aiutare a riparare la macchina sennò rimaremo bloccati qui per sempre #line:064a094 
 <<target NPCverrocchio>>
 <<SetActive backgroud1 false>>
 <<SetActive backgroud2 true>>
@@ -235,45 +235,45 @@ title: orologio_sx
 title: orologio_sx_done
 ---
 <<card andrea_del_verrocchio_baptism_of_christ>>
-Ecco la carta che ti mancava
+Ecco la carta che ti mancava #line:0719d59 
 <<collect andrea_del_verrocchio_baptism_of_christ>>
 ===
 
 title: verrocchio
 ---
 <<if $parlato_verrocchio== true>>
-raccogli la colomba bianca e portamela
-ti aiuterò a cercare Leonardo
+raccogli la colomba bianca e portamela #line:07ac7e5 
+ti aiuterò a cercare Leonardo #line:0d43975 
 <<endif>>
 <<if $verrocchio == true>>
-grazie mille
+grazie mille #line:0f8c59e 
 <<card andrea_del_verrocchio_baptism_of_christ>>
-mi serviva per completare la mia opera
-per farla mi hanno aiutato i miei alievi
-Leonardo Da Vinci
-Domenico Ghirlandaio
-Sandro Botticelli
-Pietro Perugino
-sono i miei alievi più dotati
-Leonardo si trova dentro la mia bottega
-è quella qui dietro entra pure
+mi serviva per completare la mia opera #line:0543137 
+per farla mi hanno aiutato i miei alievi #line:002bcc8 
+Leonardo Da Vinci #line:0c949a4 
+Domenico Ghirlandaio #line:05364e5 
+Sandro Botticelli #line:0022508 
+Pietro Perugino #line:04610ac 
+sono i miei alievi più dotati #line:040136d 
+Leonardo si trova dentro la mia bottega #line:0f69a9f 
+è quella qui dietro entra pure #line:00a2314 
 <<teleport bottega>>
 <<endif>>
 <<if $verrocchio == false>>
 <<SetActive porta true>>
-ciao piccolo gattino che ci fai qui?
--> chi sei?
-    Sono Verrocchio un artista
-    la mia bottega è la più importante di tutta Firenze
-    di recente mi hanno commissionato un quadro
-    per il monastero di San Salvi
-    ma devo ancora completarla
-    -> conosci Leonardo Da Vinci?
-        si che lo conosco è un mio allievo
-        se vuoi incontrarlo devi prima aiutarmi
-        -> va bene
-            trovami una colomba bianca
-            deve essere bianca mi serve come modello per la mia opera
+ciao piccolo gattino che ci fai qui? #line:01e9d1e 
+-> chi sei? #line:0d913b0 
+    Sono Verrocchio un artista #line:078efb9 
+    la mia bottega è la più importante di tutta Firenze #line:07adb45 
+    di recente mi hanno commissionato un quadro #line:0e1587b 
+    per il monastero di San Salvi #line:00bd1d2 
+    ma devo ancora completarla #line:0e68496 
+    -> conosci Leonardo Da Vinci? #line:08cb866 
+        si che lo conosco è un mio allievo #line:0d7bea8 
+        se vuoi incontrarlo devi prima aiutarmi #line:091d334 
+        -> va bene #line:0dbee66 
+            trovami una colomba bianca #line:03f68dc 
+            deve essere bianca mi serve come modello per la mia opera #line:0a3d6ad 
             <<task_start colomba_bianca verrocchio_completato>>
             <<set $parlato_verrocchio = true>>
             <<SetActive  pesci1 true>>
@@ -282,50 +282,50 @@ ciao piccolo gattino che ci fai qui?
             <<SetActive  pesci4 true>>
             <<SetActive  pesci5 true>>
             <<SetActive  pesci6 true>>
-        -> magari dopo miao
-            va bene gatto parlante
+        -> magari dopo miao #line:045cc3e 
+            va bene gatto parlante #line:06d49b3 
             
-    -> miao
-        sei un gatto molto strano
-->miao
-    sei un gatto effettivamente
-    non esistono gatti parlanti
+    -> miao #line:096fa2c 
+        sei un gatto molto strano #line:0e932f0 
+->miao #line:0b06d86 
+    sei un gatto effettivamente #line:0dea946 
+    non esistono gatti parlanti #line:0647b65 
 <<endif>>
 ===
 
 title: colomba_sbagliata
 ---
-no mi serve di colore bianco
-perchè il bianco significa purezza
-e la colomba raffigura lo spirito santo
-quando vedi un elemento in un opera di colore bianco
-molto spesso significa la purezza
-puro come lo spirito santo
+no mi serve di colore bianco #line:075d35b 
+perchè il bianco significa purezza #line:0387832 
+e la colomba raffigura lo spirito santo #line:05f93aa 
+quando vedi un elemento in un opera di colore bianco #line:07dea5f 
+molto spesso significa la purezza #line:0e7224c 
+puro come lo spirito santo #line:0273d7f 
 ===
 
 title: verrocchio_completato
 ---
 <<camera_focus verrocchio>>
 <<set $verrocchio= true>>
-bravo adesso portamela qui
+bravo adesso portamela qui #line:07276c5 
 <<target verrocchio>>
 ===
 
 title: Leonardo_firenze
 ---
-stavo finendo questo progetto
+stavo finendo questo progetto #line:0563194 
 <<card da_vinci_vitruviano>>
-sto studiando il corpo umano con tutte le sue proporzioni 
-mi piace molto studiare il corpo umano
-molte delle mie opere le puoi riconoscere solo dalle mani
-come nella monnalisa
+sto studiando il corpo umano con tutte le sue proporzioni  #line:086429f 
+mi piace molto studiare il corpo umano #line:00b88aa 
+molte delle mie opere le puoi riconoscere solo dalle mani #line:0186bde 
+come nella monnalisa #line:0346ff4 
 <<card_hide>>
 <<card mona_lisa_by_leonardo_da_vinci>>
-se guardi le sue mani sono in posizione incrociate
-con un anatomia accurata
-quest'opera però la lascierò in Francia che sono diventato amico del re di francia
+se guardi le sue mani sono in posizione incrociate #line:05f3fce 
+con un anatomia accurata #line:0e446ee 
+quest'opera però la lascierò in Francia che sono diventato amico del re di francia #line:0b7e54f 
 <<card_hide>>
-adesso andiamo ad aiutare il tuo amico
+adesso andiamo ad aiutare il tuo amico #line:09cdabb 
 <<teleport firenze>>
 <<SetActive verrocchio false>>
 ===
@@ -337,88 +337,88 @@ title: Leonardo_Da_Vinci
 <<endif>>
 <<if $completati < 3 >>
 <<if $Leonardo_1== false>>
-qui nessuno capisce il mio genio
-il maestro ci sta usando per le sue opere
-noi le facciamo e lui si prende i meriti
-oh ciao piccolo gattino che cosa ci fai qui?
--> mi serve il tuo aiuto
-    prima di aiutarti devi riuscire a convincere i miei compagni
-    non capiscono il mio genio vai a convincerli 
-    -> che devo fare?
-        risolvi i loro problemi dicendo che ti ho detto io come fare
+qui nessuno capisce il mio genio #line:021b8ac 
+il maestro ci sta usando per le sue opere #line:08282e1 
+noi le facciamo e lui si prende i meriti #line:0aff5db 
+oh ciao piccolo gattino che cosa ci fai qui? #line:0cf741c 
+-> mi serve il tuo aiuto #line:00c4064 
+    prima di aiutarti devi riuscire a convincere i miei compagni #line:0d7e82e 
+    non capiscono il mio genio vai a convincerli  #line:099deb0 
+    -> che devo fare? #line:0e8f4b0 
+        risolvi i loro problemi dicendo che ti ho detto io come fare #line:0f84b0e 
         <<set $Leonardo_1 = true>>
-    -> miao
-        perchè sto parlando con un gatto
--> miao
-    che gatto particolare
+    -> miao #line:0b95cc2 
+        perchè sto parlando con un gatto #line:0b05a8a 
+-> miao #line:0bcf089 
+    che gatto particolare #line:05bfff0 
 <<endif>><<endif>>
 <<if $Leonardo_1 == true>>
-cerca di convincere gli altri a perdonarmi
-se lo fai ti aiuterò
+cerca di convincere gli altri a perdonarmi #line:0bc6ab8 
+se lo fai ti aiuterò #line:018f217 
 <<endif>>
 ===
 
 title: Botticelli
 ---
 <<if $Leonardo_1 == false>>
-ciao gattino
--> sai dove posso trovare Leonardo Da Vinci?
-    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
-    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+ciao gattino #line:095a326 
+-> sai dove posso trovare Leonardo Da Vinci? #line:0616a27 
+    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata #line:0921f3a 
+    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:0944fb9 
     <<target NPCLeonardo>>
--> chi sei?
-    sono Sandro Botticelli
-    se non fosse per quel Leonardo sarei già a buon punto con la mia opera
-    -> che cosa ha fatto?
-        fattelo raccontare da lui si trova a sinistra dell' entrata
-        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+-> chi sei? #line:0e624ec 
+    sono Sandro Botticelli #line:0798005 
+    se non fosse per quel Leonardo sarei già a buon punto con la mia opera #line:0fb055a 
+    -> che cosa ha fatto? #line:093b8f9 
+        fattelo raccontare da lui si trova a sinistra dell' entrata #line:0ba1afc 
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:0995b0d 
         <<target NPCLeonardo>>
-    -> miao 
-        credo che tu abbia appena parlato
+    -> miao  #line:0905302 
+        credo che tu abbia appena parlato #line:00675c6 
 <<endif>>
 <<if $Leonardo_1== true>>
 <<if $botticelli== false>>
-accidenti a quel Leonardo
-mi ha rovinato tutto
-->ciao scusa cos'è successo?
-    Leonardo mi ha appena distrutto la frutta che dovevo usare
-    mi serviva come modello per la mia opera
-    ma lui è arrivato ha distrutto tutto e se l'è portata via
-    puoi trovarmi altri soggetti?
-    -> va bene
+accidenti a quel Leonardo #line:0cc35fe 
+mi ha rovinato tutto #line:0796755 
+->ciao scusa cos'è successo? #line:0a77e72 
+    Leonardo mi ha appena distrutto la frutta che dovevo usare #line:0e0290d 
+    mi serviva come modello per la mia opera #line:0bf8fbe 
+    ma lui è arrivato ha distrutto tutto e se l'è portata via #line:08de6ef 
+    puoi trovarmi altri soggetti? #line:0d06ef8 
+    -> va bene #line:0754180 
         <<task_start Botticelli Botticelli_completato>>
         <<target agrumi_botticelli>>
-    -> no miao
-        troverò un altro modo
-->chi sei?
-    sono Sandro Botticelli
-    e per colpa di quel Leonardo non posso finire la mia opera
-    -> cos'è successo?
-        Leonardo mi ha appena distrutto la frutta che dovevo usare
-        mi serviva come modello per la mia opera
-        ma lui è arrivato ha distrutto tutto e se l'è portata via
-        puoi trovarmi altri soggetti?
-    -> miao!!!
-        wooo ti sei emozionato
+    -> no miao #line:066b00f 
+        troverò un altro modo #line:00077aa 
+->chi sei? #line:00f3529 
+    sono Sandro Botticelli #line:0583b00 
+    e per colpa di quel Leonardo non posso finire la mia opera #line:09deb2c 
+    -> cos'è successo? #line:09e9981 
+        Leonardo mi ha appena distrutto la frutta che dovevo usare #line:0769efa 
+        mi serviva come modello per la mia opera #line:0859f50 
+        ma lui è arrivato ha distrutto tutto e se l'è portata via #line:02dc589 
+        puoi trovarmi altri soggetti? #line:076e2f4 
+    -> miao!!! #line:0b5863b 
+        wooo ti sei emozionato #line:0fa31a3 
 <<endif>><<endif>>
 
 <<if $botticelli== true>>
 <<card primavera_botticelli>>
-grazie gattino adesso posso completare la mia primavera
-vedi mi è stata commissionata dal cugino di Lorenzo il Magnifico
-come dice il nome rappresenta la primavera
-ogni figura in questo quadro rappresenta una divinità greca collegata alla primavera
-come Mercuirio a destra che scaccia le nuvole cariche di pioggia
--> Leonardo mi ha detto di dirti che gli dispiace
-    oh scuse accettate
-    solo la prossima volta me lo può semplicemente chiedere
+grazie gattino adesso posso completare la mia primavera #line:0c9d7e6 
+vedi mi è stata commissionata dal cugino di Lorenzo il Magnifico #line:0f29693 
+come dice il nome rappresenta la primavera #line:082c8b8 
+ogni figura in questo quadro rappresenta una divinità greca collegata alla primavera #line:0d305cc 
+come Mercuirio a destra che scaccia le nuvole cariche di pioggia #line:0cd2094 
+-> Leonardo mi ha detto di dirti che gli dispiace #line:04ff735 
+    oh scuse accettate #line:0d1c063 
+    solo la prossima volta me lo può semplicemente chiedere #line:0235ab5 
 <<endif>>
 ===
 
 title: Botticelli_completato
 ---
 <<camera_focus botticelli>>
-grazie mille porta qui tutto quello che hai trovato
+grazie mille porta qui tutto quello che hai trovato #line:026b352 
 <<set $botticelli= true>>
 <<set $completati = $completati + 1>>
 <<target NPCbotticelli>>
@@ -427,75 +427,75 @@ grazie mille porta qui tutto quello che hai trovato
 title: Perugino
 ---
 <<if $Leonardo_1 == false>>
-che carino cosa ci fai qui?
--> sai dove posso trovare Leonardo Da Vinci?
-    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
-    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+che carino cosa ci fai qui? #line:0eec9e7 
+-> sai dove posso trovare Leonardo Da Vinci? #line:0f5dadf 
+    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata #line:036190f 
+    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:07bed62 
     <<target NPCLeonardo>>
--> chi sei?
-    sono Pietro Perugino
-    per colpa di quel Leonardo sto impazzendo
-    mentre stavo completando il mio quadro
-    mi ha fatto uno scherzo di poco gusto
-    -> sai dove si trova?
-        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
-        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+-> chi sei? #line:0d17267 
+    sono Pietro Perugino #line:0cda8b2 
+    per colpa di quel Leonardo sto impazzendo #line:06f8d5a 
+    mentre stavo completando il mio quadro #line:050cc9b 
+    mi ha fatto uno scherzo di poco gusto #line:0d933b4 
+    -> sai dove si trova? #line:0f0cacc 
+        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata #line:02f099a 
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:08b90f8 
         <<target NPCLeonardo>>
-    -> che cosa ha fatto?
-        fattelo raccontare da lui si trova a sinistra dell' entrata
-        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    -> che cosa ha fatto? #line:0472938 
+        fattelo raccontare da lui si trova a sinistra dell' entrata #line:0b24208 
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:0952b7b 
         <<target NPCLeonardo>>
 <<endif>>
 <<if $Leonardo_1 == true>>
 <<if $perugino== false>>
-accidenti a quel Leonardo
-dove l'avrà mai messa
-->ciao scusa cos'è successo?
-    Leonardo mi ha nascosto le chiavi di casa
-    senza quelle non posso andare a casa
-    mi puoi aiutare a trovarle?
-    -> va bene
-        mi ha dato solo un indizio di dove l'ha nascosta
-        qualcosa riguardo ad uno dei miei quadri
+accidenti a quel Leonardo #line:05234fd 
+dove l'avrà mai messa #line:039e43a 
+->ciao scusa cos'è successo? #line:0f6648c 
+    Leonardo mi ha nascosto le chiavi di casa #line:0478b6a 
+    senza quelle non posso andare a casa #line:002e10b 
+    mi puoi aiutare a trovarle? #line:0756609 
+    -> va bene #line:065f370 
+        mi ha dato solo un indizio di dove l'ha nascosta #line:0433807 
+        qualcosa riguardo ad uno dei miei quadri #line:0e3d4d1 
         <<task_start chiave>>
-    -> no miao
-        va bene grazie comunque
-->chi sei?
-    sono Pietro Perugino
-    e per colpa di quel Leonardo non posso tornare a casa
-    ->cos'è successo?
-        Leonardo mi ha nascosto le chiavi di casa
-        senza quelle non posso andare a casa
-        mi puoi aiutare a trovarle?
-    -> va bene
-        mi ha dato solo un indizio di dove l'ha nascosta
-        qualcosa riguardo ad uno dei miei quadri
-        sono quelli accanto a me
+    -> no miao #line:096215f 
+        va bene grazie comunque #line:03c9de0 
+->chi sei? #line:0d99f6a 
+    sono Pietro Perugino #line:0f69e9d 
+    e per colpa di quel Leonardo non posso tornare a casa #line:0d478a5 
+    ->cos'è successo? #line:0130879 
+        Leonardo mi ha nascosto le chiavi di casa #line:06f9889 
+        senza quelle non posso andare a casa #line:0bc268c 
+        mi puoi aiutare a trovarle? #line:0ad1442 
+    -> va bene #line:04e8e2e 
+        mi ha dato solo un indizio di dove l'ha nascosta #line:077e627 
+        qualcosa riguardo ad uno dei miei quadri #line:00a9ccb 
+        sono quelli accanto a me #line:0d91c1a 
         <<task_start chiave>>
-    -> no miao
-        va bene grazie comunque
+    -> no miao #line:0dc4d9d 
+        va bene grazie comunque #line:0cc78c4 
 <<endif>><<endif>>
 <<if $perugino== true>>
-grazie gattino adesso posso finalmente tornare a casa
-me le ha nascoste mentre stavo completando il mio quadro
-per la famosa Cappella Sistina
+grazie gattino adesso posso finalmente tornare a casa #line:0d0f0cf 
+me le ha nascoste mentre stavo completando il mio quadro #line:007119f 
+per la famosa Cappella Sistina #line:034d2b4 
 <<card perugino_consegna_delle_chiavi_01>>
-in questo quadro commissionatomi da Papa Sisto IV
-dovevo rappresentare la sua importanza
-così ho fatto gesù che gli consegna le chiavi della chiesa
-il soggetto inginocchiato è San Pietro 
-ma vuole rappresentare Papa Sisto IV
--> Leonardo mi ha detto di dirti che gli dispiace
+in questo quadro commissionatomi da Papa Sisto IV #line:05491d4 
+dovevo rappresentare la sua importanza #line:0861828 
+così ho fatto gesù che gli consegna le chiavi della chiesa #line:0867ca0 
+il soggetto inginocchiato è San Pietro  #line:06ea0ab 
+ma vuole rappresentare Papa Sisto IV #line:082aeae 
+-> Leonardo mi ha detto di dirti che gli dispiace #line:040548b 
     <<card_hide>>
-    oh scuse accettate
-    solo la prossima volta me le nasconda in modo più visibile
+    oh scuse accettate #line:0ed9d3c 
+    solo la prossima volta me le nasconda in modo più visibile #line:080d0cf 
 <<endif>>
 ===
 
 title: Perugino_completato
 ---
 <<camera_focus perugino>>
-grazie mille porta qui tutto quello che hai trovato
+grazie mille porta qui tutto quello che hai trovato #line:0933c59 
 <<set $perugino= true>>
 <<set $completati = $completati + 1>>
 ===
@@ -503,70 +503,70 @@ grazie mille porta qui tutto quello che hai trovato
 title: Ghirlandaio 
 ---
 <<if $Leonardo_1 == false>>
-che carino cosa ci fai qui?
--> sai dove posso trovare Leonardo Da Vinci?
-    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
-    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+che carino cosa ci fai qui? #line:05992a8 
+-> sai dove posso trovare Leonardo Da Vinci? #line:08a34f8 
+    si certo quel farabutto di Leonardo si trova a sinistra dell' entrata #line:02079aa 
+    non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:0b14d48 
     <<target NPCLeonardo>>
--> chi sei?
-    sono Domenico Ghirlandaio
-    per colpa di quel Leonardo non riesco più a disegnare
-    -> sai dove si trova?
-        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata
-        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+-> chi sei? #line:088d677 
+    sono Domenico Ghirlandaio #line:0b2a2d7 
+    per colpa di quel Leonardo non riesco più a disegnare #line:052443d 
+    -> sai dove si trova? #line:0e5cc03 
+        si certo quel farabutto di Leonardo si trova a sinistra dell' entrata #line:094d487 
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:0f40947 
         <<target NPCLeonardo>>
-    -> che cosa ha fatto?
-        fattelo raccontare da lui si trova a sinistra dell' entrata
-        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie
+    -> che cosa ha fatto? #line:078eebc 
+        fattelo raccontare da lui si trova a sinistra dell' entrata #line:07c53f6 
+        non puoi sbagliarti è quel ragazzo con un sacco di cianfrusaglie #line:0c62b3b 
         <<target NPCLeonardo>>
 <<endif>>
 <<if $Leonardo_1== true>>
 <<if $ghirlandaio== false>>
-accidenti a quel Leonardo
-come farò adesso?!
-->ciao scusa cos'è successo?
-    Leonardo mi ha rovinato i colori che dovevo usare
-    mi puoi aiutare a ritrovarli?
-    -> va bene
-        dovrebbero esserci dei secchio di colore a giro per la bottega
-        mi bastano quelli per ricreare i miei colori
+accidenti a quel Leonardo #line:0813243 
+come farò adesso?! #line:072e30e 
+->ciao scusa cos'è successo? #line:0de7cb5 
+    Leonardo mi ha rovinato i colori che dovevo usare #line:0f89b0a 
+    mi puoi aiutare a ritrovarli? #line:03a5be0 
+    -> va bene #line:08a8eb0 
+        dovrebbero esserci dei secchio di colore a giro per la bottega #line:07918e3 
+        mi bastano quelli per ricreare i miei colori #line:05d969c 
         <<task_start ghirlandaio Ghirlandaio_completato>>
         <<target ghirlandaio>>
-    -> no miao
-        va bene grazie comunque
-->chi sei?
-    sono Domenico Ghirlandaio
-    e per colpa di quel Leonardo non posso finire il mio quadro
-    ->cos'è successo?
-        Leonardo mi ha mescolato tutti i miei colori
-        aiutami a trovarne altri
-        -> va bene
-            mi ha dato solo un indizio di dove l'ha nascosta
-            qualcosa riguardo ad uno dei miei quadri
+    -> no miao #line:029ebc8 
+        va bene grazie comunque #line:0769a9b 
+->chi sei? #line:0fbcf6b 
+    sono Domenico Ghirlandaio #line:0409354 
+    e per colpa di quel Leonardo non posso finire il mio quadro #line:011619b 
+    ->cos'è successo? #line:0bd1fdf 
+        Leonardo mi ha mescolato tutti i miei colori #line:05d5831 
+        aiutami a trovarne altri #line:02780b3 
+        -> va bene #line:0b9ef31 
+            mi ha dato solo un indizio di dove l'ha nascosta #line:0994adf 
+            qualcosa riguardo ad uno dei miei quadri #line:0090160 
             <<task_start ghirlandaio Ghirlandaio_completato>>
             <<target ghirlandaio>>
-        -> no miao
-            va bene grazie comunque
+        -> no miao #line:053a7d6 
+            va bene grazie comunque #line:07fcc1f 
 <<endif>><<endif>>
 <<if $ghirlandaio== true>>
-grazie gattino adesso posso finalmente finire la mia opera
-stavo finendo la mia opera
+grazie gattino adesso posso finalmente finire la mia opera #line:01605e0 
+stavo finendo la mia opera #line:031f193 
 <<card anbetung_der_hirten>>
-me l'ha commissionato Francesco Sassetti
-il prete della basilica di Santa trinita
-per rappresentare la famiglia Sassetti ho aggiunto 3 sassi in primissimo piano
-ai piedi di Maria e Gesù bambino
-quest' opera rappresenta il cambiamento dal paganesimo al cristianesimo
--> Leonardo mi ha detto di dirti che gli dispiace
-    oh scuse accettate
-    digli che però la prossima volta deve stare più attento
+me l'ha commissionato Francesco Sassetti #line:08c9a98 
+il prete della basilica di Santa trinita #line:09d40e5 
+per rappresentare la famiglia Sassetti ho aggiunto 3 sassi in primissimo piano #line:0ef0faf 
+ai piedi di Maria e Gesù bambino #line:057f9f3 
+quest' opera rappresenta il cambiamento dal paganesimo al cristianesimo #line:086d7dc 
+-> Leonardo mi ha detto di dirti che gli dispiace #line:0f6819a 
+    oh scuse accettate #line:037a43c 
+    digli che però la prossima volta deve stare più attento #line:0dce787 
 <<endif>>
 ===
 
 title: Ghirlandaio_completato
 ---
 <<camera_focus ghirlandaio>>
-grazie mille porta qui tutto quello che hai trovato
+grazie mille porta qui tutto quello che hai trovato #line:08e22e2 
 <<set $ghirlandaio= true>>
 <<set $completati = $completati + 1>>
 ===
@@ -574,29 +574,29 @@ grazie mille porta qui tutto quello che hai trovato
 title: ll_tourist
 position: 262,294
 ---
-ci troviamo in una bottega del Rinascimento
-erano luoghi dove i giovani imparavano a dipingere o scolpire
-erano luoghi mediamente piccoli dove i figli di artisti venivano mandati
-per imparare a fare arte
+ci troviamo in una bottega del Rinascimento #line:0b87ebe 
+erano luoghi dove i giovani imparavano a dipingere o scolpire #line:08e6699 
+erano luoghi mediamente piccoli dove i figli di artisti venivano mandati #line:004e5e4 
+per imparare a fare arte #line:0139991 
 ===
 
 title: ll_tourist1
 ---
-questa è la bottega del Verrocchio
-era la bottega più famosa di tutta Firenze
-probabilmente di tutta Italia
-anche se a quel tempo non si parla ancora di Itala
-nel XV secolo l' Italia che conosciamo oggi non esisteva ancora
-era divisa in molti parti a comando c'erano i Ducati o le Repubbliche
-la Repubblica di Firenze era governata dai Medici
+questa è la bottega del Verrocchio #line:09023f5 
+era la bottega più famosa di tutta Firenze #line:08a13a3 
+probabilmente di tutta Italia #line:005f8aa 
+anche se a quel tempo non si parla ancora di Itala #line:0630e8c 
+nel XV secolo l' Italia che conosciamo oggi non esisteva ancora #line:007b7ec 
+era divisa in molti parti a comando c'erano i Ducati o le Repubbliche #line:035a5bd 
+la Repubblica di Firenze era governata dai Medici #line:02fa6df 
 ===
 
 title:ll_turist2
 ---
-non erano un luogo molto facile
-tutti i giovani apprendisti erano sotto regole ferree
-ma non erano famose solo per questo
-infatti non si insetgnava solo l'arte fisica
-ma anche quella della mente
-si imparava anche la filosofia e la letteratura
+non erano un luogo molto facile #line:0139a5c 
+tutti i giovani apprendisti erano sotto regole ferree #line:024aa3f 
+ma non erano famose solo per questo #line:070b9f4 
+infatti non si insetgnava solo l'arte fisica #line:07774db 
+ma anche quella della mente #line:0f582f8 
+si imparava anche la filosofia e la letteratura #line:0f4ec0c 
 ===

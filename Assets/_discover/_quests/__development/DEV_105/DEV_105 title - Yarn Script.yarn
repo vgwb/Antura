@@ -11,7 +11,7 @@ tags: noRepeatLastLine
 <<declare $talkedBoccaccio = false>>
 Hello kitty, welcome in Florence, it's 1348 and the Plague is spreading across Italy #line:0e43695 
 <<card florence>>
--> Oh, OK!
+-> Oh, OK! #line:0ea1077 
 <<jump Start_1>>
 ===
 
@@ -20,9 +20,9 @@ title: Start_1
 tags: noRepeatLastLine
 ---
 <<card theplague>>
-People is desperate in the city, the Plague is killing everyone,
-the poor and the rich.
-->...sad
+People is desperate in the city, the Plague is killing everyone, #line:0150ad3 
+the poor and the rich. #line:036be87 
+->...sad #line:012f842 
 <<jump Start_2>>
 ===
 
@@ -48,7 +48,7 @@ tags: noRepeatLastLine
     ->Hello! #line:0916d36 
     <<jump Boccaccio_00>>
 <<else>>
-...
+... #line:0aff4bc 
 <<endif>>
 ===
 
@@ -81,21 +81,21 @@ position: 12,832
 tags: noRepeatLastLine
 ---
 As you can see, the Plague made everyone crazy traveling it's dangerous. Could you bring me to San Marco's Convent? #line:09274c7 
--> Yeah no problem, follow me!
+-> Yeah no problem, follow me! #line:0d9b114 
     <<party_join boccaccio>>
     <<set $talkedBoccaccio = true>>
     
 ===
 title: BoccaccioRat1
 ---
-Wow kitten, you are so efficient!!!
+Wow kitten, you are so efficient!!! #line:03520ce 
 <<party_join boccaccio>>
 ===
 
 
 title: BoccaccioRing
 ---
-You found it let's go back to Federico
+You found it let's go back to Federico #line:0790950 
 <<set $ring = true>>
 ===
 
@@ -105,7 +105,7 @@ color: blue
 position: 232,382
 tags: noRepeatLastLine
 ---
-STOP Kitty! Those are rats! 
+STOP Kitty! Those are rats!  #line:0551d93 
 <<card rats>>
 -> Yes and I am a cat, so? #line:02d7a58 
 <<jump Rats2>>
@@ -120,7 +120,7 @@ position: 232,607
 tags: noRepeatLastLine
 ---
 You better be scared, your history teacher didn't tell you? THEY CARRY THE PLAGUE. #line:0d3de63 
--> Perfect, let's kill them! #task:RatCollector1 
+-> Perfect, let's kill them! #task:RatCollector1 #line:0d6ed97  
 <<jump Rats3>>
 ===
 
@@ -132,7 +132,7 @@ tags: noRepeatLastLine
 ---
 <<party_release>>
 Oh my! No way I'm getting closer... #line:071bdcd 
-->Fine, wait here!
+->Fine, wait here! #line:04fbbd3 
 <<task_start RatCollector1 ratmassacre1done>>  
 ===
 
@@ -145,9 +145,9 @@ tags: noRepeatLastLine
 <<declare $ring = false>>
 <<if $ring>>
     <<card federico>>
-    Thank you kitten, let me tell you more about me...
+    Thank you kitten, let me tell you more about me... #line:0fad9a3 
     <<else>>
-    Oh kitty,thank God you are here.
+    Oh kitty,thank God you are here. #line:0424f26 
     ->Ehm...Who are you? #line:022cdc2 
     <<jump Federico01>>
 <<endif>>  
@@ -173,8 +173,8 @@ position: 985,832
 tags: noRepeatLastLine
 ---
 What a Kitten...I lost my beloved wedding ring, could you help me? #line:01d58c6 
-->Sure Kinght! 
-task title task:FetchRIng
+->Sure Kinght!  #line:078a4bf 
+task title task:FetchRIng #line:0be697e 
 <<task_start FetchRIng Fetchringdone>>
 <<jump Federico03Yes>>
 ===
@@ -186,7 +186,7 @@ position: 952,1057
 tags: noRepeatLastLine
 ---
 Thank you, my dear, it could be near the little fountain next to #line:0a4cae4 
-the well at the centre of the square
+the well at the centre of the square #line:07332e3 
 <<card repubblica>> 
 ===
 
@@ -238,7 +238,7 @@ title: Crowds2no
 position: 452,832
 tags: noRepeatLastLine
 ---
-We are lucky, they kept walking! Let's keep going...
+We are lucky, they kept walking! Let's keep going... #line:0d48dbc 
 <<SetActive crowd1 false>> 
 
 ===
@@ -268,7 +268,7 @@ tags: noRepeatLastLine
 ---
 <<declare $purse = false>>
 <<if $purse>>
-    <<jump calandrinocompleted>>ù
+    <<jump calandrinocompleted>>ù #line:058cc21 
 <<else>>
 What a kitty!! And Giovanni too... #line:01678a8 
 ->Who are you? #line:0342c06 
@@ -305,7 +305,7 @@ position: 1699,1057
 tags: noRepeatLastLine
 ---
 It must have been an evil plot, they tied me up... #line:03c112e 
-->ok, we'll help 
+->ok, we'll help  #line:056a320 
 
 <<jump calandrino04yes>>
 ->You are lying... #line:0e1df98 
@@ -332,7 +332,7 @@ title: calandrinocompleted
 position: 1552,12
 tags: noRepeatLastLine
 ---
-Oh you brave kitten, you fought the evil man 
+Oh you brave kitten, you fought the evil man  #line:0df9fb7 
 ->It was on a bench... #line:00c2960 
 <<jump calandrinocompleted1>>
   
@@ -345,13 +345,13 @@ tags: noRepeatLastLine
 ---
 Sorry for lying... I am a bit naive, and surely not that smart #line:0e0185b 
 ->I noticed, bye... #line:0abbb88 
-->I am curios, who you really are?
+->I am curios, who you really are? #line:08364ca 
 <<jump calandrinocompleted2>>    
 ===
 title: calandrinocompleted2
 ---
 <<card calandrino>>
-I'll tell you who i am...
+I'll tell you who i am... #line:090f039 
 ===
 
 
@@ -361,14 +361,14 @@ tags: noRepeatLastLine
 ---
 Look San Lorenzo! This is the cathedral, until the Dome is completed. #line:0a60912 
 <<card sanlorenzo>>
-->Where's the purse?
+->Where's the purse? #line:01dc06e 
 <<jump Sanlorenzo01>>
 ===
 
 
 title: Sanlorenzo01
 ---
-Oh it should be on the bench in front of us...
+Oh it should be on the bench in front of us... #line:0db0dfe 
 ===
 
 
@@ -385,7 +385,7 @@ position: 892,12
 tags: noRepeatLastLine
 ---
 <<card sanmarco>>
-That is San marco's door kitten! Let's go... 
+That is San marco's door kitten! Let's go...  #line:0dac58f 
 -> follow him #line:0700fc1 
 ===
 
@@ -412,12 +412,12 @@ title: ratmassacre1
 <<if $talkedBoccaccio>>
     <<jump Rats>>
     <<else>>
-    You should go talk to Giovanni near the big building!
+    You should go talk to Giovanni near the big building! #line:086c477 
 <<endif>>
 ===
 title:ratmassacre2
 ---
-Damn rats again, go KITTY!!
+Damn rats again, go KITTY!! #line:021c094 
 <<task_start RatCollector2 ratmassacre2done>>
 ===
 
@@ -429,7 +429,7 @@ title: ratmassacre1done
 
 title: ratmassacre2done
 ---
-Nice job kitty, you make me feel comfortable!!
+Nice job kitty, you make me feel comfortable!! #line:08f6c67 
 ===
 
 
@@ -441,39 +441,39 @@ title: Fetchringdone
 
 title: fetchpursedone
 ---
-He really forgot that on the bench ?
--> Yep, kinda crazy
+He really forgot that on the bench ? #line:07d6288 
+-> Yep, kinda crazy #line:06d2d31 
 <<jump fetchpursedone1>>
 ===
 
 title: fetchpursedone1
 ---
-Anyway let's give the purse back
+Anyway let's give the purse back #line:091fe73 
 <<set $purse = true>>
 ===
 title: ratmassacre3
 ---
-Uff rats once again...kill them
+Uff rats once again...kill them #line:09f9f95 
 <<jump ratmassacre3_1>>
 ===
 
 title: ratmassacre3done
 ---
-Good Job kitten! Scare the leader off!!!
+Good Job kitten! Scare the leader off!!! #line:03002ce 
 ===
 
 
 title: ratmassacre3_1
 ---
-But be ware, avoid the people... and scare them off
-->How, Giovanni?
+But be ware, avoid the people... and scare them off #line:02f9621 
+->How, Giovanni? #line:05e459b 
 <<jump ratmassacre3_2>>
 ===
 
 title: ratmassacre3_2
 ---
-Well reach the man, farther from us, and scare him off
-I'll wait here
+Well reach the man, farther from us, and scare him off #line:022c203 
+I'll wait here #line:06f5a5c 
 <<party_release>>
 
 <<task_start RatCollector3 ratmassacre3done>>
@@ -481,27 +481,27 @@ I'll wait here
 
 title: MobBoss
 ---
-...
--> SCARE HIM!!!
+... #line:0a6ce14 
+-> SCARE HIM!!! #line:07ef76f 
 <<jump MobBoss1>>
 ===
 
 title: MobBoss1
 ---
-AAAAAAAAAH RUUUUUUN a contagious kitten
+AAAAAAAAAH RUUUUUUN a contagious kitten #line:02d34d2 
 <<SetActive crowd2 false>>
 <<jump boccacciocomes>>
 ===
 
 title: boccacciocomes
 ---
-The road is free I'm on my way, wait!!
+The road is free I'm on my way, wait!! #line:0de84eb 
 <<party_join boccaccio>>
 ===
 title: cameltp
 ---
-OH! How lucky a camel, it should bring us to San Marco!
-->Let's go!!
+OH! How lucky a camel, it should bring us to San Marco! #line:04bd23c 
+->Let's go!! #line:0850a8a 
 <<teleport sanmarco>>
 ===
 

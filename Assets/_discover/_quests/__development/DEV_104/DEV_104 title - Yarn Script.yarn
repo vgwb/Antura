@@ -39,7 +39,7 @@ position: 0,150
 type: panel_endgame
 color: red
 ---
-Complimenti! Il museo è ora in ordine!
+Complimenti! Il museo è ora in ordine! #line:06c4ab0 
 <<jump post_quest_activity>>
 ===
 
@@ -59,16 +59,16 @@ actor: stibbert_ingresso
 color: purple
 ---
 <<if $stibbert_ingresso_met == false>>
-    Fermo, non scappare, non volevo spaventarti!
+    Fermo, non scappare, non volevo spaventarti! #line:0ab37da 
     <<card frederick_stibbert_card>>
-    Mi chiamo Frederick Stibbert e...
-    ...e sì, lo so, sono un fantasma, ci ho fatto l'abitudine da più di 100 anni.
-    Poco fa uno strano cane si è intrufolato qua dentro!
-    Ha fatto un tale trambusto che l'ho sentito perfino dalla mia tomba e mi sono precipitato a controllare.
-    Mi aiuteresti a rimettere in ordine?
-    Sai, quando provo ad afferrare qualcosa le mie mani l'attraversano.
-    Però dobbiamo fare in fretta!
-    Al sorgere dell'alba arriverà il guardiano e non posso certo farmi vedere!
+    Mi chiamo Frederick Stibbert e... #line:0ca6196 
+    ...e sì, lo so, sono un fantasma, ci ho fatto l'abitudine da più di 100 anni. #line:015342a 
+    Poco fa uno strano cane si è intrufolato qua dentro! #line:06d0e30 
+    Ha fatto un tale trambusto che l'ho sentito perfino dalla mia tomba e mi sono precipitato a controllare. #line:0c908dc 
+    Mi aiuteresti a rimettere in ordine? #line:0a8abf5 
+    Sai, quando provo ad afferrare qualcosa le mie mani l'attraversano. #line:0fd1bd9 
+    Però dobbiamo fare in fretta! #line:03f648d 
+    Al sorgere dell'alba arriverà il guardiano e non posso certo farmi vedere! #line:024ebdb 
     <<set $stibbert_ingresso_met = true>>
     <<SetActive ingresso false>>
     <<target stibbert_parata>>
@@ -76,8 +76,8 @@ color: purple
     <<SetActive area_gameplay true>>
     <<camera_reset>>
 <<elseif $stibbert_ingresso_met == true>>
-    Non vedo l'ora che tutti i pezzi tornino a posto...
-    ...sto morendo di sonno!
+    Non vedo l'ora che tutti i pezzi tornino a posto... #line:0a4bf6d 
+    ...sto morendo di sonno! #line:0daa4b7 
 <<endif>>
 ===
 
@@ -87,15 +87,15 @@ actor: stibbert_parata
 color: purple
 ---
 <<if $stibbert_parata_met == false>>
-    Mi stai chiedendo come faccio ad essere già qua?
-    Beh, sono un fantasma, posso essere ovunque, che discorsi!
+    Mi stai chiedendo come faccio ad essere già qua? #line:03c17ba 
+    Beh, sono un fantasma, posso essere ovunque, che discorsi! #line:0ef9334 
     <<camera_focus camera_parata>>
-    Comunque, in questa stanza ho ricostruito una parata rinascimentale con alcune armature a mia disposizione.
-    Solo che...
+    Comunque, in questa stanza ho ricostruito una parata rinascimentale con alcune armature a mia disposizione. #line:0977374 
+    Solo che... #line:086f5bd 
     <<camera_focus camera_parata_missing>>
-    ...sbaglio o manca un'armatura?
-    Guarda! Un pezzo si trova in fondo alla stanza!
-    Dove saranno gli altri?
+    ...sbaglio o manca un'armatura? #line:0a48a49 
+    Guarda! Un pezzo si trova in fondo alla stanza! #line:0c6ef59 
+    Dove saranno gli altri? #line:0da22ef 
     <<camera_reset>>
     <<SetActive interactable_parata true>>
     <<set $stibbert_parata_met = true>>
@@ -104,17 +104,17 @@ color: purple
     <<SetActive muro_stanze false>>
     <<SetActive armatura_parata_container true>>
 <<elseif $armatura_done == true>>
-    L'armatura è stata riassemblata, passiamo alla prossima stanza!
+    L'armatura è stata riassemblata, passiamo alla prossima stanza! #line:0dc0620 
 <<elseif HasCompletedTask("collect_armatura_parata")>>
-    Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente!
-    Ora non resta che assemblarla!
+    Vedo che hai ritrovato tutti i pezzi dell'armatura, eccellente! #line:090d693 
+    Ora non resta che assemblarla! #line:0fb8288 
     <<camera_focus camera_parata_missing>>
-    Posizionati nel punto dove devi inserirla e ricomponila.
+    Posizionati nel punto dove devi inserirla e ricomponila. #line:0385856 
     <<target interactable_parata>>
     <<camera_reset>>
 <<elseif $stibbert_parata_met == true>>
-    Credo di aver visto almeno un pezzo di armatura in ogni stanza.
-    Inoltre ne ho visto uno addirittura sul tetto del tempietto egizio nel parco!
+    Credo di aver visto almeno un pezzo di armatura in ogni stanza. #line:023f90a 
+    Inoltre ne ho visto uno addirittura sul tetto del tempietto egizio nel parco! #line:0d075ef 
 <<endif>>
 ===
 
@@ -122,8 +122,8 @@ title: collect_armatura_parata_end
 ---
 <<set $collect_armatura_parata_state= 2>>
 <<card armatura_parata_card>>  
-Hai tutti i pezzi dell'armatura!
-Ora non resta che assemblarla!
+Hai tutti i pezzi dell'armatura! #line:0952537 
+Ora non resta che assemblarla! #line:0e979dd 
 <<target interactable_parata>>
 <<set $armatura_collected = true>>
 ===
@@ -133,15 +133,15 @@ actor: interactable_parata
 ---
 <<if HasCompletedTask("collect_armatura_parata")>>
     <<camera_focus camera_parata_missing>>
-    Assembla l'armatura!
+    Assembla l'armatura! #line:0ec4717 
     <<activity jigsaw_parata jigsaw_parata_result>>
 <<elseif $collect_armatura_parata_state == 1>>
     <<camera_focus camera_parata_missing>>
-    Torna quando hai tutti i pezzi dell'armatura.
+    Torna quando hai tutti i pezzi dell'armatura. #line:05b3fe4 
      <<camera_reset>>
 <<elseif $collect_armatura_parata_state == 0>>
     <<camera_focus camera_parata_missing>>
-    Torna quando hai tutti i pezzi dell'armatura.
+    Torna quando hai tutti i pezzi dell'armatura. #line:05fb0ab 
      <<camera_reset>>
 <<endif>>
 ===
@@ -151,7 +151,7 @@ title: jigsaw_parata_result
 <<if GetActivityResult ("jigsaw_parata") > 0>>
 <<SetActive armatura_mancante false>>
 <<SetActive armatura_completa true>>
-    Hai assemblato correttamente l'armatura, complimenti!
+    Hai assemblato correttamente l'armatura, complimenti! #line:045cc7e 
 <<inventory pezzo_armatura_parata remove>>
 <<inventory pezzo_armatura_parata remove>>
 <<inventory pezzo_armatura_parata remove>>
@@ -161,7 +161,7 @@ title: jigsaw_parata_result
  <<set $armatura_done = true>>
 <<SetActive interactable_parata false>>
 <<elseif GetActivityResult ("jigsaw_parata") < 0>>
-    Mmm... non sembra assemblata nel modo corretto.
+    Mmm... non sembra assemblata nel modo corretto. #line:059c89b 
 <<endif>>
 ===
 
@@ -171,22 +171,22 @@ actor: stibbert_quadri
 color: purple
 ---
 <<if $armatura_done == false>>
-Anche in questa stanza dobbiamo riordinare un po' di cose.
-Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura.
+Anche in questa stanza dobbiamo riordinare un po' di cose. #line:03d25d6 
+Ma ne parliamo dopo che hai trovato tutti i pezzi dell'armatura. #line:03c824e 
 <<elseif $quadri_done == true>>
-    I quadri e le incisioni ora sono tornati a posto, ottimo lavoro!
+    I quadri e le incisioni ora sono tornati a posto, ottimo lavoro! #line:0dd213c 
 <<elseif $quadro_incisione_seen == 2>>
-    Vedo che hai esaminato le opere!
-    Ora non ci resta che riordinare i cartellini!
+    Vedo che hai esaminato le opere! #line:0a84650 
+    Ora non ci resta che riordinare i cartellini! #line:0ff390e 
     <<activity match_quadri match_quadri_result>>
 <<elseif $armatura_done == true>>
-    In questa stanza sono esposti diversi quadri e incisioni.
-    Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli!
+    In questa stanza sono esposti diversi quadri e incisioni. #line:0f1314f 
+    Quello strano cane ha mischiato i cartellini con le spiegazioni per ogni opera, dobbiamo riordinarli! #line:045994c 
     <<SetActive LL_quadro true>>
     <<SetActive LL_incisione true>>
     <<camera_focus camera_quadri>>
-    Conviene che prima esamini le opere esposte per capire come sono state realizzate.
-    Torna da me quando le hai osservate attentamente!
+    Conviene che prima esamini le opere esposte per capire come sono state realizzate. #line:07a6b30 
+    Torna da me quando le hai osservate attentamente! #line:05f2170 
     <<camera_reset>>
 <<endif>>
 ===
@@ -195,21 +195,21 @@ title: talk_LL_quadro
 ---
 <<if $quadro_seen == true>>
     <<card quadro_card>>
-    Questa Madonna col bambino è stata realizzata da Sandro Botticelli.
-    Essendo un quadro...
-    ...non può che essere stata realizzata con pennello, tavolozza e colori!
+    Questa Madonna col bambino è stata realizzata da Sandro Botticelli. #line:0ceda9b 
+    Essendo un quadro... #line:0c054ed 
+    ...non può che essere stata realizzata con pennello, tavolozza e colori! #line:0e7e75c 
 <<elseif $quadro_incisione_seen < 2>>
     <<card quadro_card>>
-    Questa Madonna col bambino è stata realizzata da Sandro Botticelli.
-    Essendo un quadro...
-    ...non può che essere stata realizzata con pennello, tavolozza e colori!
+    Questa Madonna col bambino è stata realizzata da Sandro Botticelli. #line:0266c46 
+    Essendo un quadro... #line:05e79b2 
+    ...non può che essere stata realizzata con pennello, tavolozza e colori! #line:0f5cbc3 
     <<set $quadro_seen = true>>
     <<set $quadro_incisione_seen += 1>>
 <<elseif $quadro_incisione_seen == 2>>
     <<card quadro_card>>
-    Questa Madonna col bambino è stata realizzata da Sandro Botticelli.
-    Essendo un quadro...
-    ...non può che essere stata realizzata con pennello, tavolozza e colori!
+    Questa Madonna col bambino è stata realizzata da Sandro Botticelli. #line:02bbdbe 
+    Essendo un quadro... #line:07d8137 
+    ...non può che essere stata realizzata con pennello, tavolozza e colori! #line:00f74fc 
     <<target stibbert_quadri>>
 <<endif>>
 ===
@@ -218,21 +218,21 @@ title: talk_LL_incisione
 ---
 <<if $incisione_seen == true>>
     <<card incisione_card>>
-    Questa incisione è stata realizzada da Albrecht Dürer.
-    Per realizzare un'incisione servono numerose e complicate attrezzature...
-    ...ma sicuramente è impossibile farlo senza un torchio!
+    Questa incisione è stata realizzada da Albrecht Dürer. #line:010e201 
+    Per realizzare un'incisione servono numerose e complicate attrezzature... #line:0749b7e 
+    ...ma sicuramente è impossibile farlo senza un torchio! #line:0a7f817 
 <<elseif $quadro_incisione_seen < 2>>
     <<card incisione_card>>
-    Questa incisione è stata realizzada da Albrecht Dürer.
-    Per realizzare un'incisione servono numerose e complicate attrezzature...
-    ...ma sicuramente è impossibile farlo senza un torchio!
+    Questa incisione è stata realizzada da Albrecht Dürer. #line:0e7fd07 
+    Per realizzare un'incisione servono numerose e complicate attrezzature... #line:074b9b9 
+    ...ma sicuramente è impossibile farlo senza un torchio! #line:070c828 
     <<set $incisione_seen = true>>
     <<set $quadro_incisione_seen += 1>>
 <<elseif $quadro_incisione_seen == 2>>
    <<card incisione_card>>
-   Questa incisione è stata realizzada da Albrecht Dürer.
-    Per realizzare un'incisione servono numerose e complicate attrezzature...
-    ...ma sicuramente è impossibile farlo senza un torchio!
+   Questa incisione è stata realizzada da Albrecht Dürer. #line:072df84 
+    Per realizzare un'incisione servono numerose e complicate attrezzature... #line:0a6688b 
+    ...ma sicuramente è impossibile farlo senza un torchio! #line:044be3b 
     <<target stibbert_quadri>>
 <<endif>>
 ===
@@ -240,15 +240,15 @@ title: talk_LL_incisione
 title: match_quadri_result
 ---
 <<if GetActivityResult ("match_quadri") > 0>>
-    Ora i cartellini descrivono l'opera corretta, complimenti!
+    Ora i cartellini descrivono l'opera corretta, complimenti! #line:0d7e8f9 
     <<set $quadri_done = true>>
-    Ma... questo cosa ci fa qua?
+    Ma... questo cosa ci fa qua? #line:0df8eff 
     <<card istruzioni_card>>
-    Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì?
-    Questo foglio ci sarà molto utile nella prossima stanza.
+    Hey, ma queste istruzioni erano nell'ufficio! Come ha fatto a intrufolarsi lì? #line:0bc64de 
+    Questo foglio ci sarà molto utile nella prossima stanza. #line:0a1dbf5 
     <<target stibbert_armature>>
 <<else>>
-    Mmm... i cartellini non sembrano corretti.
+    Mmm... i cartellini non sembrano corretti. #line:0dfb3e1 
 <<endif>>
 ===
 
@@ -258,91 +258,91 @@ actor: stibbert_quadri
 color: purple
 ---
 <<if $armatura_done == false>>
-Anche in questa stanza dobbiamo riordinare un po' di cose.
-Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+Anche in questa stanza dobbiamo riordinare un po' di cose. #line:0df1f5c 
+Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima. #line:04af6d2 
 <<elseif $quadri_done == false>>
-Anche in questa stanza dobbiamo riordinare un po' di cose.
-Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+Anche in questa stanza dobbiamo riordinare un po' di cose. #line:09d7ee0 
+Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima. #line:0ff956c 
 <<elseif $armature_placed < 3>>
-    In questa stanza sono esposte delle spade provenienti dalle culture più disparate.
-    Ce ne sono alcune europee, altre arabe e altre ancora giapponesi.
-    Ma sono tutte sparpagliate per la stanza!
-    Dobbiamo posizionarle sul manichino giusto.
+    In questa stanza sono esposte delle spade provenienti dalle culture più disparate. #line:01271f7 
+    Ce ne sono alcune europee, altre arabe e altre ancora giapponesi. #line:0ef2d23 
+    Ma sono tutte sparpagliate per la stanza! #line:087bcaf 
+    Dobbiamo posizionarle sul manichino giusto. #line:0b358fa 
     <<card istruzioni_card>>
     <<SetActive armi_container true>>
     <<task_start collect_armi collect_armi_end>>
-    Per riconoscere l'origine di una spada puoi utilizzare le istruzioni che hai trovato prima.
+    Per riconoscere l'origine di una spada puoi utilizzare le istruzioni che hai trovato prima. #line:081560d 
 <<elseif $stibbert_armature_met == true>>
     <<card istruzioni_card>>
-    Dobbiamo posizionare le spade, puoi aiutarti con le istruzioni che hai trovato prima.
+    Dobbiamo posizionare le spade, puoi aiutarti con le istruzioni che hai trovato prima. #line:05fb7bf 
 <<elseif $armature_placed == 3>>
-    Ora le spade sono tutte posizionate sul manichino corretto. Ottimo lavoro!
+    Ora le spade sono tutte posizionate sul manichino corretto. Ottimo lavoro! #line:07ce4af 
 <<endif>>
 ===
 
 title: collect_armi_end
 ---
-    Hai posizionato tutte le armi, complimenti!
+    Hai posizionato tutte le armi, complimenti! #line:0c1fbf8 
     <<SetActive interactable_armi_container false>>
 ===
 
 title: collect_spada_europea
 ---
 <<card armatura_europea_card>>
-Hai ritrovato una spada!
-Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla.
+Hai ritrovato una spada! #line:03b2d9a 
+Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla. #line:05070fa 
 <<collect>>
 ===
 
 title: collect_spada_giapponese
 ---
 <<card armatura_giapponese_card>>
-Hai ritrovato una spada!
-Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla.
+Hai ritrovato una spada! #line:0fd8cc4 
+Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla. #line:071fc3c 
 <<collect>>
 ===
 
 title: collect_spada_araba
 ---
 <<card armatura_islamica_card>>
-Hai ritrovato una spada!
-Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla.
+Hai ritrovato una spada! #line:09f5974 
+Il cartellino attaccato all'impugnatura dovrebbe aiutarti a capire dove posizionarla. #line:0bdbc1e 
 <<collect>>
 ===
 
 title:interactable_armatura_islamica
 ---
 <<if $spada_islamica_placed == true>>
-Ho già posizionato la spada giusta.
+Ho già posizionato la spada giusta. #line:06ec5e0 
 <<elseif $spada_islamica_placed == false>>
-    Quale spada dovrebbe essere posizionata qua?
--> Non ho la spada giusta.
--> Quella Europea. <<if has_item("armatura_europea")>>
-    Non penso sia la spada giusta.
--> Quella Araba. <<if has_item("armatura_islamica")>>
-    Esatto!
+    Quale spada dovrebbe essere posizionata qua? #line:04bcae7 
+-> Non ho la spada giusta. #line:04ecea9 
+-> Quella Europea. <<if has_item("armatura_europea")>> #line:0d13100 
+    Non penso sia la spada giusta. #line:0b1d084 
+-> Quella Araba. <<if has_item("armatura_islamica")>> #line:05528ce 
+    Esatto! #line:0c7c895 
     <<set $armature_placed+= 1 >>
     <<set $spada_islamica_placed = true>>
     <<inventory armatura_islamica remove>>
     <<jump check_armature>>
--> Quella Giapponese. <<if has_item("armatura_giapponese")>>
-    Non penso sia la spada giusta.
+-> Quella Giapponese. <<if has_item("armatura_giapponese")>> #line:06c5914 
+    Non penso sia la spada giusta. #line:03566cc 
 <<endif>>
 ===
 
 title:interactable_armatura_giapponese
 ---
 <<if $spada_giapponese_placed == true>>
-Ho già posizionato la spada giusta.
+Ho già posizionato la spada giusta. #line:058d083 
 <<elseif $spada_giapponese_placed == false>>
-    Quale spada dovrebbe essere posizionata qua?
--> Non ho la spada giusta.
--> Quella Europea. <<if has_item("armatura_europea")>>
-    Non penso sia la spada giusta.
--> Quella Araba. <<if has_item("armatura_islamica")>>
-    Non penso sia la spada giusta.
--> Quella Giapponese. <<if has_item("armatura_giapponese")>>
-    Esatto!
+    Quale spada dovrebbe essere posizionata qua? #line:0ac7313 
+-> Non ho la spada giusta. #line:06db053 
+-> Quella Europea. <<if has_item("armatura_europea")>> #line:09adc31 
+    Non penso sia la spada giusta. #line:0a2bc92 
+-> Quella Araba. <<if has_item("armatura_islamica")>> #line:02cfea5 
+    Non penso sia la spada giusta. #line:0e0a10b 
+-> Quella Giapponese. <<if has_item("armatura_giapponese")>> #line:008c7ff 
+    Esatto! #line:0db7574 
     <<set $armature_placed+= 1 >>
     <<set $spada_giapponese_placed = true>>
     <<inventory armatura_giapponese remove>>
@@ -353,27 +353,27 @@ Ho già posizionato la spada giusta.
 title:interactable_armatura_europea
 ---
 <<if $spada_europea_placed == true>>
-Ho già posizionato la spada giusta.
+Ho già posizionato la spada giusta. #line:0c0fad1 
 <<elseif $spada_europea_placed == false>>
-    Quale spada dovrebbe essere posizionata qua?
--> Non ho la spada giusta.
--> Quella Europea. <<if has_item("armatura_europea")>>
-    Esatto!
+    Quale spada dovrebbe essere posizionata qua? #line:0f63656 
+-> Non ho la spada giusta. #line:0194bc6 
+-> Quella Europea. <<if has_item("armatura_europea")>> #line:08e5413 
+    Esatto! #line:087b84d 
     <<set $armature_placed+= 1 >>
     <<set $spada_europea_placed = true>>
     <<inventory armatura_europea remove>>
     <<jump check_armature>>
--> Quella Araba. <<if has_item("armatura_islamica")>>
-    Non penso sia la spada giusta.
--> Quella Giapponese. <<if has_item("armatura_giapponese")>>
-    Non penso sia la spada giusta.
+-> Quella Araba. <<if has_item("armatura_islamica")>> #line:05d8907 
+    Non penso sia la spada giusta. #line:0f34571 
+-> Quella Giapponese. <<if has_item("armatura_giapponese")>> #line:0484058 
+    Non penso sia la spada giusta. #line:06b1857 
 <<endif>>
 ===
 
 title: check_armature
 ---
 <<if $armature_placed<3>>
-    Devo posizionare ancora altre spade.
+    Devo posizionare ancora altre spade. #line:0b2bdc1 
 <<elseif $armature_placed == 3>>
     <<set $armature_done= true>> 
     <<target stibbert_costumi>>
@@ -384,20 +384,20 @@ title: check_armature
 title: talk_npc_stibbert_costumi
 ---
 <<if $armatura_done == false>>
-    Anche in questa stanza dobbiamo riordinare un po' di cose.
-    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+    Anche in questa stanza dobbiamo riordinare un po' di cose. #line:0359a8d 
+    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima. #line:0226e89 
 <<elseif $costumi_done == true>>
-    Ci vediamo nel parco!
+    Ci vediamo nel parco! #line:0a8dbc7 
 <<elseif $quadri_done == false>>
-    Anche in questa stanza dobbiamo riordinare un po' di cose.
-    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+    Anche in questa stanza dobbiamo riordinare un po' di cose. #line:0d2c1ff 
+    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima. #line:0388f84 
 <<elseif $armature_done == true>>
-    Questa stanza ospita dei costumi indossati da personaggi celebri.
+    Questa stanza ospita dei costumi indossati da personaggi celebri. #line:021d2e0 
     <<card napoleone_card_104>>
-    Pensa che uno di questi venne indossato da Napoleone quando venne incoronato re d'Italia!
-    Ammetto che ogni tanto avrei voluto indossarlo anch'io...
-    ...beh, ormai è troppo tardi, sai.
-    Ad ogni modo, dobbiamo verificare che tutti i pezzi dell'abito siano al loro posto.
+    Pensa che uno di questi venne indossato da Napoleone quando venne incoronato re d'Italia! #line:04d9efe 
+    Ammetto che ogni tanto avrei voluto indossarlo anch'io... #line:056110d 
+    ...beh, ormai è troppo tardi, sai. #line:090e538 
+    Ad ogni modo, dobbiamo verificare che tutti i pezzi dell'abito siano al loro posto. #line:00dee5c 
     <<activity memory_costume memory_costume_result>>
 <<endif>>
 ===
@@ -405,7 +405,7 @@ title: talk_npc_stibbert_costumi
 title: memory_costume_result
 ---
 <<if GetActivityResult ("memory_costume") > 0>>
-    I costumi sono tutti al loro posto, perfetto!
+    I costumi sono tutti al loro posto, perfetto! #line:099264d 
     <<set $costumi_done = true>>
     <<target stibbert_piatto>>
 <<endif>>
@@ -417,21 +417,21 @@ actor: stibbert_quadri
 color: purple
 ---
 <<if $costumi_done == true>>
-    Oh no!
+    Oh no! #line:0485612 
     <<SetActive interactable_palla true>>
     <<SetActive interactable_osso true>>
     <<SetActive interactable_piatto true>>
     <<camera_focus camera_piatto>>
-    Il mio povero parco ora è pieno di buche!
+    Il mio povero parco ora è pieno di buche! #line:037ccd7 
     <<camera_reset>>
-    Non so quali cianfrusaglie abbia sotterrato quel cane, ma sicuramente manca una cosa importante.
+    Non so quali cianfrusaglie abbia sotterrato quel cane, ma sicuramente manca una cosa importante. #line:0a618e3 
     <<card piatto_card>>
-    Si tratta di un pregiatissimo piatto della manifattura Ginori.
-    Dobbiamo assolutamente ritrovarlo e dissotterrarlo!
-    Lascio fare a te, io ne ho abbastanza di stare sotto terra!
+    Si tratta di un pregiatissimo piatto della manifattura Ginori. #line:0b9c657 
+    Dobbiamo assolutamente ritrovarlo e dissotterrarlo! #line:02eec2b 
+    Lascio fare a te, io ne ho abbastanza di stare sotto terra! #line:006e5e6 
 <<elseif $costumi_done == false>>
-    Anche in questa stanza dobbiamo riordinare un po' di cose.
-    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima.
+    Anche in questa stanza dobbiamo riordinare un po' di cose. #line:013a5b9 
+    Ma ne parliamo dopo riordinato ciò che ti ho chiesto prima. #line:0c4db8d 
 <<endif>>
 ===
 
@@ -443,8 +443,8 @@ title: interactable_palla
 title: canvas_palla_result
 ---
 <<if GetActivityResult ("canvas_palla") > 0>>
-    Non credo che questo sia il piatto che Stibbert stava cercando...
-    Dobbiamo scavare in un altro punto!
+    Non credo che questo sia il piatto che Stibbert stava cercando... #line:0da281d 
+    Dobbiamo scavare in un altro punto! #line:094fd52 
 <<endif>>
 ===
 
@@ -456,8 +456,8 @@ title: interactable_osso
 title: canvas_osso_result
 ---
 <<if GetActivityResult ("canvas_osso") > 0>>
-    Non credo che questo sia il piatto che Stibbert stava cercando...
-    Dobbiamo scavare in un altro punto!
+    Non credo che questo sia il piatto che Stibbert stava cercando... #line:05a8c8e 
+    Dobbiamo scavare in un altro punto! #line:047a8fa 
 <<endif>>
 ===
 
@@ -469,17 +469,17 @@ title: interactable_piatto
 title: canvas_piatto_result
 ---
 <<if GetActivityResult ("canvas_piatto") > 0>>
-    Trovato!
+    Trovato! #line:022174f 
 <<SetActive stibbert_finale true>>
 <<camera_focus camera_finale>>
-BUH!
-Eheheh, ho sempre desiderato farlo!
-Ad ogni modo, ora dovrebbe essere tutto a posto, grazie infinite!
-Scusami se non sono venuto a salutarti di persona e ti sto parlando telepaticamente, ma...
-...non faccio così tanta attività fisica da più di un secolo e sono stanco morto!
-Beh, torno al mio riposo...
-...e spero che questa volta sia veramente eterno come si dice.
-Addio!
+BUH! #line:0b1016a 
+Eheheh, ho sempre desiderato farlo! #line:0a9231d 
+Ad ogni modo, ora dovrebbe essere tutto a posto, grazie infinite! #line:0a47057 
+Scusami se non sono venuto a salutarti di persona e ti sto parlando telepaticamente, ma... #line:0e071cd 
+...non faccio così tanta attività fisica da più di un secolo e sono stanco morto! #line:0c4129a 
+Beh, torno al mio riposo... #line:0f145a2 
+...e spero che questa volta sia veramente eterno come si dice. #line:0ddeb8e 
+Addio! #line:069902b 
 <<jump finale>>
 <<endif>>
 ===

@@ -86,11 +86,11 @@ actor: ADULT_M
     Puoi aiutarmi a raccoglierli? #line:dev112_carrista_5
     <<jump Carrista_Conferma_Fogli>>
 <<elseif $CARRISTA_FOGLI_STATE == 1>>
-    Mancano ancora dei fogli.
+    Mancano ancora dei fogli. #line:060b099 
 <<elseif $CARRISTA_FOGLI_STATE == 2>>
     <<jump Carrista_SecondaFase>>
 <<else>>
-    Grazie ancora del tuo aiuto.
+    Grazie ancora del tuo aiuto. #line:0739264 
 <<endif>>
 ===
 
@@ -101,7 +101,7 @@ group: carrista
 actor: ADULT_M
 ---
 -> Sì, li cerco subito! #line:dev112_conf_fogli_si
-    Raccogli 5 fogli. #task:task_raccogli_fogli
+    Raccogli 5 fogli. #task:task_raccogli_fogli #line:0d0e96e 
     <<task_start task_raccogli_fogli fogli_raccolti>>
     <<target fogli>>
 -> Non ora. #line:dev112_conf_fogli_no #highlight

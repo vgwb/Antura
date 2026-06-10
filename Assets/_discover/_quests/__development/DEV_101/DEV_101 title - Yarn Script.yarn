@@ -5,10 +5,10 @@ type: panel
 ---
 <<declare $activity_index = 1>>
 <<SetActive collect_sol false>>
-Eccoci ad Arezzo.
-Antura ha combinato un disastro!
-Incontra Guido d'Arezzo #task:incontra_guido
-Risolvi i problemi in città.
+Eccoci ad Arezzo. #line:0be4b4f 
+Antura ha combinato un disastro! #line:0dae555 
+Incontra Guido d'Arezzo #task:incontra_guido #line:05abe67 
+Risolvi i problemi in città. #line:06fed5c 
 <<task_start incontra_guido >>
 <<target guido>>
 ===
@@ -17,17 +17,17 @@ title: guido_encounter
 position: 740,-138
 ---
 <<if visited("guido_encounter")>>
-Andiamo!
-Non c'è tempo da perdere.
+Andiamo! #line:028ac1f 
+Non c'è tempo da perdere. #line:0465f1b 
 <<else>>
 <<task_end incontra_guido>>
 <<card guidodarezzo>>
-Ti do il benvenuto in città!
-Io sono Guido d'Arezzo, monaco e musicista.
-Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica!
-Ma oggi è un giorno molto triste...
-Quel birbante di Antura ha sparpagliato le pagine del nostro spartito per tutta Arezzo!
-Senza di loro, il coro della Cattedrale non può cantare.
+Ti do il benvenuto in città! #line:06b2c62 
+Io sono Guido d'Arezzo, monaco e musicista. #line:040f17a 
+Tanto tempo fa ho inventato il modo di scrivere le note che usiamo ancora oggi per leggere la musica! #line:051e21c 
+Ma oggi è un giorno molto triste... #line:05b5a24 
+Quel birbante di Antura ha sparpagliato le pagine del nostro spartito per tutta Arezzo! #line:04b4c30 
+Senza di loro, il coro della Cattedrale non può cantare. #line:03294bc 
 <<jump guido_choice>>
 <<endif>>
 ===
@@ -35,10 +35,10 @@ Senza di loro, il coro della Cattedrale non può cantare.
 title: guido_choice
 position: 278,-183
 ---
-Mi aiuti a cercarle?
--> Sì!
+Mi aiuti a cercarle? #line:0f24107 
+-> Sì! #line:0671501 
     <<jump guido_accetta>>
--> No.
+-> No. #line:0f2478c 
     <<jump guido_rifiuto>>
 ===
 
@@ -46,11 +46,11 @@ title: guido_accetta
 position: 591,-376
 ---
 <<party_join guido>>
-Grazie mille!
-Sarò la tua guida in città.
-Ho segnato sulla mappa i posti in cui ho visto volare via le pagine.
-Raccogliamo le note disperse #task:collect_pages
-Andiamo!
+Grazie mille! #line:099b314 
+Sarò la tua guida in città. #line:06dac88 
+Ho segnato sulla mappa i posti in cui ho visto volare via le pagine. #line:0881495 
+Raccogliamo le note disperse #task:collect_pages #line:082fb02 
+Andiamo! #line:0b839fa 
 <<SetMapIcon guido off>>
 <<task_start collect_pages pages_collected>> 
 ===
@@ -58,18 +58,18 @@ Andiamo!
 title: guido_rifiuto
 position: -11,-263
 ---
-Ti prego, ho davvero bisogno di aiuto!
+Ti prego, ho davvero bisogno di aiuto! #line:049be9f 
 <<jump guido_choice>>
 ===
 
 title: pages_collected
 ---
 <<if HasCompletedTask("collect_pages")>>
-Do, Re, Mi, Fa, Sol, La, Si... 
-Hai raccolto tutte le pagine!
-Grazie mille!
-Andiamo al duomo e consegnamole al coro.
-Parla con il cantore al Duomo! #task:give_pages
+Do, Re, Mi, Fa, Sol, La, Si...  #line:0975cbd 
+Hai raccolto tutte le pagine! #line:02fdb8e 
+Grazie mille! #line:0935234 
+Andiamo al duomo e consegnamole al coro. #line:0a5f2d4 
+Parla con il cantore al Duomo! #task:give_pages #line:04befe9 
 <<task_start give_pages give_pages_task>>
 <<SetMapIcon cantore default>>
 <<target cantore>>
@@ -79,7 +79,7 @@ Parla con il cantore al Duomo! #task:give_pages
 title: give_pages_task
 type: task
 ---
-Parla con il cantore al Duomo! #task:give_pages
+Parla con il cantore al Duomo! #task:give_pages #line:04a2662 
 ===
 
 ///////// PIAZZA GUIDO MONACO //////////
@@ -87,26 +87,26 @@ Parla con il cantore al Duomo! #task:give_pages
 title: piazza_guido
 ---
 <<card piazzaguido>>
-Questa è Piazza Guido Monaco, la piazza che porta il mio nome!
-E quella statua che vedi sono io.
-Mi hanno fatto più bello di quanto non sono!
+Questa è Piazza Guido Monaco, la piazza che porta il mio nome! #line:0e65f00 
+E quella statua che vedi sono io. #line:01e5737 
+Mi hanno fatto più bello di quanto non sono! #line:067f058 
 <<SetActive piazza_guido false>>
 ===
 
 title: npc_piazza_guido
 ---
-Hai visto la statua?
-È uno degli aretini più famosi della storia.
-Grazie a lui oggi possiamo leggere e scrivere la musica!
+Hai visto la statua? #line:02c86f1 
+È uno degli aretini più famosi della storia. #line:0779ad3 
+Grazie a lui oggi possiamo leggere e scrivere la musica! #line:06276fb 
 ===
 
 title: page_pentagramma
 ---
 <<card pentagramma_vuoto_changed>>
-Hai trovato il Pentagramma!
-È il foglio su cui si scrivono le note.
-Ha 5 righe e 4 spazi. Le note si posizionano su queste righe e spazi.
-Ma è ancora vuoto... dobbiamo trovare le note!
+Hai trovato il Pentagramma! #line:091ebcf 
+È il foglio su cui si scrivono le note. #line:038364b 
+Ha 5 righe e 4 spazi. Le note si posizionano su queste righe e spazi. #line:05cbee6 
+Ma è ancora vuoto... dobbiamo trovare le note! #line:082291f 
 <<SetMapIcon page_pentagramma off>>
 <<collect>>
 ===
@@ -117,26 +117,26 @@ title: anfiteatroromano
 ---
 <<camera_focus cameraanfiteatro>>
 <<card anfiteatroromano>>
-Questo è l'Anfiteatro Romano di Arezzo, costruito tantissimo tempo fa.
-Qui i romani venivano a guardare recite e opere teatrali.
-Cerchiamo tra le rovine, forse una pagina è nascosta qui!
+Questo è l'Anfiteatro Romano di Arezzo, costruito tantissimo tempo fa. #line:01e3586 
+Qui i romani venivano a guardare recite e opere teatrali. #line:08fd29f 
+Cerchiamo tra le rovine, forse una pagina è nascosta qui! #line:048077d 
 <<SetActive anfiteatro false>>
 ===
 
 title: turista_chimera
 ---
-Lo sapevi?
-Proprio qui vicino, fu trovata la Chimera di Arezzo, una statua di bronzo con la testa di leone e la coda di serpente.
-Ora è conservata a Firenze.
+Lo sapevi? #line:099b981 
+Proprio qui vicino, fu trovata la Chimera di Arezzo, una statua di bronzo con la testa di leone e la coda di serpente. #line:0d2a816 
+Ora è conservata a Firenze. #line:03e41d8 
 ===
 
 title: chiave_di_sol
 ---
 <<card chiave_di_violino>>
-Hai trovato la Chiave di Violino!
-Si chiama anche Chiave di Sol.
-Sta sempre all'inizio del pentagramma e ci dice dove leggere le note.
-Senza di lei non sapremmo da dove cominciare!
+Hai trovato la Chiave di Violino! #line:02eb97f 
+Si chiama anche Chiave di Sol. #line:0baac79 
+Sta sempre all'inizio del pentagramma e ci dice dove leggere le note. #line:03079cf 
+Senza di lei non sapremmo da dove cominciare! #line:01576e5 
 <<SetMapIcon chiave_di_sol off>>
 <<collect>>
 ===
@@ -147,8 +147,8 @@ title: piazza_san_francesco
 ---
 <<camera_focus camerasanfrancesco>>
 <<card sanfrancesco>>
-Eccoci alla Piazza di San Francesco!
-È lì di fronte c'è la Basilica.
+Eccoci alla Piazza di San Francesco! #line:0ce90bb 
+È lì di fronte c'è la Basilica. #line:03d5f53 
 <<SetActive piazzasanfrancesco false>>
 ===
 
@@ -159,13 +159,13 @@ title: page_do
         <<set $activity_index = $activity_index + 1>>
     <<endif>>
     <<card do>>
-    Hai trovato il Do!
-    È la prima nota della scala.
-    Sta sotto il pentagramma, su una piccola linea tutta sua.
+    Hai trovato il Do! #line:079e748 
+    È la prima nota della scala. #line:0b6fdb6 
+    Sta sotto il pentagramma, su una piccola linea tutta sua. #line:0e8a55e 
     <<SetMapIcon page_do off>>
     <<collect>>
 <<else>>
-    Vediamo che cos'è.
+    Vediamo che cos'è. #line:0f479d9 
     <<if $activity_index <= 2>>
         <<activity docanvas page_do easy>>
     <<elseif $activity_index <= 4>>
@@ -182,9 +182,9 @@ title: annunziata
 ---
 <<camera_focus cameraannunziata>>
 <<card annunziata>>
-Ecco la Basilica della Santissima Annunziata!
-È una delle chiese più antiche di Arezzo.
-C'è qualcosa di strano nascosto qui vicino...
+Ecco la Basilica della Santissima Annunziata! #line:03d48fd 
+È una delle chiese più antiche di Arezzo. #line:0ab2d6d 
+C'è qualcosa di strano nascosto qui vicino... #line:026ee91 
 <<SetActive annunziata false>>
 ===
 
@@ -192,10 +192,10 @@ title: casa_vasari
 ---
 <<camera_focus cameracasavasari>>
 <<card casavasari>>
-Questa è la Casa del Vasari!
-Giorgio Vasari era un pittore e architetto aretino del Cinquecento.
-Ha decorato lui stesso le stanze con affreschi bellissimi!
-C'è una turista qui fuori che dice di aver trovato qualcosa di strano... parliamole.
+Questa è la Casa del Vasari! #line:0ab09c7 
+Giorgio Vasari era un pittore e architetto aretino del Cinquecento. #line:0c76c32 
+Ha decorato lui stesso le stanze con affreschi bellissimi! #line:0c9fa87 
+C'è una turista qui fuori che dice di aver trovato qualcosa di strano... parliamole. #line:0dcbc36 
 <<SetActive casavasari false>>
 ===
 
@@ -206,13 +206,13 @@ title: page_re
         <<set $activity_index = $activity_index + 1>>
     <<endif>>
     <<card re>>
-    Hai trovato il Re!
-    È la seconda nota della scala.
-    Sul pentagramma si trova nel primo spazio, proprio sotto la prima riga.
+    Hai trovato il Re! #line:0fc38b8 
+    È la seconda nota della scala. #line:084cd62 
+    Sul pentagramma si trova nel primo spazio, proprio sotto la prima riga. #line:0229a43 
     <<SetMapIcon page_re off>>
     <<collect>>
 <<else>>
-    Vediamo che cos'è.
+    Vediamo che cos'è. #line:0e9f1c4 
     <<if $activity_index <= 2>>
         <<activity recanvas page_re easy>>
     <<elseif $activity_index <= 4>>
@@ -226,10 +226,10 @@ title: page_re
 title: turista_benvenuto
 ---
 <<if visited("turista_benvenuto")>>
-Ti auguro una buona giornata in città!
+Ti auguro una buona giornata in città! #line:02ed333 
 <<else>>
-Oh, ciao! Stavo visitando la casa del Vasari e ho trovato questo foglio per terra.
-Ha un simbolo strano all'inizio... sai come si chiama?
+Oh, ciao! Stavo visitando la casa del Vasari e ho trovato questo foglio per terra. #line:0d3b15c 
+Ha un simbolo strano all'inizio... sai come si chiama? #line:0d01dc1 
 <<jump turista_indovinello>>
 <<endif>>
 ===
@@ -237,36 +237,36 @@ Ha un simbolo strano all'inizio... sai come si chiama?
 title: turista_indovinello
 position: -983,235
 ---
-Il simbolo all'inizio del pentagramma si chiama...
-->Chiave di Violino
+Il simbolo all'inizio del pentagramma si chiama... #line:0605537 
+->Chiave di Violino #line:02edeb6 
     <<jump turista_corretto>>
-->Chiave inglese
+->Chiave inglese #line:09588a5 
     <<jump turista_sbagliato>>
-->Punto musicale
+->Punto musicale #line:01789f4 
     <<jump turista_sbagliato>>
 ===
 
 title: turista_sbagliato
 position: 189,205
 ---
-Mmm, non è questa! Riprova.
+Mmm, non è questa! Riprova. #line:04f7702 
 ===
 
 title: turista_corretto
 position: 139,377
 ---
-Sì! La Chiave di Violino, esatto!
-Me lo ha spiegato proprio lui, Guido d'Arezzo!
-Prendi pure il foglio!
+Sì! La Chiave di Violino, esatto! #line:0f841f6 
+Me lo ha spiegato proprio lui, Guido d'Arezzo! #line:03af384 
+Prendi pure il foglio! #line:01e8079 
 <<SetActive collect_sol true>>
 ===
 
 title: page_sol
 ---
 <<card sol>>
-Hai trovato il Sol!
-È la quinta nota della scala.
-Sul pentagramma si trova sulla seconda riga.
+Hai trovato il Sol! #line:0771688 
+È la quinta nota della scala. #line:0591ae4 
+Sul pentagramma si trova sulla seconda riga. #line:001220f 
 <<SetMapIcon page_sol off>>
 <<collect>>
 ===
@@ -277,8 +277,8 @@ title: santagostino
 ---
 <<camera_focus camerasantagostino>>
 <<card santagostino>>
-Questa è la chiesa di Sant'Agostino!
-È un bel edificio medievale nel cuore della città.
+Questa è la chiesa di Sant'Agostino! #line:0d8a5bb 
+È un bel edificio medievale nel cuore della città. #line:0757904 
 <<SetActive piazzagostino false>>
 ===
 
@@ -289,13 +289,13 @@ title: page_mi
         <<set $activity_index = $activity_index + 1>>
     <<endif>>
     <<card mi>>
-    Hai trovato il Mi!
-    È la terza nota della scala.
-    Sul pentagramma si trova sulla prima riga.
+    Hai trovato il Mi! #line:0367904 
+    È la terza nota della scala. #line:07b95a7 
+    Sul pentagramma si trova sulla prima riga. #line:0a8ffac 
     <<SetMapIcon page_mi off>>
     <<collect>>
 <<else>>
-    Vediamo che cos'è.
+    Vediamo che cos'è. #line:0a46fee 
     <<if $activity_index <= 2>>
         <<activity micanvas page_mi easy>>
     <<elseif $activity_index <= 4>>
@@ -312,8 +312,8 @@ title: piazzagrande
 ---
 <<camera_focus camerasantamaria>>
 <<card piazzagrande>>
-Che bella piazza! Questa è Piazza Grande, il cuore di Arezzo.
-Ogni anno qui si svolge la Giostra del Saracino, i cavalieri si sfidano con la lancia!
+Che bella piazza! Questa è Piazza Grande, il cuore di Arezzo. #line:0b0f2a2 
+Ogni anno qui si svolge la Giostra del Saracino, i cavalieri si sfidano con la lancia! #line:043e193 
 <<SetActive piazzagrande false>>
 ===
 
@@ -324,13 +324,13 @@ title: page_fa
         <<set $activity_index = $activity_index + 1>>
     <<endif>>
     <<card fa>>
-    Hai trovato il Fa!
-    È la quarta nota della scala.
-    Sul pentagramma si trova nel secondo spazio.
+    Hai trovato il Fa! #line:08320fa 
+    È la quarta nota della scala. #line:0252dfe 
+    Sul pentagramma si trova nel secondo spazio. #line:0e6be61 
     <<SetMapIcon page_fa off>>
     <<collect>>
 <<else>>
-    Vediamo che cos'è.
+    Vediamo che cos'è. #line:01147b9 
     <<if $activity_index <= 2>>
         <<activity facanvas page_fa easy>>
     <<elseif $activity_index <= 4>>
@@ -348,13 +348,13 @@ title: page_la
         <<set $activity_index = $activity_index + 1>>
     <<endif>>
     <<card la>>
-    Incredibile, hai trovato il La!
-    È la sesta nota della scala.
-    Sul pentagramma si trova nel terzo spazio.
+    Incredibile, hai trovato il La! #line:0b1b51e 
+    È la sesta nota della scala. #line:0babcec 
+    Sul pentagramma si trova nel terzo spazio. #line:0543afe 
     <<SetMapIcon page_la off>>
     <<collect>>
 <<else>>
-    Vediamo che cos'è.
+    Vediamo che cos'è. #line:0b31669 
     <<if $activity_index <= 2>>
         <<activity lacanvas page_la easy>>
     <<elseif $activity_index <= 4>>
@@ -370,9 +370,9 @@ title: page_la
 title: fortezza
 ---
 <<card fortezza>>
-Che muri incredibili!
-Questa è la Fortezza Medicea, costruita dalla famiglia dei Medici.
-Da qui si vede tutta Arezzo... e anche il Duomo lassù!
+Che muri incredibili! #line:04bcec5 
+Questa è la Fortezza Medicea, costruita dalla famiglia dei Medici. #line:014ec1f 
+Da qui si vede tutta Arezzo... e anche il Duomo lassù! #line:0b00dd3 
 <<SetActive fortezza false>>
 ===
 
@@ -383,12 +383,12 @@ title: page_si
         <<set $activity_index = $activity_index + 1>>
     <<endif>>
     <<card si>>
-    Il Si! L'ultima nota della scala!
-    Sul pentagramma si trova sulla terza riga.
+    Il Si! L'ultima nota della scala! #line:0545014 
+    Sul pentagramma si trova sulla terza riga. #line:0ffe64b 
     <<SetMapIcon page_si off>>
     <<collect>>
 <<else>>
-    Vediamo che cos'è.
+    Vediamo che cos'è. #line:0e6fb1c 
     <<if $activity_index <= 2>>
         <<activity sicanvas page_si easy>>
     <<elseif $activity_index <= 4>>
@@ -405,9 +405,9 @@ title: duomo
 ---
 <<camera_focus cameraduomo>>
 <<card cattedrale>>
-Questo è il Duomo di Arezzo, la chiesa più grande della città!
-È dedicato ai Santi Donato e Pietro.
-Si vede da quasi ogni angolo della città!
+Questo è il Duomo di Arezzo, la chiesa più grande della città! #line:0605c0e 
+È dedicato ai Santi Donato e Pietro. #line:0b521ad 
+Si vede da quasi ogni angolo della città! #line:09fb204 
 <<SetActive duomo false>>
 ===
 
@@ -424,8 +424,8 @@ title: cantore
 
 title: cantore_non_pronto
 ---
-E ora come facciamo senza spartito...
-Non potremo cantare.
+E ora come facciamo senza spartito... #line:0a7d6ae 
+Non potremo cantare. #line:0625d54 
 ===
 
 title: cantore_pronto
@@ -433,10 +433,10 @@ title: cantore_pronto
 <<if GetActivityResult("reorder") > 0>>
     <<jump cantore_fine>>
 <<else>>
-Oh, hai preso tutte le pagine!
-Ma sono in disordine...
-Così non riusciremo a cantare bene!
-Puoi riordinarle?
+Oh, hai preso tutte le pagine! #line:06786b4 
+Ma sono in disordine... #line:0f06367 
+Così non riusciremo a cantare bene! #line:0b98655 
+Puoi riordinarle? #line:01ec884 
 <<jump activity_reorder>>
 <<endif>>
 ===
@@ -451,7 +451,7 @@ title: cantore_risultato
 <<if GetActivityResult("reorder") > 0>>
     <<jump cantore_fine>>
 <<else>>
-Riprova, ci riuscirai ne sono sicuro.
+Riprova, ci riuscirai ne sono sicuro. #line:03416e5 
 <<jump activity_reorder>>
 <<endif>>
 ===
@@ -459,7 +459,7 @@ Riprova, ci riuscirai ne sono sicuro.
 title: cantore_fine
 ---
 <<task_end give_pages>>
-Grazie mille, ora possiamo tornare a cantare!
+Grazie mille, ora possiamo tornare a cantare! #line:0cdd3ac 
 <<jump quest_end>>
 ===
 

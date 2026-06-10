@@ -15,7 +15,7 @@ position: -542,428
 <<declare $random_index = 1>>
 <<declare $quiz_checkpoint = 0>>
 <<camera_map_distance 40>>
-Benvenuto a San Casciano Val di Pesa.
+Benvenuto a San Casciano Val di Pesa. #line:0be0fbb 
 In questo piccolo paese, scopriremo chi erano gli etruschi. #line:0e00f81 
 <<target mr_baffo>>
 ===
@@ -28,7 +28,7 @@ position: -215,169
 <<if $task_completed == -1>>
   Buongiorno giovane, avrei bisogno del tuo aiuto. #line:094f708 
   <<camera_focus archeologist>>
-  Quel vecchio arrabbiato laggiù è da ore che continua a urlare.
+  Quel vecchio arrabbiato laggiù è da ore che continua a urlare. #line:00ad0bb 
   <<camera_reset>>
   Per favore aiutami a calmarlo, prima che tutto il quartiere impazzisca! #line:07436c5 
   <<set $task_completed = 0>>
@@ -66,7 +66,7 @@ title: archeologist_start
 color: blue
 position: 4,343
 ---
-COME È POSSIBILE! NON È GIUSTO!
+COME È POSSIBILE! NON È GIUSTO! #line:04ccf57 
 -> Signore, si sente bene? #line:0db3a4b 
   NO, NON STO AFFATTO BENE! #line:0248a1a 
   Il solo pensiero che i giovani di oggi non conoscano gli etruschi è insopportabile! #line:0997c14 
@@ -117,11 +117,11 @@ position: 1380,464
     ALLORA TORNA A STUDIARE! #line:059544e 
     <<stop>>
 <<else>>
-  Te la senti di riprovare il quiz?
-  -> Sì
-    OTTIMO, CONTINUIAMO!
-  -> No  #highlight
-    ALLORA TORNA A STUDIARE!
+  Te la senti di riprovare il quiz? #line:0dfc829 
+  -> Sì #line:0385caa 
+    OTTIMO, CONTINUIAMO! #line:0eab99e 
+  -> No  #highlight #line:0313d74 
+    ALLORA TORNA A STUDIARE! #line:00be411 
     <<stop>>
   <<if $quiz_checkpoint == 1>>
     <<jump archeologist_quiz1>>
@@ -242,8 +242,8 @@ position: 233,163
     => Spero tu riesca veramente a calmare quel signore.  #line:0cca332
     => Buona giornata. #line:0b269cf
   <<else>>
-    => Grazie, finalmente non sento più le urla di quel signore.
-    => Buona giornata.
+    => Grazie, finalmente non sento più le urla di quel signore. #line:06b4679 
+    => Buona giornata. #line:09aa282 
   <<endif>>
 <<else>>
   Buongiorno, accedere al museo costa 5€.  #line:0309cb2 #card:museo
@@ -263,7 +263,7 @@ position: 234,310
     Buona giornata. #line:0b24b59 
     <<target canvas2_manager>>
   <<else>>
-    Spiacente, non è la corretta somma di denaro.
+    Spiacente, non è la corretta somma di denaro. #line:0fe4bd6 
   <<endif>>
 ===
 
@@ -272,16 +272,16 @@ tags:
 position: 1553,-62
 ---
 <<if $task_completed == 5>>
-  => Vedere oggetti antichi dal vivo è tutta un'altra storia!
-  => Ogni volta che visito un museo imparo qualcosa di nuovo. #card:museo
-  => L'archeologia è una scienza davvero affascinante. #card:archeologia
+  => Vedere oggetti antichi dal vivo è tutta un'altra storia! #line:0e62b61 
+  => Ogni volta che visito un museo imparo qualcosa di nuovo. #card:museo #line:059203d 
+  => L'archeologia è una scienza davvero affascinante. #card:archeologia #line:0f74a65 
   => Etruschi... Non me li ricordavo così. #line:08f423b #card:etruschi
 <<else>>
-  => Vedere oggetti antichi dal vivo è tutta un'altra storia!
-  => Ogni volta che visito un museo imparo qualcosa di nuovo. #card:museo
-  => L'archeologia è una scienza davvero affascinante. #card:archeologia
-  => Etruschi... Non me li ricordavo così. #card:etruschi
-  => È una mia impressione o qualcuno sta urlando?
+  => Vedere oggetti antichi dal vivo è tutta un'altra storia! #line:05bb088 
+  => Ogni volta che visito un museo imparo qualcosa di nuovo. #card:museo #line:03832b3 
+  => L'archeologia è una scienza davvero affascinante. #card:archeologia #line:0293045 
+  => Etruschi... Non me li ricordavo così. #card:etruschi #line:0b7f07f 
+  => È una mia impressione o qualcuno sta urlando? #line:0a5b466 
 <<endif>>
 ===
 
@@ -290,15 +290,15 @@ position: 1332,-61
 ---
 <<set $random_index = random_range(1, 20)>>
 <<if $random_index > 1>>
-  Bau! Bau!
+  Bau! Bau! #line:0fba6c8 
 <<else>>
-  Non mi troveranno mai.
-  -> Tu parli?
-    Esatto, e se provi a spargere la voce nessuno ti crederà.
-  -> Ti sei comportato male.
-    Non hai la minima idea di cosa io sia capace...
-  -> Intendi le guardie del museo?
-    Tu stanne fuori.
+  Non mi troveranno mai. #line:0e7f062 
+  -> Tu parli? #line:044ef24 
+    Esatto, e se provi a spargere la voce nessuno ti crederà. #line:0b01c3e 
+  -> Ti sei comportato male. #line:0cad6d5 
+    Non hai la minima idea di cosa io sia capace... #line:012b905 
+  -> Intendi le guardie del museo? #line:01a5f24 
+    Tu stanne fuori. #line:09ba77b 
 <<endif>>
 ===
 
@@ -308,10 +308,10 @@ position: 1132,533
 ---
 <<set $random_index = 1>>
 <<card metalli_etruschi zoom>>
-Quest'informazione potrebbe servirti per convincere il vecchio.
+Quest'informazione potrebbe servirti per convincere il vecchio. #line:003d887 
 <<if $task_completed < 4>>
   <<set $task_completed = 4>>
-  Ora dovresti essere pronto per parlare con il vecchio.
+  Ora dovresti essere pronto per parlare con il vecchio. #line:02dbfa7 
   <<target archeologist>>
 <<endif>>
 ===
@@ -327,7 +327,7 @@ position: 1128,159
   Per piacere, aiutaci a recuperarli. #line:0a32bfe 
   <<set $statues_task_state = 1>>
   <<SetActive statues_area false>>
-  Raccogli 6 statuette di bronzo. #task:statues_collection //STAMPA_IMMAGINE_STATUA
+  Raccogli 6 statuette di bronzo. #task:statues_collection #line:0d9d4b1  //STAMPA_IMMAGINE_STATUA
   <<task_start statues_collection statues_task_end>>
 <<elseif $statues_task_state == 1>>
   => Mancano ancora delle statue. #line:091a18f 
@@ -348,7 +348,7 @@ title: statues_task_end
 color: green
 position: 1132,385
 ---
-Hai recuperato tutte le statue, torna dalla guardia del museo.
+Hai recuperato tutte le statue, torna dalla guardia del museo. #line:0296e4e 
 <<set $statues_task_state = 2>>
 <<target statues_manager>>
 ===
@@ -362,7 +362,7 @@ position: 452,157
     <<jump canvas_start>>
   <<else>>
     <<card necropoli zoom>>
-    Quest'informazione potrebbe servirti per convincere il vecchio.
+    Quest'informazione potrebbe servirti per convincere il vecchio. #line:0011acc 
   <<endif>>
 ===
 
@@ -387,10 +387,10 @@ position: 451,527
   <<SetActive canvas_empty_image false>>
   <<SetActive canvas_image true>>
   <<card necropoli zoom>>
-  Quest'informazione potrebbe servirti per convincere il vecchio.
+  Quest'informazione potrebbe servirti per convincere il vecchio. #line:037928d 
   <<target statues_manager>>
 <<else>>
-  Peccato, riprova.
+  Peccato, riprova. #line:00be5af 
 <<endif>>
 ===
 
@@ -403,7 +403,7 @@ position: 899,158
     <<jump canvas2_start>>
   <<else>>
     <<card etruschi zoom>>
-    Quest'informazione potrebbe servirti per convincere il vecchio.
+    Quest'informazione potrebbe servirti per convincere il vecchio. #line:05fb0b3 
   <<endif>>
 ===
 
@@ -411,7 +411,7 @@ title: canvas2_start
 color: orange
 position: 900,386
 ---
-Cosa c'è in questa immagine?
+Cosa c'è in questa immagine? #line:0d03d43 
 <<activity canvas_intro_etruschi canvas2_end>>
 ===
 
@@ -428,10 +428,10 @@ position: 901,531
   <<SetActive canvas2_empty_image false>>
   <<SetActive canvas2_image true>>
   <<card etruschi zoom>>
-  Quest'informazione potrebbe servirti per convincere il vecchio.
+  Quest'informazione potrebbe servirti per convincere il vecchio. #line:08df638 
   <<target puzzle_manager>>
 <<else>>
-  Peccato, riprova.
+  Peccato, riprova. #line:0a6fc4d 
 <<endif>>
 ===
 
@@ -443,7 +443,7 @@ position: 672,157
     <<jump puzzle_start>>
   <<else>>
     <<card architettura_etrusca zoom>>
-    Quest'informazione potrebbe servirti per convincere il vecchio.
+    Quest'informazione potrebbe servirti per convincere il vecchio. #line:0e963ea 
   <<endif>>
 ===
 
@@ -468,10 +468,10 @@ position: 675,527
   <<SetActive puzzle_empty_image false>>
   <<SetActive puzzle_image true>>
   <<card architettura_etrusca zoom>>
-  Quest'informazione potrebbe servirti per convincere il vecchio.
+  Quest'informazione potrebbe servirti per convincere il vecchio. #line:0a4b2c8 
   <<target canvas_manager>>
 <<else>>
-  Peccato, riprova.
+  Peccato, riprova. #line:04c2514 
 <<endif>>
 ===
 
@@ -480,7 +480,7 @@ position: 1471,101
 tags: not_repeat_last_line
 ---
 <<card archeologia zoom>>
-PLACEHOLDER
+PLACEHOLDER #line:0614920 
 ===
 
 title: card_territorio_etrusco
@@ -488,7 +488,7 @@ position: 2019,-63
 tags: not_repeat_last_line
 ---
 <<card territorio_etrusco zoom>>
-PLACEHOLDER
+PLACEHOLDER #line:026b7f9 
 ===
 
 title: card_commercio_etrusco
@@ -496,7 +496,7 @@ position: 1832,-223
 tags: not_repeat_last_line
 ---
 <<card commercio_etrusco zoom>>
-PLACEHOLDER
+PLACEHOLDER #line:004fd13 
 ===
 
 title: card_donne_etrusche
@@ -504,7 +504,7 @@ position: 1598,-223
 tags: not_repeat_last_line
 ---
 <<card donne_etrusche zoom>>
-PLACEHOLDER
+PLACEHOLDER #line:031b6f7 
 ===
 
 title: card_museo
@@ -512,7 +512,7 @@ position: 1369,-215
 tags: not_repeat_last_line
 ---
 <<card museo zoom>>
-PLACEHOLDER
+PLACEHOLDER #line:0496ac0 
 ===
 
 title: card_religione_etrusca
@@ -520,7 +520,7 @@ position: 1785,-64
 tags: not_repeat_last_line
 ---
 <<card religione_etrusca zoom>>
-PLACEHOLDER
+PLACEHOLDER #line:005255e 
 ===
 
 title: card_scrittura_etrusca
@@ -528,7 +528,7 @@ position: 1715,97
 tags: not_repeat_last_line
 ---
 <<card scrittura_etrusca zoom>>
-PLACEHOLDER
+PLACEHOLDER #line:02b779e 
 ===
 
 title: quest_end

@@ -1,4 +1,4 @@
-// dev_109
+﻿// dev_109
 
 title: quest_start
 position: 0,0
@@ -41,58 +41,58 @@ tags:
 ---
 <<SetActive gate true>>
 <<if HasCompletedTask("ConvinciIlBambino")>>
-Bravo!!
+Bravo!! #line:013a9d3 
 <<else>>
 
 
-Io sono la Duchessa Eleonora. Sei proprio un bel micino tenero!
-Ho un grandissimo problema e ho bisogno di te!
--> Certo! Che succede?
-    Meno male che ci sei tu! Guarda i fiori... sono tutti tristi.
+Io sono la Duchessa Eleonora. Sei proprio un bel micino tenero! #line:06e9b60 
+Ho un grandissimo problema e ho bisogno di te! #line:055c72a 
+-> Certo! Che succede? #line:0754452 
+    Meno male che ci sei tu! Guarda i fiori... sono tutti tristi. #line:038d084 
     
--> Chi sei?
-    Sono la Duchessa Eleonora di Toledo, la madre di questo splendido giardino! 
-    Ma oggi sono troppo preoccupata per autocelebrarmi...
+-> Chi sei? #line:0502b74 
+    Sono la Duchessa Eleonora di Toledo, la madre di questo splendido giardino!  #line:09d1a27 
+    Ma oggi sono troppo preoccupata per autocelebrarmi... #line:0792097 
 
 
   
-Tutte le api di Boboli sono sparite!
--> Perché è un problema?
-    Beh...
--> Un pisolino forse?
-    Magari! Sono sparite da troppi giorni. Ed è un grandissimo problema!
+Tutte le api di Boboli sono sparite! #line:05ab47d 
+-> Perché è un problema? #line:081f882 
+    Beh... #line:0cd0f24 
+-> Un pisolino forse? #line:01dfd86 
+    Magari! Sono sparite da troppi giorni. Ed è un grandissimo problema! #line:04f1223 
     
--> Ma chi le vuole?!
-    Capisco che fanno paura, ma fidati! 
-    La loro assenza è un guaio enorme!!
+-> Ma chi le vuole?! #line:02d64ec 
+    Capisco che fanno paura, ma fidati!  #line:0de2469 
+    La loro assenza è un guaio enorme!! #line:09171c7 
     
 
-Le Api sono i postini magici della natura. 
-Mangiano il nettare da un fiore, sporcandosi tutte di polline!
-E volando al prossimo fiore, gli portano il polline di quello di prima.
-così fanno nascere frutti e nuove piantine.
-Senza di loro, i fiori e i frutti sono spacciati!
--> Niente più arance?! Dobbiamo salvarle!
-    Esatto! Le nostre arance tipiche!
+Le Api sono i postini magici della natura.  #line:0713434 
+Mangiano il nettare da un fiore, sporcandosi tutte di polline! #line:0fd310a 
+E volando al prossimo fiore, gli portano il polline di quello di prima. #line:0ae98d3 
+così fanno nascere frutti e nuove piantine. #line:04d3a8d 
+Senza di loro, i fiori e i frutti sono spacciati! #line:09799b2 
+-> Niente più arance?! Dobbiamo salvarle! #line:08b7345 
+    Esatto! Le nostre arance tipiche! #line:0aa3c7b 
     
--> E ora come facciamo?
-    Non disperare, la tua Duchessa ha una pista!
+-> E ora come facciamo? #line:08233f7 
+    Non disperare, la tua Duchessa ha una pista! #line:0ce8c95 
     
--> I fiori non possono fare da soli?
-    Purtroppo no, il vento non basta sempre a portare il polline! 
-    Ma possiamo rimediare.
+-> I fiori non possono fare da soli? #line:001019e 
+    Purtroppo no, il vento non basta sempre a portare il polline!  #line:0af81b3 
+    Ma possiamo rimediare. #line:086a742 
     
-Le api non sono svanite, i loro alveari sono ancora in zona. 
-Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai?
--> Salverò il giardino!!
-    Fantastico! Prendi questa mappa, ti aiuterà!
+Le api non sono svanite, i loro alveari sono ancora in zona.  #line:01e372a 
+Credo si siano nascoste... Ma io non posso muovermi. Mi aiuterai? #line:0ab1f2a 
+-> Salverò il giardino!! #line:0991fdd 
+    Fantastico! Prendi questa mappa, ti aiuterà! #line:0c94e44 
     <<task_start TrovaUnApe>>
     <<SetActive gate false>>
--> Mi fanno paura le api...
-    Non temere! Le api sono nostre amiche. 
-    Se noi siamo gentili, loro pensano solo a lavorare sui fiori. Ci stai?
-    -> Va bene, ti aiuto!
-        Grazie di cuore! Prendi la mappa, ti aiuterà!
+-> Mi fanno paura le api... #line:01539c6 
+    Non temere! Le api sono nostre amiche.  #line:0702fdc 
+    Se noi siamo gentili, loro pensano solo a lavorare sui fiori. Ci stai? #line:0f02eb4 
+    -> Va bene, ti aiuto! #line:0bf2447 
+        Grazie di cuore! Prendi la mappa, ti aiuterà! #line:0840d87 
         <<task_start TrovaUnApe>>
         <<SetActive gate false>>
 <<endif>>
@@ -102,52 +102,52 @@ title: Ape1
 tags: 
 ---
 <<if !HasCompletedTask("AiutaBzz") >>
-Bzzzz... Oh... Che fame! Che sfinimento!
+Bzzzz... Oh... Che fame! Che sfinimento! #line:0b429fb 
 
--> Tutto bene?
-    Mica tanto! Ho le ali stanche e la pancia vuota! *Bzz-zuff...*
+-> Tutto bene? #line:0c84a47 
+    Mica tanto! Ho le ali stanche e la pancia vuota! *Bzz-zuff...* #line:0e76719 
 
 <<card salvia>>
-Hai visto un fiore di salvia qui intorno? Il nettare mi salverebbe!
+Hai visto un fiore di salvia qui intorno? Il nettare mi salverebbe! #line:06ecb88 
 
--> C'è una pianta qui!
-    Aspetta, aspetta! No, fermati! Non farlo!   
--> Ne raccolgo uno?
-    Oh, no! Grazie, ma cogliere i fiori è un pasticcio!
+-> C'è una pianta qui! #line:0e6901b 
+    Aspetta, aspetta! No, fermati! Non farlo!    #line:07588c6 
+-> Ne raccolgo uno? #line:00bfdb5 
+    Oh, no! Grazie, ma cogliere i fiori è un pasticcio! #line:0d9ed29 
 
-Se stacchi un fiore intero dalla pianta, la pianta ci rimarrà male,
-e gli altri insetti non avranno più il loro cibo. 
+Se stacchi un fiore intero dalla pianta, la pianta ci rimarrà male, #line:0cb6663 
+e gli altri insetti non avranno più il loro cibo.  #line:055a0a5 
 
-Cerca una salvia già caduta! task:AiutaBzz
+Cerca una salvia già caduta! task:AiutaBzz #line:01ec027 
 <<card_hide>>
-Così nessuno si farà male e io potrò saziarmi! Mi darai una zampa?
+Così nessuno si farà male e io potrò saziarmi! Mi darai una zampa? #line:08324b7 
 
--> Va bene!
-    Grazie mille!
+-> Va bene! #line:0954632 
+    Grazie mille! #line:093c8df 
     <<task_start AiutaBzz salvia_trovata>>
 <<else>>
-    SLURP! Che delizia! Che salvia dolce! 
-    Grazie mille, sei un eroe! Volo all'alveare! BZZZZZZ!
+    SLURP! Che delizia! Che salvia dolce!  #line:03485ec 
+    Grazie mille, sei un eroe! Volo all'alveare! BZZZZZZ! #line:09ad1ec 
     <<task_start TrovaUnAltraApe>>
 <<endif>>
 ===
 
 title: salvia_trovata
 ---
-Hai trovato la salvia. Torna da Bzz!
+Hai trovato la salvia. Torna da Bzz! #line:0b7ead0 
 <<target Bzz>>
 
 ===
 
 title: peonia_trovata
 ---
-Hai trovato la peonia. Torna da Bzz!
+Hai trovato la peonia. Torna da Bzz! #line:093ddec 
 <<target Bzz>>
 
 ===
 title: azalea_trovata
 ---
-Hai trovato l'azalea. Torna da Bzz!
+Hai trovato l'azalea. Torna da Bzz! #line:088368e 
 <<target Bzz>>
 
 ===
@@ -158,32 +158,32 @@ tags:
 ---
 <<if !HasCompletedTask("AiutaZrr") >>
 
-F... Faaameeeeee... Zzr...
+F... Faaameeeeee... Zzr... #line:0c45ee4 
 
--> Fame?
-    Fame!
+-> Fame? #line:0d39333 
+    Fame! #line:0a6b7bd 
 
  <<card peonia>>
-Ti prego... Peonia...
+Ti prego... Peonia... #line:037cee6 
 
--> Cos'è Peonia?
-    Un fiore... Di peonia... Per favore... 
--> Ti serve un fiore?
-    Sì... Nettare... Di peonia...!
+-> Cos'è Peonia? #line:0a0a9c1 
+    Un fiore... Di peonia... Per favore...  #line:01672e5 
+-> Ti serve un fiore? #line:05ae96d 
+    Sì... Nettare... Di peonia...! #line:0af9552 
 
-Cresce... Qui vicino... 
+Cresce... Qui vicino...  #line:0e8d8a4 
 
-Per favore! 
+Per favore!  #line:003c0df 
 <<card hide>>
 
--> In arrivo!
-    Grazie...!
+-> In arrivo! #line:008c3bf 
+    Grazie...! #line:0dee246 
     
     <<task_start AiutaZrr peonia_trovata>>  
 <<else>>
-Slurp! 
-Finalmente! Riesco a volare!
-Grazie, gentile straniero!
+Slurp!  #line:03d3638 
+Finalmente! Riesco a volare! #line:01f0021 
+Grazie, gentile straniero! #line:00d6440 
 <<task_start TrovaLUltimaApe>>
 <<endif>>
 
@@ -194,30 +194,30 @@ tags:
 ---
 <<if !HasCompletedTask("AiutaTzz") >>
 
-Tzzz... Ehi... Ho visto che hai aiutato gli altri!
+Tzzz... Ehi... Ho visto che hai aiutato gli altri! #line:0bd0a38 
 
--> Serve un fiore anche a te?
-    Hai indovinato!
+-> Serve un fiore anche a te? #line:034e6c3 
+    Hai indovinato! #line:0c731ba 
 
-Conosci l'azalea? è una bellissima pianta ornamentale...
+Conosci l'azalea? è una bellissima pianta ornamentale... #line:0de6f05 
 
--> Ho capito...
-    Grazie!
+-> Ho capito... #line:0b10996 
+    Grazie! #line:015ea7f 
     
--> Te ne cerco uno?
-    grz
+-> Te ne cerco uno? #line:09e3ec5 
+    grz #line:0a846cd 
 
-Credo sia vicino la statua di nettuno...
+Credo sia vicino la statua di nettuno... #line:0032631 
 
--> Va bene, mi metto a cercare!
-    Grazie mille! 
+-> Va bene, mi metto a cercare! #line:0ab60f8 
+    Grazie mille!  #line:090c18b 
     <<task_start AiutaTzz salvia_trovata>>
 <<else>>
-Che delizia!
-Ah, quel bambino mi ha proprio sfinito...
-Eravamo al giardino del cavaliere...
-e mi ha cacciato con un bastone!
-Forse è ancora lì?
+Che delizia! #line:003828b 
+Ah, quel bambino mi ha proprio sfinito... #line:088f0f7 
+Eravamo al giardino del cavaliere... #line:017564b 
+e mi ha cacciato con un bastone! #line:06499f1 
+Forse è ancora lì? #line:02e7c57 
 <<task_start TrovaIlBambino>>
 <<endif>>
 ===
@@ -226,54 +226,54 @@ tags:
 ---
 
 <<if !HasCompletedTask("AiutaTzz") >>
-Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
+Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato! #line:05d4ef5 
 <<elseif !HasCompletedTask("ConvinciIlBambino")>>
 
-Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato!
+Sciò! Via di qui, mostri! Zap! Ci penso io a salvare il prato! #line:0dc51f0 
 
--> Posa il bastone!
-    Oh, ciao! Sono un cavaliere! Caccio le api prima che pungano qualcuno! 
--> Che fai?
-    Sono un cavaliere e sto proteggendo il prato dalle api feroci!
+-> Posa il bastone! #line:067f825 
+    Oh, ciao! Sono un cavaliere! Caccio le api prima che pungano qualcuno!  #line:0fac562 
+-> Che fai? #line:0b07a54 
+    Sono un cavaliere e sto proteggendo il prato dalle api feroci! #line:00d723e 
 
--> Le api sono buone!
-    Amiche? Ma hanno il pungiglione e fanno male!
-    Sono cattive! Lasciami fare il mio lavoro! 
+-> Le api sono buone! #line:0907b60 
+    Amiche? Ma hanno il pungiglione e fanno male! #line:046bd58 
+    Sono cattive! Lasciami fare il mio lavoro!  #line:05858a2 
     <<return>>
--> Pensa ai fiori!
-    I fiori? che c'entrano?
+-> Pensa ai fiori! #line:08ba6ae 
+    I fiori? che c'entrano? #line:0c5f373 
 
--> Le api li impollinano!
-    Ma che dici?
--> Le api li annaffiano!
-    Ma non è vero!
-    <<return>>
-
-Come fanno a trasportare il polline con quelle zampine?
--> Mangiano il nettare!
-    E quindi?
--> Ci si rotolano!
-    La smetti di prendermi in giro?
+-> Le api li impollinano! #line:0232511 
+    Ma che dici? #line:0d62c4a 
+-> Le api li annaffiano! #line:0c2a2a3 
+    Ma non è vero! #line:076be5e 
     <<return>>
 
-Cosa c'entra?
--> Si sporcano di polline!
-    Ah, e così sporcano anche i fiori...
--> Nel nettare c'è il polline!
-    Che stupidaggine!
+Come fanno a trasportare il polline con quelle zampine? #line:0e189ef 
+-> Mangiano il nettare! #line:0642495 
+    E quindi? #line:087e1f1 
+-> Ci si rotolano! #line:0d6bea6 
+    La smetti di prendermi in giro? #line:0ff9f29 
     <<return>>
 
-Comunque il polline lo porta anche il vento.
--> Non basta!
-    Non ti credo!
--> Effettivamente...
-    Te l'ho detto!
+Cosa c'entra? #line:0d3a032 
+-> Si sporcano di polline! #line:0d97bcb 
+    Ah, e così sporcano anche i fiori... #line:0e2d455 
+-> Nel nettare c'è il polline! #line:0724c0f 
+    Che stupidaggine! #line:026201f 
     <<return>>
 
--> Perché non cambi missione e le proteggi?
-    Hai ragione!!
+Comunque il polline lo porta anche il vento. #line:02b4c65 
+-> Non basta! #line:0a3918b 
+    Non ti credo! #line:08c6ded 
+-> Effettivamente... #line:00fe835 
+    Te l'ho detto! #line:012f05a 
+    <<return>>
+
+-> Perché non cambi missione e le proteggi? #line:0d1f875 
+    Hai ragione!! #line:0983f07 
 <<task_start ConvinciIlBambino>>
 <<else>>
-Lontani dalle api! Sono i postini della natura!
+Lontani dalle api! Sono i postini della natura! #line:0843eb3 
 <<endif>>
 ===
