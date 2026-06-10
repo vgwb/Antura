@@ -1,4 +1,6 @@
 ## Game Design Notes
+by Matteo Falli  
+Design Doc: [Antura Quest Design - San Casciano Val di Pesa](https://docs.google.com/document/d/1Vy7iMAr13Xj3NVJy9QLaA08b_hqF7aOHWk_tizAESxw/edit?usp=sharing)
 
 **Mission Objective**
 Visit the museum and answer a hysterical old man's questions correctly to calm him down.

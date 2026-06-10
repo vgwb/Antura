@@ -1,4 +1,6 @@
 ## Game Design Notes
+by Jimmy Paolini  
+Design Doc: [Dante - Primo Canto (Antura Quest)](https://docs.google.com/document/d/1G622HUqh8wFK-rLYIzq_ZY8rkzvkIsys7VwgRfl15NE/edit?usp=drive_link)
 
 /*
     Development Notes - Revisione

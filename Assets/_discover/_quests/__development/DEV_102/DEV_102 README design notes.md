@@ -1,6 +1,6 @@
 ## Game Design Notes
-
-**Collodi:Il Parco di Pinocchio**
+by Diego Simi  
+Design Doc: [Parco di Pinocchio (Antura Quest)](https://docs.google.com/document/d/1sZaAr-u6yNKy_UoB8yZZWLkKOxdBg57l_E28BudhaZ4/edit?tab=t.0#heading=h.oxyyyf4tagl2)
 
 ## Basic Information
 

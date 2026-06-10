@@ -1,10 +1,11 @@
 ## Game Design Notes
-**Le Basi della Musica con Guido d'Arezzo**
+by Antonio Diotaiuti  
+Design Doc: [Le Basi della Musica con Guido d'Arezzo ](https://docs.google.com/document/d/1pQA_PzQ2_7gCAQ7xIgbteia9t3VshajTRMp_sLugAqc/edit?tab=t.0#heading=h.oxyyyf4tagl2)
 
 ## Basic Information
 | | |
 |---|---|
-| **Title** | Le Basi della Musica |
+| **Title** | Le Basi della Musica con Guido d'Arezzo |
 | **Location** | Arezzo, Tuscany, Italy |
 | **Theme** | Basic Music Theory |
 | **Scenario** | Mixed (realistic city of Arezzo + narrative elements) |

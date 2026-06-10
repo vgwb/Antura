@@ -1,4 +1,7 @@
 ## Game Design Notes
+by Ludovico D'Alosio  
+Design Doc: [Le cave di Carrara](https://docs.google.com/document/d/1NDY02jWiz98eSfD4KxjsLfFtwjy9T-hCPh-QPGz8x9s/edit?tab=t.0)
+
 Travel to the marble quarries of Carrara, high in the Apuan Alps of Tuscany, and help Francesco fix the extraction machine that Antura accidentally broke. Along the way, meet the spirits of three great artists — Nicola Pisano, Michelangelo, and Bernini — and discover how the most famous marble in the world has shaped art for over 2,000 years.
 **Mission Objective**
 The player joins a school field trip to the marble quarries of Carrara. Antura has broken the extraction machine that Francesco the quarry worker was about to demonstrate. Three missing mechanical pieces have fallen somewhere in the quarry. The player must explore the caves, meet the spirits of three famous artists, complete a challenge for each one, and recover the pieces — before finally watching the machine cut a block of marble for the very first time.

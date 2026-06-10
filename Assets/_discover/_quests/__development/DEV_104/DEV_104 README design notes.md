@@ -1,4 +1,6 @@
 ## Game Design Notes
+by Ludovico Orlandi  
+Design Doc: [Antura Quest - Ludovico Orlandi](https://docs.google.com/document/d/1Q0hZSP_NaX3XJLqV07sxYNqEfdHnpMEe5K0z8AVtU44/edit?usp=drive_link)
 
 **Mission Objective**
 Riordinare la collezione del museo Stibbert dopo che Antura si è intrufolato al suo interno causando del gran disordine.

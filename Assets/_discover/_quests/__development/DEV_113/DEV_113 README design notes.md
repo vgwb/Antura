@@ -1,19 +1,3 @@
 ## Game Design Notes
-
-**Mission Objective**
-
-
-**Characters**
-
-
-### Learning Goals
-
-
-### Gameplay Structure
-
-
-### Places
-
-
-### Final Assessment
-
+by Justin Cucka  
+Design Doc: 

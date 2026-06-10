@@ -1,8 +1,9 @@
 ## Game Design Notes
+by Christian Bugiani   
+Design Doc: [Quest Design (Giotto)](https://docs.google.com/document/d/1zT9ZaPlaIDShHFCUfeVwfyaGsORLhR1foIIRLS5m0Qo/edit?tab=t.0#heading=h.55eblwhnwfpj)
 
 **Mission Objective**
 Find Giotto in order to obtain the keys to the bell tower and gain access to it.
-
 
 **Characters**
 
@@ -31,6 +32,3 @@ SPECIAL ACTIVITY (TBD)
 
 
 ### Final Assessment
-
-
-
