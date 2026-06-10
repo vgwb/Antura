@@ -8369,8 +8369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DEV110.UndertaleFight
   MaxHP: 30
   ActOptions:
-  - Label: Soothe Leopard
-    YarnNode: Trio_SootheLeopard
+  - Label: Soothe Lynx
+    YarnNode: Trio_Soothelynx
     DisabledAfterUse: 1
   - Label: Soothe Lion
     YarnNode: Trio_SootheLion
@@ -8379,7 +8379,7 @@ MonoBehaviour:
     YarnNode: Trio_SootheWolf
     DisabledAfterUse: 1
   DodgeWaves:
-  - Id: leopard_pounce
+  - Id: lynx_pounce
     Pattern: {fileID: 11400000, guid: 113dd47e22f804548bedc58f2fa70380, type: 2}
     BulletPrefab: {fileID: 0}
     BulletsPerSpawn: 1
@@ -31149,7 +31149,7 @@ GameObject:
   - component: {fileID: 880797774}
   - component: {fileID: 880797775}
   m_Layer: 0
-  m_Name: BattleFight_Leopard
+  m_Name: BattleFight_Lynx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31190,16 +31190,16 @@ MonoBehaviour:
   MaxHP: 25
   ActOptions:
   - Label: Study
-    YarnNode: Leopard_Study
+    YarnNode: Lynx_Study
     DisabledAfterUse: 0
   - Label: Provoke
-    YarnNode: Leopard_Provoke
+    YarnNode: lynx_Provoke
     DisabledAfterUse: 0
   - Label: Match Pace
-    YarnNode: Leopard_MatchPace
+    YarnNode: lynx_MatchPace
     DisabledAfterUse: 1
   DodgeWaves:
-  - Id: leopard_pounce
+  - Id: lynx_pounce
     Pattern: {fileID: 11400000, guid: 113dd47e22f804548bedc58f2fa70380, type: 2}
     BulletPrefab: {fileID: 0}
     BulletsPerSpawn: 1
@@ -31208,7 +31208,7 @@ MonoBehaviour:
     Duration: 5
     DamagePerHit: 1
     Shape: 0
-  - Id: leopard_flurry
+  - Id: lynx_flurry
     Pattern: {fileID: 11400000, guid: c1d65f0b0a4d8a049abb9967da462b1d, type: 2}
     BulletPrefab: {fileID: 0}
     BulletsPerSpawn: 1
@@ -31219,8 +31219,8 @@ MonoBehaviour:
     Shape: 0
   ItemHealAmount: 10
   ItemUses: 1
-  WinNode: Leopard_Win
-  LoseNode: Leopard_Lose
+  WinNode: lynx_Win
+  LoseNode: lynx_Lose
   LockWorldInputDuringFight: 1
   BattleRoot: {fileID: 501161000}
   HPFill: {fileID: 1325199026}
