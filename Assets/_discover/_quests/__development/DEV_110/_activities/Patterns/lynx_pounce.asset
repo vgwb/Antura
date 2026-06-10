@@ -10,43 +10,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59e043f7d659edd4787e50ea2a625e1d, type: 3}
-  m_Name: 09 - Aimed + Rain
+  m_Name: lynx_pounce
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DEV110.ProjectilePattern
   ReferenceBoxSize: {x: 480, y: 270}
   Emitters:
-  - Name: Aimed
+  - Name: Pounce
     StartTime: 0
-    Bursts: 5
-    BurstInterval: 0.6
+    Bursts: 2
+    BurstInterval: 1.2
     Shape: 0
-    Count: 3
-    SpreadAngle: 20
+    Count: 4
+    SpreadAngle: 65
     BaseAngle: 0
     Edge: 0
     SpinPerBurst: 0
     Movement: 0
     WaveAmplitude: 24
     WaveFrequency: 3
+    Origin: 0
+    WarnSeconds: 0
     Sprite: {fileID: 0}
-    Color: {r: 1, g: 0.4, b: 0.4, a: 1}
+    Color: {r: 1, g: 0.9, b: 0.2, a: 1}
     Size: 14
-    Speed: 240
+    Speed: 160
     Damage: 1
-  - Name: Rain
-    StartTime: 0.3
-    Bursts: 10
-    BurstInterval: 0.35
-    Shape: 3
-    Count: 3
-    SpreadAngle: 60
+  - Name: Pounce 3
+    StartTime: 3
+    Bursts: 2
+    BurstInterval: 0.75
+    Shape: 0
+    Count: 4
+    SpreadAngle: 65
     BaseAngle: 0
     Edge: 0
     SpinPerBurst: 0
     Movement: 0
     WaveAmplitude: 24
     WaveFrequency: 3
+    Origin: 0
+    WarnSeconds: 0
     Sprite: {fileID: 0}
-    Color: {r: 0.6, g: 0.8, b: 1, a: 1}
-    Size: 12
-    Speed: 180
+    Color: {r: 1, g: 0.9, b: 0.2, a: 1}
+    Size: 14
+    Speed: 90
+    Damage: 1
+  - Name: Pounce 2
+    StartTime: 0.75
+    Bursts: 2
+    BurstInterval: 1.2
+    Shape: 0
+    Count: 4
+    SpreadAngle: 65
+    BaseAngle: 0
+    Edge: 0
+    SpinPerBurst: 0
+    Movement: 2
+    WaveAmplitude: 35
+    WaveFrequency: 0.25
+    Origin: 2
+    WarnSeconds: 0
+    Sprite: {fileID: 0}
+    Color: {r: 1, g: 0.9, b: 0.2, a: 1}
+    Size: 10
+    Speed: 90
     Damage: 1

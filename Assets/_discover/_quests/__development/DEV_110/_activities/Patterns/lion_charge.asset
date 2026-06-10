@@ -10,25 +10,47 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59e043f7d659edd4787e50ea2a625e1d, type: 3}
-  m_Name: 07 - Wave Curtain
+  m_Name: lion_charge
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DEV110.ProjectilePattern
   ReferenceBoxSize: {x: 480, y: 270}
   Emitters:
-  - Name: Wave
+  - Name: Charge
     StartTime: 0
-    Bursts: 8
-    BurstInterval: 0.4
+    Bursts: 3
+    BurstInterval: 0.75
     Shape: 3
-    Count: 6
+    Count: 5
     SpreadAngle: 60
     BaseAngle: 0
     Edge: 0
     SpinPerBurst: 0
-    Movement: 2
-    WaveAmplitude: 28
-    WaveFrequency: 2
+    Movement: 0
+    WaveAmplitude: 24
+    WaveFrequency: 3
+    Origin: 0
+    WarnSeconds: 0
     Sprite: {fileID: 0}
-    Color: {r: 0.5, g: 1, b: 0.55, a: 1}
-    Size: 14
-    Speed: 160
+    Color: {r: 1, g: 0.65, b: 0.1, a: 1}
+    Size: 15
+    Speed: 150
+    Damage: 1
+  - Name: Charge 2
+    StartTime: 1.5
+    Bursts: 3
+    BurstInterval: 0.75
+    Shape: 3
+    Count: 3
+    SpreadAngle: 60
+    BaseAngle: 0
+    Edge: 1
+    SpinPerBurst: 0
+    Movement: 0
+    WaveAmplitude: 24
+    WaveFrequency: 3
+    Origin: 0
+    WarnSeconds: 0
+    Sprite: {fileID: 0}
+    Color: {r: 1, g: 0.65, b: 0.1, a: 1}
+    Size: 15
+    Speed: 150
     Damage: 1

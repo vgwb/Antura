@@ -10,52 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59e043f7d659edd4787e50ea2a625e1d, type: 3}
-  m_Name: 08 - Cross Streams
+  m_Name: lion_roar
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DEV110.ProjectilePattern
   ReferenceBoxSize: {x: 480, y: 270}
   Emitters:
-  - Name: Left
-    StartTime: 0
-    Bursts: 10
-    BurstInterval: 0.35
-    Shape: 3
-    Count: 3
-    SpreadAngle: 60
-    BaseAngle: 0
-    Edge: 2
-    SpinPerBurst: 0
-    Movement: 0
-    WaveAmplitude: 24
-    WaveFrequency: 3
-    Sprite: {fileID: 0}
-    Color: {r: 0.4, g: 0.9, b: 1, a: 1}
-    Size: 12
-    Speed: 200
-    Damage: 1
-  - Name: Right
-    StartTime: 0.17
-    Bursts: 10
-    BurstInterval: 0.35
-    Shape: 3
-    Count: 3
-    SpreadAngle: 60
-    BaseAngle: 0
-    Edge: 3
-    SpinPerBurst: 0
-    Movement: 0
-    WaveAmplitude: 24
-    WaveFrequency: 3
-    Sprite: {fileID: 0}
-    Color: {r: 1, g: 0.4, b: 0.9, a: 1}
-    Size: 12
-    Speed: 200
-    Damage: 1
-  - Name: Top
-    StartTime: 0
-    Bursts: 10
-    BurstInterval: 0.5
-    Shape: 3
-    Count: 2
+  - Name: Roar
+    StartTime: 4.5
+    Bursts: 1
+    BurstInterval: 0.4
+    Shape: 2
+    Count: 10
     SpreadAngle: 60
     BaseAngle: 0
     Edge: 0
@@ -63,8 +27,50 @@ MonoBehaviour:
     Movement: 0
     WaveAmplitude: 24
     WaveFrequency: 3
+    Origin: 0
+    WarnSeconds: 0
     Sprite: {fileID: 0}
-    Color: {r: 1, g: 1, b: 1, a: 1}
-    Size: 12
-    Speed: 220
+    Color: {r: 1, g: 0.7, b: 0, a: 1}
+    Size: 8
+    Speed: 75
+    Damage: 1
+  - Name: Roar 2
+    StartTime: 0
+    Bursts: 2
+    BurstInterval: 1.25
+    Shape: 3
+    Count: 6
+    SpreadAngle: 60
+    BaseAngle: 0
+    Edge: 0
+    SpinPerBurst: 0
+    Movement: 0
+    WaveAmplitude: 24
+    WaveFrequency: 3
+    Origin: 0
+    WarnSeconds: 0
+    Sprite: {fileID: 0}
+    Color: {r: 1, g: 0.7, b: 0, a: 1}
+    Size: 10
+    Speed: 100
+    Damage: 1
+  - Name: Roar 3
+    StartTime: 0.75
+    Bursts: 2
+    BurstInterval: 1.25
+    Shape: 3
+    Count: 6
+    SpreadAngle: 60
+    BaseAngle: 0
+    Edge: 1
+    SpinPerBurst: 0
+    Movement: 0
+    WaveAmplitude: 24
+    WaveFrequency: 3
+    Origin: 0
+    WarnSeconds: 0
+    Sprite: {fileID: 0}
+    Color: {r: 1, g: 0.7, b: 0, a: 1}
+    Size: 10
+    Speed: 100
     Damage: 1
