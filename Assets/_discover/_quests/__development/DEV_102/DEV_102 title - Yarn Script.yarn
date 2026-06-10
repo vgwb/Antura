@@ -44,17 +44,6 @@ actor: NARRATOR
 ---
 Missione completata! #line:itco_end_1
 Hai recuperato tutte le pagine del diario. #line:itco_end_2
-<<jump post_quest_activity>>
-===
-
-title: post_quest_activity
-position: 0,300
-color: green
-type: panel
-tags: proposal
-actor: NARRATOR
----
-Disegna il tuo personaggio preferito di Pinocchio! #line:itco_proposta_1
 <<quest_end>>
 ===
 
@@ -86,6 +75,7 @@ actor: KID_M
 <<else>>
     Grazie ancora gattino per averci dato una zampa.
 <<endif>>
+<<jump Grillo_Finale>>
 ===
 title: pages_task_end
 color: green
@@ -227,7 +217,7 @@ actor: KID_M
 ---
 <<SetActive page_1 true>>
 È Carlo Collodi! #line:itco_carlo_ok_1
-<<card TODO_carlo_collodi collect>>
+<<card carlo_collodi collect>>
 È lui che ha scritto la storia di Pinocchio! #line:itco_carlo_ok_2
 <<set $LucignoloDone = true>>
 -> Hai visto un cane blu da queste parti? #line:itco_carlo_opt1
@@ -318,7 +308,7 @@ actor: SENIOR_M
 ---
 <<SetActive page_2 true>>
 Ah, che bella la Villa Garzoni! #line:itco_villa_ok_1
-<<card TODO_villa_garzoni collect>>
+<<card villa_garzoni collect>>
 Che ricordi... #line:itco_villa_ok_2
 <<set $GeppettoDone = true>>
 -> Hai visto un cane blu da queste parti? #line:itco_villa_opt1
@@ -428,7 +418,7 @@ group: labirinto
 actor: KID_M
 ---
 <<SetActive page_3 true>>
-<<card TODO_pinocchi_del_mondo collect>>
+<<card pinocchio_disney collect>>
 <<set $MinigameAntura = true>>
 Grazie Antura! #line:itco_pinocchi_ok_1
 <<target Fata>>
@@ -445,7 +435,136 @@ group: finale
 actor: KID_M
 ---
 Hai trovato tutte le pagine! #line:itco_grillo_fin_1
-Sei davvero un gatto speciale. #line:itco_grillo_fin_2
+Sei davvero un gatto speciale.
+Adesso ti farò un piccolo Quiz così che Pinocchio possa imparare ed essere pronto per l'interrogazione di domani! #line:itco_grillo_fin_2
+<<jump Grillo_Domanda1>>
+===
+
+title: Grillo_Domanda1
+position: 200,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Prima domanda! #line:it01_gd1_1
+Chi è il creatore di Pinocchio?
+-> Carlo Collodi
+    <<jump Grillo_D1_Corretta>>
+-> Carlito Perez
+    <<jump Grillo_D1_Sbagliata>>
+-> Carlos Codi
+    <<jump Grillo_D1_Sbagliata>>
+===
+
+title: Grillo_D1_Sbagliata
+position: 200,200
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+
+<<card carlo_collodi>>
+Ricorda cosa ti aveva detto il povero Lucignolo!
+<<card_hide>>
+<<jump Grillo_Domanda1>>
+===
+
+title: Grillo_D1_Corretta
+position: 400,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Esatto! Carlo collodi fu il creatore di Pinocchio!
+il suo primo libro fu infatti "Le avventure di Pinocchio" pubblicato nel 1881
+qui raccontava le vicende del famoso burrattino di legno!
+<<jump Grillo_Domanda2>>
+===
+
+title: Grillo_Domanda2
+position: 600,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Seconda domanda!
+Come si chiamava la Villa di Collodi?
+-> Villa Garzoni
+    <<jump Grillo_D2_Corretta>>
+-> Villa Gattoni 
+    <<jump Grillo_D2_Sbagliata>>
+-> Villa Cannelloni
+    <<jump Grillo_D2_Sbagliata>>
+===
+
+title: Grillo_D2_Sbagliata
+position: 600,200
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Oh no! Ricordi Geppetto come l'aveva chiamata? 
+<<card villa_garzoni>>
+<<card_hide>>
+<<jump Grillo_Domanda2>>
+===
+
+title: Grillo_D2_Corretta
+position: 800,0
+color: green
+group: giotto
+actor: SENIOR_M
+---
+Proprio così! la Villa Garzoni!
+Pensa che questa Villa è in piedi dal 1366
+E nel 1633 Romano Garzoni firmò per possederla e da lì prese propio il nome.
+<<jump Grillo_Domanda3>>
+===
+title: Grillo_Domanda3
+position: 600,0
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Ultima domanda!
+In quale altro famosissimo adattamento  è stata raccontata la storia di Pinocchio
+-> Disney
+    <<jump Grillo_D3_Corretta>>
+-> Dancey 
+    <<jump Grillo_D3_Sbagliata>>
+-> Donny
+    <<jump Grillo_D3_Sbagliata>>
+===
+
+title: Grillo_D3_Sbagliata
+position: 600,200
+color: blue
+group: giotto
+actor: SENIOR_M
+---
+Ricordi l'immagine che hai visto sulla pagina che aveva in bocca Antura? 
+<<card pinocchio_disney>>
+<<card_hide>>
+<<jump Grillo_Domanda3>>
+===
+
+title: Grillo_D3_Corretta
+position: 800,0
+color: green
+group: giotto
+actor: SENIOR_M
+---
+Esatto! Pinocchio della Disney!
+Nel 1940 Walt Disney decide di creare un film trattato sul romanzo di Carlo Collodi
+Il Film di pinocchio è piaciuto così tanto che a volte la versione Disney viene considerata l'originale
+Però la vera storia di Pinocchio è quella scritta da Carlo Collodi!
+<<jump Grillo_Finale2>>
+===
+
+title: Grillo_Finale2
+---
+Bene! Credo che sia te che Pinocchio adesso conosciate molto di più Collodi, la storia di Pinocchio e il suo parco
+Non è vero Pinocchio?
 <<jump Pinocchio_Finale>>
 ===
 
@@ -455,7 +574,8 @@ color: green
 group: finale
 actor: KID_M
 ---
-Grazie di cuore, gattino! #line:itco_pinocchio_fin_1
+<<camera_focus camera_pinocchio>>
+Si grazie di cuore, gattino! #line:itco_pinocchio_fin_1
 Ora posso tornare a studiare. #line:itco_pinocchio_fin_2
 <<jump quest_end>>
 ===
@@ -464,5 +584,82 @@ title: Statua_pinocchio_fata
 tags: not_repeat_last_line
 ---
 <<card statua_fata_pinocchio zoom>>
+PLACEHOLDER
+===
+
+title: Statua_carabiniere
+tags: not_repeat_last_line
+---
+<<card statua_carabiniere zoom>>
+PLACEHOLDER
+===
+
+title: Statua_grillo
+tags: not_repeat_last_line
+---
+<<card statua_grillo zoom>>
+PLACEHOLDER
+===
+
+title: Statua_assassini
+tags: not_repeat_last_line
+---
+<<card statua_assassini zoom>>
+PLACEHOLDER
+===
+
+title: Statua_gatto_volpe
+tags: not_repeat_last_line
+---
+<<card statua_gatto_volpe zoom>>
+PLACEHOLDER
+===
+
+title: Statua_fata_bambina
+tags: not_repeat_last_line
+---
+<<card statua_fata_bambina zoom>>
+PLACEHOLDER
+===
+
+title: Statua_fata
+tags: not_repeat_last_line
+---
+<<card statua_fata zoom>>
+PLACEHOLDER
+===
+
+title: Statua_serpente
+tags: not_repeat_last_line
+---
+<<card statua_serpente zoom>>
+PLACEHOLDER
+===
+
+title: Statua_capretta
+tags: not_repeat_last_line
+---
+<<card statua_capretta zoom>>
+PLACEHOLDER
+===
+
+title: Statua_granchio
+tags: not_repeat_last_line
+---
+<<card statua_granchio zoom>>
+PLACEHOLDER
+===
+
+title: Statua_conigli
+tags: not_repeat_last_line
+---
+<<card statua_conigli zoom>>
+PLACEHOLDER
+===
+
+title: Statua_ciuchino_pinocchio
+tags: not_repeat_last_line
+---
+<<card statua_ciuchino_pinocchio zoom>>
 PLACEHOLDER
 ===
