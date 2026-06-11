@@ -1,4 +1,4 @@
-# Learn with Antura
+# Antura Game Project
 
 ![License](https://img.shields.io/badge/License-BSD%202--Clause-blue.svg?style=for-the-badge)
 ![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=for-the-badge&logo=unity)

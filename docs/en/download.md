@@ -10,7 +10,7 @@ The new version with the Discover countries modules
 
 |||
 |---|---|
-| ![logo](../assets/learnwithantura/learn_icon.jpg) | [![App Store](/assets/img/download_appstore.png)](./manual/install#ios) [![Android Google Play](/assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.antura.learnwithantura)  [![Download for Windows](/assets/img/download_windows.png)](https://vgwb.itch.io/antura) |
+| ![logo](../assets/learnwithantura/learn_icon.jpg) | [![App Store](/assets/img/download_appstore.png)](https://apps.apple.com/us/app/learn-with-antura/id6778106096) [![Android Google Play](/assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.antura.learnwithantura)  [![Download for Windows](/assets/img/download_windows.png)](https://vgwb.itch.io/antura) |
 
 ## Antura and the Letters
 

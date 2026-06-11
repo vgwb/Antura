@@ -16,8 +16,8 @@ function slugifyKeepUnderscore(input: string): string {
 }
 
 export default defineConfig({
-  title: 'Learn with Antura',
-  description: 'The Learn with Antura project website and docs for Educators, Designers and Game Developers',
+  title: 'Antura Game Project',
+  description: 'The Antura Game Project website and docs for Educators, Designers and Game Developers',
   cleanUrls: true,
   lastUpdated: true,
   srcDir: '.',
@@ -29,7 +29,7 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/png', href: '/icon.png' }],
     ['meta', { name: 'author', content: 'VGWB' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:site_name', content: 'Learn with Antura' }],
+    ['meta', { property: 'og:site_name', content: 'Antura Game Project' }],
     [
       'meta',
       {
@@ -52,7 +52,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vgwb/Antura' }
     ],
     footer: {
-      message: '© 2016–2025 VGWB | CC BY-NC-SA | <a href="/privacy-policy">Privacy Policy</a>',
+      message: '© 2016–2026 VGWB | CC BY-NC-SA | <a href="/privacy-policy">Privacy Policy</a>',
       copyright: '<a href="/en/about/support-us">Support Us</a> | <a href="https://github.com/vgwb/Antura">GitHub</a> | <a href="/en/about/website">About this Website</a>',
     },
     search: {
