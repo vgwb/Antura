@@ -176,7 +176,7 @@ PlayerSettings:
     iPhone: org.antura.learnwithantura
     tvOS: org.eduapp4syria.antura
   buildNumber:
-    Standalone: 0
+    Standalone: 1
     VisionOS: 0
     iPhone: 1
     tvOS: 0
@@ -946,7 +946,7 @@ PlayerSettings:
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
     : CT_RTV
-    Android: CT_RTV;DOTWEEN
+    Android: DOTWEEN
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
@@ -959,7 +959,7 @@ PlayerSettings:
     PS5: DOTWEEN
     QNX: DOTWEEN
     Stadia: DOTWEEN
-    Standalone: CT_RTV;DOTWEEN
+    Standalone: DOTWEEN
     VisionOS: DOTWEEN
     WebGL: CT_RTV;DOTWEEN
     Windows Store Apps: CT_RTV;DOTWEEN
