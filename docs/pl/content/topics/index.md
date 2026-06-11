@@ -1588,7 +1588,7 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Chopin Monument](../cards/index.md#chopin_monument)**
+    - **[Pomnik Chopina](../cards/index.md#chopin_monument)**
     Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Drzewo, pod którym siedzi, to typowa polska wierzba).
 
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }

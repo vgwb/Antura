@@ -77,15 +77,15 @@ Une personne qui s’occupe des abeilles et récolte le miel.
 
 ---
 
-### Autobus {#bus}
-![preview bus](../../../assets/img/content/cards/bus.jpg){ loading=lazy }
+### Balle {#ball}
+![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
 
-Un gros véhicule qui transporte de nombreuses personnes.
+Un objet rond utilisé dans de nombreux jeux.
 
 - Type: Object
-- Subjects: Transportation, Community
+- Subjects: Sport, Recreation
 - Country: International
-- Image credit: CC_BY_SA | Xosema | [source](https://commons.wikimedia.org/wiki/File:Setra_S6_-_Empresa_Mosquera_-_02.jpg)
+- Image credit: CC_BY_SA | Marco Gualazzini | [source](https://commons.wikimedia.org/wiki/File:Playing_in_the_Nuba_mountains.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -222,19 +222,6 @@ Un traîneau rapide utilisé pour glisser sur la glace.
 
 ---
 
-### Boisko do piłki nożnej {#soccer_field}
-![preview soccer_field](../../../assets/img/content/cards/soccer_field.jpg){ loading=lazy }
-
-Le terrain en herbe où se joue le football.
-
-- Type: Place
-- Subjects: Sport, Recreation, Community
-- Country: International
-- Image credit: CC_BY_SA | لا روسا | [source](https://commons.wikimedia.org/wiki/File:Santiagobernabeupanoramav45.JPG)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Boucher {#butcher}
 ![preview butcher](../../../assets/img/content/cards/butcher.jpg){ loading=lazy }
 
@@ -262,19 +249,6 @@ Une personne qui fait du pain, des gâteaux et des pâtisseries.
 
 ---
 
-### Bramka {#goal}
-![preview goal](../../../assets/img/content/cards/goal.jpg){ loading=lazy }
-
-Le filet dans lequel vous essayez de marquer.
-
-- Type: Object
-- Subjects: Sport, Recreation
-- Country: International
-- Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Dülmen,_Sportzentrum_Süd_--_2012_--_4121.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Bratislava {#capital_bratislava}
 ![preview capital_bratislava](../../../assets/img/content/cards/capital_bratislava.jpg){ loading=lazy }
 
@@ -297,6 +271,32 @@ La capitale de la Belgique.
 - Country: International
 - Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Horst J. Meuter | [source](https://commons.wikimedia.org/wiki/File:Atomium,_Brüssel_2.jpg)
+
+---
+
+### Bus {#bus}
+![preview bus](../../../assets/img/content/cards/bus.jpg){ loading=lazy }
+
+Un gros véhicule qui transporte de nombreuses personnes.
+
+- Type: Object
+- Subjects: Transportation, Community
+- Country: International
+- Image credit: CC_BY_SA | Xosema | [source](https://commons.wikimedia.org/wiki/File:Setra_S6_-_Empresa_Mosquera_-_02.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### But {#goal}
+![preview goal](../../../assets/img/content/cards/goal.jpg){ loading=lazy }
+
+Le filet dans lequel vous essayez de marquer.
+
+- Type: Object
+- Subjects: Sport, Recreation
+- Country: International
+- Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Dülmen,_Sportzentrum_Süd_--_2012_--_4121.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -397,6 +397,19 @@ Une forme ronde sans coins. Les cercles ressemblent à des roues, des boules et 
 
 ---
 
+### Chambres du Parlement polonais {#polish_houses_of_parliament}
+![preview polish_houses_of_parliament](../../../assets/img/content/cards/polish_houses_of_parliament.jpg){ loading=lazy }
+
+Là où les lois sont faites : la Diète et le Sénat.
+
+- Type: Place
+- Subjects: Civics, History, Geography
+- Country: International
+- Image credit: CC0
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Chapeau {#hat}
 ![preview hat](../../../assets/img/content/cards/hat.jpg){ loading=lazy }
 
@@ -433,6 +446,19 @@ Intelligent et joueur, il adore grimper aux arbres. Il utilise des bâtons et de
 - Topics: [Zoo Animals](../topics/index.md#zoo)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Château Royal (Varsovie) {#royal_castle_warsaw}
+![preview royal_castle_warsaw](../../../assets/img/content/cards/royal_castle_warsaw.jpg){ loading=lazy }
+
+Un château historique des rois polonais, aujourd'hui un musée.
+
+- Type: Place
+- Subjects: History, Culture, Geography
+- Country: International
+- Image credit: CC0 | Bernardo Bellotto | [source](https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_-_View_of_Warsaw_from_the_Royal_Castle_-_Google_Art_Project.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -514,6 +540,19 @@ Un outil qui permet de tracer des cercles parfaits. Il possède deux branches, c
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
 - Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
+
+---
+
+### Constitution du 3 mai {#constitution_of_3_may}
+![preview constitution_of_3_may](../../../assets/img/content/cards/constitution_of_3_may.jpg){ loading=lazy }
+
+Une constitution polonaise historique célébrée le 3 mai.
+
+- Type: Concept
+- Subjects: Civics, History, Time
+- Country: International
+- Image credit: CC0 | Constitutional Convention | [source](https://commons.wikimedia.org/wiki/File:Constitution_of_the_United_States,_page_1.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -829,6 +868,19 @@ Un outil chauffant utilisé pour lisser et aplatir les vêtements froissés. Att
 
 ---
 
+### Football (soccer) {#football_soccer}
+![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
+
+Un jeu d’équipe joué avec un ballon que vous frappez.
+
+- Type: Object
+- Subjects: Sport, Recreation, Community
+- Country: International
+- Image credit: CC_BY_SA | Clément Bucco-Lechat | [source](https://commons.wikimedia.org/wiki/File:Algérie_-_Arménie_-_20140531_-_Yacine_Brahimi_(Alg)_face_à_Taron_Voskanyan_(Arm).jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Foulard {#scarf}
 ![preview scarf](../../../assets/img/content/cards/scarf.jpg){ loading=lazy }
 
@@ -1005,19 +1057,6 @@ Une huile spéciale à base d'olives. On l'utilise pour cuisiner des plats savou
 
 ---
 
-### Izby parlamentu polskiego {#polish_houses_of_parliament}
-![preview polish_houses_of_parliament](../../../assets/img/content/cards/polish_houses_of_parliament.jpg){ loading=lazy }
-
-Là où les lois sont faites : la Diète et le Sénat.
-
-- Type: Place
-- Subjects: Civics, History, Geography
-- Country: International
-- Image credit: CC0
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Jeune lion mâle {#animal_lion_young_male}
 ![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
 
@@ -1030,28 +1069,15 @@ Devenant fort avec une crinière courte, il apprend à chasser et à protéger s
 
 ---
 
-### Kolumna Zygmunta III Wazy {#king_sigismunds_column}
-![preview king_sigismunds_column](../../../assets/img/content/cards/king_sigismunds_column.jpg){ loading=lazy }
+### Jour de l'Indépendance (Pologne) {#independence_day_poland}
+![preview independence_day_poland](../../../assets/img/content/cards/independence_day_poland.jpg){ loading=lazy }
 
-Une haute colonne honorant le roi Sigismond sur la place du château.
-
-- Type: Place
-- Subjects: History, Culture
-- Country: International
-- Image credit: CC_BY_SA | Haydn Blackey from Cardiff, Wales | [source](https://commons.wikimedia.org/wiki/File:Column_of_King_Sigismund_III_Vasa_-_Warsaw_(53113393114).jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Konstytucja 3 Maja {#constitution_of_3_may}
-![preview constitution_of_3_may](../../../assets/img/content/cards/constitution_of_3_may.jpg){ loading=lazy }
-
-Une constitution polonaise historique célébrée le 3 mai.
+Un jour férié national le 11 novembre.
 
 - Type: Concept
 - Subjects: Civics, History, Time
 - Country: International
-- Image credit: CC0 | Constitutional Convention | [source](https://commons.wikimedia.org/wiki/File:Constitution_of_the_United_States,_page_1.jpg)
+- Image credit: CC_BY_SA | Patryk Matyjaszczyk | [source](https://commons.wikimedia.org/wiki/File:Narodowe_Święto_Niepodległości_2012_01.JPG)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -1065,6 +1091,32 @@ La capitale de l'Ukraine.
 - Subjects: Geography, Culture
 - Country: International
 - Image credit: CC_BY_SA | Moahim | [source](https://commons.wikimedia.org/wiki/File:2017_-_Київ_-_Світанок_над_Дніпром.jpg)
+
+---
+
+### L'épée de la sirène {#mermaids_sword}
+![preview mermaids_sword](../../../assets/img/content/cards/mermaids_sword.jpg){ loading=lazy }
+
+L’épée de la sirène qui doit être rendue.
+
+- Type: Object
+- Subjects: Culture, History
+- Country: International
+- Image credit: CC_BY_SA | Guillaume Speurt from Vilnius, Lithuania | [source](https://commons.wikimedia.org/wiki/File:Mermaid_statue_with_sword_(8121475992).jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### La colonne du roi Sigismond {#king_sigismunds_column}
+![preview king_sigismunds_column](../../../assets/img/content/cards/king_sigismunds_column.jpg){ loading=lazy }
+
+Une haute colonne honorant le roi Sigismond sur la place du château.
+
+- Type: Place
+- Subjects: History, Culture
+- Country: International
+- Image credit: CC_BY_SA | Haydn Blackey from Cardiff, Wales | [source](https://commons.wikimedia.org/wiki/File:Column_of_King_Sigismund_III_Vasa_-_Warsaw_(53113393114).jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1255,7 +1307,7 @@ Un marché à l'ancienne où les gens achètent et vendent des marchandises.
 
 ---
 
-### Maria Skłodowska‑Curie {#maria_skodowskacurie}
+### Maria Skłodowska-Curie {#maria_skodowskacurie}
 ![preview maria_skodowskacurie](../../../assets/img/content/cards/maria_skodowskacurie.jpg){ loading=lazy }
 
 Un scientifique qui a remporté deux prix Nobel.
@@ -1332,19 +1384,6 @@ Une vaste mer d'Europe du Nord, où se rencontrent la Pologne, l'Allemagne et d'
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC0
 - Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
-
----
-
-### Miecz Syreny {#mermaids_sword}
-![preview mermaids_sword](../../../assets/img/content/cards/mermaids_sword.jpg){ loading=lazy }
-
-L’épée de la sirène qui doit être rendue.
-
-- Type: Object
-- Subjects: Culture, History
-- Country: International
-- Image credit: CC_BY_SA | Guillaume Speurt from Vilnius, Lithuania | [source](https://commons.wikimedia.org/wiki/File:Mermaid_statue_with_sword_(8121475992).jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1436,19 +1475,6 @@ Un outil de forme qui permet de créer des formes de biscuits amusantes.
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC_BY_SA | Piotr Kuczyński | [source](https://commons.wikimedia.org/wiki/File:Traditional_gingerbread_mold_2_(Piotr_Kuczynski).jpg)
 - Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Narodowe Święto Niepodległości {#independence_day_poland}
-![preview independence_day_poland](../../../assets/img/content/cards/independence_day_poland.jpg){ loading=lazy }
-
-Un jour férié national le 11 novembre.
-
-- Type: Concept
-- Subjects: Civics, History, Time
-- Country: International
-- Image credit: CC_BY_SA | Patryk Matyjaszczyk | [source](https://commons.wikimedia.org/wiki/File:Narodowe_Święto_Niepodległości_2012_01.JPG)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1549,6 +1575,32 @@ Un délicieux aliment à base de farine et d'eau. Vous pouvez faire des sandwich
 
 ---
 
+### Palais de la culture et de la science {#palace_of_culture_and_science}
+![preview palace_of_culture_and_science](../../../assets/img/content/cards/palace_of_culture_and_science.jpg){ loading=lazy }
+
+Un grand bâtiment pour les musées, les théâtres et l'apprentissage.
+
+- Type: Place
+- Subjects: Culture, Education, History
+- Country: International
+- Image credit: CC_BY_SA | A.Savin
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Palais présidentiel {#presidential_palace}
+![preview presidential_palace](../../../assets/img/content/cards/presidential_palace.jpg){ loading=lazy }
+
+La résidence officielle du président de la Pologne.
+
+- Type: Place
+- Subjects: Civics, History, Culture
+- Country: International
+- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Warsaw_Presidential_Palace_(22248p).jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Panneau de DANGER {#danger_sign}
 ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ loading=lazy }
 
@@ -1615,32 +1667,6 @@ De petits ponts pour les piétons. Ils vous protègent de la circulation.
 
 ---
 
-### Pałac Kultury i Nauki {#palace_of_culture_and_science}
-![preview palace_of_culture_and_science](../../../assets/img/content/cards/palace_of_culture_and_science.jpg){ loading=lazy }
-
-Un grand bâtiment pour les musées, les théâtres et l'apprentissage.
-
-- Type: Place
-- Subjects: Culture, Education, History
-- Country: International
-- Image credit: CC_BY_SA | A.Savin
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Pałac Prezydencki {#presidential_palace}
-![preview presidential_palace](../../../assets/img/content/cards/presidential_palace.jpg){ loading=lazy }
-
-La résidence officielle du président de la Pologne.
-
-- Type: Place
-- Subjects: Civics, History, Culture
-- Country: International
-- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Warsaw_Presidential_Palace_(22248p).jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Pièces {#coins}
 ![preview coins](../../../assets/img/content/cards/coins.jpg){ loading=lazy }
 
@@ -1654,28 +1680,15 @@ Petite monnaie ronde en métal.
 
 ---
 
-### Piłka {#ball}
-![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
+### Pièces de złoty {#zoty_coins}
+![preview zoty_coins](../../../assets/img/content/cards/zoty_coins.jpg){ loading=lazy }
 
-Un objet rond utilisé dans de nombreux jeux.
-
-- Type: Object
-- Subjects: Sport, Recreation
-- Country: International
-- Image credit: CC_BY_SA | Marco Gualazzini | [source](https://commons.wikimedia.org/wiki/File:Playing_in_the_Nuba_mountains.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Piłka nożna {#football_soccer}
-![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
-
-Un jeu d’équipe joué avec un ballon que vous frappez.
+Monnaie polonaise (złoty) représentée sous forme de pièces de monnaie.
 
 - Type: Object
-- Subjects: Sport, Recreation, Community
+- Subjects: Money, Geography
 - Country: International
-- Image credit: CC_BY_SA | Clément Bucco-Lechat | [source](https://commons.wikimedia.org/wiki/File:Algérie_-_Arménie_-_20140531_-_Yacine_Brahimi_(Alg)_face_à_Taron_Voskanyan_(Arm).jpg)
+- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -1713,19 +1726,6 @@ Un arbre vert brillant aux oranges rondes et juteuses. Son parfum frais et sucr�
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Pociąg {#train}
-![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
-
-Les trains transportent rapidement des personnes et des marchandises à travers le pays.
-
-- Type: Object
-- Subjects: Transportation
-- Country: International
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
 
 ---
 
@@ -1784,19 +1784,6 @@ Un pays d'Europe dont la capitale est Varsovie. La Pologne est célèbre pour se
 
 ---
 
-### Polskie monety {#zoty_coins}
-![preview zoty_coins](../../../assets/img/content/cards/zoty_coins.jpg){ loading=lazy }
-
-Monnaie polonaise (złoty) représentée sous forme de pièces de monnaie.
-
-- Type: Object
-- Subjects: Money, Geography
-- Country: International
-- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Pomme {#food_apple}
 ![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
 
@@ -1806,19 +1793,6 @@ Rouge, rond et croquant sous la dent. Un fruit savoureux qui vous garde en forme
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Pomnik Warsa i Sawy {#wars_and_sawa_statue}
-![preview wars_and_sawa_statue](../../../assets/img/content/cards/wars_and_sawa_statue.jpg){ loading=lazy }
-
-Une statue représentant la légende de la ville sur les guerres et Sawa.
-
-- Type: Place
-- Subjects: Culture, History
-- Country: International
-- Image credit: CC_BY_SA | Wistula
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -1937,19 +1911,6 @@ Un célèbre footballeur polonais.
 
 ---
 
-### Rower {#bike}
-![preview bike](../../../assets/img/content/cards/bike.jpg){ loading=lazy }
-
-Un véhicule à deux roues sur lequel on pédale.
-
-- Type: Object
-- Subjects: Transportation, Sport, Health
-- Country: International
-- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Russie {#country_russia}
 ![preview country_russia](../../../assets/img/content/cards/country_russia.jpg){ loading=lazy }
 
@@ -2001,19 +1962,6 @@ Un sac que vous portez sur votre dos.
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | FOTO:Fortepan — ID 20607: Adományozó/Donor: Wein Sarolta. archive copy at the Wayback Machine | [source](https://commons.wikimedia.org/wiki/File:Colorful,_backpack_Fortepan_20607.jpg)
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### Samochód {#car}
-![preview car](../../../assets/img/content/cards/car.jpg){ loading=lazy }
-
-Un petit véhicule pour les routes.
-
-- Type: Object
-- Subjects: Transportation
-- Country: International
-- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Abandoned_car_in_Marine_Park_(10852p).jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -2097,7 +2045,7 @@ Le sommet d'une montagne.
 
 ---
 
-### Stadion Narodowy (Warszawa) {#national_stadium_warsaw}
+### Stade national (Varsovie) {#national_stadium_warsaw}
 ![preview national_stadium_warsaw](../../../assets/img/content/cards/national_stadium_warsaw.jpg){ loading=lazy }
 
 Un stade moderne pour les matchs de football et les concerts.
@@ -2106,6 +2054,19 @@ Un stade moderne pour les matchs de football et les concerts.
 - Subjects: Sport, Culture, Community
 - Country: International
 - Image credit: CC_BY_SA | Arne Müseler | [source](https://commons.wikimedia.org/wiki/File:National_Stadium_Warsaw_aerial_view_2.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Statue des guerres et de Sawa {#wars_and_sawa_statue}
+![preview wars_and_sawa_statue](../../../assets/img/content/cards/wars_and_sawa_statue.jpg){ loading=lazy }
+
+Une statue représentant la légende de la ville sur les guerres et Sawa.
+
+- Type: Place
+- Subjects: Culture, History
+- Country: International
+- Image credit: CC_BY_SA | Wistula
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -2156,6 +2117,19 @@ Des règles qui assurent la sécurité de tous sur la route.
 
 ---
 
+### terrain de football {#soccer_field}
+![preview soccer_field](../../../assets/img/content/cards/soccer_field.jpg){ loading=lazy }
+
+Le terrain en herbe où se joue le football.
+
+- Type: Place
+- Subjects: Sport, Recreation, Community
+- Country: International
+- Image credit: CC_BY_SA | لا روسا | [source](https://commons.wikimedia.org/wiki/File:Santiagobernabeupanoramav45.JPG)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Tomate {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
@@ -2170,7 +2144,20 @@ Un fruit rouge et rond qui pousse sur les plantes. On utilise les tomates pour f
 
 ---
 
-### Tramwaj {#tram}
+### Train {#train}
+![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
+
+Les trains transportent rapidement des personnes et des marchandises à travers le pays.
+
+- Type: Object
+- Subjects: Transportation
+- Country: International
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+
+---
+
+### Tram {#tram}
 ![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
 
 Un train urbain qui circule sur des rails dans la rue.
@@ -2312,15 +2299,28 @@ La capitale de la Lituanie.
 
 ---
 
-### Zamek Królewski (Warszawa) {#royal_castle_warsaw}
-![preview royal_castle_warsaw](../../../assets/img/content/cards/royal_castle_warsaw.jpg){ loading=lazy }
+### Voiture {#car}
+![preview car](../../../assets/img/content/cards/car.jpg){ loading=lazy }
 
-Un château historique des rois polonais, aujourd'hui un musée.
+Un petit véhicule pour les routes.
 
-- Type: Place
-- Subjects: History, Culture, Geography
+- Type: Object
+- Subjects: Transportation
 - Country: International
-- Image credit: CC0 | Bernardo Bellotto | [source](https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_-_View_of_Warsaw_from_the_Royal_Castle_-_Google_Art_Project.jpg)
+- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Abandoned_car_in_Marine_Park_(10852p).jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Vélo {#bike}
+![preview bike](../../../assets/img/content/cards/bike.jpg){ loading=lazy }
+
+Un véhicule à deux roues sur lequel on pédale.
+
+- Type: Object
+- Subjects: Transportation, Sport, Health
+- Country: International
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -3855,20 +3855,6 @@ Une célèbre pièce en ambre avec une histoire mystérieuse.
 
 ---
 
-### Chopin Monument {#chopin_monument}
-![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
-
-Une grande statue du parc Łazienki de Varsovie est dédiée à Frédéric Chopin. C'est également le lieu de concerts de piano en plein air très populaires en été. (L'arbre sous lequel il est assis est un saule polonais typique.)
-
-- Type: Object
-- Subjects: Music, Culture
-- Country: Poland
-- Topics: [Warsaw](../topics/index.md#warsaw)
-- Image credit: CC0 | Ethan Doyle White, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:The_Chopin_Monument_in_Warsaw.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Collier {#necklace}
 ![preview necklace](../../../assets/img/content/cards/necklace.jpg){ loading=lazy }
 
@@ -3965,6 +3951,22 @@ La personne qui dirige le zoo et aide les visiteurs.
 
 ---
 
+### Drapeau de la Pologne {#flag_poland}
+![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ loading=lazy }
+
+Le drapeau polonais est orné de bandes horizontales blanches et rouges. La Pologne est célèbre pour ses scientifiques comme Copernic et ses délicieux pierogi !
+
+- Rationale: The Polish flag is essential for Polish language learning and cultural identity
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1919
+- Country: Poland
+- Topics: [Poland country](../topics/index.md#poland-country)
+- Image credit: CC0
+- Quests: [Les voisins de la Pologne (pl_00)](../quests/quest/pl_00.md)
+
+---
+
 ### Drapeau de Wrocław {#wroclaw_flag}
 ![preview wroclaw_flag](../../../assets/img/content/cards/wroclaw_flag.jpg){ loading=lazy }
 
@@ -4020,22 +4022,6 @@ Un filet utilisé pour attraper du poisson.
 
 ---
 
-### Flaga Polski {#flag_poland}
-![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ loading=lazy }
-
-Le drapeau polonais est orné de bandes horizontales blanches et rouges. La Pologne est célèbre pour ses scientifiques comme Copernic et ses délicieux pierogi !
-
-- Rationale: The Polish flag is essential for Polish language learning and cultural identity
-- Type: Concept
-- Subjects: Geography, Culture
-- Year: 1919
-- Country: Poland
-- Topics: [Poland country](../topics/index.md#poland-country)
-- Image credit: CC0
-- Quests: [Les voisins de la Pologne (pl_00)](../quests/quest/pl_00.md)
-
----
-
 ### Flots {#waves}
 ![preview waves](../../../assets/img/content/cards/waves.jpg){ loading=lazy }
 
@@ -4064,7 +4050,7 @@ De l'eau qui danse avec de la musique et des lumières colorées.
 
 ---
 
-### Fryderyk Chopin {#fryderyk_chopin}
+### Frédéric Chopin {#fryderyk_chopin}
 ![preview fryderyk_chopin](../../../assets/img/content/cards/fryderyk_chopin.jpg){ loading=lazy }
 
 Célèbre compositeur polonais pour le piano, il a composé une musique magnifique qui évoque la danse ou les histoires. Sa musique rend les gens heureux ou tristes.
@@ -4406,6 +4392,20 @@ La monnaie polonaise s'appelle le złoty. Les pièces et les billets arborent de
 - Topics: [Pierogi Recipe](../topics/index.md#pierogi)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Bitllets_de_banc_polonesos_2024.jpg)
 - Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Monument à Chopin {#chopin_monument}
+![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
+
+Une grande statue du parc Łazienki de Varsovie est dédiée à Frédéric Chopin. C'est également le lieu de concerts de piano en plein air très populaires en été. (L'arbre sous lequel il est assis est un saule polonais typique.)
+
+- Type: Object
+- Subjects: Music, Culture
+- Country: Poland
+- Topics: [Warsaw](../topics/index.md#warsaw)
+- Image credit: CC0 | Ethan Doyle White, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:The_Chopin_Monument_in_Warsaw.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -4926,20 +4926,7 @@ Un tableau avec des faits simples pour vous aider à apprendre.
 
 ---
 
-### Statue du nain de Wrocław {#wroclaw_dwarf_statue}
-![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ loading=lazy }
-
-Une petite statue de la ville ; les nains sont le symbole de Wrocław.
-
-- Type: Object
-- Subjects: Culture, Community, History
-- Country: Poland
-- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
-- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
-
----
-
-### Syrenka Warszawska {#mermaid_of_warsaw}
+### Sirène de Varsovie {#mermaid_of_warsaw}
 ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ loading=lazy }
 
 Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bouclier. Vous pouvez admirer sa statue au bord de la rivière.
@@ -4950,6 +4937,19 @@ Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bo
 - Topics: [Warsaw](../topics/index.md#warsaw)
 - Image credit: CC0 | Grzegorz Polak, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Syrenka_Warszawska.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Statue du nain de Wrocław {#wroclaw_dwarf_statue}
+![preview wroclaw_dwarf_statue](../../../assets/img/content/cards/wroclaw_dwarf_statue.jpg){ loading=lazy }
+
+Une petite statue de la ville ; les nains sont le symbole de Wrocław.
+
+- Type: Object
+- Subjects: Culture, Community, History
+- Country: Poland
+- Image credit: CC_BY_SA | Pnapora | [source](https://commons.wikimedia.org/wiki/File:Trener_(Coach)_Wroclaw_dwarf_01.jpg)
+- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
 
 ---
 

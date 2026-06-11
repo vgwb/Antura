@@ -947,7 +947,7 @@ Credits:
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
-    - **[Pociąg](../cards/index.md#train)** (RelatedTo)
+    - **[Train](../cards/index.md#train)** (RelatedTo)
     Les trains transportent rapidement des personnes et des marchandises à travers le pays.
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
@@ -1571,7 +1571,7 @@ Credits:
     ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ width="200" }
 
 - Connected cards:
-    - **[Flaga Polski](../cards/index.md#flag_poland)** (CulturalContext)
+    - **[Drapeau de la Pologne](../cards/index.md#flag_poland)** (CulturalContext)
     Le drapeau polonais est orné de bandes horizontales blanches et rouges. La Pologne est célèbre pour ses scientifiques comme Copernic et ses délicieux pierogi !
 
     ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ width="200" }
@@ -1589,13 +1589,13 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Chopin Monument](../cards/index.md#chopin_monument)**
+    - **[Monument à Chopin](../cards/index.md#chopin_monument)**
     Une grande statue du parc Łazienki de Varsovie est dédiée à Frédéric Chopin. C'est également le lieu de concerts de piano en plein air très populaires en été. (L'arbre sous lequel il est assis est un saule polonais typique.)
 
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }
 
 - Connected cards:
-    - **[Syrenka Warszawska](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
+    - **[Sirène de Varsovie](../cards/index.md#mermaid_of_warsaw)** (RelatedTo)
     Le symbole de la ville est une sirène courageuse armée d'une épée et d'un bouclier. Vous pouvez admirer sa statue au bord de la rivière.
 
     ![preview mermaid_of_warsaw](../../../assets/img/content/cards/mermaid_of_warsaw.jpg){ width="200" }
@@ -1605,7 +1605,7 @@ Credits:
 
     ![preview wars_and_sawa](../../../assets/img/content/cards/wars_and_sawa.jpg){ width="200" }
 
-    - **[Fryderyk Chopin](../cards/index.md#fryderyk_chopin)** (RelatedTo)
+    - **[Frédéric Chopin](../cards/index.md#fryderyk_chopin)** (RelatedTo)
     Célèbre compositeur polonais pour le piano, il a composé une musique magnifique qui évoque la danse ou les histoires. Sa musique rend les gens heureux ou tristes.
 
     ![preview fryderyk_chopin](../../../assets/img/content/cards/fryderyk_chopin.jpg){ width="200" }

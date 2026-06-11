@@ -54,7 +54,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card wars_and_sawa&gt;&gt;</span>
 <span class="yarn-line">Wars e Sawa ti hanno dato il secondo pezzo.</span> <span class="yarn-meta">#line:02100a1 </span>
 <span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
-<span class="yarn-line">Re Sigismondo ti ha dato il terzo pezzo.</span> <span class="yarn-meta">#line:0bc4b13 </span>
+<span class="yarn-line">Il re Sigismondo ti ha dato il terzo pezzo.</span> <span class="yarn-meta">#line:0bc4b13 </span>
 <span class="yarn-cmd">&lt;&lt;card polish_houses_of_parliament&gt;&gt;</span>
 <span class="yarn-line">In Parlamento hai trovato il quarto pezzo.</span> <span class="yarn-meta">#line:0127674 </span>
 <span class="yarn-cmd">&lt;&lt;card fryderyk_chopin&gt;&gt;</span>
@@ -631,7 +631,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: wars_sawa</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Recatevi nella Piazza della Città Vecchia e parlate con il re Sigismondo.</span> <span class="yarn-meta">#line:024c223 </span>
+<span class="yarn-line">Recatevi nella Piazza della Città Vecchia e parlate con Re Sigismondo.</span> <span class="yarn-meta">#line:024c223 </span>
 <span class="yarn-cmd">&lt;&lt;target npc_3&gt;&gt;</span>
 
 </code>
@@ -1371,7 +1371,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;detour info_6&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;card palace_of_culture_and_science&gt;&gt;</span>
-<span class="yarn-line">	Parla con le persone vestite di viola che si trovano intorno al Palazzo.</span> <span class="yarn-meta">#line:087abc4 #task:task_6</span>
+<span class="yarn-line">	Parla con le persone vestite di viola che si trovano nei pressi del Palazzo.</span> <span class="yarn-meta">#line:087abc4 #task:task_6</span>
 <span class="yarn-line">	Scopri di più sulla scienza e sullo złoty.</span> <span class="yarn-meta">#line:033fd4f </span>
 	<span class="yarn-cmd">&lt;&lt;task_start task_6 task_6_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>

@@ -529,7 +529,7 @@ hide:
 <span class="yarn-header-dim">group: wars_sawa</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wars_and_sawa_statue&gt;&gt;</span>
-<span class="yarn-line">Wars et Sawa sont issus d'une vieille légende sur Varsovie.</span> <span class="yarn-meta">#line:050161f </span>
+<span class="yarn-line">Wars et Sawa sont issus d'une vieille légende concernant Varsovie.</span> <span class="yarn-meta">#line:050161f </span>
 <span class="yarn-cmd">&lt;&lt;inventory key_gold add 1&gt;&gt;</span>
 <span class="yarn-line">Voici une clé pour vous !</span> <span class="yarn-meta">#shadow:your_key</span>
 <span class="yarn-cmd">&lt;&lt;collect key_gold&gt;&gt;</span>
@@ -1395,7 +1395,7 @@ hide:
 <span class="yarn-line">Il a été construit dans les années 1950 et offre une vue imprenable depuis son sommet.</span> <span class="yarn-meta">#line:0a22a2b </span>
 <span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
 <span class="yarn-line">Maria Skłodowska-Curie était une scientifique polonaise.</span> <span class="yarn-meta">#line:0c866e7</span>
-<span class="yarn-line">Elle fut la première femme à remporter un prix Nobel, et elle en a remporté deux.</span> <span class="yarn-meta">#line:079022b </span>
+<span class="yarn-line">Elle fut la première femme à remporter un prix Nobel, et elle en remporta deux.</span> <span class="yarn-meta">#line:079022b </span>
 
 </code>
 </pre>
@@ -1513,7 +1513,7 @@ hide:
 	<span class="yarn-cmd">&lt;&lt;if $chest_6_done == false&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;set $chest_6_done = true&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
-<span class="yarn-line">		Maria Skłodowska-Curie était une grande scientifique polonaise.</span> <span class="yarn-meta">#line:0e29d15 </span>
+<span class="yarn-line">		Maria Sklodowska-Curie était une grande scientifique polonaise.</span> <span class="yarn-meta">#line:0e29d15 </span>
 		<span class="yarn-cmd">&lt;&lt;trigger chest_6_open&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;SetInteractable chest_6 false&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;inventory key_gold remove 3&gt;&gt;</span>
@@ -1751,7 +1751,7 @@ hide:
 	<span class="yarn-cmd">&lt;&lt;if $chest_7_done == false&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;set $chest_7_done = true&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;card football_soccer&gt;&gt;</span>
-<span class="yarn-line">		Le football est l'un des sports les plus populaires ici.</span> <span class="yarn-meta">#line:0c9dff3 </span>
+<span class="yarn-line">		Le football est l'un des sports les plus populaires pratiqués ici.</span> <span class="yarn-meta">#line:0c9dff3 </span>
 		<span class="yarn-cmd">&lt;&lt;card ball&gt;&gt;</span>
 <span class="yarn-line">		Le ballon est ce que les joueurs envoient au pied sur le terrain.</span> <span class="yarn-meta">#line:0faaf96 </span>
 		<span class="yarn-cmd">&lt;&lt;card goal&gt;&gt;</span>
@@ -1764,7 +1764,7 @@ hide:
 		<span class="yarn-cmd">&lt;&lt;SetInteractable chest_7 false&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;inventory key_gold remove 4&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;inventory mermaids_sword add&gt;&gt;</span>
-<span class="yarn-line">		La septième pièce d'épée est à vous ! Vous avez les 7 pièces !</span> <span class="yarn-meta">#line:0a2ac65 </span>
+<span class="yarn-line">		Le septième morceau d'épée est à vous ! Vous avez les 7 morceaux !</span> <span class="yarn-meta">#line:0a2ac65 </span>
 <span class="yarn-line">		Retournez voir la Sirène et réassemblez l'épée.</span> <span class="yarn-meta">#line:0221147 </span>
 		<span class="yarn-cmd">&lt;&lt;target npc_1&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>

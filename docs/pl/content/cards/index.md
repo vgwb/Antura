@@ -3777,20 +3777,6 @@ Słynny pokój z bursztynu o tajemniczej historii.
 
 ---
 
-### Chopin Monument {#chopin_monument}
-![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
-
-Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Drzewo, pod którym siedzi, to typowa polska wierzba).
-
-- Type: Object
-- Subjects: Music, Culture
-- Country: Poland
-- Topics: [Warsaw](../topics/index.md#warsaw)
-- Image credit: CC0 | Ethan Doyle White, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:The_Chopin_Monument_in_Warsaw.jpg)
-- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
-
----
-
 ### Dalí - Profil czasu {#dali_profile_of_time}
 ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ loading=lazy }
 
@@ -4659,6 +4645,20 @@ Pierogi z nadzieniem ziemniaczanym, serowym lub owocowym. To słynne polskie dan
 - Topics: [Pierogi Recipe](../topics/index.md#pierogi)
 - Image credit: CC0
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Pomnik Chopina {#chopin_monument}
+![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
+
+Duży pomnik w warszawskich Łazienkach Królewskich poświęcony Fryderykowi Chopinowi. Latem odbywają się tam również popularne plenerowe koncerty fortepianowe. (Drzewo, pod którym siedzi, to typowa polska wierzba).
+
+- Type: Object
+- Subjects: Music, Culture
+- Country: Poland
+- Topics: [Warsaw](../topics/index.md#warsaw)
+- Image credit: CC0 | Ethan Doyle White, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:The_Chopin_Monument_in_Warsaw.jpg)
+- Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
 

@@ -112,7 +112,7 @@ hide:
 <span class="yarn-choice">-&gt; Kompozytor.</span> <span class="yarn-meta">#line:04d5c5f </span>
 	<span class="yarn-cmd">&lt;&lt;set $quiz_score = $quiz_score + 1&gt;&gt;</span>
 <span class="yarn-line">	Prawidłowy.</span> <span class="yarn-meta">#shadow:correct</span>
-<span class="yarn-line">Czym jest rzeka Wisła?</span> <span class="yarn-meta">#line:0e17c6d </span>
+<span class="yarn-line">Co to jest Wisła?</span> <span class="yarn-meta">#line:0e17c6d </span>
 <span class="yarn-choice">-&gt; Pałac.</span> <span class="yarn-meta">#line:002ec2d </span>
 <span class="yarn-line">	Jesteś pewien?</span> <span class="yarn-meta">#shadow:are_you_sure</span>
 <span class="yarn-choice">-&gt; Stadion.</span> <span class="yarn-meta">#line:0b7ff07 </span>
@@ -138,7 +138,7 @@ hide:
 <div class="yarn-node" data-title="teleport">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dokąd chcesz iść?</span> <span class="yarn-meta">#line:where_to_go</span>
+<span class="yarn-line">Dokąd chcesz jechać?</span> <span class="yarn-meta">#line:where_to_go</span>
 -&gt; Center <span class="yarn-cmd">&lt;&lt;if $current_place == "stadium" or $current_place == "parliament"&gt;&gt;</span>  <span class="yarn-meta">#line:tram_center</span>
     <span class="yarn-cmd">&lt;&lt;teleport tram_center&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;wait 4&gt;&gt;</span>
@@ -529,7 +529,7 @@ hide:
 <span class="yarn-header-dim">group: wars_sawa</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wars_and_sawa_statue&gt;&gt;</span>
-<span class="yarn-line">Wars i Sawa są postaciami ze starej legendy o Warszawie.</span> <span class="yarn-meta">#line:050161f </span>
+<span class="yarn-line">Wars i Sawa są bohaterami starej legendy o Warszawie.</span> <span class="yarn-meta">#line:050161f </span>
 <span class="yarn-cmd">&lt;&lt;inventory key_gold add 1&gt;&gt;</span>
 <span class="yarn-line">Oto klucz dla Ciebie!</span> <span class="yarn-meta">#shadow:your_key</span>
 <span class="yarn-cmd">&lt;&lt;collect key_gold&gt;&gt;</span>
@@ -1394,7 +1394,7 @@ hide:
 <span class="yarn-line">Pałac Kultury i Nauki jest najwyższym budynkiem w Polsce.</span> <span class="yarn-meta">#line:0e1b42a </span>
 <span class="yarn-line">Zbudowano go w latach 50. XX wieku, a z jego szczytu roztacza się wspaniały widok.</span> <span class="yarn-meta">#line:0a22a2b </span>
 <span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
-<span class="yarn-line">Maria Skłodowska-Curie była polską naukowcem.</span> <span class="yarn-meta">#line:0c866e7</span>
+<span class="yarn-line">Maria Skłodowska-Curie była polskim naukowcem</span> <span class="yarn-meta">#line:0c866e7</span>
 <span class="yarn-line">Była pierwszą kobietą, która otrzymała Nagrodę Nobla. Otrzymała ich dwie.</span> <span class="yarn-meta">#line:079022b </span>
 
 </code>
