@@ -45,6 +45,7 @@ actor: NARRATOR
 <<declare $attempts_bernini = 0>>
 <<declare $talked_to_francesco = false>>
 <<declare $quest_complete = false>>
+<<declare $quiz_stage = 0>>
 
 <<card cave_carrara_intro_Card>>
 Welcome to the Carrara marble quarries! #line:08710be 
@@ -65,10 +66,10 @@ color: blue
 actor: ADULT_M
 ---
 <<if $quest_complete>>
-    Great work today! The quarry is running again. #line:0d1498d 
-    You will never forget the secrets of the white mountain! #line:0e773c5 
+    Great work today! The quarry is running again. #line:0d1498d
+    You will never forget the secrets of the white mountain! #line:0e773c5
 <<elseif $talked_to_francesco and $COLLECTED_ITEMS >= 3>>
-    You found all the pieces! Come here, let me fix the machine. #line:07063f1 
+    You found all the pieces! Come here, let me fix the machine. #line:07063f1
     <<jump talk_francesco_finale>>
 <<elseif $talked_to_francesco>>
     The machine is still broken. #line:0f08ddd 
@@ -130,7 +131,8 @@ actor: SENIOR_M
     You already have my piece. #line:0c62422 
     Go find the other spirits. #line:0e334e8 
 <<else>>
-    I am Nicola Pisano, a medieval sculptor. #line:0126c77 
+    <<card ritratto_pisano>>
+    I am Nicola Pisano, a medieval sculptor. #line:0126c77
     It was the year 1260 when I first came here. #line:03e7256 
     <<card pisano>>
     I chose this marble for the Baptistery of Pisa. #line:0668c76 
@@ -147,8 +149,9 @@ color: blue
 actor: SENIOR_M
 ---
 <<card cava_romana>>
-First technique: the wooden wedge. #line:0a9cd74 
-The Romans pushed fig-wood wedges into cracks in the rock. #line:03c8513 
+First technique\:he wooden wedge. #line:0a9cd74
+<<card cuneo_legno>>
+The Romans pushed fig-wood wedges into cracks in the rock. #line:03c8513
 Then they soaked the wood — as it swelled, it split the stone! #line:06bf733 
 Clever, wasn't it? #line:03ebc01 
 <<jump nicola_technique_2>>
@@ -160,8 +163,9 @@ group: nicola
 color: blue
 actor: SENIOR_M
 ---
+Second technique\:explosives. #line:0317894
+<<card esplosivi_1600>>
 <<card esplosivi_cave>>
-Second technique: explosives. #line:0317894 
 From 1600 onwards, workers used gunpowder in the quarries. #line:01e6420 
 They blasted the mountainside to break off the blocks. #line:08716ce 
 It was fast, but it destroyed a lot of marble. #line:01660f7 
@@ -175,7 +179,8 @@ group: nicola
 color: blue
 actor: SENIOR_M
 ---
-Third technique: the diamond wire. #line:0b0e7e9 
+Third technique\:the diamond wire. #line:0b0e7e9
+<<card filo_diamantato>>
 <<card macchinari_moderni>>
 Since 1970, a steel wire coated in industrial diamonds has been used. #line:0c86963 
 It cuts the rock with perfect precision and no waste. #line:09dc937 
@@ -231,9 +236,12 @@ color: purple
 actor: SENIOR_M
 ---
 All right, let me help you a little. #line:050a87e 
-The Romans used the wooden wedge. #line:0c9bb2e 
-In the 1600s they used explosives. #line:0d733fa 
-Today we use the diamond wire. #line:034e203 
+<<card cuneo_legno>>
+The Romans used the wooden wedge. #line:0c9bb2e
+<<card esplosivi_1600>>
+In the 1600s they used explosives. #line:0d733fa
+<<card filo_diamantato>>
+Today we use the diamond wire. #line:034e203
 <<jump nicola_success>>
 ===
 
@@ -275,7 +283,8 @@ actor: SENIOR_M
     You already have my piece. Good! #line:0b38a7c 
     Go find the other spirit. #line:0ee14a4 
 <<else>>
-    I am Michelangelo Buonarroti. #line:0d5074d 
+    <<card ritratto_michelangelo>>
+    I am Michelangelo Buonarroti. #line:0d5074d
     Perhaps the greatest sculptor who ever lived. #line:031f19a 
     <<card michelangelo>>
     I came to Carrara in person to choose my blocks. #line:08a0167 
@@ -409,7 +418,8 @@ actor: ADULT_M
     Go back to Francesco now. #line:0d38c52 
     <<target npc_francesco>>
 <<else>>
-    I am Gian Lorenzo Bernini! #line:0284c52 
+    <<card ritratto_bernini>>
+    I am Gian Lorenzo Bernini! #line:0284c52
     Sculptor, architect, painter. #line:0900d1a 
     I changed the way marble was used forever. #line:07ef64e 
     <<card apollo_e_dafne_bernini>>
@@ -441,9 +451,10 @@ color: blue
 actor: ADULT_M
 ---
 <<card macchinari_moderni>>
-In my time, marble was cut with chisels and mallets. #line:0bd6466 
-Every millimetre was sweat and effort. #line:04b1303 
-Today there is the diamond wire: a steel wire coated in industrial diamonds. #line:0333357 
+In my time, marble was cut with chisels and mallets. #line:0bd6466
+Every millimetre was sweat and effort. #line:04b1303
+Today there is the diamond wire: a steel wire coated in industrial diamonds. #line:0333357
+<<card filo_diamantato>>
 It runs at hundreds of metres per minute. #line:001f02c 
 It slices through marble like butter, with no waste at all. #line:09940bf 
 In a single day you can do the work that in my time took three months. #line:0eebc6b 
@@ -571,7 +582,8 @@ group: finale
 color: blue
 actor: ADULT_M
 ---
-Exactly! It cuts like butter. #line:05ac1c7 
+<<card filo_diamantato>>
+Exactly! It cuts like butter. #line:05ac1c7
 And it does far less damage to the environment. #line:0cb3fb4 
 You're really smart! #line:05c4c5e 
 <<jump francesco_closing>>
@@ -585,7 +597,8 @@ actor: ADULT_M
 ---
 We used that in the old days. #line:076e182 
 It was fast, but it destroyed too much marble. #line:0c38a10 
-Today we use the diamond wire. #line:0071744 
+<<card filo_diamantato>>
+Today we use the diamond wire. #line:0071744
 <<jump francesco_closing>>
 ===
 
@@ -595,114 +608,71 @@ group: finale
 color: blue
 actor: ADULT_M
 ---
-You've learned so much today. #line:0587f90 
-Are you ready for the final test? #line:073eef5 
-Let's see what you remember! #line:0407151 
-<<jump activity_quiz_finale>>
+You've learned so much today. #line:0587f90
+Let me ask you one last question! #line:073eef5
+<<jump quiz_question_2>>
 ===
 
 // ═══════════════════════════════════════════════════════════
-// SCENE D — WRAP: FINAL ASSESSMENT
+// SCENE D — WRAP: SECOND QUESTION (LIZZATURA)
 // ═══════════════════════════════════════════════════════════
 
-title: activity_quiz_finale
+title: quiz_question_2
 position: 2700,0
 group: finale
-color: purple
+color: blue
 actor: ADULT_M
 ---
-Time to answer the questions about the quarries. #line:072fb44 
-<<activity finalquiz quest_end_check normal>>
+<<card lizzatura>>
+In the old days, how did the quarrymen bring marble blocks down the mountain? #line:0fa0001
+-> On the lizza, a wooden sled. #line:0fa0002
+    <<jump quiz2_correct>>
+-> By river on boats. #line:0fa0003
+    <<jump quiz2_wrong>>
+-> On the backs of oxen and horses. #line:0fa0004
+    <<jump quiz2_wrong>>
 ===
 
-title: quest_end_check
+title: quiz2_correct
 position: 3000,0
 group: finale
-color: green
-actor: NARRATOR
+color: blue
+actor: ADULT_M
 ---
-<<if GetActivityResult("finalquiz") > 0>>
-    <<jump activity_quiz2>>
-<<else>>
-    <<jump quiz_retry>>
-<<endif>>
+Exactly right! The lizza — a heavy wooden sled guided down steep slopes with thick hemp ropes. #line:0fa0005
+Incredibly dangerous, but the only way to move such enormous blocks. #line:0fa0006
+<<jump francesco_congrats>>
 ===
 
-title: quiz_retry
+title: quiz2_wrong
 position: 3000,100
 group: finale
-color: purple
+color: blue
 actor: ADULT_M
 ---
-Try again! Use what you have learned. #line:0a34a6d 
-<<activity finalquiz quest_end_check normal>>
-===
-
-title: activity_quiz2
-position: 2700,200
-group: finale
-color: purple
-actor: ADULT_M
----
-<<activity finalquiz2 quiz2_result normal>>
-===
-
-title: quiz2_result
-position: 3000,200
-group: finale
-color: green
-actor: NARRATOR
----
-<<if GetActivityResult("finalquiz2") > 0>>
-    <<jump activity_quiz3>>
-<<else>>
-    <<jump quiz2_retry>>
-<<endif>>
-===
-
-title: quiz2_retry
-position: 3000,300
-group: finale
-color: purple
-actor: ADULT_M
----
-<<activity finalquiz2 quiz2_result normal>>
-===
-
-title: activity_quiz3
-position: 2700,400
-group: finale
-color: purple
-actor: ADULT_M
----
-<<activity finalquiz3 quiz3_result normal>>
-===
-
-title: quiz3_result
-position: 3000,400
-group: finale
-color: green
-actor: NARRATOR
----
-<<if GetActivityResult("finalquiz3") > 0>>
-    <<jump quest_end>>
-<<else>>
-    <<jump quiz3_retry>>
-<<endif>>
-===
-
-title: quiz3_retry
-position: 3000,500
-group: finale
-color: purple
-actor: ADULT_M
----
-<<activity finalquiz3 quiz3_result normal>>
+Not quite! The quarrymen used the lizza: a heavy wooden sled slid down steep slopes with thick hemp ropes. #line:0fa0007
+<<card lizzatura>>
+It was the most dangerous job in the quarries. #line:0fa0008
+<<jump francesco_congrats>>
 ===
 
 // ═══════════════════════════════════════════════════════════
 // QUEST END
 // ═══════════════════════════════════════════════════════════
+
+title: francesco_congrats
+position: 3200,0
+group: finale
+color: blue
+actor: ADULT_M
+---
+Outstanding! You know your marble! #line:0cc3401
+You have truly learned the secrets of the white mountain. #line:0cc3402
+From the lizza to the diamond wire — #line:0cc3403
+you now carry the whole history of Carrara in your mind. #line:0cc3404
+I couldn't have wished for a better explorer today. Well done! #line:0cc3405
+<<jump quest_end>>
+===
 
 title: quest_end
 position: 3300,0
@@ -724,7 +694,7 @@ type: panel
 tags: proposal
 actor: NARRATOR
 ---
-Draw your own marble block. #line:084a8a6 
+
 What would you sculpt? #line:0f4f53d 
 Tell someone at home where Carrara marble comes from. #line:08d2d30 
 <<quest_end>>
