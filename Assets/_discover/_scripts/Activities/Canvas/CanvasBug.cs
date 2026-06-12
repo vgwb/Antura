@@ -158,14 +158,14 @@ namespace Antura.Discover.Activities
             // While pressing/dragging, trigger if pointer moves over the bug
             if (!_alreadyTriggered)
             {
-                bool pressed = Input.GetMouseButton(0) || Input.touchCount > 0;
+                bool pressed = InputCompat.GetMouseButton(0) || InputCompat.touchCount > 0;
                 if (pressed)
                 {
-                    if (Input.touchCount > 0)
+                    if (InputCompat.touchCount > 0)
                     {
-                        for (int i = 0; i < Input.touchCount; i++)
+                        for (int i = 0; i < InputCompat.touchCount; i++)
                         {
-                            var t = Input.GetTouch(i);
+                            var t = InputCompat.GetTouch(i);
                             if (t.phase == TouchPhase.Moved || t.phase == TouchPhase.Stationary || t.phase == TouchPhase.Began)
                             {
                                 if (RectTransformUtility.RectangleContainsScreenPoint(_rt, t.position, _uiCam))
@@ -178,7 +178,7 @@ namespace Antura.Discover.Activities
                     }
                     else
                     {
-                        if (RectTransformUtility.RectangleContainsScreenPoint(_rt, (Vector2)Input.mousePosition, _uiCam))
+                        if (RectTransformUtility.RectangleContainsScreenPoint(_rt, (Vector2)InputCompat.mousePosition, _uiCam))
                         {
                             TriggerTouched();
                         }

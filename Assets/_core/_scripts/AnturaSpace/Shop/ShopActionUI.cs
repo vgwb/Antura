@@ -123,7 +123,7 @@ namespace Antura.AnturaSpace
             if (ShopDecorationsManager.I.ShopContext == ShopContext.Purchase
                 && !shopAction.IsClickButton)
             {
-                var mousePos = AnturaSpaceUI.I.ScreenToUIPoint(Input.mousePosition);
+                var mousePos = AnturaSpaceUI.I.ScreenToUIPoint(InputCompat.mousePosition);
                 var buttonPos = AnturaSpaceUI.I.WorldToUIPoint(transform.position);
                 if (mousePos.y - buttonPos.y > minHeightForDragAction)
                 {

@@ -88,11 +88,6 @@ namespace Antura.Debugging
             new DebugCommand("Print Quest Info", CommandCondition.OnPress, KeyCode.I, KeyModifier.Shift, on => {
                 QuestManager.I.PrintDebugInfo();
             }),
-            new DebugCommand("Activate Target Marker on random light beam", CommandCondition.OnPress, KeyCode.T, KeyModifier.Shift, on => {
-                LightBeam beam = FindFirstObjectByType<LightBeam>(FindObjectsInactive.Include);
-                if (beam == null) Debug.LogWarning("Couldn't find a target beam");
-                else InteractionManager.I.ActivateWorldTargetIcon(true, beam.transform);
-            }),
             new DebugCommand("Quest END", CommandCondition.OnPress, KeyCode.E, KeyModifier.Shift, on => {
                 QuestManager.I.QuestEnd();
             })
@@ -134,11 +129,11 @@ namespace Antura.Debugging
 
         void Update()
         {
-            _isShiftDown = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            _isCtrlDown = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-            _isAltDown = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
-            _isAppleDown = Input.GetKey(KeyCode.LeftApple) || Input.GetKey(KeyCode.RightApple);
-            _isCommandDown = Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.RightCommand);
+            _isShiftDown = InputCompat.GetKey(KeyCode.LeftShift) || InputCompat.GetKey(KeyCode.RightShift);
+            _isCtrlDown = InputCompat.GetKey(KeyCode.LeftControl) || InputCompat.GetKey(KeyCode.RightControl);
+            _isAltDown = InputCompat.GetKey(KeyCode.LeftAlt) || InputCompat.GetKey(KeyCode.RightAlt);
+            _isAppleDown = InputCompat.GetKey(KeyCode.LeftApple) || InputCompat.GetKey(KeyCode.RightApple);
+            _isCommandDown = InputCompat.GetKey(KeyCode.LeftCommand) || InputCompat.GetKey(KeyCode.RightCommand);
 
             if (DebugManager.I.DebugPanelOpened)
                 return;
@@ -211,19 +206,19 @@ namespace Antura.Debugging
             switch (command.condition)
             {
                 case CommandCondition.OnPress:
-                    active = isModifierActive && Input.GetKeyDown(command.key);
+                    active = isModifierActive && InputCompat.GetKeyDown(command.key);
                     result = active ? CommandResult.Activate : CommandResult.Ignore;
                     break;
                 case CommandCondition.OnRelease:
-                    active = isModifierActive && Input.GetKeyUp(command.key);
+                    active = isModifierActive && InputCompat.GetKeyUp(command.key);
                     result = active ? CommandResult.Activate : CommandResult.Ignore;
                     break;
                 case CommandCondition.WhilePressed:
-                    active = isModifierActive && Input.GetKey(command.key);
+                    active = isModifierActive && InputCompat.GetKey(command.key);
                     result = active && !wasActive ? CommandResult.Activate : !active && wasActive ? CommandResult.Deactivate : CommandResult.Ignore;
                     break;
                 case CommandCondition.RepeatWhilePressed:
-                    active = isModifierActive && Input.GetKey(command.key);
+                    active = isModifierActive && InputCompat.GetKey(command.key);
                     result = active ? CommandResult.Activate : wasActive ? CommandResult.Deactivate : CommandResult.Ignore;
                     break;
             }

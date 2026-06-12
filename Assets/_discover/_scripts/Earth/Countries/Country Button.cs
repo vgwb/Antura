@@ -46,15 +46,15 @@ namespace Antura.Discover
             // Detect press start (mouse or first touch)
             Vector3 screenPos;
             bool pressed = false;
-            if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+            if (InputCompat.touchCount > 0 && InputCompat.touches[0].phase == TouchPhase.Began)
             {
                 pressed = true;
-                screenPos = Input.touches[0].position;
+                screenPos = InputCompat.touches[0].position;
             }
-            else if (Input.GetMouseButtonDown(0))
+            else if (InputCompat.GetMouseButtonDown(0))
             {
                 pressed = true;
-                screenPos = Input.mousePosition;
+                screenPos = InputCompat.mousePosition;
             }
             else
             {
@@ -80,11 +80,11 @@ namespace Antura.Discover
         {
             if (EventSystem.current == null)
                 return false;
-            if (Input.touchCount > 0)
+            if (InputCompat.touchCount > 0)
             {
-                for (int i = 0; i < Input.touchCount; i++)
+                for (int i = 0; i < InputCompat.touchCount; i++)
                 {
-                    if (EventSystem.current.IsPointerOverGameObject(Input.touches[i].fingerId))
+                    if (EventSystem.current.IsPointerOverGameObject(InputCompat.touches[i].fingerId))
                         return true;
                 }
                 return false;

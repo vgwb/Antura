@@ -100,12 +100,12 @@ namespace Antura.LivingLetters
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (InputCompat.GetKeyDown(KeyCode.E))
             {
                 Open(true);
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (InputCompat.GetKeyDown(KeyCode.R))
             {
                 Open(false);
             }
@@ -116,7 +116,7 @@ namespace Antura.LivingLetters
         public void Open(bool _isOpen)
         {
             scaleTween.Kill();
-            
+
             if (_isOpen)
             {
                 scaleTween = transform.DOScale(1, 0.1f);

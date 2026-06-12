@@ -102,9 +102,12 @@ namespace Antura.Map
             pos.y = pivotTr.position.y;
             pos.z = pivotTr.position.z;
 
-            if (teleport) {
+            if (teleport)
+            {
                 TeleportTo(pos, pivotTr.rotation);
-            } else {
+            }
+            else
+            {
                 AudioManager.I.PlaySound(Sfx.CameraMovementShort);
                 TweenTo(pos, pivotTr.rotation, duration, SetManualMovementCurrentMap);
             }
@@ -130,17 +133,23 @@ namespace Antura.Map
 
         private void LateUpdate()
         {
-            if (AppManager.I.ModalWindowActivated) { return; }
+            if (AppManager.I.ModalWindowActivated)
+            { return; }
             //if (GlobalUI.I.IsFingerOverUI()) { return; }
 
-            if (movementType == MovementType.AUTO) {
+            if (movementType == MovementType.AUTO)
+            {
                 // Auto-follow
-                if (followedTransform != null) {
+                if (followedTransform != null)
+                {
                     // When slowed down enough, we may re-enable manual movement
-                    if (Mathf.Abs(currentSpeed) < 10.0f && Input.GetMouseButtonDown(0)) {
+                    if (Mathf.Abs(currentSpeed) < 10.0f && InputCompat.GetMouseButtonDown(0))
+                    {
                         SetManualMovementCurrentMap();
                         currentSpeed = 0.0f;
-                    } else {
+                    }
+                    else
+                    {
                         currentSpeed = (followedTransform.position.x - transform.position.x) * 10.0f;
                         CameraMoveUpdate();
                     }
@@ -148,7 +157,8 @@ namespace Antura.Map
             }
 
             HandleMouseUp();
-            if (movementType == MovementType.MANUAL) {
+            if (movementType == MovementType.MANUAL)
+            {
                 // Manual control
                 HandleMouseDown();
                 CameraMoveUpdate();
@@ -159,19 +169,23 @@ namespace Antura.Map
 
         void CheckStageSwitching()
         {
-            if (!_stageMapsManager || !_stageMapsManager.isLazyInitialised) { return; }
+            if (!_stageMapsManager || !_stageMapsManager.isLazyInitialised)
+            { return; }
 
             // If dragging between stages, we may need to change stage as we move.
-            if (CanDragBetweenStages) {
+            if (CanDragBetweenStages)
+            {
                 float currentX = transform.position.x;
 
-                foreach (var stageMap in _stageMapsManager.stageMaps) {
+                foreach (var stageMap in _stageMapsManager.stageMaps)
+                {
                     float startX = stageMap.cameraPivotStart.position.x;
                     float endX = stageMap.cameraPivotEnd.position.x;
                     float minX = startX < endX ? startX : endX;
                     float maxX = startX < endX ? endX : startX;
 
-                    if (currentX > minX && currentX < maxX) {
+                    if (currentX > minX && currentX < maxX)
+                    {
                         _stageMapsManager.MoveToStageMap(stageMap.stageNumber, animateCamera: false);
                     }
                 }
@@ -181,20 +195,25 @@ namespace Antura.Map
         private void HandleMouseUp()
         {
             // Swipe end
-            if (Input.GetMouseButtonUp(0)) {
-                if (useDrag) {
+            if (InputCompat.GetMouseButtonUp(0))
+            {
+                if (useDrag)
+                {
                     isFollowingFinger = false;
                 }
 
-                if (movementType == MovementType.MANUAL) {
-                    if (useSwipe) {
-                        var xUp = Input.mousePosition.x;
+                if (movementType == MovementType.MANUAL)
+                {
+                    if (useSwipe)
+                    {
+                        var xUp = InputCompat.mousePosition.x;
                         var xDelta = xUp - xDown;
                         xDown = 0;
 
                         var timeUp = System.DateTime.Now;
                         var timeDelta = timeUp - timeDown;
-                        if ((float)timeDelta.TotalSeconds <= swipeMaxTime) {
+                        if ((float)timeDelta.TotalSeconds <= swipeMaxTime)
+                        {
                             float addedSpeed = DragWorldDir * xDelta / (float)timeDelta.TotalSeconds * sensibility;
                             //Debug.Log("x " + xDelta + " time " + (float)timeDelta.TotalSeconds);
                             currentSpeed = Mathf.Abs(xDelta) > Screen.width * minScreenPercentage ? (currentSpeed + addedSpeed) : 0.0f;
@@ -208,23 +227,28 @@ namespace Antura.Map
         private void HandleMouseDown()
         {
             // Swipe start
-            if (Input.GetMouseButtonDown(0)) {
-                if (useDrag) {
-                    startFingerX = Input.mousePosition.x;
+            if (InputCompat.GetMouseButtonDown(0))
+            {
+                if (useDrag)
+                {
+                    startFingerX = InputCompat.mousePosition.x;
                     startCameraX = Camera.main.transform.position.x;
                 }
 
-                if (useSwipe) {
-                    xDown = Input.mousePosition.x;
+                if (useSwipe)
+                {
+                    xDown = InputCompat.mousePosition.x;
                     timeDown = System.DateTime.Now;
                 }
             }
 
-            if (useDrag && Input.GetMouseButton(0)) {
-                var xDrag = Input.mousePosition.x;
+            if (useDrag && InputCompat.GetMouseButton(0))
+            {
+                var xDrag = InputCompat.mousePosition.x;
                 var xDelta = xDrag - startFingerX;
 
-                if (Mathf.Abs(xDelta) > 10) {
+                if (Mathf.Abs(xDelta) > 10)
+                {
                     isFollowingFinger = true;
                 }
 
@@ -238,13 +262,16 @@ namespace Antura.Map
         private float currentSpeed = 0.0f;
         void CameraMoveUpdate()
         {
-            if (isFollowingFinger) { currentSpeed = 0.0f; }
-            if (Mathf.Abs(currentSpeed) > AppConfig.EPSILON) {
+            if (isFollowingFinger)
+            { currentSpeed = 0.0f; }
+            if (Mathf.Abs(currentSpeed) > AppConfig.EPSILON)
+            {
                 int startDir = (int)Mathf.Sign(currentSpeed);
                 currentSpeed -= Time.deltaTime * deceleration * startDir;
 
                 if ((int)Mathf.Sign(currentSpeed) != startDir
-                    || Mathf.Abs(currentSpeed) <= 10.0f) {
+                    || Mathf.Abs(currentSpeed) <= 10.0f)
+                {
                     currentSpeed = 0.0f;
                 }
 
@@ -259,7 +286,8 @@ namespace Antura.Map
             var startX = _stageMapsManager.CurrentShownStageMap.cameraPivotStart.position.x;
             var endX = _stageMapsManager.CurrentShownStageMap.cameraPivotEnd.position.x;
 
-            if (CanDragBetweenStages) {
+            if (CanDragBetweenStages)
+            {
                 startX = _stageMapsManager.stageMaps.First().cameraPivotStart.position.x;
                 endX = _stageMapsManager.stageMaps.Last().cameraPivotEnd.position.x;
             }
@@ -267,7 +295,8 @@ namespace Antura.Map
             var minX = startX < endX ? startX : endX;
             var maxX = startX < endX ? endX : startX;
 
-            if (nextCameraPosition.x > maxX || nextCameraPosition.x < minX) {
+            if (nextCameraPosition.x > maxX || nextCameraPosition.x < minX)
+            {
                 currentSpeed = 0.0f;
             }
             nextCameraPosition.x = Mathf.Clamp(nextCameraPosition.x, minX, maxX);

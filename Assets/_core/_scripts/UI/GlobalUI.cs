@@ -35,8 +35,9 @@ namespace Antura.UI
 
         public static void Init()
         {
-            if (I != null) return;
-            
+            if (I != null)
+                return;
+
             Debug.Log("<color=#ffaa88>GlobalUI: Init()</color>");
             I = Instantiate(Resources.Load<GlobalUI>(ResourceId));
             I.gameObject.name = "[GlobalUI]";
@@ -165,25 +166,25 @@ namespace Antura.UI
         public bool IsFingerOverUI()
         {
             // Mouse is -1, the rest are fingers
-            for (int touchIndex = -1; touchIndex < Input.touchCount; touchIndex++)
+            for (int touchIndex = -1; touchIndex < InputCompat.touchCount; touchIndex++)
             {
                 int fingerIndex = touchIndex;
                 if (touchIndex >= 0)
                 {
-                    var touch = Input.GetTouch(touchIndex);
+                    var touch = InputCompat.GetTouch(touchIndex);
                     if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
                     {
                         // Skip this touch
                         continue;
                     }
-                    fingerIndex = Input.GetTouch(touchIndex).fingerId;
+                    fingerIndex = InputCompat.GetTouch(touchIndex).fingerId;
                 }
 
                 Vector2 pos;
                 if (fingerIndex == -1)
-                    pos = Input.mousePosition;
+                    pos = InputCompat.mousePosition;
                 else
-                    pos = Input.GetTouch(touchIndex).position;
+                    pos = InputCompat.GetTouch(touchIndex).position;
 
                 bool isTouching = IsPointerOverUIObject(pos);
                 if (isTouching)

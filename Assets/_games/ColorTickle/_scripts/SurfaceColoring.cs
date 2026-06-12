@@ -61,11 +61,12 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (GlobalUI.I.IsFingerOverUI()) return;
-            if (Input.GetMouseButton(0) && !PauseMenu.I.IsMenuOpen) //On touch
+            if (GlobalUI.I.IsFingerOverUI())
+                return;
+            if (InputCompat.GetMouseButton(0) && !PauseMenu.I.IsMenuOpen) //On touch
             {
 
-                Ray _mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); //Ray with direction camera->screenpoint
+                Ray _mouseRay = Camera.main.ScreenPointToRay(InputCompat.mousePosition); //Ray with direction camera->screenpoint
 
                 //Debug.DrawRay(_mouseRay.origin, _mouseRay.direction * 100, Color.yellow, 10);
 

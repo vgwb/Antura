@@ -94,9 +94,12 @@ namespace Antura.Minigames.Maze
         public void OnPointerDown()
         {
             bool shouldCheckIfCanStartDrawing = !hasStartedDrawing && !isDrawing;
-            if (shouldCheckIfCanStartDrawing && !mazeCharacter.canStartDrawing()) return;
-            if (mazeCharacter.characterIsMoving) return;
-            if (mazeCharacter.finishedRound) return;
+            if (shouldCheckIfCanStartDrawing && !mazeCharacter.canStartDrawing())
+                return;
+            if (mazeCharacter.characterIsMoving)
+                return;
+            if (mazeCharacter.finishedRound)
+                return;
 
             //Debug.Log("started Drawing!");
 
@@ -104,7 +107,7 @@ namespace Antura.Minigames.Maze
 
             // Init drawing tool position
             float distance = (0.1f) - Camera.main.transform.position.y;
-            var targetPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -distance);
+            var targetPos = new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, -distance);
             targetPos = Camera.main.ScreenToWorldPoint(targetPos);
             var newDrawingToolPosition = targetPos + new Vector3(0, 0.5f, 0);
             MazeGame.instance.drawingTool.transform.position = newDrawingToolPosition;
@@ -131,7 +134,8 @@ namespace Antura.Minigames.Maze
         private bool hasStartedDrawing = false;
         public void OnPointerUp()
         {
-            if (!isDrawing) return;
+            if (!isDrawing)
+                return;
 
             if (!MazeCharacter.LOSE_ON_SINGLE_PATH)
             {
@@ -140,7 +144,7 @@ namespace Antura.Minigames.Maze
                     if (CanLaunchRocket())
                     {
                         MazeGame.instance.drawingTool.SetActive(false);
-                        LaunchRocket(finished:false, wrong:false);
+                        LaunchRocket(finished: false, wrong: false);
                     }
 
                     isDrawing = false;
@@ -152,7 +156,7 @@ namespace Antura.Minigames.Maze
             if (CanLaunchRocket())
             {
                 MazeGame.instance.drawingTool.SetActive(false);
-                LaunchRocket(wrong:false);
+                LaunchRocket(wrong: false);
             }
         }
 
@@ -171,7 +175,7 @@ namespace Antura.Minigames.Maze
                     MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Lose);
                 }
 
-                LaunchRocket(finished:false, wrong:true);
+                LaunchRocket(finished: false, wrong: true);
             }
         }
 
@@ -182,7 +186,8 @@ namespace Antura.Minigames.Maze
 
         private void LaunchRocket(bool finished = true, bool wrong = false)
         {
-            if (finished) hasStartedDrawing = false;
+            if (finished)
+                hasStartedDrawing = false;
             isDrawing = false;
             mazeCharacter.ToggleParticlesVisibility(true);
 
@@ -217,7 +222,7 @@ namespace Antura.Minigames.Maze
                     MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Lose);
                 }
 
-                LaunchRocket(finished:false, wrong:true);
+                LaunchRocket(finished: false, wrong: true);
             }
         }
     }

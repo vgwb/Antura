@@ -60,11 +60,11 @@ namespace Antura.UI
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (InputCompat.GetMouseButtonDown(0))
             {
                 StopScrollLoop();
             }
-            else if (Input.GetMouseButtonUp(0) && showTween.IsComplete())
+            else if (InputCompat.GetMouseButtonUp(0) && showTween.IsComplete())
             {
                 StartScrollLoop();
             }
@@ -90,15 +90,19 @@ namespace Antura.UI
             {
                 this.gameObject.SetActive(true);
                 CreditsContainer.anchoredPosition = defCreditsContainerPos;
-                if (immediate) showTween.Complete();
-                else showTween.PlayForward();
+                if (immediate)
+                    showTween.Complete();
+                else
+                    showTween.PlayForward();
                 StartScrollLoop();
                 AppManager.I.Services.Analytics.TrackGenericAction("credits");
             }
             else
             {
-                if (immediate) showTween.Rewind();
-                else showTween.PlayBackwards();
+                if (immediate)
+                    showTween.Rewind();
+                else
+                    showTween.PlayBackwards();
             }
         }
 

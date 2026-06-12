@@ -301,7 +301,7 @@ namespace Antura.AnturaSpace
                 float minDistance = Int32.MaxValue;
                 foreach (var slot in allAssignableSlots)
                 {
-                    var mousePos = AnturaSpaceUI.I.ScreenToUIPoint(Input.mousePosition);
+                    var mousePos = AnturaSpaceUI.I.ScreenToUIPoint(InputCompat.mousePosition);
                     var slotPos = AnturaSpaceUI.I.WorldToUIPoint(slot.transform.position);
                     float distance = (mousePos - slotPos).sqrMagnitude;
 
@@ -364,7 +364,7 @@ namespace Antura.AnturaSpace
                 yield return null;
 
                 // Check if we are stopping the dragging
-                if (Input.GetMouseButtonUp(0))
+                if (InputCompat.GetMouseButtonUp(0))
                 {
                     ReleaseDragPlacement(shouldBeDeleted);
                 }

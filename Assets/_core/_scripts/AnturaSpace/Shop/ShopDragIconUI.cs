@@ -36,7 +36,7 @@ namespace Antura.AnturaSpace
         {
             if (isDragging)
             {
-                var mousePos = AnturaSpaceUI.I.ScreenToUIPoint(Input.mousePosition);
+                var mousePos = AnturaSpaceUI.I.ScreenToUIPoint(InputCompat.mousePosition);
                 iconUI.rectTransform.anchoredPosition = mousePos;
             }
             else

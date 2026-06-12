@@ -13,7 +13,7 @@ namespace Antura.Discover
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (InputCompat.GetMouseButtonDown(0))
             {
                 if (IsPointerOverUI())
                 {
@@ -21,7 +21,7 @@ namespace Antura.Discover
                 }
 
                 RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(InputCompat.mousePosition);
 
                 if (Physics.Raycast(ray, out hit))
                 {
@@ -88,11 +88,11 @@ namespace Antura.Discover
                 return false;
             }
 
-            if (Input.touchCount > 0)
+            if (InputCompat.touchCount > 0)
             {
-                for (int i = 0; i < Input.touchCount; i++)
+                for (int i = 0; i < InputCompat.touchCount; i++)
                 {
-                    if (EventSystem.current.IsPointerOverGameObject(Input.touches[i].fingerId))
+                    if (EventSystem.current.IsPointerOverGameObject(InputCompat.touches[i].fingerId))
                     {
                         return true;
                     }

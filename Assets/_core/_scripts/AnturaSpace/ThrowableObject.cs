@@ -165,8 +165,8 @@ namespace Antura.AnturaSpace
 
 
                 //set the object position on the pointer(x,y) at it's current distance from the camera
-                var _fCameraDistance = 6 + 4 * (Input.mousePosition.y / Screen.height);
-                var newPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _fCameraDistance));
+                var _fCameraDistance = 6 + 4 * (InputCompat.mousePosition.y / Screen.height);
+                var newPos = Camera.main.ScreenToWorldPoint(new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, _fCameraDistance));
 
                 if (newPos.y < 1)
                 {

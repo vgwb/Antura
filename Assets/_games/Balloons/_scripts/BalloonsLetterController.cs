@@ -134,7 +134,7 @@ namespace Antura.Minigames.Balloons
             SpeakLetter();
             FocusLetter();
 
-            mousePosition = Input.mousePosition;
+            mousePosition = InputCompat.mousePosition;
             mousePosition.z = cameraDistance;
 
             parentFloatingLetter.MouseOffset = parentFloatingLetter.transform.position - Camera.main.ScreenToWorldPoint(mousePosition);
@@ -144,7 +144,7 @@ namespace Antura.Minigames.Balloons
         {
             FocusLetter();
 
-            mousePosition = Input.mousePosition;
+            mousePosition = InputCompat.mousePosition;
             mousePosition.z = cameraDistance;
 
             parentFloatingLetter.Drag(Camera.main.ScreenToWorldPoint(mousePosition));

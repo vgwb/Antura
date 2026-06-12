@@ -196,7 +196,7 @@ namespace Antura.Assessment
 
             if (droppable != null)
             {
-                var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                var pos = Camera.main.ScreenToWorldPoint(InputCompat.mousePosition);
                 pos.z = 5;
                 droppable.GetTransform().localPosition = pos;
             }

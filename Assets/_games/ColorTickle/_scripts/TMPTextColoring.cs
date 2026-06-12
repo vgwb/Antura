@@ -149,11 +149,12 @@ namespace Antura.Minigames.ColorTickle
         {
             IsTouching = false;
 
-            if (GlobalUI.I.IsFingerOverUI()) return;
-            if (Input.GetMouseButton(0) && !PauseMenu.I.IsMenuOpen) //On touch
+            if (GlobalUI.I.IsFingerOverUI())
+                return;
+            if (InputCompat.GetMouseButton(0) && !PauseMenu.I.IsMenuOpen) //On touch
             {
 
-                Ray _mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); //Ray with direction camera->screenpoint
+                Ray _mouseRay = Camera.main.ScreenPointToRay(InputCompat.mousePosition); //Ray with direction camera->screenpoint
 
                 //check for ray collision
                 if (m_oLetterMeshCollider.Raycast(_mouseRay, out m_oRayHit, Mathf.Infinity)) //Populate hit data on the letter texture

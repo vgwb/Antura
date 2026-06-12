@@ -92,7 +92,7 @@ namespace Antura.Minigames.SickLetters
             else
             {
                 offset = gameObject.transform.position -
-                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+                         Camera.main.ScreenToWorldPoint(new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, screenPoint.z));
             }
         }
 
@@ -110,7 +110,7 @@ namespace Antura.Minigames.SickLetters
             game.tut.repeatConter = game.tut.repeatMax;
 
             //transform.eulerAngles = origRotation;
-            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            Vector3 curScreenPoint = new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, screenPoint.z);
 
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
             transform.position = new Vector3(curPosition.x + fingerOffset.x, curPosition.y + fingerOffset.y, curPosition.z + fingerOffset.z);

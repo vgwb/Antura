@@ -921,9 +921,9 @@ namespace Antura.Minigames.ThrowBalls
         {
             if (IsTutorialRound())
             {
-                if (Input.touchCount > 0)
+                if (InputCompat.touchCount > 0)
                 {
-                    Touch touch = Input.GetTouch(0);
+                    var touch = InputCompat.GetTouch(0);
 
                     switch (touch.phase)
                     {
@@ -935,11 +935,11 @@ namespace Antura.Minigames.ThrowBalls
                             break;
                     }
                 }
-                else if (Input.GetMouseButtonDown(0))
+                else if (InputCompat.GetMouseButtonDown(0))
                 {
                     Touched();
                 }
-                else if (Input.GetMouseButtonUp(0))
+                else if (InputCompat.GetMouseButtonUp(0))
                 {
                     OnMouseUp();
                 }

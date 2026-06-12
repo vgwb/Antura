@@ -162,7 +162,7 @@ namespace Antura.Minigames.Balloons
 
         public void DragByTransformPosition()
         {
-            mousePosition = Input.mousePosition;
+            mousePosition = InputCompat.mousePosition;
             mousePosition.z = cameraDistance;
 
             var newPosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -179,7 +179,7 @@ namespace Antura.Minigames.Balloons
 
         public void DragByTransformLocalPosition()
         {
-            mousePosition = Input.mousePosition;
+            mousePosition = InputCompat.mousePosition;
             mousePosition.z = cameraDistance;
 
             var newPosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -196,7 +196,7 @@ namespace Antura.Minigames.Balloons
 
         public void DragByRigidbodyPosition()
         {
-            mousePosition = Input.mousePosition;
+            mousePosition = InputCompat.mousePosition;
             mousePosition.z = cameraDistance;
 
             var newPosition = Camera.main.ScreenToWorldPoint(mousePosition);

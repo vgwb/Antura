@@ -45,10 +45,10 @@ namespace Antura.CameraControl
         {
             if (target)
             {
-                if (Input.GetMouseButton(0))
+                if (InputCompat.GetMouseButton(0))
                 {
-                    x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
-                    y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+                    x += InputCompat.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
+                    y -= InputCompat.GetAxis("Mouse Y") * ySpeed * 0.02f;
                 }
                 else if (autoMovement)
                 {
@@ -62,7 +62,7 @@ namespace Antura.CameraControl
 
                 Quaternion rotation = Quaternion.Euler(y, x, 0);
 
-                distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
+                distance = Mathf.Clamp(distance - InputCompat.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
 
                 RaycastHit hit;
                 if (Physics.Linecast(target.position, transform.position, out hit))

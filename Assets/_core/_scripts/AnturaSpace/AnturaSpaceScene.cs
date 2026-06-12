@@ -89,7 +89,7 @@ namespace Antura.AnturaSpace
 
             AnturaMain.PetSwitcher.LoadPet(AppManager.I.Player.PetData.SelectedPet);
             AnturaSide.PetSwitcher.LoadPet(AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog ? AnturaPetType.Cat : AnturaPetType.Dog);
-            AnturaSide.SetTarget(SideAnturaPivot,true);
+            AnturaSide.SetTarget(SideAnturaPivot, true);
 
             ReassignCallbacks();
 
@@ -119,7 +119,7 @@ namespace Antura.AnturaSpace
             AnturaMain.SetTarget(SideAnturaPivot, true);
             (AnturaMain, AnturaSide) = (AnturaSide, AnturaMain);
 
-            AnturaMain.PetSwitcher.SwitchPet(alsoLoadInScene:false);
+            AnturaMain.PetSwitcher.SwitchPet(alsoLoadInScene: false);
 
             ReassignCallbacks();
         }
@@ -193,7 +193,7 @@ namespace Antura.AnturaSpace
 
             UI.BonesCount = AppManager.I.Player.GetTotalNumberOfBones();
 
-            if (DraggedTransform != null && !Input.GetMouseButton(0))
+            if (DraggedTransform != null && !InputCompat.GetMouseButton(0))
             {
                 AudioManager.I.PlaySound(Sfx.ThrowObj);
                 DraggedTransform.GetComponent<ThrowableObject>().LetGo();

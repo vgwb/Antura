@@ -66,11 +66,11 @@ namespace Antura.Minigames
                 return;
             }
 
-            if (Input.GetMouseButton(0))
+            if (InputCompat.GetMouseButton(0))
             {
                 if (wasPointerDown)
                 {
-                    var newPosition = Input.mousePosition;
+                    var newPosition = InputCompat.mousePosition;
                     deltaPosition = (Vector2)newPosition - lastPointerPosition;
 
                     lastPointerPosition = newPosition;
@@ -86,7 +86,7 @@ namespace Antura.Minigames
                 else
                 {
                     deltaPosition = Vector2.zero;
-                    lastPointerPosition = Input.mousePosition;
+                    lastPointerPosition = InputCompat.mousePosition;
                     wasPointerDown = true;
 
                     if (onPointerDown != null)

@@ -112,13 +112,13 @@ namespace Antura.GamesSelector
                 return;
             }
 
-            if (!Input.GetMouseButton(0) && !Input.GetMouseButtonUp(0))
+            if (!InputCompat.GetMouseButton(0) && !InputCompat.GetMouseButtonUp(0))
             {
                 return;
             }
 
-            Vector3 mouseP = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane + 10));
-            if (Input.GetMouseButtonDown(0))
+            Vector3 mouseP = cam.ScreenToWorldPoint(new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, cam.nearClipPlane + 10));
+            if (InputCompat.GetMouseButtonDown(0))
             {
                 // Start drag/click
                 isDragging = true;
@@ -128,7 +128,7 @@ namespace Antura.GamesSelector
             {
                 Update_Dragging(mouseP);
             }
-            if (Input.GetMouseButtonUp(0))
+            if (InputCompat.GetMouseButtonUp(0))
             {
                 // Stop drag/click
                 StopDrag();

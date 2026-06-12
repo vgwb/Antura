@@ -77,17 +77,17 @@ namespace Antura.Discover
         void Update()
         {
             // Zoom via mouse scroll
-            if (!Mathf.Approximately(Input.mouseScrollDelta.y, 0) && Time.time - leaveMapTime > 0.5f && Time.time - lastZoomTickTime >= minIntervalBetweenZoomTicks)
+            if (!Mathf.Approximately(InputCompat.mouseScrollDelta.y, 0) && Time.time - leaveMapTime > 0.5f && Time.time - lastZoomTickTime >= minIntervalBetweenZoomTicks)
             {
                 lastZoomTickTime = Time.time;
                 switch (Mode)
                 {
                     case CameraMode.Player:
-                        if (Input.mouseScrollDelta.y > 0)
+                        if (InputCompat.mouseScrollDelta.y > 0)
                         {
                             CamController.SetZoomLevel(Mathf.Clamp(CamController.ZoomLevel + zoomTick, minMaxPlayerZoomLevel.min, minMaxPlayerZoomLevel.max));
                         }
-                        else if (Input.mouseScrollDelta.y < 0)
+                        else if (InputCompat.mouseScrollDelta.y < 0)
                         {
                             if (CamController.ZoomLevel > minMaxPlayerZoomLevel.min)
                             {
@@ -101,7 +101,7 @@ namespace Antura.Discover
                         }
                         break;
                     case CameraMode.Map:
-                        if (Input.mouseScrollDelta.y > 0)
+                        if (InputCompat.mouseScrollDelta.y > 0)
                         {
                             leaveMapTime = Time.time;
                             ChangeCameraMode(CameraMode.Player);

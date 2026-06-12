@@ -74,7 +74,7 @@ namespace Antura.Minigames.FastCrowd
 
         bool ComputePointedPosition(out Vector3 output, Vector3 rayOffset)
         {
-            var screenRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var screenRay = Camera.main.ScreenPointToRay(InputCompat.mousePosition);
 
             var o = screenRay.origin;
             o -= rayOffset;

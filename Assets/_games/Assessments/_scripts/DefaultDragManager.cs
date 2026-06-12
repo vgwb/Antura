@@ -179,7 +179,7 @@ namespace Antura.Assessment
             {
                 var currentDroppable = (DroppableBehaviour)droppable;
 
-                var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                var pos = Camera.main.ScreenToWorldPoint(InputCompat.mousePosition);
                 pos.z = currentDroppable.GetZ();
                 droppable.GetTransform().localPosition = pos;
 

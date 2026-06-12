@@ -8,9 +8,9 @@ namespace Antura.Discover
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (InputCompat.GetMouseButtonDown(0))
             {
-                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                Ray ray = mainCamera.ScreenPointToRay(InputCompat.mousePosition);
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit))

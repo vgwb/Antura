@@ -169,24 +169,24 @@ namespace Antura.Discover.Activities
             if (state != ActivityPlayState.Playing)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.Alpha0))
+            if (InputCompat.GetKeyDown(KeyCode.Alpha0))
             {
                 Debug.Log("Debug shortcut: Force Exit");
                 ExitWithoutPoints();
                 return;
             }
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (InputCompat.GetKeyDown(KeyCode.Alpha1))
             {
                 Debug.Log("Debug shortcut: fail round");
                 ForceEndRound(false);
                 return;
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (InputCompat.GetKeyDown(KeyCode.Alpha2))
             {
                 Debug.Log("Debug shortcut: succeed round");
                 ForceEndRound(true);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            else if (InputCompat.GetKeyDown(KeyCode.Alpha3))
             {
                 Debug.Log("Debug shortcut: activity success");
                 SetRoundsTarget(currentRound);

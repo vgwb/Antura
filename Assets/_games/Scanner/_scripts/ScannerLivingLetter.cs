@@ -96,7 +96,7 @@ namespace Antura.Minigames.Scanner
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKey(KeyCode.E) && LLController.Data != null)
+            if (InputCompat.GetKey(KeyCode.E) && LLController.Data != null)
             {
                 if (wordSound == null)
                 {

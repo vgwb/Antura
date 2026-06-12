@@ -78,7 +78,7 @@ namespace Antura.Minigames.SickLetters
                 //clockSound = SickLettersConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.DangerClockLong);
             }
 
-            /*if (Input.GetKeyDown(KeyCode.A)) {
+            /*if (InputCompat.GetKeyDown(KeyCode.A)) {
                 game.LLPrefab.jumpOut();
             }*/
 

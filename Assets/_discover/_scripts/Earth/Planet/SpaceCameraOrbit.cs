@@ -32,56 +32,56 @@ namespace Antura.Discover
         void Update()
         {
             bool overUI = IsPointerOverUI();
-            if (Input.touchCount > 0)
+            if (InputCompat.touchCount > 0)
             {
-                if (Input.touches[0].phase == TouchPhase.Began)
+                if (InputCompat.touches[0].phase == TouchPhase.Began)
                 {
                     if (!overUI)
                     {
                         down = true;
-                        mouseOnDown.x = Input.touches[0].position.x;
-                        mouseOnDown.y = -Input.touches[0].position.y;
+                        mouseOnDown.x = InputCompat.touches[0].position.x;
+                        mouseOnDown.y = -InputCompat.touches[0].position.y;
 
                         targetOnDown.x = target.x;
                         targetOnDown.y = target.y;
                     }
                 }
-                else if (Input.touches[0].phase == TouchPhase.Canceled ||
-                    Input.touches[0].phase == TouchPhase.Ended)
+                else if (InputCompat.touches[0].phase == TouchPhase.Canceled ||
+                    InputCompat.touches[0].phase == TouchPhase.Ended)
                 {
                     down = false;
                 }
             }
             else
             {
-                if (Input.GetMouseButtonDown(0))
+                if (InputCompat.GetMouseButtonDown(0))
                 {
                     if (!overUI)
                     {
                         down = true;
-                        mouseOnDown.x = Input.mousePosition.x;
-                        mouseOnDown.y = -Input.mousePosition.y;
+                        mouseOnDown.x = InputCompat.mousePosition.x;
+                        mouseOnDown.y = -InputCompat.mousePosition.y;
 
                         targetOnDown.x = target.x;
                         targetOnDown.y = target.y;
                     }
                 }
-                else if (Input.GetMouseButtonUp(0))
+                else if (InputCompat.GetMouseButtonUp(0))
                 {
                     down = false;
                 }
             }
             if (down && !overUI)
             {
-                if (Input.touchCount > 0)
+                if (InputCompat.touchCount > 0)
                 {
-                    mouse.x = Input.touches[0].position.x;
-                    mouse.y = -Input.touches[0].position.y;
+                    mouse.x = InputCompat.touches[0].position.x;
+                    mouse.y = -InputCompat.touches[0].position.y;
                 }
                 else
                 {
-                    mouse.x = Input.mousePosition.x;
-                    mouse.y = -Input.mousePosition.y;
+                    mouse.x = InputCompat.mousePosition.x;
+                    mouse.y = -InputCompat.mousePosition.y;
                 }
                 float zoomDamp = distance / 1;
 
@@ -98,7 +98,7 @@ namespace Antura.Discover
 
             if (!overUI)
             {
-                distanceTarget -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+                distanceTarget -= InputCompat.GetAxis("Mouse ScrollWheel") * zoomSpeed;
             }
             distanceTarget = Mathf.Clamp(distanceTarget, MinDistance, MaxDistance);
 
@@ -117,12 +117,12 @@ namespace Antura.Discover
         {
             if (EventSystem.current == null)
                 return false;
-            if (Input.touchCount > 0)
+            if (InputCompat.touchCount > 0)
             {
                 // If any active touch is over UI, consider pointer over UI
-                for (int i = 0; i < Input.touchCount; i++)
+                for (int i = 0; i < InputCompat.touchCount; i++)
                 {
-                    if (EventSystem.current.IsPointerOverGameObject(Input.touches[i].fingerId))
+                    if (EventSystem.current.IsPointerOverGameObject(InputCompat.touches[i].fingerId))
                         return true;
                 }
                 return false;

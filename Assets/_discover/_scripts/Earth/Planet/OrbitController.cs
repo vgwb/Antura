@@ -27,9 +27,9 @@ namespace Antura.Discover
         void HandleMouseInput()
         {
             // Rotate the camera with right mouse button
-            if (Input.GetMouseButton(1))
+            if (InputCompat.GetMouseButton(1))
             {
-                Vector3 delta = Input.mousePosition - previousMousePosition;
+                Vector3 delta = InputCompat.mousePosition - previousMousePosition;
                 float angleX = delta.y * rotationSpeed * Time.deltaTime;
                 float angleY = -delta.x * rotationSpeed * Time.deltaTime;
 
@@ -38,7 +38,7 @@ namespace Antura.Discover
             }
 
             // Zoom the camera with scroll wheel
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            float scroll = InputCompat.GetAxis("Mouse ScrollWheel");
             if (scroll != 0.0f)
             {
                 distance -= scroll * zoomSpeed;
@@ -46,15 +46,15 @@ namespace Antura.Discover
                 transform.position = (transform.position - planet.position).normalized * distance + planet.position;
             }
 
-            previousMousePosition = Input.mousePosition;
+            previousMousePosition = InputCompat.mousePosition;
         }
 
         void HandleTouchInput()
         {
-            if (Input.touchCount == 1)
+            if (InputCompat.touchCount == 1)
             {
                 // Rotate the camera with single touch
-                Touch touch = Input.GetTouch(0);
+                var touch = InputCompat.GetTouch(0);
                 if (touch.phase == TouchPhase.Moved)
                 {
                     Vector3 delta = touch.deltaPosition;
@@ -66,11 +66,11 @@ namespace Antura.Discover
                 }
                 previousTouchPosition = touch.position;
             }
-            else if (Input.touchCount == 2)
+            else if (InputCompat.touchCount == 2)
             {
                 // Zoom the camera with pinch
-                Touch touch0 = Input.GetTouch(0);
-                Touch touch1 = Input.GetTouch(1);
+                var touch0 = InputCompat.GetTouch(0);
+                var touch1 = InputCompat.GetTouch(1);
 
                 Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
                 Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;

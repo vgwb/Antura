@@ -126,10 +126,10 @@ namespace Antura.Discover
                     mouseLookActive = false;
                     if (mouseRotationMode != MouseRotationMode.None && (Application.isEditor || AppConfig.IsDesktopPlatform()))
                     {
-                        mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+                        mouseOffset = new Vector2(InputCompat.GetAxis("Mouse X"), -InputCompat.GetAxis("Mouse Y"));
                         bool hasValidLookInput = mouseRotationMode == MouseRotationMode.RMB_or_MMB
-                            ? Input.GetMouseButton(1) || Input.GetMouseButton(2)
-                            : Input.GetMouseButton(0);
+                            ? InputCompat.GetMouseButton(1) || InputCompat.GetMouseButton(2)
+                            : InputCompat.GetMouseButton(0);
                         mouseLookActive = hasValidLookInput && mouseOffset != Vector2.zero;
                     }
                     touchLookActive = false;
@@ -248,7 +248,7 @@ namespace Antura.Discover
 
         // void UpdateMovementVector()
         // {
-        //     Vector3 movementFactor = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //     Vector3 movementFactor = new Vector3(InputCompat.GetAxis("Horizontal"), 0, InputCompat.GetAxis("Vertical"));
         //     InputManager.SetCurrMovementVector(movementFactor);
         // }
 

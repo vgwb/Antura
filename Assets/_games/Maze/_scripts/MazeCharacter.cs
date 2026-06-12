@@ -515,7 +515,7 @@ namespace Antura.Minigames.Maze
             { return false; }
 
             float distance = Camera.main.transform.position.y;
-            Vector3 pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(distance));
+            Vector3 pos = new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, Mathf.Abs(distance));
             pos = Camera.main.ScreenToWorldPoint(pos);
 
             //float mag = (pos - _fruits[0].transform.position).sqrMagnitude;
@@ -551,7 +551,8 @@ namespace Antura.Minigames.Maze
 
                 // Set initial angle:
                 var characterWaypointsArray = characterWayPoints.ToArray();
-                if (characterWayPoints.Count >= 2) transform.LookAt(characterWayPoints[1]);
+                if (characterWayPoints.Count >= 2)
+                    transform.LookAt(characterWayPoints[1]);
 
                 transform.DOPath(characterWaypointsArray, time, PathType.Linear, PathMode.Ignore, resolution: 2).OnWaypointChange((int index) =>
                 {
@@ -604,7 +605,7 @@ namespace Antura.Minigames.Maze
 
                 startFruitIndex = reachedFruitIndex;
 
-                Debug.LogWarning("Path not completed yet (current " + reachedFruitIndex + " / " + (_fruits.Count-1) + ")");
+                Debug.LogWarning("Path not completed yet (current " + reachedFruitIndex + " / " + (_fruits.Count - 1) + ")");
 
                 // Wait for the player to finish
                 characterIsMoving = false;
@@ -649,12 +650,12 @@ namespace Antura.Minigames.Maze
             {
                 if (loseState != LoseState.OutOfBounds)
                 {
-                    for (int i = startFruitIndex+1; i < _fruits.Count; i++)
+                    for (int i = startFruitIndex + 1; i < _fruits.Count; i++)
                     {
-                        _fruits[i].GetComponent<MazeArrow>().MarkAsUnreached(i == startFruitIndex+1);
+                        _fruits[i].GetComponent<MazeArrow>().MarkAsUnreached(i == startFruitIndex + 1);
                     }
 
-                    Vector3 direction = _fruits[startFruitIndex+1].transform.position - rocket.transform.position;
+                    Vector3 direction = _fruits[startFruitIndex + 1].transform.position - rocket.transform.position;
                     Vector3 rotatedVector = direction;
                     var piOverTwo = Mathf.PI / 2;
                     rotatedVector.x = direction.x * Mathf.Cos(piOverTwo) - direction.z * Mathf.Sin(piOverTwo);
@@ -664,7 +665,7 @@ namespace Antura.Minigames.Maze
                     rotatedVector *= 1.5f;
                     rotatedVector.y = 2f;
 
-                    Tutorial.TutorialUI.MarkNo((_fruits[startFruitIndex+1].transform.position + rocket.transform.position) / 2 + rotatedVector, Tutorial.TutorialUI.MarkSize.Normal);
+                    Tutorial.TutorialUI.MarkNo((_fruits[startFruitIndex + 1].transform.position + rocket.transform.position) / 2 + rotatedVector, Tutorial.TutorialUI.MarkSize.Normal);
 
                     rocketMoveSFX.Stop();
 
@@ -695,7 +696,7 @@ namespace Antura.Minigames.Maze
 
             MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().HideDotAndShowArrow(_fruits[startFruitIndex].transform);
 
-            MazeGame.instance.RefreshFruitColliderSizes(startFruitIndex+1);
+            MazeGame.instance.RefreshFruitColliderSizes(startFruitIndex + 1);
         }
 
         private void OnRocketImpactedWithBorder()
@@ -779,7 +780,7 @@ namespace Antura.Minigames.Maze
         {
             Vector3 previousPosition = targetPos;
             float distance = (0.1f) - Camera.main.transform.position.y;
-            targetPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -distance);
+            targetPos = new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, -distance);
             targetPos = Camera.main.ScreenToWorldPoint(targetPos);
 
             if (previousPosition != initialPosition && previousPosition != targetPos)
@@ -796,7 +797,7 @@ namespace Antura.Minigames.Maze
                 // @note: this is DEPRECATED, we now check the errors in MiniDrawingTOols
                 /*
 
-                var raycastSource = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.y - raycastCheckTarget.y));
+                var raycastSource = new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, Mathf.Abs(Camera.main.transform.position.y - raycastCheckTarget.y));
                 raycastSource = Camera.main.ScreenToWorldPoint(raycastSource);
 
                 if (MazeGame.instance.pointsList.Count >= 2)

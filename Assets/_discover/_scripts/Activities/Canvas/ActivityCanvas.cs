@@ -188,14 +188,14 @@ namespace Antura.Discover.Activities
         {
             base.Update();
 #if UNITY_EDITOR || UNITY_STANDALONE
-            if (Input.GetMouseButton(0))
-                ScratchAt(Input.mousePosition);
+            if (InputCompat.GetMouseButton(0))
+                ScratchAt(InputCompat.mousePosition);
 #endif
-            if (Input.touchCount > 0)
+            if (InputCompat.touchCount > 0)
             {
-                for (int i = 0; i < Input.touchCount; i++)
+                for (int i = 0; i < InputCompat.touchCount; i++)
                 {
-                    var t = Input.GetTouch(i);
+                    var t = InputCompat.GetTouch(i);
                     if (t.phase == TouchPhase.Moved || t.phase == TouchPhase.Stationary || t.phase == TouchPhase.Began)
                         ScratchAt(t.position);
                 }

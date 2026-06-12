@@ -150,7 +150,7 @@ namespace Antura.Minigames.Scanner
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
             offset = gameObject.transform.position -
-                Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+                Camera.main.ScreenToWorldPoint(new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, screenPoint.z));
 
             //transform.localScale = new Vector3(scale,scale,scale);
 
@@ -161,7 +161,7 @@ namespace Antura.Minigames.Scanner
         {
             if (isDragging)
             {
-                Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+                Vector3 curScreenPoint = new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, screenPoint.z);
                 Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
                 transform.position =
                     new Vector3(curPosition.x + fingerOffset.x, curPosition.y + fingerOffset.y, Mathf.Clamp(startZ + transform.position.y / 1.80f, -100, -11.5f));

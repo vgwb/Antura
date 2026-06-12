@@ -182,7 +182,7 @@ namespace Antura.Rewards
             {
                 waitTime += Time.deltaTime;
 
-                if (Input.GetMouseButtonDown(0))
+                if (InputCompat.GetMouseButtonDown(0))
                 {
                     UnlockNewReward();
                 }

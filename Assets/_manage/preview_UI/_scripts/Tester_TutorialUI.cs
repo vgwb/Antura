@@ -40,7 +40,8 @@ namespace Antura.Test
             // Fill DrawModeDropdown
             DrawModeDropdown.ClearOptions();
             List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
-            foreach (DrawMode dm in Enum.GetValues(typeof(DrawMode))) options.Add(new Dropdown.OptionData(dm.ToString()));
+            foreach (DrawMode dm in Enum.GetValues(typeof(DrawMode)))
+                options.Add(new Dropdown.OptionData(dm.ToString()));
             DrawModeDropdown.AddOptions(options);
 
             RefreshUI();
@@ -49,40 +50,50 @@ namespace Antura.Test
         void Update()
         {
             // Keyboard overrides
-            if (Input.GetKeyDown(KeyCode.Space)) TutorialUI.Click(MouseWorldPosition());
+            if (InputCompat.GetKeyDown(KeyCode.Space))
+                TutorialUI.Click(MouseWorldPosition());
 
             // Regular mouse interactions
-            if (isDraggingMode) Update_Dragging();
-            else Update_Click();
+            if (isDraggingMode)
+                Update_Dragging();
+            else
+                Update_Click();
         }
 
         void Update_Dragging()
         {
-            if (Input.GetMouseButtonDown(0)) {
+            if (InputCompat.GetMouseButtonDown(0))
+            {
                 isDragging = true;
                 storedPs.Add(MouseWorldPosition());
-            } else if (isDragging) {
+            }
+            else if (isDragging)
+            {
                 Vector3 p = MouseWorldPosition();
-                if (Vector3.Distance(storedPs[storedPs.Count - 1], p) >= MinPointDistance) storedPs.Add(p);
+                if (Vector3.Distance(storedPs[storedPs.Count - 1], p) >= MinPointDistance)
+                    storedPs.Add(p);
             }
 
-            if (Input.GetMouseButtonUp(0)) {
+            if (InputCompat.GetMouseButtonUp(0))
+            {
                 isDragging = false;
-                if (storedPs.Count > 1) storedPs.RemoveAt(storedPs.Count - 1);
+                if (storedPs.Count > 1)
+                    storedPs.RemoveAt(storedPs.Count - 1);
                 storedPs.Add(MouseWorldPosition());
                 TutorialUI.DrawLineMode mode =
                     FingerToggle.isOn ? ArrowToggle.isOn ? TutorialUI.DrawLineMode.FingerAndArrow : TutorialUI.DrawLineMode.Finger
                     : ArrowToggle.isOn ? FingerToggle.isOn ? TutorialUI.DrawLineMode.FingerAndArrow : TutorialUI.DrawLineMode.Arrow
                     : TutorialUI.DrawLineMode.LineOnly;
-                switch (drawMode) {
-                case DrawMode.StraightLine:
-                    TutorialUI.DrawLine(storedPs[0], storedPs[storedPs.Count - 1], mode, PersistentToggle.isOn, OverlayToggle.isOn)
-                        .OnComplete(()=> Debug.Log("DrawLine Complete"));
-                    break;
-                case DrawMode.FullCurve:
-                    TutorialUI.DrawLine(storedPs.ToArray(), mode, PersistentToggle.isOn, OverlayToggle.isOn)
-                        .OnComplete(()=> Debug.Log("DrawLine Complete"));
-                    break;
+                switch (drawMode)
+                {
+                    case DrawMode.StraightLine:
+                        TutorialUI.DrawLine(storedPs[0], storedPs[storedPs.Count - 1], mode, PersistentToggle.isOn, OverlayToggle.isOn)
+                            .OnComplete(() => Debug.Log("DrawLine Complete"));
+                        break;
+                    case DrawMode.FullCurve:
+                        TutorialUI.DrawLine(storedPs.ToArray(), mode, PersistentToggle.isOn, OverlayToggle.isOn)
+                            .OnComplete(() => Debug.Log("DrawLine Complete"));
+                        break;
                 }
                 storedPs.Clear();
             }
@@ -90,20 +101,24 @@ namespace Antura.Test
 
         void Update_Click()
         {
-            if (!Input.GetMouseButtonUp(0)) return;
+            if (!InputCompat.GetMouseButtonUp(0))
+                return;
 
-            switch (drawMode) {
-            case DrawMode.Click:
-                TutorialUI.Click(MouseWorldPosition());
-                break;
-            case DrawMode.ClickRepeat:
-                TutorialUI.ClickRepeat(MouseWorldPosition());
-                break;
-            case DrawMode.RandomMark:
-                TutorialUI.MarkSize markSize = NormalToggle.isOn ? TutorialUI.MarkSize.Normal : BigToggle.isOn ? TutorialUI.MarkSize.Big : TutorialUI.MarkSize.Huge;
-                if (UnityEngine.Random.value < 0.5f) TutorialUI.MarkYes(MouseWorldPosition(), markSize);
-                else TutorialUI.MarkNo(MouseWorldPosition(), markSize);
-                break;
+            switch (drawMode)
+            {
+                case DrawMode.Click:
+                    TutorialUI.Click(MouseWorldPosition());
+                    break;
+                case DrawMode.ClickRepeat:
+                    TutorialUI.ClickRepeat(MouseWorldPosition());
+                    break;
+                case DrawMode.RandomMark:
+                    TutorialUI.MarkSize markSize = NormalToggle.isOn ? TutorialUI.MarkSize.Normal : BigToggle.isOn ? TutorialUI.MarkSize.Big : TutorialUI.MarkSize.Huge;
+                    if (UnityEngine.Random.value < 0.5f)
+                        TutorialUI.MarkYes(MouseWorldPosition(), markSize);
+                    else
+                        TutorialUI.MarkNo(MouseWorldPosition(), markSize);
+                    break;
             }
         }
 
@@ -129,7 +144,7 @@ namespace Antura.Test
 
         Vector3 MouseWorldPosition()
         {
-            return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane + CameraDistance));
+            return Camera.main.ScreenToWorldPoint(new Vector3(InputCompat.mousePosition.x, InputCompat.mousePosition.y, Camera.main.nearClipPlane + CameraDistance));
         }
 
         #endregion
