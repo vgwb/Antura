@@ -127,6 +127,11 @@ namespace Antura.Debugging
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
+        void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
         void Update()
         {
             _isShiftDown = InputCompat.GetKey(KeyCode.LeftShift) || InputCompat.GetKey(KeyCode.RightShift);

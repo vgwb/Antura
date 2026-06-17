@@ -280,7 +280,7 @@ namespace Antura.Discover
                 return true;
             }
 
-            key = card.GetInstanceID().ToString();
+            key = card.GetEntityId().ToString();
             return true;
         }
 

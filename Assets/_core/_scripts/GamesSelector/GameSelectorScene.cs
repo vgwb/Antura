@@ -24,6 +24,11 @@ namespace Antura.GamesSelector
             DebugManager.OnSkipCurrentScene -= HandleSceneSkip;
         }
 
+        private void OnDisable()
+        {
+            DebugManager.OnSkipCurrentScene -= HandleSceneSkip;
+        }
+
         private void HandleSceneSkip()
         {
             AppManager.I.NavigationManager.GoToNextScene();

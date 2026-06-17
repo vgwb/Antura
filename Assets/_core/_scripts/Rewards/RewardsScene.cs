@@ -52,6 +52,11 @@ namespace Antura.Rewards
             Continue();
         }
 
+        void OnDisable()
+        {
+            DebugManager.OnSkipCurrentScene -= HandleSceneSkip;
+        }
+
         void OnDestroy()
         {
             DebugManager.OnSkipCurrentScene -= HandleSceneSkip;

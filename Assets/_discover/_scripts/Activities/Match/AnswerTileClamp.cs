@@ -11,7 +11,6 @@ namespace Antura.Discover.Activities
         private RectTransform board;
         private Vector2 startPos;
         private Vector2 startPointer;
-        private bool reparentedOnBegin;
 
         private void Awake()
         {
@@ -34,7 +33,6 @@ namespace Antura.Discover.Activities
                 rt.anchorMin = new Vector2(0.5f, 0.5f);
                 rt.anchorMax = new Vector2(0.5f, 0.5f);
                 rt.pivot = new Vector2(0.5f, 0.5f);
-                reparentedOnBegin = true;
                 // Recompute anchored position from world
                 var local = (Vector2)board.InverseTransformPoint(world);
                 rt.anchoredPosition = local;
@@ -56,7 +54,6 @@ namespace Antura.Discover.Activities
         public void OnEndDrag(PointerEventData eventData)
         {
             // Keep parent as BoardArea; drop logic will reattach if needed
-            reparentedOnBegin = false;
         }
 
         private static Vector2 ClampAnchoredToParent(RectTransform parent, RectTransform child, Vector2 desired)

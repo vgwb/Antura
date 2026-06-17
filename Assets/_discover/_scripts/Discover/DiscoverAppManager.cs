@@ -108,6 +108,11 @@ namespace Antura.Discover
             PlayerProfileManager.OnProfileChanged -= OldProfilePlayerChanged;
         }
 
+        private void OnDisable()
+        {
+            PlayerProfileManager.OnProfileChanged -= OldProfilePlayerChanged;
+        }
+
         private void Start()
         {
             if (AppManager.I.PlayerProfileManager?.CurrentPlayer != null)

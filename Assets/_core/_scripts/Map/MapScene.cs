@@ -24,6 +24,11 @@ namespace Antura.Map
             DebugManager.OnSkipCurrentScene -= HandleSkipScene;
         }
 
+        void OnDisable()
+        {
+            DebugManager.OnSkipCurrentScene -= HandleSkipScene;
+        }
+
         private void HandleSkipScene()
         {
             Play();

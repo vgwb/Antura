@@ -1,4 +1,5 @@
-﻿using DG.DeInspektor.Attributes;
+﻿#nullable enable annotations
+using DG.DeInspektor.Attributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,7 +43,6 @@ namespace Antura.Discover
         public DialogueType CurrDialogueType { get; private set; }
 
         int currChoiceIndex;
-        bool gotoNextWhenPostcardFocusViewCloses;
         bool learningLanguageFirst = true;
         QuestNode currNode;
         DialogueSignal previewSignalPrefab;
@@ -175,7 +175,6 @@ namespace Antura.Discover
 
         public void HidePostcard()
         {
-            gotoNextWhenPostcardFocusViewCloses = false;
             postcard.Hide();
         }
 

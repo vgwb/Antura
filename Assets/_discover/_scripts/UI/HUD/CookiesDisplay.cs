@@ -26,8 +26,6 @@ namespace Antura.Discover
         public float flyDuration = 1f;
         public Ease flyEase = Ease.InOutQuad;
 
-        private Coroutine animCo;
-
         private Tween punchTween;
         private InventoryManager inventoryManager;
         private bool initialized;
@@ -95,7 +93,6 @@ namespace Antura.Discover
                 PlayPunch();
                 yield return new WaitForSeconds(unitInterval);
             }
-            animCo = null;
         }
 
         /// <summary>

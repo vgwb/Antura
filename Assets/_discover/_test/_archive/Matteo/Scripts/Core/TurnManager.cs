@@ -97,6 +97,16 @@ namespace PetanqueGame.Core
             }
         }
 
+        private void OnDisable()
+        {
+            ThrowHelper.OnBouleThrown -= OnBouleThrown;
+            if (_scoreManager != null)
+            {
+                _scoreManager.OnGameOver -= HandleGameOver;
+                _scoreManager.OnRoundEnd -= ResetRound;
+            }
+        }
+
         private IEnumerator StartRoundWithJack()
         {
             // Porta il primo giocatore a TurnPosition prima di lanciare il jack

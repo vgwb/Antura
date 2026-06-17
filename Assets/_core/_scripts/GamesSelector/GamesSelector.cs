@@ -100,6 +100,11 @@ namespace Antura.GamesSelector
             OnComplete -= GoToMinigame;
         }
 
+        void OnDisable()
+        {
+            OnComplete -= GoToMinigame;
+        }
+
         void Update()
         {
             if (Time.timeScale <= 0)

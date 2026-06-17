@@ -157,6 +157,7 @@ namespace Antura.Discover
             }
         }
 
+        [System.Obsolete]
         public override async YarnTask<DialogueOption> RunOptionsAsync(DialogueOption[] dialogueOptions, CancellationToken cancellationToken)
         {
             // Called by the Dialogue Runner to signal that options should be shown

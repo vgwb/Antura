@@ -45,6 +45,11 @@ namespace Antura.Scenes
             DebugManager.OnSkipCurrentScene -= HandleSkipScene;
         }
 
+        void OnDisable()
+        {
+            DebugManager.OnSkipCurrentScene -= HandleSkipScene;
+        }
+
         private void HandleSkipScene()
         {
             CreatePlayer(0, PlayerGender.M, Color.yellow, Color.red, Color.magenta, 4);

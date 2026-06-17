@@ -9,8 +9,6 @@ namespace Antura.Discover
 {
     public class InventoryManager
     {
-        static int MaxItemsInInventory = 5;
-
         // Public view of items (ordered list for UI)
         public List<InventoryItem> Items { get; private set; } = new List<InventoryItem>();
         // Fast lookup by code

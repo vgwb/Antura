@@ -75,6 +75,11 @@ namespace Antura.Rewards
             DebugManager.OnSkipCurrentScene -= HandleSceneSkip;
         }
 
+        void OnDisable()
+        {
+            DebugManager.OnSkipCurrentScene -= HandleSceneSkip;
+        }
+
         private void HandleSceneSkip()
         {
             GameResultUI.I.EndsessionResultPanel.Continue();
