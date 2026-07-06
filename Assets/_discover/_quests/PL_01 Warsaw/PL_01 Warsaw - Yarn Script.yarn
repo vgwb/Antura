@@ -123,7 +123,6 @@ type: panel
 <<declare $chest_6_done = false>>
 <<declare $chest_7_done = false>>
 <<declare $quiz_score = 0>>
-
 Welcome to Warsaw, the capital of Poland! #line:05d7d48 
 <<target npc_0>>
 <<area area_intro>>
@@ -185,7 +184,7 @@ Who was Chopin? #line:02d07ad
 -> A composer. #line:04d5c5f 
 	<<set $quiz_score = $quiz_score + 1>>
 	Correct. #shadow:correct
-What is the Wisła River? #line:0e17c6d 
+What is the Wisła? #line:0e17c6d 
 -> A palace. #line:002ec2d 
 	Are you sure? #shadow:are_you_sure
 -> A stadium. #line:0b7ff07 
@@ -213,7 +212,7 @@ Where do you want to go? #line:where_to_go
     <<teleport tram_parliament>>
     <<wait 4>>
     <<jump intro_area_parliament>>
--> Chopin <<if $current_place == "parliament" or $current_place == "palace_culture">> #line:tram_chopin
+-> Chopin Monument <<if $current_place == "parliament" or $current_place == "palace_culture">> #line:tram_chopin
     <<teleport tram_chopin>>
     <<wait 4>>
     <<jump intro_area_chopin>>
@@ -304,7 +303,7 @@ actor: GUIDE_F
 group: mermaid
 ---
 <<card mermaid_of_warsaw>>
-The Mermaid of Warsaw is called the Syrenka. #line:05be7da 
+The Mermaid is the symbol of Warsaw. #line:05be7da 
 She is half woman, half fish, and carries a sword and a shield. #line:08618f7 
 ===
 
@@ -572,7 +571,7 @@ color: yellow
 <<else>>
 	<<detour info_3>>
 	<<card king_sigismunds_column>>
-	Talk to the yellow people in the square and learn about our history. #line:03531ce #task:task_3
+	Talk to the yellow characters in the square and learn about our history. #line:03531ce #task:task_3
 	<<task_start task_3 task_3_done>>
 <<endif>>
 ===
@@ -787,7 +786,7 @@ actor: SENIOR_M
 group: parliament
 ---
 <<card constitution_of_3_may>>
-The Constitution of 3 May is an important day in Poland. #line:00e7623 
+The May 3rd Constitution Day is an important national holiday in Poland. #line:00e7623
 <<inventory key_gold add 1>>
 Here is a key for you! #shadow:your_key
 <<collect key_gold>>
@@ -873,7 +872,7 @@ color: blue
 <<set $current_place = "chopin">>
 <<area area_chopin>>
 <<target npc_5>>
-We are at Chopin Park. #line:0eff643 
+We are at the Royal Baths. #line:0eff643 
 ===
 
 // -----------------------------------------------------------------------------
@@ -1206,8 +1205,8 @@ color: yellow
 <<else>>
 	<<detour info_7>>
 	<<card national_stadium_warsaw>>
-	I am Robert Lewandowski. Welcome to the National Stadium! #line:012efc8
-	Talk to the blue people around the stadium. #line:0ee090a #task:task_7
+	Welcome to the National Stadium! #line:012efc8
+	Talk to the blue characters around the stadium. #line:0ee090a #task:task_7
 	<<task_start task_7 task_7_done>>
 <<endif>>
 ===
@@ -1295,14 +1294,8 @@ title: chest_7
 position: 1278,2391
 group: stadium
 ---
-<<if $chest_7_done>>
-	The chest is empty. #shadow:chest_empty
-<<elseif has_item_at_least("key_gold", 4)>>
 	To open the chest, solve this puzzle! #shadow:solve_to_unlock
 	<<activity activity_7 activity_7_done>>
-<<else>>
-	It is locked. You need all the keys! #shadow:chest_locked
-<<endif>>
 ===
 
 title: activity_7_done
@@ -1329,6 +1322,7 @@ group: stadium
 		<<inventory mermaids_sword add>>
 		The seventh sword piece is yours! You have all 7 pieces! #line:0a2ac65 
 		Return to the Mermaid and reassemble the sword. #line:0221147 
+		// TODO jump back to NPC_1
 		<<target npc_1>>
 	<<endif>>
 <<else>>
