@@ -60,11 +60,18 @@ The stars are at main NPC
 - **Green star:** The dwarf has been freed.
 
 ### Areas
+Part 1
 - **Area 0: School** — 1 dwarf tutorial -> Unlock Cathedral
 - **Area 1: Cathedral** — 1 dwarf - Unlock the map and both mid areas.
-- **Area 2: Center** — 3 dwarves - Market Square, Old Town Hall, Panorama
-- **Area 3: Centennial** — 3 dwarves - Zoo, Centennial Hall, Fountain
-- **Area 4: Sky Tower** — 3 dwarves - Unlock only after both Center and Centennial are complete.
+- **Area 2: Center** — 3 dwarves - Market Square, Old Town Hall, 
+
+
+Part 2
+- **Area 3: Centennial** — 3 dwarves - Fountain , Centennial Hall, Zoo
+
+- **Area 4: Panorama
+
+- **Area 5: Sky Tower** — 3 dwarves - Unlock only after both Center and Centennial are complete.
 
 ### Areas
 
