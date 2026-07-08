@@ -394,7 +394,7 @@ color:
 actor:
 ---
 <<if $bridge_redzinski == 1>>
-    Rebuild the tallest pylon in Wrocław! #line:ch_redz1
+    Rebuild the biggest bridge in Wrocław! #line:ch_redz1
     <<activity jigsaw_redzinski_bridge chest_redzinski_bridge_done>>
 <<elseif $bridge_redzinski == 2>>
     <<action open_chest_redzinski>>
