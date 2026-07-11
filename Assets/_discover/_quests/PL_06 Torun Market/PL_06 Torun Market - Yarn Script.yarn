@@ -55,7 +55,6 @@
 //   - TODO open_door
 //   - TODO open_door_castle
 //   - TODO tower_lever
-// WORDS: (none)
 // </scene_data>
 
 // ---------
@@ -76,13 +75,7 @@ type: panel
 color: red
 actor:
 ---
-<<declare $grocer_completed = false>>
-<<declare $beekeeper_completed = false>>
-<<declare $cheesemonger_completed = false>>
-<<declare $eggvendor_completed = false>>
-<<declare $spicevendor_completed = false>>
 <<declare $gingerbread_done = false>>
-
 We are in TORUŃ, home of Poland's legendary GINGERBREAD! #line:080555e 
 Let's explore the MARKET. #line:03e11fa 
 <<target npc_cook>>
