@@ -59,8 +59,9 @@ actor: NARRATOR
 <<declare $greengrocer_completed = false>>
 <<declare $grocer_completed = false>>
 <<declare $pirate_completed = false>>
-Welcome to Côte d'Azur, on the Mediterranean Sea! #line:078e646
-Let's explore the market and buy ingredients for a traditional dish. #line:0462dca 
+Welcome to the city of Marseille. #line:078e646
+Marseille is a city located on the Mediterranean coast, in the South of France. #line:008924f 
+Today, you're going to explore the market. You're going to buy ingredients to prepare a traditional Marseille dish. The Bouillabaisse, a fish soup. #line:0462dca 
 <<target npc_chef>>
 ===
 
@@ -70,7 +71,7 @@ color: green
 type: panel_endgame
 actor: NARRATOR
 ---
-The game is complete! Congratulations! #line:0f5c958 
+Well done! You managed to buy all the ingredients for the chef! #line:0f5c958 
 <<jump quest_proposal>>
 ===
 
@@ -106,10 +107,10 @@ position: 674,-579
 group: chef
 actor: ADULT_M
 ---
-Bonjour! Welcome to Marseille. We are at the market! #line:02548dd 
+Hello! Welcome to the city of Marseille. You're going to the market. You're going to buy ingredients to prepare a bouillabaisse. Bouillabaisse is a traditional fish soup. #line:02548dd 
 <<card bouillabaisse>>
-I want to make a french typical dish for you, a bouillabaisse! #line:0c65de3 
-But I need some ingredients. #line:0623733 
+I want to prepare a traditional dish from Marseille for you. A bouillabaisse! #line:0c65de3 
+But I need your help to go buy the ingredients. #line:0623733 
 <<jump task_ingredients>>
 ===
 
@@ -120,12 +121,12 @@ group: chef
 color: green
 tags: task
 ---
-Please go to the market and buy the recipe ingredients. #line:06602c6 
+Go to the market and bring me back the ingredients to prepare a bouillabaisse. #line:06602c6 
 <<detour task_ingredients_desc>>
 <<task_start COLLECT_THE_INGREDIENTS task_ingredients_done>>
-When you talk to people, remember your manners! #line:02819db
-Say "Bonjour" to greet someone #line:04c9d69 
-and "Merci" to thank them. #line:022fd8f 
+Say "hello" to the market vendors. #line:02819db
+Say "goodbye" when you have finished shopping. #line:04c9d69 
+Don't forget to say "thank you" to the shopkeepers. #line:022fd8f 
 <<area area_full>>
 ===
 
@@ -150,9 +151,9 @@ position: 404,-274
 group: chef
 tags: task
 ---
-You don't have all ingredients! #line:0c5c6ac
-Make sure you talk to everyone in the market. #line:0060c01
-And take the ingredients you buy. #line:0ea58f3 
+I need more ingredients! #line:0c5c6ac
+Go see all the vendors at the market. #line:0060c01
+Collect all the ingredients for the recipe. #line:0ea58f3 
 ===
 
 title: task_ingredients_done
@@ -161,8 +162,8 @@ group: chef
 type: panel
 ---
 <<target npc_chef>>
-Great! You got all the ingredients. #line:0316106 
-Go back to the chef. #line:05398f2 #task:go_back_chef
+Well done! You managed to buy all the ingredients. #line:0316106 
+Go back and watch the chef cook. #line:05398f2 #task:go_back_chef
 <<task_start go_back_chef>>
 ===
 
@@ -172,9 +173,9 @@ position: 669,-418
 group: chef
 actor: ADULT_M
 ---
-Magnifique! You have everything. #line:0257fc7
-And you were very polite. #line:0112e25
-Now, let's prepare our feast! #line:0051174
+Well done! You managed to buy all the ingredients. #line:0257fc7
+You greeted everyone with "hello". You thanked all the shopkeepers with "thank you". #line:0112e25
+Now, let's prepare the boullabaise recipe together! #line:0051174
 <<jump activity_match_ingredients>>
 ===
 
@@ -184,7 +185,7 @@ group: chef
 tags: activity
 color: purple
 ---
-Match each food to its seller. #line:0a6e106
+Match each food item to its seller. #line:0a6e106
 <<activity match_ingredients activity_match_done>>
 ===
 
@@ -194,12 +195,12 @@ position: 926,-273
 group: chef
 ---
 <<if GetActivityResult("match_ingredients") > 0>>
-Well done! You matched all the items. #line:01648b2
+Well done! You managed to match each food item with its vendor. #line:01648b2
 <<card bouillabaisse>>
-Now, let's cook the bouillabaisse! #line:0f0f617 
+Now, I'm going to prepare the fish soup: bouillabaisse! #line:0f0f617 
 <<jump quest_end>>
 <<else>>
-Not perfect. Try again! #line:007427a 
+That's not correct. Try again! #line:007427a 
 <<jump activity_match_ingredients>>
 <<endif>>
 ===
@@ -233,8 +234,8 @@ group: baker
 actor: ADULT_F
 ---
 <<card person_baker>>
-Bonjour! I am a baker and I sell fresh bread. #line:0c6f41f
-Every day I wake up early to bake. #line:0f6e48a 
+Hello! I'm a baker. I sell bread and cakes. #line:0c6f41f
+Every day, I get up early to bake bread, prepare cakes and croissants. #line:0f6e48a 
 <<jump baker_question>>
 ===
 
@@ -262,7 +263,7 @@ group: baker
 actor: ADULT_F
 color: purple
 ---
-Select enough money to pay. #line:0bbf963 
+You now need to pay for your purchases. #line:0bbf963 
 <<activity money_baker baker_payment_done>>
 ===
 
@@ -272,7 +273,7 @@ group: baker
 tags:
 actor: ADULT_F
 ---
-I put your items in the table. Thank you! #line:0567082 
+I've put your purchases on the table next to you. Help yourself! #line:0567082 
 -> Merci! #line:00da30a 
 -> Au revoir! #line:00cbd60 
 -> Bonne journée! #line:00cd1cf 
@@ -310,7 +311,7 @@ actor: SENIOR_M
 ---
 <<card person_fishmonger>>
 Good morning! I'm a fishmonger and I sell fish and crabs. #line:04b4a87
-All of my products come from the sea! #line:0aa9ce7 
+You now need to pay for your purchases. #line:0aa9ce7 
 <<jump fisher_question>>
 ===
 
@@ -336,7 +337,7 @@ group: fisher
 actor: SENIOR_M
 color: purple
 ---
-Select enough money to pay. #line:0995020 
+You now need to pay for your purchases. #line:0995020 
 <<activity money_fishmonger fisher_payment_done>>
 ===
 
@@ -346,7 +347,7 @@ group: fisher
 tags:
 actor: SENIOR_M
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
 -> Au revoir! #line:02e64ff 
 -> Merci! #line:02c23e5 
 -> Bonne journée! #line:080d945 
@@ -399,7 +400,7 @@ group:cheesemonger
 actor: ADULT_F
 color: purple
 ---
-Select enough money to pay. #line:0f44ea7 
+You now need to pay for your purchases. #line:0f44ea7 
 <<activity money_cheesemonger cheesemonger_payment_done>>
 ===
 
@@ -409,7 +410,7 @@ group:cheesemonger
 actor: ADULT_F
 tags:
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
 -> Bonne journée! #line:0dd3ac3 
 -> Au revoir! #line:02a1238 
 -> Merci! #line:0273de1 
@@ -421,8 +422,8 @@ position: 641,403
 group: cheesemonger
 actor: ADULT_F
 ---
-Hi! I sell cheese and milk. I am a cheesemonger. #line:09eb222 
-I use both cow milk and goat milk. #line:02f4bc9 
+Hello! I am a cheesemaker. I sell products made with milk. #line:09eb222 
+I sell yogurt, cheese, butter, and milk. #line:02f4bc9 
 <<card  person_cheesemonger>>
 <<jump cheesemonger_question>>
 ===
@@ -457,8 +458,8 @@ group: greengrocer
 actor: ADULT_F
 ---
 <<card  person_greengrocer>>
-Hello! I'm a greengrocer. I sell fruits and vegetables. #line:041ade1
-My items are always fresh! #line:0969b87 
+Hello! I am a fruit and vegetable vendor. #line:041ade1
+I sell vegetables like lettuce, tomatoes, and carrots. I sell fruits like lemons, apples, and bananas. #line:0969b87 
 <<jump greengrocer_question>>
 ===
 
@@ -468,7 +469,7 @@ group: greengrocer
 actor: ADULT_F
 color: purple
 ---
-Select enough money to pay. #line:08fc94e 
+You now need to pay for your purchases. #line:08fc94e 
 <<activity money_greengrocer greengrocer_payment_done>>
 ===
 
@@ -478,7 +479,7 @@ group: greengrocer
 actor: ADULT_F
 tags:
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
 -> Bonne journée! #line:0ff9361 
 -> Merci! #line:0741be3 
 -> Au revoir! #line:023f352 
@@ -531,7 +532,7 @@ group: grocer
 actor: SENIOR_F
 ---
 <<card person_grocer>>
-Hello! I am a grocer. I sell spices and pantry goods. #line:0ffbfa4
+Hello! I'm a grocer. I sell spices like salt and pepper. But I also sell other ingredients like flour and sugar. #line:0ffbfa4
 You can use my items for many recipes. #line:0c6a554 
 <<jump grocer_question>>
 ===
@@ -542,7 +543,7 @@ group: grocer
 actor: SENIOR_F
 color: purple
 ---
-Select enough money to pay. #line:0c80f9e 
+You now need to pay for your purchases. #line:0c80f9e 
 <<activity money_grocer grocer_payment_done>>
 ===
 
@@ -553,7 +554,7 @@ group: grocer
 actor: SENIOR_F
 tags:
 ---
-I put your items in the table. Thank you! #shadow:0567082 
+I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
 -> Au revoir! #line:0ce6f8a 
 -> Merci! #line:0e8ec1b 
 -> Bonne journée! #line:062029a 
@@ -583,12 +584,12 @@ actor: SENIOR_M
 tags: 
 ---
 <<if $pirate_completed>>
-Now go! I have to prepare for my next voyage. #line:04a0605 
+Now go! I have to prepare for my next trip. #line:04a0605 
 <<else>>
 Ahoy! Welcome aboard. #line:04ee922 
 <<card pirates>>
-We come from Saint-Malo and sailed the seas to get here. #line:056c70d 
-People call us pirates, but we were corsairs. #line:0f764a6
+We are pirates. #line:056c70d 
+Pirates have large ships to cross the seas and oceans. #line:0f764a6
 Do you want to play a game? #line:022f719 
 -> Yes #shadow:yes
     <<jump pirate_activity>>
@@ -616,9 +617,9 @@ tags:
 
 <<if GetActivityResult("jigsaw_pirate") > 0>>
 Well done, matey! You completed the puzzle. #line:07e3282 
-We worked for the King of France. #line:0af3bba 
-In the past, we took items from the king's enemies, but those days are gone. #line:0b61715 
-You should pay for what you need #line:0209784 
+Long ago, pirates searched for treasure. #line:0af3bba 
+The pirates also attacked other ships. They stole items and jewelry from the ships. #line:0b61715 
+You have to pay for your groceries. #line:0209784 
 so the shops can stay open! #line:02c49d0 
 Take my treasure as a reward. #line:092a215 
 <<set $pirate_completed = true>>
@@ -662,7 +663,7 @@ position: 1878,824
 tags: detour
 color: orange
 ---
-Try talking to the other vendors too. #line:06ae965 
+Go see the other sellers! #line:06ae965 
 ===
 
 title: item_bread
@@ -769,10 +770,10 @@ color: purple
 actor: 
 spawn_group: tourists 
 ---
-=> Hi! I'm visiting from Paris. #line:00a142a 
+=> Hello! I'm visiting the city of Marseille. #line:00a142a 
 => The food here is amazing! #line:0374dff 
 => I love the sea! #line:0980627 
-=> The market is so lively! #line:0d92388 
+=> It's very pleasant to do your shopping at the market! #line:0d92388 
 => The bouillabaisse is my favorite dish! #line:07c080f 
 ===
 
@@ -783,9 +784,9 @@ actor:
 spawn_group: buyers 
 ---
 => I need to buy some fresh ingredients. #line:0baa74d 
-=> The market has the best produce. #line:042c6f0 
-=> Fresh fish is the best! #line:01269c6 
-=> I can't wait to cook a delicious meal! #line:0fc5cd3 
+=> You can find good products at the market. #line:042c6f0 
+=> The fish is delicious. #line:01269c6 
+=> I'm looking forward to cooking a delicious meal. #line:0fc5cd3 
 ===
 
 title: spawned_currency
@@ -794,9 +795,9 @@ color: purple
 actor: 
 spawn_group: tourists 
 ---
-=> One euro is 100 cents. #line:0e6c526 #card:currency_euro
-=> Polite words plus correct coins: perfect! #line:07a5934 #card:currency_euro
-=> Euros have different sizes for each value. #line:021819a #card:currency_euro
+=> In France and Europe, the currency is called the euro. There are coins and banknotes. #line:0e6c526 #card:currency_euro
+=> You gave the right amount of money. Well done! #line:07a5934 #card:currency_euro
+=> You can pay with coins and bills. But you can also pay with a bank card. #line:021819a #card:currency_euro
 ===
 
 title: spawned_recipe
@@ -805,10 +806,10 @@ color: purple
 actor: 
 spawn_group: buyers 
 ---
-=> Bouillabaisse mixes many fish. #line:0b6981c #card:bouillabaisse
-=> Fresh tomato adds flavor. #line:0477851 #card:food_tomato
-=> Olive oil adds flavor. #line:060644d #card:food_olive_oil    
-=> Bread is great for dipping soup. #line:04e69ac #card:food_bread
+=> Boullabaise soup contains many fish. #line:0b6981c #card:bouillabaisse
+=> The tomato is delicious. #line:0477851 #card:food_tomato
+=> Olive oil adds flavor to the dish. #line:060644d #card:food_olive_oil    
+=> Sometimes we eat bread with the soup. #line:04e69ac #card:food_bread
 ===
 
 title: spawned_jobs
@@ -817,8 +818,8 @@ color: purple
 actor: 
 spawn_group: buyers 
 ---
-=> A baker bakes bread. #line:0606dc5 #card:person_baker
+=> A baker bakes bread. He also prepares croissants and cakes. #line:0606dc5 #card:person_baker
 => A fishmonger sells fish and crab. #line:0ca5a9b #card:person_fishmonger
-=> A cheesemonger sells cheese and milk. #line:0b5b1c5 #card:person_cheesemonger
+=> A cheesemonger sells products made with milk. #line:0b5b1c5 #card:person_cheesemonger
 => A greengrocer sells fruits and veggies. #line:03b9a2e #card:person_greengrocer
 ===

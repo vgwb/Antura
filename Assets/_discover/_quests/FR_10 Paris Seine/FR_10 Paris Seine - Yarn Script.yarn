@@ -42,8 +42,8 @@ actor:
 <<declare $bridge_train = 0>>
 <<declare $bridge_cars = 0>>
 <<declare $bridge_people = 0>>
-We are at the River Seine, in Paris! #line:042160f 
-Today we will explore the river, the bridges, and the boats. #line:0280e8f 
+Welcome to Paris! Paris is the capital of France. In Paris, there is a very famous river. This river is called the Seine. #line:042160f 
+Today, you will discover the Seine and its many bridges. On the Seine, there are all kinds of boats. #line:0280e8f 
 <<target protagonist>>
 <<area area_init>>
 //<<area area_all>>
@@ -55,15 +55,15 @@ color: green
 type: panel_endgame
 actor:
 ---
-Great, you finished the quest! #line:0c408c3 
+Great, you've completed this quest! #line:0c408c3 
 <<card place_bridge_people>>
-You learned about bridges for trains, cars, and people. #line:091e9fc 
+You discovered the bridges and boats of the Seine. The bridges allow you to cross the river that flows through Paris: the Seine. #line:091e9fc 
 <<card boat_people>>
-You saw tourist boats with big windows. #line:062cc35 
+There are boats for tourists. They have large windows to see the monuments of Paris from the Seine. #line:062cc35 
 <<card boat_house>>
-You also saw house boats where people can live. #line:0a29742 
+There are houseboats. People live on these boats. They are called barges. #line:0a29742 
 <<card seine_map_in_paris>>
-Paris grows around the Seine. #line:08cc02a 
+Important monuments in Paris were built around the Seine. #line:08cc02a 
 <<jump post_quest_activity>>
 ===
 
@@ -75,7 +75,6 @@ tags: proposal
 actor:
 ---
 Draw a bridge in your notebook! #line:0b37e92 
-You can also find other activities on the website. #line:04f7aaa 
 <<quest_end>>
 ===
 
@@ -86,26 +85,26 @@ color: blue
 ---
 <<if HasCompletedTask("find_photos")>>
     Thank you! #line:0a70250
-    You found all my photos! #line:07cac48 
-    Now I can go home! One last question... #line:08b0aea 
+    You found all the photos from my guide! #line:07cac48 
+    I can finally go home! I have one last question… #line:08b0aea 
     <<jump question_seine_map>>
 <<elseif HasCompletedTask("collect_cards")>>
     Thank you! #shadow:0a70250 
     But I miss 7 photos about bridges and boats on the Seine! #line:006ab27 
     <<area area_all>>
-    Explore the Seine and find my photos! #task:find_photos #line:084c7e4 
-    If you can't find them, use the map! #line:0bfcb05 
+    Take a walk along the banks of the Seine and find the photos! #task:find_photos #line:084c7e4 
+    If you can't find them, you can use the map of Paris to locate them! #line:0bfcb05 
     <<task_start find_photos task_find_photos_done>>
 <<elseif GetCurrentTask() == "find_photos" or GetCurrentTask() == "collect_cards">>
     You are doing well! #line:03ea48b 
 <<else>>
     Help! Help me! #line:0aa0f3a 
     <<camera_focus camera_intro>>
-    I am a tourist and that big blue dog took my Paris guidebook! #line:0210ef0
-    And the pages with photos of the Seine are missing! #line:0c8e7b6
+    I'm visiting Paris. I'm a tourist. Antura the dog took my book about Paris! #line:0210ef0
+    The pages of my book and the photos fell near the Seine! #line:0c8e7b6
     <<camera_reset>>
     <<SetActive antura false>>
-    Find the photos around here! #line:0a9c8e7 #task:collect_cards
+    Walk near the river and you'll find the photos! #line:0a9c8e7 #task:collect_cards
     <<area area_tutorial>>
     <<task_start collect_cards task_collect_cards_done>>
 <<endif>>
@@ -136,16 +135,16 @@ title: question_seine_map
 position: 1135,-4
 actor:
 ---
-The Seine flows into a sea. Which one? #line:066d7bd 
+The river that flows through Paris is called... #line:066d7bd 
 -> The Mediterranean Sea #line:02ab1e0 
-   Hmm... not really. Look at the map again. #line:099fe86 
+    That's not the correct answer. The Loire flows through Nantes, near the Jules Verne Museum. #line:099fe86 
     <<jump question_seine_map>>
 -> The English Channel #line:03c92db 
     <<card seine_map>>
-    Yes. The Seine flows into the English Channel, in the north of France. #line:0a2bcd3
+    Yes, it's the Seine. The river that flows through Paris is called the Seine. #line:0a2bcd3
     <<jump quest_end>>
 -> The Atlantic Ocean #line:052fdac 
-    Hmm... not really. Look at the map again. #shadow:099fe86 
+    That's not the correct answer. The Loire flows through Nantes, near the Jules Verne Museum. #shadow:099fe86 
     <<jump question_seine_map>>
 -> I don't know #shadow:dont_know #highlight
 ===
@@ -156,7 +155,7 @@ position: -100,-100
 ---
 <<if GetCurrentTask() == "find_photos">>
     <<card boat_for_goods>>
-    This boat carries goods. #line:0f13a44
+    This boat is transporting goods #line:0f13a44
     <<if $boat_goods < 10>>
     What can you find on a goods boat? #line:04059bd 
     -> Boxes and things #line:0b12cb3
@@ -205,19 +204,19 @@ title: npc_boat_house
 position: -100,-100
 ---
 <<card boat_house>>
-This boat is a house! People live here! #line:0a627c2 
+This boat is a house. There are people who live on this boat. This boat is called a houseboat. #line:0a627c2 
 <<if $boat_house < 10>>
-Why is this a house boat? #line:0165157 
--> It is only for trains #line:055d822 
+Why is this boat called a houseboat? #line:0165157 
+-> It's a bridge for trains. #line:055d822 
     No. Try again. #shadow:try_again
     <<jump npc_boat_house>>
--> People can live on it #line:0c86d26 
+-> It's possible to live there. #line:0c86d26 
     <<set $boat_house = 1>>
     <<target chest_boat_house>>
     <<camera_focus camera_chest_boat_house>>
     Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> It can only carry goods #line:036ba15 
+-> This boat is transporting goods #line:036ba15 
     No. Try again. #shadow:try_again 
     <<jump npc_boat_house>>
 -> I don't know #shadow:dont_know #highlight 
@@ -250,10 +249,10 @@ title: npc_boat_people
 position: -100,-100
 ---
 <<card boat_people>>
-This boat has big windows, so tourists can see the city. It's a "bateau-mouche". #line:0129c99 
+This boat has large windows. Tourists can admire the city. It's a "riverboat". #line:0129c99 
 <<if $boat_people < 10>>
 Why does a tourist boat have big windows? #line:02ce3de 
--> To carry more cars #line:02349a3
+-> To transport cars #line:02349a3
     No. Try again. #shadow:try_again
     <<jump npc_boat_people>>
 -> To go under the water #line:037efcf
@@ -299,19 +298,19 @@ title: npc_bridge_alexandre
 position: -100,-100
 ---
 <<card pont_alexandre_iii>>
-This is the Pont Alexandre III, a famous old bridge. #line:09c706f
+This is the Alexander III Bridge. It's a very famous bridge. #line:09c706f
 <<if $bridge_alexandre < 10>>
 What is special about this famous bridge? #line:021f382
--> It has gold statues #line:056c933
+-> There are statues made of gold. #line:056c933
     <<set $bridge_alexandre = 1>>
     <<target chest_bridge_alexandre>>
     <<camera_focus camera_chest_bridge_alexandre>>
     Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> It is a train bridge #line:05c2518
+-> It's a bridge for trains. #line:05c2518
     No. Try again. #shadow:try_again
     <<jump npc_bridge_alexandre>>
--> It is made of ice #line:0d9bc29
+-> It's a bridge for cars. #line:0d9bc29
     No. Try again. #shadow:try_again
     <<jump npc_bridge_alexandre>>
 -> I don't know #shadow:dont_know #highlight
@@ -345,10 +344,10 @@ title: npc_bridge_cars
 position: -100,-100
 ---
 <<card place_bridge_cars>>
-This is a bridge for cars! #line:0d79d7d 
+It's a bridge for cars! #line:0d79d7d 
 <<if $bridge_cars < 10>>
-Cars are fast. How do you cross safely? #line:01f30c4
--> Run across anywhere #line:076ee7f 
+The cars are driving fast. How can I cross safely? #line:01f30c4
+-> You can cross the road anywhere. #line:076ee7f 
     No. Try again. #shadow:try_again
     <<jump npc_bridge_cars>>
 -> Use the sidewalk and cross at the crossing #line:0c8cdae 
@@ -357,7 +356,7 @@ Cars are fast. How do you cross safely? #line:01f30c4
     <<camera_focus camera_chest_bridge_cars>>
     Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> Walk in the road #line:0cf371b
+-> You have to walk on the road #line:0cf371b
     No. Try again. #shadow:try_again
     <<jump npc_bridge_cars>>
 -> I don't know #shadow:dont_know #highlight
@@ -392,10 +391,10 @@ title: npc_bridge_train
 position: -100,-100
 ---
 <<card place_bridge_trains>>
-This is a bridge for trains! #line:0a0991d 
+It's a bridge for trains! #line:0a0991d 
 <<if $bridge_train < 10>>
-A train bridge must be... #line:09731f9 
--> Soft and bouncy #line:08b4fad 
+A train bridge is a bridge... #line:09731f9 
+-> for cars #line:08b4fad 
     No. Try again. #shadow:try_again
     <<jump npc_bridge_train>>
 -> Only for walking #line:03ff912
@@ -458,7 +457,7 @@ A bridge only for people to walk on is called a... #line:0484ee9
     <<camera_focus camera_chest_bridge_people>>
     Yes! Now you can open that chest! #shadow:yes_chest
     <<camera_reset>>
--> Car bridge #line:07f732f 
+-> a bridge for cars #line:07f732f 
     No. Try again. #shadow:try_again
     <<jump npc_bridge_people>>
 -> I don't know #shadow:dont_know #highlight
@@ -495,14 +494,14 @@ actor:
 <<card seine_map_in_paris>>
 Look at this map of the Seine. #line:08b1177 
 <<card seine_map>>
-The Seine goes north into the English Channel (a sea). #line:0281b33 
+The Seine flows into the English Channel (a sea) in a northerly direction. #line:0281b33 
 ===
 
 title: npc_boat
 position: -271,28
 actor: ADULT_M
 ---
-=> No, I didn't see your dog. #line:0614aef 
+=> No, I haven't seen your dog. #line:0614aef 
 => A dog? There are many dogs here... #line:09f3f7a 
 => I did see a dog walking around, yes. #line:02ed36d 
 ===
@@ -515,7 +514,7 @@ tags:
 color: yellow
 ---
 <<card boat_eiffel_tower>>
-Look how nice! #line:059f66d 
+Look how pretty it is! #line:059f66d 
 ===
 
 
@@ -534,7 +533,7 @@ position: 1080,600
 color: purple
 actor: 
 ---
-The river starts far away and ends in the English Channel. #line:074efa5 
+The Seine flows into the English Channel. #line:074efa5 
 ===
 
 
@@ -549,9 +548,9 @@ color: purple
 actor: ADULT_F
 spawn_group: residents 
 ---
-=> Bonjour! #do_not_translate #line:072a345 
+=> Good morning! #do_not_translate #line:072a345 
 => La Seine est magnifique! #do_not_translate #line:0f0f558 
-=> Il y a beaucoup de ponts à Paris! #do_not_translate #line:038b8f6 
+=> There are many bridges in Paris! #do_not_translate #line:038b8f6 
 ===
 
 title: spawned_french_man
@@ -560,10 +559,10 @@ color: purple
 actor: ADULT_M
 spawn_group: residents 
 ---
-=> Salut! #do_not_translate #line:06aa0c1 
-=> J'aime bien faire du vélo le long de la Seine! #do_not_translate #line:0494564 
-=> Paris est la plus belle ville du monde! #do_not_translate #line:0d94ea8 
-=> La Seine est très longue! #do_not_translate #line:0395113 
+=> Hi! #do_not_translate #line:06aa0c1 
+=> I really enjoy cycling along the Seine! #do_not_translate #line:0494564 
+=> Paris is the most beautiful city in the world! #do_not_translate #line:0d94ea8 
+=> The Seine is very long! #do_not_translate #line:0395113 
 ===
 
 
@@ -574,7 +573,7 @@ actor: ADULT_M
 spawn_group: bridge_expert
 ---
 => A train bridge must be strong. #line:0816b6b 
-=> Some bridges are only for walking. #line:0ba2f29 
+=> Some bridges are intended for pedestrians only. #line:0ba2f29 
 => Cars cross the river every day. #line:08d8ef0 
 ===
 
@@ -584,9 +583,9 @@ color: purple
 actor: ADULT_F
 spawn_group: river_friend
 ---
-=> The Seine helps boats move through Paris. #line:0ec822e 
-=> Maps show how the river turns. #line:06d2470 
-=> The river water flows to the sea. #line:0d1724c 
+=> The Seine allows boats to circulate in Paris. #line:0ec822e 
+=> The maps show the meanders of the river. #line:06d2470 
+=> The river flows into the sea. #line:0d1724c 
 ===
 
 title: spawned_boat_guide
@@ -595,7 +594,7 @@ color: purple
 actor: ADULT_M
 spawn_group: boat_guide
 ---
-=> Tourist boats have big windows. #line:047502b 
+=> Tourist boats have large windows. #line:047502b 
 => Goods boats carry many boxes. #line:0ef47e5 
-=> A house boat can be a home. #line:00728bb 
+=> A houseboat can be a home. #line:00728bb 
 ===

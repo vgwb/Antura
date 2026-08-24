@@ -212,7 +212,7 @@ actor: ADULT_M
     We're famous for castles, forests, and trains! #line:04dc97a 
     <<jump task_germany>>
 <<else>>
-    Our flag has stripes black, red, yellow. #line:0cd7024
+    Our flag has black, red and yellow stripes. #line:0cd7024
 <<endif>>
 ===
 
@@ -223,7 +223,7 @@ tags: task
 ---
 <<card flag_germany>>
 Find the German flag and bring it back. #line:029ee72 #task:FIND_GERMAN_FLAG
-It has stripes\: black, red, yellow. #line:0f95ef2 
+It has black, red and yellow stripes. #line:0f95ef2 
 <<task_start FIND_GERMAN_FLAG task_germany_done>>
 ===
 
@@ -361,7 +361,7 @@ color: blue
     We also speak French! #line:0b18893 
     <<jump task_belgium>>
 <<else>>
-    Remember\: my flag has stripes black, yellow, red. #line:0141a13 
+    My flag has black, yellow and red stripes. #line:0141a13 
 <<endif>>
 ===
 

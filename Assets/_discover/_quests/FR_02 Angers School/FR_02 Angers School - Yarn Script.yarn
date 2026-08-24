@@ -33,9 +33,9 @@ actor: NARRATOR
 ---
 <<declare $got_backpack = false>>
 <<SetActive Collect_Backpack false>>
-Welcome to Angers! It is the first day of school! #line:014887e 
-You are 10 years old and in the LAST year of PRIMARY SCHOOL. #line:063e8e0 
-Find your school and your classroom! #line:0f65a1b #task:TASK_SCHOOL
+Welcome to Angers! Angers is a city in western France. Today is the first day of school! It's back to school! #line:014887e 
+School starts again in September. You are 10 years old and you are going into CM2. #line:063e8e0 
+Find your school and class! #line:0f65a1b #task:TASK_SCHOOL
 <<task_start TASK_SCHOOL task_find_school_done>>
 ===
 
@@ -45,8 +45,8 @@ color: green
 type: panel_endgame
 actor: NARRATOR
 ---
-The game is complete! Congratulations! #line:022962d 
-This is our school day #line:038dacc 
+The game is over! Congratulations! #line:022962d 
+It's back to school! #line:038dacc 
 <<jump post_quest_activity>>
 ===
 
@@ -57,7 +57,7 @@ type: panel
 tags: proposal
 actor: NARRATOR
 ---
-Now draw a map of your classroom! #line:09ac4f1 
+Draw your classroom. #line:09ac4f1 
 <<quest_end>>
 ===
 
@@ -66,7 +66,7 @@ title: task_find_school_done
 position: 1,145
 actor: NARRATOR
 ---
-You found your school!  #line:03ed76a 
+You've found your school! #line:03ed76a 
 ===
 
 title: task_find_school_desc
@@ -83,8 +83,8 @@ tags:
 actor: ADULT_F
 ---
 <<card education_ecole_maternelle_fr>>
-Welcome! This is a nursery school for children aged 3 to 5. #line:096b721 
-You are too big for our small chairs. Your school is nearby. #line:07ed07b 
+Welcome! This is a preschool. It's a school for children aged 3 to 5. There are three classes in preschool: the youngest class, the middle class, and the oldest class. #line:096b721 
+You're too old. The elementary school is right next door. The students are between 6 and 10 years old. #line:07ed07b 
 ===
 
 
@@ -104,10 +104,10 @@ position: 724,-284
 actor: GUIDE_M
 ---
 <<card education_ecole_primaire_fr>>
-Bonjour! Welcome! You found it. This is your elementary school. #line:092b309
+Hello! Welcome! You've found your school. You're in elementary school. There are 5 classes: CP, CE1, CE2, CM1 and CM2. #line:092b309
 <<card school_bag>>
-It looks like you forgot your backpack. #line:0dd7977 
-You need your books for the lesson. #line:044385f 
+But you forgot to take your schoolbag. #line:0dd7977 
+You need your pencil case, your pencils, your notebooks and your books. #line:044385f 
 <<jump task_backpack>>
 ===
 
@@ -115,9 +115,9 @@ title: school_2_talk
 position: 734,-24
 actor: GUIDE_M
 ---
-There it is! Let's go inside and start the lesson. #line:0624437 
+And there you go! Enter the classroom. #line:0624437 
 <<action door_open_2>>
-Come in! Your classroom is down the hall. #line:0b91268 
+Come in! Your classroom is at the end of the corridor. #line:0b91268 
 <<jump task_find_classroom >>
 ===
 
@@ -127,8 +127,8 @@ position: 340,61
 actor: KID_M
 ---
 <<card education_lycee_fr>>
-Hi! This is a middle school for ages 11 to 15. #line:06478e9 
-You are almost old enough, but not yet. Keep looking! #line:0df97f8 
+Hello! This is the school. The students are between 11 and 14 years old. #line:06478e9 
+After CM2, students enter middle school. They start middle school at age 11. They enter 6th grade. #line:0df97f8 
 ===
 
 title: school_4
@@ -136,9 +136,9 @@ position: 341,293
 actor: ADULT_F
 ---
 <<card education_college_fr>>
-Bonjour! This is a high school for ages 16 to 18. #line:04a0e4b 
-Students study for the Baccalauréat exam here before university. #line:027eba1 
-You are too young. Try another school. #line:0630d14 
+There are four grades in middle school: 6th, 5th, 4th and 3rd. #line:04a0e4b 
+The students are called high school students. There are three classes in high school. #line:027eba1 
+You are too young to enter middle or high school. #line:0630d14 
 ===
 
 
@@ -147,14 +147,14 @@ position: 620,290
 actor: SENIOR_M
 ---
 <<if GetActivityResult("order_schools_settings") > 0>>
-  Now go find your school! #line:0b22d07 
+  Now, find your school! #line:0b22d07 
 <<else>>
   <<card school_bag>>
-  Hello! I found a backpack on my way here. #line:0c3b4fe 
-  These books are simpler than the ones my students use.  #line:04da48b 
-  Maybe it's yours? #line:0ce9646 
-  But first, you have to earn it! #line:094eace 
-  What is the order of the schools? #line:092fccb 
+  Hello! I found a schoolbag. #line:0c3b4fe 
+  These books are useful when learning to read. You learn the alphabet and letters with these books. #line:04da48b 
+  Is this perhaps your book? #line:0ce9646 
+  But first, you have to win it! #line:094eace 
+  Put the classes back in order. #line:092fccb 
   <<activity order_schools_settings schools_activity_done>>
 <<endif>>
 ===
@@ -164,11 +164,11 @@ position: 620,290
 actor: SENIOR_M
 ---
 <<if GetActivityResult("order_schools_settings") > 0>>
-    Good job! #line:07e8390 
-    Here you go. #line:078fff9 
+    Well done! #line:07e8390 
+    Take it! #line:078fff9 
     <<SetActive Collect_Backpack>>
 <<elseif GetActivityResult("order_schools_settings") == 0>>
-    Sorry! Try again. #line:0e1ff90 
+    Sorry! That's not the right answer. Try again. #line:0e1ff90 
 <<endif>>
 ===
 
@@ -177,7 +177,7 @@ position: 974,-24
 tags: task
 color: green
 ---
-Find your classroom. #line:058ddbc #task:TASK_CLASSROOM
+Find your class. #line:058ddbc #task:TASK_CLASSROOM
 <<task_start TASK_CLASSROOM task_class_done>>
 ===
 
@@ -185,22 +185,22 @@ title: task_classroom_desc
 type: task
 position: 976,82
 ---
-Find your class so you can start the lesson.  #line:00e71a9 
+Find your class. #line:00e71a9 
 ===
 
 title: task_class_done
 position: 1207,-20
 ---
-Yes! You can start the lesson now. #line:093e91d 
+You can take your seat. Here's your table and chair. #line:093e91d 
 ===
 
 title: classroom_1
 position: 1574,-269
 actor: ADULT_M
 ---
-This is the CP classroom. #line:08b2774 
-Children start primary school at 6 years old. #line:09bfe7f 
-This is not your class. Try the next door! #line:068e48b 
+This is the first grade class. #line:08b2774 
+Children start primary school at age 6 in CP. #line:09bfe7f 
+This isn't your class. You're 10 years old. So you're in CM2. #line:068e48b 
 <<action DOOR_OPEN_2>>
 ===
 
@@ -208,8 +208,8 @@ title: classroom_2
 position: 1579,-95
 actor: ADULT_F
 ---
-This is CE1, the second year of primary school. #line:08f3ab2 
-This is not your class. Try again! #line:029fd9c 
+This is the CE1 class. #line:08f3ab2 
+First grade isn't your class. You're in fifth grade. Try again! #line:029fd9c 
 <<action DOOR_OPEN_3>>
 ===
 
@@ -218,9 +218,9 @@ position: 1581,54
 actor: ADULT_F
 actor: ADULT_F
 ---
-Hi! This is the CE2 classroom. #line:0bce01a 
-for students who are 8 years old. #line:0b411ce 
-This is not your class, but you are close! #line:0e4aa95 
+Hello! This is the CE2 class. #line:0bce01a 
+The students are 8 years old. #line:0b411ce 
+This isn't your class! #line:0e4aa95 
 <<action DOOR_OPEN_4>>
 ===
 
@@ -229,8 +229,8 @@ position: 1584,217
 actor: SENIOR_F
 actor: SENIOR_F
 ---
-Hello! This is CM1, the second-to-last year of primary school. #line:0532330 
-Your class is just over there! #line:00f6294 
+CM1 is the class after CE2. #line:0532330 
+Your classroom is very close! #line:00f6294 
 <<action DOOR_OPEN_5>>
 ===
 
@@ -240,19 +240,19 @@ actor: GUIDE_F
 color: purple
 actor: GUIDE_M
 ---
-There you are! Welcome to CM2! #line:02797f8 
-Let's start. #line:0f90123 
-It is a writing lesson. #line:0071a0d 
-In France, we learn to write in cursive. #line:0f8995f 
+And there you have it! This is your class. Welcome to CM2! #line:02797f8 
+Take a seat at your table. #line:0f90123 
+Take your pencil case and your notebook. #line:0071a0d 
+The teacher is there to help you learn. #line:0f8995f 
 <<card concept_cursive_writing zoom>>
-Now we do geometry! #line:0365921 
+You are going to do mathematics. You are going to learn to count, to calculate. #line:0365921 
 <<jump activity_match_geometry>>
 ===
 
 title: activity_match_geometry
 position: 1720,678
 ---
-Match each tool to the shape it draws. #line:052d22a 
+Rearrange the letters of the alphabet to spell the word SCHOOL. #line:052d22a 
 <<activity match_shapes activity_match_done>>
 ===
 
@@ -262,10 +262,10 @@ actor: GUIDE_F
 color: purple
 ---
 <<if GetActivityResult("match_shapes") > 0>>
-    Great job! #line:0e3f1fa 
+    Well done! You succeeded! #line:0e3f1fa 
     <<jump quest_end>>
 <<else>>
-Not quite right. Try again. #line:0a5c8f1
+That's not entirely accurate. Try again! #line:0a5c8f1
 <<jump activity_match_geometry>>
 <<endif>>
 ===
@@ -279,9 +279,9 @@ tags:  task
 color: green
 ---
 <<card school_bag>>
-Find your backpack and then come back. #line:0e3ad75 #task:TASK_BACKPACK
-Maybe someone has it, #line:0b43290 
-Try asking around. #line:0c282e5 
+Find your schoolbag and then come back to see me. #line:0e3ad75 #task:TASK_BACKPACK
+Maybe someone took your book. #line:0b43290 
+Go ask the people around you. #line:0c282e5 
 <<task_start TASK_BACKPACK task_backpack_done>>
 ===
 
@@ -289,7 +289,7 @@ title: task_backpack_done
 position: 1205,-281
 actor: 
 ---
-Task completed! You can enter the school. #line:063f354  
+Well done! You wrote the word SCHOOL. You can go into the school. #line:063f354  
 <<set $got_backpack = true>>
 ===
 
@@ -297,7 +297,7 @@ title: task_backpack_desc
 type: task
 position: 973,-174
 ---
-Find your backpack so you can go to school.  #line:00faf2f 
+Find your schoolbag so you can go to school. #line:00faf2f 
 ===
 
 title: school_canteen
@@ -306,11 +306,11 @@ actor: SENIOR_F
 tags:  
 color: yellow
 ---
-Hello! I hope you are registered for the canteen. #line:021132d 
+Hello! At lunchtime, you can eat at the canteen or at home. #line:021132d 
 <<card object_canteen_menu>>
-Look at the menu for today! #line:0978619 
+Look at the cafeteria menu. #line:0978619 
 <<card object_canteen_menu zoom>>
-Enjoy your meal! #line:0671097 
+Enjoy your food! #line:0671097 
 ===
 
 title: school_charte
@@ -320,8 +320,8 @@ color: yellow
 tags: item
 ---
 <<card concept_charter_of_secularism>>
-At school, everyone is welcome and respected, #line:02977c9 
-no matter their beliefs. #line:09c12ac 
+At school, everyone is welcome: girls and boys, #line:02977c9 
+regardless of their beliefs. #line:09c12ac 
 ===
 
 ///////// NPCs SPAWNED IN THE SCENE //////////
@@ -335,9 +335,9 @@ color: purple
 actor: KID_F
 spawn_group: kids 
 ---
-=> We have a play break morning and afternoon. #line:027d036 
+=> In the morning and afternoon, there is a recess. During recess, the children play in the playground. #line:027d036 
 => I like to draw and color. #line:0879a44 
-=> My favorite subject is art. #line:0cee587 
+=> I love music and singing with my class. #line:0cee587 
 ===
 
 title: spawned_kid_m
@@ -346,9 +346,9 @@ color: purple
 actor: KID_M
 spawn_group: kids 
 ---
-=> I like math because of numbers. #line:01b23d9 
-=> I play soccer with friends. #line:0b82cb5 
-=> I love video games! #line:0aeea98 
+=> I like mathematics because I love doing calculations. #line:01b23d9 
+=> I play football with my friends in the playground. #line:0b82cb5 
+=> I love doing sports with my class. Sometimes we go to the swimming pool. #line:0aeea98 
 ===
 
 title: spawned_adult
@@ -356,9 +356,9 @@ position: -364,410
 color: purple
 spawn_group: adults 
 ---
-=> In France school starts in September and ends in June. #line:037e288 
-=> There are many holidays in the school year. #line:028f2bf 
-=> I like when my kids tell me what they learned. #line:0d8d4aa 
+=> In France, school starts in September and ends in June. #line:037e288 
+=> There are holidays during the school year. #line:028f2bf 
+=> At school, we learn to read, write, count and speak new languages. #line:0d8d4aa 
 ===
 
 title: spawned_teacher
@@ -366,7 +366,7 @@ position: -363,270
 color: purple
 spawn_group: teachers 
 ---
-=> School is from 8 in the morning to 4 in the afternoon. #line:0f6b039 
-=> Bring lunch or eat in the canteen. #line:008ffb5 
-=> We learn cursive writing. #line:0d88d5b #card:concept_cursive_writing
+=> Classes are held from 8 a.m. to 4 p.m. #line:0f6b039 
+=> At lunchtime, you can eat in the canteen or go home to eat. #line:008ffb5 
+=> At school, we learn to read and write. #line:0d88d5b #card:concept_cursive_writing
 ===
