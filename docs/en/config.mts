@@ -20,7 +20,7 @@ function nav(): DefaultTheme.NavItem[] {
     { text: 'Content', link: '/en/content/', activeMatch: '/en/content/' },
     { text: 'Developers', link: '/en/dev/', activeMatch: '/en/dev/' },
     { text: 'Download', link: '/en/download' },
-    { text: 'News & Community', link: 'https://antura.discourse.group/c/news/5' }
+    { text: 'News & Community', link: '/en/about/contact' }
   ]
 }
 

@@ -218,7 +218,7 @@ The project file must reference the script file. Open the `.yarnproject` asset a
 
 Each Yarn node maps to one dialogue moment or interaction:
 
-```yarn
+```text
 title: quest_start
 position: 0,0
 tags:
@@ -263,7 +263,7 @@ Follow the arrow to reach our first stop.
 
 ### Choices
 
-```yarn
+```text
 title: talk_guide
 type: choice
 actor: TUTOR
