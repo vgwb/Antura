@@ -17,8 +17,8 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
     { text: 'Manual', link: '/en/manual/', activeMatch: '/en/manual/' },
-    { text: 'Open Content', link: '/en/content/', activeMatch: '/en/content/' },
-    { text: 'Developer Docs', link: '/en/dev/', activeMatch: '/en/dev/' },
+    { text: 'Content', link: '/en/content/', activeMatch: '/en/content/' },
+    { text: 'Developers', link: '/en/dev/', activeMatch: '/en/dev/' },
     { text: 'Download', link: '/en/download' },
     { text: 'News & Community', link: 'https://antura.discourse.group/c/news/5' }
   ]
@@ -157,7 +157,14 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
 function sidebarAbout(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'About Antura project', link: '/' ,
+      text: 'Editions',
+      items: [
+        { text: 'Learn with Antura', link: 'learn-with-antura' },
+        { text: 'Antura and the Letters', link: 'antura-and-the-letters' },
+      ],
+    },
+    {
+      text: 'About Antura project',
       items: [
         { text: 'History', link: 'history' },
         { text: 'Overview', link: 'overview' },

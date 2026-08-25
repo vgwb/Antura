@@ -2,64 +2,36 @@
 layout: home
 
 hero:
-  name: "Learn with Antura"
-  text: "Play. Discover. Learn."
-  tagline: "Award-winning open source game that turns reading, language, and culture into a fun adventure."
-  actions:
-    - theme: brand
-      text: Download
-      link: /en/download
-    - theme: alt
-      text: News & Community
-      link: https://antura.discourse.group/c/news/5
-    - theme: alt
-      text: ❤️ Support
-      link: /en/about/support-us
+  name: "Antura Game Project"
+  text: "Play and Learn"
+  tagline: "Award-winning open source games that turn reading, language, and culture into fun adventures!"
   image:
-    src: /img/antura_gametitle.jpg
-    alt: Learn with Antura
-
-features:
-  - title: "🎮 Learn through play"
-    details: "Minigames make reading and language practice fun."
-    link: en/manual/learnlanguage_module
-  - title: "🌍 Discover cultures and countries"
-    details: "Explore heritage, traditions, and daily life through quests."
-    link: en/manual/discover_introduction
-  - title: "🆓 Free and open source"
-    details: "100% free, ad-free, and open to community contributions."
-    link: en/about/open-source
-  - title: "📚 Open content"
-    details: "All cards, topics, and quests are Creative Commons and published here"
-    link: en/content
-  - title: "🏆 International recognition"
-    details: "EduApp4Syria winner and multi-award-winning game."
-    link: en/about/awards
-  - title: "🧩 Open quest framework"
-    details: "Create and share new quests to expand the game."
-    link: en/dev/quest-design
-  - title: "🗣️ Speaks multiple languages"
-    details: "Play in 11 languages including Arabic, English, Italian, Polish, and more."
-    link: en/manual/learnlanguage_module#current-learning-modules
-  - title: "💻📱 Cross-platform"
-    details: "Runs on PC and mobile, no internet required after install."
-    link: en/download
+    src: /img/characters.jpg
+    alt: "Antura the dog and the game's companion cat character"
 ---
 
-<YouTubeVideo id="HDM7a1i_kIw" title="Antura Trailer" />
+## Antura comes in two editions:
 
-> [!NOTE] Educators & Teachers 👩‍🏫  
-> Access full post-game activities, use **Classroom Mode**, and follow the **Teacher Guide**.  
-> Antura provides rich **didactical content** designed for schools.
+<div class="version-picker">
 
-> [!TIP] Parents & Families 👨‍👩‍👧  
-> Play together at home, **track your child’s progress**, and explore the full content of the game.  
-> Safe, free, and fun for every kid.
+<a class="version-card" href="/en/about/learn-with-antura">
+  <img class="version-card-image" src="../assets/img/learn-with-antura/start.jpg" alt="Learn with Antura: a bilingual quest dialogue in Paris" title="Learn with Antura: a bilingual quest dialogue in Paris" />
+  <div class="version-card-body">
+    <p class="version-card-tag">🌍 The new v3 — actively developed</p>
+    <h2>Learn with Antura</h2>
+    <p>Explore <strong>Discover Cultures</strong> quests with your companion cat, collect knowledge cards, and learn a new language along the way. Built for migrant and refugee children in classrooms and at home, and currently piloted in France and Poland as part of our Erasmus+ project.</p>
+    <span class="version-card-cta">Discover Learn with Antura →</span>
+  </div>
+</a>
 
-> [!IMPORTANT] Game Designers & Developers 🎨  
-> Create a new quest in just **24 hours** using our full library of ready-made assets.  
-> Powered by the **Yarn Spinner scripting engine** for dialogue and narrative control.
+<a class="version-card" href="/en/about/antura-and-the-letters">
+  <img class="version-card-image" src="../assets/img/antura-and-the-letters/Gameplay_Word_Crowd.jpg" alt="Antura and the Letters: a letter-matching minigame" title="Antura and the Letters: a letter-matching minigame" />
+  <div class="version-card-body">
+    <p class="version-card-tag">🎮 The original, most-awarded version</p>
+    <h2>Antura and the Letters</h2>
+    <p>Journey across <strong>6 worlds</strong> to learn the alphabet, 250+ words, and your first phrases through playful minigames. Created for Syrian refugee children and winner of the EduApp4Syria and UNHCR Innovation Award.</p>
+    <span class="version-card-cta">Discover Antura and the Letters →</span>
+  </div>
+</a>
 
-> [!WARNING] Philanthropists & Foundations 🤝  
-> Antura is a **10-year initiative** with a long-term vision.  
-> Support us to keep developing **free educational games for all children**.
+</div>
