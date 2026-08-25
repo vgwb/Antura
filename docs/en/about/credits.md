@@ -13,15 +13,21 @@ This project started in 2016 as the original game **Antura and the Letters - Ara
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
+import francescoAvatar from '../../assets/img/people/francesco-cavallari.png'
+import stefanoAvatar from '../../assets/img/people/stefano-cecere.jpg'
+import emmanuelAvatar from '../../assets/img/people/emmanuel-guardiola.jpg'
+import danieleAvatar from '../../assets/img/people/daniele-giardini.jpg'
+import pirovanoAvatar from '../../assets/img/people/michele-pirovano.jpg'
+import gaetanoAvatar from '../../assets/img/people/gaetano-leonardi.jpg'
 
 const members = [
   {
-    avatar: '/icon.png',
+    avatar: francescoAvatar,
     name: 'Francesco Cavallari',
     title: 'General Coordination',
   },
   {
-    avatar: '/icon.png',
+    avatar: stefanoAvatar,
     name: 'Stefano Cecere',
     title: 'R&D and Production',
     desc: '',
@@ -30,22 +36,22 @@ const members = [
     ]
   },
   {
-    avatar: '/icon.png',
+    avatar: emmanuelAvatar,
     name: 'Emmanuel Guardiola',
     title: 'Research and Creative Director (v1)',
   },
   {
-    avatar: '/icon.png',
+    avatar: danieleAvatar,
     name: 'Daniele Giardini',
     title: 'UI/UX',
   },
   {
-    avatar: '/icon.png',
+    avatar: pirovanoAvatar,
     name: 'Michele Pirovano',
     title: 'Programming',
   },
   {
-    avatar: '/icon.png',
+    avatar: gaetanoAvatar,
     name: 'Gaetano Leonardi',
     title: 'Art Director and Lead Artist (v1)',
   }
