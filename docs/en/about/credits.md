@@ -9,6 +9,51 @@ This project started in 2016 as the original game **Antura and the Letters - Ara
 - Antura 2.0 (2021) - Learn Languages Edition
 - Antura 1.0 (2017) - EduApp4Syria Edition
 
+## Core Team
+
+<script setup>
+import { VPTeamMembers } from 'vitepress/theme'
+
+const members = [
+  {
+    avatar: '/icon.png',
+    name: 'Francesco Cavallari',
+    title: 'General Coordination',
+  },
+  {
+    avatar: '/icon.png',
+    name: 'Stefano Cecere',
+    title: 'R&D and Production',
+    desc: '',
+    links: [
+      { icon: 'github', link: 'https://github.com/StefanoCecere/' }
+    ]
+  },
+  {
+    avatar: '/icon.png',
+    name: 'Emmanuel Guardiola',
+    title: 'Research and Creative Director (v1)',
+  },
+  {
+    avatar: '/icon.png',
+    name: 'Daniele Giardini',
+    title: 'UI/UX',
+  },
+  {
+    avatar: '/icon.png',
+    name: 'Michele Pirovano',
+    title: 'Programming',
+  },
+  {
+    avatar: '/icon.png',
+    name: 'Gaetano Leonardi',
+    title: 'Art Director and Lead Artist (v1)',
+  }
+]
+</script>
+
+<VPTeamMembers size="small" :members="members" />
+
 ## Antura 3.0 – Discover & Classroom Edition
 
 > [!NOTE] Detailed design and content credits  

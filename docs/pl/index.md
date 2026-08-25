@@ -2,67 +2,36 @@
 layout: home
 
 hero:
-  name: "Learn with Antura"
-  text: "Graj. Odkrywaj. Ucz się."
-  tagline: "Wielokrotnie nagradzana gra open source, która zamienia czytanie, język i kulturę w przygodę."
-  actions:
-    - theme: brand
-      text: Pobierz
-      link: /pl/download
-    - theme: alt
-      text: Aktualności i Społeczność
-      link: https://antura.discourse.group/c/news/5
-    - theme: alt
-      text: ❤️ Wesprzyj
-      link: /pl/about/support-us
+  name: "Antura Game Project"
+  text: "Graj i Ucz się"
+  tagline: "Wielokrotnie nagradzane gry open source, które zamieniają czytanie, język i kulturę w wesołą przygodę!"
   image:
-    src: /img/antura_gametitle.jpg
-    alt: Learn with Antura
-
-features:
-  - title: "🎮 Nauka przez zabawę"
-    details: "Minigry sprawiają, że czytanie i nauka języka są przyjemne."
-    link: pl/manual/learnlanguage_module
-  - title: "🌍 Odkrywaj kultury i kraje"
-    details: "Poznawaj dziedzictwo, tradycje i codzienne życie poprzez zadania."
-    link: pl/manual/discover_introduction
-  - title: "🆓 Darmowa i open source"
-    details: "W 100% darmowa, bez reklam i otwarta na wkład społeczności."
-    link: pl/about/open-source
-  - title: "📚 Otwarta zawartość"
-    details: "Wszystkie karty, tematy i zadania są Creative Commons i publikowane tutaj."
-    link: pl/content
-  - title: "🏆 Międzynarodowe wyróżnienia"
-    details: "Zwycięzca EduApp4Syria i wielu innych nagród."
-    link: pl/about/awards
-  - title: "🧩 Otwarty framework zadań"
-    details: "Twórz i udostępniaj nowe zadania, aby rozwijać grę."
-    link: en/dev/quest-design
-  - title: "🗣️ Wiele języków"
-    details: "Graj w 11 językach, w tym po arabsku, angielsku, włosku, polsku i innych."
-    link: pl/manual/learnlanguage_module#current-learning-modules
-  - title: "💻📱 Wieloplatformowa"
-    details: "Działa na PC i urządzeniach mobilnych, bez internetu po instalacji."
-    link: pl/download
+    src: /img/characters.jpg
+    alt: "Antura, pies, i towarzyszący kot z gry"
 ---
 
-# Learn with Antura
+## Antura występuje w dwóch edycjach:
 
-<YouTubeVideo id="HDM7a1i_kIw" title="Zwiastun Antura" />
+<div class="version-picker">
 
-> [!NOTE] Nauczyciele 👩‍🏫  
-> Antura to coś więcej niż gra: można ją łączyć z aktywnościami w klasie, dyskusjami i materiałami dydaktycznymi.  
-> Ten podręcznik pomoże włączyć Learn with Antura do zajęć i prowadzić dzieci przez zabawę i odkrywanie.
+<a class="version-card" href="/pl/about/learn-with-antura">
+  <img class="version-card-image" src="../assets/img/learn-with-antura/start.jpg" alt="Learn with Antura: dwujęzyczny dialog zadania w Paryżu" title="Learn with Antura: dwujęzyczny dialog zadania w Paryżu" />
+  <div class="version-card-body">
+    <p class="version-card-tag">🌍 Nowa wersja v3 — aktywnie rozwijana</p>
+    <h2>Learn with Antura</h2>
+    <p>Odkrywaj zadania <strong>Discover Cultures</strong> razem ze swoim kotem-towarzyszem, zbieraj karty wiedzy i ucz się nowego języka po drodze. Stworzona dla dzieci migrantów i uchodźców, w klasie i w domu, obecnie pilotowana we Francji i Polsce w ramach naszego projektu Erasmus+.</p>
+    <span class="version-card-cta">Odkryj Learn with Antura →</span>
+  </div>
+</a>
 
-> [!TIP] Rodzice i rodziny 👨‍👩‍👧  
-> Grajcie razem w domu, **śledźcie postępy dziecka** i poznawajcie pełną zawartość gry.  
-> Bezpieczna, darmowa i zabawna dla każdego dziecka.
+<a class="version-card" href="/pl/about/antura-and-the-letters">
+  <img class="version-card-image" src="../assets/img/antura-and-the-letters/Gameplay_Word_Crowd.jpg" alt="Antura and the Letters: minigra dopasowywania liter" title="Antura and the Letters: minigra dopasowywania liter" />
+  <div class="version-card-body">
+    <p class="version-card-tag">🎮 Oryginalna, najbardziej nagradzana wersja</p>
+    <h2>Antura and the Letters</h2>
+    <p>Podróżuj przez <strong>6 światów</strong>, aby nauczyć się alfabetu, ponad 250 słów i pierwszych zdań dzięki zabawnym minigrom. Stworzona dla dzieci uchodźców z Syrii, zdobywczyni nagrody EduApp4Syria i UNHCR Innovation Award.</p>
+    <span class="version-card-cta">Odkryj Antura and the Letters →</span>
+  </div>
+</a>
 
-> [!IMPORTANT] Game designerzy i deweloperzy 🎨  
-> Stwórz nową misję w **24 godziny** dzięki naszej bibliotece gotowych zasobów.  
-> Oparte na **Yarn Spinner** do dialogów i kontroli narracji.
-
-> [!WARNING] Filantropi i fundacje 🤝  
-> Learn with Antura to **inicjatywa 10‑letnia** z długofalową wizją.  
-> Wesprzyj nas, aby tworzyć **darmowe gry edukacyjne dla wszystkich dzieci**.
-
+</div>
