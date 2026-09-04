@@ -161,7 +161,7 @@ tags:
 <<card flag_poland>>
 <<inventory flag_poland add>>
 <<target NPC_poland>>
-You found the Polish flag! Go back to Poland. #line:0891273 
+You found the Polish flag! Go back to start. #line:0891273 
 ===
 
 title: item_flag_poland
@@ -173,7 +173,7 @@ tags:
 ---
 <<card flag_poland>>
 <<if GetCurrentTask() == "find_flag_poland">>
-    You found the Polish flag! Go back to Poland. #shadow:0891273 
+    You found the Polish flag! Go back to start. #shadow:0891273 
     <<inventory flag_poland add>>
     <<target npc_poland>>
 <<else>>
@@ -361,7 +361,7 @@ color: blue
     <<set $czech_met = true>>
     <<card country_czech>>
     Hi! I'm from Czech Republic! #line:0ded863 
-    Czechia is famous for its beautiful castles, crystal glass, and delicious dumplings! #line:03dc09c 
+    Czechia is famous for its beautiful castles, crystal glass, and delicious dumplings. #line:03dc09c 
     <<jump task_czech_republic>>
 <<else>>
     My flag is white and red with a blue triangle. #line:0000741 
@@ -580,7 +580,7 @@ color: blue
 <<elseif $slovakia_met == false>>
     <<set $slovakia_met = true>>
     I'm from Slovakia! #line:054e1b8 
-    We used to be a country with Czech Republic. #line:0278f6a 
+    Slovakia is known for its beautiful mountains and caves. #line:0278f6a 
     <<jump task_slovakia>>
 <<else>>
     Our flag is white, red and blue with a coat of arms. #line:0af30a1 

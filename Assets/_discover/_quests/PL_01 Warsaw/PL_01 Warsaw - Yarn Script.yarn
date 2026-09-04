@@ -212,7 +212,7 @@ Where do you want to go? #line:where_to_go
     <<teleport tram_parliament>>
     <<wait 4>>
     <<jump intro_area_parliament>>
--> Chopin Monument <<if $current_place == "parliament" or $current_place == "palace_culture">> #line:tram_chopin
+-> Chopin <<if $current_place == "parliament" or $current_place == "palace_culture">> #line:tram_chopin
     <<teleport tram_chopin>>
     <<wait 4>>
     <<jump intro_area_chopin>>
@@ -786,7 +786,7 @@ actor: SENIOR_M
 group: parliament
 ---
 <<card constitution_of_3_may>>
-The May 3rd Constitution Day is an important national holiday in Poland. #line:00e7623
+The Constitution of 3 May is an important day in Poland. #line:00e7623
 <<inventory key_gold add 1>>
 Here is a key for you! #shadow:your_key
 <<collect key_gold>>
@@ -872,7 +872,7 @@ color: blue
 <<set $current_place = "chopin">>
 <<area area_chopin>>
 <<target npc_5>>
-We are at the Royal Baths. #line:0eff643 
+We are at Chopin Park. #line:0eff643 
 ===
 
 // -----------------------------------------------------------------------------
@@ -1205,8 +1205,8 @@ color: yellow
 <<else>>
 	<<detour info_7>>
 	<<card national_stadium_warsaw>>
-	Welcome to the National Stadium! #line:012efc8
-	Talk to the blue characters around the stadium. #line:0ee090a #task:task_7
+	I am Robert Lewandowski. Welcome to the National Stadium! #line:012efc8
+	Talk to the blue people around the stadium. #line:0ee090a #task:task_7
 	<<task_start task_7 task_7_done>>
 <<endif>>
 ===
