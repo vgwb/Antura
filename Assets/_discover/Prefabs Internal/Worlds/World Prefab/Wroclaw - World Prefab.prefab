@@ -898,6 +898,7 @@ Terrain:
   m_AllowAutoConnect: 1
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
+  m_EnableHeightmapLODFrustumCulling: 1
   m_TreeMotionVectorModeOverride: 3
 --- !u!154 &4363185873108762412
 TerrainCollider:
@@ -1241,7 +1242,7 @@ GameObject:
   - component: {fileID: 6584052295892082509}
   - component: {fileID: 1674189002743290856}
   - component: {fileID: 4186775356890013304}
-  - component: {fileID: 7307761187541195530}
+  - component: {fileID: 284036793029499614}
   m_Layer: 0
   m_Name: killzone
   m_TagString: Player_Killzone
@@ -1258,8 +1259,8 @@ Transform:
   m_GameObject: {fileID: 8381362397993749933}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -210, y: -2, z: -40}
-  m_LocalScale: {x: 650, y: 1, z: 400}
+  m_LocalPosition: {x: -210, y: -3.5, z: -40}
+  m_LocalScale: {x: 650, y: 5, z: 400}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7042686429415778104}
@@ -1321,7 +1322,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7307761187541195530
+--- !u!65 &284036793029499614
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1340,7 +1341,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8675099537884857948
 GameObject:
@@ -1479,7 +1480,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 28.164, z: 0}
 --- !u!212 &7644146706021118004
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1536,6 +1537,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!1 &8973511977852726693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,7 +2986,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6701
+  m_VersionIndex: 6707
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8439,7 +8441,7 @@ PrefabInstance:
     - target: {fileID: 8134901963140096192, guid: 4dce28ea763774491a7ae4c72421cf68,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 17.912048
+      value: 19.334053
       objectReference: {fileID: 0}
     - target: {fileID: 8134901963140096192, guid: 4dce28ea763774491a7ae4c72421cf68,
         type: 3}
@@ -8454,7 +8456,7 @@ PrefabInstance:
     - target: {fileID: 8134901963140096192, guid: 4dce28ea763774491a7ae4c72421cf68,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.71
+      value: -5.63
       objectReference: {fileID: 0}
     - target: {fileID: 8134901963140096192, guid: 4dce28ea763774491a7ae4c72421cf68,
         type: 3}
