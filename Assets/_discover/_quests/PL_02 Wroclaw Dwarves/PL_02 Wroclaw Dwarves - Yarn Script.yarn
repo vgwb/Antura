@@ -72,6 +72,7 @@ color: red
 // hide all the keys
 <<SetActive key_0 false>>
 <<SetActive key_1 false>>
+<<declare $key_1_taken = false>>
 <<SetActive key_2 false>>
 <<SetActive key_3 false>>
 <<SetActive key_4 false>>
@@ -100,6 +101,10 @@ color: red
 Welcome to Wrocław! #line:082706f 
 There is a problem in town... let's explore! #line:029d26c 
 <<jump intro_area_school>>
+
+// DEBUG
+// <<teleport tram_cathedral>>
+// <<jump intro_area_cathedral>>
 ===
 
 title: quest_end
@@ -446,10 +451,11 @@ title: ll_key_1
 position: 1528,195
 group: cathedral
 ---
-<<if GetCurrentTask() == "dwarf_1">>
+<<if GetCurrentTask() == "dwarf_1" and !$key_1_taken>>
 What do people do in a Cathedral? #line:0e6869e 
 -> They pray #line:0a1aab0 
-    Correct! Here is your key. #line:correct_key 
+    Correct! Here is your key. #line:correct_key
+    <<set $key_1_taken = true>>
     <<SetActive key_1 true>>
     <<target key_1>>
 -> They read #line:0e25e89 
