@@ -209,11 +209,18 @@ group: MONKEY
 actor: SENIOR_M
 image: monkey_keeper
 ---
-<<card animal_chimpanzee collect>>
-<<set $monkey_completed = true>>
-It would be fun to climb that pole. #line:0a43c85
-But I didn't take the FLAG! #line:0c53945
-<<jump check_animals_done>>
+<<if GetActivityResult("match_monkey_settings") > 0>>
+    <<card animal_chimpanzee collect>>
+    <<set $monkey_completed = true>>
+    It would be fun to climb that pole. #line:0a43c85
+    But I didn't take the FLAG! #line:0c53945
+    <<jump check_animals_done>>
+<<else>>
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<jump monkey>>
+    -> No #shadow:no
+<<endif>>
 ===
 
 title: monkey_tutor
@@ -274,11 +281,18 @@ group: LION
 actor: SENIOR_M
 image: lion_keeper
 ---
-<<set $lion_completed = true>>
-<<card animal_lion collect>>
-I love watching the flag up there on the Iglica. #line:01b3593 
-But I didn't take it. Please find that FLAG! #line:05da6d7
-<<jump check_animals_done>>
+<<if GetActivityResult("order_lion_settings") > 0>>
+    <<set $lion_completed = true>>
+    <<card animal_lion collect>>
+    I love watching the flag up there on the Iglica. #line:01b3593
+    But I didn't take it. Please find that FLAG! #line:05da6d7
+    <<jump check_animals_done>>
+<<else>>
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<jump lion>>
+    -> No #shadow:no
+<<endif>>
 ===
 
 title: lion_tutor
@@ -333,11 +347,18 @@ position: 1127,-143
 group: GIRAFFE
 actor: SENIOR_M
 ---
-<<card animal_giraffe collect>>
-<<set $giraffe_completed = true>>
-Thank you. I did not take the FLAG. #line:0877d6f
-I'm tall, but not 90 meters like the IGLICA! #line:02d00e2
-<<jump check_animals_done>>
+<<if GetActivityResult("canvas_giraffe_settings") > 0>>
+    <<card animal_giraffe collect>>
+    <<set $giraffe_completed = true>>
+    Thank you. I did not take the FLAG. #line:0877d6f
+    I'm tall, but not 90 meters like the IGLICA! #line:02d00e2
+    <<jump check_animals_done>>
+<<else>>
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<jump giraffe>>
+    -> No #shadow:no
+<<endif>>
 ===
 
 title: giraffe_tutor
@@ -390,11 +411,18 @@ group: ELEPHANT
 actor: SENIOR_M
 image: elephant_keeper
 ---
-<<card animal_elephant collect>>
-<<set $elephant_completed = true>>
-THE FLAG? I don't have it. #line:0b79d01
-If I took it, I would REMEMBER! #line:0f124bf
-<<jump check_animals_done>>
+<<if GetActivityResult("memory_elephant_settings") > 0>>
+    <<card animal_elephant collect>>
+    <<set $elephant_completed = true>>
+    THE FLAG? I don't have it. #line:0b79d01
+    If I took it, I would REMEMBER! #line:0f124bf
+    <<jump check_animals_done>>
+<<else>>
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<jump elephant>>
+    -> No #shadow:no
+<<endif>>
 ===
 
 title: elephant_tutor
@@ -448,11 +476,18 @@ group: PENGUIN
 actor: SENIOR_M
 image: penguin_keeper
 ---
-<<card animal_penguin collect>>
-<<set $penguin_completed = true>>
-No, I didn't take the FLAG. #line:078190f 
-Remember, I can't fly! #line:08568f5
-<<jump check_animals_done>>
+<<if GetActivityResult("jigsaw_penguin_settings") > 0>>
+    <<card animal_penguin collect>>
+    <<set $penguin_completed = true>>
+    No, I didn't take the FLAG. #line:078190f
+    Remember, I can't fly! #line:08568f5
+    <<jump check_animals_done>>
+<<else>>
+    Do you want to play again? #shadow:play_again
+    -> Yes #shadow:yes
+        <<jump penguin>>
+    -> No #shadow:no
+<<endif>>
 ===
 
 title: penguin_tutor
