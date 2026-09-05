@@ -30,7 +30,6 @@
 // - money_eggvendor
 // - money_grocer_pl_06
 // - money_spicevendor
-//   - TODO jigsaw_pierogi
 // Words used: Toruń, market, vendor, grocer, beekeeper, dairy, eggs, milk, butter, flour, honey, cloves, cinnamon, ginger, pierogi, molds, coins, zloty, kitchen, gingerbread, medieval
 // </scene_data>
 
@@ -152,6 +151,28 @@ group: cook
 actor: 
 ---
 Well done, you have everything. #line:0bb1792
+<<card honey>>
+Honey #shadow:0817d3c 
+<<inventory honey remove>>
+<<card food_flour>>
+Flour #shadow:08e101e
+<<inventory food_flour remove>>
+<<card food_sugar>>
+Sugar #shadow:05ad31e
+<<inventory food_sugar remove>>
+<<card butter>>
+Butter #shadow:0a8a8cc
+<<inventory butter remove>>
+<<card eggs>>
+Egg #shadow:00ab8e2
+<<inventory eggs remove>>
+<<card cinnamon>>
+Cinnamon #shadow:0f00ddd
+<<inventory cinnamon remove>>
+<<card ginger>>
+Ginger #shadow:08049d5
+<<inventory ginger remove>>
+<<card_hide>>
 And you were very polite. #line:0c400be 
 <<card gingerbread>>
 Now we can bake TORUŃ GINGERBREAD! #line:0b5d503
@@ -258,11 +279,27 @@ group: grocer
 actor: SENIOR_F
 tags: noRepeatLastLine
 ---
-I put your items on the table. Thanks! #line:0567082 
--> Goodbye! #line:goodbye
--> Thanks! #shadow:thanks
--> Have a nice day! #line:nice_day
-<<SetActive Collect_Grocer>>
+<<if GetActivityResult("money_grocer_pl_06") > 0>>
+   I put your items on the table. Thanks! #line:0567082 
+   <<card food_sugar>>
+   Sugar #shadow:05ad31e 
+   <<collect ingredients>>
+   <<inventory food_sugar add>>
+   <<card food_flour>>
+   Flour #shadow:08e101e 
+   <<collect ingredients>>
+   <<inventory food_flour add>>
+   <<card_hide>>
+   -> Goodbye! #line:goodbye
+   -> Thanks! #shadow:thanks
+   -> Have a nice day! #line:nice_day
+   <<SetActive Collect_Grocer>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump grocer_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 
@@ -339,11 +376,23 @@ group: beekeper
 actor: SENIOR_M
 tags: noRepeatLastLine
 ---
-I put your items on the table. Thanks! #shadow:0567082 
--> Goodbye! #shadow:goodbye
--> Thanks! #shadow:thanks
--> Have a nice day! #shadow:nice_day
-<<SetActive Collect_Beekeper>>
+<<if GetActivityResult("money_beekeper") > 0>>
+   I put your items on the table. Thanks! #shadow:0567082
+   <<card honey>>
+   Honey #shadow:0817d3c 
+   <<collect ingredients>>
+   <<inventory honey add>>
+   <<card_hide>>
+   -> Goodbye! #shadow:goodbye
+   -> Thanks! #shadow:thanks
+   -> Have a nice day! #shadow:nice_day
+   <<SetActive Collect_Beekeper>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump beekeper_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 // ---------------------------------------------- 
@@ -417,11 +466,23 @@ group: cheesemonger
 actor: ADULT_F
 tags: noRepeatLastLine
 ---
-I put your items on the table. Thanks! #shadow:0567082 
--> Goodbye! #shadow:goodbye
--> Thanks! #shadow:thanks
--> Have a nice day! #shadow:nice_day
-<<SetActive Collect_Cheesemonger>>
+<<if GetActivityResult("money_cheesemonger_pl_06") > 0>>
+   I put your items on the table. Thanks! #shadow:0567082 
+   <<card butter>>
+   Butter #shadow:0a8a8cc 
+   <<collect ingredients>>
+   <<inventory butter add>>
+   <<card_hide>>
+   -> Goodbye! #shadow:goodbye
+   -> Thanks! #shadow:thanks
+   -> Have a nice day! #shadow:nice_day
+   <<SetActive Collect_Cheesemonger>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump cheesemonger_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 
@@ -492,11 +553,23 @@ group: eggvendor
 actor: ADULT_F
 tags: noRepeatLastLine
 ---
-I put your items on the table. Thanks! #shadow:0567082 
--> Goodbye! #shadow:goodbye
--> Thanks! #shadow:thanks
--> Have a nice day! #shadow:nice_day
-<<SetActive Collect_Eggvendor>>
+<<if GetActivityResult("money_eggvendor") > 0>>
+   I put your items on the table. Thanks! #shadow:0567082
+   <<card eggs>>
+   Egg #shadow:00ab8e2 
+   <<collect ingredients>>
+   <<inventory eggs add>>
+   <<card_hide>>
+   -> Goodbye! #shadow:goodbye
+   -> Thanks! #shadow:thanks
+   -> Have a nice day! #shadow:nice_day
+   <<SetActive Collect_Eggvendor>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump eggvendor_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 // ----------------------------------------------
@@ -566,11 +639,27 @@ group: spicevendor
 actor: ADULT_F
 tags: noRepeatLastLine
 ---
-I put your items on the table. Thanks! #shadow:0567082 
--> Goodbye! #shadow:goodbye
--> Thanks! #shadow:thanks
--> Have a nice day! #shadow:nice_day
-<<SetActive Collect_Spicevendor>>
+<<if GetActivityResult("money_spicevendor") > 0>>
+   I put your items on the table. Thanks! #shadow:0567082
+   <<card cinnamon>>
+   Cinnamon #shadow:0f00ddd 
+   <<collect ingredients>>
+   <<inventory cinnamon add>>
+   <<card ginger>>
+   Ginger #shadow:08049d5 
+   <<collect ingredients>>
+   <<inventory ginger add>>
+   <<card_hide>>
+   -> Goodbye! #shadow:goodbye
+   -> Thanks! #shadow:thanks
+   -> Have a nice day! #shadow:nice_day
+   <<SetActive Collect_Spicevendor>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump spicevendor_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 // ----------------------------------------------
@@ -611,9 +700,9 @@ color: yellow
 actor:
 tags: item
 ---
-<<card food_bread>>
+<<card food_flour>>
 Flour #line:08e101e 
-<<collect>>
+// <<collect>>
 ===
 
 title: item_honey
@@ -624,7 +713,7 @@ tags: item
 ---
 <<card honey>>
 Honey #line:0817d3c 
-<<collect>>
+// <<collect>>
 ===
 
 title: item_sugar
@@ -635,7 +724,7 @@ tags: item
 ---
 <<card food_sugar>>
 Sugar #line:05ad31e 
-<<collect>>
+// <<collect>>
 ===
 
 title: item_butter
@@ -644,7 +733,7 @@ color: yellow
 ---
 <<card butter>>
 Butter #line:0a8a8cc 
-<<collect>>
+// <<collect>>
 ===
 
 title: item_egg
@@ -654,7 +743,7 @@ actor:
 ---
 <<card eggs>>
 Egg #line:00ab8e2 
-<<collect>>
+// <<collect>>
 ===
 
 title: item_cinnamon
@@ -664,7 +753,7 @@ tags: item
 ---
 <<card cinnamon>>
 Cinnamon #line:0f00ddd 
-<<collect>>
+// <<collect>>
 ===
 
 title: item_ginger
@@ -675,7 +764,7 @@ tags: item
 ---
 <<card ginger>>
 Ginger #line:08049d5 
-<<collect>>
+// <<collect>>
 ===
 
 // ----------------------------------------------

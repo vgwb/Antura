@@ -3805,6 +3805,7 @@ MonoBehaviour:
         type: 3}
       nodeName: beekeper_pay_activity
     DebugSpawnPoint: {fileID: 0}
+    showInteractableLabels: 0
     TalkToPlayerMode: 1
     NativeLanguage:
       code: en
@@ -4444,11 +4445,11 @@ MonoBehaviour:
   IsInteractable: 1
   IsHiddenAtStart: 0
   NearbyAutoActivate: 0
-  IconType: 4
+  IconType: 1
   IconTransform: {fileID: 9055673855064113676}
   ShowOnMap: 0
   MapIcon: 0
-  ShowIconAlways: 1
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
@@ -5444,11 +5445,11 @@ MonoBehaviour:
   IsInteractable: 1
   IsHiddenAtStart: 0
   NearbyAutoActivate: 0
-  IconType: 4
+  IconType: 1
   IconTransform: {fileID: 7973084392818805305}
   ShowOnMap: 0
   MapIcon: 0
-  ShowIconAlways: 1
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
@@ -10224,11 +10225,11 @@ MonoBehaviour:
   IsInteractable: 1
   IsHiddenAtStart: 0
   NearbyAutoActivate: 0
-  IconType: 4
+  IconType: 1
   IconTransform: {fileID: 7174115042295530695}
   ShowOnMap: 0
   MapIcon: 0
-  ShowIconAlways: 1
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
@@ -12422,11 +12423,11 @@ MonoBehaviour:
   IsInteractable: 1
   IsHiddenAtStart: 0
   NearbyAutoActivate: 0
-  IconType: 4
+  IconType: 1
   IconTransform: {fileID: 4609572800638863542}
   ShowOnMap: 0
   MapIcon: 0
-  ShowIconAlways: 1
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
@@ -13269,6 +13270,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 703331953456176160}
     m_Modifications:
+    - target: {fileID: 3458306935311180598, guid: 0f33a26f62a80469e8f5933f871620f6,
+        type: 3}
+      propertyPath: IconType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458306935311180598, guid: 0f33a26f62a80469e8f5933f871620f6,
+        type: 3}
+      propertyPath: ShowIconAlways
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4621849821286459762, guid: 0f33a26f62a80469e8f5933f871620f6,
         type: 3}
       propertyPath: m_Name
@@ -13609,11 +13620,11 @@ MonoBehaviour:
   IsInteractable: 1
   IsHiddenAtStart: 0
   NearbyAutoActivate: 0
-  IconType: 4
+  IconType: 1
   IconTransform: {fileID: 8465900761218725020}
   ShowOnMap: 0
   MapIcon: 0
-  ShowIconAlways: 1
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
@@ -20928,11 +20939,11 @@ MonoBehaviour:
   IsInteractable: 1
   IsHiddenAtStart: 0
   NearbyAutoActivate: 0
-  IconType: 4
+  IconType: 1
   IconTransform: {fileID: 4740081106759223532}
   ShowOnMap: 0
   MapIcon: 0
-  ShowIconAlways: 1
+  ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
   FaceToPlayer: 0
