@@ -28,8 +28,6 @@
 // - FIND_LUX_FLAG
 // - FIND_SPANISH_FLAG
 // - FIND_SWISS_FLAG
-// ACTIVITIES
-// - (none)
 // ACTABLE
 // WORDS: (none)
 // </scene_data>
@@ -159,7 +157,7 @@ tags:
 <<card flag_france>>
 <<inventory flag_france add>>
 <<target NPC_France>>
-You found the French flag! Go back to France. #shadow:0a9b166 
+You found the French flag! Go back to the French man. #shadow:0a9b166 
 ===
 
 title: item_flag_france
@@ -170,7 +168,7 @@ actor: NARRATOR
 ---
 <<card flag_france>>
 <<if GetCurrentTask() == "FIND_FRENCH_FLAG">>
-    You found the French flag! Go back to France. #line:0a9b166 
+    You found the French flag! Go back to the French man. #line:0a9b166 
     <<inventory flag_france add>>
     <<target NPC_France>>
 <<else>>
@@ -278,7 +276,7 @@ color: blue
     <<action belgium_active>>
     <<target NPC_Belgium>>
     <<card country_belgium>>
-    Help them find the Belgian flag! #line:001f54f #task:talk_npc_belgium
+    Help our Belgian friends to find their flag! #line:001f54f #task:talk_npc_belgium
     <<task_start talk_npc_belgium>>
 <<elseif $italy_met == false>>
     <<set $italy_met = true>>
@@ -512,7 +510,7 @@ actor: SENIOR_M
     <<set $lux_met = true>>
     <<card country_luxembourg>>
     Moien! I’m from Luxembourg! #line:0b22d58 
-    We are small and speak three languages! #line:0a3d0e3 
+    We are a small country and speak three languages! #line:0a3d0e3 
     <<jump task_lux>>
 <<else>>
     Nope! Our flag is red, white, and light blue. #line:0529472 
@@ -646,7 +644,7 @@ group: monaco
 actor: ADULT_M
 ---
 Bonjour! I’m from Monaco! #line:0a3f8f6 
-We are small. We have car races and a palace by the sea! #line:0dc315a 
+We are a small country. We have car races and a palace by the sea! #line:0dc315a 
 <<asset flag_monaco>>
 My flag is red and white. #line:00bd939 
 ===
@@ -686,8 +684,8 @@ position: -367,1
 actor: KID_M
 spawn_group: all 
 ---
-=> France has the Eiffel Tower, a giant iron tower that sparkles at night. #line:0c097e4 
-=> France is the biggest country in the European Union. #line:0ab3dd9 
+=> In France there is the Eiffel Tower, a giant iron tower that sparkles at night. #line:0c097e4 
+=> France is the second biggest country in the Europe after Ukraine. #line:0ab3dd9 
 ===
 
 title: spawned_germany
@@ -695,7 +693,7 @@ position: -367,1
 actor: KID_M
 spawn_group: all 
 ---
-=> Germany is known for its beer and sausages. #line:06722b3 
+=> In Germany there is beer and sausages. #line:06722b3 
 => The capital of Germany is Berlin. #line:05e9552 
 ===
 
@@ -705,5 +703,5 @@ actor: KID_M
 spawn_group: all 
 ---
 => Italy looks like a boot on the map! #line:0a23cce 
-=> Italy is famous for pizza and pasta. #line:0278d00 
+=> In Italy there is pizza and pasta. #line:0278d00 
 ===

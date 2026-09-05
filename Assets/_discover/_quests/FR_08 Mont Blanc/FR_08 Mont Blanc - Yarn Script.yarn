@@ -21,8 +21,6 @@
 // - flag_france
 // - flag_italy
 // - flag_swiss
-// TASKS
-// - find_gear
 // </scene_data>
 
 title: quest_start
@@ -400,9 +398,9 @@ group: base_4
 color: blue
 ---
 <<card summit>>
-You made it! We are at the top of Mont Blanc. #line:030fa1c 
-This summit is 4807 meters high. #line:018880a 
-Let's answer three mountain questions before the flag game. #line:001e940 
+Well done! You've reached the summit of Mont Blanc. #line:030fa1c 
+The summit of Mont Blanc is 4807 meters high. #line:018880a 
+Answer three questions about the mountain. #line:001e940 
 <<jump question_alps>>
 ===
 
@@ -495,10 +493,10 @@ title: snowman_1
 position: 301,1168
 ---
 <<if HasCompletedTask("get_hat")>>
-    Do you need help to climb the mountain? #line:0c18060 
-    -> Yes #line:0f4c405 
+    Do you need help getting on? #line:0c18060 
+    -> Yes, please help me. #line:0f4c405 
         <<teleport base_2>>
-    -> No, I stay here #highlight #line:02a3874
+    -> No thanks, I'll stay here. #highlight #line:02a3874
 <<else>>
     Come back later! #shadow:comebacklater
 <<endif>>
@@ -508,10 +506,10 @@ title: snowman_2
 position: 301,1168
 ---
 <<if has_item("gloves")>>
-    Do you need help to climb the mountain? #shadow:0c18060 
-    -> Yes #shadow:0f4c405 
+    Do you need help getting on? #shadow:0c18060 
+    -> Yes, please help me. #shadow:0f4c405 
         <<teleport base_3>>
-    -> No, I stay here #highlight #shadow:02a3874 
+    -> No thanks, I'll stay here. #highlight #shadow:02a3874 
 <<else>>
     Come back later! #shadow:comebacklater
 <<endif>>
@@ -521,10 +519,10 @@ title: snowman_3
 position: 301,1168
 ---
 <<if HasCompletedTask("get_sunglasses")>>
-    Do you need help to climb the mountain? #shadow:0c18060 
-    -> Yes #shadow:0f4c405 
+    Do you need help getting on? #shadow:0c18060 
+    -> Yes, please help me. #shadow:0f4c405 
         <<teleport base_4>>
-    -> No, I stay here #highlight #shadow:02a3874 
+    -> No thanks, I'll stay here. #highlight #shadow:02a3874 
 <<else>>
     Come back later! #shadow:comebacklater
 <<endif>>
@@ -533,20 +531,20 @@ position: 301,1168
 title: snowman_4
 position: 301,1168
 ---
-Do you need help to climb the mountain? #shadow:0c18060 
--> Yes #shadow:0f4c405 
+Do you need help getting on? #shadow:0c18060 
+-> Yes, please help me. #shadow:0f4c405 
     <<teleport base_5>>
--> No, I stay here #highlight #shadow:02a3874 
+-> No thanks, I'll stay here. #highlight #shadow:02a3874 
 ===
 
 title: snowman_5
 position: 301,1168
 ---
 <<if HasCompletedTask("get_crampons")>>
-    Do you need help to climb the mountain? #shadow:0c18060 
-    -> Yes #shadow:0f4c405 
+    Do you need help getting on? #shadow:0c18060 
+    -> Yes, please help me. #shadow:0f4c405 
         <<teleport base_6>>
-    -> No, I stay here #highlight #shadow:02a3874 
+    -> No thanks, I'll stay here. #highlight #shadow:02a3874 
 <<else>>
     Come back later! #shadow:comebacklater
 <<endif>>
@@ -555,19 +553,19 @@ position: 301,1168
 title: snowman_6
 position: 301,1168
 ---
-Do you need help to climb the mountain? #shadow:0c18060 
--> Yes #shadow:0f4c405 
+Do you need help getting on? #shadow:0c18060 
+-> Yes, please help me. #shadow:0f4c405 
     <<teleport base_7>>
--> No, I stay here #highlight #shadow:02a3874 
+-> No thanks, I'll stay here. #highlight #shadow:02a3874 
 ===
 
 title: snowman_7
 position: 301,1168
 ---
-Do you need help to climb the mountain? #shadow:0c18060 
--> Yes #shadow:0f4c405 
+Do you need help getting on? #shadow:0c18060 
+-> Yes, please help me. #shadow:0f4c405 
     <<teleport base_1>>
--> No, I stay here #highlight #shadow:02a3874 
+-> No thanks, I'll stay here. #highlight #shadow:02a3874 
 ===
 
 title: marmot
@@ -578,9 +576,9 @@ group: animals
 ---
 // The marmot makes a sound effect before talking
 // <<play_sfx marmot_whistle>>
-=> I sleep all winter under the snow. This is called hibernation! #line:fr08_marmot_2 #card:marmot
-=> I love eating alpine flowers and grass. Yum! #line:fr08_marmot_3 #card:marmot
-=> Don't mind me, I'm just sunbathing on this warm rock. #line:fr08_marmot_4 #card:marmot
+=> I sleep all winter, they say I hibernate. #line:fr08_marmot_2 #card:marmot
+=> I love eating flowers, fruits, and herbs. Yum! #line:fr08_marmot_3 #card:marmot
+=> I like to relax in the sun. #line:fr08_marmot_4 #card:marmot
 ===
 
 title: chest_bonus
@@ -589,7 +587,7 @@ group: bonus
 ---
 <<if has_item("key_gold")>>
     <<inventory key_gold remove>>
-    You found a warm scarf! #line:003e87c 
+    Here's a nice warm scarf! Take it! #line:003e87c 
     <<trigger chest_bonus_open>>
     <<SetInteractable chest_bonus false>>
     <<SetActive scarf true>>
@@ -605,7 +603,7 @@ actor:
 color: yellow
 ---
 <<card scarf>>
-A scarf blocks wind on your neck. #line:0afb2dc 
+With a scarf, your neck won't get cold. #line:0afb2dc 
 <<inventory scarf add>>
 <<SetActive this false>>
 ===
@@ -622,11 +620,11 @@ color: purple
 actor: ADULT_F
 spawn_group: tourists 
 ---
-=> I love the mountains! #line:011dc7e 
-=> Mont Blanc is the highest mountain in the Alps! #line:003ecb2 
-=> I hope to see a marmot! #line:04bbada #card:marmot
-=> Don't forget to bring warm clothes! #line:0590129 
-=> Mountains can be dangerous, so be careful! #line:097ecf0 
+=> I love the mountains. And you? #line:011dc7e 
+=> Mont Blanc is the highest mountain in France. #line:003ecb2 
+=> Look closely! You're going to see a marmot. #line:04bbada #card:marmot
+=> To go to the summit of Mont Blanc, take warm clothes. #line:0590129 
+=> Warning! The mountain is dangerous. #line:097ecf0 
 ===
 
 title: spawned_hiker
@@ -636,9 +634,9 @@ actor: ADULT_M
 spawn_group: hikers
 ---
 => There is snow in the mountains. #line:0557ef5 #card:wind
-=> I follow the rope line when it is icy. #line:0bc67f7 #card:rope
-=> That glacier looks like a frozen river. #line:01e5f66 #card:glacier
-=> Hiking here needs good boots. #line:0dbac73 #card:hiking
+=> Look closely! You're going to see an ibex. #line:0bc67f7 #card:rope
+=> Have you ever made a snowman? #line:01e5f66 #card:glacier
+=> To go into the mountains, take good shoes. #line:0dbac73 #card:hiking
 ===
 
 title: spawned_alps_climber
@@ -647,7 +645,7 @@ color: purple
 actor: ADULT_F
 spawn_group: alps_climber
 ---
-=> I love climbing in the Alps. #line:0809dce #card:alps
-=> Crampons help me walk on hard ice. #line:081fbe4 #card:crampons
-=> Climbing with a guide is safer. #line:0371d31 #card:mountain_guide
+=> Mont Blanc is a very beautiful mountain. #line:0809dce #card:alps
+=> Do you want to go to the mountains? #line:081fbe4 #card:crampons
+=> A mountain guide can come with you. #line:0371d31 #card:mountain_guide
 ===
