@@ -184,6 +184,8 @@ namespace Antura.Discover
         private bool _motorJumpHeld;
         private bool _isTeleporting;
         private Coroutine _teleportRoutine;
+        private Coroutine _killzoneRoutine;
+        private Collider _killzoneCollider;
         private Coroutine _spawnSnapRoutine;
 
         // Slope detection
@@ -923,7 +925,57 @@ namespace Antura.Discover
                 return;
             }
 
-            BeginTeleportToSpawn();
+            if (_isTeleporting || _killzoneRoutine != null)
+            {
+                return;
+            }
+
+            _killzoneCollider = other;
+            Debug.Log("WARNING: Player entered a killzone. Returning to the previous spawn point in 3 seconds.", this);
+            YarnAnturaManager.I?.StartDialogue("alert_water");
+            _killzoneRoutine = StartCoroutine(CoTeleportAfterKillzoneDelay());
+        }
+
+        private IEnumerator CoTeleportAfterKillzoneDelay()
+        {
+            yield return new WaitForSeconds(3f);
+
+            _killzoneRoutine = null;
+            if (_killzoneCollider != null && IsOverlappingKillzone(_killzoneCollider))
+            {
+                BeginTeleportToSpawn();
+            }
+            else
+            {
+                _killzoneCollider = null;
+            }
+        }
+
+        private bool IsOverlappingKillzone(Collider killzoneCollider)
+        {
+            Collider[] playerColliders = GetComponentsInChildren<Collider>(true);
+            foreach (Collider playerCollider in playerColliders)
+            {
+                if (playerCollider == killzoneCollider || !playerCollider.enabled)
+                {
+                    continue;
+                }
+
+                if (Physics.ComputePenetration(
+                    playerCollider,
+                    playerCollider.transform.position,
+                    playerCollider.transform.rotation,
+                    killzoneCollider,
+                    killzoneCollider.transform.position,
+                    killzoneCollider.transform.rotation,
+                    out _,
+                    out _))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void SetMovementLock(bool locked)
@@ -1134,6 +1186,13 @@ namespace Antura.Discover
 
         private void OnDisable()
         {
+            if (_killzoneRoutine != null)
+            {
+                StopCoroutine(_killzoneRoutine);
+                _killzoneRoutine = null;
+            }
+            _killzoneCollider = null;
+
             if (_teleportRoutine != null)
             {
                 StopCoroutine(_teleportRoutine);
