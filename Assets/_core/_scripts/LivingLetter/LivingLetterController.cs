@@ -69,13 +69,18 @@ namespace Antura.LivingLetters
             {
                 data = value;
 
-                if (Data == null)
+                if (Data == null || Data is LL_ImageData imageData && imageData.Data == null)
                 {
-                    ImageSprite.enabled = false;
+                    if (ImageSprite != null)
+                        ImageSprite.enabled = false;
+                    if (LabelRender != null)
+                        LabelRender.enabled = false;
+                    return;
                 }
                 else
                 {
-                    ImageSprite.enabled = false;
+                    if (ImageSprite != null)
+                        ImageSprite.enabled = false;
                     LabelRender.enabled = true;
                     LabelRender.SetLetterData(data, outline);
                     // Scale modification

@@ -535,7 +535,7 @@ namespace Antura.Database
         public string GetWordDrawing(WordData word)
         {
             //Debug.Log("the int of hex:" + word.Drawing + " is " + int.Parse(word.Drawing, NumberStyles.HexNumber));
-            if (word.DrawingId != "")
+            if (word != null && word.DrawingId != "")
             {
                 var data = word.GetDrawingData();
                 if (data != null)

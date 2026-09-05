@@ -108,7 +108,25 @@ namespace Antura.Discover
 
         public void ShowImage(WordData word)
         {
+            if (word == null)
+            {
+                Debug.LogError($"Cannot show image for {name}: Word is null.", this);
+                return;
+            }
+
+            if (letterObjectView == null)
+            {
+                Debug.LogError($"Cannot show image for {name}: letterObjectView is not assigned.", this);
+                return;
+            }
+
             letterData = new LL_ImageData(word.Id);
+            if (letterData is LL_ImageData imageData && imageData.Data == null)
+            {
+                Debug.LogError($"Cannot show image for {name}: database WordData not found for Discover WordData ID '{word.Id}'.", this);
+                return;
+            }
+
             letterObjectView.Init(letterData);
         }
 
