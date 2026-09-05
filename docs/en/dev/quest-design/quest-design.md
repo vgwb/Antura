@@ -162,6 +162,8 @@ This means the child arrives at an NPC having already formed a hypothesis. The N
 
 **Start here, before any game design.** The quest's educational value comes entirely from what you decide to teach.
 
+> **Deep dive:** for how Topics, Cards and Connections are structured under the hood, what tooling already exists, and where the standards/quiz-generation work is headed, see [Knowledge Graph](./knowledge-graph.md).
+
 ### 1.1 Define the learning goal
 
 Answer this one question first: *What will a child know or be able to do after playing this quest that they did not know or could not do before?*

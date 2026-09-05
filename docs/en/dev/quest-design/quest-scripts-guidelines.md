@@ -4,9 +4,6 @@ title: Quest Script Writing Guidelines
 
 # Quest Script Writing Guidelines
 
-> **Scope:** This guide is for dialogue text editing in **VO recording and localization workflows** — it assumes `#line:` tags are already in the script and a translation team is involved.
-> **English-only developers** building a new quest from scratch don't need this guide yet. Start with the [Quest Design Guide](quest-design.md) and return here when a language team joins.
-
 These rules standardize quest Yarn script text for young learners (~6 years old). Apply them BEFORE translating. Keep all technical markers intact.
 
 ## 1. Do NOT Touch Technical Elements
@@ -18,7 +15,7 @@ These rules standardize quest Yarn script text for young learners (~6 years old)
 ## 2. Sentence Shape
 | Rule | Target |
 |------|--------|
-| Words per sentence | 5–12 (max 15 only if colors/list) |
+| Words per sentence | 5–12 |
 | Tense | Present simple |
 | One idea per sentence | Yes |
 | Punctuation | Every spoken line ends with `.`, `?`, or `!` |
@@ -29,11 +26,6 @@ These rules standardize quest Yarn script text for young learners (~6 years old)
 - Allow ONE cultural greeting per country (Bonjour / Hola / Ciao / Danke / Grüezi / Moien). After first use revert to “Hello”
 - Keep cultural nouns (Rome, Madrid, flamenco) but simplify surrounding sentence
 - Avoid idioms or abstract metaphors
-
-## 4. Flags & Colors
-- Keep correct color order (do not improvise)
-- Standard pattern: `It has stripes: black, red, yellow.` OR `It is red and white.`
-- Limit comparisons: one simple image max (e.g., “like a pizza”)
 
 ## 5. Consistent Patterns
 | Context | Pattern |
@@ -69,17 +61,6 @@ These rules standardize quest Yarn script text for young learners (~6 years old)
 | Abstract phrase | Replace with concrete (“claim your victory” → “get your prize”) |
 | Cultural overload | Keep one key detail |
 
-## 10. Placeholders / Missing Translation Handling
-- English source should **never** include placeholders
-
-## 11. Quality Checklist (Pre-Commit)
-- [ ] All `#line:` tags unchanged
-- [ ] Every spoken line has punctuation
-- [ ] No long sentence > 15 words
-- [ ] No double spaces, no stray leading/trailing spaces
-- [ ] Greetings pattern correct
-- [ ] Color descriptions concise & accurate
-- [ ] No new complex vocabulary slipped in
 
 ## 13. Examples
 Before:
@@ -100,12 +81,6 @@ After:
 Go back to the start and get your prize! #line:YYYYYYY
 ```
 
-## 14. Edge Cases
-| Case | Guidance |
-|------|----------|
-| Emotional emphasis | One exclamation OK; avoid stacking (!) |
-| Lists > 3 colors | Keep if flag pedagogy requires |
-| Foreign word confuses context | Replace with English after first exposure |
 
 ## 15. Rationale
-These constraints support early readers: predictable syntax, limited working-memory load, reinforcement of factual patterns (flags, capitals), and easy translation alignment.
+These constraints support early readers: predictable syntax, limited working-memory load, reinforcement of factual patterns, and easy translation alignment.

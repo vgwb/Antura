@@ -19,16 +19,13 @@ A quest is built from three layers:
 
 ---
 
-## Reading order
-
-There are three guides in this section. Read them in order the first time; refer back to individual sections as needed.
+## Index
 
 | # | Guide | Who reads it | When |
 |---|-------|-------------|------|
-| 1 | [Quest Design Guide](quest-design.md) | Designer + developer | Before opening Unity or Yarn — covers principles, structure, Yarn commands, and the full design process |
-| 2 | [Quest Development Guide](quest-development.md) | Developer | When building the scene — Unity setup, folder structure, wiring, debugging |
-| 3 | [Script Writing Guidelines](quest-scripts-guidelines.md) | Anyone editing dialogue | When polishing Yarn text for VO recording or translation (English-only devs can defer this) |
-
+| 1 | [Quest Design Guide](quest-design.md) | Designer + developer | principles, structure, Yarn commands, and the full design process |
+| 2 | [Quest Development Guide](quest-development.md) | Developer | Unity setup, folder structure, wiring, debugging |
+| 3 | [Script Writing Guidelines](quest-scripts-guidelines.md) | Anyone editing dialogues |
 
 ## Workflow for a new quest
 
@@ -42,11 +39,3 @@ There are three guides in this section. Read them in order the first time; refer
 
 A blank quest README template is available at [`_README-template.md`](_README-template.md) — copy it into your quest folder and rename it before you start writing.
 
----
-
-## Related documentation
-
-- [How To: Install](../how-to/INSTALL.md) — first-time Unity project setup
-- [How To: Developer Guidelines](../how-to/DeveloperGuidelines.md) — coding conventions
-- [How To: Localization](../how-to/Localization.md) — adding languages and VO (post-English-dev step)
-- [Game Modules overview](../game-modules/index.md) — where Discover fits in the broader app
