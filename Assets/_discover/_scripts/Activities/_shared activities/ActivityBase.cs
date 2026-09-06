@@ -169,29 +169,36 @@ namespace Antura.Discover.Activities
             if (state != ActivityPlayState.Playing)
                 return;
 
-            if (InputCompat.GetKeyDown(KeyCode.Alpha0))
+            bool shiftDown = InputCompat.GetKey(KeyCode.LeftShift) || InputCompat.GetKey(KeyCode.RightShift);
+
+            if (shiftDown && IsShortcutKeyDown(KeyCode.Alpha0))
             {
                 Debug.Log("Debug shortcut: Force Exit");
                 ExitWithoutPoints();
                 return;
             }
-            if (InputCompat.GetKeyDown(KeyCode.Alpha1))
+            if (shiftDown && IsShortcutKeyDown(KeyCode.Alpha1))
             {
                 Debug.Log("Debug shortcut: fail round");
                 ForceEndRound(false);
                 return;
             }
-            if (InputCompat.GetKeyDown(KeyCode.Alpha2))
+            if (shiftDown && IsShortcutKeyDown(KeyCode.Alpha2))
             {
                 Debug.Log("Debug shortcut: succeed round");
                 ForceEndRound(true);
             }
-            else if (InputCompat.GetKeyDown(KeyCode.Alpha3))
+            else if (shiftDown && IsShortcutKeyDown(KeyCode.Alpha3))
             {
                 Debug.Log("Debug shortcut: activity success");
                 SetRoundsTarget(currentRound);
                 EndRound(true, 1f, false);
             }
+        }
+
+        private bool IsShortcutKeyDown(KeyCode keyCode)
+        {
+            return InputCompat.GetKey(keyCode) && InputCompat.GetKeyDown(keyCode);
         }
 
         private void ForceEndRound(bool success)

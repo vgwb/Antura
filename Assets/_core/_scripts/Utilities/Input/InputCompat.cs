@@ -308,8 +308,31 @@ namespace Antura
             if (keyCode >= KeyCode.A && keyCode <= KeyCode.Z)
                 return Key.A + (keyCode - KeyCode.A);
             // Top row digits
-            if (keyCode >= KeyCode.Alpha0 && keyCode <= KeyCode.Alpha9)
-                return Key.Digit0 + (keyCode - KeyCode.Alpha0);
+            switch (keyCode)
+            {
+                case KeyCode.Alpha0:
+                    return Key.Digit0;
+                case KeyCode.Alpha1:
+                    return Key.Digit1;
+                case KeyCode.Alpha2:
+                    return Key.Digit2;
+                case KeyCode.Alpha3:
+                    return Key.Digit3;
+                case KeyCode.Alpha4:
+                    return Key.Digit4;
+                case KeyCode.Alpha5:
+                    return Key.Digit5;
+                case KeyCode.Alpha6:
+                    return Key.Digit6;
+                case KeyCode.Alpha7:
+                    return Key.Digit7;
+                case KeyCode.Alpha8:
+                    return Key.Digit8;
+                case KeyCode.Alpha9:
+                    return Key.Digit9;
+                default:
+                    break;
+            }
             // Keypad digits
             if (keyCode >= KeyCode.Keypad0 && keyCode <= KeyCode.Keypad9)
                 return Key.Numpad0 + (keyCode - KeyCode.Keypad0);

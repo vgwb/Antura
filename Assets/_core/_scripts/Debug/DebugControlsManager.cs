@@ -70,16 +70,16 @@ namespace Antura.Debugging
             new DebugCommand("Add 50 bones", CommandCondition.OnPress, KeyCode.B, KeyModifier.Shift, on => {
                 DebugManager.I.AddBones();
             }),
-            new DebugCommand("End current minigame with 0 stars (fail)", CommandCondition.OnPress, KeyCode.Alpha0, on => {
+            new DebugCommand("End current minigame with 0 stars (fail)", CommandCondition.OnPress, KeyCode.Alpha0, KeyModifier.Shift, on => {
                 DebugManager.I.ForceCurrentMinigameEnd(0);
             }),
-            new DebugCommand("End current minigame with 1 star", CommandCondition.OnPress, KeyCode.Alpha1, on => {
+            new DebugCommand("End current minigame with 1 star", CommandCondition.OnPress, KeyCode.Alpha1, KeyModifier.Shift, on => {
                 DebugManager.I.ForceCurrentMinigameEnd(1);
             }),
-            new DebugCommand("End current minigame with 2 stars", CommandCondition.OnPress, KeyCode.Alpha2, on => {
+            new DebugCommand("End current minigame with 2 stars", CommandCondition.OnPress, KeyCode.Alpha2, KeyModifier.Shift, on => {
                 DebugManager.I.ForceCurrentMinigameEnd(2);
             }),
-            new DebugCommand("End current minigame with 3 stars", CommandCondition.OnPress, KeyCode.Alpha3, on => {
+            new DebugCommand("End current minigame with 3 stars", CommandCondition.OnPress, KeyCode.Alpha3, KeyModifier.Shift, on => {
                 DebugManager.I.ForceCurrentMinigameEnd(3);
             })
         };
