@@ -148,11 +148,14 @@ namespace Antura.Discover
 
         public void PlayWord()
         {
-            if (Word != null)
+            if (Word == null)
             {
-                AudioManager.I.PlayWord(Word, false);
+                Debug.LogWarning($"Cannot play word for {name}: Word is not assigned.", this);
+                return;
             }
 
+            //            Debug.Log($"Playing word audio '{Word.Id}' for {name}.", this);
+            AudioManager.I.PlayWord(Word);
         }
 
     }
