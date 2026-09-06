@@ -144,18 +144,16 @@ https://docs.google.com/document/d/1U0FWqUzAjLKTZ_R69nXcr_R93yQoyMKNnYycK4nP7bU/
 - [ ] remove all colormap materials
 
 # Improvements
-## map and inventory
-- [x] Add 2D colours to the globe.
-- [x] Create the 2D coloured map in the old cartoon style.
-- [x] Remove Antura from the map.
-- [x] Remove Italy, Spain, Germany, and the North Pole from the map.
-- [x] Keep only the labels FRANCE and POLAND.
-- [x] Fix the Polish town pins.
 
-- [ ] Add the Antura space with the cat to the map.
-- [ ] Add the book icon.
-
-## Discover UI
+## UI
+- [x] DiscoMap: Add 2D colours to the globe.
+- [x] DiscoMap: Create the 2D coloured map in the old cartoon style.
+- [x] DiscoMap: Remove Antura from the map.
+- [x] DiscoMap: Remove Italy, Spain, Germany, and the North Pole from the map.
+- [x] DiscoMap: Keep only the labels FRANCE and POLAND.
+- [x] DiscoMap: Fix the Polish town pins.
+- [ ] DiscoMap: Add the Antura space with the cat to the map.
+- [ ] DiscoHUD: Add the book icon.
 - [ ] The Module Selector direction on PC (invert it if required). #medium
 - [ ] Create an in-game alert system for player warnings and important feedback.
 - [ ] Add a reusable 3D toast message that appears near the player or in the gameplay HUD.
@@ -163,44 +161,31 @@ https://docs.google.com/document/d/1U0FWqUzAjLKTZ_R69nXcr_R93yQoyMKNnYycK4nP7bU/
 - [ ] Replace the temporary killzone `WARNING` log with the in-game alert system.
 - [ ] respawn button + restart quest
 - [ ] New Target System, with circular indicators
+- [ ] Compass: optimize
+- [ ] show a Knowledge as small graph tree?
 
 ## Dialogues UI
 - [ ] add Baloon type dialogue when speaking a simple WORD #top
-
 - [ ] Add the `interactable_icon` command to the narrative engine.
 - [ ] Support exclamation-point and question-mark interactable icons.
 - [ ] Set the icon from `interactable.status`.
 - [ ] Add the related interactable icon animation.
 
-- [ ] show a Knowledge as small graph tree?
+## Yarn integration and commands 
 
+- [ ] Command Party: bugfix distance
+- [ ] inventory_add must trigger task collect item (with tag)
+- [ ] inventory select item (currentItem): improve UI
 - [ ] Make `inventory_add` trigger the tagged collect-item task.
 - [ ] Action to activate animations through Yarn
 - [ ] disable interactable icon
 
-
 ## Discover Card Arcade
 - [ ] enable Card Arcade to play all activities in the quests #major
-
-## Discover Inventory
-
-- [ ] inventory_add must trigger task collect item (with tag)
-- [ ] inventory select item (currentItem): improve UI
-
-
-## Command Party 
-
-- [ ] Party: bugfix distance
-
-
-## Discover Compass
-
-- [ ] Compass: optimize
 
 ## LivingLetters
 - [ ] spawn LL areas
 - [ ] display image / card data
-
 
 
 ## Player controller
