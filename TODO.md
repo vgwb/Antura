@@ -141,6 +141,7 @@ https://docs.google.com/document/d/1U0FWqUzAjLKTZ_R69nXcr_R93yQoyMKNnYycK4nP7bU/
 
 # Maintenance
 - [ ] Remove all `Assets/_discover/Prefabs/3D Common (DO NOT USE)` assets.
+- [ ] remove all colormap materials
 
 # Improvements
 ## map and inventory
