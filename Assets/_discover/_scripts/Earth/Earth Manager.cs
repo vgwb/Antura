@@ -18,6 +18,7 @@ namespace Antura.Discover
         private Coroutine waitForHomeRoutine;
         private Countries pendingCountryToShow = Countries.France;
         private bool hasPendingCountry;
+        private bool hasUserSelectedCountry;
 
         public IReadOnlyCollection<Countries> AllowedCountries => allowedCountries;
         public Countries CurrentCountry { get; private set; } = Countries.France;
@@ -85,6 +86,7 @@ namespace Antura.Discover
                 return false;
             }
 
+            hasUserSelectedCountry = true;
             if (CurrentCountry != selectedCountry)
             {
                 CurrentCountry = selectedCountry;
@@ -134,6 +136,10 @@ namespace Antura.Discover
         private void HandleProfileLoaded(DiscoverPlayerProfile profile)
         {
             RefreshAccessRules();
+            if (!hasUserSelectedCountry)
+            {
+                CurrentCountry = DetermineDefaultCountry();
+            }
             EnsureCurrentCountryIsValid();
             ApplySelection(CurrentCountry);
         }
