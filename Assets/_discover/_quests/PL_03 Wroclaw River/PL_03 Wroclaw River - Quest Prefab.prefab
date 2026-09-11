@@ -4362,6 +4362,7 @@ MonoBehaviour:
       project: {fileID: 0}
       nodeName: 
     DebugSpawnPoint: {fileID: 0}
+    showInteractableLabels: 0
     TalkToPlayerMode: 0
     NativeLanguage:
       code: en
@@ -9294,9 +9295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CollectableItem
+  IsHiddenAtStart: 0
   AutoCollect: 0
   Type: 3
   ItemTag: photo
+  AddToInventory: 0
   particleEffectPrefab: {fileID: 0}
   enableRotation: 0
   rotationSpeed: 100
@@ -12800,6 +12803,7 @@ MonoBehaviour:
   IconType: 0
   IconTransform: {fileID: 0}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
   CameraFocusData: {fileID: 0}
@@ -12839,7 +12843,7 @@ PrefabInstance:
     - target: {fileID: 5881465831553121569, guid: ef8bab38c8aa646e48f17ef7f736137a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.58
+      value: -26.32
       objectReference: {fileID: 0}
     - target: {fileID: 5881465831553121569, guid: ef8bab38c8aa646e48f17ef7f736137a,
         type: 3}
@@ -12849,7 +12853,7 @@ PrefabInstance:
     - target: {fileID: 5881465831553121569, guid: ef8bab38c8aa646e48f17ef7f736137a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.51
+      value: 3.81
       objectReference: {fileID: 0}
     - target: {fileID: 5881465831553121569, guid: ef8bab38c8aa646e48f17ef7f736137a,
         type: 3}
