@@ -57,21 +57,21 @@
 
 **low**
 
-- [ ] Improve the papers prefab: visible from below, more 3D, and with some colour.
-- [ ] Move the papers closer to the stairs.
+- [x] Improve the papers prefab: visible from below, more 3D, and with some colour.
+- [x] Move the papers closer to the stairs.
 - [ ] Allow walking during tasks where appropriate.
 - [ ] Check the Polish number audio rendering.
-- [ ] Correct “sto dwa” to “sto dwie”.
-- [ ] Correct the pronunciation of “sto pięćdziesięciu”.
+- [-] Correct “sto dwa” to “sto dwie”.
+- [x] Correct the pronunciation of “sto pięćdziesięciu”.
 - [ ] Fix wrong names/pronunciation in the memory game.
-- [ ] Fix “Tumski” being pronounced as “chumski”.
-- [ ] Fix “most Grunwaldzki” being pronounced partly in English.
+- [x] Fix “Tumski” being pronounced as “chumski”.
+- [x] Fix “most Grunwaldzki” being pronounced partly in English.
 - [ ] Replace “więc może się ukryć przed krasnoludami” with “Aby mogła ukryć się przed krasnalami”.
 - [ ] Fix the pronunciation of “rower” in the matching game.
 - [ ] Replace the old/unhelpful word “pylon” where it is used.
-- [ ] Replace “latający” with “pływający” in “Nawet krasnoludy pokochałyby pływający dom!”.
+- [x] Replace “latający” with “pływający” in “Nawet krasnoludy pokochałyby pływający dom!”.
 - [ ] Translate the untranslated corner text and make that task easier to finish.
-- [ ] Consider replacing “łódź dla ludzi” with “łódź turystyczna”.
+- [x] Consider replacing “łódź dla ludzi” with “łódź turystyczna”.
 
 ## PL 04 Zoo
 
