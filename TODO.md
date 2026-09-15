@@ -8,7 +8,7 @@
 
 **low**
 
-- [ ] Check that some final stars remain black when appropriate.
+- [x] Check that some final stars remain black when appropriate.
 
 ## PL 01 Warsaw
 
@@ -21,7 +21,7 @@
 - [ ] Review the characters' birth years.
 - [ ] Reduce the walking distance.
 - [ ] Make the stadium puzzle easier.
-- [ ] Resize the LL tube hats; they are too large.
+- [x] Resize the LL tube hats; they are too large.
 - [x] Replace/update the zloty coins.
 
 ## PL 02
@@ -46,14 +46,14 @@
 **high**
 
 - [x] bridge terrain gap and make the bridge connect correctly to the ground.
-- [ ] cat behaviour during tasks: stop it walking into the river and respawning.
+- [x] cat behaviour during tasks: stop it walking into the river and respawning.
 - [x] danger zone: add a 3-second delay before respawning.
 
 **medium**
 
 - [ ] the minimap must rotate correctly and not force the player to walk backwards.
 - [ ] make distant tasks visible/noticed by children.
-- [ ] move the first ship page to a more visible position, such as the stairs.
+- [x] move the first ship page to a more visible position, such as the stairs.
 
 **low**
 
@@ -87,13 +87,13 @@
 - [ ] When referring to the flag, use “ją” instead of “to”.
 - [ ] Complete the chimpanzee dialogue: “Czy potrafisz zgadnąć, na które drzewo muszę się wspiąć, aby dostać…”.
 - [ ] Replace “pomarańczowa roślina” with “drzewo pomarańczowe”.
-- [ ] Correct “FLAGĘ” to “FLAGI”.
-- [ ] Correct “FLAG” to “FLAGI”.
-- [ ] Correct “DZIEWIĘĆDZIĘCIU” to “DZIEWIĘĆDZIESIĘCIU”.
-- [ ] Pronounce “lew” in Polish, not English.
-- [ ] Correct the penguin's “PTAKIEM” pronunciation.
-- [ ] Correct “FLAGI” being pronounced as “FLAGA”.
-- [ ] Fix the zoo manager's flag pronunciation.
+- [x] Correct “FLAGĘ” to “FLAGI”.
+- [x] Correct “FLAG” to “FLAGI”.
+- [x] Correct “DZIEWIĘĆDZIĘCIU” to “DZIEWIĘĆDZIESIĘCIU”.
+- [x] Pronounce “lew” in Polish, not English.
+- [x] Correct the penguin's “PTAKIEM” pronunciation.
+- [x] Correct “FLAGI” being pronounced as “FLAGA”.
+- [x] Fix the zoo manager's flag pronunciation.
 - [ ] Replace “gdyby wszystkie zwierzęta są niewinne” with the correct “jeżeli…” construction.
 
 ## PL 06 Toruń Market
