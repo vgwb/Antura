@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5396177026648878583
 Transform:
   m_ObjectHideFlags: 0
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1653093516832566755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.57, z: 0}
+  m_LocalPosition: {x: 0, y: 5.4, z: 0.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 2472284506558887831}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5140279, y: 0.85741985, z: 0.016569491, w: 0.018220013}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.14, y: 0.06, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -277,12 +277,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 
   IsInteractable: 1
+  IsHiddenAtStart: 0
   NearbyAutoActivate: 0
   IconType: 1
   IconTransform: {fileID: 5396177026648878583}
   ShowOnMap: 0
+  MapIcon: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 1
+  CameraFocusData: {fileID: 0}
   FaceToPlayer: 1
   DialogueNode:
     project: {fileID: 0}
@@ -477,9 +480,9 @@ Transform:
   m_GameObject: {fileID: 7891757543340159016}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.24, y: -0.26, z: -0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4028098013972030603}
   m_Father: {fileID: 7371480799601512423}
