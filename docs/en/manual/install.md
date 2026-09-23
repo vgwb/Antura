@@ -17,9 +17,7 @@ The game is compatible with iOS, Android and Windows, so it can be played on sma
 
 ## iOS
 
-**Requirements**: iOS 13  
-
-👉 Open this link **from your iOS device**: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)  
+👉 Open this link **from your iOS device**: [https://testflight.apple.com/join/9TtjzP6h](https://testflight.apple.com/join/9TtjzP6h)  
 
 (Testflight is a service to test iOS applications that are still in development: open the above link from the device you want to install to. Once installed from Testflight, you can use Antura as any other app)
 

@@ -25,6 +25,13 @@ The original version
 
 Official builds are not yet available, but we can amke them on demand, or [build from source](./dev/how-to/Build.md).
 
+## Beta
+
+to Access Internal / Beta versions:
+
+- Android Testing: [https://play.google.com/apps/internaltest/4701400252900534178](https://play.google.com/apps/internaltest/4701400252900534178)  
+- iOS Testflight: [https://testflight.apple.com/join/9TtjzP6h](https://testflight.apple.com/join/9TtjzP6h)  
+
 ## 💻 Source Code
 
 Antura is fully **open source** 👉 [github.com/vgwb/Antura](https://github.com/vgwb/Antura)  
