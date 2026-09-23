@@ -129,16 +129,16 @@ namespace Antura.Core
                     yield return null;
 
                 // Avoids duplicates
-                var eventSystem = FindFirstObjectByType<EventSystem>();
+                var eventSystem = FindAnyObjectByType<EventSystem>();
                 Destroy(eventSystem);
 
                 if (C.StartTeacherTester)
                 {
                     BotLog($"Starting Teacher Tester");
-                    var databaseTester = FindFirstObjectByType<DatabaseTester>();
+                    var databaseTester = FindAnyObjectByType<DatabaseTester>();
                     databaseTester.ToTeacherTester();
 
-                    var teacherTester = FindFirstObjectByType<TeacherTester>();
+                    var teacherTester = FindAnyObjectByType<TeacherTester>();
                     teacherTester.DoTestCompleteJourney();
                     while (teacherTester.IsExecuting)
                         yield return null;
@@ -147,7 +147,7 @@ namespace Antura.Core
 
                 if (C.CheckLearningMissingAudio)
                 {
-                    var missingAudioFileChecker = FindFirstObjectByType<MissingAudioFileChecker>();
+                    var missingAudioFileChecker = FindAnyObjectByType<MissingAudioFileChecker>();
                     missingAudioFileChecker.LanguageToCheck = AppManager.I.ContentEdition.LearningLanguage;
                     BotLog("Checking missing audio: DB against Project");
                     missingAudioFileChecker.CheckDbAgaistProject();
@@ -190,7 +190,7 @@ namespace Antura.Core
                 {
                     case AppScene.Home:
                     {
-                        var homeScene = FindFirstObjectByType<HomeScene>();
+                        var homeScene = FindAnyObjectByType<HomeScene>();
 
                         // Choose language
                         if (C.TestEditionCombos)
@@ -202,12 +202,12 @@ namespace Antura.Core
                                     continue;
 
                                 BotLog("Switching to learning combo " + combo);
-                                Click(FindFirstObjectByType<EditionSelectorBtn>());
+                                Click(FindAnyObjectByType<EditionSelectorBtn>());
                                 yield return new WaitForSeconds(C.Delay);
-                                Click(FindFirstObjectByType<SelectNativeLanguageButton>());
+                                Click(FindAnyObjectByType<SelectNativeLanguageButton>());
                                 yield return new WaitForSeconds(C.Delay);
 
-                                var nativeLangBtns = FindObjectsByType<SelectNativeLanguageButton>(FindObjectsSortMode.None);
+                                var nativeLangBtns = FindObjectsByType<SelectNativeLanguageButton>();
                                 foreach (var nativeLangBtn in nativeLangBtns)
                                 {
                                     if (nativeLangBtn.LanguageCode == combo.NativeLanguage)
@@ -218,7 +218,7 @@ namespace Antura.Core
                                 }
                                 yield return new WaitForSeconds(3f);
 
-                                var learningContentBtns = FindObjectsByType<SelectLearningContentButton>(FindObjectsSortMode.None);
+                                var learningContentBtns = FindObjectsByType<SelectLearningContentButton>();
                                 foreach (var learningContentBtn in learningContentBtns)
                                 {
                                     if (learningContentBtn.ContentId == combo.LearningContent)
@@ -249,13 +249,13 @@ namespace Antura.Core
                             {
                                 DebugManager.I.GoToReservedArea();
                                 yield return new WaitForSeconds(1f);
-                                var profilesPanel = FindFirstObjectByType<ProfilesPanel>();
+                                var profilesPanel = FindAnyObjectByType<ProfilesPanel>();
                                 //yield return profilesPanel.CreateDemoPlayer();
                                 DebugManager.I.GoToHome();
                             }
                         }
                         if (homeScene == null)
-                            homeScene = FindFirstObjectByType<HomeScene>();
+                            homeScene = FindAnyObjectByType<HomeScene>();
 
                         // Play
                         if (C.UseDemoProfile)
@@ -264,7 +264,7 @@ namespace Antura.Core
                             Click(desiredPlayerIcon);
                             yield return new WaitForSeconds(2f);
                             if (homeScene == null)
-                                homeScene = FindFirstObjectByType<HomeScene>();
+                                homeScene = FindAnyObjectByType<HomeScene>();
 
                             Click(homeScene.ProfileSelectorUI.transform.Find("BT Play"));
                         }
@@ -290,7 +290,7 @@ namespace Antura.Core
                         // Go to the BOOK
                         if (botSteps.Contains(BotStep.PlayAllGamesInBook))
                         {
-                            var openBookBtn = FindFirstObjectByType<OpenPlayerBookScene>();
+                            var openBookBtn = FindAnyObjectByType<OpenPlayerBookScene>();
                             if (openBookBtn != null)
                                 openBookBtn.OnPointerClick(new PointerEventData(EventSystem.current));
                             yield return new WaitForSeconds(C.Delay);
@@ -344,39 +344,39 @@ namespace Antura.Core
                             }
                         }
                         else
-                        // Or, play the journey instead
-                        if (botSteps.Contains(BotStep.PlayJourney))
-                        {
-                            var stopAtJp = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
-                            if (C.EnableStopBeforeJP)
+                            // Or, play the journey instead
+                            if (botSteps.Contains(BotStep.PlayJourney))
                             {
-                                stopAtJp = C.StopBeforeJP;
-                            }
-                            if (AppManager.I.Player.MaxJourneyPosition.IsGreaterOrEqual(stopAtJp))
-                            {
-                                BotLog($"We reached the target Journey Position " + stopAtJp);
-                                botSteps.Remove(BotStep.PlayJourney);
-                            }
-                            else
-                            {
-                                var stageMapsManager = FindFirstObjectByType<StageMapsManager>();
-                                if (stageMapsManager != null)
+                                var stopAtJp = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
+                                if (C.EnableStopBeforeJP)
                                 {
-                                    var targetJourneyPos = AppManager.I.Player.MaxJourneyPosition;
-                                    var playerStageMap = stageMapsManager.StageMap(targetJourneyPos.Stage);
-                                    stageMapsManager.SelectPin(playerStageMap.PinForJourneyPosition(targetJourneyPos));
-                                    BotLog($"Selected pin fr Journey Position " + targetJourneyPos);
-                                    yield return new WaitForSeconds(1f);
-                                    yield return new WaitForSeconds(C.Delay);
+                                    stopAtJp = C.StopBeforeJP;
+                                }
+                                if (AppManager.I.Player.MaxJourneyPosition.IsGreaterOrEqual(stopAtJp))
+                                {
+                                    BotLog($"We reached the target Journey Position " + stopAtJp);
+                                    botSteps.Remove(BotStep.PlayJourney);
+                                }
+                                else
+                                {
+                                    var stageMapsManager = FindAnyObjectByType<StageMapsManager>();
+                                    if (stageMapsManager != null)
+                                    {
+                                        var targetJourneyPos = AppManager.I.Player.MaxJourneyPosition;
+                                        var playerStageMap = stageMapsManager.StageMap(targetJourneyPos.Stage);
+                                        stageMapsManager.SelectPin(playerStageMap.PinForJourneyPosition(targetJourneyPos));
+                                        BotLog($"Selected pin fr Journey Position " + targetJourneyPos);
+                                        yield return new WaitForSeconds(1f);
+                                        yield return new WaitForSeconds(C.Delay);
+                                    }
                                 }
                             }
-                        }
                     }
                     break;
 
                     case AppScene.GameSelector:
                     {
-                        var gamesSelector = FindFirstObjectByType<GamesSelector.GamesSelector>();
+                        var gamesSelector = FindAnyObjectByType<GamesSelector.GamesSelector>();
                         if (gamesSelector != null)
                         {
                             var bubbles = gamesSelector.GetComponentsInChildren<GamesSelectorBubble>();
@@ -462,7 +462,7 @@ namespace Antura.Core
                     case AppScene.DailyReward:
                     {
                         timer += Time.deltaTime;
-                        var dailyRewardScene = FindFirstObjectByType<DailyRewardScene>();
+                        var dailyRewardScene = FindAnyObjectByType<DailyRewardScene>();
                         if (dailyRewardScene != null)
                         {
                             dailyRewardScene.UnlockNewReward();
@@ -481,12 +481,12 @@ namespace Antura.Core
 
                     case AppScene.MiniGame:
                     {
-                        var controller = FindFirstObjectByType<MiniGameController>();
+                        var controller = FindAnyObjectByType<MiniGameController>();
                         switch (controller.GetType().Name)
                         {
                             case "EggGame":
                             {
-                                var buttons = FindObjectsByType<EggButton>(FindObjectsSortMode.None);
+                                var buttons = FindObjectsByType<EggButton>();
                                 if (buttons.Length > 0)
                                 {
                                     var btn = buttons.GetRandom();
@@ -502,7 +502,7 @@ namespace Antura.Core
 
                             case "BalloonsGame":
                             {
-                                var balloons = FindObjectsByType<BalloonController>(FindObjectsSortMode.None);
+                                var balloons = FindObjectsByType<BalloonController>();
                                 if (balloons.Length > 0)
                                 {
                                     var chosen = balloons.GetRandom();
@@ -523,11 +523,11 @@ namespace Antura.Core
                                     Click(GlobalUI.WidgetPopupWindow.ButtonGO);
                                     yield return new WaitForSeconds(0.2f);
                                 }
-                                var lls = FindObjectsByType<StrollingLivingLetter>(FindObjectsSortMode.None);
+                                var lls = FindObjectsByType<StrollingLivingLetter>();
                                 if (lls.Length > 0)
                                 {
                                     var ll = lls.GetRandom();
-                                    var drops = FindObjectsByType<DropAreaWidget>(FindObjectsSortMode.None);
+                                    var drops = FindObjectsByType<DropAreaWidget>();
                                     if (drops.Length > 0)
                                     {
                                         ll.DropOnArea(drops[0]);
@@ -584,7 +584,7 @@ namespace Antura.Core
                         {
 
                             case FirstContactPhase.AnturaSpace_TouchAntura:
-                                var manager = FindFirstObjectByType<AnturaSpaceTutorialManager>();
+                                var manager = FindAnyObjectByType<AnturaSpaceTutorialManager>();
                                 if (manager != null)
                                 {
                                     // @note: sometimes it can block here, so it's better to just wait a bit more
@@ -598,21 +598,21 @@ namespace Antura.Core
                                 break;
 
                             case FirstContactPhase.AnturaSpace_Customization:
-                                var modsButton = FindFirstObjectByType<AnturaSpaceModsButton>();
+                                var modsButton = FindAnyObjectByType<AnturaSpaceModsButton>();
                                 if (modsButton != null)
                                     Click(modsButton);
 
-                                foreach (var btn in FindObjectsByType<AnturaSpaceCategoryButton>(FindObjectsSortMode.None))
+                                foreach (var btn in FindObjectsByType<AnturaSpaceCategoryButton>())
                                 {
                                     Click(btn);
                                 }
 
-                                foreach (var btn in FindObjectsByType<AnturaSpaceItemButton>(FindObjectsSortMode.None))
+                                foreach (var btn in FindObjectsByType<AnturaSpaceItemButton>())
                                 {
                                     Click(btn);
                                 }
 
-                                foreach (var btn in FindObjectsByType<AnturaSpaceSwatchButton>(FindObjectsSortMode.None))
+                                foreach (var btn in FindObjectsByType<AnturaSpaceSwatchButton>())
                                 {
                                     Click(btn);
                                 }
@@ -624,7 +624,7 @@ namespace Antura.Core
                             case FirstContactPhase.AnturaSpace_Shop:
                                 Click(GameObject.Find("Btn Shop Bones"));
                                 yield return new WaitForSeconds(C.Delay);
-                                var shopActionThrow = FindFirstObjectByType<ShopAction_Throw>();
+                                var shopActionThrow = FindAnyObjectByType<ShopAction_Throw>();
                                 if (shopActionThrow != null)
                                 {
                                     DoOnce(shopActionThrow.PerformAction);
@@ -633,7 +633,7 @@ namespace Antura.Core
                                 Click(GameObject.Find("BT Yes"));
 
                                 // FAKE TUTORIAL COMPLETION (too hard to drag)
-                                var tutManager = FindFirstObjectByType<AnturaSpaceTutorialManager>();
+                                var tutManager = FindAnyObjectByType<AnturaSpaceTutorialManager>();
                                 tutManager.FakeAdvanceTutorialShop();
 
                                 break;

@@ -12,7 +12,7 @@ namespace Antura.Discover
         {
             // Beta: find the world root that already exists in the quest scene.
             if (!Current)
-                Current = FindFirstObjectByType<WorldController>();
+                Current = FindAnyObjectByType<WorldController>();
 
             if (!Current)
                 Debug.LogWarning("[WorldManager] No WorldRoot found in the scene. Add one to your world root GameObject.");

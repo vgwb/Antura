@@ -417,7 +417,7 @@ namespace Antura.Test
 
         public bool PreValidateAssets()
         {
-            ContentTarget = FindFirstObjectByType<EditorContentHolder>()?.InputContent;
+            ContentTarget = FindAnyObjectByType<EditorContentHolder>()?.InputContent;
             if (ContentTarget == null) //if its not present in the script (attachable in the inspector), we shut down the call
             {
                 Debug.LogWarning("WARNING: There's no Content - Learn... asset attached to run the task");

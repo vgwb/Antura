@@ -103,15 +103,15 @@ namespace Antura.Dog
 
             AppManager.I.Player.Save();
 
-            foreach (var bone3D in FindObjectsByType<Bone3D>(FindObjectsSortMode.None))
+            foreach (var bone3D in FindObjectsByType<Bone3D>())
             {
                 bone3D.Switch();
             }
-            foreach (var uiBone in FindObjectsByType<UIBone>(FindObjectsSortMode.None))
+            foreach (var uiBone in FindObjectsByType<UIBone>())
             {
                 uiBone.Switch();
             }
-            foreach (var shopActionUI in FindObjectsByType<ShopActionUI>(FindObjectsSortMode.None))
+            foreach (var shopActionUI in FindObjectsByType<ShopActionUI>())
             {
                 shopActionUI.RetriggerRender();
             }

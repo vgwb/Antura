@@ -15,7 +15,7 @@ namespace Antura.Test
             options.AddRange(addOptionsFromEnum<LLAnimationStates>());
             onValueChanged.AddListener(delegate
             {
-                foreach (var l in FindObjectsByType<LivingLetterController>(FindObjectsSortMode.None))
+                foreach (var l in FindObjectsByType<LivingLetterController>())
                 {
                     l.SetState((LLAnimationStates)Enum.Parse(typeof(LLAnimationStates), options[value].text));
                 }

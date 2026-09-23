@@ -66,7 +66,7 @@ namespace Antura.AnturaSpace
         public void Initialise()
         {
             if (!scene)
-                scene = FindFirstObjectByType<AnturaSpaceScene>();
+                scene = FindAnyObjectByType<AnturaSpaceScene>();
 
             const float duration = 0.3f;
             showShopPanelTween = DOTween.Sequence().SetAutoKill(false).Pause()
@@ -95,7 +95,7 @@ namespace Antura.AnturaSpace
         private void OnEnable()
         {
             if (!scene)
-                scene = FindFirstObjectByType<AnturaSpaceScene>();
+                scene = FindAnyObjectByType<AnturaSpaceScene>();
             HandleContextChange(ShopContext.Purchase);
             scrollShowTween.Restart();
         }

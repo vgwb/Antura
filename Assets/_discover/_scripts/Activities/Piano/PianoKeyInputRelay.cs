@@ -13,7 +13,7 @@ namespace Antura.Discover.Activities
         {
             key = GetComponent<PianoKey>();
             if (activity == null)
-                activity = FindFirstObjectByType<ActivityPiano>();
+                activity = FindAnyObjectByType<ActivityPiano>();
         }
 
         public void OnPointerClick(PointerEventData eventData)

@@ -61,7 +61,7 @@ namespace Antura.Discover
                 Volumes.AddRange(GetComponentsInChildren<SpawnVolume>(true));
                 if (Volumes.Count == 0 && AutoDiscoverSceneVolumes)
                 {
-                    Volumes.AddRange(FindObjectsByType<SpawnVolume>(FindObjectsInactive.Include, FindObjectsSortMode.None));
+                    Volumes.AddRange(FindObjectsByType<SpawnVolume>(FindObjectsInactive.Include));
                 }
             }
 

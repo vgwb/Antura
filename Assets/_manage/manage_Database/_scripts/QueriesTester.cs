@@ -16,7 +16,7 @@ namespace Antura.Database.Management
 
         void Start()
         {
-            dbTester = FindFirstObjectByType<DatabaseTester>();
+            dbTester = FindAnyObjectByType<DatabaseTester>();
             dbManager = dbTester.dbManager;
         }
 

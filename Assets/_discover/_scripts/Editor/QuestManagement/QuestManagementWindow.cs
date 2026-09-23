@@ -336,7 +336,7 @@ namespace Antura.Discover.EditorTools
             var list = new List<ActableAbstract>();
             try
             {
-                var found = FindObjectsByType<ActableAbstract>(FindObjectsSortMode.None);
+                var found = FindObjectsByType<ActableAbstract>();
                 foreach (var a in found)
                 {
                     if (a == null)

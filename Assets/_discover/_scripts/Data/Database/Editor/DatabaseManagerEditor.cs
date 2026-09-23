@@ -125,7 +125,7 @@ namespace Antura.Discover
             if (_cachedInstance != null)
                 return _cachedInstance;
 
-            _cachedInstance = FindFirstObjectByType<DatabaseManager>();
+            _cachedInstance = FindAnyObjectByType<DatabaseManager>();
             if (_cachedInstance != null)
                 return _cachedInstance;
 

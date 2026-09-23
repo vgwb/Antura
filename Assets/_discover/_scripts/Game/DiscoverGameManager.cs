@@ -43,7 +43,7 @@ namespace Antura.Discover
         void OnEnable()
         {
             // Hook Yarn dialogue complete to resume gameplay
-            var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
+            var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindAnyObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             if (yarn != null)
             {
                 yarn.OnDialogueStart += OnYarnDialogueStart;
@@ -53,7 +53,7 @@ namespace Antura.Discover
 
         void OnDisable()
         {
-            var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
+            var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindAnyObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             if (yarn != null)
             {
                 yarn.OnDialogueStart -= OnYarnDialogueStart;
@@ -71,11 +71,11 @@ namespace Antura.Discover
 
 
             if (!questManager)
-                questManager = FindFirstObjectByType<QuestManager>(FindObjectsInactive.Include);
+                questManager = FindAnyObjectByType<QuestManager>(FindObjectsInactive.Include);
             if (!actionManager)
-                actionManager = FindFirstObjectByType<ActionManager>(FindObjectsInactive.Include);
+                actionManager = FindAnyObjectByType<ActionManager>(FindObjectsInactive.Include);
             if (!yarnAnturaManager)
-                yarnAnturaManager = FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
+                yarnAnturaManager = FindAnyObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
 
             // Determine quest to use: prefer prefab-assigned QuestManager.CurrentQuest, otherwise StartingQuest
             var questToUse = questManager.CurrentQuest != null ? questManager.CurrentQuest : StartingQuest;

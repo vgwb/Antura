@@ -20,8 +20,8 @@ public class WorldPrefabsEditorWindow : EditorWindow
 
         if (world != lastWorld)
         {
-            var prefabs = FindObjectsByType<AutoWorldPrefab>(UnityEngine.FindObjectsSortMode.None);
-            var cameras = FindObjectsByType<AutoWorldCameraColor>(UnityEngine.FindObjectsSortMode.None);
+            var prefabs = FindObjectsByType<AutoWorldPrefab>();
+            var cameras = FindObjectsByType<AutoWorldCameraColor>();
 
             foreach (var p in prefabs)
             {

@@ -46,7 +46,7 @@ namespace Antura.Discover
                 }
             }
 
-            var allPins = FindObjectsByType<LocationPin>(FindObjectsSortMode.None);
+            var allPins = FindObjectsByType<LocationPin>();
             for (int i = 0; i < allPins.Length; i++)
             {
                 if (allPins[i] != null && allPins[i] != this)

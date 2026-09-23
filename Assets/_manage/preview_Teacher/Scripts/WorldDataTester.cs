@@ -28,7 +28,7 @@ namespace Antura.Teacher.Test
 
         IEnumerator Start()
         {
-            var edition = FindFirstObjectByType<Database.Management.EditorContentHolder>().InputContent;
+            var edition = FindAnyObjectByType<Database.Management.EditorContentHolder>().InputContent;
             AppManager.I.AppSettingsManager.SetLearningContentID(edition.ContentID);
             yield return AppManager.I.ReloadEdition();
 

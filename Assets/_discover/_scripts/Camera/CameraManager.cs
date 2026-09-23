@@ -57,7 +57,7 @@ namespace Antura.Discover
         void Start()
         {
             CamController = this.GetComponent<PlayerCameraController>();
-            StarterInput = FindFirstObjectByType<StarterAssetsInputs>();
+            StarterInput = FindAnyObjectByType<StarterAssetsInputs>();
             dialogueCam = this.GetComponent<DialogueCamera>();
             mapCam = this.GetComponent<MapCamera>();
             focusCam = this.GetComponent<FocusCamera>();

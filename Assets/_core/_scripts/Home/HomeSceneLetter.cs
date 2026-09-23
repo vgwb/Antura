@@ -27,7 +27,7 @@ namespace Antura.LivingLetters
 
         void Awake()
         {
-            EditionSelectionManager = FindFirstObjectByType<EditionSelectionManager>();
+            EditionSelectionManager = FindAnyObjectByType<EditionSelectionManager>();
         }
 
         public void OnMouseDown()

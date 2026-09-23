@@ -28,7 +28,7 @@ namespace Antura.Tools
 
         private static void Rebuild()
         {
-            appManager = FindFirstObjectByType<AppManager>();
+            appManager = FindAnyObjectByType<AppManager>();
             if (appManager.AppSettingsManager == null)
                 appManager.AppSettingsManager = new AppSettingsManager();
             appSettings = appManager.AppSettingsManager.LoadSettings();
@@ -77,7 +77,7 @@ namespace Antura.Tools
         {
             this.titleContent.text = "Antura - Overview";
 
-            if (FindFirstObjectByType<AppManager>() == null)
+            if (FindAnyObjectByType<AppManager>() == null)
                 return;
 
             Rebuild();

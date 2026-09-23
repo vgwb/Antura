@@ -24,7 +24,7 @@ namespace Antura.Scenes
 
         protected override void Awake()
         {
-            isClassroomMode = FindFirstObjectByType<ReservedAreaScene>() != null;
+            isClassroomMode = FindAnyObjectByType<ReservedAreaScene>() != null;
             if (isClassroomMode)
                 Destroy(audioListener);
 

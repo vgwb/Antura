@@ -74,7 +74,7 @@ namespace Antura.Discover
             // If we're not on the leader object, try to auto-find a Player kind PartyMember in the scene
             if (Leader == null)
             {
-                var all = FindObjectsByType<PartyMember>(FindObjectsSortMode.None);
+                var all = FindObjectsByType<PartyMember>();
                 for (int i = 0; i < all.Length; i++)
                 {
                     if (all[i] != null && all[i].MemberKind == PartyMember.Kind.Player)

@@ -61,7 +61,7 @@ namespace Antura.Discover
             var yarnManager = YarnAnturaManager.I;
             if (yarnManager == null)
             {
-                yarnManager = FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
+                yarnManager = FindAnyObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             }
             yarnManager?.Setup();
 
@@ -104,7 +104,7 @@ namespace Antura.Discover
         void OnEnable()
         {
             // setup World
-            var root = WorldManager.I ? WorldManager.I.Current : FindFirstObjectByType<WorldController>();
+            var root = WorldManager.I ? WorldManager.I.Current : FindAnyObjectByType<WorldController>();
             if (!root)
                 return;
 
@@ -318,7 +318,7 @@ namespace Antura.Discover
         private void ApplyInteractableDebugLabels(bool enable)
         {
             _debugQuestApplied = DebugMode;
-            var interactables = FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            var interactables = FindObjectsByType<Interactable>(FindObjectsInactive.Include);
             foreach (var it in interactables)
             {
                 if (enable)

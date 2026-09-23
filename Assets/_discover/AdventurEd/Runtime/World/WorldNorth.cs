@@ -31,7 +31,7 @@ namespace AdventurEd
             get
             {
                 if (_instance == null)
-                    _instance = FindFirstObjectByType<WorldNorth>();
+                    _instance = FindAnyObjectByType<WorldNorth>();
                 return _instance;
             }
         }

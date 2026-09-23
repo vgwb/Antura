@@ -71,7 +71,7 @@ namespace Antura.Discover
             Clear();
 
             // Find all Interactables and mark the ones that should appear on the map
-            Interactable[] allInteractables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            Interactable[] allInteractables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include);
             foreach (Interactable interactable in allInteractables)
             {
                 if (!interactable.ShouldCreateMapIcon())

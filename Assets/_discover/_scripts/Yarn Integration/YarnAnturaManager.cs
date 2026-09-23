@@ -29,11 +29,11 @@ namespace Antura.Discover
         {
             if (!runner)
             {
-                runner = FindFirstObjectByType<DialogueRunner>(FindObjectsInactive.Include);
+                runner = FindAnyObjectByType<DialogueRunner>(FindObjectsInactive.Include);
             }
             if (!presenter)
             {
-                presenter = FindFirstObjectByType<DiscoverDialoguePresenter>(FindObjectsInactive.Include);
+                presenter = FindAnyObjectByType<DiscoverDialoguePresenter>(FindObjectsInactive.Include);
             }
         }
         protected override void Init()
@@ -123,7 +123,7 @@ namespace Antura.Discover
             {
                 if (runner == null)
                 {
-                    runner = FindFirstObjectByType<DialogueRunner>(FindObjectsInactive.Include);
+                    runner = FindAnyObjectByType<DialogueRunner>(FindObjectsInactive.Include);
                 }
                 if (runner != null)
                 {
@@ -348,7 +348,7 @@ namespace Antura.Discover
 
         private static PartyManager GetPartyManager()
         {
-            return FindFirstObjectByType<PartyManager>();
+            return FindAnyObjectByType<PartyManager>();
         }
 
         [YarnCommand("party_join")]
@@ -359,7 +359,7 @@ namespace Antura.Discover
                 return;
 
             // TODO improve
-            foreach (var m in FindObjectsByType<PartyMember>(FindObjectsSortMode.None))
+            foreach (var m in FindObjectsByType<PartyMember>())
             {
                 if (m.GetComponent<Interactable>().Id == id)
                 {

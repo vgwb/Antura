@@ -94,7 +94,7 @@ namespace Antura.Discover
         void Awake()
         {
             interactionLayer = InteractionLayer.Movement;
-            camTarget = FindFirstObjectByType<PlayerCameraTarget>(FindObjectsInactive.Include).transform;
+            camTarget = FindAnyObjectByType<PlayerCameraTarget>(FindObjectsInactive.Include).transform;
             cineMain.Target.TrackingTarget = camTarget;
             cineMainFollow = cineMain.GetComponent<CinemachineThirdPersonFollow>();
             camTargetOriginalParent = camTarget.parent;

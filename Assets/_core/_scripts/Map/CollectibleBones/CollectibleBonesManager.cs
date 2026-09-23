@@ -21,7 +21,7 @@ namespace Antura.Collectible
         void Start()
         {
             bonesCounter.Hide();
-            spawnPivots = FindObjectsByType<CollectibleBoneSpawnPivot>(FindObjectsSortMode.None).ToList();
+            spawnPivots = FindObjectsByType<CollectibleBoneSpawnPivot>().ToList();
             InvokeRepeating("SpawnNewBone", delay, delay);
         }
 

@@ -203,7 +203,7 @@ namespace Antura.AnturaSpace
                     AudioManager.I.StopDialogue(false);
 
                     // Reset state for the tutorial
-                    var anturaModelManager = FindFirstObjectByType<AnturaModelManager>();
+                    var anturaModelManager = FindAnyObjectByType<AnturaModelManager>();
                     if (anturaModelManager)
                         anturaModelManager.ClearLoadedRewardPacks();
                     AppManager.I.Player.CurrentSingleAnturaCustomization.ClearEquippedProps();

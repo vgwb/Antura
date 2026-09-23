@@ -48,7 +48,7 @@ namespace Antura.Assessment
         {
             // Sorted array by position
             // Ascending =>     X--->
-            var positions = Object.FindObjectsByType<SortingTicket>(FindObjectsSortMode.None)
+            var positions = Object.FindObjectsByType<SortingTicket>()
                 .OrderByDescending(x => x.transform.position.x).ToArray();
 
             this.positions = new Vector3[positions.Length];
@@ -85,7 +85,7 @@ namespace Antura.Assessment
             audioManager.PlayStampSound();
 
             // NDMichele: playing question as we finish dragging
-            var question = GameObject.FindFirstObjectByType<QuestionBehaviour>();
+            var question = GameObject.FindAnyObjectByType<QuestionBehaviour>();
             if (question != null)
                 question.ReadMeSound();
 

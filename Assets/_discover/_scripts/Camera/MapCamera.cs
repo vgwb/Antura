@@ -25,7 +25,7 @@ namespace Antura.Discover
         void Awake()
         {
             currentZoomOutFactor = zoomOutFactor;
-            camTarget = FindFirstObjectByType<PlayerCameraTarget>().transform;
+            camTarget = FindAnyObjectByType<PlayerCameraTarget>().transform;
             cineMain.Target.TrackingTarget = camTarget;
             playerCamT = this.GetComponent<PlayerCameraController>().CineMain.transform;
             cineComposer = CineMain.GetComponent<CinemachinePositionComposer>();

@@ -63,7 +63,7 @@ namespace Antura.Assessment
             LL.SetQuestionGreen();
 
             // HACK: make the image green too
-            var questions = GameObject.FindObjectsByType<QuestionBehaviour>(FindObjectsSortMode.None);
+            var questions = GameObject.FindObjectsByType<QuestionBehaviour>();
             foreach (var questionBehaviour in questions)
             {
                 questionBehaviour.GreenyTintQuestion();
