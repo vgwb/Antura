@@ -124,6 +124,7 @@ namespace Antura.Discover.Audio.Editor
         // Run state
         private bool _isRunning = false;
         private bool _cancelRequested = false;
+        private bool _suppressCompletionDialog = false;
 
         // Data sources
         private readonly List<QuestData> _quests = new();
@@ -1176,7 +1177,10 @@ namespace Antura.Discover.Audio.Editor
             }
             EditorUtility.ClearProgressBar();
             _isRunning = false;
-            EditorUtility.DisplayDialog("Cards Audio", updateChangedOnly ? $"Done. Updated {totalGenerated} file(s)." : $"Done. Created {totalGenerated} file(s).", "OK");
+            bool suppressCompletionDialog = _suppressCompletionDialog;
+            _suppressCompletionDialog = false;
+            if (!suppressCompletionDialog)
+                EditorUtility.DisplayDialog("Cards Audio", updateChangedOnly ? $"Done. Updated {totalGenerated} file(s)." : $"Done. Created {totalGenerated} file(s).", "OK");
         }
 
         // ------------------------------- Actions -------------------------------

@@ -697,11 +697,15 @@ namespace Antura.Discover.EditorTools
                 var localesField = t.GetField("_locales", BindingFlags.Instance | BindingFlags.NonPublic);
                 var localeIdxField = t.GetField("_selectedLocaleIndex", BindingFlags.Instance | BindingFlags.NonPublic);
                 var onlyMissingField = t.GetField("_onlyGenerateMissing", BindingFlags.Instance | BindingFlags.NonPublic);
+                var overwriteField = t.GetField("_overwriteExisting", BindingFlags.Instance | BindingFlags.NonPublic);
+                var suppressCompletionDialogField = t.GetField("_suppressCompletionDialog", BindingFlags.Instance | BindingFlags.NonPublic);
                 var includeDescField = t.GetField("_cardsIncludeDescriptions", BindingFlags.Instance | BindingFlags.NonPublic);
                 var createCapField = t.GetField("_createCapIndex", BindingFlags.Instance | BindingFlags.NonPublic);
                 var runMethod = t.GetMethod("RunCreateCardAudio", BindingFlags.Instance | BindingFlags.NonPublic);
 
                 onlyMissingField?.SetValue(voWindow, false);
+                overwriteField?.SetValue(voWindow, true);
+                suppressCompletionDialogField?.SetValue(voWindow, true);
                 includeDescField?.SetValue(voWindow, false);
                 createCapField?.SetValue(voWindow, 0); // Single
 
