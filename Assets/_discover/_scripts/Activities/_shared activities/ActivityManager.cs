@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
+
 namespace Antura.Discover.Activities
 {
     public class ActivityManager : SingletonMonoBehaviour<ActivityManager>

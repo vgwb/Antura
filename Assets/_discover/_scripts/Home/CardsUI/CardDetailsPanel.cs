@@ -96,9 +96,32 @@ namespace Antura.Discover.UI
             isTopicBadge.SetActive(card.CoreOfTopic != null);
 
             DiscoverAudioManager.I.Stop();
+            PlayCardTitleInBothLanguages(card);
             soundIcon.enabled = currentCard.AudioAsset != null && currentCard.AudioAsset.Audio != null;
 
             UpdateNavButtons();
+        }
+
+        private async void PlayCardTitleInBothLanguages(CardData card)
+        {
+            var dataManager = DiscoverDataManager.I;
+            if (dataManager == null || card == null)
+                return;
+
+            var nativeClip = await dataManager.GetCardTitleClipAsync(card, CardAudioLanguage.Native);
+            var learningClip = await dataManager.GetCardTitleClipAsync(card, CardAudioLanguage.Learning);
+            if (DiscoverAudioManager.I == null)
+                return;
+
+            if (nativeClip == null)
+            {
+                DiscoverAudioManager.I.PlayDialogue(learningClip);
+                return;
+            }
+
+            DiscoverAudioManager.I.PlayDialogue(
+                nativeClip,
+                () => DiscoverAudioManager.I.PlayDialogue(learningClip));
         }
 
         public void Hide()

@@ -43,17 +43,17 @@ namespace Antura.Discover.UI
                 Description.text += LocalizationSystem.I.GetLocalizedString(questData.Description, true) + "\n";
 
             if (questData.Location != null)
-                Description.text += "Location: " + LocalizationSystem.I.GetLocalizedString(questData.Location.Name, true) + "\n";
+                Description.text += LocalizationSystem.I.GetLocalizedString("Quest.location", "Common", false) + ": " + LocalizationSystem.I.GetLocalizedString(questData.Location.Name, true) + "\n";
 
             if (questData.SubjectsListText != null && questData.SubjectsListText != "")
-                Description.text += "Subjects: " + questData.SubjectsListText + "\n";
+                Description.text += LocalizationSystem.I.GetLocalizedString("Quest.subject", "Common", false) + ": " + questData.SubjectsListText + "\n";
 
             // Description.text += "Status: " + questData.Status.ToString() + "\n";
 
             //Description.text += "Difficulty: " + questData.Difficulty + "\n";
 
             if (questData.Duration > 0)
-                Description.text += "Duration: " + questData.Duration + " min" + "\n";
+                Description.text += LocalizationSystem.I.GetLocalizedString("Quest.duration", "Common", false) + ": " + questData.Duration + " min" + "\n";
             // if (questData.Words != null)
             // {
             //     Description.text += "<b>Words used:</b> ";

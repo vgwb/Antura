@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DG.Tweening;
+
 namespace Antura.Discover.Activities
 {
     public enum Difficulty
