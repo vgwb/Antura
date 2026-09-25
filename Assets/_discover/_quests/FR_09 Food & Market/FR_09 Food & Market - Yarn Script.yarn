@@ -43,6 +43,9 @@ type: panel
 color: red
 actor: NARRATOR
 ---
+// <<if $DEBUG>>
+//    <<jump task_ingredients>>
+// <<endif>>
 <<declare $baker_completed = false>>
 <<declare $cheesemonger_completed = false>>
 <<declare $fishmonger_completed = false>>
@@ -143,7 +146,7 @@ tags: task
 ---
 I need more ingredients! #line:0c5c6ac
 Go see all the vendors at the market. #line:0060c01
-Collect all the ingredients for the recipe. #line:0ea58f3 
+And take the ingredients you buy. #line:0ea58f3 
 ===
 
 title: task_ingredients_done
@@ -152,7 +155,7 @@ group: chef
 type: panel
 ---
 <<target npc_chef>>
-Well done! You managed to buy all the ingredients. #line:0316106 
+Great! You got all the ingredients. #line:0316106 
 Go back and watch the chef cook. #line:05398f2 #task:go_back_chef
 <<task_start go_back_chef>>
 ===
@@ -164,6 +167,27 @@ group: chef
 actor: ADULT_M
 ---
 Well done! You managed to buy all the ingredients. #line:0257fc7
+
+Some bread #card:food_bread #shadow:0e3c40e
+<<inventory food_bread remove>>
+A fish #card:food_fish #shadow:0c4ae56
+<<inventory food_fish remove>>
+Crab #card:food_crab #shadow:0c81979
+<<inventory food_crab remove>>
+An orange #card:food_orange #shadow:01e73d1
+<<inventory food_orange remove>>
+A lemon #card:food_lemon #shadow:0ef3a69
+<<inventory food_lemon remove>>
+A tomato #card:food_tomato #shadow:0d6f051
+<<inventory food_tomato remove>>
+Some milk #card:food_milk #shadow:0dbb71c
+<<inventory food_milk remove>>
+Olive oil #card:food_olive_oil #shadow:0710b9c
+<<inventory food_olive_oil remove>>
+Pepper and salt #card:food_pepper_salt #shadow:08ad40e
+<<inventory food_pepper_salt remove>>
+<<card_hide>>
+
 You greeted everyone with "hello". You thanked all the shopkeepers with "thank you". #line:0112e25
 Now, let's prepare the boullabaise recipe together! #line:0051174
 <<jump activity_match_ingredients>>
@@ -279,7 +303,7 @@ tags: noRepeatLastLine
 actor: SENIOR_M
 ---
 <<if GetActivityResult("money_fishmonger") > 0>>
-    You already bought fish from me! #line:044d973 
+    You've already bought the fish! #line:044d973 
     Do you want to play again? #shadow:play_again
     -> Yes #shadow:yes
         <<activity hard_money_fishmonger hard_payment_done>>
@@ -353,7 +377,7 @@ actor: ADULT_F
 tags: noRepeatLastLine
 ---
 <<if GetActivityResult("money_cheesemonger") > 0>>
-    You already bought milk from me! #line:090b5cc 
+    You've already bought the milk! #line:090b5cc 
     Do you want to play again? #shadow:play_again
     -> Yes #shadow:yes
         <<activity hard_money_cheesemonger hard_payment_done>>
@@ -426,7 +450,7 @@ actor: ADULT_F
 tags:  noRepeatLastLine
 ---
 <<if GetActivityResult("money_greengrocer") > 0>>
-    You already bought fruit from me! #line:0755f3c 
+    You've already bought the fruit! #line:0755f3c 
     Do you want to play again? #shadow:play_again
     -> Yes #shadow:yes
         <<activity hard_money_greengrocer hard_payment_done>>
@@ -501,7 +525,7 @@ tags:  noRepeatLastLine
 color: blue
 ---
 <<if GetActivityResult("money_grocer") > 0>>
-    You already bought from me! #line:0348f3c 
+    You've already bought products from me! #line:0348f3c 
     Do you want to play again? #shadow:play_again
     -> Yes #shadow:yes
         <<activity hard_money_grocer hard_payment_done>>
@@ -574,7 +598,7 @@ actor: SENIOR_M
 tags: 
 ---
 <<if $pirate_completed>>
-Now go! I have to prepare for my next trip. #line:04a0605 
+Come on, come on! I need to prepare for my next trip. #line:04a0605 
 <<else>>
 Ahoy! Welcome aboard. #line:04ee922 
 <<card pirates>>
@@ -584,7 +608,7 @@ Do you want to play a game? #line:022f719
 -> Yes #shadow:yes
     <<jump pirate_activity>>
 -> No #shadow:no
-    Ahoy, then! Fair winds to ye! #line:0d078d6 
+    Good luck to you! #line:0d078d6 
 <<endif>>
 ===
 
@@ -660,93 +684,102 @@ title: item_bread
 position: -421,798
 color: yellow
 actor:
-tags:  item
+tags: item
 ---
 <<card food_bread>>
 Bread #line:08e101e 
 <<collect>>
+<<inventory food_bread add>>
 ===
 
 title: item_fish
 position: -442,990
 color: yellow
 actor:
-tags:  item
+tags: item
 ---
 <<card food_fish>>
 Fish #line:0feed79
 <<collect>>
+<<inventory food_fish add>>
 ===
 
 title: item_crab
 position: -442,990
 color: yellow
 actor:
-tags:  item
+tags: item
 ---
 <<card food_crab>>
 Crab #line:0c81979
 <<collect>>
+<<inventory food_crab add>>
 ===
 
 title: item_orange
 position: -442,12
 color: yellow
+tags: item
 ---
 <<card food_orange>>
 Orange #line:0c0fa04
 <<collect>>
+<<inventory food_orange add>>
 ===
 
 title: item_lemon
 position: -446,500
 color: yellow
-actor: 
+tags: item
 ---
 <<card food_lemon>>
 Lemon #line:0c6b991
 <<collect>>
+<<inventory food_lemon add>>
 ===
 
 title: item_tomato
 position: -440,642
 color: yellow
-tags:  item
+tags: item
 ---
 <<card food_tomato>>
 Tomato #line:0a6782d
 <<collect>>
+<<inventory food_tomato add>>
 ===
 
 title: item_milk
 position: -453,1161
 color: yellow
-tags:  item
+tags: item
 ---
 <<card food_milk>>
 Milk #line:0acd781
 <<collect>>
+<<inventory food_milk add>>
 ===
 
 title: item_pepper_salt
 position: -450,171
 color: yellow
-actor:
-tags:  item
+tags: item
 ---
 <<card food_pepper_salt>>
 Salt and Pepper #line:07bbcb0
 <<collect>>
+<<inventory food_pepper_salt add>>
 ===
 
 title: item_oil
 position: -456,323
 color: yellow
-tags:  item
+tags: item
 ---
 <<card food_olive_oil>>
 Olive oil #line:0156410
 <<collect>>
+<<inventory food_olive_oil add>>
 ===
 
 ///////// NPCs SPAWNED IN THE SCENE //////////
