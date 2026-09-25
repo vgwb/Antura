@@ -72,18 +72,15 @@ namespace Antura.Discover
         /// </summary>
         public void Show(QuestNode infoNode, int targetItemsToCollect)
         {
-            if (IsOpen)
-                return;
-
             Init();
             IsOpen = true;
             usedLearningLanguage = true;
             currNode = infoNode;
             //            Debug.Log($"Show task (to collect: {targetItemsToCollect})");
             DisplayText(true);
+            gameObject.SetActive(true);
             counter.Setup(0, targetItemsToCollect);
             showTween.PlayForward();
-            gameObject.SetActive(true);
         }
 
 

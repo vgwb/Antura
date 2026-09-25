@@ -27,7 +27,11 @@ namespace Antura.Discover
         {
             showTween = ((RectTransform)this.transform).DOAnchorPosX(-4, 0.35f).From().SetAutoKill(false).Pause()
                 .SetEase(Ease.OutQuart)
-                .OnRewind(() => this.gameObject.SetActive(false));
+                .OnRewind(() =>
+                {
+                    if (!isOpen)
+                        this.gameObject.SetActive(false);
+                });
             changeTween = tfCurrent.transform.DOPunchScale(Vector3.one * 0.5f, 0.5f).SetAutoKill(false).Pause();
 
             this.gameObject.SetActive(false);
@@ -46,12 +50,15 @@ namespace Antura.Discover
         public void Show()
         {
             if (isOpen)
+            {
+                this.gameObject.SetActive(true);
                 return;
+            }
 
             isOpen = true;
 
-            showTween.Restart();
             this.gameObject.SetActive(true);
+            showTween.Restart();
         }
 
         public void Hide()
