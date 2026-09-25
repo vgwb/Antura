@@ -1,41 +1,42 @@
 # Changelog
-All notable changes to this project will be documented in this file.
 
-## 2026.09.06
+## 2026.10
+ 
+- FR_09: improved introduction texts
 
 
-## 2026.05.04
+
+## 2026.09
+
+- Quests: general quest updates
+- UI: Add 2D colours to the globe.
+- UI: Create the 2D coloured map in the old cartoon style.
+- UI: Remove Antura from the map.
+- UI: Remove Italy, Spain, Germany, and the North Pole from the map.
+- UI: Keep only the labels FRANCE and POLAND.
+- UI: Fix the Polish town pins.
+
+## 2026.05
 
 **Added**  
 - Quest PL_01: Warsaw
-
-## 2026.04.11
-
-**Added**  
 - Quest PL_02: Wroclaw Dwarves
 
 **Changed**  
 - Yarn Spinner package v3.2.1
 
-**Development**
-- Quest PL_01: Warsaw
-
-## 2026.03.15
+## 2026.03
 
 **Added**  
 - Quest FR_08: Mont Blanc
+- Quest FR_10: Paris Sein
+- Quest PL_03: Wroklaw Odra River
 - option to respawn using the backpack item
 - activity canva: color option
 - teleport commands
 
 **Changed**  
 - improved voiceover manager to render jsut modified strings
-
-## 2026.03.08
-
-**Added**  
-- Quest FR_10: Paris Sein
-- Quest PL_03: Wroklaw Odra River
 
 **Development**
 - DevelopQuest FR_08: Mont Blanc
@@ -46,6 +47,7 @@ All notable changes to this project will be documented in this file.
 - iOS: we can click task panel to hear the mission
 - Activities: applauses after success
 - character controller: better jump forward when blocked by obstacle
+
 
 ## 2026.01.28
 
