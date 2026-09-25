@@ -152,10 +152,10 @@ position: -100,-100
 ---
 <<if GetCurrentTask() == "find_photos">>
     <<card boat_for_goods>>
-    This boat is transporting goods #line:0f13a44
+    This boat carries goods. #line:0f13a44
     <<if $boat_goods < 10>>
     What can you find on a goods boat? #line:04059bd 
-    -> Boxes and things #line:0b12cb3
+    -> Wood, sand, but also cars or furniture #line:0b12cb3
         <<set $boat_goods = 1>>
         <<target chest_boat_goods>>
         <<camera_focus camera_chest_boat_goods>>
@@ -297,7 +297,7 @@ position: -100,-100
 <<card pont_alexandre_iii>>
 This is the Alexander III Bridge. It's a very famous bridge. #line:09c706f
 <<if $bridge_alexandre < 10>>
-What is special about this famous bridge? #line:021f382
+Why is this bridge famous? #line:021f382
 -> There are statues made of gold. #line:056c933
     <<set $bridge_alexandre = 1>>
     <<target chest_bridge_alexandre>>
@@ -347,7 +347,7 @@ The cars are driving fast. How can I cross safely? #line:01f30c4
 -> You can cross the road anywhere. #line:076ee7f 
     No. Try again. #shadow:try_again
     <<jump npc_bridge_cars>>
--> Use the sidewalk and cross at the crossing #line:0c8cdae 
+-> You must walk on the sidewalk and cross at the pedestrian crossing. #line:0c8cdae 
     <<set $bridge_cars = 1>>
     <<target chest_bridge_cars>>
     <<camera_focus camera_chest_bridge_cars>>
