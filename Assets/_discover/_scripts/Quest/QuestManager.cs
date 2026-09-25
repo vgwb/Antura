@@ -150,6 +150,7 @@ namespace Antura.Discover
             }
 
             YarnAnturaManager.I.Variables.IS_DESKTOP = AppConfig.IsDesktopPlatform();
+            YarnAnturaManager.I.Variables.DEBUG = DebugMode;
             YarnAnturaManager.I.Variables.EASY_MODE = DiscoverAppManager.I.CurrentProfile.profile.easyMode;
 
             var currentItemCode = Inventory?.CurrentItem != null ? Inventory.CurrentItem.Code : string.Empty;

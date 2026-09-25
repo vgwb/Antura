@@ -4,6 +4,12 @@ namespace Antura.Discover
 {
     public partial class AnturaYarnVariables : InMemoryVariableStorage, IGeneratedVariableStorage
     {
+        public bool DEBUG
+        {
+            get => this.GetValueOrDefault<bool>("$DEBUG");
+            set => this.SetValue<bool>("$DEBUG", value);
+        }
+
         public bool IS_DESKTOP
         {
             get => this.GetValueOrDefault<bool>("$IS_DESKTOP");
