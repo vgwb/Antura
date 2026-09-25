@@ -18,7 +18,7 @@ MonoBehaviour:
   MinRounds: 1
   MaxRounds: 1
   HasTimer: 1
-  TimerSeconds: 600
+  TimerSeconds: 42
   PointsFail: -1
   PointsEasy: 1
   PointsNormal: 2
@@ -27,10 +27,18 @@ MonoBehaviour:
   SelectionMode: 0
   MoneySet: {fileID: 11400000, guid: fc313f7b930d245ef8a2e6821f6e4395, type: 2}
   UseFixedTarget: 1
-  FixedTargetAmount: 10
+  FixedTargetAmount: 15
   RangeMin: 40
   RangeMax: 100
-  GenType: 0
-  GenDuplicates: 4
-  GenExtraCopies: 5
-  GenMaxTokens: 12
+  GenType: 1
+  ManualComposition:
+  - Value: 1
+    Type: 0
+    Count: 6
+  - Value: 2
+    Type: 0
+    Count: 6
+  - Value: 5
+    Type: 1
+    Count: 2
+  GenMaxTokens: 14

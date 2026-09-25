@@ -132,6 +132,10 @@ namespace Antura.Discover.Activities
                                 AddToTray(new[] { match });
                             }
                         }
+                        else
+                        {
+                            Debug.LogWarning($"ActivityMoney: no {entry.Type} denomination found for value {entry.Value:0.00} in '{Settings.MoneySet.SetName}'.");
+                        }
                     }
                 }
             }
@@ -285,24 +289,13 @@ namespace Antura.Discover.Activities
             shakeTarget.anchoredPosition = origin;
         }
 
-        private void Win()
-        {
-            DiscoverAudioManager.I.PlaySfx(DiscoverSfx.ActivitySuccess);
-            // TODO: fire event to AchievementsManager / progression
-            Debug.Log("[CountMoney] WIN");
-            // Lock input if you want:
-            if (!ended)
-            {
-                ended = true;
-                EndRound(true, 1f, false);
-            }
-
-        }
-
         public override bool DoValidate()
         {
             // Success when the current amount exactly matches the target (within EPS)
-            return Mathf.Abs(data.CurrentAmount - data.TargetAmount) <= EPS;
+            bool success = Mathf.Abs(data.CurrentAmount - data.TargetAmount) <= EPS;
+            if (success)
+                DiscoverAudioManager.I?.PlaySfx(DiscoverSfx.ActivitySuccess);
+            return success;
         }
 
         private void Lose()

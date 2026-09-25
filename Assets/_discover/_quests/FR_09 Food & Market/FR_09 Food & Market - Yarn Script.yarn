@@ -287,11 +287,18 @@ group: baker
 tags:
 actor: ADULT_F
 ---
-I've put your purchases on the table next to you. Help yourself! #line:0567082 
--> Merci! #line:00da30a 
--> Au revoir! #line:00cbd60 
--> Bonne journée! #line:00cd1cf 
-<<SetActive Collect_Baker>>
+<<if GetActivityResult("money_baker") > 0>>
+    I've put your purchases on the table next to you. Help yourself! #line:0567082 
+    -> Merci! #line:00da30a 
+    -> Au revoir! #line:00cbd60 
+    -> Bonne journée! #line:00cd1cf 
+    <<SetActive Collect_Baker>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump baker_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 
@@ -361,11 +368,18 @@ group: fisher
 tags:
 actor: SENIOR_M
 ---
-I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
--> Au revoir! #line:02e64ff 
--> Merci! #line:02c23e5 
--> Bonne journée! #line:080d945 
-<<SetActive Collect_Fisherman>>
+<<if GetActivityResult("money_fishmonger") > 0>>
+    I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
+    -> Au revoir! #line:02e64ff 
+    -> Merci! #line:02c23e5 
+    -> Bonne journée! #line:080d945 
+    <<SetActive Collect_Fisherman>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump fisher_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 
@@ -424,11 +438,18 @@ group:cheesemonger
 actor: ADULT_F
 tags:
 ---
-I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
--> Bonne journée! #line:0dd3ac3 
--> Au revoir! #line:02a1238 
--> Merci! #line:0273de1 
-<<SetActive Collect_Cheesemonger>>
+<<if GetActivityResult("money_cheesemonger") > 0>>
+    I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
+    -> Bonne journée! #line:0dd3ac3 
+    -> Au revoir! #line:02a1238 
+    -> Merci! #line:0273de1 
+    <<SetActive Collect_Cheesemonger>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump cheesemonger_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 title: cheesemonger_bonjour
@@ -493,11 +514,18 @@ group: greengrocer
 actor: ADULT_F
 tags:
 ---
-I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
--> Bonne journée! #line:0ff9361 
--> Merci! #line:0741be3 
--> Au revoir! #line:023f352 
-<<SetActive Collect_Greengrocer>>
+<<if GetActivityResult("money_greengrocer") > 0>>
+    I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
+    -> Bonne journée! #line:0ff9361 
+    -> Merci! #line:0741be3 
+    -> Au revoir! #line:023f352 
+    <<SetActive Collect_Greengrocer>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump greengrocer_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 title: greengrocer_question
@@ -568,11 +596,18 @@ group: grocer
 actor: SENIOR_F
 tags:
 ---
-I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
--> Au revoir! #line:0ce6f8a 
--> Merci! #line:0e8ec1b 
--> Bonne journée! #line:062029a 
-<<SetActive Collect_Grocer>>
+<<if GetActivityResult("money_grocer") > 0>>
+    I've put your purchases on the table next to you. Help yourself! #shadow:0567082 
+    -> Au revoir! #line:0ce6f8a 
+    -> Merci! #line:0e8ec1b 
+    -> Bonne journée! #line:062029a 
+    <<SetActive Collect_Grocer>>
+<<else>>
+   Do you want to play again? #shadow:play_again
+   -> Yes #shadow:yes
+     <<jump grocer_pay_activity>>
+   -> No #shadow:no
+<<endif>>
 ===
 
 title: grocer_question
