@@ -108,6 +108,20 @@ namespace Antura.Discover.UI
             if (dataManager == null || card == null)
                 return;
 
+            var localization = LocalizationSystem.I;
+            var learningLocaleCode = localization?.GetLearningLocale()?.Identifier.Code;
+            var nativeLocaleCode = localization?.GetNativeLocale()?.Identifier.Code;
+            bool sameLanguage = !string.IsNullOrEmpty(learningLocaleCode)
+                && string.Equals(learningLocaleCode, nativeLocaleCode, StringComparison.OrdinalIgnoreCase);
+
+            if (sameLanguage)
+            {
+                var titleClip = await dataManager.GetCardTitleClipAsync(card, CardAudioLanguage.Learning);
+                if (DiscoverAudioManager.I != null)
+                    DiscoverAudioManager.I.PlayDialogue(titleClip);
+                return;
+            }
+
             var nativeClip = await dataManager.GetCardTitleClipAsync(card, CardAudioLanguage.Native);
             var learningClip = await dataManager.GetCardTitleClipAsync(card, CardAudioLanguage.Learning);
             if (DiscoverAudioManager.I == null)

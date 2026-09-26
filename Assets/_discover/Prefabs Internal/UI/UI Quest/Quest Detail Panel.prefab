@@ -2022,10 +2022,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 615580241386974054}
-  - component: {fileID: 2435666141147443333}
-  - component: {fileID: 1769639927747594446}
   - component: {fileID: 8167090669438024223}
   - component: {fileID: 9184843877752991414}
+  - component: {fileID: 2435666141147443333}
+  - component: {fileID: 1769639927747594446}
   - component: {fileID: 7402048049176979592}
   m_Layer: 5
   m_Name: Quest Detail Panel
@@ -2054,26 +2054,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &2435666141147443333
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6812380140381875038}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!222 &1769639927747594446
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6812380140381875038}
-  m_CullTransparentMesh: 1
 --- !u!114 &8167090669438024223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2108,6 +2088,26 @@ MonoBehaviour:
   tilePrefab: {fileID: 7449862911043322965, guid: bff0aaf87fd9c48c28da84428f41a6b0, type: 3}
   detailsPanel: {fileID: 0}
   Database: {fileID: 11400000, guid: 9e4701beec63644b1806db73de9981db, type: 2}
+--- !u!225 &2435666141147443333
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812380140381875038}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!222 &1769639927747594446
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812380140381875038}
+  m_CullTransparentMesh: 1
 --- !u!114 &7402048049176979592
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using Antura.Discover.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Antura.Discover
 {
@@ -10,6 +11,9 @@ namespace Antura.Discover
         public QuestCardsUI CardsUI;
 
         [Header("References")]
+        public TextMeshProUGUI Title;
+        public TextMeshProUGUI Description;
+
         public Button btClose;
 
         private bool isOpen;
@@ -22,6 +26,8 @@ namespace Antura.Discover
         public void Init()
         {
             btClose.onClick.AddListener(ClosePanel);
+            Title.text = QuestManager.I.CurrentQuest.Title.GetLocalizedString() + " | " + QuestManager.I.CurrentQuest.Id;
+            Description.text = QuestManager.I.CurrentQuest.Description.GetLocalizedString();
         }
 
         void OnDestroy()
