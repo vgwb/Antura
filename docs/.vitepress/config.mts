@@ -53,7 +53,7 @@ export default defineConfig({
     ],
     footer: {
       message: '© 2016–2026 VGWB | CC BY-NC-SA | <a href="/privacy-policy">Privacy Policy</a>',
-      copyright: '<a href="/en/about/support-us">Support Us</a> | <a href="https://github.com/vgwb/Antura">GitHub</a> | <a href="/en/about/website">About this Website</a>',
+      copyright: '<a href="/en/about/support-us">Support Us</a> | <a href="https://github.com/vgwb/Antura">GitHub</a> | <a href="/en/about/website">About this Website</a><br><a href="/en/about/erasmus" style="display: inline-flex; flex-direction: column; align-items: center">Co-Funded by the European Union<img src="/assets/img/erasmus/cofounded-eu.webp" alt="co-funded by the EU" style="width: auto; margin-top: 4px"/></a>',
     },
     search: {
       provider: 'local'
