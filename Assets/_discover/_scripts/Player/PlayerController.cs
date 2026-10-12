@@ -216,6 +216,7 @@ namespace Antura.Discover
             _input = GetComponent<StarterAssetsInputs>();
             _playerInput = GetComponent<PlayerInput>();
             _character = GetComponent<CharacterMotorController>();
+            ConfigureControlScheme();
 
             if (_character.MeshRoot == null && animationController != null)
             {
@@ -251,6 +252,35 @@ namespace Antura.Discover
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+        }
+
+        private void ConfigureControlScheme()
+        {
+            if (Application.isMobilePlatform)
+            {
+                var touchscreen = Touchscreen.current;
+                if (touchscreen == null)
+                {
+                    Debug.LogError("[PlayerController] No touchscreen is available for the Touch control scheme.");
+                    return;
+                }
+
+                _playerInput.SwitchCurrentControlScheme("Touch", touchscreen);
+            }
+            else
+            {
+                var keyboard = Keyboard.current;
+                var mouse = Mouse.current;
+                if (keyboard == null || mouse == null)
+                {
+                    Debug.LogError("[PlayerController] Keyboard and mouse are required for the Keyboard&Mouse control scheme.");
+                    return;
+                }
+
+                _playerInput.SwitchCurrentControlScheme("Keyboard&Mouse", keyboard, mouse);
+            }
+
+            _playerInput.neverAutoSwitchControlSchemes = true;
         }
 
         private void Update()

@@ -181,6 +181,10 @@ namespace Antura.Discover
 
         private void SetCursorState(bool newState)
         {
+            // Locking the cursor on touch devices can capture the pointer and break UI touch input (seen on Android 15).
+            if (Application.isMobilePlatform)
+                return;
+
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
         }
     }
