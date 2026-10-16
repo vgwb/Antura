@@ -168,6 +168,7 @@ function sidebarAbout(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'History', link: 'history' },
         { text: 'Overview', link: 'overview' },
+        { text: 'Design History', link: 'design-history' },
         { text: 'Supporters & Partners', link: 'supporters' },
         { text: 'Impact evaluation', link: 'impact' },
         { text: 'Erasmus+', link: 'erasmus' },
