@@ -74,6 +74,16 @@ Obviously the website is opensource and can be read [here](https://github.com/vg
 
 Today you can browse all [words](../content/words/index.md), [cards](../content/cards/index.md), [topics](../content/topics/index.md) and quests.
 
+As an example of a published quest, see [fr_09](../content/quests/quest/fr_09.md) and its [Yarn script](../content/quests/quest/fr_09-script.md).
+
+### Google Sheets for educators
+
+To let educators correct translations and scripts without any technical tool, the content is also available in **Google Sheets**. Teachers and linguists can review and fix the texts there, and the corrections go back into the game and the website.
+
+### The community forum
+
+To discuss how to use Discover in the classroom, we opened the [Antura community forum](https://antura.discourse.group/), a place where educators and designers share ideas, questions and experiences.
+
 ## 8. Pilots
 
 In late 2025 we tested Discover in several classrooms in France and Poland. The reports are available in the documentation.
@@ -92,7 +102,16 @@ After these workshops we improved the documentation and the starting tutorial, a
 
 The first new quests were created in France, with new content, and then in Italy, to talk about their local culture.
 
-## 10. Timeline
+## 10. Special features for the open source community
+
+From these years of work, four things can be reused by anyone, even outside Antura:
+
+1. **An agnostic quest design and development framework**: quests are written in text, so they do not depend on one game or engine.
+2. **A way to put together knowledge topics**: cards connected into a knowledge graph that quests and activities can use.
+3. **The open content website, generated from the game**: all the content, readable without playing.
+4. **The community website for educators and designers**: the [forum](https://antura.discourse.group/) to share quests and classroom experiences.
+
+## 11. Timeline
 
 | When | What happened |
 | --- | --- |
@@ -107,7 +126,7 @@ The first new quests were created in France, with new content, and then in Italy
 | Late 2025 | Pilots in France and Poland |
 | May 2026 | Third student workshop in Florence |
 
-## 11. What's next
+## 12. What's next
 
 Discover is a framework, not a single game. We already have several Italian quests in beta. We plan to publish them with detailed game design and educational notes, to invite new people to create their own. The next country is Spain.
 
