@@ -15,7 +15,7 @@ In short: children play as a cat in 3D worlds, take on short quests of 5 to 15 m
 
 Antura and the Letters was already an open-source educational game for language learning, built as a set of modules. We already had a lot of 3D assets and a new 3D cat model that we wanted to use.
 
-The Erasmus+ plan was to add a **cultural module**, a way to help children, especially those in migration or integration contexts, discover the culture of the place where they live. It was not yet clear what the new module would look like.
+The plan of ANTURA Erasmus+ project (Interactive Learning Game for Refugee and Migrant Children's Inclusion and Integration) was to add a **cultural module**, a way to help children, especially those in migration or integration contexts, discover the culture of the place where they live. It was not yet clear what the new module would look like.
 
 ## 2. The first workshops with kids
 
@@ -39,7 +39,7 @@ Each quest can have different interaction modes, so it is not always the same ga
 At first we tested a visual dialogue tool, Homer. After a first implementation we found that it was too complicated to write, test and improve, and it was hard to translate and keep under version control.
 
 We switched to a **text-based format**, easier to write, translate and version, and it also lets us use AI to check the quality of the texts.
-We found the the open source [Yarn Spinner tool](https://www.yarnspinner.dev/) was the perfect tech partner, also because it is agnostic on the platforms and could open the use of the quests on any future game engine we want.
+We found the open source [Yarn Spinner tool](https://www.yarnspinner.dev/) was the perfect tech partner, also because it is agnostic on the platforms and could open the use of the quests on any future game engine we want.
 
 ## 5. Cards and the need for a framework
 
@@ -74,7 +74,7 @@ Obviously the website is opensource and can be read [here](https://github.com/vg
 
 Today you can browse all [words](../content/words/index.md), [cards](../content/cards/index.md), [topics](../content/topics/index.md) and quests.
 
-As an example of a published quest, see [fr_09](../content/quests/quest/fr_09.md) and its [Yarn script](../content/quests/quest/fr_09-script.md).
+As an example of a published quest, see [The Colors of the Marseille Market (fr_09)](../content/quests/quest/fr_09.md) and its [Yarn script](../content/quests/quest/fr_09-script.md).
 
 ### Google Sheets for educators
 
@@ -128,7 +128,7 @@ From these years of work, four things can be reused by anyone, even outside Antu
 
 ## 12. What's next
 
-Discover is a framework, not a single game. We already have several Italian quests in beta. We plan to publish them with detailed game design and educational notes, to invite new people to create their own. The next country is Spain.
+Discover is a framework, not a single game. We already have several Italian quests in beta. We plan to publish them with detailed game design and educational notes, to invite new people to create their own. The next country could be Spain.
 
 ![Italian quest screenshot 1](../../assets/img/learn-with-antura/italian/ita_01.webp)
 ![Italian quest screenshot 2](../../assets/img/learn-with-antura/italian/ita_02.webp)
