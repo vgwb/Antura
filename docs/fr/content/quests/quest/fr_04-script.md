@@ -1,11 +1,11 @@
 ---
-title: Se déplacer en ville en toute sécurité (fr_04) - Script
+title: Déplace-toi en toute sécurité dans une ville. (fr_04) - Script
 hide:
 ---
 
-# Se déplacer en ville en toute sécurité (fr_04) - Script
+# Déplace-toi en toute sécurité dans une ville. (fr_04) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-04-road-safety-les-mans/40/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/636)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1892167235#gid=1892167235)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_04%20Le%20Mans%20Streets/FR_04%20Le%20Mans%20Streets%20-%20Yarn%20Script.yarn)  
@@ -56,7 +56,7 @@ hide:
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Excellent travail !</span> <span class="yarn-meta">#line:08cd696 </span>
-<span class="yarn-line">Vous avez utilisé les panneaux pour rester en sécurité.</span> <span class="yarn-meta">#line:0298d64 </span>
+<span class="yarn-line">Vous avez utilisé la signalisation pour rester en sécurité.</span> <span class="yarn-meta">#line:0298d64 </span>
 <span class="yarn-line">La sécurité routière peut être amusante !</span> <span class="yarn-meta">#line:001499f </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
@@ -75,7 +75,7 @@ hide:
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dessinez une carte des rues autour de votre maison !</span> <span class="yarn-meta">#line:0acd0a1 </span>
+<span class="yarn-line">Dessinez un plan des rues autour de chez vous !</span> <span class="yarn-meta">#line:0acd0a1 </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -90,12 +90,12 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">C'est la course automobile du Mans.</span> <span class="yarn-meta">#line:02f370e </span>
+<span class="yarn-line">Voici la course automobile des 24 Heures du Mans.</span> <span class="yarn-meta">#line:02f370e </span>
 <span class="yarn-line">Les voitures sont très rapides !</span> <span class="yarn-meta">#line:07f77f0 </span>
 <span class="yarn-line">Seuls les adultes peuvent les conduire.</span> <span class="yarn-meta">#line:0d0cd3f </span>
-<span class="yarn-line">Ces voitures de course sont si rapides !</span> <span class="yarn-meta">#line:0e54cfc </span>
+<span class="yarn-line">Ces voitures de course sont tellement rapides !</span> <span class="yarn-meta">#line:0e54cfc </span>
 <span class="yarn-line">Sur la piste, on ne peut aller qu'à cette vitesse.</span> <span class="yarn-meta">#line:053328c </span>
-<span class="yarn-line">Dans les rues de la ville, nous roulons lentement.</span> <span class="yarn-meta">#line:0b70620 </span>
+<span class="yarn-line">En ville, on roule lentement.</span> <span class="yarn-meta">#line:0b70620 </span>
 <span class="yarn-line">Il est temps de rentrer à la maison.</span> <span class="yarn-meta">#line:06e4b9d </span>
 <span class="yarn-cmd">&lt;&lt;jump talk_friend_scooter&gt;&gt;</span>
 
@@ -112,9 +112,9 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">La course est terminée. Rentrez chez vous en train.</span> <span class="yarn-meta">#line:0b834f8 </span>
-<span class="yarn-line">J'emmène mon scooter à la gare.</span> <span class="yarn-meta">#line:00f2f65 </span>
+<span class="yarn-line">Emmène mon scooter à la gare.</span> <span class="yarn-meta">#line:00f2f65 </span>
 <span class="yarn-cmd">&lt;&lt;card scooter&gt;&gt;</span>
-<span class="yarn-line">J'attendrai là-bas.</span> <span class="yarn-meta">#line:0425fb5 </span>
+<span class="yarn-line">J'attendrai là.</span> <span class="yarn-meta">#line:0425fb5 </span>
 <span class="yarn-line">Regardez les panneaux.</span> <span class="yarn-meta">#line:0b5ee19 </span>
 <span class="yarn-cmd">&lt;&lt;action GIVE_SCOOTER&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump task_reach_station&gt;&gt;</span>
@@ -132,8 +132,8 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:  task</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Arrivez à la gare en toute sécurité.</span> <span class="yarn-meta">#line:fr04_task_station</span>
-<span class="yarn-line">Arrêtez-vous au feu rouge. Continuez au feu vert.</span> <span class="yarn-meta">#line:fr04_task_station_2</span>
+<span class="yarn-line">Arrivez en toute sécurité à la gare.</span> <span class="yarn-meta">#line:fr04_task_station</span>
+<span class="yarn-line">Arrêtez-vous au rouge. Avancez au vert.</span> <span class="yarn-meta">#line:fr04_task_station_2</span>
 
 </code>
 </pre>
@@ -150,7 +150,7 @@ hide:
 <span class="yarn-line">Ceci est un panneau STOP.</span> <span class="yarn-meta">#line:09ac224 </span>
 <span class="yarn-cmd">&lt;&lt;card stop_sign&gt;&gt;</span>
 <span class="yarn-line">Arrêtez-vous complètement.</span> <span class="yarn-meta">#line:0fde84a </span>
-<span class="yarn-line">Regardez dans les deux sens.</span> <span class="yarn-meta">#line:0758dbd </span>
+<span class="yarn-line">Regardez des deux côtés.</span> <span class="yarn-meta">#line:0758dbd </span>
 
 
 </code>
@@ -165,7 +165,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Vous n'avez pas fait attention. Réessayez !</span> <span class="yarn-meta">#line:0eed8ec </span>
+<span class="yarn-line">Vous n'avez pas fait attention. Réessayez !</span> <span class="yarn-meta">#line:0eed8ec </span>
 
 </code>
 </pre>
@@ -179,10 +179,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ceci est un panneau de DANGER.</span> <span class="yarn-meta">#line:0a57038 </span>
+<span class="yarn-line">Ceci est un panneau DANGER.</span> <span class="yarn-meta">#line:0a57038 </span>
 <span class="yarn-cmd">&lt;&lt;card danger_sign&gt;&gt;</span>
 <span class="yarn-line">Cela signifie ralentir.</span> <span class="yarn-meta">#line:02cfe75 </span>
-<span class="yarn-line">Il se peut qu'il y ait quelque chose sur la route.</span> <span class="yarn-meta">#line:07915e7 </span>
+<span class="yarn-line">Il y a peut-être quelque chose sur la route.</span> <span class="yarn-meta">#line:07915e7 </span>
 
 </code>
 </pre>
@@ -200,7 +200,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card traffic_lights&gt;&gt;</span>
 <span class="yarn-line">ROUGE - STOP</span> <span class="yarn-meta">#line:0cb35d6</span>
 <span class="yarn-line">JAUNE - LENT</span> <span class="yarn-meta">#line:0b0c56c </span>
-<span class="yarn-line">VERT - ALLER</span> <span class="yarn-meta">#line:0c87bce </span>
+<span class="yarn-line">VERT - ALLEZ</span> <span class="yarn-meta">#line:0c87bce </span>
 
 </code>
 </pre>
@@ -214,9 +214,9 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">tags:  </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ces rayures blanches sont un passage piéton.</span> <span class="yarn-meta">#line:02fbb57 </span>
+<span class="yarn-line">Ces rayures blanches représentent un passage piéton.</span> <span class="yarn-meta">#line:02fbb57 </span>
 <span class="yarn-cmd">&lt;&lt;card zebra_crossing&gt;&gt;</span>
-<span class="yarn-line">Il donne la priorité aux piétons.</span> <span class="yarn-meta">#line:085d81b </span>
+<span class="yarn-line">Elle donne la priorité aux piétons.</span> <span class="yarn-meta">#line:085d81b </span>
 <span class="yarn-line">Ralentissez à proximité.</span> <span class="yarn-meta">#line:01cd74f </span>
 <span class="yarn-line">Arrêtez-vous si quelqu'un veut traverser.</span> <span class="yarn-meta">#line:04e20a8 </span>
 
@@ -246,8 +246,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Tu as réussi !</span> <span class="yarn-meta">#line:03b112c </span>
-<span class="yarn-line">Vous avez suivi les règles.</span> <span class="yarn-meta">#line:0662662 </span>
+<span class="yarn-line">Vous avez réussi !</span> <span class="yarn-meta">#line:03b112c </span>
+<span class="yarn-line">Vous avez respecté les règles.</span> <span class="yarn-meta">#line:0662662 </span>
 <span class="yarn-line">Vous êtes excellent en matière de sécurité routière !</span> <span class="yarn-meta">#line:0c88cfb </span>
 
 </code>
@@ -270,9 +270,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Regardez toujours des deux côtés avant de traverser la rue !</span> <span class="yarn-meta">#line:0d65c60 </span>
 <span class="yarn-line">Ne traversez jamais la rue en courant, même si vous êtes pressé !</span> <span class="yarn-meta">#line:084a760 </span>
-<span class="yarn-line">Utilisez toujours un passage pour piétons ou un passage pour piétons lorsqu'il est disponible !</span> <span class="yarn-meta">#line:07f8272 </span>
-<span class="yarn-line">Portez des vêtements clairs ou réfléchissants lorsque vous marchez la nuit !</span> <span class="yarn-meta">#line:0587fd6 </span>
-<span class="yarn-line">N'utilisez jamais votre téléphone ou vos écouteurs lorsque vous traversez la rue !</span> <span class="yarn-meta">#line:044f000 </span>
+<span class="yarn-line">Utilisez toujours un passage piéton ou un passage couvert lorsqu'il est disponible !</span> <span class="yarn-meta">#line:07f8272 </span>
+<span class="yarn-line">Portez des vêtements de couleur vive ou réfléchissants lorsque vous marchez la nuit !</span> <span class="yarn-meta">#line:0587fd6 </span>
+<span class="yarn-line">N’utilisez jamais votre téléphone ou vos écouteurs en traversant la rue !</span> <span class="yarn-meta">#line:044f000 </span>
 
 </code>
 </pre>
@@ -288,9 +288,9 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: race </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">La course du Mans dure 24 heures !</span> <span class="yarn-meta">#line:02e7a89 </span>
-<span class="yarn-line">Les voitures de course vont vite sur la piste, pas dans la rue.</span> <span class="yarn-meta">#line:0518750 </span>
-<span class="yarn-line">La vitesse est pour le circuit.</span> <span class="yarn-meta">#line:02e3d19 </span>
+<span class="yarn-line">La course des 24 Heures du Mans dure 24 heures !</span> <span class="yarn-meta">#line:02e7a89 </span>
+<span class="yarn-line">Les voitures de course sont rapides sur circuit, pas sur route.</span> <span class="yarn-meta">#line:0518750 </span>
+<span class="yarn-line">La vitesse est essentielle sur le circuit.</span> <span class="yarn-meta">#line:02e3d19 </span>
 <span class="yarn-line">Dans les rues, nous avançons lentement.</span> <span class="yarn-meta">#line:02f57a4 </span>
 
 </code>
@@ -310,7 +310,7 @@ hide:
 <span class="yarn-line">Nous marchons sur le trottoir.</span> <span class="yarn-meta">#line:0999d95 </span>
 <span class="yarn-line">Nous nous arrêtons et regardons avant de traverser.</span> <span class="yarn-meta">#line:04b17e0 </span>
 <span class="yarn-line">Nous attendons le feu vert.</span> <span class="yarn-meta">#line:0b0fe8c </span>
-<span class="yarn-line">Nous regardons à gauche et à droite pour voir les voitures.</span> <span class="yarn-meta">#line:0bbc9ed </span>
+<span class="yarn-line">Nous regardons à gauche et à droite pour repérer les voitures.</span> <span class="yarn-meta">#line:0bbc9ed </span>
 <span class="yarn-line">Nous ne jouons pas dans la rue.</span> <span class="yarn-meta">#line:08097b8 </span>
 
 </code>

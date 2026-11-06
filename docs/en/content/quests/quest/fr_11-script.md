@@ -5,7 +5,7 @@ hide:
 
 # La Marseillaise (fr_11) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-11-la-marseillaise/30/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/635)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=849141304#gid=849141304)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_11%20Music%20Marseillese/FR_11%20Music%20Marseillese%20-%20Yarn%20Script.yarn)  
@@ -109,7 +109,7 @@ hide:
 <span class="yarn-line">Sol, the fifth one.</span> <span class="yarn-meta">#line:0338a81 #card:note_sol</span>
 <span class="yarn-line">La, the sixth one.</span> <span class="yarn-meta">#line:0809b07 #card:note_la</span>
 <span class="yarn-line">Si, the last one and the highest note.</span> <span class="yarn-meta">#line:04a7724 #card:note_si</span>
-<span class="yarn-line">Good job! Now speak with the band manager.</span> <span class="yarn-meta">#line:0064edf </span>
+<span class="yarn-line">Good job! Now go back to speak with the band manager.</span> <span class="yarn-meta">#line:0064edf </span>
 
 </code>
 </pre>

@@ -25,7 +25,7 @@ Le jeu est compatible avec **iOS**, **Android** et **Windows**, il peut donc êt
 (TestFlight est un service qui permet de tester des applications iOS encore en développement : ouvrez le lien ci-dessus depuis l’appareil sur lequel vous voulez installer le jeu. Une fois installé via TestFlight, Antura peut être utilisé comme n’importe quelle autre application.)
 
 > [!note]
-> En cas de problème lors du téléchargement ou de l’installation de l’application, merci d’envoyer un message sur le forum : [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
+> En cas de problème lors du téléchargement ou de l’installation de l’application, merci d’envoyer un message sur le forum : [https://github.com/vgwb/Antura/discussions/](https://github.com/vgwb/Antura/discussions/)
 
 ## Android
 
@@ -52,4 +52,4 @@ Si cela se produit, cliquez sur « Plus d'informations », puis sur « Exécuter
 ## Linux et macOS
 
 Comme le jeu est open source et que le moteur utilisé est multiplateforme, des versions Linux et macOS peuvent être compilées si nécessaire.  
-Merci de poser la question sur le forum : [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5).
+Merci de poser la question sur le forum : [https://github.com/vgwb/Antura/discussions/](https://github.com/vgwb/Antura/discussions/).

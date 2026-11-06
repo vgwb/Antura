@@ -82,7 +82,7 @@ To let educators correct translations and scripts without any technical tool, th
 
 ### The community forum
 
-To discuss how to use Discover in the classroom, we opened the [Antura community forum](https://antura.discourse.group/), a place where educators and designers share ideas, questions and experiences.
+To discuss how to use Discover in the classroom, we opened the [Antura community forum](https://github.com/vgwb/Antura/discussions/), a place where educators and designers share ideas, questions and experiences.
 
 ## 8. Pilots
 
@@ -109,7 +109,7 @@ From these years of work, four things can be reused by anyone, even outside Antu
 1. **An agnostic quest design and development framework**: quests are written in text, so they do not depend on one game or engine.
 2. **A way to put together knowledge topics**: cards connected into a knowledge graph that quests and activities can use.
 3. **The open content website, generated from the game**: all the content, readable without playing.
-4. **The community website for educators and designers**: the [forum](https://antura.discourse.group/) to share quests and classroom experiences.
+4. **The community website for educators and designers**: the [forum](https://github.com/vgwb/Antura/discussions/) to share quests and classroom experiences.
 
 ## 11. Timeline
 

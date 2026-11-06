@@ -140,4 +140,4 @@ Sprawdź również [stronę pomocy technicznej](./support.md).
 ### Wkład i współpraca
 
 - Nawet bez umiejętności technicznych nauczyciele mogą sugerować **tematy, karty i słowa**, które są cenne dla ich klasy
-- Nauczyciele, którzy chcą wnieść większy wkład, mogą dołączyć do [społeczności Antura](https://antura.discourse.group/), aby wspólnie projektować lub dostosowywać zadania... a nawet proponować nowe!  
+- Nauczyciele, którzy chcą wnieść większy wkład, mogą dołączyć do [społeczności Antura](https://github.com/vgwb/Antura/discussions/), aby wspólnie projektować lub dostosowywać zadania... a nawet proponować nowe!  

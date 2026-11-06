@@ -5,7 +5,7 @@ hide:
 
 # La Marsigliese (fr_11) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-11-la-marseillaise/30/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/635)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=849141304#gid=849141304)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_11%20Music%20Marseillese/FR_11%20Music%20Marseillese%20-%20Yarn%20Script.yarn)  
@@ -75,7 +75,7 @@ hide:
         <span class="yarn-cmd">&lt;&lt;set $activity1_done = true&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;activity order_Musical_notes&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;elseif $activity1_done ==true &gt;&gt;</span>
-<span class="yarn-line">        [MISSING TRANSLATION:         We're gonna play soon!]</span> <span class="yarn-meta">#line:0ef876c </span>
+<span class="yarn-line">        Giocheremo presto!</span> <span class="yarn-meta">#line:0ef876c </span>
 <span class="yarn-line">        [MISSING TRANSLATION:         Do you wanna try to order them again?]</span> <span class="yarn-meta">#line:08ae1b5 </span>
 <span class="yarn-choice">                -&gt; [MISSING TRANSLATION: Yes]</span> <span class="yarn-meta">#line:0a1e74f </span>
         <span class="yarn-cmd">&lt;&lt;activity order_Musical_notes band_member&gt;&gt;</span>
@@ -109,7 +109,7 @@ hide:
 <span class="yarn-line">[MISSING TRANSLATION: Sol, the fifth one.]</span> <span class="yarn-meta">#line:0338a81 #card:note_sol</span>
 <span class="yarn-line">[MISSING TRANSLATION: La, the sixth one.]</span> <span class="yarn-meta">#line:0809b07 #card:note_la</span>
 <span class="yarn-line">[MISSING TRANSLATION: Si, the last one and the highest note.]</span> <span class="yarn-meta">#line:04a7724 #card:note_si</span>
-<span class="yarn-line">[MISSING TRANSLATION: Good job! Now speak with the band manager.]</span> <span class="yarn-meta">#line:0064edf </span>
+<span class="yarn-line">Ottimo lavoro! Ora torna a parlare con il manager del gruppo.</span> <span class="yarn-meta">#line:0064edf </span>
 
 </code>
 </pre>
@@ -125,7 +125,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $activity2_done == true&gt;&gt;</span>
-<span class="yarn-line">    [MISSING TRANSLATION:     Great job!]</span> <span class="yarn-meta">#line:0227e33 </span>
+<span class="yarn-line">    Ottimo lavoro!</span> <span class="yarn-meta">#line:0227e33 </span>
     <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $quest2_done == true &gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $activity2_done = true&gt;&gt;</span>
@@ -176,7 +176,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card marseillaise_3 zoom&gt;&gt;</span>
 <span class="yarn-line">[MISSING TRANSLATION: The last part.]</span> <span class="yarn-meta">#line:050d937 </span>
 <span class="yarn-cmd">&lt;&lt;card marseillaise_4 zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: Now go talk with Jean!]</span> <span class="yarn-meta">#line:0a28908 </span>
+<span class="yarn-line">Ora vai a parlare con Jean!</span> <span class="yarn-meta">#line:0a28908 </span>
 <span class="yarn-cmd">&lt;&lt;target Jean_MJ&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_end find_the_words&gt;&gt;</span>
 
@@ -454,10 +454,10 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">[MISSING TRANSLATION: You found me!]</span> <span class="yarn-meta">#line:0d732f4 </span>
+<span class="yarn-line">Mi hai trovato!</span> <span class="yarn-meta">#line:0d732f4 </span>
 <span class="yarn-cmd">&lt;&lt;card arc_de_triomphe zoom&gt;&gt;</span>
-<span class="yarn-line">[MISSING TRANSLATION: We're standing on top of the Arc Du Triomphe!]</span> <span class="yarn-meta">#line:0236a86 </span>
-<span class="yarn-line">[MISSING TRANSLATION: I'll reward you with some more cookies!]</span> <span class="yarn-meta">#line:0bb0568 </span>
+<span class="yarn-line">Ci troviamo in cima all'Arco di Trionfo!</span> <span class="yarn-meta">#line:0236a86 </span>
+<span class="yarn-line">Ti ricompenserò con altri biscotti!</span> <span class="yarn-meta">#line:0bb0568 </span>
 <span class="yarn-cmd">&lt;&lt;action cookies_unleashed&gt;&gt;</span>
 
 

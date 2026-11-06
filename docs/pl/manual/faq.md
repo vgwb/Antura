@@ -5,7 +5,7 @@ title: FAQ
 # Często zadawane pytania
 
 Na tej stronie znajdują się odpowiedzi na najczęściej zadawane pytania przez rodziców i nauczycieli.
-Jeśli masz inne pytania, dołącz do naszej [społeczności](https://antura.discourse.group). 
+Jeśli masz inne pytania, dołącz do naszej [społeczności](https://github.com/vgwb/Antura/discussions). 
 
 ## Dla nauczycieli
 

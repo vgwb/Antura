@@ -5,7 +5,7 @@ hide:
 
 # Tutorial (tutorial)
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/637)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
@@ -66,8 +66,7 @@ Una lettera amichevole che ama parlare e giocare! Parla con loro per imparare nu
 - Type: Concept
 
 #### Connection (RelatedTo) - Blocchi
-Queste persone divertenti vivono in questo mondo.
-Parlate con loro... hanno storie da raccontare!
+Queste persone divertenti vivono in questo mondo. Parlate con loro... hanno storie da raccontare!
 
 ![preview antura_blocky_character](../../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
 - Type: Concept

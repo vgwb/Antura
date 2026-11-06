@@ -5,7 +5,7 @@ hide:
 
 # Sąsiedzi Francji (fr_00) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-00-the-neighbors-of-france/22)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/627)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1044148815#gid=1044148815)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_00%20Geo%20France/FR_00%20Geo%20France%20-%20Yarn%20Script.yarn)  
@@ -181,7 +181,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_France&gt;&gt;</span>
-<span class="yarn-line">Znalazłeś francuską flagę! Wracaj do Francji.</span> <span class="yarn-meta">#shadow:0a9b166 </span>
+<span class="yarn-line">Znalazłeś francuską flagę! Wracaj do Francuza.</span> <span class="yarn-meta">#shadow:0a9b166 </span>
 
 </code>
 </pre>
@@ -199,7 +199,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_france&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if GetCurrentTask() == "FIND_FRENCH_FLAG"&gt;&gt;</span>
-<span class="yarn-line">    Znalazłeś francuską flagę! Wracaj do Francji.</span> <span class="yarn-meta">#line:0a9b166 </span>
+<span class="yarn-line">    Znalazłeś francuską flagę! Wracaj do Francuza.</span> <span class="yarn-meta">#line:0a9b166 </span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_france add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target NPC_France&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -246,7 +246,7 @@ hide:
 <span class="yarn-line">    Słyniemy z zamków, lasów i pociągów!</span> <span class="yarn-meta">#line:04dc97a </span>
     <span class="yarn-cmd">&lt;&lt;jump task_germany&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Nasza flaga ma paski: czarny, czerwony, żółty.</span> <span class="yarn-meta">#line:0cd7024</span>
+<span class="yarn-line">    Nasza flaga ma czarne, czerwone i żółte paski.</span> <span class="yarn-meta">#line:0cd7024</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -264,7 +264,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_germany&gt;&gt;</span>
 <span class="yarn-line">Znajdź niemiecką flagę i przynieś ją.</span> <span class="yarn-meta">#line:029ee72 #task:FIND_GERMAN_FLAG</span>
-<span class="yarn-line">Posiada paski: czarny, czerwony, żółty.</span> <span class="yarn-meta">#line:0f95ef2 </span>
+<span class="yarn-line">Ma czarne, czerwone i żółte paski.</span> <span class="yarn-meta">#line:0f95ef2 </span>
 <span class="yarn-cmd">&lt;&lt;task_start FIND_GERMAN_FLAG task_germany_done&gt;&gt;</span>
 
 </code>
@@ -339,7 +339,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;action belgium_active&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target NPC_Belgium&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card country_belgium&gt;&gt;</span>
-<span class="yarn-line">    Pomóż im znaleźć belgijską flagę!</span> <span class="yarn-meta">#line:001f54f #task:talk_npc_belgium</span>
+<span class="yarn-line">    Pomóż naszym belgijskim przyjaciołom znaleźć ich flagę!</span> <span class="yarn-meta">#line:001f54f #task:talk_npc_belgium</span>
     <span class="yarn-cmd">&lt;&lt;task_start talk_npc_belgium&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $italy_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $italy_met = true&gt;&gt;</span>
@@ -449,7 +449,7 @@ hide:
 <span class="yarn-line">    Mówimy również po francusku!</span> <span class="yarn-meta">#line:0b18893 </span>
     <span class="yarn-cmd">&lt;&lt;jump task_belgium&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Pamiętaj: moja flaga ma paski: czarny, żółty, czerwony.</span> <span class="yarn-meta">#line:0141a13 </span>
+<span class="yarn-line">    Moja flaga ma czarne, żółte i czerwone paski.</span> <span class="yarn-meta">#line:0141a13 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -653,7 +653,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $lux_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card country_luxembourg&gt;&gt;</span>
 <span class="yarn-line">    Moien! Jestem z Luksemburga!</span> <span class="yarn-meta">#line:0b22d58 </span>
-<span class="yarn-line">    Jesteśmy małą firmą i mówimy trzema językami!</span> <span class="yarn-meta">#line:0a3d0e3 </span>
+<span class="yarn-line">    Jesteśmy małym krajem, a mówimy w trzech językach!</span> <span class="yarn-meta">#line:0a3d0e3 </span>
     <span class="yarn-cmd">&lt;&lt;jump task_lux&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Nie! Nasza flaga jest czerwono-biało-jasnoniebieska.</span> <span class="yarn-meta">#line:0529472 </span>
@@ -838,7 +838,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Cześć! Jestem z Monako!</span> <span class="yarn-meta">#line:0a3f8f6 </span>
-<span class="yarn-line">Jesteśmy mali. Mamy wyścigi samochodowe i pałac nad morzem!</span> <span class="yarn-meta">#line:0dc315a </span>
+<span class="yarn-line">Jesteśmy małym krajem. Mamy wyścigi samochodowe i pałac nad morzem!</span> <span class="yarn-meta">#line:0dc315a </span>
 <span class="yarn-cmd">&lt;&lt;asset flag_monaco&gt;&gt;</span>
 <span class="yarn-line">Moja flaga jest czerwono-biała.</span> <span class="yarn-meta">#line:00bd939 </span>
 
@@ -897,7 +897,7 @@ hide:
 <span class="yarn-header-dim">spawn_group: all </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">We Francji znajduje się Wieża Eiffla, gigantyczna żelazna wieża, która błyszczy w nocy.</span> <span class="yarn-meta">#line:0c097e4 </span>
-<span class="yarn-line">Francja jest największym krajem w Unii Europejskiej.</span> <span class="yarn-meta">#line:0ab3dd9 </span>
+<span class="yarn-line">Francja jest drugim co do wielkości krajem w Europie po Ukrainie.</span> <span class="yarn-meta">#line:0ab3dd9 </span>
 
 </code>
 </pre>
@@ -912,7 +912,7 @@ hide:
 <span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">spawn_group: all </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Niemcy słyną z piwa i kiełbas.</span> <span class="yarn-meta">#line:06722b3 </span>
+<span class="yarn-line">W Niemczech jest piwo i kiełbaski.</span> <span class="yarn-meta">#line:06722b3 </span>
 <span class="yarn-line">Stolicą Niemiec jest Berlin.</span> <span class="yarn-meta">#line:05e9552 </span>
 
 </code>
@@ -929,7 +929,7 @@ hide:
 <span class="yarn-header-dim">spawn_group: all </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Włochy na mapie wyglądają jak but!</span> <span class="yarn-meta">#line:0a23cce </span>
-<span class="yarn-line">Włochy słyną z pizzy i makaronów.</span> <span class="yarn-meta">#line:0278d00 </span>
+<span class="yarn-line">We Włoszech jada się pizzę i makarony.</span> <span class="yarn-meta">#line:0278d00 </span>
 
 </code>
 </pre>

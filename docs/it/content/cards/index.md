@@ -6,10 +6,10 @@ hide:
 # Cards(it)
 
 > [!note] Educators: help improving these cards!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **395**
+Total found: **392**
 
 ## International
 
@@ -87,7 +87,7 @@ Un frutto rotondo e arancione, dal sapore dolce e succoso. Le arance sono ricche
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -234,7 +234,7 @@ La bandiera della Bielorussia presenta strisce orizzontali rosse e verdi con spl
 ### Bandiera della Lituania {#flag_lithuania}
 ![preview flag_lithuania](../../../assets/img/content/cards/flag_lithuania.jpg){ loading=lazy }
 
-La bandiera presenta strisce orizzontali gialle, verdi e rosse. La Lituania è un paese baltico con splendide foreste e spiagge.
+La bandiera ha strisce orizzontali gialle, verdi e rosse. La Lituania è un paese baltico con splendide foreste e spiagge.
 
 - Rationale: Baltic countries teach kids about northern European geography and Poland's neighbors
 - Type: Concept
@@ -317,7 +317,7 @@ Una barca che naviga sui fiumi. I fiumi sono come strade fatte d'acqua!
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -429,8 +429,7 @@ Fantastiche ricompense che puoi collezionare giocando! Usale per ottenere nuovi 
 ### Blocchi {#antura_blocky_character}
 ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ loading=lazy }
 
-Queste persone divertenti vivono in questo mondo.
-Parlate con loro... hanno storie da raccontare!
+Queste persone divertenti vivono in questo mondo. Parlate con loro... hanno storie da raccontare!
 
 - Type: Concept
 - Country: International
@@ -619,7 +618,7 @@ Una persona che vende molti tipi di formaggio.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -666,7 +665,7 @@ Una spezia forte usata per insaporire i cibi.
 ### Città di Lussemburgo {#capital_luxembourg_city}
 ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ loading=lazy }
 
-La capitale del Lussemburgo.
+Anche la capitale del Lussemburgo si chiama Lussemburgo.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -692,7 +691,7 @@ Un'alta colonna in onore di Re Sigismondo nella Piazza del Castello.
 ### Commercianti di mercato {#market_traders}
 ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
 
-Persone che vendono cibo e altri beni di consumo alle bancarelle del mercato, come pescivendoli, formaggiai e fruttivendoli. Pesano, confezionano e annunciano i prezzi del giorno.
+I commercianti vendono cibo e altri beni sulle bancarelle del mercato. Puoi trovare pescivendoli, venditori di formaggi, droghieri e venditori di frutta e verdura. Puoi acquistare prodotti freschi.
 
 - Type: Person
 - Subjects: Money, Community
@@ -805,7 +804,7 @@ Persona che vende molti tipi di cibo e bevande.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -875,7 +874,7 @@ Una persona che vende frutta e verdura fresca.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -993,7 +992,7 @@ Un animale marino con grandi chele e un guscio duro. I granchi camminano di trav
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fresh_Crab.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1038,6 +1037,20 @@ Una persona che aiuta le persone ad arrampicarsi in sicurezza.
 
 ---
 
+### Il panettiere / La panettiera {#person_baker}
+![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
+
+Una persona che prepara pane, torte e pasticcini.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
+
+---
+
 ### Kiev {#capital_kyiv}
 ![preview capital_kyiv](../../../assets/img/content/cards/capital_kyiv.jpg){ loading=lazy }
 
@@ -1060,7 +1073,7 @@ Una bevanda bianca che proviene dalle mucche. Il latte aiuta a rafforzare ossa e
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Milchflasche_%2812337400564%29.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1120,14 +1133,14 @@ Il lievito è come una polvere magica che rende il pane morbido e gustoso!
 ### Limone {#food_lemon}
 ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
 
-Un frutto giallo dal sapore molto aspro. I limoni vengono usati per fare la limonata!
+È un frutto giallo.
 
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lemon.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1161,7 +1174,7 @@ Un paese in Europa. La capitale è Vilnius.
 ### Lussemburgo {#country_luxembourg}
 ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ loading=lazy }
 
-Uno stato europeo. La capitale è la città di Lussemburgo.
+È un paese d'Europa. La sua capitale è la città di Lussemburgo.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1181,19 +1194,6 @@ Una persona che vende carne.
 - Country: International
 - Image credit: CC_BY_SA | Sabina Bajracharya | [source](https://commons.wikimedia.org/wiki/File:A_Butcher_cutting_buffalo_meat.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Manifesto della scuola francese {#object_french_school_poster}
-![preview object_french_school_poster](../../../assets/img/content/cards/object_french_school_poster.jpg){ loading=lazy }
-
-Un'immagine di grandi dimensioni con informazioni appesa alle pareti delle aule delle scuole francesi.
-
-- Type: Object
-- Subjects: Education
-- Country: International
-- Image credit: CC0
-- Quests: [Jules Verne e i trasporti (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -1379,7 +1379,7 @@ Denaro polacco (złoty) raffigurato come monete.
 - Type: Object
 - Subjects: Money, Geography
 - Country: International
-- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Coins_-_ten_groszy_and_2_z%C5%82oty.jpg)
 - Quests: [Scopri Varsavia (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -1542,7 +1542,7 @@ Un olio speciale ricavato dalle olive. Viene utilizzato per cucinare piatti gust
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1575,7 +1575,7 @@ La residenza ufficiale del Presidente della Polonia.
 ### Palla {#ball}
 ![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
 
-Un oggetto rotondo utilizzato in molti giochi.
+No translation found for 'ball.desc' in Cards
 
 - Type: Object
 - Subjects: Sport, Recreation
@@ -1595,21 +1595,7 @@ Un alimento delizioso a base di farina e acqua. Puoi preparare dei panini con il
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:French_bread_DSC09293.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Panettiere {#person_baker}
-![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
-
-Una persona che prepara pane, torte e pasticcini.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1637,7 +1623,7 @@ Piccoli ponti per i pedoni. Ti proteggono dal traffico.
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1663,7 +1649,7 @@ Un animale che vive e nuota nell'acqua. I pesci hanno pinne e branchie per respi
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Grouper_fish_for_Sale.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1676,8 +1662,8 @@ Persona che vende pesce fresco e frutti di mare.
 - Subjects: History, Culture
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fishmonger_weighing_fish_at_Payang_Market,_Kuala_Terengganu.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Image credit: CC_BY_SA | Philippe Alès, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Marseille_(France),_fish_market_in_Vieux-Port,_2013.JPG)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1761,14 +1747,14 @@ Un paese in Europa. La capitale è Varsavia. La Polonia è famosa per scienziati
 ### Pomodoro {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
-Un frutto rosso e rotondo che cresce sulle piante. I pomodori vengono usati per fare la salsa per la pizza!
+No translation found for 'food_tomato.desc' in Cards
 
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tomato_je.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1794,7 +1780,7 @@ Una strada che attraversa l'acqua, consentendo alle auto di attraversare fiumi e
 - Country: International
 - Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1808,7 +1794,7 @@ Un ponte speciale costruito in modo sufficientemente robusto da consentire ai tr
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1951,7 +1937,7 @@ Spezie che migliorano il sapore del cibo. Il sale è bianco e il pepe è nero, c
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Shakers_%284572668303%29.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2024,7 +2010,7 @@ Intelligente e giocoso, ama arrampicarsi sugli alberi. Usa bastoni e pietre come
 ### Scuole francesi {#french_schools}
 ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
 
-In Francia, la scuola si articola in quattro fasi principali: maternelle (scuola materna), école élémentaire (scuola elementare), collège (scuola media) e lycée (scuola superiore). Al termine del lycée, molti studenti sostengono un importante esame chiamato baccalauréat (‘le bac’).
+In Francia, la scuola ha quattro fasi principali. La maternelle è per i bambini dai 3 ai 5 anni. L'école élémentaire è per i bambini dai 6 ai 10 anni. Ha cinque classi: CP, CE1, CE2, CM1 e CM2. Il collège è per gli studenti dagli 11 ai 14 anni. Ha quattro classi: 6ème, 5ème, 4ème e 3ème. Il lycée è per i ragazzi dai 15 ai 18 anni. Ha tre classi: 2nde, 1ère e terminale.
 
 - Type: Concept
 - Subjects: Education, Civics, Culture
@@ -2235,7 +2221,7 @@ Valuta utilizzata in molti paesi europei. Con gli euro puoi comprare giocattoli 
 - Subjects: Money, Geography
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes_%28cropped%29.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2285,7 +2271,7 @@ Una persona che vende uova.
 - Type: Person
 - Subjects: Community, Food
 - Country: International
-- Image credit: CC_BY_SA | Elgabarty2002 | [source](https://commons.wikimedia.org/wiki/File:Egg_Seller_in_Nigeria.jpg)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Brian_%E2%80%98Egg%E2%80%99_and_his_gang.jpg)
 - Quests: [Pan di zenzero e mercato alimentare (pl_06)](../quests/quest/pl_06.md)
 
 ---
@@ -2345,7 +2331,7 @@ Un predatore intelligente che vive nei boschi. Ha una coda morbida che lo tiene 
 ### Zaino {#backpack}
 ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
 
-Una borsa che porti sulla schiena.
+No translation found for 'backpack.desc' in Cards
 
 - Type: Object
 - Subjects: Recreation, Transportation, Education
@@ -2544,7 +2530,7 @@ Un pane lungo e croccante, il più famoso in Francia. I francesi comprano baguet
 ### Bandiera della Francia {#flag_france}
 ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ loading=lazy }
 
-La bandiera francese ha tre strisce verticali: blu, bianco e rosso. Questi colori rappresentano libertà, uguaglianza e fratellanza!
+La bandiera francese ha tre colori verticali: blu, bianco e rosso.
 
 - Rationale: The French flag is essential for teaching French national identity and values
 - Type: Concept
@@ -2609,7 +2595,7 @@ Un'imbarcazione speciale che naviga sulla Senna a Parigi. Dall'acqua si possono 
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -2636,7 +2622,7 @@ Una zuppa di pesce speciale tipica di Marsiglia, nel sud della Francia. È prepa
 - Country: France
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2661,21 +2647,6 @@ Un bel cappello con una piuma per un tocco di stile.
 - Subjects: Culture, History
 - Country: France
 - Image credit: CC0 | Gustav Klimt | [source](https://commons.wikimedia.org/wiki/File:Gustav_Klimt_019.jpg)
-
----
-
-### Carta della Laicità {#concept_charter_of_secularism}
-![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ loading=lazy }
-
-Un insieme di regole per rispettare le convinzioni di tutti. Aiuta le persone a vivere insieme in pace.
-
-- Type: Concept
-- Subjects: Community, Culture
-- Year: 2013
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://camille-claudel.ecollege.haute-garonne.fr/le-college/charte-de-la-laicite/)
-- Quests: [Il sistema scolastico (fr_02)](../quests/quest/fr_02.md), [Jules Verne e i trasporti (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2810,7 +2781,7 @@ Una pietra su cui sono incise leggi molto antiche.
 ### Collège in Francia {#education_college_fr}
 ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
 
-Scuola media in Francia per ragazzi dagli 11 ai 15 anni. Gli studenti studiano molte materie e si preparano per la scuola superiore.
+Una scuola in Francia per ragazzi dagli 11 ai 14 anni. Hanno insegnanti diversi e studiano materie come matematica, inglese, scienze, sport e storia.
 
 - Rationale: Understanding the French school system helps kids compare education across countries
 - Type: Concept
@@ -2826,7 +2797,7 @@ Scuola media in Francia per ragazzi dagli 11 ai 15 anni. Gli studenti studiano m
 ### Dalla Terra alla Luna {#book_from_earth_to_moon}
 ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
 
-Un libro di Jules Verne che parla di un viaggio sulla Luna a bordo di un enorme cannone! Fu scritto prima che esistessero i veri razzi.
+Questo libro è stato scritto da Jules Verne. Racconta un viaggio verso la Luna a bordo di un veicolo spaziale lanciato da un grande cannone. A quel tempo, i razzi spaziali non esistevano ancora!
 
 - Type: Object
 - Subjects: Literature, Space, Science
@@ -2994,7 +2965,7 @@ Giardini decorativi per passeggiate e feste.
 ### Giulio Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
-Uno scrittore francese che immaginava avventure incredibili prima che fossero possibili! Scrisse di sottomarini, razzi e viaggi intorno al mondo.
+Jules Verne nacque nel 1828, quasi 200 anni fa. Morì nel 1905. Fu uno scrittore francese che scrisse molti libri. Immaginò modi straordinari di viaggiare prima che esistessero davvero! Scrisse di sottomarini, razzi e viaggi intorno al mondo.
 
 - Rationale: Jules Verne shows kids how imagination and science can work together
 - Type: Person
@@ -3038,7 +3009,7 @@ L'uomo che costruì la Torre Eiffel! Era un ingegnere che amava costruire in fer
 ### Il giro del mondo in ottanta giorni {#book_around_the_world_80_days}
 ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
-Un libro emozionante di Jules Verne che racconta come viaggiare velocemente intorno al mondo utilizzando treni, navi e mongolfiere!
+Questo libro è stato scritto da Jules Verne. Racconta un viaggio molto bello e veloce intorno al mondo in treno, in nave e in mongolfiera!
 
 - Type: Object
 - Subjects: Literature
@@ -3178,7 +3149,7 @@ Città francese famosa per la gara automobilistica di 24 ore.
 ### Liceo in Francia {#education_lycee_fr}
 ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ loading=lazy }
 
-Scuola superiore in Francia per adolescenti dai 16 ai 18 anni. Gli studenti studiano duramente per sostenere l'esame di Baccalauréat, che permette loro di accedere all'università.
+Una scuola in Francia per ragazzi dai 14 ai 18 anni. Gli studenti hanno insegnanti diversi e studiano materie come matematica, inglese, scienze, sport e storia. Si preparano a un esame finale chiamato esame di maturità.
 
 - Rationale: The Lycée system shows kids the path to higher education in France
 - Type: Concept
@@ -3241,7 +3212,7 @@ Un'immagine che mostra il fiume Senna e il punto in cui scorre attraverso il ter
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3255,7 +3226,7 @@ Un'immagine che mostra come la Senna scorre attraverso la città di Parigi.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3362,7 +3333,7 @@ Coraggiosi marinai che solcavano i mari per il re di Francia. Venivano chiamati 
 - Year: 1600
 - Country: France
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Forbin_et_Jean_Bart_capture_en_1689.jpg)
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -3376,7 +3347,7 @@ Uno splendido ponte di Parigi con decorazioni elaborate e statue dorate.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3492,26 +3463,10 @@ Un piccolo scooter a due ruote (trottinette).
 
 ---
 
-### Scrittura corsiva {#concept_cursive_writing}
-![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ loading=lazy }
-
-Un modo speciale di scrivere in cui tutte le lettere di una parola sono collegate. In Francia, i bambini imparano a scrivere in questo modo a scuola.
-
-- Rationale: Cursive writing is an important part of French education and cultural identity
-- Type: Concept
-- Subjects: Education, Culture, Art
-- Year: 1800
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png)
-- Quests: [Il sistema scolastico (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### Scuola primaria in Francia {#education_ecole_primaire_fr}
 ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ loading=lazy }
 
-Scuola per bambini dai 6 ai 10 anni. Si impara a leggere, scrivere e contare.
+Una scuola in Francia per bambini dai 6 ai 10 anni. I bambini imparano a leggere, scrivere e contare.
 
 - Type: Concept
 - Subjects: Education, Culture
@@ -3539,14 +3494,14 @@ Lampioni che ti dicono quando FERMARTI o ANDARE.
 ### Senna {#seine}
 ![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
 
-Un fiume lungo 777 chilometri nel nord della Francia
+La Senna attraversa Parigi. È lunga 777 km e sfocia nella Manica.
 
 - Type: Place
 - Subjects: Geography
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3682,7 +3637,7 @@ Uno strumento con delle barre che si percuotono per produrre note.
 ### École Maternelle {#education_ecole_maternelle_fr}
 ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
 
-Scuola per bambini dai 3 ai 5 anni. Si impara giocando ed esplorando.
+Una scuola in Francia per bambini dai 3 ai 5 anni. I bambini imparano esplorando e giocando.
 
 - Type: Concept
 - Subjects: Education, Culture
@@ -3760,7 +3715,7 @@ Un veicolo che si muove sull'acqua.
 - Subjects: Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3856,7 +3811,7 @@ Una barca fatta per vivere.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Houseboat_in_Copenhagen_Harbor_02.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3870,7 +3825,7 @@ Una lunga imbarcazione piatta che trasporta merci sui fiumi.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Dietmar Rabich
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3919,7 +3874,7 @@ Un nano formale legato al vecchio municipio e alle opere cittadine.
 ### Costa del Mar Baltico {#baltic_sea_coast}
 ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
 
-La costa sabbiosa lungo il Mar Baltico.
+No translation found for 'baltic_sea_coast.desc' in Cards
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -4085,7 +4040,7 @@ Un grande fiume nella Polonia occidentale. Aiuta le navi a viaggiare e commercia
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4112,7 +4067,7 @@ Il fiume più lungo della Polonia si chiama Wisła o Vistola. Scorre attraverso 
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4263,7 +4218,7 @@ Una piccola barca su cui si pagaia.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | 0x010C
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4291,7 +4246,7 @@ Una semplice mappa che mostra il fiume Odra in Polonia e il modo in cui scorre v
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4316,7 +4271,7 @@ Una semplice mappa di Breslavia che mostra il fiume Odra con le sue isole e i nu
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
-- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md), [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md), [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4381,7 +4336,6 @@ L'idea che il Sole sia al centro e che i pianeti gli girino attorno.
 ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
 
 Una grande statua nel Parco Łazienki di Varsavia, dedicata a Frédéric Chopin. È anche sede di popolari concerti di pianoforte all'aperto in estate. (L'albero speciale sotto cui è seduto è un tipico salice polacco)
-
 
 - Type: Object
 - Subjects: Music, Culture
@@ -4708,7 +4662,7 @@ Un ponte su cui le persone possono camminare. Niente auto.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Front_view_of_a_wooden_footbridge_over_a_lagoon,_trees_and_mountains_in_Vang_Vieng,_Laos.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4794,7 +4748,7 @@ Una struttura che consente alle persone o ai veicoli di attraversare l'acqua.
 - Subjects: Technology, Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Bridge_and_deck_of_Gullbritt.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4808,7 +4762,7 @@ Un ponte con binari per i treni.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4822,7 +4776,7 @@ Il ponte strallato più lungo della Polonia.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Olgierd (Creative Commons licensed only) | [source](https://commons.wikimedia.org/wiki/File:Most_Rędziński_we_Wroclawiu.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4836,7 +4790,7 @@ Un ponte per auto e autobus.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Photographer: Dey.sandip Additional Credit: User Atention for water spot removal. | [source](https://commons.wikimedia.org/wiki/File:Anjarle_Bridge_and_Cows-fix.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4850,7 +4804,7 @@ Un famoso ponte con lucchetti dell'amore e lanterne a gas.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Aw58 | [source](https://commons.wikimedia.org/wiki/File:Wrocław,_most_Tumski_widziany_z_bulwaru_Piotra_Włostowica_(MW).jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4864,7 +4818,7 @@ A Breslavia ci sono molti ponti che attraversano il fiume Odra.
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -5253,7 +5207,7 @@ La bandiera italiana ha tre strisce verticali: verde, bianco e rosso. I colori r
 ### Italia
 ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ loading=lazy }
 
-Un paese in Europa. La capitale è Roma.
+È un paese d'Europa. La sua capitale è Roma.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -5299,7 +5253,7 @@ La capitale d'Italia.
 ### Bandiera della Spagna
 ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ loading=lazy }
 
-La bandiera spagnola ha strisce orizzontali rosse e gialle. I colori sono quelli del sole e dei peperoni! La Spagna ha inventato il flamenco.
+La bandiera spagnola ha strisce orizzontali rosse e gialle. Sono i colori del sole e dei peperoni.
 
 - Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
 - Type: Concept
@@ -5346,7 +5300,7 @@ La capitale della Spagna.
 ### Spagna
 ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ loading=lazy }
 
-Un paese in Europa. La capitale è Madrid. La Spagna ha inventato il flamenco.
+È un paese d'Europa. La sua capitale è Madrid. La Spagna ha inventato un ballo chiamato flamenco.
 
 - Type: Place
 - Subjects: Geography, Culture

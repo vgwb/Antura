@@ -28,49 +28,48 @@ Total found: **35**
 - Target Age: Ages6to10
 - Core card:
     - **[Antura](../cards/index.md#antura)**
-    Le personnage principal de ce jeu vidéo
+    C'est le personnage principal de ce jeu vidéo.
 
     ![preview antura](../../../assets/img/content/cards/antura.jpg){ width="200" }
 
 - Connected cards:
     - **[Cookies](../cards/index.md#antura_cookies)** (RelatedTo)
-    De superbes récompenses à collectionner en jouant ! Utilisez-les pour obtenir de nouveaux objets et des surprises.
+    De belles récompenses à collectionner en jouant ! Utilisez-les pour obtenir de nouveaux objets et des surprises.
 
     ![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ width="200" }
 
-    - **[Portail](../cards/index.md#antura_portal)** (RelatedTo)
-    Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez où elle vous mène !
+    - **[Un portail](../cards/index.md#antura_portal)** (RelatedTo)
+    Avec la porte magique tu peux aller vers de nouveaux lieux. Entre et découvre où elle te mène !
 
     ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 
-    - **[Cartes](../cards/index.md#antura_cards)** (RelatedTo)
-    Chaque carte a quelque chose de spécial à apprendre. Trouvez-les toutes et lisez-les !
+    - **[Les cartes](../cards/index.md#antura_cards)** (RelatedTo)
+    Chaque carte a quelque chose de spécial à apprendre. Trouve-les toutes et lis-les !
 
     ![preview antura_cards](../../../assets/img/content/cards/antura_cards.jpg){ width="200" }
 
-    - **[Chat](../cards/index.md#antura_cat)** (RelatedTo)
-    Le meilleur ami et compagnon de voyage d'Antura. Curieux, intelligent et toujours prêt à aider !
+    - **[Le chat](../cards/index.md#antura_cat)** (RelatedTo)
+    C'est le meilleur ami et compagnon de voyage d'Antura. Il est curieux, intelligent et toujours prêt à aider !
 
     ![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ width="200" }
 
-    - **[Lettre vivante](../cards/index.md#antura_livingletter)** (RelatedTo)
-    Une lettre sympathique qui aime parler et jouer ! Parlez-lui pour apprendre de nouveaux mots.
+    - **[La lettre vivante](../cards/index.md#antura_livingletter)** (RelatedTo)
+    Une gentille lettre qui aime parler et jouer ! Parle-lui pour apprendre de nouveaux mots.
 
     ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
 
     - **[En blocs](../cards/index.md#antura_blocky_character)** (RelatedTo)
-    Ces drôles de personnages vivent dans ce monde.
-Parlez-leur à tous… ils ont des histoires à raconter !
+    Ces drôles de personnages vivent dans ce monde. Parle-leur à tous… ils ont des histoires à raconter !
 
     ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
 
-    - **[Portail](../cards/index.md#antura_portal)** (RelatedTo)
-    Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez où elle vous mène !
+    - **[Un portail](../cards/index.md#antura_portal)** (RelatedTo)
+    Avec la porte magique tu peux aller vers de nouveaux lieux. Entre et découvre où elle te mène !
 
     ![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 
-    - **[Danger](../cards/index.md#antura_malus)** (RelatedTo)
-    À éviter absolument ! Soyez prudents et protégez-vous.
+    - **[Le danger](../cards/index.md#antura_malus)** (RelatedTo)
+    À éviter absolument ! Sois prudent et protége-toi.
 
     ![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ width="200" }
 
@@ -105,8 +104,8 @@ Parlez-leur à tous… ils ont des histoires à raconter !
 
     ![preview math_compass](../../../assets/img/content/cards/math_compass.jpg){ width="200" }
 
-    - **[Règle](../cards/index.md#math_ruler)** (Purpose)
-    Un outil droit utilisé pour mesurer la longueur des objets. Les règles comportent des chiffres et des lignes.
+    - **[la règle](../cards/index.md#math_ruler)** (Purpose)
+    C'est un outil utilisé pour mesurer et tracer des lignes.
 
     ![preview math_ruler](../../../assets/img/content/cards/math_ruler.jpg){ width="200" }
 
@@ -138,8 +137,8 @@ Credits:
     ![preview fisherman](../../../assets/img/content/cards/fisherman.jpg){ width="200" }
 
 - Connected cards:
-    - **[Port](../cards/index.md#port)** (LocatedIn)
-    Un endroit où les navires chargent et déchargent.
+    - **[le port](../cards/index.md#port)** (LocatedIn)
+    Sur le port, les bateaux arrivent, se stationnent, déchargent des marchandises ou chargent des marchandises. 
 
     ![preview port](../../../assets/img/content/cards/port.jpg){ width="200" }
 
@@ -158,8 +157,8 @@ Credits:
 
     ![preview fishing_net](../../../assets/img/content/cards/fishing_net.jpg){ width="200" }
 
-    - **[Bateau](../cards/index.md#ship)** (RelatedTo)
-    Un grand bateau qui transporte des personnes ou des marchandises.
+    - **[le bateau de marchandises](../cards/index.md#ship)** (RelatedTo)
+     C’est un bateau qui transporte des objets, du sable, de la nourriture… On l’appelle aussi bateau cargo.
 
     ![preview ship](../../../assets/img/content/cards/ship.jpg){ width="200" }
 
@@ -171,7 +170,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Carte de l'Europe](../cards/index.md#concept_europe_map)**
-    Une carte montrant tous les pays d'Europe. Vous pouvez voir où se trouvent la France, la Pologne, l'Allemagne et d'autres pays.
+    Une carte montrant tous les pays d'Europe. Tu peux voir où se trouvent la France, la Pologne, l'Allemagne et d'autres pays.
 
     ![preview concept_europe_map](../../../assets/img/content/cards/concept_europe_map.jpg){ width="200" }
 
@@ -181,13 +180,13 @@ Credits:
 
     ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
-    - **[Drapeau de l'Italie](../cards/index.md#flag_italy)** (CulturalContext)
-    Le drapeau italien comporte trois bandes verticales : verte, blanche et rouge. Ces couleurs rappellent le basilic, la mozzarella et les tomates sur une pizza !
+    - **[Le drapeau de l'Italie](../cards/index.md#flag_italy)** (CulturalContext)
+    Le drapeau italien a 3 lignes verticales: verte, blanche et rouge, comme le basilic, la mozzarella et la tomate sur la pizza.
 
     ![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ width="200" }
 
-    - **[Drapeau du Luxembourg](../cards/index.md#flag_luxembourg)** (CulturalContext)
-    Le drapeau luxembourgeois est composé de bandes horizontales rouges, blanches et bleu clair. Le Luxembourg est un tout petit pays qui parle trois langues !
+    - **[Le drapeau du Luxembourg](../cards/index.md#flag_luxembourg)** (CulturalContext)
+    Le drapeau du Luxembourg a des lignes rouges, blanches et bleu clair. Le Luxembourg est un tout petit pays qui parle trois 3 langues!
 
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
@@ -211,8 +210,8 @@ Credits:
 
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
-    - **[Drapeau de la France](../cards/index.md#flag_france)** (CulturalContext)
-    Le drapeau français comporte trois bandes verticales : bleu, blanc et rouge. Ces couleurs représentent la liberté, l'égalité et la fraternité !
+    - **[Le drapeau de la France](../cards/index.md#flag_france)** (CulturalContext)
+    Le drapeau français comporte 3 couleurs verticales: le bleu, le blanc, et le rouge.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
@@ -290,8 +289,8 @@ Credits:
 
     ![preview hat](../../../assets/img/content/cards/hat.jpg){ width="200" }
 
-    - **[Sac à dos](../cards/index.md#backpack)** (RelatedTo)
-    Un sac que vous portez sur votre dos.
+    - **[Un sac à dos](../cards/index.md#backpack)** (RelatedTo)
+    No translation found for 'backpack.desc' in Cards
 
     ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ width="200" }
 
@@ -424,8 +423,8 @@ Credits:
 
     ![preview heliocentric_model](../../../assets/img/content/cards/heliocentric_model.jpg){ width="200" }
 
-    - **[Astronomie](../cards/index.md#astronomy)** (RelatedTo)
-    La science qui étudie le Soleil, la Lune, les étoiles et les planètes.
+    - **[L'astronomie](../cards/index.md#astronomy)** (RelatedTo)
+    C'est la science qui étudie le Soleil, la Lune, les étoiles et les planètes.
 
     ![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ width="200" }
 
@@ -440,7 +439,7 @@ Credits:
     ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ width="200" }
 
     - **[Terre](../cards/index.md#earth)** (RelatedTo)
-    Notre planète natale avec terre, air et eau.
+    Notre planète avec terre, air et eau.
 
     ![preview earth](../../../assets/img/content/cards/earth.jpg){ width="200" }
 
@@ -471,8 +470,8 @@ Credits:
 
     ![preview stop_sign](../../../assets/img/content/cards/stop_sign.jpg){ width="200" }
 
-    - **[Passage piéton](../cards/index.md#zebra_crossing)** (RelatedTo)
-    Bandes blanches là où les gens traversent la rue.
+    - **[Le passage piéton](../cards/index.md#zebra_crossing)** (RelatedTo)
+    Un passage piéton est indiqué par des bandes blanches sur la route. Il indique un endroit pour traverser la route en toute sécurité.là où les gens traversent la rue.
 
     ![preview zebra_crossing](../../../assets/img/content/cards/zebra_crossing.jpg){ width="200" }
 
@@ -481,12 +480,12 @@ Credits:
 
     ![preview traffic_lights](../../../assets/img/content/cards/traffic_lights.jpg){ width="200" }
 
-    - **[Panneau de DANGER](../cards/index.md#danger_sign)** (RelatedTo)
-    Un panneau avertissant d'un danger imminent. Soyez extrêmement prudent.
+    - **[Panneau DANGER](../cards/index.md#danger_sign)** (RelatedTo)
+    Un panneau qui annonce un danger. Il faut faire très attention.
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
-- Quests: [Se déplacer en ville en toute sécurité (fr_04)](../quests/quest/fr_04.md)
+- Quests: [Déplace-toi en toute sécurité dans une ville. (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -536,33 +535,33 @@ Credits:
     ![preview zoo_animals](../../../assets/img/content/cards/zoo_animals.jpg){ width="200" }
 
 - Connected cards:
-    - **[Girafe](../cards/index.md#animal_giraffe)** (RelatedTo)
-    Un animal très grand avec un long cou. Les girafes sont plus hautes que les arbres ! Elles mangent des feuilles inaccessibles aux autres animaux.
+    - **[une girafe](../cards/index.md#animal_giraffe)** (RelatedTo)
+    C'est un animal très grand avec un long cou. Les girafes sont plus hautes que les arbres ! Elles mangent des feuilles.
 
     ![preview animal_giraffe](../../../assets/img/content/cards/animal_giraffe.jpg){ width="200" }
 
-    - **[Lion](../cards/index.md#animal_lion)** (RelatedTo)
-    Un grand félin surnommé le roi des animaux. Il vit en groupes appelés troupes.
+    - **[Un lion](../cards/index.md#animal_lion)** (RelatedTo)
+    On dit que c'est le roi des animaux. Il vit en groupe.
 
     ![preview animal_lion](../../../assets/img/content/cards/animal_lion.jpg){ width="200" }
 
-    - **[Singe](../cards/index.md#animal_monkey)** (RelatedTo)
-    Un animal intelligent qui peut grimper et jouer. Certains singes vivent en grandes familles.
+    - **[Un singe](../cards/index.md#animal_monkey)** (RelatedTo)
+    C'est un animal intelligent qui aime aller dans les arbres et jouer. Certains singes vivent en grandes familles.
 
     ![preview animal_monkey](../../../assets/img/content/cards/animal_monkey.jpg){ width="200" }
 
-    - **[Manchot](../cards/index.md#animal_penguin)** (RelatedTo)
-    Un oiseau qui ne peut pas voler mais qui nage très bien. Il vit dans les régions froides.
+    - **[Un manchot](../cards/index.md#animal_penguin)** (RelatedTo)
+    C'est un oiseau qui ne peut pas voler mais qui nage très bien. Il vit dans les régions froides.
 
     ![preview animal_penguin](../../../assets/img/content/cards/animal_penguin.jpg){ width="200" }
 
-    - **[Éléphant](../cards/index.md#animal_elephant)** (RelatedTo)
-    Un gros animal avec une trompe. Les éléphants sont les plus grands animaux terrestres. Ils ont de grandes oreilles et adorent arroser !
+    - **[L'éléphant](../cards/index.md#animal_elephant)** (RelatedTo)
+    C'est un gros animal avec une trompe. Les éléphants sont les plus grands animaux terrestres. Ils ont de grandes oreilles et adorent souffler de l'eau !
 
     ![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ width="200" }
 
-    - **[Chimpanzé](../cards/index.md#animal_chimpanzee)** (RelatedTo)
-    Intelligent et joueur, il adore grimper aux arbres. Il utilise des bâtons et des pierres comme de petits outils !
+    - **[Le chimpanzé](../cards/index.md#animal_chimpanzee)** (RelatedTo)
+    C'est un singe intelligent et joueur. Il adore grimper aux arbres.
 
     ![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ width="200" }
 
@@ -576,39 +575,39 @@ Credits:
 - Subjects: Food  
 - Target Age: Ages3to5
 - Core card:
-    - **[Baguette française](../cards/index.md#food_baguette)**
+    - **[la baguette française](../cards/index.md#food_baguette)**
     Un pain long et croustillant, l'aliment le plus célèbre en France. Les Français achètent des baguettes fraîches tous les jours à la boulangerie !
 
     ![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ width="200" }
 
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
-    Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+    C'est la capitale de la France.  La tour Eiffel est à Paris !
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
-    - **[Boulanger](../cards/index.md#person_baker)** (CreatedBy)
-    Une personne qui fait du pain, des gâteaux et des pâtisseries.
+    - **[le boulanger](../cards/index.md#person_baker)** (CreatedBy)
+    Le boulanger fait du pain, des gâteaux et des pâtisseries.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
-    - **[Sel](../cards/index.md#food_salt)** (MadeOf)
-    Des cristaux blancs qui améliorent le goût des aliments.
+    - **[Le sel](../cards/index.md#food_salt)** (MadeOf)
+    C'est une épice qui donne du goût aux liments..
 
     ![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ width="200" }
 
-    - **[Levure](../cards/index.md#food_yeast)** (MadeOf)
-    La levure est comme une poudre magique qui rend le pain moelleux et savoureux !
+    - **[la levure](../cards/index.md#food_yeast)** (MadeOf)
+    La levure est une poudre qui permet de faire du pain et des gâteaux.
 
     ![preview food_yeast](../../../assets/img/content/cards/food_yeast.jpg){ width="200" }
 
-    - **[Farine](../cards/index.md#food_flour)** (MadeOf)
-    Poudre blanche fabriquée à partir de blé qui est utilisée pour faire du pain.
+    - **[la farine](../cards/index.md#food_flour)** (MadeOf)
+    La farine est utilisée principalement pour faire du pain.
 
     ![preview food_flour](../../../assets/img/content/cards/food_flour.jpg){ width="200" }
 
-    - **[Eau](../cards/index.md#food_water)** (MadeOf)
-    L'eau est essentielle à toute vie
+    - **[l'eau](../cards/index.md#food_water)** (MadeOf)
+    Water is essential for all life
 
     ![preview food_water](../../../assets/img/content/cards/food_water.jpg){ width="200" }
 
@@ -620,58 +619,58 @@ Credits:
 - Importance: Low  
 - Target Age: Ages6to10
 - Core card:
-    - **[Bouillabaisse](../cards/index.md#bouillabaisse)**
-    Une soupe de poisson typique de Marseille, dans le sud de la France. Elle est composée de différentes variétés de poissons et dégage une délicieuse odeur !
+    - **[La bouillabaisse](../cards/index.md#bouillabaisse)**
+    C'est une soupe de poisson de Marseille, dans le sud de la France.  Elle sent bon !
 
     ![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ width="200" }
 
 - Connected cards:
-    - **[Pain](../cards/index.md#food_bread)** (MadeOf)
-    Un délicieux aliment à base de farine et d'eau. Vous pouvez faire des sandwichs avec du pain !
+    - **[le pain](../cards/index.md#food_bread)** (MadeOf)
+    A yummy food made from flour and water. You can make sandwiches with bread!
 
     ![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ width="200" }
 
-    - **[Poisson](../cards/index.md#food_fish)** (MadeOf)
-    Un animal qui vit et nage dans l'eau. Les poissons ont des nageoires et des branchies pour respirer sous l'eau.
+    - **[le poisson](../cards/index.md#food_fish)** (MadeOf)
+    An animal that lives and swims in water. Fish have fins and gills to breathe underwater.
 
     ![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ width="200" }
 
-    - **[Crabe](../cards/index.md#food_crab)** (MadeOf)
-    Un animal marin doté de grandes pinces et d'une carapace dure. Les crabes marchent latéralement sur la plage !
+    - **[le crabe](../cards/index.md#food_crab)** (MadeOf)
+    A sea animal with big claws and a hard shell. Crabs walk sideways on the beach!
 
     ![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ width="200" }
 
-    - **[Lait](../cards/index.md#food_milk)** (MadeOf)
-    Une boisson blanche issue du lait de vache. Le lait contribue à la solidité des os et des dents !
+    - **[le lait](../cards/index.md#food_milk)** (MadeOf)
+    A white drink that comes from cows. Milk helps your bones and teeth grow strong!
 
     ![preview food_milk](../../../assets/img/content/cards/food_milk.jpg){ width="200" }
 
-    - **[Orange](../cards/index.md#food_orange)** (MadeOf)
-    Un fruit rond et orange, au goût sucré et juteux. L'orange est riche en vitamine C !
+    - **[l'orange](../cards/index.md#food_orange)** (MadeOf)
+    C'est un fruit de couleur orange.
 
     ![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ width="200" }
 
-    - **[Tomate](../cards/index.md#food_tomato)** (MadeOf)
-    Un fruit rouge et rond qui pousse sur les plantes. On utilise les tomates pour faire de la sauce à pizza !
+    - **[la tomate](../cards/index.md#food_tomato)** (MadeOf)
+    No translation found for 'food_tomato.desc' in Cards
 
     ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ width="200" }
 
-    - **[Citron](../cards/index.md#food_lemon)** (MadeOf)
-    Un fruit jaune au goût très acide. On utilise le citron pour faire de la limonade !
+    - **[le citron](../cards/index.md#food_lemon)** (MadeOf)
+    C'est un fruit jaune.
 
     ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ width="200" }
 
-    - **[Huile d'olive](../cards/index.md#food_olive_oil)** (MadeOf)
-    Une huile spéciale à base d'olives. On l'utilise pour cuisiner des plats savoureux.
+    - **[l'huile d'olive](../cards/index.md#food_olive_oil)** (MadeOf)
+    C'est une huile fabriquée à partir d'olives. On l'utilise pour cuisiner.
 
     ![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ width="200" }
 
-    - **[Poivre Sel](../cards/index.md#food_pepper_salt)** (MadeOf)
-    Des épices qui rehaussent le goût des aliments. Le sel est blanc et le poivre est noir avec de petits morceaux.
+    - **[Le poivre et le sel](../cards/index.md#food_pepper_salt)** (MadeOf)
+    Le poivre et le sel sont des épices. Les épices donnent du goût aux aliments.
 
     ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ width="200" }
 
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
 
 Credits:
   - Valeria Passarella (Italy)
@@ -683,7 +682,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[France](../cards/index.md#country_france)**
-    Un pays d'Europe. Sa capitale est Paris.
+    La France est un pays d’Europe. Sa capitale est Paris.
 
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
@@ -708,18 +707,18 @@ Credits:
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
-    - **[Drapeau de l'Italie](../cards/index.md#flag_italy)** (CulturalContext)
-    Le drapeau italien comporte trois bandes verticales : verte, blanche et rouge. Ces couleurs rappellent le basilic, la mozzarella et les tomates sur une pizza !
+    - **[Le drapeau de l'Italie](../cards/index.md#flag_italy)** (CulturalContext)
+    Le drapeau italien a 3 lignes verticales: verte, blanche et rouge, comme le basilic, la mozzarella et la tomate sur la pizza.
 
     ![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ width="200" }
 
-    - **[Drapeau du Luxembourg](../cards/index.md#flag_luxembourg)** (CulturalContext)
-    Le drapeau luxembourgeois est composé de bandes horizontales rouges, blanches et bleu clair. Le Luxembourg est un tout petit pays qui parle trois langues !
+    - **[Le drapeau du Luxembourg](../cards/index.md#flag_luxembourg)** (CulturalContext)
+    Le drapeau du Luxembourg a des lignes rouges, blanches et bleu clair. Le Luxembourg est un tout petit pays qui parle trois 3 langues!
 
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
-    - **[Ville de Luxembourg](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
-    La capitale du Luxembourg.
+    - **[La ville de Luxembourg](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
+    La capitale du Luxembourg s’appelle aussi Luxembourg.
 
     ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
 
@@ -734,7 +733,7 @@ Credits:
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
 
     - **[Suisse](../cards/index.md#country_switzerland)** (RelatedTo)
-    Un pays d'Europe dont la capitale est Berne. La Suisse est célèbre pour ses montagnes et son fromage.
+    Un pays d'Europe dont la capitale est Berne. La Suisse est connu pour ses montagnes et son fromage.
 
     ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
@@ -744,7 +743,7 @@ Credits:
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
     - **[Bern](../cards/index.md#capital_bern)** (RelatedTo)
-    La capitale de la Suisse.
+    C'est la capitale de la Suisse.
 
     ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ width="200" }
 
@@ -759,22 +758,22 @@ Credits:
     ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
     - **[Berlin](../cards/index.md#capital_berlin)** (RelatedTo)
-    La capitale de l'Allemagne.
+    C'est la capitale de l'Allemagne.
 
     ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ width="200" }
 
     - **[Rome](../cards/index.md#capital_rome)** (RelatedTo)
-    La capitale de l'Italie.
+    C'est la capitale de l'Italie.
 
     ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ width="200" }
 
     - **[Bruxelles](../cards/index.md#capital_brussels)** (RelatedTo)
-    La capitale de la Belgique.
+    C'est la capitale de la Belgique.
 
     ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ width="200" }
 
     - **[Madrid](../cards/index.md#capital_madrid)** (RelatedTo)
-    La capitale de l'Espagne.
+    C'est la capitale de l'Espagne.
 
     ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ width="200" }
 
@@ -798,14 +797,14 @@ Credits:
 - Subjects: History  
 - Target Age: Ages3to5
 - Core card:
-    - **[Tour Eiffel](../cards/index.md#eiffel_tower)**
-    Une haute tour, symbole de Paris. Construite en fer, elle mesure 300 mètres de haut. De là-haut, on peut admirer toute la ville.
+    - **[La Tour Eiffel](../cards/index.md#eiffel_tower)**
+    C'est le symbole de Paris. Construite en fer, elle mesure 300 mètres de haut. En haut, on peut admirer toute la ville de Paris.
 
     ![preview eiffel_tower](../../../assets/img/content/cards/eiffel_tower.jpg){ width="200" }
 
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
-    Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+    C'est la capitale de la France.  La tour Eiffel est à Paris !
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
@@ -819,13 +818,13 @@ Credits:
 
     ![preview iron_material](../../../assets/img/content/cards/iron_material.jpg){ width="200" }
 
-    - **[Carte de la Tour Eiffel](../cards/index.md#eiffel_tower_map)** (RelatedTo)
-    Une carte qui montre où se trouve la célèbre haute tour de Paris.
+    - **[La carte de la Tour Eiffel](../cards/index.md#eiffel_tower_map)** (RelatedTo)
+    Cette carte indique où se trouve la célèbre tour de Paris, appelée la Tour Eiffel.
 
     ![preview eiffel_tower_map](../../../assets/img/content/cards/eiffel_tower_map.jpg){ width="200" }
 
-    - **[Billet pour la Tour Eiffel](../cards/index.md#eiffel_tower_ticket)** (RelatedTo)
-    Un document spécial qui vous permet de visiter la célèbre haute tour de Paris, en France.
+    - **[Le billet pour la Tour Eiffel.](../cards/index.md#eiffel_tower_ticket)** (RelatedTo)
+    Ce billet permet de visiter la célèbre tour de Paris, la Tour Eiffel.
 
     ![preview eiffel_tower_ticket](../../../assets/img/content/cards/eiffel_tower_ticket.jpg){ width="200" }
 
@@ -838,18 +837,18 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[France](../cards/index.md#country_france)**
-    Un pays d'Europe. Sa capitale est Paris.
+    La France est un pays d’Europe. Sa capitale est Paris.
 
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
 - Connected cards:
-    - **[Drapeau de la France](../cards/index.md#flag_france)** (CulturalContext)
-    Le drapeau français comporte trois bandes verticales : bleu, blanc et rouge. Ces couleurs représentent la liberté, l'égalité et la fraternité !
+    - **[Le drapeau de la France](../cards/index.md#flag_france)** (CulturalContext)
+    Le drapeau français comporte 3 couleurs verticales: le bleu, le blanc, et le rouge.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
     - **[Paris](../cards/index.md#capital_paris)** (RelatedTo)
-    Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+    C'est la capitale de la France.  La tour Eiffel est à Paris !
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
@@ -862,46 +861,36 @@ Credits:
 - Subjects: Education  
 - Target Age: Ages6to10
 - Core card:
-    - **[écoles françaises](../cards/index.md#french_schools)**
-    En France, l'école se déroule en quatre grandes étapes : la maternelle (apprentissage ludique pour les petits), l'école élémentaire (lecture, écriture, mathématiques), le collège et le lycée. À la fin du lycée, de nombreux élèves passent un examen important, le baccalauréat.
+    - **[Les écoles en France](../cards/index.md#french_schools)**
+    La scolarité se déroule en 4 grandes étapes. L'école maternelle pour les enfants de 3 à 5 ans. L'école élémentaire de 6 à 10 ans. Il y a 5 classes : CP, CE1, CE2, CM1 et CM2. Le collège de 11 à 14 ans. Il y a 4 classes : 6ème, 5ème, 4ème et 3ème. Le lycée de 15 à 18 ans. Il y a 3 classes : 2nde, 1ère et terminale.
 
     ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
 
 - Connected cards:
-    - **[École maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
-    École pour les petits de 3 à 5 ans. On apprend en jouant et en explorant.
+    - **[L’école maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
+    C'est une école pour les enfants de 3 à 5 ans. Les enfants apprennent en explorant et en jouant.
 
     ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ width="200" }
 
-    - **[École primaire en France](../cards/index.md#education_ecole_primaire_fr)** (PartOf)
-    École pour les enfants de 6 à 10 ans. Vous apprenez à lire, à écrire et à compter.
+    - **[École élémentaire](../cards/index.md#education_ecole_primaire_fr)** (PartOf)
+    C'est une école pour les élèves de 6 à 10 ans. Les enfants apprennent à lire, écrire et compter.
 
     ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ width="200" }
 
-    - **[Lycée en France](../cards/index.md#education_lycee_fr)** (PartOf)
-    Lycée en France pour les adolescents de 16 à 18 ans. Les élèves étudient dur pour l'examen du baccalauréat pour aller à l'université.
+    - **[Le lycée](../cards/index.md#education_lycee_fr)** (PartOf)
+    C’est une école pour les adolescents de 14 à 18 ans. Les élèves ont différents professeurs et matières: mathématiques, anglais, sciences, sport, histoire… Ils préparent un examen final qui s’appelle le baccalauréat.
 
     ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ width="200" }
 
-    - **[Collège en France](../cards/index.md#education_college_fr)** (PartOf)
-    Collège en France pour les enfants de 11 à 15 ans. Les élèves apprennent de nombreuses matières et se préparent au lycée.
+    - **[Le collège](../cards/index.md#education_college_fr)** (PartOf)
+    C'est une école pour les élèves de 11 à 14 ans. Les élèves ont différents professeurs et matières: mathématiques, anglais, sciences, sport, histoire…
 
     ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ width="200" }
-
-    - **[Écriture cursive](../cards/index.md#concept_cursive_writing)** (Purpose)
-    Une façon particulière d'écrire où toutes les lettres d'un mot sont reliées entre elles. En France, les enfants apprennent cette écriture à l'école.
-
-    ![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ width="200" }
 
     - **[Menu de la cantine](../cards/index.md#object_canteen_menu)** (Purpose)
     Une liste des aliments autorisés à la cantine. Elle vous aide à choisir vos repas !
 
     ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ width="200" }
-
-    - **[Charte de la laïcité](../cards/index.md#concept_charter_of_secularism)** (CulturalContext)
-    Un ensemble de règles visant à respecter les croyances de chacun. Il contribue à une coexistence pacifique.
-
-    ![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ width="200" }
 
 - Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
 
@@ -912,43 +901,43 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Jules Verne](../cards/index.md#jules_verne)**
-    Un écrivain français qui a imaginé des aventures extraordinaires avant même qu'elles ne soient possibles ! Il a écrit sur les sous-marins, les fusées et les voyages autour du monde.
+    Jules Verne est né en 1828, il y a presque 200 ans. Il est mort en 1905. C'est un écrivain français qui a écrit beaucoup de livres. Il a imaginé des moyens de transport extraordinaires avant qu'ils existent vraiment ! Il a écrit sur les sous-marins, les fusées et les voyages autour du monde.
 
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
-    - **[Le tour du monde en quatre-vingts jours](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
-    Un livre passionnant de Jules Verne sur les voyages autour du monde très rapidement en utilisant des trains, des bateaux et des montgolfières !
+    - **[Le tour du monde en 80 jours](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
+    C'est un livre écrit par Jules Verne. Il parle d'un très beau et très rapide voyage autour du monde en train, en bateau et en ballon !
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
     - **[De la Terre à la Lune](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    Un livre de Jules Verne sur la Lune dans un grand canon ! Il a été écrit avant l'existence des vraies fusées.
+    C'est un livre écrit par Jules Verne. Il raconte un voyage vers la Lune dans un engin spatial lancé par un grand canon. À l'époque, les fusées spatiales n'existaient pas encore !
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
-    - **[Vingt Mille Lieues sous les mers](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
-    Un livre de Jules Verne relatant des aventures sous-marines à bord du sous-marin Nautilus. Vous y rencontrerez des créatures marines géantes !
+    - **[20000 lieues sous les mers](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
+    C'est un livre écrit par Jules Verne. Il parle d'un voyage dans le sous-marin qui s'appelle le Nautilus et des grands animaux qui vivent sous la mer.
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
 
-    - **[Cinq semaines en ballon](../cards/index.md#book_five_weeks_in_a_balloon)** (RelatedTo)
-    Un livre de Jules Verne sur la traversée de l'Afrique en montgolfière. Plein d'aventures et de découvertes !
+    - **[5 semaines en ballon](../cards/index.md#book_five_weeks_in_a_balloon)** (RelatedTo)
+    C'est un livre de Jules Verne qui raconte un voyage en ballon au-dessus de l'Afrique, plein d'aventures et de découvertes !
 
     ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ width="200" }
 
-    - **[Fusée spatiale](../cards/index.md#space_rocket)** (RelatedTo)
-    Une fusée qui va dans l'espace.
+    - **[Fusée](../cards/index.md#space_rocket)** (RelatedTo)
+    Une fusée monte dans le ciel jusqu'à l'espace.
 
     ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ width="200" }
 
     - **[Sous-marin (Le Nautilus)](../cards/index.md#submarine_nautilus)** (RelatedTo)
-    Un sous-marin du roman de Jules Verne. Il pouvait explorer les profondeurs marines.
+    C'est le sous-marin du livre de Jules Verne. On peut explorer la mer et observer les animaux à bord.
 
     ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ width="200" }
 
-    - **[Train](../cards/index.md#train)** (RelatedTo)
-    Les trains transportent rapidement des personnes et des marchandises à travers le pays.
+    - **[le train](../cards/index.md#train)** (RelatedTo)
+    Les trains transportent des personnes et des marchandises rapidement dans tout le pays.
 
     ![preview train](../../../assets/img/content/cards/train.jpg){ width="200" }
 
@@ -976,12 +965,12 @@ Credits:
 
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
-    Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+    C'est la capitale de la France.  La tour Eiffel est à Paris !
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
     - **[La Joconde](../cards/index.md#art_monalisa)** (PartOf)
-    Le tableau le plus célèbre du monde ! Une femme au sourire mystérieux, peinte par Léonard de Vinci. Elle semble vous suivre du regard.
+    Le tableau le plus connu du monde ! Une femme au sourire mystérieux, peinte par Léonard de Vinci. Elle semble vous suivre du regard.
 
     ![preview art_monalisa](../../../assets/img/content/cards/art_monalisa.jpg){ width="200" }
 
@@ -991,16 +980,16 @@ Credits:
     ![preview person_leonardodavinci](../../../assets/img/content/cards/person_leonardodavinci.jpg){ width="200" }
 
     - **[La liberté guidant le peuple](../cards/index.md#art_liberty_leading_the_people)** (PartOf)
-    Un célèbre tableau sur la liberté et le courage. Il représente une femme courageuse brandissant le drapeau français et menant le peuple à la lutte pour ses droits.
+    Un tableau très connu sur la liberté et le courage. Il représente une femme courageuse, la liberté, qui tient le drapeau français.
 
     ![preview art_liberty_leading_the_people](../../../assets/img/content/cards/art_liberty_leading_the_people.jpg){ width="200" }
 
-    - **[Vénus de Milo](../cards/index.md#art_venus_milo)** (PartOf)
-    Magnifique statue antique de femme en marbre blanc. Ses bras ont disparu, mais elle reste considérée comme l'une des plus belles statues jamais réalisées.
+    - **[La Vénus de Milo](../cards/index.md#art_venus_milo)** (PartOf)
+    C'est une très belle statue de femme. Elle n'a pas de bras.
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Musée du Louvre (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
+- Quests: [Musée du Louvre (fr_12)](../quests/quest/fr_12.md)
 
 ---
 
@@ -1009,38 +998,38 @@ Credits:
 - Importance: Medium  
 - Target Age: Ages6to10
 - Core card:
-    - **[Commerçants du marché](../cards/index.md#market_traders)**
-    Ceux qui vendent des produits alimentaires et autres marchandises sur les étals des marchés, comme les poissonniers, les fromagers et les marchands de fruits. Ils pèsent, emballent et annoncent les prix du jour.
+    - **[les commerçants du marché](../cards/index.md#market_traders)**
+    Les commerçants ou marchands vendent des produits alimentaires et autres marchandises sur les étals des marchés. On peut trouver le poissonnier, les fromager, l'épicier, le marchands de fruits et légumes. Tu peux acheter des produits frais. 
 
     ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
 
 - Connected cards:
-    - **[Fromager](../cards/index.md#person_cheesemonger)** (RelatedTo)
-    Une personne qui vend de nombreux types de fromages.
+    - **[le fromager](../cards/index.md#person_cheesemonger)** (RelatedTo)
+    Le fromager vend des produits à base de lait: des yaourts, du fromage...
 
     ![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ width="200" }
 
-    - **[Boulanger](../cards/index.md#person_baker)** (RelatedTo)
-    Une personne qui fait du pain, des gâteaux et des pâtisseries.
+    - **[le boulanger](../cards/index.md#person_baker)** (RelatedTo)
+    Le boulanger fait du pain, des gâteaux et des pâtisseries.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
 
-    - **[Marchand de légumes](../cards/index.md#person_greengrocer)** (RelatedTo)
-    Une personne qui vend des fruits et légumes frais.
+    - **[Le marchand de fruits et légumes](../cards/index.md#person_greengrocer)** (RelatedTo)
+    Ce marchand vend des fruits et légumes frais.
 
     ![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ width="200" }
 
-    - **[Épicier](../cards/index.md#person_grocer)** (RelatedTo)
-    Une personne qui vend de nombreux types d’aliments et de boissons.
+    - **[l'épicier](../cards/index.md#person_grocer)** (RelatedTo)
+    L'épicier vend différents ingrédients comme le sel, le poivre, l'huile...
 
     ![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ width="200" }
 
-    - **[Poissonnier](../cards/index.md#person_fishmonger)** (RelatedTo)
-    Une personne qui vend du poisson frais et des fruits de mer.
+    - **[le poissonnier](../cards/index.md#person_fishmonger)** (RelatedTo)
+    Le poissonnier vend du poisson frais et des fruits de mer.
 
     ![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ width="200" }
 
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1108,7 +1097,7 @@ Credits:
 
     ![preview summit](../../../assets/img/content/cards/summit.jpg){ width="200" }
 
-    - **[Alpes](../cards/index.md#alps)** (RelatedTo)
+    - **[Les Alpes](../cards/index.md#alps)** (RelatedTo)
     Une haute chaîne de montagnes en Europe.
 
     ![preview alps](../../../assets/img/content/cards/alps.jpg){ width="200" }
@@ -1129,7 +1118,7 @@ Credits:
     ![preview ice](../../../assets/img/content/cards/ice.jpg){ width="200" }
 
     - **[France](../cards/index.md#country_france)** (LocatedIn)
-    Un pays d'Europe. Sa capitale est Paris.
+    La France est un pays d’Europe. Sa capitale est Paris.
 
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
@@ -1139,7 +1128,7 @@ Credits:
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
     - **[Suisse](../cards/index.md#country_switzerland)** (LocatedIn)
-    Un pays d'Europe dont la capitale est Berne. La Suisse est célèbre pour ses montagnes et son fromage.
+    Un pays d'Europe dont la capitale est Berne. La Suisse est connu pour ses montagnes et son fromage.
 
     ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
@@ -1159,7 +1148,7 @@ Credits:
 
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
-    Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+    C'est la capitale de la France.  La tour Eiffel est à Paris !
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
@@ -1182,69 +1171,69 @@ Credits:
 - Subjects: Geography, Transportation, Civics  
 - Target Age: Ages6to10
 - Core card:
-    - **[Seine](../cards/index.md#seine)**
-    Un fleuve de 777 kilomètres de long dans le nord de la France
+    - **[La Seine](../cards/index.md#seine)**
+    C'est le fleuve qui passe à Paris. La Seine mesure 777 km. Elle se jette dans la Manche.
 
     ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
 
 - Connected cards:
     - **[Paris](../cards/index.md#capital_paris)** (LocatedIn)
-    Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+    C'est la capitale de la France.  La tour Eiffel est à Paris !
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
-    - **[Carte de la Seine](../cards/index.md#seine_map)** (RelatedTo)
-    Une image qui montre la Seine et où elle coule à travers le territoire.
+    - **[La carte de la Seine](../cards/index.md#seine_map)** (RelatedTo)
+     La Seine mesure 777 km. Elle se jette dans La Manche..
 
     ![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ width="200" }
 
-    - **[Carte de la Seine à Paris](../cards/index.md#seine_map_in_paris)** (LocatedIn)
-    Une image qui montre comment la Seine traverse la ville de Paris.
+    - **[La carte de la Seine à Paris](../cards/index.md#seine_map_in_paris)** (LocatedIn)
+    La Seine est le fleuve. La Seine traverse Paris.
 
     ![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ width="200" }
 
-    - **[Pont pour voitures](../cards/index.md#place_bridge_cars)** (RelatedTo)
-    Une route qui traverse l'eau pour que les voitures puissent traverser les rivières et les lacs.
+    - **[le pont pour voitures](../cards/index.md#place_bridge_cars)** (RelatedTo)
+    A road that goes over water so cars can drive across rivers and lakes.
 
     ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
-    - **[Passerelles](../cards/index.md#place_bridge_people)** (RelatedTo)
-    De petits ponts pour les piétons. Ils vous protègent de la circulation.
+    - **[la passerelle](../cards/index.md#place_bridge_people)** (RelatedTo)
+    Une passerelle est un petit pont. Sur les passerelles, des piétons, vélos et parfois des tramways, bus ou trains peuvent passer.
 
     ![preview place_bridge_people](../../../assets/img/content/cards/place_bridge_people.jpg){ width="200" }
 
-    - **[Pont pour trains](../cards/index.md#place_bridge_trains)** (RelatedTo)
-    Un pont spécial construit suffisamment solide pour que les trains lourds puissent traverser l'eau.
+    - **[le pont pour trains](../cards/index.md#place_bridge_trains)** (RelatedTo)
+    A special bridge built strong enough for heavy trains to cross over water.
 
     ![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ width="200" }
 
-    - **[Pont Alexandre III](../cards/index.md#pont_alexandre_iii)** (RelatedTo)
-    Un beau pont à Paris avec des décorations fantaisistes et des statues dorées dessus.
+    - **[Le Pont Alexandre III](../cards/index.md#pont_alexandre_iii)** (RelatedTo)
+    C’est un pont célèbre à Paris. Il a de belles decorations dorées.
 
     ![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ width="200" }
 
-    - **[bateau fluvial](../cards/index.md#boat_river)** (RelatedTo)
-    Un bateau qui navigue sur les rivières. Les rivières sont comme des routes faites d'eau !
+    - **[Un bateau sur un fleuve](../cards/index.md#boat_river)** (RelatedTo)
+    Un bateau qui navigue sur les rivières. Les rivières sont comme des routes sur d'eau !
 
     ![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ width="200" }
 
-    - **[Bateau pour marchandises](../cards/index.md#boat_for_goods)** (RelatedTo)
-    Un grand bateau qui transporte des cartons, de la nourriture et d’autres choses d’un endroit à un autre.
+    - **[Un bateau pour marchandises](../cards/index.md#boat_for_goods)** (RelatedTo)
+    Un grand bateau qui transporte des boîtes, de la nourriture et d’autres choses.
 
     ![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ width="200" }
 
-    - **[hangar à bateaux](../cards/index.md#boat_house)** (RelatedTo)
-    Une maison flottant sur l'eau comme un bateau. On peut vivre dans des maisons-bateaux !
+    - **[Un bateau habitable](../cards/index.md#boat_house)** (RelatedTo)
+    C'est un bateau où on habite comme dans une maison.
 
     ![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ width="200" }
 
     - **[Un bateau pour les gens](../cards/index.md#boat_people)** (RelatedTo)
-    Un bateau qui transporte des personnes d’un endroit à un autre à travers l’eau.
+    Un bateau qui transporte les gens.
 
     ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
 
-    - **[Bateau sur la Seine](../cards/index.md#boat_eiffel_tower)** (RelatedTo)
-    Un bateau exceptionnel qui navigue sur la Seine à Paris. Depuis l'eau, vous pourrez admirer la Tour Eiffel et d'autres magnifiques monuments !
+    - **[Un bateau sur la Seine](../cards/index.md#boat_eiffel_tower)** (RelatedTo)
+    Un bateau qui est sur la Seine à Paris. Depuis l'eau, tu peux voir la Tour Eiffel et d'autres très beaux monuments !
 
     ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ width="200" }
 
@@ -1253,7 +1242,7 @@ Credits:
 
     ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
 
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
@@ -1280,13 +1269,13 @@ Credits:
 
     ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ width="200" }
 
-    - **[Côte de la mer Baltique](../cards/index.md#baltic_sea_coast)** (RelatedTo)
-    La côte sablonneuse le long de la mer Baltique.
+    - **[La Côte de la mer Baltique](../cards/index.md#baltic_sea_coast)** (RelatedTo)
+    No translation found for 'baltic_sea_coast.desc' in Cards
 
     ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ width="200" }
 
-    - **[mer Baltique](../cards/index.md#baltic_sea)** (RelatedTo)
-    Une vaste mer d'Europe du Nord, où se rencontrent la Pologne, l'Allemagne et d'autres pays. Elle possède de magnifiques plages et est réputée pour ses trésors d'ambre !
+    - **[La mer Baltique](../cards/index.md#baltic_sea)** (RelatedTo)
+    Une grande mer d'Europe du Nord, à côté de la Pologne, l'Allemagne et d'autres pays. Elle a de magnifiques plages et est connue pour ses trésors d'ambre !
 
     ![preview baltic_sea](../../../assets/img/content/cards/baltic_sea.jpg){ width="200" }
 
@@ -1314,13 +1303,13 @@ Credits:
 
     ![preview cinnamon](../../../assets/img/content/cards/cinnamon.jpg){ width="200" }
 
-    - **[Beurre](../cards/index.md#butter)** (RelatedTo)
-    Une matière grasse jaune issue du lait, utilisée pour la cuisine et la pâtisserie.
+    - **[Du beurre](../cards/index.md#butter)** (RelatedTo)
+    On fait du beurre avec du lait. On l'utilise pour cuisiner et faire des pâtisseries.
 
     ![preview butter](../../../assets/img/content/cards/butter.jpg){ width="200" }
 
-    - **[Œufs](../cards/index.md#eggs)** (RelatedTo)
-    Nourriture provenant de poulets utilisée pour la cuisson et la pâtisserie.
+    - **[un oeuf](../cards/index.md#eggs)** (RelatedTo)
+    C'est la poule qui pond les oeufs. L'oeuf est utilisé pour cuisiner et faire de la pâtisserie.
 
     ![preview eggs](../../../assets/img/content/cards/eggs.jpg){ width="200" }
 
@@ -1349,7 +1338,7 @@ Credits:
 
 - Connected cards:
     - **[Ambre](../cards/index.md#amber)** (RelatedTo)
-    Résine d'arbre fossile brillante appelée « Baltic Gold ».
+    L'ambre est utilisée pour faire des bijoux.
 
     ![preview amber](../../../assets/img/content/cards/amber.jpg){ width="200" }
 
@@ -1402,7 +1391,7 @@ Credits:
     ![preview wroclaw_bridges](../../../assets/img/content/cards/wroclaw_bridges.jpg){ width="200" }
 
     - **[Passerelle](../cards/index.md#footbridge)** (RelatedTo)
-    Un pont piétonnier. Interdit aux voitures.
+    Une passerelle est un petit pont. Sur les passerelles, des piétons, vélos et parfois des tramways, bus ou trains peuvent passer.
 
     ![preview footbridge](../../../assets/img/content/cards/footbridge.jpg){ width="200" }
 
@@ -1416,37 +1405,37 @@ Credits:
 
     ![preview redzinski_bridge](../../../assets/img/content/cards/redzinski_bridge.jpg){ width="200" }
 
-    - **[Pont routier](../cards/index.md#road_bridge)** (RelatedTo)
+    - **[Le pont routier](../cards/index.md#road_bridge)** (RelatedTo)
     Un pont pour voitures et bus.
 
     ![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ width="200" }
 
-    - **[Pont pour voitures](../cards/index.md#place_bridge_cars)** (RelatedTo)
-    Une route qui traverse l'eau pour que les voitures puissent traverser les rivières et les lacs.
+    - **[le pont pour voitures](../cards/index.md#place_bridge_cars)** (RelatedTo)
+    A road that goes over water so cars can drive across rivers and lakes.
 
     ![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ width="200" }
 
-    - **[Pont ferroviaire](../cards/index.md#train_bridge)** (RelatedTo)
-    Un pont avec des voies pour les trains.
+    - **[Le pont pour les trains](../cards/index.md#train_bridge)** (RelatedTo)
+    C'est un pont qui permet aux trains de passer.
 
     ![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ width="200" }
 
-    - **[Barge](../cards/index.md#barge)** (RelatedTo)
-    Un bateau long et plat qui transporte des marchandises sur les rivières.
+    - **[Une péniche](../cards/index.md#barge)** (RelatedTo)
+    C'est un bateau long et plat qui transporte des marchandises sur les rivières.
 
     ![preview barge](../../../assets/img/content/cards/barge.jpg){ width="200" }
 
-    - **[Péniche](../cards/index.md#houseboat)** (RelatedTo)
-    Un bateau fait pour vivre.
+    - **[la péniche ou le bateau-maison](../cards/index.md#houseboat)** (RelatedTo)
+    Une péniche est un bateau qui peut être habité. Sur la Seine, il y a denombreuses péniches.
 
     ![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ width="200" }
 
     - **[Un bateau pour les gens](../cards/index.md#boat_people)** (RelatedTo)
-    Un bateau qui transporte des personnes d’un endroit à un autre à travers l’eau.
+    Un bateau qui transporte les gens.
 
     ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ width="200" }
 
-    - **[Kayak](../cards/index.md#kayak)** (RelatedTo)
+    - **[le kayak](../cards/index.md#kayak)** (RelatedTo)
     Un petit bateau sur lequel on pagaie.
 
     ![preview kayak](../../../assets/img/content/cards/kayak.jpg){ width="200" }
@@ -1456,7 +1445,7 @@ Credits:
 
     ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
 
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1469,8 +1458,8 @@ Credits:
 
     ![preview pierogi](../../../assets/img/content/cards/pierogi.jpg){ width="200" }
 
-    - **[Monnaie du zloty](../cards/index.md#currency_zloty)** (RelatedTo)
-    La monnaie polonaise s'appelle le złoty. Les pièces et les billets arborent des symboles polonais.
+    - **[La monnaie du zloty](../cards/index.md#currency_zloty)** (RelatedTo)
+    La monnaie polonaise s'appelle le złoty. On voit les symboles polonais sur les pièces et les billets.
 
     ![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ width="200" }
 
@@ -1488,7 +1477,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Pologne](../cards/index.md#country_poland)**
-    Un pays d'Europe dont la capitale est Varsovie. La Pologne est célèbre pour ses scientifiques comme Copernic et ses délicieux pierogi !
+    Un pays d'Europe dont la capitale est Varsovie. La Pologne est connu pour ses scientifiques comme Copernic et ses délicieux pierogi !
 
     ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ width="200" }
 
@@ -1566,7 +1555,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Pologne](../cards/index.md#country_poland)**
-    Un pays d'Europe dont la capitale est Varsovie. La Pologne est célèbre pour ses scientifiques comme Copernic et ses délicieux pierogi !
+    Un pays d'Europe dont la capitale est Varsovie. La Pologne est connu pour ses scientifiques comme Copernic et ses délicieux pierogi !
 
     ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ width="200" }
 
@@ -1577,7 +1566,7 @@ Credits:
     ![preview flag_poland](../../../assets/img/content/cards/flag_poland.jpg){ width="200" }
 
     - **[Varsovie](../cards/index.md#capital_warsaw)** (RelatedTo)
-    La capitale de la Pologne.
+    C'est la capitale de la Pologne.
 
     ![preview capital_warsaw](../../../assets/img/content/cards/capital_warsaw.jpg){ width="200" }
 
@@ -1700,7 +1689,7 @@ Credits:
 
     ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
 
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md), [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md)
+- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md), [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
@@ -1791,8 +1780,8 @@ Credits:
 
     ![preview zoo_keeper](../../../assets/img/content/cards/zoo_keeper.jpg){ width="200" }
 
-    - **[Enclos pour animaux](../cards/index.md#animal_enclosure)** (RelatedTo)
-    Un espace sûr conçu pour que les animaux puissent vivre au zoo.
+    - **[Un enclos pour animaux](../cards/index.md#animal_enclosure)** (RelatedTo)
+    C'est un espace pour les animaux dans le zoo.
 
     ![preview animal_enclosure](../../../assets/img/content/cards/animal_enclosure.jpg){ width="200" }
 

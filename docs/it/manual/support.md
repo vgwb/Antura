@@ -13,7 +13,7 @@ We welcome feedback and ideas from parents, teachers, and students.
 - Suggest usability improvements for controls, camera, or menus.
 - Share what worked well in your classroom and what could be clearer.
 
-Join our community: <https://antura.discourse.group>
+Join our community: <https://github.com/vgwb/Antura/discussions>
 
 ## Report a problem
 

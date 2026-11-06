@@ -5,7 +5,7 @@ hide:
 
 # The great Wrocław dwarf rescue (pl_02) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-02-the-great-wroclaw-dwarf-rescue/33/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/621)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1721014062#gid=1721014062)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_02%20Wroclaw%20Dwarves/PL_02%20Wroclaw%20Dwarves%20-%20Yarn%20Script.yarn)  
@@ -40,6 +40,7 @@ hide:
 <span class="yarn-comment">// hide all the keys</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_0 false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_1 false&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;declare $key_1_taken = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_2 false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_3 false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_4 false&gt;&gt;</span>
@@ -68,6 +69,10 @@ hide:
 <span class="yarn-line">Welcome to Wrocław!</span> <span class="yarn-meta">#line:082706f </span>
 <span class="yarn-line">There is a problem in town... let's explore!</span> <span class="yarn-meta">#line:029d26c </span>
 <span class="yarn-cmd">&lt;&lt;jump intro_area_school&gt;&gt;</span>
+
+<span class="yarn-comment">// DEBUG</span>
+<span class="yarn-comment">// &lt;&lt;teleport tram_cathedral&gt;&gt;</span>
+<span class="yarn-comment">// &lt;&lt;jump intro_area_cathedral&gt;&gt;</span>
 
 </code>
 </pre>
@@ -562,10 +567,11 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: cathedral</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if GetCurrentTask() == "dwarf_1"&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;if GetCurrentTask() == "dwarf_1" and !$key_1_taken&gt;&gt;</span>
 <span class="yarn-line">What do people do in a Cathedral?</span> <span class="yarn-meta">#line:0e6869e </span>
 <span class="yarn-choice">-&gt; They pray</span> <span class="yarn-meta">#line:0a1aab0 </span>
-<span class="yarn-line">    Correct! Here is your key.</span> <span class="yarn-meta">#line:correct_key </span>
+<span class="yarn-line">    Correct! Here is your key.</span> <span class="yarn-meta">#line:correct_key</span>
+    <span class="yarn-cmd">&lt;&lt;set $key_1_taken = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive key_1 true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target key_1&gt;&gt;</span>
 <span class="yarn-choice">-&gt; They read</span> <span class="yarn-meta">#line:0e25e89 </span>

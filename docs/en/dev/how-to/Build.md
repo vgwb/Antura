@@ -119,4 +119,4 @@ Local builds are fully supported with the steps above.
 ## 8. Contribute
 
 - Code & issues: [https://github.com/vgwb/Antura](https://github.com/vgwb/Antura)
-- Share builds/feedback: [https://antura.discourse.group](https://antura.discourse.group)
+- Share builds/feedback: [https://github.com/vgwb/Antura/discussions](https://github.com/vgwb/Antura/discussions)

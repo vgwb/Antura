@@ -6,39 +6,12 @@ hide:
 # Cards(fr)
 
 > [!note] Educators: help improving these cards!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **395**
+Total found: **392**
 
 ## International
-
-### Affiche de l'école française {#object_french_school_poster}
-![preview object_french_school_poster](../../../assets/img/content/cards/object_french_school_poster.jpg){ loading=lazy }
-
-Un grand tableau avec des informations qui s'affiche sur les murs des salles de classe dans les écoles françaises.
-
-- Type: Object
-- Subjects: Education
-- Country: International
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
-
-### Alpes {#alps}
-![preview alps](../../../assets/img/content/cards/alps.jpg){ loading=lazy }
-
-Une haute chaîne de montagnes en Europe.
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [mont blanc](../topics/index.md#mont_blanc)
-- Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
-- Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
-
----
 
 ### Animaux du zoo {#zoo_animals}
 ![preview zoo_animals](../../../assets/img/content/cards/zoo_animals.jpg){ loading=lazy }
@@ -55,38 +28,12 @@ Carte créée automatiquement pour le thème « Animaux du zoo ».
 ### Antura {#antura}
 ![preview antura](../../../assets/img/content/cards/antura.jpg){ loading=lazy }
 
-Le personnage principal de ce jeu vidéo
+C'est le personnage principal de ce jeu vidéo.
 
 - Type: Concept
 - Country: International
 - Topics: [Antura's world](../topics/index.md#antura-world)
 - Image credit: CC0
-
----
-
-### Apiculteur {#beekeeper}
-![preview beekeeper](../../../assets/img/content/cards/beekeeper.jpg){ loading=lazy }
-
-Une personne qui s’occupe des abeilles et récolte le miel.
-
-- Type: Person
-- Subjects: Community, Animal, Food
-- Country: International
-- Image credit: CC_BY | Michael Gäbler | [source](https://commons.wikimedia.org/wiki/File:Beekeeper_keeping_bees.jpg)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Balle {#ball}
-![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
-
-Un objet rond utilisé dans de nombreux jeux.
-
-- Type: Object
-- Subjects: Sport, Recreation
-- Country: International
-- Image credit: CC_BY_SA | Marco Gualazzini | [source](https://commons.wikimedia.org/wiki/File:Playing_in_the_Nuba_mountains.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -114,33 +61,6 @@ Une grande plante aux feuilles géantes et aux bananes jaunes. Ses fruits pousse
 
 ---
 
-### bateau fluvial {#boat_river}
-![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ loading=lazy }
-
-Un bateau qui navigue sur les rivières. Les rivières sont comme des routes faites d'eau !
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
-### Bateau pour marchandises {#boat_for_goods}
-![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ loading=lazy }
-
-Un grand bateau qui transporte des cartons, de la nourriture et d’autres choses d’un endroit à un autre.
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-
----
-
 ### Belgique {#country_belgium}
 ![preview country_belgium](../../../assets/img/content/cards/country_belgium.jpg){ loading=lazy }
 
@@ -158,41 +78,13 @@ derivative work: Kabelleger (talk) | [source](https://commons.wikimedia.org/wiki
 ### Bern {#capital_bern}
 ![preview capital_bern](../../../assets/img/content/cards/capital_bern.jpg){ loading=lazy }
 
-La capitale de la Suisse.
+C'est la capitale de la Suisse.
 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
 - Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Daniel Kraft | [source](https://commons.wikimedia.org/wiki/File:Bern_Panorama_von_Rosengarten_20211007.jpg)
-
----
-
-### Beurre {#butter}
-![preview butter](../../../assets/img/content/cards/butter.jpg){ loading=lazy }
-
-Une matière grasse jaune issue du lait, utilisée pour la cuisine et la pâtisserie.
-
-- Type: Object
-- Subjects: Food, Animal
-- Country: International
-- Topics: [Gingerbread](../topics/index.md#gingerbread)
-- Image credit: CC0 | Antoine Vollon | [source](https://commons.wikimedia.org/wiki/File:Antoine_Vollon_-_Mound_of_Butter_-_National_Gallery_of_Art.jpg)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Billet pour la Tour Eiffel {#eiffel_tower_ticket}
-![preview eiffel_tower_ticket](../../../assets/img/content/cards/eiffel_tower_ticket.jpg){ loading=lazy }
-
-Un document spécial qui vous permet de visiter la célèbre haute tour de Paris, en France.
-
-- Type: Object
-- Subjects: Science
-- Country: International
-- Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
-- Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -209,50 +101,10 @@ Un pays d'Europe. Sa capitale est Minsk.
 
 ---
 
-### Bobsleigh {#bobsled}
-![preview bobsled](../../../assets/img/content/cards/bobsled.jpg){ loading=lazy }
-
-Un traîneau rapide utilisé pour glisser sur la glace.
-
-- Type: Object
-- Subjects: Sport, Recreation
-- Country: International
-- Image credit: CC_BY_SA | Steffen Prößdorf | [source](https://commons.wikimedia.org/wiki/File:2020-02-22_IBSF_World_Championships_Bobsleigh_and_Skeleton_Altenberg_1DX_5978_by_Stepro.jpg)
-- Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### Boucher {#butcher}
-![preview butcher](../../../assets/img/content/cards/butcher.jpg){ loading=lazy }
-
-Une personne qui vend de la viande.
-
-- Type: Person
-- Subjects: Community, Food
-- Country: International
-- Image credit: CC_BY_SA | Sabina Bajracharya | [source](https://commons.wikimedia.org/wiki/File:A_Butcher_cutting_buffalo_meat.jpg)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Boulanger {#person_baker}
-![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
-
-Une personne qui fait du pain, des gâteaux et des pâtisseries.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
 ### Bratislava {#capital_bratislava}
 ![preview capital_bratislava](../../../assets/img/content/cards/capital_bratislava.jpg){ loading=lazy }
 
-La capitale de la Slovaquie.
+C'est la capitale de la Slovaquie.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -264,26 +116,13 @@ La capitale de la Slovaquie.
 ### Bruxelles {#capital_brussels}
 ![preview capital_brussels](../../../assets/img/content/cards/capital_brussels.jpg){ loading=lazy }
 
-La capitale de la Belgique.
+C'est la capitale de la Belgique.
 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
 - Topics: [Countries around France](../topics/index.md#france_countries_around)
 - Image credit: CC_BY_SA | Horst J. Meuter | [source](https://commons.wikimedia.org/wiki/File:Atomium,_Brüssel_2.jpg)
-
----
-
-### Bus {#bus}
-![preview bus](../../../assets/img/content/cards/bus.jpg){ loading=lazy }
-
-Un gros véhicule qui transporte de nombreuses personnes.
-
-- Type: Object
-- Subjects: Transportation, Community
-- Country: International
-- Image credit: CC_BY_SA | Xosema | [source](https://commons.wikimedia.org/wiki/File:Setra_S6_-_Empresa_Mosquera_-_02.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -297,6 +136,18 @@ Le filet dans lequel vous essayez de marquer.
 - Country: International
 - Image credit: CC_BY_SA | Dietmar Rabich | [source](https://commons.wikimedia.org/wiki/File:Dülmen,_Sportzentrum_Süd_--_2012_--_4121.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### C'est un jeune lion {#animal_lion_young_male}
+![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
+
+Il a une crinière courte et apprend à devenir fort.
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -328,23 +179,10 @@ Un outil en forme de triangle utilisé pour dessiner des lignes droites et des a
 
 ---
 
-### Cartable {#school_bag}
-![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
-
-Un sac que les élèves utilisent pour transporter leurs livres, leurs crayons et leurs devoirs à l'école.
-
-- Type: Object
-- Subjects: Science
-- Country: International
-- Image credit: CC0
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### Carte de l'Europe {#concept_europe_map}
 ![preview concept_europe_map](../../../assets/img/content/cards/concept_europe_map.jpg){ loading=lazy }
 
-Une carte montrant tous les pays d'Europe. Vous pouvez voir où se trouvent la France, la Pologne, l'Allemagne et d'autres pays.
+Une carte montrant tous les pays d'Europe. Tu peux voir où se trouvent la France, la Pologne, l'Allemagne et d'autres pays.
 
 - Rationale: Maps help kids understand where different countries are and how they connect
 - Type: Concept
@@ -354,32 +192,6 @@ Une carte montrant tous les pays d'Europe. Vous pouvez voir où se trouvent la F
 - Topics: [Flags of Europe](../topics/index.md#flags_euroe)
 - Image credit: CC0
 - Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md), [Les voisins de la Pologne (pl_00)](../quests/quest/pl_00.md)
-
----
-
-### Carte de la Tour Eiffel {#eiffel_tower_map}
-![preview eiffel_tower_map](../../../assets/img/content/cards/eiffel_tower_map.jpg){ loading=lazy }
-
-Une carte qui montre où se trouve la célèbre haute tour de Paris.
-
-- Type: Object
-- Subjects: Community, Culture
-- Country: International
-- Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
-- Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Cartes {#antura_cards}
-![preview antura_cards](../../../assets/img/content/cards/antura_cards.jpg){ loading=lazy }
-
-Chaque carte a quelque chose de spécial à apprendre. Trouvez-les toutes et lisez-les !
-
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-- Image credit: CC0
 
 ---
 
@@ -424,31 +236,6 @@ Un bonnet chaud pour votre tête.
 
 ---
 
-### Chat {#antura_cat}
-![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ loading=lazy }
-
-Le meilleur ami et compagnon de voyage d'Antura. Curieux, intelligent et toujours prêt à aider !
-
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-- Image credit: CC0
-
----
-
-### Chimpanzé {#animal_chimpanzee}
-![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
-
-Intelligent et joueur, il adore grimper aux arbres. Il utilise des bâtons et des pierres comme de petits outils !
-
-- Type: None
-- Country: International
-- Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Château Royal (Varsovie) {#royal_castle_warsaw}
 ![preview royal_castle_warsaw](../../../assets/img/content/cards/royal_castle_warsaw.jpg){ loading=lazy }
 
@@ -476,33 +263,6 @@ Un aliment sucré fabriqué par les abeilles.
 
 ---
 
-### Citron {#food_lemon}
-![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
-
-Un fruit jaune au goût très acide. On utilise le citron pour faire de la limonade !
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lemon.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Classe {#place_classroom}
-![preview place_classroom](../../../assets/img/content/cards/place_classroom.jpg){ loading=lazy }
-
-Une salle à l'école où les élèves s'assoient et apprennent de nouvelles choses de leur professeur.
-
-- Type: Place
-- Subjects: Education, Community
-- Country: International
-- Image credit: CC0
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md), [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### clous de girofle {#cloves}
 ![preview cloves](../../../assets/img/content/cards/cloves.jpg){ loading=lazy }
 
@@ -513,19 +273,6 @@ Une épice forte utilisée pour ajouter de la saveur aux aliments.
 - Country: International
 - Image credit: CC_BY_SA | Friedrich Haag | [source](https://commons.wikimedia.org/wiki/File:Gewuerze_004_2024_08_10.jpg)
 - Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Commerçants du marché {#market_traders}
-![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
-
-Ceux qui vendent des produits alimentaires et autres marchandises sur les étals des marchés, comme les poissonniers, les fromagers et les marchands de fruits. Ils pèsent, emballent et annoncent les prix du jour.
-
-- Type: Person
-- Subjects: Money, Community
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
 
 ---
 
@@ -559,7 +306,7 @@ Une constitution polonaise historique célébrée le 3 mai.
 ### Cookies {#antura_cookies}
 ![preview antura_cookies](../../../assets/img/content/cards/antura_cookies.jpg){ loading=lazy }
 
-De superbes récompenses à collectionner en jouant ! Utilisez-les pour obtenir de nouveaux objets et des surprises.
+De belles récompenses à collectionner en jouant ! Utilisez-les pour obtenir de nouveaux objets et des surprises.
 
 - Type: Object
 - Country: International
@@ -579,20 +326,6 @@ Une ligne solide utilisée pour la sécurité lors de l'escalade.
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Nevit Dilmen | [source](https://commons.wikimedia.org/wiki/File:Coiled_rope_03235.jpg)
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### Crabe {#food_crab}
-![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ loading=lazy }
-
-Un animal marin doté de grandes pinces et d'une carapace dure. Les crabes marchent latéralement sur la plage !
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fresh_Crab.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -634,18 +367,6 @@ Une personne qui prépare de la nourriture.
 - Country: International
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Kappabashi-dori_streetcorner_(Kitchen_town_-_southern_end)_a_sunny_morning_in_Tokyo_Japan.jpg)
 - Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Danger {#antura_malus}
-![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ loading=lazy }
-
-À éviter absolument ! Soyez prudents et protégez-vous.
-
-- Type: Concept
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-- Image credit: CC0
 
 ---
 
@@ -785,40 +506,24 @@ Le drapeau suisse est rouge avec une croix blanche au milieu. On dirait une trou
 
 ---
 
-### Drapeau du Luxembourg {#flag_luxembourg}
-![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ loading=lazy }
+### Du beurre {#butter}
+![preview butter](../../../assets/img/content/cards/butter.jpg){ loading=lazy }
 
-Le drapeau luxembourgeois est composé de bandes horizontales rouges, blanches et bleu clair. Le Luxembourg est un tout petit pays qui parle trois langues !
-
-- Rationale: Small multilingual countries teach kids about European diversity
-- Type: Concept
-- Subjects: Geography, Culture
-- Year: 1972
-- Country: International
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
-- Image credit: CC0
-- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
-
----
-
-### Eau {#food_water}
-![preview food_water](../../../assets/img/content/cards/food_water.jpg){ loading=lazy }
-
-L'eau est essentielle à toute vie
+On fait du beurre avec du lait. On l'utilise pour cuisiner et faire des pâtisseries.
 
 - Type: Object
-- Subjects: Food, Culture
+- Subjects: Food, Animal
 - Country: International
-- Topics: [Baguette](../topics/index.md#baguette)
-- Image credit: CC0
+- Topics: [Gingerbread](../topics/index.md#gingerbread)
+- Image credit: CC0 | Antoine Vollon | [source](https://commons.wikimedia.org/wiki/File:Antoine_Vollon_-_Mound_of_Butter_-_National_Gallery_of_Art.jpg)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
 ### En blocs {#antura_blocky_character}
 ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ loading=lazy }
 
-Ces drôles de personnages vivent dans ce monde.
-Parlez-leur à tous… ils ont des histoires à raconter !
+Ces drôles de personnages vivent dans ce monde. Parle-leur à tous… ils ont des histoires à raconter !
 
 - Type: Concept
 - Country: International
@@ -842,19 +547,6 @@ Derivative version: Subsidiary account (image rotated 90 degrees CCW) | [source]
 
 ---
 
-### Farine {#food_flour}
-![preview food_flour](../../../assets/img/content/cards/food_flour.jpg){ loading=lazy }
-
-Poudre blanche fabriquée à partir de blé qui est utilisée pour faire du pain.
-
-- Type: Object
-- Subjects: Food, Science
-- Country: International
-- Topics: [Baguette](../topics/index.md#baguette)
-- Image credit: CC0
-
----
-
 ### Fer {#iron_material}
 ![preview iron_material](../../../assets/img/content/cards/iron_material.jpg){ loading=lazy }
 
@@ -865,19 +557,6 @@ Un outil chauffant utilisé pour lisser et aplatir les vêtements froissés. Att
 - Country: International
 - Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
 - Image credit: CC0
-
----
-
-### Football (soccer) {#football_soccer}
-![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
-
-Un jeu d’équipe joué avec un ballon que vous frappez.
-
-- Type: Object
-- Subjects: Sport, Recreation, Community
-- Country: International
-- Image credit: CC_BY_SA | Clément Bucco-Lechat | [source](https://commons.wikimedia.org/wiki/File:Algérie_-_Arménie_-_20140531_-_Yacine_Brahimi_(Alg)_face_à_Taron_Voskanyan_(Arm).jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
 
@@ -895,24 +574,10 @@ Un tissu chaud que vous portez autour du cou.
 
 ---
 
-### Fromager {#person_cheesemonger}
-![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ loading=lazy }
-
-Une personne qui vend de nombreux types de fromages.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Fusée spatiale {#space_rocket}
+### Fusée {#space_rocket}
 ![preview space_rocket](../../../assets/img/content/cards/space_rocket.jpg){ loading=lazy }
 
-Une fusée qui va dans l'espace.
+Une fusée monte dans le ciel jusqu'à l'espace.
 
 - Type: Object
 - Subjects: Science
@@ -960,20 +625,6 @@ Une racine épicée utilisée en cuisine et en biscuits.
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC0 | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | [source](https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg)
 - Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Girafe {#animal_giraffe}
-![preview animal_giraffe](../../../assets/img/content/cards/animal_giraffe.jpg){ loading=lazy }
-
-Un animal très grand avec un long cou. Les girafes sont plus hautes que les arbres ! Elles mangent des feuilles inaccessibles aux autres animaux.
-
-- Rationale: Giraffes are fascinating animals that show kids how nature adapts to find food
-- Type: Object
-- Subjects: Animal, Environment
-- Country: International
-- Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0
 
 ---
 
@@ -1030,45 +681,6 @@ Une personne qui aide les gens à grimper en toute sécurité.
 
 ---
 
-### hangar à bateaux {#boat_house}
-![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ loading=lazy }
-
-Une maison flottant sur l'eau comme un bateau. On peut vivre dans des maisons-bateaux !
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-
----
-
-### Huile d'olive {#food_olive_oil}
-![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ loading=lazy }
-
-Une huile spéciale à base d'olives. On l'utilise pour cuisiner des plats savoureux.
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Jeune lion mâle {#animal_lion_young_male}
-![preview animal_lion_young_male](../../../assets/img/content/cards/animal_lion_young_male.jpg){ loading=lazy }
-
-Devenant fort avec une crinière courte, il apprend à chasser et à protéger sa fierté.
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Young_male_lion,_South_Luangwa_National_Park_(51871439313).jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Jour de l'Indépendance (Pologne) {#independence_day_poland}
 ![preview independence_day_poland](../../../assets/img/content/cards/independence_day_poland.jpg){ loading=lazy }
 
@@ -1085,12 +697,83 @@ Un jour férié national le 11 novembre.
 ### Kyiv {#capital_kyiv}
 ![preview capital_kyiv](../../../assets/img/content/cards/capital_kyiv.jpg){ loading=lazy }
 
-La capitale de l'Ukraine.
+C'est la capitale de l'Ukraine.
 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
 - Image credit: CC_BY_SA | Moahim | [source](https://commons.wikimedia.org/wiki/File:2017_-_Київ_-_Світанок_над_Дніпром.jpg)
+
+---
+
+### l'eau {#food_water}
+![preview food_water](../../../assets/img/content/cards/food_water.jpg){ loading=lazy }
+
+Water is essential for all life
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Baguette](../topics/index.md#baguette)
+- Image credit: CC0
+
+---
+
+### l'huile d'olive {#food_olive_oil}
+![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ loading=lazy }
+
+C'est une huile fabriquée à partir d'olives. On l'utilise pour cuisiner.
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### l'orange {#food_orange}
+![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ loading=lazy }
+
+C'est un fruit de couleur orange.
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### L'éléphant {#animal_elephant}
+![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ loading=lazy }
+
+C'est un gros animal avec une trompe. Les éléphants sont les plus grands animaux terrestres. Ils ont de grandes oreilles et adorent souffler de l'eau !
+
+- Rationale: Elephants are amazing animals that kids love learning about at the zoo!
+- Type: Object
+- Subjects: Animal, Environment
+- Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
+- Words: elephant, zoo
+- Image credit: CC0
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### l'épicier {#person_grocer}
+![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ loading=lazy }
+
+L'épicier vend différents ingrédients comme le sel, le poivre, l'huile...
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1104,6 +787,20 @@ L’épée de la sirène qui doit être rendue.
 - Country: International
 - Image credit: CC_BY_SA | Guillaume Speurt from Vilnius, Lithuania | [source](https://commons.wikimedia.org/wiki/File:Mermaid_statue_with_sword_(8121475992).jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### La carte de la Tour Eiffel {#eiffel_tower_map}
+![preview eiffel_tower_map](../../../assets/img/content/cards/eiffel_tower_map.jpg){ loading=lazy }
+
+Cette carte indique où se trouve la célèbre tour de Paris, appelée la Tour Eiffel.
+
+- Type: Object
+- Subjects: Community, Culture
+- Country: International
+- Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
+- Image credit: CC0
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
 ---
 
@@ -1133,24 +830,23 @@ La couronne du roi qui est tombée et qui doit être retrouvée.
 
 ---
 
-### Lait {#food_milk}
-![preview food_milk](../../../assets/img/content/cards/food_milk.jpg){ loading=lazy }
+### la farine {#food_flour}
+![preview food_flour](../../../assets/img/content/cards/food_flour.jpg){ loading=lazy }
 
-Une boisson blanche issue du lait de vache. Le lait contribue à la solidité des os et des dents !
+La farine est utilisée principalement pour faire du pain.
 
 - Type: Object
-- Subjects: Food, Culture
+- Subjects: Food, Science
 - Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Milchflasche_%2812337400564%29.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
+- Topics: [Baguette](../topics/index.md#baguette)
+- Image credit: CC0
 
 ---
 
-### Lettre vivante {#antura_livingletter}
+### La lettre vivante {#antura_livingletter}
 ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ loading=lazy }
 
-Une lettre sympathique qui aime parler et jouer ! Parlez-lui pour apprendre de nouveaux mots.
+Une gentille lettre qui aime parler et jouer ! Parle-lui pour apprendre de nouveaux mots.
 
 - Type: Concept
 - Country: International
@@ -1159,10 +855,10 @@ Une lettre sympathique qui aime parler et jouer ! Parlez-lui pour apprendre de 
 
 ---
 
-### Levure {#food_yeast}
+### la levure {#food_yeast}
 ![preview food_yeast](../../../assets/img/content/cards/food_yeast.jpg){ loading=lazy }
 
-La levure est comme une poudre magique qui rend le pain moelleux et savoureux !
+La levure est une poudre qui permet de faire du pain et des gâteaux.
 
 - Type: Object
 - Subjects: Food, Culture
@@ -1172,29 +868,515 @@ La levure est comme une poudre magique qui rend le pain moelleux et savoureux !
 
 ---
 
-### Lion {#animal_lion}
-![preview animal_lion](../../../assets/img/content/cards/animal_lion.jpg){ loading=lazy }
+### La mer Baltique {#baltic_sea}
+![preview baltic_sea](../../../assets/img/content/cards/baltic_sea.jpg){ loading=lazy }
 
-Un grand félin surnommé le roi des animaux. Il vit en groupes appelés troupes.
+Une grande mer d'Europe du Nord, à côté de la Pologne, l'Allemagne et d'autres pays. Elle a de magnifiques plages et est connue pour ses trésors d'ambre !
+
+- Rationale: The Baltic Sea teaches kids about marine geography and Poland's coastal access
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [gdansk](../topics/index.md#gdansk)
+- Image credit: CC0
+- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### La monnaie euro {#currency_euro}
+![preview currency_euro](../../../assets/img/content/cards/currency_euro.jpg){ loading=lazy }
+
+L'euro est la monnaie utilisée dans de nombreux pays d'Europe. Avec des pièces et des billets en euros tu peux payer.
+
+- Type: Concept
+- Subjects: Money, Geography
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes_%28cropped%29.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### la passerelle {#place_bridge_people}
+![preview place_bridge_people](../../../assets/img/content/cards/place_bridge_people.jpg){ loading=lazy }
+
+Une passerelle est un petit pont. Sur les passerelles, des piétons, vélos et parfois des tramways, bus ou trains peuvent passer.
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### la pomme {#food_apple}
+![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
+
+Rouge, rond et croquant sous la dent. Un fruit savoureux qui vous garde en forme !
 
 - Type: Object
-- Subjects: Animal, Environment
 - Country: International
-- Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
-### Lionceau {#animal_lion_cub}
-![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
+### la règle {#math_ruler}
+![preview math_ruler](../../../assets/img/content/cards/math_ruler.jpg){ loading=lazy }
 
-Un petit lion à la fourrure douce et aux grandes pattes. Il passe ses journées à jouer et à rugir doucement.
+C'est un outil utilisé pour mesurer et tracer des lignes.
 
 - Type: Object
+- Subjects: Math
 - Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lion_cub_in_Masai_Mara_National_Park.jpg)
+- Topics: [Elementary Math](../topics/index.md#elementary-maths)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Righello.jpg)
+- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
+
+---
+
+### la salle de classe {#place_classroom}
+![preview place_classroom](../../../assets/img/content/cards/place_classroom.jpg){ loading=lazy }
+
+Une salle à l'école où les élèves s'assoient et apprennent de nouvelles choses de leur professeur.
+
+- Type: Place
+- Subjects: Education, Community
+- Country: International
+- Image credit: CC0
+- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md), [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
+### la tomate {#food_tomato}
+![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
+
+No translation found for 'food_tomato.desc' in Cards
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tomato_je.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### La ville de Luxembourg {#capital_luxembourg_city}
+![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ loading=lazy }
+
+La capitale du Luxembourg s’appelle aussi Luxembourg.
+
+- Type: Place
+- Subjects: Geography, Culture
+- Country: International
+- Topics: [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:City_Hall_of_Luxembourg_City_01.jpg)
+
+---
+
+### Le billet pour la Tour Eiffel. {#eiffel_tower_ticket}
+![preview eiffel_tower_ticket](../../../assets/img/content/cards/eiffel_tower_ticket.jpg){ loading=lazy }
+
+Ce billet permet de visiter la célèbre tour de Paris, la Tour Eiffel.
+
+- Type: Object
+- Subjects: Science
+- Country: International
+- Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
+- Image credit: CC0
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### Le bobsleigh {#bobsled}
+![preview bobsled](../../../assets/img/content/cards/bobsled.jpg){ loading=lazy }
+
+Un traîneau rapide utilisé pour glisser sur la glace.
+
+- Type: Object
+- Subjects: Sport, Recreation
+- Country: International
+- Image credit: CC_BY_SA | Steffen Prößdorf | [source](https://commons.wikimedia.org/wiki/File:2020-02-22_IBSF_World_Championships_Bobsleigh_and_Skeleton_Altenberg_1DX_5978_by_Stepro.jpg)
+- Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### le boulanger {#person_baker}
+![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
+
+Le boulanger fait du pain, des gâteaux et des pâtisseries.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### Le cartable {#school_bag}
+![preview school_bag](../../../assets/img/content/cards/school_bag.jpg){ loading=lazy }
+
+Dans ton cartable, tu transportes ton matériel d'école. Tu ranges ta trousse, tes cahiers, tes crayons, tes livres. 
+
+- Type: Object
+- Subjects: Science
+- Country: International
+- Image credit: CC0
+- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
+
+---
+
+### Le chat {#antura_cat}
+![preview antura_cat](../../../assets/img/content/cards/antura_cat.jpg){ loading=lazy }
+
+C'est le meilleur ami et compagnon de voyage d'Antura. Il est curieux, intelligent et toujours prêt à aider !
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
+### Le chimpanzé {#animal_chimpanzee}
+![preview animal_chimpanzee](../../../assets/img/content/cards/animal_chimpanzee.jpg){ loading=lazy }
+
+C'est un singe intelligent et joueur. Il adore grimper aux arbres.
+
+- Type: None
+- Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Common_chimpanzee_(Pan_troglodytes_schweinfurthii)_feeding.jpg)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### le citron {#food_lemon}
+![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
+
+C'est un fruit jaune.
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lemon.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### le crabe {#food_crab}
+![preview food_crab](../../../assets/img/content/cards/food_crab.jpg){ loading=lazy }
+
+A sea animal with big claws and a hard shell. Crabs walk sideways on the beach!
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fresh_Crab.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### Le danger {#antura_malus}
+![preview antura_malus](../../../assets/img/content/cards/antura_malus.jpg){ loading=lazy }
+
+À éviter absolument ! Sois prudent et protége-toi.
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
+### Le drapeau du Luxembourg {#flag_luxembourg}
+![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ loading=lazy }
+
+Le drapeau du Luxembourg a des lignes rouges, blanches et bleu clair. Le Luxembourg est un tout petit pays qui parle trois 3 langues!
+
+- Rationale: Small multilingual countries teach kids about European diversity
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1972
+- Country: International
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
+
+---
+
+### le football (soccer) {#football_soccer}
+![preview football_soccer](../../../assets/img/content/cards/football_soccer.jpg){ loading=lazy }
+
+A team game played with a ball you kick.
+
+- Type: Object
+- Subjects: Sport, Recreation, Community
+- Country: International
+- Image credit: CC_BY_SA | Clément Bucco-Lechat | [source](https://commons.wikimedia.org/wiki/File:Algérie_-_Arménie_-_20140531_-_Yacine_Brahimi_(Alg)_face_à_Taron_Voskanyan_(Arm).jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### le fromager {#person_cheesemonger}
+![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ loading=lazy }
+
+Le fromager vend des produits à base de lait: des yaourts, du fromage...
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### le lait {#food_milk}
+![preview food_milk](../../../assets/img/content/cards/food_milk.jpg){ loading=lazy }
+
+A white drink that comes from cows. Milk helps your bones and teeth grow strong!
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Milchflasche_%2812337400564%29.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### Le marchand de fruits et légumes {#person_greengrocer}
+![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ loading=lazy }
+
+Ce marchand vend des fruits et légumes frais.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### le pain {#food_bread}
+![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
+
+A yummy food made from flour and water. You can make sandwiches with bread!
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:French_bread_DSC09293.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### le poisson {#food_fish}
+![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
+
+An animal that lives and swims in water. Fish have fins and gills to breathe underwater.
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Grouper_fish_for_Sale.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### le poissonnier {#person_fishmonger}
+![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ loading=lazy }
+
+Le poissonnier vend du poisson frais et des fruits de mer.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC_BY_SA | Philippe Alès, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Marseille_(France),_fish_market_in_Vieux-Port,_2013.JPG)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### Le poivre et le sel {#food_pepper_salt}
+![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ loading=lazy }
+
+Le poivre et le sel sont des épices. Les épices donnent du goût aux aliments.
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Shakers_%284572668303%29.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### le pont pour trains {#place_bridge_trains}
+![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ loading=lazy }
+
+A special bridge built strong enough for heavy trains to cross over water.
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### le pont pour voitures {#place_bridge_cars}
+![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ loading=lazy }
+
+A road that goes over water so cars can drive across rivers and lakes.
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### Le sel {#food_salt}
+![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
+
+C'est une épice qui donne du goût aux liments..
+
+- Type: Object
+- Subjects: Food, Culture
+- Country: International
+- Topics: [Baguette](../topics/index.md#baguette)
+- Image credit: CC0
+
+---
+
+### le train {#train}
+![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
+
+Les trains transportent des personnes et des marchandises rapidement dans tout le pays.
+
+- Type: Object
+- Subjects: Transportation
+- Country: International
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+
+---
+
+### le tramway {#tram}
+![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
+
+C'est un train qui circule en ville. Il transporte des personnes dans la ville.
+
+- Type: Object
+- Subjects: Transportation, Technology, Community
+- Country: International
+- Image credit: CC_BY_SA | Chme82 | [source](https://commons.wikimedia.org/wiki/File:Flexity_Tram_Zürich_4001.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Le vendeur d'œufs {#egg_vendor}
+![preview egg_vendor](../../../assets/img/content/cards/egg_vendor.jpg){ loading=lazy }
+
+Une personne qui vend des œufs.
+
+- Type: Person
+- Subjects: Community, Food
+- Country: International
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Brian_%E2%80%98Egg%E2%80%99_and_his_gang.jpg)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### le vendeur de produits laitiers {#dairy_vendor}
+![preview dairy_vendor](../../../assets/img/content/cards/dairy_vendor.jpg){ loading=lazy }
+
+Une personne qui vend du lait, du beurre et du fromage.
+
+- Type: Person
+- Subjects: Community, Food
+- Country: International
+- Image credit: CC_BY_SA | Something Original (talk) | [source](https://commons.wikimedia.org/wiki/File:Pennsylvania_State_University_Food_Science_Building_and_Berkey_Creamery_May_15,_2010.jpg)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Les Alpes {#alps}
+![preview alps](../../../assets/img/content/cards/alps.jpg){ loading=lazy }
+
+Une haute chaîne de montagnes en Europe.
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [mont blanc](../topics/index.md#mont_blanc)
+- Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
+- Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### Les cartes {#antura_cards}
+![preview antura_cards](../../../assets/img/content/cards/antura_cards.jpg){ loading=lazy }
+
+Chaque carte a quelque chose de spécial à apprendre. Trouve-les toutes et lis-les !
+
+- Type: Concept
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
+### les commerçants du marché {#market_traders}
+![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
+
+Les commerçants ou marchands vendent des produits alimentaires et autres marchandises sur les étals des marchés. On peut trouver le poissonnier, les fromager, l'épicier, le marchands de fruits et légumes. Tu peux acheter des produits frais. 
+
+- Type: Person
+- Subjects: Money, Community
+- Country: International
+- Topics: [market traders](../topics/index.md#marketers)
+- Image credit: CC_BY | Market traders in York by DS Pugh | [source](https://commons.wikimedia.org/wiki/File:Market_traders_in_York_-_geograph.org.uk_-_8132100.jpg)
+
+---
+
+### Les pièces {#coins}
+![preview coins](../../../assets/img/content/cards/coins.jpg){ loading=lazy }
+
+une petite monnaie ronde en métal.
+
+- Type: Object
+- Subjects: Money
+- Country: International
+- Image credit: CC_BY_SA | Livioandronico2013 | [source](https://commons.wikimedia.org/wiki/File:Coins_of_the_Italian_Republic_(500_Lire)_silver_(Caravels).png)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Les écoles en France {#french_schools}
+![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
+
+La scolarité se déroule en 4 grandes étapes. L'école maternelle pour les enfants de 3 à 5 ans. L'école élémentaire de 6 à 10 ans. Il y a 5 classes : CP, CE1, CE2, CM1 et CM2. Le collège de 11 à 14 ans. Il y a 4 classes : 6ème, 5ème, 4ème et 3ème. Le lycée de 15 à 18 ans. Il y a 3 classes : 2nde, 1ère et terminale.
+
+- Type: Concept
+- Subjects: Education, Civics, Culture
+- Country: International
+- Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | P_L_Martin_des_Amoignes_In_the_classroom_1886 | [source](https://commons.wikimedia.org/wiki/File:P_L_Martin_des_Amoignes_In_the_classroom_1886.jpg)
 
 ---
 
@@ -1252,20 +1434,6 @@ Un artiste et scientifique italien exceptionnel. Il a peint la Joconde et invent
 
 ---
 
-### Manchot {#animal_penguin}
-![preview animal_penguin](../../../assets/img/content/cards/animal_penguin.jpg){ loading=lazy }
-
-Un oiseau qui ne peut pas voler mais qui nage très bien. Il vit dans les régions froides.
-
-- Type: Object
-- Subjects: Animal, Environment
-- Country: International
-- Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Manteau {#coat}
 ![preview coat](../../../assets/img/content/cards/coat.jpg){ loading=lazy }
 
@@ -1277,20 +1445,6 @@ Une veste chaude pour le temps froid.
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC0
 - Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### Marchand de légumes {#person_greengrocer}
-![preview person_greengrocer](../../../assets/img/content/cards/person_greengrocer.jpg){ loading=lazy }
-
-Une personne qui vend des fruits et légumes frais.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1372,43 +1526,15 @@ Une liste des aliments autorisés à la cantine. Elle vous aide à choisir vos r
 
 ---
 
-### mer Baltique {#baltic_sea}
-![preview baltic_sea](../../../assets/img/content/cards/baltic_sea.jpg){ loading=lazy }
-
-Une vaste mer d'Europe du Nord, où se rencontrent la Pologne, l'Allemagne et d'autres pays. Elle possède de magnifiques plages et est réputée pour ses trésors d'ambre !
-
-- Rationale: The Baltic Sea teaches kids about marine geography and Poland's coastal access
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [gdansk](../topics/index.md#gdansk)
-- Image credit: CC0
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
-
----
-
 ### Minsk {#capital_minsk}
 ![preview capital_minsk](../../../assets/img/content/cards/capital_minsk.jpg){ loading=lazy }
 
-La capitale de la Biélorussie.
+C'est la capitale de la Biélorussie.
 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
 - Image credit: CC0 | Dzmitry Rylko | [source](https://commons.wikimedia.org/wiki/File:Minsk,_Belarus,_Serebryanka.jpg)
-
----
-
-### Monnaie euro {#currency_euro}
-![preview currency_euro](../../../assets/img/content/cards/currency_euro.jpg){ loading=lazy }
-
-Monnaie utilisée dans de nombreux pays d'Europe. Vous pouvez acheter des jouets et des glaces avec des euros !
-
-- Type: Concept
-- Subjects: Money, Geography
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes_%28cropped%29.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1455,7 +1581,7 @@ Un monument à l'astronome Nicolas Copernic.
 ### Moscou {#capital_moscow}
 ![preview capital_moscow](../../../assets/img/content/cards/capital_moscow.jpg){ loading=lazy }
 
-La capitale de la Russie.
+C'est la capitale de la Russie.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1547,34 +1673,6 @@ Quatre pieds assurent la stabilité, comme des pieds de table. C'est solide et �
 
 ---
 
-### Orange {#food_orange}
-![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ loading=lazy }
-
-Un fruit rond et orange, au goût sucré et juteux. L'orange est riche en vitamine C !
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Pain {#food_bread}
-![preview food_bread](../../../assets/img/content/cards/food_bread.jpg){ loading=lazy }
-
-Un délicieux aliment à base de farine et d'eau. Vous pouvez faire des sandwichs avec du pain !
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:French_bread_DSC09293.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
 ### Palais de la culture et de la science {#palace_of_culture_and_science}
 ![preview palace_of_culture_and_science](../../../assets/img/content/cards/palace_of_culture_and_science.jpg){ loading=lazy }
 
@@ -1601,10 +1699,10 @@ La résidence officielle du président de la Pologne.
 
 ---
 
-### Panneau de DANGER {#danger_sign}
+### Panneau DANGER {#danger_sign}
 ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ loading=lazy }
 
-Un panneau avertissant d'un danger imminent. Soyez extrêmement prudent.
+Un panneau qui annonce un danger. Il faut faire très attention.
 
 - Type: Object
 - Subjects: Safety
@@ -1642,7 +1740,7 @@ Un panneau rouge qui signifie que vous devez arrêter votre véhicule.
 ### Paris {#capital_paris}
 ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ loading=lazy }
 
-Paris, capitale de la France, possède une célèbre tour haute appelée la Tour Eiffel !
+C'est la capitale de la France.  La tour Eiffel est à Paris !
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1650,33 +1748,6 @@ Paris, capitale de la France, possède une célèbre tour haute appelée la Tour
 - Topics: [France country](../topics/index.md#france-country), [Baguette](../topics/index.md#baguette), [Eiffel Tower](../topics/index.md#eiffel-tower), [Notre Dame](../topics/index.md#notredame), [Seine](../topics/index.md#seine), [Louvre](../topics/index.md#louvre)
 - Image credit: CC0 | Yann Caradec from Paris, France, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg)
 - Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Passerelles {#place_bridge_people}
-![preview place_bridge_people](../../../assets/img/content/cards/place_bridge_people.jpg){ loading=lazy }
-
-De petits ponts pour les piétons. Ils vous protègent de la circulation.
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
-### Pièces {#coins}
-![preview coins](../../../assets/img/content/cards/coins.jpg){ loading=lazy }
-
-Petite monnaie ronde en métal.
-
-- Type: Object
-- Subjects: Money
-- Country: International
-- Image credit: CC_BY_SA | Livioandronico2013 | [source](https://commons.wikimedia.org/wiki/File:Coins_of_the_Italian_Republic_(500_Lire)_silver_(Caravels).png)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -1688,7 +1759,7 @@ Monnaie polonaise (złoty) représentée sous forme de pièces de monnaie.
 - Type: Object
 - Subjects: Money, Geography
 - Country: International
-- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Coins_-_ten_groszy_and_2_z%C5%82oty.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -1729,70 +1800,16 @@ Un arbre vert brillant aux oranges rondes et juteuses. Son parfum frais et sucr�
 
 ---
 
-### Poisson {#food_fish}
-![preview food_fish](../../../assets/img/content/cards/food_fish.jpg){ loading=lazy }
-
-Un animal qui vit et nage dans l'eau. Les poissons ont des nageoires et des branchies pour respirer sous l'eau.
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Grouper_fish_for_Sale.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Poissonnier {#person_fishmonger}
-![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ loading=lazy }
-
-Une personne qui vend du poisson frais et des fruits de mer.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fishmonger_weighing_fish_at_Payang_Market,_Kuala_Terengganu.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Poivre Sel {#food_pepper_salt}
-![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ loading=lazy }
-
-Des épices qui rehaussent le goût des aliments. Le sel est blanc et le poivre est noir avec de petits morceaux.
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Shakers_%284572668303%29.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
 ### Pologne {#country_poland}
 ![preview country_poland](../../../assets/img/content/cards/country_poland.jpg){ loading=lazy }
 
-Un pays d'Europe dont la capitale est Varsovie. La Pologne est célèbre pour ses scientifiques comme Copernic et ses délicieux pierogi !
+Un pays d'Europe dont la capitale est Varsovie. La Pologne est connu pour ses scientifiques comme Copernic et ses délicieux pierogi !
 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
 - Topics: [Poland country](../topics/index.md#poland-country), [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Basílica_de_Nuestra_Señora_de_Licheń,_Stary_Licheń,_Polonia,_2016-12-21,_DD_39-41_HDR.jpg)
-
----
-
-### Pomme {#food_apple}
-![preview food_apple](../../../assets/img/content/cards/food_apple.jpg){ loading=lazy }
-
-Rouge, rond et croquant sous la dent. Un fruit savoureux qui vous garde en forme !
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Red_Apple.jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -1808,50 +1825,10 @@ Un pont près d'un château. Les châteaux sont de grands bâtiments solides où
 
 ---
 
-### Pont pour trains {#place_bridge_trains}
-![preview place_bridge_trains](../../../assets/img/content/cards/place_bridge_trains.jpg){ loading=lazy }
-
-Un pont spécial construit suffisamment solide pour que les trains lourds puissent traverser l'eau.
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
-### Pont pour voitures {#place_bridge_cars}
-![preview place_bridge_cars](../../../assets/img/content/cards/place_bridge_cars.jpg){ loading=lazy }
-
-Une route qui traverse l'eau pour que les voitures puissent traverser les rivières et les lacs.
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: International
-- Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
-### Portail {#antura_portal}
-![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ loading=lazy }
-
-Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez où elle vous mène !
-
-- Type: Object
-- Country: International
-- Topics: [Antura's world](../topics/index.md#antura-world)
-- Image credit: CC0
-
----
-
 ### Prague {#capital_prague}
 ![preview capital_prague](../../../assets/img/content/cards/capital_prague.jpg){ loading=lazy }
 
-La capitale de la République tchèque.
+C'est la capitale de la République tchèque.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1886,18 +1863,6 @@ Promenade sur les sentiers en pleine nature.
 
 ---
 
-### Renard {#animal_fox}
-![preview animal_fox](../../../assets/img/content/cards/animal_fox.jpg){ loading=lazy }
-
-Un prédateur intelligent qui vit dans les bois. Sa queue douce le tient chaud.
-
-- Type: None
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Renard_roux_en_for%C3%AAt.jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
 ### Robert Lewandowski {#robert_lewandowski}
 ![preview robert_lewandowski](../../../assets/img/content/cards/robert_lewandowski.jpg){ loading=lazy }
 
@@ -1924,20 +1889,6 @@ Un pays d'Europe. Sa capitale est Moscou.
 
 ---
 
-### Règle {#math_ruler}
-![preview math_ruler](../../../assets/img/content/cards/math_ruler.jpg){ loading=lazy }
-
-Un outil droit utilisé pour mesurer la longueur des objets. Les règles comportent des chiffres et des lignes.
-
-- Type: Object
-- Subjects: Math
-- Country: International
-- Topics: [Elementary Math](../topics/index.md#elementary-maths)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Righello.jpg)
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### République tchèque {#country_czech_republic}
 ![preview country_czech_republic](../../../assets/img/content/cards/country_czech_republic.jpg){ loading=lazy }
 
@@ -1948,46 +1899,6 @@ Un pays d'Europe dont la capitale est Prague.
 - Country: International
 - Topics: [Poland Countries](../topics/index.md#poland_countries_around)
 - Image credit: CC_BY_SA | Tadeáš Bednarz | [source](https://commons.wikimedia.org/wiki/File:Daniel_Souček_U21_Czech_Republic_vs_Greece_10-10-2019.jpg)
-
----
-
-### Sac à dos {#backpack}
-![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
-
-Un sac que vous portez sur votre dos.
-
-- Type: Object
-- Subjects: Recreation, Transportation, Education
-- Country: International
-- Topics: [mountain tools](../topics/index.md#mountain_tools)
-- Image credit: CC_BY_SA | FOTO:Fortepan — ID 20607: Adományozó/Donor: Wein Sarolta. archive copy at the Wayback Machine | [source](https://commons.wikimedia.org/wiki/File:Colorful,_backpack_Fortepan_20607.jpg)
-- Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### Sel {#food_salt}
-![preview food_salt](../../../assets/img/content/cards/food_salt.jpg){ loading=lazy }
-
-Des cristaux blancs qui améliorent le goût des aliments.
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Baguette](../topics/index.md#baguette)
-- Image credit: CC0
-
----
-
-### Singe {#animal_monkey}
-![preview animal_monkey](../../../assets/img/content/cards/animal_monkey.jpg){ loading=lazy }
-
-Un animal intelligent qui peut grimper et jouer. Certains singes vivent en grandes familles.
-
-- Type: Object
-- Subjects: Animal, Environment
-- Country: International
-- Topics: [Zoo Animals](../topics/index.md#zoo)
-- Image credit: CC0
 
 ---
 
@@ -2086,24 +1997,13 @@ Le sucre est fabriqué à partir de plantes comme la betterave ou la canne à su
 ### Suisse {#country_switzerland}
 ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ loading=lazy }
 
-Un pays d'Europe dont la capitale est Berne. La Suisse est célèbre pour ses montagnes et son fromage.
+Un pays d'Europe dont la capitale est Berne. La Suisse est connu pour ses montagnes et son fromage.
 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
 - Topics: [Countries around France](../topics/index.md#france_countries_around), [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg)
-
----
-
-### Symbole cible {#antura_target}
-![preview antura_target](../../../assets/img/content/cards/antura_target.jpg){ loading=lazy }
-
-Si vous voyez cela, allez-y. Cela pourrait être quelque chose d’important !
-
-- Type: Concept
-- Country: International
-- Image credit: CC0
 
 ---
 
@@ -2126,46 +2026,6 @@ Le terrain en herbe où se joue le football.
 - Subjects: Sport, Recreation, Community
 - Country: International
 - Image credit: CC_BY_SA | لا روسا | [source](https://commons.wikimedia.org/wiki/File:Santiagobernabeupanoramav45.JPG)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Tomate {#food_tomato}
-![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
-
-Un fruit rouge et rond qui pousse sur les plantes. On utilise les tomates pour faire de la sauce à pizza !
-
-- Type: Object
-- Subjects: Food, Culture
-- Country: International
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tomato_je.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Train {#train}
-![preview train](../../../assets/img/content/cards/train.jpg){ loading=lazy }
-
-Les trains transportent rapidement des personnes et des marchandises à travers le pays.
-
-- Type: Object
-- Subjects: Transportation
-- Country: International
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-
----
-
-### Tram {#tram}
-![preview tram](../../../assets/img/content/cards/tram.jpg){ loading=lazy }
-
-Un train urbain qui circule sur des rails dans la rue.
-
-- Type: Object
-- Subjects: Transportation, Technology, Community
-- Country: International
-- Image credit: CC_BY_SA | Chme82 | [source](https://commons.wikimedia.org/wiki/File:Flexity_Tram_Zürich_4001.jpg)
 - Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -2196,10 +2056,36 @@ Un pays d'Europe. Sa capitale est Kyiv.
 
 ---
 
+### Un apiculteur {#beekeeper}
+![preview beekeeper](../../../assets/img/content/cards/beekeeper.jpg){ loading=lazy }
+
+C'est une personne qui s’occupe des abeilles et prend le miel.
+
+- Type: Person
+- Subjects: Community, Animal, Food
+- Country: International
+- Image credit: CC_BY | Michael Gäbler | [source](https://commons.wikimedia.org/wiki/File:Beekeeper_keeping_bees.jpg)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Un bateau habitable {#boat_house}
+![preview boat_house](../../../assets/img/content/cards/boat_house.jpg){ loading=lazy }
+
+C'est un bateau où on habite comme dans une maison.
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+
+---
+
 ### Un bateau pour les gens {#boat_people}
 ![preview boat_people](../../../assets/img/content/cards/boat_people.jpg){ loading=lazy }
 
-Un bateau qui transporte des personnes d’un endroit à un autre à travers l’eau.
+Un bateau qui transporte les gens.
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -2209,10 +2095,232 @@ Un bateau qui transporte des personnes d’un endroit à un autre à travers l�
 
 ---
 
+### Un bateau pour marchandises {#boat_for_goods}
+![preview boat_for_goods](../../../assets/img/content/cards/boat_for_goods.jpg){ loading=lazy }
+
+Un grand bateau qui transporte des boîtes, de la nourriture et d’autres choses.
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+
+---
+
+### Un bateau sur un fleuve {#boat_river}
+![preview boat_river](../../../assets/img/content/cards/boat_river.jpg){ loading=lazy }
+
+Un bateau qui navigue sur les rivières. Les rivières sont comme des routes sur d'eau !
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: International
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### Un boucher {#butcher}
+![preview butcher](../../../assets/img/content/cards/butcher.jpg){ loading=lazy }
+
+C'est une personne qui vend de la viande.
+
+- Type: Person
+- Subjects: Community, Food
+- Country: International
+- Image credit: CC_BY_SA | Sabina Bajracharya | [source](https://commons.wikimedia.org/wiki/File:A_Butcher_cutting_buffalo_meat.jpg)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Un bus {#bus}
+![preview bus](../../../assets/img/content/cards/bus.jpg){ loading=lazy }
+
+A big vehicle that carries many people.
+
+- Type: Object
+- Subjects: Transportation, Community
+- Country: International
+- Image credit: CC_BY_SA | Xosema | [source](https://commons.wikimedia.org/wiki/File:Setra_S6_-_Empresa_Mosquera_-_02.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Un lion {#animal_lion}
+![preview animal_lion](../../../assets/img/content/cards/animal_lion.jpg){ loading=lazy }
+
+On dit que c'est le roi des animaux. Il vit en groupe.
+
+- Type: Object
+- Subjects: Animal, Environment
+- Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
+- Image credit: CC0
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Un lionceau {#animal_lion_cub}
+![preview animal_lion_cub](../../../assets/img/content/cards/animal_lion_cub.jpg){ loading=lazy }
+
+C'est un bébé lion à la fourrure douce et aux grandes pattes. Il aime à jouer.
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lion_cub_in_Masai_Mara_National_Park.jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Un manchot {#animal_penguin}
+![preview animal_penguin](../../../assets/img/content/cards/animal_penguin.jpg){ loading=lazy }
+
+C'est un oiseau qui ne peut pas voler mais qui nage très bien. Il vit dans les régions froides.
+
+- Type: Object
+- Subjects: Animal, Environment
+- Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
+- Image credit: CC0 | [source](https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### un oeuf {#eggs}
+![preview eggs](../../../assets/img/content/cards/eggs.jpg){ loading=lazy }
+
+C'est la poule qui pond les oeufs. L'oeuf est utilisé pour cuisiner et faire de la pâtisserie.
+
+- Type: Object
+- Subjects: Food, Animal
+- Country: International
+- Topics: [Gingerbread](../topics/index.md#gingerbread)
+- Image credit: CC_BY_SA | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Eggs_in_basket_2020_G1.jpg)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### Un portail {#antura_portal}
+![preview antura_portal](../../../assets/img/content/cards/antura_portal.jpg){ loading=lazy }
+
+Avec la porte magique tu peux aller vers de nouveaux lieux. Entre et découvre où elle te mène !
+
+- Type: Object
+- Country: International
+- Topics: [Antura's world](../topics/index.md#antura-world)
+- Image credit: CC0
+
+---
+
+### Un renard {#animal_fox}
+![preview animal_fox](../../../assets/img/content/cards/animal_fox.jpg){ loading=lazy }
+
+C'est un animal  intelligent qui vit dans les bois. Sa queue lui tient chaud.
+
+- Type: None
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Renard_roux_en_for%C3%AAt.jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Un sac à dos {#backpack}
+![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
+
+No translation found for 'backpack.desc' in Cards
+
+- Type: Object
+- Subjects: Recreation, Transportation, Education
+- Country: International
+- Topics: [mountain tools](../topics/index.md#mountain_tools)
+- Image credit: CC_BY_SA | FOTO:Fortepan — ID 20607: Adományozó/Donor: Wein Sarolta. archive copy at the Wayback Machine | [source](https://commons.wikimedia.org/wiki/File:Colorful,_backpack_Fortepan_20607.jpg)
+- Quests: [Mont Blanc et montagnes (fr_08)](../quests/quest/fr_08.md)
+
+---
+
+### Un singe {#animal_monkey}
+![preview animal_monkey](../../../assets/img/content/cards/animal_monkey.jpg){ loading=lazy }
+
+C'est un animal intelligent qui aime aller dans les arbres et jouer. Certains singes vivent en grandes familles.
+
+- Type: Object
+- Subjects: Animal, Environment
+- Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
+- Image credit: CC0
+
+---
+
+### Un symbole cible {#antura_target}
+![preview antura_target](../../../assets/img/content/cards/antura_target.jpg){ loading=lazy }
+
+Quand tu la vois, Vas-y. Ça peut être important !
+
+- Type: Concept
+- Country: International
+- Image credit: CC0
+
+---
+
+### Un vélo {#bike}
+![preview bike](../../../assets/img/content/cards/bike.jpg){ loading=lazy }
+
+A two‑wheeled vehicle you pedal.
+
+- Type: Object
+- Subjects: Transportation, Sport, Health
+- Country: International
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### Une ballon {#ball}
+![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
+
+No translation found for 'ball.desc' in Cards
+
+- Type: Object
+- Subjects: Sport, Recreation
+- Country: International
+- Image credit: CC_BY_SA | Marco Gualazzini | [source](https://commons.wikimedia.org/wiki/File:Playing_in_the_Nuba_mountains.jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
+### une girafe {#animal_giraffe}
+![preview animal_giraffe](../../../assets/img/content/cards/animal_giraffe.jpg){ loading=lazy }
+
+C'est un animal très grand avec un long cou. Les girafes sont plus hautes que les arbres ! Elles mangent des feuilles.
+
+- Rationale: Giraffes are fascinating animals that show kids how nature adapts to find food
+- Type: Object
+- Subjects: Animal, Environment
+- Country: International
+- Topics: [Zoo Animals](../topics/index.md#zoo)
+- Image credit: CC0
+
+---
+
+### une voiture {#car}
+![preview car](../../../assets/img/content/cards/car.jpg){ loading=lazy }
+
+A small vehicle for roads.
+
+- Type: Object
+- Subjects: Transportation
+- Country: International
+- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Abandoned_car_in_Marine_Park_(10852p).jpg)
+- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
+
+---
+
 ### Varsovie {#capital_warsaw}
 ![preview capital_warsaw](../../../assets/img/content/cards/capital_warsaw.jpg){ loading=lazy }
 
-La capitale de la Pologne.
+C'est la capitale de la Pologne.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -2234,32 +2342,6 @@ Vend des petits pots aux arômes délicieux comme la cannelle, le clou de girofl
 
 ---
 
-### Vendeur d'œufs {#egg_vendor}
-![preview egg_vendor](../../../assets/img/content/cards/egg_vendor.jpg){ loading=lazy }
-
-Une personne qui vend des œufs.
-
-- Type: Person
-- Subjects: Community, Food
-- Country: International
-- Image credit: CC_BY_SA | Elgabarty2002 | [source](https://commons.wikimedia.org/wiki/File:Egg_Seller_in_Nigeria.jpg)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Vendeur de produits laitiers {#dairy_vendor}
-![preview dairy_vendor](../../../assets/img/content/cards/dairy_vendor.jpg){ loading=lazy }
-
-Une personne qui vend du lait, du beurre et du fromage.
-
-- Type: Person
-- Subjects: Community, Food
-- Country: International
-- Image credit: CC_BY_SA | Something Original (talk) | [source](https://commons.wikimedia.org/wiki/File:Pennsylvania_State_University_Food_Science_Building_and_Berkey_Creamery_May_15,_2010.jpg)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
----
-
 ### Vent {#wind}
 ![preview wind](../../../assets/img/content/cards/wind.jpg){ loading=lazy }
 
@@ -2274,97 +2356,15 @@ Un air en mouvement qui peut sembler fort en montagne.
 
 ---
 
-### Ville de Luxembourg {#capital_luxembourg_city}
-![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ loading=lazy }
-
-La capitale du Luxembourg.
-
-- Type: Place
-- Subjects: Geography, Culture
-- Country: International
-- Topics: [Countries around France](../topics/index.md#france_countries_around)
-- Image credit: CC_BY_SA | Krzysztof Golik | [source](https://commons.wikimedia.org/wiki/File:City_Hall_of_Luxembourg_City_01.jpg)
-
----
-
 ### Vilnius {#capital_vilnius}
 ![preview capital_vilnius](../../../assets/img/content/cards/capital_vilnius.jpg){ loading=lazy }
 
-La capitale de la Lituanie.
+C'est la capitale de la Lituanie.
 
 - Type: Place
 - Subjects: Geography, Culture
 - Country: International
 - Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Vilnius_Modern_Skyline_At_Dusk,_Lithuania_-_Diliff.jpg)
-
----
-
-### Voiture {#car}
-![preview car](../../../assets/img/content/cards/car.jpg){ loading=lazy }
-
-Un petit véhicule pour les routes.
-
-- Type: Object
-- Subjects: Transportation
-- Country: International
-- Image credit: CC_BY_SA | Rhododendrites | [source](https://commons.wikimedia.org/wiki/File:Abandoned_car_in_Marine_Park_(10852p).jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### Vélo {#bike}
-![preview bike](../../../assets/img/content/cards/bike.jpg){ loading=lazy }
-
-Un véhicule à deux roues sur lequel on pédale.
-
-- Type: Object
-- Subjects: Transportation, Sport, Health
-- Country: International
-- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
-- Quests: [Découvrir Varsovie (pl_01)](../quests/quest/pl_01.md)
-
----
-
-### écoles françaises {#french_schools}
-![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
-
-En France, l'école se déroule en quatre grandes étapes : la maternelle (apprentissage ludique pour les petits), l'école élémentaire (lecture, écriture, mathématiques), le collège et le lycée. À la fin du lycée, de nombreux élèves passent un examen important, le baccalauréat.
-
-- Type: Concept
-- Subjects: Education, Civics, Culture
-- Country: International
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | P_L_Martin_des_Amoignes_In_the_classroom_1886 | [source](https://commons.wikimedia.org/wiki/File:P_L_Martin_des_Amoignes_In_the_classroom_1886.jpg)
-
----
-
-### Éléphant {#animal_elephant}
-![preview animal_elephant](../../../assets/img/content/cards/animal_elephant.jpg){ loading=lazy }
-
-Un gros animal avec une trompe. Les éléphants sont les plus grands animaux terrestres. Ils ont de grandes oreilles et adorent arroser !
-
-- Rationale: Elephants are amazing animals that kids love learning about at the zoo!
-- Type: Object
-- Subjects: Animal, Environment
-- Country: International
-- Topics: [Zoo Animals](../topics/index.md#zoo)
-- Words: elephant, zoo
-- Image credit: CC0
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Épicier {#person_grocer}
-![preview person_grocer](../../../assets/img/content/cards/person_grocer.jpg){ loading=lazy }
-
-Une personne qui vend de nombreux types d’aliments et de boissons.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2380,31 +2380,35 @@ Région de France où se trouve Paris, la capitale. De nombreuses personnes y vi
 - Image credit: CC0
 - Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
 
----
-
-### Œufs {#eggs}
-![preview eggs](../../../assets/img/content/cards/eggs.jpg){ loading=lazy }
-
-Nourriture provenant de poulets utilisée pour la cuisson et la pâtisserie.
-
-- Type: Object
-- Subjects: Food, Animal
-- Country: International
-- Topics: [Gingerbread](../topics/index.md#gingerbread)
-- Image credit: CC_BY_SA | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Eggs_in_basket_2020_G1.jpg)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
-
 ## France
 
-### 24 Heures du Mans {#24_hours_of_le_mans}
-![preview 24_hours_of_le_mans](../../../assets/img/content/cards/24_hours_of_le_mans.jpg){ loading=lazy }
+### 20000 lieues sous les mers {#book_20000_leagues_under_the_sea}
+![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
-Une course automobile qui dure 24 heures. Les équipes roulent jour et nuit.
+C'est un livre écrit par Jules Verne. Il parle d'un voyage dans le sous-marin qui s'appelle le Nautilus et des grands animaux qui vivent sous la mer.
 
-- Type: Concept
-- Subjects: Sport, Culture, History
+- Type: Object
+- Subjects: Literature
+- Year: 1871
 - Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
+- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
+### 5 semaines en ballon {#book_five_weeks_in_a_balloon}
+![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
+
+C'est un livre de Jules Verne qui raconte un voyage en ballon au-dessus de l'Afrique, plein d'aventures et de découvertes !
+
+- Type: Object
+- Subjects: Literature
+- Year: 1863
+- Country: France
+- Topics: [Jules Verne](../topics/index.md#jules_verne)
+- Image credit: CC0
+- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2423,30 +2427,6 @@ Les premiers mots de la première ligne de l’hymne.
 
 ---
 
-### Arc {#bow}
-![preview bow](../../../assets/img/content/cards/bow.jpg){ loading=lazy }
-
-Une arme qui tire des flèches.
-
-- Type: Object
-- Subjects: History, Technology
-- Country: France
-- Image credit: CC0 | Harold Dean Carsey (1886-1947) | [source](https://commons.wikimedia.org/wiki/File:Clara_Bow,_grayscale.jpg)
-
----
-
-### Arc de Triomphe {#arc_de_triomphe}
-![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
-
-Une grande arche à Paris, érigée en l'honneur des héros. On peut la voir briller au bout d'une longue avenue !
-
-- Type: Place
-- Country: France
-- Image credit: CC0
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
-
----
-
 ### Arc-boutant {#flying_buttress}
 ![preview flying_buttress](../../../assets/img/content/cards/flying_buttress.jpg){ loading=lazy }
 
@@ -2457,106 +2437,6 @@ Bras de pierre à l'extérieur qui aident à soutenir les hauts murs.
 - Country: France
 - Image credit: CC_BY_SA | Acroterion | [source](https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_gallery_roof_and_buttresses_1980-1.jpg)
 - Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Armure {#armor}
-![preview armor](../../../assets/img/content/cards/armor.jpg){ loading=lazy }
-
-Vêtement de protection en métal pour chevalier.
-
-- Type: Object
-- Subjects: History, Safety
-- Country: France
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Armor_MET_DP271145.jpg)
-
----
-
-### Ascenseurs de la Tour Eiffel {#eiffel_tower_elevators}
-![preview eiffel_tower_elevators](../../../assets/img/content/cards/eiffel_tower_elevators.jpg){ loading=lazy }
-
-Ascenseurs qui emmènent les visiteurs en haut de la tour de fer.
-
-- Type: Object
-- Subjects: Technology, Transportation
-- Country: France
-- Image credit: CC0 | Louis-Emile Durandelle | [source](https://commons.wikimedia.org/wiki/File:Louis-Emile_Durandelle,_The_Eiffel_Tower_-_State_of_the_Construction,_1888.jpg)
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Baguette française {#food_baguette}
-![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ loading=lazy }
-
-Un pain long et croustillant, l'aliment le plus célèbre en France. Les Français achètent des baguettes fraîches tous les jours à la boulangerie !
-
-- Rationale: Baguettes are iconic French culture that kids can easily understand and remember
-- Type: Object
-- Subjects: Food, Culture
-- Year: 1700
-- Country: France
-- Topics: [Baguette](../topics/index.md#baguette)
-- Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Bateau sur la Seine {#boat_eiffel_tower}
-![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ loading=lazy }
-
-Un bateau exceptionnel qui navigue sur la Seine à Paris. Depuis l'eau, vous pourrez admirer la Tour Eiffel et d'autres magnifiques monuments !
-
-- Rationale: Boat tours help kids see Paris from a different perspective and understand river transportation
-- Type: Concept
-- Subjects: Transportation, Geography, Culture
-- Year: 1900
-- Country: France
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
-### Bouillabaisse {#bouillabaisse}
-![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ loading=lazy }
-
-Une soupe de poisson typique de Marseille, dans le sud de la France. Elle est composée de différentes variétés de poissons et dégage une délicieuse odeur !
-
-- Type: Object
-- Subjects: Food, Culture
-- Year: 1700
-- Country: France
-- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
-- Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Carte de la Seine {#seine_map}
-![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ loading=lazy }
-
-Une image qui montre la Seine et où elle coule à travers le territoire.
-
-- Type: Object
-- Subjects: Geography, Environment
-- Country: France
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
-### Carte de la Seine à Paris {#seine_map_in_paris}
-![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ loading=lazy }
-
-Une image qui montre comment la Seine traverse la ville de Paris.
-
-- Type: Object
-- Subjects: Science
-- Country: France
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -2634,25 +2514,10 @@ Un beau chapeau avec une plume pour le style.
 
 ---
 
-### Charte de la laïcité {#concept_charter_of_secularism}
-![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ loading=lazy }
-
-Un ensemble de règles visant à respecter les croyances de chacun. Il contribue à une coexistence pacifique.
-
-- Type: Concept
-- Subjects: Community, Culture
-- Year: 2013
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://camille-claudel.ecollege.haute-garonne.fr/le-college/charte-de-la-laicite/)
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md), [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Chaussures de danse {#dancing_shoes}
 ![preview dancing_shoes](../../../assets/img/content/cards/dancing_shoes.jpg){ loading=lazy }
 
-Chaussures conçues pour danser dans une salle de bal.
+Chaussures pour danser.
 
 - Type: Object
 - Subjects: Culture, Recreation
@@ -2673,19 +2538,6 @@ Un grand palais avec de nombreuses fenêtres et jardins.
 
 ---
 
-### Château de Chinon {#castle_chinon}
-![preview castle_chinon](../../../assets/img/content/cards/castle_chinon.jpg){ loading=lazy }
-
-Le château de Chinon est une puissante forteresse de pierre perchée sur une colline surplombant la Loire. Jadis, des rois y séjournèrent et Jeanne d'Arc vint y rencontrer le futur roi de France.
-
-- Type: Place
-- Subjects: History
-- Country: France
-- Image credit: CC0
-- Quests: [Un conte de deux châteaux (fr_05)](../quests/quest/fr_05.md)
-
----
-
 ### Château de Chinon {#chateau_de_chinon}
 ![preview chateau_de_chinon](../../../assets/img/content/cards/chateau_de_chinon.jpg){ loading=lazy }
 
@@ -2695,21 +2547,6 @@ Une solide forteresse en pierre utilisée pour la défense.
 - Subjects: History, Geography, Culture
 - Country: France
 - Image credit: CC_BY_SA | Benjamin Smith | [source](https://commons.wikimedia.org/wiki/File:Chinon_-_Château_vu_depuis_la_plage.jpg)
-
----
-
-### Cinq semaines en ballon {#book_five_weeks_in_a_balloon}
-![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
-
-Un livre de Jules Verne sur la traversée de l'Afrique en montgolfière. Plein d'aventures et de découvertes !
-
-- Type: Object
-- Subjects: Literature
-- Year: 1863
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2723,22 +2560,6 @@ Une pierre sur laquelle sont gravées de très vieilles lois.
 - Country: France
 - Image credit: CC_BY | Mbzt | [source](https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk.JPG)
 - Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Collège en France {#education_college_fr}
-![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
-
-Collège en France pour les enfants de 11 à 15 ans. Les élèves apprennent de nombreuses matières et se préparent au lycée.
-
-- Rationale: Understanding the French school system helps kids compare education across countries
-- Type: Concept
-- Subjects: Education, Culture
-- Year: 1975
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | Marie Gaultier, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Ecole_Sup%C3%A9rieure_d%27Agricultures.jpg)
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md), [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2773,7 +2594,7 @@ Paroles de la première ligne de l’hymne.
 ### De la Terre à la Lune {#book_from_earth_to_moon}
 ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
 
-Un livre de Jules Verne sur la Lune dans un grand canon ! Il a été écrit avant l'existence des vraies fusées.
+C'est un livre écrit par Jules Verne. Il raconte un voyage vers la Lune dans un engin spatial lancé par un grand canon. À l'époque, les fusées spatiales n'existaient pas encore !
 
 - Type: Object
 - Subjects: Literature, Space, Science
@@ -2795,22 +2616,6 @@ Une note de musique.
 - Country: France
 - Topics: [Musical Notes](../topics/index.md#musical_notes)
 - Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
-
----
-
-### Drapeau de la France {#flag_france}
-![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ loading=lazy }
-
-Le drapeau français comporte trois bandes verticales : bleu, blanc et rouge. Ces couleurs représentent la liberté, l'égalité et la fraternité !
-
-- Rationale: The French flag is essential for teaching French national identity and values
-- Type: Concept
-- Subjects: Geography, Culture
-- Year: 1794
-- Country: France
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [France country](../topics/index.md#france-country)
-- Image credit: CC0
-- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -2920,22 +2725,10 @@ Des lampadaires qui vous indiquent quand vous devez vous ARRÊTER ou PARTIR.
 
 ---
 
-### Flèches {#arrows}
-![preview arrows](../../../assets/img/content/cards/arrows.jpg){ loading=lazy }
-
-Des bâtons pointus tirés d'un arc.
-
-- Type: Object
-- Subjects: History, Technology
-- Country: France
-- Image credit: CC_BY | Julian Herzog (Website) | [source](https://commons.wikimedia.org/wiki/File:Red_Arrows_Formation_Duxford_Flying_Finale_2024_02.jpg)
-
----
-
 ### France {#country_france}
 ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ loading=lazy }
 
-Un pays d'Europe. Sa capitale est Paris.
+La France est un pays d’Europe. Sa capitale est Paris.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -3051,7 +2844,7 @@ Un musicien français célèbre pour la musique électronique
 ### Jules Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
-Un écrivain français qui a imaginé des aventures extraordinaires avant même qu'elles ne soient possibles ! Il a écrit sur les sous-marins, les fusées et les voyages autour du monde.
+Jules Verne est né en 1828, il y a presque 200 ans. Il est mort en 1905. C'est un écrivain français qui a écrit beaucoup de livres. Il a imaginé des moyens de transport extraordinaires avant qu'ils existent vraiment ! Il a écrit sur les sous-marins, les fusées et les voyages autour du monde.
 
 - Rationale: Jules Verne shows kids how imagination and science can work together
 - Type: Person
@@ -3061,6 +2854,18 @@ Un écrivain français qui a imaginé des aventures extraordinaires avant même 
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
+### L'Arc de Triomphe {#arc_de_triomphe}
+![preview arc_de_triomphe](../../../assets/img/content/cards/arc_de_triomphe.jpg){ loading=lazy }
+
+C'est une grande arche à Paris, construite en l'honneur des héros. On peut la voir briller au bout d'une longue avenue !
+
+- Type: Place
+- Country: France
+- Image credit: CC0
+- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3077,10 +2882,69 @@ Une note de musique.
 
 ---
 
+### la baguette française {#food_baguette}
+![preview food_baguette](../../../assets/img/content/cards/food_baguette.jpg){ loading=lazy }
+
+Un pain long et croustillant, l'aliment le plus célèbre en France. Les Français achètent des baguettes fraîches tous les jours à la boulangerie !
+
+- Rationale: Baguettes are iconic French culture that kids can easily understand and remember
+- Type: Object
+- Subjects: Food, Culture
+- Year: 1700
+- Country: France
+- Topics: [Baguette](../topics/index.md#baguette)
+- Image credit: CC0
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### La bouillabaisse {#bouillabaisse}
+![preview bouillabaisse](../../../assets/img/content/cards/bouillabaisse.jpg){ loading=lazy }
+
+C'est une soupe de poisson de Marseille, dans le sud de la France.  Elle sent bon !
+
+- Type: Object
+- Subjects: Food, Culture
+- Year: 1700
+- Country: France
+- Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
+- Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### La carte de la Seine {#seine_map}
+![preview seine_map](../../../assets/img/content/cards/seine_map.jpg){ loading=lazy }
+
+ La Seine mesure 777 km. Elle se jette dans La Manche..
+
+- Type: Object
+- Subjects: Geography, Environment
+- Country: France
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### La carte de la Seine à Paris {#seine_map_in_paris}
+![preview seine_map_in_paris](../../../assets/img/content/cards/seine_map_in_paris.jpg){ loading=lazy }
+
+La Seine est le fleuve. La Seine traverse Paris.
+
+- Type: Object
+- Subjects: Science
+- Country: France
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
 ### La liberté guidant le peuple {#art_liberty_leading_the_people}
 ![preview art_liberty_leading_the_people](../../../assets/img/content/cards/art_liberty_leading_the_people.jpg){ loading=lazy }
 
-Un célèbre tableau sur la liberté et le courage. Il représente une femme courageuse brandissant le drapeau français et menant le peuple à la lutte pour ses droits.
+Un tableau très connu sur la liberté et le courage. Il représente une femme courageuse, la liberté, qui tient le drapeau français.
 
 - Rationale: This painting teaches kids about fighting for freedom and the French Revolution
 - Type: Object
@@ -3108,6 +2972,80 @@ L'hymne national français. On le chante lors des grands événements et des com
 
 ---
 
+### La Seine {#seine}
+![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
+
+C'est le fleuve qui passe à Paris. La Seine mesure 777 km. Elle se jette dans la Manche.
+
+- Type: Place
+- Subjects: Geography
+- Country: France
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### La Tour Eiffel {#eiffel_tower}
+![preview eiffel_tower](../../../assets/img/content/cards/eiffel_tower.jpg){ loading=lazy }
+
+C'est le symbole de Paris. Construite en fer, elle mesure 300 mètres de haut. En haut, on peut admirer toute la ville de Paris.
+
+- Type: Place
+- Subjects: Geography, History, Culture
+- Year: 1889
+- Country: France
+- Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
+- Image credit: CC0
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### Le château de Chinon {#castle_chinon}
+![preview castle_chinon](../../../assets/img/content/cards/castle_chinon.jpg){ loading=lazy }
+
+Le château de Chinon est en pierre. Il est près du fleuve la Loire. Des rois y ont habité et Jeanne d'Arc y a rencontré le futur roi de France.
+
+- Type: Place
+- Subjects: History
+- Country: France
+- Image credit: CC0
+- Quests: [Un conte de deux châteaux (fr_05)](../quests/quest/fr_05.md)
+
+---
+
+### Le collège {#education_college_fr}
+![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
+
+C'est une école pour les élèves de 11 à 14 ans. Les élèves ont différents professeurs et matières: mathématiques, anglais, sciences, sport, histoire…
+
+- Rationale: Understanding the French school system helps kids compare education across countries
+- Type: Concept
+- Subjects: Education, Culture
+- Year: 1975
+- Country: France
+- Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | Marie Gaultier, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Ecole_Sup%C3%A9rieure_d%27Agricultures.jpg)
+- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md), [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
+### Le drapeau de la France {#flag_france}
+![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ loading=lazy }
+
+Le drapeau français comporte 3 couleurs verticales: le bleu, le blanc, et le rouge.
+
+- Rationale: The French flag is essential for teaching French national identity and values
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1794
+- Country: France
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [France country](../topics/index.md#france-country)
+- Image credit: CC0
+- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
+
+---
+
 ### Le jour de la gloire {#marseillaise_3}
 ![preview marseillaise_3](../../../assets/img/content/cards/marseillaise_3.jpg){ loading=lazy }
 
@@ -3123,6 +3061,22 @@ Paroles de la première ligne de l’hymne.
 
 ---
 
+### Le lycée {#education_lycee_fr}
+![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ loading=lazy }
+
+C’est une école pour les adolescents de 14 à 18 ans. Les élèves ont différents professeurs et matières: mathématiques, anglais, sciences, sport, histoire… Ils préparent un examen final qui s’appelle le baccalauréat.
+
+- Rationale: The Lycée system shows kids the path to higher education in France
+- Type: Concept
+- Subjects: Education, Culture
+- Year: 1975
+- Country: France
+- Topics: [French School](../topics/index.md#frenchschool)
+- Image credit: CC0 | Émeric, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Atelier_lyc%C3%A9e_Chevrollier.jpg)
+- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
+
+---
+
 ### Le Mans {#le_mans}
 ![preview le_mans](../../../assets/img/content/cards/le_mans.jpg){ loading=lazy }
 
@@ -3132,6 +3086,33 @@ Une ville de France, célèbre pour une course automobile de 24 heures.
 - Subjects: Geography, Culture, Community
 - Country: France
 - Image credit: CC_BY_SA | Selbymay | [source](https://commons.wikimedia.org/wiki/File:Le_Mans_-_Cathedrale_St_Julien_ext_autumn.jpg)
+
+---
+
+### Le passage piéton {#zebra_crossing}
+![preview zebra_crossing](../../../assets/img/content/cards/zebra_crossing.jpg){ loading=lazy }
+
+Un passage piéton est indiqué par des bandes blanches sur la route. Il indique un endroit pour traverser la route en toute sécurité.là où les gens traversent la rue.
+
+- Type: Object
+- Subjects: Safety, Education, Transportation
+- Country: France
+- Topics: [Stree safety](../topics/index.md#street-safety)
+- Image credit: CC_BY_SA | Shuets Udono | [source](https://commons.wikimedia.org/wiki/File:Japanese_car_accident.jpg)
+
+---
+
+### Le Pont Alexandre III {#pont_alexandre_iii}
+![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ loading=lazy }
+
+C’est un pont célèbre à Paris. Il a de belles decorations dorées.
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: France
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3161,10 +3142,10 @@ Un tableau représentant trois frères faisant une promesse courageuse.
 
 ---
 
-### Le tour du monde en quatre-vingts jours {#book_around_the_world_80_days}
+### Le tour du monde en 80 jours {#book_around_the_world_80_days}
 ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
-Un livre passionnant de Jules Verne sur les voyages autour du monde très rapidement en utilisant des trains, des bateaux et des montgolfières !
+C'est un livre écrit par Jules Verne. Il parle d'un très beau et très rapide voyage autour du monde en train, en bateau et en ballon !
 
 - Type: Object
 - Subjects: Literature
@@ -3173,6 +3154,58 @@ Un livre passionnant de Jules Verne sur les voyages autour du monde très rapide
 - Topics: [Jules Verne](../topics/index.md#jules_verne)
 - Image credit: CC0
 - Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
+
+---
+
+### Les 24 Heures du Mans {#24_hours_of_le_mans}
+![preview 24_hours_of_le_mans](../../../assets/img/content/cards/24_hours_of_le_mans.jpg){ loading=lazy }
+
+C'est une course automobile qui dure 24 heures. Les équipes conduisent jour et nuit.
+
+- Type: Concept
+- Subjects: Sport, Culture, History
+- Country: France
+- Image credit: CC0
+
+---
+
+### Les ascenseurs de la Tour Eiffel {#eiffel_tower_elevators}
+![preview eiffel_tower_elevators](../../../assets/img/content/cards/eiffel_tower_elevators.jpg){ loading=lazy }
+
+Les ascenseurs emmènent les visiteurs en haut de la tour Eiffel.
+
+- Type: Object
+- Subjects: Technology, Transportation
+- Country: France
+- Image credit: CC0 | Louis-Emile Durandelle | [source](https://commons.wikimedia.org/wiki/File:Louis-Emile_Durandelle,_The_Eiffel_Tower_-_State_of_the_Construction,_1888.jpg)
+- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### Les flèches {#arrows}
+![preview arrows](../../../assets/img/content/cards/arrows.jpg){ loading=lazy }
+
+On tire les flèches avec un arc.
+
+- Type: Object
+- Subjects: History, Technology
+- Country: France
+- Image credit: CC_BY | Julian Herzog (Website) | [source](https://commons.wikimedia.org/wiki/File:Red_Arrows_Formation_Duxford_Flying_Finale_2024_02.jpg)
+
+---
+
+### Les pirates {#pirates}
+![preview pirates](../../../assets/img/content/cards/pirates.jpg){ loading=lazy }
+
+Les pirates voyageaient sur des bateaux en mer. Ils s'attaquaient à des navires pour récupérer des objets de valeur ou de l'argent. 
+
+- Rationale: Pirates capture kids' imagination while teaching about maritime history and French naval power
+- Type: Concept
+- Subjects: History, Culture, Transportation
+- Year: 1600
+- Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Forbin_et_Jean_Bart_capture_en_1689.jpg)
+- Quests: [Le marché de Marseille (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -3215,18 +3248,17 @@ Un instrument à cordes joué à la cour.
 
 ---
 
-### Lycée en France {#education_lycee_fr}
-![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ loading=lazy }
+### L’école maternelle {#education_ecole_maternelle_fr}
+![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
 
-Lycée en France pour les adolescents de 16 à 18 ans. Les élèves étudient dur pour l'examen du baccalauréat pour aller à l'université.
+C'est une école pour les enfants de 3 à 5 ans. Les enfants apprennent en explorant et en jouant.
 
-- Rationale: The Lycée system shows kids the path to higher education in France
 - Type: Concept
 - Subjects: Education, Culture
 - Year: 1975
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | Émeric, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Atelier_lyc%C3%A9e_Chevrollier.jpg)
+- Image credit: CC0 | Polymagou, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_Paul-Langevin,_Les_Clayes-sous-Bois,_Yvelines_9-3.jpg)
 - Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
 
 ---
@@ -3310,31 +3342,6 @@ Les notes écrites et les paroles d'une chanson.
 
 ---
 
-### Passage piéton {#zebra_crossing}
-![preview zebra_crossing](../../../assets/img/content/cards/zebra_crossing.jpg){ loading=lazy }
-
-Bandes blanches là où les gens traversent la rue.
-
-- Type: Object
-- Subjects: Safety, Education, Transportation
-- Country: France
-- Topics: [Stree safety](../topics/index.md#street-safety)
-- Image credit: CC_BY_SA | Shuets Udono | [source](https://commons.wikimedia.org/wiki/File:Japanese_car_accident.jpg)
-
----
-
-### Passeur {#boatman}
-![preview boatman](../../../assets/img/content/cards/boatman.jpg){ loading=lazy }
-
-Une personne qui rame en barque sur la Loire.
-
-- Type: Person
-- Subjects: Community, Transportation
-- Country: France
-- Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Perhentian_Islands,_Boatman,_Malaysia.jpg)
-
----
-
 ### Piano {#piano}
 ![preview piano](../../../assets/img/content/cards/piano.jpg){ loading=lazy }
 
@@ -3345,35 +3352,6 @@ Un instrument à clavier utilisé pour jouer des mélodies et des accords.
 - Country: France
 - Topics: [Musical Notes](../topics/index.md#musical_notes)
 - Image credit: CC0 | Unknown authorUnknown author | [source](https://commons.wikimedia.org/wiki/File:Hupfeld_piano_played_(2018-10-04_@pxhere_1546039).jpg)
-
----
-
-### Pirates français {#pirates}
-![preview pirates](../../../assets/img/content/cards/pirates.jpg){ loading=lazy }
-
-De braves marins qui sillonnaient les mers pour le roi de France. On les appelait corsaires et ils protégeaient les navires français de l'ennemi.
-
-- Rationale: Pirates capture kids' imagination while teaching about maritime history and French naval power
-- Type: Concept
-- Subjects: History, Culture, Transportation
-- Year: 1600
-- Country: France
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Forbin_et_Jean_Bart_capture_en_1689.jpg)
-- Quests: [Nourriture et marché (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Pont Alexandre III {#pont_alexandre_iii}
-![preview pont_alexandre_iii](../../../assets/img/content/cards/pont_alexandre_iii.jpg){ loading=lazy }
-
-Un beau pont à Paris avec des décorations fantaisistes et des statues dorées dessus.
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: France
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3453,19 +3431,6 @@ Une époque dans les années 1790 où la France a changé de gouvernement.
 
 ---
 
-### Salle de bal {#ballroom}
-![preview ballroom](../../../assets/img/content/cards/ballroom.jpg){ loading=lazy }
-
-Une grande salle pour danser et écouter de la musique.
-
-- Type: Place
-- Subjects: Culture, History
-- Country: France
-- Words: 
-- Image credit: CC_BY_SA | P e z i | [source](https://commons.wikimedia.org/wiki/File:Parkhotel_Schoenbrunn_Ballsaal_DSC_5115w.jpg)
-
----
-
 ### Scooter {#scooter}
 ![preview scooter](../../../assets/img/content/cards/scooter.jpg){ loading=lazy }
 
@@ -3475,20 +3440,6 @@ Une petite trottinette à deux roues.
 - Subjects: Transportation, Recreation, Safety
 - Country: France
 - Image credit: CC_BY_SA | Spurzem - Lothar Spurzem | [source](https://commons.wikimedia.org/wiki/File:Zündapp_Bella_R_154_(2008-05-21)_Seitenansicht_ret.jpg)
-
----
-
-### Seine {#seine}
-![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
-
-Un fleuve de 777 kilomètres de long dans le nord de la France
-
-- Type: Place
-- Subjects: Geography
-- Country: France
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3521,7 +3472,7 @@ Une note de musique.
 ### Sous-marin (Le Nautilus) {#submarine_nautilus}
 ![preview submarine_nautilus](../../../assets/img/content/cards/submarine_nautilus.jpg){ loading=lazy }
 
-Un sous-marin du roman de Jules Verne. Il pouvait explorer les profondeurs marines.
+C'est le sous-marin du livre de Jules Verne. On peut explorer la mer et observer les animaux à bord.
 
 - Type: Object
 - Subjects: Literature, Science
@@ -3532,18 +3483,80 @@ Un sous-marin du roman de Jules Verne. Il pouvait explorer les profondeurs marin
 
 ---
 
-### Tour Eiffel {#eiffel_tower}
-![preview eiffel_tower](../../../assets/img/content/cards/eiffel_tower.jpg){ loading=lazy }
+### Un arc {#bow}
+![preview bow](../../../assets/img/content/cards/bow.jpg){ loading=lazy }
 
-Une haute tour, symbole de Paris. Construite en fer, elle mesure 300 mètres de haut. De là-haut, on peut admirer toute la ville.
+A weapon that shoots arrows.
+
+- Type: Object
+- Subjects: History, Technology
+- Country: France
+- Image credit: CC0 | Harold Dean Carsey (1886-1947) | [source](https://commons.wikimedia.org/wiki/File:Clara_Bow,_grayscale.jpg)
+
+---
+
+### Un bateau sur la Seine {#boat_eiffel_tower}
+![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ loading=lazy }
+
+Un bateau qui est sur la Seine à Paris. Depuis l'eau, tu peux voir la Tour Eiffel et d'autres très beaux monuments !
+
+- Rationale: Boat tours help kids see Paris from a different perspective and understand river transportation
+- Type: Concept
+- Subjects: Transportation, Geography, Culture
+- Year: 1900
+- Country: France
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - La Seine (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### Un passeur {#boatman}
+![preview boatman](../../../assets/img/content/cards/boatman.jpg){ loading=lazy }
+
+Une personne qui rame sur la Loire.
+
+- Type: Person
+- Subjects: Community, Transportation
+- Country: France
+- Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Perhentian_Islands,_Boatman,_Malaysia.jpg)
+
+---
+
+### Un vélo {#bicycle}
+![preview bicycle](../../../assets/img/content/cards/bicycle.jpg){ loading=lazy }
+
+A vehicle with two wheels you pedal.
+
+- Type: Object
+- Subjects: Transportation, Health, Recreation
+- Country: France
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
+
+---
+
+### Une armure {#armor}
+![preview armor](../../../assets/img/content/cards/armor.jpg){ loading=lazy }
+
+C'est un habit en fer qui protège le chevalier.
+
+- Type: Object
+- Subjects: History, Safety
+- Country: France
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Armor_MET_DP271145.jpg)
+
+---
+
+### Une salle de bal {#ballroom}
+![preview ballroom](../../../assets/img/content/cards/ballroom.jpg){ loading=lazy }
+
+C'est une grande salle pour danser et écouter de la musique.
 
 - Type: Place
-- Subjects: Geography, History, Culture
-- Year: 1889
+- Subjects: Culture, History
 - Country: France
-- Topics: [Eiffel Tower](../topics/index.md#eiffel-tower)
-- Image credit: CC0
-- Quests: [Paris ! (fr_01)](../quests/quest/fr_01.md)
+- Words: 
+- Image credit: CC_BY_SA | P e z i | [source](https://commons.wikimedia.org/wiki/File:Parkhotel_Schoenbrunn_Ballsaal_DSC_5115w.jpg)
 
 ---
 
@@ -3572,21 +3585,6 @@ Une célèbre sculpture antique d'une déesse avec des ailes.
 
 ---
 
-### Vingt Mille Lieues sous les mers {#book_20000_leagues_under_the_sea}
-![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
-
-Un livre de Jules Verne relatant des aventures sous-marines à bord du sous-marin Nautilus. Vous y rencontrerez des créatures marines géantes !
-
-- Type: Object
-- Subjects: Literature
-- Year: 1871
-- Country: France
-- Topics: [Jules Verne](../topics/index.md#jules_verne)
-- Image credit: CC0
-- Quests: [Jules Verne et les transports (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Voiture de course {#race_car}
 ![preview race_car](../../../assets/img/content/cards/race_car.jpg){ loading=lazy }
 
@@ -3596,18 +3594,6 @@ Une voiture très rapide utilisée sur les pistes de course.
 - Subjects: Sport, Technology
 - Country: France
 - Image credit: CC_BY_SA | user:AngMoKio | [source](https://commons.wikimedia.org/wiki/File:Porsche_race_car_Verschuur_amk.jpg)
-
----
-
-### Vélo {#bicycle}
-![preview bicycle](../../../assets/img/content/cards/bicycle.jpg){ loading=lazy }
-
-Un véhicule à deux roues sur lequel on pédale.
-
-- Type: Object
-- Subjects: Transportation, Health, Recreation
-- Country: France
-- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Parked_bicycle_with_graffitied_building_facade_and_doors_in_Amsterdam.jpg)
 
 ---
 
@@ -3623,25 +3609,10 @@ Un instrument avec des barres sur lesquelles on frappe pour prendre des notes.
 
 ---
 
-### École maternelle {#education_ecole_maternelle_fr}
-![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
-
-École pour les petits de 3 à 5 ans. On apprend en jouant et en explorant.
-
-- Type: Concept
-- Subjects: Education, Culture
-- Year: 1975
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | Polymagou, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_Paul-Langevin,_Les_Clayes-sous-Bois,_Yvelines_9-3.jpg)
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
-
----
-
-### École primaire en France {#education_ecole_primaire_fr}
+### École élémentaire {#education_ecole_primaire_fr}
 ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ loading=lazy }
 
-École pour les enfants de 6 à 10 ans. Vous apprenez à lire, à écrire et à compter.
+C'est une école pour les élèves de 6 à 10 ans. Les enfants apprennent à lire, écrire et compter.
 
 - Type: Concept
 - Subjects: Education, Culture
@@ -3649,22 +3620,6 @@ Un instrument avec des barres sur lesquelles on frappe pour prendre des notes.
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: Licensed
-- Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
-
----
-
-### Écriture cursive {#concept_cursive_writing}
-![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ loading=lazy }
-
-Une façon particulière d'écrire où toutes les lettres d'un mot sont reliées entre elles. En France, les enfants apprennent cette écriture à l'école.
-
-- Rationale: Cursive writing is an important part of French education and cultural identity
-- Type: Concept
-- Subjects: Education, Culture, Art
-- Year: 1800
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png)
 - Quests: [Le système scolaire (fr_02)](../quests/quest/fr_02.md)
 
 ---
@@ -3697,7 +3652,7 @@ Une longue lame utilisée par les chevaliers.
 ### Ambre {#amber}
 ![preview amber](../../../assets/img/content/cards/amber.jpg){ loading=lazy }
 
-Résine d'arbre fossile brillante appelée « Baltic Gold ».
+L'ambre est utilisée pour faire des bijoux.
 
 - Type: Object
 - Subjects: History, Culture, Science
@@ -3736,72 +3691,6 @@ Un nain réfléchi qui aime les formes, les bâtiments et les conceptions ingén
 
 ---
 
-### Astronomie {#astronomy}
-![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
-
-La science qui étudie le Soleil, la Lune, les étoiles et les planètes.
-
-- Type: Concept
-- Subjects: Science, Space
-- Country: Poland
-- Topics: [Solar System](../topics/index.md#solar_system)
-- Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
-
----
-
-### Barge {#barge}
-![preview barge](../../../assets/img/content/cards/barge.jpg){ loading=lazy }
-
-Un bateau long et plat qui transporte des marchandises sur les rivières.
-
-- Type: Object
-- Subjects: Transportation, Geography
-- Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river)
-- Image credit: CC_BY_SA | Dietmar Rabich
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Bateau {#boat}
-![preview boat](../../../assets/img/content/cards/boat.jpg){ loading=lazy }
-
-Un véhicule qui se déplace sur l'eau.
-
-- Type: Object
-- Subjects: Transportation
-- Country: Poland
-- Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Bateau {#ship}
-![preview ship](../../../assets/img/content/cards/ship.jpg){ loading=lazy }
-
-Un grand bateau qui transporte des personnes ou des marchandises.
-
-- Type: Object
-- Subjects: Transportation
-- Country: Poland
-- Topics: [Fisherman](../topics/index.md#fisherman)
-- Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
-
----
-
-### Bébé éléphant {#animal_elephant_baby}
-![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
-
-Petit et joueur, il agite sa petite trompe. Il adore rester près de sa mère.
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
 ### Carte de l'Oder {#odra_river_map}
 ![preview odra_river_map](../../../assets/img/content/cards/odra_river_map.jpg){ loading=lazy }
 
@@ -3812,7 +3701,7 @@ Une carte simple qui montre la rivière Odra en Pologne et la façon dont elle c
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3826,7 +3715,7 @@ Une carte simplifiée de Wrocław montrant le fleuve Odra avec ses îles et ses 
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
-- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md), [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Le grand sauvetage des nains de Wrocław (pl_02)](../quests/quest/pl_02.md), [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3897,33 +3786,6 @@ Une coquille dure provenant d'un animal marin ; idéale pour l'artisanat.
 
 ---
 
-### Coupeur {#cutter}
-![preview cutter](../../../assets/img/content/cards/cutter.jpg){ loading=lazy }
-
-Un petit bateau de pêche utilisé en mer.
-
-- Type: Object
-- Subjects: Transportation, Technology
-- Country: Poland
-- Image credit: CC_BY_SA | Gordon Leggett | [source](https://commons.wikimedia.org/wiki/File:2009-12-06_USCGC_Key_Biscayne_WPB1339.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
-
----
-
-### Côte de la mer Baltique {#baltic_sea_coast}
-![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
-
-La côte sablonneuse le long de la mer Baltique.
-
-- Type: Place
-- Subjects: Geography, Environment
-- Country: Poland
-- Topics: [gdansk](../topics/index.md#gdansk)
-- Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
-
----
-
 ### Dalí - Profil du temps {#dali_profile_of_time}
 ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ loading=lazy }
 
@@ -3976,20 +3838,6 @@ Le drapeau de la ville qu'il faut retrouver et restituer.
 - Subjects: Culture, Community, History
 - Country: Poland
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:POL_Wroc%C5%82aw_flag.svg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
-
----
-
-### Enclos pour animaux {#animal_enclosure}
-![preview animal_enclosure](../../../assets/img/content/cards/animal_enclosure.jpg){ loading=lazy }
-
-Un espace sûr conçu pour que les animaux puissent vivre au zoo.
-
-- Type: Place
-- Subjects: Animal, Safety
-- Country: Poland
-- Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
-- Image credit: CC0 | Pearson Scott Foresman | [source](https://commons.wikimedia.org/wiki/File:Corral_(PSF).png)
 - Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
@@ -4148,17 +3996,6 @@ Un grand hôtel de ville avec une tour et un musée.
 
 ---
 
-### Jeune éléphant {#animal_elephant_young}
-![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
-
-Curieux et apprenant, il suit les adultes. Il s'entraîne à utiliser sa trompe tous les jours !
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
 ### Joint {#seal}
 ![preview seal](../../../assets/img/content/cards/seal.jpg){ loading=lazy }
 
@@ -4186,17 +4023,31 @@ La plus grande planète, célèbre pour la Grande Tache Rouge.
 
 ---
 
-### Kayak {#kayak}
-![preview kayak](../../../assets/img/content/cards/kayak.jpg){ loading=lazy }
+### L'astronomie {#astronomy}
+![preview astronomy](../../../assets/img/content/cards/astronomy.jpg){ loading=lazy }
 
-Un petit bateau sur lequel on pagaie.
+C'est la science qui étudie le Soleil, la Lune, les étoiles et les planètes.
 
-- Type: Object
-- Subjects: Recreation, Sport
+- Type: Concept
+- Subjects: Science, Space
 - Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river)
-- Image credit: CC_BY_SA | 0x010C
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Topics: [Solar System](../topics/index.md#solar_system)
+- Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
+- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### La Côte de la mer Baltique {#baltic_sea_coast}
+![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
+
+No translation found for 'baltic_sea_coast.desc' in Cards
+
+- Type: Place
+- Subjects: Geography, Environment
+- Country: Poland
+- Topics: [gdansk](../topics/index.md#gdansk)
+- Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg)
+- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4211,6 +4062,34 @@ Une célèbre fontaine de Gdańsk avec la statue du dieu de la mer.
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Monumento_Neptuno,_Gdansk,_Polonia,_2013-05-20,_DD_03.jpg)
 - Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### La monnaie du zloty {#currency_zloty}
+![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ loading=lazy }
+
+La monnaie polonaise s'appelle le złoty. On voit les symboles polonais sur les pièces et les billets.
+
+- Type: Concept
+- Subjects: Money, Geography
+- Country: Poland
+- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Bitllets_de_banc_polonesos_2024.jpg)
+- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
+
+---
+
+### la péniche ou le bateau-maison {#houseboat}
+![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ loading=lazy }
+
+Une péniche est un bateau qui peut être habité. Sur la Seine, il y a denombreuses péniches.
+
+- Type: Object
+- Subjects: Transportation, Community
+- Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Houseboat_in_Copenhagen_Harbor_02.jpg)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4237,7 +4116,77 @@ Le plus long fleuve de Pologne s'appelle Wisła ou Vistule. Il traverse Cracovie
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### le bateau de marchandises {#ship}
+![preview ship](../../../assets/img/content/cards/ship.jpg){ loading=lazy }
+
+ C’est un bateau qui transporte des objets, du sable, de la nourriture… On l’appelle aussi bateau cargo.
+
+- Type: Object
+- Subjects: Transportation
+- Country: Poland
+- Topics: [Fisherman](../topics/index.md#fisherman)
+- Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
+- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### le kayak {#kayak}
+![preview kayak](../../../assets/img/content/cards/kayak.jpg){ loading=lazy }
+
+Un petit bateau sur lequel on pagaie.
+
+- Type: Object
+- Subjects: Recreation, Sport
+- Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC_BY_SA | 0x010C
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Le pont pour les trains {#train_bridge}
+![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ loading=lazy }
+
+C'est un pont qui permet aux trains de passer.
+
+- Type: Object
+- Subjects: Transportation, Technology
+- Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Le pont routier {#road_bridge}
+![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ loading=lazy }
+
+Un pont pour voitures et bus.
+
+- Type: Object
+- Subjects: Transportation
+- Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC_BY_SA | Photographer: Dey.sandip Additional Credit: User Atention for water spot removal. | [source](https://commons.wikimedia.org/wiki/File:Anjarle_Bridge_and_Cows-fix.jpg)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### le port {#port}
+![preview port](../../../assets/img/content/cards/port.jpg){ loading=lazy }
+
+Sur le port, les bateaux arrivent, se stationnent, déchargent des marchandises ou chargent des marchandises. 
+
+- Type: Place
+- Subjects: Transportation, Community, Geography
+- Country: Poland
+- Topics: [Fisherman](../topics/index.md#fisherman)
+- Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
+- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4267,19 +4216,6 @@ Un morceau de verre ou de plastique transparent qui courbe la lumière.
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Christian David | [source](https://commons.wikimedia.org/wiki/File:Village_de_Lens.jpg)
 - Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
-
----
-
-### Louveteau {#cub}
-![preview cub](../../../assets/img/content/cards/cub.jpg){ loading=lazy }
-
-Un bébé lion.
-
-- Type: Concept
-- Subjects: Animal, Science
-- Country: Poland
-- Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_cub_14_months.jpg)
-- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -4378,20 +4314,6 @@ L'idée que le Soleil est au centre et que les planètes tournent autour de lui.
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Andreas Cellarius | [source](https://commons.wikimedia.org/wiki/File:1661_Cellarius's_chart_illustrating_Copernicus'_heliocentric_model_of_the_universe.jpg)
 - Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
-
----
-
-### Monnaie du zloty {#currency_zloty}
-![preview currency_zloty](../../../assets/img/content/cards/currency_zloty.jpg){ loading=lazy }
-
-La monnaie polonaise s'appelle le złoty. Les pièces et les billets arborent des symboles polonais.
-
-- Type: Concept
-- Subjects: Money, Geography
-- Country: Poland
-- Topics: [Pierogi Recipe](../topics/index.md#pierogi)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Bitllets_de_banc_polonesos_2024.jpg)
-- Quests: [Pain d'épices et marché alimentaire (pl_06)](../quests/quest/pl_06.md)
 
 ---
 
@@ -4635,14 +4557,14 @@ Un oiseau coloré avec une grande queue de plumes.
 ### Passerelle {#footbridge}
 ![preview footbridge](../../../assets/img/content/cards/footbridge.jpg){ loading=lazy }
 
-Un pont piétonnier. Interdit aux voitures.
+Une passerelle est un petit pont. Sur les passerelles, des piétons, vélos et parfois des tramways, bus ou trains peuvent passer.
 
 - Type: Object
 - Subjects: Transportation, Community
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Front_view_of_a_wooden_footbridge_over_a_lagoon,_trees_and_mountains_in_Vang_Vieng,_Laos.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4732,19 +4654,6 @@ Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://common
 
 ---
 
-### Pont {#bridge}
-![preview bridge](../../../assets/img/content/cards/bridge.jpg){ loading=lazy }
-
-Une structure qui permet aux personnes ou aux véhicules de traverser l'eau.
-
-- Type: Concept
-- Subjects: Technology, Transportation
-- Country: Poland
-- Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Bridge_and_deck_of_Gullbritt.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
-
----
-
 ### Pont de Tumski {#tumski_bridge}
 ![preview tumski_bridge](../../../assets/img/content/cards/tumski_bridge.jpg){ loading=lazy }
 
@@ -4755,35 +4664,7 @@ Un pont célèbre avec des cadenas d'amour et des lanternes à gaz.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Aw58 | [source](https://commons.wikimedia.org/wiki/File:Wrocław,_most_Tumski_widziany_z_bulwaru_Piotra_Włostowica_(MW).jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Pont ferroviaire {#train_bridge}
-![preview train_bridge](../../../assets/img/content/cards/train_bridge.jpg){ loading=lazy }
-
-Un pont avec des voies pour les trains.
-
-- Type: Object
-- Subjects: Transportation, Technology
-- Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river)
-- Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Pont routier {#road_bridge}
-![preview road_bridge](../../../assets/img/content/cards/road_bridge.jpg){ loading=lazy }
-
-Un pont pour voitures et bus.
-
-- Type: Object
-- Subjects: Transportation
-- Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river)
-- Image credit: CC_BY_SA | Photographer: Dey.sandip Additional Credit: User Atention for water spot removal. | [source](https://commons.wikimedia.org/wiki/File:Anjarle_Bridge_and_Cows-fix.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4797,7 +4678,7 @@ Le plus long pont à haubans de Pologne.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Olgierd (Creative Commons licensed only) | [source](https://commons.wikimedia.org/wiki/File:Most_Rędziński_we_Wroclawiu.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4811,35 +4692,7 @@ De nombreux ponts traversent la rivière Odra à Wrocław.
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
-
----
-
-### Port {#port}
-![preview port](../../../assets/img/content/cards/port.jpg){ loading=lazy }
-
-Un endroit où les navires chargent et déchargent.
-
-- Type: Place
-- Subjects: Transportation, Community, Geography
-- Country: Poland
-- Topics: [Fisherman](../topics/index.md#fisherman)
-- Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
-
----
-
-### Péniche {#houseboat}
-![preview houseboat](../../../assets/img/content/cards/houseboat.jpg){ loading=lazy }
-
-Un bateau fait pour vivre.
-
-- Type: Object
-- Subjects: Transportation, Community
-- Country: Poland
-- Topics: [Odra river](../topics/index.md#odra_river)
-- Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Houseboat_in_Copenhagen_Harbor_02.jpg)
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4881,7 +4734,7 @@ Un grand fleuve de l'ouest de la Pologne. Il facilite la navigation et le commer
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Fleuve Oder (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4970,7 +4823,7 @@ Le Soleil et les huit planètes qui tournent autour de lui.
 ### Terre {#earth}
 ![preview earth](../../../assets/img/content/cards/earth.jpg){ loading=lazy }
 
-Notre planète natale avec terre, air et eau.
+Notre planète avec terre, air et eau.
 
 - Type: Object
 - Subjects: Space, Science, Geography, Environment
@@ -5005,6 +4858,119 @@ Un outil qui nous aide à voir des choses lointaines dans le ciel.
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Palonitor | [source](https://commons.wikimedia.org/wiki/File:Kométa_C-2020_F3_(NEOWISE).jpg)
 - Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
+
+---
+
+### Un bateau  {#boat}
+![preview boat](../../../assets/img/content/cards/boat.jpg){ loading=lazy }
+
+C'est un véhicule qui se déplace sur l'eau.
+
+- Type: Object
+- Subjects: Transportation
+- Country: Poland
+- Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Un chalutier {#cutter}
+![preview cutter](../../../assets/img/content/cards/cutter.jpg){ loading=lazy }
+
+Un petit bateau de pêche utilisé en mer.
+
+- Type: Object
+- Subjects: Transportation, Technology
+- Country: Poland
+- Image credit: CC_BY_SA | Gordon Leggett | [source](https://commons.wikimedia.org/wiki/File:2009-12-06_USCGC_Key_Biscayne_WPB1339.jpg)
+- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
+
+---
+
+### Un enclos pour animaux {#animal_enclosure}
+![preview animal_enclosure](../../../assets/img/content/cards/animal_enclosure.jpg){ loading=lazy }
+
+C'est un espace pour les animaux dans le zoo.
+
+- Type: Place
+- Subjects: Animal, Safety
+- Country: Poland
+- Topics: [wroclaw zoo](../topics/index.md#wroclaw_zoo)
+- Image credit: CC0 | Pearson Scott Foresman | [source](https://commons.wikimedia.org/wiki/File:Corral_(PSF).png)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Un jeune éléphant {#animal_elephant_young}
+![preview animal_elephant_young](../../../assets/img/content/cards/animal_elephant_young.jpg){ loading=lazy }
+
+Curieux, il suit les adultes. Il aime utiliser sa trompe tous les jours !
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### Un lionceau {#cub}
+![preview cub](../../../assets/img/content/cards/cub.jpg){ loading=lazy }
+
+Un bébé lion.
+
+- Type: Concept
+- Subjects: Animal, Science
+- Country: Poland
+- Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_cub_14_months.jpg)
+- Quests: [Le zoo (pl_04)](../quests/quest/pl_04.md)
+
+---
+
+### Un pont {#bridge}
+![preview bridge](../../../assets/img/content/cards/bridge.jpg){ loading=lazy }
+
+A structure that lets people or vehicles cross water.
+
+- Type: Concept
+- Subjects: Technology, Transportation
+- Country: Poland
+- Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Bridge_and_deck_of_Gullbritt.jpg)
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
+
+---
+
+### Un éléphant adulte {#animal_elephant_adult}
+![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
+
+C'est un animal grand et fort avec de longues défenses et une trompe.
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### Un éléphanteau {#animal_elephant_baby}
+![preview animal_elephant_baby](../../../assets/img/content/cards/animal_elephant_baby.jpg){ loading=lazy }
+
+C'est un un bébé éléphant.
+
+- Type: None
+- Country: Poland
+- Image credit: CC0
+
+---
+
+### Une péniche {#barge}
+![preview barge](../../../assets/img/content/cards/barge.jpg){ loading=lazy }
+
+C'est un bateau long et plat qui transporte des marchandises sur les rivières.
+
+- Type: Object
+- Subjects: Transportation, Geography
+- Country: Poland
+- Topics: [Odra river](../topics/index.md#odra_river)
+- Image credit: CC_BY_SA | Dietmar Rabich
+- Quests: [Un voyage sur le fleuve Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -5108,7 +5074,7 @@ C'est un lieu convivial où les enfants apprennent, créent et explorent guidés
 ### Écosystème {#ecosystem}
 ![preview ecosystem](../../../assets/img/content/cards/ecosystem.jpg){ loading=lazy }
 
-Les êtres vivants et leur habitat dans la nature, travaillant ensemble.
+Ensemble des êtres vivants et leur habitat dans la nature.
 
 - Type: Concept
 - Subjects: Environment, Science
@@ -5145,17 +5111,6 @@ Une grande sculpture en métal à côté du Centennial Hall.
 
 ---
 
-### Éléphant adulte {#animal_elephant_adult}
-![preview animal_elephant_adult](../../../assets/img/content/cards/animal_elephant_adult.jpg){ loading=lazy }
-
-Grand et fort, doté de longues défenses et d'une trompette puissante, il prend soin du troupeau et montre la voie.
-
-- Type: None
-- Country: Poland
-- Image credit: CC0
-
----
-
 ### Évêque Nain {#dwarf_bishop}
 ![preview dwarf_bishop](../../../assets/img/content/cards/dwarf_bishop.jpg){ loading=lazy }
 
@@ -5188,7 +5143,7 @@ Un pays d'Europe. Sa capitale est Berlin.
 ### Berlin
 ![preview capital_berlin](../../../assets/img/content/cards/capital_berlin.jpg){ loading=lazy }
 
-La capitale de l'Allemagne.
+C'est la capitale de l'Allemagne.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -5216,10 +5171,10 @@ Le drapeau allemand comporte trois bandes horizontales : noire, rouge et jaune.
 ---
 
 <a id="art_venus_milo"></a>
-### Vénus de Milo
+### La Vénus de Milo
 ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ loading=lazy }
 
-Magnifique statue antique de femme en marbre blanc. Ses bras ont disparu, mais elle reste considérée comme l'une des plus belles statues jamais réalisées.
+C'est une très belle statue de femme. Elle n'a pas de bras.
 
 - Rationale: This statue teaches kids about ancient Greek art and how old things can still be beautiful
 - Type: Concept
@@ -5228,23 +5183,6 @@ Magnifique statue antique de femme en marbre blanc. Ses bras ont disparu, mais e
 - Country: Greece
 - Topics: [Louvre](../topics/index.md#louvre)
 - Image credit: CC0
-
----
-
-<a id="flag_italy"></a>
-### Drapeau de l'Italie
-![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ loading=lazy }
-
-Le drapeau italien comporte trois bandes verticales : verte, blanche et rouge. Ces couleurs rappellent le basilic, la mozzarella et les tomates sur une pizza !
-
-- Rationale: The Italian flag connection to pizza helps kids remember the colors easily
-- Type: Concept
-- Subjects: Geography, Culture
-- Year: 1946
-- Country: Italy
-- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
-- Image credit: CC0
-- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
 
 ---
 
@@ -5266,7 +5204,7 @@ Un pays d'Europe dont la capitale est Rome.
 ### La Joconde
 ![preview art_monalisa](../../../assets/img/content/cards/art_monalisa.jpg){ loading=lazy }
 
-Le tableau le plus célèbre du monde ! Une femme au sourire mystérieux, peinte par Léonard de Vinci. Elle semble vous suivre du regard.
+Le tableau le plus connu du monde ! Une femme au sourire mystérieux, peinte par Léonard de Vinci. Elle semble vous suivre du regard.
 
 - Rationale: Kids are fascinated by this mysterious painting and it introduces Renaissance art
 - Type: Object
@@ -5280,11 +5218,28 @@ Le tableau le plus célèbre du monde ! Une femme au sourire mystérieux, peinte
 
 ---
 
+<a id="flag_italy"></a>
+### Le drapeau de l'Italie
+![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ loading=lazy }
+
+Le drapeau italien a 3 lignes verticales: verte, blanche et rouge, comme le basilic, la mozzarella et la tomate sur la pizza.
+
+- Rationale: The Italian flag connection to pizza helps kids remember the colors easily
+- Type: Concept
+- Subjects: Geography, Culture
+- Year: 1946
+- Country: Italy
+- Topics: [Flags of Europe](../topics/index.md#flags_euroe), [Countries around France](../topics/index.md#france_countries_around)
+- Image credit: CC0
+- Quests: [Les voisins de la France (fr_00)](../quests/quest/fr_00.md)
+
+---
+
 <a id="capital_rome"></a>
 ### Rome
 ![preview capital_rome](../../../assets/img/content/cards/capital_rome.jpg){ loading=lazy }
 
-La capitale de l'Italie.
+C'est la capitale de l'Italie.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -5345,7 +5300,7 @@ Un pays d'Europe dont la capitale est Madrid. L'Espagne a inventé le flamenco.
 ### Madrid
 ![preview capital_madrid](../../../assets/img/content/cards/capital_madrid.jpg){ loading=lazy }
 
-La capitale de l'Espagne.
+C'est la capitale de l'Espagne.
 
 - Type: Place
 - Subjects: Geography, Culture

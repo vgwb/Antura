@@ -5,7 +5,7 @@ hide:
 
 # Paris ! (fr_01) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-01-paris/23/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/628)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=755037318#gid=755037318)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_01%20Paris/FR_01%20Paris%20-%20Yarn%20Script.yarn)  
@@ -54,7 +54,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Félicitations!</span> <span class="yarn-meta">#line:0d11596 </span>
 <span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
-<span class="yarn-line">Paris vous a plu ?</span> <span class="yarn-meta">#line:0d11596a</span>
+<span class="yarn-line">Tu as aimé Paris ?</span> <span class="yarn-meta">#line:0d11596a</span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -93,9 +93,9 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $met_tutor = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
-<span class="yarn-line">    Bonjour ! Êtes-vous déjà venu à Paris ?</span> <span class="yarn-meta">#line:talk_tutor_0</span>
+<span class="yarn-line">    Bonjour, tu es déjà venu à Paris ?</span> <span class="yarn-meta">#line:talk_tutor_0</span>
 <span class="yarn-choice">        -&gt; Oui!</span> <span class="yarn-meta">#line:talk_tutor_0b</span>
-<span class="yarn-line">        Super ! Voyons si vous vous souvenez de ces endroits.</span> <span class="yarn-meta">#line:talk_tutor_0c</span>
+<span class="yarn-line">        Super ! On va voir si tu te souviens de</span> <span class="yarn-meta">#line:talk_tutor_0c</span>
 <span class="yarn-choice">        -&gt; Non.</span> <span class="yarn-meta">#line:talk_tutor_0d</span>
 <span class="yarn-line">        J'espère que vous viendrez ici un jour !</span> <span class="yarn-meta">#line:talk_tutor_0e</span>
 <span class="yarn-line">    J'ai vu Antura aller chez le boulanger. Allons-y !</span> <span class="yarn-meta">#line:talk_tutor</span>
@@ -147,11 +147,11 @@ hide:
     <span class="yarn-cmd">&lt;&lt;card person_baker&gt;&gt;</span>
 <span class="yarn-line">    Bonjour ! Je suis le boulanger. Je fais du pain tous les jours.</span> <span class="yarn-meta">#line:baker_0</span>
     <span class="yarn-cmd">&lt;&lt;card food_baguette&gt;&gt;</span>
-<span class="yarn-line">    Aujourd'hui, j'ai envie de faire une baguette...</span> <span class="yarn-meta">#line:baker_1</span>
-<span class="yarn-line">    Mais j'ai perdu les ingrédients !</span> <span class="yarn-meta">#line:baker_2</span>
+<span class="yarn-line">    Je veux faire une baguette.</span> <span class="yarn-meta">#line:baker_1</span>
+<span class="yarn-line">    Mais  je n'ai pas les ingrédients!</span> <span class="yarn-meta">#line:baker_2</span>
     <span class="yarn-cmd">&lt;&lt;card food_flour&gt;&gt;</span>
-<span class="yarn-line">    Un gros chien bleu a volé ma farine !</span> <span class="yarn-meta">#line:baker_3</span>
-<span class="yarn-line">    Pouvez-vous m'aider à les trouver ?</span> <span class="yarn-meta">#line:baker_4</span>
+<span class="yarn-line">    Un gros chien bleu a volé la farine, le sel, l'eau et la levue.</span> <span class="yarn-meta">#line:baker_3</span>
+<span class="yarn-line">    Peux tu m'aider à les trouver ?</span> <span class="yarn-meta">#line:baker_4</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_eiffell&gt;&gt;</span>
 <span class="yarn-line">    Allez à la Tour Eiffel.</span> <span class="yarn-meta">#line:baker_5 #task:go_eiffell</span>
     <span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 0&gt;&gt;</span>
@@ -192,7 +192,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#line:puzzle_done</span>
+<span class="yarn-line">Bravo ! Tu as réussi.</span> <span class="yarn-meta">#line:puzzle_done</span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>
@@ -212,7 +212,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card food_flour&gt;&gt;</span>
 <span class="yarn-line">Vous avez trouvé de la farine !</span> <span class="yarn-meta">#line:06022b0 </span>
 <span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 1&gt;&gt;</span>
-<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#line:go_back_baker #task:go_baker</span>
+<span class="yarn-line">Retourne chez le boulanger.</span> <span class="yarn-meta">#line:go_back_baker #task:go_baker</span>
 <span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
 
@@ -233,7 +233,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card food_salt&gt;&gt;</span>
 <span class="yarn-line">Vous avez trouvé du sel.</span> <span class="yarn-meta">#line:00f1d2f </span>
 <span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 2&gt;&gt;</span>
-<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker </span>
+<span class="yarn-line">Retourne chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker </span>
 <span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
 
@@ -254,7 +254,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card food_water&gt;&gt;</span>
 <span class="yarn-line">Ceci est de l'eau.</span> <span class="yarn-meta">#line:0c4d1f6</span>
 <span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 3&gt;&gt;</span>
-<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker</span>
+<span class="yarn-line">Retourne chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker</span>
 <span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
 
@@ -275,7 +275,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card food_yeast&gt;&gt;</span>
 <span class="yarn-line">Vous avez trouvé de la levure !</span> <span class="yarn-meta">#line:025865d</span>
 <span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 4&gt;&gt;</span>
-<span class="yarn-line">Retournez chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker</span>
+<span class="yarn-line">Retourne chez le boulanger.</span> <span class="yarn-meta">#shadow:go_back_baker #task:go_baker</span>
 <span class="yarn-cmd">&lt;&lt;target baker&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start go_baker&gt;&gt;</span>
 
@@ -297,14 +297,14 @@ hide:
 <span class="yarn-line">Bonjour. Que désirez-vous ?</span> <span class="yarn-meta">#line:09e454b </span>
 <span class="yarn-choice">-&gt; Un billet pour monter en haut de la Tour Eiffel.</span> <span class="yarn-meta">#line:0141851 </span>
     <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("collect_coins")&gt;&gt;</span>
-<span class="yarn-line">        Sélectionnez le montant à payer.</span> <span class="yarn-meta">#line:0f44ea7 </span>
+<span class="yarn-line">        Tu dois maintenant payer tes achats</span> <span class="yarn-meta">#line:0f44ea7 </span>
         <span class="yarn-cmd">&lt;&lt;activity money_elevator ticket_payment_done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "collect_coins"&gt;&gt;</span>
 <span class="yarn-line">        Le billet coûte 5 pièces</span> <span class="yarn-meta">#line:069cbb3</span>
-<span class="yarn-line">        Regardez autour de vous et ramassez les pièces.</span> <span class="yarn-meta">#shadow:0097a65</span>
+<span class="yarn-line">        Regardez autour de toi et ramasse les pièces.</span> <span class="yarn-meta">#shadow:0097a65</span>
     <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">        Le billet coûte 5 pièces</span> <span class="yarn-meta">#shadow:069cbb3</span>
-<span class="yarn-line">        Regardez autour de vous et ramassez les pièces.</span> <span class="yarn-meta">#line:0097a65 #task:collect_coins</span>
+<span class="yarn-line">        Regardez autour de toi et ramasse les pièces.</span> <span class="yarn-meta">#line:0097a65 #task:collect_coins</span>
         <span class="yarn-cmd">&lt;&lt;task_start collect_coins coins_collected&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Une baguette.</span> <span class="yarn-meta">#line:03dc852 </span>
@@ -397,11 +397,11 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card gustave_eiffel&gt;&gt;</span>
 <span class="yarn-line">Gustave Eiffel l'a construit en 1887.</span> <span class="yarn-meta">#line:09e5c3b </span>
 <span class="yarn-cmd">&lt;&lt;card iron_material&gt;&gt;</span>
-<span class="yarn-line">Il est en fer !</span> <span class="yarn-meta">#line:0d59ade </span>
+<span class="yarn-line">Elle est en fer.</span> <span class="yarn-meta">#line:0d59ade </span>
 <span class="yarn-cmd">&lt;&lt;card worlds_fair_1889&gt;&gt;</span>
 <span class="yarn-line">Il a été construit il y a longtemps pour une grande foire.</span> <span class="yarn-meta">#line:0d59ade_fair</span>
 &lt;&lt;if GetActivityResult("memory_eiffell") &lt; 1 &gt;&gt;
-<span class="yarn-line">    Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#line:solve_puzzle</span>
+<span class="yarn-line">    Pour ouvrir le coffre,</span> <span class="yarn-meta">#line:solve_puzzle</span>
     <span class="yarn-cmd">&lt;&lt;activity memory_eiffell eiffell_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -417,8 +417,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
-<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#line:chest_unlocked</span>
+<span class="yarn-line">Bravo ! Tu as réussi.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre s'ouvre.</span> <span class="yarn-meta">#line:chest_unlocked</span>
 <span class="yarn-cmd">&lt;&lt;SetActive chest_flour true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target chest_flour&gt;&gt;</span>
 
@@ -436,7 +436,7 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if $BAGUETTE_STEP &lt; 1&gt;&gt;
-<span class="yarn-line">    Revenez plus tard.</span> <span class="yarn-meta">#line:come_back_later</span>
+<span class="yarn-line">    Reviens quand tu as trouvé.</span> <span class="yarn-meta">#line:come_back_later</span>
 <span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card notre_dame_de_paris&gt;&gt;</span>
 <span class="yarn-line">    Voici la cathédrale Notre-Dame.</span> <span class="yarn-meta">#line:06f3fa2 </span>
@@ -466,7 +466,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card notre_dame_de_paris_fire&gt;&gt;</span>
 <span class="yarn-line">Il y a eu un gros incendie en 2019, mais nous l'avons réparé.</span> <span class="yarn-meta">#line:09a0ead </span>
-<span class="yarn-line">Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
+<span class="yarn-line">Pour ouvrir le coffre,</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
 <span class="yarn-cmd">&lt;&lt;activity memory_notredame notredame_activity_done&gt;&gt;</span>
 
 </code>
@@ -481,8 +481,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: arc_de_triomphe</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
-<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
+<span class="yarn-line">Bravo ! Tu as réussi.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre s'ouvre.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
 <span class="yarn-cmd">&lt;&lt;SetActive chest_salt true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target chest_salt&gt;&gt;</span>
 
@@ -517,11 +517,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 &lt;&lt;if $BAGUETTE_STEP &lt; 2&gt;&gt;
-<span class="yarn-line">    Revenez plus tard.</span> <span class="yarn-meta">#shadow:come_back_later</span>
+<span class="yarn-line">    Reviens quand tu as trouvé.</span> <span class="yarn-meta">#shadow:come_back_later</span>
 <span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card louvre&gt;&gt;</span>
 <span class="yarn-line">    Voici le Louvre, un musée célèbre.</span> <span class="yarn-meta">#line:louvre_0</span>
-<span class="yarn-line">    Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
+<span class="yarn-line">    Pour ouvrir le coffre,</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
     <span class="yarn-cmd">&lt;&lt;activity activity_louvre louvre_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Nous avons déjà résolu cette partie.</span> <span class="yarn-meta">#shadow:already_solved</span>
@@ -539,8 +539,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: arc_de_triomphe</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
-<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
+<span class="yarn-line">Bravo ! Tu as réussi.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre s'ouvre.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
 <span class="yarn-cmd">&lt;&lt;SetActive chest_water true&gt;&gt;</span>
 
 </code>
@@ -558,12 +558,12 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 &lt;&lt;if $BAGUETTE_STEP &lt; 3&gt;&gt;
-<span class="yarn-line">    Revenez plus tard.</span> <span class="yarn-meta">#shadow:come_back_later</span>
+<span class="yarn-line">    Reviens quand tu as trouvé.</span> <span class="yarn-meta">#shadow:come_back_later</span>
 <span class="yarn-cmd">&lt;&lt;elseif $BAGUETTE_STEP == 3&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card arc_de_triomphe&gt;&gt;</span>
 <span class="yarn-line">    Voici l'Arc de Triomphe.</span> <span class="yarn-meta">#line:arc_0</span>
 <span class="yarn-line">    Il rend hommage aux personnes qui ont combattu pour la France.</span> <span class="yarn-meta">#line:arc_0a</span>
-<span class="yarn-line">    Pour ouvrir le coffre, résolvez l'énigme !</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
+<span class="yarn-line">    Pour ouvrir le coffre,</span> <span class="yarn-meta">#shadow:solve_puzzle</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_arc arc_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Nous avons déjà résolu cette partie.</span> <span class="yarn-meta">#shadow:already_solved</span>
@@ -581,8 +581,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: arc_de_triomphe</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Super ! Vous avez résolu l'énigme.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
-<span class="yarn-line">Le coffre est maintenant déverrouillé.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
+<span class="yarn-line">Bravo ! Tu as réussi.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
+<span class="yarn-line">Le coffre s'ouvre.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
 <span class="yarn-line">Il se trouve sur le toit. Utilisez le téléporteur pour y aller.</span> <span class="yarn-meta">#line:0d46853 </span>
 <span class="yarn-cmd">&lt;&lt;SetActive chest_yeast true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action activate_arc_teleporter&gt;&gt;</span>
@@ -723,7 +723,7 @@ hide:
 <span class="yarn-line">L'odeur du pain frais rend les gens heureux.</span> <span class="yarn-meta">#line:fr01_bakery_1</span>
 <span class="yarn-line">Une baguette est composée de farine, d'eau, de levure et de sel.</span> <span class="yarn-meta">#line:fr01_bakery_2</span>
 <span class="yarn-line">La levure permet au pain de lever.</span> <span class="yarn-meta">#line:fr01_bakery_2a</span>
-<span class="yarn-line">Les boulangers se lèvent très tôt pour commencer à faire du pain.</span> <span class="yarn-meta">#line:fr01_bakery_3</span>
+<span class="yarn-line">Les boulangers se lèvent très tôt pour  faire du pain.</span> <span class="yarn-meta">#line:fr01_bakery_3</span>
 
 </code>
 </pre>

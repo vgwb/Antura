@@ -6,10 +6,10 @@ hide:
 # Cards(en)
 
 > [!note] Educators: help improving these cards!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **395**
+Total found: **392**
 
 ## International
 
@@ -23,7 +23,7 @@ A tall mountain range in Europe.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Drat70 | [source](https://commons.wikimedia.org/wiki/File:Alps_regions.svg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -78,35 +78,21 @@ Cold, white, and shiny like glass. Home to seals, bears, and adventure!
 ### Backpack {#backpack}
 ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
 
-A bag you carry on your back.
+No translation found for 'backpack.desc' in Cards
 
 - Type: Object
 - Subjects: Recreation, Transportation, Education
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | FOTO:Fortepan — ID 20607: Adományozó/Donor: Wein Sarolta. archive copy at the Wayback Machine | [source](https://commons.wikimedia.org/wiki/File:Colorful,_backpack_Fortepan_20607.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
-
----
-
-### Baker {#person_baker}
-![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
-
-A person who makes bread, cakes, and pastries.
-
-- Type: Person
-- Subjects: History, Culture
-- Country: International
-- Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
 ### Ball {#ball}
 ![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
 
-A round object used in many games.
+No translation found for 'ball.desc' in Cards
 
 - Type: Object
 - Subjects: Sport, Recreation
@@ -224,8 +210,7 @@ A two‑wheeled vehicle you pedal.
 ### Blocky {#antura_blocky_character}
 ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ loading=lazy }
 
-These funny people live in this world.
-Talk to them all...  they have stories to tell!
+These funny people live in this world. Talk to them all...  they have stories to tell!
 
 - Type: Concept
 - Country: International
@@ -282,7 +267,7 @@ A fast sled used to slide down ice.
 - Subjects: Sport, Recreation
 - Country: International
 - Image credit: CC_BY_SA | Steffen Prößdorf | [source](https://commons.wikimedia.org/wiki/File:2020-02-22_IBSF_World_Championships_Bobsleigh_and_Skeleton_Altenberg_1DX_5978_by_Stepro.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -308,7 +293,7 @@ A yummy food made from flour and water. You can make sandwiches with bread!
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:French_bread_DSC09293.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -322,7 +307,7 @@ A road that goes over water so cars can drive across rivers and lakes.
 - Country: International
 - Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -336,7 +321,7 @@ A special bridge built strong enough for heavy trains to cross over water.
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -403,7 +388,7 @@ A list that shows what food you can eat at school lunch. It helps you choose wha
 - Country: International
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | CC0 - Valeria | [source](https://pixabay.com/photos/menu-restaurant-diner-cafe-8165227/)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -466,7 +451,7 @@ A person who sells many types of cheese.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -507,7 +492,7 @@ A round shape with no corners. Circles look like wheels, balls, and coins!
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squaring_the_circle_a_history_of_the_problem_%281913%29_-_illustration_-_page_29_fig_9.png)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -520,7 +505,7 @@ A room in school where students sit and learn new things from their teacher.
 - Subjects: Education, Community
 - Country: International
 - Image credit: CC0
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md), [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md), [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -535,7 +520,7 @@ Going up rocks or ice with special gear.
 - Topics: [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY_SA | Original version: Valentin Chapuis
 Derivative version: Subsidiary account (image rotated 90 degrees CCW) | [source](https://commons.wikimedia.org/wiki/File:Flo_dans_Juvsøyla_à_Rjukan,_Norvège-rotated.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -562,7 +547,7 @@ A warm jacket for cold weather.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC0
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -589,7 +574,7 @@ A tool that helps you draw perfect circles. It has two legs like scissors.
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:2023070201_Voigt_Schulzirkel_gespreizt_2023.jpg)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -641,7 +626,7 @@ A sea animal with big claws and a hard shell. Crabs walk sideways on the beach!
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fresh_Crab.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -655,7 +640,7 @@ Spiky metal grips you attach to boots for ice.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Clayoquot | [source](https://commons.wikimedia.org/wiki/File:Strap-on_crampon.JPG)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -718,7 +703,7 @@ A person who sells eggs.
 - Type: Person
 - Subjects: Community, Food
 - Country: International
-- Image credit: CC_BY_SA | Elgabarty2002 | [source](https://commons.wikimedia.org/wiki/File:Egg_Seller_in_Nigeria.jpg)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Brian_%E2%80%98Egg%E2%80%99_and_his_gang.jpg)
 - Quests: [Gingerbread & food market (pl_06)](../quests/quest/pl_06.md)
 
 ---
@@ -802,7 +787,7 @@ Money used in many countries in Europe. You can buy toys and ice cream with euro
 - Subjects: Money, Geography
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes_%28cropped%29.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -832,7 +817,7 @@ An animal that lives and swims in water. Fish have fins and gills to breathe und
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Grouper_fish_for_Sale.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -845,8 +830,8 @@ A person who sells fresh fish and seafood.
 - Subjects: History, Culture
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fishmonger_weighing_fish_at_Payang_Market,_Kuala_Terengganu.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Image credit: CC_BY_SA | Philippe Alès, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Marseille_(France),_fish_market_in_Vieux-Port,_2013.JPG)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1024,7 +1009,7 @@ Small bridges for people walking. They keep you safe from traffic.
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1040,23 +1025,10 @@ A smart predator that lives in the woods. They have a soft tail to keep them war
 
 ---
 
-### French School Poster {#object_french_school_poster}
-![preview object_french_school_poster](../../../assets/img/content/cards/object_french_school_poster.jpg){ loading=lazy }
-
-A big picture with information that hangs on classroom walls in French schools.
-
-- Type: Object
-- Subjects: Education
-- Country: International
-- Image credit: CC0
-- Quests: [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### French Schools {#french_schools}
 ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
 
-In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
+School in France has four main stages. Maternelle is for children aged 3 to 5. École élémentaire is for children aged 6 to 10. It has five grades: CP, CE1, CE2, CM1, and CM2. Collège is for students aged 11 to 14. It has four grades: 6ème, 5ème, 4ème, and 3ème. Lycée is for students aged 15 to 18. It has three grades: 2nde, 1ère, and terminale.
 
 - Type: Concept
 - Subjects: Education, Civics, Culture
@@ -1117,7 +1089,7 @@ Slow-moving ice found on high mountains.
 - Subjects: Geography, Science, Environment
 - Country: International
 - Image credit: CC_BY | Kelvinsong | [source](https://commons.wikimedia.org/wiki/File:Glacier_diagram.svg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1131,7 +1103,7 @@ Warm covers for your hands.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Kippelboy | [source](https://commons.wikimedia.org/wiki/File:Centre_de_Documentació_Museu_Tèxtil_de_Terrassa-_Reserves-_Teixits-_Guants002.JPG)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1158,7 +1130,7 @@ A person who sells fresh fruit and vegetables.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1172,7 +1144,7 @@ A person who sells many kinds of food and drinks.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1186,7 +1158,7 @@ A warm cap for your head.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY | [source](https://commons.wikimedia.org/wiki/File:Beanie_hat_by_Polo_Ralph_Lauren.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1200,7 +1172,7 @@ Walking on trails in nature.
 - Country: International
 - Topics: [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Roca_de_la_Ley,_Parque_Nacional_de_Þingvellir,_Suðurland,_Islandia,_2014-08-16,_DD_022.JPG)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1228,7 +1200,7 @@ Frozen water that can be very slippery.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Andreas Tille | [source](https://commons.wikimedia.org/wiki/File:IceBlockNearJoekullsarlon.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1327,14 +1299,14 @@ The capital city of Ukraine.
 ### Lemon {#food_lemon}
 ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
 
-A yellow fruit that tastes very sour. Lemons are used to make lemonade!
+It is a yellow fruit.
 
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lemon.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1362,7 +1334,7 @@ A straight mark that goes from one point to another. Lines can be long or short.
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squaring_the_circle_a_history_of_the_problem_%281913%29_-_illustration_-_page_29_fig_9.png)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -1420,7 +1392,7 @@ A friendly letter that loves to talk and play! Talk to them to learn new words
 ### Luxembourg {#country_luxembourg}
 ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ loading=lazy }
 
-A country in Europe. Capital is Luxembourg City.
+It is a country in Europe. Its capital is Luxembourg City.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1433,7 +1405,7 @@ A country in Europe. Capital is Luxembourg City.
 ### Luxembourg City {#capital_luxembourg_city}
 ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ loading=lazy }
 
-The capital city of Luxembourg.
+The capital of Luxembourg is also called Luxembourg.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1459,7 +1431,7 @@ A scientist who won two Nobel Prizes.
 ### Market traders {#market_traders}
 ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
 
-People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
+Merchants sell food and other goods at market stalls. You can find fishmongers, cheesemongers, grocers, and fruit and vegetable vendors. You can buy fresh produce.
 
 - Type: Person
 - Subjects: Money, Community
@@ -1478,7 +1450,7 @@ A furry mountain animal that whistles.
 - Subjects: Animal, Environment, Science
 - Country: International
 - Image credit: CC_BY_SA | Photography captured by Giles Laurent | [source](https://commons.wikimedia.org/wiki/File:071_Wild_marmot_at_Grand_Muveran_Nature_Reserve_Photo_by_Giles_Laurent.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1531,7 +1503,7 @@ A white drink that comes from cows. Milk helps your bones and teeth grow strong!
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Milchflasche_%2812337400564%29.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1595,7 +1567,7 @@ The pillars of earth
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc), [mountain activities](../topics/index.md#mountain_activities), [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Himalayas,_Ama_Dablam,_Nepal.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1609,7 +1581,7 @@ A person who helps people climb safely.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc), [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY | Vyacheslav Argenberg | [source](https://commons.wikimedia.org/wiki/File:Zagedan_Lakes,_Mountaineer,_Mountain_guide,_Caucasus_Mountains,_Karachay-Cherkessia.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1716,7 +1688,7 @@ A special oil made from olives. People use it for cooking tasty food.
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1730,7 +1702,7 @@ A round, orange fruit that tastes sweet and juicy. Oranges have lots of vitamin 
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1787,7 +1759,7 @@ A bird that cannot fly but swims very well. It lives in cold places.
 
 ---
 
-### Pepper Salt {#food_pepper_salt}
+### Pepper salt {#food_pepper_salt}
 ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ loading=lazy }
 
 Spices that make food taste better. Salt is white and pepper is black with tiny pieces.
@@ -1797,7 +1769,7 @@ Spices that make food taste better. Salt is white and pepper is black with tiny 
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Shakers_%284572668303%29.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1886,7 +1858,7 @@ A boat that travels on rivers. Rivers are like roads made of water!
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1925,7 +1897,7 @@ A strong line used for safety when climbing.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Nevit Dilmen | [source](https://commons.wikimedia.org/wiki/File:Coiled_rope_03235.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1952,7 +1924,7 @@ A straight tool used to measure how long things are. Rulers have numbers and lin
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Righello.jpg)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -1992,7 +1964,7 @@ A warm cloth you wear around your neck.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Colored_silk_scarf_from_India_01.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2005,7 +1977,7 @@ A bag that students use to carry their books, pencils, and homework to school.
 - Subjects: Science
 - Country: International
 - Image credit: CC0
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -2019,7 +1991,7 @@ Sliding on snow with skis.
 - Country: International
 - Topics: [mountain activities](../topics/index.md#mountain_activities)
 - Image credit: CC_BY | Letartean | [source](https://commons.wikimedia.org/wiki/File:Quebec_Sprint_Cross-country_Skiing_World_Cup_2012_(4)_V2.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2046,7 +2018,7 @@ Frozen water that falls in cold weather.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY_SA | Psy guy | [source](https://commons.wikimedia.org/wiki/File:Snow_Scene_at_Shipka_Pass_1.JPG)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2099,7 +2071,7 @@ A triangle-shaped tool used to draw straight lines and right angles in math.
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Squadra_45.jpg)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -2148,7 +2120,7 @@ The very top of a mountain.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC_BY | Mountaineer | [source](https://commons.wikimedia.org/wiki/File:Summitting_Island_Peak.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2161,7 +2133,7 @@ Bright light that can reflect on the snow.
 - Subjects: Science, Weather, Environment
 - Country: International
 - Image credit: CC0 | NASA/SDO (AIA) | [source](https://commons.wikimedia.org/wiki/File:The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2175,7 +2147,7 @@ Glasses that protect your eyes from bright light.
 - Country: International
 - Topics: [mountain tools](../topics/index.md#mountain_tools)
 - Image credit: CC_BY_SA | Sofiane mohammed amri | [source](https://commons.wikimedia.org/wiki/File:2_الحداد.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2203,17 +2175,31 @@ If you see this, go to it. it might be something important!
 
 ---
 
-### Tomato {#food_tomato}
+### The baker {#person_baker}
+![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ loading=lazy }
+
+A person who makes bread, cakes, and pastries.
+
+- Type: Person
+- Subjects: History, Culture
+- Country: International
+- Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
+
+---
+
+### The tomato {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
-A red, round fruit that grows on plants. Tomatoes are used to make pizza sauce!
+No translation found for 'food_tomato.desc' in Cards
 
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tomato_je.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2253,7 +2239,7 @@ A shape with three straight sides and three corners. Triangles look like pizza s
 - Country: International
 - Topics: [Elementary Math](../topics/index.md#elementary-maths)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lobatchevski_-_La_Th%C3%A9orie_des_parall%C3%A8les,_1980_-_Fig-1-05.png)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -2342,7 +2328,7 @@ Moving air that can feel strong in the mountains.
 - Country: International
 - Topics: [mont blanc](../topics/index.md#mont_blanc)
 - Image credit: CC0 | Richardfabi | [source](https://commons.wikimedia.org/wiki/File:Windbuchencom.jpg)
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -2391,7 +2377,7 @@ Polish money (złoty) shown as coins.
 - Type: Object
 - Subjects: Money, Geography
 - Country: International
-- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Coins_-_ten_groszy_and_2_z%C5%82oty.jpg)
 - Quests: [Discover Warszawa (pl_01)](../quests/quest/pl_01.md)
 
 ## France
@@ -2478,7 +2464,7 @@ Protective metal clothing for a knight.
 ### Around the World in Eighty Days {#book_around_the_world_80_days}
 ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
-An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
+Jules Verne wrote this book. It tells of a wonderful, very fast trip around the world by train, boat, and balloon!
 
 - Type: Object
 - Subjects: Literature
@@ -2563,7 +2549,7 @@ A special fish soup from Marseille in southern France. It's made with many diffe
 - Country: France
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2642,21 +2628,6 @@ A very large and important church in a city.
 
 ---
 
-### Charter of Secularism {#concept_charter_of_secularism}
-![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ loading=lazy }
-
-A set of rules for respecting everyone's beliefs. It helps people live together in peace.
-
-- Type: Concept
-- Subjects: Community, Culture
-- Year: 2013
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://camille-claudel.ecollege.haute-garonne.fr/le-college/charte-de-la-laicite/)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md), [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
-
----
-
 ### Church {#church}
 ![preview church](../../../assets/img/content/cards/church.jpg){ loading=lazy }
 
@@ -2710,7 +2681,7 @@ A stone with very old laws carved into it.
 ### Collège in France {#education_college_fr}
 ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
 
-Middle school in France for kids aged 11 to 15. Students learn many subjects and prepare for high school.
+A school in France for students aged 11 to 14. They have different teachers and study subjects like math, English, science, sports, and history.
 
 - Rationale: Understanding the French school system helps kids compare education across countries
 - Type: Concept
@@ -2719,7 +2690,7 @@ Middle school in France for kids aged 11 to 15. Students learn many subjects and
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | Marie Gaultier, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Ecole_Sup%C3%A9rieure_d%27Agricultures.jpg)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md), [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md), [Jules Verne and transportation (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2733,22 +2704,6 @@ A huge painting showing a French emperor’s ceremony.
 - Country: France
 - Image credit: CC0 | Jacques-Louis David / Georges Rouget | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Coronation_of_Napoleon_(1805-1807).jpg)
 - Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
-
----
-
-### Cursive Writing {#concept_cursive_writing}
-![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ loading=lazy }
-
-A special way of writing where all the letters in a word are connected. In France, children learn to write this way in school.
-
-- Rationale: Cursive writing is an important part of French education and cultural identity
-- Type: Concept
-- Subjects: Education, Culture, Art
-- Year: 1800
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -2903,7 +2858,7 @@ A book by Jules Verne about flying across Africa in a hot air balloon. It's full
 ### Flag of France {#flag_france}
 ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ loading=lazy }
 
-The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
+The French flag has three vertical colors: blue, white, and red.
 
 - Rationale: The French flag is essential for teaching French national identity and values
 - Type: Concept
@@ -3007,7 +2962,7 @@ Brave sailors who sailed the seas for the King of France. They were called corsa
 - Year: 1600
 - Country: France
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Forbin_et_Jean_Bart_capture_en_1689.jpg)
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -3027,7 +2982,7 @@ A time in the 1790s when France changed its government.
 ### From the Earth to the Moon {#book_from_earth_to_moon}
 ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
 
-A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
+Jules Verne wrote this book. It tells about a trip to the Moon in a spacecraft launched by a giant cannon. At that time, space rockets did not exist yet!
 
 - Type: Object
 - Subjects: Literature, Space, Science
@@ -3135,7 +3090,7 @@ A French musician famous for electronic music
 ### Jules Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
-A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
+Jules Verne was born in 1828, almost 200 years ago. He died in 1905. He was a French writer who wrote many books. He imagined amazing ways to travel before they really existed! He wrote about submarines, rockets, and trips around the world.
 
 - Rationale: Jules Verne shows kids how imagination and science can work together
 - Type: Person
@@ -3309,7 +3264,7 @@ A string instrument played at court.
 ### Lycée in France {#education_lycee_fr}
 ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ loading=lazy }
 
-High school in France for teenagers aged 16 to 18. Students study hard for the Baccalauréat exam to go to university.
+A school in France for teenagers aged 14 to 18. Students have different teachers and study subjects like math, English, science, sports, and history. They prepare for a final exam called the Baccalauréat.
 
 - Rationale: The Lycée system shows kids the path to higher education in France
 - Type: Concept
@@ -3318,7 +3273,7 @@ High school in France for teenagers aged 16 to 18. Students study hard for the B
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | Émeric, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Atelier_lyc%C3%A9e_Chevrollier.jpg)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -3332,7 +3287,7 @@ A picture that shows how the Seine River flows through the city of Paris.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3346,7 +3301,7 @@ A picture that shows the Seine River and where it flows through the land.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3454,7 +3409,7 @@ A beautiful bridge in Paris with fancy decorations and golden statues on it.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3473,7 +3428,7 @@ A heavy gate that drops to block the doorway.
 ### Primary School in France {#education_ecole_primaire_fr}
 ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ loading=lazy }
 
-School for kids aged 6 to 10. You learn reading, writing, and counting.
+A school in France for students aged 6 to 10. Children learn to read, write, and count.
 
 - Type: Concept
 - Subjects: Education, Culture
@@ -3481,7 +3436,7 @@ School for kids aged 6 to 10. You learn reading, writing, and counting.
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: Licensed
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -3546,20 +3501,6 @@ A small two-wheeled scooter (trottinette).
 
 ---
 
-### Seine {#seine}
-![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
-
-A 777-kilometre-long river in northern France
-
-- Type: Place
-- Subjects: Geography
-- Country: France
-- Topics: [Seine](../topics/index.md#seine)
-- Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
-
----
-
 ### Seine River Boat {#boat_eiffel_tower}
 ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ loading=lazy }
 
@@ -3572,7 +3513,7 @@ A special boat that sails on the Seine River in Paris. You can see the Eiffel To
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3612,6 +3553,20 @@ An ancient Egyptian statue of a person writing.
 - Country: France
 - Image credit: CC_BY_SA | Rama | [source](https://commons.wikimedia.org/wiki/File:The_seated_scribe-E_3023-IMG_4267-gradient-contrast.jpg)
 - Quests: [Paris! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### The Seine {#seine}
+![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
+
+The Seine flows through Paris. It is 777 km long and flows into the English Channel.
+
+- Type: Place
+- Subjects: Geography
+- Country: France
+- Topics: [Seine](../topics/index.md#seine)
+- Image credit: CC0
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3682,7 +3637,7 @@ White stripes where people cross the street.
 ### École Maternelle {#education_ecole_maternelle_fr}
 ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
 
-School for little kids aged 3 to 5. You learn by playing and exploring.
+A school in France for children aged 3 to 5. Children learn by exploring and playing.
 
 - Type: Concept
 - Subjects: Education, Culture
@@ -3690,7 +3645,7 @@ School for little kids aged 3 to 5. You learn by playing and exploring.
 - Country: France
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | Polymagou, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_Paul-Langevin,_Les_Clayes-sous-Bois,_Yvelines_9-3.jpg)
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ## Poland
 
@@ -3803,7 +3758,7 @@ Small and playful, it waves its tiny trunk. It loves to stay close to its mom.
 ### Baltic Sea Coast {#baltic_sea_coast}
 ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
 
-The sandy shore along the Baltic Sea.
+No translation found for 'baltic_sea_coast.desc' in Cards
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -3824,7 +3779,7 @@ A long, flat boat that carries goods on rivers.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Dietmar Rabich
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3851,7 +3806,7 @@ A vehicle that moves on water.
 - Subjects: Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3864,7 +3819,7 @@ A structure that lets people or vehicles cross water.
 - Subjects: Technology, Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Bridge_and_deck_of_Gullbritt.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3885,8 +3840,7 @@ The Centennial Hall is a huge building that looks like a big tent with a roof. I
 ### Chopin Monument {#chopin_monument}
 ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ loading=lazy }
 
-A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It’s also the site of popular open-air piano concerts in summer. (the special tree he is sitting under is a typical polish.. Willow)
-
+A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It’s also the site of popular open-air piano concerts in summer.
 
 - Type: Object
 - Subjects: Music, Culture
@@ -4073,7 +4027,7 @@ A bridge for people to walk on. No cars.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Front_view_of_a_wooden_footbridge_over_a_lagoon,_trees_and_mountains_in_Vang_Vieng,_Laos.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4145,7 +4099,7 @@ A boat made to live on.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Houseboat_in_Copenhagen_Harbor_02.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4186,7 +4140,7 @@ A small boat you paddle.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | 0x010C
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4269,7 +4223,7 @@ A simple map of Wrocław showing the Odra River with its islands and many bridge
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
-- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md), [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md), [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4439,7 +4393,7 @@ A big river in western Poland. It helps ships travel and trade.
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4453,7 +4407,7 @@ A simple map that shows the Odra River in Poland and the way it flows to the Bal
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4622,7 +4576,7 @@ A bridge for cars and buses.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Photographer: Dey.sandip Additional Credit: User Atention for water spot removal. | [source](https://commons.wikimedia.org/wiki/File:Anjarle_Bridge_and_Cows-fix.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4636,7 +4590,7 @@ The longest cable‑stayed bridge in Poland.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Olgierd (Creative Commons licensed only) | [source](https://commons.wikimedia.org/wiki/File:Most_Rędziński_we_Wroclawiu.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4826,7 +4780,7 @@ A bridge with tracks for trains.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4854,7 +4808,7 @@ A famous bridge with love locks and gas lanterns.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Aw58 | [source](https://commons.wikimedia.org/wiki/File:Wrocław,_most_Tumski_widziany_z_bulwaru_Piotra_Włostowica_(MW).jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4909,7 +4863,7 @@ The longest river in Poland is called Wisła or Vistula. It flows through Krakó
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -5008,7 +4962,7 @@ Many bridges cross the Odra River in Wrocław.
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -5236,7 +5190,7 @@ A beautiful ancient statue of a woman made from white marble. Her arms are missi
 ### Flag of Italy
 ![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ loading=lazy }
 
-The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
+The Italian flag has three vertical stripes: green, white and red. Like the basil, mozzarella and tomato on a pizza.
 
 - Rationale: The Italian flag connection to pizza helps kids remember the colors easily
 - Type: Concept
@@ -5253,7 +5207,7 @@ The flag of Italy has three vertical stripes: green, white, and red. The colors 
 ### Italy
 ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ loading=lazy }
 
-A country in Europe. Capital is Rome.
+It is a country in Europe. Its capital is Rome.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -5315,7 +5269,7 @@ The flag of Andorra has blue, yellow, and red stripes with a coat of arms in the
 ### Flag of Spain
 ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ loading=lazy }
 
-The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
+The flag of Spain has red and yellow horizontal stripes. These are the colors of the sun and peppers.
 
 - Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
 - Type: Concept
@@ -5346,7 +5300,7 @@ The capital city of Spain.
 ### Spain
 ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ loading=lazy }
 
-A country in Europe. Capital is Madrid. Spain invented flamenco dancing.
+It is a country in Europe. Its capital is Madrid. Spain invented a dance called flamenco.
 
 - Type: Place
 - Subjects: Geography, Culture

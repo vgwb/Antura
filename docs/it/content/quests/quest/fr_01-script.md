@@ -5,7 +5,7 @@ hide:
 
 # Parigi! (fr_01) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-01-paris/23/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/628)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=755037318#gid=755037318)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_01%20Paris/FR_01%20Paris%20-%20Yarn%20Script.yarn)  
@@ -93,7 +93,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $met_tutor = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card capital_paris&gt;&gt;</span>
-<span class="yarn-line">    Ciao! Sei mai stato qui a Parigi?</span> <span class="yarn-meta">#line:talk_tutor_0</span>
+<span class="yarn-line">    Ciao! Sei mai stato/a a Parigi?</span> <span class="yarn-meta">#line:talk_tutor_0</span>
 <span class="yarn-choice">        -&gt; SÌ!</span> <span class="yarn-meta">#line:talk_tutor_0b</span>
 <span class="yarn-line">        Fantastico! Vediamo se ti ricordi questi posti.</span> <span class="yarn-meta">#line:talk_tutor_0c</span>
 <span class="yarn-choice">        -&gt; NO.</span> <span class="yarn-meta">#line:talk_tutor_0d</span>
@@ -153,7 +153,7 @@ hide:
 <span class="yarn-line">    Un grosso cane blu mi ha rubato la farina!</span> <span class="yarn-meta">#line:baker_3</span>
 <span class="yarn-line">    Puoi aiutarmi a trovarli?</span> <span class="yarn-meta">#line:baker_4</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_eiffell&gt;&gt;</span>
-<span class="yarn-line">    Andate alla Torre Eiffel.</span> <span class="yarn-meta">#line:baker_5 #task:go_eiffell</span>
+<span class="yarn-line">    Vai alla Torre Eiffel.</span> <span class="yarn-meta">#line:baker_5 #task:go_eiffell</span>
     <span class="yarn-cmd">&lt;&lt;set $BAGUETTE_STEP = 0&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_eiffell_ticket&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
@@ -297,7 +297,7 @@ hide:
 <span class="yarn-line">Buongiorno. Cosa desidera?</span> <span class="yarn-meta">#line:09e454b </span>
 <span class="yarn-choice">-&gt; Un biglietto per salire sulla Torre Eiffel.</span> <span class="yarn-meta">#line:0141851 </span>
     <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("collect_coins")&gt;&gt;</span>
-<span class="yarn-line">        Seleziona l'importo da pagare.</span> <span class="yarn-meta">#line:0f44ea7 </span>
+<span class="yarn-line">        Seleziona la valuta da pagare.</span> <span class="yarn-meta">#line:0f44ea7 </span>
         <span class="yarn-cmd">&lt;&lt;activity money_elevator ticket_payment_done&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "collect_coins"&gt;&gt;</span>
 <span class="yarn-line">        Il biglietto costa 5 monete</span> <span class="yarn-meta">#line:069cbb3</span>
@@ -583,7 +583,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Fantastico! Hai risolto il puzzle.</span> <span class="yarn-meta">#shadow:puzzle_done</span>
 <span class="yarn-line">Ora il forziere è sbloccato.</span> <span class="yarn-meta">#shadow:chest_unlocked</span>
-<span class="yarn-line">Si trova sul tetto. Per arrivarci, usa il teletrasporto.</span> <span class="yarn-meta">#line:0d46853 </span>
+<span class="yarn-line">Si trova sul tetto. Usa il teletrasporto per arrivarci.</span> <span class="yarn-meta">#line:0d46853 </span>
 <span class="yarn-cmd">&lt;&lt;SetActive chest_yeast true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action activate_arc_teleporter&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target chest_yeast&gt;&gt;</span>

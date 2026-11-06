@@ -13,7 +13,7 @@ Nous accueillons volontiers les retours et idées des parents, enseignants et é
 - Suggérer des améliorations d’ergonomie (commandes, caméra, menus)
 - Partager ce qui a bien marché en classe et ce qui pourrait être clarifié
 
-Rejoignez notre communauté : <https://antura.discourse.group>
+Rejoignez notre communauté : <https://github.com/vgwb/Antura/discussions>
 
 ## Signaler un problème
 

@@ -5,7 +5,7 @@ title: FAQ
 # FAQ
 
 This page answers common questions from parents and teachers.
-If you have any other question, please join our [community](https://antura.discourse.group) 
+If you have any other question, please join our [community](https://github.com/vgwb/Antura/discussions) 
 
 ## For teachers
 

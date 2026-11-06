@@ -1,11 +1,11 @@
 ---
-title: Paris Seine (fr_10) - Script
+title: Paris - The Seine (fr_10) - Script
 hide:
 ---
 
-# Paris Seine (fr_10) - Script
+# Paris - The Seine (fr_10) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-10-paris-seine/29/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/634)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=754141150#gid=754141150)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_10%20Paris%20Seine/FR_10%20Paris%20Seine%20-%20Yarn%20Script.yarn)  
@@ -32,8 +32,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $bridge_train = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $bridge_cars = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $bridge_people = 0&gt;&gt;</span>
-<span class="yarn-line">We are at the River Seine, in Paris!</span> <span class="yarn-meta">#line:042160f </span>
-<span class="yarn-line">Today we will explore the river, the bridges, and the boats.</span> <span class="yarn-meta">#line:0280e8f </span>
+<span class="yarn-line">Welcome to Paris! Paris is the capital of France. In Paris, there is a very famous river. This river is called the Seine.</span> <span class="yarn-meta">#line:042160f </span>
+<span class="yarn-line">Today, you will discover the Seine and its many bridges. On the Seine, there are all kinds of boats.</span> <span class="yarn-meta">#line:0280e8f </span>
 <span class="yarn-cmd">&lt;&lt;target protagonist&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
 <span class="yarn-comment">//&lt;&lt;area area_all&gt;&gt;</span>
@@ -52,15 +52,15 @@ hide:
 <span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Great, you finished the quest!</span> <span class="yarn-meta">#line:0c408c3 </span>
+<span class="yarn-line">Great, you've completed this quest!</span> <span class="yarn-meta">#line:0c408c3 </span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
-<span class="yarn-line">You learned about bridges for trains, cars, and people.</span> <span class="yarn-meta">#line:091e9fc </span>
+<span class="yarn-line">You discovered the bridges and boats of the Seine. The bridges allow you to cross the river that flows through Paris: the Seine.</span> <span class="yarn-meta">#line:091e9fc </span>
 <span class="yarn-cmd">&lt;&lt;card boat_people&gt;&gt;</span>
-<span class="yarn-line">You saw tourist boats with big windows.</span> <span class="yarn-meta">#line:062cc35 </span>
+<span class="yarn-line">There are boats for tourists. They have large windows to see the monuments of Paris from the Seine.</span> <span class="yarn-meta">#line:062cc35 </span>
 <span class="yarn-cmd">&lt;&lt;card boat_house&gt;&gt;</span>
-<span class="yarn-line">You also saw house boats where people can live.</span> <span class="yarn-meta">#line:0a29742 </span>
+<span class="yarn-line">There are houseboats. People live on these boats. They are called barges.</span> <span class="yarn-meta">#line:0a29742 </span>
 <span class="yarn-cmd">&lt;&lt;card seine_map_in_paris&gt;&gt;</span>
-<span class="yarn-line">Paris grows around the Seine.</span> <span class="yarn-meta">#line:08cc02a </span>
+<span class="yarn-line">Important monuments in Paris were built around the Seine.</span> <span class="yarn-meta">#line:08cc02a </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -79,7 +79,6 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Draw a bridge in your notebook!</span> <span class="yarn-meta">#line:0b37e92 </span>
-<span class="yarn-line">You can also find other activities on the website.</span> <span class="yarn-meta">#line:04f7aaa </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -97,26 +96,26 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_photos")&gt;&gt;</span>
 <span class="yarn-line">    Thank you!</span> <span class="yarn-meta">#line:0a70250</span>
-<span class="yarn-line">    You found all my photos!</span> <span class="yarn-meta">#line:07cac48 </span>
-<span class="yarn-line">    Now I can go home! One last question...</span> <span class="yarn-meta">#line:08b0aea </span>
+<span class="yarn-line">    You found all the photos from my guide!</span> <span class="yarn-meta">#line:07cac48 </span>
+<span class="yarn-line">    I can finally go home! I have one last question…</span> <span class="yarn-meta">#line:08b0aea </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("collect_cards")&gt;&gt;</span>
 <span class="yarn-line">    Thank you!</span> <span class="yarn-meta">#shadow:0a70250 </span>
 <span class="yarn-line">    But I miss 7 photos about bridges and boats on the Seine!</span> <span class="yarn-meta">#line:006ab27 </span>
     <span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
-<span class="yarn-line">    Explore the Seine and find my photos!</span> <span class="yarn-meta">#line:084c7e4 </span>
-<span class="yarn-line">    If you can't find them, use the map!</span> <span class="yarn-meta">#line:0bfcb05 </span>
+<span class="yarn-line">    Take a walk along the banks of the Seine and find the photos!</span> <span class="yarn-meta">#line:084c7e4 </span>
+<span class="yarn-line">    If you can't find them, you can use the map of Paris to locate them!</span> <span class="yarn-meta">#line:0bfcb05 </span>
     <span class="yarn-cmd">&lt;&lt;task_start find_photos task_find_photos_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "find_photos" or GetCurrentTask() == "collect_cards"&gt;&gt;</span>
 <span class="yarn-line">    You are doing well!</span> <span class="yarn-meta">#line:03ea48b </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Help! Help me!</span> <span class="yarn-meta">#line:0aa0f3a </span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_intro&gt;&gt;</span>
-<span class="yarn-line">    I am a tourist and that big blue dog took my Paris guidebook!</span> <span class="yarn-meta">#line:0210ef0</span>
-<span class="yarn-line">    And the pages with photos of the Seine are missing!</span> <span class="yarn-meta">#line:0c8e7b6</span>
+<span class="yarn-line">    I'm visiting Paris. I'm a tourist. Antura the dog took my book about Paris!</span> <span class="yarn-meta">#line:0210ef0</span>
+<span class="yarn-line">    The pages of my book and the photos fell near the Seine!</span> <span class="yarn-meta">#line:0c8e7b6</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive antura false&gt;&gt;</span>
-<span class="yarn-line">    Find the photos around here!</span> <span class="yarn-meta">#line:0a9c8e7 #task:collect_cards</span>
+<span class="yarn-line">    Walk near the river and you'll find the photos!</span> <span class="yarn-meta">#line:0a9c8e7 #task:collect_cards</span>
     <span class="yarn-cmd">&lt;&lt;area area_tutorial&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start collect_cards task_collect_cards_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -167,16 +166,16 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">The Seine flows into a sea. Which one?</span> <span class="yarn-meta">#line:066d7bd </span>
+<span class="yarn-line">The river that flows through Paris is called...</span> <span class="yarn-meta">#line:066d7bd </span>
 <span class="yarn-choice">-&gt; The Mediterranean Sea</span> <span class="yarn-meta">#line:02ab1e0 </span>
-<span class="yarn-line">   Hmm... not really. Look at the map again.</span> <span class="yarn-meta">#line:099fe86 </span>
+<span class="yarn-line">    That's not the correct answer. The Loire flows through Nantes, near the Jules Verne Museum.</span> <span class="yarn-meta">#line:099fe86 </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
 <span class="yarn-choice">-&gt; The English Channel</span> <span class="yarn-meta">#line:03c92db </span>
     <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
-<span class="yarn-line">    Yes. The Seine flows into the English Channel, in the north of France.</span> <span class="yarn-meta">#line:0a2bcd3</span>
+<span class="yarn-line">    Yes, it's the Seine. The river that flows through Paris is called the Seine.</span> <span class="yarn-meta">#line:0a2bcd3</span>
     <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 <span class="yarn-choice">-&gt; The Atlantic Ocean</span> <span class="yarn-meta">#line:052fdac </span>
-<span class="yarn-line">    Hmm... not really. Look at the map again.</span> <span class="yarn-meta">#shadow:099fe86 </span>
+<span class="yarn-line">    That's not the correct answer. The Loire flows through Nantes, near the Jules Verne Museum.</span> <span class="yarn-meta">#shadow:099fe86 </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
 <span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 
@@ -196,7 +195,7 @@ hide:
 <span class="yarn-line">    This boat carries goods.</span> <span class="yarn-meta">#line:0f13a44</span>
     &lt;&lt;if $boat_goods &lt; 10&gt;&gt;
 <span class="yarn-line">    What can you find on a goods boat?</span> <span class="yarn-meta">#line:04059bd </span>
-<span class="yarn-choice">        -&gt; Boxes and things</span> <span class="yarn-meta">#line:0b12cb3</span>
+<span class="yarn-choice">        -&gt; Wood, sand, but also cars or furniture</span> <span class="yarn-meta">#line:0b12cb3</span>
         <span class="yarn-cmd">&lt;&lt;set $boat_goods = 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;target chest_boat_goods&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_goods&gt;&gt;</span>
@@ -255,19 +254,19 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_house&gt;&gt;</span>
-<span class="yarn-line">This boat is a house! People live here!</span> <span class="yarn-meta">#line:0a627c2 </span>
+<span class="yarn-line">This boat is a house. There are people who live on this boat. This boat is called a houseboat.</span> <span class="yarn-meta">#line:0a627c2 </span>
 &lt;&lt;if $boat_house &lt; 10&gt;&gt;
-<span class="yarn-line">Why is this a house boat?</span> <span class="yarn-meta">#line:0165157 </span>
-<span class="yarn-choice">-&gt; It is only for trains</span> <span class="yarn-meta">#line:055d822 </span>
+<span class="yarn-line">Why is this boat called a houseboat?</span> <span class="yarn-meta">#line:0165157 </span>
+<span class="yarn-choice">-&gt; It's a bridge for trains.</span> <span class="yarn-meta">#line:055d822 </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_house&gt;&gt;</span>
-<span class="yarn-choice">-&gt; People can live on it</span> <span class="yarn-meta">#line:0c86d26 </span>
+<span class="yarn-choice">-&gt; It's possible to live there.</span> <span class="yarn-meta">#line:0c86d26 </span>
     <span class="yarn-cmd">&lt;&lt;set $boat_house = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_boat_house&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_house&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; It can only carry goods</span> <span class="yarn-meta">#line:036ba15 </span>
+<span class="yarn-choice">-&gt; This boat is transporting goods</span> <span class="yarn-meta">#line:036ba15 </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again </span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_house&gt;&gt;</span>
 <span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight </span>
@@ -314,10 +313,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_people&gt;&gt;</span>
-<span class="yarn-line">This boat has big windows, so tourists can see the city. It's a "bateau-mouche".</span> <span class="yarn-meta">#line:0129c99 </span>
+<span class="yarn-line">This boat has large windows. Tourists can admire the city. It's a "riverboat".</span> <span class="yarn-meta">#line:0129c99 </span>
 &lt;&lt;if $boat_people &lt; 10&gt;&gt;
 <span class="yarn-line">Why does a tourist boat have big windows?</span> <span class="yarn-meta">#line:02ce3de </span>
-<span class="yarn-choice">-&gt; To carry more cars</span> <span class="yarn-meta">#line:02349a3</span>
+<span class="yarn-choice">-&gt; To transport cars</span> <span class="yarn-meta">#line:02349a3</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_people&gt;&gt;</span>
 <span class="yarn-choice">-&gt; To go under the water</span> <span class="yarn-meta">#line:037efcf</span>
@@ -373,19 +372,19 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card pont_alexandre_iii&gt;&gt;</span>
-<span class="yarn-line">This is the Pont Alexandre III, a famous old bridge.</span> <span class="yarn-meta">#line:09c706f</span>
+<span class="yarn-line">This is the Alexander III Bridge. It's a very famous bridge.</span> <span class="yarn-meta">#line:09c706f</span>
 &lt;&lt;if $bridge_alexandre &lt; 10&gt;&gt;
-<span class="yarn-line">What is special about this famous bridge?</span> <span class="yarn-meta">#line:021f382</span>
-<span class="yarn-choice">-&gt; It has gold statues</span> <span class="yarn-meta">#line:056c933</span>
+<span class="yarn-line">Why is this bridge famous?</span> <span class="yarn-meta">#line:021f382</span>
+<span class="yarn-choice">-&gt; There are statues made of gold.</span> <span class="yarn-meta">#line:056c933</span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_alexandre = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_alexandre&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_alexandre&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; It is a train bridge</span> <span class="yarn-meta">#line:05c2518</span>
+<span class="yarn-choice">-&gt; It's a bridge for trains.</span> <span class="yarn-meta">#line:05c2518</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_alexandre&gt;&gt;</span>
-<span class="yarn-choice">-&gt; It is made of ice</span> <span class="yarn-meta">#line:0d9bc29</span>
+<span class="yarn-choice">-&gt; It's a bridge for cars.</span> <span class="yarn-meta">#line:0d9bc29</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_alexandre&gt;&gt;</span>
 <span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
@@ -432,19 +431,19 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_cars&gt;&gt;</span>
-<span class="yarn-line">This is a bridge for cars!</span> <span class="yarn-meta">#line:0d79d7d </span>
+<span class="yarn-line">It's a bridge for cars!</span> <span class="yarn-meta">#line:0d79d7d </span>
 &lt;&lt;if $bridge_cars &lt; 10&gt;&gt;
-<span class="yarn-line">Cars are fast. How do you cross safely?</span> <span class="yarn-meta">#line:01f30c4</span>
-<span class="yarn-choice">-&gt; Run across anywhere</span> <span class="yarn-meta">#line:076ee7f </span>
+<span class="yarn-line">The cars are driving fast. How can I cross safely?</span> <span class="yarn-meta">#line:01f30c4</span>
+<span class="yarn-choice">-&gt; You can cross the road anywhere.</span> <span class="yarn-meta">#line:076ee7f </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_cars&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Use the sidewalk and cross at the crossing</span> <span class="yarn-meta">#line:0c8cdae </span>
+<span class="yarn-choice">-&gt; You must walk on the sidewalk and cross at the pedestrian crossing.</span> <span class="yarn-meta">#line:0c8cdae </span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_cars = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_cars&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_cars&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Walk in the road</span> <span class="yarn-meta">#line:0cf371b</span>
+<span class="yarn-choice">-&gt; You have to walk on the road</span> <span class="yarn-meta">#line:0cf371b</span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_cars&gt;&gt;</span>
 <span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
@@ -491,10 +490,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_trains&gt;&gt;</span>
-<span class="yarn-line">This is a bridge for trains!</span> <span class="yarn-meta">#line:0a0991d </span>
+<span class="yarn-line">It's a bridge for trains!</span> <span class="yarn-meta">#line:0a0991d </span>
 &lt;&lt;if $bridge_train &lt; 10&gt;&gt;
-<span class="yarn-line">A train bridge must be...</span> <span class="yarn-meta">#line:09731f9 </span>
-<span class="yarn-choice">-&gt; Soft and bouncy</span> <span class="yarn-meta">#line:08b4fad </span>
+<span class="yarn-line">A train bridge is a bridge...</span> <span class="yarn-meta">#line:09731f9 </span>
+<span class="yarn-choice">-&gt; for cars</span> <span class="yarn-meta">#line:08b4fad </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_train&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Only for walking</span> <span class="yarn-meta">#line:03ff912</span>
@@ -577,7 +576,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_people&gt;&gt;</span>
 <span class="yarn-line">    Yes! Now you can open that chest!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Car bridge</span> <span class="yarn-meta">#line:07f732f </span>
+<span class="yarn-choice">-&gt; a bridge for cars</span> <span class="yarn-meta">#line:07f732f </span>
 <span class="yarn-line">    No. Try again.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_people&gt;&gt;</span>
 <span class="yarn-choice">-&gt; I don't know</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
@@ -627,7 +626,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card seine_map_in_paris&gt;&gt;</span>
 <span class="yarn-line">Look at this map of the Seine.</span> <span class="yarn-meta">#line:08b1177 </span>
 <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
-<span class="yarn-line">The Seine goes north into the English Channel (a sea).</span> <span class="yarn-meta">#line:0281b33 </span>
+<span class="yarn-line">The Seine flows into the English Channel (a sea) in a northerly direction.</span> <span class="yarn-meta">#line:0281b33 </span>
 
 </code>
 </pre>
@@ -641,7 +640,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">No, I didn't see your dog.</span> <span class="yarn-meta">#line:0614aef </span>
+<span class="yarn-line">No, I haven't seen your dog.</span> <span class="yarn-meta">#line:0614aef </span>
 <span class="yarn-line">A dog? There are many dogs here...</span> <span class="yarn-meta">#line:09f3f7a </span>
 <span class="yarn-line">I did see a dog walking around, yes.</span> <span class="yarn-meta">#line:02ed36d </span>
 
@@ -660,7 +659,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_eiffel_tower&gt;&gt;</span>
-<span class="yarn-line">Look how nice!</span> <span class="yarn-meta">#line:059f66d </span>
+<span class="yarn-line">Look how pretty it is!</span> <span class="yarn-meta">#line:059f66d </span>
 
 </code>
 </pre>
@@ -691,7 +690,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">The river starts far away and ends in the English Channel.</span> <span class="yarn-meta">#line:074efa5 </span>
+<span class="yarn-line">The Seine flows into the English Channel.</span> <span class="yarn-meta">#line:074efa5 </span>
 
 </code>
 </pre>
@@ -711,9 +710,9 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: residents </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Bonjour!</span> <span class="yarn-meta">#line:072a345 </span>
+<span class="yarn-line">Good morning!</span> <span class="yarn-meta">#line:072a345 </span>
 <span class="yarn-line">La Seine est magnifique!</span> <span class="yarn-meta">#line:0f0f558 </span>
-<span class="yarn-line">Il y a beaucoup de ponts à Paris!</span> <span class="yarn-meta">#line:038b8f6 </span>
+<span class="yarn-line">There are many bridges in Paris!</span> <span class="yarn-meta">#line:038b8f6 </span>
 
 </code>
 </pre>
@@ -729,10 +728,10 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: residents </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Salut!</span> <span class="yarn-meta">#line:06aa0c1 </span>
-<span class="yarn-line">J'aime bien faire du vélo le long de la Seine!</span> <span class="yarn-meta">#line:0494564 </span>
-<span class="yarn-line">Paris est la plus belle ville du monde!</span> <span class="yarn-meta">#line:0d94ea8 </span>
-<span class="yarn-line">La Seine est très longue!</span> <span class="yarn-meta">#line:0395113 </span>
+<span class="yarn-line">Hi!</span> <span class="yarn-meta">#line:06aa0c1 </span>
+<span class="yarn-line">I really enjoy cycling along the Seine!</span> <span class="yarn-meta">#line:0494564 </span>
+<span class="yarn-line">Paris is the most beautiful city in the world!</span> <span class="yarn-meta">#line:0d94ea8 </span>
+<span class="yarn-line">The Seine is very long!</span> <span class="yarn-meta">#line:0395113 </span>
 
 </code>
 </pre>
@@ -749,7 +748,7 @@ hide:
 <span class="yarn-header-dim">spawn_group: bridge_expert</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">A train bridge must be strong.</span> <span class="yarn-meta">#line:0816b6b </span>
-<span class="yarn-line">Some bridges are only for walking.</span> <span class="yarn-meta">#line:0ba2f29 </span>
+<span class="yarn-line">Some bridges are intended for pedestrians only.</span> <span class="yarn-meta">#line:0ba2f29 </span>
 <span class="yarn-line">Cars cross the river every day.</span> <span class="yarn-meta">#line:08d8ef0 </span>
 
 </code>
@@ -766,9 +765,9 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: river_friend</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">The Seine helps boats move through Paris.</span> <span class="yarn-meta">#line:0ec822e </span>
-<span class="yarn-line">Maps show how the river turns.</span> <span class="yarn-meta">#line:06d2470 </span>
-<span class="yarn-line">The river water flows to the sea.</span> <span class="yarn-meta">#line:0d1724c </span>
+<span class="yarn-line">The Seine allows boats to circulate in Paris.</span> <span class="yarn-meta">#line:0ec822e </span>
+<span class="yarn-line">The maps show the meanders of the river.</span> <span class="yarn-meta">#line:06d2470 </span>
+<span class="yarn-line">The river flows into the sea.</span> <span class="yarn-meta">#line:0d1724c </span>
 
 </code>
 </pre>
@@ -784,9 +783,9 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: boat_guide</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Tourist boats have big windows.</span> <span class="yarn-meta">#line:047502b </span>
+<span class="yarn-line">Tourist boats have large windows.</span> <span class="yarn-meta">#line:047502b </span>
 <span class="yarn-line">Goods boats carry many boxes.</span> <span class="yarn-meta">#line:0ef47e5 </span>
-<span class="yarn-line">A house boat can be a home.</span> <span class="yarn-meta">#line:00728bb </span>
+<span class="yarn-line">A houseboat can be a home.</span> <span class="yarn-meta">#line:00728bb </span>
 
 </code>
 </pre>

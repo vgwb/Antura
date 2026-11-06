@@ -201,7 +201,7 @@ Credits:
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
 
     - **[Flaga Hiszpanii](../cards/index.md#flag_spain)** (CulturalContext)
-    Flaga Hiszpanii ma poziome czerwone i żółte pasy. Kolory te przypominają słońce i paprykę. To w Hiszpanii tańczy się flamenco.
+    Flaga Hiszpanii ma poziome czerwone i żółte pasy. To kolory słońca i papryki.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
@@ -211,7 +211,7 @@ Credits:
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
     - **[Flaga Francji](../cards/index.md#flag_france)** (CulturalContext)
-    Flaga Francji ma trzy pionowe pasy: niebieski, biały i czerwony. Te kolory symbolizują wolność, równość i braterstwo!
+    Flaga francuska ma trzy pionowe kolory: niebieski, biały i czerwony.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
@@ -290,7 +290,7 @@ Credits:
     ![preview hat](../../../assets/img/content/cards/hat.jpg){ width="200" }
 
     - **[Plecak](../cards/index.md#backpack)** (RelatedTo)
-    Torba, którą nosisz na plecach.
+    No translation found for 'backpack.desc' in Cards
 
     ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ width="200" }
 
@@ -338,37 +338,37 @@ Credits:
 
     ![preview piano](../../../assets/img/content/cards/piano.jpg){ width="200" }
 
-    - **[C](../cards/index.md#note_do)** (RelatedTo)
+    - **[Do](../cards/index.md#note_do)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_do](../../../assets/img/content/cards/note_do.jpg){ width="200" }
 
-    - **[D](../cards/index.md#note_re)** (RelatedTo)
+    - **[Re](../cards/index.md#note_re)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_re](../../../assets/img/content/cards/note_re.jpg){ width="200" }
 
-    - **[E](../cards/index.md#note_mi)** (RelatedTo)
+    - **[Mi](../cards/index.md#note_mi)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ width="200" }
 
-    - **[F](../cards/index.md#note_fa)** (RelatedTo)
+    - **[Fa](../cards/index.md#note_fa)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ width="200" }
 
-    - **[G](../cards/index.md#note_sol)** (RelatedTo)
+    - **[Sol](../cards/index.md#note_sol)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ width="200" }
 
-    - **[A](../cards/index.md#note_la)** (RelatedTo)
+    - **[La](../cards/index.md#note_la)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_la](../../../assets/img/content/cards/note_la.jpg){ width="200" }
 
-    - **[H](../cards/index.md#note_si)** (RelatedTo)
+    - **[Si](../cards/index.md#note_si)** (RelatedTo)
     Nuta muzyczna.
 
     ![preview note_si](../../../assets/img/content/cards/note_si.jpg){ width="200" }
@@ -651,12 +651,12 @@ Credits:
     ![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ width="200" }
 
     - **[Pomidor](../cards/index.md#food_tomato)** (MadeOf)
-    Jest czerwony i okrągły. Można z niego zrobić sos do pizzy!
+    No translation found for 'food_tomato.desc' in Cards
 
     ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ width="200" }
 
     - **[Cytryna](../cards/index.md#food_lemon)** (MadeOf)
-    Żółty, bardzo kwaśny owoc. Z cytryn można zrobić lemoniadę!
+    Jest to owoc żółty.
 
     ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ width="200" }
 
@@ -670,7 +670,7 @@ Credits:
 
     ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ width="200" }
 
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 Credits:
   - Valeria Passarella (Italy)
@@ -688,22 +688,22 @@ Credits:
 
 - Connected cards:
     - **[Hiszpania](../cards/index.md#country_spain)** (RelatedTo)
-    Kraj w Europie. Stolicą jest Madryt. Hiszpania jest znana z tańca flamenco.
+    Kraj w Europie. Stolicą jest Madryt. Hiszpania wymyśliła taniec flamenco.
 
     ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
 
     - **[Flaga Hiszpanii](../cards/index.md#flag_spain)** (CulturalContext)
-    Flaga Hiszpanii ma poziome czerwone i żółte pasy. Kolory te przypominają słońce i paprykę. To w Hiszpanii tańczy się flamenco.
+    Flaga Hiszpanii ma poziome czerwone i żółte pasy. To kolory słońca i papryki.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Luksemburg](../cards/index.md#country_luxembourg)** (RelatedTo)
-    Państwo w Europie. Stolicą jest miasto Luksemburg.
+    To kraj w Europie. Jego stolicą jest miasto Luksemburg.
 
     ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ width="200" }
 
     - **[Włochy](../cards/index.md#country_italy)** (RelatedTo)
-    Państwo w Europie. Stolicą jest Rzym.
+    To kraj w Europie. Jego stolicą jest Rzym.
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
@@ -718,7 +718,7 @@ Credits:
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
     - **[Miasto Luksemburg](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
-    Stolica Luksemburga.
+    Stolicę Luksemburga również nazywa się Luksemburg.
 
     ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
 
@@ -843,7 +843,7 @@ Credits:
 
 - Connected cards:
     - **[Flaga Francji](../cards/index.md#flag_france)** (CulturalContext)
-    Flaga Francji ma trzy pionowe pasy: niebieski, biały i czerwony. Te kolory symbolizują wolność, równość i braterstwo!
+    Flaga francuska ma trzy pionowe kolory: niebieski, biały i czerwony.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
@@ -862,45 +862,35 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Szkoły francuskie](../cards/index.md#french_schools)**
-    We Francji nauka w szkołach dzieli się na cztery główne etapy: przedszkole (zabawa i nauka dla małych dzieci), szkoła podstawowa (czytanie, pisanie, matematyka), gimnazjum i liceum (szkoła średnia). Na koniec szkoły średniej wielu uczniów zdaje ważny egzamin - maturę.
+    We Francji nauka w szkole dzieli się na cztery główne etapy. Maternelle jest dla dzieci w wieku od 3 do 5 lat. École élémentaire jest dla dzieci w wieku od 6 do 10 lat. Ma pięć klas: CP, CE1, CE2, CM1 i CM2. Collège jest dla uczniów w wieku od 11 do 14 lat. Ma cztery klasy: 6ème, 5ème, 4ème i 3ème. Lycée jest dla młodzieży w wieku od 15 do 18 lat. Ma trzy klasy: 2nde, 1ère i terminale.
 
     ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
 
 - Connected cards:
     - **[Przedszkole](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
-    Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i odkrywanie.
+    Szkoła we Francji dla dzieci w wieku od 3 do 5 lat. Dzieci uczą się, odkrywając świat i bawiąc się.
 
     ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ width="200" }
 
     - **[Szkoła podstawowa we Francji](../cards/index.md#education_ecole_primaire_fr)** (PartOf)
-    Szkoła dla dzieci w wieku od 6 do 10 lat. Uczysz się czytania, pisania i liczenia.
+    Szkoła we Francji dla dzieci w wieku od 6 do 10 lat. Dzieci uczą się czytać, pisać i liczyć.
 
     ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ width="200" }
 
     - **[Liceum we Francji](../cards/index.md#education_lycee_fr)** (PartOf)
-    Szkoła średnia we Francji dla nastolatków w wieku od 16 do 18 lat. Uczniowie intensywnie przygotowują się do egzaminu maturalnego, aby móc iść na uniwersytet.
+    Szkoła we Francji dla młodzieży w wieku od 14 do 18 lat. Uczniowie mają różnych nauczycieli i uczą się różnych przedmiotów, takich jak matematyka, angielski, przyroda, sport i historia. Przygotowują się do egzaminu końcowego zwanego maturą.
 
     ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ width="200" }
 
     - **[Collège we Francji](../cards/index.md#education_college_fr)** (PartOf)
-    Gimnazjum we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wielu przedmiotów i przygotowują się do szkoły średniej.
+    Szkoła we Francji dla uczniów w wieku od 11 do 14 lat. Mają różnych nauczycieli i uczą się takich przedmiotów jak matematyka, angielski, przyroda, sport i historia.
 
     ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ width="200" }
-
-    - **[Pismo odręczne](../cards/index.md#concept_cursive_writing)** (Purpose)
-    Specjalny sposób pisania, w którym wszystkie litery w słowie są połączone. We Francji dzieci uczą się tego sposobu pisania w szkole.
-
-    ![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ width="200" }
 
     - **[Menu stołówki](../cards/index.md#object_canteen_menu)** (Purpose)
     Lista dań, które możesz wybrać na szkolny obiad.
 
     ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ width="200" }
-
-    - **[Karta świeckości](../cards/index.md#concept_charter_of_secularism)** (CulturalContext)
-    Zbiór zasad szanujących przekonania każdego. Pomaga ludziom żyć razem w pokoju.
-
-    ![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ width="200" }
 
 - Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
 
@@ -911,22 +901,22 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Juliusz Verne](../cards/index.md#jules_verne)**
-    Francuski pisarz, który wyobrażał sobie niesamowite przygody, zanim stały się możliwe! Pisał o okrętach podwodnych, rakietach i podróżach po świecie.
+    Jules Verne urodził się w 1828 roku, prawie 200 lat temu. Zmarł w 1905 roku. Był francuskim pisarzem i napisał wiele książek. Wymyślał niezwykłe sposoby podróżowania, zanim naprawdę powstały! Pisał o łodziach podwodnych, rakietach i podróżach dookoła świata.
 
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
     - **[W osiemdziesiąt dni dookoła świata](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
-    Ekscytująca książka Juliusza Verne'a o bardzo szybkiej podróży dookoła całego świata pociągami, statkami i balonami na ogrzane powietrze!
+    To książka napisana przez Juliusza Verne'a. Opowiada o pięknej i bardzo szybkiej podróży dookoła świata pociągiem, statkiem i balonem!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
     - **[Z Ziemi na Księżyc](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    Książka Juliusza Verne'a o podróżny na księżyc po wystrzeleniu z armaty. Została napisana, zanim jeszcze istniały prawdziwe rakiety.
+    Tę książkę napisał Juliusz Verne. Opowiada o podróży na Księżyc w statku kosmicznym wystrzelonym z wielkiej armaty. W tamtych czasach prawdziwe rakiety kosmiczne jeszcze nie istniały!
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
-    - **[20 000 mil podmorskiej żeglugi](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
+    - **[20000 mil podmorskiej żeglugi](../cards/index.md#book_20000_leagues_under_the_sea)** (RelatedTo)
     Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Możesz spotkać gigantyczne morskie stworzenia!
 
     ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ width="200" }
@@ -999,7 +989,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Muzeum Luwru (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
+- Quests: [Muzeum Luwru (fr_12)](../quests/quest/fr_12.md)
 
 ---
 
@@ -1009,7 +999,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Sprzedawca na targu](../cards/index.md#market_traders)**
-    Osoby sprzedające żywność i towary na targach - sprzedawcy ryb, serów, owoców. Ważą, pakują i wykrzykują ceny.
+    Kupcy sprzedają żywność i inne towary na straganach targowych. Można tu spotkać sprzedawców ryb, serów, artykułów spożywczych oraz owoców i warzyw. Można tu kupić świeże produkty.
 
     ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
 
@@ -1039,7 +1029,7 @@ Credits:
 
     ![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ width="200" }
 
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1133,7 +1123,7 @@ Credits:
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
     - **[Włochy](../cards/index.md#country_italy)** (LocatedIn)
-    Państwo w Europie. Stolicą jest Rzym.
+    To kraj w Europie. Jego stolicą jest Rzym.
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
@@ -1182,7 +1172,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Sekwana](../cards/index.md#seine)**
-    Rzeka o długości 777 kilometrów w północnej Francji
+    Sekwana przepływa przez Paryż. Ma 777 km długości i uchodzi do kanału La Manche.
 
     ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
 
@@ -1252,7 +1242,7 @@ Credits:
 
     ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
 
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
@@ -1280,7 +1270,7 @@ Credits:
     ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ width="200" }
 
     - **[Wybrzeże Morza Bałtyckiego](../cards/index.md#baltic_sea_coast)** (RelatedTo)
-    Piaszczysty brzeg Morza Bałtyckiego.
+    No translation found for 'baltic_sea_coast.desc' in Cards
 
     ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ width="200" }
 
@@ -1455,7 +1445,7 @@ Credits:
 
     ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
 
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1699,7 +1689,7 @@ Credits:
 
     ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
 
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)

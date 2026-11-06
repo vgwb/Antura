@@ -5,7 +5,7 @@ hide:
 
 # Tutoriel (tutorial)
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/637)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
@@ -30,56 +30,55 @@ hide:
 - Target age: Ages6to10
 
 #### Core Card - Antura
-Le personnage principal de ce jeu vidéo
+C'est le personnage principal de ce jeu vidéo.
 
 ![preview antura](../../../../assets/img/content/cards/antura.jpg){ width="200" }
 - Type: Concept
 
 #### Connection (RelatedTo) - Cookies
-De superbes récompenses à collectionner en jouant ! Utilisez-les pour obtenir de nouveaux objets et des surprises.
+De belles récompenses à collectionner en jouant ! Utilisez-les pour obtenir de nouveaux objets et des surprises.
 
 ![preview antura_cookies](../../../../assets/img/content/cards/antura_cookies.jpg){ width="200" }
 - Type: Object
 
-#### Connection (RelatedTo) - Portail
-Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez où elle vous mène !
+#### Connection (RelatedTo) - Un portail
+Avec la porte magique tu peux aller vers de nouveaux lieux. Entre et découvre où elle te mène !
 
 ![preview antura_portal](../../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 - Type: Object
 
-#### Connection (RelatedTo) - Cartes
-Chaque carte a quelque chose de spécial à apprendre. Trouvez-les toutes et lisez-les !
+#### Connection (RelatedTo) - Les cartes
+Chaque carte a quelque chose de spécial à apprendre. Trouve-les toutes et lis-les !
 
 ![preview antura_cards](../../../../assets/img/content/cards/antura_cards.jpg){ width="200" }
 - Type: Concept
 
-#### Connection (RelatedTo) - Chat
-Le meilleur ami et compagnon de voyage d'Antura. Curieux, intelligent et toujours prêt à aider !
+#### Connection (RelatedTo) - Le chat
+C'est le meilleur ami et compagnon de voyage d'Antura. Il est curieux, intelligent et toujours prêt à aider !
 
 ![preview antura_cat](../../../../assets/img/content/cards/antura_cat.jpg){ width="200" }
 - Type: Concept
 
-#### Connection (RelatedTo) - Lettre vivante
-Une lettre sympathique qui aime parler et jouer ! Parlez-lui pour apprendre de nouveaux mots.
+#### Connection (RelatedTo) - La lettre vivante
+Une gentille lettre qui aime parler et jouer ! Parle-lui pour apprendre de nouveaux mots.
 
 ![preview antura_livingletter](../../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
 - Type: Concept
 
 #### Connection (RelatedTo) - En blocs
-Ces drôles de personnages vivent dans ce monde.
-Parlez-leur à tous… ils ont des histoires à raconter !
+Ces drôles de personnages vivent dans ce monde. Parle-leur à tous… ils ont des histoires à raconter !
 
 ![preview antura_blocky_character](../../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
 - Type: Concept
 
-#### Connection (RelatedTo) - Portail
-Une porte magique qui vous mène vers de nouveaux horizons. Entrez et découvrez où elle vous mène !
+#### Connection (RelatedTo) - Un portail
+Avec la porte magique tu peux aller vers de nouveaux lieux. Entre et découvre où elle te mène !
 
 ![preview antura_portal](../../../../assets/img/content/cards/antura_portal.jpg){ width="200" }
 - Type: Object
 
-#### Connection (RelatedTo) - Danger
-À éviter absolument ! Soyez prudents et protégez-vous.
+#### Connection (RelatedTo) - Le danger
+À éviter absolument ! Sois prudent et protége-toi.
 
 ![preview antura_malus](../../../../assets/img/content/cards/antura_malus.jpg){ width="200" }
 - Type: Concept

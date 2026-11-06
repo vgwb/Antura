@@ -5,7 +5,7 @@ hide:
 
 # Juliusz Verne i transport (fr_03) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-03-jules-verne-and-transportation/25/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/630)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=336647638#gid=336647638)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_03%20Nantes%20Verne/FR_03%20Nantes%20Verne%20-%20Yarn%20Script.yarn)  
@@ -32,8 +32,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $QUEST_ITEMS = 4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $museum_clean = false&gt;&gt;</span>
-<span class="yarn-line">Jesteśmy w NANTES, w MUZEUM Juliusza Verne'a!</span> <span class="yarn-meta">#line:0b5e2f3</span>
-<span class="yarn-line">Odkryjmy tego PISARZA i jego niezwykłe PODRÓŻE.</span> <span class="yarn-meta">#line:006e7fc</span>
+<span class="yarn-line">Witamy w Nantes. Odwiedź Muzeum Juliusza Verne'a!</span> <span class="yarn-meta">#line:0b5e2f3</span>
+<span class="yarn-line">Kim jest Juliusz Verne? I dokąd podróżował?</span> <span class="yarn-meta">#line:006e7fc</span>
 <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_door&gt;&gt;</span>
 <span class="yarn-comment">// DEBUG</span>
@@ -56,7 +56,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Zadanie ukończone! Gratulacje!</span> <span class="yarn-meta">#line:08f0d37 </span>
 <span class="yarn-line">Teraz wiesz o Juliuszu Verne i jego KSIĄŻKACH!</span> <span class="yarn-meta">#line:0174104</span>
-<span class="yarn-line">Kiedy przyjedziesz do Nantes, koniecznie odwiedź nasze MUZEUM!</span> <span class="yarn-meta">#line:0f72ec7 </span>
+<span class="yarn-line">Jeśli jedziesz do Nantes z rodzicami, odwiedźcie Muzeum Juliusza Verne'a!</span> <span class="yarn-meta">#line:0f72ec7 </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -89,13 +89,13 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("clean_sidewalk")&gt;&gt;</span>
-<span class="yarn-line">    Dziękuję za posprzątanie!</span> <span class="yarn-meta">#line:0cec96a </span>
+<span class="yarn-line">    Dziękujemy za posprzątanie!</span> <span class="yarn-meta">#line:0cec96a </span>
 <span class="yarn-line">    Muzeum jest już otwarte! Porozmawiaj z PRZEWODNIKIEM PO MUZEUM!</span> <span class="yarn-meta">#line:0d2e2f0 </span>
     <span class="yarn-cmd">&lt;&lt;SetActive museum_door false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target museum_guide&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "clean_sidewalk"&gt;&gt;</span>
-<span class="yarn-line">    Dobrze ci idzie!</span> <span class="yarn-meta">#shadow:0c52f3c</span>
+<span class="yarn-line">    To dobrze. Jeszcze nie skończyłeś, kontynuuj!</span> <span class="yarn-meta">#shadow:0c52f3c</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Jaki BAŁAGANOWANY jest teren przed MUZEUM!</span> <span class="yarn-meta">#line:0a3e2f4</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_sidewalk&gt;&gt;</span>
@@ -121,7 +121,7 @@ hide:
 <div class="yarn-node" data-title="task_clean_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dobrze! Wróć do portiera.</span> <span class="yarn-meta">#line:0f8dd6c </span>
+<span class="yarn-line">Dobra robota! Wróć i spotkaj się z panem przy wejściu do muzeum.</span> <span class="yarn-meta">#line:0f8dd6c </span>
 <span class="yarn-cmd">&lt;&lt;target npc_door&gt;&gt;</span>
 
 </code>
@@ -140,10 +140,10 @@ hide:
 &lt;&lt;if $COLLECTED_ITEMS &gt;= $QUEST_ITEMS&gt;&gt;
 <span class="yarn-line">    Dziękuję! Teraz MUZEUM jest w porządku</span> <span class="yarn-meta">#line:0c81640 </span>
 <span class="yarn-line">    Juliusz Verne byłby z ciebie dumny!</span> <span class="yarn-meta">#line:0bc6c7b </span>
-<span class="yarn-line">    Proszę dopasować KSIĄŻKI do POJAZDÓW!</span> <span class="yarn-meta">#line:0245e0e </span>
+<span class="yarn-line">    Połącz KSIĄŻKI z pojazdami!</span> <span class="yarn-meta">#line:0245e0e </span>
     <span class="yarn-cmd">&lt;&lt;activity match_verne_vehicles activity_match_done&gt;&gt;</span>
 &lt;&lt;elseif $COLLECTED_ITEMS &gt; 0 or GetCurrentTask() == "clean_museum"&gt;&gt;
-<span class="yarn-line">    Dobrze ci idzie!</span> <span class="yarn-meta">#line:0c52f3c</span>
+<span class="yarn-line">    To dobrze. Jeszcze nie skończyłeś, kontynuuj!</span> <span class="yarn-meta">#line:0c52f3c</span>
 <span class="yarn-cmd">&lt;&lt;elseif $museum_clean == false&gt;&gt;</span>
 <span class="yarn-line">    Mamy PROBLEM!</span> <span class="yarn-meta">#line:0642734 </span>
 <span class="yarn-line">    Zabawny niebieski PIES wszedł do MUZEUM i narobił bałaganu!</span> <span class="yarn-meta">#line:0525efc</span>
@@ -151,7 +151,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;task_start clean_museum task_clean_museum_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Mamy kolejny PROBLEM!</span> <span class="yarn-meta">#line:0a7dfb3 </span>
-<span class="yarn-line">    Nasze pojazdy specjalne zaginęły.</span> <span class="yarn-meta">#line:0bb46da </span>
+<span class="yarn-line">    Pojazdów już tam nie ma.</span> <span class="yarn-meta">#line:0bb46da </span>
 <span class="yarn-line">    Proszę porozmawiać z opiekunem pierwszego pokoju.</span> <span class="yarn-meta">#line:0386706 </span>
     <span class="yarn-cmd">&lt;&lt;target tutor_20000&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -202,7 +202,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_submarine")&gt;&gt;</span>
 <span class="yarn-line">    Znalazłeś ŁÓDŹ PODWODNĄ!</span> <span class="yarn-meta">#line:0666ee2 </span>
-<span class="yarn-line">    Ale jest POŁAMANE na kawałki!</span> <span class="yarn-meta">#line:097c3fc </span>
+<span class="yarn-line">    Ale jest zepsute!</span> <span class="yarn-meta">#line:097c3fc </span>
 <span class="yarn-line">    Czy możesz to naprawić?</span> <span class="yarn-meta">#line:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory submarine_nautilus remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_submarine activity_submarine_done&gt;&gt;</span>
@@ -214,7 +214,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;SetActive submarine_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_submarine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Wróć do mnie później.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
+<span class="yarn-line">    Wróć do mnie później.</span> <span class="yarn-meta">#line:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -300,8 +300,8 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_balloon")&gt;&gt;</span>
-<span class="yarn-line">    Znalazłeś balon na ogrzane powietrze!</span> <span class="yarn-meta">#line:0286510</span>
-<span class="yarn-line">    Ale jest POŁAMANE na kawałki!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Znalazłeś BALON NA OGRODZENIOWE POWIETRZE! Nazywa się go też balonem.</span> <span class="yarn-meta">#line:0286510</span>
+<span class="yarn-line">    Ale jest zepsute!</span> <span class="yarn-meta">#shadow:097c3fc</span>
 <span class="yarn-line">    Czy możesz to naprawić?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory hot_air_balloon remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_balloon activity_balloon_done&gt;&gt;</span>
@@ -313,7 +313,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;SetActive balloon_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_balloon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Wróć do mnie później.</span> <span class="yarn-meta">#line:03af9a8 </span>
+<span class="yarn-line">    Wróć do mnie później.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -401,7 +401,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_rocket")&gt;&gt;</span>
 <span class="yarn-line">    Znalazłeś RAKIETĘ!</span> <span class="yarn-meta">#line:08fed68 </span>
-<span class="yarn-line">    Ale jest POŁAMANE na kawałki!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Ale jest zepsute!</span> <span class="yarn-meta">#shadow:097c3fc</span>
 <span class="yarn-line">    Czy możesz to naprawić?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory space_rocket remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_rocket activity_rocket_done&gt;&gt;</span>
@@ -482,8 +482,8 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card book_from_earth_to_moon&gt;&gt;</span>
-<span class="yarn-line">Juliusz Verne dawno temu wyobrażał sobie RAKIETY i PODRÓŻE kosmiczne.</span> <span class="yarn-meta">#line:0907ccb </span>
-<span class="yarn-line">Historia ma ogromną przestrzeń, w której DZIAŁO wystrzeliwuje RAKIETĘ</span> <span class="yarn-meta">#line:05e298d </span>
+<span class="yarn-line">Juliusz Verne wyobrażał sobie podróż na KSIĘŻYC RAKIETĄ.</span> <span class="yarn-meta">#line:0907ccb </span>
+<span class="yarn-line">W tej historii gigantyczne DZIAŁO wystrzeliwuje statek kosmiczny w kierunku KSIĘŻYCA.</span> <span class="yarn-meta">#line:05e298d </span>
 
 </code>
 </pre>
@@ -501,7 +501,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_train")&gt;&gt;</span>
 <span class="yarn-line">    Znalazłeś POCIĄG!</span> <span class="yarn-meta">#line:01f76f3 </span>
-<span class="yarn-line">    Ale jest POŁAMANE na kawałki!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Ale jest zepsute!</span> <span class="yarn-meta">#shadow:097c3fc</span>
 <span class="yarn-line">    Czy możesz to naprawić?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory train remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_train activity_train_done&gt;&gt;</span>
@@ -656,7 +656,7 @@ hide:
 <span class="yarn-line">Uwielbiam czytać KSIĄŻKI!</span> <span class="yarn-meta">#line:00f3a57 </span>
 <span class="yarn-line">Juliusz Verne wymyślił opowieści science fiction.</span> <span class="yarn-meta">#line:056e79e </span>
 <span class="yarn-line">Juliusz Verne napisał WIELE KSIĄŻEK!</span> <span class="yarn-meta">#line:0caca1b </span>
-<span class="yarn-line">Ludzie czytają jego KSIĄŻKI w wielu językach!</span> <span class="yarn-meta">#line:0f5f36d </span>
+<span class="yarn-line">Jego książki czytane są w wielu językach!</span> <span class="yarn-meta">#line:0f5f36d </span>
 
 </code>
 </pre>
@@ -673,8 +673,8 @@ hide:
 <span class="yarn-header-dim">spawn_group: visitors </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Podoba mi się opowieść o ŚWIECIE.</span> <span class="yarn-meta">#line:0e81901 #card:book_around_the_world_80_days</span>
-<span class="yarn-line">ŁÓDŹ PODWODNA Nautilus jest niesamowita.</span> <span class="yarn-meta">#line:08669ce #card:submarine_nautilus</span>
-<span class="yarn-line">Chciałbym kiedyś polecieć BALONEM.</span> <span class="yarn-meta">#line:00be1f0 #card:hot_air_balloon</span>
+<span class="yarn-line">Łódź podwodna Nautilus jest niesamowita.</span> <span class="yarn-meta">#line:08669ce #card:submarine_nautilus</span>
+<span class="yarn-line">Chciałbym kiedyś wybrać się na lot balonem.</span> <span class="yarn-meta">#line:00be1f0 #card:hot_air_balloon</span>
 <span class="yarn-line">RAKIETA na KSIĘŻYC wygląda na szybką.</span> <span class="yarn-meta">#line:07ee86b #card:space_rocket</span>
 
 </code>

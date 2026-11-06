@@ -5,7 +5,7 @@ hide:
 
 # Scopri Varsavia (pl_01) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-01-discover-warszawa/32/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/620)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1983275331#gid=1983275331)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_01%20Warsaw/PL_01%20Warsaw%20-%20Yarn%20Script.yarn)  
@@ -30,7 +30,6 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $chest_6_done = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $chest_7_done = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $quiz_score = 0&gt;&gt;</span>
-
 <span class="yarn-line">Benvenuti a Varsavia, la capitale della Polonia!</span> <span class="yarn-meta">#line:05d7d48 </span>
 <span class="yarn-cmd">&lt;&lt;target npc_0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;area area_intro&gt;&gt;</span>
@@ -54,7 +53,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card wars_and_sawa&gt;&gt;</span>
 <span class="yarn-line">Wars e Sawa ti hanno dato il secondo pezzo.</span> <span class="yarn-meta">#line:02100a1 </span>
 <span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
-<span class="yarn-line">Il re Sigismondo ti ha dato il terzo pezzo.</span> <span class="yarn-meta">#line:0bc4b13 </span>
+<span class="yarn-line">Re Sigismondo ti ha dato il terzo pezzo.</span> <span class="yarn-meta">#line:0bc4b13 </span>
 <span class="yarn-cmd">&lt;&lt;card polish_houses_of_parliament&gt;&gt;</span>
 <span class="yarn-line">In Parlamento hai trovato il quarto pezzo.</span> <span class="yarn-meta">#line:0127674 </span>
 <span class="yarn-cmd">&lt;&lt;card fryderyk_chopin&gt;&gt;</span>
@@ -112,7 +111,7 @@ hide:
 <span class="yarn-choice">-&gt; Un compositore.</span> <span class="yarn-meta">#line:04d5c5f </span>
 	<span class="yarn-cmd">&lt;&lt;set $quiz_score = $quiz_score + 1&gt;&gt;</span>
 <span class="yarn-line">	Corretto.</span> <span class="yarn-meta">#shadow:correct</span>
-<span class="yarn-line">Cos'è il fiume Wisła?</span> <span class="yarn-meta">#line:0e17c6d </span>
+<span class="yarn-line">Che cos'è la Wisła?</span> <span class="yarn-meta">#line:0e17c6d </span>
 <span class="yarn-choice">-&gt; Un palazzo.</span> <span class="yarn-meta">#line:002ec2d </span>
 <span class="yarn-line">	Sei sicuro?</span> <span class="yarn-meta">#shadow:are_you_sure</span>
 <span class="yarn-choice">-&gt; Uno stadio.</span> <span class="yarn-meta">#line:0b7ff07 </span>
@@ -262,7 +261,7 @@ hide:
 <span class="yarn-header-dim">group: mermaid</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card mermaid_of_warsaw&gt;&gt;</span>
-<span class="yarn-line">La siepe di Varsavia si chiama Syrenka.</span> <span class="yarn-meta">#line:05be7da </span>
+<span class="yarn-line">La sirena è il simbolo di Varsavia.</span> <span class="yarn-meta">#line:05be7da </span>
 <span class="yarn-line">È metà donna e metà pesce, e porta con sé una spada e uno scudo.</span> <span class="yarn-meta">#line:08618f7 </span>
 
 </code>
@@ -660,7 +659,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;detour info_3&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
-<span class="yarn-line">	Parla con le persone vestite di giallo nella piazza e scopri la nostra storia.</span> <span class="yarn-meta">#line:03531ce #task:task_3</span>
+<span class="yarn-line">	Parla con i personaggi gialli nella piazza e scopri la nostra storia.</span> <span class="yarn-meta">#line:03531ce #task:task_3</span>
 	<span class="yarn-cmd">&lt;&lt;task_start task_3 task_3_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -978,7 +977,7 @@ hide:
 <span class="yarn-header-dim">group: parliament</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card constitution_of_3_may&gt;&gt;</span>
-<span class="yarn-line">La Costituzione del 3 maggio è una data importante in Polonia.</span> <span class="yarn-meta">#line:00e7623 </span>
+<span class="yarn-line">La Costituzione del 3 maggio è una data importante in Polonia.</span> <span class="yarn-meta">#line:00e7623</span>
 <span class="yarn-cmd">&lt;&lt;inventory key_gold add 1&gt;&gt;</span>
 <span class="yarn-line">Ecco una chiave per te!</span> <span class="yarn-meta">#shadow:your_key</span>
 <span class="yarn-cmd">&lt;&lt;collect key_gold&gt;&gt;</span>
@@ -1371,7 +1370,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;detour info_6&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;card palace_of_culture_and_science&gt;&gt;</span>
-<span class="yarn-line">	Parla con le persone vestite di viola che si trovano nei pressi del Palazzo.</span> <span class="yarn-meta">#line:087abc4 #task:task_6</span>
+<span class="yarn-line">	Parla con le persone vestite di viola che si trovano intorno al Palazzo.</span> <span class="yarn-meta">#line:087abc4 #task:task_6</span>
 <span class="yarn-line">	Scopri di più sulla scienza e sullo złoty.</span> <span class="yarn-meta">#line:033fd4f </span>
 	<span class="yarn-cmd">&lt;&lt;task_start task_6 task_6_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -1725,14 +1724,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: stadium</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $chest_7_done&gt;&gt;</span>
-<span class="yarn-line">	La cassa è vuota.</span> <span class="yarn-meta">#shadow:chest_empty</span>
-<span class="yarn-cmd">&lt;&lt;elseif has_item_at_least("key_gold", 4)&gt;&gt;</span>
 <span class="yarn-line">	Per aprire lo scrigno, risolvi questo enigma!</span> <span class="yarn-meta">#shadow:solve_to_unlock</span>
 	<span class="yarn-cmd">&lt;&lt;activity activity_7 activity_7_done&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">	È chiuso a chiave. Servono tutte le chiavi!</span> <span class="yarn-meta">#shadow:chest_locked</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1766,6 +1759,7 @@ hide:
 		<span class="yarn-cmd">&lt;&lt;inventory mermaids_sword add&gt;&gt;</span>
 <span class="yarn-line">		Il settimo pezzo della spada è tuo! Hai tutti e 7 i pezzi!</span> <span class="yarn-meta">#line:0a2ac65 </span>
 <span class="yarn-line">		Torna dalla Sirena e riassembla la spada.</span> <span class="yarn-meta">#line:0221147 </span>
+<span class="yarn-comment">		// TODO jump back to NPC_1</span>
 		<span class="yarn-cmd">&lt;&lt;target npc_1&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>

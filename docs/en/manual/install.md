@@ -22,7 +22,7 @@ The game is compatible with iOS, Android and Windows, so it can be played on sma
 (Testflight is a service to test iOS applications that are still in development: open the above link from the device you want to install to. Once installed from Testflight, you can use Antura as any other app)
 
 > [!note]
-> if you encounter any issue downloading or installing the app, please send a message in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5)
+> if you encounter any issue downloading or installing the app, please send a message in the forum [https://github.com/vgwb/Antura/discussions/](https://github.com/vgwb/Antura/discussions/)
 
 ## Android
 
@@ -48,4 +48,4 @@ If it happens, press "More info" and then "Run anyway"
 
 ## Linux and MacOS
 Since the game is open source and the engine used to create this game is multiplatform, Linux and macOS versions could be built if really necessary.
-Please ask in the forum [https://antura.discourse.group/](https://antura.discourse.group/c/antura/5).
+Please ask in the forum [https://github.com/vgwb/Antura/discussions/](https://github.com/vgwb/Antura/discussions/).

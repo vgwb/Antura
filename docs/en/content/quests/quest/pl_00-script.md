@@ -5,7 +5,7 @@ hide:
 
 # The neighbors of Poland (pl_00) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-00-the-neighbors-of-poland/31/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/619)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1929643794#gid=1929643794)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_00%20Geo%20Poland/PL_00%20Geo%20Poland%20-%20Yarn%20Script.yarn)  
@@ -180,7 +180,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target NPC_poland&gt;&gt;</span>
-<span class="yarn-line">You found the Polish flag! Go back to Poland.</span> <span class="yarn-meta">#line:0891273 </span>
+<span class="yarn-line">You found the Polish flag! Go back to start.</span> <span class="yarn-meta">#line:0891273 </span>
 
 </code>
 </pre>
@@ -199,7 +199,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card flag_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if GetCurrentTask() == "find_flag_poland"&gt;&gt;</span>
-<span class="yarn-line">    You found the Polish flag! Go back to Poland.</span> <span class="yarn-meta">#shadow:0891273 </span>
+<span class="yarn-line">    You found the Polish flag! Go back to start.</span> <span class="yarn-meta">#shadow:0891273 </span>
     <span class="yarn-cmd">&lt;&lt;inventory flag_poland add&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_poland&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
@@ -222,7 +222,7 @@ hide:
 <span class="yarn-header-dim">//--------------------------------------------</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: germany</span>
-<span class="yarn-header-dim">actor: ADULT_M</span>
+<span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $germany_completed&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card capital_berlin&gt;&gt;</span>
@@ -446,7 +446,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;set $czech_met = true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card country_czech&gt;&gt;</span>
 <span class="yarn-line">    Hi! I'm from Czech Republic!</span> <span class="yarn-meta">#line:0ded863 </span>
-<span class="yarn-line">    Czechia is famous for its beautiful castles, crystal glass, and delicious dumplings!</span> <span class="yarn-meta">#line:03dc09c </span>
+<span class="yarn-line">    Czechia is famous for its beautiful castles, crystal glass, and delicious dumplings.</span> <span class="yarn-meta">#line:03dc09c </span>
     <span class="yarn-cmd">&lt;&lt;jump task_czech_republic&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    My flag is white and red with a blue triangle.</span> <span class="yarn-meta">#line:0000741 </span>
@@ -746,7 +746,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;elseif $slovakia_met == false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $slovakia_met = true&gt;&gt;</span>
 <span class="yarn-line">    I'm from Slovakia!</span> <span class="yarn-meta">#line:054e1b8 </span>
-<span class="yarn-line">    We used to be a country with Czech Republic.</span> <span class="yarn-meta">#line:0278f6a </span>
+<span class="yarn-line">    Slovakia is known for its beautiful mountains and caves.</span> <span class="yarn-meta">#line:0278f6a </span>
     <span class="yarn-cmd">&lt;&lt;jump task_slovakia&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Our flag is white, red and blue with a coat of arms.</span> <span class="yarn-meta">#line:0af30a1 </span>

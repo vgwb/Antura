@@ -5,7 +5,7 @@ hide:
 
 # Jules Verne e i trasporti (fr_03) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-03-jules-verne-and-transportation/25/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/630)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=336647638#gid=336647638)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_03%20Nantes%20Verne/FR_03%20Nantes%20Verne%20-%20Yarn%20Script.yarn)  
@@ -32,8 +32,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $QUEST_ITEMS = 4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $museum_clean = false&gt;&gt;</span>
-<span class="yarn-line">Siamo a NANTES, al MUSEO Jules Verne!</span> <span class="yarn-meta">#line:0b5e2f3</span>
-<span class="yarn-line">Scopriamo questo SCRITTORE e i suoi straordinari VIAGGI.</span> <span class="yarn-meta">#line:006e7fc</span>
+<span class="yarn-line">Benvenuti a Nantes. Venite a scoprire il Museo Jules Verne!</span> <span class="yarn-meta">#line:0b5e2f3</span>
+<span class="yarn-line">Chi era Jules Verne? E dove ha viaggiato?</span> <span class="yarn-meta">#line:006e7fc</span>
 <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_door&gt;&gt;</span>
 <span class="yarn-comment">// DEBUG</span>
@@ -54,9 +54,9 @@ hide:
 <span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">La missione è completata! Congratulazioni!</span> <span class="yarn-meta">#line:08f0d37 </span>
-<span class="yarn-line">Ora sai tutto su Jules Verne e i suoi LIBRI!</span> <span class="yarn-meta">#line:0174104</span>
-<span class="yarn-line">Quando venite a Nantes, venite a visitare il MUSEO!</span> <span class="yarn-meta">#line:0f72ec7 </span>
+<span class="yarn-line">La missione è compiuta! Congratulazioni!</span> <span class="yarn-meta">#line:08f0d37 </span>
+<span class="yarn-line">Ora sapete qualcosa di Jules Verne e dei suoi LIBRI!</span> <span class="yarn-meta">#line:0174104</span>
+<span class="yarn-line">Se andate a Nantes con i vostri genitori, visitate il Museo di Jules Verne!</span> <span class="yarn-meta">#line:0f72ec7 </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -74,7 +74,7 @@ hide:
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Come attività in classe, puoi DISEGNARE un SOTTOMARINO o un RAZZO!</span> <span class="yarn-meta">#line:087acef </span>
+<span class="yarn-line">Come attività da svolgere in classe, potete DISEGNARE un SOTTOMARINO o un RAZZO!</span> <span class="yarn-meta">#line:087acef </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -89,20 +89,20 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("clean_sidewalk")&gt;&gt;</span>
-<span class="yarn-line">    Grazie per aver ripulito!</span> <span class="yarn-meta">#line:0cec96a </span>
-<span class="yarn-line">    Il Museo è ora aperto! Parla con la GUIDA DEL MUSEO!</span> <span class="yarn-meta">#line:0d2e2f0 </span>
+<span class="yarn-line">    Grazie per aver pulito!</span> <span class="yarn-meta">#line:0cec96a </span>
+<span class="yarn-line">    Il museo è ora aperto! Parlate con la GUIDA DEL MUSEO!</span> <span class="yarn-meta">#line:0d2e2f0 </span>
     <span class="yarn-cmd">&lt;&lt;SetActive museum_door false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target museum_guide&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "clean_sidewalk"&gt;&gt;</span>
-<span class="yarn-line">    Stai andando bene!</span> <span class="yarn-meta">#shadow:0c52f3c</span>
+<span class="yarn-line">    Ottimo. Non hai ancora finito, continua!</span> <span class="yarn-meta">#shadow:0c52f3c</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Che DISASTRO fuori dal MUSEO!</span> <span class="yarn-meta">#line:0a3e2f4</span>
+<span class="yarn-line">    Che disastro fuori dal museo!</span> <span class="yarn-meta">#line:0a3e2f4</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_sidewalk&gt;&gt;</span>
-<span class="yarn-line">    Quel CANE blu stava correndo e ha combinato un pasticcio!</span> <span class="yarn-meta">#line:0210ef0 </span>
-<span class="yarn-line">    Non posso aprire il MUSEO con questo casino qui.</span> <span class="yarn-meta">#line:0d58543 </span>
+<span class="yarn-line">    Quel cane blu correva e ha fatto un gran pasticcio!</span> <span class="yarn-meta">#line:0210ef0 </span>
+<span class="yarn-line">    Con questo disordine non posso aprire il museo.</span> <span class="yarn-meta">#line:0d58543 </span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-line">    Aiutami a pulire il marciapiede!</span> <span class="yarn-meta">#line:01a9d0f </span>
+<span class="yarn-line">    Aiutatemi a pulire il marciapiede!</span> <span class="yarn-meta">#line:01a9d0f </span>
     <span class="yarn-cmd">&lt;&lt;SetActive antura false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive trash_down false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive trash_up true&gt;&gt;</span>
@@ -121,7 +121,7 @@ hide:
 <div class="yarn-node" data-title="task_clean_done">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ben fatto! Torna dal portiere</span> <span class="yarn-meta">#line:0f8dd6c </span>
+<span class="yarn-line">Ottimo lavoro! Tornate a trovare il signore all'ingresso del museo.</span> <span class="yarn-meta">#line:0f8dd6c </span>
 <span class="yarn-cmd">&lt;&lt;target npc_door&gt;&gt;</span>
 
 </code>
@@ -139,20 +139,20 @@ hide:
 <span class="yarn-cmd">&lt;&lt;area area_full&gt;&gt;</span>
 &lt;&lt;if $COLLECTED_ITEMS &gt;= $QUEST_ITEMS&gt;&gt;
 <span class="yarn-line">    Grazie! Ora il MUSEO è in ordine</span> <span class="yarn-meta">#line:0c81640 </span>
-<span class="yarn-line">    Jules Verne sarebbe orgoglioso di te!</span> <span class="yarn-meta">#line:0bc6c7b </span>
-<span class="yarn-line">    Per favore abbina i LIBRI ai loro VEICOLI!</span> <span class="yarn-meta">#line:0245e0e </span>
+<span class="yarn-line">    Jules Verne sarebbe fiero di te!</span> <span class="yarn-meta">#line:0bc6c7b </span>
+<span class="yarn-line">    Metti insieme i LIBRI con i loro veicoli!</span> <span class="yarn-meta">#line:0245e0e </span>
     <span class="yarn-cmd">&lt;&lt;activity match_verne_vehicles activity_match_done&gt;&gt;</span>
 &lt;&lt;elseif $COLLECTED_ITEMS &gt; 0 or GetCurrentTask() == "clean_museum"&gt;&gt;
-<span class="yarn-line">    Stai andando bene!</span> <span class="yarn-meta">#line:0c52f3c</span>
+<span class="yarn-line">    Ottimo. Non hai ancora finito, continua!</span> <span class="yarn-meta">#line:0c52f3c</span>
 <span class="yarn-cmd">&lt;&lt;elseif $museum_clean == false&gt;&gt;</span>
 <span class="yarn-line">    Abbiamo un PROBLEMA!</span> <span class="yarn-meta">#line:0642734 </span>
-<span class="yarn-line">    Un buffo CANE blu è entrato nel MUSEO e ha combinato un bel pasticcio!</span> <span class="yarn-meta">#line:0525efc</span>
-<span class="yarn-line">    Puoi aiutarci a pulire il MUSEO?</span> <span class="yarn-meta">#line:09eafa1</span>
+<span class="yarn-line">    Un buffo cane blu è entrato nel museo e ha combinato un disastro!</span> <span class="yarn-meta">#line:0525efc</span>
+<span class="yarn-line">    Puoi aiutarci a pulire il museo?</span> <span class="yarn-meta">#line:09eafa1</span>
     <span class="yarn-cmd">&lt;&lt;task_start clean_museum task_clean_museum_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Abbiamo un altro PROBLEMA!</span> <span class="yarn-meta">#line:0a7dfb3 </span>
-<span class="yarn-line">    I nostri veicoli speciali sono scomparsi.</span> <span class="yarn-meta">#line:0bb46da </span>
-<span class="yarn-line">    Per favore, parla con il guardiano della prima stanza.</span> <span class="yarn-meta">#line:0386706 </span>
+<span class="yarn-line">    I veicoli non ci sono più.</span> <span class="yarn-meta">#line:0bb46da </span>
+<span class="yarn-line">    Si prega di rivolgersi al responsabile della prima stanza.</span> <span class="yarn-meta">#line:0386706 </span>
     <span class="yarn-cmd">&lt;&lt;target tutor_20000&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -168,7 +168,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ottimo lavoro! Hai abbinato tutti i LIBRI ai rispettivi VEICOLI.</span> <span class="yarn-meta">#line:0e86b01 </span>
-<span class="yarn-line">Ora tutto è pronto per i visitatori!</span> <span class="yarn-meta">#line:00eefe0 </span>
+<span class="yarn-line">Ora è tutto pronto per i visitatori!</span> <span class="yarn-meta">#line:00eefe0 </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>
@@ -202,8 +202,8 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_submarine")&gt;&gt;</span>
 <span class="yarn-line">    Hai trovato il SOTTOMARINO!</span> <span class="yarn-meta">#line:0666ee2 </span>
-<span class="yarn-line">    Ma è ROTTO a pezzi!</span> <span class="yarn-meta">#line:097c3fc </span>
-<span class="yarn-line">    Puoi per favore sistemarlo?</span> <span class="yarn-meta">#line:02e7812</span>
+<span class="yarn-line">    Ma è ROTTO!</span> <span class="yarn-meta">#line:097c3fc </span>
+<span class="yarn-line">    Potresti sistemarlo, per favore?</span> <span class="yarn-meta">#line:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory submarine_nautilus remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_submarine activity_submarine_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("clean_museum")&gt;&gt;</span>
@@ -214,7 +214,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;SetActive submarine_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_submarine&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Torna da me più tardi.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
+<span class="yarn-line">    Torna a parlarne con me più tardi.</span> <span class="yarn-meta">#line:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -250,7 +250,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card submarine_nautilus&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory submarine_nautilus add&gt;&gt;</span>
-<span class="yarn-line">Ottimo! Ora riportalo al suo guardiano</span> <span class="yarn-meta">#line:0757b30 </span>
+<span class="yarn-line">Ottimo! Ora riportalo al suo custode.</span> <span class="yarn-meta">#line:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_20000&gt;&gt;</span>
 
@@ -267,7 +267,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card submarine_nautilus&gt;&gt;</span>
-<span class="yarn-line">Un SOTTOMARINO si muove sotto il MARE.</span> <span class="yarn-meta">#line:06aef1a </span>
+<span class="yarn-line">Un sottomarino si muove sotto il mare.</span> <span class="yarn-meta">#line:06aef1a </span>
 
 </code>
 </pre>
@@ -282,8 +282,8 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card book_20000_leagues_under_the_sea&gt;&gt;</span>
-<span class="yarn-line">Questo LIBRO è "20.000 leghe sotto i mari".</span> <span class="yarn-meta">#line:03536a1 </span>
-<span class="yarn-line">Un SOTTOMARINO viaggia SOTT'ACQUA.</span> <span class="yarn-meta">#line:0dcb855 </span>
+<span class="yarn-line">Questo libro è "Ventimila leghe sotto i mari".</span> <span class="yarn-meta">#line:03536a1 </span>
+<span class="yarn-line">Un sottomarino viaggia sott'acqua.</span> <span class="yarn-meta">#line:0dcb855 </span>
 
 </code>
 </pre>
@@ -300,9 +300,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_balloon")&gt;&gt;</span>
-<span class="yarn-line">    Hai trovato la MONGOLFIERA!</span> <span class="yarn-meta">#line:0286510</span>
-<span class="yarn-line">    Ma è ROTTO a pezzi!</span> <span class="yarn-meta">#shadow:097c3fc</span>
-<span class="yarn-line">    Puoi per favore sistemarlo?</span> <span class="yarn-meta">#shadow:02e7812</span>
+<span class="yarn-line">    Hai trovato la MONGOLFIERA! Si chiama anche pallone aerostatico.</span> <span class="yarn-meta">#line:0286510</span>
+<span class="yarn-line">    Ma è ROTTO!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Potresti sistemarlo, per favore?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory hot_air_balloon remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_balloon activity_balloon_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_submarine")&gt;&gt;</span>
@@ -313,7 +313,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;SetActive balloon_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_balloon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Torna da me più tardi.</span> <span class="yarn-meta">#line:03af9a8 </span>
+<span class="yarn-line">    Torna a parlarne con me più tardi.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -349,7 +349,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card hot_air_balloon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory hot_air_balloon add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
-<span class="yarn-line">Ottimo! Ora riportalo al suo guardiano</span> <span class="yarn-meta">#shadow:0757b30 </span>
+<span class="yarn-line">Ottimo! Ora riportalo al suo custode.</span> <span class="yarn-meta">#shadow:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_5weeks&gt;&gt;</span>
 
@@ -366,8 +366,8 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card hot_air_balloon&gt;&gt;</span>
-<span class="yarn-line">Un PALLONCINO sale con ARIA calda.</span> <span class="yarn-meta">#line:0131b99 </span>
-<span class="yarn-line">Si muove con il VENTO.</span> <span class="yarn-meta">#line:09a8c21 </span>
+<span class="yarn-line">Un pallone aerostatico sale in alto con l'aria calda.</span> <span class="yarn-meta">#line:0131b99 </span>
+<span class="yarn-line">Si muove con il vento.</span> <span class="yarn-meta">#line:09a8c21 </span>
 
 </code>
 </pre>
@@ -382,7 +382,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card book_five_weeks_in_a_balloon&gt;&gt;</span>
-<span class="yarn-line">Questo LIBRO si intitola "Cinque settimane in mongolfiera".</span> <span class="yarn-meta">#line:0c3d777 </span>
+<span class="yarn-line">Questo libro è "Cinque settimane in mongolfiera".</span> <span class="yarn-meta">#line:0c3d777 </span>
 <span class="yarn-line">Un PALLONCINO sale perché l'ARIA calda è leggera.</span> <span class="yarn-meta">#line:020d924 </span>
 
 </code>
@@ -400,20 +400,20 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_rocket")&gt;&gt;</span>
-<span class="yarn-line">    Hai trovato il RAZZO!</span> <span class="yarn-meta">#line:08fed68 </span>
-<span class="yarn-line">    Ma è ROTTO a pezzi!</span> <span class="yarn-meta">#shadow:097c3fc</span>
-<span class="yarn-line">    Puoi per favore sistemarlo?</span> <span class="yarn-meta">#shadow:02e7812</span>
+<span class="yarn-line">    Hai trovato il razzo!</span> <span class="yarn-meta">#line:08fed68 </span>
+<span class="yarn-line">    Ma è ROTTO!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Potresti sistemarlo, per favore?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory space_rocket remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_rocket activity_rocket_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_balloon")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card space_rocket&gt;&gt;</span>
 <span class="yarn-line">    Aiuto! La nostra macchina più preziosa è scomparsa!</span> <span class="yarn-meta">#line:07c4369 </span>
-<span class="yarn-line">    Trova il RAZZO SPAZIALE</span> <span class="yarn-meta">#line:03efbc0 </span>
+<span class="yarn-line">    Trova il razzo spaziale</span> <span class="yarn-meta">#line:03efbc0 </span>
 <span class="yarn-line">    Se non riesci a trovarlo, USA LA MAPPA</span> <span class="yarn-meta">#shadow:05bc5e9</span>
     <span class="yarn-cmd">&lt;&lt;SetActive rocket_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_rocket&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Torna da me più tardi.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
+<span class="yarn-line">    Torna a parlarne con me più tardi.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -449,7 +449,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card space_rocket&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory space_rocket add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
-<span class="yarn-line">Ottimo! Ora riportalo al suo guardiano</span> <span class="yarn-meta">#shadow:0757b30 </span>
+<span class="yarn-line">Ottimo! Ora riportalo al suo custode.</span> <span class="yarn-meta">#shadow:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_earthmoon&gt;&gt;</span>
 
@@ -466,8 +466,8 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card space_rocket&gt;&gt;</span>
-<span class="yarn-line">Questo è un RAZZO spaziale.</span> <span class="yarn-meta">#line:0de00ff </span>
-<span class="yarn-line">Un RAZZO spinge con forza per lasciare la TERRA.</span> <span class="yarn-meta">#line:06b6d4d </span>
+<span class="yarn-line">Questo è un razzo spaziale.</span> <span class="yarn-meta">#line:0de00ff </span>
+<span class="yarn-line">Un razzo spinge con forza per lasciare la Terra.</span> <span class="yarn-meta">#line:06b6d4d </span>
 
 </code>
 </pre>
@@ -482,8 +482,8 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card book_from_earth_to_moon&gt;&gt;</span>
-<span class="yarn-line">Jules Verne immaginò i RAZZI e i VIAGGI nello spazio molto tempo fa.</span> <span class="yarn-meta">#line:0907ccb </span>
-<span class="yarn-line">La storia ha un enorme CANNONE spaziale per lanciare il RAZZO</span> <span class="yarn-meta">#line:05e298d </span>
+<span class="yarn-line">Jules Verne immaginò di viaggiare sulla Luna a bordo di un razzo.</span> <span class="yarn-meta">#line:0907ccb </span>
+<span class="yarn-line">Nella storia, un cannone gigante lancia l'astronave verso la Luna.</span> <span class="yarn-meta">#line:05e298d </span>
 
 </code>
 </pre>
@@ -501,19 +501,19 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_train")&gt;&gt;</span>
 <span class="yarn-line">    Hai trovato il TRENO!</span> <span class="yarn-meta">#line:01f76f3 </span>
-<span class="yarn-line">    Ma è ROTTO a pezzi!</span> <span class="yarn-meta">#shadow:097c3fc</span>
-<span class="yarn-line">    Puoi per favore sistemarlo?</span> <span class="yarn-meta">#shadow:02e7812</span>
+<span class="yarn-line">    Ma è ROTTO!</span> <span class="yarn-meta">#shadow:097c3fc</span>
+<span class="yarn-line">    Potresti sistemarlo, per favore?</span> <span class="yarn-meta">#shadow:02e7812</span>
     <span class="yarn-cmd">&lt;&lt;inventory train remove&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_verne_train activity_train_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("find_balloon")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card train&gt;&gt;</span>
-<span class="yarn-line">    Aiuto! Abbiamo perso il TRENO!</span> <span class="yarn-meta">#line:08cfbc0 </span>
+<span class="yarn-line">    Aiuto! Abbiamo perso il treno!</span> <span class="yarn-meta">#line:08cfbc0 </span>
 <span class="yarn-line">    Trova il VECCHIO TRENO A VAPORE</span> <span class="yarn-meta">#line:036574d</span>
 <span class="yarn-line">    Se non riesci a trovarlo, USA LA MAPPA</span> <span class="yarn-meta">#shadow:05bc5e9</span>
     <span class="yarn-cmd">&lt;&lt;SetActive train_lost true&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start find_train&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Torna da me più tardi.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
+<span class="yarn-line">    Torna a parlarne con me più tardi.</span> <span class="yarn-meta">#shadow:03af9a8 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -551,7 +551,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card train&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;inventory train add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = $COLLECTED_ITEMS + 1&gt;&gt;</span>
-<span class="yarn-line">Ottimo! Ora riportalo al suo guardiano</span> <span class="yarn-meta">#shadow:0757b30 </span>
+<span class="yarn-line">Ottimo! Ora riportalo al suo custode.</span> <span class="yarn-meta">#shadow:0757b30 </span>
 <span class="yarn-cmd">&lt;&lt;collect&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_80days&gt;&gt;</span>
 
@@ -568,9 +568,9 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card train&gt;&gt;</span>
-<span class="yarn-line">Un TRENO viaggia su ROTAIE.</span> <span class="yarn-meta">#line:0998347 </span>
-<span class="yarn-line">Questo vecchio TRENO utilizzava il VAPORE per muoversi.</span> <span class="yarn-meta">#line:0b7b198 </span>
-<span class="yarn-line">I TRENI hanno reso i viaggi lunghi più rapidi.</span> <span class="yarn-meta">#line:05130c0 </span>
+<span class="yarn-line">Un treno viaggia sui binari.</span> <span class="yarn-meta">#line:0998347 </span>
+<span class="yarn-line">Questo vecchio TRENO si muoveva a VAPORE.</span> <span class="yarn-meta">#line:0b7b198 </span>
+<span class="yarn-line">I treni hanno reso più veloci i lunghi viaggi.</span> <span class="yarn-meta">#line:05130c0 </span>
 
 </code>
 </pre>
@@ -585,8 +585,8 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card book_around_the_world_80_days&gt;&gt;</span>
-<span class="yarn-line">Questo LIBRO è "Il giro del mondo in 80 giorni".</span> <span class="yarn-meta">#line:03131e3</span>
-<span class="yarn-line">Mostra molti luoghi della TERRA.</span> <span class="yarn-meta">#line:0bcc84d </span>
+<span class="yarn-line">Questo libro è "Il giro del mondo in 80 giorni".</span> <span class="yarn-meta">#line:03131e3</span>
+<span class="yarn-line">Mostra molti luoghi sulla Terra.</span> <span class="yarn-meta">#line:0bcc84d </span>
 
 </code>
 </pre>
@@ -618,7 +618,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jules Verne è nato qui a NANTES.</span> <span class="yarn-meta">#line:003b311 </span>
+<span class="yarn-line">Jules Verne nacque qui a Nantes.</span> <span class="yarn-meta">#line:003b311 </span>
 
 </code>
 </pre>
@@ -633,7 +633,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Questa è una MAPPA di NANTES.</span> <span class="yarn-meta">#line:09bcaba </span>
+<span class="yarn-line">Questa è una mappa di Nantes.</span> <span class="yarn-meta">#line:09bcaba </span>
 
 </code>
 </pre>
@@ -653,10 +653,10 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: visitors </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Adoro leggere LIBRI!</span> <span class="yarn-meta">#line:00f3a57 </span>
-<span class="yarn-line">Jules Verne ha inventato storie di fantascienza.</span> <span class="yarn-meta">#line:056e79e </span>
-<span class="yarn-line">Jules Verne ha scritto molti LIBRI!</span> <span class="yarn-meta">#line:0caca1b </span>
-<span class="yarn-line">La gente legge i suoi LIBRI in molte lingue!</span> <span class="yarn-meta">#line:0f5f36d </span>
+<span class="yarn-line">Adoro leggere i LIBRI!</span> <span class="yarn-meta">#line:00f3a57 </span>
+<span class="yarn-line">Jules Verne ha inventato i racconti di fantascienza.</span> <span class="yarn-meta">#line:056e79e </span>
+<span class="yarn-line">Jules Verne ha scritto moltissimi libri!</span> <span class="yarn-meta">#line:0caca1b </span>
+<span class="yarn-line">I suoi libri vengono letti in molte lingue!</span> <span class="yarn-meta">#line:0f5f36d </span>
 
 </code>
 </pre>
@@ -672,10 +672,10 @@ hide:
 <span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">spawn_group: visitors </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Mi piace la storia sul MONDO.</span> <span class="yarn-meta">#line:0e81901 #card:book_around_the_world_80_days</span>
-<span class="yarn-line">Il SOTTOMARINO Nautilus è incredibile.</span> <span class="yarn-meta">#line:08669ce #card:submarine_nautilus</span>
-<span class="yarn-line">Un giorno vorrei fare un giro in MONGOLFIERA.</span> <span class="yarn-meta">#line:00be1f0 #card:hot_air_balloon</span>
-<span class="yarn-line">Il RAZZO sulla LUNA sembra veloce.</span> <span class="yarn-meta">#line:07ee86b #card:space_rocket</span>
+<span class="yarn-line">Mi piace la storia del MONDO.</span> <span class="yarn-meta">#line:0e81901 #card:book_around_the_world_80_days</span>
+<span class="yarn-line">Il sottomarino Nautilus è incredibile.</span> <span class="yarn-meta">#line:08669ce #card:submarine_nautilus</span>
+<span class="yarn-line">Un giorno vorrei fare un giro in mongolfiera.</span> <span class="yarn-meta">#line:00be1f0 #card:hot_air_balloon</span>
+<span class="yarn-line">Il razzo diretto alla Luna sembra velocissimo.</span> <span class="yarn-meta">#line:07ee86b #card:space_rocket</span>
 
 </code>
 </pre>
@@ -695,8 +695,8 @@ hide:
 <span class="yarn-choice">-&gt; Sì, è uno SCRITTORE!</span> <span class="yarn-meta">#line:07f7b4b </span>
 <span class="yarn-choice">-&gt; No, chi è?</span> <span class="yarn-meta">#line:06fb1cd </span>
 <span class="yarn-line">Jules Verne era uno scrittore francese. Nacque qui vicino.</span> <span class="yarn-meta">#line:0c790cf </span>
-<span class="yarn-line">Ha scritto LIBRI d'avventura molto famosi.</span> <span class="yarn-meta">#line:0f92a05</span>
-<span class="yarn-line">Molte idee contenute nei suoi LIBRI sono diventate realtà.</span> <span class="yarn-meta">#line:06e1473 </span>
+<span class="yarn-line">Ha scritto libri d'avventura famosissimi.</span> <span class="yarn-meta">#line:0f92a05</span>
+<span class="yarn-line">Molte delle idee contenute nei suoi libri si sono avverate.</span> <span class="yarn-meta">#line:06e1473 </span>
 
 </code>
 </pre>

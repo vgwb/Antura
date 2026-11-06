@@ -1,11 +1,11 @@
 ---
-title: Fiume Odra (pl_03) - Script
+title: Un viaggio sul fiume Odra (pl_03) - Script
 hide:
 ---
 
-# Fiume Odra (pl_03) - Script
+# Un viaggio sul fiume Odra (pl_03) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-03-a-voyage-on-the-odra-river/34/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/622)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=106202032#gid=106202032)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_03%20Wroclaw%20River/PL_03%20Wroclaw%20River%20-%20Yarn%20Script.yarn)  
@@ -507,7 +507,7 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $bridge_redzinski == 1&gt;&gt;</span>
-<span class="yarn-line">    Ricostruiamo il pilone più alto di Breslavia!</span> <span class="yarn-meta">#line:ch_redz1</span>
+<span class="yarn-line">    Ricostruire il ponte più grande di Breslavia!</span> <span class="yarn-meta">#line:ch_redz1</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_redzinski_bridge chest_redzinski_bridge_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif $bridge_redzinski == 2&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;action open_chest_redzinski&gt;&gt;</span>
@@ -926,6 +926,21 @@ hide:
 <span class="yarn-line">Breslavia è davvero bellissima.</span> <span class="yarn-meta">#line:089ea37 </span>
 <span class="yarn-line">Adoro i pierogi!</span> <span class="yarn-meta">#line:07ff8c5 </span>
 <span class="yarn-line">L'isola della Cattedrale è magica di notte.</span> <span class="yarn-meta">#line:tourist_4</span>
+
+</code>
+</pre>
+</div>
+
+<a id="ys-node-alert-water"></a>
+
+## alert_water
+
+<div class="yarn-node" data-title="alert_water">
+<pre class="yarn-code"><code>
+<span class="yarn-header-dim">group: alerts</span>
+<span class="yarn-header-dim">type: panel</span>
+<span class="yarn-header-dim">---</span>
+[MISSING TRANSLATION: Don't fall into the water!]
 
 </code>
 </pre>

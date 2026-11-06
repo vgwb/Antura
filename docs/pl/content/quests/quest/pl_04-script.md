@@ -5,7 +5,7 @@ hide:
 
 # Zoo (pl_04) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-04-the-zoo/35/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/623)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=819047762#gid=819047762)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_04%20Zoo/PL_04%20Zoo%20-%20Yarn%20Script.yarn)  
@@ -188,7 +188,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: NARRATOR</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Gdyby wszystkie ZWIERZĘTA były niewinne...</span> <span class="yarn-meta">#line:0bc2b46 </span>
+<span class="yarn-line">Skoro wszystkie ZWIERZĘTA są niewinne...</span> <span class="yarn-meta">#line:0bc2b46 </span>
 <span class="yarn-line">Kto wziął FLAGĘ?</span> <span class="yarn-meta">#line:0fc0ab7 </span>
 <span class="yarn-cmd">&lt;&lt;SetActive anturaFlag&gt;&gt;</span>
 <span class="yarn-line">Poczekaj, spójrz!</span> <span class="yarn-meta">#line:0b3d05f </span>
@@ -228,10 +228,10 @@ hide:
 <span class="yarn-line">    Jestem SZYMPANSEM. Wspinam się na drzewa.</span> <span class="yarn-meta">#line:0867233 </span>
     <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee&gt;&gt;</span>
 <span class="yarn-line">    Naprawdę uwielbiam jeść owoce!</span> <span class="yarn-meta">#line:0eaefd6 </span>
-<span class="yarn-line">    Czy potrafisz zgadnąć, na które drzewo muszę się wspiąć, aby...</span> <span class="yarn-meta">#line:0617de7 </span>
+<span class="yarn-line">    Czy potrafisz zgadnąć, na które drzewo muszę się wspiąć, aby dostać…</span> <span class="yarn-meta">#line:0617de7 </span>
 <span class="yarn-line">    Jabłko</span> <span class="yarn-meta">#line:0c6c41a </span>
-<span class="yarn-line">    Pomarańcza</span> <span class="yarn-meta">#line:08c7ea3 </span>
-<span class="yarn-line">    A banan?</span> <span class="yarn-meta">#line:0ce7b11 </span>
+<span class="yarn-line">    Pomarańczę</span> <span class="yarn-meta">#line:08c7ea3 </span>
+<span class="yarn-line">    Lub banana?</span> <span class="yarn-meta">#line:0ce7b11 </span>
 <span class="yarn-line">    Dopasuj owoce do odpowiednich drzew!</span> <span class="yarn-meta">#line:079451b</span>
     <span class="yarn-cmd">&lt;&lt;activity match_monkey_settings monkey_activity_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -250,11 +250,18 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: monkey_keeper</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card animal_chimpanzee collect&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;set $monkey_completed = true&gt;&gt;</span>
-<span class="yarn-line">Byłoby fajnie wspiąć się na ten słup.</span> <span class="yarn-meta">#line:0a43c85</span>
-<span class="yarn-line">Ale nie wziąłem FLAGI!</span> <span class="yarn-meta">#line:0c53945</span>
-<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+&lt;&lt;if GetActivityResult("match_monkey_settings") &gt; 0&gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;card animal_chimpanzee collect&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $monkey_completed = true&gt;&gt;</span>
+<span class="yarn-line">    Byłoby fajnie wspiąć się na ten słup.</span> <span class="yarn-meta">#line:0a43c85</span>
+<span class="yarn-line">    Ale nie wziąłem FLAGI!</span> <span class="yarn-meta">#line:0c53945</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
+        <span class="yarn-cmd">&lt;&lt;jump monkey&gt;&gt;</span>
+<span class="yarn-choice">        -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -341,11 +348,18 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: lion_keeper</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;set $lion_completed = true&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;card animal_lion collect&gt;&gt;</span>
-<span class="yarn-line">Uwielbiam patrzeć na flagę na Iglicy.</span> <span class="yarn-meta">#line:01b3593 </span>
-<span class="yarn-line">Ale jej nie wziąłem. Proszę, znajdź tę FLAGĘ!</span> <span class="yarn-meta">#line:05da6d7</span>
-<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+&lt;&lt;if GetActivityResult("order_lion_settings") &gt; 0&gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;set $lion_completed = true&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;card animal_lion collect&gt;&gt;</span>
+<span class="yarn-line">    Uwielbiam patrzeć na flagę na Iglicy.</span> <span class="yarn-meta">#line:01b3593</span>
+<span class="yarn-line">    Ale jej nie wziąłem. Proszę, znajdź tę FLAGĘ!</span> <span class="yarn-meta">#line:05da6d7</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
+        <span class="yarn-cmd">&lt;&lt;jump lion&gt;&gt;</span>
+<span class="yarn-choice">        -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -426,11 +440,18 @@ hide:
 <span class="yarn-header-dim">group: GIRAFFE</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card animal_giraffe collect&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;set $giraffe_completed = true&gt;&gt;</span>
-<span class="yarn-line">Dziękuję. Nie wziąłem FLAGI.</span> <span class="yarn-meta">#line:0877d6f</span>
-<span class="yarn-line">Jestem wysoki, ale nie mam 90 metrów jak IGLICA!</span> <span class="yarn-meta">#line:02d00e2</span>
-<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+&lt;&lt;if GetActivityResult("canvas_giraffe_settings") &gt; 0&gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;card animal_giraffe collect&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $giraffe_completed = true&gt;&gt;</span>
+<span class="yarn-line">    Dziękuję. Nie wziąłem FLAGI.</span> <span class="yarn-meta">#line:0877d6f</span>
+<span class="yarn-line">    Jestem wysoki, ale nie mam 90 metrów jak IGLICA!</span> <span class="yarn-meta">#line:02d00e2</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
+        <span class="yarn-cmd">&lt;&lt;jump giraffe&gt;&gt;</span>
+<span class="yarn-choice">        -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -510,11 +531,18 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: elephant_keeper</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card animal_elephant collect&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;set $elephant_completed = true&gt;&gt;</span>
-<span class="yarn-line">FLAGA? Nie mam jej.</span> <span class="yarn-meta">#line:0b79d01</span>
-<span class="yarn-line">Gdybym to wzięła, PAMIĘTAŁABYM!</span> <span class="yarn-meta">#line:0f124bf</span>
-<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+&lt;&lt;if GetActivityResult("memory_elephant_settings") &gt; 0&gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;card animal_elephant collect&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $elephant_completed = true&gt;&gt;</span>
+<span class="yarn-line">    FLAGA? Nie mam jej.</span> <span class="yarn-meta">#line:0b79d01</span>
+<span class="yarn-line">    Gdybym to wzięła, PAMIĘTAŁABYM!</span> <span class="yarn-meta">#line:0f124bf</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
+        <span class="yarn-cmd">&lt;&lt;jump elephant&gt;&gt;</span>
+<span class="yarn-choice">        -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -594,11 +622,18 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">image: penguin_keeper</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;card animal_penguin collect&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;set $penguin_completed = true&gt;&gt;</span>
-<span class="yarn-line">Nie, nie wziąłem FLAGI.</span> <span class="yarn-meta">#line:078190f </span>
-<span class="yarn-line">Pamiętaj, nie potrafię latać!</span> <span class="yarn-meta">#line:08568f5</span>
-<span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+&lt;&lt;if GetActivityResult("jigsaw_penguin_settings") &gt; 0&gt;&gt;
+    <span class="yarn-cmd">&lt;&lt;card animal_penguin collect&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;set $penguin_completed = true&gt;&gt;</span>
+<span class="yarn-line">    Nie, nie wziąłem FLAGI.</span> <span class="yarn-meta">#line:078190f</span>
+<span class="yarn-line">    Pamiętaj, nie potrafię latać!</span> <span class="yarn-meta">#line:08568f5</span>
+    <span class="yarn-cmd">&lt;&lt;jump check_animals_done&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
+<span class="yarn-line">    Czy chcesz zagrać jeszcze raz?</span> <span class="yarn-meta">#shadow:play_again</span>
+<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:yes</span>
+        <span class="yarn-cmd">&lt;&lt;jump penguin&gt;&gt;</span>
+<span class="yarn-choice">        -&gt; NIE</span> <span class="yarn-meta">#shadow:no</span>
+<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>

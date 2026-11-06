@@ -5,7 +5,7 @@ hide:
 
 # Découvrir Varsovie (pl_01) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-01-discover-warszawa/32/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/620)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1983275331#gid=1983275331)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_01%20Warsaw/PL_01%20Warsaw%20-%20Yarn%20Script.yarn)  
@@ -30,7 +30,6 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $chest_6_done = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $chest_7_done = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $quiz_score = 0&gt;&gt;</span>
-
 <span class="yarn-line">Bienvenue à Varsovie, la capitale de la Pologne !</span> <span class="yarn-meta">#line:05d7d48 </span>
 <span class="yarn-cmd">&lt;&lt;target npc_0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;area area_intro&gt;&gt;</span>
@@ -112,7 +111,7 @@ hide:
 <span class="yarn-choice">-&gt; Un compositeur.</span> <span class="yarn-meta">#line:04d5c5f </span>
 	<span class="yarn-cmd">&lt;&lt;set $quiz_score = $quiz_score + 1&gt;&gt;</span>
 <span class="yarn-line">	Correct.</span> <span class="yarn-meta">#shadow:correct</span>
-<span class="yarn-line">Qu'est-ce que la rivière Wisła ?</span> <span class="yarn-meta">#line:0e17c6d </span>
+<span class="yarn-line">Qu'est-ce que la Wisła ?</span> <span class="yarn-meta">#line:0e17c6d </span>
 <span class="yarn-choice">-&gt; Un palais.</span> <span class="yarn-meta">#line:002ec2d </span>
 <span class="yarn-line">	Es-tu sûr?</span> <span class="yarn-meta">#shadow:are_you_sure</span>
 <span class="yarn-choice">-&gt; Un stade.</span> <span class="yarn-meta">#line:0b7ff07 </span>
@@ -262,7 +261,7 @@ hide:
 <span class="yarn-header-dim">group: mermaid</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card mermaid_of_warsaw&gt;&gt;</span>
-<span class="yarn-line">La sirène de Varsovie s'appelle la Syrenka.</span> <span class="yarn-meta">#line:05be7da </span>
+<span class="yarn-line">La sirène est le symbole de Varsovie.</span> <span class="yarn-meta">#line:05be7da </span>
 <span class="yarn-line">Elle est mi-femme, mi-poisson, et porte une épée et un bouclier.</span> <span class="yarn-meta">#line:08618f7 </span>
 
 </code>
@@ -488,7 +487,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;detour info_2&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;card wars_and_sawa_statue&gt;&gt;</span>
-<span class="yarn-line">	Je suis Wars. Notre statue se dresse au bord de la Vistule.</span> <span class="yarn-meta">#line:0bb88fb </span>
+<span class="yarn-line">	Je suis la Guerre. Notre statue se dresse au bord de la Vistule.</span> <span class="yarn-meta">#line:0bb88fb </span>
 <span class="yarn-line">	Parlez aux personnes en bleu au bord de la rivière et apprenez-en plus sur notre ville.</span> <span class="yarn-meta">#line:0a8f793 #task:task_2</span>
 	<span class="yarn-cmd">&lt;&lt;task_start task_2 task_2_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -529,7 +528,7 @@ hide:
 <span class="yarn-header-dim">group: wars_sawa</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card wars_and_sawa_statue&gt;&gt;</span>
-<span class="yarn-line">Wars et Sawa sont issus d'une vieille légende concernant Varsovie.</span> <span class="yarn-meta">#line:050161f </span>
+<span class="yarn-line">Wars et Sawa sont issus d'une vieille légende sur Varsovie.</span> <span class="yarn-meta">#line:050161f </span>
 <span class="yarn-cmd">&lt;&lt;inventory key_gold add 1&gt;&gt;</span>
 <span class="yarn-line">Voici une clé pour vous !</span> <span class="yarn-meta">#shadow:your_key</span>
 <span class="yarn-cmd">&lt;&lt;collect key_gold&gt;&gt;</span>
@@ -550,7 +549,7 @@ hide:
 <span class="yarn-header-dim">group: wars_sawa</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card warsaw_wisla_river&gt;&gt;</span>
-<span class="yarn-line">La rivière Vistule se jette dans la mer Baltique.</span> <span class="yarn-meta">#line:0dc574e </span>
+<span class="yarn-line">#VALUE!</span> <span class="yarn-meta">#line:0dc574e </span>
 <span class="yarn-cmd">&lt;&lt;inventory key_gold add 1&gt;&gt;</span>
 <span class="yarn-line">Voici une clé pour vous !</span> <span class="yarn-meta">#shadow:your_key</span>
 <span class="yarn-cmd">&lt;&lt;collect key_gold&gt;&gt;</span>
@@ -660,7 +659,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;detour info_3&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;card king_sigismunds_column&gt;&gt;</span>
-<span class="yarn-line">	Parlez aux personnes en jaune sur la place et apprenez-en plus sur notre histoire.</span> <span class="yarn-meta">#line:03531ce #task:task_3</span>
+<span class="yarn-line">	Parlez aux personnages jaunes sur la place et apprenez-en plus sur notre histoire.</span> <span class="yarn-meta">#line:03531ce #task:task_3</span>
 	<span class="yarn-cmd">&lt;&lt;task_start task_3 task_3_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -978,7 +977,7 @@ hide:
 <span class="yarn-header-dim">group: parliament</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card constitution_of_3_may&gt;&gt;</span>
-<span class="yarn-line">La Constitution du 3 mai est une date importante en Pologne.</span> <span class="yarn-meta">#line:00e7623 </span>
+<span class="yarn-line">La Constitution du 3 mai est une date importante en Pologne.</span> <span class="yarn-meta">#line:00e7623</span>
 <span class="yarn-cmd">&lt;&lt;inventory key_gold add 1&gt;&gt;</span>
 <span class="yarn-line">Voici une clé pour vous !</span> <span class="yarn-meta">#shadow:your_key</span>
 <span class="yarn-cmd">&lt;&lt;collect key_gold&gt;&gt;</span>
@@ -1513,7 +1512,7 @@ hide:
 	<span class="yarn-cmd">&lt;&lt;if $chest_6_done == false&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;set $chest_6_done = true&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;card maria_skodowskacurie&gt;&gt;</span>
-<span class="yarn-line">		Maria Sklodowska-Curie était une grande scientifique polonaise.</span> <span class="yarn-meta">#line:0e29d15 </span>
+<span class="yarn-line">		Maria Skłodowska-Curie était une grande scientifique polonaise.</span> <span class="yarn-meta">#line:0e29d15 </span>
 		<span class="yarn-cmd">&lt;&lt;trigger chest_6_open&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;SetInteractable chest_6 false&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;inventory key_gold remove 3&gt;&gt;</span>
@@ -1725,14 +1724,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: stadium</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-cmd">&lt;&lt;if $chest_7_done&gt;&gt;</span>
-<span class="yarn-line">	Le coffre est vide.</span> <span class="yarn-meta">#shadow:chest_empty</span>
-<span class="yarn-cmd">&lt;&lt;elseif has_item_at_least("key_gold", 4)&gt;&gt;</span>
 <span class="yarn-line">	Pour ouvrir le coffre, résolvez cette énigme !</span> <span class="yarn-meta">#shadow:solve_to_unlock</span>
 	<span class="yarn-cmd">&lt;&lt;activity activity_7 activity_7_done&gt;&gt;</span>
-<span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">	C'est verrouillé. Il vous faut toutes les clés !</span> <span class="yarn-meta">#shadow:chest_locked</span>
-<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
 </pre>
@@ -1751,7 +1744,7 @@ hide:
 	<span class="yarn-cmd">&lt;&lt;if $chest_7_done == false&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;set $chest_7_done = true&gt;&gt;</span>
 		<span class="yarn-cmd">&lt;&lt;card football_soccer&gt;&gt;</span>
-<span class="yarn-line">		Le football est l'un des sports les plus populaires pratiqués ici.</span> <span class="yarn-meta">#line:0c9dff3 </span>
+<span class="yarn-line">		Le football est l'un des sports les plus populaires ici.</span> <span class="yarn-meta">#line:0c9dff3 </span>
 		<span class="yarn-cmd">&lt;&lt;card ball&gt;&gt;</span>
 <span class="yarn-line">		Le ballon est ce que les joueurs envoient au pied sur le terrain.</span> <span class="yarn-meta">#line:0faaf96 </span>
 		<span class="yarn-cmd">&lt;&lt;card goal&gt;&gt;</span>
@@ -1766,6 +1759,7 @@ hide:
 		<span class="yarn-cmd">&lt;&lt;inventory mermaids_sword add&gt;&gt;</span>
 <span class="yarn-line">		Le septième morceau d'épée est à vous ! Vous avez les 7 morceaux !</span> <span class="yarn-meta">#line:0a2ac65 </span>
 <span class="yarn-line">		Retournez voir la Sirène et réassemblez l'épée.</span> <span class="yarn-meta">#line:0221147 </span>
+<span class="yarn-comment">		// TODO jump back to NPC_1</span>
 		<span class="yarn-cmd">&lt;&lt;target npc_1&gt;&gt;</span>
 	<span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>

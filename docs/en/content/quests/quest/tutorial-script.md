@@ -5,7 +5,7 @@ hide:
 
 # Tutorial (tutorial) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/637)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
@@ -733,7 +733,6 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">I heard there are secrets in this level...</span> <span class="yarn-meta">#line:0b8d755 </span>
 <span class="yarn-line">And a portal to travel on that skyscraper!</span> <span class="yarn-meta">#line:032af93 </span>
-<span class="yarn-cmd">&lt;&lt;jump global_init&gt;&gt;</span>
 
 </code>
 </pre>

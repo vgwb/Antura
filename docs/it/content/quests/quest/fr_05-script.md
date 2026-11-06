@@ -5,7 +5,7 @@ hide:
 
 # Una storia di due castelli (fr_05) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-05-a-tale-of-two-castles/26/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/631)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=1463729744#gid=1463729744)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_05%20Loire%20Castles/FR_05%20Loire%20Castles%20-%20Yarn%20Script.yarn)  
@@ -54,7 +54,7 @@ hide:
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
-<span class="yarn-line">Benvenuti ai castelli della Loira!</span> <span class="yarn-meta">#line:09dda7c </span>
+<span class="yarn-line">Benvenuti nei castelli della Loira!</span> <span class="yarn-meta">#line:09dda7c </span>
 
 </code>
 </pre>
@@ -70,8 +70,8 @@ hide:
 <span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hai esplorato due castelli: il possente Chinon e l'elegante Chambord!</span> <span class="yarn-meta">#line:0a8f25d </span>
-<span class="yarn-line">Hai paragonato la difesa alla vita del partito reale.</span> <span class="yarn-meta">#line:05802fa </span>
-<span class="yarn-line">Hai trovato equipaggiamento da cavaliere e cose per la festa del principe.</span> <span class="yarn-meta">#line:06d186d </span>
+<span class="yarn-line">Hai paragonato la difesa e la vita di corte.</span> <span class="yarn-meta">#line:05802fa </span>
+<span class="yarn-line">Hai trovato equipaggiamento da cavaliere e oggetti per feste da principe.</span> <span class="yarn-meta">#line:06d186d </span>
 <span class="yarn-line">Grande esploratore di castelli!</span> <span class="yarn-meta">#line:032ff51 </span>
 <span class="yarn-cmd">&lt;&lt;card chinon&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
@@ -91,7 +91,7 @@ hide:
 <span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Adesso disegna il tuo castello preferito!</span> <span class="yarn-meta">#line:0f0bba8 </span>
+<span class="yarn-line">Ora disegna il tuo castello preferito!</span> <span class="yarn-meta">#line:0f0bba8 </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -109,7 +109,7 @@ hide:
 &lt;&lt;if $COLLECTED_ITEMS &gt;= 8&gt;&gt;
 <span class="yarn-cmd">&lt;&lt;jump guide_question&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Antura è scappata e si è nascosta in un castello!</span> <span class="yarn-meta">#line:067c028 </span>
+<span class="yarn-line">Antura è scappata e si nasconde in un castello!</span> <span class="yarn-meta">#line:067c028 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -145,7 +145,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Benvenuti al castello di Chambord.</span> <span class="yarn-meta">#line:0a06d3f </span>
+<span class="yarn-line">Benvenuti al Castello di Chambord.</span> <span class="yarn-meta">#line:0a06d3f </span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
 <span class="yarn-line">Re e principi usavano questo castello per</span> <span class="yarn-meta">#line:04d7920 </span>
 <span class="yarn-cmd">&lt;&lt;card chambord_ball&gt;&gt;</span>
@@ -230,7 +230,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset map&gt;&gt;</span>
 <span class="yarn-line">Ti sono piaciuti i castelli?</span> <span class="yarn-meta">#line:02a8dd7 </span>
-<span class="yarn-line">Nella Valle della Loira ci sono 200 castelli come questo!</span> <span class="yarn-meta">#line:01e6614 </span>
+<span class="yarn-line">Nella Valle della Loira ci sono ben 200 castelli come questo!</span> <span class="yarn-meta">#line:01e6614 </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>
@@ -263,7 +263,7 @@ hide:
 <span class="yarn-header-dim">tags:  asset=parapet</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card parapet&gt;&gt;</span>
-<span class="yarn-line">Un parapetto presenta delle fessure utilizzate a scopo difensivo.</span> <span class="yarn-meta">#line:0aaf4dd </span>
+<span class="yarn-line">Un parapetto presenta delle aperture utilizzate a scopo difensivo.</span> <span class="yarn-meta">#line:0aaf4dd </span>
 
 </code>
 </pre>
@@ -362,7 +362,7 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card loopholes&gt;&gt;</span>
-<span class="yarn-line">Sono delle scappatoie. Servono per scoccare frecce al nemico.</span> <span class="yarn-meta">#line:050e177 </span>
+<span class="yarn-line">Si tratta di scappatoie. Vengono utilizzate per scagliare frecce contro il nemico.</span> <span class="yarn-meta">#line:050e177 </span>
 
 </code>
 </pre>
@@ -478,10 +478,10 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sapevi che la Valle della Loira è patrimonio mondiale dell'UNESCO?</span> <span class="yarn-meta">#line:0c3f4e1 </span>
+<span class="yarn-line">Sapevate che la Valle della Loira è patrimonio mondiale dell'UNESCO?</span> <span class="yarn-meta">#line:0c3f4e1 </span>
 <span class="yarn-line">Il castello di Chambord ha 440 stanze!</span> <span class="yarn-meta">#line:0a5f4f1 </span>
-<span class="yarn-line">Il castello di Chinon era una delle residenze preferite del re Enrico II d'Inghilterra.</span> <span class="yarn-meta">#line:0b6e2c3 </span>
-<span class="yarn-line">La Valle della Loira è conosciuta come il "Giardino di Francia".</span> <span class="yarn-meta">#line:0d1e4b5 </span>
+<span class="yarn-line">Il castello di Chinon era una delle residenze predilette del re Enrico II d'Inghilterra.</span> <span class="yarn-meta">#line:0b6e2c3 </span>
+<span class="yarn-line">La valle della Loira è conosciuta come il "Giardino di Francia".</span> <span class="yarn-meta">#line:0d1e4b5 </span>
 <span class="yarn-line">Il castello di Chambord fu costruito nel XVI secolo.</span> <span class="yarn-meta">#line:0e2f6d7 </span>
 
 </code>
@@ -498,13 +498,13 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">spawn_group: tourists_chambord</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Chambord ha una scalinata così tortuosa che mi perderei di proposito!</span> <span class="yarn-meta">#line:03571b7 </span>
+<span class="yarn-line">Chambord ha una scala talmente tortuosa che mi perderei di proposito!</span> <span class="yarn-meta">#line:03571b7 </span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
-<span class="yarn-line">440 stanze... Avrei bisogno di 440 pisolini.</span> <span class="yarn-meta">#line:0e2823f </span>
+<span class="yarn-line">440 stanze... avrei bisogno di 440 pisolini.</span> <span class="yarn-meta">#line:0e2823f </span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
-<span class="yarn-line">Balli reali? Ballerei come una baguette ondeggiante.</span> <span class="yarn-meta">#line:0fd58d9 </span>
+<span class="yarn-line">Balli reali? Io ballerei come una baguette ondeggiante.</span> <span class="yarn-meta">#line:0fd58d9 </span>
 <span class="yarn-cmd">&lt;&lt;card chambord_ball&gt;&gt;</span>
-<span class="yarn-line">Se vivessi qui, dimenticherei ancora dove ho lasciato le scarpe.</span> <span class="yarn-meta">#line:0409c6b </span>
+<span class="yarn-line">Anche se vivessi qui, dimenticherei comunque dove ho lasciato le scarpe.</span> <span class="yarn-meta">#line:0409c6b </span>
 <span class="yarn-cmd">&lt;&lt;card chambord&gt;&gt;</span>
 
 </code>
@@ -521,11 +521,11 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">spawn_group: tourists_chinon</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Le pareti di Chinon sono così resistenti che nemmeno la mia migliore battuta riesce a romperle!</span> <span class="yarn-meta">#line:0b32af0 </span>
+<span class="yarn-line">Le mura di Chinon sono così resistenti che nemmeno la mia battuta migliore riuscirebbe a scalfirle!</span> <span class="yarn-meta">#line:0b32af0 </span>
 <span class="yarn-cmd">&lt;&lt;card chinon_defence&gt;&gt;</span>
-<span class="yarn-line">Faccio finta di essere un cavaliere... in realtà sto sorvegliando degli snack.</span> <span class="yarn-meta">#line:0d55219 </span>
+<span class="yarn-line">Faccio finta di essere un cavaliere... in realtà sto solo facendo la guardia agli snack.</span> <span class="yarn-meta">#line:0d55219 </span>
 <span class="yarn-cmd">&lt;&lt;card chinon&gt;&gt;</span>
-<span class="yarn-line">Scappatoie: piccole finestre per le frecce... o onde molto sottili.</span> <span class="yarn-meta">#line:0664af8 </span>
+<span class="yarn-line">Scappatoie: minuscole finestre per le frecce... o per onde sottilissime.</span> <span class="yarn-meta">#line:0664af8 </span>
 <span class="yarn-cmd">&lt;&lt;card loopholes&gt;&gt;</span>
 <span class="yarn-line">I parapetti sono perfetti per sbirciare senza essere visti.</span> <span class="yarn-meta">#line:0c42fc1 </span>
 <span class="yarn-cmd">&lt;&lt;card parapet&gt;&gt;</span>
@@ -544,13 +544,13 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">spawn_group: tourists_loire</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">La Loira sembra un lungo nastro argentato, ma senza carta da regalo!</span> <span class="yarn-meta">#line:08a92f7 </span>
+<span class="yarn-line">La Loira sembra un lungo nastro d'argento, ma senza confezione regalo!</span> <span class="yarn-meta">#line:08a92f7 </span>
 <span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
-<span class="yarn-line">Saluto ogni castello. Un giorno una torre potrebbe ricambiare il saluto.</span> <span class="yarn-meta">#line:0d7652c </span>
+<span class="yarn-line">Saluto ogni castello con la mano. Un giorno, forse, una torre ricambierà il saluto.</span> <span class="yarn-meta">#line:0d7652c </span>
 <span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
-<span class="yarn-line">I ponti sono ottimi posti dove pensare agli spuntini.</span> <span class="yarn-meta">#line:0724a44 </span>
+<span class="yarn-line">I ponti qui sono luoghi ideali per pensare a degli spuntini.</span> <span class="yarn-meta">#line:0724a44 </span>
 <span class="yarn-cmd">&lt;&lt;card bridge&gt;&gt;</span>
-<span class="yarn-line">Ci sono così tanti castelli che persino le nuvole sono turisti.</span> <span class="yarn-meta">#line:0b1036c </span>
+<span class="yarn-line">Ci sono così tanti castelli che persino le nuvole sono turiste.</span> <span class="yarn-meta">#line:0b1036c </span>
 <span class="yarn-cmd">&lt;&lt;card map&gt;&gt;</span>
 
 </code>

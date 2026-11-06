@@ -140,4 +140,4 @@ Check the [Support page](./support.md) also.
 ### Contribution and collaboration
 
 - Even without technical skills, teachers can suggest **topics, cards, and words** that are valuable for their classroom
-- Teachers who wish to contribute more deeply can join the [Antura community](https://antura.discourse.group/) to co-design or adapt quests... or even propose new ones!  
+- Teachers who wish to contribute more deeply can join the [Antura community](https://github.com/vgwb/Antura/discussions/) to co-design or adapt quests... or even propose new ones!  

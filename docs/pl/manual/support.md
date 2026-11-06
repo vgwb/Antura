@@ -11,7 +11,7 @@ Czekamy na opinie i pomysły od rodziców, nauczycieli i uczniów.
 - Proponuj nowe tematy, karty lub zajęcia w klasie.
 - Sugeruj ulepszenia dotyczące obsługi, kamery lub menu.
 - Podziel się tym, co sprawdziło się w Twojej klasie, a co mogłoby być bardziej przejrzyste.
-Dołącz do naszej społeczności: <https://antura.discourse.group>
+Dołącz do naszej społeczności: <https://github.com/vgwb/Antura/discussions>
 
 ## Zgłoś problem
 Każde zadanie ma dedykowaną sekcję na naszym forum społecznościowym, gdzie można dzielić się opiniami, zgłaszać błędy i pomysły. Proszę sprawdzić odpowiedni link na [stronach zadań](../content/quests/index.md)

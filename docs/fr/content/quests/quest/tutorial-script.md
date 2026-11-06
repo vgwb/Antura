@@ -5,7 +5,7 @@ hide:
 
 # Tutoriel (tutorial) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/quest-tutorial/41)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/637)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=631129787#gid=631129787)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/_TUTORIAL/Tutorial%20-%20Yarn%20Script.yarn)  
@@ -25,10 +25,10 @@ hide:
 <span class="yarn-line">Bienvenue dans le tutoriel !</span> <span class="yarn-meta">#line:021793f </span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset keys_wasd&gt;&gt;</span>
-<span class="yarn-line">    Utilisez les touches WASD pour marcher.</span> <span class="yarn-meta">#line:037d71d </span>
+<span class="yarn-line">    Utilise les touches WASD pour marcher.</span> <span class="yarn-meta">#line:037d71d </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset tutorial_move&gt;&gt;</span>
-<span class="yarn-line">    Utilisez votre doigt gauche pour marcher</span> <span class="yarn-meta">#line:0e55bc4 </span>
+<span class="yarn-line">    Utilise ton doigt gauche pour marcher.</span> <span class="yarn-meta">#line:0e55bc4 </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target tutor_1&gt;&gt;</span>
@@ -45,14 +45,14 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Touchez ce texte pour le réécouter.</span> <span class="yarn-meta">#line:03dbfa7 #native</span>
+<span class="yarn-line">Touche ce texte pour le réécouter.</span> <span class="yarn-meta">#line:03dbfa7 #native</span>
 <span class="yarn-comment">// &lt;&lt;asset tutorial_goon&gt;&gt;</span>
 <span class="yarn-comment">// Use this button to advance the dialog.</span> <span class="yarn-meta">#line:0f4f069 </span>
 
 <span class="yarn-comment">//&lt;&lt;asset tutorial_image&gt;&gt;</span>
 <span class="yarn-comment">//Use this button to view the photo</span> <span class="yarn-meta">#line:0784704 </span>
 
-<span class="yarn-line">Allez parler au prochain tuteur !</span> <span class="yarn-meta">#line:0eb85aa </span>
+<span class="yarn-line">Va parler  au personnage suivant !</span> <span class="yarn-meta">#line:0eb85aa </span>
 <span class="yarn-cmd">&lt;&lt;area area_medium&gt;&gt;</span>
 
 </code>
@@ -69,10 +69,10 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset tutorial_camera_mouse&gt;&gt;</span>
-<span class="yarn-line">    Appuyez sur le bouton de la souris pour déplacer la caméra.</span> <span class="yarn-meta">#line:0e633a2 </span>
+<span class="yarn-line">    Appuie sur le bouton de la souris pour déplacer la caméra.</span> <span class="yarn-meta">#line:0e633a2 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;asset tutorial_camera&gt;&gt;</span>
-<span class="yarn-line">    Utilisez votre doigt droit pour déplacer la caméra.</span> <span class="yarn-meta">#line:0aa47cb </span>
+<span class="yarn-line">    Utilise ton doigt droit pour déplacer la caméra.</span> <span class="yarn-meta">#line:0aa47cb </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;area area_large&gt;&gt;</span>
 
@@ -89,9 +89,9 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset tutorial_act&gt;&gt;</span>
-<span class="yarn-line">Utilisez ce bouton pour parler ou interagir</span> <span class="yarn-meta">#line:0c14f65 </span>
+<span class="yarn-line">Utilise ce bouton pour parler ou interagir</span> <span class="yarn-meta">#line:0c14f65 </span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
-<span class="yarn-line">    Ou appuyez sur la touche ESPACE.</span> <span class="yarn-meta">#line:0c18f6b </span>
+<span class="yarn-line">    Ou appuie sur la touche ESPACE.</span> <span class="yarn-meta">#line:0c18f6b </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -108,9 +108,9 @@ hide:
 <span class="yarn-header-dim">---</span>
  <span class="yarn-cmd">&lt;&lt;asset tutorial_jump&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;if $IS_DESKTOP&gt;&gt;</span>
-<span class="yarn-line">    Appuyez sur la touche ESPACE ou sur ce bouton pour passer au saut.</span> <span class="yarn-meta">#line:07940cf</span>
+<span class="yarn-line">    Appuie sur la touche ESPACE ou sur ce bouton pour sauter.</span> <span class="yarn-meta">#line:07940cf</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Utilisez ce bouton pour sauter</span> <span class="yarn-meta">#line:0b9c1fa </span>
+<span class="yarn-line">    Utilise ce bouton pour sauter</span> <span class="yarn-meta">#line:0b9c1fa </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;area area_large&gt;&gt;</span>
 
@@ -127,7 +127,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_cookies&gt;&gt;</span>
-<span class="yarn-line">Prenez tous les biscuits que vous trouvez. Ils peuvent être utiles.</span> <span class="yarn-meta">#line:0f50a6e </span>
+<span class="yarn-line">Attrape tous les biscuits que tu trouves. Ils peuvent être utiles.</span> <span class="yarn-meta">#line:0f50a6e </span>
 
 </code>
 </pre>
@@ -157,8 +157,8 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset tutorial_actions&gt;&gt;</span>
-<span class="yarn-line">Explorez tous les objets qui ont cette icône.</span> <span class="yarn-meta">#line:0139142 </span>
-<span class="yarn-line">Trouvez la clé et ouvrez la porte !</span> <span class="yarn-meta">#line:083e584 </span>
+<span class="yarn-line">Explore tous les objets qui ont cette icône.</span> <span class="yarn-meta">#line:0139142 </span>
+<span class="yarn-line">Trouve la clé et ouvre la porte !</span> <span class="yarn-meta">#line:083e584 </span>
 
 </code>
 </pre>
@@ -194,7 +194,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset tutorial_ball&gt;&gt;</span>
-<span class="yarn-line">Essayez de pousser cette balle.</span> <span class="yarn-meta">#line:02253ae </span>
+<span class="yarn-line">Essaie de pousser cette balle.</span> <span class="yarn-meta">#line:02253ae </span>
 
 </code>
 </pre>
@@ -226,9 +226,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;camera_focus camera_coin&gt;&gt;</span>
-<span class="yarn-line">Voyons voir si vous avez appris</span> <span class="yarn-meta">#line:0fe9efe</span>
+<span class="yarn-line">Voyons si tu as compris.</span> <span class="yarn-meta">#line:0fe9efe</span>
 <span class="yarn-cmd">&lt;&lt;target chest_end&gt;&gt;</span>
-<span class="yarn-line">Montez les escaliers et ouvrez ce coffre</span> <span class="yarn-meta">#line:07b2183 </span>
+<span class="yarn-line">Monte les escaliers et ouvre ce coffre</span> <span class="yarn-meta">#line:07b2183 </span>
 <span class="yarn-cmd">&lt;&lt;task_start open_chest task_open_chest_done&gt;&gt;</span>
 
 </code>
@@ -261,8 +261,8 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
-<span class="yarn-line">Ceci conclut le tutoriel de base.</span> <span class="yarn-meta">#line:0dfdfc5 </span>
-<span class="yarn-line">Vous pouvez désormais explorer ce monde et parler à tout le monde pour en apprendre davantage sur le jeu.</span> <span class="yarn-meta">#line:02fea28 </span>
+<span class="yarn-line">Voici le tutoriel de base.</span> <span class="yarn-meta">#line:0dfdfc5 </span>
+<span class="yarn-line">Tu peux maintenant explorer les différentes villes de France.</span> <span class="yarn-meta">#line:02fea28 </span>
 <span class="yarn-cmd">&lt;&lt;jump tutor_end_2&gt;&gt;</span>
 
 </code>
@@ -311,7 +311,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_portal&gt;&gt;</span>
-<span class="yarn-line">Utilisez les portails pour voyager rapidement !</span> <span class="yarn-meta">#line:0f753b5 </span>
+<span class="yarn-line">Utilise les ascenceurs pour te déplacer rapidement !</span> <span class="yarn-meta">#line:0f753b5 </span>
 
 </code>
 </pre>
@@ -326,7 +326,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_danger&gt;&gt;</span>
-<span class="yarn-line">Faites attention à ne pas tomber dans l'eau !</span> <span class="yarn-meta">#line:0e9b5a9 </span>
+<span class="yarn-line">Fais attention de ne pas tomber dans l'eau !</span> <span class="yarn-meta">#line:0e9b5a9 </span>
 
 </code>
 </pre>
@@ -341,7 +341,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_livingletter&gt;&gt;</span>
-<span class="yarn-line">Ce sont des Lettres Vivantes. Parlez-leur pour apprendre de nouveaux mots !</span> <span class="yarn-meta">#line:06e500f </span>
+<span class="yarn-line">Ces lettres de l'alphabet sont animées. Elles t'apprendront de nouveaux mots!</span> <span class="yarn-meta">#line:06e500f </span>
 
 </code>
 </pre>
@@ -356,7 +356,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_blocky_character&gt;&gt;</span>
-<span class="yarn-line">Ces gens sont nos amis. Parlez-leur pour en apprendre davantage sur le monde !</span> <span class="yarn-meta">#line:0be283b </span>
+<span class="yarn-line">Va voir les différents personnages. Ils t'aideront et t'expliqueront  plein de choses!</span> <span class="yarn-meta">#line:0be283b </span>
 
 </code>
 </pre>
@@ -371,7 +371,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_card&gt;&gt;</span>
-<span class="yarn-line">Ceci est une CARTE. Elle possède des connaissances et des pouvoirs. Collectionnez-les toutes !</span> <span class="yarn-meta">#line:0ac4c18 </span>
+<span class="yarn-line">Ceci est une CARTE. Elle possède des connaissances et des pouvoirs. Collectionne-les toutes !</span> <span class="yarn-meta">#line:0ac4c18 </span>
 
 </code>
 </pre>
@@ -386,7 +386,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_cat&gt;&gt;</span>
-<span class="yarn-line">Oui. C'est toi ! En jouant jusqu'au bout, tu pourras changer de look !</span> <span class="yarn-meta">#line:0eb1890 </span>
+<span class="yarn-line">Oui. C'est toi ! En jouant jusqu'au bout, tu pourras changer ton look !</span> <span class="yarn-meta">#line:0eb1890 </span>
 
 </code>
 </pre>
@@ -401,7 +401,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura&gt;&gt;</span>
-<span class="yarn-line">Voici notre ami Antura. Il vous accompagnera dans votre aventure !</span> <span class="yarn-meta">#line:015cdc5 </span>
+<span class="yarn-line">Voici notre ami Antura. Il t'accompagnera dans ton aventure !</span> <span class="yarn-meta">#line:015cdc5 </span>
 
 </code>
 </pre>
@@ -416,7 +416,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_inventory&gt;&gt;</span>
-<span class="yarn-line">Ceci est votre inventaire. Cliquez sur un objet pour l'utiliser.</span> <span class="yarn-meta">#line:02a6cfa </span>
+<span class="yarn-line">C'est ton inventaire. Clique sur un objet pour l'utiliser.</span> <span class="yarn-meta">#line:02a6cfa </span>
 
 </code>
 </pre>
@@ -431,7 +431,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_progress&gt;&gt;</span>
-<span class="yarn-line">Voici la progression du jeu. Jouez bien et obtenez 3 étoiles !</span> <span class="yarn-meta">#line:0b606b8 </span>
+<span class="yarn-line">Voici la progression du jeu. Si tu gagnes, alors tu auras des étoiles.</span> <span class="yarn-meta">#line:0b606b8 </span>
 
 </code>
 </pre>
@@ -446,7 +446,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_tasks&gt;&gt;</span>
-<span class="yarn-line">Ce panneau vous indique ce que vous devez faire.</span> <span class="yarn-meta">#line:012d967 </span>
+<span class="yarn-line">Ce panneau indique ce que tu dois faire.</span> <span class="yarn-meta">#line:012d967 </span>
 
 </code>
 </pre>
@@ -461,7 +461,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card antura_target&gt;&gt;</span>
-<span class="yarn-line">Ce symbole vous indique où aller.</span> <span class="yarn-meta">#line:0864faf </span>
+<span class="yarn-line">Ce symbole indique où aller.</span> <span class="yarn-meta">#line:0864faf </span>
 
 </code>
 </pre>
@@ -476,8 +476,8 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jouons à l'activité MÉMOIRE !</span> <span class="yarn-meta">#line:05e100e </span>
-<span class="yarn-line">Trouvez les paires de cartes.</span> <span class="yarn-meta">#line:0ef88ae </span>
+<span class="yarn-line">Essaie maintenant le jeu du memory !</span> <span class="yarn-meta">#line:05e100e </span>
+<span class="yarn-line">Trouve les cartes identiques.</span> <span class="yarn-meta">#line:0ef88ae </span>
 <span class="yarn-cmd">&lt;&lt;activity memory_tutorial activity_memory_result tutorial&gt;&gt;</span>
 
 </code>
@@ -493,13 +493,13 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">C'est bon d'exercer notre mémoire !</span> <span class="yarn-meta">#line:00e6a04 </span>
+<span class="yarn-line">Avec ce jeu, tu dois travailler ta mémoire.</span> <span class="yarn-meta">#line:00e6a04 </span>
 <span class="yarn-line">Tu veux rejouer ?</span> <span class="yarn-meta">#line:0c78a9e </span>
-<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#line:0cd0316 </span>
+<span class="yarn-choice">-&gt; C'est très facile</span> <span class="yarn-meta">#line:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity memory_tutorial activity_memory_result easy&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#line:07cbfdd </span>
+<span class="yarn-choice">-&gt; C'est facile.</span> <span class="yarn-meta">#line:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity memory_tutorial activity_memory_result normal&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Expert</span> <span class="yarn-meta">#line:0e3251c </span>
+<span class="yarn-choice">-&gt; C'est difficile.</span> <span class="yarn-meta">#line:0e3251c </span>
     <span class="yarn-cmd">&lt;&lt;activity memory_tutorial activity_memory_result expert&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#line:010515b </span>
 
@@ -516,8 +516,8 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jouons à l'activité CANVAS</span> <span class="yarn-meta">#line:07041b3 </span>
-<span class="yarn-line">Vous devez nettoyer tout l'écran sans toucher Antura !</span> <span class="yarn-meta">#line:0c80adc </span>
+<span class="yarn-line">Essaie ce jeu.</span> <span class="yarn-meta">#line:07041b3 </span>
+<span class="yarn-line">Tu dois nettoyer l'écran sans toucher le chien Antura !</span> <span class="yarn-meta">#line:0c80adc </span>
 <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result tutorial&gt;&gt;</span>
 
 
@@ -534,13 +534,13 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">C'est agréable de nettoyer, n'est-ce pas ?</span> <span class="yarn-meta">#line:059323a</span>
+<span class="yarn-line">Pour nettoyer tu utilises ton doigt sur l'écran ou la souris.</span> <span class="yarn-meta">#line:059323a</span>
 <span class="yarn-line">Tu veux rejouer ?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; C'est très facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result easy&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; C'est facile.</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result normal&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Expert</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; C'est difficile.</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity canvas_tutorial activity_canvas_result expert&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#shadow:010515b </span>
 
@@ -557,8 +557,8 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jouons au puzzle d'activité !</span> <span class="yarn-meta">#line:0fe648a </span>
-<span class="yarn-line">Complétez l'image.</span> <span class="yarn-meta">#line:0bc50ca </span>
+<span class="yarn-line">Voici le jeu du puzzle.</span> <span class="yarn-meta">#line:0fe648a </span>
+<span class="yarn-line">Reconstitue le puzzle à l'aide des différents morceaux.</span> <span class="yarn-meta">#line:0bc50ca </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result tutorial&gt;&gt;</span>
 
 </code>
@@ -576,11 +576,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">J'adore les puzzles !</span> <span class="yarn-meta">#line:0fc42d8 </span>
 <span class="yarn-line">Tu veux rejouer ?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; C'est très facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result easy&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; C'est facile.</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result normal&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Expert</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; C'est difficile.</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity jigsaw_tutorial activity_jigsaw_result expert&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#shadow:010515b </span>
 
@@ -597,8 +597,8 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jouons à Activity MATCH !</span> <span class="yarn-meta">#line:07c8447 </span>
-<span class="yarn-line">Associez les cartes similaires.</span> <span class="yarn-meta">#line:02aec90 </span>
+<span class="yarn-line">Essaie ce jeu d'association de paires !</span> <span class="yarn-meta">#line:07c8447 </span>
+<span class="yarn-line">Associe les cartes similaires.</span> <span class="yarn-meta">#line:02aec90 </span>
 <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result tutorial&gt;&gt;</span>
 
 </code>
@@ -614,13 +614,13 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Belle association !</span> <span class="yarn-meta">#line:0f0ee2e</span>
+<span class="yarn-line">Bravo ! tu as trouvé les cartes qui vont ensemble.</span> <span class="yarn-meta">#line:0f0ee2e</span>
 <span class="yarn-line">Tu veux rejouer ?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; C'est très facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result easy&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; C'est facile.</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result normal&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Expert</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; C'est difficile.</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity match_tutorial activity_match_result expert&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#shadow:010515b </span>
 
@@ -637,8 +637,8 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jouons à l'activité COMPTEZ L'ARGENT !</span> <span class="yarn-meta">#line:06b295f </span>
-<span class="yarn-line">Vous devez donner le montant correct de pièces.</span> <span class="yarn-meta">#line:0f00e5d </span>
+<span class="yarn-line">Dans ce jeu, tu vas compter l'argent!</span> <span class="yarn-meta">#line:06b295f </span>
+<span class="yarn-line">Tu vas donner des pièces et des billets..</span> <span class="yarn-meta">#line:0f00e5d </span>
 <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result tutorial&gt;&gt;</span>
 
 </code>
@@ -654,13 +654,13 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Il est important d’apprendre à utiliser l’argent !</span> <span class="yarn-meta">#line:06136c1</span>
+<span class="yarn-line">En France on utilise une monnaie qui s'appelle l'euro.</span> <span class="yarn-meta">#line:06136c1</span>
 <span class="yarn-line">Tu veux rejouer ?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; C'est très facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result easy&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; C'est facile.</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result normal&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Expert</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; C'est difficile.</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity money_tutorial activity_money_result expert&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#shadow:010515b </span>
 
@@ -677,8 +677,8 @@ hide:
 <span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jouons à l'activité ORDRE !</span> <span class="yarn-meta">#line:015a3ea </span>
-<span class="yarn-line">Mettez les éléments dans le bon ordre.</span> <span class="yarn-meta">#line:0ed152d </span>
+<span class="yarn-line">Dans ce jeu, tu vas remettre dans l'ordre des éléments.</span> <span class="yarn-meta">#line:015a3ea </span>
+<span class="yarn-line">Remets les éléments dans le bon ordre.</span> <span class="yarn-meta">#line:0ed152d </span>
 <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result&gt;&gt;</span>
 
 </code>
@@ -696,11 +696,11 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonne activité.</span> <span class="yarn-meta">#line:0838f7f </span>
 <span class="yarn-line">Tu veux rejouer ?</span> <span class="yarn-meta">#shadow:0c78a9e</span>
-<span class="yarn-choice">-&gt; Facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
+<span class="yarn-choice">-&gt; C'est très facile</span> <span class="yarn-meta">#shadow:0cd0316 </span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result easy&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Normale</span> <span class="yarn-meta">#shadow:07cbfdd </span>
+<span class="yarn-choice">-&gt; C'est facile.</span> <span class="yarn-meta">#shadow:07cbfdd </span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result normal&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Expert</span> <span class="yarn-meta">#shadow:0e3251c</span>
+<span class="yarn-choice">-&gt; C'est difficile.</span> <span class="yarn-meta">#shadow:0e3251c</span>
     <span class="yarn-cmd">&lt;&lt;activity order_tutorial activity_order_result expert&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Non</span> <span class="yarn-meta">#shadow:010515b </span>
 
@@ -731,9 +731,8 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">J'ai entendu dire qu'il y avait des secrets dans ce niveau...</span> <span class="yarn-meta">#line:0b8d755 </span>
-<span class="yarn-line">Et un portail pour voyager sur ce gratte-ciel !</span> <span class="yarn-meta">#line:032af93 </span>
-<span class="yarn-cmd">&lt;&lt;jump global_init&gt;&gt;</span>
+<span class="yarn-line">Il y a des secrets à explorer dans ce niveau.</span> <span class="yarn-meta">#line:0b8d755 </span>
+<span class="yarn-line">Et un ascenceur pour voyager sur ce gratte-ciel !</span> <span class="yarn-meta">#line:032af93 </span>
 
 </code>
 </pre>
@@ -748,7 +747,7 @@ hide:
 <span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour!</span> <span class="yarn-meta">#line:022bd3f</span>
-<span class="yarn-line">as-tu vu Antura ?</span> <span class="yarn-meta">#line:00ad419</span>
+<span class="yarn-line">As-tu vu Antura ?</span> <span class="yarn-meta">#line:00ad419</span>
 <span class="yarn-line">J'ai perdu mon cookie !</span> <span class="yarn-meta">#line:0a94666 </span>
 
 </code>
@@ -763,10 +762,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor: KID_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Des cookies sont cachés partout ! Trouvez-les !</span> <span class="yarn-meta">#line:0c8d2fa </span>
-<span class="yarn-line">J'adore utiliser les portails pour voyager !</span> <span class="yarn-meta">#line:0fb6855 </span>
-<span class="yarn-line">Parlez à tous ceux que vous rencontrez !</span> <span class="yarn-meta">#line:0812c45 </span>
-<span class="yarn-line">Explorez le monde !</span> <span class="yarn-meta">#line:041d845 </span>
+<span class="yarn-line">Des cookies sont cachés partout ! Trouve-les !</span> <span class="yarn-meta">#line:0c8d2fa </span>
+<span class="yarn-line">J'adore utiliser les ascenceurs pour voyager !</span> <span class="yarn-meta">#line:0fb6855 </span>
+<span class="yarn-line">Parle à tous les perosnnages que tu vas rencontrer !</span> <span class="yarn-meta">#line:0812c45 </span>
+<span class="yarn-line">Explore la France !</span> <span class="yarn-meta">#line:041d845 </span>
 
 </code>
 </pre>
@@ -781,7 +780,7 @@ hide:
 <span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">J'adore les jeux vidéo !</span> <span class="yarn-meta">#line:0479595 </span>
-<span class="yarn-line">Voulez-vous jouer avec moi?</span> <span class="yarn-meta">#line:0d3fdc7 </span>
+<span class="yarn-line">Tu veux jouer avec moi?</span> <span class="yarn-meta">#line:0d3fdc7 </span>
 
 </code>
 </pre>

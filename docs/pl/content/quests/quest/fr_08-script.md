@@ -5,7 +5,7 @@ hide:
 
 # Mont Blanc i góry (fr_08) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-08-mont-blanc-mountains/27/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/632)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=736863861#gid=736863861)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_08%20Mont%20Blanc/FR_08%20Mont%20Blanc%20-%20Yarn%20Script.yarn)  
@@ -35,9 +35,9 @@ hide:
 <span class="yarn-cmd">&lt;&lt;SetActive sunglasses false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive crampons false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;card alps&gt;&gt;</span>
-<span class="yarn-line">Witamy w Alpach Francuskich!</span> <span class="yarn-meta">#line:start_1</span>
+<span class="yarn-line">Witamy we francuskich Alpach! Alpy to wysokie góry w południowo-wschodniej Francji.</span> <span class="yarn-meta">#line:start_1</span>
 <span class="yarn-cmd">&lt;&lt;card place_mont_blanc&gt;&gt;</span>
-<span class="yarn-line">Dzisiaj wspinamy się na Mont Blanc. To najwyższy szczyt Alp.</span> <span class="yarn-meta">#line:start_2</span>
+<span class="yarn-line">Dzisiaj wybierasz się na szczyt Mont Blanc. To najwyższa góra we Francji.</span> <span class="yarn-meta">#line:start_2</span>
 <span class="yarn-cmd">&lt;&lt;target npc_intro&gt;&gt;</span>
 
 </code>
@@ -54,8 +54,8 @@ hide:
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card place_mont_blanc&gt;&gt;</span>
-<span class="yarn-line">Niesamowite! Dotarłeś na szczyt Mont Blanc. Ma 4807 metrów wysokości!</span> <span class="yarn-meta">#line:end_1</span>
-<span class="yarn-line">Alpy są pełne wysokich, pięknych gór.</span> <span class="yarn-meta">#line:end_2</span>
+<span class="yarn-line">Gratulacje! Zdobyłeś szczyt Mont Blanc. Mierzy on 4807 metrów. To najwyższa góra we Francji.</span> <span class="yarn-meta">#line:end_1</span>
+<span class="yarn-line">W Alpach jest wiele dużych i pięknych gór.</span> <span class="yarn-meta">#line:end_2</span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -72,7 +72,7 @@ hide:
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Narysuj Mont Blanc i trzy flagi w swoim zeszycie!</span> <span class="yarn-meta">#line:post_1</span>
+<span class="yarn-line">W zeszycie narysuj Mont Blanc oraz flagi Francji, Szwajcarii i Włoch.</span> <span class="yarn-meta">#line:post_1</span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -92,25 +92,25 @@ hide:
 <span class="yarn-header-dim">group: intro</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("backpack")&gt;&gt;</span>
-<span class="yarn-line">    Widzę, że masz plecak. Możesz iść!</span> <span class="yarn-meta">#line:04c1c1f </span>
+<span class="yarn-line">    Masz plecak. Teraz idź po ciepłe ubrania i sprzęt górski.</span> <span class="yarn-meta">#line:04c1c1f </span>
     <span class="yarn-cmd">&lt;&lt;card place_mont_blanc&gt;&gt;</span>
-<span class="yarn-line">    Wejdźmy na Mont Blanc.</span> <span class="yarn-meta">#line:0f4644b </span>
+<span class="yarn-line">    Wejdź na szczyt Mont Blanc</span> <span class="yarn-meta">#line:0f4644b </span>
     <span class="yarn-cmd">&lt;&lt;card climbing&gt;&gt;</span>
-<span class="yarn-line">    Znajdź cały sprzęt wspinaczkowy i dowiedz się więcej o trzech pobliskich krajach!</span> <span class="yarn-meta">#line:07f2699 </span>
+<span class="yarn-line">    Znajdź ciepłe ubrania i sprzęt górski.</span> <span class="yarn-meta">#line:07f2699 </span>
     <span class="yarn-cmd">&lt;&lt;SetActive door_intro false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_base_1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "get_backpack"&gt;&gt;</span>
-<span class="yarn-line">    Wróć, gdy skończysz zadanie.</span> <span class="yarn-meta">#line:046eb33 </span>
+<span class="yarn-line">    Wróć, gdy znajdziesz.</span> <span class="yarn-meta">#line:046eb33 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card mountain_guide&gt;&gt;</span>
-<span class="yarn-line">    Ratunku! Jestem przewodnikiem górskim. Niebieski pies zabrał nasz sprzęt wspinaczkowy!</span> <span class="yarn-meta">#line:0724de3 </span>
-<span class="yarn-line">    Widzieliśmy psa wbiegającego na górę.</span> <span class="yarn-meta">#line:01beb5e </span>
+<span class="yarn-line">    Ratunku! Jestem twoim przewodnikiem górskim. Niebieski pies zabrał twoje rzeczy.</span> <span class="yarn-meta">#line:0724de3 </span>
+<span class="yarn-line">    Pies poszedł w góry z twoimi rzeczami.</span> <span class="yarn-meta">#line:01beb5e </span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_mont_blanc&gt;&gt;</span>
-<span class="yarn-line">    Zapraszamy do eksploracji Mont Blanc i zapoznania się z naszym sprzętem.</span> <span class="yarn-meta">#line:0650acc </span>
+<span class="yarn-line">    Znajdź ciepłą odzież i sprzęt górski.</span> <span class="yarn-meta">#line:0650acc </span>
     <span class="yarn-cmd">&lt;&lt;card backpack&gt;&gt;</span>
-<span class="yarn-line">    Przed wyjazdem będziesz potrzebować plecaka.</span> <span class="yarn-meta">#line:045409f</span>
+<span class="yarn-line">    Po pierwsze, potrzebujesz plecaka.</span> <span class="yarn-meta">#line:045409f</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_intro&gt;&gt;</span>
-<span class="yarn-line">    Rozejrzyj się dookoła!</span> <span class="yarn-meta">#line:05cabb5 </span>
+<span class="yarn-line">    Otwórz skrzynię, aby znaleźć plecak!</span> <span class="yarn-meta">#line:05cabb5 </span>
     <span class="yarn-cmd">&lt;&lt;task_start get_backpack&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive key_gold_intro true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -129,12 +129,12 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("key_gold")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-<span class="yarn-line">    Otwiera się! Jest w nim plecak.</span> <span class="yarn-meta">#line:0c1f006 </span>
+<span class="yarn-line">    Skrzynia się otwiera! Weź plecak.</span> <span class="yarn-meta">#line:0c1f006 </span>
     <span class="yarn-cmd">&lt;&lt;trigger chest_intro_open&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetInteractable chest_intro false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive backpack true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Jest zamknięte. Może potrzebujesz klucza.</span> <span class="yarn-meta">#line:chest_locked </span>
+<span class="yarn-line">    Skrzynia jest zamknięta. Znajdź klucz, żeby ją otworzyć.</span> <span class="yarn-meta">#line:chest_locked </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -152,12 +152,12 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card backpack&gt;&gt;</span>
-<span class="yarn-line">W tym plecaku można przenosić jedzenie, wodę i mapę.</span> <span class="yarn-meta">#line:05e80cb </span>
+<span class="yarn-line">W plecaku znajduje się woda, jedzenie i mapa.</span> <span class="yarn-meta">#line:05e80cb </span>
 <span class="yarn-cmd">&lt;&lt;inventory backpack add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;action wear_backpack&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_end get_backpack&gt;&gt;</span>
-<span class="yarn-line">Teraz możemy opuścić obóz bazowy i rozpocząć przygodę!</span> <span class="yarn-meta">#line:029f39c</span>
+<span class="yarn-line">Teraz idź w góry. Znajdź ciepłe ubrania i sprzęt górski.</span> <span class="yarn-meta">#line:029f39c</span>
 <span class="yarn-cmd">&lt;&lt;target npc_intro&gt;&gt;</span>
 
 </code>
@@ -177,20 +177,20 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("coat") and has_item("hat")&gt;&gt;</span>
-<span class="yarn-line">    Jesteś teraz gotowy do wspinaczki!</span> <span class="yarn-meta">#line:015bf8a</span>
+<span class="yarn-line">    Jesteś gotowy. Możesz wejść na szczyt Mont Blanc!</span> <span class="yarn-meta">#line:015bf8a</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_snowman&gt;&gt;</span>
-<span class="yarn-line">    Jeśli masz blokadę, bałwan może Ci pomóc!</span> <span class="yarn-meta">#line:showman_help</span>
+<span class="yarn-line">    Bałwan może ci pomóc. Idź do niego!</span> <span class="yarn-meta">#line:showman_help</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;set $step_base1 = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive door_base_1 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_base_2&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif !has_item("coat")&gt;&gt;</span>
-<span class="yarn-line">    Brakuje Ci płaszcza!</span> <span class="yarn-meta">#line:03dd802 </span>
+<span class="yarn-line">    Nie masz płaszcza. Idź go poszukać!</span> <span class="yarn-meta">#line:03dd802 </span>
     <span class="yarn-cmd">&lt;&lt;target coat&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card wind&gt;&gt;</span>
-<span class="yarn-line">    Zaczyna wiać wiatr. Moje uszy potrzebują ochrony!</span> <span class="yarn-meta">#line:b1_1</span>
-<span class="yarn-line">    Jak chronić uszy, gdy wieje silny wiatr?</span> <span class="yarn-meta">#line:b1_q</span>
+<span class="yarn-line">    Wieje. Musisz chronić uszy.</span> <span class="yarn-meta">#line:b1_1</span>
+<span class="yarn-line">    Jak chronić uszy?</span> <span class="yarn-meta">#line:b1_q</span>
     <span class="yarn-cmd">&lt;&lt;activity fr08_activity_1 activity_1_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -206,7 +206,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: base_1</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Otwórz skrzynię i wyjmij ciepłą czapkę!</span> <span class="yarn-meta">#line:0e83480 #task:get_hat</span>
+<span class="yarn-line">Otwórz skrzynię, aby znaleźć kapelusz!</span> <span class="yarn-meta">#line:0e83480 #task:get_hat</span>
 <span class="yarn-cmd">&lt;&lt;set $step_base1 = 1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start get_hat&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_gold_1 true&gt;&gt;</span>
@@ -226,12 +226,12 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("key_gold")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-<span class="yarn-line">    Otwiera się! Zawiera trochę sprzętu.</span> <span class="yarn-meta">#line:056ec2b </span>
+<span class="yarn-line">    Skrzynia się otwiera! Zawiera trochę sprzętu.</span> <span class="yarn-meta">#line:056ec2b </span>
     <span class="yarn-cmd">&lt;&lt;trigger chest_1_open&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetInteractable chest_1 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive hat true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Jest zamknięte. Może potrzebujesz klucza.</span> <span class="yarn-meta">#shadow:chest_locked </span>
+<span class="yarn-line">    Skrzynia jest zamknięta. Znajdź klucz, żeby ją otworzyć.</span> <span class="yarn-meta">#shadow:chest_locked </span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -248,7 +248,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card coat&gt;&gt;</span>
-<span class="yarn-line">Ten płaszcz zapewni Ci ciepło w czasie wiatru i śniegu.</span> <span class="yarn-meta">#line:0e23f1f </span>
+<span class="yarn-line">W płaszczu będzie Ci ciepło, gdy będzie wietrznie i śnieżnie.</span> <span class="yarn-meta">#line:0e23f1f </span>
 <span class="yarn-cmd">&lt;&lt;inventory coat add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 
@@ -265,13 +265,13 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card hat&gt;&gt;</span>
-<span class="yarn-line">Ciepła czapka utrzymuje ciepło głowy.</span> <span class="yarn-meta">#line:000fc05 </span>
-<span class="yarn-line">Pomaga również, gdy wieje zimny wiatr.</span> <span class="yarn-meta">#line:059d744</span>
+<span class="yarn-line">W czapce głowa ci nie zmarznie.</span> <span class="yarn-meta">#line:000fc05 </span>
+<span class="yarn-line">Kapelusz chroni przed wiatrem.</span> <span class="yarn-meta">#line:059d744</span>
 <span class="yarn-cmd">&lt;&lt;inventory hat add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_end get_hat&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_base_1&gt;&gt;</span>
-<span class="yarn-line">Teraz możesz kontynuować wspinaczkę!</span> <span class="yarn-meta">#line:0a7146f </span>
+<span class="yarn-line">Wspinaj się dalej!</span> <span class="yarn-meta">#line:0a7146f </span>
 
 </code>
 </pre>
@@ -290,24 +290,24 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("sunglasses") and has_item("gloves")&gt;&gt;</span>
-<span class="yarn-line">    Jesteś teraz gotowy do wspinaczki!</span> <span class="yarn-meta">#shadow:015bf8a</span>
-<span class="yarn-line">    Jeśli utkniesz, bałwan może Ci pomóc!</span> <span class="yarn-meta">#line:fr08_b2_help</span>
+<span class="yarn-line">    Jesteś gotowy. Możesz wejść na szczyt Mont Blanc!</span> <span class="yarn-meta">#shadow:015bf8a</span>
+<span class="yarn-line">    Bałwan może ci pomóc.</span> <span class="yarn-meta">#line:fr08_b2_help</span>
     <span class="yarn-cmd">&lt;&lt;set $step_base2 = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive door_base_2 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_base_3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "get_sunglasses"&gt;&gt;</span>
-<span class="yarn-line">    Wróć, gdy skończysz zadanie.</span> <span class="yarn-meta">#shadow:046eb33 </span>
+<span class="yarn-line">    Wróć, gdy znajdziesz.</span> <span class="yarn-meta">#shadow:046eb33 </span>
 <span class="yarn-cmd">&lt;&lt;elseif !has_item("sunglasses")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card sun&gt;&gt;</span>
-<span class="yarn-line">    Słońce mocno świeci na śniegu. Potrzebujemy ochrony oczu.</span> <span class="yarn-meta">#line:029a03e </span>
+<span class="yarn-line">    Słońce i śnieg bolą oczy. Potrzebujesz okularów przeciwsłonecznych.</span> <span class="yarn-meta">#line:029a03e </span>
     <span class="yarn-cmd">&lt;&lt;card snow&gt;&gt;</span>
-<span class="yarn-line">    Co chroni Twoje oczy przed jaskrawym śniegiem i słońcem?</span> <span class="yarn-meta">#line:0a70f7d </span>
+<span class="yarn-line">    Co chroni oczy?</span> <span class="yarn-meta">#line:0a70f7d </span>
     <span class="yarn-cmd">&lt;&lt;activity fr08_activity_2 activity_2_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif !has_item("gloves")&gt;&gt;</span>
-<span class="yarn-line">    Brakuje Ci rękawiczek!</span> <span class="yarn-meta">#line:06b3363 </span>
+<span class="yarn-line">    Nie masz rękawiczek!</span> <span class="yarn-meta">#line:06b3363 </span>
     <span class="yarn-cmd">&lt;&lt;target gloves&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Szukaj dalej. Nadal potrzebujemy całego sprzętu.</span> <span class="yarn-meta">#line:keep_looking</span>
+<span class="yarn-line">    Szukaj dalej.</span> <span class="yarn-meta">#line:keep_looking</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -322,7 +322,7 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: base_2</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Otwórz skrzynię i wyjmij okulary przeciwsłoneczne!</span> <span class="yarn-meta">#line:0fdc3cb </span>
+<span class="yarn-line">Otwórz bagażnik i znajdź okulary przeciwsłoneczne!</span> <span class="yarn-meta">#line:0fdc3cb </span>
 <span class="yarn-cmd">&lt;&lt;set $step_base2 = 1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start get_sunglasses&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_gold_2 true&gt;&gt;</span>
@@ -342,12 +342,12 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("key_gold")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-<span class="yarn-line">    Otwiera się! W środku są okulary przeciwsłoneczne.</span> <span class="yarn-meta">#line:fr08_b2_chest </span>
+<span class="yarn-line">    Bagażnik otwarty! Wyjmij okulary przeciwsłoneczne.</span> <span class="yarn-meta">#line:fr08_b2_chest </span>
     <span class="yarn-cmd">&lt;&lt;trigger chest_2_open&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetInteractable chest_2 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive sunglasses true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Jest zamknięte. Może potrzebujesz klucza.</span> <span class="yarn-meta">#shadow:chest_locked</span>
+<span class="yarn-line">    Skrzynia jest zamknięta. Znajdź klucz, żeby ją otworzyć.</span> <span class="yarn-meta">#shadow:chest_locked</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -363,8 +363,8 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gloves&gt;&gt;</span>
-<span class="yarn-line">Rękawiczki utrzymują palce w cieple i suchości.</span> <span class="yarn-meta">#line:0f2aac7 </span>
-<span class="yarn-line">Zimne ręce utrudniają wspinaczkę.</span> <span class="yarn-meta">#line:0d01879 </span>
+<span class="yarn-line">Rękawice chronią dłonie.</span> <span class="yarn-meta">#line:0f2aac7 </span>
+<span class="yarn-line">W górach jest zimno</span> <span class="yarn-meta">#line:0d01879 </span>
 <span class="yarn-cmd">&lt;&lt;inventory gloves add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 
@@ -381,14 +381,14 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card ice&gt;&gt;</span>
-<span class="yarn-line">Śnieg i lód odbijają jasne światło słoneczne.</span> <span class="yarn-meta">#line:02a2ea9 </span>
+<span class="yarn-line">W górach słońce i śnieg raziły w oczy</span> <span class="yarn-meta">#line:02a2ea9 </span>
 <span class="yarn-cmd">&lt;&lt;card sunglasses&gt;&gt;</span>
 <span class="yarn-line">Okulary przeciwsłoneczne chronią oczy.</span> <span class="yarn-meta">#line:088fb7f</span>
 <span class="yarn-cmd">&lt;&lt;inventory sunglasses add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_end get_sunglasses&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_base_2&gt;&gt;</span>
-<span class="yarn-line">Teraz możesz kontynuować wspinaczkę!</span> <span class="yarn-meta">#shadow:0a7146f </span>
+<span class="yarn-line">Wspinaj się dalej!</span> <span class="yarn-meta">#shadow:0a7146f </span>
 
 </code>
 </pre>
@@ -407,25 +407,25 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("crampons") and has_item("rope")&gt;&gt;</span>
-<span class="yarn-line">    Masz sprzęt lodowy. Ostatni atak na szczyt!</span> <span class="yarn-meta">#line:06b15bb </span>
+<span class="yarn-line">    Masz swój sprzęt górski. Ostatnia próba zdobycia szczytu.</span> <span class="yarn-meta">#line:06b15bb </span>
     <span class="yarn-cmd">&lt;&lt;set $step_base3 = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive door_base_3 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target npc_base4&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "get_crampons"&gt;&gt;</span>
-<span class="yarn-line">    Wróć, gdy skończysz zadanie.</span> <span class="yarn-meta">#shadow:046eb33 </span>
+<span class="yarn-line">    Wróć, gdy znajdziesz.</span> <span class="yarn-meta">#shadow:046eb33 </span>
 <span class="yarn-cmd">&lt;&lt;elseif !has_item("rope")&gt;&gt;</span>
-<span class="yarn-line">    Brakuje ci liny!</span> <span class="yarn-meta">#line:0c18c08 </span>
+<span class="yarn-line">    Nie masz liny!</span> <span class="yarn-meta">#line:0c18c08 </span>
     <span class="yarn-cmd">&lt;&lt;target rope&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;card ice&gt;&gt;</span>
 <span class="yarn-line">    Aby chodzić po lodowcu, potrzebujemy specjalnego sprzętu.</span> <span class="yarn-meta">#line:06d9f34 </span>
     <span class="yarn-cmd">&lt;&lt;card glacier&gt;&gt;</span>
-<span class="yarn-line">    Co zakładasz do butów, żeby chodzić po lodzie i się nie ślizgać?</span> <span class="yarn-meta">#line:076433f </span>
-<span class="yarn-choice">        -&gt; Raki</span> <span class="yarn-meta">#line:0b50050 </span>
-<span class="yarn-line">        Dobrze! Użyj ich, żeby utrzymać równowagę.</span> <span class="yarn-meta">#line:00a7e83 </span>
+<span class="yarn-line">    Co zakładasz do butów, żeby chodzić po lodzie?</span> <span class="yarn-meta">#line:076433f </span>
+<span class="yarn-choice">        -&gt; Raki</span> <span class="yarn-meta">#line:0b50050</span>
+<span class="yarn-line">        Dokładny !</span> <span class="yarn-meta">#line:00a7e83 </span>
         <span class="yarn-cmd">&lt;&lt;activity fr08_activity_3 activity_3_done&gt;&gt;</span>
-<span class="yarn-choice">        -&gt; Płetwy</span> <span class="yarn-meta">#line:01a4b20 </span>
-<span class="yarn-line">        Nie! Nie pływasz! Spróbuj ponownie.</span> <span class="yarn-meta">#line:07c6385 </span>
+<span class="yarn-choice">        -&gt; liście palmowe</span> <span class="yarn-meta">#line:01a4b20</span>
+<span class="yarn-line">        Nie! Nie jesteś na basenie! Spróbuj ponownie.</span> <span class="yarn-meta">#line:07c6385 </span>
         <span class="yarn-cmd">&lt;&lt;jump npc_base3&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -441,7 +441,6 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: base_3</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Otwórz skrzynię, aby wyjąć raki!</span> <span class="yarn-meta">#line:02c9805 </span>
 <span class="yarn-cmd">&lt;&lt;set $step_base3 = 1&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_start get_crampons&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive key_gold_3 true&gt;&gt;</span>
@@ -461,12 +460,12 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("key_gold")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-<span class="yarn-line">    Otwiera się! Zawiera trochę sprzętu.</span> <span class="yarn-meta">#shadow:056ec2b </span>
+<span class="yarn-line">    Skrzynia się otwiera! Zawiera trochę sprzętu.</span> <span class="yarn-meta">#shadow:056ec2b </span>
     <span class="yarn-cmd">&lt;&lt;trigger chest_3_open&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetInteractable chest_3 false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive crampons true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Jest zamknięte. Może potrzebujesz klucza.</span> <span class="yarn-meta">#shadow:chest_locked</span>
+<span class="yarn-line">    Skrzynia jest zamknięta. Znajdź klucz, żeby ją otworzyć.</span> <span class="yarn-meta">#shadow:chest_locked</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -482,12 +481,12 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card crampons&gt;&gt;</span>
-<span class="yarn-line">Pomagają bezpiecznie chodzić po lodzie.</span> <span class="yarn-meta">#line:07102e7 </span>
+<span class="yarn-line">Raki pomagają chodzić po lodzie.</span> <span class="yarn-meta">#line:07102e7 </span>
 <span class="yarn-cmd">&lt;&lt;inventory crampons add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;task_end get_crampons&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;target npc_base3&gt;&gt;</span>
-<span class="yarn-line">Teraz możesz kontynuować wspinaczkę!</span> <span class="yarn-meta">#shadow:0a7146f </span>
+<span class="yarn-line">Wspinaj się dalej!</span> <span class="yarn-meta">#shadow:0a7146f </span>
 
 </code>
 </pre>
@@ -502,7 +501,7 @@ hide:
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card rope&gt;&gt;</span>
-<span class="yarn-line">Lina pomaga wspinaczom zachować bezpieczeństwo na lodzie i skałach.</span> <span class="yarn-meta">#line:038d1bc </span>
+<span class="yarn-line">Lina zapewnia bezpieczeństwo na lodzie i skałach.</span> <span class="yarn-meta">#line:038d1bc </span>
 <span class="yarn-cmd">&lt;&lt;inventory rope add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 
@@ -523,9 +522,9 @@ hide:
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card summit&gt;&gt;</span>
-<span class="yarn-line">Udało się! Jesteśmy na szczycie Mont Blanc.</span> <span class="yarn-meta">#line:030fa1c </span>
-<span class="yarn-line">Wysokość tego szczytu wynosi 4807 metrów.</span> <span class="yarn-meta">#line:018880a </span>
-<span class="yarn-line">Przed grą o flagę odpowiedzmy na trzy pytania dotyczące gór.</span> <span class="yarn-meta">#line:001e940 </span>
+<span class="yarn-line">Gratulacje! Dotarłeś na szczyt Mont Blanc.</span> <span class="yarn-meta">#line:030fa1c </span>
+<span class="yarn-line">Szczyt Mont Blanc ma 4807 metrów wysokości.</span> <span class="yarn-meta">#line:018880a </span>
+<span class="yarn-line">Odpowiedz na trzy pytania dotyczące góry.</span> <span class="yarn-meta">#line:001e940 </span>
 <span class="yarn-cmd">&lt;&lt;jump question_alps&gt;&gt;</span>
 
 </code>
@@ -541,14 +540,14 @@ hide:
 <span class="yarn-header-dim">group: base_4</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">W jakim paśmie górskim znajduje się Mont Blanc?</span> <span class="yarn-meta">#line:06f9a2a </span>
-<span class="yarn-choice">-&gt; Pireneje</span> <span class="yarn-meta">#line:summit_q1_a2</span>
-<span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#line:try_again</span>
+<span class="yarn-choice">-&gt; Mont Blanc znajduje się w Pirenejach</span> <span class="yarn-meta">#line:summit_q1_a2</span>
+<span class="yarn-line">    To nie jest prawidłowa odpowiedź. Spróbuj ponownie.</span> <span class="yarn-meta">#line:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_alps&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Apeniny</span> <span class="yarn-meta">#line:summit_q1_a3</span>
-<span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
+<span class="yarn-choice">-&gt; Mont Blanc znajduje się w Karpatach</span> <span class="yarn-meta">#line:summit_q1_a3</span>
+<span class="yarn-line">    To nie jest prawidłowa odpowiedź. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_alps&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Alpy</span> <span class="yarn-meta">#line:summit_q1_a1</span>
-<span class="yarn-line">    Prawidłowy!</span> <span class="yarn-meta">#line:correct</span>
+<span class="yarn-choice">-&gt; Mont Blanc znajduje się w Alpach</span> <span class="yarn-meta">#line:summit_q1_a1</span>
+<span class="yarn-line">    To prawda.</span> <span class="yarn-meta">#line:correct</span>
     <span class="yarn-cmd">&lt;&lt;jump question_height&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#line:dontknow #highlight</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#line:comebacklater</span>
@@ -565,15 +564,15 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: base_4</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jak wysoki jest Mont Blanc?</span> <span class="yarn-meta">#line:summit_q2</span>
+<span class="yarn-line">Jaka jest wysokość Mont Blanc?</span> <span class="yarn-meta">#line:summit_q2</span>
 <span class="yarn-choice">-&gt; 3705 metrów</span> <span class="yarn-meta">#line:summit_q2_a2</span>
-<span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
+<span class="yarn-line">    To nie jest prawidłowa odpowiedź. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_height&gt;&gt;</span>
 <span class="yarn-choice">-&gt; 4807 metrów</span> <span class="yarn-meta">#line:summit_q2_a1</span>
-<span class="yarn-line">    Prawidłowy!</span> <span class="yarn-meta">#shadow:correct</span>
+<span class="yarn-line">    To prawda.</span> <span class="yarn-meta">#shadow:correct</span>
     <span class="yarn-cmd">&lt;&lt;jump question_summit_flags&gt;&gt;</span>
 <span class="yarn-choice">-&gt; 5016 metrów</span> <span class="yarn-meta">#line:summit_q2_a3</span>
-<span class="yarn-line">    Nie do końca. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
+<span class="yarn-line">    To nie jest prawidłowa odpowiedź. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump question_height&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dontknow #highlight</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
@@ -590,15 +589,13 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">group: base_4</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Jakie kraje widać stąd?</span> <span class="yarn-meta">#line:summit_q</span>
+<span class="yarn-line">Jakie kraje można zobaczyć ze szczytu Mont Blanc?</span> <span class="yarn-meta">#line:summit_q</span>
 <span class="yarn-choice">-&gt; Francja, Hiszpania i Niemcy</span> <span class="yarn-meta">#line:summit_a2</span>
-<span class="yarn-line">    Nie do końca. To trochę za daleko!</span> <span class="yarn-meta">#line:summit_no</span>
+<span class="yarn-line">    To nie jest prawidłowa odpowiedź. Spróbuj ponownie!</span> <span class="yarn-meta">#line:summit_no</span>
     <span class="yarn-cmd">&lt;&lt;jump question_summit_flags&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Francja, Włochy i Szwajcaria</span> <span class="yarn-meta">#line:summit_a1</span>
-<span class="yarn-line">    Dobrze! Rozwieśmy flagi.</span> <span class="yarn-meta">#line:summit_ok</span>
+<span class="yarn-line">    Brawo! Ze szczytu Mont Blanc widać Francję, Włochy i Szwajcarię. Teraz znajdź flagi tych trzech krajów.</span> <span class="yarn-meta">#line:summit_ok</span>
     <span class="yarn-cmd">&lt;&lt;activity fr08_match_flags quest_end&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Alpy</span> <span class="yarn-meta">#shadow:summit_q1_a1</span>
-<span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dontknow #highlight</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 
@@ -662,10 +659,10 @@ hide:
 <span class="yarn-header-dim">// ---------------------------------------</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("get_hat")&gt;&gt;</span>
-<span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#line:0c18060 </span>
-<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#line:0f4c405 </span>
+<span class="yarn-line">    Potrzebujesz pomocy przy wsiadaniu?</span> <span class="yarn-meta">#line:0c18060 </span>
+<span class="yarn-choice">        -&gt; Tak, proszę pomóż mi.</span> <span class="yarn-meta">#line:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_2&gt;&gt;</span>
-<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#line:02a3874</span>
+<span class="yarn-choice">        -&gt; Nie, dziękuję. Zostanę tutaj.</span> <span class="yarn-meta">#line:02a3874</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -682,10 +679,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("gloves")&gt;&gt;</span>
-<span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-line">    Potrzebujesz pomocy przy wsiadaniu?</span> <span class="yarn-meta">#shadow:0c18060 </span>
+<span class="yarn-choice">        -&gt; Tak, proszę pomóż mi.</span> <span class="yarn-meta">#shadow:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_3&gt;&gt;</span>
-<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">        -&gt; Nie, dziękuję. Zostanę tutaj.</span> <span class="yarn-meta">#shadow:02a3874 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -702,10 +699,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("get_sunglasses")&gt;&gt;</span>
-<span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-line">    Potrzebujesz pomocy przy wsiadaniu?</span> <span class="yarn-meta">#shadow:0c18060 </span>
+<span class="yarn-choice">        -&gt; Tak, proszę pomóż mi.</span> <span class="yarn-meta">#shadow:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_4&gt;&gt;</span>
-<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">        -&gt; Nie, dziękuję. Zostanę tutaj.</span> <span class="yarn-meta">#shadow:02a3874 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -721,10 +718,10 @@ hide:
 <div class="yarn-node" data-title="snowman_4">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-choice">-&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-line">Potrzebujesz pomocy przy wsiadaniu?</span> <span class="yarn-meta">#shadow:0c18060 </span>
+<span class="yarn-choice">-&gt; Tak, proszę pomóż mi.</span> <span class="yarn-meta">#shadow:0f4c405 </span>
     <span class="yarn-cmd">&lt;&lt;teleport base_5&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">-&gt; Nie, dziękuję. Zostanę tutaj.</span> <span class="yarn-meta">#shadow:02a3874 </span>
 
 </code>
 </pre>
@@ -738,10 +735,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("get_crampons")&gt;&gt;</span>
-<span class="yarn-line">    Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-choice">        -&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-line">    Potrzebujesz pomocy przy wsiadaniu?</span> <span class="yarn-meta">#shadow:0c18060 </span>
+<span class="yarn-choice">        -&gt; Tak, proszę pomóż mi.</span> <span class="yarn-meta">#shadow:0f4c405 </span>
         <span class="yarn-cmd">&lt;&lt;teleport base_6&gt;&gt;</span>
-<span class="yarn-choice">        -&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">        -&gt; Nie, dziękuję. Zostanę tutaj.</span> <span class="yarn-meta">#shadow:02a3874 </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Wróć później!</span> <span class="yarn-meta">#shadow:comebacklater</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -757,10 +754,10 @@ hide:
 <div class="yarn-node" data-title="snowman_6">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-choice">-&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-line">Potrzebujesz pomocy przy wsiadaniu?</span> <span class="yarn-meta">#shadow:0c18060 </span>
+<span class="yarn-choice">-&gt; Tak, proszę pomóż mi.</span> <span class="yarn-meta">#shadow:0f4c405 </span>
     <span class="yarn-cmd">&lt;&lt;teleport base_7&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">-&gt; Nie, dziękuję. Zostanę tutaj.</span> <span class="yarn-meta">#shadow:02a3874 </span>
 
 </code>
 </pre>
@@ -773,10 +770,10 @@ hide:
 <div class="yarn-node" data-title="snowman_7">
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Potrzebujesz pomocy we wspięciu się na górę?</span> <span class="yarn-meta">#shadow:0c18060 </span>
-<span class="yarn-choice">-&gt; Tak</span> <span class="yarn-meta">#shadow:0f4c405 </span>
+<span class="yarn-line">Potrzebujesz pomocy przy wsiadaniu?</span> <span class="yarn-meta">#shadow:0c18060 </span>
+<span class="yarn-choice">-&gt; Tak, proszę pomóż mi.</span> <span class="yarn-meta">#shadow:0f4c405 </span>
     <span class="yarn-cmd">&lt;&lt;teleport base_1&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Nie, zostaję tutaj</span> <span class="yarn-meta">#shadow:02a3874 </span>
+<span class="yarn-choice">-&gt; Nie, dziękuję. Zostanę tutaj.</span> <span class="yarn-meta">#shadow:02a3874 </span>
 
 </code>
 </pre>
@@ -794,9 +791,9 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-comment">// The marmot makes a sound effect before talking</span>
 <span class="yarn-comment">// &lt;&lt;play_sfx marmot_whistle&gt;&gt;</span>
-<span class="yarn-line">Całą zimę śpię pod śniegiem. To się nazywa hibernacja!</span> <span class="yarn-meta">#line:fr08_marmot_2 #card:marmot</span>
-<span class="yarn-line">Uwielbiam jeść alpejskie kwiaty i trawę. Pycha!</span> <span class="yarn-meta">#line:fr08_marmot_3 #card:marmot</span>
-<span class="yarn-line">Nie zwracajcie na mnie uwagi, po prostu opalam się na tej ciepłej skale.</span> <span class="yarn-meta">#line:fr08_marmot_4 #card:marmot</span>
+<span class="yarn-line">Przesypiam całą zimę, mówią, że zapadam w sen zimowy.</span> <span class="yarn-meta">#line:fr08_marmot_2 #card:marmot</span>
+<span class="yarn-line">Uwielbiam jeść kwiaty, owoce i zioła. Pycha!</span> <span class="yarn-meta">#line:fr08_marmot_3 #card:marmot</span>
+<span class="yarn-line">Lubię relaksować się na słońcu.</span> <span class="yarn-meta">#line:fr08_marmot_4 #card:marmot</span>
 
 </code>
 </pre>
@@ -812,12 +809,12 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if has_item("key_gold")&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;inventory key_gold remove&gt;&gt;</span>
-<span class="yarn-line">    Znalazłeś ciepły szalik!</span> <span class="yarn-meta">#line:003e87c </span>
+<span class="yarn-line">    Oto miły, ciepły szalik! Weź go!</span> <span class="yarn-meta">#line:003e87c </span>
     <span class="yarn-cmd">&lt;&lt;trigger chest_bonus_open&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetInteractable chest_bonus false&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive scarf true&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Jest zamknięte. Może potrzebujesz klucza.</span> <span class="yarn-meta">#shadow:chest_locked</span>
+<span class="yarn-line">    Skrzynia jest zamknięta. Znajdź klucz, żeby ją otworzyć.</span> <span class="yarn-meta">#shadow:chest_locked</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code>
@@ -835,7 +832,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card scarf&gt;&gt;</span>
-<span class="yarn-line">Szalik chroni przed wiatrem na szyi.</span> <span class="yarn-meta">#line:0afb2dc </span>
+<span class="yarn-line">Z szalikiem szyja ci nie zmarznie.</span> <span class="yarn-meta">#line:0afb2dc </span>
 <span class="yarn-cmd">&lt;&lt;inventory scarf add&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;SetActive this false&gt;&gt;</span>
 
@@ -858,11 +855,11 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: tourists </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Uwielbiam góry!</span> <span class="yarn-meta">#line:011dc7e </span>
-<span class="yarn-line">Mont Blanc jest najwyższą górą w Alpach!</span> <span class="yarn-meta">#line:003ecb2 </span>
-<span class="yarn-line">Mam nadzieję zobaczyć świstaka!</span> <span class="yarn-meta">#line:04bbada #card:marmot</span>
-<span class="yarn-line">Nie zapomnij zabrać ciepłych ubrań!</span> <span class="yarn-meta">#line:0590129 </span>
-<span class="yarn-line">Góry mogą być niebezpieczne, więc bądź ostrożny!</span> <span class="yarn-meta">#line:097ecf0 </span>
+<span class="yarn-line">Uwielbiam góry. A ty?</span> <span class="yarn-meta">#line:011dc7e </span>
+<span class="yarn-line">Mont Blanc jest najwyższą górą we Francji.</span> <span class="yarn-meta">#line:003ecb2 </span>
+<span class="yarn-line">Przyjrzyj się uważnie! Zobaczysz świstaka.</span> <span class="yarn-meta">#line:04bbada #card:marmot</span>
+<span class="yarn-line">Aby wejść na szczyt Mont Blanc należy zabrać ciepłe ubrania.</span> <span class="yarn-meta">#line:0590129 </span>
+<span class="yarn-line">Uwaga! Góra jest niebezpieczna.</span> <span class="yarn-meta">#line:097ecf0 </span>
 
 </code>
 </pre>
@@ -878,10 +875,10 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">spawn_group: hikers</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Do pieszych wędrówek tutaj potrzebne są dobre buty.</span> <span class="yarn-meta">#line:0dbac73 #card:hiking</span>
-<span class="yarn-line">Wiatr może się szybko zmienić.</span> <span class="yarn-meta">#line:0557ef5 #card:wind</span>
-<span class="yarn-line">Gdy jest ślisko, podążam za liną.</span> <span class="yarn-meta">#line:0bc67f7 #card:rope</span>
-<span class="yarn-line">Ten lodowiec wygląda jak zamarznięta rzeka.</span> <span class="yarn-meta">#line:01e5f66 #card:glacier</span>
+<span class="yarn-line">W górach jest śnieg.</span> <span class="yarn-meta">#line:0557ef5 #card:wind</span>
+<span class="yarn-line">Przyjrzyj się uważnie! Zobaczysz koziorożca.</span> <span class="yarn-meta">#line:0bc67f7 #card:rope</span>
+<span class="yarn-line">Czy kiedykolwiek lepiłeś bałwana?</span> <span class="yarn-meta">#line:01e5f66 #card:glacier</span>
+<span class="yarn-line">Wybierając się w góry należy zabrać dobre buty.</span> <span class="yarn-meta">#line:0dbac73 #card:hiking</span>
 
 </code>
 </pre>
@@ -897,9 +894,9 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: alps_climber</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Uwielbiam wspinaczkę w Alpach.</span> <span class="yarn-meta">#line:0809dce #card:alps</span>
-<span class="yarn-line">Raki pomagają mi chodzić po twardym lodzie.</span> <span class="yarn-meta">#line:081fbe4 #card:crampons</span>
-<span class="yarn-line">Wspinaczka z przewodnikiem jest bezpieczniejsza.</span> <span class="yarn-meta">#line:0371d31 #card:mountain_guide</span>
+<span class="yarn-line">Mont Blanc to bardzo piękna góra.</span> <span class="yarn-meta">#line:0809dce #card:alps</span>
+<span class="yarn-line">Chcesz pojechać w góry?</span> <span class="yarn-meta">#line:081fbe4 #card:crampons</span>
+<span class="yarn-line">Możesz wybrać się z przewodnikiem górskim.</span> <span class="yarn-meta">#line:0371d31 #card:mountain_guide</span>
 
 </code>
 </pre>

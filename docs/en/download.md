@@ -38,4 +38,4 @@ Antura is fully **open source** 👉 [github.com/vgwb/Antura](https://github.com
 
 ## ❓ Need Help?
 
-See the [Classroom Guide](./manual/classroom_guide.md) for teachers or ask questions in the [Antura Forum](https://antura.discourse.group).
+See the [Classroom Guide](./manual/classroom_guide.md) for teachers or ask questions in the [Antura Forum](https://github.com/vgwb/Antura/discussions).

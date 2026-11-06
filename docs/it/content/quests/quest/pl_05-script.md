@@ -5,7 +5,7 @@ hide:
 
 # La collana d'ambra di Danzica (pl_05) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-05-the-amber-necklace-of-gdansk/36/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/624)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=224592228#gid=224592228)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_05%20Baltic%20Sea/PL_05%20Baltic%20Sea%20-%20Yarn%20Script.yarn)  
@@ -36,10 +36,10 @@ hide:
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gdansk&gt;&gt;</span>
-<span class="yarn-line">Benvenuti a DANZICA in POLONIA.</span> <span class="yarn-meta">#line:086baaf </span>
+<span class="yarn-line">Benvenuti a Danzica, in Polonia.</span> <span class="yarn-meta">#line:086baaf </span>
 <span class="yarn-cmd">&lt;&lt;card gdansk_lighthouse&gt;&gt;</span>
-<span class="yarn-line">Il FARO è spento.</span> <span class="yarn-meta">#line:060d616 </span>
-<span class="yarn-line">Risolviamo il problema!</span> <span class="yarn-meta">#line:05414f7 </span>
+<span class="yarn-line">Il faro è spento.</span> <span class="yarn-meta">#line:060d616 </span>
+<span class="yarn-line">Risolviamolo!</span> <span class="yarn-meta">#line:05414f7 </span>
 
 </code>
 </pre>
@@ -71,7 +71,7 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">tags: proposal</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Disegna una CONCHIGLIE.</span> <span class="yarn-meta">#line:07af5de </span>
+<span class="yarn-line">Disegna una CONCHIglia.</span> <span class="yarn-meta">#line:07af5de </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -87,9 +87,9 @@ hide:
 <span class="yarn-header-dim">group: Intro</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Abbiamo bisogno di un regalo per NETTUNO.</span> <span class="yarn-meta">#line:0c699c3 </span>
+<span class="yarn-line">Ci serve un regalo per Nettuno.</span> <span class="yarn-meta">#line:0c699c3 </span>
 <span class="yarn-cmd">&lt;&lt;card necklace&gt;&gt;</span>
-<span class="yarn-line">Crea una COLLANA.</span> <span class="yarn-meta">#line:05a458a </span>
+<span class="yarn-line">Realizza una COLLANA.</span> <span class="yarn-meta">#line:05a458a </span>
 <span class="yarn-line">5 AMBRA + 5 CONCHIGLIE.</span> <span class="yarn-meta">#line:01ce7c7 </span>
 
 </code>
@@ -107,9 +107,9 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card baltic_sea&gt;&gt;</span>
-<span class="yarn-line">Questo è il MAR BALTICO.</span> <span class="yarn-meta">#line:050f059 </span>
+<span class="yarn-line">Questo è il Mar Baltico.</span> <span class="yarn-meta">#line:050f059 </span>
 <span class="yarn-cmd">&lt;&lt;card baltic_sea_coast&gt;&gt;</span>
-<span class="yarn-line">Cerchiamo le CONCHIGLIE nella SABBIA.</span> <span class="yarn-meta">#line:07d772f </span>
+<span class="yarn-line">Cerchiamo conchiglie nella sabbia.</span> <span class="yarn-meta">#line:07d772f </span>
 
 
 </code>
@@ -125,9 +125,9 @@ hide:
 <span class="yarn-header-dim">group: Beach</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Trascinare per pulire la SABBIA.</span> <span class="yarn-meta">#line:06e5065 </span>
+<span class="yarn-line">Trascinare per pulire la sabbia.</span> <span class="yarn-meta">#line:06e5065 </span>
 <span class="yarn-cmd">&lt;&lt;card seashell&gt;&gt;</span>
-<span class="yarn-line">Trova 5 pile di CONCHIGLIE.</span> <span class="yarn-meta">#line:03e5d4f </span>
+<span class="yarn-line">Trova 5 mucchi di conchiglie.</span> <span class="yarn-meta">#line:03e5d4f </span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas beach_shells tutorial&gt;&gt;</span>
 <span class="yarn-line">Ora vai e incontra il PESCATORE</span> <span class="yarn-meta">#line:0b3a2d8 </span>
 
@@ -148,9 +148,9 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card fisherman&gt;&gt;</span>
 <span class="yarn-line">Ciao. Sono un PESCATORE.</span> <span class="yarn-meta">#line:00e94a2 </span>
 <span class="yarn-cmd">&lt;&lt;card cutter&gt;&gt;</span>
-<span class="yarn-line">Questo è il mio CUTTER e NET.</span> <span class="yarn-meta">#line:0270483 </span>
+<span class="yarn-line">Questo è il mio TAGLIA-RETE.</span> <span class="yarn-meta">#line:0270483 </span>
 <span class="yarn-cmd">&lt;&lt;card fishing_net&gt;&gt;</span>
-<span class="yarn-line">Troviamo anche AMBRA.</span> <span class="yarn-meta">#line:0b8e688 </span>
+<span class="yarn-line">Troviamo anche AMBER.</span> <span class="yarn-meta">#line:0b8e688 </span>
 
 
 </code>
@@ -167,8 +167,8 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card amber&gt;&gt;</span>
-<span class="yarn-line">L'AMBRA è ORO BALTICO.</span> <span class="yarn-meta">#line:0901a09 </span>
-<span class="yarn-line">Pulisci la SABBIA per trovare 5.</span> <span class="yarn-meta">#line:03d5567 </span>
+<span class="yarn-line">AMBER è ORO BALTICO.</span> <span class="yarn-meta">#line:0901a09 </span>
+<span class="yarn-line">Pulisci la sabbia per trovare 5.</span> <span class="yarn-meta">#line:03d5567 </span>
 <span class="yarn-cmd">&lt;&lt;activity cleancanvas_beach cleancanvas_beach_done&gt;&gt;</span>
 
 </code>
@@ -185,7 +185,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ottimo lavoro nel trovare AMBER!</span> <span class="yarn-meta">#line:07caa60 </span>
-<span class="yarn-line">Ora andiamo al FARO.</span> <span class="yarn-meta">#line:0616f80 </span>
+<span class="yarn-line">Ora andiamo al faro.</span> <span class="yarn-meta">#line:0616f80 </span>
 
 </code>
 </pre>
@@ -201,7 +201,7 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card ship&gt;&gt;</span>
-<span class="yarn-line">Un FARO aiuta le NAVI.</span> <span class="yarn-meta">#line:049551f </span>
+<span class="yarn-line">Un faro aiuta le navi.</span> <span class="yarn-meta">#line:049551f </span>
 <span class="yarn-cmd">&lt;&lt;card navigation&gt;&gt;</span>
 <span class="yarn-line">Emette una luce intensa.</span> <span class="yarn-meta">#line:050c5f3 </span>
 <span class="yarn-cmd">&lt;&lt;activity jigsaw_gdansk_lighthouse jigsaw_gdansk_lighthouse_done&gt;&gt;</span>
@@ -219,8 +219,8 @@ hide:
 <span class="yarn-header-dim">group: Fisherman</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ottimo lavoro nel riparare il FARO!</span> <span class="yarn-meta">#line:0647b3e </span>
-<span class="yarn-line">Ora realizziamo la COLLANA.</span> <span class="yarn-meta">#line:09de5fd </span>
+<span class="yarn-line">Ottimo lavoro nella riparazione del faro!</span> <span class="yarn-meta">#line:0647b3e </span>
+<span class="yarn-line">Ora passiamo alla creazione della COLLANA.</span> <span class="yarn-meta">#line:09de5fd </span>
 
 </code>
 </pre>
@@ -254,8 +254,8 @@ hide:
 <span class="yarn-header-dim">group: Crafting</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Trascinare in ordine.</span> <span class="yarn-meta">#line:0137037 </span>
-<span class="yarn-line">CONCHIGLIA D'AMBRA ripetere.</span> <span class="yarn-meta">#line:09746e2 </span>
+<span class="yarn-line">Trascinare nell'ordine corretto.</span> <span class="yarn-meta">#line:0137037 </span>
+<span class="yarn-line">CONCHIGLIE AMBRA ripetute.</span> <span class="yarn-meta">#line:09746e2 </span>
 <span class="yarn-cmd">&lt;&lt;activity order order_necklace order_necklace_done&gt;&gt;</span>
 
 </code>
@@ -271,8 +271,8 @@ hide:
 <span class="yarn-header-dim">group: Crafting</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Ottimo lavoro nel realizzare la COLLANA!</span> <span class="yarn-meta">#line:06bbad3 </span>
-<span class="yarn-line">Ora alla FONTANA DI NETTUNO</span> <span class="yarn-meta">#line:0e2f20d </span>
+<span class="yarn-line">Ottimo lavoro nella realizzazione della COLLANA!</span> <span class="yarn-meta">#line:06bbad3 </span>
+<span class="yarn-line">Ora passiamo alla FONTANA DI NETTUNO</span> <span class="yarn-meta">#line:0e2f20d </span>
 
 </code>
 </pre>
@@ -306,8 +306,8 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card necklace&gt;&gt;</span>
-<span class="yarn-line">Una COLLANA meravigliosa!</span> <span class="yarn-meta">#line:0ca234d </span>
-<span class="yarn-line">Rispettate il MARE.</span> <span class="yarn-meta">#line:0d0c226 </span>
+<span class="yarn-line">Una collana splendida!</span> <span class="yarn-meta">#line:0ca234d </span>
+<span class="yarn-line">Tu rispetti il ​​mare.</span> <span class="yarn-meta">#line:0d0c226 </span>
 <span class="yarn-line">Ti aiuterò.</span> <span class="yarn-meta">#line:0a0dddf </span>
 
 
@@ -324,9 +324,9 @@ hide:
 <span class="yarn-header-dim">group: Neptune</span>
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Qui l'AMBRA è famosa.</span> <span class="yarn-meta">#line:05ce5f4 </span>
+<span class="yarn-line">AMBER è famosa qui.</span> <span class="yarn-meta">#line:05ce5f4 </span>
 <span class="yarn-cmd">&lt;&lt;card amber_room&gt;&gt;</span>
-<span class="yarn-line">Come la storia della CAMERA D'AMBRA.</span> <span class="yarn-meta">#line:075c0a2 </span>
+<span class="yarn-line">Come la storia della Stanza d'Ambra.</span> <span class="yarn-meta">#line:075c0a2 </span>
 
 
 </code>
@@ -343,9 +343,9 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card waves&gt;&gt;</span>
-<span class="yarn-line">FLASH! Il FARO brilla.</span> <span class="yarn-meta">#line:0941ab9 </span>
+<span class="yarn-line">FLASH! Il faro brilla.</span> <span class="yarn-meta">#line:0941ab9 </span>
 <span class="yarn-line">Ottimo lavoro!</span> <span class="yarn-meta">#line:0a44f23 </span>
-<span class="yarn-line">e fai attenzione ai SEAL</span> <span class="yarn-meta">#line:009476a </span>
+<span class="yarn-line">e fate attenzione ai SEAL</span> <span class="yarn-meta">#line:009476a </span>
 
 </code>
 </pre>
@@ -362,8 +362,8 @@ hide:
 <span class="yarn-header-dim">actor: SENIOR_M</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card seal&gt;&gt;</span>
-<span class="yarn-line">Queste sono FOCHE selvatiche.</span> <span class="yarn-meta">#line:0c0dc82 </span>
-<span class="yarn-line">Mantenere una distanza di sicurezza.</span> <span class="yarn-meta">#line:06b0e4e </span>
+<span class="yarn-line">Si tratta di foche selvatiche.</span> <span class="yarn-meta">#line:0c0dc82 </span>
+<span class="yarn-line">Mantieni una distanza di sicurezza.</span> <span class="yarn-meta">#line:06b0e4e </span>
 
 </code>
 </pre>
@@ -414,7 +414,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ben fatto!</span> <span class="yarn-meta">#line:061ca19 </span>
-<span class="yarn-line">Ora quiz finale</span> <span class="yarn-meta">#line:05251b3 </span>
+<span class="yarn-line">Quiz finale</span> <span class="yarn-meta">#line:05251b3 </span>
 <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
 
 </code>
@@ -431,7 +431,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Rispondi a tre domande.</span> <span class="yarn-meta">#line:00a0665 </span>
-<span class="yarn-line">Tocca la scelta migliore.</span> <span class="yarn-meta">#line:07c72eb </span>
+<span class="yarn-line">Seleziona l'opzione migliore.</span> <span class="yarn-meta">#line:07c72eb </span>
 <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q1&gt;&gt;</span>
 
 </code>
@@ -448,7 +448,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card baltic_sea&gt;&gt;</span>
-<span class="yarn-line">Quale mare si trova vicino a DANZICA?</span> <span class="yarn-meta">#line:034eda7 </span>
+<span class="yarn-line">Quale mare si trova vicino a Danzica?</span> <span class="yarn-meta">#line:034eda7 </span>
 <span class="yarn-choice">-&gt; MAR BALTICO</span> <span class="yarn-meta">#line:04bbc7e </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
 <span class="yarn-choice">-&gt; MAR NERO</span> <span class="yarn-meta">#line:046b853 </span>
@@ -473,7 +473,7 @@ hide:
 <span class="yarn-choice">-&gt; AMBRA</span> <span class="yarn-meta">#line:0bcd01f </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q3&gt;&gt;</span>
 <span class="yarn-choice">-&gt; SABBIA</span> <span class="yarn-meta">#line:0af46f3 </span>
-<span class="yarn-line">    Non SABBIA. Riprova!</span> <span class="yarn-meta">#line:005cc14 </span>
+<span class="yarn-line">    Non è sabbia. Riprova!</span> <span class="yarn-meta">#line:005cc14 </span>
     <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ_Q2&gt;&gt;</span>
 
 </code>
@@ -490,8 +490,8 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card gdansk_lighthouse&gt;&gt;</span>
-<span class="yarn-line">Cosa fa un FARO?</span> <span class="yarn-meta">#line:02e4c51 </span>
-<span class="yarn-choice">-&gt; Aiuta le NAVI</span> <span class="yarn-meta">#line:0822992 </span>
+<span class="yarn-line">Che cosa fa un faro?</span> <span class="yarn-meta">#line:02e4c51 </span>
+<span class="yarn-choice">-&gt; Aiuta le navi</span> <span class="yarn-meta">#line:0822992 </span>
     <span class="yarn-cmd">&lt;&lt;jump QUEST_COMPLETE&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Cattura pesci</span> <span class="yarn-meta">#line:072458e </span>
 <span class="yarn-line">    No. Guida le NAVI. Riprova!</span> <span class="yarn-meta">#line:04b2bb3 </span>
@@ -510,8 +510,8 @@ hide:
 <span class="yarn-header-dim">group: End</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Hai aiutato DANZICA.</span> <span class="yarn-meta">#line:0a7204e </span>
-<span class="yarn-line">Il FARO torna a splendere!</span> <span class="yarn-meta">#line:0d95290 </span>
+<span class="yarn-line">Hai aiutato Danzica.</span> <span class="yarn-meta">#line:0a7204e </span>
+<span class="yarn-line">Il faro splende di nuovo!</span> <span class="yarn-meta">#line:0d95290 </span>
 <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 
 </code>
@@ -528,8 +528,8 @@ hide:
 <span class="yarn-header-dim">group: Spawned</span>
 <span class="yarn-header-dim">actor: KID_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Una volta ho visto una grande NAVE.</span> <span class="yarn-meta">#line:02579c6 </span>
-<span class="yarn-line">Le onde si infrangono veloci.</span> <span class="yarn-meta">#line:04fe9c2 </span>
+<span class="yarn-line">Una volta vidi una grande NAVE.</span> <span class="yarn-meta">#line:02579c6 </span>
+<span class="yarn-line">Le onde si infrangono velocemente.</span> <span class="yarn-meta">#line:04fe9c2 </span>
 
 </code>
 </pre>
@@ -544,8 +544,8 @@ hide:
 <span class="yarn-header-dim">group: Spawned</span>
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">La vecchia GRU solleva carichi pesanti.</span> <span class="yarn-meta">#line:0d2afb8 </span>
-<span class="yarn-line">La luce intensa guida le barche.</span> <span class="yarn-meta">#line:093119f </span>
+<span class="yarn-line">La vecchia gru solleva carichi pesanti.</span> <span class="yarn-meta">#line:0d2afb8 </span>
+<span class="yarn-line">Una luce intensa guida le barche.</span> <span class="yarn-meta">#line:093119f </span>
 
 </code>
 </pre>
@@ -560,8 +560,8 @@ hide:
 <span class="yarn-header-dim">group: Spawned</span>
 <span class="yarn-header-dim">actor: ADULT_M</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Qui il fiume incontra il MARE.</span> <span class="yarn-meta">#line:0edcc57 </span>
-<span class="yarn-line">Oggi il porto è molto trafficato.</span> <span class="yarn-meta">#line:04f5d5e </span>
+<span class="yarn-line">Qui il fiume incontra il mare.</span> <span class="yarn-meta">#line:0edcc57 </span>
+<span class="yarn-line">Il porto è molto trafficato oggi.</span> <span class="yarn-meta">#line:04f5d5e </span>
 
 </code>
 </pre>

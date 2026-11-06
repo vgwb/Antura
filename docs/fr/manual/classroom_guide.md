@@ -133,5 +133,5 @@ Consultez également la [page d'assistance](./support.md).
 ### Contribution et collaboration
 
 - Même sans compétences techniques, les enseignants peuvent suggérer des **sujets, des cartes et des mots** utiles pour leur classe
-- Les enseignants qui souhaitent s'impliquer davantage peuvent rejoindre la [communauté Antura](https://antura.discourse.group/) pour co-concevoir ou adapter des quêtes... ou même en proposer de nouvelles !
+- Les enseignants qui souhaitent s'impliquer davantage peuvent rejoindre la [communauté Antura](https://github.com/vgwb/Antura/discussions/) pour co-concevoir ou adapter des quêtes... ou même en proposer de nouvelles !
   

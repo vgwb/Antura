@@ -59,8 +59,7 @@ Total found: **35**
     ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
 
     - **[Blocchi](../cards/index.md#antura_blocky_character)** (RelatedTo)
-    Queste persone divertenti vivono in questo mondo.
-Parlate con loro... hanno storie da raccontare!
+    Queste persone divertenti vivono in questo mondo. Parlate con loro... hanno storie da raccontare!
 
     ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
 
@@ -202,7 +201,7 @@ Credits:
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
 
     - **[Bandiera della Spagna](../cards/index.md#flag_spain)** (CulturalContext)
-    La bandiera spagnola ha strisce orizzontali rosse e gialle. I colori sono quelli del sole e dei peperoni! La Spagna ha inventato il flamenco.
+    La bandiera spagnola ha strisce orizzontali rosse e gialle. Sono i colori del sole e dei peperoni.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
@@ -212,7 +211,7 @@ Credits:
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
     - **[Bandiera della Francia](../cards/index.md#flag_france)** (CulturalContext)
-    La bandiera francese ha tre strisce verticali: blu, bianco e rosso. Questi colori rappresentano libertà, uguaglianza e fratellanza!
+    La bandiera francese ha tre colori verticali: blu, bianco e rosso.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
@@ -291,7 +290,7 @@ Credits:
     ![preview hat](../../../assets/img/content/cards/hat.jpg){ width="200" }
 
     - **[Zaino](../cards/index.md#backpack)** (RelatedTo)
-    Una borsa che porti sulla schiena.
+    No translation found for 'backpack.desc' in Cards
 
     ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ width="200" }
 
@@ -587,7 +586,7 @@ Credits:
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
-    - **[Panettiere](../cards/index.md#person_baker)** (CreatedBy)
+    - **[Il panettiere / La panettiera](../cards/index.md#person_baker)** (CreatedBy)
     Una persona che prepara pane, torte e pasticcini.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
@@ -652,12 +651,12 @@ Credits:
     ![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ width="200" }
 
     - **[Pomodoro](../cards/index.md#food_tomato)** (MadeOf)
-    Un frutto rosso e rotondo che cresce sulle piante. I pomodori vengono usati per fare la salsa per la pizza!
+    No translation found for 'food_tomato.desc' in Cards
 
     ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ width="200" }
 
     - **[Limone](../cards/index.md#food_lemon)** (MadeOf)
-    Un frutto giallo dal sapore molto aspro. I limoni vengono usati per fare la limonata!
+    È un frutto giallo.
 
     ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ width="200" }
 
@@ -671,7 +670,7 @@ Credits:
 
     ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ width="200" }
 
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 Credits:
   - Valeria Passarella (Italy)
@@ -689,22 +688,22 @@ Credits:
 
 - Connected cards:
     - **[Spagna](../cards/index.md#country_spain)** (RelatedTo)
-    Un paese in Europa. La capitale è Madrid. La Spagna ha inventato il flamenco.
+    È un paese d'Europa. La sua capitale è Madrid. La Spagna ha inventato un ballo chiamato flamenco.
 
     ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
 
     - **[Bandiera della Spagna](../cards/index.md#flag_spain)** (CulturalContext)
-    La bandiera spagnola ha strisce orizzontali rosse e gialle. I colori sono quelli del sole e dei peperoni! La Spagna ha inventato il flamenco.
+    La bandiera spagnola ha strisce orizzontali rosse e gialle. Sono i colori del sole e dei peperoni.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Lussemburgo](../cards/index.md#country_luxembourg)** (RelatedTo)
-    Uno stato europeo. La capitale è la città di Lussemburgo.
+    È un paese d'Europa. La sua capitale è la città di Lussemburgo.
 
     ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ width="200" }
 
     - **[Italia](../cards/index.md#country_italy)** (RelatedTo)
-    Un paese in Europa. La capitale è Roma.
+    È un paese d'Europa. La sua capitale è Roma.
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
@@ -719,7 +718,7 @@ Credits:
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
     - **[Città di Lussemburgo](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
-    La capitale del Lussemburgo.
+    Anche la capitale del Lussemburgo si chiama Lussemburgo.
 
     ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
 
@@ -844,7 +843,7 @@ Credits:
 
 - Connected cards:
     - **[Bandiera della Francia](../cards/index.md#flag_france)** (CulturalContext)
-    La bandiera francese ha tre strisce verticali: blu, bianco e rosso. Questi colori rappresentano libertà, uguaglianza e fratellanza!
+    La bandiera francese ha tre colori verticali: blu, bianco e rosso.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
@@ -863,45 +862,35 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Scuole francesi](../cards/index.md#french_schools)**
-    In Francia, la scuola si articola in quattro fasi principali: maternelle (scuola materna), école élémentaire (scuola elementare), collège (scuola media) e lycée (scuola superiore). Al termine del lycée, molti studenti sostengono un importante esame chiamato baccalauréat (‘le bac’).
+    In Francia, la scuola ha quattro fasi principali. La maternelle è per i bambini dai 3 ai 5 anni. L'école élémentaire è per i bambini dai 6 ai 10 anni. Ha cinque classi: CP, CE1, CE2, CM1 e CM2. Il collège è per gli studenti dagli 11 ai 14 anni. Ha quattro classi: 6ème, 5ème, 4ème e 3ème. Il lycée è per i ragazzi dai 15 ai 18 anni. Ha tre classi: 2nde, 1ère e terminale.
 
     ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
 
 - Connected cards:
     - **[École Maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
-    Scuola per bambini dai 3 ai 5 anni. Si impara giocando ed esplorando.
+    Una scuola in Francia per bambini dai 3 ai 5 anni. I bambini imparano esplorando e giocando.
 
     ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ width="200" }
 
     - **[Scuola primaria in Francia](../cards/index.md#education_ecole_primaire_fr)** (PartOf)
-    Scuola per bambini dai 6 ai 10 anni. Si impara a leggere, scrivere e contare.
+    Una scuola in Francia per bambini dai 6 ai 10 anni. I bambini imparano a leggere, scrivere e contare.
 
     ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ width="200" }
 
     - **[Liceo in Francia](../cards/index.md#education_lycee_fr)** (PartOf)
-    Scuola superiore in Francia per adolescenti dai 16 ai 18 anni. Gli studenti studiano duramente per sostenere l'esame di Baccalauréat, che permette loro di accedere all'università.
+    Una scuola in Francia per ragazzi dai 14 ai 18 anni. Gli studenti hanno insegnanti diversi e studiano materie come matematica, inglese, scienze, sport e storia. Si preparano a un esame finale chiamato esame di maturità.
 
     ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ width="200" }
 
     - **[Collège in Francia](../cards/index.md#education_college_fr)** (PartOf)
-    Scuola media in Francia per ragazzi dagli 11 ai 15 anni. Gli studenti studiano molte materie e si preparano per la scuola superiore.
+    Una scuola in Francia per ragazzi dagli 11 ai 14 anni. Hanno insegnanti diversi e studiano materie come matematica, inglese, scienze, sport e storia.
 
     ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ width="200" }
-
-    - **[Scrittura corsiva](../cards/index.md#concept_cursive_writing)** (Purpose)
-    Un modo speciale di scrivere in cui tutte le lettere di una parola sono collegate. In Francia, i bambini imparano a scrivere in questo modo a scuola.
-
-    ![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ width="200" }
 
     - **[Menù della mensa](../cards/index.md#object_canteen_menu)** (Purpose)
     Un elenco che mostra quali alimenti puoi mangiare a scuola. Ti aiuta a scegliere cosa mangiare!
 
     ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ width="200" }
-
-    - **[Carta della Laicità](../cards/index.md#concept_charter_of_secularism)** (CulturalContext)
-    Un insieme di regole per rispettare le convinzioni di tutti. Aiuta le persone a vivere insieme in pace.
-
-    ![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ width="200" }
 
 - Quests: [Il sistema scolastico (fr_02)](../quests/quest/fr_02.md)
 
@@ -912,18 +901,18 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Giulio Verne](../cards/index.md#jules_verne)**
-    Uno scrittore francese che immaginava avventure incredibili prima che fossero possibili! Scrisse di sottomarini, razzi e viaggi intorno al mondo.
+    Jules Verne nacque nel 1828, quasi 200 anni fa. Morì nel 1905. Fu uno scrittore francese che scrisse molti libri. Immaginò modi straordinari di viaggiare prima che esistessero davvero! Scrisse di sottomarini, razzi e viaggi intorno al mondo.
 
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
     - **[Il giro del mondo in ottanta giorni](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
-    Un libro emozionante di Jules Verne che racconta come viaggiare velocemente intorno al mondo utilizzando treni, navi e mongolfiere!
+    Questo libro è stato scritto da Jules Verne. Racconta un viaggio molto bello e veloce intorno al mondo in treno, in nave e in mongolfiera!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
     - **[Dalla Terra alla Luna](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    Un libro di Jules Verne che parla di un viaggio sulla Luna a bordo di un enorme cannone! Fu scritto prima che esistessero i veri razzi.
+    Questo libro è stato scritto da Jules Verne. Racconta un viaggio verso la Luna a bordo di un veicolo spaziale lanciato da un grande cannone. A quel tempo, i razzi spaziali non esistevano ancora!
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
@@ -1000,7 +989,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Museo del Louvre (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
+- Quests: [Museo del Louvre (fr_12)](../quests/quest/fr_12.md)
 
 ---
 
@@ -1010,7 +999,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Commercianti di mercato](../cards/index.md#market_traders)**
-    Persone che vendono cibo e altri beni di consumo alle bancarelle del mercato, come pescivendoli, formaggiai e fruttivendoli. Pesano, confezionano e annunciano i prezzi del giorno.
+    I commercianti vendono cibo e altri beni sulle bancarelle del mercato. Puoi trovare pescivendoli, venditori di formaggi, droghieri e venditori di frutta e verdura. Puoi acquistare prodotti freschi.
 
     ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
 
@@ -1020,7 +1009,7 @@ Credits:
 
     ![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ width="200" }
 
-    - **[Panettiere](../cards/index.md#person_baker)** (RelatedTo)
+    - **[Il panettiere / La panettiera](../cards/index.md#person_baker)** (RelatedTo)
     Una persona che prepara pane, torte e pasticcini.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
@@ -1040,7 +1029,7 @@ Credits:
 
     ![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ width="200" }
 
-- Quests: [Cibo e mercato (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Il mercato di Marsiglia (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1134,7 +1123,7 @@ Credits:
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
     - **[Italia](../cards/index.md#country_italy)** (LocatedIn)
-    Un paese in Europa. La capitale è Roma.
+    È un paese d'Europa. La sua capitale è Roma.
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
@@ -1183,7 +1172,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Senna](../cards/index.md#seine)**
-    Un fiume lungo 777 chilometri nel nord della Francia
+    La Senna attraversa Parigi. È lunga 777 km e sfocia nella Manica.
 
     ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
 
@@ -1253,7 +1242,7 @@ Credits:
 
     ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
 
-- Quests: [Parigi Senna (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Parigi - La Senna (fr_10)](../quests/quest/fr_10.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
@@ -1281,7 +1270,7 @@ Credits:
     ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ width="200" }
 
     - **[Costa del Mar Baltico](../cards/index.md#baltic_sea_coast)** (RelatedTo)
-    La costa sabbiosa lungo il Mar Baltico.
+    No translation found for 'baltic_sea_coast.desc' in Cards
 
     ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ width="200" }
 
@@ -1456,7 +1445,7 @@ Credits:
 
     ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
 
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1534,7 +1523,7 @@ Credits:
     ![preview flag_czech_republic](../../../assets/img/content/cards/flag_czech_republic.jpg){ width="200" }
 
     - **[Bandiera della Lituania](../cards/index.md#flag_lithuania)** (CulturalContext)
-    La bandiera presenta strisce orizzontali gialle, verdi e rosse. La Lituania è un paese baltico con splendide foreste e spiagge.
+    La bandiera ha strisce orizzontali gialle, verdi e rosse. La Lituania è un paese baltico con splendide foreste e spiagge.
 
     ![preview flag_lithuania](../../../assets/img/content/cards/flag_lithuania.jpg){ width="200" }
 
@@ -1591,7 +1580,6 @@ Credits:
 - Core card:
     - **[Monumento a Chopin](../cards/index.md#chopin_monument)**
     Una grande statua nel Parco Łazienki di Varsavia, dedicata a Frédéric Chopin. È anche sede di popolari concerti di pianoforte all'aperto in estate. (L'albero speciale sotto cui è seduto è un tipico salice polacco)
-
 
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }
 
@@ -1701,7 +1689,7 @@ Credits:
 
     ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
 
-- Quests: [Fiume Odra (pl_03)](../quests/quest/pl_03.md), [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md)
+- Quests: [Il grande salvataggio dei nani di Breslavia (pl_02)](../quests/quest/pl_02.md), [Un viaggio sul fiume Odra (pl_03)](../quests/quest/pl_03.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)

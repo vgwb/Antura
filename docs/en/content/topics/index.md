@@ -59,8 +59,7 @@ Total found: **35**
     ![preview antura_livingletter](../../../assets/img/content/cards/antura_livingletter.jpg){ width="200" }
 
     - **[Blocky](../cards/index.md#antura_blocky_character)** (RelatedTo)
-    These funny people live in this world.
-Talk to them all...  they have stories to tell!
+    These funny people live in this world. Talk to them all...  they have stories to tell!
 
     ![preview antura_blocky_character](../../../assets/img/content/cards/antura_blocky_character.jpg){ width="200" }
 
@@ -120,7 +119,7 @@ Talk to them all...  they have stories to tell!
 
     ![preview fr_figure_circle](../../../assets/img/content/cards/fr_figure_circle.jpg){ width="200" }
 
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 Credits:
   - Valeria Passarella (Italy)
@@ -182,7 +181,7 @@ Credits:
     ![preview flag_germany](../../../assets/img/content/cards/flag_germany.jpg){ width="200" }
 
     - **[Flag of Italy](../cards/index.md#flag_italy)** (CulturalContext)
-    The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
+    The Italian flag has three vertical stripes: green, white and red. Like the basil, mozzarella and tomato on a pizza.
 
     ![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ width="200" }
 
@@ -202,7 +201,7 @@ Credits:
     ![preview flag_belgium](../../../assets/img/content/cards/flag_belgium.jpg){ width="200" }
 
     - **[Flag of Spain](../cards/index.md#flag_spain)** (CulturalContext)
-    The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
+    The flag of Spain has red and yellow horizontal stripes. These are the colors of the sun and peppers.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
@@ -212,7 +211,7 @@ Credits:
     ![preview flag_switzerland](../../../assets/img/content/cards/flag_switzerland.jpg){ width="200" }
 
     - **[Flag of France](../cards/index.md#flag_france)** (CulturalContext)
-    The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
+    The French flag has three vertical colors: blue, white, and red.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
@@ -265,7 +264,7 @@ Credits:
 
     ![preview skiing](../../../assets/img/content/cards/skiing.jpg){ width="200" }
 
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -291,7 +290,7 @@ Credits:
     ![preview hat](../../../assets/img/content/cards/hat.jpg){ width="200" }
 
     - **[Backpack](../cards/index.md#backpack)** (RelatedTo)
-    A bag you carry on your back.
+    No translation found for 'backpack.desc' in Cards
 
     ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ width="200" }
 
@@ -320,7 +319,7 @@ Credits:
 
     ![preview coat](../../../assets/img/content/cards/coat.jpg){ width="200" }
 
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -587,7 +586,7 @@ Credits:
 
     ![preview capital_paris](../../../assets/img/content/cards/capital_paris.jpg){ width="200" }
 
-    - **[Baker](../cards/index.md#person_baker)** (CreatedBy)
+    - **[The baker](../cards/index.md#person_baker)** (CreatedBy)
     A person who makes bread, cakes, and pastries.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
@@ -651,13 +650,13 @@ Credits:
 
     ![preview food_orange](../../../assets/img/content/cards/food_orange.jpg){ width="200" }
 
-    - **[Tomato](../cards/index.md#food_tomato)** (MadeOf)
-    A red, round fruit that grows on plants. Tomatoes are used to make pizza sauce!
+    - **[The tomato](../cards/index.md#food_tomato)** (MadeOf)
+    No translation found for 'food_tomato.desc' in Cards
 
     ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ width="200" }
 
     - **[Lemon](../cards/index.md#food_lemon)** (MadeOf)
-    A yellow fruit that tastes very sour. Lemons are used to make lemonade!
+    It is a yellow fruit.
 
     ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ width="200" }
 
@@ -666,12 +665,12 @@ Credits:
 
     ![preview food_olive_oil](../../../assets/img/content/cards/food_olive_oil.jpg){ width="200" }
 
-    - **[Pepper Salt](../cards/index.md#food_pepper_salt)** (MadeOf)
+    - **[Pepper salt](../cards/index.md#food_pepper_salt)** (MadeOf)
     Spices that make food taste better. Salt is white and pepper is black with tiny pieces.
 
     ![preview food_pepper_salt](../../../assets/img/content/cards/food_pepper_salt.jpg){ width="200" }
 
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 Credits:
   - Valeria Passarella (Italy)
@@ -689,27 +688,27 @@ Credits:
 
 - Connected cards:
     - **[Spain](../cards/index.md#country_spain)** (RelatedTo)
-    A country in Europe. Capital is Madrid. Spain invented flamenco dancing.
+    It is a country in Europe. Its capital is Madrid. Spain invented a dance called flamenco.
 
     ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ width="200" }
 
     - **[Flag of Spain](../cards/index.md#flag_spain)** (CulturalContext)
-    The flag of Spain has red and yellow horizontal stripes. The colors are like the sun and peppers! Spain invented flamenco dancing.
+    The flag of Spain has red and yellow horizontal stripes. These are the colors of the sun and peppers.
 
     ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ width="200" }
 
     - **[Luxembourg](../cards/index.md#country_luxembourg)** (RelatedTo)
-    A country in Europe. Capital is Luxembourg City.
+    It is a country in Europe. Its capital is Luxembourg City.
 
     ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ width="200" }
 
     - **[Italy](../cards/index.md#country_italy)** (RelatedTo)
-    A country in Europe. Capital is Rome.
+    It is a country in Europe. Its capital is Rome.
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
     - **[Flag of Italy](../cards/index.md#flag_italy)** (CulturalContext)
-    The flag of Italy has three vertical stripes: green, white, and red. The colors look like basil, mozzarella, and tomatoes on pizza!
+    The Italian flag has three vertical stripes: green, white and red. Like the basil, mozzarella and tomato on a pizza.
 
     ![preview flag_italy](../../../assets/img/content/cards/flag_italy.jpg){ width="200" }
 
@@ -719,7 +718,7 @@ Credits:
     ![preview flag_luxembourg](../../../assets/img/content/cards/flag_luxembourg.jpg){ width="200" }
 
     - **[Luxembourg City](../cards/index.md#capital_luxembourg_city)** (RelatedTo)
-    The capital city of Luxembourg.
+    The capital of Luxembourg is also called Luxembourg.
 
     ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ width="200" }
 
@@ -844,7 +843,7 @@ Credits:
 
 - Connected cards:
     - **[Flag of France](../cards/index.md#flag_france)** (CulturalContext)
-    The flag of France has three vertical stripes: blue, white, and red. These colors represent liberty, equality, and fraternity!
+    The French flag has three vertical colors: blue, white, and red.
 
     ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ width="200" }
 
@@ -863,47 +862,37 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[French Schools](../cards/index.md#french_schools)**
-    In France, school happens in four main steps: maternelle (play-and-learn for little kids), école élémentaire (reading, writing, maths), collège (middle school), and lycée (high school). At the end of lycée, many students take a big exam called the baccalauréat (‘le bac’)
+    School in France has four main stages. Maternelle is for children aged 3 to 5. École élémentaire is for children aged 6 to 10. It has five grades: CP, CE1, CE2, CM1, and CM2. Collège is for students aged 11 to 14. It has four grades: 6ème, 5ème, 4ème, and 3ème. Lycée is for students aged 15 to 18. It has three grades: 2nde, 1ère, and terminale.
 
     ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ width="200" }
 
 - Connected cards:
     - **[École Maternelle](../cards/index.md#education_ecole_maternelle_fr)** (PartOf)
-    School for little kids aged 3 to 5. You learn by playing and exploring.
+    A school in France for children aged 3 to 5. Children learn by exploring and playing.
 
     ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ width="200" }
 
     - **[Primary School in France](../cards/index.md#education_ecole_primaire_fr)** (PartOf)
-    School for kids aged 6 to 10. You learn reading, writing, and counting.
+    A school in France for students aged 6 to 10. Children learn to read, write, and count.
 
     ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ width="200" }
 
     - **[Lycée in France](../cards/index.md#education_lycee_fr)** (PartOf)
-    High school in France for teenagers aged 16 to 18. Students study hard for the Baccalauréat exam to go to university.
+    A school in France for teenagers aged 14 to 18. Students have different teachers and study subjects like math, English, science, sports, and history. They prepare for a final exam called the Baccalauréat.
 
     ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ width="200" }
 
     - **[Collège in France](../cards/index.md#education_college_fr)** (PartOf)
-    Middle school in France for kids aged 11 to 15. Students learn many subjects and prepare for high school.
+    A school in France for students aged 11 to 14. They have different teachers and study subjects like math, English, science, sports, and history.
 
     ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ width="200" }
-
-    - **[Cursive Writing](../cards/index.md#concept_cursive_writing)** (Purpose)
-    A special way of writing where all the letters in a word are connected. In France, children learn to write this way in school.
-
-    ![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ width="200" }
 
     - **[Canteen menu](../cards/index.md#object_canteen_menu)** (Purpose)
     A list that shows what food you can eat at school lunch. It helps you choose what to eat!
 
     ![preview object_canteen_menu](../../../assets/img/content/cards/object_canteen_menu.jpg){ width="200" }
 
-    - **[Charter of Secularism](../cards/index.md#concept_charter_of_secularism)** (CulturalContext)
-    A set of rules for respecting everyone's beliefs. It helps people live together in peace.
-
-    ![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ width="200" }
-
-- Quests: [The School system (fr_02)](../quests/quest/fr_02.md)
+- Quests: [The school system (fr_02)](../quests/quest/fr_02.md)
 
 ---
 
@@ -912,18 +901,18 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Jules Verne](../cards/index.md#jules_verne)**
-    A French writer who imagined amazing adventures before they were possible! He wrote about submarines, rockets, and traveling around the world.
+    Jules Verne was born in 1828, almost 200 years ago. He died in 1905. He was a French writer who wrote many books. He imagined amazing ways to travel before they really existed! He wrote about submarines, rockets, and trips around the world.
 
     ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ width="200" }
 
 - Connected cards:
     - **[Around the World in Eighty Days](../cards/index.md#book_around_the_world_80_days)** (RelatedTo)
-    An exciting book by Jules Verne about traveling around the whole world very quickly using trains, ships, and hot air balloons!
+    Jules Verne wrote this book. It tells of a wonderful, very fast trip around the world by train, boat, and balloon!
 
     ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ width="200" }
 
     - **[From the Earth to the Moon](../cards/index.md#book_from_earth_to_moon)** (RelatedTo)
-    A book by Jules Verne about going to the Moon in a big cannon! It was written before real rockets existed.
+    Jules Verne wrote this book. It tells about a trip to the Moon in a spacecraft launched by a giant cannon. At that time, space rockets did not exist yet!
 
     ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ width="200" }
 
@@ -1000,7 +989,7 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Louvre Museum (fr_12_louvre_quest_data)](../quests/quest/fr_12_louvre_quest_data.md)
+- Quests: [Louvre museum (fr_12)](../quests/quest/fr_12.md)
 
 ---
 
@@ -1010,7 +999,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Market traders](../cards/index.md#market_traders)**
-    People who sell food and goods at market stalls—like fishmongers, cheesemongers, and fruit sellers. They weigh, wrap, and call out today’s prices.
+    Merchants sell food and other goods at market stalls. You can find fishmongers, cheesemongers, grocers, and fruit and vegetable vendors. You can buy fresh produce.
 
     ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ width="200" }
 
@@ -1020,7 +1009,7 @@ Credits:
 
     ![preview person_cheesemonger](../../../assets/img/content/cards/person_cheesemonger.jpg){ width="200" }
 
-    - **[Baker](../cards/index.md#person_baker)** (RelatedTo)
+    - **[The baker](../cards/index.md#person_baker)** (RelatedTo)
     A person who makes bread, cakes, and pastries.
 
     ![preview person_baker](../../../assets/img/content/cards/person_baker.jpg){ width="200" }
@@ -1040,7 +1029,7 @@ Credits:
 
     ![preview person_fishmonger](../../../assets/img/content/cards/person_fishmonger.jpg){ width="200" }
 
-- Quests: [The Colors of the Marseille Market (fr_09)](../quests/quest/fr_09.md)
+- Quests: [The Marseille market (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1134,7 +1123,7 @@ Credits:
     ![preview country_france](../../../assets/img/content/cards/country_france.jpg){ width="200" }
 
     - **[Italy](../cards/index.md#country_italy)** (LocatedIn)
-    A country in Europe. Capital is Rome.
+    It is a country in Europe. Its capital is Rome.
 
     ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ width="200" }
 
@@ -1143,7 +1132,7 @@ Credits:
 
     ![preview country_switzerland](../../../assets/img/content/cards/country_switzerland.jpg){ width="200" }
 
-- Quests: [Mont Blanc & Mountains (fr_08)](../quests/quest/fr_08.md)
+- Quests: [Mont Blanc & mountains (fr_08)](../quests/quest/fr_08.md)
 
 ---
 
@@ -1182,8 +1171,8 @@ Credits:
 - Subjects: Geography, Transportation, Civics  
 - Target Age: Ages6to10
 - Core card:
-    - **[Seine](../cards/index.md#seine)**
-    A 777-kilometre-long river in northern France
+    - **[The Seine](../cards/index.md#seine)**
+    The Seine flows through Paris. It is 777 km long and flows into the English Channel.
 
     ![preview seine](../../../assets/img/content/cards/seine.jpg){ width="200" }
 
@@ -1253,7 +1242,7 @@ Credits:
 
     ![preview ile_de_france](../../../assets/img/content/cards/ile_de_france.jpg){ width="200" }
 
-- Quests: [Paris Seine (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paris - The Seine (fr_10)](../quests/quest/fr_10.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)
@@ -1281,7 +1270,7 @@ Credits:
     ![preview motawa_river](../../../assets/img/content/cards/motawa_river.jpg){ width="200" }
 
     - **[Baltic Sea Coast](../cards/index.md#baltic_sea_coast)** (RelatedTo)
-    The sandy shore along the Baltic Sea.
+    No translation found for 'baltic_sea_coast.desc' in Cards
 
     ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ width="200" }
 
@@ -1456,7 +1445,7 @@ Credits:
 
     ![preview river_sign](../../../assets/img/content/cards/river_sign.jpg){ width="200" }
 
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -1590,8 +1579,7 @@ Credits:
 - Target Age: Ages6to10
 - Core card:
     - **[Chopin Monument](../cards/index.md#chopin_monument)**
-    A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It’s also the site of popular open-air piano concerts in summer. (the special tree he is sitting under is a typical polish.. Willow)
-
+    A large statue in Warsaw’s Łazienki Park dedicated to Frédéric Chopin. It’s also the site of popular open-air piano concerts in summer.
 
     ![preview chopin_monument](../../../assets/img/content/cards/chopin_monument.jpg){ width="200" }
 
@@ -1701,7 +1689,7 @@ Credits:
 
     ![preview dali_profile_of_time](../../../assets/img/content/cards/dali_profile_of_time.jpg){ width="200" }
 
-- Quests: [A Voyage on the Odra River (pl_03)](../quests/quest/pl_03.md), [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
+- Quests: [A voyage on the Odra river (pl_03)](../quests/quest/pl_03.md), [The great Wrocław dwarf rescue (pl_02)](../quests/quest/pl_02.md)
 
 Credits:
   - [Stefano Cecere](https://stefanocecere.com) (Italy)

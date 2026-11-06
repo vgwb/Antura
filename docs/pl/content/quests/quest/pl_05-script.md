@@ -5,7 +5,7 @@ hide:
 
 # Gdański naszyjnik bursztynowy (pl_05) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/pl-05-the-amber-necklace-of-gdansk/36/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/624)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=224592228#gid=224592228)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/PL_05%20Baltic%20Sea/PL_05%20Baltic%20Sea%20-%20Yarn%20Script.yarn)  
@@ -150,7 +150,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card cutter&gt;&gt;</span>
 <span class="yarn-line">To jest mój CUTTER i NET.</span> <span class="yarn-meta">#line:0270483 </span>
 <span class="yarn-cmd">&lt;&lt;card fishing_net&gt;&gt;</span>
-<span class="yarn-line">Znajdźmy też AMBER.</span> <span class="yarn-meta">#line:0b8e688 </span>
+<span class="yarn-line">Znajdźmy też AMBERT.</span> <span class="yarn-meta">#line:0b8e688 </span>
 
 
 </code>
@@ -289,7 +289,7 @@ hide:
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card neptune_s_fountain&gt;&gt;</span>
-<span class="yarn-line">Załóż NASZYJNIK na NEPTUNĘ.</span> <span class="yarn-meta">#line:01b559a </span>
+<span class="yarn-line">Załóż NASZYJNIK na NEPTUN.</span> <span class="yarn-meta">#line:01b559a </span>
 
 
 </code>
@@ -413,7 +413,7 @@ hide:
 <span class="yarn-header-dim">group: End</span>
 <span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Dobrze zrobiony!</span> <span class="yarn-meta">#line:061ca19 </span>
+<span class="yarn-line">Dobrze zrobione!</span> <span class="yarn-meta">#line:061ca19 </span>
 <span class="yarn-line">Teraz ostateczny quiz</span> <span class="yarn-meta">#line:05251b3 </span>
 <span class="yarn-cmd">&lt;&lt;jump FINAL_QUIZ&gt;&gt;</span>
 

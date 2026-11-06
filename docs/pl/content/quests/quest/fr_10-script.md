@@ -1,11 +1,11 @@
 ---
-title: Paryż Sekwana (fr_10) - Script
+title: Paryż - Sekwana (fr_10) - Script
 hide:
 ---
 
-# Paryż Sekwana (fr_10) - Script
+# Paryż - Sekwana (fr_10) - Script
 > [!note] Educators & Designers: help improving this quest!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group/t/fr-10-paris-seine/29/1)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions/634)  
 > **Improve script translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1FPFOy8CHor5ArSg57xMuPAG7WM27-ecDOiU-OmtHgjw/edit?gid=754141150#gid=754141150)  
 > **Improve Cards translations**: [comment the Google Sheet](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 > **Improve the script**: [propose an edit here](https://github.com/vgwb/Antura/blob/main/Assets/_discover/_quests/FR_10%20Paris%20Seine/FR_10%20Paris%20Seine%20-%20Yarn%20Script.yarn)  
@@ -32,8 +32,8 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $bridge_train = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $bridge_cars = 0&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $bridge_people = 0&gt;&gt;</span>
-<span class="yarn-line">Jesteśmy nad Sekwaną, w Paryżu!</span> <span class="yarn-meta">#line:042160f </span>
-<span class="yarn-line">Dzisiaj będziemy zwiedzać rzekę, mosty i łodzie.</span> <span class="yarn-meta">#line:0280e8f </span>
+<span class="yarn-line">Witamy w Paryżu! Paryż jest stolicą Francji. W Paryżu płynie bardzo słynna rzeka. Ta rzeka nazywa się Sekwana.</span> <span class="yarn-meta">#line:042160f </span>
+<span class="yarn-line">Dziś odkryjesz Sekwanę i jej liczne mosty. Po Sekwanie pływają najróżniejsze łodzie.</span> <span class="yarn-meta">#line:0280e8f </span>
 <span class="yarn-cmd">&lt;&lt;target protagonist&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;area area_init&gt;&gt;</span>
 <span class="yarn-comment">//&lt;&lt;area area_all&gt;&gt;</span>
@@ -52,15 +52,15 @@ hide:
 <span class="yarn-header-dim">type: panel_endgame</span>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Świetnie, ukończyłeś zadanie!</span> <span class="yarn-meta">#line:0c408c3 </span>
+<span class="yarn-line">Świetnie, ukończyłeś to zadanie!</span> <span class="yarn-meta">#line:0c408c3 </span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_people&gt;&gt;</span>
-<span class="yarn-line">Dowiedziałeś się o mostach dla pociągów, samochodów i ludzi.</span> <span class="yarn-meta">#line:091e9fc </span>
+<span class="yarn-line">Odkryłeś mosty i łodzie na Sekwanie. Mosty pozwalają przekroczyć rzekę przepływającą przez Paryż: Sekwanę.</span> <span class="yarn-meta">#line:091e9fc </span>
 <span class="yarn-cmd">&lt;&lt;card boat_people&gt;&gt;</span>
-<span class="yarn-line">Widziałeś statki turystyczne z dużymi oknami.</span> <span class="yarn-meta">#line:062cc35 </span>
+<span class="yarn-line">Są łodzie dla turystów. Mają duże okna, przez które można podziwiać zabytki Paryża z Sekwany.</span> <span class="yarn-meta">#line:062cc35 </span>
 <span class="yarn-cmd">&lt;&lt;card boat_house&gt;&gt;</span>
-<span class="yarn-line">Widziałeś też domy na wodzie, w których mogą mieszkać ludzie.</span> <span class="yarn-meta">#line:0a29742 </span>
+<span class="yarn-line">Istnieją łodzie mieszkalne. Ludzie mieszkają na tych łodziach. Nazywają się barkami.</span> <span class="yarn-meta">#line:0a29742 </span>
 <span class="yarn-cmd">&lt;&lt;card seine_map_in_paris&gt;&gt;</span>
-<span class="yarn-line">Paryż rozrasta się wokół Sekwany.</span> <span class="yarn-meta">#line:08cc02a </span>
+<span class="yarn-line">Ważne zabytki Paryża zostały zbudowane wokół Sekwany.</span> <span class="yarn-meta">#line:08cc02a </span>
 <span class="yarn-cmd">&lt;&lt;jump post_quest_activity&gt;&gt;</span>
 
 </code>
@@ -79,7 +79,6 @@ hide:
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Narysuj most w swoim zeszycie!</span> <span class="yarn-meta">#line:0b37e92 </span>
-<span class="yarn-line">Na stronie znajdziesz również inne aktywności.</span> <span class="yarn-meta">#line:04f7aaa </span>
 <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
 
 </code>
@@ -97,26 +96,26 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("find_photos")&gt;&gt;</span>
 <span class="yarn-line">    Dziękuję!</span> <span class="yarn-meta">#line:0a70250</span>
-<span class="yarn-line">    Znalazłeś wszystkie moje zdjęcia!</span> <span class="yarn-meta">#line:07cac48 </span>
-<span class="yarn-line">    Teraz mogę iść do domu! Jeszcze jedno ostatnie pytanie...</span> <span class="yarn-meta">#line:08b0aea </span>
+<span class="yarn-line">    Znalazłeś wszystkie zdjęcia z mojego przewodnika!</span> <span class="yarn-meta">#line:07cac48 </span>
+<span class="yarn-line">    Nareszcie mogę iść do domu! Mam jeszcze jedno ostatnie pytanie…</span> <span class="yarn-meta">#line:08b0aea </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif HasCompletedTask("collect_cards")&gt;&gt;</span>
 <span class="yarn-line">    Dziękuję!</span> <span class="yarn-meta">#shadow:0a70250 </span>
 <span class="yarn-line">    Ale brakuje mi 7 zdjęć mostów i łodzi na Sekwanie!</span> <span class="yarn-meta">#line:006ab27 </span>
     <span class="yarn-cmd">&lt;&lt;area area_all&gt;&gt;</span>
-<span class="yarn-line">    Odkryj Sekwanę i znajdź moje zdjęcia!</span> <span class="yarn-meta">#line:084c7e4 </span>
-<span class="yarn-line">    Jeśli nie możesz ich znaleźć, skorzystaj z mapy!</span> <span class="yarn-meta">#line:0bfcb05 </span>
+<span class="yarn-line">    Wybierz się na spacer brzegiem Sekwany i znajdź zdjęcia!</span> <span class="yarn-meta">#line:084c7e4 </span>
+<span class="yarn-line">    Jeśli nie możesz ich znaleźć, możesz skorzystać z mapy Paryża!</span> <span class="yarn-meta">#line:0bfcb05 </span>
     <span class="yarn-cmd">&lt;&lt;task_start find_photos task_find_photos_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;elseif GetCurrentTask() == "find_photos" or GetCurrentTask() == "collect_cards"&gt;&gt;</span>
 <span class="yarn-line">    Dobrze ci idzie!</span> <span class="yarn-meta">#line:03ea48b </span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
 <span class="yarn-line">    Pomocy! Pomóż mi!</span> <span class="yarn-meta">#line:0aa0f3a </span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_intro&gt;&gt;</span>
-<span class="yarn-line">    Jestem turystą, a ten wielki niebieski pies zabrał mi przewodnik po Paryżu!</span> <span class="yarn-meta">#line:0210ef0</span>
-<span class="yarn-line">    A stron ze zdjęciami Sekwany brakuje!</span> <span class="yarn-meta">#line:0c8e7b6</span>
+<span class="yarn-line">    Odwiedzam Paryż. Jestem turystą. Pies Antura zabrał moją książkę o Paryżu!</span> <span class="yarn-meta">#line:0210ef0</span>
+<span class="yarn-line">    Strony mojej książki i zdjęcia upadły w pobliżu Sekwany!</span> <span class="yarn-meta">#line:0c8e7b6</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;SetActive antura false&gt;&gt;</span>
-<span class="yarn-line">    Znajdź zdjęcia w tym miejscu!</span> <span class="yarn-meta">#line:0a9c8e7 #task:collect_cards</span>
+<span class="yarn-line">    Spaceruj wzdłuż rzeki, a znajdziesz zdjęcia!</span> <span class="yarn-meta">#line:0a9c8e7 #task:collect_cards</span>
     <span class="yarn-cmd">&lt;&lt;area area_tutorial&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start collect_cards task_collect_cards_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
@@ -167,16 +166,16 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">actor:</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sekwana wpada do morza. Do którego?</span> <span class="yarn-meta">#line:066d7bd </span>
+<span class="yarn-line">Rzeka przepływająca przez Paryż nazywa się...</span> <span class="yarn-meta">#line:066d7bd </span>
 <span class="yarn-choice">-&gt; Morze Śródziemne</span> <span class="yarn-meta">#line:02ab1e0 </span>
-<span class="yarn-line">   Hmm... nie do końca. Spójrz jeszcze raz na mapę.</span> <span class="yarn-meta">#line:099fe86 </span>
+<span class="yarn-line">    To nie jest poprawna odpowiedź. Loara przepływa przez Nantes, w pobliżu Muzeum Juliusza Verne'a.</span> <span class="yarn-meta">#line:099fe86 </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Kanał La Manche</span> <span class="yarn-meta">#line:03c92db </span>
     <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
-<span class="yarn-line">    Tak. Sekwana wpada do kanału La Manche na północy Francji.</span> <span class="yarn-meta">#line:0a2bcd3</span>
+<span class="yarn-line">    Tak, to Sekwana. Rzeka przepływająca przez Paryż nazywa się Sekwana.</span> <span class="yarn-meta">#line:0a2bcd3</span>
     <span class="yarn-cmd">&lt;&lt;jump quest_end&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Ocean Atlantycki</span> <span class="yarn-meta">#line:052fdac </span>
-<span class="yarn-line">    Hmm... nie do końca. Spójrz jeszcze raz na mapę.</span> <span class="yarn-meta">#shadow:099fe86 </span>
+<span class="yarn-line">    To nie jest poprawna odpowiedź. Loara przepływa przez Nantes, w pobliżu Muzeum Juliusza Verne'a.</span> <span class="yarn-meta">#shadow:099fe86 </span>
     <span class="yarn-cmd">&lt;&lt;jump question_seine_map&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
 
@@ -196,7 +195,7 @@ hide:
 <span class="yarn-line">    Ta łódź przewozi towary.</span> <span class="yarn-meta">#line:0f13a44</span>
     &lt;&lt;if $boat_goods &lt; 10&gt;&gt;
 <span class="yarn-line">    Co można znaleźć na statku towarowym?</span> <span class="yarn-meta">#line:04059bd </span>
-<span class="yarn-choice">        -&gt; Pudełka i rzeczy</span> <span class="yarn-meta">#line:0b12cb3</span>
+<span class="yarn-choice">        -&gt; Statek towarowy może przewozić: drewno, piasek, ale także przedmioty: samochody, meble...</span> <span class="yarn-meta">#line:0b12cb3</span>
         <span class="yarn-cmd">&lt;&lt;set $boat_goods = 1&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;target chest_boat_goods&gt;&gt;</span>
         <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_goods&gt;&gt;</span>
@@ -255,19 +254,19 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_house&gt;&gt;</span>
-<span class="yarn-line">Ta łódź to dom! Ludzie tu mieszkają!</span> <span class="yarn-meta">#line:0a627c2 </span>
+<span class="yarn-line">Ta łódź to dom. Na tej łodzi mieszkają ludzie. Ta łódź nazywa się houseboat.</span> <span class="yarn-meta">#line:0a627c2 </span>
 &lt;&lt;if $boat_house &lt; 10&gt;&gt;
-<span class="yarn-line">Dlaczego to jest łódź mieszkalna?</span> <span class="yarn-meta">#line:0165157 </span>
-<span class="yarn-choice">-&gt; Tylko dla pociągów</span> <span class="yarn-meta">#line:055d822 </span>
+<span class="yarn-line">Dlaczego tę łódź nazywa się houseboatem?</span> <span class="yarn-meta">#line:0165157 </span>
+<span class="yarn-choice">-&gt; To jest most dla pociągów.</span> <span class="yarn-meta">#line:055d822 </span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_house&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Ludzie mogą na tym żyć</span> <span class="yarn-meta">#line:0c86d26 </span>
+<span class="yarn-choice">-&gt; Można tam zamieszkać.</span> <span class="yarn-meta">#line:0c86d26 </span>
     <span class="yarn-cmd">&lt;&lt;set $boat_house = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_boat_house&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_boat_house&gt;&gt;</span>
 <span class="yarn-line">    Tak! Teraz możesz otworzyć tę skrzynię!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Może przewozić wyłącznie towary</span> <span class="yarn-meta">#line:036ba15 </span>
+<span class="yarn-choice">-&gt; Ta łódź przewozi towary</span> <span class="yarn-meta">#line:036ba15 </span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again </span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_house&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight </span>
@@ -314,10 +313,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_people&gt;&gt;</span>
-<span class="yarn-line">Ta łódź ma duże okna, więc turyści mogą podziwiać miasto. To „bateau-mouche”.</span> <span class="yarn-meta">#line:0129c99 </span>
+<span class="yarn-line">Ta łódź ma duże okna. Turyści mogą podziwiać miasto. To „statek rzeczny”.</span> <span class="yarn-meta">#line:0129c99 </span>
 &lt;&lt;if $boat_people &lt; 10&gt;&gt;
 <span class="yarn-line">Dlaczego statek turystyczny ma duże okna?</span> <span class="yarn-meta">#line:02ce3de </span>
-<span class="yarn-choice">-&gt; Przewieźć więcej samochodów</span> <span class="yarn-meta">#line:02349a3</span>
+<span class="yarn-choice">-&gt; Do transportu samochodów</span> <span class="yarn-meta">#line:02349a3</span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_boat_people&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Zanurzyć się pod wodą</span> <span class="yarn-meta">#line:037efcf</span>
@@ -373,19 +372,19 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card pont_alexandre_iii&gt;&gt;</span>
-<span class="yarn-line">To jest Most Aleksandra III, słynny stary most.</span> <span class="yarn-meta">#line:09c706f</span>
+<span class="yarn-line">To jest most Aleksandra III. To bardzo znany most.</span> <span class="yarn-meta">#line:09c706f</span>
 &lt;&lt;if $bridge_alexandre &lt; 10&gt;&gt;
-<span class="yarn-line">Co jest szczególnego w tym słynnym moście?</span> <span class="yarn-meta">#line:021f382</span>
-<span class="yarn-choice">-&gt; Ma złote posągi</span> <span class="yarn-meta">#line:056c933</span>
+<span class="yarn-line">Dlaczego ten most jest sławny?</span> <span class="yarn-meta">#line:021f382</span>
+<span class="yarn-choice">-&gt; Są posągi wykonane ze złota.</span> <span class="yarn-meta">#line:056c933</span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_alexandre = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_alexandre&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_alexandre&gt;&gt;</span>
 <span class="yarn-line">    Tak! Teraz możesz otworzyć tę skrzynię!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; To jest most kolejowy</span> <span class="yarn-meta">#line:05c2518</span>
+<span class="yarn-choice">-&gt; To jest most dla pociągów.</span> <span class="yarn-meta">#line:05c2518</span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_alexandre&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Jest zrobiony z lodu</span> <span class="yarn-meta">#line:0d9bc29</span>
+<span class="yarn-choice">-&gt; To most dla samochodów.</span> <span class="yarn-meta">#line:0d9bc29</span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_alexandre&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
@@ -432,19 +431,19 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_cars&gt;&gt;</span>
-<span class="yarn-line">To jest most dla samochodów!</span> <span class="yarn-meta">#line:0d79d7d </span>
+<span class="yarn-line">To most dla samochodów!</span> <span class="yarn-meta">#line:0d79d7d </span>
 &lt;&lt;if $bridge_cars &lt; 10&gt;&gt;
-<span class="yarn-line">Samochody są szybkie. Jak bezpiecznie przejść przez ulicę?</span> <span class="yarn-meta">#line:01f30c4</span>
-<span class="yarn-choice">-&gt; Przebiec przez dowolne miejsce</span> <span class="yarn-meta">#line:076ee7f </span>
+<span class="yarn-line">Samochody jadą szybko. Jak mogę bezpiecznie przejść?</span> <span class="yarn-meta">#line:01f30c4</span>
+<span class="yarn-choice">-&gt; Przez ulicę można przejść w dowolnym miejscu.</span> <span class="yarn-meta">#line:076ee7f </span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_cars&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Korzystaj z chodnika i przechodź przez przejście dla pieszych</span> <span class="yarn-meta">#line:0c8cdae </span>
+<span class="yarn-choice">-&gt; Należy chodzić po chodniku i przechodzić na przejściu dla pieszych.</span> <span class="yarn-meta">#line:0c8cdae </span>
     <span class="yarn-cmd">&lt;&lt;set $bridge_cars = 1&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;target chest_bridge_cars&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_cars&gt;&gt;</span>
 <span class="yarn-line">    Tak! Teraz możesz otworzyć tę skrzynię!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Idź drogą</span> <span class="yarn-meta">#line:0cf371b</span>
+<span class="yarn-choice">-&gt; Musisz iść drogą</span> <span class="yarn-meta">#line:0cf371b</span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_cars&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
@@ -491,10 +490,10 @@ hide:
 <pre class="yarn-code"><code>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card place_bridge_trains&gt;&gt;</span>
-<span class="yarn-line">To jest most dla pociągów!</span> <span class="yarn-meta">#line:0a0991d </span>
+<span class="yarn-line">To most dla pociągów!</span> <span class="yarn-meta">#line:0a0991d </span>
 &lt;&lt;if $bridge_train &lt; 10&gt;&gt;
-<span class="yarn-line">Most kolejowy musi być...</span> <span class="yarn-meta">#line:09731f9 </span>
-<span class="yarn-choice">-&gt; Miękka i sprężysta</span> <span class="yarn-meta">#line:08b4fad </span>
+<span class="yarn-line">Most kolejowy jest mostem...</span> <span class="yarn-meta">#line:09731f9 </span>
+<span class="yarn-choice">-&gt; do samochodów</span> <span class="yarn-meta">#line:08b4fad </span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_train&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Tylko do chodzenia</span> <span class="yarn-meta">#line:03ff912</span>
@@ -577,7 +576,7 @@ hide:
     <span class="yarn-cmd">&lt;&lt;camera_focus camera_chest_bridge_people&gt;&gt;</span>
 <span class="yarn-line">    Tak! Teraz możesz otworzyć tę skrzynię!</span> <span class="yarn-meta">#shadow:yes_chest</span>
     <span class="yarn-cmd">&lt;&lt;camera_reset&gt;&gt;</span>
-<span class="yarn-choice">-&gt; Most samochodowy</span> <span class="yarn-meta">#line:07f732f </span>
+<span class="yarn-choice">-&gt; most dla samochodów</span> <span class="yarn-meta">#line:07f732f </span>
 <span class="yarn-line">    Nie. Spróbuj ponownie.</span> <span class="yarn-meta">#shadow:try_again</span>
     <span class="yarn-cmd">&lt;&lt;jump npc_bridge_people&gt;&gt;</span>
 <span class="yarn-choice">-&gt; Nie wiem</span> <span class="yarn-meta">#shadow:dont_know #highlight</span>
@@ -627,7 +626,7 @@ hide:
 <span class="yarn-cmd">&lt;&lt;card seine_map_in_paris&gt;&gt;</span>
 <span class="yarn-line">Spójrz na tę mapę Sekwany.</span> <span class="yarn-meta">#line:08b1177 </span>
 <span class="yarn-cmd">&lt;&lt;card seine_map&gt;&gt;</span>
-<span class="yarn-line">Sekwana wpływa na północ do kanału La Manche (morza).</span> <span class="yarn-meta">#line:0281b33 </span>
+<span class="yarn-line">Sekwana wpływa do kanału La Manche (morza) w kierunku północnym.</span> <span class="yarn-meta">#line:0281b33 </span>
 
 </code>
 </pre>
@@ -660,7 +659,7 @@ hide:
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;card boat_eiffel_tower&gt;&gt;</span>
-<span class="yarn-line">Spójrz, jakie ładne!</span> <span class="yarn-meta">#line:059f66d </span>
+<span class="yarn-line">Spójrz, jak ładnie!</span> <span class="yarn-meta">#line:059f66d </span>
 
 </code>
 </pre>
@@ -691,7 +690,7 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">actor: </span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Rzeka bierze swój początek daleko stąd i kończy się w kanale La Manche.</span> <span class="yarn-meta">#line:074efa5 </span>
+<span class="yarn-line">Sekwana wpływa do kanału La Manche.</span> <span class="yarn-meta">#line:074efa5 </span>
 
 </code>
 </pre>
@@ -713,7 +712,7 @@ hide:
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Dzień dobry!</span> <span class="yarn-meta">#line:072a345 </span>
 <span class="yarn-line">La Seine est magnifique!</span> <span class="yarn-meta">#line:0f0f558 </span>
-<span class="yarn-line">Il y a beaucoup de ponts à Paris!</span> <span class="yarn-meta">#line:038b8f6 </span>
+<span class="yarn-line">W Paryżu jest wiele mostów!</span> <span class="yarn-meta">#line:038b8f6 </span>
 
 </code>
 </pre>
@@ -730,9 +729,9 @@ hide:
 <span class="yarn-header-dim">spawn_group: residents </span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Cześć!</span> <span class="yarn-meta">#line:06aa0c1 </span>
-<span class="yarn-line">J'aime bien faire du vélo le long de la Seine!</span> <span class="yarn-meta">#line:0494564 </span>
-<span class="yarn-line">Paryż jest piękną pięknością świata!</span> <span class="yarn-meta">#line:0d94ea8 </span>
-<span class="yarn-line">La Seine est très longue!</span> <span class="yarn-meta">#line:0395113 </span>
+<span class="yarn-line">Naprawdę lubię jeździć rowerem wzdłuż Sekwany!</span> <span class="yarn-meta">#line:0494564 </span>
+<span class="yarn-line">Paryż jest najpiękniejszym miastem na świecie!</span> <span class="yarn-meta">#line:0d94ea8 </span>
+<span class="yarn-line">Sekwana jest bardzo długa!</span> <span class="yarn-meta">#line:0395113 </span>
 
 </code>
 </pre>
@@ -749,7 +748,7 @@ hide:
 <span class="yarn-header-dim">spawn_group: bridge_expert</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Most kolejowy musi być solidny.</span> <span class="yarn-meta">#line:0816b6b </span>
-<span class="yarn-line">Niektóre mosty są przeznaczone wyłącznie do chodzenia.</span> <span class="yarn-meta">#line:0ba2f29 </span>
+<span class="yarn-line">Niektóre mosty przeznaczone są wyłącznie dla pieszych.</span> <span class="yarn-meta">#line:0ba2f29 </span>
 <span class="yarn-line">Samochody przejeżdżają przez rzekę codziennie.</span> <span class="yarn-meta">#line:08d8ef0 </span>
 
 </code>
@@ -766,9 +765,9 @@ hide:
 <span class="yarn-header-dim">actor: ADULT_F</span>
 <span class="yarn-header-dim">spawn_group: river_friend</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Sekwana ułatwia statkom przemieszczanie się przez Paryż.</span> <span class="yarn-meta">#line:0ec822e </span>
-<span class="yarn-line">Mapy pokazują jak zmienia się bieg rzeki.</span> <span class="yarn-meta">#line:06d2470 </span>
-<span class="yarn-line">Woda z rzeki wpływa do morza.</span> <span class="yarn-meta">#line:0d1724c </span>
+<span class="yarn-line">Sekwana umożliwia ruch łodzi w Paryżu.</span> <span class="yarn-meta">#line:0ec822e </span>
+<span class="yarn-line">Na mapach zaznaczone są meandry rzeki.</span> <span class="yarn-meta">#line:06d2470 </span>
+<span class="yarn-line">Rzeka wpada do morza.</span> <span class="yarn-meta">#line:0d1724c </span>
 
 </code>
 </pre>

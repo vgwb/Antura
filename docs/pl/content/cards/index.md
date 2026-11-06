@@ -6,10 +6,10 @@ hide:
 # Cards(pl)
 
 > [!note] Educators: help improving these cards!
-> **Comments and feedback**: [discuss in the Forum](https://antura.discourse.group)  
+> **Comments and feedback**: [discuss in the Forum](https://github.com/vgwb/Antura/discussions)  
 > **Improve translations**: [comment here](https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit?gid=415931977#gid=415931977)  
 
-Total found: **395**
+Total found: **392**
 
 ## International
 
@@ -226,7 +226,7 @@ Pyszne pieczywo z mąki i wody, Z chleba można zrobić kanapki!
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:French_bread_DSC09293.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -340,14 +340,14 @@ Narzędzie, które pomaga rysować idealne okręgi. Ma dwie nogi jak nożyczki.
 ### Cytryna {#food_lemon}
 ![preview food_lemon](../../../assets/img/content/cards/food_lemon.jpg){ loading=lazy }
 
-Żółty, bardzo kwaśny owoc. Z cytryn można zrobić lemoniadę!
+Jest to owoc żółty.
 
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Lemon.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -387,6 +387,18 @@ Drożdże to magiczny proszek, który sprawia, że ​​chleb jest miękki i sm
 - Country: International
 - Topics: [Baguette](../topics/index.md#baguette)
 - Image credit: CC0
+
+---
+
+### Drzewo pomarańczowe {#plant_orange}
+![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
+
+Lśniące, zielone drzewo z okrągłymi, soczystymi pomarańczami. Pachnie świeżo i słodko jak słońce!
+
+- Type: Object
+- Country: International
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
+- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
 
 ---
 
@@ -553,19 +565,6 @@ Narzędzie w kształcie ciasteczka, które pozwala na tworzenie ciekawych kszta�
 - Topics: [Gingerbread](../topics/index.md#gingerbread)
 - Image credit: CC_BY_SA | Piotr Kuczyński | [source](https://commons.wikimedia.org/wiki/File:Traditional_gingerbread_mold_2_(Piotr_Kuczynski).jpg)
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
-
----
-
-### Francuski plakat szkolny {#object_french_school_poster}
-![preview object_french_school_poster](../../../assets/img/content/cards/object_french_school_poster.jpg){ loading=lazy }
-
-Duży obraz z informacjami, który wisi na ścianach klas we francuskich szkołach.
-
-- Type: Object
-- Subjects: Education
-- Country: International
-- Image credit: CC0
-- Quests: [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -813,7 +812,7 @@ Zwierzę morskie z dużymi szczypcami i twardą skorupą. Kraby chodzą po plaż
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fresh_Crab.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -854,7 +853,7 @@ Małe mostki dla pieszych, dzięki nim można bezpiecznie przejść na druga str
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -969,7 +968,7 @@ Wolno poruszający się lód występujący w wysokich górach.
 ### Luksemburg {#country_luxembourg}
 ![preview country_luxembourg](../../../assets/img/content/cards/country_luxembourg.jpg){ loading=lazy }
 
-Państwo w Europie. Stolicą jest miasto Luksemburg.
+To kraj w Europie. Jego stolicą jest miasto Luksemburg.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1129,7 +1128,7 @@ Lista dań, które możesz wybrać na szkolny obiad.
 ### Miasto Luksemburg {#capital_luxembourg_city}
 ![preview capital_luxembourg_city](../../../assets/img/content/cards/capital_luxembourg_city.jpg){ loading=lazy }
 
-Stolica Luksemburga.
+Stolicę Luksemburga również nazywa się Luksemburg.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -1188,7 +1187,7 @@ Biały napój pochodzący od krów. Mleko wzmacnia kości i zęby!
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Milchflasche_%2812337400564%29.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1255,7 +1254,7 @@ Specjalny most o konstrukcji wystarczająco wytrzymałej, aby umożliwić przeja
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1269,7 +1268,7 @@ Droga biegnąca nad wodą, dzięki której samochody mogą pokonywać rzeki i je
 - Country: International
 - Topics: [Seine](../topics/index.md#seine), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -1373,7 +1372,7 @@ Specjalny olej z oliwek, używany do gotowania smacznych potraw.
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Oliven_V1.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1427,7 +1426,7 @@ Osoba, która piecze chleb, bułki i różne ciasta.
 - Country: International
 - Topics: [Baguette](../topics/index.md#baguette), [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Baker_Oslo.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1441,7 +1440,7 @@ Przyprawy, które poprawiają smak potraw. Sól jest biała, a pieprz czarny i m
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Shakers_%284572668303%29.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1462,7 +1461,7 @@ Ptak, który nie lata, ale świetnie pływa. Żyje w zimnych miejscach.
 ### Piłka {#ball}
 ![preview ball](../../../assets/img/content/cards/ball.jpg){ loading=lazy }
 
-Okrągły przedmiot używany w wielu grach.
+No translation found for 'ball.desc' in Cards
 
 - Type: Object
 - Subjects: Sport, Recreation
@@ -1488,7 +1487,7 @@ Gra zespołowa, w której kopie się piłkę.
 ### Plecak {#backpack}
 ![preview backpack](../../../assets/img/content/cards/backpack.jpg){ loading=lazy }
 
-Torba, którą nosisz na plecach.
+No translation found for 'backpack.desc' in Cards
 
 - Type: Object
 - Subjects: Recreation, Transportation, Education
@@ -1546,7 +1545,7 @@ Polskie pieniądze (złoty) przedstawiane jako monety.
 - Type: Object
 - Subjects: Money, Geography
 - Country: International
-- Image credit: CC0 | Kaźmirz Stronczyński | [source](https://commons.wikimedia.org/wiki/File:Czerwony_złoty_gdański_1577r.jpg)
+- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Coins_-_ten_groszy_and_2_z%C5%82oty.jpg)
 - Quests: [Odkryj Warszawę (pl_01)](../quests/quest/pl_01.md)
 
 ---
@@ -1561,33 +1560,21 @@ Okrągły, pomarańczowy owoc, słodki i soczysty. Pomarańcze mają mnóstwo wi
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Orange-Fruit-Pieces.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### Pomarańczowa roślina {#plant_orange}
-![preview plant_orange](../../../assets/img/content/cards/plant_orange.jpg){ loading=lazy }
-
-Lśniące, zielone drzewo z okrągłymi, soczystymi pomarańczami. Pachnie świeżo i słodko jak słońce!
-
-- Type: Object
-- Country: International
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Citrus_sinensis_JPG01.jpg)
-- Quests: [Zoo (pl_04)](../quests/quest/pl_04.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
 ### Pomidor {#food_tomato}
 ![preview food_tomato](../../../assets/img/content/cards/food_tomato.jpg){ loading=lazy }
 
-Jest czerwony i okrągły. Można z niego zrobić sos do pizzy!
+No translation found for 'food_tomato.desc' in Cards
 
 - Type: Object
 - Subjects: Food, Culture
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Tomato_je.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1771,7 +1758,7 @@ Zwierzę żyjące i pływające w wodzie. Ryby mają płetwy i skrzela, które u
 - Country: International
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Grouper_fish_for_Sale.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1850,7 +1837,7 @@ Osoba sprzedająca różnego rodzaju żywność i napoje.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Mercado_del_Progreso_(7706491614).jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1862,7 +1849,7 @@ Osoba sprzedająca jajka.
 - Type: Person
 - Subjects: Community, Food
 - Country: International
-- Image credit: CC_BY_SA | Elgabarty2002 | [source](https://commons.wikimedia.org/wiki/File:Egg_Seller_in_Nigeria.jpg)
+- Image credit: CC_BY_SA | [source](https://commons.wikimedia.org/wiki/File:Brian_%E2%80%98Egg%E2%80%99_and_his_gang.jpg)
 - Quests: [Pierniki i targ spożywczy (pl_06)](../quests/quest/pl_06.md)
 
 ---
@@ -1870,7 +1857,7 @@ Osoba sprzedająca jajka.
 ### Sprzedawca na targu {#market_traders}
 ![preview market_traders](../../../assets/img/content/cards/market_traders.jpg){ loading=lazy }
 
-Osoby sprzedające żywność i towary na targach - sprzedawcy ryb, serów, owoców. Ważą, pakują i wykrzykują ceny.
+Kupcy sprzedają żywność i inne towary na straganach targowych. Można tu spotkać sprzedawców ryb, serów, artykułów spożywczych oraz owoców i warzyw. Można tu kupić świeże produkty.
 
 - Type: Person
 - Subjects: Money, Community
@@ -1914,8 +1901,8 @@ Osoba sprzedająca świeże ryby i owoce morza.
 - Subjects: History, Culture
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Fishmonger_weighing_fish_at_Payang_Market,_Kuala_Terengganu.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Image credit: CC_BY_SA | Philippe Alès, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Marseille_(France),_fish_market_in_Vieux-Port,_2013.JPG)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1929,7 +1916,7 @@ Osoba sprzedająca wiele rodzajów sera.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Paris_-_Cheese_seller,_Rue_Moufetard_-_3397.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -1943,7 +1930,7 @@ Osoba sprzedająca świeże owoce i warzywa.
 - Country: International
 - Topics: [market traders](../topics/index.md#marketers)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Barcelona_330DSC_0356_(49865911251).jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2002,7 +1989,7 @@ Najwyższy punkt góry.
 ### Szkoły francuskie {#french_schools}
 ![preview french_schools](../../../assets/img/content/cards/french_schools.jpg){ loading=lazy }
 
-We Francji nauka w szkołach dzieli się na cztery główne etapy: przedszkole (zabawa i nauka dla małych dzieci), szkoła podstawowa (czytanie, pisanie, matematyka), gimnazjum i liceum (szkoła średnia). Na koniec szkoły średniej wielu uczniów zdaje ważny egzamin - maturę.
+We Francji nauka w szkole dzieli się na cztery główne etapy. Maternelle jest dla dzieci w wieku od 3 do 5 lat. École élémentaire jest dla dzieci w wieku od 6 do 10 lat. Ma pięć klas: CP, CE1, CE2, CM1 i CM2. Collège jest dla uczniów w wieku od 11 do 14 lat. Ma cztery klasy: 6ème, 5ème, 4ème i 3ème. Lycée jest dla młodzieży w wieku od 15 do 18 lat. Ma trzy klasy: 2nde, 1ère i terminale.
 
 - Type: Concept
 - Subjects: Education, Civics, Culture
@@ -2155,7 +2142,7 @@ Waluta używana w wielu krajach Europy. Za euro można kupić zabawki i lody!
 - Subjects: Money, Geography
 - Country: International
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes_%28cropped%29.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2312,7 +2299,7 @@ Automatycznie utworzona karta na temat „Zwierzęta w zoo”.
 - Country: International
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -2395,7 +2382,7 @@ Przyjazny list, który uwielbia rozmawiać i się bawić! Rozmawiaj z nim, aby n
 
 ## France
 
-### 20 000 mil podmorskiej żeglugi {#book_20000_leagues_under_the_sea}
+### 20000 mil podmorskiej żeglugi {#book_20000_leagues_under_the_sea}
 ![preview book_20000_leagues_under_the_sea](../../../assets/img/content/cards/book_20000_leagues_under_the_sea.jpg){ loading=lazy }
 
 Książka Juliusza Verne'a o podwodnych przygodach w łodzi podwodnej Nautilus. Możesz spotkać gigantyczne morskie stworzenia!
@@ -2419,19 +2406,6 @@ Wyścig samochodowy trwający 24 godziny. Zespoły ścigają się dniem i nocą.
 - Subjects: Sport, Culture, History
 - Country: France
 - Image credit: CC0
-
----
-
-### A {#note_la}
-![preview note_la](../../../assets/img/content/cards/note_la.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Karst_peaks_and_green_paddy_fields_under_a_stormy_sky,_South_view_from_Mount_Nam_Xay,_Vang_Vieng,_Laos.jpg)
 
 ---
 
@@ -2491,7 +2465,7 @@ Wyjątkowa zupa rybna z Marsylii w południowej Francji. Przyrządzana z wielu r
 - Country: France
 - Topics: [Bouillabaisse](../topics/index.md#bouillabaisse)
 - Image credit: CC0 | [source](https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2507,23 +2481,10 @@ Buty przeznaczone do tańca na sali balowej.
 
 ---
 
-### C {#note_do}
-![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
-
----
-
 ### Collège we Francji {#education_college_fr}
 ![preview education_college_fr](../../../assets/img/content/cards/education_college_fr.jpg){ loading=lazy }
 
-Gimnazjum we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wielu przedmiotów i przygotowują się do szkoły średniej.
+Szkoła we Francji dla uczniów w wieku od 11 do 14 lat. Mają różnych nauczycieli i uczą się takich przedmiotów jak matematyka, angielski, przyroda, sport i historia.
 
 - Rationale: Understanding the French school system helps kids compare education across countries
 - Type: Concept
@@ -2533,19 +2494,6 @@ Gimnazjum we Francji dla dzieci w wieku od 11 do 15 lat. Uczniowie uczą się wi
 - Topics: [French School](../topics/index.md#frenchschool)
 - Image credit: CC0 | Marie Gaultier, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/wiki/File:Ecole_Sup%C3%A9rieure_d%27Agricultures.jpg)
 - Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
-
----
-
-### D {#note_re}
-![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Youlaus | [source](https://commons.wikimedia.org/wiki/File:Nota_Ré_4_(Piano).png)
 
 ---
 
@@ -2561,6 +2509,19 @@ Słowa z pierwszego wersu hymnu.
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
 - Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
+
+---
+
+### Do {#note_do}
+![preview note_do](../../../assets/img/content/cards/note_do.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | BrownHairedGirl | [source](https://commons.wikimedia.org/wiki/File:Dominican_Republic_Ireland_Locator.png)
 
 ---
 
@@ -2603,19 +2564,6 @@ Słowa z pierwszego wersu hymnu.
 
 ---
 
-### E {#note_mi}
-![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY | Dwight Burdette | [source](https://commons.wikimedia.org/wiki/File:Lenawee_County_Courthouse_Adrian_Michigan.JPG)
-
----
-
 ### Est Arrivé {#marseillaise_4}
 ![preview marseillaise_4](../../../assets/img/content/cards/marseillaise_4.jpg){ loading=lazy }
 
@@ -2631,7 +2579,7 @@ Słowa z pierwszego wersu hymnu.
 
 ---
 
-### F {#note_fa}
+### Fa {#note_fa}
 ![preview note_fa](../../../assets/img/content/cards/note_fa.jpg){ loading=lazy }
 
 Nuta muzyczna.
@@ -2659,7 +2607,7 @@ Nuta muzyczna.
 ### Flaga Francji {#flag_france}
 ![preview flag_france](../../../assets/img/content/cards/flag_france.jpg){ loading=lazy }
 
-Flaga Francji ma trzy pionowe pasy: niebieski, biały i czerwony. Te kolory symbolizują wolność, równość i braterstwo!
+Flaga francuska ma trzy pionowe kolory: niebieski, biały i czerwony.
 
 - Rationale: The French flag is essential for teaching French national identity and values
 - Type: Concept
@@ -2735,20 +2683,7 @@ Odważni żeglarze, którzy żeglowali po morzach dla króla Francji. Nazywano i
 - Year: 1600
 - Country: France
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Forbin_et_Jean_Bart_capture_en_1689.jpg)
-- Quests: [Jedzenie i targ (fr_09)](../quests/quest/fr_09.md)
-
----
-
-### G {#note_sol}
-![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | kallerna | [source](https://commons.wikimedia.org/wiki/File:Sol_de_Mañana_2018.jpg)
+- Quests: [Rynek w Marsylii (fr_09)](../quests/quest/fr_09.md)
 
 ---
 
@@ -2780,19 +2715,6 @@ Inżynier, który zbudował Wieżę Eiffla! Uwielbiał konstruować z żelaza i 
 
 ---
 
-### H {#note_si}
-![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
-
-Nuta muzyczna.
-
-- Type: Concept
-- Subjects: Music, Education
-- Country: France
-- Topics: [Musical Notes](../topics/index.md#musical_notes)
-- Image credit: CC_BY_SA | Bureau international des poids et mesures, International Bureau of Weights and Measures (BIPM) | [source](https://commons.wikimedia.org/wiki/File:SI_Logo_with_defining_constants.png)
-
----
-
 ### Jean Michel Jarre {#jean_michel_jarre}
 ![preview jean_michel_jarre](../../../assets/img/content/cards/jean_michel_jarre.jpg){ loading=lazy }
 
@@ -2809,7 +2731,7 @@ Francuski muzyk znany z muzyki elektronicznej
 ### Juliusz Verne {#jules_verne}
 ![preview jules_verne](../../../assets/img/content/cards/jules_verne.jpg){ loading=lazy }
 
-Francuski pisarz, który wyobrażał sobie niesamowite przygody, zanim stały się możliwe! Pisał o okrętach podwodnych, rakietach i podróżach po świecie.
+Jules Verne urodził się w 1828 roku, prawie 200 lat temu. Zmarł w 1905 roku. Był francuskim pisarzem i napisał wiele książek. Wymyślał niezwykłe sposoby podróżowania, zanim naprawdę powstały! Pisał o łodziach podwodnych, rakietach i podróżach dookoła świata.
 
 - Rationale: Jules Verne shows kids how imagination and science can work together
 - Type: Person
@@ -2831,21 +2753,6 @@ Elegancki kapelusz ze stylowym piórkiem.
 - Subjects: Culture, History
 - Country: France
 - Image credit: CC0 | Gustav Klimt | [source](https://commons.wikimedia.org/wiki/File:Gustav_Klimt_019.jpg)
-
----
-
-### Karta świeckości {#concept_charter_of_secularism}
-![preview concept_charter_of_secularism](../../../assets/img/content/cards/concept_charter_of_secularism.jpg){ loading=lazy }
-
-Zbiór zasad szanujących przekonania każdego. Pomaga ludziom żyć razem w pokoju.
-
-- Type: Concept
-- Subjects: Community, Culture
-- Year: 2013
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://camille-claudel.ecollege.haute-garonne.fr/le-college/charte-de-la-laicite/)
-- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md), [Juliusz Verne i transport (fr_03)](../quests/quest/fr_03.md)
 
 ---
 
@@ -2989,6 +2896,19 @@ Instrument ze sztabkami, w które uderza się, aby uzyskać dźwięki.
 
 ---
 
+### La {#note_la}
+![preview note_la](../../../assets/img/content/cards/note_la.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Karst_peaks_and_green_paddy_fields_under_a_stormy_sky,_South_view_from_Mount_Nam_Xay,_Vang_Vieng,_Laos.jpg)
+
+---
+
 ### Le Mans {#le_mans}
 ![preview le_mans](../../../assets/img/content/cards/le_mans.jpg){ loading=lazy }
 
@@ -3004,7 +2924,7 @@ Miasto we Francji słynące z 24-godzinnego wyścigu samochodowego.
 ### Liceum we Francji {#education_lycee_fr}
 ![preview education_lycee_fr](../../../assets/img/content/cards/education_lycee_fr.jpg){ loading=lazy }
 
-Szkoła średnia we Francji dla nastolatków w wieku od 16 do 18 lat. Uczniowie intensywnie przygotowują się do egzaminu maturalnego, aby móc iść na uniwersytet.
+Szkoła we Francji dla młodzieży w wieku od 14 do 18 lat. Uczniowie mają różnych nauczycieli i uczą się różnych przedmiotów, takich jak matematyka, angielski, przyroda, sport i historia. Przygotowują się do egzaminu końcowego zwanego maturą.
 
 - Rationale: The Lycée system shows kids the path to higher education in France
 - Type: Concept
@@ -3054,7 +2974,7 @@ Zdjęcie przedstawiające rzekę Sekwanę i jej przepływ przez ląd.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3068,7 +2988,7 @@ Zdjęcie przedstawiające jak Sekwana płynie przez Paryż.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3100,6 +3020,19 @@ Maska na imprezy i bale.
 
 ---
 
+### Mi {#note_mi}
+![preview note_mi](../../../assets/img/content/cards/note_mi.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY | Dwight Burdette | [source](https://commons.wikimedia.org/wiki/File:Lenawee_County_Courthouse_Adrian_Michigan.JPG)
+
+---
+
 ### Miecz {#sword}
 ![preview sword](../../../assets/img/content/cards/sword.jpg){ loading=lazy }
 
@@ -3122,7 +3055,7 @@ Piękny most w Paryżu z misternymi dekoracjami i złotymi posągami.
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3226,22 +3159,6 @@ Szklana piramida, która stanowi współczesne wejście do Luwru.
 
 ---
 
-### Pismo odręczne {#concept_cursive_writing}
-![preview concept_cursive_writing](../../../assets/img/content/cards/concept_cursive_writing.jpg){ loading=lazy }
-
-Specjalny sposób pisania, w którym wszystkie litery w słowie są połączone. We Francji dzieci uczą się tego sposobu pisania w szkole.
-
-- Rationale: Cursive writing is an important part of French education and cultural identity
-- Type: Concept
-- Subjects: Education, Culture, Art
-- Year: 1800
-- Country: France
-- Topics: [French School](../topics/index.md#frenchschool)
-- Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png)
-- Quests: [System edukacji (fr_02)](../quests/quest/fr_02.md)
-
----
-
 ### Pięć tygodni w balonie {#book_five_weeks_in_a_balloon}
 ![preview book_five_weeks_in_a_balloon](../../../assets/img/content/cards/book_five_weeks_in_a_balloon.jpg){ loading=lazy }
 
@@ -3276,7 +3193,7 @@ W 2019 roku wielki pożar zniszczył piękną katedrę Notre-Dame w Paryżu. Wie
 ### Przedszkole {#education_ecole_maternelle_fr}
 ![preview education_ecole_maternelle_fr](../../../assets/img/content/cards/education_ecole_maternelle_fr.jpg){ loading=lazy }
 
-Szkoła dla małych dzieci w wieku od 3 do 5 lat. Uczysz się poprzez zabawę i odkrywanie.
+Szkoła we Francji dla dzieci w wieku od 3 do 5 lat. Dzieci uczą się, odkrywając świat i bawiąc się.
 
 - Type: Concept
 - Subjects: Education, Culture
@@ -3310,6 +3227,19 @@ Obraz przedstawiający trzech braci składających odważną obietnicę.
 - Country: France
 - Image credit: CC0 | Jacques-Louis David | [source](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David,_Le_Serment_des_Horaces.jpg)
 - Quests: [Paryż! (fr_01)](../quests/quest/fr_01.md)
+
+---
+
+### Re {#note_re}
+![preview note_re](../../../assets/img/content/cards/note_re.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Youlaus | [source](https://commons.wikimedia.org/wiki/File:Nota_Ré_4_(Piano).png)
 
 ---
 
@@ -3378,14 +3308,27 @@ Bardzo szybki samochód używany na torach wyścigowych.
 ### Sekwana {#seine}
 ![preview seine](../../../assets/img/content/cards/seine.jpg){ loading=lazy }
 
-Rzeka o długości 777 kilometrów w północnej Francji
+Sekwana przepływa przez Paryż. Ma 777 km długości i uchodzi do kanału La Manche.
 
 - Type: Place
 - Subjects: Geography
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
+
+---
+
+### Si {#note_si}
+![preview note_si](../../../assets/img/content/cards/note_si.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | Bureau international des poids et mesures, International Bureau of Weights and Measures (BIPM) | [source](https://commons.wikimedia.org/wiki/File:SI_Logo_with_defining_constants.png)
 
 ---
 
@@ -3414,6 +3357,19 @@ Mały dwukołowy skuter (trottinette).
 
 ---
 
+### Sol {#note_sol}
+![preview note_sol](../../../assets/img/content/cards/note_sol.jpg){ loading=lazy }
+
+Nuta muzyczna.
+
+- Type: Concept
+- Subjects: Music, Education
+- Country: France
+- Topics: [Musical Notes](../topics/index.md#musical_notes)
+- Image credit: CC_BY_SA | kallerna | [source](https://commons.wikimedia.org/wiki/File:Sol_de_Mañana_2018.jpg)
+
+---
+
 ### Statek na Sekwanie {#boat_eiffel_tower}
 ![preview boat_eiffel_tower](../../../assets/img/content/cards/boat_eiffel_tower.jpg){ loading=lazy }
 
@@ -3426,7 +3382,7 @@ Wyjątkowa łódź, która pływa po Sekwanie w Paryżu. Z wody widać Wieżę E
 - Country: France
 - Topics: [Seine](../topics/index.md#seine)
 - Image credit: CC0
-- Quests: [Paryż Sekwana (fr_10)](../quests/quest/fr_10.md)
+- Quests: [Paryż - Sekwana (fr_10)](../quests/quest/fr_10.md)
 
 ---
 
@@ -3458,7 +3414,7 @@ Ostre patyki wystrzeliwane z łuku.
 ### Szkoła podstawowa we Francji {#education_ecole_primaire_fr}
 ![preview education_ecole_primaire_fr](../../../assets/img/content/cards/education_ecole_primaire_fr.jpg){ loading=lazy }
 
-Szkoła dla dzieci w wieku od 6 do 10 lat. Uczysz się czytania, pisania i liczenia.
+Szkoła we Francji dla dzieci w wieku od 6 do 10 lat. Dzieci uczą się czytać, pisać i liczyć.
 
 - Type: Concept
 - Subjects: Education, Culture
@@ -3473,7 +3429,7 @@ Szkoła dla dzieci w wieku od 6 do 10 lat. Uczysz się czytania, pisania i licze
 ### W osiemdziesiąt dni dookoła świata {#book_around_the_world_80_days}
 ![preview book_around_the_world_80_days](../../../assets/img/content/cards/book_around_the_world_80_days.jpg){ loading=lazy }
 
-Ekscytująca książka Juliusza Verne'a o bardzo szybkiej podróży dookoła całego świata pociągami, statkami i balonami na ogrzane powietrze!
+To książka napisana przez Juliusza Verne'a. Opowiada o pięknej i bardzo szybkiej podróży dookoła świata pociągiem, statkiem i balonem!
 
 - Type: Object
 - Subjects: Literature
@@ -3568,7 +3524,7 @@ Wielka światowa wystawa, na której pokazano Wieżę Eiffla.
 ### Z Ziemi na Księżyc {#book_from_earth_to_moon}
 ![preview book_from_earth_to_moon](../../../assets/img/content/cards/book_from_earth_to_moon.jpg){ loading=lazy }
 
-Książka Juliusza Verne'a o podróżny na księżyc po wystrzeleniu z armaty. Została napisana, zanim jeszcze istniały prawdziwe rakiety.
+Tę książkę napisał Juliusz Verne. Opowiada o podróży na Księżyc w statku kosmicznym wystrzelonym z wielkiej armaty. W tamtych czasach prawdziwe rakiety kosmiczne jeszcze nie istniały!
 
 - Type: Object
 - Subjects: Literature, Space, Science
@@ -3731,7 +3687,7 @@ Długa, płaska łódź przeznaczona do transportu towarów po rzekach.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Dietmar Rabich
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -3813,7 +3769,7 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kritzolina | [source](https://commons.wikimedia.org/wiki/File:Houseboat_in_Copenhagen_Harbor_02.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4033,7 +3989,7 @@ Mała łódka napędzana wiosłami.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | 0x010C
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4090,7 +4046,7 @@ Mostek, po którym mogą chodzić tylko ludzie. Bez samochodów.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Basile Morin | [source](https://commons.wikimedia.org/wiki/File:Front_view_of_a_wooden_footbridge_over_a_lagoon,_trees_and_mountains_in_Vang_Vieng,_Laos.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4132,7 +4088,7 @@ Prosta mapa przedstawiająca rzekę Odrę w Polsce i jej ujście do Morza Bałty
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4146,7 +4102,7 @@ Prosta mapa Wrocławia przedstawiająca rzekę Odrę z wyspami i wieloma mostami
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw)
 - Image credit: CC0
-- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md), [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md), [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4270,7 +4226,7 @@ Konstrukcja umożliwiająca ludziom lub pojazdom przekraczanie wody.
 - Subjects: Technology, Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Bridge_and_deck_of_Gullbritt.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4284,7 +4240,7 @@ Most dla samochodów i autobusów.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Photographer: Dey.sandip Additional Credit: User Atention for water spot removal. | [source](https://commons.wikimedia.org/wiki/File:Anjarle_Bridge_and_Cows-fix.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4298,7 +4254,7 @@ Most z torami kolejowymi.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Kabelleger / David Gubler | [source](https://commons.wikimedia.org/wiki/File:FCCA_GE_C30-7_Infiernillo_Viaduct.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4312,7 +4268,7 @@ Najdłuższy most podwieszany w Polsce.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Olgierd (Creative Commons licensed only) | [source](https://commons.wikimedia.org/wiki/File:Most_Rędziński_we_Wroclawiu.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4326,7 +4282,7 @@ Słynny most z latarniami gazowymi i kłódkami symbolizującymi miłość.
 - Country: Poland
 - Topics: [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Aw58 | [source](https://commons.wikimedia.org/wiki/File:Wrocław,_most_Tumski_widziany_z_bulwaru_Piotra_Włostowica_(MW).jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4768,7 +4724,7 @@ Duża rzeka w zachodniej Polsce. Umożliwia statkom podróżowanie i handel.
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -4986,7 +4942,7 @@ Najdłuższa rzeka w Polsce nazywa się Wisła. Przepływa przez Kraków i Warsz
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC0
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -5084,7 +5040,7 @@ Wrocław znany jest z licznych mostów.
 - Country: Poland
 - Topics: [Wroclaw](../topics/index.md#wroclaw), [Odra river](../topics/index.md#odra_river)
 - Image credit: CC_BY_SA | Jar.ciurus | [source](https://commons.wikimedia.org/wiki/File:Wroclaw_Most_Mlynski_w_porannej_mgle_przed_switem.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -5105,7 +5061,7 @@ Bezpieczna przestrzeń w zoo, w której mogą żyć zwierzęta.
 ### Wybrzeże Morza Bałtyckiego {#baltic_sea_coast}
 ![preview baltic_sea_coast](../../../assets/img/content/cards/baltic_sea_coast.jpg){ loading=lazy }
 
-Piaszczysty brzeg Morza Bałtyckiego.
+No translation found for 'baltic_sea_coast.desc' in Cards
 
 - Type: Place
 - Subjects: Geography, Environment
@@ -5152,7 +5108,7 @@ Pojazd poruszający się po wodzie.
 - Subjects: Transportation
 - Country: Poland
 - Image credit: CC_BY_SA | Norbert Nagel | [source](https://commons.wikimedia.org/wiki/File:Rowing_boat_on_a_house_roof_-_Fira_-_Santorini_-_Greece_-_02.jpg)
-- Quests: [Rzeka Odra (pl_03)](../quests/quest/pl_03.md)
+- Quests: [Rejs Odrą (pl_03)](../quests/quest/pl_03.md)
 
 ---
 
@@ -5283,7 +5239,7 @@ Stolica Włoch.
 ### Włochy
 ![preview country_italy](../../../assets/img/content/cards/country_italy.jpg){ loading=lazy }
 
-Państwo w Europie. Stolicą jest Rzym.
+To kraj w Europie. Jego stolicą jest Rzym.
 
 - Type: Place
 - Subjects: Geography, Culture
@@ -5313,7 +5269,7 @@ Flaga Andory ma niebieskie, żółte i czerwone pasy z herbem pośrodku. Andora 
 ### Flaga Hiszpanii
 ![preview flag_spain](../../../assets/img/content/cards/flag_spain.jpg){ loading=lazy }
 
-Flaga Hiszpanii ma poziome czerwone i żółte pasy. Kolory te przypominają słońce i paprykę. To w Hiszpanii tańczy się flamenco.
+Flaga Hiszpanii ma poziome czerwone i żółte pasy. To kolory słońca i papryki.
 
 - Rationale: The Spanish flag helps kids learn about France's southern neighbor and its vibrant culture
 - Type: Concept
@@ -5330,7 +5286,7 @@ Flaga Hiszpanii ma poziome czerwone i żółte pasy. Kolory te przypominają sł
 ### Hiszpania
 ![preview country_spain](../../../assets/img/content/cards/country_spain.jpg){ loading=lazy }
 
-Kraj w Europie. Stolicą jest Madryt. Hiszpania jest znana z tańca flamenco.
+Kraj w Europie. Stolicą jest Madryt. Hiszpania wymyśliła taniec flamenco.
 
 - Type: Place
 - Subjects: Geography, Culture
