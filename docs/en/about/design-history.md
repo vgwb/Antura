@@ -126,9 +126,25 @@ From these years of work, four things can be reused by anyone, even outside Antu
 | Late 2025 | Pilots in France and Poland |
 | May 2026 | Third student workshop in Florence |
 
-## 12. What's next
+## 12. What's new in Learn with Antura
 
-Discover is a framework, not a single game. We already have several Italian quests in beta. We plan to publish them with detailed game design and educational notes, to invite new people to create their own. The next country could be Spain.
+Learn with Antura builds on the foundation of Antura and the Letters, which already provided:
+
+- **An open-source game foundation**, including 3D assets, a user interface, player profiles and support for multiple platforms.
+- **Language-learning courses** in English, French, German, Hungarian, Italian, Polish, Romanian and Spanish. The curriculum teaches the alphabet, more than 250 words, and simple phrases and expressions. Separate reading course is available for Arabics. See the [language module](../manual/learnlanguage_module.md).
+- **A structured language-learning path**: learners discover words through images and sounds, then recognize their written forms, and later use familiar words in short sentences. The curriculum is organized as a progression through six worlds.
+
+### What was added
+
+- **A cultural learning model**: topics group connected knowledge cards, and short quests help children discover them through stories, characters and interactions. Reusable 2D activities provide more ways to explore and reinforce a topic. See the [Discover module](../manual/discover_module.md).
+- **A bridge between culture and language**: the cultural module reuses vocabulary from the language module. During the project, approximately 100 additional words were added to support new content.
+- **A teacher manual**, covering setup, classroom use and practical follow-up activities. See the [manual](../manual/index.md) and [classroom guide](../manual/classroom_guide.md).
+- **An open content website generated from the game with community forum**, where educators can browse quests, dialogues, cards and translations. They can also suggest corrections to quest scripts and translations.
+- **An open-source design framework**: quests use a text-based format, and the content model and creator documentation help educators and developers create or adapt content. The Unity project includes a shared library of reusable 3D prefabs for common props, characters, interactive objects. The project also provides tools for managing translations and text-to-speech for multilingual content.
+
+## 13. What's next
+
+Discover is a framework, not a single game. We already have several Italian quests in beta. We plan to publish them with detailed game design and educational notes, to invite new people to create their own.
 
 ![Italian quest screenshot 1](../../assets/img/learn-with-antura/italian/ita_01.webp)
 ![Italian quest screenshot 2](../../assets/img/learn-with-antura/italian/ita_02.webp)

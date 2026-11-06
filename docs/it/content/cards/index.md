@@ -1238,7 +1238,6 @@ Un grande mare nel nord Europa, dove si incontrano Polonia, Germania e altri pae
 - Country: International
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC0
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -2420,7 +2419,6 @@ Le prime parole del primo verso dell'inno.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2444,7 +2442,6 @@ Un grande arco a Parigi, costruito in onore degli eroi. Lo si può vedere splend
 - Type: Place
 - Country: France
 - Image credit: CC0
-- Quests: [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2696,7 +2693,6 @@ Il Castello di Chinon è una possente fortezza in pietra su una collina che domi
 - Subjects: History
 - Country: France
 - Image credit: CC0
-- Quests: [Una storia di due castelli (fr_05)](../quests/quest/fr_05.md)
 
 ---
 
@@ -2820,7 +2816,6 @@ Parole dal primo verso dell'inno.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2861,7 +2856,6 @@ Parole dal primo verso dell'inno.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3115,7 +3109,6 @@ L'inno nazionale francese. Viene cantato durante i grandi eventi e le partite sp
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3130,7 +3123,6 @@ Parole dal primo verso dell'inno.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marsigliese (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3659,7 +3651,6 @@ Resina fossile lucida di albero chiamata "oro baltico".
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Fuerte_Amber,_Amber,_India,_2009-12-04,_DD_0019.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3673,7 +3664,6 @@ La scienza che studia il Sole, la Luna, le stelle e i pianeti.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3771,7 +3761,6 @@ Una famosa stanza fatta di ambra con una storia misteriosa.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3797,7 +3786,6 @@ Ora è un museo dove è possibile scoprire di più sulla sua vita e sui suoi suc
 - Subjects: Culture, Science
 - Country: Poland
 - Image credit: CC0 | Pko, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/w/index.php?curid=76433849)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3839,7 +3827,6 @@ Una collana di perline o conchiglie da indossare intorno al collo.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Necklace_made_of_rough_diamonds.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3853,7 +3840,6 @@ Un guscio duro di un animale marino, ottimo per i lavoretti.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Flexopecten_ponticus_2008_G1.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3881,7 +3867,6 @@ No translation found for 'baltic_sea_coast.desc' in Cards
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3932,7 +3917,6 @@ Città portuale in Polonia sul Mar Baltico.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk), [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Calle_Dlugie_Pobrzeze,_Gdansk,_Polonia,_2013-05-20,_DD_05.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3973,7 +3957,6 @@ Gli esseri viventi e la loro casa nella natura, che lavorano insieme.
 - Subjects: Environment, Science
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4012,7 +3995,6 @@ Un faro storico che aiuta le navi a trovare il porto.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Yanek | [source](https://commons.wikimedia.org/wiki/File:Gdańsk,_Kapitanat_Portu_-_Port_Północny_-_fotopolska.eu_(304857).jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4026,7 +4008,6 @@ Il fiume che attraversa Danzica fino al mare.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | John Samuel | [source](https://commons.wikimedia.org/wiki/File:Boat_on_Motława_river_in_Gdańsk.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4080,7 +4061,6 @@ Un animale marino selvatico che riposa sulle spiagge.
 - Subjects: Animal, Environment, Safety
 - Country: Poland
 - Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Common_seal_(Phoca_vitulina)_2.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4094,7 +4074,6 @@ Una famosa fontana di Danzica con la statua del dio del mare.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Monumento_Neptuno,_Gdansk,_Polonia,_2013-05-20,_DD_03.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4137,7 +4116,6 @@ Un uccello marino che vive vicino alla costa.
 - Subjects: Animal, Environment
 - Country: Poland
 - Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Black-headed_Gull_-_St_James's_Park,_London_-_Nov_2006.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4162,7 +4140,6 @@ Il pianeta più grande, famoso per la Grande Macchia Rossa.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL/Space Science Institute | [source](https://commons.wikimedia.org/wiki/File:Portrait_of_Jupiter_from_Cassini.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4232,7 +4209,6 @@ Un pezzo di vetro o plastica trasparente che piega la luce.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Christian David | [source](https://commons.wikimedia.org/wiki/File:Village_de_Lens.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4300,7 +4276,6 @@ Il pianeta rosso con polvere e grandi vulcani.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY_SA | ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO | [source](https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4314,7 +4289,6 @@ Il pianeta più vicino al Sole; piccolo e molto veloce.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. Edited version of Image:Mercury in color - Prockter07.jpg by Papa Lima Whiskey. | [source](https://commons.wikimedia.org/wiki/File:Mercury_in_color_-_Prockter07_centered.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4328,7 +4302,6 @@ L'idea che il Sole sia al centro e che i pianeti gli girino attorno.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Andreas Cellarius | [source](https://commons.wikimedia.org/wiki/File:1661_Cellarius's_chart_illustrating_Copernicus'_heliocentric_model_of_the_universe.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4382,7 +4355,6 @@ Un alto municipio con torre e museo.
 - Subjects: History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Ayuntamiento_Principal,_Gdansk,_Polonia,_2013-05-20,_DD_01.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4522,7 +4494,6 @@ Una grande imbarcazione che trasporta persone o merci.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4536,7 +4507,6 @@ Orientarsi in mare utilizzando luci, mappe e strumenti.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Table_of_Geography_and_Hydrography,_Cyclopaedia,_Volume_1.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4550,7 +4520,6 @@ Il dio del mare delle vecchie storie.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA | [source](https://commons.wikimedia.org/wiki/File:Neptune_Full.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4566,7 +4535,6 @@ Un brillante scienziato polacco ha scoperto che è la Terra a girare intorno al 
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC0
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4580,7 +4548,6 @@ La piccola lente attraverso cui si guarda in un telescopio.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY | SvonHalenbach | [source](https://commons.wikimedia.org/wiki/File:Newtonianscope-eyepiece-detail.JPG)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4607,7 +4574,6 @@ Acqua in movimento sul mare.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Roger McLassus | [source](https://commons.wikimedia.org/wiki/File:2006-01-14_Surface_waves.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4689,7 +4655,6 @@ Persona che pesca in mare.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Benh LIEU SONG (Flickr) | [source](https://commons.wikimedia.org/wiki/File:Leg_Rowing_Fisherman_Inle_Lake_Myanmar.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4735,7 +4700,6 @@ Un luogo dove è possibile osservare il cielo e le stelle restando al chiuso.
 
 Bernhard Müller († 1930)
 Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://commons.wikimedia.org/wiki/File:Planetarium_Pfaffendorfer_Strasse_Leipzig_um_1927.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4832,7 +4796,6 @@ Un luogo dove le navi caricano e scaricano.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4875,7 +4838,6 @@ Una rete usata per catturare i pesci.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Fishing_net_Karystos_Euboea_Greece.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4903,7 +4865,6 @@ Un pianeta gigante con anelli luminosi e numerose lune.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech/SSI/Cornell | [source](https://commons.wikimedia.org/wiki/File:Top_view_of_the_rings_of_Saturn_by_Cassini_-_October_10,_2013.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4944,7 +4905,6 @@ Il Sole e gli otto pianeti che gli ruotano attorno.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Originally uploaded from NASA by Bricktop; edited by Deuar, KFP, TotoBaggins, City303, JCPagc2015 | [source](https://commons.wikimedia.org/wiki/File:Moons_of_solar_system_v7.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4983,7 +4943,6 @@ Una piccola barca da pesca usata in mare.
 - Subjects: Transportation, Technology
 - Country: Poland
 - Image credit: CC_BY_SA | Gordon Leggett | [source](https://commons.wikimedia.org/wiki/File:2009-12-06_USCGC_Key_Biscayne_WPB1339.jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4997,7 +4956,6 @@ Uno strumento che ci aiuta a vedere cose lontane nel cielo.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Palonitor | [source](https://commons.wikimedia.org/wiki/File:Kométa_C-2020_F3_(NEOWISE).jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5011,7 +4969,6 @@ Il nostro pianeta natale con terra, aria e acqua.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans | [source](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5024,7 +4981,6 @@ Città della Polonia dove nacque Niccolò Copernico.
 - Subjects: Geography, History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:Widok_zza_Wisły_na_Toruń,_20210908_1711_2822.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5038,7 +4994,6 @@ Un pianeta blu-verde che ruota su un lato.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech | [source](https://commons.wikimedia.org/wiki/File:Uranus2.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5080,7 +5035,6 @@ Un pianeta molto caldo ricoperto da spesse nubi.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Y. Beletsky | [source](https://commons.wikimedia.org/wiki/File:Mercury,_Venus_and_the_Moon_Align.jpg)
-- Quests: [Copernico e il sistema solare (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5121,7 +5075,6 @@ Una vecchia gru portuale e una porta della città sul fiume.
 - Subjects: History, Technology, Geography
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
-- Quests: [La collana d'ambra di Danzica (pl_05)](../quests/quest/pl_05.md)
 
 ## Others
 

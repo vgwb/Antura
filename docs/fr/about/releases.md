@@ -1,9 +1,7 @@
 ---
-title: Journal des modifications
+title: Journal des versions
 ---
 
-<script setup>
-import Page from '../../en/about/releases.md'
-</script>
+# Journal des versions
 
-<Page />
+Les annonces de sortie sont désormais publiées dans les [News en anglais](/en/blog/) et portent le tag `release`.

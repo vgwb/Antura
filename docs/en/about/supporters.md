@@ -6,8 +6,6 @@ title: "Supporters & Partners"
 Antura exists thanks to the generosity of many organizations and institutions who have funded, supported, or partnered with us over the years.  
 We are deeply grateful for their trust and collaboration.
 
----
-
 ## 🎓 Institutional & Educational Partners
 
 - [TH Köln / Cologne Game Lab](https://www.colognegamelab.de)  
@@ -15,8 +13,6 @@ We are deeply grateful for their trust and collaboration.
 - [Académie de Nantes Rectorat, France](https://www.ac-nantes.fr)  
 - Dolnośląska Szkoła Wyższa, Poland  
 - Ogólnopolski Operator Oświaty, Poland  
-
----
 
 ## 🌍 International Support
 
@@ -28,8 +24,6 @@ We are deeply grateful for their trust and collaboration.
 - Partnership Afghanistan Canada  
 - Code To Inspire  
 
----
-
 ## 🏆 Industry & Philanthropic Support
 
 - **Ubisoft** (special support for Antura 2.0)  
@@ -38,8 +32,6 @@ We are deeply grateful for their trust and collaboration.
 - Andalucia Open Future (Spain)  
 - Polo de Contenidos Digitales, Málaga  
 - Centro de Innovación Social La Noria, Málaga  
-
----
 
 ## 🙌 How You Can Support
 
@@ -53,8 +45,6 @@ Your contribution can help us:
 
 👉 If your organization is interested in supporting Antura:  
 📩 [Contact us](/en/about/contact) to start a partnership.  
-
----
 
 ## 💡 Transparency
 

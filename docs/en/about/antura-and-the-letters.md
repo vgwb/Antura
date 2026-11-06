@@ -1,48 +1,35 @@
 ---
 title: Antura and the Letters
-layout: home
-
-hero:
-  name: "Antura and the Letters"
-  text: "Free literacy for all"
-  tagline: "The award-winning open source game that turns reading and language into a fun adventure."
-  actions:
-    - theme: alt
-      text: Home
-      link: /en/
-    - theme: brand
-      text: Download
-      link: /en/download
-  image:
-    src: /img/antura_letters_gametitle.jpg
-    alt: "Antura and the Letters game title screen"
-
-features:
-  - title: "🎮 Learn through play"
-    details: "Minigames make letters, words, and reading practice fun, across a journey through 6 worlds."
-    link: en/manual/learnlanguage_module
-  - title: "🔤 Learn to read in your language"
-    details: "Native-language literacy support for Arabic, Persian Dari, Pashto, and Ukrainian."
-    link: en/manual/learnlanguage_module#current-learning-modules
-  - title: "🌐 Learn a new language"
-    details: "English, French, German, Italian, Polish, Spanish, and more, from PreA1 level."
-    link: en/manual/learnlanguage_module#current-learning-modules
-  - title: "🏆 Born from EduApp4Syria"
-    details: "Created for Syrian refugee children and winner of the international EduApp4Syria competition."
-    link: en/about/history
-  - title: "🎖️ Internationally recognized"
-    details: "UNHCR NGO Innovation Award, Techfugees winner, and a dozen more honors."
-    link: en/about/awards
-  - title: "🆓 Free and open source"
-    details: "100% free, ad-free, and open to community contributions."
-    link: en/about/open-source
-  - title: "🤝 A 10-year humanitarian initiative"
-    details: "Built by a global team of 100+ volunteers, universities, and NGOs."
-    link: en/about/history
-  - title: "💻📱 Cross-platform"
-    details: "Runs on PC and mobile, no internet required after install."
-    link: en/download
 ---
+
+# Antura and the Letters
+
+**Free literacy for all.** Antura and the Letters is an award-winning, open-source game that makes reading and language practice a fun adventure.
+
+[Download the game](/en/download) · [Learn Languages module](../manual/learnlanguage_module.md)
+
+![Antura and the Letters game title screen](/img/antura_letters_gametitle.jpg)
+
+## Learn through play
+
+Children practice letters, words and reading through mini-games on a journey across six worlds. Explore the [language-learning modules](../manual/learnlanguage_module.md) and [how to play](../manual/learnlanguage_how_to_play.md).
+
+## Learn to read and learn a new language
+
+- **Read in your language:** literacy support for Arabic and Persian Dari, with Pashto and Ukrainian listed as in progress.
+- **Learn a new language:** courses include English, French, German, Hungarian, Italian, Polish, Romanian and Spanish, from Pre-A1 level.
+
+See the current modules in the [Learn Languages overview](../manual/learnlanguage_module.md#current-learning-modules).
+
+## An award-winning humanitarian project
+
+Created for Syrian refugee children, Antura and the Letters won the international EduApp4Syria competition. It has also received the [UNHCR NGO Innovation Award, Techfugees recognition and other honors](./awards.md). The project grew through the work of a global community of volunteers, universities and NGOs; read its [history](./history.md).
+
+## Free and accessible
+
+The game is free, ad-free and open to community contributions. It runs on PC and mobile and can be played offline after installation. Learn more about the [open-source project](./open-source.md) or [download the game](../download.md).
+
+## See the game
 
 <YouTubeVideo id="HDM7a1i_kIw" title="Antura Trailer" />
 

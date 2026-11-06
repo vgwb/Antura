@@ -378,7 +378,7 @@ Credits:
 
     ![preview musical_score](../../../assets/img/content/cards/musical_score.jpg){ width="200" }
 
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md), [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
+- Quests: [Wielka akcja ratunkowa krasnala wrocławskiego (pl_02)](../quests/quest/pl_02.md)
 
 ---
 
@@ -448,7 +448,6 @@ Credits:
 
     ![preview uranus](../../../assets/img/content/cards/uranus.jpg){ width="200" }
 
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -485,7 +484,6 @@ Credits:
 
     ![preview danger_sign](../../../assets/img/content/cards/danger_sign.jpg){ width="200" }
 
-- Quests: [Poruszaj się bezpiecznie po mieście (fr_04)](../quests/quest/fr_04.md)
 
 ---
 
@@ -520,7 +518,6 @@ Credits:
 
     ![preview planetarium](../../../assets/img/content/cards/planetarium.jpg){ width="200" }
 
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -989,7 +986,6 @@ Credits:
 
     ![preview art_venus_milo](../../../assets/img/content/cards/art_venus_milo.jpg){ width="200" }
 
-- Quests: [Muzeum Luwru (fr_12)](../quests/quest/fr_12.md)
 
 ---
 
@@ -1068,7 +1064,6 @@ Credits:
 
     ![preview marseillaise_4](../../../assets/img/content/cards/marseillaise_4.jpg){ width="200" }
 
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 

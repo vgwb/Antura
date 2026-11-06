@@ -1,9 +1,7 @@
 ---
-title: Journal des modifications
+title: Note di rilascio
 ---
 
-<script setup>
-import Page from '../../en/about/releases.md'
-</script>
+# Note di rilascio
 
-<Page />
+Gli annunci delle versioni sono pubblicati nelle [News in inglese](/en/blog/) e contrassegnati con il tag `release`.

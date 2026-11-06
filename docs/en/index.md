@@ -17,7 +17,7 @@ hero:
 <a class="version-card" href="/en/about/learn-with-antura">
   <img class="version-card-image" src="../assets/img/learn-with-antura/start.jpg" alt="Learn with Antura: a bilingual quest dialogue in Paris" title="Learn with Antura: a bilingual quest dialogue in Paris" />
   <div class="version-card-body">
-    <p class="version-card-tag">🌍 The new v3 — actively developed</p>
+    <p class="version-card-tag">🌍 The new edition, actively developed</p>
     <h2>Learn with Antura</h2>
     <p>Explore <strong>Discover Cultures</strong> quests with your companion cat, collect knowledge cards, and learn a new language along the way. Built for migrant and refugee children in classrooms and at home, and currently piloted in France and Poland as part of our Erasmus+ project.</p>
     <span class="version-card-cta">Discover Learn with Antura →</span>
@@ -35,3 +35,9 @@ hero:
 </a>
 
 </div>
+
+## Latest news
+
+- **9 November 2026 (upcoming):** [Angers Erasmus+ meeting and Learn with Antura v2026 beta](/en/news/posts/2026-11-angers)
+- **May 2026:** [Fifth Consortium Meeting in Wrocław](/en/news/posts/2026-05-fifth-consortium-meeting-wroclaw)
+- **April 2026:** [Teacher capacity-building trainings begin in France and Poland](/en/news/posts/2026-04-capacity-building-trainings)

@@ -1228,7 +1228,6 @@ Wielkie morze w północnej Europie, gdzie spotykają się Polska, Niemcy i inne
 - Country: International
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC0
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -2420,7 +2419,6 @@ Pierwsze słowa hymnu francuskiego
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2508,7 +2506,6 @@ Słowa z pierwszego wersu hymnu.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2560,7 +2557,6 @@ Słowa z pierwszego wersu hymnu.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2575,7 +2571,6 @@ Słowa z pierwszego wersu hymnu.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3004,7 +2999,6 @@ Francuski hymn narodowy, śpiewany podczas wielkich wydarzeń i zawodów sportow
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3557,7 +3551,6 @@ Zamek Chinon to potężna kamienna twierdza na wzgórzu nad rzeką w Dolinie Loa
 - Subjects: History
 - Country: France
 - Image credit: CC0
-- Quests: [Opowieść o dwóch zamkach (fr_05)](../quests/quest/fr_05.md)
 
 ---
 
@@ -3631,7 +3624,6 @@ Wielki łuk w Paryżu wzniesiony ku czci bohaterów. Lśni tak, że widać go z 
 - Type: Place
 - Country: France
 - Image credit: CC0
-- Quests: [Marsylianka (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3673,7 +3665,6 @@ Nauka zajmująca się badaniem Słońca, Księżyca, gwiazd i planet.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3715,7 +3706,6 @@ Błyszcząca, skamieniała żywica drzew iglastych zwana "złotem Bałtyku".
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Fuerte_Amber,_Amber,_India,_2009-12-04,_DD_0019.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3729,7 +3719,6 @@ Słynny pokój z bursztynu o tajemniczej historii.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3755,7 +3744,6 @@ Obecnie mieści się tam muzeum, w którym można poznać historię jego życia 
 - Subjects: Culture, Science
 - Country: Poland
 - Image credit: CC0 | Pko, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/w/index.php?curid=76433849)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -3821,7 +3809,6 @@ Osoba zarządzająca zoo i pomagająca zwiedzającym.
 - Subjects: Environment, Science
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3835,7 +3822,6 @@ Ruch wody na morzu.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Roger McLassus | [source](https://commons.wikimedia.org/wiki/File:2006-01-14_Surface_waves.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3890,7 +3876,6 @@ Dzikie zwierzę morskie, odpoczywające na plażach.
 - Subjects: Animal, Environment, Safety
 - Country: Poland
 - Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Common_seal_(Phoca_vitulina)_2.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3904,7 +3889,6 @@ Słynna fontanna w Gdańsku z figurą boga morza.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Monumento_Neptuno,_Gdansk,_Polonia,_2013-05-20,_DD_03.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3934,7 +3918,6 @@ Miasto portowe w Polsce nad Morzem Bałtyckim.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk), [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Calle_Dlugie_Pobrzeze,_Gdansk,_Polonia,_2013-05-20,_DD_05.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3975,7 +3958,6 @@ Największa planeta, słynąca z Wielkiej Czerwonej Plamy.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL/Space Science Institute | [source](https://commons.wikimedia.org/wiki/File:Portrait_of_Jupiter_from_Cassini.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4060,7 +4042,6 @@ Zabytkowa latarnia morska, która pomaga statkom znaleźć port.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Yanek | [source](https://commons.wikimedia.org/wiki/File:Gdańsk,_Kapitanat_Portu_-_Port_Północny_-_fotopolska.eu_(304857).jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4142,7 +4123,6 @@ Czerwona planeta z pyłem i dużymi wulkanami.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY_SA | ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO | [source](https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4156,7 +4136,6 @@ Najbliższa Słońcu planeta, mała i bardzo szybka.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. Edited version of Image:Mercury in color - Prockter07.jpg by Papa Lima Whiskey. | [source](https://commons.wikimedia.org/wiki/File:Mercury_in_color_-_Prockter07_centered.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4169,7 +4148,6 @@ Ptak morski żyjący w pobliżu wybrzeża.
 - Subjects: Animal, Environment
 - Country: Poland
 - Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Black-headed_Gull_-_St_James's_Park,_London_-_Nov_2006.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4185,7 +4163,6 @@ Genialny naukowiec z Polski, który odkrył, że to Ziemia krąży wokół Sło�
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC0
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4213,7 +4190,6 @@ Pogląd, że Słońce znajduje się w centrum, a planety krążą wokół niego.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Andreas Cellarius | [source](https://commons.wikimedia.org/wiki/File:1661_Cellarius's_chart_illustrating_Copernicus'_heliocentric_model_of_the_universe.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4296,7 +4272,6 @@ Twarda muszla zwierzęcia morskiego, wykorzystywana w rzemiośle.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Flexopecten_ponticus_2008_G1.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4334,7 +4309,6 @@ Sznur koralików lub muszelek noszony na szyi.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Necklace_made_of_rough_diamonds.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4348,7 +4322,6 @@ Wyznaczanie drogi na morzu za pomocą świateł, map i przyrządów nawigacyjnyc
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Table_of_Geography_and_Hydrography,_Cyclopaedia,_Volume_1.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4362,7 +4335,6 @@ Bóg morza ze starych opowieści.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA | [source](https://commons.wikimedia.org/wiki/File:Neptune_Full.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4375,7 +4347,6 @@ Mała łódź rybacka używana na morzu.
 - Subjects: Transportation, Technology
 - Country: Poland
 - Image credit: CC_BY_SA | Gordon Leggett | [source](https://commons.wikimedia.org/wiki/File:2009-12-06_USCGC_Key_Biscayne_WPB1339.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4389,7 +4360,6 @@ Przezroczysta szyba lub plastik, która załamuje światło.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Christian David | [source](https://commons.wikimedia.org/wiki/File:Village_de_Lens.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4417,7 +4387,6 @@ Mała soczewka, przez którą patrzysz w teleskopie.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY | SvonHalenbach | [source](https://commons.wikimedia.org/wiki/File:Newtonianscope-eyepiece-detail.JPG)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4529,7 +4498,6 @@ Budynek, w którym można oglądać niebo i gwiazdy.
 
 Bernhard Müller († 1930)
 Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://commons.wikimedia.org/wiki/File:Planetarium_Pfaffendorfer_Strasse_Leipzig_um_1927.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4628,7 +4596,6 @@ Miejsce, w którym towary ładuje się na statki lub je rozładowuje.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4669,7 +4636,6 @@ Wysoki ratusz z wieżą i muzeum.
 - Subjects: History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Ayuntamiento_Principal,_Gdansk,_Polonia,_2013-05-20,_DD_01.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4696,7 +4662,6 @@ Osoba łowiąca ryby w morzu.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Benh LIEU SONG (Flickr) | [source](https://commons.wikimedia.org/wiki/File:Leg_Rowing_Fisherman_Inle_Lake_Myanmar.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4710,7 +4675,6 @@ Rzeka płynąca przez Gdańsk.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | John Samuel | [source](https://commons.wikimedia.org/wiki/File:Boat_on_Motława_river_in_Gdańsk.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4738,7 +4702,6 @@ Olbrzymia planeta z jasnymi pierścieniami i wieloma księżycami.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech/SSI/Cornell | [source](https://commons.wikimedia.org/wiki/File:Top_view_of_the_rings_of_Saturn_by_Cassini_-_October_10,_2013.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4752,7 +4715,6 @@ Sieć służąca do połowu ryb.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Fishing_net_Karystos_Euboea_Greece.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4793,7 +4755,6 @@ Duża łódź przewożąca ludzi lub towary.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4845,7 +4806,6 @@ Narzędzie pozwalające nam zobaczyć odległe obiekty na niebie.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Palonitor | [source](https://commons.wikimedia.org/wiki/File:Kométa_C-2020_F3_(NEOWISE).jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4858,7 +4818,6 @@ Miasto w Polsce, w którym urodził się Mikołaj Kopernik.
 - Subjects: Geography, History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:Widok_zza_Wisły_na_Toruń,_20210908_1711_2822.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4872,7 +4831,6 @@ Słońce i osiem planet krążących wokół niego.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Originally uploaded from NASA by Bricktop; edited by Deuar, KFP, TotoBaggins, City303, JCPagc2015 | [source](https://commons.wikimedia.org/wiki/File:Moons_of_solar_system_v7.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4886,7 +4844,6 @@ Niebiesko-zielona planeta, toczy się na boku.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech | [source](https://commons.wikimedia.org/wiki/File:Uranus2.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4915,7 +4872,6 @@ Bardzo gorąca planeta pokryta grubymi chmurami.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Y. Beletsky | [source](https://commons.wikimedia.org/wiki/File:Mercury,_Venus_and_the_Moon_Align.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5068,7 +5024,6 @@ No translation found for 'baltic_sea_coast.desc' in Cards
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -5082,7 +5037,6 @@ Nasza planeta, z domem powietrzem i wodą.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans | [source](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)
-- Quests: [Kopernik i układ słoneczny (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5121,7 +5075,6 @@ Stary dźwig portowy i brama miejska nad rzeką.
 - Subjects: History, Technology, Geography
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
-- Quests: [Gdański naszyjnik bursztynowy (pl_05)](../quests/quest/pl_05.md)
 
 ## Others
 

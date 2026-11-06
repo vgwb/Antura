@@ -8,7 +8,8 @@ export default defineAdditionalConfig({
       '/en/manual/': { base: '/en/manual/', items: sidebarManual() },
       '/en/content/': { base: '/en/content/', items: sidebarContent() },
       '/en/dev/': { base: '/en/dev/', items: sidebarDev() },
-      '/en/about/': { base: '/en/about/', items: sidebarAbout() }
+      '/en/about/': { base: '/en/about/', items: sidebarAbout() },
+      '/en/news/': { base: '/en/news/', items: sidebarNews() }
     }
   }
 })
@@ -17,10 +18,10 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
     { text: 'Manual', link: '/en/manual/', activeMatch: '/en/manual/' },
-    { text: 'Content', link: '/en/content/', activeMatch: '/en/content/' },
+    { text: 'Game Content', link: '/en/content/', activeMatch: '/en/content/' },
+    { text: 'News', link: '/en/news/', activeMatch: '/en/news/' },
     { text: 'Developers', link: '/en/dev/', activeMatch: '/en/dev/' },
-    { text: 'Download', link: '/en/download' },
-    { text: 'News & Community', link: '/en/about/contact' }
+    { text: 'Download', link: '/en/download' }
   ]
 }
 
@@ -157,46 +158,112 @@ function sidebarDev(): DefaultTheme.SidebarItem[] {
 function sidebarAbout(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Editions',
-      items: [
-        { text: 'Learn with Antura', link: 'learn-with-antura' },
-        { text: 'Antura and the Letters', link: 'antura-and-the-letters' },
-      ],
-    },
-    {
-      text: 'About Antura project',
+      text: 'About Antura Project',
+      link: 'index',
       items: [
         { text: 'History', link: 'history' },
-        { text: 'Overview', link: 'overview' },
-        { text: 'Design History', link: 'design-history' },
-        { text: 'Supporters & Partners', link: 'supporters' },
-        { text: 'Impact evaluation', link: 'impact' },
-        { text: 'Erasmus+', link: 'erasmus' },
-        { text: 'Releases', link: 'releases' },
-        { text: '🏆 Awards & Recognition', link: 'awards' },
-        { text: '🌐 Open source', link: 'open-source' },
-        { text: '❤️ Support us', link: 'support-us' },
-      ],
-    },
-    {
-      text: 'Credits',
-      items: [
         { text: 'Credits', link: 'credits' },
-        { text: 'Credits (Assets)', link: 'credits-assets' },
+        { text: 'Supporters & Partners', link: 'supporters' },
+        { text: '🌐 Open source', link: 'open-source' },
+        { text: 'Resources', link: 'resources' },
+        { text: '❤️ Support us', link: 'support-us' },
+        { text: 'Contact & Community', link: 'contact' },
+      ],
+    },
+    {
+      text: 'Edition: Antura and the Letters',
+      link: 'antura-and-the-letters',
+      items: [
+        { text: 'Impact evaluation', link: 'impact' },
+        { text: '🏆 Awards & Recognition', link: 'awards' },
+      ],
+    },
+    {
+      text: 'Edition: Learn with Antura',
+      link: 'learn-with-antura',
+      items: [
+        { text: 'Design History', link: 'design-history' },
+        { text: 'Erasmus+', link: 'erasmus' },
+        { text: 'Assets used', link: 'credits-assets' },
+     ],
+    },
+    {
+      text: 'Website & Legal',
+      items: [
         { text: 'About this Website', link: 'website' },
-      ],
-    },
-    {
-      text: 'Contact',
-      items: [
-        { text: 'Contact & Community', link: 'contact' }
-      ],
-    },
-    {
-      text: 'License',
-      items: [
         { text: 'License', link: 'license' },
         { text: 'Privacy Policy', link: '../../privacy-policy' },
+      ],
+    },
+  ]
+}
+
+function sidebarNews(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'News',
+      link: '/',
+      items: [
+        {
+          text: 'Project news',
+          items: [
+            { text: 'Fifth Consortium Meeting in Wrocław', link: 'posts/2026-05-fifth-consortium-meeting-wroclaw' },
+            { text: 'Teacher capacity-building trainings', link: 'posts/2026-04-capacity-building-trainings' },
+            { text: 'Language-teaching seminar', link: 'posts/2026-02-language-teaching-seminar' },
+            { text: 'Game Studies Congress in Kraków', link: 'posts/2025-11-game-studies-congress-krakow' },
+            { text: 'Large-scale pilot in France and Poland', link: 'posts/2025-10-large-scale-pilot-france-poland' },
+            { text: 'Fourth Consortium Meeting in Wrocław', link: 'posts/2025-09-fourth-consortium-meeting-wroclaw' },
+            { text: 'Small-scale pilot begins in France', link: 'posts/2025-03-small-scale-pilot-france' },
+            { text: 'Third Consortium Meeting in Málaga', link: 'posts/2024-11-third-consortium-meeting-malaga' },
+            { text: 'Consortium Meeting in Angers', link: 'posts/2024-07-consortium-meeting' },
+            { text: 'Workshops in Wrocław', link: 'posts/2024-03-workshop-warklav' },
+            { text: 'Workshops in Angers', link: 'posts/2024-02-workshop-angers' },
+            { text: 'Kick off meeting - Cologne', link: 'posts/2023-12-kickoff-meeting' },
+          ],
+        },
+        {
+          text: 'Awards & Recognition',
+          items: [
+            { text: 'German Developer Award 2022', link: 'posts/2022-12-german-developer-award' },
+            { text: 'UNHCR NGO Innovation Award', link: 'posts/2019-12-unhcr-innovation-award-antura' },
+            { text: 'Spanish Red Cross Technology Award', link: 'posts/2019-02-spanish-red-cross-award' },
+            { text: 'TechFugees 2018', link: 'posts/2018-11-techfugees-antura' },
+            { text: 'Games for Change 2018 finalists', link: 'posts/2018-06-games-for-change-finalist' },
+            { text: 'Titanium Serious Game of the Year', link: 'posts/2017-12-titanium-serious-game-award' },
+            { text: 'EduApp4Syria finalist', link: 'posts/2016-09-eduapp4syria-finalists' },
+          ],
+        },
+        {
+          text: 'Early Antura Coverage',
+          items: [
+            { text: 'International Mother Language Day', link: 'posts/2018-02-mother-language-day-antura' },
+            { text: 'January 2018 project update', link: 'posts/2018-02-antura-january-newsletter' },
+            { text: 'Education 2030 forum', link: 'posts/2017-10-antura-education-2030' },
+            { text: 'International Literacy Day', link: 'posts/2017-09-international-literacy-day' },
+            { text: 'Downloads, testing and open source', link: 'posts/2017-09-antura-project-update' },
+            { text: 'FMX talks published', link: 'posts/2017-07-fmx-talks-published' },
+            { text: 'FMX 2017 presentation', link: 'posts/2017-05-antura-at-fmx' },
+            { text: 'April 2017 project update', link: 'posts/2017-05-antura-april-newsletter' },
+            { text: 'When We Play, We Learn', link: 'posts/2017-03-when-we-play-we-learn' },
+            { text: 'First game images', link: 'posts/2016-08-antura-first-images' },
+          ],
+        },
+        {
+          text: 'Releases',
+          items: [
+            { text: '2026 beta', link: 'posts/2026-11-angers' },
+            { text: '2025 Discover Edition beta', link: 'posts/2025-01-discover-edition-beta' },
+            { text: '2.4.0 - Pashto', link: 'posts/2022-01-v2-4-pashto' },
+            { text: '2.3.0 - Hungarian', link: 'posts/2022-01-v2-3-hungarian' },
+            { text: '2.2.0 - New Languages', link: 'posts/2022-07-v2-2-new-languages' },
+            { text: '2.1.0 - Multiedition One App', link: 'posts/2022-06-v2-1-multiedition' },
+            { text: '2.0.0 - New Arabic', link: 'posts/2021-11-v2-0-new-arabic' },
+            { text: '1.4.0 - Learn French', link: 'posts/2020-08-v1-4-learn-french' },
+            { text: '1.3.0 - Learn English', link: 'posts/2019-02-v1-3-learn-english' },
+            { text: '1.2.0 - Arabic Release', link: 'posts/2018-02-v1-2-arabic-release' },
+            { text: '0.6.0 - Arabic Beta', link: 'posts/2017-03-v0-6-arabic-beta' },
+          ],
+        },
       ],
     },
   ]

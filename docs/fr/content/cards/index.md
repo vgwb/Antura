@@ -879,7 +879,6 @@ Une grande mer d'Europe du Nord, à côté de la Pologne, l'Allemagne et d'autre
 - Country: International
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC0
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -2423,7 +2422,6 @@ Les premiers mots de la première ligne de l’hymne.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2587,7 +2585,6 @@ Paroles de la première ligne de l’hymne.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2658,7 +2655,6 @@ Paroles de la première ligne de l’hymne.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2865,7 +2861,6 @@ C'est une grande arche à Paris, construite en l'honneur des héros. On peut la 
 - Type: Place
 - Country: France
 - Image credit: CC0
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -2968,7 +2963,6 @@ L'hymne national français. On le chante lors des grands événements et des com
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3010,7 +3004,6 @@ Le château de Chinon est en pierre. Il est près du fleuve la Loire. Des rois y
 - Subjects: History
 - Country: France
 - Image credit: CC0
-- Quests: [Un conte de deux châteaux (fr_05)](../quests/quest/fr_05.md)
 
 ---
 
@@ -3057,7 +3050,6 @@ Paroles de la première ligne de l’hymne.
 - Topics: [marseillaise music](../topics/index.md#marseillaise_music)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_chant_national_fran%C3%A7ais_de_Rouget_de_L%27Isle_Transcription_de_Langevin-2.jpg)
 - Audio credit: PublicDomain | [source](https://commons.wikimedia.org/wiki/File:La_Marseillaise_(1914_Recording).ogg)
-- Quests: [La Marseillaise (fr_11)](../quests/quest/fr_11.md)
 
 ---
 
@@ -3659,7 +3651,6 @@ L'ambre est utilisée pour faire des bijoux.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Fuerte_Amber,_Amber,_India,_2009-12-04,_DD_0019.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3740,7 +3731,6 @@ Une célèbre pièce en ambre avec une histoire mystérieuse.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | Branson DeCou | [source](https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3754,7 +3744,6 @@ Un collier de perles ou de coquillages que vous portez autour du cou.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | W.carter | [source](https://commons.wikimedia.org/wiki/File:Necklace_made_of_rough_diamonds.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3782,7 +3771,6 @@ Une coquille dure provenant d'un animal marin ; idéale pour l'artisanat.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC0 | George Chernilevsky | [source](https://commons.wikimedia.org/wiki/File:Flexopecten_ponticus_2008_G1.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3866,7 +3854,6 @@ Un filet utilisé pour attraper du poisson.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | Jebulon | [source](https://commons.wikimedia.org/wiki/File:Fishing_net_Karystos_Euboea_Greece.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3880,7 +3867,6 @@ Eau en mouvement sur la mer.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Roger McLassus | [source](https://commons.wikimedia.org/wiki/File:2006-01-14_Surface_waves.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3938,7 +3924,6 @@ Une ville portuaire en Pologne sur la mer Baltique.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk), [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Calle_Dlugie_Pobrzeze,_Gdansk,_Polonia,_2013-05-20,_DD_05.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3951,7 +3936,6 @@ Une ancienne grue portuaire et une porte de ville sur la rivière.
 - Subjects: History, Technology, Geography
 - Country: Poland
 - Image credit: CC_BY_SA | Jacek Halicki | [source](https://commons.wikimedia.org/wiki/File:2024_Żuraw_wieżowy,_ul._Letnia_w_Kłodzku_(2).jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -3992,7 +3976,6 @@ Un grand hôtel de ville avec une tour et un musée.
 - Subjects: History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Ayuntamiento_Principal,_Gdansk,_Polonia,_2013-05-20,_DD_01.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4005,7 +3988,6 @@ Un animal marin sauvage qui se repose sur les plages.
 - Subjects: Animal, Environment, Safety
 - Country: Poland
 - Image credit: CC_BY_SA | Charles J. Sharp | [source](https://commons.wikimedia.org/wiki/File:Common_seal_(Phoca_vitulina)_2.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4019,7 +4001,6 @@ La plus grande planète, célèbre pour la Grande Tache Rouge.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL/Space Science Institute | [source](https://commons.wikimedia.org/wiki/File:Portrait_of_Jupiter_from_Cassini.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4033,7 +4014,6 @@ C'est la science qui étudie le Soleil, la Lune, les étoiles et les planètes.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Yuri Beletsky (ybialets at eso.org) | [source](https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4047,7 +4027,6 @@ No translation found for 'baltic_sea_coast.desc' in Cards
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Radomianin | [source](https://commons.wikimedia.org/wiki/File:Baltic_Sea_view_from_Schmiedeberg_hill_in_Rerik,_2025-06-23.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4061,7 +4040,6 @@ Une célèbre fontaine de Gdańsk avec la statue du dieu de la mer.
 - Country: Poland
 - Topics: [Neptune's fountain](../topics/index.md#neptune_fountain)
 - Image credit: CC_BY_SA | Diego Delso | [source](https://commons.wikimedia.org/wiki/File:Monumento_Neptuno,_Gdansk,_Polonia,_2013-05-20,_DD_03.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4130,7 +4108,6 @@ Le plus long fleuve de Pologne s'appelle Wisła ou Vistule. Il traverse Cracovie
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Christian Ferrer | [source](https://commons.wikimedia.org/wiki/File:Rhapsody_(ship,_1996),_Sète_cf01.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4186,7 +4163,6 @@ Sur le port, les bateaux arrivent, se stationnent, déchargent des marchandises 
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY | Maxime Raynal from France | [source](https://commons.wikimedia.org/wiki/File:Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4215,7 +4191,6 @@ Un morceau de verre ou de plastique transparent qui courbe la lumière.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Christian David | [source](https://commons.wikimedia.org/wiki/File:Village_de_Lens.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4242,7 +4217,6 @@ C'est aujourd'hui un musée où vous pourrez en apprendre davantage sur sa vie e
 - Subjects: Culture, Science
 - Country: Poland
 - Image credit: CC0 | Pko, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons | [source](https://commons.wikimedia.org/w/index.php?curid=76433849)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4271,7 +4245,6 @@ La planète rouge avec de la poussière et de grands volcans.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY_SA | ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO | [source](https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4299,7 +4272,6 @@ La planète la plus proche du Soleil ; petite et très rapide.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. Edited version of Image:Mercury in color - Prockter07.jpg by Papa Lima Whiskey. | [source](https://commons.wikimedia.org/wiki/File:Mercury_in_color_-_Prockter07_centered.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4313,7 +4285,6 @@ L'idée que le Soleil est au centre et que les planètes tournent autour de lui.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Andreas Cellarius | [source](https://commons.wikimedia.org/wiki/File:1661_Cellarius's_chart_illustrating_Copernicus'_heliocentric_model_of_the_universe.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4340,7 +4311,6 @@ Un oiseau marin qui vit près de la côte.
 - Subjects: Animal, Environment
 - Country: Poland
 - Image credit: CC_BY_SA | Diliff | [source](https://commons.wikimedia.org/wiki/File:Black-headed_Gull_-_St_James's_Park,_London_-_Nov_2006.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4438,7 +4408,6 @@ Trouver son chemin en mer à l'aide de lumières, de cartes et d'outils.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC0 | [source](https://commons.wikimedia.org/wiki/File:Table_of_Geography_and_Hydrography,_Cyclopaedia,_Volume_1.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4452,7 +4421,6 @@ Le dieu de la mer des vieilles histoires.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA | [source](https://commons.wikimedia.org/wiki/File:Neptune_Full.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4468,7 +4436,6 @@ Un brillant scientifique polonais a découvert que la Terre tourne autour du Sol
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC0
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4482,7 +4449,6 @@ La petite lentille à travers laquelle vous regardez sur un télescope.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY | SvonHalenbach | [source](https://commons.wikimedia.org/wiki/File:Newtonianscope-eyepiece-detail.JPG)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4591,7 +4557,6 @@ Un phare historique qui aide les navires à trouver le port.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | Yanek | [source](https://commons.wikimedia.org/wiki/File:Gdańsk,_Kapitanat_Portu_-_Port_Północny_-_fotopolska.eu_(304857).jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4650,7 +4615,6 @@ Un endroit où vous pouvez voir le ciel et les étoiles à l'intérieur.
 
 Bernhard Müller († 1930)
 Karl Walter (* 7. Dezember 1874; † 11. October 1940) | [source](https://commons.wikimedia.org/wiki/File:Planetarium_Pfaffendorfer_Strasse_Leipzig_um_1927.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4706,7 +4670,6 @@ Une personne qui attrape du poisson en mer.
 - Country: Poland
 - Topics: [Fisherman](../topics/index.md#fisherman)
 - Image credit: CC_BY_SA | Benh LIEU SONG (Flickr) | [source](https://commons.wikimedia.org/wiki/File:Leg_Rowing_Fisherman_Inle_Lake_Myanmar.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4720,7 +4683,6 @@ La rivière qui traverse Gdańsk jusqu'à la mer.
 - Country: Poland
 - Topics: [gdansk](../topics/index.md#gdansk)
 - Image credit: CC_BY_SA | John Samuel | [source](https://commons.wikimedia.org/wiki/File:Boat_on_Motława_river_in_Gdańsk.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4762,7 +4724,6 @@ Une planète géante avec des anneaux brillants et de nombreuses lunes.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech/SSI/Cornell | [source](https://commons.wikimedia.org/wiki/File:Top_view_of_the_rings_of_Saturn_by_Cassini_-_October_10,_2013.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4816,7 +4777,6 @@ Le Soleil et les huit planètes qui tournent autour de lui.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | Originally uploaded from NASA by Bricktop; edited by Deuar, KFP, TotoBaggins, City303, JCPagc2015 | [source](https://commons.wikimedia.org/wiki/File:Moons_of_solar_system_v7.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4830,7 +4790,6 @@ Notre planète avec terre, air et eau.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans | [source](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4843,7 +4802,6 @@ Une ville de Pologne où est né Nicolas Copernic.
 - Subjects: Geography, History, Culture
 - Country: Poland
 - Image credit: CC_BY_SA | Jakub Hałun | [source](https://commons.wikimedia.org/wiki/File:Widok_zza_Wisły_na_Toruń,_20210908_1711_2822.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4857,7 +4815,6 @@ Un outil qui nous aide à voir des choses lointaines dans le ciel.
 - Country: Poland
 - Topics: [Telescope](../topics/index.md#telescope)
 - Image credit: CC_BY_SA | Palonitor | [source](https://commons.wikimedia.org/wiki/File:Kométa_C-2020_F3_(NEOWISE).jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4883,7 +4840,6 @@ Un petit bateau de pêche utilisé en mer.
 - Subjects: Transportation, Technology
 - Country: Poland
 - Image credit: CC_BY_SA | Gordon Leggett | [source](https://commons.wikimedia.org/wiki/File:2009-12-06_USCGC_Key_Biscayne_WPB1339.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 
@@ -4984,7 +4940,6 @@ Une planète bleu-vert qui tourne sur le côté.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC0 | NASA/JPL-Caltech | [source](https://commons.wikimedia.org/wiki/File:Uranus2.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -4998,7 +4953,6 @@ Une planète très chaude recouverte de nuages ​​épais.
 - Country: Poland
 - Topics: [Solar System](../topics/index.md#solar_system)
 - Image credit: CC_BY | ESO/Y. Beletsky | [source](https://commons.wikimedia.org/wiki/File:Mercury,_Venus_and_the_Moon_Align.jpg)
-- Quests: [Copernic et le système solaire (pl_07)](../quests/quest/pl_07.md)
 
 ---
 
@@ -5080,7 +5034,6 @@ Ensemble des êtres vivants et leur habitat dans la nature.
 - Subjects: Environment, Science
 - Country: Poland
 - Image credit: CC_BY_SA | XCXNXH | [source](https://commons.wikimedia.org/wiki/File:JULY_2024_COBERMS_RESEARCH_WORK_AT_KONGO_VILLAGE.jpg)
-- Quests: [Le collier d'ambre de Gdańsk (pl_05)](../quests/quest/pl_05.md)
 
 ---
 

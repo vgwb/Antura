@@ -1,9 +1,7 @@
 ---
-title: Journal des modifications
+title: Informacje o wydaniach
 ---
 
-<script setup>
-import Page from '../../en/about/releases.md'
-</script>
+# Informacje o wydaniach
 
-<Page />
+Informacje o wydaniach są publikowane w sekcji [News w języku angielskim](/en/blog/) i oznaczone tagiem `release`.

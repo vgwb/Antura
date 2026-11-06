@@ -5,14 +5,14 @@ title: Contact and Community
 
 > Let's stay in touch
 
+## Community Forum
+We are here with teachers, users and designers:  
+👉🏼 [Discussions](https://github.com/vgwb/Antura/discussions/)
+
 ## Newsletter
 
 Please subscribe to our newsletter:  
 👉🏼 [videogameswithoutborders.substack.com](https://videogameswithoutborders.substack.com)
-
-## Community Forum
-We are here with teachers, users and designers:  
-👉🏼 [Discussions](https://github.com/vgwb/Antura/discussions/)
 
 ## GitHub
 The open source repository is here:  
@@ -20,8 +20,8 @@ The open source repository is here:
 
 ## Social
 
-- [www.facebook.com/gaming/antura.initiative](https://www.facebook.com/gaming/antura.initiative)
-- [www.instagram.com/anturagame](https://www.instagram.com/anturagame)
+- [facebook.com/antura.initiative](https://www.facebook.com/antura.initiative)
+- [instagram.com/anturagame](https://www.instagram.com/anturagame)
 
 ## Email
 email: [contact@antura.org](mailto:contact@antura.org)
