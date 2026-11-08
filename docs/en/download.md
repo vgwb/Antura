@@ -25,17 +25,17 @@ The original version
 
 Official builds are not yet available, but we can amke them on demand, or [build from source](./dev/how-to/Build.md).
 
-## Beta
+## Beta
 
 to Access Internal / Beta versions:
 
 - Android Testing: [https://play.google.com/apps/internaltest/4701400252900534178](https://play.google.com/apps/internaltest/4701400252900534178)  
 - iOS Testflight: [https://testflight.apple.com/join/9TtjzP6h](https://testflight.apple.com/join/9TtjzP6h)  
 
-## 💻 Source Code
+## Source Code
 
 Antura is fully **open source** 👉 [github.com/vgwb/Antura](https://github.com/vgwb/Antura)  
 
 ## ❓ Need Help?
 
-See the [Classroom Guide](./manual/classroom_guide.md) for teachers or ask questions in the [Antura Forum](https://github.com/vgwb/Antura/discussions).
+See the [Manual](./manual/index.md) for teachers or ask questions in the [Antura Forum](https://github.com/vgwb/Antura/discussions).

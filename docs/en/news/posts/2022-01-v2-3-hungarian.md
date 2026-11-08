@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 2.3.0 - Hungarian
 slug: antura-2-3-hungarian
 date: 2022-01-01

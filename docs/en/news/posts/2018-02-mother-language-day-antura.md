@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and International Mother Language Day
 date: 2018-02-21
 tags:

@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Selected as an EduApp4Syria Finalist
 date: 2016-09-07
 tags:

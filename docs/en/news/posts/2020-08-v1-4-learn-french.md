@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 1.4.0 - Learn French
 slug: antura-1-4-learn-french
 date: 2020-08-01

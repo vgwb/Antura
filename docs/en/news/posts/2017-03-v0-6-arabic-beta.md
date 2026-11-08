@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 0.6.0 - Arabic Beta
 slug: antura-0-6-arabic-beta
 date: 2017-03-21

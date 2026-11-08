@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 2.2.0 - New Languages
 slug: antura-2-2-new-languages
 date: 2022-07-01

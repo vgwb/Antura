@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: "Antura Project Update: Downloads, Testing and Open Source"
 date: 2017-09-01
 tags:

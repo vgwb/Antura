@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: FMX Conference Talks Featuring Antura Are Online
 date: 2017-07-07
 tags:

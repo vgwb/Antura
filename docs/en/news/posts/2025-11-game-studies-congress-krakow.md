@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura at the Game Studies Congress in Kraków
 date: 2025-11-13
 tags:

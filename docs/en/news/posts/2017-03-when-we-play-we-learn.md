@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: When We Play, We Learn
 date: 2017-03-29
 tags:

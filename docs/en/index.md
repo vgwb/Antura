@@ -25,7 +25,7 @@ hero:
 </a>
 
 <a class="version-card" href="/en/about/learn-with-antura">
-  <img class="version-card-image" src="../assets/img/learn-with-antura/learn_icon.jpg" alt="Learn with Antura game logo" title="Learn with Antura" />
+  <img class="version-card-image version-card-image--icon" src="../assets/img/learn-with-antura/learn_icon.jpg" alt="Learn with Antura game logo" title="Learn with Antura" />
   <div class="version-card-body">
     <p class="version-card-tag">🌍 The new 2026 edition</p>
     <h2>Learn with Antura</h2>

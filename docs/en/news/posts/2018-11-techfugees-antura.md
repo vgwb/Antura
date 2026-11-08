@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura at TechFugees 2018
 date: 2018-11-30
 tags:

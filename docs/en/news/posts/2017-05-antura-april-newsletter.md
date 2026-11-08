@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: "Antura Project Update: Launch, Downloads and Field Testing"
 date: 2017-05-01
 tags:

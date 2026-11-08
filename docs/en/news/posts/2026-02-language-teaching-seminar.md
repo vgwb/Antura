@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Presented at a Language-Teaching Seminar
 date: 2026-02-11
 tags:

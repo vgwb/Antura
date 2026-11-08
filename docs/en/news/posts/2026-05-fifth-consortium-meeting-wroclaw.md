@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Fifth Consortium Meeting in Wrocław
 date: 2026-05-26
 tags:

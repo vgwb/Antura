@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 1.3.0 - Learn English
 slug: antura-1-3-learn-english
 date: 2019-02-01

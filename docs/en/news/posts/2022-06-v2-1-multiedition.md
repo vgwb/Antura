@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 2.1.0 - The Multiedition One App
 slug: antura-2-1-multiedition
 date: 2022-06-01

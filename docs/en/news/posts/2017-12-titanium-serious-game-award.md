@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Wins Titanium Serious Game of the Year
 date: 2017-12-14
 tags:

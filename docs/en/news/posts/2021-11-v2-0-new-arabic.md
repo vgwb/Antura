@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 2.0.0 - New Arabic
 slug: antura-2-0-new-arabic
 date: 2021-11-01

@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Presented at the International Forum on ICT and Education 2030
 date: 2017-10-18
 tags:

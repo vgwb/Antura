@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Workshops in Wrocław
 slug: workshop-wroclaw
 description: ""

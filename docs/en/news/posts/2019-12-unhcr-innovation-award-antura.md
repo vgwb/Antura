@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: VGWB Wins the UNHCR NGO Innovation Award
 date: 2019-12-20
 tags:

@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Receives Spanish Red Cross Technology Award
 date: 2019-02-27
 tags:

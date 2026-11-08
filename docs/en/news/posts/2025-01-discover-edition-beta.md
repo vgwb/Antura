@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Learn with Antura 2025 Beta - Discover Edition
 slug: discover-edition-2025-beta
 date: 2025-01-01

@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Fourth Consortium Meeting in Wrocław
 date: 2025-09-08
 tags:

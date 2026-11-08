@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: "Antura Project Update: Field-Test Feedback and Next Languages"
 date: 2018-02-02
 tags:

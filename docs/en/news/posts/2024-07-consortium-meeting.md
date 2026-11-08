@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Consortium Meeting in Angers
 slug: consortium-meeting-angers
 description: ""

@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Nominated for Two Games for Change Awards
 date: 2018-06-19
 tags:

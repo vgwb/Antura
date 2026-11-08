@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Presented at FMX 2017
 date: 2017-05-09
 tags:

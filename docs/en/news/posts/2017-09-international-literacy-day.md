@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and International Literacy Day 2017
 date: 2017-09-08
 tags:

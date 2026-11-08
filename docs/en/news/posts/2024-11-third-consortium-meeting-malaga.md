@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Third Consortium Meeting in Málaga
 date: 2024-11-04
 tags:

@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura Wins the German Developer Award for Social Commitment
 date: 2022-12-12
 tags:

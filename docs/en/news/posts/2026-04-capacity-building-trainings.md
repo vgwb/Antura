@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Teacher Capacity-Building Trainings Begin in France and Poland
 date: 2026-04-01
 tags:

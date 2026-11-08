@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Small-Scale Pilot Begins in France
 date: 2025-03-01
 tags:

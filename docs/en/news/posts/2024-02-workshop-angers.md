@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Workshops in Angers
 slug: workshop-angers
 description: ""

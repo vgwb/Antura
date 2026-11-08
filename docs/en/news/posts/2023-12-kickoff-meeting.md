@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Kick off meeting - Cologne
 slug: kickoff-meeting
 description: ""

@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Large-Scale Pilot in France and Poland
 date: 2025-10-01
 tags:

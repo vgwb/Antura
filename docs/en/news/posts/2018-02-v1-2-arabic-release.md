@@ -1,4 +1,5 @@
 ---
+sidebar: false
 title: Antura and the Letters 1.2.0 - Arabic Release
 slug: antura-1-2-arabic-release
 date: 2018-02-01

@@ -1,12 +1,13 @@
 ---
 title: News
-sidebar: true
+sidebar: false
 ---
 
 # News
 
 ## 2026
 - **November:** [Angers Erasmus+ meeting](./posts/2026-11-angers.md)
+- **RELEASE:** [Learn with Antura 2026 Beta](./posts/2026-11-2026-beta.md)
 - **May:** [Fifth Consortium Meeting in Wrocław](./posts/2026-05-fifth-consortium-meeting-wroclaw.md)
 - **April:** [Teacher capacity-building trainings begin in France and Poland](./posts/2026-04-capacity-building-trainings.md)
 - **February:** [Antura presented at a language-teaching seminar](./posts/2026-02-language-teaching-seminar.md)
