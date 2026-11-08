@@ -28,9 +28,8 @@ a {
   color: var(--vp-c-links);
 }
 
-/* orange border above h2 headings*/
 .vp-doc h2 {
-  border-top: 2px solid var(--vp-c-brand-2);
+  margin-top: 0;
 }
 
 /* Active link: show a nice bottom underline instead of a background */
@@ -180,8 +179,10 @@ hr {
 .version-card-image {
   width: 100%;
   height: 240px;
-  object-fit: cover;
-  border-radius: 0;
+  box-sizing: border-box;
+  object-fit: contain;
+  background: var(--vp-c-bg);
+  padding: 1rem;
   margin: 0;
   display: block;
 }
@@ -229,6 +230,41 @@ hr {
 
 .version-card:hover .version-card-cta {
   color: var(--vp-c-brand-2);
+}
+
+.audience-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 3rem;
+}
+
+.audience-card {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1) !important;
+  text-decoration: none !important;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.audience-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--vp-c-brand-1);
+}
+
+.audience-card h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.1rem;
+}
+
+.audience-card p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  font-size: .95rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 639px) {

@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Crédits
 ---
 
 <script setup>

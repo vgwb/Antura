@@ -1,5 +1,7 @@
 ---
 title: Download
+sidebar: false
+aside: false
 ---
 
 <script setup>

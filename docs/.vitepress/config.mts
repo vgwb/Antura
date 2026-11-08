@@ -16,6 +16,13 @@ function slugifyKeepUnderscore(input: string): string {
 }
 
 export default defineConfig({
+    nav: [
+      { text: 'About', link: '/en/about/' },
+      { text: 'Game Content', link: '/en/content/' },
+      { text: 'Teacher Manual', link: '/en/manual/' },
+      { text: 'Developer Docs', link: '/en/dev/' },
+      { text: 'News', link: '/en/news/' }
+    ],
   title: 'Antura Game Project',
   description: 'The Antura Game Project website and docs for Educators, Designers and Game Developers',
   cleanUrls: true,
@@ -63,9 +70,9 @@ export default defineConfig({
   },
   locales: {
     root: { label: 'English', lang: 'en', link: '/en/', dir: 'ltr' },
-    fr: {label: 'Français', lang: 'fr', link: '/fr/', dir: 'ltr' },
-    pl: {label: 'Polski', lang: 'pl', link: '/pl/', dir: 'ltr' },
-    it: {label: 'Italiano', lang: 'it', link: '/it/', dir: 'ltr' },
+    fr: { label: 'Français', lang: 'fr', link: '/fr/', dir: 'ltr' },
+    pl: { label: 'Polski', lang: 'pl', link: '/pl/', dir: 'ltr' },
+    it: { label: 'Italiano', lang: 'it', link: '/it/', dir: 'ltr' },
   },
   markdown: {
     anchor: {

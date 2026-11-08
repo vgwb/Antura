@@ -21,7 +21,7 @@ function nav(): DefaultTheme.NavItem[] {
     { text: 'Game Content', link: '/en/content/', activeMatch: '/en/content/' },
     { text: 'News', link: '/en/news/', activeMatch: '/en/news/' },
     { text: 'Developers', link: '/en/dev/', activeMatch: '/en/dev/' },
-    { text: 'Download', link: '/en/download' }
+    { text: '⬇️ Download', link: '/en/download' }
   ]
 }
 

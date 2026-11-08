@@ -1,33 +1,33 @@
 ---
-title: About Antura
+title: O projekcie Antura
 ---
 
-# About Antura
+# O projekcie Antura
 
-Here you can learn more about the Antura initiative, our partners, how to get in touch, and licensing.
+Projekt Antura powstał w 2016 roku. Poznaj jego historię i dwie obecnie opublikowane edycje.
 
-## History and Supporters
+- [Historia](./history.md) - Początki projektu i jego rozwój
+- [Wspierający i partnerzy](./supporters.md) - Organizacje wspierające projekt
+- [Podziękowania](./credits.md) - Osoby, które współtworzyły projekt
+- [Open source](./open-source.md) - Kod źródłowy i sposoby zaangażowania
+- [Wesprzyj nas](./support-us.md) - Pomóż nam rozwijać bezpłatne gry edukacyjne
+- [Kontakt i społeczność](./contact.md) - Skontaktuj się z nami i dołącz do społeczności
 
-- [History](./history.md) - How the project started, key milestones, partners, and awards.
-- [Supporters & Partners](./supporters.md)
-- [Awards](./awards.md)
-- [Erasmus+](./erasmus.md) - Overview of the EU‑funded Erasmus+ project
-- [Releases](./releases.md) - History of game releases
-- [Open Source](./open-source.md)
-- [Impact evaluation](./impact.md)
-- [Support us](./support-us.md)
+## Edycje
 
-## Credits
+### Antura and the Letters
+- [Informacje o Antura and the Letters](./antura-and-the-letters.md)
+- [Ocena wpływu](./impact.md)
+- [Nagrody i wyróżnienia](./awards.md)
 
-- [Credits](./credits.md) - People and organizations who contributed across editions.
-- [External assets](./credits-assets.md) - Third‑party assets used in the project with authors and licenses.
-- [Website credits](./website.md) - about this website
+### Learn with Antura
+- [Informacje o Learn with Antura](./learn-with-antura.md)
+- [Historia projektowania](./design-history.md)
+- [Erasmus+](./erasmus.md) - Projekt UE wspierający tę edycję
+- [Wykorzystane zasoby](./credits-assets.md) - Zasoby zewnętrzne i ich licencje
 
-## Contact
+## Strona internetowa i informacje prawne
 
-- [Contact & Community](./contact.md) - How to reach us and where to join the community forum and social channels.
-
-## License and Privacy
-
-- [License](./license.md) - Software and content licenses for Antura and the AdventurED framework.
-- [Privacy Policy](../../privacy-policy.md)
+- [O tej stronie](./website.md)
+- [Licencja](./license.md)
+- [Polityka prywatności](../../privacy-policy.md)

@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Contatti e comunità
 ---
 
 <script setup>

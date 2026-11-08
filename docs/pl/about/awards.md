@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Nagrody i wyróżnienia
 ---
 
 <script setup>

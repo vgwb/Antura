@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Kontakt i społeczność
 ---
 
 <script setup>

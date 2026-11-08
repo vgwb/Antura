@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Open source
 ---
 
 <script setup>

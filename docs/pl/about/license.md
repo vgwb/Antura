@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Licencja
 ---
 
 <script setup>

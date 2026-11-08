@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Ressources utilisées
 ---
 
 <script setup>

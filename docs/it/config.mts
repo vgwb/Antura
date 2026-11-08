@@ -25,10 +25,9 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Informazioni', link: '/it/about/', activeMatch: '/it/about/' },
     { text: 'Manuale', link: '/it/manual/', activeMatch: '/it/manual/' },
-    { text: 'Contenuti', link: '/it/content/', activeMatch: '/it/content/' },
-    { text: 'Developers Docs', link: '/en/dev/', activeMatch: '/en/dev/' },
-    { text: 'Download', link: '/it/download' },
-    { text: 'News & Community', link: 'https://github.com/vgwb/Antura/discussions/c/news/5' }
+    { text: 'Contenuti del gioco', link: '/it/content/', activeMatch: '/it/content/' },
+    { text: 'Developers', link: '/en/dev/', activeMatch: '/en/dev/' },
+    { text: '⬇️ Scarica', link: '/it/download' }
   ]
 }
 
@@ -94,35 +93,38 @@ function sidebarContent(): DefaultTheme.SidebarItem[] {
 function sidebarAbout(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Informazioni su Antura', link: '/',
+      text: 'Progetto Antura', link: 'index',
       items: [
         { text: 'Storia', link: 'history' },
-        { text: 'Sostenitori & Partner', link: 'supporters' },
-        { text: 'Valutazione d\'impatto', link: 'impact' },
-        { text: 'Erasmus+', link: 'erasmus' },
-        { text: 'Releases', link: 'releases' },
-        { text: '🏆 Premi & Riconoscimenti', link: 'awards' },
-        { text: '🌐 Open source', link: 'open-source' },
-        { text: '❤️ Sostienici', link: 'support-us' }
-      ]
-    },
-    {
-      text: 'Crediti',
-      items: [
         { text: 'Crediti', link: 'credits' },
-        { text: 'Crediti (Assets)', link: 'credits-assets' },
-        { text: 'Informazioni sul sito', link: 'website' }
+        { text: 'Sostenitori e partner', link: 'supporters' },
+        { text: 'Open source', link: 'open-source' },
+        { text: 'Risorse', link: 'resources' },
+        { text: 'Sostienici', link: 'support-us' },
+        { text: 'Contatti e comunità', link: 'contact' },
       ]
     },
     {
-      text: 'Contatti',
+      text: 'Edizione: Antura and the Letters',
+      link: 'antura-and-the-letters',
       items: [
-        { text: 'Contatti & Community', link: 'contact' }
+        { text: 'Valutazione dell’impatto', link: 'impact' },
+        { text: 'Premi e riconoscimenti', link: 'awards' },
       ]
     },
     {
-      text: 'Licenza',
+      text: 'Edizione: Learn with Antura',
+      link: 'learn-with-antura',
       items: [
+        { text: 'Storia del design', link: 'design-history' },
+        { text: 'Erasmus+', link: 'erasmus' },
+        { text: 'Risorse utilizzate', link: 'credits-assets' },
+      ]
+    },
+    {
+      text: 'Sito web e informazioni legali',
+      items: [
+        { text: 'Informazioni su questo sito', link: 'website' },
         { text: 'Licenza', link: 'license' },
         { text: 'Informativa sulla privacy', link: '../../privacy-policy' }
       ]

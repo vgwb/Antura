@@ -25,10 +25,9 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'O projekcie', link: '/pl/about/', activeMatch: '/pl/about/' },
     { text: 'Podręcznik', link: '/pl/manual/', activeMatch: '/pl/manual/' },
-    { text: 'Zawartość', link: '/pl/content/', activeMatch: '/pl/content/' },
-    { text: 'Deweloper', link: '/en/dev/', activeMatch: '/en/dev/' },
-    { text: 'Download', link: '/pl/download' },
-    { text: 'News & Community', link: 'https://github.com/vgwb/Antura/discussions/c/news/5' }
+    { text: 'Zawartość gry', link: '/pl/content/', activeMatch: '/pl/content/' },
+    { text: 'Developers', link: '/en/dev/', activeMatch: '/en/dev/' },
+    { text: '⬇️ Pobierz', link: '/pl/download' }
   ]
 }
 
@@ -94,35 +93,38 @@ function sidebarContent(): DefaultTheme.SidebarItem[] {
 function sidebarAbout(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'O projekcie Antura', link: '/',
+      text: 'Projekt Antura', link: 'index',
       items: [
         { text: 'Historia', link: 'history' },
+        { text: 'Podziękowania', link: 'credits' },
         { text: 'Wspierający i partnerzy', link: 'supporters' },
+        { text: 'Open source', link: 'open-source' },
+        { text: 'Zasoby', link: 'resources' },
+        { text: 'Wesprzyj nas', link: 'support-us' },
+        { text: 'Kontakt i społeczność', link: 'contact' },
+      ]
+    },
+    {
+      text: 'Edycja: Antura and the Letters',
+      link: 'antura-and-the-letters',
+      items: [
         { text: 'Ocena wpływu', link: 'impact' },
+        { text: 'Nagrody i wyróżnienia', link: 'awards' },
+      ]
+    },
+    {
+      text: 'Edycja: Learn with Antura',
+      link: 'learn-with-antura',
+      items: [
+        { text: 'Historia projektowania', link: 'design-history' },
         { text: 'Erasmus+', link: 'erasmus' },
-        { text: 'Releases', link: 'releases' },
-        { text: '🏆 Nagrody i wyróżnienia', link: 'awards' },
-        { text: '🌐 Open source', link: 'open-source' },
-        { text: '❤️ Wsparcie', link: 'support-us' }
+        { text: 'Wykorzystane zasoby', link: 'credits-assets' },
       ]
     },
     {
-      text: 'Zasługi',
+      text: 'Strona internetowa i informacje prawne',
       items: [
-        { text: 'Zasługi', link: 'credits' },
-        { text: 'Zasługi (Assets)', link: 'credits-assets' },
-        { text: 'O stronie', link: 'website' }
-      ]
-    },
-    {
-      text: 'Kontakt',
-      items: [
-        { text: 'Kontakt i społeczność', link: 'contact' }
-      ]
-    },
-    {
-      text: 'Licencja',
-      items: [
+        { text: 'O tej stronie', link: 'website' },
         { text: 'Licencja', link: 'license' },
         { text: 'Polityka prywatności', link: '../../privacy-policy' }
       ]

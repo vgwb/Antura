@@ -1,5 +1,5 @@
 ---
-title: Download
+title: Informazioni su questo sito
 ---
 
 <script setup>
