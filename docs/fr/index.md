@@ -14,16 +14,6 @@ hero:
 
 <div class="version-picker">
 
-<a class="version-card" href="/fr/about/learn-with-antura">
-  <img class="version-card-image" src="../assets/img/learn-with-antura/learn_icon.jpg" alt="Logo du jeu Learn with Antura" title="Learn with Antura" />
-  <div class="version-card-body">
-    <p class="version-card-tag">🌍 La nouvelle édition 2026</p>
-    <h2>Learn with Antura</h2>
-    <p>Explorez les quêtes <strong>Discover Cultures</strong> avec votre chat compagnon, collectionnez des cartes de connaissances et apprenez une nouvelle langue en chemin. Conçu pour les enfants migrants et réfugiés, à l'école comme à la maison, le jeu est actuellement testé en France et en Pologne dans le cadre de notre projet Erasmus+.</p>
-    <span class="version-card-cta">Découvrir Learn with Antura →</span>
-  </div>
-</a>
-
 <a class="version-card" href="/fr/about/antura-and-the-letters">
   <img class="version-card-image" src="../assets/img/antura-and-the-letters/antura_letters_gametitle.jpg" alt="Logo du jeu Antura and the Letters" title="Antura and the Letters" />
   <div class="version-card-body">
@@ -31,6 +21,16 @@ hero:
     <h2>Antura and the Letters</h2>
     <p>Parcourez <strong>6 mondes</strong> pour apprendre l'alphabet, plus de 250 mots et vos premières phrases à travers des mini-jeux ludiques. Créé pour les enfants réfugiés syriens et lauréat du prix EduApp4Syria et du UNHCR Innovation Award.</p>
     <span class="version-card-cta">Découvrir Antura and the Letters →</span>
+  </div>
+</a>
+
+<a class="version-card" href="/fr/about/learn-with-antura">
+  <img class="version-card-image" src="../assets/img/learn-with-antura/learn_icon.jpg" alt="Logo du jeu Learn with Antura" title="Learn with Antura" />
+  <div class="version-card-body">
+    <p class="version-card-tag">🌍 La nouvelle édition 2026</p>
+    <h2>Learn with Antura</h2>
+    <p>Explorez les quêtes <strong>Discover Cultures</strong> avec votre chat compagnon, collectionnez des cartes de connaissances et apprenez une nouvelle langue en chemin. Conçu pour les enfants migrants et réfugiés, à l'école comme à la maison, le jeu est actuellement testé en France et en Pologne dans le cadre de notre projet Erasmus+.</p>
+    <span class="version-card-cta">Découvrir Learn with Antura →</span>
   </div>
 </a>
 

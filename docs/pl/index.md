@@ -14,16 +14,6 @@ hero:
 
 <div class="version-picker">
 
-<a class="version-card" href="/pl/about/learn-with-antura">
-  <img class="version-card-image" src="../assets/img/learn-with-antura/learn_icon.jpg" alt="Logo gry Learn with Antura" title="Learn with Antura" />
-  <div class="version-card-body">
-    <p class="version-card-tag">🌍 Nowa edycja 2026</p>
-    <h2>Learn with Antura</h2>
-    <p>Odkrywaj zadania <strong>Discover Cultures</strong> razem ze swoim kotem-towarzyszem, zbieraj karty wiedzy i ucz się nowego języka po drodze. Gra jest przeznaczona dla dzieci z doświadczeniem migracji i uchodźstwa, w szkole i w domu, a obecnie jest pilotażowo wdrażana we Francji i Polsce w ramach projektu Erasmus+.</p>
-    <span class="version-card-cta">Odkryj Learn with Antura →</span>
-  </div>
-</a>
-
 <a class="version-card" href="/pl/about/antura-and-the-letters">
   <img class="version-card-image" src="../assets/img/antura-and-the-letters/antura_letters_gametitle.jpg" alt="Logo gry Antura and the Letters" title="Antura and the Letters" />
   <div class="version-card-body">
@@ -31,6 +21,16 @@ hero:
     <h2>Antura and the Letters</h2>
     <p>Podróżuj przez <strong>6 światów</strong>, aby nauczyć się alfabetu, ponad 250 słów i pierwszych zdań dzięki zabawnym minigrom. Stworzona dla dzieci uchodźców z Syrii, zdobywczyni nagrody EduApp4Syria i UNHCR Innovation Award.</p>
     <span class="version-card-cta">Odkryj Antura and the Letters →</span>
+  </div>
+</a>
+
+<a class="version-card" href="/pl/about/learn-with-antura">
+  <img class="version-card-image" src="../assets/img/learn-with-antura/learn_icon.jpg" alt="Logo gry Learn with Antura" title="Learn with Antura" />
+  <div class="version-card-body">
+    <p class="version-card-tag">🌍 Nowa edycja 2026</p>
+    <h2>Learn with Antura</h2>
+    <p>Odkrywaj zadania <strong>Discover Cultures</strong> razem ze swoim kotem-towarzyszem, zbieraj karty wiedzy i ucz się nowego języka po drodze. Gra jest przeznaczona dla dzieci z doświadczeniem migracji i uchodźstwa, w szkole i w domu, a obecnie jest pilotażowo wdrażana we Francji i Polsce w ramach projektu Erasmus+.</p>
+    <span class="version-card-cta">Odkryj Learn with Antura →</span>
   </div>
 </a>
 
