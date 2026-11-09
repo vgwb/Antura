@@ -4,7 +4,7 @@ title: Learn with Antura
 
 # Learn with Antura
 
-![Learn with Antura logo](../../assets/img/learn-with-antura/learn_icon.jpg)
+![Learn with Antura logo](../../assets/img/learn-with-antura/learn_with_antura_gametitle.jpg)
 
 **Play. Discover. Learn.** Learn with Antura is an award-winning, open-source educational game that brings reading, language learning and cultural discovery together through exploration, interaction and stories.
 
