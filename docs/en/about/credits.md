@@ -5,7 +5,7 @@ title: Credits
 
 This project started in 2016 as the original game **Antura and the Letters - Arabic** and evolved in the years with three main iterations. Many people have given contributions.
 
-- Antura 3.0 (2025) - Discover & Classroom Edition
+- Antura 2026 - Discover & Classroom Edition
 - Antura 2.0 (2021) - Learn Languages Edition
 - Antura 1.0 (2017) - EduApp4Syria Edition
 
@@ -60,10 +60,10 @@ const members = [
 
 <VPTeamMembers size="small" :members="members" />
 
-## Antura 3.0 – Discover & Classroom Edition
+## Antura 2026 – Discover & Classroom Edition
 
 > [!NOTE] Detailed design and content credits  
-> Antura 3.0 includes **in-game native credits** for quests, activities, levels, and didactical content. See the [Open Content section](../content/index.md).
+> There are also **in-game native credits** for quests, activities, levels, and didactical content. See the [Open Content section](../content/index.md).
 
 **Partners**
 
@@ -88,8 +88,12 @@ Anne Du-Merle (AC Nantes)
 Nadja Maillard (AC Nantes)  
 
 **Content input and validation - Poland**  
-Jan Stasieńko  
+Jan Stasieńko 
+Agnieszka Dytman   
 Maciej Śledz
+
+**Marketing and communication**
+Dorota Szafko  
 
 **UI/UX**  
 Daniele Giardini
