@@ -5,25 +5,23 @@ aside: false
 # Download
 
 ## Learn with Antura
-
-The new version with the Discover countries modules
+The 2026 edition with the Discover countries modules
 
 |||
 |---|---|
-| ![logo](../assets/img/learn-with-antura/learn_icon.jpg) | [![App Store](/assets/img/download_appstore.png)](https://apps.apple.com/us/app/learn-with-antura/id6778106096) [![Android Google Play](/assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.antura.learnwithantura)  [![Download for Windows](/assets/img/download_windows.png)](https://vgwb.itch.io/antura) |
+| ![logo](../assets/img/learn-with-antura/learn_with_antura_gametitle.jpg) | [![App Store](/assets/img/download_appstore.png)](https://apps.apple.com/us/app/learn-with-antura/id6778106096) [![Android Google Play](/assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.antura.learnwithantura)  [![Download for Windows](/assets/img/download_windows.png)](https://vgwb.itch.io/antura) |
 
 ## Antura and the Letters
-
-The original version
+The 2.0 original literacy only version
 
 |||
 |---|---|
-| ![logo](../assets/icon.png) | [![App Store](/assets/img/download_appstore.png)](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699) [![Android Google Play](/assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura) |
+| ![logo](../assets/img/antura-and-the-letters/antura_letters_gametitle.jpg) | [![App Store](/assets/img/download_appstore.png)](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699) [![Android Google Play](/assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura) |
 
 
 ## 💻 macOS / Linux
 
-Official builds are not yet available, but we can amke them on demand, or [build from source](./dev/how-to/Build.md).
+Official builds are not yet available, but we can make them on demand, or [build from source](./dev/how-to/Build.md).
 
 ## Beta
 

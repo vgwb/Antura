@@ -56,6 +56,6 @@ hero:
 
 ## Latest news
 
-- **9 November 2026 (upcoming):** [Angers Erasmus+ meeting](/en/news/posts/2026-11-angers)
+- **November 2026:** [Angers Erasmus+ meeting](/en/news/posts/2026-11-angers)
 - **May 2026:** [Fifth Consortium Meeting in Wrocław](/en/news/posts/2026-05-fifth-consortium-meeting-wroclaw)
 - **April 2026:** [Teacher capacity-building trainings begin in France and Poland](/en/news/posts/2026-04-capacity-building-trainings)
